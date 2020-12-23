@@ -19,80 +19,79 @@ import { StyledCol } from '../styled';
 import useGridContext from '../utils/useGridContext';
 
 export interface IColProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * Determine the size, relative to the total number of `columns` in the grid,
-   * for all screen sizes
-   */
+  /** Sets the total number of grid `columns` that the column spans on all screen sizes */
   size?: GRID_NUMBER;
-  /** Determine the size for extra-small screen sizes */
+  /** Defines the column size on extra-small screens.
+   *  See [breakpoints](/components/theme-object#default_theme).
+   */
   xs?: BREAKPOINT;
-  /** Determine the size for small screen sizes */
+  /** Defines the column size on small screens*/
   sm?: BREAKPOINT;
-  /** Determine the size for medium screen sizes */
+  /** Defines the column size on medium screens */
   md?: BREAKPOINT;
-  /** Determine the size for large screen sizes */
+  /** Defines the column size on large screens */
   lg?: BREAKPOINT;
-  /** Determine the size for extra-large screen sizes */
+  /** Defines the column size on extra-large screens */
   xl?: BREAKPOINT;
   /**
    * Applies the `align-self` flex item property, overriding `Row alignItems`
-   * vertical alignment, for all screen sizes
+   * vertical alignment on all screen sizes
    */
   alignSelf?: ALIGN_SELF;
-  /** Applies the `align-self` flex item property for extra-small screen sizes */
+  /** Applies the `align-self` flex item property to the column on extra-small screens */
   alignSelfXs?: ALIGN_SELF;
-  /** Applies the `align-self` flex item property for small screen sizes */
+  /** Applies the `align-self` flex item property to the column on small screens */
   alignSelfSm?: ALIGN_SELF;
-  /** Applies the `align-self` flex item property for medium screen sizes */
+  /** Applies the `align-self` flex item property to the column on medium screens */
   alignSelfMd?: ALIGN_SELF;
-  /** Applies the `align-self` flex item property for large screen sizes */
+  /** Applies the `align-self` flex item property to the column on large screens */
   alignSelfLg?: ALIGN_SELF;
-  /** Applies the `align-self` flex item property for extra-large screen sizes */
+  /** Applies the `align-self` flex item property to the column on extra-large screens */
   alignSelfXl?: ALIGN_SELF;
   /**
-   * Applies the RTL-aware `text-align` property for all screen sizes
+   * Applies the RTL-aware `text-align` property to the column on all screen sizes
    */
   textAlign?: TEXT_ALIGN;
-  /** Determine the text alignment for extra-small screen sizes */
+  /** Applies the `text-align` property to the column on extra-small screens */
   textAlignXs?: TEXT_ALIGN;
-  /** Determine the text alignment for small screen sizes */
+  /** Applies the `text-align` property to the column on small screens */
   textAlignSm?: TEXT_ALIGN;
-  /** Determine the text alignment for medium screen sizes */
+  /** Applies the `text-align` property to the column on medium screens */
   textAlignMd?: TEXT_ALIGN;
-  /** Determine the text alignment for large screen sizes */
+  /** Applies the `text-align` property to the column on large screens */
   textAlignLg?: TEXT_ALIGN;
-  /** Determine the text alignment for extra-large screen sizes */
+  /** Applies the `text-align` property to the column on extra-large screens */
   textAlignXl?: TEXT_ALIGN;
   /**
-   * Determine the offset, relative to the total number of `columns` in the
-   * grid, for all screen sizes
+   * Offsets the column relative to the total number of `columns` in the
+   * grid on all screen sizes
    */
   offset?: GRID_NUMBER;
-  /** Determine the offset for extra-small screen sizes */
+  /** Applies offset to the column on extra-small screens */
   offsetXs?: GRID_NUMBER;
-  /** Determine the offset for small screen sizes */
+  /** Applies offset to the column on small screens */
   offsetSm?: GRID_NUMBER;
-  /** Determine the offset for medium screen sizes */
+  /** Applies offset to the column on medium screens */
   offsetMd?: GRID_NUMBER;
-  /** Determine the offset for large screen sizes */
+  /** Applies offset to the column on large screens */
   offsetLg?: GRID_NUMBER;
-  /** Determine the offset for extra-large screen sizes */
+  /** Applies offset to the column on extra-large screens */
   offsetXl?: GRID_NUMBER;
   /**
-   * Determine the `order` flex item property for all screen sizes. Note that
-   * order modification can introduce accessibility problems by producing
+   * Applies the `order` flex item property to the column on all screen sizes. Note that
+   * order modification can introduce accessibility problems by
    * confusing tab ordering. Rely on semantic DOM ordering whenever possible.
    */
   order?: GRID_NUMBER;
-  /** Determine the `order` flex item property for extra-small screen sizes */
+  /** Sets the `order` flex item property of the column on extra-small screens */
   orderXs?: GRID_NUMBER;
-  /** Determine the `order` flex item property for small screen sizes */
+  /** Sets the `order` flex item property of the column on small screens */
   orderSm?: GRID_NUMBER;
-  /** Determine the `order` flex item property for medium screen sizes */
+  /** Sets the `order` flex item property of the column on medium screens */
   orderMd?: GRID_NUMBER;
-  /** Determine the `order` flex item property for large screen sizes */
+  /** Sets the `order` flex item property of the column on large screens */
   orderLg?: GRID_NUMBER;
-  /** Determine the `order` flex item property for extra-large screen sizes */
+  /** Sets the `order` flex item property of the column on extra-large screens */
   orderXl?: GRID_NUMBER;
 }
 
