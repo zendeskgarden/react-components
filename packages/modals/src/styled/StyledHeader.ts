@@ -17,7 +17,7 @@ const COMPONENT_ID = 'modals.header';
 
 export interface IStyledHeaderProps {
   /**
-   * Enable danger header styling
+   * Applies danger styling
    */
   isDanger?: boolean;
 }
