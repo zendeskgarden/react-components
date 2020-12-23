@@ -13,6 +13,7 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
+  /** Applies regular (non-bold) font weight */
   isRegular?: boolean;
 }
 

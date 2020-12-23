@@ -32,7 +32,7 @@ interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;
   /** Defines the element's validation state */
   validation?: VALIDATION;
-  /** Defines the icon rendered in the start position */
+  /** Defines the icon rendered before the element's content */
   start?: any;
 }
 
