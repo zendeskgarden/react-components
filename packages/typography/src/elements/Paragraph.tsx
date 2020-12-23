@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { StyledParagraph } from '../styled';
 
 export interface IParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
-  /** Controls spacing between sibling paragraphs */
+  /** Controls the spacing between sibling paragraphs */
   size?: 'small' | 'medium' | 'large';
 }
 

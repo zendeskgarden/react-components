@@ -12,7 +12,9 @@ import { UnorderedListContext } from '../../utils/useUnorderedListContext';
 import { StyledUnorderedList } from '../../styled';
 
 interface IUnorderedListProps extends HTMLAttributes<HTMLUListElement> {
+  /** Adjusts the vertical spacing between list items */
   size?: 'small' | 'medium' | 'large';
+  /** Sets the marker style */
   type?: 'circle' | 'disc' | 'square';
 }
 

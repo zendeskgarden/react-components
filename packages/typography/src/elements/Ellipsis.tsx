@@ -10,11 +10,9 @@ import PropTypes from 'prop-types';
 import { StyledEllipsis } from '../styled';
 
 interface IEllipsisProps extends HTMLAttributes<HTMLSpanElement> {
-  /**
-   * Optional override for the auto-generated `title` attribute
-   */
+  /** Overrides the auto-generated `title` attribute */
   title?: string;
-  /** Any valid element for the styled component */
+  /** Updates the element's HTML tag */
   tag?: any;
 }
 

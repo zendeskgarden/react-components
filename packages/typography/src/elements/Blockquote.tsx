@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { StyledBlockquote } from '../styled';
 
 export interface IBlockquoteProps extends BlockquoteHTMLAttributes<HTMLElement> {
-  /** Controls spacing between sibling blockquotes */
+  /** Controls the spacing between sibling blockquotes */
   size?: 'small' | 'medium' | 'large';
 }
 
