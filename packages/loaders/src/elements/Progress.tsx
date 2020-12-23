@@ -14,9 +14,12 @@ const COMPONENT_ID = 'loaders.progress';
 export interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the progress as a value between 0 and 100 */
   value?: number;
-  /** Sets the foreground bar fill color. Defaults to the `successHue` theme value */
+  /**
+   * Sets the foreground bar's fill color.
+   * Defaults to the `successHue` [theme](/components/theme-object#colors) value.
+   */
   color?: string;
-  /** Sets the height of the progress bar. Can be: “small”, “medium”, or “large” */
+  /** Adjusts the height */
   size?: 'small' | 'medium' | 'large';
 }
 
