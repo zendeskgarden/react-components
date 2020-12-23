@@ -13,7 +13,7 @@ import { ARRAY_VALIDATION_TYPE, VALIDATION_HUE } from '../utils/types';
 import { NotificationsContext } from '../utils/useNotificationsContext';
 
 export interface IAlertProps {
-  /** One of: success, warning, error, info */
+  /** Applies alert type styles */
   type: 'success' | 'warning' | 'error' | 'info';
 }
 

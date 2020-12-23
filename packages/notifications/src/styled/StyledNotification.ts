@@ -15,7 +15,7 @@ import { StyledBase } from './StyledBase';
 const COMPONENT_ID = 'notifications.notification';
 
 export interface IStyledNotificationProps {
-  /** One of: success, warning, error, info */
+  /** Applies notification type styles */
   type?: VALIDATION_TYPE;
 }
 

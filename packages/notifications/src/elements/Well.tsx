@@ -10,7 +10,9 @@ import PropTypes from 'prop-types';
 import { StyledWell } from '../styled';
 
 interface IWellProps {
+  /** Applies a background color */
   isRecessed?: boolean;
+  /** Applies a drop shadow */
   isFloating?: boolean;
 }
 
