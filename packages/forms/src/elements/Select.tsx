@@ -21,7 +21,7 @@ export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   isBare?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Defines the element's validation state */
+  /** Applies validation state styling */
   validation?: VALIDATION;
 }
 
