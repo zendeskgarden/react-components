@@ -298,7 +298,31 @@
 <a name='L239'></a><a href='#L239'>239</a>
 <a name='L240'></a><a href='#L240'>240</a>
 <a name='L241'></a><a href='#L241'>241</a>
-<a name='L242'></a><a href='#L242'>242</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a>
+<a name='L249'></a><a href='#L249'>249</a>
+<a name='L250'></a><a href='#L250'>250</a>
+<a name='L251'></a><a href='#L251'>251</a>
+<a name='L252'></a><a href='#L252'>252</a>
+<a name='L253'></a><a href='#L253'>253</a>
+<a name='L254'></a><a href='#L254'>254</a>
+<a name='L255'></a><a href='#L255'>255</a>
+<a name='L256'></a><a href='#L256'>256</a>
+<a name='L257'></a><a href='#L257'>257</a>
+<a name='L258'></a><a href='#L258'>258</a>
+<a name='L259'></a><a href='#L259'>259</a>
+<a name='L260'></a><a href='#L260'>260</a>
+<a name='L261'></a><a href='#L261'>261</a>
+<a name='L262'></a><a href='#L262'>262</a>
+<a name='L263'></a><a href='#L263'>263</a>
+<a name='L264'></a><a href='#L264'>264</a>
+<a name='L265'></a><a href='#L265'>265</a>
+<a name='L266'></a><a href='#L266'>266</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -315,6 +339,30 @@
 <span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -558,20 +606,44 @@ import { DropdownContext } from '../../utils/useDropdownContext';
 export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
 &nbsp;
 export interface IDropdownProps {
+  /** Opens the dropdown */
   isOpen?: boolean;
+  /** Identifies the currently selected item */
   selectedItem?: any;
+  /** Identifies the currently selected items */
   selectedItems?: any[];
+  /** Highlights an element at a selected index */
   highlightedIndex?: number;
+  /** Sets the value of the input element*/
   inputValue?: string;
+  /**
+   * Handles item selection
+   *
+   * @param {any|null} selectedItem The selected item
+   * @param {Object} stateAndHelpers [Downshift state and helpers](https://github.com/downshift-js/downshift#onselect)
+   * */
   onSelect?: (selectedItem: any | null, stateAndHelpers: ControllerStateAndHelpers&lt;any&gt;) =&gt; void;
+  /**
+   * Handles state change
+   *
+   * @param {Object} options [Downshift internal state changes](https://github.com/downshift-js/downshift#onstatechange)
+   * @param {Object} stateAndHelpers [Downshift state and helpers](https://github.com/downshift-js/downshift#onstatechange)
+   * */
   onStateChange?: (
     options: StateChangeOptions&lt;any&gt;,
     stateAndHelpers: ControllerStateAndHelpers&lt;any&gt;
   ) =&gt; void;
+  /**
+   * Handles input value change
+   *
+   * @param {string} inputValue Value of the input element
+   * @param {Object} stateAndHelpers [Downshift state and helpers](https://github.com/downshift-js/downshift#oninputvaluechange)
+   * */
   onInputValueChange?: (
     inputValue: string,
     stateAndHelpers: ControllerStateAndHelpers&lt;any&gt;
   ) =&gt; void;
+  /** Passes customization props to the [Downshift](https://www.downshift-js.com/) component */
   // eslint-disable-next-line @typescript-eslint/ban-types
   downshiftProps?: object;
 }
@@ -787,7 +859,7 @@ export default withTheme(Dropdown) as React.FunctionComponent&lt;IDropdownProps&
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Dec 18 2020 21:08:54 GMT+0000 (Coordinated Universal Time)
+                at Wed Dec 23 2020 20:14:11 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
