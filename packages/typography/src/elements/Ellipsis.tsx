@@ -19,9 +19,7 @@ interface IEllipsisProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 /**
- * A component that automatically includes a native `title` attribute and any
- * text-overflow styling. Accepts all standard attributes and events for the
- * provided `tag`.
+ * @extends HTMLAttributes<HTMLSpanElement>
  */
 const Ellipsis: React.FunctionComponent<
   IEllipsisProps & React.RefAttributes<HTMLDivElement>

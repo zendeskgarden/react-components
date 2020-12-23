@@ -10,7 +10,7 @@ import { useModalContext } from '../../utils/useModalContext';
 import { StyledDrawerModalBody } from '../../styled';
 
 /**
- * Accepts all `<div>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Body = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {

@@ -25,7 +25,7 @@ interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 /**
- * Accepts all standard attributes and events for the provided `tag`
+ * @extends HTMLAttributes<HTMLSpanElement>
  */
 const Span: React.FunctionComponent<
   ISpanProps & React.RefAttributes<HTMLSpanElement>

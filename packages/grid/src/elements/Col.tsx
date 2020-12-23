@@ -97,7 +97,7 @@ export interface IColProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all `<div>` attributes and events
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Col = React.forwardRef<HTMLDivElement, IColProps>(({ size, ...props }, ref) => {
   const { columns, gutters, debug } = useGridContext();

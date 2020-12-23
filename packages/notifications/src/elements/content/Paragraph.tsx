@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { StyledParagraph } from '../../styled';
 
 /**
- * Used for multi-line Notification content. Supports all `<p>` props
+ * @extends <HTMLAttributes<HTMLParagraphElement>
  */
 export const Paragraph = React.forwardRef<
   HTMLParagraphElement,

@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { StyledTitle } from '../styled';
 
 /**
- * Accepts all `<div>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Title = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => <StyledTitle ref={ref} {...props} />

@@ -11,7 +11,7 @@ import { useModalContext } from '../utils/useModalContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 /**
- * Used to close a Modal. Accepts all `<button>` props.
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const Close = React.forwardRef<
   HTMLButtonElement,

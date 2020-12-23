@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { StyledBody } from '../styled';
 
 /**
- * Accepts all `<tbody>` attributes and events
+ * @extends <HTMLAttributes<HTMLTableSectionElement>
  */
 export const Body = React.forwardRef<
   HTMLTableSectionElement,

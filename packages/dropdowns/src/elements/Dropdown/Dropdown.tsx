@@ -38,6 +38,8 @@ export interface IDropdownProps {
 /**
  * Component that provides state and a11y through the context API
  * to its consumers.
+ *
+ * @extends HTMLAttributes<HTMLElement>
  */
 const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme>> = props => {
   const {

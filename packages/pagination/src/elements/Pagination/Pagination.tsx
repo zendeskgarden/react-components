@@ -55,7 +55,7 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
 }
 
 /**
- * High-abstraction element for the `Pagination` pattern
+ * @extends <HTMLAttributes<HTMLUListElement>
  */
 const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps>(
   (

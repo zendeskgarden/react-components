@@ -16,7 +16,7 @@ interface ISubNavItemProps {
 }
 
 /**
- * Accepts all `<button>` props
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const SubNavItem = React.forwardRef<
   HTMLButtonElement,

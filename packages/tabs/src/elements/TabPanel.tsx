@@ -18,7 +18,7 @@ export interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all `<div>` props.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
   ({ item, ...otherProps }, ref) => {

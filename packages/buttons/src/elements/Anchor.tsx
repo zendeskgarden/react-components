@@ -21,10 +21,7 @@ export interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 /**
- * Accepts all `<a>` props
- *
- * @component
- * @name Anchor
+ * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 const Anchor: React.FunctionComponent<
   IAnchorProps & React.RefAttributes<HTMLAnchorElement>

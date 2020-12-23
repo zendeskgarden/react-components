@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { Hint as FormHint } from '@zendeskgarden/react-forms';
 
 /**
- * Accepts all `div` props. Must be nested with a `<Field>` component.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => <FormHint ref={ref} {...props} />

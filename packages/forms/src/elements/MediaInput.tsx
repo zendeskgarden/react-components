@@ -13,6 +13,9 @@ import { FauxInput } from './FauxInput';
 import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
 
+/**
+ * @extends InputHTMLAttributes<HTMLInputElement>
+ */
 export interface IMediaInputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Apply compact styling */
   isCompact?: boolean;

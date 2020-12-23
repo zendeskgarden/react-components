@@ -5,19 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { LabelHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { Label as FormLabel } from '@zendeskgarden/react-forms';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
-interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
+interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   isRegular?: boolean;
 }
 
 /**
- * Accepts all `<label>` props. Must be nested with a `<Field>` component.
+ * @extends LabelHTMLAttributes<HTMLLabelElement>
  */
 export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
   ({ onMouseEnter, onMouseLeave, ...other }, ref) => {

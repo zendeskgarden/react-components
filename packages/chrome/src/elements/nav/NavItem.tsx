@@ -24,7 +24,7 @@ interface INavItemProps extends HTMLAttributes<any> {
 }
 
 /**
- * Accepts all `<button>` attributes and events
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const NavItem = React.forwardRef<any, INavItemProps>(
   ({ hasLogo, hasBrandmark, product, ...other }, ref) => {

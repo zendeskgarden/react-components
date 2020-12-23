@@ -14,6 +14,9 @@ import { FauxInput } from './FauxInput';
 import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
 
+/**
+ * @extends SelectHTMLAttributes<HTMLSelectElement>
+ */
 export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   /** Applies compact styling */
   isCompact?: boolean;

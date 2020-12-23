@@ -15,7 +15,7 @@ export interface IParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
 }
 
 /**
- * Accepts all `<p>` attributes and events
+ * @extends HTMLAttributes<HTMLParagraphElement>
  */
 const Paragraph: React.FunctionComponent<
   IParagraphProps & React.RefAttributes<HTMLParagraphElement>

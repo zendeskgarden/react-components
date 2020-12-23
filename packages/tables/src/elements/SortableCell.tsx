@@ -22,7 +22,7 @@ interface ISortableCellProps extends IStyledSortableButtonProps {
 }
 
 /**
- * Accepts all `<button>` props
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const SortableCell = React.forwardRef<
   HTMLButtonElement,

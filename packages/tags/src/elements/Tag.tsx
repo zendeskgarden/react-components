@@ -25,11 +25,7 @@ interface ITagProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all `<div>` attributes and events.
- *
- * **Accessibility warning:** the `Tag.Close` component includes a default
- * English `aria-label`. If you are localizing your application you must
- * overwrite this property with your own translation.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const Tag = React.forwardRef<HTMLDivElement, ITagProps>(({ size, hue, ...otherProps }, ref) => (
   <StyledTag ref={ref} size={size} hue={hue} {...otherProps} />

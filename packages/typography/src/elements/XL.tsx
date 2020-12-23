@@ -17,7 +17,7 @@ interface IXLProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all standard attributes and events for the provided `tag`
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const XL: React.FunctionComponent<
   IXLProps & React.RefAttributes<HTMLDivElement>

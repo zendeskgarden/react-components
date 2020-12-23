@@ -33,7 +33,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /**
- * Accepts all `<button>` props
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 const Button: React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>

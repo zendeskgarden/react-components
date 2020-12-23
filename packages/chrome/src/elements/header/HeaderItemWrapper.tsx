@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { StyledHeaderItemWrapper, IStyledBaseHeaderItemProps } from '../../styled';
 
 /**
- * Accepts all `<div>` attributes and events
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const HeaderItemWrapper = React.forwardRef<
   HTMLDivElement,

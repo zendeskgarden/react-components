@@ -16,6 +16,9 @@ import {
   StyledSubNavItemIcon
 } from '../../styled';
 
+/**
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
 export interface ICollapsibleSubNavItemProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
   /** Sets the item's section header */

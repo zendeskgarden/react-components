@@ -95,6 +95,9 @@ export interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
   id?: string;
 }
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>(
   (
     {

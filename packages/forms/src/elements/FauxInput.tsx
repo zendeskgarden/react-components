@@ -36,6 +36,9 @@ export interface IStaticFauxInputExport<T, P>
   EndIcon: typeof EndIcon;
 }
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
   /** Apply compact styling */
   isCompact?: boolean;

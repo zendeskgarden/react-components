@@ -9,6 +9,9 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFileUpload } from '../styled';
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export interface IFileUploadProps extends HTMLAttributes<HTMLDivElement> {
   /** Determines whether to apply drag styling */
   isDragging?: boolean;

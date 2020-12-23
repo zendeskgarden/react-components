@@ -16,7 +16,7 @@ export interface ICodeProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all `<code>` attributes and events
+ * @extends HTMLAttributes<HTMLElement>
  */
 const Code: React.FunctionComponent<
   ICodeProps & React.RefAttributes<HTMLDivElement>

@@ -12,7 +12,7 @@ import { StyledHeaderCell, IStyledCellProps } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 
 /**
- * Accepts all `<th>` attributes and events
+ * @extends ThHTMLAttributes<HTMLTableHeaderCellElement>
  */
 export const HeaderCell = React.forwardRef<
   HTMLTableHeaderCellElement,

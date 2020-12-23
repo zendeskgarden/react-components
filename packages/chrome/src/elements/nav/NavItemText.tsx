@@ -11,7 +11,7 @@ import { StyledNavItemText, IStyledNavItemTextProps } from '../../styled';
 import { useNavContext } from '../../utils/useNavContext';
 
 /**
- * Accepts all `<span>` attributes and events
+ * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const NavItemText = React.forwardRef<
   HTMLElement,

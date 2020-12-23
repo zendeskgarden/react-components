@@ -52,6 +52,9 @@ export interface ITooltipProps
   refKey?: string;
 }
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 const Tooltip: React.FC<ITooltipProps> = ({
   id,
   delayMS,

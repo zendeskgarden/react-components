@@ -17,7 +17,7 @@ import {
 import { useTableContext } from '../utils/useTableContext';
 
 /**
- * Accepts all `<button>` props
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const OverflowButton = React.forwardRef<
   HTMLButtonElement,

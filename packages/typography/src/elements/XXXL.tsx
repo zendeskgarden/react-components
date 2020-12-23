@@ -17,7 +17,7 @@ interface IXXXLProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all standard attributes and events for the provided `tag`
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const XXXL: React.FunctionComponent<
   IXXXLProps & React.RefAttributes<HTMLDivElement>

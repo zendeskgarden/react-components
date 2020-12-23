@@ -13,6 +13,9 @@ import { useInputGroupContext } from '../utils/useInputGroupContext';
 import { StyledTextInput } from '../styled';
 import { VALIDATION } from '../utils/validation';
 
+/**
+ * @extends InputHTMLAttributes<HTMLInputElement>
+ */
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Apply compact styling */
   isCompact?: boolean;

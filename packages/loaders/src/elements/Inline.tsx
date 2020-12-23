@@ -27,7 +27,7 @@ export interface IInlineProps extends React.HTMLAttributes<SVGSVGElement> {
 }
 
 /**
- * All other props are spread onto the root `<svg>` element
+ * @extends HTMLAttributes<SVGSVGElement>
  */
 const Inline: React.FC<IInlineProps> = ({ size, color, ...other }) => {
   return <InlineTypingIndicator size={size!} color={color!} {...other} />;

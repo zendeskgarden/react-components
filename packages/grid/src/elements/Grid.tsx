@@ -21,7 +21,7 @@ export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Grid container; accepts all `<div>` attributes and events
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
   ({ columns, debug, ...props }, ref) => (

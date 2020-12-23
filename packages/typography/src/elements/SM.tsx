@@ -19,7 +19,7 @@ interface ISMProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all standard attributes and events for the provided `tag`
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const SM: React.FunctionComponent<
   ISMProps & React.RefAttributes<HTMLDivElement>

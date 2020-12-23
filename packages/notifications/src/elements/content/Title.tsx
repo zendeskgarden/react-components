@@ -14,10 +14,7 @@ export interface ITitleProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Used for Notification titles. Supports all `<div>` props.
- * For improved semantics, pass an "h1" or "strong" to the `as` prop.
- * Additional styles can be applied to the `as` element to override
- * user agent stylesheets.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Title = React.forwardRef<HTMLDivElement, ITitleProps>((props, ref) => (
   <StyledTitle ref={ref} {...props} />

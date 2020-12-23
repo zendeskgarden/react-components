@@ -10,7 +10,7 @@ import { useModalContext } from '../utils/useModalContext';
 import { StyledDangerIcon, StyledHeader, IStyledHeaderProps } from '../styled';
 
 /**
- * Accepts all `<div>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Header = React.forwardRef<
   HTMLDivElement,

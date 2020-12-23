@@ -20,6 +20,9 @@ import useFieldContext from '../utils/useFieldContext';
 import { StyledTextarea } from '../styled';
 import { VALIDATION } from '../utils/validation';
 
+/**
+ * @extends TextareaHTMLAttributes<HTMLTextAreaElement>
+ */
 export interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   /** Apply compact styling */
   isCompact?: boolean;
@@ -41,8 +44,7 @@ const parseStyleValue = (value: string) => {
 };
 
 /**
- * Must be rendered within a `<Field>` element; accepts all
- * `<textarea />` attributes and events.
+ * @extends TextareaHTMLAttributes<HTMLTextAreaElement>
  */
 export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
   ({ minRows, maxRows, style, onChange, onSelect, ...props }, ref) => {

@@ -11,8 +11,7 @@ import useFieldContext from '../utils/useFieldContext';
 import { StyledRangeInput } from '../styled';
 
 /**
- * Must be rendered within a `<Field>` element; accepts all
- * `<input type="range">` attributes and events.
+ * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const Range = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
   ({ min, max, step, ...props }, ref) => {
