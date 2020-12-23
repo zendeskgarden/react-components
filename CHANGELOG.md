@@ -12,6 +12,40 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.29.0 (2020-12-23)
+
+#### :rocket: New Feature
+* `tables`
+  * [#955](https://github.com/zendeskgarden/react-components/pull/955) feat(tables): introduce read-only styling ([@austingreendev](https://github.com/austingreendev))
+
+#### :memo: Documentation
+* `typography`
+  * [#967](https://github.com/zendeskgarden/react-components/pull/967) chore(typography): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `tooltips`
+  * [#966](https://github.com/zendeskgarden/react-components/pull/966) chore(tooltips): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `tags`
+  * [#965](https://github.com/zendeskgarden/react-components/pull/965) chore(tags): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `tabs`
+  * [#964](https://github.com/zendeskgarden/react-components/pull/964) chore(tabs): update prop descriptions  ([@Mikaelia](https://github.com/Mikaelia))
+* `tables`
+  * [#963](https://github.com/zendeskgarden/react-components/pull/963) chore(tables): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `notifications`, `pagination`
+  * [#962](https://github.com/zendeskgarden/react-components/pull/962) chore(notifications, pagination): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `modals`
+  * [#961](https://github.com/zendeskgarden/react-components/pull/961) chore(modals): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `loaders`
+  * [#960](https://github.com/zendeskgarden/react-components/pull/960) chore(loaders): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `grid`
+  * [#959](https://github.com/zendeskgarden/react-components/pull/959) chore(grid): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `chrome`, `forms`
+  * [#958](https://github.com/zendeskgarden/react-components/pull/958) chore(forms): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `dropdowns`
+  * [#957](https://github.com/zendeskgarden/react-components/pull/957) chore(dropdowns): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `datepickers`
+  * [#956](https://github.com/zendeskgarden/react-components/pull/956) chore(datepickers): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `chrome`
+  * [#954](https://github.com/zendeskgarden/react-components/pull/954) chore(chrome): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+
 ## v8.28.2 (2020-12-16)
 
 #### :memo: Documentation
