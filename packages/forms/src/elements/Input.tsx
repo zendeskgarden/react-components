@@ -13,9 +13,6 @@ import { useInputGroupContext } from '../utils/useInputGroupContext';
 import { StyledTextInput } from '../styled';
 import { VALIDATION } from '../utils/validation';
 
-/**
- * @extends InputHTMLAttributes<HTMLInputElement>
- */
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Apply compact styling */
   isCompact?: boolean;
@@ -27,8 +24,7 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 /**
- * Must be rendered within a `<Field>` element; accepts all `<input>`
- * attributes and events.
+ * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
   ({ onSelect, ...props }, ref) => {

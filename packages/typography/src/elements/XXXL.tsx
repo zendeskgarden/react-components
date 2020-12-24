@@ -16,9 +16,6 @@ interface IXXXLProps extends HTMLAttributes<HTMLDivElement> {
   isBold?: boolean;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
 const XXXL: React.FunctionComponent<
   IXXXLProps & React.RefAttributes<HTMLDivElement>
 > = React.forwardRef<HTMLDivElement, IXXXLProps>(({ tag, ...other }, ref) => (
@@ -36,5 +33,8 @@ XXXL.defaultProps = {
   tag: 'div'
 };
 
-/** @component */
+/**
+ * @component
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export default XXXL;

@@ -16,9 +16,6 @@ import {
   StyledSubNavItemIcon
 } from '../../styled';
 
-/**
- * @extends ButtonHTMLAttributes<HTMLButtonElement>
- */
 export interface ICollapsibleSubNavItemProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
   /** Sets the item's section header */
@@ -34,7 +31,7 @@ export interface ICollapsibleSubNavItemProps
 }
 
 /**
- * Accepts all `<button>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsibleSubNavItemProps>(
   ({ header, children, isExpanded: controlledExpanded, onChange, ...other }, ref) => {

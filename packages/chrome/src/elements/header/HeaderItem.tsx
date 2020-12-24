@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import {
   StyledHeaderItem,
@@ -18,13 +18,13 @@ import { PRODUCTS } from '../../utils/types';
 interface IHeadItemProps
   extends IStyledBaseHeaderItemProps,
     IStyledLogoHeaderItemProps,
-    ButtonHTMLAttributes<HTMLElement> {
+    HTMLAttributes<HTMLDivElement> {
   /** Applies header logo styles to the item */
   hasLogo?: boolean;
 }
 
 /**
- * @extends ButtonHTMLAttributes<HTMLElement>
+ * @extends HTMLAtttributes<HTMLDivElement>
  */
 export const HeaderItem = React.forwardRef<any, IHeadItemProps>(
   ({ hasLogo, product, ...other }, ref) => {

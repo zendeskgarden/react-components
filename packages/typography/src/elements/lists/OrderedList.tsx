@@ -22,9 +22,6 @@ interface IOrderedListProps extends HTMLAttributes<HTMLOListElement> {
     | 'upper-roman';
 }
 
-/**
- * Accepts all `ol` attributes and events
- */
 const OrderedList = React.forwardRef<HTMLOListElement, IOrderedListProps>(
   ({ size, type, ...other }, ref) => {
     return (
@@ -56,7 +53,10 @@ OrderedList.defaultProps = {
 
 (OrderedList as any).Item = OrderedListItem;
 
-/** @component */
+/**
+ * @component
+ * @extends HTMLAttributes<HTMLOListElement>
+ */
 export default (OrderedList as unknown) as React.FunctionComponent<
   IOrderedListProps & React.RefAttributes<HTMLOListElement>
 > & {

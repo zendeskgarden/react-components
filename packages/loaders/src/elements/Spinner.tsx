@@ -64,9 +64,6 @@ export interface ISpinnerProps extends React.HTMLAttributes<SVGSVGElement> {
   delayMS?: number;
 }
 
-/**
- * @extends HTMLAttributes<SVGSVGElement>
- */
 const Spinner: React.FC<ISpinnerProps> = ({ size, duration, color, delayMS, ...other }) => {
   const strokeWidthValues = computeFrames(STROKE_WIDTH_FRAMES, duration!);
   const rotationValues = computeFrames(ROTATION_FRAMES, duration!);

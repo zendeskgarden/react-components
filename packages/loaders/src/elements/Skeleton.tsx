@@ -18,9 +18,6 @@ export interface ISkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   isLight?: boolean;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
 const Skeleton: React.FC<ISkeletonProps> = ({ width, height, isLight, ...other }) => {
   return (
     <StyledSkeleton isLight={isLight} customWidth={width} customHeight={height} {...other}>

@@ -14,9 +14,6 @@ import { FauxInput } from './FauxInput';
 import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
 
-/**
- * @extends SelectHTMLAttributes<HTMLSelectElement>
- */
 export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   /** Applies compact styling */
   isCompact?: boolean;
@@ -29,8 +26,7 @@ export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 /**
- * Must be rendered within a `<Field>` element; accepts all `<select>`
- * attributes and events.
+ * @extends SelectHTMLAttributes<HTMLSelectElement>
  */
 export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
   ({ disabled, ...props }, ref) => {

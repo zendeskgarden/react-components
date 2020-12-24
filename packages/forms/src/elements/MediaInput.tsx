@@ -13,9 +13,6 @@ import { FauxInput } from './FauxInput';
 import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
 
-/**
- * @extends InputHTMLAttributes<HTMLInputElement>
- */
 export interface IMediaInputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Apply compact styling */
   isCompact?: boolean;
@@ -39,8 +36,7 @@ export interface IMediaInputProps extends InputHTMLAttributes<HTMLInputElement> 
 }
 
 /**
- * Must be rendered within a `<Field>` element; accepts all `<input>`
- * attributes and events.
+ * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
   (

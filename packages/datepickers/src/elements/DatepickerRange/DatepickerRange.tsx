@@ -12,10 +12,6 @@ import { DatepickerRangeContext } from './utils/useDatepickerRangeContext';
 import Start from './components/Start';
 import End from './components/End';
 import Calendar from './components/Calendar';
-
-/**
- * @extends HTMLAttributes<HTMLElement>
- */
 export interface IDatepickerRangeProps {
   /**
    * Applies locale-based formatting.

@@ -14,7 +14,7 @@ import { StyledSubNavItemText, IStyledSubNavItemTextProps } from '../../styled';
  */
 export const SubNavItemText = React.forwardRef<
   HTMLElement,
-  IStyledSubNavItemTextProps & HTMLAttributes<HTMLElement>
+  IStyledSubNavItemTextProps & HTMLAttributes<HTMLSpanElement>
 >((props, ref) => <StyledSubNavItemText ref={ref} {...props} />);
 
 SubNavItemText.displayName = 'SubNavItemText';

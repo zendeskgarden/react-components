@@ -15,7 +15,7 @@ import { useNavContext } from '../../utils/useNavContext';
  */
 export const NavItemText = React.forwardRef<
   HTMLElement,
-  Omit<IStyledNavItemTextProps, 'isExpanded'> & HTMLAttributes<HTMLElement>
+  Omit<IStyledNavItemTextProps, 'isExpanded'> & HTMLAttributes<HTMLSpanElement>
 >((props, ref) => {
   const { isExpanded } = useNavContext();
 

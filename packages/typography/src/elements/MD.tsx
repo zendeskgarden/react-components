@@ -18,9 +18,6 @@ interface IMDProps extends HTMLAttributes<HTMLDivElement> {
   isMonospace?: boolean;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
 const MD: React.FunctionComponent<
   IMDProps & React.RefAttributes<HTMLDivElement>
 > = React.forwardRef<HTMLDivElement, IMDProps>(({ tag, ...other }, ref) => (
@@ -39,5 +36,8 @@ MD.defaultProps = {
   tag: 'div'
 };
 
-/** @component */
+/**
+ * @component
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export default MD;

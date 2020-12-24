@@ -9,9 +9,6 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFileUpload } from '../styled';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
 export interface IFileUploadProps extends HTMLAttributes<HTMLDivElement> {
   /** Determines whether to apply drag styling */
   isDragging?: boolean;
@@ -21,6 +18,9 @@ export interface IFileUploadProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
 }
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const FileUpload = React.forwardRef<HTMLDivElement, IFileUploadProps>(
   ({ disabled, ...props }, ref) => {
     return <StyledFileUpload ref={ref} aria-disabled={disabled} {...props} />;

@@ -20,9 +20,6 @@ import useFieldContext from '../utils/useFieldContext';
 import { StyledTextarea } from '../styled';
 import { VALIDATION } from '../utils/validation';
 
-/**
- * @extends TextareaHTMLAttributes<HTMLTextAreaElement>
- */
 export interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   /** Apply compact styling */
   isCompact?: boolean;

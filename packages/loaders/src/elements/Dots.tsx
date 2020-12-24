@@ -39,9 +39,6 @@ export interface IDotsProps extends React.HTMLAttributes<SVGSVGElement> {
   delayMS?: number;
 }
 
-/**
- * @extends HTMLAttributes<SVGSVGElement>
- */
 const Dots: React.FC<IDotsProps> = ({ size, color, duration, delayMS, ...other }) => {
   const theme = useContext(ThemeContext);
   const environment = useDocument(theme);
