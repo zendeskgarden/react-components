@@ -54,7 +54,6 @@ OrderedList.defaultProps = {
 (OrderedList as any).Item = OrderedListItem;
 
 /**
- * @component
  * @extends HTMLAttributes<HTMLOListElement>
  */
 export default (OrderedList as unknown) as React.FunctionComponent<

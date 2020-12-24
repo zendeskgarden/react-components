@@ -26,7 +26,6 @@ const OrderedListItem: React.FunctionComponent<
 OrderedListItem.displayName = 'OrderedListItem';
 
 /**
- * @component
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export default OrderedListItem;

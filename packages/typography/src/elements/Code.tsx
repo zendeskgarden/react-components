@@ -48,5 +48,4 @@ Code.defaultProps = {
   size: 'inherit'
 };
 
-/** @component */
 export default Code;

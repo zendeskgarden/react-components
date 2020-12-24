@@ -54,9 +54,6 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
   transformPageProps?: (pageType: PAGE_TYPE, props: any) => any;
 }
 
-/**
- * @extends <HTMLAttributes<HTMLUListElement>
- */
 const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps>(
   (
     {
@@ -292,4 +289,7 @@ Pagination.defaultProps = {
   pageGap: 2
 };
 
+/**
+ * @extends <HTMLAttributes<HTMLUListElement>
+ */
 export default Pagination as React.FC<IPaginationProps & React.RefAttributes<HTMLUListElement>>;

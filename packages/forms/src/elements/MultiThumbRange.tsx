@@ -453,5 +453,4 @@ MultiThumbRange.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-/** @component */
 export default withTheme(MultiThumbRange) as FunctionComponent<IMultiThumbRangeProps>;

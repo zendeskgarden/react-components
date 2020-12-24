@@ -115,5 +115,4 @@ Spinner.defaultProps = {
   delayMS: 750
 };
 
-/** @component */
 export default Spinner;

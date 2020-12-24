@@ -58,7 +58,6 @@ Progress.defaultProps = {
   size: 'medium'
 };
 
-/* @component */
 export default Progress as React.FunctionComponent<
   IProgressProps & React.RefAttributes<HTMLDivElement>
 >;

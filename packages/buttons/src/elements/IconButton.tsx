@@ -62,5 +62,4 @@ IconButton.defaultProps = {
   size: 'medium'
 };
 
-/** @component */
 export default IconButton;

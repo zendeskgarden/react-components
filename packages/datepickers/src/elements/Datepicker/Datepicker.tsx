@@ -97,9 +97,6 @@ export interface IDatepickerProps {
   zIndex?: number;
 }
 
-/**
- * @extends HTMLAttributes<HTMLElement>
- */
 const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultTheme>> = props => {
   const {
     children,

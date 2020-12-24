@@ -40,5 +40,4 @@ Inline.defaultProps = {
   color: 'inherit'
 };
 
-/* @component */
 export default Inline;

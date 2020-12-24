@@ -37,5 +37,4 @@ Skeleton.defaultProps = {
   height: '100%'
 };
 
-/** @component */
 export default Skeleton;

@@ -48,7 +48,6 @@ Tag.defaultProps = {
 (Tag as any).Avatar = StyledAvatar;
 (Tag as any).Close = Close;
 
-/** @component */
 export default Tag as React.ForwardRefExoticComponent<
   ITagProps & React.RefAttributes<HTMLDivElement>
 > & {

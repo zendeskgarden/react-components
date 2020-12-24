@@ -18,6 +18,9 @@ interface ILGProps extends HTMLAttributes<HTMLDivElement> {
   isMonospace?: boolean;
 }
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 const LG: React.FunctionComponent<
   ILGProps & React.RefAttributes<HTMLDivElement>
 > = React.forwardRef<HTMLDivElement, ILGProps>(({ tag, ...other }, ref) => (
@@ -36,8 +39,4 @@ LG.defaultProps = {
   tag: 'div'
 };
 
-/**
- * @component
- * @extends HTMLAttributes<HTMLDivElement>
- */
 export default LG;

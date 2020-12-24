@@ -75,5 +75,4 @@ Chrome.propTypes = {
   hue: PropTypes.string
 };
 
-/** @component */
 export default Chrome;

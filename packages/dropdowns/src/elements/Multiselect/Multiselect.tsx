@@ -421,7 +421,6 @@ Multiselect.defaultProps = {
   maxItems: 4
 };
 
-/* @component */
 export default withTheme(Multiselect) as React.FunctionComponent<
   IMultiselectProps & React.RefAttributes<HTMLDivElement>
 >;

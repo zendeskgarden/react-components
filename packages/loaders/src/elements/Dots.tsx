@@ -105,5 +105,4 @@ Dots.defaultProps = {
   delayMS: 750
 };
 
-/* @component */
 export default Dots;

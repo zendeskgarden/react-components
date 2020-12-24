@@ -39,7 +39,6 @@ UnorderedList.defaultProps = {
 (UnorderedList as any).Item = UnorderedListItem;
 
 /**
- * @component
  * @extends HTMLAttributes<HTMLUListElement>
  */
 export default (UnorderedList as unknown) as React.FunctionComponent<

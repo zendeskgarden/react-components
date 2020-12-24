@@ -18,6 +18,9 @@ interface ISMProps extends HTMLAttributes<HTMLDivElement> {
   isMonospace?: boolean;
 }
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 const SM: React.FunctionComponent<
   ISMProps & React.RefAttributes<HTMLDivElement>
 > = React.forwardRef<HTMLDivElement, ISMProps>(({ tag, ...other }, ref) => (
@@ -36,8 +39,4 @@ SM.defaultProps = {
   tag: 'div'
 };
 
-/**
- * @component
- * @extends HTMLAttributes<HTMLDivElement>
- */
 export default SM;

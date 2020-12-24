@@ -14,6 +14,9 @@ export interface IParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
   size?: 'small' | 'medium' | 'large';
 }
 
+/**
+ * @extends HTMLAttributes<HTMLParagraphElement>
+ */
 const Paragraph: React.FunctionComponent<
   IParagraphProps & React.RefAttributes<HTMLParagraphElement>
 > = React.forwardRef<HTMLParagraphElement, IParagraphProps>(({ size, ...other }, ref) => {
@@ -40,8 +43,4 @@ Paragraph.defaultProps = {
   size: 'medium'
 };
 
-/**
- * @component
- * @extends HTMLAttributes<HTMLParagraphElement>
- */
 export default Paragraph;

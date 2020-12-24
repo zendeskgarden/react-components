@@ -53,5 +53,4 @@ Anchor.propTypes = {
   isDanger: PropTypes.bool
 };
 
-/** @component */
 export default Anchor;
