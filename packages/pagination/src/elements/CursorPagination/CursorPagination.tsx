@@ -26,7 +26,7 @@ interface IStaticCursorPaginationExport<T, P>
 }
 
 /**
- * @extends <HTMLAttributes<HTMLElement>
+ * @extends HTMLAttributes<HTMLElement>
  */
 // eslint-disable-next-line react/display-name
 export const CursorPagination = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(

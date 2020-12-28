@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { StyledParagraph } from '../../styled';
 
 /**
- * @extends <HTMLAttributes<HTMLParagraphElement>
+ * @extends HTMLAttributes<HTMLParagraphElement>
  */
 export const Paragraph = React.forwardRef<
   HTMLParagraphElement,

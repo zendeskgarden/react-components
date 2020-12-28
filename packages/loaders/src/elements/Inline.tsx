@@ -19,7 +19,7 @@ const InlineTypingIndicator: React.FC<IStyledTypingSvgProps> = props => {
   );
 };
 
-export interface IInlineProps extends React.HTMLAttributes<SVGSVGElement> {
+export interface IInlineProps extends React.SVGAttributes<SVGSVGElement> {
   /** Sets the width in pixels and scales the loader proportionally */
   size?: number;
   /** Sets the fill color. Inherits the parent font `color` by default */
@@ -27,7 +27,7 @@ export interface IInlineProps extends React.HTMLAttributes<SVGSVGElement> {
 }
 
 /**
- * @extends HTMLAttributes<SVGSVGElement>
+ * @extends SVGAttributes<SVGSVGElement>
  */
 const Inline: React.FC<IInlineProps> = ({ size, color, ...other }) => {
   return <InlineTypingIndicator size={size!} color={color!} {...other} />;

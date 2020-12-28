@@ -290,6 +290,6 @@ Pagination.defaultProps = {
 };
 
 /**
- * @extends <HTMLAttributes<HTMLUListElement>
+ * @extends HTMLAttributes<HTMLUListElement>
  */
 export default Pagination as React.FC<IPaginationProps & React.RefAttributes<HTMLUListElement>>;

@@ -24,7 +24,7 @@ interface IHeadItemProps
 }
 
 /**
- * @extends HTMLAtttributes<HTMLDivElement>
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const HeaderItem = React.forwardRef<any, IHeadItemProps>(
   ({ hasLogo, product, ...other }, ref) => {

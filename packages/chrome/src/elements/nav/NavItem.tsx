@@ -26,7 +26,7 @@ interface INavItemProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const NavItem = React.forwardRef<any, INavItemProps>(
+export const NavItem = React.forwardRef<HTMLDivElement, INavItemProps>(
   ({ hasLogo, hasBrandmark, product, ...other }, ref) => {
     const { hue, isLight, isDark } = useChromeContext();
     const { isExpanded } = useNavContext();

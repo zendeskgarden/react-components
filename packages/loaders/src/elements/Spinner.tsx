@@ -45,7 +45,7 @@ const computeFrames = (
   }, {});
 };
 
-export interface ISpinnerProps extends React.HTMLAttributes<SVGSVGElement> {
+export interface ISpinnerProps extends React.SVGAttributes<SVGSVGElement> {
   /**
    * Sets the height and width in pixels. Inherits the parent `font-size` by default
    **/
@@ -65,7 +65,7 @@ export interface ISpinnerProps extends React.HTMLAttributes<SVGSVGElement> {
 }
 
 /**
- * @extends HTMLAttributes<SVGSVGElement>
+ * @extends SVGAttributes<SVGSVGElement>
  */
 const Spinner: React.FC<ISpinnerProps> = ({ size, duration, color, delayMS, ...other }) => {
   const strokeWidthValues = computeFrames(STROKE_WIDTH_FRAMES, duration!);
