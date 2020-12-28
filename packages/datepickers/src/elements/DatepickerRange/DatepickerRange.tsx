@@ -96,8 +96,12 @@ const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
       value: props.startValue
     });
 
-    if (previousStartValue.current !== props.startValue && props.startValue !== undefined) {
-      endInputRef.current && endInputRef.current.focus();
+    if (
+      endInputRef.current &&
+      previousStartValue.current !== props.startValue &&
+      props.startValue !== undefined
+    ) {
+      endInputRef.current.focus();
     }
 
     previousStartValue.current = props.startValue;
@@ -109,8 +113,12 @@ const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
       value: props.endValue
     });
 
-    if (previousEndValue.current !== props.endValue && props.endValue !== undefined) {
-      startInputRef.current && startInputRef.current.focus();
+    if (
+      startInputRef.current &&
+      previousEndValue.current !== props.endValue &&
+      props.endValue !== undefined
+    ) {
+      startInputRef.current.focus();
     }
 
     previousEndValue.current = props.endValue;

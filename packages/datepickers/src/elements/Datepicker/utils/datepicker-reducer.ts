@@ -127,8 +127,8 @@ export const datepickerReducer = ({
       const inputValue = action.value;
       const currentDate = parseInputValue({ inputValue, customParseDate });
 
-      if (currentDate && isValid(currentDate) && !isSameDay(value!, currentDate)) {
-        onChange && onChange(currentDate);
+      if (onChange && currentDate && isValid(currentDate) && !isSameDay(value!, currentDate)) {
+        onChange(currentDate);
       }
 
       return { ...state, isOpen: true, inputValue };
@@ -147,8 +147,8 @@ export const datepickerReducer = ({
     case 'SELECT_DATE': {
       const inputValue = formatInputValue({ date: action.value, locale, formatDate });
 
-      if (action.value && isValid(action.value) && !isSameDay(value!, action.value)) {
-        onChange && onChange(action.value);
+      if (onChange && action.value && isValid(action.value) && !isSameDay(value!, action.value)) {
+        onChange(action.value);
       }
 
       return { ...state, isOpen: false, inputValue };

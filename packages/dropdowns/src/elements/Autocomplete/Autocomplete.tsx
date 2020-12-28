@@ -53,8 +53,8 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
     const [isFocused, setIsFocused] = useState(false);
 
     useEffect(() => {
-      if (isOpen !== previousIsOpenRef.current) {
-        inputRef.current && inputRef.current.focus();
+      if (inputRef.current && isOpen !== previousIsOpenRef.current) {
+        inputRef.current.focus();
       }
 
       previousIsOpenRef.current = isOpen;

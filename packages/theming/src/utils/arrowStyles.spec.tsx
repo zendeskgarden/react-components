@@ -49,7 +49,7 @@ describe('arrowStyles', () => {
   });
 
   describe('position', () => {
-    const POSITION: Array<ARROW_POSITION> = ['top', 'right', 'bottom', 'left'];
+    const POSITION: ARROW_POSITION[] = ['top', 'right', 'bottom', 'left'];
 
     POSITION.forEach(position => {
       it(`renders with the expected ${position} positioning`, () => {

@@ -93,6 +93,7 @@ const defaultStyleguideConfig = {
   },
   require: ['core-js', path.resolve(__dirname, 'setup.js'), 'github-markdown-css'],
   getExampleFilename(componentPath) {
+    // eslint-disable-next-line prefer-named-capture-group
     return componentPath.replace(/\.(jsx?|tsx?)?$/u, '.example.md');
   },
   getComponentPathLine(componentPath) {

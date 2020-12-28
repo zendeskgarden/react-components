@@ -89,8 +89,8 @@ const Tooltip: React.FC<ITooltipProps> = ({
    * Recalculate popper placement when open to allow animations to complete.
    **/
   useEffect(() => {
-    if (controlledIsVisible) {
-      scheduleUpdateRef.current && scheduleUpdateRef.current();
+    if (controlledIsVisible && scheduleUpdateRef.current) {
+      scheduleUpdateRef.current();
     }
   }, [controlledIsVisible, content]);
 

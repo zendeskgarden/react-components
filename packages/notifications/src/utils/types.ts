@@ -9,9 +9,4 @@ export type VALIDATION_TYPE = 'success' | 'warning' | 'error' | 'info';
 
 export type VALIDATION_HUE = 'successHue' | 'warningHue' | 'dangerHue' | 'neutralHue';
 
-export const ARRAY_VALIDATION_TYPE: Array<VALIDATION_TYPE> = [
-  'success',
-  'warning',
-  'error',
-  'info'
-];
+export const ARRAY_VALIDATION_TYPE: VALIDATION_TYPE[] = ['success', 'warning', 'error', 'info'];

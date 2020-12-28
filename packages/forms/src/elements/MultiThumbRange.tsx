@@ -147,8 +147,8 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
         return;
       }
 
-      if (newMinValue !== minValue || newMaxValue !== maxValue) {
-        onChange && onChange({ minValue: newMinValue, maxValue: newMaxValue });
+      if (onChange && (newMinValue !== minValue || newMaxValue !== maxValue)) {
+        onChange({ minValue: newMinValue, maxValue: newMaxValue });
       }
     },
     [disabled, maxValue, minValue, onChange]

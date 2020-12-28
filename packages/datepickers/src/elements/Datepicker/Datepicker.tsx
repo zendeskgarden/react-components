@@ -131,8 +131,8 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
    * and still be placed correctly.
    **/
   useEffect(() => {
-    if (state.isOpen) {
-      scheduleUpdateRef.current && scheduleUpdateRef.current();
+    if (state.isOpen && scheduleUpdateRef.current) {
+      scheduleUpdateRef.current();
     }
   });
 
