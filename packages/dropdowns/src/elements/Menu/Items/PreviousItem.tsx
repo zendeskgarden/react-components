@@ -19,7 +19,7 @@ const PreviousItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
 
     return (
       <StyledPreviousItem ref={ref} disabled={disabled} {...props}>
-        <StyledItemIcon isCompact={isCompact} isDisabled={disabled} isVisible={true}>
+        <StyledItemIcon isCompact={isCompact} isDisabled={disabled} isVisible>
           <StyledPreviousIcon isDisabled={disabled} />
         </StyledItemIcon>
         {children}
@@ -45,7 +45,7 @@ export const PreviousItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'co
     return (
       <Item
         component={PreviousItemComponent}
-        aria-expanded={true}
+        aria-expanded
         value={value}
         disabled={disabled}
         {...props}

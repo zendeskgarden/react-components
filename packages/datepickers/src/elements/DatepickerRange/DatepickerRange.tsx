@@ -64,83 +64,85 @@ export interface IDatepickerRangeProps {
 }
 
 const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
+  const {
+    startValue,
+    locale,
+    formatDate,
+    endValue,
+    onChange,
+    customParseDate,
+    isCompact,
+    minValue,
+    maxValue,
+    children
+  } = props;
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const reducer = useCallback(
     datepickerRangeReducer({
-      startValue: props.startValue,
-      locale: props.locale,
-      formatDate: props.formatDate,
-      endValue: props.endValue,
-      onChange: props.onChange,
-      customParseDate: props.customParseDate
+      startValue,
+      locale,
+      formatDate,
+      endValue,
+      onChange,
+      customParseDate
     }),
-    [
-      props.startValue,
-      props.endValue,
-      props.locale,
-      props.formatDate,
-      props.onChange,
-      props.customParseDate
-    ]
+    [startValue, endValue, locale, formatDate, onChange, customParseDate]
   );
 
   const [state, dispatch] = useReducer(reducer, retrieveInitialState(props));
-  const previousStartValue = useRef(props.startValue);
-  const previousEndValue = useRef(props.endValue);
+  const previousStartValue = useRef(startValue);
+  const previousEndValue = useRef(endValue);
   const startInputRef = useRef<HTMLInputElement>();
   const endInputRef = useRef<HTMLInputElement>();
 
   useEffect(() => {
     dispatch({
       type: 'CONTROLLED_START_VALUE_CHANGE',
-      value: props.startValue
+      value: startValue
     });
 
     if (
       endInputRef.current &&
-      previousStartValue.current !== props.startValue &&
-      props.startValue !== undefined
+      previousStartValue.current !== startValue &&
+      startValue !== undefined
     ) {
       endInputRef.current.focus();
     }
 
-    previousStartValue.current = props.startValue;
-  }, [props, props.startValue]);
+    previousStartValue.current = startValue;
+  }, [props, startValue]);
 
   useEffect(() => {
     dispatch({
       type: 'CONTROLLED_END_VALUE_CHANGE',
-      value: props.endValue
+      value: endValue
     });
 
-    if (
-      startInputRef.current &&
-      previousEndValue.current !== props.endValue &&
-      props.endValue !== undefined
-    ) {
+    if (startInputRef.current && previousEndValue.current !== endValue && endValue !== undefined) {
       startInputRef.current.focus();
     }
 
-    previousEndValue.current = props.endValue;
-  }, [props, props.endValue]);
+    previousEndValue.current = endValue;
+  }, [props, endValue]);
 
   return (
     <DatepickerRangeContext.Provider
       value={{
         state,
         dispatch,
-        isCompact: props.isCompact,
-        locale: props.locale,
-        minValue: props.minValue,
-        maxValue: props.maxValue,
-        startValue: props.startValue,
-        endValue: props.endValue,
-        onChange: props.onChange,
+        isCompact,
+        locale,
+        minValue,
+        maxValue,
+        startValue,
+        endValue,
+        onChange,
         startInputRef,
         endInputRef
       }}
     >
-      {props.children}
+      {children}
     </DatepickerRangeContext.Provider>
   );
 };

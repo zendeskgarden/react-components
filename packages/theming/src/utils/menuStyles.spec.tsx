@@ -96,7 +96,7 @@ describe('menuStyles', () => {
     });
 
     it('renders expected hidden styling', () => {
-      const { container } = render(<StyledMenu menuHidden={true} />);
+      const { container } = render(<StyledMenu menuHidden />);
 
       expect(container.firstChild).toHaveStyleRule('visibility', 'hidden');
     });

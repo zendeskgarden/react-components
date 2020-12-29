@@ -113,7 +113,8 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     minValue,
     maxValue,
     locale,
-    customParseDate
+    customParseDate,
+    theme
   } = props;
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoizedReducer = useCallback(
@@ -164,7 +165,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
   }, [locale]);
 
-  const popperPlacement = props.theme.rtl
+  const popperPlacement = theme.rtl
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 

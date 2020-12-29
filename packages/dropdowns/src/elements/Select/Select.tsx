@@ -243,7 +243,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
                 },
                 onKeyDown: onInputKeyDown
               } as any)}
-            ></StyledInput>
+            />
             {!props.isBare && (
               <StyledFauxInput.EndIcon
                 data-test-id="select-icon"

@@ -2,40 +2,26 @@
   "extends": [
     "@zendeskgarden",
     "@zendeskgarden/eslint-config/plugins/notice",
-    "plugin:react/recommended",
+    "@zendeskgarden/eslint-config/plugins/react",
     "plugin:jest/recommended",
-    "plugin:jsx-a11y/recommended",
-    "prettier"
+    "prettier",
+    "prettier/react"
   ],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
   "globals": {
     "jest": true,
-    "BASE_PATH_NAME": true,
     "PACKAGE_VERSION": true
-  },
-  "plugins": ["react-hooks"],
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
   },
   "rules": {
     "sort-imports": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "jest/no-conditional-expect": "off"
+    "jest/no-conditional-expect": "off",
+    "react/jsx-no-bind": "off",
+    "react/no-array-index-key": "off",
+    "react/no-set-state": "error"
   },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
       "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "project": ["./tsconfig.json"]
-      },
       "extends": [
         "@zendeskgarden/eslint-config/plugins/typescript",
         "prettier/@typescript-eslint"
@@ -49,10 +35,16 @@
     },
     {
       "files": ["packages/**/*.{js,ts,tsx}"],
-      "excludedFiles": ["packages/**/*.spec.{js,ts,tsx}"],
+      "excludedFiles": ["*.spec.*"],
       "plugins": ["garden-local"],
       "rules": {
         "garden-local/require-default-theme": "error"
+      }
+    },
+    {
+      "files": ["*.spec.*"],
+      "rules": {
+        "react/button-has-type": "off"
       }
     }
   ]

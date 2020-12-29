@@ -82,7 +82,7 @@
     "enhanced-resolve": "4.3.0",
     "envalid": "6.0.2",
     "eslint": "7.16.0",
-    "eslint-config-prettier": "6.15.0",
+    "eslint-config-prettier": "7.1.0",
     "eslint-loader": "4.0.2",
     "eslint-plugin-garden-local": "file:./utils/eslint",
     "eslint-plugin-jest": "24.1.0",

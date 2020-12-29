@@ -235,7 +235,7 @@ describe('Dropdown', () => {
       const onInputValueChangeSpy = jest.fn();
 
       const { container } = render(
-        <ExampleDropdown isOpen={true} onInputValueChange={onInputValueChangeSpy} />
+        <ExampleDropdown isOpen onInputValueChange={onInputValueChangeSpy} />
       );
 
       container.querySelector('input')!.readOnly = false;
