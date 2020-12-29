@@ -22,7 +22,6 @@ describe('IconButton', () => {
   });
 
   describe('Invalid', () => {
-    /* eslint-disable no-console */
     const consoleError = console.error;
 
     beforeEach(() => {
@@ -32,7 +31,6 @@ describe('IconButton', () => {
     afterEach(() => {
       console.error = consoleError;
     });
-    /* eslint-enable no-console */
 
     it('throws if rendered with no child', () => {
       expect(() => {

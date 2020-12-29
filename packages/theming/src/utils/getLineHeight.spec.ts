@@ -30,7 +30,6 @@ describe('getLineHeight', () => {
   });
 
   it('throws if called with non-pixel values', () => {
-    /* eslint-disable no-console */
     const originalError = console.error;
 
     console.error = jest.fn();
@@ -41,7 +40,6 @@ describe('getLineHeight', () => {
   });
 
   it('throws if called with non-matching value units', () => {
-    /* eslint-disable no-console */
     const originalError = console.error;
 
     console.error = jest.fn();

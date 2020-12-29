@@ -39,6 +39,7 @@
       "files": ["*.spec.*"],
       "extends": "@zendeskgarden/eslint-config/plugins/jest",
       "rules": {
+        "no-console": "off",
         "jest/lowercase-name": "off",
         "react/button-has-type": "off"
       }

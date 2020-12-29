@@ -18,7 +18,6 @@ describe('useSectionContext', () => {
   };
 
   it('throws if called outside of Accordion.Section component', () => {
-    /* eslint-disable no-console */
     const originalError = console.error;
 
     console.error = jest.fn();

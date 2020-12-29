@@ -65,7 +65,6 @@ describe('Avatar', () => {
   });
 
   describe('Invalid', () => {
-    /* eslint-disable no-console */
     const consoleError = console.error;
 
     beforeEach(() => {
@@ -75,7 +74,6 @@ describe('Avatar', () => {
     afterEach(() => {
       console.error = consoleError;
     });
-    /* eslint-enable no-console */
 
     it('throws if rendered with no child', () => {
       expect(() => {

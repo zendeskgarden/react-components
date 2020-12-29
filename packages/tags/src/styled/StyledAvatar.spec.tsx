@@ -31,7 +31,6 @@ describe('StyledAvatar', () => {
   });
 
   describe('Invalid', () => {
-    /* eslint-disable no-console */
     const consoleError = console.error;
 
     beforeEach(() => {
@@ -41,7 +40,6 @@ describe('StyledAvatar', () => {
     afterEach(() => {
       console.error = consoleError;
     });
-    /* eslint-enable no-console */
 
     it('throws if rendered with no child', () => {
       expect(() => {

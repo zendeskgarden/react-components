@@ -18,7 +18,6 @@ describe('useAccordionContext', () => {
   };
 
   it('throws if called outside of Accordion component', () => {
-    /* eslint-disable no-console */
     const originalError = console.error;
 
     console.error = jest.fn();

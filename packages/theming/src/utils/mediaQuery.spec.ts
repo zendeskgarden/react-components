@@ -88,7 +88,6 @@ describe('mediaQuery', () => {
 
   describe('errors', () => {
     it('throws when calling "between" with a single breakpoint', () => {
-      /* eslint-disable no-console */
       const originalError = console.error;
 
       console.error = jest.fn();
@@ -99,7 +98,6 @@ describe('mediaQuery', () => {
     });
 
     it('throws when calling non-"between" with a breakpoint array', () => {
-      /* eslint-disable no-console */
       const originalError = console.error;
 
       console.error = jest.fn();
