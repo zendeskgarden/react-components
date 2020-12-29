@@ -22,7 +22,7 @@ describe('hasType', () => {
     });
 
     it('returns false otherwise', () => {
-      expect(hasType(<Example>hint</Example>, Button)).toBe(undefined);
+      expect(hasType(<Example>hint</Example>, Button)).toBeUndefined();
     });
 
     it('returns false if provided a falsy value', () => {
@@ -44,7 +44,7 @@ describe('hasType', () => {
         text-align: right;
       `;
 
-      expect(hasType(<StyledHint>styled hint</StyledHint>, Button)).toBe(undefined);
+      expect(hasType(<StyledHint>styled hint</StyledHint>, Button)).toBeUndefined();
     });
   });
 });

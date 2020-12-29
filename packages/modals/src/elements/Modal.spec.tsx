@@ -75,7 +75,7 @@ describe('Modal', () => {
   it('applies backdropProps to Backdrop element', () => {
     const { getByTestId } = render(<BasicExample />);
 
-    expect(getByTestId('backdrop')).not.toBe(null);
+    expect(getByTestId('backdrop')).not.toBeNull();
   });
 
   it('applies modal props to StyledModal element', () => {

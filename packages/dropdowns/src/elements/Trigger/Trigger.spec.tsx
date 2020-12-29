@@ -47,7 +47,7 @@ describe('Trigger', () => {
     // Close dropdown
     userEvent.click(trigger);
 
-    expect(document.activeElement).toEqual(trigger);
+    expect(document.activeElement).toStrictEqual(trigger);
   });
 
   it('remove invalid aria-labelledby', () => {

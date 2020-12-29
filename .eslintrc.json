@@ -3,17 +3,11 @@
     "@zendeskgarden",
     "@zendeskgarden/eslint-config/plugins/notice",
     "@zendeskgarden/eslint-config/plugins/react",
-    "plugin:jest/recommended",
     "prettier",
     "prettier/react"
   ],
-  "globals": {
-    "jest": true,
-    "PACKAGE_VERSION": true
-  },
   "rules": {
     "sort-imports": "off",
-    "jest/no-conditional-expect": "off",
     "react/jsx-no-bind": "off",
     "react/no-array-index-key": "off",
     "react/no-set-state": "error"
@@ -43,7 +37,9 @@
     },
     {
       "files": ["*.spec.*"],
+      "extends": "@zendeskgarden/eslint-config/plugins/jest",
       "rules": {
+        "jest/lowercase-name": "off",
         "react/button-has-type": "off"
       }
     }

@@ -13,7 +13,7 @@ describe('OrderedList', () => {
   it('applies <ol> rendering if provided', () => {
     const { container } = render(<OrderedList />);
 
-    expect(container.querySelector('ol')).not.toBe(null);
+    expect(container.querySelector('ol')).not.toBeNull();
   });
 
   it('applies correct styling with RTL layout', () => {

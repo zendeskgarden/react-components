@@ -128,7 +128,7 @@ describe('Dropdown', () => {
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowRight', keyCode: 39 });
 
-      expect(onSelectSpy.mock.calls[0][0]).toEqual({ value: 'next-item-1' });
+      expect(onSelectSpy.mock.calls[0][0]).toStrictEqual({ value: 'next-item-1' });
     });
 
     it('opens dropdown on SPACE key', () => {
@@ -184,7 +184,7 @@ describe('Dropdown', () => {
 
       userEvent.click(getByTestId('trigger'));
       userEvent.click(getAllByTestId('item')[0]);
-      expect(onSelectSpy.mock.calls[0][0]).toEqual(['item-1', 'item-2', 'previous-item']);
+      expect(onSelectSpy.mock.calls[0][0]).toStrictEqual(['item-1', 'item-2', 'previous-item']);
     });
 
     it('calls onSelect handler correctly if controlled with multiple values and is selected', () => {
@@ -198,7 +198,7 @@ describe('Dropdown', () => {
 
       userEvent.click(getByTestId('trigger'));
       userEvent.click(getAllByTestId('item')[0]);
-      expect(onSelectSpy.mock.calls[0][0]).toEqual(['item-1', 'item-2']);
+      expect(onSelectSpy.mock.calls[0][0]).toStrictEqual(['item-1', 'item-2']);
     });
 
     it('calls onHighlight handler if controlled', () => {
@@ -227,7 +227,7 @@ describe('Dropdown', () => {
 
       userEvent.type(container.querySelector('input')!, 't');
 
-      expect(onStateChangeSpy).toBeCalledTimes(1);
+      expect(onStateChangeSpy).toHaveBeenCalledTimes(1);
       expect(onStateChangeSpy.mock.calls[0][0]).toMatchObject({ inputValue: 't' });
     });
 

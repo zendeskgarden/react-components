@@ -57,10 +57,10 @@ describe('Header', () => {
     fireEvent.focus(header);
     fireEvent.blur(header);
 
-    expect(onClick).toBeCalledTimes(1);
-    expect(onFocus).toBeCalledTimes(1);
-    expect(onBlur).toBeCalledTimes(1);
-    expect(onMouseOver).toBeCalledTimes(1);
-    expect(onMouseOut).toBeCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(onFocus).toHaveBeenCalledTimes(1);
+    expect(onBlur).toHaveBeenCalledTimes(1);
+    expect(onMouseOver).toHaveBeenCalledTimes(1);
+    expect(onMouseOut).toHaveBeenCalledTimes(1);
   });
 });

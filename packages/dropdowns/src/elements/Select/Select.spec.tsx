@@ -63,7 +63,7 @@ describe('Select', () => {
     // Close dropdown
     userEvent.click(select);
 
-    expect(document.activeElement).toEqual(select);
+    expect(document.activeElement).toStrictEqual(select);
   });
 
   it('removes Select from tab order if disabled', () => {
