@@ -13,7 +13,7 @@ import { Table } from './Table';
 import { Head } from './Head';
 import { HeaderRow } from './HeaderRow';
 import { HeaderCell } from './HeaderCell';
-import { StyledOverflowButton } from '../styled';
+import { StyledSortableButton } from '../styled';
 
 describe('HeaderCell', () => {
   it('passes ref to underlying DOM element', () => {
@@ -72,7 +72,7 @@ describe('HeaderCell', () => {
 
     expect(getByTestId('headerCell')).toHaveStyleRule('text-overflow', 'ellipsis', {
       modifier: css`
-        ${StyledOverflowButton}
+        ${StyledSortableButton}
       ` as any
     });
   });
