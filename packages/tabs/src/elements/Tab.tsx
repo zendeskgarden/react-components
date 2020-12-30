@@ -12,13 +12,9 @@ import { StyledTab } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
 
 export interface ITabProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * Disables the `Tab` and prevents user interaction
-   */
+  /** Indicates that the element is not interactive */
   disabled?: boolean;
-  /**
-   * Defines a value to uniquely identify the `Tab`. Provided to the `onChange` event in `Tabs`
-   */
+  /** Defines a unique value to identify the tab. Provided to the `onChange` event in the [Tabs](#tabs) component. */
   item?: any;
 }
 

@@ -22,18 +22,37 @@ import {
 import { MenuContext } from '../../utils/useMenuContext';
 
 interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
-  /** See Popper [documentation](https://popper.js.org/docs/v2/modifiers/) for details */
+  /**
+   * Passes configuration options to the [Popper instance](https://popper.js.org/docs/v2/modifiers/)
+   */
   popperModifiers?: Modifiers;
+  /**
+   * Allows the menu to reposition during browser resize events
+   */
   eventsEnabled?: boolean;
+  /**
+   * Sets the `z-index` of the menu
+   */
   zIndex?: number;
   /**
-   * These placements differ from the default naming of Popper placements to
-   * accommodate RTL layouts
-   **/
+   * Adjusts the placement of the menu
+   */
   placement?: GARDEN_PLACEMENT;
+  /**
+   * Animates the menu
+   */
   isAnimated?: boolean;
+  /**
+   * Applies compact styling
+   */
   isCompact?: boolean;
+  /**
+   * Attaches an arrow that points towards the menu trigger
+   */
   hasArrow?: boolean;
+  /**
+   * Sets the `max-height` of the menu
+   */
   maxHeight?: string;
 }
 

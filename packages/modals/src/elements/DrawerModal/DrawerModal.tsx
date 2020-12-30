@@ -47,33 +47,33 @@ interface IStaticDrawerModalExport<T, P>
 
 export interface IDrawerModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Determines whether the `DrawerModal` is opened or closed
+   * Opens the modal
    */
   isOpen?: boolean;
   /**
-   * HTML attributes to spread onto backdrop element
+   * Passes HTML attributes to the backdrop element
    */
   backdropProps?: any;
   /**
-   * Callback when a close action has been completed.
-   * Can be triggered from the backdrop and Close icon.
-   * @param {Object} event - DOM event that triggered the close action
+   * Handles close actions. Can be triggered from the backdrop and from the close icon.
+   *
+   * @param {Object} event The DOM event that triggered the close action
    */
   onClose?: (event: KeyboardEvent | MouseEvent) => void;
   /**
-   * The root ID to use for descendants. A unique ID is created if none is provided.
-   **/
+   * Sets the root ID. A unique ID is created if none is provided.
+   */
   id?: string;
   /**
-   * The DOM element where the drawer modal will be rendered to
-   **/
+   * Defines the DOM element that the modal will attatch to
+   */
   appendToNode?: Element;
   /**
-   * Determines whether to apply keyboard focus on the drawer modal on mount
+   * Directs keyboard focus to the modal on mount
    */
   focusOnMount?: boolean;
   /**
-   * Determines whether to return keyboard focus to the element that triggered the drawer modal
+   * Returns keyboard focus to the element that triggered the modal
    */
   restoreFocus?: boolean;
 }

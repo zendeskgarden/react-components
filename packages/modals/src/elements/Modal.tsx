@@ -42,41 +42,41 @@ const isOverflowing = (element: Element) => {
 
 export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * HTML attributes to spread onto backdrop element
+   * Passes HTML attributes to the backdrop element
    */
   backdropProps?: HTMLAttributes<HTMLDivElement>;
   /**
-   * Callback when a close action has been completed.
-   * Can be triggered from the backdrop and Close icon.
-   * @param {Object} event - DOM event that triggered the close action
+   * Handles close actions. Can be triggered from the backdrop and from the close icon.
+   *
+   * @param {Object} event The DOM event that triggered the close action
    */
   onClose?: (event: KeyboardEvent | MouseEvent) => void;
   /**
-   * Center the modal on the backdrop
+   * Centers the modal on the backdrop
    */
   isCentered?: boolean;
   /**
-   * Enable modal animation
+   * Animates the modal
    */
   isAnimated?: boolean;
   /**
-   * The root ID to use for descendants. A unique ID is created if none is provided.
-   **/
+   * Sets the root ID. A unique ID is created if none is provided.
+   */
   id?: string;
   /**
-   * The DOM element where the modal will be rendered to
-   **/
+   * Defines the DOM element that the modal will attatch to
+   */
   appendToNode?: Element;
   /**
-   * Enable large modal styling
+   * Applies large styling
    */
   isLarge?: boolean;
   /**
-   * Determines whether to apply keyboard focus on the modal on mount
+   * Directs keyboard focus to the modal on mount
    */
   focusOnMount?: boolean;
   /**
-   * Determines whether to return keyboard focus to the element that triggered the modal
+   * Returns keyboard focus to the element that triggered the modal
    */
   restoreFocus?: boolean;
 }

@@ -22,7 +22,7 @@ import {
 } from '../../styled';
 
 export interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
-  /** Style using regular (non-bold) font weight */
+  /** Applies regular (non-bold) font weight */
   isRegular?: boolean;
 }
 

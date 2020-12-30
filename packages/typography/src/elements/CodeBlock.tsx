@@ -14,9 +14,9 @@ export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
   language?: Language;
   /** Specifies the font size */
   size?: 'small' | 'medium' | 'large';
-  /** Determines light mode styling */
+  /** Applies light mode styling */
   isLight?: boolean;
-  /** Determines whether line numbers are displayed */
+  /** Displays line numbers */
   isNumbered?: boolean;
 }
 

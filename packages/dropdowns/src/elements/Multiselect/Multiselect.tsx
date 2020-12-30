@@ -46,13 +46,25 @@ interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
   validation?: VALIDATION;
   /** Determines the maximum number of items displayed while collapsed */
   maxItems?: number;
-  /** Callback that overrides the "+ N more" text displayed when the total number of items exceeds `maxItems` */
-  renderShowMore?: (index: number) => string;
-  /** Callback that renders each item element */
+  /**
+   * Overrides the "+ N more" text displayed when the total number of items exceeds `maxItems`
+   *
+   * @param {number} value The number of hidden items
+   * @returns {string} a replacement for the "+ N more" text
+   */
+  renderShowMore?: (value: number) => string;
+  /**
+   * Renders each item element. Designed to be used with [Tag](https://garden.zendesk.com/components/tags).
+   *
+   * @param {Object} options Rendered item options
+   * @param {any} options.value The item value
+   * @param {Function} options.removeValue Remove item callback
+   * @returns {React.ReactElement} the item element
+   */
   renderItem: (options: { value: any; removeValue: () => void }) => React.ReactElement;
   /** Provides DOM access to the underlying input element */
   inputRef?: React.Ref<HTMLInputElement>;
-  /** Defines the icon rendered in the start position */
+  /** Defines the icon rendered before the element's content */
   start?: any;
 }
 

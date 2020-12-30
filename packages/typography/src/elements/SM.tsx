@@ -10,11 +10,11 @@ import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
 
 interface ISMProps extends HTMLAttributes<HTMLDivElement> {
-  /** Any valid DOM element for the styled component */
+  /** Updates the element's HTML tag */
   tag?: any;
-  /** Render bold font */
+  /** Applies bold font style */
   isBold?: boolean;
-  /** Render monospace font */
+  /** Renders with monospace font */
   isMonospace?: boolean;
 }
 

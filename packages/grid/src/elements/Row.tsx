@@ -20,49 +20,49 @@ import { StyledRow } from '../styled';
 
 export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Applies the `align-items` flex container property, affecting vertical `Col`
-   * alignment, for all screen sizes
+   * Applies the `align-items` flex container property to the row.
+   * This affects vertical `Col` alignment on all screen sizes.
    */
   alignItems?: ALIGN_ITEMS;
-  /** Applies the `align-items` flex container property for extra-small screen sizes */
+  /** Applies the `align-items` flex container property to the row on extra-small screens */
   alignItemsXs?: ALIGN_ITEMS;
-  /** Applies the `align-items` flex container property for small screen sizes */
+  /** Applies the `align-items` flex container property to the row on small screens */
   alignItemsSm?: ALIGN_ITEMS;
-  /** Applies the `align-items` flex container property for medium screen sizes */
+  /** Applies the `align-items` flex container property to the row on medium screens */
   alignItemsMd?: ALIGN_ITEMS;
-  /** Applies the `align-items` flex container property for large screen sizes */
+  /** Applies the `align-items` flex container property to the row on large screens */
   alignItemsLg?: ALIGN_ITEMS;
-  /** Applies the `align-items` flex container property for extra-large screen sizes */
+  /** Applies the `align-items` flex container property to the row on extra-large screens */
   alignItemsXl?: ALIGN_ITEMS;
   /**
-   * Applies the `justify-content` flex container property, affecting horizontal
-   * `Col` distribution, for all screen sizes
+   * Applies the `justify-content` flex container property to the row.
+   * This affects horizontal `Col` alignment on all screen sizes.
    */
   justifyContent?: JUSTIFY_CONTENT;
-  /** Applies the `justify-content` flex container property for extra-small screen sizes */
+  /** Applies the `justify-content` flex container property to the row on extra-small screens */
   justifyContentXs?: JUSTIFY_CONTENT;
-  /** Applies the `justify-content` flex container property for small screen sizes */
+  /** Applies the `justify-content` flex container property to the row on small screens */
   justifyContentSm?: JUSTIFY_CONTENT;
-  /** Applies the `justify-content` flex container property for medium screen sizes */
+  /** Applies the `justify-content` flex container property to the row on medium screens */
   justifyContentMd?: JUSTIFY_CONTENT;
-  /** Applies the `justify-content` flex container property for large screen sizes */
+  /** Applies the `justify-content` flex container property to the row on large screens */
   justifyContentLg?: JUSTIFY_CONTENT;
-  /** Applies the `justify-content` flex container property for extra-large screen sizes */
+  /** Applies the `justify-content` flex container property to the row on extra-large screens */
   justifyContentXl?: JUSTIFY_CONTENT;
   /**
-   * Applies the `flex-wrap` container property, affecting `Col` wrapping, for
-   * all screens
+   * Applies the `flex-wrap` container property to the row. This affects `Col` wrapping on
+   * all screen sizes.
    */
   wrap?: WRAP;
-  /** Applies the `flex-wrap` container property for extra-small screens */
+  /** Applies the `flex-wrap` container property to the row on extra-small screens */
   wrapXs?: WRAP;
-  /** Applies the `flex-wrap` container property for small screens */
+  /** Applies the `flex-wrap` container property to the row on small screens */
   wrapSm?: WRAP;
-  /** Applies the `flex-wrap` container property for medium screens */
+  /** Applies the `flex-wrap` container property to the row on medium screens */
   wrapMd?: WRAP;
-  /** Applies the `flex-wrap` container property for large screens */
+  /** Applies the `flex-wrap` container property to the row on large screens */
   wrapLg?: WRAP;
-  /** Applies the `flex-wrap` container property for extra-large screens */
+  /** Applies the `flex-wrap` container property to the row on extra-large screens */
   wrapXl?: WRAP;
 }
 

@@ -10,16 +10,16 @@ import PropTypes from 'prop-types';
 import { StyledFont, StyledIcon } from '../styled';
 
 interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
-  /** Any valid DOM element for the styled component */
+  /** Updates the element's HTML tag */
   tag?: any;
-  /** Render bold font; `undefined` = inherited weight, `true` = bolded weight, `false` = regular weight */
+  /** Applies bold font style. Font weight is inherited by default. */
   isBold?: boolean;
-  /** Render monospace font */
+  /** Renders with monospace font */
   isMonospace?: boolean;
   /**
-   * Apply a span color – typically constrained to a
-   * [palette](https://zendeskgarden.github.io/react-components/theming/#palette)
-   * hue, but with the ability to override using any hex value.
+   * Applies a font color. Use
+   * [PALETTE](/components/palette#palette)
+   * colors when possible. Accepts all hex values.
    */
   hue?: string;
 }

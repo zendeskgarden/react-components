@@ -11,7 +11,7 @@ import { InputGroupContext } from '../../utils/useInputGroupContext';
 import { StyledInputGroup } from '../../styled';
 
 export interface IInputGroupProps extends HTMLAttributes<HTMLDivElement> {
-  /** Apply compact styling */
+  /** Applies compact styling */
   isCompact?: boolean;
 }
 

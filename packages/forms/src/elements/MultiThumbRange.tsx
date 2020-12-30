@@ -28,19 +28,25 @@ import { ThemeProps, DefaultTheme } from 'styled-components';
 import useFieldContext from '../utils/useFieldContext';
 
 export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  /** The minimum permitted value */
+  /** Sets the minimum permitted value */
   min?: number;
-  /** The maximum permitted value */
+  /** Sets the maximum permitted value */
   max?: number;
-  /** The minimum thumb input value */
+  /** Sets the minimum thumb input value */
   minValue?: number;
-  /** The maximum thumb input value */
+  /** Sets the maximum thumb input value */
   maxValue?: number;
-  /** The stepping interval */
+  /** Defines the stepping interval */
   step?: number;
-  /** Apply disabled styling */
+  /** Indicates that the element is not interactive */
   disabled?: boolean;
-  /** Handler for processing change events */
+  /**
+   * Handles change events
+   *
+   * @param {Object} updatedValues The values that have changed
+   * @param {number} [updatedValues.minValue] The optional minimum value
+   * @param {number} [updatedValues.maxValue] The optional maximum value
+   * */
   onChange?: (updatedValues: { minValue?: number; maxValue?: number }) => void;
 }
 
