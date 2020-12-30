@@ -8,14 +8,12 @@
   ],
   "rules": {
     "sort-imports": "off",
-    "react/jsx-no-bind": "off",
     "react/no-array-index-key": "off",
     "react/no-set-state": "error"
   },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
-      "parser": "@typescript-eslint/parser",
       "extends": [
         "@zendeskgarden/eslint-config/plugins/typescript",
         "prettier/@typescript-eslint"
@@ -40,7 +38,6 @@
       "extends": "@zendeskgarden/eslint-config/plugins/jest",
       "rules": {
         "no-console": "off",
-        "jest/lowercase-name": "off",
         "react/button-has-type": "off"
       }
     }
