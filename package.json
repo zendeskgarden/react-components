@@ -126,7 +126,7 @@
     "regenerator-runtime": "0.13.7",
     "resolve-from": "5.0.0",
     "rollup": "2.35.1",
-    "rollup-plugin-analyzer": "3.3.0",
+    "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-cleanup": "3.2.1",
     "rollup-plugin-delete": "2.0.0",
