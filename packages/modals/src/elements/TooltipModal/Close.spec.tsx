@@ -16,7 +16,7 @@ describe('TooltipModal.Close', () => {
 
     await act(async () => {
       await rerender(
-        <TooltipModal referenceElement={container}>
+        <TooltipModal referenceElement={container as HTMLElement}>
           <TooltipModal.Close ref={ref} aria-label="Close" />
         </TooltipModal>
       );
