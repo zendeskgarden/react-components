@@ -12,7 +12,7 @@ import { PRODUCT, PRODUCTS } from '../../utils/types';
 import { useNavContext } from '../../utils/useNavContext';
 import { useChromeContext } from '../../utils/useChromeContext';
 
-interface INavItemProps extends HTMLAttributes<HTMLDivElement> {
+interface INavItemProps extends HTMLAttributes<any> {
   /** Applies a product-specific color palette */
   product?: PRODUCT;
   /** Indicates that the item is current in the nav */
@@ -24,9 +24,9 @@ interface INavItemProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * @extends HTMLAttributes<HTMLDivElement>
+ * @extends HTMLAttributes<any>
  */
-export const NavItem = React.forwardRef<HTMLDivElement, INavItemProps>(
+export const NavItem = React.forwardRef<any, INavItemProps>(
   ({ hasLogo, hasBrandmark, product, ...other }, ref) => {
     const { hue, isLight, isDark } = useChromeContext();
     const { isExpanded } = useNavContext();
