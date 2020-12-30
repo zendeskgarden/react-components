@@ -16,7 +16,7 @@ describe('TooltipModal.Title', () => {
 
     await act(async () => {
       await rerender(
-        <TooltipModal referenceElement={container}>
+        <TooltipModal referenceElement={container as HTMLElement}>
           <TooltipModal.Title ref={ref}>title</TooltipModal.Title>
         </TooltipModal>
       );
