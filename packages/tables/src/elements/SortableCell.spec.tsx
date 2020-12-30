@@ -6,12 +6,14 @@
  */
 
 import React from 'react';
+import { css } from 'styled-components';
 import { render } from 'garden-test-utils';
 
 import { Table } from './Table';
 import { Head } from './Head';
 import { HeaderRow } from './HeaderRow';
 import { SortableCell } from './SortableCell';
+import { StyledSortableButton } from '../styled';
 
 describe('SortableCell', () => {
   it('passes ref to underlying DOM element', () => {
@@ -55,5 +57,23 @@ describe('SortableCell', () => {
     );
 
     expect(getByTestId('sortable').parentElement).toHaveAttribute('aria-sort', 'descending');
+  });
+
+  it('handles truncation as expected', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <SortableCell data-test-id="sortable" cellProps={{ isTruncated: true }} />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
+
+    expect(getByTestId('sortable').parentElement).toHaveStyleRule('text-overflow', 'ellipsis', {
+      modifier: css`
+        ${StyledSortableButton}
+      ` as any
+    });
   });
 });
