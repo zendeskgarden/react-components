@@ -79,9 +79,9 @@ StyledUnorderedListItem.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledUnorderedListItemContent = styled(StyledFont)<
-  IStyledOrderedListItemContentProps
->`
+export const StyledUnorderedListItemContent = styled(
+  StyledFont
+)<IStyledOrderedListItemContentProps>`
   ${props => listItemContentStyles(props)};
 `;
 

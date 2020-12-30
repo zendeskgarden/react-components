@@ -16,7 +16,7 @@ describe('TooltipModal.Body', () => {
 
     await act(async () => {
       await rerender(
-        <TooltipModal referenceElement={container}>
+        <TooltipModal referenceElement={container as HTMLElement}>
           <TooltipModal.Body ref={ref}>content</TooltipModal.Body>
         </TooltipModal>
       );
