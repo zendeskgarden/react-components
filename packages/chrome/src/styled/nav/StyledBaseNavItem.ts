@@ -30,7 +30,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
  * 1. Button reset.
  * 2. Anchor reset.
  */
-export const StyledBaseNavItem = styled.div.attrs({
+export const StyledBaseNavItem = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledNavItem, StyledLogoNavItem, StyledBrandmarkNavItem } from '../../styled';
 import { PRODUCT, PRODUCTS } from '../../utils/types';
 import { useNavContext } from '../../utils/useNavContext';
 import { useChromeContext } from '../../utils/useChromeContext';
 
-interface INavItemProps extends HTMLAttributes<any> {
+interface INavItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Applies a product-specific color palette */
   product?: PRODUCT;
   /** Indicates that the item is current in the nav */
@@ -24,9 +24,9 @@ interface INavItemProps extends HTMLAttributes<any> {
 }
 
 /**
- * @extends HTMLAttributes<any>
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-export const NavItem = React.forwardRef<any, INavItemProps>(
+export const NavItem = React.forwardRef<HTMLButtonElement, INavItemProps>(
   ({ hasLogo, hasBrandmark, product, ...other }, ref) => {
     const { hue, isLight, isDark } = useChromeContext();
     const { isExpanded } = useNavContext();

@@ -11,9 +11,10 @@ import { StyledBaseHeaderItem } from './StyledBaseHeaderItem';
 
 const COMPONENT_ID = 'chrome.header_item_wrapper';
 
-export const StyledHeaderItemWrapper = styled(StyledBaseHeaderItem).attrs({
+export const StyledHeaderItemWrapper = styled(StyledBaseHeaderItem as 'div').attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  as: 'div'
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

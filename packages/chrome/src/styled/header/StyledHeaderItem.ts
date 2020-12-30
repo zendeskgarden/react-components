@@ -36,8 +36,7 @@ const imgStyles = (props: ThemeProps<DefaultTheme>) => {
  */
 export const StyledHeaderItem = styled(StyledBaseHeaderItem).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'button'
+  'data-garden-version': PACKAGE_VERSION
 })<IStyledBaseHeaderItemProps>`
   &:hover,
   &:focus {
