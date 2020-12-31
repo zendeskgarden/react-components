@@ -9,14 +9,14 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledCell, IStyledCellProps } from './StyledCell';
-import { StyledOverflowButton } from './StyledOverflowButton';
+import { StyledSortableButton } from './StyledSortableButton';
 import { getLineHeight } from './StyledTable';
 import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.header_cell';
 
 const truncatedStyling = css`
-  ${StyledOverflowButton} {
+  ${StyledSortableButton} {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
