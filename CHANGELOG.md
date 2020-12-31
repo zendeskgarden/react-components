@@ -12,6 +12,27 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.29.1 (2020-12-30)
+
+#### :bug: Bug Fix
+* `tables`
+  * [#981](https://github.com/zendeskgarden/react-components/pull/981) fix(tables): sortable cell truncation ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#979](https://github.com/zendeskgarden/react-components/pull/979) chore(deps): update dependency fork-ts-checker-webpack-plugin to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#972](https://github.com/zendeskgarden/react-components/pull/972) chore(deps): update dependency @rollup/plugin-node-resolve to v11 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#980](https://github.com/zendeskgarden/react-components/pull/980) chore(deps): update dependency rollup-plugin-analyzer to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#978](https://github.com/zendeskgarden/react-components/pull/978) chore(deps): update dependency execa to v5 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#977](https://github.com/zendeskgarden/react-components/pull/977) chore(deps): update dependency eslint-config-prettier to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#976](https://github.com/zendeskgarden/react-components/pull/976) chore(deps): update dependency @zendeskgarden/stylelint-config to v15 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#971](https://github.com/zendeskgarden/react-components/pull/971) chore(deps): update dependency @rollup/plugin-commonjs to v17 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#975](https://github.com/zendeskgarden/react-components/pull/975) chore(deps): update dependency @zendeskgarden/eslint-config to v17 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#969](https://github.com/zendeskgarden/react-components/pull/969) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`, `typography`
+  * [#970](https://github.com/zendeskgarden/react-components/pull/970) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.29.0 (2020-12-23)
 
 #### :rocket: New Feature
