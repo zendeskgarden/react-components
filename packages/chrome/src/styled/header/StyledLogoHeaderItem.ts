@@ -53,7 +53,11 @@ const retrieveProductColor = (props: IStyledLogoHeaderItemProps) => {
 /**
  * 1. Anchor reset
  */
-export const StyledLogoHeaderItem = styled(StyledBaseHeaderItem)<IStyledLogoHeaderItemProps>`
+export const StyledLogoHeaderItem = styled(StyledBaseHeaderItem).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
+  as: 'div'
+})<IStyledLogoHeaderItemProps>`
   display: none;
   order: 0;
   margin-right: ${props => (props.theme.rtl ? `-${props.theme.space.base}px` : 'auto')};

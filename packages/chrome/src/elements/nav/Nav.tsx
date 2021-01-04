@@ -17,7 +17,7 @@ interface INavProps extends HTMLAttributes<HTMLElement> {
 }
 
 /**
- * Accepts all `<nav>` attributes and events
+ * @extends HTMLAttributes<HTMLElement>
  */
 export const Nav = React.forwardRef<HTMLElement, INavProps>((props, ref) => {
   const { hue, isLight, isDark } = useChromeContext();

@@ -10,7 +10,7 @@ import { StyledTabList } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
 
 /**
- * Accepts all `<div>` props.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const TabList = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {

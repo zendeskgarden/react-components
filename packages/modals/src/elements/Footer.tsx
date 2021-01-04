@@ -10,7 +10,7 @@ import { StyledFooter } from '../styled';
 import { useModalContext } from '../utils/useModalContext';
 
 /**
- * Accepts all `<div>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Footer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {

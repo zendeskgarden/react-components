@@ -16,7 +16,7 @@ interface IBodyProps {
 }
 
 /**
- * Accepts all `<div>` attributes and events
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Body = React.forwardRef<HTMLDivElement, IBodyProps & HTMLAttributes<HTMLDivElement>>(
   ({ hasFooter, ...props }, ref) => {

@@ -11,7 +11,7 @@ import { useTooltipModalContext } from '../../utils/useTooltipModalContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 /**
- * Used to close a TooltipModal. Accepts all `<button>` props.
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const Close = React.forwardRef<
   HTMLButtonElement,

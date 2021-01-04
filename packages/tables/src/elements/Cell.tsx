@@ -12,7 +12,7 @@ import { StyledCell, IStyledCellProps } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 
 /**
- * Accepts all `<td>` attributes and events
+ * @extends TdHTMLAttributes<HTMLTableCellElement>
  */
 export const Cell = React.forwardRef<
   HTMLTableCellElement,

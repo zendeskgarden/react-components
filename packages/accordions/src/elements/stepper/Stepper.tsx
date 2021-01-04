@@ -9,7 +9,7 @@ import React, {
   useRef,
   useEffect,
   forwardRef,
-  HTMLAttributes,
+  OlHTMLAttributes,
   ForwardRefExoticComponent,
   PropsWithoutRef,
   RefAttributes
@@ -27,7 +27,7 @@ interface IStaticStepperExport<T, P>
   Content: typeof Content;
 }
 
-interface IStepperProps extends HTMLAttributes<HTMLOListElement> {
+interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {
   /** Defines the currently active step, starting at 0 */
   activeIndex?: number;
   /** Applies horizontal layout styling */
@@ -35,13 +35,7 @@ interface IStepperProps extends HTMLAttributes<HTMLOListElement> {
 }
 
 /**
- * Accepts sub-components:
-
- *  - `Stepper.Step`
- *  - `Stepper.Label`
- *  - `Stepper.Content`
- * 
- * @extends HTMLAttributes<HTMLOListElement>
+ * @extends OlHTMLAttributes<HTMLOListElement>
  */
 // eslint-disable-next-line react/display-name
 export const Stepper = forwardRef<HTMLOListElement, IStepperProps>(

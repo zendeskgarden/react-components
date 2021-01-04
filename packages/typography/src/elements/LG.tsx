@@ -19,7 +19,7 @@ interface ILGProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all standard attributes and events for the provided `tag`
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const LG: React.FunctionComponent<
   ILGProps & React.RefAttributes<HTMLDivElement>
@@ -39,5 +39,4 @@ LG.defaultProps = {
   tag: 'div'
 };
 
-/** @component */
 export default LG;

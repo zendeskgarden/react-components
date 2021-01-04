@@ -47,14 +47,14 @@ export interface IDatepickerRangeProps {
    * Adjusts the input element's date formatting
    *
    *  @param {Date} date The selected date
-   *  @returns {string} A formatted date string
+   *  @returns {string} a formatted date string
    */
   formatDate?: (date: Date) => string;
   /**
    * Overrides the default date parsing
    *
    * @param {string} inputValue A date string
-   * @returns {Date} The parsed date
+   * @returns {Date} the parsed date
    */
   customParseDate?: (inputValue?: string) => Date;
   /**

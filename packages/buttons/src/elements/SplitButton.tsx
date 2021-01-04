@@ -10,7 +10,7 @@ import { StyledButtonGroup } from '../styled';
 import { SplitButtonContext } from '../utils/useSplitButtonContext';
 
 /**
- * High-level abstraction for basic SplitButton implementations.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const SplitButton: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
   children,
@@ -21,5 +21,4 @@ const SplitButton: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
   </SplitButtonContext.Provider>
 );
 
-/** @component */
 export default SplitButton;

@@ -10,7 +10,7 @@ import { StyledTooltipModalBody } from '../../styled';
 import { useTooltipModalContext } from '../../utils/useTooltipModalContext';
 
 /**
- * Accepts all `<div>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Body = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {

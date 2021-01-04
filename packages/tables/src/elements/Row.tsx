@@ -12,7 +12,7 @@ import { StyledRow, IStyledRowProps } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 
 /**
- * Accepts all `<tr>` props
+ * @extends HTMLAttributes<HTMLTableRowElement>
  */
 export const Row = React.forwardRef<
   HTMLTableRowElement,

@@ -17,7 +17,7 @@ interface IWellProps {
 }
 
 /**
- * Supports all `<div>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Well = React.forwardRef<HTMLDivElement, IWellProps & HTMLAttributes<HTMLDivElement>>(
   (props, ref) => <StyledWell ref={ref} {...props} />

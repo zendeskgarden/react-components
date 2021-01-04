@@ -25,8 +25,7 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 /**
- * Must be rendered within a `<Field>` element; accepts all `<input>`
- * attributes and events.
+ * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
   ({ onSelect, ...props }, ref) => {

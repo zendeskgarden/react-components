@@ -13,7 +13,8 @@ const COMPONENT_ID = 'chrome.brandmark_nav_item';
 
 export const StyledBrandmarkNavItem = styled(StyledBaseNavItem).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  as: 'div'
 })`
   order: 1;
   opacity: 0.3;

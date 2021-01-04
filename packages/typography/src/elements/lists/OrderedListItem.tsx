@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { LiHTMLAttributes } from 'react';
 import useOrderedListContext from '../../utils/useOrderedListContext';
 import { StyledOrderedListItem, StyledOrderedListItemContent } from '../../styled';
 
 const OrderedListItem: React.FunctionComponent<
-  HTMLAttributes<HTMLLIElement> & React.RefAttributes<HTMLLIElement>
-> = React.forwardRef<HTMLLIElement, HTMLAttributes<HTMLLIElement>>(
+  LiHTMLAttributes<HTMLLIElement> & React.RefAttributes<HTMLLIElement>
+> = React.forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
   ({ children, ...other }, ref) => {
     const { size } = useOrderedListContext();
 
@@ -25,5 +25,7 @@ const OrderedListItem: React.FunctionComponent<
 
 OrderedListItem.displayName = 'OrderedListItem';
 
-/** @component */
+/**
+ * @extends LiHTMLAttributes<HTMLLIElement>
+ */
 export default OrderedListItem;

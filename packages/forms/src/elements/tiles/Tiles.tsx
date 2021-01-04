@@ -43,7 +43,7 @@ interface IStaticTilesExport<T, P>
 
 /* eslint-disable react/display-name */
 /**
- * Accepts all `<div>` attributes
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Tiles = React.forwardRef<HTMLDivElement, ITilesProps>(
   ({ onChange, value: controlledValue, isCentered, ...props }, ref) => {

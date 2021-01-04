@@ -41,7 +41,7 @@ const sizeStyles = (props: IStyledBaseHeaderItemProps & ThemeProps<DefaultTheme>
  * 1. Reset the stacking context for embedded menus
  * 2. Button element reset
  */
-export const StyledBaseHeaderItem = styled.div.attrs({
+export const StyledBaseHeaderItem = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledBaseHeaderItemProps>`

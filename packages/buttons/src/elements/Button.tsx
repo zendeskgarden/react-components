@@ -33,7 +33,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /**
- * Accepts all `<button>` props
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 const Button: React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>
@@ -89,7 +89,6 @@ const EndIcon = (props: IIconProps) => <StyledIcon position="end" {...props} />;
 (Button as any).StartIcon = StartIcon;
 (Button as any).EndIcon = EndIcon;
 
-/** @component */
 export default Button as React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>
 > & {

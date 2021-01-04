@@ -32,7 +32,7 @@ export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * High-level abstraction for basic Tabs implementations.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const Tabs = React.forwardRef<HTMLDivElement, ITabsProps>(
   (

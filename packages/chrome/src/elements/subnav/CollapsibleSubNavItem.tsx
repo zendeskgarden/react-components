@@ -31,7 +31,7 @@ export interface ICollapsibleSubNavItemProps
 }
 
 /**
- * Accepts all `<button>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsibleSubNavItemProps>(
   ({ header, children, isExpanded: controlledExpanded, onChange, ...other }, ref) => {

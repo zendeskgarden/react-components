@@ -10,11 +10,11 @@ import PropTypes from 'prop-types';
 import { StyledSubNavItemText, IStyledSubNavItemTextProps } from '../../styled';
 
 /**
- * Accepts all `<span>` attributes and events
+ * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const SubNavItemText = React.forwardRef<
   HTMLElement,
-  IStyledSubNavItemTextProps & HTMLAttributes<HTMLElement>
+  IStyledSubNavItemTextProps & HTMLAttributes<HTMLSpanElement>
 >((props, ref) => <StyledSubNavItemText ref={ref} {...props} />);
 
 SubNavItemText.displayName = 'SubNavItemText';

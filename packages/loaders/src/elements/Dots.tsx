@@ -20,7 +20,7 @@ import {
 
 const COMPONENT_ID = 'loaders.dots';
 
-export interface IDotsProps extends React.HTMLAttributes<SVGSVGElement> {
+export interface IDotsProps extends React.SVGAttributes<SVGSVGElement> {
   /** Sets the height and width in pixels. Inherits the parent's font size by default. */
   size?: string | number;
   /** Sets the fill color. Inherits the parent's `color` by default. */
@@ -31,6 +31,9 @@ export interface IDotsProps extends React.HTMLAttributes<SVGSVGElement> {
   delayMS?: number;
 }
 
+/**
+ * @extends SVGAttributes<SVGSVGElement>
+ */
 const Dots: React.FC<IDotsProps> = ({ size, color, duration, delayMS, ...other }) => {
   const theme = useContext(ThemeContext);
   const environment = useDocument(theme);
@@ -97,5 +100,4 @@ Dots.defaultProps = {
   delayMS: 750
 };
 
-/* @component */
 export default Dots;

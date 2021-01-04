@@ -18,9 +18,6 @@ interface IUnorderedListProps extends HTMLAttributes<HTMLUListElement> {
   type?: 'circle' | 'disc' | 'square';
 }
 
-/**
- * Accepts all `ul` attributes and events
- */
 const UnorderedList = React.forwardRef<HTMLUListElement, IUnorderedListProps>(
   ({ size, type, ...other }, ref) => (
     <UnorderedListContext.Provider value={{ size: size! }}>
@@ -43,7 +40,9 @@ UnorderedList.defaultProps = {
 
 (UnorderedList as any).Item = UnorderedListItem;
 
-/** @component */
+/**
+ * @extends HTMLAttributes<HTMLUListElement>
+ */
 export default (UnorderedList as unknown) as React.FunctionComponent<
   IUnorderedListProps & React.RefAttributes<HTMLUListElement>
 > & {

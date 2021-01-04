@@ -56,8 +56,7 @@ export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Provides styling without native input backing; accepts all `<div>`
- * attributes and events.
+ *  @extends HTMLAttributes<HTMLDivElement>
  */
 // eslint-disable-next-line react/display-name
 export const FauxInput = forwardRef<HTMLDivElement, IFauxInputProps>(

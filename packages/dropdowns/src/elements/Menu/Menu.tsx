@@ -216,5 +216,4 @@ Menu.defaultProps = {
   zIndex: 1000
 };
 
-/** @component */
 export default withTheme(Menu) as React.FunctionComponent<IMenuProps>;

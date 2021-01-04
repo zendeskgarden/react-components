@@ -54,15 +54,6 @@ interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange
 }
 
 /**
- *  Accepts sub-components:
- *
- *  - `Accordion.Section`
- *  - `Accordion.Header`
- *  - `Accordion.Label`
- *  - `Accordion.Panel`
- *
- * Note: The `Accordion.Label` is a sub-component of `Accordion.Header`.
- *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(

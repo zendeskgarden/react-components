@@ -19,8 +19,7 @@ export interface ICheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 /**
- * Must be rendered within a `<Field>` element; accepts all
- * `<input type="checkbox">` attributes and events.
+ * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
   ({ indeterminate, children, ...props }, ref) => {

@@ -5,13 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { LiHTMLAttributes } from 'react';
 import useUnorderedListContext from '../../utils/useUnorderedListContext';
 import { StyledUnorderedListItem, StyledUnorderedListItemContent } from '../../styled';
 
+/**
+ * @export LiHTMLAttributes<HTMLLIElement>
+ */
 const UnorderedListItem: React.FunctionComponent<
-  HTMLAttributes<HTMLLIElement> & React.RefAttributes<HTMLLIElement>
-> = React.forwardRef<HTMLLIElement, HTMLAttributes<HTMLLIElement>>(
+  LiHTMLAttributes<HTMLLIElement> & React.RefAttributes<HTMLLIElement>
+> = React.forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
   ({ children, ...other }, ref) => {
     const { size } = useUnorderedListContext();
 
@@ -25,5 +28,4 @@ const UnorderedListItem: React.FunctionComponent<
 
 UnorderedListItem.displayName = 'UnorderedListItem';
 
-/** @component */
 export default UnorderedListItem;

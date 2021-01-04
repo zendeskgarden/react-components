@@ -24,7 +24,7 @@ export interface IButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * High-level abstraction for basic ButtonGroup implementations
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const ButtonGroup: React.FunctionComponent<IButtonGroupProps> = ({
   children,
