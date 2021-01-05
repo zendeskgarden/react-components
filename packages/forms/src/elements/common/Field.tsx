@@ -17,8 +17,7 @@ export interface IFieldProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Provides layout and ID context for child components; accepts all `<div>`
- * attributes and events.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Field = React.forwardRef<HTMLDivElement, IFieldProps>((props, ref) => {
   const [isLabelActive, setIsLabelActive] = useState(false);

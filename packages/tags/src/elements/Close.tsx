@@ -10,7 +10,7 @@ import { StyledClose } from '../styled';
 import XIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 
 /**
- * Used to close a Tag. Supports all `<div>` attributes and events.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const Close = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
   <StyledClose ref={ref} {...props}>
@@ -20,5 +20,4 @@ const Close = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
 
 Close.displayName = 'Close';
 
-/** @component */
 export default Close;

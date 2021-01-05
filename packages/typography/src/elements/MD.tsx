@@ -19,7 +19,7 @@ interface IMDProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all standard attributes and events for the provided `tag`
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const MD: React.FunctionComponent<
   IMDProps & React.RefAttributes<HTMLDivElement>
@@ -39,5 +39,4 @@ MD.defaultProps = {
   tag: 'div'
 };
 
-/** @component */
 export default MD;

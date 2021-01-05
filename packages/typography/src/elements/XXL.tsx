@@ -17,7 +17,7 @@ interface IXXLProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all standard attributes and events for the provided `tag`
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const XXL: React.FunctionComponent<
   IXXLProps & React.RefAttributes<HTMLDivElement>
@@ -36,5 +36,4 @@ XXL.defaultProps = {
   tag: 'div'
 };
 
-/** @component */
 export default XXL;

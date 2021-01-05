@@ -21,7 +21,7 @@ interface IChromeProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all `<div>` attributes and events
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(({ hue, isFluid, ...props }, ref) => {
   const theme = useContext(ThemeContext);
@@ -75,5 +75,4 @@ Chrome.propTypes = {
   hue: PropTypes.string
 };
 
-/** @component */
 export default Chrome;

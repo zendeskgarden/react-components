@@ -82,7 +82,7 @@ export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * High-level abstraction for basic Modal implementations. Accepts all `<div>` props.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
   (

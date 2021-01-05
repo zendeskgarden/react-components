@@ -10,7 +10,7 @@ import { useTooltipModalContext } from '../../utils/useTooltipModalContext';
 import { StyledTooltipModalTitle } from '../../styled';
 
 /**
- * Accepts all `<div>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Title = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {

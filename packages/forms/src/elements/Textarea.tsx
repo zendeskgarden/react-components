@@ -42,8 +42,7 @@ const parseStyleValue = (value: string) => {
 };
 
 /**
- * Must be rendered within a `<Field>` element; accepts all
- * `<textarea />` attributes and events.
+ * @extends TextareaHTMLAttributes<HTMLTextAreaElement>
  */
 export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
   ({ minRows, maxRows, style, onChange, onSelect, ...props }, ref) => {

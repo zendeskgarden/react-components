@@ -51,7 +51,7 @@ export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElemen
 }
 
 /**
- * Accepts all `<div>` attributes and events.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>> = ({
   min,
@@ -459,5 +459,4 @@ MultiThumbRange.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-/** @component */
 export default withTheme(MultiThumbRange) as FunctionComponent<IMultiThumbRangeProps>;

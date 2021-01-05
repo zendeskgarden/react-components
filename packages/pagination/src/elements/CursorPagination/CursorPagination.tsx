@@ -26,13 +26,7 @@ interface IStaticCursorPaginationExport<T, P>
 }
 
 /**
- * High-abstraction element for cursor pagination. Accepts all `<nav>` props and the following sub-components:
- *  - `CursorPagination.First`
- *  - `CursorPagination.Previous`
- *  - `CursorPagination.Next`
- *  - `CursorPagination.Last`
- *
- * Note: The sub-components accepts all `<button>` props.
+ * @extends HTMLAttributes<HTMLElement>
  */
 // eslint-disable-next-line react/display-name
 export const CursorPagination = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(

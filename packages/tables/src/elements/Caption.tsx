@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { StyledCaption } from '../styled';
 
 /**
- * Accepts all `<caption>` attributes and events
+ * @extends HTMLAttributes<HTMLTableCaptionElement>
  */
 export const Caption = React.forwardRef<
   HTMLTableCaptionElement,

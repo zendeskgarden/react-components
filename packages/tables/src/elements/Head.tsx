@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { StyledHead } from '../styled';
 
 /**
- * Accepts all `<thead>` attributes and events
+ * @extends HTMLAttributes<HTMLTableSectionElement>
  */
 export const Head = React.forwardRef<
   HTMLTableSectionElement,

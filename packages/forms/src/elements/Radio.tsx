@@ -11,8 +11,7 @@ import { InputContext } from '../utils/useInputContext';
 import { StyledRadioInput } from '../styled';
 
 /**
- * Must be rendered within a `<Field>` element; accepts all
- * `<input type="radio">` attributes and events.
+ * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const Radio = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
   ({ children, ...props }, ref) => {

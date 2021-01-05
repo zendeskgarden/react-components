@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { StyledFooterItem } from '../../styled';
 
 /**
- * Accepts all `<div>` attributes and events
+ * @extends HTMLAttributes<HTMLElement>
  */
 export const FooterItem = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => <StyledFooterItem ref={ref} {...props} />

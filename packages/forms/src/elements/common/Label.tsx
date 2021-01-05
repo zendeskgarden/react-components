@@ -27,8 +27,7 @@ export interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
 }
 
 /**
- * Must be rendered within a `<Field>` element; accepts all `<label>` attributes
- * and events.
+ * @extends LabelHTMLAttributes<HTMLLabelElement>
  */
 export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref) => {
   const fieldContext = useFieldContext();

@@ -24,8 +24,7 @@ export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Must be rendered within a `<Field>` element; accepts all `<div>` attributes
- * and events.
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
   ({ validation, children, ...props }, ref) => {

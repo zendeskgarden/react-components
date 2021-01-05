@@ -26,8 +26,7 @@ export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 /**
- * Must be rendered within a `<Field>` element; accepts all `<select>`
- * attributes and events.
+ * @extends SelectHTMLAttributes<HTMLSelectElement>
  */
 export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
   ({ disabled, ...props }, ref) => {

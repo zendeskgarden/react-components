@@ -44,7 +44,7 @@ export interface IDatepickerProps {
    * Customizes the input element's date formatting
    *
    *  @param {Date} date The selected date
-   *  @returns {string} A formatted date string
+   *  @returns {string} a formatted date string
    */
   formatDate?: (date: Date) => string;
   /**
@@ -68,7 +68,7 @@ export interface IDatepickerProps {
    * Overrides default date parsing
    *
    * @param {string} inputValue A localized input value
-   * @returns {Date} The parsed date
+   * @returns {Date} the parsed date
    */
   customParseDate?: (inputValue: string) => Date;
   /**

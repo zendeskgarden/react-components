@@ -10,7 +10,7 @@ import IconButton, { IIconButtonProps } from './IconButton';
 import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 /**
- * An `IconButton` with an embedded chevron icon
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 const ChevronButton: React.FunctionComponent<
   IIconButtonProps & React.RefAttributes<HTMLButtonElement>

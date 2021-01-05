@@ -18,7 +18,7 @@ export interface IAlertProps {
 }
 
 /**
- * Supports all `<div>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Alert = React.forwardRef<HTMLDivElement, IAlertProps & HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {

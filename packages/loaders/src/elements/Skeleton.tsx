@@ -19,7 +19,7 @@ export interface ISkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Loader used to create Skeleton objects
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const Skeleton: React.FC<ISkeletonProps> = ({ width, height, isLight, ...other }) => {
   return (
@@ -40,5 +40,4 @@ Skeleton.defaultProps = {
   height: '100%'
 };
 
-/** @component */
 export default Skeleton;

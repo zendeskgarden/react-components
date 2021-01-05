@@ -18,6 +18,9 @@ export interface IFileUploadProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
 }
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const FileUpload = React.forwardRef<HTMLDivElement, IFileUploadProps>(
   ({ disabled, ...props }, ref) => {
     return <StyledFileUpload ref={ref} aria-disabled={disabled} {...props} />;

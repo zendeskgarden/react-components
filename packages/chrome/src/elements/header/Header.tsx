@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { StyledHeader, IStyledHeaderProps } from '../../styled';
 
 /**
- * Accepts all `<header>` attributes and events
+ * @extends HTMLAttributes<HTMLElement>
  */
 export const Header = React.forwardRef<
   HTMLElement,

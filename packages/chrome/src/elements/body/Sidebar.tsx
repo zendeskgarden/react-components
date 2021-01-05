@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { StyledSidebar } from '../../styled';
 
 /**
- * Accepts all `<aside>` attributes and events
+ * @extends HTMLAttributes<HTMLElement>
  */
 export const Sidebar = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (
   <StyledSidebar ref={ref} {...props} />

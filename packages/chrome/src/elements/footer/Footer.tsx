@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { StyledFooter } from '../../styled';
 
 /**
- * Accepts all `<footer>` props. _Remember to set the_ `hasFooter` _prop on the parent_ `<Body>`.
+ * @extends HTMLAttributes<HTMLElement>
  */
 export const Footer = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (
   <StyledFooter ref={ref} {...props} />

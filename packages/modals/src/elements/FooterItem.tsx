@@ -9,7 +9,7 @@ import React from 'react';
 import { StyledFooterItem } from '../styled';
 
 /**
- * Accepts all `<span>` props
+ * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const FooterItem = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(
   (props, ref) => <StyledFooterItem ref={ref} {...props} />

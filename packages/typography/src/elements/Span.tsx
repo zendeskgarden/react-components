@@ -24,9 +24,6 @@ interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   hue?: string;
 }
 
-/**
- * Accepts all standard attributes and events for the provided `tag`
- */
 const Span: React.FunctionComponent<
   ISpanProps & React.RefAttributes<HTMLSpanElement>
 > = React.forwardRef<HTMLSpanElement, ISpanProps>(({ tag, ...other }, ref) => (
@@ -56,6 +53,9 @@ const Icon = (props: IIconProps) => <StyledIcon {...props} />;
 (Span as any).StartIcon = StartIcon;
 (Span as any).Icon = Icon;
 
+/**
+ * @extends HTMLAttributes<HTMLSpanElement>
+ */
 export default Span as React.FunctionComponent<
   ISpanProps & React.RefAttributes<HTMLSpanElement>
 > & {

@@ -17,7 +17,7 @@ export interface ICodeProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all `<code>` attributes and events
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const Code: React.FunctionComponent<
   ICodeProps & React.RefAttributes<HTMLDivElement>
@@ -49,5 +49,4 @@ Code.defaultProps = {
   size: 'inherit'
 };
 
-/** @component */
 export default Code;

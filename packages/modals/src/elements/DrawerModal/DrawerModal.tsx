@@ -78,6 +78,9 @@ export interface IDrawerModalProps extends HTMLAttributes<HTMLDivElement> {
   restoreFocus?: boolean;
 }
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const DrawerModal = forwardRef<
   HTMLDivElement,
   IDrawerModalProps & HTMLAttributes<HTMLDivElement>

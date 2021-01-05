@@ -13,7 +13,7 @@ import { ARRAY_VALIDATION_TYPE } from '../utils/types';
 import { validationIcons, validationHues } from '../utils/icons';
 
 /**
- * Supports all `<div>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Notification = React.forwardRef<
   HTMLDivElement,

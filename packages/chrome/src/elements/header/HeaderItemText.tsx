@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { StyledHeaderItemText, IStyledHeaderItemTextProps } from '../../styled';
 
 /**
- * Accepts all `<span>` attributes and events
+ * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const HeaderItemText = React.forwardRef<
   HTMLElement,

@@ -11,8 +11,7 @@ import { InputContext } from '../utils/useInputContext';
 import { StyledToggleInput } from '../styled';
 
 /**
- * Must be rendered within a `<Field>` element; accepts all
- * `<input type="checkbox">` attributes and events.
+ * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const Toggle = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
   ({ children, ...props }, ref) => {

@@ -11,7 +11,7 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import { FieldContext } from '../../utils/useFieldContext';
 
 /**
- * Accepts all `<div>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Field: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = props => {
   const {
