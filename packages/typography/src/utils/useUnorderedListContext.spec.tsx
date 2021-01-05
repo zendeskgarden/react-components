@@ -18,7 +18,6 @@ describe('useUnorderedListContext', () => {
   };
 
   it('throws if called outside of UnorderedList component', () => {
-    /* eslint-disable no-console */
     const originalError = console.error;
 
     console.error = jest.fn();

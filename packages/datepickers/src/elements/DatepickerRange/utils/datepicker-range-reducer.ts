@@ -154,8 +154,8 @@ export const datepickerRangeReducer = ({
         });
       }
 
-      if (parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, startValue!)) {
-        onChange && onChange({ startValue: parsedDate, endValue });
+      if (onChange && parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, startValue!)) {
+        onChange({ startValue: parsedDate, endValue });
       }
 
       const startInputValue = formatValue({ value: parsedDate, locale, formatDate });
@@ -177,8 +177,8 @@ export const datepickerRangeReducer = ({
         });
       }
 
-      if (parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, endValue!)) {
-        onChange && onChange({ startValue, endValue: parsedDate });
+      if (onChange && parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, endValue!)) {
+        onChange({ startValue, endValue: parsedDate });
       }
 
       const endInputValue =
@@ -238,34 +238,36 @@ export const datepickerRangeReducer = ({
       };
     }
     case 'CLICK_DATE':
-      if (state.isStartFocused) {
-        if (
-          endValue !== undefined &&
-          (isBefore(action.value, endValue) || isSameDay(action.value, endValue))
-        ) {
-          onChange && onChange({ startValue: action.value, endValue });
+      if (onChange) {
+        if (state.isStartFocused) {
+          if (
+            endValue !== undefined &&
+            (isBefore(action.value, endValue) || isSameDay(action.value, endValue))
+          ) {
+            onChange({ startValue: action.value, endValue });
+          } else {
+            onChange({ startValue: action.value, endValue: undefined });
+          }
+        } else if (state.isEndFocused) {
+          if (
+            startValue !== undefined &&
+            (isAfter(action.value, startValue) || isSameDay(action.value, startValue))
+          ) {
+            onChange({ startValue, endValue: action.value });
+          } else {
+            onChange({ startValue: action.value, endValue: undefined });
+          }
+        } else if (startValue === undefined) {
+          onChange({ startValue: action.value, endValue: undefined });
+        } else if (endValue === undefined) {
+          if (isBefore(action.value, startValue)) {
+            onChange({ startValue: action.value, endValue: undefined });
+          } else {
+            onChange({ startValue, endValue: action.value });
+          }
         } else {
-          onChange && onChange({ startValue: action.value, endValue: undefined });
+          onChange({ startValue: action.value, endValue: undefined });
         }
-      } else if (state.isEndFocused) {
-        if (
-          startValue !== undefined &&
-          (isAfter(action.value, startValue) || isSameDay(action.value, startValue))
-        ) {
-          onChange && onChange({ startValue, endValue: action.value });
-        } else {
-          onChange && onChange({ startValue: action.value, endValue: undefined });
-        }
-      } else if (startValue === undefined) {
-        onChange && onChange({ startValue: action.value, endValue: undefined });
-      } else if (endValue === undefined) {
-        if (isBefore(action.value, startValue)) {
-          onChange && onChange({ startValue: action.value, endValue: undefined });
-        } else {
-          onChange && onChange({ startValue, endValue: action.value });
-        }
-      } else {
-        onChange && onChange({ startValue: action.value, endValue: undefined });
       }
 
       return state;

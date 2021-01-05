@@ -20,7 +20,6 @@ describe('useItemContext', () => {
   };
 
   it('throws if called outside of Item component', () => {
-    /* eslint-disable no-console */
     const originalError = console.error;
 
     console.error = jest.fn();

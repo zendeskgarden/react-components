@@ -89,8 +89,8 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
      * This must be ran every render to allow for the number of items to change
      * and still be placed correctly.
      **/
-    if (isOpen) {
-      scheduleUpdateRef.current && scheduleUpdateRef.current();
+    if (scheduleUpdateRef.current && isOpen) {
+      scheduleUpdateRef.current();
     }
   });
 

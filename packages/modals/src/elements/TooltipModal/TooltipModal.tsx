@@ -55,7 +55,7 @@ export interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Modifies [Popper instance](https://popper.js.org/docs/v2/modifiers/) to customize positioning logic
    */
-  popperModifiers?: Array<Partial<Modifier<any, any>>>;
+  popperModifiers?: Partial<Modifier<any, any>>[];
   /**
    * Adjusts the placement of the tooltip
    **/

@@ -23,7 +23,6 @@ describe('ButtonGroup', () => {
     </ButtonGroup>
   );
 
-  /* eslint-disable no-console */
   it('throws if value is not provided to button', () => {
     const originalError = console.error;
 

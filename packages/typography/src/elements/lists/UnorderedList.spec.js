@@ -13,7 +13,7 @@ describe('UnorderedList', () => {
   it('applies <ul> rendering by default', () => {
     const { container } = render(<UnorderedList />);
 
-    expect(container.querySelector('ul')).not.toBe(null);
+    expect(container.querySelector('ul')).not.toBeNull();
   });
 
   it('applies correct styling with RTL layout', () => {

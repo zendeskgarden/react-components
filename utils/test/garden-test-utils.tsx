@@ -42,7 +42,7 @@ const customLtrRender = (ui: React.ReactElement, options?: any) =>
 const customRtlRender = (ui: React.ReactElement, options?: any) =>
   render(ui, { wrapper: RtlProvider, ...options });
 
-// eslint-disable-next-line no-duplicate-imports
+// eslint-disable-next-line @typescript-eslint/no-duplicate-imports
 export * from '@testing-library/react';
 export { customLtrRender as render };
 export { customRtlRender as renderRtl };

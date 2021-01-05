@@ -16,7 +16,7 @@ const SplitButton: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
   children,
   ...other
 }) => (
-  <SplitButtonContext.Provider value={true}>
+  <SplitButtonContext.Provider value>
     <StyledButtonGroup {...other}>{children}</StyledButtonGroup>
   </SplitButtonContext.Provider>
 );

@@ -19,7 +19,7 @@ const NextItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
 
     return (
       <StyledNextItem ref={ref} disabled={disabled} {...props}>
-        <StyledItemIcon isCompact={isCompact} isDisabled={disabled} isVisible={true}>
+        <StyledItemIcon isCompact={isCompact} isDisabled={disabled} isVisible>
           <StyledNextIcon isDisabled={disabled} />
         </StyledItemIcon>
         {children}
@@ -49,7 +49,7 @@ export const NextItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'compon
     return (
       <Item
         component={NextItemComponent}
-        aria-expanded={true}
+        aria-expanded
         disabled={disabled}
         value={value}
         ref={ref}

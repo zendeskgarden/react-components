@@ -65,10 +65,12 @@ class TableOfContents extends Component {
 
   render() {
     const parameters = qs.parse(location.search.slice(1), { strictNullHandling: true });
+    // eslint-disable-next-line no-undef
     const githubPackageUrl = `https://github.com/zendeskgarden/react-components/tree/main/packages/${BASE_PATH_NAME}`;
     const { children, ...other } = this.props;
     const { isChangelogModalOpen } = this.state;
 
+    /* eslint-disable react/no-set-state */
     return (
       <div role="navigation">
         <TableOfContentsRenderer {...other}>

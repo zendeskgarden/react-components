@@ -104,8 +104,8 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps>(
           }
         }
 
-        if (updatedCurrentPage !== undefined) {
-          onChange && onChange(updatedCurrentPage);
+        if (onChange && updatedCurrentPage !== undefined) {
+          onChange(updatedCurrentPage);
         }
 
         setFocusedItem(updatedFocusedKey);

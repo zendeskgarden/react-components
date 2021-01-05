@@ -46,7 +46,7 @@ describe('Row', () => {
     const { getByTestId } = render(
       <Table>
         <Body>
-          <Row data-test-id="row"></Row>
+          <Row data-test-id="row" />
         </Body>
       </Table>
     );
@@ -70,7 +70,7 @@ describe('Row', () => {
     const { getByTestId } = render(
       <Table>
         <Body>
-          <Row data-test-id="row"></Row>
+          <Row data-test-id="row" />
         </Body>
       </Table>
     );
@@ -93,7 +93,7 @@ describe('Row', () => {
     const { getByTestId } = render(
       <Table>
         <Body>
-          <Row data-test-id="row" isStriped></Row>
+          <Row data-test-id="row" isStriped />
         </Body>
       </Table>
     );
@@ -108,7 +108,7 @@ describe('Row', () => {
     const { getByTestId } = render(
       <Table>
         <Body>
-          <Row data-test-id="row" isHovered></Row>
+          <Row data-test-id="row" isHovered />
         </Body>
       </Table>
     );
@@ -124,7 +124,7 @@ describe('Row', () => {
       const { getByTestId } = render(
         <Table>
           <Body>
-            <Row data-test-id="row" isSelected isHovered></Row>
+            <Row data-test-id="row" isSelected isHovered />
           </Body>
         </Table>
       );
@@ -139,7 +139,7 @@ describe('Row', () => {
       const { getByTestId } = render(
         <Table>
           <Body>
-            <Row data-test-id="row" isSelected></Row>
+            <Row data-test-id="row" isSelected />
           </Body>
         </Table>
       );

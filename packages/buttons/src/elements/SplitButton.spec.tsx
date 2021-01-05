@@ -16,9 +16,7 @@ describe('SplitButton', () => {
     const { getByTestId } = render(
       <SplitButton>
         <Button data-test-id="button">Test</Button>
-        <>
-          <ChevronButton data-test-id="chevron" />
-        </>
+        <ChevronButton data-test-id="chevron" />
       </SplitButton>
     );
 

@@ -12,9 +12,9 @@ import useGridContext from './useGridContext';
 describe('useGridContext', () => {
   it('contains default gutter sizing', () => {
     const GridContextConsumer = () => {
-      const context = useGridContext();
+      const { gutters } = useGridContext();
 
-      return <div data-gutters={context.gutters}>test</div>;
+      return <div data-gutters={gutters}>test</div>;
     };
     const { container } = render(<GridContextConsumer />);
 

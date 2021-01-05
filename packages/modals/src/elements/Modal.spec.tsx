@@ -67,7 +67,7 @@ describe('Modal', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
 
-    const { getByTestId } = render(<Modal ref={ref} data-test-id="modal"></Modal>);
+    const { getByTestId } = render(<Modal ref={ref} data-test-id="modal" />);
 
     expect(getByTestId('modal')).toBe(ref.current);
   });
@@ -75,7 +75,7 @@ describe('Modal', () => {
   it('applies backdropProps to Backdrop element', () => {
     const { getByTestId } = render(<BasicExample />);
 
-    expect(getByTestId('backdrop')).not.toBe(null);
+    expect(getByTestId('backdrop')).not.toBeNull();
   });
 
   it('applies modal props to StyledModal element', () => {
@@ -129,7 +129,7 @@ describe('Modal', () => {
     it('should append the backdrop to the supplied element', () => {
       const { getByTestId, rerender } = render(
         <>
-          <div data-test-id="portal"></div>
+          <div data-test-id="portal" />
           <BasicExample />
         </>
       );
@@ -138,7 +138,7 @@ describe('Modal', () => {
 
       rerender(
         <>
-          <div data-test-id="portal"></div>
+          <div data-test-id="portal" />
           <BasicExample appendToNode={portalInstance} />
         </>
       );

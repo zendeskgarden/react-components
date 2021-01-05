@@ -74,7 +74,7 @@ describe('menuStyles', () => {
   });
 
   describe('position', () => {
-    const POSITION: Array<MENU_POSITION> = ['top', 'right', 'bottom', 'left'];
+    const POSITION: MENU_POSITION[] = ['top', 'right', 'bottom', 'left'];
 
     POSITION.forEach(position => {
       it(`renders with the expected ${position} positioning`, () => {
@@ -96,7 +96,7 @@ describe('menuStyles', () => {
     });
 
     it('renders expected hidden styling', () => {
-      const { container } = render(<StyledMenu menuHidden={true} />);
+      const { container } = render(<StyledMenu menuHidden />);
 
       expect(container.firstChild).toHaveStyleRule('visibility', 'hidden');
     });

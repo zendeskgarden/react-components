@@ -43,13 +43,13 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
 
   useEffect(() => {
     // Focus internal input when Menu is opened
-    if (isOpen && !previousIsOpenRef.current) {
-      hiddenInputRef.current && hiddenInputRef.current.focus();
+    if (hiddenInputRef.current && isOpen && !previousIsOpenRef.current) {
+      hiddenInputRef.current.focus();
     }
 
     // Focus trigger when Menu is closed
-    if (!isOpen && previousIsOpenRef.current) {
-      triggerRef.current && triggerRef.current.focus();
+    if (triggerRef.current && !isOpen && previousIsOpenRef.current) {
+      triggerRef.current.focus();
     }
 
     previousIsOpenRef.current = isOpen;

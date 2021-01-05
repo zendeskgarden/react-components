@@ -14,7 +14,7 @@ describe('retrieveComponentStyles', () => {
   it('returns undefined if no matching styles is found', () => {
     const styles = retrieveComponentStyles(COMPONENT_ID, { theme: {} });
 
-    expect(styles).toBe(undefined);
+    expect(styles).toBeUndefined();
   });
 
   it('calls style as method if provided as a function', () => {

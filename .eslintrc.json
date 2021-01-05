@@ -1,82 +1,44 @@
 {
-  "parser": "@typescript-eslint/parser",
   "extends": [
     "@zendeskgarden",
-    "@zendeskgarden/eslint-config/plugins/notice.js",
-    "plugin:react/recommended",
-    "plugin:jest/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "@zendeskgarden/eslint-config/plugins/notice",
+    "@zendeskgarden/eslint-config/plugins/react",
+    "prettier",
+    "prettier/react"
   ],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "globals": {
-    "jest": true,
-    "BASE_PATH_NAME": true,
-    "PACKAGE_VERSION": true
-  },
-  "plugins": ["react-hooks", "garden-local"],
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
-  },
   "rules": {
-    "prettier/prettier": "error",
     "sort-imports": "off",
-    "valid-jsdoc": "off",
-    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
-    "no-irregular-whitespace": ["error", { "skipTemplates": true }],
-    "prefer-named-capture-group": "off",
-    "react/prop-types": ["error", { "ignore": ["children"] }],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        "selector": "default",
-        "format": ["camelCase", "PascalCase", "UPPER_CASE"],
-        "leadingUnderscore": "allow"
-      }
-    ],
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/no-use-before-define": "error",
-    "no-use-before-define": "off",
-    "jest/no-conditional-expect": "off",
-    "garden-local/require-default-theme": "error"
+    "react/no-array-index-key": "off",
+    "react/no-set-state": "error"
   },
   "overrides": [
     {
-      "files": ["*.{ts,tsx}", "*.spec.{js,ts,tsx}", "utils/**/*.{js,ts,tsx}"],
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "@zendeskgarden/eslint-config/plugins/typescript",
+        "prettier/@typescript-eslint"
+      ],
       "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-explicit-any": "off",
         "react/prop-types": "off"
       }
     },
     {
-      "files": ["packages/*/src/index.ts", "packages/**/styled/index.ts"],
+      "files": ["packages/**/*.{js,ts,tsx}"],
+      "excludedFiles": ["*.spec.*"],
+      "plugins": ["garden-local"],
       "rules": {
-        "no-duplicate-imports": "off"
+        "garden-local/require-default-theme": "error"
       }
     },
     {
-      "files": [
-        "*.spec.{js,ts,tsx}",
-        "**/stories/**/*",
-        "utils/**/*.{js,ts,tsx}",
-        ".storybook/**/*.{js,ts,tsx}",
-        "styleguide.config.js"
-      ],
+      "files": ["*.spec.*"],
+      "extends": "@zendeskgarden/eslint-config/plugins/jest",
       "rules": {
-        "garden-local/require-default-theme": "off",
-        "@typescript-eslint/no-var-requires": "off"
+        "no-console": "off",
+        "react/button-has-type": "off"
       }
     }
   ]
