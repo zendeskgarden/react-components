@@ -52,7 +52,7 @@
     "access": "public"
   },
   "resolutions": {
-    "@types/react": "16.9.55"
+    "@types/react": "17.0.0"
   },
   "zendeskgarden:src": "src/index.ts"
 }
