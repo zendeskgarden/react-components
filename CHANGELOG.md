@@ -12,6 +12,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.29.2 (2021-01-06)
+
+#### :memo: Documentation
+* `accordions`, `avatars`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#968](https://github.com/zendeskgarden/react-components/pull/968) chore: include @extends tags ([@Mikaelia](https://github.com/Mikaelia))
+
+#### :seedling: Internal
+* `accordions`, `avatars`, `buttons`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`, `utilities`
+  * [#982](https://github.com/zendeskgarden/react-components/pull/982) chore: use @zendeskgarden/eslint-config plugins ([@jzempel](https://github.com/jzempel))
+
 ## v8.29.1 (2020-12-30)
 
 #### :bug: Bug Fix
