@@ -10,7 +10,7 @@ import { StyledHeaderIcon } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
 /**
- * Proxies all props to passed element
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const HeaderIcon = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {

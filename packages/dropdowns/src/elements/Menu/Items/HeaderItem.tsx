@@ -5,17 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { LiHTMLAttributes } from 'react';
 import { StyledHeaderItem } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
-interface IHeaderItemProps extends HTMLAttributes<HTMLLIElement> {
+interface IHeaderItemProps extends LiHTMLAttributes<HTMLLIElement> {
   /** Applies icon styling */
   hasIcon?: boolean;
 }
 
 /**
- * Accepts all `<li>` props
+ * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const HeaderItem = React.forwardRef<HTMLLIElement, IHeaderItemProps>((props, ref) => {
   const { isCompact } = useMenuContext();

@@ -221,4 +221,7 @@ Tooltip.defaultProps = {
   theme: DEFAULT_THEME
 };
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export default withTheme(Tooltip) as React.FC<ITooltipProps>;

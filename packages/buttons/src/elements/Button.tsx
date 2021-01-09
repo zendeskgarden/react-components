@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, HTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, SVGAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton, StyledIcon } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
@@ -32,9 +32,6 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isSelected?: boolean;
 }
 
-/**
- * @extends ButtonHTMLAttributes<HTMLButtonElement>
- */
 const Button: React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>
 > = React.forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
@@ -78,7 +75,7 @@ Button.defaultProps = {
   size: 'medium'
 };
 
-export interface IIconProps extends HTMLAttributes<HTMLElement> {
+export interface IIconProps extends SVGAttributes<SVGSVGElement> {
   isRotated?: boolean;
   children: any;
 }
@@ -89,6 +86,9 @@ const EndIcon = (props: IIconProps) => <StyledIcon position="end" {...props} />;
 (Button as any).StartIcon = StartIcon;
 (Button as any).EndIcon = EndIcon;
 
+/**
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
 export default Button as React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>
 > & {

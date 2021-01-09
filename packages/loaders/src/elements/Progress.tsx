@@ -23,9 +23,6 @@ export interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
   size?: 'small' | 'medium' | 'large';
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
 const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
   ({ value, size, ...other }, ref) => {
     const percentage = Math.max(0, Math.min(100, value!));
@@ -61,6 +58,9 @@ Progress.defaultProps = {
   size: 'medium'
 };
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export default Progress as React.FunctionComponent<
   IProgressProps & React.RefAttributes<HTMLDivElement>
 >;

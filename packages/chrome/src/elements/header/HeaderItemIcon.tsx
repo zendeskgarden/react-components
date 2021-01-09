@@ -8,6 +8,9 @@
 import React, { Children, HTMLAttributes } from 'react';
 import { StyledHeaderItemIcon } from '../../styled';
 
+/**
+ * @extends HTMLAttributes<any>
+ */
 export const HeaderItemIcon: React.FC<HTMLAttributes<any>> = ({ children, ...props }) => {
   // The `forwardRef` API is not needed in this element since we are cloning the provided child.
   const Element: React.FC<unknown> = elementProps =>

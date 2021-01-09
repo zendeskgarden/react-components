@@ -34,11 +34,6 @@ interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   start?: any;
 }
 
-/**
- * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
- *
- * @extends HTMLAttributes<HTMLDivElement>
- */
 const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
   ({ children, inputRef: controlledInputRef, start, ...props }, ref) => {
     const {
@@ -164,6 +159,9 @@ Autocomplete.propTypes = {
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export default Autocomplete as React.FunctionComponent<
   IAutocompleteProps & React.RefAttributes<HTMLDivElement>
 >;

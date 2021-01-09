@@ -30,7 +30,7 @@ const AddItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
 AddItemComponent.displayName = 'AddItemComponent';
 
 /**
- * Accepts all `<li>` props
+ * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const AddItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
   (props, ref) => <Item component={AddItemComponent} ref={ref} {...props} />

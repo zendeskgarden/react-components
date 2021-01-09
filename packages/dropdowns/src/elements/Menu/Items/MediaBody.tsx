@@ -10,7 +10,7 @@ import { StyledMediaBody } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
 /**
- * Accepts all `<div>` props
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const MediaBody = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
