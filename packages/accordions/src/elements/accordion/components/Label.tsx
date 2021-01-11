@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef, ButtonHTMLAttributes } from 'react';
 import { StyledButton } from '../../../styled';
 import { useAccordionContext, useHeaderContext, useSectionContext } from '../../../utils';
 
-export const Label = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
+export const Label = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const sectionIndex = useSectionContext();
     const { isCompact, isCollapsible, expandedSections } = useAccordionContext();

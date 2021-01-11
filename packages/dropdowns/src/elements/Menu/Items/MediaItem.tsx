@@ -11,7 +11,7 @@ import { Item, IItemProps } from './Item';
 import { StyledMediaItem } from '../../../styled';
 
 /**
- * Accepts all `<li>` props
+ * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const MediaItem = React.forwardRef<HTMLLIElement, IItemProps>((props, ref) => (
   <Item component={StyledMediaItem} ref={ref} {...props} />

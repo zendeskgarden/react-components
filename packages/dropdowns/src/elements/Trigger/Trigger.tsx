@@ -18,7 +18,7 @@ interface ITriggerProps extends HTMLAttributes<HTMLElement> {
 }
 
 /**
- * Applies state and a11y attributes to its children. Must be nested within a `<Dropdown>` component.
+ * @extends HTMLAttributes<HTMLElement>
  */
 const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...triggerProps }) => {
   const {

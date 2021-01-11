@@ -56,9 +56,6 @@ interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   maxHeight?: string;
 }
 
-/**
- * Accepts all `<ul>` props
- */
 const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = props => {
   const {
     placement,
@@ -216,4 +213,7 @@ Menu.defaultProps = {
   zIndex: 1000
 };
 
+/**
+ * @extends HTMLAttributes<HTMLUListElement>
+ */
 export default withTheme(Menu) as React.FunctionComponent<IMenuProps>;

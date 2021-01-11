@@ -26,9 +26,6 @@ interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   badge?: string | number;
 }
 
-/**
- * @extends HTMLAttributes<HTMLElement>
- */
 const Avatar: React.FunctionComponent<IAvatarProps> = React.forwardRef<HTMLElement, IAvatarProps>(
   (
     {
@@ -84,6 +81,9 @@ Avatar.defaultProps = {
 
 (Avatar as any).Text = StyledText;
 
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
 export default Avatar as React.FunctionComponent<
   IAvatarProps & React.RefAttributes<HTMLElement>
 > & {

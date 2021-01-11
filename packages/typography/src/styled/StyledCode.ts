@@ -32,7 +32,7 @@ interface IStyledCodeProps extends IStyledFontProps {
   size?: 'sm' | 'md' | 'lg' | 'inherit';
 }
 
-export const StyledCode = styled(StyledFont).attrs({
+export const StyledCode = styled(StyledFont as 'code').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'code'

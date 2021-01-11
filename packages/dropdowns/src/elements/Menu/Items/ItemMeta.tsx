@@ -11,7 +11,7 @@ import useMenuContext from '../../../utils/useMenuContext';
 import useItemContext from '../../../utils/useItemContext';
 
 /**
- * Accepts all `<div>` props
+ * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const ItemMeta = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
   (props, ref) => {

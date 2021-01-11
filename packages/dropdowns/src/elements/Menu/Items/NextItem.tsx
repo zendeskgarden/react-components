@@ -31,7 +31,7 @@ const NextItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
 NextItemComponent.displayName = 'NextItemComponent';
 
 /**
- * Accepts all `<li>` props
+ * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const NextItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
   ({ value, disabled, ...props }, ref) => {

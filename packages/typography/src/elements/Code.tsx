@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledCode } from '../styled';
 
-export interface ICodeProps extends HTMLAttributes<HTMLDivElement> {
+export interface ICodeProps extends HTMLAttributes<HTMLElement> {
   /** Applies color to the background and the text */
   hue?: 'grey' | 'red' | 'green' | 'yellow';
   /** Adjusts the font size. By default font size is inherited from the surrounding text. */
@@ -17,11 +17,11 @@ export interface ICodeProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * @extends HTMLAttributes<HTMLDivElement>
+ * @extends HTMLAttributes<HTMLElement>
  */
 const Code: React.FunctionComponent<
-  ICodeProps & React.RefAttributes<HTMLDivElement>
-> = React.forwardRef<HTMLDivElement, ICodeProps>(({ size, hue, ...other }, ref) => {
+  ICodeProps & React.RefAttributes<HTMLElement>
+> = React.forwardRef<HTMLElement, ICodeProps>(({ size, hue, ...other }, ref) => {
   let _size: 'sm' | 'md' | 'lg' | 'inherit';
 
   if (size === 'small') {

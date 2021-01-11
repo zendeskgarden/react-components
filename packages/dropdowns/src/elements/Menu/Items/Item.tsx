@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, HTMLAttributes } from 'react';
+import React, { useEffect, LiHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import SelectedSvg from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
@@ -14,7 +14,7 @@ import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
 import { ItemContext } from '../../../utils/useItemContext';
 
-export interface IItemProps extends HTMLAttributes<HTMLLIElement> {
+export interface IItemProps extends LiHTMLAttributes<HTMLLIElement> {
   /** Sets the value that is returned upon selection */
   value?: any;
   /**
@@ -26,7 +26,7 @@ export interface IItemProps extends HTMLAttributes<HTMLLIElement> {
 }
 
 /**
- * Accepts all `<li>` props
+ * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
   ({ value, disabled, component = StyledItem, children, ...props }, forwardRef) => {

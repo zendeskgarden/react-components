@@ -68,11 +68,6 @@ interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
   start?: any;
 }
 
-/**
- * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
- *
- * @extends HTMLAttributes<HTMLDivElement>
- */
 const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemeProps<DefaultTheme>>(
   (
     {
@@ -434,6 +429,9 @@ Multiselect.defaultProps = {
   maxItems: 4
 };
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export default withTheme(Multiselect) as React.FunctionComponent<
   IMultiselectProps & React.RefAttributes<HTMLDivElement>
 >;

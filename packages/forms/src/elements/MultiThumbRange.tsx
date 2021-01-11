@@ -50,9 +50,6 @@ export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElemen
   onChange?: (updatedValues: { minValue?: number; maxValue?: number }) => void;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
 const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>> = ({
   min,
   max,
@@ -459,4 +456,7 @@ MultiThumbRange.defaultProps = {
   theme: DEFAULT_THEME
 };
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export default withTheme(MultiThumbRange) as FunctionComponent<IMultiThumbRangeProps>;
