@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.29.3 (2021-01-13)
+
+#### :seedling: Internal
+* `accordions`, `avatars`, `buttons`, `chrome`, `dropdowns`, `forms`, `loaders`, `tooltips`, `typography`
+  * [#983](https://github.com/zendeskgarden/react-components/pull/983) chore: add missing and fix existing @extends clauses ([@jzempel](https://github.com/jzempel))
+
 ## v8.29.2 (2021-01-06)
 
 #### :memo: Documentation
