@@ -7,6 +7,7 @@
 
 export { default as ThemeProvider } from './elements/ThemeProvider';
 export { default as DEFAULT_THEME } from './elements/theme';
+export type { IGardenTheme } from './elements/theme';
 export { default as PALETTE } from './elements/palette';
 export { default as isRtl } from './utils/isRtl';
 export {
@@ -24,4 +25,3 @@ export type { ARROW_POSITION } from './utils/arrowStyles';
 export { useDocument } from './utils/useDocument';
 export { default as menuStyles } from './utils/menuStyles';
 export type { MENU_POSITION } from './utils/menuStyles';
-export type { DefaultTheme } from 'styled-components';
