@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1610567701430" clover="3.2.0">
-  <project timestamp="1610567701430" name="All files">
+<coverage generated="1610662803642" clover="3.2.0">
+  <project timestamp="1610662803642" name="All files">
     <metrics statements="6868" coveredstatements="6719" conditionals="2727" coveredconditionals="2466" methods="1449" coveredmethods="1417" elements="11044" coveredelements="10602" complexity="0" loc="6868" ncloc="6868" packages="113" files="450" classes="450"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -7661,29 +7661,29 @@
       <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="index.ts" path="/home/circleci/project/packages/theming/src/elements/theme/index.ts">
         <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="9" count="259" type="stmt"/>
-        <line num="11" count="259" type="stmt"/>
-        <line num="13" count="259" type="stmt"/>
-        <line num="18" count="259" type="stmt"/>
-        <line num="22" count="259" type="stmt"/>
-        <line num="27" count="259" type="stmt"/>
-        <line num="32" count="259" type="stmt"/>
-        <line num="40" count="259" type="stmt"/>
-        <line num="51" count="259" type="stmt"/>
-        <line num="75" count="259" type="stmt"/>
-        <line num="85" count="259" type="stmt"/>
-        <line num="97" count="259" type="stmt"/>
-        <line num="103" count="259" type="stmt"/>
-        <line num="112" count="259" type="stmt"/>
+        <line num="8" count="259" type="stmt"/>
+        <line num="108" count="259" type="stmt"/>
+        <line num="110" count="259" type="stmt"/>
         <line num="115" count="259" type="stmt"/>
-        <line num="117" count="259" type="stmt"/>
-        <line num="122" count="259" type="stmt"/>
-        <line num="123" count="106" type="stmt"/>
-        <line num="124" count="1481" type="stmt"/>
-        <line num="126" count="1029" type="stmt"/>
+        <line num="119" count="259" type="stmt"/>
+        <line num="124" count="259" type="stmt"/>
         <line num="129" count="259" type="stmt"/>
-        <line num="140" count="259" type="stmt"/>
-        <line num="164" count="259" type="stmt"/>
+        <line num="137" count="259" type="stmt"/>
+        <line num="148" count="259" type="stmt"/>
+        <line num="172" count="259" type="stmt"/>
+        <line num="182" count="259" type="stmt"/>
+        <line num="194" count="259" type="stmt"/>
+        <line num="200" count="259" type="stmt"/>
+        <line num="209" count="259" type="stmt"/>
+        <line num="212" count="259" type="stmt"/>
+        <line num="214" count="259" type="stmt"/>
+        <line num="219" count="259" type="stmt"/>
+        <line num="220" count="106" type="stmt"/>
+        <line num="221" count="1481" type="stmt"/>
+        <line num="223" count="1029" type="stmt"/>
+        <line num="226" count="259" type="stmt"/>
+        <line num="237" count="259" type="stmt"/>
+        <line num="261" count="259" type="stmt"/>
       </file>
     </package>
     <package name="theming.src.utils">
