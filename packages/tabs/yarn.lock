@@ -16,64 +16,29 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.8.7":
-  version "7.9.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
-  integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@zendeskgarden/container-focusvisible@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.3.tgz#9e2c1d882ecf9adc91f6e84eaca997fc9019f67a"
-  integrity sha512-4NpwhFzhRXE230mtaGUsvmwh6LxB1Cky/LJuX7ZYZkwEgjgaLO1m0qLOiRfEa4jJ2yKrsk2f+OOuyFwy7QIAcw==
+"@zendeskgarden/container-selection@^1.3.8":
+  version "1.3.8"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.8.tgz#1c1d92c71206a9eec641476152e01b191875beda"
+  integrity sha512-e6xSGxrQOjbW1mh30nZCS9rRkfMWZvWowoXuAe0z0kfU4T+tRNRSZtFmWklb3jvLoFDvDdHja7HElYyDlBa+1g==
   dependencies:
     "@babel/runtime" "^7.8.4"
+    "@zendeskgarden/container-utilities" "^0.5.5"
 
-"@zendeskgarden/container-selection@^1.3.7":
-  version "1.3.7"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.7.tgz#09cbf85d7a403adb3b480a7233ca5b8cecfdfce0"
-  integrity sha512-Q7xrkpJJG9o0pfsaVAOPVJaxYCchbU9yvCvuwWc11IT+UbV2SVidQ/uPa9/BOmmfBJ7vatg/bOrrHNG7T/4dKw==
+"@zendeskgarden/container-tabs@^0.5.8":
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-tabs/-/container-tabs-0.5.8.tgz#c1178f0c5d2a6b5286b0fa45a9178d6634e42290"
+  integrity sha512-lW6JhA0Le82cewEkhGBwjRguFO0B0fmyqUj8Ufd0p34B8twyrmFFEuropAmQG0nV3sLezl8AjCS/7CfB53Q39Q==
   dependencies:
     "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-utilities" "^0.5.4"
-
-"@zendeskgarden/container-tabs@^0.5.6":
-  version "0.5.7"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-tabs/-/container-tabs-0.5.7.tgz#6e4c9edc4269932330094fcdbeff53f18df56a81"
-  integrity sha512-warERRkx8ZxeJCDKN+lDAX+lgPOJ/xMxTthSxVD0S5CkEz0KjGopNZ5s1pEfQc4q2R/jSB4Rv33YzLCGwXzPsA==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-selection" "^1.3.7"
+    "@zendeskgarden/container-selection" "^1.3.8"
     react-uid "^2.2.0"
 
-"@zendeskgarden/container-utilities@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.1.tgz#738dc99dbe4a98809fdc015e5a8e000997725876"
-  integrity sha512-+nswWqFEiWHkuQeYSdftJ5c3Xy48IHPKb23qktIeEl+ZibMXzWVytdg91zOerI/HGJizNJ0gKmq+0A/4//eiQQ==
-
-"@zendeskgarden/container-utilities@^0.5.4":
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.4.tgz#8550404cafd0aab5ed80f3da0a51d424e8e3facb"
-  integrity sha512-Iz6YZ6va3JIShzKXKjK4TCf168GSX+/XeeBr6o9MTJ4K84lO0F0ZX2GIFuZmacfkBjCXfyNxj4aua/5/1ZXyPg==
+"@zendeskgarden/container-utilities@^0.5.5":
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.5.tgz#c291e7c2454fe6a638afe947b51e74d56387fc79"
+  integrity sha512-41qrK/ePXbPD+t2bKOtbzIZAjIlrIcN7EVGShPAjMjRzhQpZeX5UFsIrmN56/vQ8+xMVh/BxNEXgbtAO37FgwA==
   dependencies:
     "@babel/runtime" "^7.8.4"
-
-"@zendeskgarden/react-theming@^8.25.2":
-  version "8.25.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.25.2.tgz#61c0b0346154e7238645125533d33bf7ff26a481"
-  integrity sha512-/HefQjvFQpiQSEFoVZ6D7QSbyZkAviGE5op8GXqMp4angmt2evXhkSu2JT49xPV5WI8EfMUXWdHVHbPuhcrtdA==
-  dependencies:
-    "@zendeskgarden/container-focusvisible" "^0.4.3"
-    "@zendeskgarden/container-utilities" "^0.5.1"
-    polished "^3.5.1"
-
-polished@^3.5.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-3.5.1.tgz#657b6faf4c2308f3e0b1951196803a5e5d67b122"
-  integrity sha512-GVbvskpBiDV5TknurGL6OyFfLHsCknxbU8w5iMppT8rW0tLEoQHrIRfrPNPqGXNj3HGhkjRvhmg59Fy7HSnCAw==
-  dependencies:
-    "@babel/runtime" "^7.8.7"
 
 polished@^4.0.0:
   version "4.0.3"

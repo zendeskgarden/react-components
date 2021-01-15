@@ -27,7 +27,7 @@
     },
     {
       "files": ["packages/**/*.{js,ts,tsx}"],
-      "excludedFiles": ["*.spec.*"],
+      "excludedFiles": ["*.spec.*", "packages/**/stories/**/*"],
       "plugins": ["garden-local"],
       "rules": {
         "garden-local/require-default-theme": "error"

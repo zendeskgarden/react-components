@@ -35,13 +35,13 @@ export const Default: Story = ({ hue, isBold, isMonospace, tag, icon, startIcon 
               <DashedCircleIcon />
             </Span.StartIcon>
           )}
-          <>Veggies es</>{' '}
+          Veggies es{' '}
           {icon && (
             <Span.Icon>
               <AsteriskIcon />
             </Span.Icon>
           )}{' '}
-          <>bonus vobis</>{' '}
+          bonus vobis{' '}
           {icon && (
             <Span.Icon>
               <CircleIcon />

@@ -37,7 +37,9 @@ const GardenThemeProvider: React.FunctionComponent<IGardenThemeProviderProps> = 
   const scopeRef = useRef<HTMLDivElement>(null);
   const relativeDocument = useDocument(theme);
   const controlledScopeRef =
-    focusVisibleRef === null ? React.createRef() : getControlledValue(focusVisibleRef, scopeRef);
+    focusVisibleRef === null
+      ? React.createRef<HTMLElement>()
+      : getControlledValue(focusVisibleRef, scopeRef)!;
 
   useFocusVisible({ scope: controlledScopeRef, relativeDocument });
 
