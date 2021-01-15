@@ -18,7 +18,7 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 Standard tooltip usages.
 
-```jsx static
+```jsx
 import { ThemingProvider } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 
@@ -39,7 +39,7 @@ their parent [ThemeProvider](https://zendeskgarden.github.io/react-components/th
 
 #### English (LTR) Placements
 
-```bash static
+```bash
                   TOP_START     TOP        TOP_END
        START_TOP  +------------------------------+  END_TOP
                   |   ---inline direction --->   |
@@ -53,7 +53,7 @@ their parent [ThemeProvider](https://zendeskgarden.github.io/react-components/th
 
 #### Arabic/Hebrew (RTL) Placements
 
-```bash static
+```bash
                   TOP_END     TOP        TOP_START
          END_TOP  +------------------------------+  START_TOP
                   |  <--- inline direction---    |
