@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1610662803642" clover="3.2.0">
-  <project timestamp="1610662803642" name="All files">
+<coverage generated="1610743137669" clover="3.2.0">
+  <project timestamp="1610743137669" name="All files">
     <metrics statements="6868" coveredstatements="6719" conditionals="2727" coveredconditionals="2466" methods="1449" coveredmethods="1417" elements="11044" coveredelements="10602" complexity="0" loc="6868" ncloc="6868" packages="113" files="450" classes="450"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -529,7 +529,7 @@
         <line num="8" count="12" type="stmt"/>
         <line num="20" count="12" type="stmt"/>
         <line num="22" count="12" type="stmt"/>
-        <line num="23" count="29" type="stmt"/>
+        <line num="23" count="30" type="stmt"/>
         <line num="25" count="29" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="2" type="stmt"/>
         <line num="29" count="27" type="stmt"/>
@@ -539,7 +539,7 @@
         <line num="8" count="12" type="stmt"/>
         <line num="15" count="12" type="stmt"/>
         <line num="17" count="12" type="stmt"/>
-        <line num="18" count="10" type="stmt"/>
+        <line num="18" count="11" type="stmt"/>
         <line num="20" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="21" count="2" type="stmt"/>
         <line num="24" count="8" type="stmt"/>
@@ -549,7 +549,7 @@
         <line num="8" count="12" type="stmt"/>
         <line num="14" count="12" type="stmt"/>
         <line num="16" count="12" type="stmt"/>
-        <line num="17" count="20" type="stmt"/>
+        <line num="17" count="21" type="stmt"/>
         <line num="19" count="20" type="cond" truecount="2" falsecount="0"/>
         <line num="20" count="2" type="stmt"/>
         <line num="23" count="18" type="stmt"/>
@@ -818,7 +818,7 @@
         <line num="11" count="4" type="stmt"/>
         <line num="12" count="4" type="stmt"/>
         <line num="37" count="4" type="stmt"/>
-        <line num="38" count="40" type="stmt"/>
+        <line num="38" count="41" type="stmt"/>
         <line num="39" count="40" type="stmt"/>
         <line num="41" count="40" type="stmt"/>
         <line num="46" count="40" type="cond" truecount="4" falsecount="0"/>
@@ -1088,7 +1088,7 @@
         <line num="8" count="4" type="stmt"/>
         <line num="15" count="4" type="stmt"/>
         <line num="17" count="4" type="stmt"/>
-        <line num="18" count="40" type="stmt"/>
+        <line num="18" count="41" type="stmt"/>
       </file>
       <file name="useSplitButtonContext.ts" path="/home/circleci/project/packages/buttons/src/utils/useSplitButtonContext.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -2698,7 +2698,7 @@
         <line num="15" count="24" type="stmt"/>
         <line num="17" count="24" type="stmt"/>
         <line num="62" count="24" type="stmt"/>
-        <line num="74" count="123" type="stmt"/>
+        <line num="74" count="124" type="stmt"/>
         <line num="76" count="123" type="stmt"/>
         <line num="77" count="123" type="stmt"/>
         <line num="78" count="123" type="stmt"/>
@@ -2823,7 +2823,7 @@
         <line num="17" count="22" type="stmt"/>
         <line num="22" count="22" type="stmt"/>
         <line num="59" count="22" type="stmt"/>
-        <line num="71" count="321" type="stmt"/>
+        <line num="71" count="322" type="stmt"/>
         <line num="80" count="321" type="stmt"/>
         <line num="81" count="321" type="stmt"/>
         <line num="83" count="321" type="stmt"/>
@@ -3708,7 +3708,7 @@
         <line num="8" count="24" type="stmt"/>
         <line num="24" count="24" type="stmt"/>
         <line num="29" count="24" type="stmt"/>
-        <line num="30" count="1809" type="stmt"/>
+        <line num="30" count="1810" type="stmt"/>
         <line num="32" count="1809" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="2" type="stmt"/>
         <line num="36" count="1807" type="stmt"/>
@@ -3719,7 +3719,7 @@
         <line num="8" count="21" type="stmt"/>
         <line num="15" count="21" type="stmt"/>
         <line num="20" count="21" type="stmt"/>
-        <line num="21" count="298" type="stmt"/>
+        <line num="21" count="299" type="stmt"/>
         <line num="23" count="298" type="cond" truecount="2" falsecount="0"/>
         <line num="24" count="2" type="stmt"/>
         <line num="27" count="296" type="stmt"/>
@@ -3730,7 +3730,7 @@
         <line num="8" count="21" type="stmt"/>
         <line num="14" count="21" type="stmt"/>
         <line num="19" count="21" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
         <line num="22" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="23" count="2" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
@@ -3741,7 +3741,7 @@
         <line num="8" count="22" type="stmt"/>
         <line num="15" count="22" type="stmt"/>
         <line num="20" count="22" type="stmt"/>
-        <line num="21" count="1113" type="stmt"/>
+        <line num="21" count="1114" type="stmt"/>
         <line num="23" count="1113" type="cond" truecount="2" falsecount="0"/>
         <line num="24" count="2" type="stmt"/>
         <line num="27" count="1111" type="stmt"/>
@@ -6361,7 +6361,7 @@
         <line num="8" count="11" type="stmt"/>
         <line num="17" count="11" type="stmt"/>
         <line num="19" count="11" type="stmt"/>
-        <line num="20" count="186" type="stmt"/>
+        <line num="20" count="187" type="stmt"/>
         <line num="22" count="186" type="cond" truecount="2" falsecount="0"/>
         <line num="23" count="2" type="stmt"/>
         <line num="26" count="184" type="stmt"/>
@@ -6371,7 +6371,7 @@
         <line num="8" count="5" type="stmt"/>
         <line num="16" count="5" type="stmt"/>
         <line num="18" count="5" type="stmt"/>
-        <line num="19" count="83" type="stmt"/>
+        <line num="19" count="84" type="stmt"/>
         <line num="21" count="83" type="cond" truecount="2" falsecount="0"/>
         <line num="22" count="2" type="stmt"/>
         <line num="25" count="81" type="stmt"/>
@@ -7371,7 +7371,7 @@
         <line num="9" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
         <line num="15" count="4" type="stmt"/>
-        <line num="17" count="25" type="stmt"/>
+        <line num="17" count="26" type="stmt"/>
         <line num="19" count="25" type="cond" truecount="2" falsecount="0"/>
         <line num="20" count="2" type="stmt"/>
         <line num="23" count="23" type="stmt"/>
@@ -7500,7 +7500,7 @@
         <line num="8" count="4" type="stmt"/>
         <line num="16" count="4" type="stmt"/>
         <line num="18" count="4" type="stmt"/>
-        <line num="19" count="107" type="stmt"/>
+        <line num="19" count="108" type="stmt"/>
       </file>
     </package>
     <package name="tags.src.elements">
@@ -7642,11 +7642,11 @@
         <line num="31" count="256" type="stmt"/>
         <line num="37" count="2854" type="stmt"/>
         <line num="38" count="2854" type="stmt"/>
-        <line num="40" count="2854" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="2854" type="stmt"/>
+        <line num="40" count="2854" type="stmt"/>
         <line num="44" count="2854" type="stmt"/>
-        <line num="55" count="256" type="stmt"/>
-        <line num="59" count="256" type="stmt"/>
+        <line num="46" count="2854" type="stmt"/>
+        <line num="57" count="256" type="stmt"/>
+        <line num="61" count="256" type="stmt"/>
       </file>
     </package>
     <package name="theming.src.elements.palette">
@@ -8521,7 +8521,7 @@
         <line num="8" count="3" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
         <line num="19" count="3" type="stmt"/>
-        <line num="20" count="7" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
         <line num="22" count="7" type="cond" truecount="2" falsecount="0"/>
         <line num="23" count="2" type="stmt"/>
         <line num="26" count="5" type="stmt"/>
@@ -8532,7 +8532,7 @@
         <line num="8" count="3" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
         <line num="19" count="3" type="stmt"/>
-        <line num="20" count="7" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
         <line num="22" count="7" type="cond" truecount="2" falsecount="0"/>
         <line num="23" count="2" type="stmt"/>
         <line num="26" count="5" type="stmt"/>
