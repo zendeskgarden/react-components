@@ -13,3 +13,4 @@ export { FooterItem } from './elements/FooterItem';
 export { Header } from './elements/Header';
 export { TooltipModal } from './elements/TooltipModal/TooltipModal';
 export { DrawerModal } from './elements/DrawerModal/DrawerModal';
+export type { GARDEN_PLACEMENT } from './utils/gardenPlacements';
