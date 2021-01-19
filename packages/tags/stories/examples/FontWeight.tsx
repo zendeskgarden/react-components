@@ -12,7 +12,11 @@ import { Tag } from '@zendeskgarden/react-tags';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { Span } from '@zendeskgarden/react-typography';
 
-export const FontWeight: Story = () => (
+/**
+ * https://github.com/storybookjs/storybook/issues/13362
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const FontWeight: Story = ({ foo }) => (
   <Grid>
     <Row>
       <Col textAlign="center">

@@ -65,7 +65,7 @@ export const Advanced: Story<IAdvancedStoryProps> = ({
               <Tag key={index} isPill={isPill} size={size} style={{ margin: 2 }} tabIndex={0}>
                 {includeAvatar && (
                   <Tag.Avatar>
-                    <img alt="" src={`images/avatar-${(index % 7) + 1}.png`} />
+                    <img alt="" src="images/avatar-4.png" />
                   </Tag.Avatar>
                 )}
                 <span>{tag}</span>
