@@ -22,7 +22,7 @@ const tags = [
   'grape wattle seed'
 ];
 
-interface IAdvancedStoryProps {
+interface ITruncationStoryProps {
   size: 'small' | 'medium' | 'large';
   isPill: boolean;
   includeAvatar: boolean;
@@ -30,7 +30,7 @@ interface IAdvancedStoryProps {
   width: number;
 }
 
-export const Advanced: Story<IAdvancedStoryProps> = ({
+export const Truncation: Story<ITruncationStoryProps> = ({
   size,
   isPill,
   includeAvatar,
@@ -79,7 +79,7 @@ export const Advanced: Story<IAdvancedStoryProps> = ({
   );
 };
 
-Advanced.args = {
+Truncation.args = {
   width: 100,
   size: 'medium',
   isPill: false,
@@ -87,7 +87,7 @@ Advanced.args = {
   includeClose: false
 };
 
-Advanced.argTypes = {
+Truncation.argTypes = {
   width: {
     name: 'Width (%)',
     control: {
@@ -115,7 +115,7 @@ Advanced.argTypes = {
   }
 };
 
-Advanced.parameters = {
+Truncation.parameters = {
   docs: {
     storyDescription: `
 The following example shows how a Tag can be used together with a child

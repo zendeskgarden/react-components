@@ -14,6 +14,6 @@ export default {
 } as Meta;
 
 export { Default } from './examples/Default';
-export { Advanced } from './examples/Advanced';
+export { Truncation } from './examples/Truncation';
 export { CustomHue } from './examples/CustomHue';
 export { FontWeight } from './examples/FontWeight';
