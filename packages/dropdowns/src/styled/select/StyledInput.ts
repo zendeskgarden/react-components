@@ -12,7 +12,7 @@ import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'dropdowns.input';
 
 const hiddenStyling = css`
-  position: absolute;
+  position: fixed;
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   padding: 0;
