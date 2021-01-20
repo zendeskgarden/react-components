@@ -11,6 +11,31 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.30.0 (2021-01-20)
+
+#### :rocket: New Feature
+
+- `modals`
+  - [#988](https://github.com/zendeskgarden/react-components/pull/988) feat(modals): export placement type for tooltip modal ([@hzhu](https://github.com/hzhu))
+
+#### :bug: Bug Fix
+
+- `dropdowns`, `tables`
+  - [#990](https://github.com/zendeskgarden/react-components/pull/990) fix(dropdowns): allow menu usage in table elements ([@austingreendev](https://github.com/austingreendev))
+- `theming`
+  - [#984](https://github.com/zendeskgarden/react-components/pull/984) fix(theming): allow theming of typescript consumers ([@austingreendev](https://github.com/austingreendev))
+
+#### :memo: Documentation
+
+- `avatars`, `tags`
+  - [#987](https://github.com/zendeskgarden/react-components/pull/987) chore(tags): migrate Tag examples to storybook ([@austingreendev](https://github.com/austingreendev))
+- Other
+  - [#989](https://github.com/zendeskgarden/react-components/pull/989) docs: Add Modal's Header prop change to V8 migration ([@saescapa](https://github.com/saescapa))
+
+#### :seedling: Internal
+
+- `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  - [#985](https://github.com/zendeskgarden/react-components/pull/985) chore(deps): upgrade all packages to React v17 ([@austingreendev](https://github.com/austingreendev))
 
 ## v8.29.3 (2021-01-13)
 
