@@ -63,7 +63,7 @@ export interface IDatepickerRangeProps {
   isCompact?: boolean;
 }
 
-const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
+export const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
   const {
     startValue,
     locale,
@@ -167,5 +167,3 @@ DatepickerRange.defaultProps = {
   locale: 'en-US',
   isCompact: false
 };
-
-export default DatepickerRange;
