@@ -31,36 +31,3 @@ import { Tooltip } from '@zendeskgarden/react-tooltips';
   </Tooltip>
 </ThemeProvider>;
 ```
-
-### RTL Locale Layouts
-
-The `Tooltip` component automatically handles RTL layouts based on
-their parent [ThemeProvider](https://zendeskgarden.github.io/react-components/theming/#themeprovider).
-
-#### English (LTR) Placements
-
-```bash
-                  TOP_START     TOP        TOP_END
-       START_TOP  +------------------------------+  END_TOP
-                  |   ---inline direction --->   |
-                  |  |                           |
-           START  |  | block      * horizontal * |  END
-                  |  | direction  *writing mode* |
-                  |  V                           |
-    START_BOTTOM  +------------------------------+  END_BOTTOM
-                  BOTTOM_START BOTTOM   BOTTOM_END
-```
-
-#### Arabic/Hebrew (RTL) Placements
-
-```bash
-                  TOP_END     TOP        TOP_START
-         END_TOP  +------------------------------+  START_TOP
-                  |  <--- inline direction---    |
-                  |  |                           |
-             END  |  | block      * horizontal * |  START
-                  |  | direction  *writing mode* |
-                  |  V                           |
-      END_BOTTOM  +------------------------------+  START_BOTTOM
-                  BOTTOM_END   BOTTOM BOTTOM_START
-```

@@ -153,7 +153,7 @@ Default.argTypes = {
     }
   },
   hasArrow: {
-    name: 'Has Arrow'
+    name: 'Has arrow'
   },
   size: {
     name: 'Size',
@@ -163,7 +163,7 @@ Default.argTypes = {
     }
   },
   forceVisibility: {
-    name: 'Foce Visibility'
+    name: 'Force visibility'
   },
   delayMS: {
     name: 'Delay (ms)',
