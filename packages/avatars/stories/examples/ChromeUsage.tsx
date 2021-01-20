@@ -11,7 +11,11 @@ import { Chrome, Body, Header, HeaderItem, HeaderItemIcon } from '@zendeskgarden
 import { Avatar } from '@zendeskgarden/react-avatars';
 import GridIcon from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
 
-export const ChromeUsage: Story = () => {
+/**
+ * https://github.com/storybookjs/storybook/issues/13362
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const ChromeUsage: Story = ({ foo }) => {
   const CustomHeaderItem = HeaderItem as any;
 
   return (
