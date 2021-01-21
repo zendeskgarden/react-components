@@ -10,7 +10,7 @@ import userEvent from '@testing-library/user-event';
 import { render, getAllByTestId as globalGetAllByTestId, renderRtl } from 'garden-test-utils';
 import { addDays, subDays, addMonths, subMonths } from 'date-fns';
 import mockDate from 'mockdate';
-import DatepickerRange, { IDatepickerRangeProps } from './DatepickerRange';
+import { DatepickerRange, IDatepickerRangeProps } from './DatepickerRange';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
 const DEFAULT_END_VALUE = new Date(2019, 2, 5);

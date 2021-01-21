@@ -5,18 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useRef,
-  useEffect,
-  useReducer,
-  useCallback,
-  FunctionComponent,
-  useState
-} from 'react';
+import React, { useRef, useEffect, useReducer, useCallback, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProps, DefaultTheme } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
-import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { Modifiers } from 'popper.js';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import {
   getRtlPopperPlacement,
@@ -82,7 +75,7 @@ export interface IDatepickerProps {
   /**
    * Passes configuration options to the [Popper instance](https://popper.js.org/docs/v2/modifiers/)
    */
-  popperModifiers?: any;
+  popperModifiers?: Modifiers;
   /**
    * Animates the calendar
    */
@@ -97,7 +90,7 @@ export interface IDatepickerProps {
   zIndex?: number;
 }
 
-const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultTheme>> = props => {
+export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
   const {
     children,
     placement,
@@ -113,9 +106,9 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     minValue,
     maxValue,
     locale,
-    customParseDate,
-    theme
+    customParseDate
   } = props;
+  const theme = useContext(ThemeContext);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoizedReducer = useCallback(
     datepickerReducer({ value, formatDate, locale, customParseDate, onChange }),
@@ -246,7 +239,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
                 zIndex={zIndex}
                 data-test-id="datepicker-menu"
                 data-test-open={state.isOpen}
-                data-test-rtl={props.theme.rtl}
+                data-test-rtl={theme.rtl}
               >
                 <StyledMenu>
                   <Calendar
@@ -303,8 +296,5 @@ Datepicker.defaultProps = {
   isAnimated: true,
   eventsEnabled: true,
   zIndex: 1000,
-  locale: 'en-US',
-  theme: DEFAULT_THEME
+  locale: 'en-US'
 };
-
-export default withTheme(Datepicker) as FunctionComponent<IDatepickerProps>;
