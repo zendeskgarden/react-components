@@ -357,17 +357,7 @@
 <a name='L298'></a><a href='#L298'>298</a>
 <a name='L299'></a><a href='#L299'>299</a>
 <a name='L300'></a><a href='#L300'>300</a>
-<a name='L301'></a><a href='#L301'>301</a>
-<a name='L302'></a><a href='#L302'>302</a>
-<a name='L303'></a><a href='#L303'>303</a>
-<a name='L304'></a><a href='#L304'>304</a>
-<a name='L305'></a><a href='#L305'>305</a>
-<a name='L306'></a><a href='#L306'>306</a>
-<a name='L307'></a><a href='#L307'>307</a>
-<a name='L308'></a><a href='#L308'>308</a>
-<a name='L309'></a><a href='#L309'>309</a>
-<a name='L310'></a><a href='#L310'>310</a>
-<a name='L311'></a><a href='#L311'>311</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L301'></a><a href='#L301'>301</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -375,17 +365,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -483,7 +466,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">200x</span>
 <span class="cline-any cline-yes">200x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">200x</span>
@@ -674,9 +657,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Copyright Zendesk, Inc.
  *
@@ -684,18 +664,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import React, {
-  useRef,
-  useEffect,
-  useReducer,
-  useCallback,
-  FunctionComponent,
-  useState
-} from 'react';
+import React, { useRef, useEffect, useReducer, useCallback, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProps, DefaultTheme } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
-import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { Modifiers } from 'popper.js';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import {
   getRtlPopperPlacement,
@@ -761,7 +734,7 @@ export interface IDatepickerProps {
   /**
    * Passes configuration options to the [Popper instance](https://popper.js.org/docs/v2/modifiers/)
    */
-  popperModifiers?: any;
+  popperModifiers?: Modifiers;
   /**
    * Animates the calendar
    */
@@ -776,7 +749,7 @@ export interface IDatepickerProps {
   zIndex?: number;
 }
 &nbsp;
-const Datepicker: React.FunctionComponent&lt;IDatepickerProps &amp; ThemeProps&lt;DefaultTheme&gt;&gt; = props =&gt; {
+export const Datepicker: React.FunctionComponent&lt;IDatepickerProps&gt; = props =&gt; {
   const {
     children,
     placement,
@@ -792,9 +765,9 @@ const Datepicker: React.FunctionComponent&lt;IDatepickerProps &amp; ThemeProps&l
     minValue,
     maxValue,
     locale,
-    customParseDate,
-    theme
+    customParseDate
   } = props;
+  const theme = useContext(ThemeContext);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoizedReducer = useCallback(
     datepickerReducer({ value, formatDate, locale, customParseDate, onChange }),
@@ -925,7 +898,7 @@ const Datepicker: React.FunctionComponent&lt;IDatepickerProps &amp; ThemeProps&l
                 zIndex={zIndex}
                 data-test-id="datepicker-menu"
                 data-test-open={state.isOpen}
-                data-test-rtl={props.theme.rtl}
+                data-test-rtl={theme.rtl}
               &gt;
                 &lt;StyledMenu&gt;
                   &lt;Calendar
@@ -982,11 +955,8 @@ Datepicker.defaultProps = {
   isAnimated: true,
   eventsEnabled: true,
   zIndex: 1000,
-  locale: 'en-US',
-  theme: DEFAULT_THEME
+  locale: 'en-US'
 };
-&nbsp;
-export default withTheme(Datepicker) as FunctionComponent&lt;IDatepickerProps&gt;;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -994,7 +964,7 @@ export default withTheme(Datepicker) as FunctionComponent&lt;IDatepickerProps&gt
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Jan 21 2021 21:45:31 GMT+0000 (Coordinated Universal Time)
+                at Thu Jan 21 2021 23:13:00 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
