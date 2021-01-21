@@ -14,7 +14,7 @@ import { Field, Label, Input, Message } from '@zendeskgarden/react-forms';
 import { addDays, compareAsc } from 'date-fns';
 
 export default {
-  title: 'Components/Datepicker/DatepickerRange',
+  title: 'Components/Datepickers/DatepickerRange',
   subcomponents: {
     DatepickerRange,
     'DatepickerRange.Start': DatepickerRange.Start,
