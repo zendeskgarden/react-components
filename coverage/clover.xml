@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611192010279" clover="3.2.0">
-  <project timestamp="1611192010279" name="All files">
+<coverage generated="1611265531836" clover="3.2.0">
+  <project timestamp="1611265531837" name="All files">
     <metrics statements="6868" coveredstatements="6719" conditionals="2727" coveredconditionals="2466" methods="1449" coveredmethods="1417" elements="11044" coveredelements="10602" complexity="0" loc="6868" ncloc="6868" packages="113" files="450" classes="450"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -7875,7 +7875,7 @@
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="256" type="stmt"/>
         <line num="11" count="256" type="stmt"/>
-        <line num="12" count="100" type="stmt"/>
+        <line num="12" count="99" type="stmt"/>
       </file>
     </package>
     <package name="tooltips.src.elements">
@@ -7903,42 +7903,42 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
         <line num="79" count="19" type="stmt"/>
         <line num="80" count="19" type="stmt"/>
-        <line num="86" count="19" type="stmt"/>
-        <line num="91" count="19" type="stmt"/>
-        <line num="92" count="18" type="cond" truecount="4" falsecount="0"/>
-        <line num="93" count="8" type="stmt"/>
-        <line num="97" count="19" type="stmt"/>
-        <line num="101" count="19" type="stmt"/>
-        <line num="108" count="19" type="stmt"/>
-        <line num="115" count="19" type="stmt"/>
-        <line num="119" count="18" type="stmt"/>
-        <line num="131" count="27" type="stmt"/>
-        <line num="133" count="27" type="stmt"/>
-        <line num="135" count="27" type="stmt"/>
-        <line num="137" count="27" type="cond" truecount="2" falsecount="0"/>
-        <line num="138" count="18" type="cond" truecount="2" falsecount="0"/>
-        <line num="139" count="15" type="stmt"/>
-        <line num="141" count="3" type="stmt"/>
-        <line num="145" count="27" type="stmt"/>
-        <line num="150" count="1" type="stmt"/>
-        <line num="153" count="0" type="stmt"/>
-        <line num="161" count="27" type="stmt"/>
-        <line num="171" count="27" type="cond" truecount="2" falsecount="0"/>
-        <line num="172" count="2" type="stmt"/>
-        <line num="175" count="25" type="stmt"/>
-        <line num="182" count="1" type="stmt"/>
-        <line num="184" count="1" type="stmt"/>
-        <line num="214" count="1" type="stmt"/>
-        <line num="227" count="1" type="stmt"/>
+        <line num="81" count="19" type="stmt"/>
+        <line num="87" count="19" type="stmt"/>
+        <line num="92" count="19" type="stmt"/>
+        <line num="93" count="18" type="cond" truecount="4" falsecount="0"/>
+        <line num="94" count="8" type="stmt"/>
+        <line num="98" count="19" type="stmt"/>
+        <line num="102" count="19" type="stmt"/>
+        <line num="109" count="19" type="stmt"/>
+        <line num="116" count="19" type="stmt"/>
+        <line num="120" count="18" type="stmt"/>
+        <line num="132" count="27" type="stmt"/>
+        <line num="134" count="27" type="stmt"/>
+        <line num="136" count="27" type="stmt"/>
+        <line num="138" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="139" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="140" count="15" type="stmt"/>
+        <line num="142" count="3" type="stmt"/>
+        <line num="146" count="27" type="stmt"/>
+        <line num="151" count="1" type="stmt"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="162" count="27" type="stmt"/>
+        <line num="172" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="173" count="2" type="stmt"/>
+        <line num="176" count="25" type="stmt"/>
+        <line num="183" count="1" type="stmt"/>
+        <line num="185" count="1" type="stmt"/>
+        <line num="215" count="1" type="stmt"/>
       </file>
     </package>
     <package name="tooltips.src.styled">
@@ -8043,7 +8043,7 @@
         <line num="8" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
       </file>
     </package>
     <package name="tooltips.src.utils">

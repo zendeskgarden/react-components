@@ -279,12 +279,7 @@
 <a name='L220'></a><a href='#L220'>220</a>
 <a name='L221'></a><a href='#L221'>221</a>
 <a name='L222'></a><a href='#L222'>222</a>
-<a name='L223'></a><a href='#L223'>223</a>
-<a name='L224'></a><a href='#L224'>224</a>
-<a name='L225'></a><a href='#L225'>225</a>
-<a name='L226'></a><a href='#L226'>226</a>
-<a name='L227'></a><a href='#L227'>227</a>
-<a name='L228'></a><a href='#L228'>228</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L223'></a><a href='#L223'>223</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -294,7 +289,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -307,6 +301,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -362,6 +357,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -505,12 +501,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Copyright Zendesk, Inc.
  *
@@ -518,13 +508,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import React, { cloneElement, useRef, useEffect } from 'react';
+import React, { cloneElement, useRef, useEffect, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import { ThemeProps, DefaultTheme } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers, getControlledValue } from '@zendeskgarden/container-utilities';
-import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Manager, Popper, Reference } from 'react-popper';
 import { Modifiers } from 'popper.js';
 &nbsp;
@@ -535,9 +524,7 @@ import {
 } from '../utils/gardenPlacements';
 import { StyledTooltipWrapper, StyledTooltip, TOOLTIP_SIZE, TOOLTIP_TYPE } from '../styled';
 &nbsp;
-export interface ITooltipProps
-  extends Partial&lt;ThemeProps&lt;DefaultTheme&gt;&gt;,
-    React.HTMLAttributes&lt;HTMLDivElement&gt; {
+export interface ITooltipProps extends React.HTMLAttributes&lt;HTMLDivElement&gt; {
   /** Appends the tooltip to the element provided */
   appendToNode?: Element;
   /** Adds an arrow to the tooltip */
@@ -571,7 +558,10 @@ export interface ITooltipProps
   refKey?: string;
 }
 &nbsp;
-const Tooltip: React.FC&lt;ITooltipProps&gt; = ({
+/**
+ * @extends HTMLAttributes&lt;HTMLDivElement&gt;
+ */
+export const Tooltip: React.FC&lt;ITooltipProps&gt; = ({
   id,
   delayMS,
   isInitialVisible,
@@ -589,6 +579,7 @@ const Tooltip: React.FC&lt;ITooltipProps&gt; = ({
   isVisible: externalIsVisible,
   ...otherProps
 }) =&gt; {
+  const theme = useContext(ThemeContext);
   const scheduleUpdateRef = useRef&lt;() =&gt; void&gt;();
   const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({
     id,
@@ -607,7 +598,7 @@ const Tooltip: React.FC&lt;ITooltipProps&gt; = ({
     }
   }, [controlledIsVisible, content]);
 &nbsp;
-  const popperPlacement = otherProps.theme!.rtl
+  const popperPlacement = theme.rtl
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 &nbsp;
@@ -730,14 +721,8 @@ Tooltip.defaultProps = {
   type: 'dark',
   placement: 'top',
   delayMS: 500,
-  refKey: 'ref',
-  theme: DEFAULT_THEME
+  refKey: 'ref'
 };
-&nbsp;
-/**
- * @extends HTMLAttributes&lt;HTMLDivElement&gt;
- */
-export default withTheme(Tooltip) as React.FC&lt;ITooltipProps&gt;;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -745,7 +730,7 @@ export default withTheme(Tooltip) as React.FC&lt;ITooltipProps&gt;;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Jan 21 2021 01:20:09 GMT+0000 (Coordinated Universal Time)
+                at Thu Jan 21 2021 21:45:31 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
