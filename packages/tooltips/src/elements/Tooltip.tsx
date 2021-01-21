@@ -5,13 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement, useRef, useEffect } from 'react';
+import React, { cloneElement, useRef, useEffect, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import { ThemeProps, DefaultTheme } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers, getControlledValue } from '@zendeskgarden/container-utilities';
-import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Manager, Popper, Reference } from 'react-popper';
 import { Modifiers } from 'popper.js';
 
@@ -22,9 +21,7 @@ import {
 } from '../utils/gardenPlacements';
 import { StyledTooltipWrapper, StyledTooltip, TOOLTIP_SIZE, TOOLTIP_TYPE } from '../styled';
 
-export interface ITooltipProps
-  extends Partial<ThemeProps<DefaultTheme>>,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ITooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Appends the tooltip to the element provided */
   appendToNode?: Element;
   /** Adds an arrow to the tooltip */
@@ -58,7 +55,10 @@ export interface ITooltipProps
   refKey?: string;
 }
 
-const Tooltip: React.FC<ITooltipProps> = ({
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Tooltip: React.FC<ITooltipProps> = ({
   id,
   delayMS,
   isInitialVisible,
@@ -76,6 +76,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
   isVisible: externalIsVisible,
   ...otherProps
 }) => {
+  const theme = useContext(ThemeContext);
   const scheduleUpdateRef = useRef<() => void>();
   const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({
     id,
@@ -94,7 +95,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
     }
   }, [controlledIsVisible, content]);
 
-  const popperPlacement = otherProps.theme!.rtl
+  const popperPlacement = theme.rtl
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 
@@ -217,11 +218,5 @@ Tooltip.defaultProps = {
   type: 'dark',
   placement: 'top',
   delayMS: 500,
-  refKey: 'ref',
-  theme: DEFAULT_THEME
+  refKey: 'ref'
 };
-
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export default withTheme(Tooltip) as React.FC<ITooltipProps>;
