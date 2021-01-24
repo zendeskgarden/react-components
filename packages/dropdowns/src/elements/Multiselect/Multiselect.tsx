@@ -54,7 +54,7 @@ interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
    */
   renderShowMore?: (value: number) => string;
   /**
-   * Renders each item element. Designed to be used with [Tag](https://garden.zendesk.com/components/tags).
+   * Renders each item element. Designed to be used with [Tag](/components/tags).
    *
    * @param {Object} options Rendered item options
    * @param {any} options.value The item value

@@ -11,8 +11,8 @@ interface IChromeContext {
   hue: string;
   isLight?: boolean;
   isDark?: boolean;
-  mainId?: string;
-  setMainId?: React.Dispatch<React.SetStateAction<string>>;
+  contentId?: string;
+  setContentId?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const ChromeContext = React.createContext<IChromeContext>({

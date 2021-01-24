@@ -23,6 +23,10 @@ export const StyledSidebar = styled.aside.attrs({
   width: 330px;
   overflow: auto;
 
+  &:focus {
+    outline: none;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

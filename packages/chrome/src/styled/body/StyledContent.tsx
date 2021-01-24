@@ -34,6 +34,10 @@ export const StyledContent = styled.div.attrs({
   color: ${props => props.theme.colors.foreground};
   font-size: ${props => props.theme.fontSizes.md};
 
+  &:focus {
+    outline: none;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

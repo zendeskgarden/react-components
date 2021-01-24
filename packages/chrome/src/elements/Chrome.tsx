@@ -40,11 +40,11 @@ const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(({ hue, isFluid, .
     return false;
   }, [hue, theme]);
   const uid = useUID();
-  const [mainId, setMainId] = useState(`zendeskgarden.chrome.main.${uid}_${PACKAGE_VERSION}`);
+  const [contentId, setContentId] = useState(`zendeskgarden.chrome.main.${uid}_${PACKAGE_VERSION}`);
 
   const isLight = hue ? isLightMemoized : false;
   const isDark = hue ? !isLightMemoized : false;
-  const chromeContextValue = { hue: hue || 'chromeHue', isLight, isDark, mainId, setMainId };
+  const chromeContextValue = { hue: hue || 'chromeHue', isLight, isDark, contentId, setContentId };
   const environment = useDocument(theme);
 
   useEffect(() => {
