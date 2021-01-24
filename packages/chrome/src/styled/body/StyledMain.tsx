@@ -19,6 +19,10 @@ export const StyledMain = styled.main.attrs({
   background-color: ${props => props.theme.colors.background};
   overflow: auto;
 
+  :focus {
+    outline: none;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

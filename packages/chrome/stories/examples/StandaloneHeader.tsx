@@ -20,7 +20,8 @@ import {
   HeaderItemIcon,
   HeaderItemText,
   HeaderItemWrapper,
-  Main
+  Main,
+  SkipNav
 } from '@zendeskgarden/react-chrome';
 
 interface IStandaloneHeaderStoryProps {
@@ -30,6 +31,7 @@ interface IStandaloneHeaderStoryProps {
 export const StandaloneHeader: Story<IStandaloneHeaderStoryProps> = ({ isStandalone }) => {
   return (
     <Chrome isFluid style={{ height: 200 }}>
+      <SkipNav>Skip to main content</SkipNav>
       <Body>
         <Header isStandalone={isStandalone}>
           <HeaderItem hasLogo product="support">

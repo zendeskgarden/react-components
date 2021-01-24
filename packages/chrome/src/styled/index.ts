@@ -6,6 +6,7 @@
  */
 
 export { StyledChrome } from './StyledChrome';
+export { StyledSkipNav } from './StyledSkipNav';
 export { StyledBody } from './body/StyledBody';
 export { StyledContent } from './body/StyledContent';
 export { StyledMain } from './body/StyledMain';

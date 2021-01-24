@@ -6,13 +6,23 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+import PropTypes from 'prop-types';
 import { StyledMain } from '../../styled';
+
+interface IMainProps extends HTMLAttributes<HTMLElement> {
+  /** Sets the ID of the main element */
+  id?: string;
+}
 
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-export const Main = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (
-  <StyledMain ref={ref} {...props} />
+export const Main = React.forwardRef<HTMLElement, IMainProps>((props, ref) => (
+  <StyledMain tabIndex={props.tabIndex || -1} ref={ref} {...props} />
 ));
 
 Main.displayName = 'Main';
+
+Main.propTypes = {
+  id: PropTypes.string
+};
