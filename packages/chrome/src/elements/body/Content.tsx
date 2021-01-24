@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useEffect } from 'react';
 import { StyledContent } from '../../styled';
 import { useBodyContext } from '../../utils/useBodyContext';
 import { useChromeContext } from '../../utils/useChromeContext';
@@ -18,9 +18,11 @@ export const Content = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
     const { contentId, setContentId } = useChromeContext();
     const { hasFooter } = useBodyContext();
 
-    if (id && setContentId) {
-      setContentId(id);
-    }
+    useEffect(() => {
+      if (id && setContentId) {
+        setContentId(id);
+      }
+    }, [id, setContentId]);
 
     return (
       <StyledContent

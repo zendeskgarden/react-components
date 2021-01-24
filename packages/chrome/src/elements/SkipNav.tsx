@@ -21,14 +21,10 @@ interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const SkipNav = React.forwardRef<HTMLAnchorElement, ISkipNavProps>(
-  ({ children, linkId, zIndex, ...props }, ref) => {
+  ({ linkId, zIndex, ...props }, ref) => {
     const { contentId } = useChromeContext();
 
-    return (
-      <StyledSkipNav href={`#${linkId || contentId}`} zIndex={zIndex} ref={ref} {...props}>
-        {children}
-      </StyledSkipNav>
-    );
+    return <StyledSkipNav href={`#${linkId || contentId}`} zIndex={zIndex} ref={ref} {...props} />;
   }
 );
 
