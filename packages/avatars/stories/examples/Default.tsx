@@ -67,7 +67,7 @@ export const Default: Story<IStoryProps> = ({
     <StyledTable surfaceColor={surfaceColor}>
       <tbody>
         <tr>
-          <td></td>
+          <td />
           <th scope="col">
             <LG>Default</LG>
           </th>

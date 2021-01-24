@@ -192,6 +192,8 @@ isolation.
     - `animate` -> `isAnimated`
     - `center` -> `isCentered`
     - `large` -> `isLarge`
+  - `Header`
+    - `danger` -> `isDanger`
   - `Close`
     - `focus` -> removed
     - `hovered` -> removed

@@ -69,7 +69,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps>(
   ) => {
     const [focusedItem, setFocusedItem] = useState<number | string>();
     const [internalCurrentPage, setCurrentPage] = useState(1);
-    const currentPage = getControlledValue(controlledCurrentPage, internalCurrentPage);
+    const currentPage = getControlledValue(controlledCurrentPage, internalCurrentPage)!;
     const theme = useContext(ThemeContext);
 
     const {
@@ -77,7 +77,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps>(
       getPageProps,
       getPreviousPageProps,
       getNextPageProps
-    } = usePagination({
+    } = usePagination<number | string | undefined>({
       rtl: theme.rtl,
       focusedItem,
       selectedItem: currentPage,
@@ -105,11 +105,11 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps>(
         }
 
         if (onChange && updatedCurrentPage !== undefined) {
-          onChange(updatedCurrentPage);
+          onChange(updatedCurrentPage as number);
         }
 
         setFocusedItem(updatedFocusedKey);
-        setCurrentPage(updatedCurrentPage);
+        setCurrentPage(updatedCurrentPage as number);
       }
     });
 

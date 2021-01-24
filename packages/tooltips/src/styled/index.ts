@@ -7,5 +7,6 @@
 
 export { StyledParagraph } from './StyledParagraph';
 export { StyledTitle } from './StyledTitle';
-export { StyledTooltip, TOOLTIP_SIZE, TOOLTIP_TYPE } from './StyledTooltip';
+export { StyledTooltip } from './StyledTooltip';
+export type { TOOLTIP_SIZE, TOOLTIP_TYPE } from './StyledTooltip';
 export { StyledTooltipWrapper } from './StyledTooltipWrapper';

@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as Datepicker } from './elements/Datepicker/Datepicker';
-export { default as DatepickerRange } from './elements/DatepickerRange/DatepickerRange';
-export { GARDEN_PLACEMENT } from './elements/Datepicker/utils/garden-placements';
+export { Datepicker } from './elements/Datepicker/Datepicker';
+export type { IDatepickerProps } from './elements/Datepicker/Datepicker';
+export { DatepickerRange } from './elements/DatepickerRange/DatepickerRange';
+export type { IDatepickerRangeProps } from './elements/DatepickerRange/DatepickerRange';
+export type { GARDEN_PLACEMENT } from './elements/Datepicker/utils/garden-placements';

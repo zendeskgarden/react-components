@@ -21,7 +21,11 @@ import { Avatar } from '@zendeskgarden/react-avatars';
 import { Button } from '@zendeskgarden/react-buttons';
 import { PALETTE } from '@zendeskgarden/react-theming';
 
-export const MenuUsage: Story = () => {
+/**
+ * https://github.com/storybookjs/storybook/issues/13362
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const MenuUsage: Story = ({ foo }) => {
   const [highlightedItem, setHighlightedItem] = useState<number | null>();
 
   return (

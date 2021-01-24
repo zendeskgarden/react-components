@@ -16,33 +16,12 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@zendeskgarden/container-breadcrumb@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-breadcrumb/-/container-breadcrumb-0.4.1.tgz#8e7cc8c6810498964c8df09e4ab7a4315aef0a6c"
-  integrity sha512-2qhaI8+YpiMWYLZGh+d1OihWgbXgcyZW47HDXz9rcVrwb+6k8tsEJQirWT/ZgR9UeUlbkMqzn/LdjnbCbWIugg==
-
-"@zendeskgarden/container-focusvisible@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.3.tgz#9e2c1d882ecf9adc91f6e84eaca997fc9019f67a"
-  integrity sha512-4NpwhFzhRXE230mtaGUsvmwh6LxB1Cky/LJuX7ZYZkwEgjgaLO1m0qLOiRfEa4jJ2yKrsk2f+OOuyFwy7QIAcw==
+"@zendeskgarden/container-breadcrumb@^0.4.6":
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-breadcrumb/-/container-breadcrumb-0.4.6.tgz#cfbeee7179517307d838aae1e36a542cfb5a7033"
+  integrity sha512-MTwOTy7hBq+jDs6hQNThsyhUQE2q4LXTzklfoPbFImTkVLrNW6+cAq4ZEw4xXOA9SQ1E4ZHnqC0jKrWshGKTyA==
   dependencies:
     "@babel/runtime" "^7.8.4"
-
-"@zendeskgarden/container-utilities@^0.5.1":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.2.tgz#38aeb5cf9745557f75412eb4d5d8b0abae5a3772"
-  integrity sha512-QvPcAq1zlsvZfcyTwFlVVsO6DV3nW5SaXXWndesNx8erAtYJEnpJSQXcO2RABxz+YTXkK57h1fadySJX5SDqSA==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-
-"@zendeskgarden/react-theming@^8.29.0":
-  version "8.29.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.29.0.tgz#37998482392760c2967810530c701f7c2f67b161"
-  integrity sha512-NnCVb/Tw+oSYvPsAM6SDrEKJHBHhYnMUSBxBArt8ige1NHHjqPZyiFv2rMBpxSiyFgKvmaH5wP2dzhLH894xvQ==
-  dependencies:
-    "@zendeskgarden/container-focusvisible" "^0.4.3"
-    "@zendeskgarden/container-utilities" "^0.5.1"
-    polished "^4.0.0"
 
 "@zendeskgarden/svg-icons@6.27.0":
   version "6.27.0"

@@ -6,19 +6,19 @@
  */
 
 import React, { useRef } from 'react';
-import { ThemeProvider, DefaultTheme, ThemeProps } from 'styled-components';
+import { ThemeProvider, ThemeProps } from 'styled-components';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
-import DEFAULT_THEME from './theme';
+import DEFAULT_THEME, { IGardenTheme } from './theme';
 import { useDocument } from '../utils/useDocument';
 
-interface IGardenThemeProviderProps extends Partial<ThemeProps<DefaultTheme>> {
+interface IGardenThemeProviderProps extends Partial<ThemeProps<IGardenTheme>> {
   /**
    * Provides values for component styling. See styled-components
    * [`ThemeProvider`](https://styled-components.com/docs/api#themeprovider)
    * for details.
    */
-  theme?: DefaultTheme;
+  theme?: IGardenTheme;
   /**
    * Provides a reference to the DOM node used to scope a `:focus-visible`
    * polyfill. If left `undefined`, a scoping `<div>` will be rendered.
@@ -37,7 +37,9 @@ const GardenThemeProvider: React.FunctionComponent<IGardenThemeProviderProps> = 
   const scopeRef = useRef<HTMLDivElement>(null);
   const relativeDocument = useDocument(theme);
   const controlledScopeRef =
-    focusVisibleRef === null ? React.createRef() : getControlledValue(focusVisibleRef, scopeRef);
+    focusVisibleRef === null
+      ? React.createRef<HTMLElement>()
+      : getControlledValue(focusVisibleRef, scopeRef)!;
 
   useFocusVisible({ scope: controlledScopeRef, relativeDocument });
 

@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "8.29.3",
+  "version": "8.30.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -22,9 +22,9 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@popperjs/core": "^2.4.4",
-    "@zendeskgarden/container-focusvisible": "^0.4.3",
-    "@zendeskgarden/container-modal": "^0.8.0",
-    "@zendeskgarden/container-utilities": "^0.5.1",
+    "@zendeskgarden/container-focusvisible": "^0.4.6",
+    "@zendeskgarden/container-modal": "^0.8.5",
+    "@zendeskgarden/container-utilities": "^0.5.5",
     "dom-helpers": "^5.1.0",
     "react-merge-refs": "^1.1.0",
     "react-popper": "^2.2.3",
@@ -33,13 +33,13 @@
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",
     "prop-types": "^15.6.1",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
     "@types/react-transition-group": "^4.4.0",
-    "@zendeskgarden/react-theming": "^8.29.3",
+    "@zendeskgarden/react-theming": "^8.30.0",
     "@zendeskgarden/svg-icons": "6.27.0"
   },
   "keywords": [
@@ -50,9 +50,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "resolutions": {
-    "@types/react": "16.9.55"
   },
   "zendeskgarden:src": "src/index.ts"
 }
