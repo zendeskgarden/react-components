@@ -31,7 +31,7 @@ interface IStandaloneHeaderStoryProps {
 export const StandaloneHeader: Story<IStandaloneHeaderStoryProps> = ({ isStandalone }) => {
   return (
     <Chrome isFluid style={{ height: 200 }}>
-      <SkipNav>Skip to main content</SkipNav>
+      <SkipNav skipId="standalone-header">Skip to main content</SkipNav>
       <Body>
         <Header isStandalone={isStandalone}>
           <HeaderItem hasLogo product="support">

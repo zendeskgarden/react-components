@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useMemo, useEffect, useContext } from 'react';
+import React, { HTMLAttributes, useMemo, useEffect, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useUID } from 'react-uid';
 import { ThemeContext } from 'styled-components';
 import { readableColor } from 'polished';
 import { getColor, useDocument } from '@zendeskgarden/react-theming';
@@ -38,10 +39,12 @@ const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(({ hue, isFluid, .
 
     return false;
   }, [hue, theme]);
+  const uid = useUID();
+  const [mainId, setMainId] = useState(`zendeskgarden.chrome.main.${uid}_${PACKAGE_VERSION}`);
 
   const isLight = hue ? isLightMemoized : false;
   const isDark = hue ? !isLightMemoized : false;
-  const chromeContextValue = { hue: hue || 'chromeHue', isLight, isDark };
+  const chromeContextValue = { hue: hue || 'chromeHue', isLight, isDark, mainId, setMainId };
   const environment = useDocument(theme);
 
   useEffect(() => {

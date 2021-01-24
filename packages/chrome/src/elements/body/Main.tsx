@@ -5,24 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
-import PropTypes from 'prop-types';
+import React, { HTMLAttributes, useContext } from 'react';
 import { StyledMain } from '../../styled';
-
-interface IMainProps extends HTMLAttributes<HTMLElement> {
-  /** Sets the ID of the main element */
-  id?: string;
-}
+import { ChromeContext } from '../../utils/useChromeContext';
 
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-export const Main = React.forwardRef<HTMLElement, IMainProps>((props, ref) => (
-  <StyledMain tabIndex={props.tabIndex || -1} ref={ref} {...props} />
-));
+export const Main = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
+  ({ id, ...props }, ref) => {
+    const { mainId, setMainId } = useContext(ChromeContext);
+
+    if (id && setMainId) {
+      setMainId(id);
+    }
+
+    return <StyledMain id={id || mainId} tabIndex={props.tabIndex || -1} ref={ref} {...props} />;
+  }
+);
 
 Main.displayName = 'Main';
-
-Main.propTypes = {
-  id: PropTypes.string
-};

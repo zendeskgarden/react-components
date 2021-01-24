@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { AnchorHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { StyledSkipNav } from '../styled';
+import { ChromeContext } from '../utils/useChromeContext';
 
 interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /** Sets the ID of the element to link to */
@@ -20,11 +21,15 @@ interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const SkipNav = React.forwardRef<HTMLAnchorElement, ISkipNavProps>(
-  ({ children, skipId, zIndex, ...props }, ref) => (
-    <StyledSkipNav href={`#${skipId}`} zIndex={zIndex} ref={ref} {...props}>
-      {children}
-    </StyledSkipNav>
-  )
+  ({ children, skipId, zIndex, ...props }, ref) => {
+    const { mainId } = useContext(ChromeContext);
+
+    return (
+      <StyledSkipNav href={`#${skipId || mainId}`} zIndex={zIndex} ref={ref} {...props}>
+        {children}
+      </StyledSkipNav>
+    );
+  }
 );
 
 SkipNav.displayName = 'SkipNav';
