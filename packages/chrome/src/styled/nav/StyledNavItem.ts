@@ -65,14 +65,16 @@ interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
 
 /**
  * 1. Anchor reset
+ * 2. Button reset
  */
-export const StyledNavItem = styled(StyledBaseNavItem).attrs({
+export const StyledNavItem = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'button'
 })<IStyledNavItemProps>`
   justify-content: ${props => props.isExpanded && 'start'};
   order: 1;
+  margin: 0; /* [2] */
   cursor: ${props => (props.isCurrent ? 'default' : 'pointer')};
   text-align: ${props => props.isExpanded && 'inherit'};
 

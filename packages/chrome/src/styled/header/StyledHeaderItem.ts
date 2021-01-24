@@ -34,7 +34,7 @@ const imgStyles = (props: ThemeProps<DefaultTheme>) => {
 /**
  * 1. Anchor reset.
  */
-export const StyledHeaderItem = styled(StyledBaseHeaderItem).attrs({
+export const StyledHeaderItem = styled(StyledBaseHeaderItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledBaseHeaderItemProps>`
