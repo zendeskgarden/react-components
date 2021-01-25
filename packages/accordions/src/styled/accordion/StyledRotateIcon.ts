@@ -20,7 +20,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & any) => {
   const showColor = props.isCollapsible || !props.isRotated;
 
   return css`
-    color: ${showColor ? props.isHovered && color : getColor('neutralHue', 400, props.theme)};
+    color: ${showColor ? props.isHovered && color : getColor('neutralHue', 600, props.theme)};
 
     &:hover {
       color: ${showColor && color};
