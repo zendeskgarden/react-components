@@ -16,11 +16,15 @@ export interface IStyledRotateIcon {
 }
 
 const colorStyles = (props: ThemeProps<DefaultTheme> & any) => {
-  const color = getColor('primaryHue', 600, props.theme);
   const showColor = props.isCollapsible || !props.isRotated;
+  let color = getColor('neutralHue', 600, props.theme);
+
+  if (showColor && props.isHovered) {
+    color = getColor('primaryHue', 600, props.theme);
+  }
 
   return css`
-    color: ${showColor ? props.isHovered && color : getColor('neutralHue', 600, props.theme)};
+    color: ${color};
 
     &:hover {
       color: ${showColor && color};
