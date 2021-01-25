@@ -88,7 +88,7 @@ export const Default: Story<IDefaultStoryProps> = ({
 
   return (
     <Chrome isFluid style={{ height: 500 }} hue={hueColor}>
-      <SkipNav>Skip to main content</SkipNav>
+      <SkipNav targetId="main-content">Skip to main content</SkipNav>
       <Nav isExpanded={isExpanded}>
         <NavItem hasLogo product={product} title="Zendesk">
           <NavItemIcon>
@@ -204,7 +204,7 @@ export const Default: Story<IDefaultStoryProps> = ({
             <HeaderItemText isClipped>User</HeaderItemText>
           </HeaderItem>
         </Header>
-        <Content>
+        <Content id="main-content">
           {showSidebar && (
             <Sidebar style={{ padding: 28 }}>
               <h2>Example Sidebar</h2>

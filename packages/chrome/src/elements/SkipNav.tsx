@@ -8,11 +8,10 @@
 import React, { AnchorHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledSkipNav } from '../styled';
-import { useChromeContext } from '../utils/useChromeContext';
 
 interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  /** Sets the ID of the element to link to. Links to [Content](#content) by default. */
-  linkId?: string;
+  /** Sets the ID of the element to navigate to */
+  targetId: string;
   /** Sets the `z-index` of the element */
   zIndex?: number;
 }
@@ -21,18 +20,15 @@ interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const SkipNav = React.forwardRef<HTMLAnchorElement, ISkipNavProps>(
-  ({ linkId, zIndex, ...props }, ref) => {
-    const { contentId } = useChromeContext();
-    const href = linkId ? `#${linkId}` : props.href;
-
-    return <StyledSkipNav href={href || `#${contentId}`} zIndex={zIndex} ref={ref} {...props} />;
-  }
+  ({ targetId, zIndex, ...props }, ref) => (
+    <StyledSkipNav href={`#${targetId}`} zIndex={zIndex} ref={ref} {...props} />
+  )
 );
 
 SkipNav.displayName = 'SkipNav';
 
 SkipNav.propTypes = {
-  linkId: PropTypes.string,
+  targetId: PropTypes.string.isRequired,
   zIndex: PropTypes.number
 };
 
