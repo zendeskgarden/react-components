@@ -75,5 +75,18 @@ describe('SkipNav', () => {
 
       expect(getByTestId('skipnav').getAttribute('href')).toStrictEqual('#test');
     });
+
+    it('gives way to the href prop', () => {
+      const { getByTestId } = render(
+        <Chrome>
+          <SkipNav data-test-id="skipnav" href="#test" />
+          <Content>
+            <div id="test" />
+          </Content>
+        </Chrome>
+      );
+
+      expect(getByTestId('skipnav').getAttribute('href')).toStrictEqual('#test');
+    });
   });
 });
