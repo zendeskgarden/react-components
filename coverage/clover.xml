@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611694334023" clover="3.2.0">
-  <project timestamp="1611694334023" name="All files">
-    <metrics statements="6867" coveredstatements="6718" conditionals="2729" coveredconditionals="2468" methods="1449" coveredmethods="1417" elements="11045" coveredelements="10603" complexity="0" loc="6867" ncloc="6867" packages="113" files="450" classes="450"/>
+<coverage generated="1611697844672" clover="3.2.0">
+  <project timestamp="1611697844672" name="All files">
+    <metrics statements="6865" coveredstatements="6716" conditionals="2729" coveredconditionals="2468" methods="1449" coveredmethods="1417" elements="11043" coveredelements="10601" complexity="0" loc="6865" ncloc="6865" packages="113" files="450" classes="450"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -7056,7 +7056,7 @@
       </file>
     </package>
     <package name="tables.src.styled">
-      <metrics statements="239" coveredstatements="239" conditionals="77" coveredconditionals="74" methods="56" coveredmethods="56"/>
+      <metrics statements="237" coveredstatements="237" conditionals="77" coveredconditionals="74" methods="56" coveredmethods="56"/>
       <file name="StyledBody.ts" path="/home/circleci/project/packages/tables/src/styled/StyledBody.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="9" type="stmt"/>
@@ -7308,23 +7308,21 @@
         <line num="45" count="9" type="stmt"/>
       </file>
       <file name="index.ts" path="/home/circleci/project/packages/tables/src/styled/index.ts">
-        <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="8" count="9" type="stmt"/>
         <line num="9" count="9" type="stmt"/>
         <line num="10" count="9" type="stmt"/>
         <line num="11" count="9" type="stmt"/>
         <line num="12" count="9" type="stmt"/>
-        <line num="13" count="9" type="stmt"/>
         <line num="14" count="9" type="stmt"/>
         <line num="15" count="9" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
         <line num="17" count="9" type="stmt"/>
         <line num="18" count="9" type="stmt"/>
         <line num="19" count="9" type="stmt"/>
-        <line num="22" count="9" type="stmt"/>
-        <line num="23" count="9" type="stmt"/>
+        <line num="20" count="9" type="stmt"/>
+        <line num="21" count="9" type="stmt"/>
         <line num="24" count="9" type="stmt"/>
-        <line num="27" count="9" type="stmt"/>
+        <line num="26" count="9" type="stmt"/>
       </file>
       <file name="style-utils.ts" path="/home/circleci/project/packages/tables/src/styled/style-utils.ts">
         <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
