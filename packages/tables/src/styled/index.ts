@@ -9,19 +9,19 @@ export { StyledBody } from './StyledBody';
 export { StyledCaption } from './StyledCaption';
 export { StyledHeaderRow } from './StyledHeaderRow';
 export { StyledHead } from './StyledHead';
-export { StyledCell, IStyledCellProps } from './StyledCell';
+export { StyledCell } from './StyledCell';
+export type { IStyledCellProps } from './StyledCell';
 export { StyledGroupRow } from './StyledGroupRow';
-export { StyledTable, IStyledTableProps } from './StyledTable';
+export { StyledTable } from './StyledTable';
+export type { IStyledTableProps } from './StyledTable';
 export { StyledHeaderCell } from './StyledHeaderCell';
 export {
   StyledSortableButton,
   StyledSortableFillIconWrapper,
-  StyledSortableStrokeIconWrapper,
-  IStyledSortableButtonProps
+  StyledSortableStrokeIconWrapper
 } from './StyledSortableButton';
-export {
-  StyledOverflowButton,
-  StyledOverflowButtonIconWrapper,
-  IStyledOverflowButtonProps
-} from './StyledOverflowButton';
-export { StyledRow, IStyledRowProps } from './StyledRow';
+export type { IStyledSortableButtonProps } from './StyledSortableButton';
+export { StyledOverflowButton, StyledOverflowButtonIconWrapper } from './StyledOverflowButton';
+export type { IStyledOverflowButtonProps } from './StyledOverflowButton';
+export { StyledRow } from './StyledRow';
+export type { IStyledRowProps } from './StyledRow';

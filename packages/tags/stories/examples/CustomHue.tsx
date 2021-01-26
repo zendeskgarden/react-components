@@ -41,7 +41,8 @@ CustomHue.argTypes = {
 
 CustomHue.parameters = {
   docs: {
-    storyDescription: `
+    description: {
+      story: `
 Generally, the color of a Garden \`Tag\` is determined by setting the \`hue\`
 prop to one of the available theming
 [palette](https://zendeskgarden.github.io/react-components/theming/#palette)
@@ -52,5 +53,6 @@ The \`Tag\` component uses the [PolishedJS
 readableColor()](https://polished.js.org/docs/#readablecolor) utility to
 maintain accessible foreground/background contrast levels.
       `
+    }
   }
 };

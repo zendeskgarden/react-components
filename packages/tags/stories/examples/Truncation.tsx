@@ -117,11 +117,13 @@ Truncation.argTypes = {
 
 Truncation.parameters = {
   docs: {
-    storyDescription: `
+    description: {
+      story: `
 The following example shows how a Tag can be used together with a child
 span in order to handle truncation. Use the slider below to change the
 width of the text field container. Text within the tags will truncate with
 an ellipsis based on the available container width.
       `
+    }
   }
 };
