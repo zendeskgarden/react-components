@@ -9,7 +9,7 @@
 [coverage status badge]: https://flat.badgen.net/coveralls/c/github/zendeskgarden/react-components/main
 [coverage status link]: https://coveralls.io/github/zendeskgarden/react-components
 
-> :seedling: Garden is a design system for Zendesk
+> :seedling: Garden is the design system by Zendesk
 
 Garden React provides consistent styling and behavior for Garden components.
 React components are maintained following a multi-package approach where

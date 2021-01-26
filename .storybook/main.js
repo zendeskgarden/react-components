@@ -12,19 +12,11 @@ const TS_CONFIG_PATH = path.resolve(__dirname, '../tsconfig.json');
 
 module.exports = {
   stories: ['../packages/*/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-a11y'],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y'],
   typescript: {
     check: true,
     checkOptions: {
       configFile: TS_CONFIG_PATH
-    },
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      /**
-       * Ensure that HTMLAttributes are not included in prop-sheets
-       */
-      propFilter: prop => (prop.parent ? !/node_modules/u.test(prop.parent.fileName) : true)
     }
   },
   webpackFinal: config => {
