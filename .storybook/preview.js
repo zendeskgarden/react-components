@@ -7,17 +7,20 @@
 
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { PARAM_KEY as viewMode } from '@storybook/addon-docs/dist/shared';
-import { previewTheme } from './gardenTheme';
+import { create } from '@storybook/theming/create';
 import { ThemeProvider, DEFAULT_THEME } from '../packages/theming/src';
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*', layout: 'centered' },
-  backgrounds: { disable: true },
-  docs: {
-    theme: previewTheme
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  backgrounds: {
+    disable: true,
+    grid: { disable: true }
   },
-  viewMode
+  docs: {
+    theme: create({
+      base: DEFAULT_THEME.colors.base
+    })
+  }
 };
 
 const GlobalPreviewStyling = createGlobalStyle`
