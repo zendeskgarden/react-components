@@ -14,6 +14,7 @@
       "@zendeskgarden/react-breadcrumbs": ["./packages/breadcrumbs/src/index.ts"],
       "@zendeskgarden/react-buttons": ["./packages/buttons/src/index.ts"],
       "@zendeskgarden/react-chrome": ["./packages/chrome/src/index.ts"],
+      "@zendeskgarden/react-colorpicker": ["./packages/colorpicker/src/index.ts"],
       "@zendeskgarden/react-datepickers": ["./packages/datepickers/src/index.ts"],
       "@zendeskgarden/react-dropdowns": ["./packages/dropdowns/src/index.ts"],
       "@zendeskgarden/react-forms": ["./packages/forms/src/index.ts"],
