@@ -8,6 +8,7 @@
 import { Meta } from '@storybook/react';
 import {
   Chrome,
+  SkipNav,
   Body,
   Content,
   Main,
@@ -33,6 +34,7 @@ export default {
   title: 'Components/Chrome',
   subcomponents: {
     Chrome,
+    SkipNav,
     Body,
     Content,
     Main,

@@ -6,6 +6,7 @@
  */
 
 export { default as Chrome } from './elements/Chrome';
+export { SkipNav } from './elements/SkipNav';
 export { Body } from './elements/body/Body';
 export { Content } from './elements/body/Content';
 export { Main } from './elements/body/Main';

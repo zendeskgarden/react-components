@@ -23,6 +23,7 @@ import MenuTrayIcon from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
 import PersonIcon from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 import {
   Body,
+  SkipNav,
   Chrome,
   CollapsibleSubNavItem,
   Content,
@@ -87,6 +88,7 @@ export const Default: Story<IDefaultStoryProps> = ({
 
   return (
     <Chrome isFluid style={{ height: 500 }} hue={hueColor}>
+      <SkipNav targetId="main-content">Skip to main content</SkipNav>
       <Nav isExpanded={isExpanded}>
         <NavItem hasLogo product={product} title="Zendesk">
           <NavItemIcon>
@@ -202,7 +204,7 @@ export const Default: Story<IDefaultStoryProps> = ({
             <HeaderItemText isClipped>User</HeaderItemText>
           </HeaderItem>
         </Header>
-        <Content>
+        <Content id="main-content">
           {showSidebar && (
             <Sidebar style={{ padding: 28 }}>
               <h2>Example Sidebar</h2>
@@ -217,7 +219,7 @@ export const Default: Story<IDefaultStoryProps> = ({
               </p>
             </Sidebar>
           )}
-          <Main style={{ padding: 28 }} tabIndex={0}>
+          <Main style={{ padding: 28 }}>
             <h2>Main Content</h2>
             <p>
               Beetroot water spinach okra water chestnut ricebean pea catsear courgette summer

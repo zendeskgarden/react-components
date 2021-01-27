@@ -74,7 +74,7 @@ export const StyledSubNavItem = styled.button.attrs({
   transition: box-shadow 0.1s ease-in-out,
     background-color 0.1s ease-in-out,
     opacity 0.1s ease-in-out;
-  margin-top: ${props => props.theme.space.base * 2}px;
+  margin: ${props => props.theme.space.base * 2}px 0 0; /* [2] */
   border: none; /* [2] */
   border-radius: ${props => props.theme.borderRadii.md};
   box-sizing: border-box;

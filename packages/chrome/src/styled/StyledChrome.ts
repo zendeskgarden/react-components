@@ -18,6 +18,7 @@ export const StyledChrome = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   display: flex;
+  position: relative;
   margin: 0;
   height: 100vh;
   overflow-y: hidden; /* [1] */
