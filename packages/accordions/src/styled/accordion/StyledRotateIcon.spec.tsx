@@ -20,7 +20,10 @@ describe('StyledRotateIcon', () => {
 
     expect(container.firstChild).not.toHaveStyleRule('transform');
     expect(container.firstChild).toHaveStyleRule('padding', '20px');
-    expect(container.firstChild).not.toHaveStyleRule('color');
+    expect(container.firstChild).toHaveStyleRule(
+      'color',
+      getColor('neutralHue', 600, DEFAULT_THEME)
+    );
   });
 
   it('renders isRotated styling correctly', () => {

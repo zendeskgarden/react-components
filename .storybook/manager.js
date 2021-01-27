@@ -5,13 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { create } from '@storybook/theming/create';
 import { addons } from '@storybook/addons';
-import { managerTheme } from './gardenTheme';
+import { DEFAULT_THEME } from '../packages/theming/src';
 
 addons.setConfig({
-  theme: managerTheme,
-  /**
-   * Show the controls addon by default
-   */
-  selectedPanel: 'controls'
+  theme: create({
+    brandTitle: 'Zendesk Garden React Components',
+    brandUrl: 'https://github.com/zendeskgarden/react-components',
+    brandImage: null,
+    colorSecondary: DEFAULT_THEME.palette.blue[600],
+    fontBase: DEFAULT_THEME.fonts.system,
+    fontCode: DEFAULT_THEME.fonts.mono
+  })
 });

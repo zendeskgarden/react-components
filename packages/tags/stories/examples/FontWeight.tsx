@@ -41,9 +41,11 @@ export const FontWeight: Story = ({ foo }) => (
 
 FontWeight.parameters = {
   docs: {
-    storyDescription: `
+    description: {
+      story: `
 The following examples demonstrates using the \`isRegular\` prop combined with
 mixed weight content. Check out the code for details.
       `
+    }
   }
 };

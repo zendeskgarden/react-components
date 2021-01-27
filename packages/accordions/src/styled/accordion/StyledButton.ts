@@ -23,11 +23,15 @@ export interface IStyledButton {
 }
 
 const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledButton) => {
-  const color = getColor('primaryHue', 600, props.theme);
   const showColor = props.isCollapsible || !props.isExpanded;
+  let color = props.theme.colors.foreground;
+
+  if (showColor && props.isHovered) {
+    color = getColor('primaryHue', 600, props.theme)!;
+  }
 
   return css`
-    color: ${showColor && props.isHovered && color};
+    color: ${color};
 
     &:hover {
       cursor: ${showColor && 'pointer'};
