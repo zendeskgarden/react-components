@@ -11,6 +11,31 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v8.31.0 (2021-01-27)
+
+#### :rocket: New Feature
+* `chrome`
+  * [#994](https://github.com/zendeskgarden/react-components/pull/994) feat(chrome): add SkipNav component ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#993](https://github.com/zendeskgarden/react-components/pull/993) fix(accordions): correct default color of accordion labels ([@austingreendev](https://github.com/austingreendev))
+* Other
+  * [#997](https://github.com/zendeskgarden/react-components/pull/997) fix(build): ensure typescript declarations are built with correct path ([@austingreendev](https://github.com/austingreendev))
+
+#### :memo: Documentation
+* Other
+  * [#998](https://github.com/zendeskgarden/react-components/pull/998) chore: simplify storybook configuration ([@jzempel](https://github.com/jzempel))
+* `datepickers`, `tables`, `tags`
+  * [#995](https://github.com/zendeskgarden/react-components/pull/995) chore(docs): migrate react-tables to storybook ([@austingreendev](https://github.com/austingreendev))
+* `datepickers`
+  * [#992](https://github.com/zendeskgarden/react-components/pull/992) chore(docs): migrate datepicker docs to storybook ([@austingreendev](https://github.com/austingreendev))
+* `tooltips`
+  * [#986](https://github.com/zendeskgarden/react-components/pull/986) chore(tooltips): migrate tooltip example to storybook ([@austingreendev](https://github.com/austingreendev))
+
+#### :seedling: Internal
+* [#991](https://github.com/zendeskgarden/react-components/pull/991) chore(deps): bump socket.io from 2.3.0 to 2.4.1 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
 ## v8.30.0 (2021-01-20)
 
 #### :rocket: New Feature
