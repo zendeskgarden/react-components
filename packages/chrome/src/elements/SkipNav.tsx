@@ -7,7 +7,7 @@
 
 import React, { AnchorHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledSkipNav } from '../styled';
+import { StyledSkipNav, StyledSkipNavIcon } from '../styled';
 
 interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /** Sets the ID of the element to navigate to */
@@ -20,8 +20,11 @@ interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const SkipNav = React.forwardRef<HTMLAnchorElement, ISkipNavProps>(
-  ({ targetId, zIndex, ...props }, ref) => (
-    <StyledSkipNav href={`#${targetId}`} zIndex={zIndex} ref={ref} {...props} />
+  ({ targetId, zIndex, children, ...props }, ref) => (
+    <StyledSkipNav href={`#${targetId}`} zIndex={zIndex} ref={ref} {...props}>
+      <StyledSkipNavIcon />
+      {children}
+    </StyledSkipNav>
   )
 );
 
