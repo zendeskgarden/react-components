@@ -70,14 +70,7 @@ export const Saturation: React.FC<ISaturationProps> = ({
 
   return (
     <StyledSaturationWrapper>
-      <StyledSaturation
-        hue={hue}
-        ref={container}
-        role="presentation"
-        onMouseDown={handleMouseDown}
-        onTouchMove={handleChange}
-        onTouchStart={handleChange}
-      >
+      <StyledSaturation hue={hue} ref={container} role="presentation" onMouseDown={handleMouseDown}>
         <StyledSaturationWhite>
           <StyledSaturationBlack />
           <StyledSaturationPointer top={topPosition} left={leftPosition}>
