@@ -18,12 +18,11 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { ColorPicker } from '@zendeskgarden/react-colorpicker';
 
-const [color, setColor] = React.useState('#17494D');
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <ColorPicker color={color} onChange={setColor}>
-</ThemeProvider>;
+  <ColorPicker color="#17494D">
+</ThemeProvider>
 ```
