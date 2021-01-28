@@ -24,6 +24,7 @@
     "@zendeskgarden/container-utilities": "^0.5.5",
     "@zendeskgarden/react-forms": "^8.29.3",
     "@zendeskgarden/react-modals": "^8.29.3",
+    "lodash.throttle": "4.1.1",
     "polished": "^4.0.0",
     "react-merge-refs": "^1.1.0"
   },
@@ -37,8 +38,7 @@
   "devDependencies": {
     "@types/lodash.throttle": "4.1.6",
     "@zendeskgarden/react-theming": "^8.0.0",
-    "@zendeskgarden/svg-icons": "6.27.0",
-    "lodash.throttle": "4.1.1"
+    "@zendeskgarden/svg-icons": "6.27.0"
   },
   "keywords": [
     "colorpicker",
