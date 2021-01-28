@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-colorpicker",
-  "description": "Components related to colorpicker in the Garden Design System",
+  "description": "Components related to color pickers in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "homepage": "https://garden.zendesk.com/",
