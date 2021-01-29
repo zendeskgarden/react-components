@@ -13,7 +13,6 @@ import {
   StyledHue,
   StyledSliderGroup,
   StyledInput,
-  StyledLabel,
   StyledAlpha,
   StyledSliders,
   StyledHexField,
@@ -124,7 +123,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
 
         <StyledInputGroup>
           <StyledHexField>
-            <StyledLabel>{labels.hex || 'Hex'}</StyledLabel>
+            <Label isRegular>{labels.hex || 'Hex'}</Label>
             <StyledInput
               isCompact
               maxLength={7}
@@ -135,7 +134,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             />
           </StyledHexField>
           <StyledRGBAField>
-            <StyledLabel>{labels.red || 'R'}</StyledLabel>
+            <Label isRegular>{labels.red || 'R'}</Label>
             <StyledInput
               isCompact
               type="number"
@@ -149,7 +148,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             />
           </StyledRGBAField>
           <StyledRGBAField>
-            <StyledLabel>{labels.green || 'G'}</StyledLabel>
+            <Label isRegular>{labels.green || 'G'}</Label>
             <StyledInput
               isCompact
               type="number"
@@ -163,7 +162,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             />
           </StyledRGBAField>
           <StyledRGBAField>
-            <StyledLabel>{labels.blue || 'B'}</StyledLabel>
+            <Label isRegular>{labels.blue || 'B'}</Label>
             <StyledInput
               isCompact
               type="number"
@@ -177,7 +176,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             />
           </StyledRGBAField>
           <StyledRGBAField>
-            <StyledLabel>{labels.alpha || 'A'}</StyledLabel>
+            <Label isRegular>{labels.alpha || 'A'}</Label>
             <StyledInput
               isCompact
               type="number"

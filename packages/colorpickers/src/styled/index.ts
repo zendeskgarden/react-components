@@ -19,7 +19,6 @@ export * from './ColorPicker/StyledSliderGroup';
 export * from './ColorPicker/StyledHexField';
 export * from './ColorPicker/StyledInput';
 export * from './ColorPicker/StyledInputGroup';
-export * from './ColorPicker/StyledLabel';
 export * from './ColorPicker/StyledRGBAField';
 export * from './ColorPicker/StyledSliders';
 export * from './ColorPicker/StyledCheckered';
