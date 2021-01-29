@@ -9,14 +9,14 @@ import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { ColorPicker } from '@zendeskgarden/react-colorpickers';
-
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 export default {
   title: 'Components/ColorPicker',
   component: ColorPicker
 } as Meta;
 
 export const Default: Story = ({ labels }) => {
-  const [color] = useState('#17494D');
+  const [color] = useState(DEFAULT_THEME.palette.kale[600]);
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
