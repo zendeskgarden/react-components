@@ -36,8 +36,8 @@ describe('ColorDialog', () => {
 
     expect(preview).toHaveStyleRule('background', 'rgba(23,73,77,1)');
 
-    const hueSlider = screen.getByLabelText('Hue Slider');
-    const alphaSlider = screen.getByLabelText('Alpha Slider');
+    const hueSlider = screen.getByLabelText('Hue slider');
+    const alphaSlider = screen.getByLabelText('Alpha slider');
     const hexInput = screen.getByLabelText('Hex');
 
     fireEvent.change(hueSlider, { target: { value: '349' } });
@@ -45,8 +45,8 @@ describe('ColorDialog', () => {
     userEvent.type(hexInput, '{esc}');
 
     expect(screen.queryByLabelText('Hex')).toBeNull();
-    expect(screen.queryByLabelText('Hue Slider')).toBeNull();
-    expect(screen.queryByLabelText('Alpha Slider')).toBeNull();
+    expect(screen.queryByLabelText('Hue slider')).toBeNull();
+    expect(screen.queryByLabelText('Alpha slider')).toBeNull();
     expect(preview).toHaveStyleRule('background', 'rgba(77,23,33,0.5)');
   });
 });

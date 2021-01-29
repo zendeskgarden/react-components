@@ -27,8 +27,8 @@ export const Default: Story = ({ labels }) => {
 
 Default.args = {
   labels: {
-    alphaSlider: 'Alpha Slider',
-    hueSlider: 'Hue Slider',
+    alphaSlider: 'Alpha slider',
+    hueSlider: 'Hue slider',
     hex: 'Hex',
     red: 'R',
     green: 'G',

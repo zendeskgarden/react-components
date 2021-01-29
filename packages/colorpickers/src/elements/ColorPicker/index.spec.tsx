@@ -37,7 +37,7 @@ describe('ColorPicker', () => {
     expect(greenInput.value).toBe('73');
     expect(blueInput.value).toBe('77');
 
-    const hueSlider = screen.getByLabelText('Hue Slider') as HTMLInputElement;
+    const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
 
     fireEvent.change(hueSlider, { target: { value: '349' } });
 
@@ -60,7 +60,7 @@ describe('ColorPicker', () => {
       />
     );
     const previewBox = screen.getByTestId('preview-box');
-    const alphaSlider = screen.getByLabelText('Alpha Slider') as HTMLInputElement;
+    const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
     const alphaInput = screen.getByLabelText('A') as HTMLInputElement;
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
@@ -75,7 +75,7 @@ describe('ColorPicker', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
     const saturationBlock = screen.getByTestId('saturation-block');
-    const hueSlider = screen.getByLabelText('Hue Slider') as HTMLInputElement;
+    const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex');
     const redInput = screen.getByLabelText('R') as HTMLInputElement;
     const greenInput = screen.getByLabelText('G') as HTMLInputElement;
@@ -103,7 +103,7 @@ describe('ColorPicker', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
     const saturationBlock = screen.getByTestId('saturation-block');
-    const hueSlider = screen.getByLabelText('Hue Slider') as HTMLInputElement;
+    const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
     const redInput = screen.getByLabelText('R') as HTMLInputElement;
 
@@ -124,7 +124,7 @@ describe('ColorPicker', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
     const saturationBlock = screen.getByTestId('saturation-block');
-    const hueSlider = screen.getByLabelText('Hue Slider') as HTMLInputElement;
+    const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
     const greenInput = screen.getByLabelText('G') as HTMLInputElement;
 
@@ -145,7 +145,7 @@ describe('ColorPicker', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
     const saturationBlock = screen.getByTestId('saturation-block');
-    const hueSlider = screen.getByLabelText('Hue Slider') as HTMLInputElement;
+    const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
     const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
@@ -166,7 +166,7 @@ describe('ColorPicker', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77, alpha: 100 }} />);
 
     const previewBox = screen.getByTestId('preview-box');
-    const alphaSlider = screen.getByLabelText('Alpha Slider') as HTMLInputElement;
+    const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
     const alphaInput = screen.getByLabelText('A') as HTMLInputElement;
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
@@ -209,7 +209,7 @@ describe('ColorPicker', () => {
   it('updates the color only if the hex input is a valid hex color', () => {
     render(<ColorPicker color="#17494d" />);
 
-    const hueSlider = screen.getByLabelText('Hue Slider') as HTMLInputElement;
+    const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
 
     expect(hueSlider.value).toBe('184.44444444444443');
