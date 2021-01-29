@@ -10,15 +10,15 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'colorpicker.saturation';
 
-interface IStyledSaturationProps {
+interface IStyledColorWellProps {
   hue: number;
 }
 
-export const StyledSaturation = styled.div.attrs<IStyledSaturationProps>({
+export const StyledColorWell = styled.div.attrs<IStyledColorWellProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'saturation-block'
-})<IStyledSaturationProps>`
+})<IStyledColorWellProps>`
   position: absolute;
   top: 0;
   right: 0;
@@ -29,6 +29,6 @@ export const StyledSaturation = styled.div.attrs<IStyledSaturationProps>({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledSaturation.defaultProps = {
+StyledColorWell.defaultProps = {
   theme: DEFAULT_THEME
 };

@@ -12,7 +12,7 @@ import { IHSVColor } from './reducer';
 import { hsl2hsv } from '../../utils/conversion';
 import { calculateNextHsv, getSaturationPosition } from '../../utils/saturation';
 import {
-  StyledSaturation,
+  StyledColorWell,
   StyledSaturationWhite,
   StyledSaturationBlack,
   StyledSaturationPointer,
@@ -20,19 +20,14 @@ import {
   StyledSaturationWrapper
 } from '../../styled';
 
-interface ISaturationProps {
+interface IColorWellProps {
   hue: number;
   saturation: number;
   lightness: number;
   onChange?: (hsv: IHSVColor, event: React.MouseEvent<any>) => void;
 }
 
-export const Saturation: React.FC<ISaturationProps> = ({
-  hue,
-  saturation,
-  lightness,
-  onChange
-}) => {
+export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightness, onChange }) => {
   const { rtl } = useContext(ThemeContext);
   const container = useRef<HTMLDivElement>(null);
   const hsv = hsl2hsv(hue, saturation, lightness);
@@ -70,14 +65,14 @@ export const Saturation: React.FC<ISaturationProps> = ({
 
   return (
     <StyledSaturationWrapper>
-      <StyledSaturation hue={hue} ref={container} role="presentation" onMouseDown={handleMouseDown}>
+      <StyledColorWell hue={hue} ref={container} role="presentation" onMouseDown={handleMouseDown}>
         <StyledSaturationWhite>
           <StyledSaturationBlack />
           <StyledSaturationPointer top={topPosition} left={leftPosition}>
             <StyledSaturationCircle />
           </StyledSaturationPointer>
         </StyledSaturationWhite>
-      </StyledSaturation>
+      </StyledColorWell>
     </StyledSaturationWrapper>
   );
 };

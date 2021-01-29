@@ -9,7 +9,7 @@ export * from './ColorPicker/StyledColorPicker';
 export * from './ColorPicker/StyledHue';
 export * from './ColorPicker/StyledAlpha';
 export * from './ColorPicker/StyledPreview';
-export * from './ColorPicker/StyledSaturation';
+export * from './ColorPicker/StyledColorWell';
 export * from './ColorPicker/StyledSaturationWrapper';
 export * from './ColorPicker/StyledSaturationWhite';
 export * from './ColorPicker/StyledSaturationBlack';

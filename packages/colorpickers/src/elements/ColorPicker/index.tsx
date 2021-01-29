@@ -8,7 +8,7 @@
 import React, { useEffect, useReducer, forwardRef, ChangeEvent, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '@zendeskgarden/react-forms';
-import { Saturation } from './Saturation';
+import { ColorWell } from './ColorWell';
 import {
   StyledHue,
   StyledSliderGroup,
@@ -75,7 +75,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
 
     return (
       <StyledColorPicker ref={ref} {...props}>
-        <Saturation
+        <ColorWell
           hue={state.hue}
           saturation={state.saturation}
           lightness={state.lightness}

@@ -7,12 +7,12 @@
 
 import React from 'react';
 import { render, renderRtl, screen } from 'garden-test-utils';
-import { Saturation } from './Saturation';
+import { ColorWell } from './ColorWell';
 
 describe('Saturation', () => {
   it('initializes thumb on position respective to the current saturation and lightness', () => {
     render(
-      <Saturation
+      <ColorWell
         hue={184.44444444444443}
         saturation={53.99999999999999}
         lightness={19.607843137254903}
@@ -27,7 +27,7 @@ describe('Saturation', () => {
 
   it('initializes thumb on position respective to the current saturation and lightness in RTL', () => {
     renderRtl(
-      <Saturation
+      <ColorWell
         hue={184.44444444444443}
         saturation={53.99999999999999}
         lightness={19.607843137254903}
