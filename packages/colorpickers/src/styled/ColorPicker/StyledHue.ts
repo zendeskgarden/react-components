@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { math } from 'polished';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { Range } from '@zendeskgarden/react-forms';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
@@ -53,8 +52,8 @@ export const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const thumbBackgroundColor = getColor(props.theme.colors.background, SHADE, props.theme);
   const thumbBorderColor = thumbBackgroundColor;
   const thumbBoxShadow = props.theme.shadows.lg(
-    math(`${props.theme.space.base} * 1px`),
-    math(`${props.theme.space.base} * 2px`),
+    `${props.theme.space.base}px`,
+    `${props.theme.space.base * 2}px`,
     getColor('neutralHue', SHADE + 200, props.theme, 0.24)!
   );
   const thumbActiveBackgroundColor = getColor(
