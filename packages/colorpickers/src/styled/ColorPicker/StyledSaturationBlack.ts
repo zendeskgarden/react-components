@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpicker.saturation_black';
 
@@ -19,8 +19,13 @@ export const StyledSaturationBlack = styled.div.attrs({
   right: 0;
   bottom: 0;
   left: 0;
-  /* stylelint-disable-next-line color-function-notation */
-  background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+  /* stylelint-disable */
+  background: linear-gradient(
+    to top,
+    ${props => getColor(props.theme.palette.black, undefined, props.theme)},
+    rgba(0, 0, 0, 0)
+  );
+  /* stylelint-enable */
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

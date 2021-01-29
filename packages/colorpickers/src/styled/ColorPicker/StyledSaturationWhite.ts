@@ -22,7 +22,7 @@ export const StyledSaturationWhite = styled.div.attrs({
   /* stylelint-disable */
   background: linear-gradient(
     to ${props => (props.theme.rtl ? 'left' : 'right')},
-    #fff,
+    ${props => props.theme.colors.background},
     rgba(255, 255, 255, 0)
   );
   /* stylelint-enable */

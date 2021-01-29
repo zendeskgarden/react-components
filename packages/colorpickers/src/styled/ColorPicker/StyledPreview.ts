@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IRGBColor } from '../../elements/ColorPicker/reducer';
 
 const COMPONENT_ID = 'colorpicker.preview_box';
@@ -28,7 +28,8 @@ export const StyledPreview = styled.div.attrs<IStyledPreviewBoxProps>(props => (
   flex-shrink: 0;
   border-radius: ${props => props.theme.borderRadii.md};
   /* stylelint-disable-next-line color-function-notation */
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.19);
+  box-shadow: inset 0 0 0 1px
+    ${props => getColor(props.theme.palette.black, 600, props.theme, 0.19)};
   width: ${props => props.theme.space.base * 8}px;
   height: ${props => props.theme.space.base * 8}px;
 

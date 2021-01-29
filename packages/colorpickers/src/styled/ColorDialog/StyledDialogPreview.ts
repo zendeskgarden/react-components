@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IRGBColor } from '../../elements/ColorPicker/reducer';
 
 const COMPONENT_ID = 'colordialog.preview';
@@ -22,7 +22,13 @@ export const StyledDialogPreview = styled.div.attrs<IStyleDialogPreviewProps>({
 })<IStyleDialogPreviewProps>`
   display: inline-block;
   /* stylelint-disable-next-line color-function-notation */
-  border: ${props => props.theme.borders.sm} rgba(0, 0, 0, 0.25);
+  border: ${props =>
+    `${props.theme.borders.sm} ${getColor(
+      props.theme.palette.black,
+      undefined,
+      props.theme,
+      0.25
+    )}`};
   border-radius: ${props => props.theme.borderRadii.sm};
   background: ${props =>
     typeof props.backgroundColor === 'string'

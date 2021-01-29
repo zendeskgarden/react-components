@@ -50,14 +50,18 @@ const hueTrackStyles = (props: ThemeProps<DefaultTheme>) => {
 
 export const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
-  const thumbBackgroundColor = getColor('white', SHADE, props.theme);
+  const thumbBackgroundColor = getColor(props.theme.colors.background, SHADE, props.theme);
   const thumbBorderColor = thumbBackgroundColor;
   const thumbBoxShadow = props.theme.shadows.lg(
     math(`${props.theme.space.base} * 1px`),
     math(`${props.theme.space.base} * 2px`),
     getColor('neutralHue', SHADE + 200, props.theme, 0.24)!
   );
-  const thumbActiveBackgroundColor = getColor('white', SHADE + 100, props.theme);
+  const thumbActiveBackgroundColor = getColor(
+    props.theme.colors.background,
+    SHADE + 100,
+    props.theme
+  );
   const thumbActiveBorderColor = getColor('primaryHue', SHADE, props.theme);
   const thumbFocusBoxShadow = props.theme.shadows.md(
     getColor('primaryHue', SHADE, props.theme, 0.35)!

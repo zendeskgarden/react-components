@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpicker.saturation_circle';
 
@@ -14,6 +14,7 @@ export const StyledSaturationCircle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  border: 2px solid ${props => props.theme.colors.background};
   /* stylelint-disable */
   transform: translate(
     -${props => props.theme.space.base * 2}px,
@@ -21,10 +22,7 @@ export const StyledSaturationCircle = styled.div.attrs({
   );
   /* stylelint-enable */
   border-radius: 50%;
-  /* stylelint-disable */
-  box-shadow: 0 0 0 1.5px ${props => props.theme.colors.background},
-    inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);
-  /* stylelint-enable */
+  box-shadow: 0 4px 8px 0 ${props => getColor('neutralHue', 800, props.theme, 0.24)};
   width: ${props => props.theme.space.base * 4}px;
   height: ${props => props.theme.space.base * 4}px;
 
