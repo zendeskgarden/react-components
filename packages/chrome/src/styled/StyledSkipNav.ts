@@ -33,7 +33,7 @@ const animationStyles = () => {
       transition: opacity 0.2s ease-in-out;
       animation: 0.2s cubic-bezier(0.15, 0.85, 0.35, 1.2) ${animationName};
       opacity: 1;
-      clip: auto;
+      clip: rect(0, 150vw, 100vh, -50vw);
     }
   `;
 };
