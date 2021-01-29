@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Field } from '@zendeskgarden/react-forms';
 
-const COMPONENT_ID = 'colorpicker.hex.field';
+const COMPONENT_ID = 'colorpicker.hex_field';
 
 export const StyledHexField = styled(Field).attrs({
   'data-garden-id': COMPONENT_ID,

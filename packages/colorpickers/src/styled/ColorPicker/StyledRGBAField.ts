@@ -9,7 +9,7 @@ import { Field } from '@zendeskgarden/react-forms';
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpicker.rgb.field';
+const COMPONENT_ID = 'colorpicker.rgb_field';
 
 export const StyledRGBAField = styled(Field).attrs({
   'data-garden-id': COMPONENT_ID,

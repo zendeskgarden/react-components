@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpicker.saturation.pointer';
+const COMPONENT_ID = 'colorpicker.saturation_pointer';
 
 interface IStyledSaturationPointerProps {
   top: number;

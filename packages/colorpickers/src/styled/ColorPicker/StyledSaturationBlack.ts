@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpicker.saturation.black';
+const COMPONENT_ID = 'colorpicker.saturation_black';
 
 export const StyledSaturationBlack = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,

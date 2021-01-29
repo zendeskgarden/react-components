@@ -9,7 +9,7 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IRGBColor } from '../../elements/ColorPicker/reducer';
 
-const COMPONENT_ID = 'colorpicker.preview.box';
+const COMPONENT_ID = 'colorpicker.preview_box';
 
 export interface IStyledPreviewBoxProps extends ThemeProps<DefaultTheme> {
   rgb: IRGBColor;
