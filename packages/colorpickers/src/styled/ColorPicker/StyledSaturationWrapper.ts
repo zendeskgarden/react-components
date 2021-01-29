@@ -16,7 +16,7 @@ export const StyledSaturationWrapper = styled.div.attrs({
 })`
   position: relative;
   margin-bottom: ${props => props.theme.space.base * 2}px;
-  padding-bottom: 75%;
+  height: ${props => props.theme.space.base * 52}px;
   overflow: hidden;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

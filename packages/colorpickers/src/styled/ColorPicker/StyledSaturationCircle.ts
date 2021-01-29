@@ -17,8 +17,8 @@ export const StyledSaturationCircle = styled.div.attrs({
   border: 2px solid ${props => props.theme.colors.background};
   /* stylelint-disable */
   transform: translate(
-    -${props => props.theme.space.base * 2}px,
-    -${props => props.theme.space.base * 2}px
+    -${props => props.theme.space.base * 2.5}px,
+    -${props => props.theme.space.base * 2.5}px
   );
   /* stylelint-enable */
   border-radius: 50%;
