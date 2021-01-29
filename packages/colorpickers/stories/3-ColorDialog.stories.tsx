@@ -14,3 +14,4 @@ export default {
 } as Meta;
 
 export { Default } from './examples/ColorDialog';
+export { WithIconButton } from './examples/WithIconButton';

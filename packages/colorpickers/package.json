@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@types/lodash.throttle": "4.1.6",
+    "@zendeskgarden/react-buttons": "^8.29.3",
     "@zendeskgarden/react-theming": "^8.0.0",
     "@zendeskgarden/svg-icons": "6.27.0"
   },

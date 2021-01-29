@@ -5,7 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useRef, forwardRef, HTMLAttributes } from 'react';
+import React, {
+  useState,
+  useRef,
+  Children,
+  cloneElement,
+  forwardRef,
+  ReactElement,
+  HTMLAttributes
+} from 'react';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
 import { GARDEN_PLACEMENT } from '@zendeskgarden/react-modals';
@@ -34,33 +42,38 @@ export interface IColorDialogProps extends IColorPickerProps {
 export const ColorDialog = forwardRef<
   HTMLButtonElement,
   IColorDialogProps & Omit<HTMLAttributes<HTMLButtonElement>, 'color'>
->(({ color, placement, onClose, labels, ...props }, ref) => {
+>(({ color, placement, onClose, labels, children, ...props }, ref) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const colorPickerRef = useRef<HTMLDivElement>(null);
   const [selectedColor, setSelectedColor] = useState(color);
   const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
   const mergedRef = mergeRefs([ref, buttonRef]);
 
+  const onClick = () => {
+    if (referenceElement) {
+      setReferenceElement(null);
+    } else {
+      setReferenceElement(buttonRef.current);
+    }
+  };
+
   return (
     <>
-      <StyledFauxInput tabIndex={-1}>
-        <StyledButton
-          {...props}
-          ref={mergedRef}
-          onClick={() => {
-            if (referenceElement) {
-              setReferenceElement(null);
-            } else {
-              setReferenceElement(buttonRef.current);
-            }
-          }}
-        >
-          <StyledDialogPreview backgroundColor={color} />
-          <StyledIcon isRotated={referenceElement}>
-            <Chevron />
-          </StyledIcon>
-        </StyledButton>
-      </StyledFauxInput>
+      {children ? (
+        cloneElement(Children.only(children as ReactElement), {
+          onClick,
+          ref: mergedRef
+        })
+      ) : (
+        <StyledFauxInput tabIndex={-1}>
+          <StyledButton {...props} ref={mergedRef} onClick={onClick}>
+            <StyledDialogPreview backgroundColor={color} />
+            <StyledIcon isRotated={referenceElement}>
+              <Chevron />
+            </StyledIcon>
+          </StyledButton>
+        </StyledFauxInput>
+      )}
       <StyledTooltipModal
         hasArrow={false}
         placement={placement}

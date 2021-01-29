@@ -7,15 +7,17 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
-import { ColorDialog, IRGBColor } from '@zendeskgarden/react-colorpickers';
+import { IconButton } from '@zendeskgarden/react-buttons';
+import { ColorDialog, IRGBColor, IColorPickerState } from '@zendeskgarden/react-colorpickers';
+import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-fill.svg';
 
 export default {
   title: 'Components/ColorDialog',
   component: ColorDialog
 } as Meta;
 
-export const Default: Story = ({ labels, placement }) => {
-  const [color, setColor] = useState<string | IRGBColor>({
+export const WithIconButton: Story = ({ labels, placement }) => {
+  const [color, setColor] = useState<IColorPickerState | IRGBColor>({
     red: 23,
     green: 73,
     blue: 77,
@@ -24,13 +26,29 @@ export const Default: Story = ({ labels, placement }) => {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ColorDialog color={color} labels={labels} onClose={setColor} placement={placement} />
+      <ColorDialog
+        color={color}
+        labels={labels}
+        onClose={selectedColor => {
+          setColor(selectedColor as IColorPickerState);
+        }}
+        placement={placement}
+      >
+        <IconButton
+          style={{
+            color: `rgba(${color.red}, ${color.green}, ${color.blue}, ${color.alpha})`
+          }}
+          aria-label="leaf"
+        >
+          <LeafIcon />
+        </IconButton>
+      </ColorDialog>
     </div>
   );
 };
 
-Default.args = {
-  placement: 'bottom',
+WithIconButton.args = {
+  placement: 'top',
   labels: {
     alphaSlider: 'Alpha slider',
     hueSlider: 'Hue slider',
@@ -42,7 +60,7 @@ Default.args = {
   }
 };
 
-Default.argTypes = {
+WithIconButton.argTypes = {
   color: { control: { disable: true } },
   labels: { control: 'object' },
   placement: {
@@ -68,12 +86,16 @@ Default.argTypes = {
   }
 };
 
-Default.parameters = {
+WithIconButton.parameters = {
   docs: {
     description: {
-      component: `
-The \`ColorDialog\` component reveals a color picker when a user selects the dialog button.
-      `
+      story: `
+  The color dialog can use a custom trigger element for the dialog button.
+  This example demonstrates using a \`IconButton\` as the color dialog 
+  trigger element.
+`
     }
   }
 };
+
+WithIconButton.storyName = 'Custom trigger';
