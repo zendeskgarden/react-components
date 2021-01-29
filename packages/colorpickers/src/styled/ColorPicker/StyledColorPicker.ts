@@ -10,11 +10,13 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'colorpicker';
 
+export const COLORPICKER_WIDTH = 312;
+
 export const StyledColorPicker = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  width: 312px;
+  width: ${COLORPICKER_WIDTH}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
