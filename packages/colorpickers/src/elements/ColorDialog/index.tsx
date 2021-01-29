@@ -24,7 +24,7 @@ import {
 export interface IColorDialogProps extends IColorPickerProps {
   /** A callback function that is called when the color dialog is closed */
   onClose?: (selectedColor: string | IRGBColor | IColorPickerState) => void;
-  /** Positions the placement of the color dialog */
+  /** Adjusts the placement of the color dialog */
   placement?: GARDEN_PLACEMENT;
 }
 
