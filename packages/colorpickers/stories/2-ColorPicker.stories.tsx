@@ -6,10 +6,10 @@
  */
 
 import { Meta } from '@storybook/react';
-import { ColorPicker } from '@zendeskgarden/react-colorpicker';
+import { ColorPicker } from '@zendeskgarden/react-colorpickers';
 
 export default {
-  title: 'Components/ColorPicker/ColorPicker',
+  title: 'Components/ColorPickers/ColorPicker',
   component: ColorPicker
 } as Meta;
 

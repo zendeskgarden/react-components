@@ -6,10 +6,10 @@
  */
 
 import { Meta } from '@storybook/react';
-import { ColorDialog } from '@zendeskgarden/react-colorpicker';
+import { ColorDialog } from '@zendeskgarden/react-colorpickers';
 
 export default {
-  title: 'Components/ColorPicker/ColorDialog',
+  title: 'Components/ColorPickers/ColorDialog',
   component: ColorDialog
 } as Meta;
 

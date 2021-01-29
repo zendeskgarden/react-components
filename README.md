@@ -28,7 +28,7 @@ to install.
 | [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)     | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]     | [![Bundle Size][breadcrumbs size bundle]][breadcrumbs size link]     | [![Dependency Status][breadcrumbs dependency status]][breadcrumbs dependency link]     |
 | [`@zendeskgarden/react-buttons`](packages/buttons)             | [![npm version][buttons npm version]][buttons npm link]             | [![Bundle Size][buttons size bundle]][buttons size link]             | [![Dependency Status][buttons dependency status]][buttons dependency link]             |
 | [`@zendeskgarden/react-chrome`](packages/chrome)               | [![npm version][chrome npm version]][chrome npm link]               | [![Bundle Size][chrome size bundle]][chrome size link]               | [![Dependency Status][chrome dependency status]][chrome dependency link]               |
-| [`@zendeskgarden/react-colorpicker`](packages/colorpicker)     | [![npm version][colorpickers npm version]][colorpickers npm link]   | [![Bundle Size][colorpickers size bundle]][colorpickers size link]   | [![Dependency Status][colorpickers dependency status]][colorpickers dependency link]   |
+| [`@zendeskgarden/react-colorpickers`](packages/colorpicker)    | [![npm version][colorpickers npm version]][colorpickers npm link]   | [![Bundle Size][colorpickers size bundle]][colorpickers size link]   | [![Dependency Status][colorpickers dependency status]][colorpickers dependency link]   |
 | [`@zendeskgarden/react-datepickers`](packages/datepickers)     | [![npm version][datepickers npm version]][datepickers npm link]     | [![Bundle Size][datepickers size bundle]][datepickers size link]     | [![Dependency Status][datepickers dependency status]][datepickers dependency link]     |
 | [`@zendeskgarden/react-dropdowns`](packages/dropdowns)         | [![npm version][dropdowns npm version]][dropdowns npm link]         | [![Bundle Size][dropdowns size bundle]][dropdowns size link]         | [![Dependency Status][dropdowns dependency status]][dropdowns dependency link]         |
 | [`@zendeskgarden/react-forms`](packages/forms)                 | [![npm version][forms npm version]][forms npm link]                 | [![Bundle Size][forms size bundle]][forms size link]                 | [![Dependency Status][forms dependency status]][forms dependency link]                 |
@@ -74,10 +74,10 @@ to install.
 [chrome size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-chrome
 [chrome dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/chrome
 [chrome dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/chrome
-[colorpicker npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-colorpicker
-[colorpicker npm link]: https://www.npmjs.com/package/@zendeskgarden/react-colorpicker
-[colorpicker size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-colorpicker
-[colorpicker size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-colorpicker
+[colorpicker npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-colorpickers
+[colorpicker npm link]: https://www.npmjs.com/package/@zendeskgarden/react-colorpickers
+[colorpicker size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-colorpickers
+[colorpicker size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-colorpickers
 [colorpicker dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/colorpicker
 [colorpicker dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/colorpicker
 [datepickers npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-datepickers

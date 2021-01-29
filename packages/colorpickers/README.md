@@ -1,4 +1,4 @@
-# @zendeskgarden/react-colorpicker [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-colorpicker)](https://www.npmjs.com/package/@zendeskgarden/react-colorpicker)
+# @zendeskgarden/react-colorpickers [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-colorpickers)](https://www.npmjs.com/package/@zendeskgarden/react-colorpickers)
 
 This package includes components related to colorpicker in the
 [Garden Design System](https://zendeskgarden.github.io/).
@@ -6,7 +6,7 @@ This package includes components related to colorpicker in the
 ## Installation
 
 ```sh
-npm install @zendeskgarden/react-colorpicker
+npm install @zendeskgarden/react-colorpickers
 
 # Peer Dependencies - Also Required
 npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
@@ -16,7 +16,7 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { ColorPicker } from '@zendeskgarden/react-colorpicker';
+import { ColorPicker } from '@zendeskgarden/react-colorpickers';
 
 
 /**

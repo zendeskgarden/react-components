@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { ColorPicker } from '@zendeskgarden/react-colorpicker';
+import { ColorPicker } from '@zendeskgarden/react-colorpickers';
 
 export default {
   title: 'Components/ColorPicker',

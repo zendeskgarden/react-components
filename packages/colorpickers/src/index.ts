@@ -7,4 +7,4 @@
 
 export * from './elements/ColorPicker';
 export * from './elements/ColorDialog';
-export { IColorPickerState, IRGBColor } from './elements/ColorPicker/reducer';
+export * from './elements/ColorPicker/reducer';

@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
-import { ColorDialog, IRGBColor } from '@zendeskgarden/react-colorpicker';
+import { ColorDialog, IRGBColor } from '@zendeskgarden/react-colorpickers';
 
 export default {
   title: 'Components/ColorDialog',
