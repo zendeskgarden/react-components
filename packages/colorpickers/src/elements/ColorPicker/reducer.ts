@@ -149,7 +149,7 @@ export function getInitialState(initialColor: IRGBColor | string) {
 
 export const reducer: ReducerType = (state, action) => {
   switch (action.type) {
-    case 'saturation change': {
+    case SATURATION_CHANGE: {
       const hsl = hsv2hsl(action.payload.h, action.payload.s * 100, action.payload.v * 100);
       const rgb = hsl2rgb(state.hue, hsl.s, hsl.l);
       const hex = rgbToString(rgb.r, rgb.g, rgb.b);
@@ -167,7 +167,7 @@ export const reducer: ReducerType = (state, action) => {
         blueInput: rgb.b
       };
     }
-    case 'hue slider change': {
+    case HUE_CHANGE: {
       const hue = Number(action.payload);
       const rgb = hsl2rgb(hue, state.saturation, state.lightness);
       const hex = rgbToString({
@@ -188,14 +188,14 @@ export const reducer: ReducerType = (state, action) => {
         blueInput: rgb.b
       };
     }
-    case 'alpha slider change': {
+    case ALPHA_SLIDER_CHANGE: {
       return {
         ...state,
         alpha: Number(action.payload) * 100,
         alphaInput: Math.round(Number(action.payload) * 100)
       };
     }
-    case 'hex change': {
+    case HEX_CHANGE: {
       const regEx = /^#(?<hex>[0-9A-F]{3}){1,2}$/iu;
       const validHex = regEx.test(action.payload);
 
@@ -223,7 +223,7 @@ export const reducer: ReducerType = (state, action) => {
         hex: action.payload
       };
     }
-    case 'red change': {
+    case RED_CHANGE: {
       const red = Number(action.payload);
 
       if (isNaN(red)) return state;
@@ -242,7 +242,7 @@ export const reducer: ReducerType = (state, action) => {
         saturation: hsl.s
       };
     }
-    case 'green change': {
+    case GREEN_CHANGE: {
       const green = Number(action.payload);
 
       if (isNaN(green)) return state;
@@ -261,7 +261,7 @@ export const reducer: ReducerType = (state, action) => {
         saturation: hsl.s
       };
     }
-    case 'blue change': {
+    case BLUE_CHANGE: {
       const blue = Number(action.payload);
 
       if (isNaN(blue)) return state;
@@ -280,7 +280,7 @@ export const reducer: ReducerType = (state, action) => {
         saturation: hsl.s
       };
     }
-    case 'alpha change': {
+    case ALPHA_CHANGE: {
       const alpha = Number(action.payload);
 
       if (isNaN(alpha)) return state;

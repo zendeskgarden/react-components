@@ -7,6 +7,7 @@
 
 import React, { useEffect, useReducer, forwardRef, ChangeEvent, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
+import { Label } from '@zendeskgarden/react-forms';
 import { Saturation } from './Saturation';
 import {
   StyledHue,
@@ -25,8 +26,21 @@ import {
   StyledAlphaField,
   StyledHueField
 } from '../../styled';
-import { Label } from '@zendeskgarden/react-forms';
-import { getInitialState, reducer, IRGBColor, IHSVColor, IColorPickerState } from './reducer';
+import {
+  getInitialState,
+  reducer,
+  IRGBColor,
+  IHSVColor,
+  IColorPickerState,
+  SATURATION_CHANGE,
+  HUE_CHANGE,
+  ALPHA_SLIDER_CHANGE,
+  HEX_CHANGE,
+  RED_CHANGE,
+  GREEN_CHANGE,
+  BLUE_CHANGE,
+  ALPHA_CHANGE
+} from './reducer';
 
 export interface IColorPickerLabels {
   hueSlider?: string;
@@ -67,7 +81,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
           lightness={state.lightness}
           onChange={(hsv: IHSVColor) => {
             dispatch({
-              type: 'saturation change',
+              type: SATURATION_CHANGE,
               payload: hsv
             });
           }}
@@ -85,7 +99,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                 max={359}
                 value={state.hue}
                 onChange={e => {
-                  dispatch({ type: 'hue slider change', payload: e.target.value });
+                  dispatch({ type: HUE_CHANGE, payload: e.target.value });
                 }}
               />
             </StyledHueField>
@@ -97,7 +111,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                 value={state.alpha / 100}
                 rgb={{ red: state.red, green: state.green, blue: state.blue }}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  dispatch({ type: 'alpha slider change', payload: e.target.value });
+                  dispatch({ type: ALPHA_SLIDER_CHANGE, payload: e.target.value });
                 }}
               />
               <StyledCheckered />
@@ -116,7 +130,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               maxLength={7}
               value={state.hex}
               onChange={e => {
-                dispatch({ type: 'hex change', payload: e.target.value });
+                dispatch({ type: HEX_CHANGE, payload: e.target.value });
               }}
             />
           </StyledHexField>
@@ -130,7 +144,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               maxLength={3}
               value={state.redInput}
               onChange={e => {
-                dispatch({ type: 'red change', payload: e.target.value });
+                dispatch({ type: RED_CHANGE, payload: e.target.value });
               }}
             />
           </StyledRGBAField>
@@ -144,7 +158,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               maxLength={3}
               value={state.greenInput}
               onChange={e => {
-                dispatch({ type: 'green change', payload: e.target.value });
+                dispatch({ type: GREEN_CHANGE, payload: e.target.value });
               }}
             />
           </StyledRGBAField>
@@ -158,7 +172,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               maxLength={3}
               value={state.blueInput}
               onChange={e => {
-                dispatch({ type: 'blue change', payload: e.target.value });
+                dispatch({ type: BLUE_CHANGE, payload: e.target.value });
               }}
             />
           </StyledRGBAField>
@@ -172,7 +186,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               value={state.alphaInput}
               onChange={e => {
                 dispatch({
-                  type: 'alpha change',
+                  type: ALPHA_CHANGE,
                   payload: e.target.value
                 });
               }}
