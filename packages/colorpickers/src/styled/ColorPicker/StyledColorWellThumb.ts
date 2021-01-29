@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpicker.saturation_pointer';
 
@@ -15,7 +15,7 @@ interface IStyledSaturationPointerProps {
   left: number;
 }
 
-export const StyledSaturationPointer = styled.div.attrs<IStyledSaturationPointerProps>(props => ({
+export const StyledColorWellThumb = styled.div.attrs<IStyledSaturationPointerProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'saturation-pointer-thumb',
@@ -25,11 +25,22 @@ export const StyledSaturationPointer = styled.div.attrs<IStyledSaturationPointer
   }
 }))<IStyledSaturationPointerProps>`
   position: absolute;
+  border: 2px solid ${props => props.theme.colors.background};
   cursor: default;
+  /* stylelint-disable */
+  transform: translate(
+    -${props => props.theme.space.base * 2.5}px,
+    -${props => props.theme.space.base * 2.5}px
+  );
+  /* stylelint-enable */
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 ${props => getColor('neutralHue', 800, props.theme, 0.24)};
+  width: ${props => props.theme.space.base * 4}px;
+  height: ${props => props.theme.space.base * 4}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledSaturationPointer.defaultProps = {
+StyledColorWellThumb.defaultProps = {
   theme: DEFAULT_THEME
 };

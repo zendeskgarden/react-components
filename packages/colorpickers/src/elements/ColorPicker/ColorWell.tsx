@@ -15,8 +15,7 @@ import {
   StyledColorWell,
   StyledSaturationWhite,
   StyledSaturationBlack,
-  StyledSaturationPointer,
-  StyledSaturationCircle,
+  StyledColorWellThumb,
   StyledSaturationWrapper
 } from '../../styled';
 
@@ -68,9 +67,7 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
       <StyledColorWell hue={hue} ref={container} role="presentation" onMouseDown={handleMouseDown}>
         <StyledSaturationWhite>
           <StyledSaturationBlack />
-          <StyledSaturationPointer top={topPosition} left={leftPosition}>
-            <StyledSaturationCircle />
-          </StyledSaturationPointer>
+          <StyledColorWellThumb top={topPosition} left={leftPosition} />
         </StyledSaturationWhite>
       </StyledColorWell>
     </StyledSaturationWrapper>
