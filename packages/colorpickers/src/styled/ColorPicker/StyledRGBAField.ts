@@ -17,7 +17,7 @@ export const StyledRGBAField = styled(Field).attrs({
 })`
   display: flex;
   flex-direction: column;
-  width: 51px;
+  width: ${props => props.theme.space.base * 12.75}px;
   text-align: center;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
