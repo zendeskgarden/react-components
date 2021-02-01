@@ -11,8 +11,6 @@ export * from './ColorPicker/StyledAlpha';
 export * from './ColorPicker/StyledPreview';
 export * from './ColorPicker/StyledColorWell';
 export * from './ColorPicker/StyledColorWellWrapper';
-export * from './ColorPicker/StyledSaturationWhite';
-export * from './ColorPicker/StyledSaturationBlack';
 export * from './ColorPicker/StyledColorWellThumb';
 export * from './ColorPicker/StyledSliderGroup';
 export * from './ColorPicker/StyledHexField';

@@ -8,9 +8,9 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpicker.saturation_wrapper';
+const COMPONENT_ID = 'colorpicker.colorwell_wrapper';
 
-export const StyledSaturationWrapper = styled.div.attrs({
+export const StyledColorWellWrapper = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -22,6 +22,6 @@ export const StyledSaturationWrapper = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledSaturationWrapper.defaultProps = {
+StyledColorWellWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };

@@ -19,7 +19,7 @@ describe('Saturation', () => {
       />
     );
 
-    const thumb = screen.getByTestId('saturation-pointer-thumb');
+    const thumb = screen.getByTestId('colorwell-thumb');
 
     expect(thumb.style.top).toBe('69.80392156862746%');
     expect(thumb.style.left).toBe('70.12987012987013%');
@@ -34,7 +34,7 @@ describe('Saturation', () => {
       />
     );
 
-    const thumb = screen.getByTestId('saturation-pointer-thumb');
+    const thumb = screen.getByTestId('colorwell-thumb');
 
     expect(thumb.style.top).toBe('69.80392156862746%');
     expect(thumb.style.left).toBe('29.870129870129873%');

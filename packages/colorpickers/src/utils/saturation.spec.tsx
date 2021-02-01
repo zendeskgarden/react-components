@@ -34,7 +34,7 @@ describe('saturation utility functions', () => {
   });
 
   describe('getSaturationPosition', () => {
-    it('calculates the saturation and value position within a saturation block', () => {
+    it('calculates the saturation and value position within a colorwell', () => {
       const div = document.createElement('div');
       const event = new MouseEvent('mousemove', { clientX: 695, clientY: 276 });
       const { s, v } = getSaturationPosition(event, div);
@@ -45,7 +45,7 @@ describe('saturation utility functions', () => {
   });
 
   describe('calculateNextHsv', () => {
-    it('calculates the new HSV color upon mousedown on saturation block', () => {
+    it('calculates the new HSV color upon mousedown on colorwell', () => {
       const div = document.createElement('div');
       const event = { pageX: 695, pageY: 276 } as MouseEvent;
       const hsv = { h: 184, s: 0, v: 0 };

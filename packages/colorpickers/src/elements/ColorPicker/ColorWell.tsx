@@ -13,10 +13,9 @@ import { hsl2hsv } from '../../utils/conversion';
 import { calculateNextHsv, getSaturationPosition } from '../../utils/saturation';
 import {
   StyledColorWell,
-  StyledSaturationWhite,
-  StyledSaturationBlack,
+  StyledColorWellGradient,
   StyledColorWellThumb,
-  StyledSaturationWrapper
+  StyledColorWellWrapper
 } from '../../styled';
 
 interface IColorWellProps {
@@ -63,13 +62,12 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
   };
 
   return (
-    <StyledSaturationWrapper>
+    <StyledColorWellWrapper>
       <StyledColorWell hue={hue} ref={container} role="presentation" onMouseDown={handleMouseDown}>
-        <StyledSaturationWhite>
-          <StyledSaturationBlack />
+        <StyledColorWellGradient>
           <StyledColorWellThumb top={topPosition} left={leftPosition} />
-        </StyledSaturationWhite>
+        </StyledColorWellGradient>
       </StyledColorWell>
-    </StyledSaturationWrapper>
+    </StyledColorWellWrapper>
   );
 };

@@ -24,14 +24,14 @@ describe('ColorPicker', () => {
     render(<ColorPicker color="#17494D" />);
 
     const previewBox = screen.getByTestId('preview-box');
-    const saturationBlock = screen.getByTestId('saturation-block');
+    const colorwell = screen.getByTestId('colorwell');
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
     const redInput = screen.getByLabelText('R') as HTMLInputElement;
     const greenInput = screen.getByLabelText('G') as HTMLInputElement;
     const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
-    expect(saturationBlock).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
+    expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
     expect(hexInput.value).toBe('#17494D');
     expect(redInput.value).toBe('23');
     expect(greenInput.value).toBe('73');
@@ -42,7 +42,7 @@ describe('ColorPicker', () => {
     fireEvent.change(hueSlider, { target: { value: '349' } });
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(77, 23, 33);');
-    expect(saturationBlock).toHaveStyleRule('background', 'hsl(349,100%,50%)');
+    expect(colorwell).toHaveStyleRule('background', 'hsl(349,100%,50%)');
     expect(hexInput.value).toBe('#4d1721');
     expect(redInput.value).toBe('77');
     expect(greenInput.value).toBe('23');
@@ -74,7 +74,7 @@ describe('ColorPicker', () => {
   it('updates the color picker when the hex input is changed', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
-    const saturationBlock = screen.getByTestId('saturation-block');
+    const colorwell = screen.getByTestId('colorwell');
     const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex');
     const redInput = screen.getByLabelText('R') as HTMLInputElement;
@@ -82,7 +82,7 @@ describe('ColorPicker', () => {
     const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
-    expect(saturationBlock).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
+    expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
     expect(hueSlider.value).toBe('184.44444444444443');
     expect(redInput.value).toBe('23');
     expect(greenInput.value).toBe('73');
@@ -92,7 +92,7 @@ describe('ColorPicker', () => {
     userEvent.type(hexInput, '#b4da55');
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(180, 218, 85);');
-    expect(saturationBlock).toHaveStyleRule('background', 'hsl(77,100%,50%)');
+    expect(colorwell).toHaveStyleRule('background', 'hsl(77,100%,50%)');
     expect(hueSlider.value).toBe('77');
     expect(redInput.value).toBe('180');
     expect(greenInput.value).toBe('218');
@@ -102,13 +102,13 @@ describe('ColorPicker', () => {
   it('updates the color picker when the R input is changed', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
-    const saturationBlock = screen.getByTestId('saturation-block');
+    const colorwell = screen.getByTestId('colorwell');
     const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
     const redInput = screen.getByLabelText('R') as HTMLInputElement;
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
-    expect(saturationBlock).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
+    expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
     expect(hexInput.value).toBe('#17494d');
     expect(hueSlider.value).toBe('184.44444444444443');
 
@@ -116,20 +116,20 @@ describe('ColorPicker', () => {
     userEvent.type(redInput, '255');
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(255, 73, 77);');
-    expect(saturationBlock).toHaveStyleRule('background', 'hsl(359,100%,50%)');
+    expect(colorwell).toHaveStyleRule('background', 'hsl(359,100%,50%)');
     expect(hueSlider.value).toBe('359');
   });
 
   it('updates the color picker when the G input is changed', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
-    const saturationBlock = screen.getByTestId('saturation-block');
+    const colorwell = screen.getByTestId('colorwell');
     const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
     const greenInput = screen.getByLabelText('G') as HTMLInputElement;
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
-    expect(saturationBlock).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
+    expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
     expect(hexInput.value).toBe('#17494d');
     expect(hueSlider.value).toBe('184.44444444444443');
 
@@ -137,20 +137,20 @@ describe('ColorPicker', () => {
     userEvent.type(greenInput, '255');
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 255, 77);');
-    expect(saturationBlock).toHaveStyleRule('background', 'hsl(134,100%,50%)');
+    expect(colorwell).toHaveStyleRule('background', 'hsl(134,100%,50%)');
     expect(hueSlider.value).toBe('134');
   });
 
   it('updates the color picker when the B input is changed', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
-    const saturationBlock = screen.getByTestId('saturation-block');
+    const colorwell = screen.getByTestId('colorwell');
     const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
     const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
-    expect(saturationBlock).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
+    expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
     expect(hexInput.value).toBe('#17494d');
     expect(hueSlider.value).toBe('184.44444444444443');
 
@@ -158,7 +158,7 @@ describe('ColorPicker', () => {
     userEvent.type(blueInput, '255');
 
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 255);');
-    expect(saturationBlock).toHaveStyleRule('background', 'hsl(227,100%,50%)');
+    expect(colorwell).toHaveStyleRule('background', 'hsl(227,100%,50%)');
     expect(hueSlider.value).toBe('227');
   });
 

@@ -7,24 +7,24 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledSaturationWhite } from './StyledSaturationWhite';
+import { StyledColorWellGradient } from './StyledColorWell';
 
-describe('StyledSaturationWhite', () => {
+describe('StyledColorWellGradient', () => {
   it('renders default style', () => {
-    const { container } = render(<StyledSaturationWhite />);
+    const { container } = render(<StyledColorWellGradient />);
 
     expect(container.firstChild).toHaveStyleRule(
       'background',
-      'linear-gradient( to right, #fff, rgba(255,255,255,0) )'
+      'linear-gradient( 0deg, #000, rgba(0,0,0,0.9) 1%, transparent 99% ), linear-gradient( 90deg, #fff 1%, rgba(0,0,0,0) )'
     );
   });
 
   it('renders RTL correctly', () => {
-    const { container } = renderRtl(<StyledSaturationWhite />);
+    const { container } = renderRtl(<StyledColorWellGradient />);
 
     expect(container.firstChild).toHaveStyleRule(
       'background',
-      'linear-gradient( to left, #fff, rgba(255,255,255,0) )'
+      'linear-gradient( 0deg, #000, rgba(0,0,0,0.9) 1%, transparent 99% ), linear-gradient( -90deg, #fff 1%, rgba(0,0,0,0) )'
     );
   });
 });

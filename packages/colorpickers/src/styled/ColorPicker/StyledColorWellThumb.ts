@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpicker.saturation_pointer';
+const COMPONENT_ID = 'colorpicker.colorwell_thumb';
 
 interface IStyledSaturationPointerProps {
   top: number;
@@ -18,7 +18,7 @@ interface IStyledSaturationPointerProps {
 export const StyledColorWellThumb = styled.div.attrs<IStyledSaturationPointerProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'data-test-id': 'saturation-pointer-thumb',
+  'data-test-id': 'colorwell-thumb',
   style: {
     top: `${props.top}%`,
     left: `${props.left}%`
