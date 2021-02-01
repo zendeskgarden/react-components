@@ -55,7 +55,11 @@ export interface IColorPickerProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'onChange'> {
   /** A hex string, RGB string, RGB object, or color picker state that represents the current color */
   color: string | IRGBColor | IColorPickerState;
-  /** A callback that is fired when an the color picker state is changed */
+  /**
+   * Handles color picker changes
+   *
+   * @param {Object} state An color picker's state
+   */
   onChange?: (state: IColorPickerState) => void;
   /** Replaces the default labels within the color picker */
   labels?: IColorPickerLabels;

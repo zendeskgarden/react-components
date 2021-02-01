@@ -30,8 +30,12 @@ import {
 } from '../../styled';
 
 export interface IColorDialogProps extends IColorPickerProps {
-  /** A callback function that is called when the color dialog is closed */
-  onClose?: (selectedColor: string | IRGBColor | IColorPickerState) => void;
+  /**
+   * Handles close actions. Can be triggered from the backdrop.
+   *
+   * @param {Object} state An color picker's state
+   */
+  onClose?: (state: IColorPickerState) => void;
   /** Adjusts the placement of the color dialog */
   placement?: GARDEN_PLACEMENT;
 }
@@ -45,7 +49,7 @@ export const ColorDialog = forwardRef<
 >(({ color, placement, onClose, labels, children, ...props }, ref) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const colorPickerRef = useRef<HTMLDivElement>(null);
-  const [selectedColor, setSelectedColor] = useState(color);
+  const [selectedColor, setSelectedColor] = useState<IColorPickerState | IRGBColor | string>(color);
   const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
   const mergedRef = mergeRefs([ref, buttonRef]);
 
@@ -80,7 +84,7 @@ export const ColorDialog = forwardRef<
         referenceElement={referenceElement}
         onClose={() => {
           setReferenceElement(null);
-          onClose && onClose(selectedColor);
+          onClose && onClose(selectedColor as IColorPickerState);
         }}
       >
         <StyledTooltipBody>
