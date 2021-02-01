@@ -85,7 +85,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             });
           }}
         />
-
         <StyledSliderGroup>
           <StyledPreview
             rgb={{ red: state.red, green: state.green, blue: state.blue, alpha: state.alpha }}
@@ -120,7 +119,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             </StyledAlphaField>
           </StyledSliders>
         </StyledSliderGroup>
-
         <StyledInputGroup>
           <StyledHexField>
             <Label isRegular>{labels.hex || 'Hex'}</Label>

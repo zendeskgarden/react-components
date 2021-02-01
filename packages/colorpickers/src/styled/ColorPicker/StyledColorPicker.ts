@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpicker';
+const COMPONENT_ID = 'colorpickers.colorpicker';
 
 export const COLORPICKER_WIDTH = 312;
 

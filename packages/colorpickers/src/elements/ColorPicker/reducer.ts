@@ -127,6 +127,7 @@ export function getInitialState(initialColor: IRGBColor | string) {
       hex: initialColor
     };
   }
+
   const { red, green, blue, alpha = 100 } = initialColor;
   const hex = rgbToString({ red, green, blue });
   const { hue, saturation, lightness } = parseToHsl(hex);

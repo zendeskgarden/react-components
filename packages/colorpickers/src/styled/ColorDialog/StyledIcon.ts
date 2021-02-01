@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import React, { Children } from 'react';
 import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colordialog.icon';
+const COMPONENT_ID = 'colorpickers.colordialog.icon';
 
 interface IStyledIconProps {
   isRotated: boolean;

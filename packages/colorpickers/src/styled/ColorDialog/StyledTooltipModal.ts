@@ -10,7 +10,7 @@ import { TooltipModal } from '@zendeskgarden/react-modals';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { COLORPICKER_WIDTH } from '../ColorPicker/StyledColorPicker';
 
-const COMPONENT_ID = 'colordialog.tooltipmodal';
+const COMPONENT_ID = 'colorpickers.colordialog.tooltipmodal';
 
 export const StyledTooltipModal = styled(TooltipModal).attrs({
   'data-garden-id': COMPONENT_ID,

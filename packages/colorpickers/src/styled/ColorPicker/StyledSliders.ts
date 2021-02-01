@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpicker.sliders';
+const COMPONENT_ID = 'colorpickers.colorpicker.sliders';
 
 export const StyledSliders = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,

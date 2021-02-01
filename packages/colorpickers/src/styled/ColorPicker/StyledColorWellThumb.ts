@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpicker.colorwell_thumb';
+const COMPONENT_ID = 'colorpickers.colorpicker.colorwell_thumb';
 
 interface IStyledSaturationPointerProps {
   top: number;

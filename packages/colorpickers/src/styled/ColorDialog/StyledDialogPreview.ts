@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IRGBColor } from '../../elements/ColorPicker/reducer';
 
-const COMPONENT_ID = 'colordialog.preview';
+const COMPONENT_ID = 'colorpickers.colordialog.preview';
 
 export interface IStyleDialogPreviewProps {
   backgroundColor: string | IRGBColor;

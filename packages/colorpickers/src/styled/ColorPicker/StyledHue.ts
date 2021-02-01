@@ -9,7 +9,7 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { Range } from '@zendeskgarden/react-forms';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'styled.hue';
+const COMPONENT_ID = 'colorpickers.colorpicker.hue';
 
 export const thumbStyles = (styles: string, modifier = '') => {
   return `

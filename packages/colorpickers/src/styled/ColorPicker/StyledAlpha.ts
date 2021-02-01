@@ -11,7 +11,7 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { thumbStyles, colorStyles } from './StyledHue';
 
-const COMPONENT_ID = 'colorpicker.alpha';
+const COMPONENT_ID = 'colorpickers.colorpicker.alpha';
 
 export interface IStyledAlphaProps extends ThemeProps<DefaultTheme> {
   rgb: IRGBColor;

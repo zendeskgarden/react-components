@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { Field } from '@zendeskgarden/react-forms';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpicker.hue_field';
+const COMPONENT_ID = 'colorpickers.colorpicker.hue_field';
 
 /**
  * 1. IE11 specific CSS to achieve styling parity with modern browsers.

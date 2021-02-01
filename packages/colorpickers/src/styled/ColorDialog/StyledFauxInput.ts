@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { FauxInput } from '@zendeskgarden/react-forms';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colordialog.fauxinput';
+const COMPONENT_ID = 'colorpickers.colordialog.fauxinput';
 
 export const StyledFauxInput = styled(FauxInput).attrs({
   'data-garden-id': COMPONENT_ID,

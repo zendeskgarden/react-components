@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colordialog.button';
+const COMPONENT_ID = 'colorpickers.colordialog.button';
 
 export const StyledButton = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
