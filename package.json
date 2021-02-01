@@ -117,7 +117,7 @@
     "react-dom": "17.0.1",
     "react-is": "17.0.1",
     "react-styleguidist": "8.0.6",
-    "react-test-renderer": "16.14.0",
+    "react-test-renderer": "17.0.1",
     "regenerator-runtime": "0.13.7",
     "resolve-from": "5.0.0",
     "rollup": "2.35.1",
