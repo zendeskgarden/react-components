@@ -18,6 +18,8 @@ export const StyledHueField = styled(Field).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  height: ${props => props.theme.space.base * 3}px;
+
   input {
     /* stylelint-disable-next-line declaration-no-important */
     margin-top: -${props => props.theme.space.base * 2}px !important;
@@ -26,7 +28,7 @@ export const StyledHueField = styled(Field).attrs({
 
   /* stylelint-disable-next-line */
   @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-    top: -${props => props.theme.space.base / 2}px; /* [1] */
+    margin-top: -1px; /* [1] */
 
     input {
       height: ${props => props.theme.space.base * 8}px; /* [1] */

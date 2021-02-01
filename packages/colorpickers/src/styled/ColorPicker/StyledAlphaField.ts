@@ -18,7 +18,7 @@ export const StyledAlphaField = styled(Field).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  top: ${props => props.theme.space.base / 2}px;
+  top: ${props => props.theme.space.base * 2}px;
 
   input {
     /* stylelint-disable-next-line declaration-no-important */
@@ -28,8 +28,6 @@ export const StyledAlphaField = styled(Field).attrs({
 
   /* stylelint-disable-next-line */
   @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-    top: -5px; /* [1] */
-
     input {
       top: -10px; /* [1] */
       height: ${props => props.theme.space.base * 8}px; /* [1] */
