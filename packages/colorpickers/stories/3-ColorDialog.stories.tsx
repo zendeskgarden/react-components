@@ -15,3 +15,4 @@ export default {
 
 export { Default } from './examples/ColorDialog';
 export { WithIconButton } from './examples/WithIconButton';
+export { WithFormInput } from './examples/WithFormInput';

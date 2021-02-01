@@ -48,7 +48,7 @@ export const WithIconButton: Story = ({ labels, placement }) => {
 };
 
 WithIconButton.args = {
-  placement: 'top',
+  placement: 'bottom',
   labels: {
     alphaSlider: 'Alpha slider',
     hueSlider: 'Hue slider',
