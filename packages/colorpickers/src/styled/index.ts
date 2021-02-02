@@ -14,6 +14,7 @@ export * from './ColorPicker/StyledColorWellWrapper';
 export * from './ColorPicker/StyledColorWellThumb';
 export * from './ColorPicker/StyledSliderGroup';
 export * from './ColorPicker/StyledHexField';
+export * from './ColorPicker/StyledLabel';
 export * from './ColorPicker/StyledInput';
 export * from './ColorPicker/StyledInputGroup';
 export * from './ColorPicker/StyledRGBAField';

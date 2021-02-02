@@ -12,6 +12,7 @@ import { ColorWell } from './ColorWell';
 import {
   StyledHue,
   StyledSliderGroup,
+  StyledLabel,
   StyledInput,
   StyledAlpha,
   StyledSliders,
@@ -125,7 +126,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
         </StyledSliderGroup>
         <StyledInputGroup>
           <StyledHexField>
-            <Label isRegular>{labels.hex || 'Hex'}</Label>
+            <StyledLabel isRegular>{labels.hex || 'Hex'}</StyledLabel>
             <StyledInput
               isCompact
               maxLength={7}
@@ -136,7 +137,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             />
           </StyledHexField>
           <StyledRGBAField>
-            <Label isRegular>{labels.red || 'R'}</Label>
+            <StyledLabel isRegular>{labels.red || 'R'}</StyledLabel>
             <StyledInput
               isCompact
               type="number"
@@ -150,7 +151,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             />
           </StyledRGBAField>
           <StyledRGBAField>
-            <Label isRegular>{labels.green || 'G'}</Label>
+            <StyledLabel isRegular>{labels.green || 'G'}</StyledLabel>
             <StyledInput
               isCompact
               type="number"
@@ -164,7 +165,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             />
           </StyledRGBAField>
           <StyledRGBAField>
-            <Label isRegular>{labels.blue || 'B'}</Label>
+            <StyledLabel isRegular>{labels.blue || 'B'}</StyledLabel>
             <StyledInput
               isCompact
               type="number"
@@ -178,7 +179,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             />
           </StyledRGBAField>
           <StyledRGBAField>
-            <Label isRegular>{labels.alpha || 'A'}</Label>
+            <StyledLabel isRegular>{labels.alpha || 'A'}</StyledLabel>
             <StyledInput
               isCompact
               type="number"
