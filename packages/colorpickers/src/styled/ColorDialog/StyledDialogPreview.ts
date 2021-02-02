@@ -5,15 +5,27 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IRGBColor } from '../../utils/types';
 
 const COMPONENT_ID = 'colorpickers.colordialog.preview';
 
-export interface IStyleDialogPreviewProps {
+export interface IStyleDialogPreviewProps extends ThemeProps<DefaultTheme> {
   backgroundColor: string | IRGBColor;
 }
+
+const background = (props: IStyleDialogPreviewProps) => {
+  const { backgroundColor } = props;
+
+  if (typeof backgroundColor === 'string') {
+    return `background: ${backgroundColor}`;
+  }
+
+  const { red, green, blue, alpha } = backgroundColor;
+
+  return `background: rgba(${red}, ${green}, ${blue}, ${alpha ? alpha / 100 : 0})`;
+};
 
 export const StyledDialogPreview = styled.div.attrs<IStyleDialogPreviewProps>({
   'data-garden-id': COMPONENT_ID,
@@ -30,14 +42,10 @@ export const StyledDialogPreview = styled.div.attrs<IStyleDialogPreviewProps>({
       0.25
     )}`};
   border-radius: ${props => props.theme.borderRadii.sm};
-  background: ${props =>
-    typeof props.backgroundColor === 'string'
-      ? props.backgroundColor
-      : `rgba(${props.backgroundColor.red}, ${props.backgroundColor.green}, ${
-          props.backgroundColor.blue
-        }, ${props.backgroundColor.alpha ? props.backgroundColor.alpha / 100 : 0})`};
   width: ${props => props.theme.space.base * 5}px;
   height: ${props => props.theme.space.base * 5}px;
+
+  ${background}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
