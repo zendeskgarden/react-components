@@ -97,10 +97,10 @@ const startLerna = (scope, script) => {
 gardenSplashScreen();
 program.version('0.0.1').option('--scope [scope]').option('--script [script]').parse(process.argv);
 
-if (program.scope) {
-  startLerna(program.scope, program.script);
+if (program.opts().scope) {
+  startLerna(program.opts().scope, program.opts().script);
 } else {
   RetrievePackages.then(PromptUserForPackages)
     .then(FormatAnswers)
-    .then(scope => startLerna(scope, program.script));
+    .then(scope => startLerna(scope, program.opts().script));
 }
