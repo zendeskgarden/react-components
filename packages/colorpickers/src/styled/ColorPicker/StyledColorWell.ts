@@ -39,6 +39,10 @@ export const StyledColorWellGradient = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
+StyledColorWellGradient.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
 export const StyledColorWell = styled.div.attrs<IStyledColorWellProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
@@ -53,10 +57,6 @@ export const StyledColorWell = styled.div.attrs<IStyledColorWellProps>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledColorWellGradient.defaultProps = {
-  theme: DEFAULT_THEME
-};
 
 StyledColorWell.defaultProps = {
   theme: DEFAULT_THEME
