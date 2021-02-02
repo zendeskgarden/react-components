@@ -33,55 +33,15 @@ export const GREEN_CHANGE = 'green change';
 export const BLUE_CHANGE = 'blue change';
 export const ALPHA_CHANGE = 'alpha change';
 
-interface ISaturationChange {
-  type: typeof SATURATION_CHANGE;
-  payload: IHSVColor;
-}
-
-interface IHueSliderChange {
-  type: typeof HUE_CHANGE;
-  payload: string;
-}
-
-interface IAlphaSliderChange {
-  type: typeof ALPHA_SLIDER_CHANGE;
-  payload: string;
-}
-
-interface IHexChange {
-  type: typeof HEX_CHANGE;
-  payload: string;
-}
-
-interface IRedChange {
-  type: typeof RED_CHANGE;
-  payload: string;
-}
-
-interface IGreenChange {
-  type: typeof GREEN_CHANGE;
-  payload: string;
-}
-
-interface IBlueChange {
-  type: typeof BLUE_CHANGE;
-  payload: string;
-}
-
-interface IAlphaChange {
-  type: typeof ALPHA_CHANGE;
-  payload: string;
-}
-
 type ColorPickerActionTypes =
-  | ISaturationChange
-  | IHueSliderChange
-  | IAlphaSliderChange
-  | IHexChange
-  | IRedChange
-  | IGreenChange
-  | IBlueChange
-  | IAlphaChange;
+  | { type: typeof SATURATION_CHANGE; payload: IHSVColor }
+  | { type: typeof HUE_CHANGE; payload: string }
+  | { type: typeof ALPHA_SLIDER_CHANGE; payload: string }
+  | { type: typeof HEX_CHANGE; payload: string }
+  | { type: typeof RED_CHANGE; payload: string }
+  | { type: typeof GREEN_CHANGE; payload: string }
+  | { type: typeof BLUE_CHANGE; payload: string }
+  | { type: typeof ALPHA_CHANGE; payload: string };
 
 type ReducerType = (state: IColorPickerState, action: ColorPickerActionTypes) => IColorPickerState;
 
