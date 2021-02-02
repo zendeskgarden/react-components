@@ -72,7 +72,7 @@ export const ColorDialog = forwardRef<
       ) : (
         <StyledFauxInput tabIndex={-1}>
           <StyledButton {...props} ref={mergedRef} onClick={onClick}>
-            <StyledDialogPreview backgroundColor={color} />
+            <StyledDialogPreview backgroundColor={selectedColor} />
             <StyledIcon isRotated={referenceElement}>
               <Chevron />
             </StyledIcon>
