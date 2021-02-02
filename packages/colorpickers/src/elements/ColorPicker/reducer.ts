@@ -7,6 +7,7 @@
 
 import { parseToHsl, parseToRgb, rgb as rgbToString } from 'polished';
 import { hsv2hsl, rgbToHsl, hsl2rgb } from '../../utils/conversion';
+import { IRGBColor, IHSVColor } from '../../utils/types';
 
 export interface IColorPickerState {
   hex: string;
@@ -32,67 +33,47 @@ export const GREEN_CHANGE = 'green change';
 export const BLUE_CHANGE = 'blue change';
 export const ALPHA_CHANGE = 'alpha change';
 
-export interface IHSVColor {
-  h: number;
-  s: number;
-  v: number;
-}
-
-export interface IHSLColor {
-  h: number;
-  s: number;
-  l: number;
-  a?: number;
-}
-
-export interface IRGBColor {
-  red: number;
-  green: number;
-  blue: number;
-  alpha?: number;
-}
-
-export interface ISaturationChange {
+interface ISaturationChange {
   type: typeof SATURATION_CHANGE;
   payload: IHSVColor;
 }
 
-export interface IHueSliderChange {
+interface IHueSliderChange {
   type: typeof HUE_CHANGE;
   payload: string;
 }
 
-export interface IAlphaSliderChange {
+interface IAlphaSliderChange {
   type: typeof ALPHA_SLIDER_CHANGE;
   payload: string;
 }
 
-export interface IHexChange {
+interface IHexChange {
   type: typeof HEX_CHANGE;
   payload: string;
 }
 
-export interface IRedChange {
+interface IRedChange {
   type: typeof RED_CHANGE;
   payload: string;
 }
 
-export interface IGreenChange {
+interface IGreenChange {
   type: typeof GREEN_CHANGE;
   payload: string;
 }
 
-export interface IBlueChange {
+interface IBlueChange {
   type: typeof BLUE_CHANGE;
   payload: string;
 }
 
-export interface IAlphaChange {
+interface IAlphaChange {
   type: typeof ALPHA_CHANGE;
   payload: string;
 }
 
-export type ColorPickerActionTypes =
+type ColorPickerActionTypes =
   | ISaturationChange
   | IHueSliderChange
   | IAlphaSliderChange
@@ -102,10 +83,7 @@ export type ColorPickerActionTypes =
   | IBlueChange
   | IAlphaChange;
 
-export type ReducerType = (
-  state: IColorPickerState,
-  action: ColorPickerActionTypes
-) => IColorPickerState;
+type ReducerType = (state: IColorPickerState, action: ColorPickerActionTypes) => IColorPickerState;
 
 export function getInitialState(initialColor: IRGBColor | string) {
   if (typeof initialColor === 'string') {

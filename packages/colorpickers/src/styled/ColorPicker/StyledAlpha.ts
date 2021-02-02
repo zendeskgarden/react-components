@@ -6,7 +6,7 @@
  */
 
 import { Range } from '@zendeskgarden/react-forms';
-import { IRGBColor } from '../../elements/ColorPicker/reducer';
+import { IRGBColor } from '../../utils/types';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { thumbStyles, colorStyles } from './StyledHue';

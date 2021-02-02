@@ -19,7 +19,8 @@ import mergeRefs from 'react-merge-refs';
 import { GARDEN_PLACEMENT } from '@zendeskgarden/react-modals';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { ColorPicker, IColorPickerProps } from '../ColorPicker';
-import { IRGBColor, IColorPickerState } from '../ColorPicker/reducer';
+import { IColorPickerState } from '../ColorPicker/reducer';
+import { IRGBColor } from '../../utils/types';
 import {
   StyledIcon,
   StyledButton,

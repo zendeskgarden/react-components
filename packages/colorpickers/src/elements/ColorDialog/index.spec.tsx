@@ -9,7 +9,7 @@ import React, { useState, createRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent, screen } from 'garden-test-utils';
 import { ColorDialog } from '.';
-import { IRGBColor } from '../ColorPicker/reducer';
+import { IRGBColor } from '../../utils/types';
 
 describe('ColorDialog', () => {
   it('passes ref to underlying DOM element', () => {

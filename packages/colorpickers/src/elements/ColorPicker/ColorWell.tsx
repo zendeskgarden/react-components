@@ -8,7 +8,7 @@
 import React, { useRef, useState, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import throttle from 'lodash.throttle';
-import { IHSVColor } from './reducer';
+import { IHSVColor } from '../../utils/types';
 import { hsl2hsv } from '../../utils/conversion';
 import { calculateNextHsv, getSaturationPosition } from '../../utils/saturation';
 import {

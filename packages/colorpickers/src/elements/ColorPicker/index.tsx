@@ -29,8 +29,6 @@ import {
 import {
   getInitialState,
   reducer,
-  IRGBColor,
-  IHSVColor,
   IColorPickerState,
   SATURATION_CHANGE,
   HUE_CHANGE,
@@ -41,6 +39,7 @@ import {
   BLUE_CHANGE,
   ALPHA_CHANGE
 } from './reducer';
+import { IRGBColor, IHSVColor } from '../../utils/types';
 
 export interface IColorPickerLabels {
   hueSlider?: string;
