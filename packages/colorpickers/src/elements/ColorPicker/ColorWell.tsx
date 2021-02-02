@@ -47,17 +47,15 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
   const topPosition = 100 - position.v;
   const leftPosition = position.s;
 
-  const handleChange = (e: any) => throttledChange(e);
-
   const handleMouseUp = () => {
     throttledChange.cancel();
-    window.removeEventListener('mousemove', handleChange);
+    window.removeEventListener('mousemove', throttledChange);
     window.removeEventListener('mouseup', handleMouseUp);
   };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    handleChange(e);
-    window.addEventListener('mousemove', handleChange);
+    throttledChange(e);
+    window.addEventListener('mousemove', throttledChange);
     window.addEventListener('mouseup', handleMouseUp);
   };
 
