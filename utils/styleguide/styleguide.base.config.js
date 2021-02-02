@@ -210,7 +210,6 @@ const defaultStyleguideConfig = {
         '@zendeskgarden/react-breadcrumbs': path.resolve('..', 'breadcrumbs'),
         '@zendeskgarden/react-buttons': path.resolve('..', 'buttons'),
         '@zendeskgarden/react-chrome': path.resolve('..', 'chrome'),
-        '@zendeskgarden/react-colorpickers': path.resolve('..', 'colorpicker'),
         '@zendeskgarden/react-datepickers': path.resolve('..', 'datepickers'),
         '@zendeskgarden/react-dropdowns': path.resolve('..', 'dropdowns'),
         '@zendeskgarden/react-forms': path.resolve('..', 'forms'),
