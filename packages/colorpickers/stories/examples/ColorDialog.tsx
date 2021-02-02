@@ -14,7 +14,17 @@ export default {
   component: ColorDialog
 } as Meta;
 
-export const Default: Story = ({ labels, placement }) => {
+export const Default: Story = ({
+  alphaSlider,
+  hueSlider,
+  hex,
+  red,
+  green,
+  blue,
+  alpha,
+  placement
+}) => {
+  const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [color, setColor] = useState<string | IRGBColor>({
     red: 23,
     green: 73,
@@ -31,20 +41,32 @@ export const Default: Story = ({ labels, placement }) => {
 
 Default.args = {
   placement: 'bottom',
-  labels: {
-    alphaSlider: 'Alpha slider',
-    hueSlider: 'Hue slider',
-    hex: 'Hex',
-    red: 'R',
-    green: 'G',
-    blue: 'B',
-    alpha: 'A'
-  }
+  alphaSlider: 'Alpha slider',
+  hueSlider: 'Hue slider',
+  hex: 'Hex',
+  red: 'R',
+  green: 'G',
+  blue: 'B',
+  alpha: 'A'
 };
 
 Default.argTypes = {
   color: { control: { disable: true } },
-  labels: { control: 'object' },
+  alphaSlider: {
+    control: 'text',
+    name: 'Alpha slider label',
+    description: 'A label for the alpha slider'
+  },
+  hueSlider: {
+    control: 'text',
+    name: 'Hue slider label',
+    description: 'A label for the hue slider'
+  },
+  hex: { control: 'text', name: 'Hex input label', description: 'A label for the hex input' },
+  red: { control: 'text', name: 'Red input label', description: 'A label for the red input' },
+  green: { control: 'text', name: 'Green input label', description: 'A label for the green input' },
+  blue: { control: 'text', name: 'Blue input label', description: 'A label for the blue input' },
+  alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' },
   placement: {
     labels: { control: 'object' },
     control: {

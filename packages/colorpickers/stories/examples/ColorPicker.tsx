@@ -15,7 +15,8 @@ export default {
   component: ColorPicker
 } as Meta;
 
-export const Default: Story = ({ labels }) => {
+export const Default: Story = ({ alphaSlider, hueSlider, hex, red, green, blue, alpha }) => {
+  const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [color] = useState(DEFAULT_THEME.palette.kale[600]);
 
   return (
@@ -26,20 +27,32 @@ export const Default: Story = ({ labels }) => {
 };
 
 Default.args = {
-  labels: {
-    alphaSlider: 'Alpha slider',
-    hueSlider: 'Hue slider',
-    hex: 'Hex',
-    red: 'R',
-    green: 'G',
-    blue: 'B',
-    alpha: 'A'
-  }
+  alphaSlider: 'Alpha slider',
+  hueSlider: 'Hue slider',
+  hex: 'Hex',
+  red: 'R',
+  green: 'G',
+  blue: 'B',
+  alpha: 'A'
 };
 
 Default.argTypes = {
   color: { control: 'disable' },
-  labels: { control: 'object' }
+  alphaSlider: {
+    control: 'text',
+    name: 'Alpha slider label',
+    description: 'A label for the alpha slider'
+  },
+  hueSlider: {
+    control: 'text',
+    name: 'Hue slider label',
+    description: 'A label for the hue slider'
+  },
+  hex: { control: 'text', name: 'Hex input label', description: 'A label for the hex input' },
+  red: { control: 'text', name: 'Red input label', description: 'A label for the red input' },
+  green: { control: 'text', name: 'Green input label', description: 'A label for the green input' },
+  blue: { control: 'text', name: 'Blue input label', description: 'A label for the blue input' },
+  alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' }
 };
 
 Default.parameters = {
