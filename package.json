@@ -76,7 +76,7 @@
     "core-js": "3.8.3",
     "coveralls": "3.1.0",
     "enhanced-resolve": "4.5.0",
-    "envalid": "6.0.2",
+    "envalid": "7.0.0",
     "eslint": "7.19.0",
     "eslint-config-prettier": "7.2.0",
     "eslint-loader": "4.0.2",
