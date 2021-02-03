@@ -43,6 +43,10 @@ const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
     min-width: ${width};
 
     ${props.isBasic && !(props.isPrimary || props.disabled) && iconColorStyles(props)};
+
+    &:disabled {
+      background-color: ${!props.isPrimary && 'transparent'};
+    }
   `;
 };
 
@@ -62,10 +66,10 @@ const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledIconButton = styled(StyledButton).attrs(() => ({
+export const StyledIconButton = styled(StyledButton as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-}))`
+})<IStyledButtonProps>`
   ${props => iconButtonStyles(props)};
 
   & ${StyledIcon} {
