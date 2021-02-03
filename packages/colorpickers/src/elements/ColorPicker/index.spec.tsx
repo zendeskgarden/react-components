@@ -75,6 +75,7 @@ describe('ColorPicker', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
     const colorwell = screen.getByTestId('colorwell');
+    const colorWellThumb = screen.getByTestId('colorwell-thumb');
     const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex');
     const redInput = screen.getByLabelText('R') as HTMLInputElement;
@@ -87,6 +88,10 @@ describe('ColorPicker', () => {
     expect(redInput.value).toBe('23');
     expect(greenInput.value).toBe('73');
     expect(blueInput.value).toBe('77');
+    expect(colorWellThumb).toHaveAttribute(
+      'style',
+      'top: 69.80392156862746%; left: 70.12987012987013%;'
+    );
 
     userEvent.clear(hexInput);
     userEvent.type(hexInput, '#b4da55');
@@ -97,12 +102,14 @@ describe('ColorPicker', () => {
     expect(redInput.value).toBe('180');
     expect(greenInput.value).toBe('218');
     expect(blueInput.value).toBe('85');
+    expect(colorWellThumb).toHaveAttribute('style', 'top: 15%; left: 60.99999999999998%;');
   });
 
   it('updates the color picker when the R input is changed', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
     const colorwell = screen.getByTestId('colorwell');
+    const colorWellThumb = screen.getByTestId('colorwell-thumb');
     const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
     const redInput = screen.getByLabelText('R') as HTMLInputElement;
@@ -111,6 +118,10 @@ describe('ColorPicker', () => {
     expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
     expect(hexInput.value).toBe('#17494d');
     expect(hueSlider.value).toBe('184.44444444444443');
+    expect(colorWellThumb).toHaveAttribute(
+      'style',
+      'top: 69.80392156862746%; left: 70.12987012987013%;'
+    );
 
     userEvent.clear(redInput);
     userEvent.type(redInput, '255');
@@ -118,12 +129,14 @@ describe('ColorPicker', () => {
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(255, 73, 77);');
     expect(colorwell).toHaveStyleRule('background', 'hsl(359,100%,50%)');
     expect(hueSlider.value).toBe('359');
+    expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 71%;');
   });
 
   it('updates the color picker when the G input is changed', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
     const colorwell = screen.getByTestId('colorwell');
+    const colorWellThumb = screen.getByTestId('colorwell-thumb');
     const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
     const greenInput = screen.getByLabelText('G') as HTMLInputElement;
@@ -132,6 +145,10 @@ describe('ColorPicker', () => {
     expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
     expect(hexInput.value).toBe('#17494d');
     expect(hueSlider.value).toBe('184.44444444444443');
+    expect(colorWellThumb).toHaveAttribute(
+      'style',
+      'top: 69.80392156862746%; left: 70.12987012987013%;'
+    );
 
     userEvent.clear(greenInput);
     userEvent.type(greenInput, '255');
@@ -139,12 +156,14 @@ describe('ColorPicker', () => {
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 255, 77);');
     expect(colorwell).toHaveStyleRule('background', 'hsl(134,100%,50%)');
     expect(hueSlider.value).toBe('134');
+    expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 91%;');
   });
 
   it('updates the color picker when the B input is changed', () => {
     render(<ColorPicker color={{ red: 23, green: 73, blue: 77 }} />);
     const previewBox = screen.getByTestId('preview-box');
     const colorwell = screen.getByTestId('colorwell');
+    const colorWellThumb = screen.getByTestId('colorwell-thumb');
     const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
     const blueInput = screen.getByLabelText('B') as HTMLInputElement;
@@ -153,6 +172,10 @@ describe('ColorPicker', () => {
     expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
     expect(hexInput.value).toBe('#17494d');
     expect(hueSlider.value).toBe('184.44444444444443');
+    expect(colorWellThumb).toHaveAttribute(
+      'style',
+      'top: 69.80392156862746%; left: 70.12987012987013%;'
+    );
 
     userEvent.clear(blueInput);
     userEvent.type(blueInput, '255');
@@ -160,6 +183,7 @@ describe('ColorPicker', () => {
     expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 255);');
     expect(colorwell).toHaveStyleRule('background', 'hsl(227,100%,50%)');
     expect(hueSlider.value).toBe('227');
+    expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 91%;');
   });
 
   it('updates with correct alpha when the A input is changed', () => {
@@ -209,10 +233,15 @@ describe('ColorPicker', () => {
   it('updates the color only if the hex input is a valid hex color', () => {
     render(<ColorPicker color="#17494d" />);
 
+    const colorWellThumb = screen.getByTestId('colorwell-thumb');
     const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
 
     expect(hueSlider.value).toBe('184.44444444444443');
+    expect(colorWellThumb).toHaveAttribute(
+      'style',
+      'top: 69.80392156862746%; left: 70.12987012987013%;'
+    );
 
     userEvent.clear(hexInput);
     userEvent.type(hexInput, '#b4'); // invalid hex
@@ -222,6 +251,7 @@ describe('ColorPicker', () => {
     userEvent.type(hexInput, 'da55'); // now valid hex
 
     expect(hueSlider.value).toBe('77');
+    expect(colorWellThumb).toHaveAttribute('style', 'top: 15%; left: 60.99999999999998%;');
   });
 
   it('uses labels when provided', () => {

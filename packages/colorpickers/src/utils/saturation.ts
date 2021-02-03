@@ -17,16 +17,6 @@ export function limit(value: number, max: number, min = 0) {
   return value;
 }
 
-export function getSaturationPosition(ev: MouseEvent, root: HTMLElement) {
-  const rectSize = root.getBoundingClientRect();
-  const sPercentage = (ev.clientX - rectSize.left) / rectSize.width;
-  const vPercentage = (ev.clientY - rectSize.top) / rectSize.height;
-  const s = limit(Math.round(sPercentage * 100), 100);
-  const v = limit(Math.round(100 - vPercentage * 100), 100);
-
-  return { s, v };
-}
-
 export function calculateNextHsv(
   e: MouseEvent,
   hsv: IHSVColor,
@@ -58,8 +48,6 @@ export function calculateNextHsv(
 
   const saturation = left / containerWidth;
   const bright = 1 - top / containerHeight;
-
-  getSaturationPosition(e, container);
 
   return {
     h: hsv.h,

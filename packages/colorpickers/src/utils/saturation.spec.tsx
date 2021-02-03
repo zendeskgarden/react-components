@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getSaturationPosition, calculateNextHsv, limit } from './saturation';
+import { calculateNextHsv, limit } from './saturation';
 
 describe('saturation utility functions', () => {
   let originalGetBoundingClientRect: any;
@@ -31,17 +31,6 @@ describe('saturation utility functions', () => {
 
   afterEach(() => {
     Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
-  });
-
-  describe('getSaturationPosition', () => {
-    it('calculates the saturation and value position within a colorwell', () => {
-      const div = document.createElement('div');
-      const event = new MouseEvent('mousemove', { clientX: 695, clientY: 276 });
-      const { s, v } = getSaturationPosition(event, div);
-
-      expect(s).toBe(100);
-      expect(v).toBe(100);
-    });
   });
 
   describe('calculateNextHsv', () => {

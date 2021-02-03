@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, useContext } from 'react';
+import React, { useRef, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import throttle from 'lodash.throttle';
 import { IHSVColor } from '../../utils/types';
 import { hsl2hsv } from '../../utils/conversion';
-import { calculateNextHsv, getSaturationPosition } from '../../utils/saturation';
+import { calculateNextHsv } from '../../utils/saturation';
 import {
   StyledColorWell,
   StyledColorWellGradient,
@@ -29,23 +29,17 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
   const { rtl } = useContext(ThemeContext);
   const container = useRef<HTMLDivElement>(null);
   const hsv = hsl2hsv(hue, saturation, lightness);
-  const [position, setPosition] = useState<{ s: number; v: number }>({
-    s: rtl ? 100 - hsv.s : hsv.s,
-    v: hsv.v
-  });
 
   const throttledChange = throttle(e => {
     if (container.current) {
       const nextHsv = calculateNextHsv(e, hsv, container.current, rtl);
-      const saturationPosition = getSaturationPosition(e, container.current);
 
-      setPosition(saturationPosition);
       onChange && onChange(nextHsv, e);
     }
   }, 50);
 
-  const topPosition = 100 - position.v;
-  const leftPosition = position.s;
+  const topPosition = 100 - hsv.v;
+  const leftPosition = rtl ? 100 - hsv.s : hsv.s;
 
   const handleMouseUp = () => {
     throttledChange.cancel();

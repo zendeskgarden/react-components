@@ -1,20 +1,20 @@
 {
   "index.cjs.js": {
-    "bundled": 55679,
-    "minified": 38733,
-    "gzipped": 8399
+    "bundled": 54743,
+    "minified": 38295,
+    "gzipped": 8253
   },
   "index.esm.js": {
-    "bundled": 52566,
-    "minified": 35980,
-    "gzipped": 8272,
+    "bundled": 51636,
+    "minified": 35548,
+    "gzipped": 8108,
     "treeshaked": {
       "rollup": {
-        "code": 29504,
+        "code": 29158,
         "import_statements": 628
       },
       "webpack": {
-        "code": 32406
+        "code": 32043
       }
     }
   }
