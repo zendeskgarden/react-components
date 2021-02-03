@@ -8,6 +8,7 @@
 import { parseToHsl, parseToRgb, rgb as rgbToString } from 'polished';
 import { hsv2hsl, rgbToHsl, hsl2rgb } from '../../utils/conversion';
 import { IRGBColor, IHSVColor } from '../../utils/types';
+import { isValidHex } from '../../utils/validation';
 
 export interface IColorPickerState {
   hex: string;
@@ -126,10 +127,7 @@ export const reducer: ReducerType = (state, action) => {
       };
     }
     case 'HEX_CHANGE': {
-      const regEx = /^#(?<hex>[0-9A-F]{3}){1,2}$/iu;
-      const validHex = regEx.test(action.payload);
-
-      if (validHex) {
+      if (isValidHex(action.payload)) {
         const rgb = parseToRgb(action.payload);
         const hsl = rgbToHsl(rgb.red, rgb.green, rgb.blue);
 

@@ -9,6 +9,7 @@ import React, { useEffect, useReducer, forwardRef, ChangeEvent, HTMLAttributes }
 import PropTypes from 'prop-types';
 import { Label } from '@zendeskgarden/react-forms';
 import { ColorWell } from './ColorWell';
+import { isValidHex } from '../../utils/validation';
 import {
   StyledHue,
   StyledSliderGroup,
@@ -123,6 +124,15 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               autoFocus={autofocus}
               onChange={e => {
                 dispatch({ type: 'HEX_CHANGE', payload: e.target.value });
+              }}
+              onBlur={e => {
+                if (!e.target.value.includes('#')) {
+                  const hexInputString = `#${e.target.value}`;
+
+                  if (isValidHex(hexInputString)) {
+                    dispatch({ type: 'HEX_CHANGE', payload: hexInputString });
+                  }
+                }
               }}
             />
           </StyledHexField>
