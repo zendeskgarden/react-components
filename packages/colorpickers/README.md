@@ -1,6 +1,6 @@
 # @zendeskgarden/react-colorpickers [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-colorpickers)](https://www.npmjs.com/package/@zendeskgarden/react-colorpickers)
 
-This package includes components related to colorpicker in the
+This package includes components related to colorpickers in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
