@@ -24,24 +24,15 @@ export interface IColorPickerState {
   alphaInput: number | string;
 }
 
-export const SATURATION_CHANGE = 'saturation change';
-export const HUE_CHANGE = 'hue slider change';
-export const ALPHA_SLIDER_CHANGE = 'alpha slider change';
-export const HEX_CHANGE = 'hex change';
-export const RED_CHANGE = 'red change';
-export const GREEN_CHANGE = 'green change';
-export const BLUE_CHANGE = 'blue change';
-export const ALPHA_CHANGE = 'alpha change';
-
 type ColorPickerActionTypes =
-  | { type: typeof SATURATION_CHANGE; payload: IHSVColor }
-  | { type: typeof HUE_CHANGE; payload: string }
-  | { type: typeof ALPHA_SLIDER_CHANGE; payload: string }
-  | { type: typeof HEX_CHANGE; payload: string }
-  | { type: typeof RED_CHANGE; payload: string }
-  | { type: typeof GREEN_CHANGE; payload: string }
-  | { type: typeof BLUE_CHANGE; payload: string }
-  | { type: typeof ALPHA_CHANGE; payload: string };
+  | { type: 'SATURATION_CHANGE'; payload: IHSVColor }
+  | { type: 'HUE_CHANGE'; payload: string }
+  | { type: 'ALPHA_SLIDER_CHANGE'; payload: string }
+  | { type: 'HEX_CHANGE'; payload: string }
+  | { type: 'RED_CHANGE'; payload: string }
+  | { type: 'GREEN_CHANGE'; payload: string }
+  | { type: 'BLUE_CHANGE'; payload: string }
+  | { type: 'ALPHA_CHANGE'; payload: string };
 
 type ReducerType = (state: IColorPickerState, action: ColorPickerActionTypes) => IColorPickerState;
 
@@ -88,7 +79,7 @@ export function getInitialState(initialColor: IRGBColor | string) {
 
 export const reducer: ReducerType = (state, action) => {
   switch (action.type) {
-    case SATURATION_CHANGE: {
+    case 'SATURATION_CHANGE': {
       const hsl = hsv2hsl(action.payload.h, action.payload.s * 100, action.payload.v * 100);
       const rgb = hsl2rgb(state.hue, hsl.s, hsl.l);
       const hex = rgbToString(rgb.r, rgb.g, rgb.b);
@@ -106,7 +97,7 @@ export const reducer: ReducerType = (state, action) => {
         blueInput: rgb.b
       };
     }
-    case HUE_CHANGE: {
+    case 'HUE_CHANGE': {
       const hue = Number(action.payload);
       const rgb = hsl2rgb(hue, state.saturation, state.lightness);
       const hex = rgbToString({
@@ -127,14 +118,14 @@ export const reducer: ReducerType = (state, action) => {
         blueInput: rgb.b
       };
     }
-    case ALPHA_SLIDER_CHANGE: {
+    case 'ALPHA_SLIDER_CHANGE': {
       return {
         ...state,
         alpha: Number(action.payload) * 100,
         alphaInput: Math.round(Number(action.payload) * 100)
       };
     }
-    case HEX_CHANGE: {
+    case 'HEX_CHANGE': {
       const regEx = /^#(?<hex>[0-9A-F]{3}){1,2}$/iu;
       const validHex = regEx.test(action.payload);
 
@@ -162,7 +153,7 @@ export const reducer: ReducerType = (state, action) => {
         hex: action.payload
       };
     }
-    case RED_CHANGE: {
+    case 'RED_CHANGE': {
       const red = Number(action.payload);
 
       if (isNaN(red)) return state;
@@ -181,7 +172,7 @@ export const reducer: ReducerType = (state, action) => {
         saturation: hsl.s
       };
     }
-    case GREEN_CHANGE: {
+    case 'GREEN_CHANGE': {
       const green = Number(action.payload);
 
       if (isNaN(green)) return state;
@@ -200,7 +191,7 @@ export const reducer: ReducerType = (state, action) => {
         saturation: hsl.s
       };
     }
-    case BLUE_CHANGE: {
+    case 'BLUE_CHANGE': {
       const blue = Number(action.payload);
 
       if (isNaN(blue)) return state;
@@ -219,7 +210,7 @@ export const reducer: ReducerType = (state, action) => {
         saturation: hsl.s
       };
     }
-    case ALPHA_CHANGE: {
+    case 'ALPHA_CHANGE': {
       const alpha = Number(action.payload);
 
       if (isNaN(alpha)) return state;

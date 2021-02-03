@@ -26,21 +26,8 @@ import {
   StyledAlphaField,
   StyledHueField
 } from '../../styled';
-import {
-  getInitialState,
-  reducer,
-  IColorPickerState,
-  SATURATION_CHANGE,
-  HUE_CHANGE,
-  ALPHA_SLIDER_CHANGE,
-  HEX_CHANGE,
-  RED_CHANGE,
-  GREEN_CHANGE,
-  BLUE_CHANGE,
-  ALPHA_CHANGE
-} from './reducer';
+import { getInitialState, reducer, IColorPickerState } from './reducer';
 import { IRGBColor, IHSVColor } from '../../utils/types';
-
 export interface IColorPickerLabels {
   hueSlider?: string;
   alphaSlider?: string;
@@ -86,7 +73,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
           lightness={state.lightness}
           onChange={(hsv: IHSVColor) => {
             dispatch({
-              type: SATURATION_CHANGE,
+              type: 'SATURATION_CHANGE',
               payload: hsv
             });
           }}
@@ -103,7 +90,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                 max={359}
                 value={state.hue}
                 onChange={e => {
-                  dispatch({ type: HUE_CHANGE, payload: e.target.value });
+                  dispatch({ type: 'HUE_CHANGE', payload: e.target.value });
                 }}
               />
             </StyledHueField>
@@ -115,7 +102,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                 value={state.alpha / 100}
                 rgb={{ red: state.red, green: state.green, blue: state.blue }}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  dispatch({ type: ALPHA_SLIDER_CHANGE, payload: e.target.value });
+                  dispatch({ type: 'ALPHA_SLIDER_CHANGE', payload: e.target.value });
                 }}
               />
               <StyledCheckered />
@@ -135,7 +122,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               /* eslint-disable jsx-a11y/no-autofocus */
               autoFocus={autofocus}
               onChange={e => {
-                dispatch({ type: HEX_CHANGE, payload: e.target.value });
+                dispatch({ type: 'HEX_CHANGE', payload: e.target.value });
               }}
             />
           </StyledHexField>
@@ -149,7 +136,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               maxLength={3}
               value={state.redInput}
               onChange={e => {
-                dispatch({ type: RED_CHANGE, payload: e.target.value });
+                dispatch({ type: 'RED_CHANGE', payload: e.target.value });
               }}
             />
           </StyledRGBAField>
@@ -163,7 +150,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               maxLength={3}
               value={state.greenInput}
               onChange={e => {
-                dispatch({ type: GREEN_CHANGE, payload: e.target.value });
+                dispatch({ type: 'GREEN_CHANGE', payload: e.target.value });
               }}
             />
           </StyledRGBAField>
@@ -177,7 +164,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               maxLength={3}
               value={state.blueInput}
               onChange={e => {
-                dispatch({ type: BLUE_CHANGE, payload: e.target.value });
+                dispatch({ type: 'BLUE_CHANGE', payload: e.target.value });
               }}
             />
           </StyledRGBAField>
@@ -191,7 +178,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               value={state.alphaInput}
               onChange={e => {
                 dispatch({
-                  type: ALPHA_CHANGE,
+                  type: 'ALPHA_CHANGE',
                   payload: e.target.value
                 });
               }}
