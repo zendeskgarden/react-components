@@ -63,13 +63,15 @@ export interface IColorPickerProps
   onChange?: (state: IColorPickerState) => void;
   /** Replaces the default labels within the color picker */
   labels?: IColorPickerLabels;
+  /** Autofocuses the hex input element */
+  autofocus?: boolean;
 }
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
-  ({ color, labels = {}, onChange, ...props }, ref) => {
+  ({ color, labels = {}, autofocus, onChange, ...props }, ref) => {
     const [state, dispatch] = useReducer(reducer, getInitialState(color));
 
     useEffect(() => {
@@ -130,6 +132,8 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               isCompact
               maxLength={7}
               value={state.hex}
+              /* eslint-disable jsx-a11y/no-autofocus */
+              autoFocus={autofocus}
               onChange={e => {
                 dispatch({ type: HEX_CHANGE, payload: e.target.value });
               }}

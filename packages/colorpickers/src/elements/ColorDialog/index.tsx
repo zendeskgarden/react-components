@@ -81,6 +81,7 @@ export const ColorDialog = forwardRef<
       )}
       <StyledTooltipModal
         hasArrow={false}
+        focusOnMount={false}
         placement={placement}
         referenceElement={referenceElement}
         onClose={() => {
@@ -90,6 +91,7 @@ export const ColorDialog = forwardRef<
       >
         <StyledTooltipBody>
           <ColorPicker
+            autofocus
             color={color}
             labels={labels}
             ref={colorPickerRef}

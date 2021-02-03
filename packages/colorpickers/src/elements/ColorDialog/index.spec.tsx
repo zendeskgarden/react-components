@@ -20,6 +20,28 @@ describe('ColorDialog', () => {
     expect(screen.getByTestId('colordialog')).toBe(ref.current);
   });
 
+  it('focuses on the hex input and trigger when the color dialog is opened and closed', () => {
+    const Basic = () => {
+      const [color, setColor] = useState<IRGBColor | string>('rgba(23,73,77,1)');
+
+      return <ColorDialog color={color} onClose={setColor} />;
+    };
+
+    render(<Basic />);
+
+    const trigger = screen.getByRole('button');
+
+    expect(document.body).toHaveFocus();
+
+    userEvent.click(trigger);
+    const hexInput = screen.getByLabelText('Hex');
+
+    expect(hexInput).toHaveFocus();
+
+    userEvent.type(hexInput, '{esc}');
+    expect(trigger).toHaveFocus();
+  });
+
   it('updates the color dialog button preview color', () => {
     const Basic = () => {
       const [color, setColor] = useState<IRGBColor | string>('rgba(23,73,77,1)');

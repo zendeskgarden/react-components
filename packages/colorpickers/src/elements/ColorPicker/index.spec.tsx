@@ -20,6 +20,14 @@ describe('ColorPicker', () => {
     expect(getByTestId('colorpicker')).toBe(ref.current);
   });
 
+  it('focuses on the hex input when autofocus is on', () => {
+    render(<ColorPicker color="#17494D" autofocus />);
+
+    const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
+
+    expect(hexInput).toHaveFocus();
+  });
+
   it('updates the color picker when the hue slider is changed', () => {
     render(<ColorPicker color="#17494D" />);
 
