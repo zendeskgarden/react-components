@@ -31,6 +31,24 @@ describe('StyledIconButton', () => {
     expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[600]);
   });
 
+  describe('disabled', () => {
+    it('renders expected styling', () => {
+      const { container } = render(<StyledIconButton disabled />);
+
+      expect(container.firstChild).toHaveStyleRule('background-color', 'transparent', {
+        modifier: ':disabled'
+      });
+    });
+
+    it('renders expected primary styling', () => {
+      const { container } = render(<StyledIconButton disabled isPrimary />);
+
+      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.grey[200], {
+        modifier: ':disabled'
+      });
+    });
+  });
+
   describe('Sizes', () => {
     it('renders small styling if provided', () => {
       const { container } = render(<StyledIconButton size="small" />);

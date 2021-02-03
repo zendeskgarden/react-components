@@ -30,6 +30,10 @@ const getBorderRadius = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) =
   return props.theme.borderRadii.md;
 };
 
+const getDisabledBackgroundColor = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+  return getColor('neutralHue', 200, props.theme);
+};
+
 export const getHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.size === SIZE.SMALL) {
     return `${props.theme.space.base * 8}px`;
@@ -61,7 +65,7 @@ const colorStyles = (
   const baseColor = getColor(hue, shade, props.theme);
   const hoverColor = getColor(hue, shade + 100, props.theme);
   const activeColor = getColor(hue, shade + 200, props.theme);
-  const disabledBackgroundColor = getColor(hue, shade - 400, props.theme);
+  const disabledBackgroundColor = getDisabledBackgroundColor(props);
   const disabledForegroundColor = getColor(hue, shade - 200, props.theme);
   const boxShadowColor =
     props.focusInset && (props.isPrimary || props.isSelected)
@@ -154,10 +158,14 @@ const colorStyles = (
   return retVal;
 };
 
+/**
+ * 1. Icon button override.
+ */
 const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const isPrimary = props.isPrimary;
   const rtl = props.theme.rtl;
   const lightBorderColor = props.theme.colors.background;
+  const disabledBackgroundColor = getDisabledBackgroundColor(props);
 
   return css`
     position: relative;
@@ -179,6 +187,7 @@ const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
       border-bottom-width: 0;
       border-right-color: ${lightBorderColor};
       border-left-color: ${lightBorderColor};
+      background-color: ${!isPrimary && disabledBackgroundColor}; /* [1] */
     }
 
     /* stylelint-disable property-no-unknown, property-case */

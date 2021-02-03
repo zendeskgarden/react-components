@@ -9,6 +9,8 @@ import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { StyledButtonGroup } from './StyledButtonGroup';
 import { StyledButton } from './StyledButton';
+import { StyledIconButton } from './StyledIconButton';
+import { PALETTE } from '@zendeskgarden/react-theming';
 
 describe('StyledButtonGroup', () => {
   it('renders the expected element', () => {
@@ -36,11 +38,20 @@ describe('StyledButtonGroup', () => {
       </StyledButtonGroup>
     );
 
-    /* stylelint-disable */
     expect(getByTestId('group-button')).toHaveStyleRule('position', 'relative', {
-      modifier: (`
-        ${StyledButtonGroup} &
-      ` as unknown) as string
+      modifier: `${StyledButtonGroup} &`
+    });
+  });
+
+  it('renders expected disabled icon button styling', () => {
+    const { getByTestId } = render(
+      <StyledButtonGroup>
+        <StyledIconButton data-test-id="group-button">test</StyledIconButton>
+      </StyledButtonGroup>
+    );
+
+    expect(getByTestId('group-button')).toHaveStyleRule('background-color', PALETTE.grey[200], {
+      modifier: `${StyledButtonGroup} &:disabled`
     });
   });
 });
