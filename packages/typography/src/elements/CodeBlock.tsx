@@ -18,13 +18,15 @@ export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
   isLight?: boolean;
   /** Displays line numbers */
   isNumbered?: boolean;
+  /** Determines the lines to highlight */
+  highlightLines?: number[];
 }
 
 /**
  * @extends HTMLAttributes<HTMLPreElement>
  */
 export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
-  ({ children, isLight, isNumbered, language, size, ...other }, ref) => {
+  ({ children, highlightLines, isLight, isNumbered, language, size, ...other }, ref) => {
     const code = (Array.isArray(children) ? children[0] : children) as string;
     let _size: 'sm' | 'md' | 'lg';
 
@@ -40,10 +42,11 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
       <Highlight Prism={Prism} code={code ? code.trim() : ''} language={language || 'tsx'}>
         {({ className, tokens, getLineProps, getTokenProps }) => (
           <StyledCodeBlock className={className} ref={ref} isLight={isLight} {...other}>
-            {tokens.map((line, lineKey) => (
+            {tokens.map((line, index) => (
               <StyledCodeBlockLine
                 {...getLineProps({ line })}
-                key={lineKey}
+                key={index}
+                isHighlighted={highlightLines && highlightLines.includes(index + 1)}
                 isLight={isLight}
                 isNumbered={isNumbered}
                 size={_size}
