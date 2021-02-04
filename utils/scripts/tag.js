@@ -196,9 +196,9 @@ program
 
     try {
       spinner.start();
-      await sync(program.main, spinner);
+      await sync(program.opts().main, spinner);
 
-      const tag = await version(bump, program.preid, program.main, spinner);
+      const tag = await version(bump, program.opts().preid, program.opts().main, spinner);
       const markdown = await changelog(tag, spinner);
 
       spinner.stop();
@@ -206,7 +206,7 @@ program
       const prompt = await inquirer.prompt([
         {
           type: 'confirm',
-          message: `Confirm ${tag} release to the ${program.main} branch?`,
+          message: `Confirm ${tag} release to the ${program.opts().main} branch?`,
           name: 'release',
           default: true
         }
