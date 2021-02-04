@@ -19,7 +19,7 @@ export function limit(value: number, max: number, min = 0) {
 
 export function calculateNextHsv(
   e: MouseEvent,
-  hsv: IHSVColor,
+  hue: number,
   container: HTMLDivElement,
   rtl: boolean
 ): IHSVColor {
@@ -50,7 +50,7 @@ export function calculateNextHsv(
   const bright = 1 - top / containerHeight;
 
   return {
-    h: hsv.h,
+    h: hue,
     s: saturation,
     v: bright
   };

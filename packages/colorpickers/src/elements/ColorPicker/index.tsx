@@ -5,7 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useReducer, forwardRef, ChangeEvent, HTMLAttributes } from 'react';
+import React, {
+  useEffect,
+  useCallback,
+  useReducer,
+  forwardRef,
+  ChangeEvent,
+  HTMLAttributes
+} from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '@zendeskgarden/react-forms';
 import { ColorWell } from './ColorWell';
@@ -66,18 +73,20 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
       onChange && onChange(state);
     }, [state, onChange]);
 
+    const handleColorWellChange = useCallback((hsv: IHSVColor) => {
+      dispatch({
+        type: 'SATURATION_CHANGE',
+        payload: hsv
+      });
+    }, []);
+
     return (
       <StyledColorPicker ref={ref} {...props}>
         <ColorWell
           hue={state.hue}
           saturation={state.saturation}
           lightness={state.lightness}
-          onChange={(hsv: IHSVColor) => {
-            dispatch({
-              type: 'SATURATION_CHANGE',
-              payload: hsv
-            });
-          }}
+          onChange={handleColorWellChange}
         />
         <StyledSliderGroup>
           <StyledPreview

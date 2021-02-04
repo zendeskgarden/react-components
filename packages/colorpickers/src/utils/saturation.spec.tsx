@@ -38,7 +38,7 @@ describe('saturation utility functions', () => {
       const div = document.createElement('div');
       const event = { pageX: 695, pageY: 276 } as MouseEvent;
       const hsv = { h: 184, s: 0, v: 0 };
-      const nextHsv = calculateNextHsv(event, hsv, div, false);
+      const nextHsv = calculateNextHsv(event, hsv.h, div, false);
 
       expect(nextHsv).toStrictEqual({ h: 184, s: 0.9951923076923077, v: 1 });
     });

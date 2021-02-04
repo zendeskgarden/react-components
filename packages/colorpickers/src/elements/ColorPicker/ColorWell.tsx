@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useCallback, useContext, useEffect, useMemo } from 'react';
 import { ThemeContext } from 'styled-components';
 import throttle from 'lodash.throttle';
 import { IHSVColor } from '../../utils/types';
@@ -22,7 +22,7 @@ interface IColorWellProps {
   hue: number;
   saturation: number;
   lightness: number;
-  onChange?: (hsv: IHSVColor, event: React.MouseEvent<any>) => void;
+  onChange?: (hsv: IHSVColor, event: MouseEvent) => void;
 }
 
 export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightness, onChange }) => {
@@ -30,28 +30,43 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
   const container = useRef<HTMLDivElement>(null);
   const hsv = hsl2hsv(hue, saturation, lightness);
 
-  const throttledChange = throttle(e => {
-    if (container.current) {
-      const nextHsv = calculateNextHsv(e, hsv, container.current, rtl);
+  const throttledChange = useMemo(() => {
+    return throttle((e: MouseEvent) => {
+      if (container.current) {
+        const nextHsv = calculateNextHsv(e, hue, container.current, rtl);
 
-      onChange && onChange(nextHsv, e);
-    }
-  }, 50);
+        onChange && onChange(nextHsv, e);
+      }
+    }, 50);
+  }, [hue, rtl, onChange]);
+
+  const handleMouseMove = useCallback((e: MouseEvent) => throttledChange(e), [throttledChange]);
+
+  const handleMouseUp = useCallback(() => {
+    throttledChange.cancel();
+    window.removeEventListener('mousemove', handleMouseMove);
+    window.removeEventListener('mouseup', handleMouseUp);
+  }, [throttledChange, handleMouseMove]);
+
+  const handleMouseDown = useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      throttledChange(e as any);
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+    },
+    [throttledChange, handleMouseMove, handleMouseUp]
+  );
+
+  useEffect(() => {
+    return () => {
+      throttledChange.cancel();
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [throttledChange, handleMouseMove, handleMouseUp]);
 
   const topPosition = 100 - hsv.v;
   const leftPosition = rtl ? 100 - hsv.s : hsv.s;
-
-  const handleMouseUp = () => {
-    throttledChange.cancel();
-    window.removeEventListener('mousemove', throttledChange);
-    window.removeEventListener('mouseup', handleMouseUp);
-  };
-
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    throttledChange(e);
-    window.addEventListener('mousemove', throttledChange);
-    window.addEventListener('mouseup', handleMouseUp);
-  };
 
   return (
     <StyledColorWellWrapper>
