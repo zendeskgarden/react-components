@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { rgba } from 'polished';
 import { render } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { CodeBlock } from './CodeBlock';
@@ -15,25 +16,35 @@ describe('CodeBlock', () => {
     const ref = React.createRef<HTMLPreElement>();
     const { container } = render(<CodeBlock ref={ref} />);
 
-    expect(container.firstChild).toBe(ref.current);
+    expect(container.getElementsByTagName('pre')[0]).toBe(ref.current);
   });
 
   it('renders the expected element', () => {
     const { container } = render(<CodeBlock />);
 
-    expect(container.firstChild!.nodeName).toBe('PRE');
+    expect(container.firstChild!.nodeName).toBe('DIV');
+    expect(container.firstChild!.firstChild!.nodeName).toBe('PRE');
+  });
+
+  it('applies container props', () => {
+    const { container } = render(<CodeBlock containerProps={{ id: 'test' }} />);
+
+    expect(container.firstChild).toHaveAttribute('id', 'test');
   });
 
   it('renders the expected language', () => {
     const { container } = render(<CodeBlock language="go" />);
 
-    expect(container.firstChild).toHaveClass('language-go');
+    expect(container.getElementsByTagName('pre')[0]).toHaveClass('language-go');
   });
 
   it('renders as expected in light mode', () => {
     const { container } = render(<CodeBlock isLight />);
 
-    expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.grey[100]);
+    expect(container.getElementsByTagName('pre')[0]).toHaveStyleRule(
+      'background-color',
+      PALETTE.grey[100]
+    );
   });
 
   it('renders line numbers as expected', () => {
@@ -46,6 +57,16 @@ describe('CodeBlock', () => {
         modifier: '&::before'
       }
     );
+  });
+
+  it('highlights lines as expected', () => {
+    const code = `one
+    two`;
+    const { container } = render(<CodeBlock highlightLines={[1]}>{code}</CodeBlock>);
+    const codeElements = container.getElementsByTagName('code');
+
+    expect(codeElements[0]).toHaveStyleRule('background-color', rgba(PALETTE.white, 0.1));
+    expect(codeElements[1]).not.toHaveStyleRule('background-color');
   });
 
   describe('size', () => {
