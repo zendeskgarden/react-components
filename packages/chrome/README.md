@@ -8,7 +8,7 @@ Collection of elements relating to the Chrome component within the Garden Design
 npm install @zendeskgarden/react-chrome
 
 # Peer Dependencies - Also Required
-npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
+npm install react react-dom styled-components @zendeskgarden/react-theming
 ```
 
 ## Usages

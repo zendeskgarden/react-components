@@ -50,10 +50,10 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/react-theming@^8.31.0":
-  version "8.31.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.31.0.tgz#45933972d858f7f4463033176ff5ff1dfa6f4a9d"
-  integrity sha512-evZOfc3BKSVRSTGG+NIpfxEMS3mO3HU0f7N3rop5YH1784s2JSv35i7KAdmAgk3SbRDpda7vWFcBXd2wLBR37Q==
+"@zendeskgarden/react-theming@^8.31.1":
+  version "8.31.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.31.1.tgz#fcce2c6c4cf89ad00bea6f7e9616b8575ec9aa66"
+  integrity sha512-fXee4OGNsYnVzALJFF3ud75CNxvCt+Sde8hWTV+4ts+SUnPSYubwqq1mxQae7+MgrtdS+Gy6cVkVmpHceu19RA==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.5.5"
@@ -81,7 +81,7 @@ file-selector@^0.2.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-lodash.debounce@4.0.8:
+lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=

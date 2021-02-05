@@ -9,7 +9,7 @@ This package includes components relating to native form fields in the
 npm install @zendeskgarden/react-forms
 
 # Peer Dependencies - Also Required
-npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
+npm install react react-dom styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
