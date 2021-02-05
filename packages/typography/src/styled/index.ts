@@ -8,6 +8,7 @@
 export * from './StyledBlockquote';
 export * from './StyledCode';
 export * from './StyledCodeBlock';
+export * from './StyledCodeBlockContainer';
 export * from './StyledCodeBlockLine';
 export * from './StyledCodeBlockToken';
 export * from './StyledEllipsis';
