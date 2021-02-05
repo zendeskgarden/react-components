@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.codeblock_container';
 
@@ -15,6 +15,14 @@ export const StyledCodeBlockContainer = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   overflow: auto;
+
+  &:focus {
+    outline: none;
+  }
+
+  &[data-garden-focus-visible] {
+    box-shadow: ${props => props.theme.shadows.md(getColor('primaryHue', 600, props.theme, 0.35)!)};
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
