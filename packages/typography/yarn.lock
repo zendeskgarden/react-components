@@ -42,7 +42,7 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/react-theming@^8.31.0":
+"@zendeskgarden/react-theming@^8.31.1":
   version "8.31.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.31.1.tgz#fcce2c6c4cf89ad00bea6f7e9616b8575ec9aa66"
   integrity sha512-fXee4OGNsYnVzALJFF3ud75CNxvCt+Sde8hWTV+4ts+SUnPSYubwqq1mxQae7+MgrtdS+Gy6cVkVmpHceu19RA==

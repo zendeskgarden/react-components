@@ -12,6 +12,27 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.31.1 (2021-02-04)
+
+#### :bug: Bug Fix
+* Other
+  * [#1010](https://github.com/zendeskgarden/react-components/pull/1010) fix(build): allow version tagging process to complete ([@austingreendev](https://github.com/austingreendev))
+* `buttons`
+  * [#1009](https://github.com/zendeskgarden/react-components/pull/1009) fix(buttons): disabled IconButton background color ([@jzempel](https://github.com/jzempel))
+* `chrome`
+  * [#1000](https://github.com/zendeskgarden/react-components/pull/1000) fix(chrome): enable SkipNav fade out transition animation ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1005](https://github.com/zendeskgarden/react-components/pull/1005) chore(deps): update dependency commander to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1003](https://github.com/zendeskgarden/react-components/pull/1003) chore(deps): update dependency @testing-library/react-hooks to v5 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1006](https://github.com/zendeskgarden/react-components/pull/1006) chore(deps): update dependency envalid to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1007](https://github.com/zendeskgarden/react-components/pull/1007) fix(deps): update react monorepo to v17 (major) ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `loaders`, `tooltips`, `typography`
+  * [#1002](https://github.com/zendeskgarden/react-components/pull/1002) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#1001](https://github.com/zendeskgarden/react-components/pull/1001) chore(deps): update dependency @zendeskgarden/svg-icons to v6.28.0 ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.31.0 (2021-01-27)
 
 #### :rocket: New Feature
