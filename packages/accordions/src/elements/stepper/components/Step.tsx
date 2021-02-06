@@ -5,19 +5,42 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useRef, LiHTMLAttributes } from 'react';
+import React, { forwardRef, LiHTMLAttributes, useEffect, useRef, useState } from 'react';
 import { StyledStep, StyledLine } from '../../../styled';
 import { StepContext, useStepperContext } from '../../../utils';
 
+const useStep = () => {
+  const { currentIndexRef, ...context } = useStepperContext();
+  const [index, setIndex] = useState(currentIndexRef.current);
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    isMounted.current = false;
+  }, []);
+
+  useEffect(() => {
+    setIndex(currentIndexRef.current);
+    currentIndexRef.current++;
+    const currentIndex = currentIndexRef;
+
+    return () => {
+      currentIndex.current--;
+      if (isMounted.current) {
+        setIndex(currentIndex.current);
+      }
+    };
+  }, [currentIndexRef]);
+
+  return [index, context] as const;
+};
+
 export const Step = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
-  const { currentIndexRef, isHorizontal } = useStepperContext();
-  const stepIndexRef = useRef(currentIndexRef.current++);
-  const stepContextValue = { currentStepIndex: stepIndexRef.current };
+  const [currentStepIndex, context] = useStep();
 
   return (
-    <StepContext.Provider value={stepContextValue}>
-      <StyledStep ref={ref} isHorizontal={isHorizontal} {...props}>
-        {isHorizontal && <StyledLine data-test-id="step-line" />}
+    <StepContext.Provider value={{ currentStepIndex }}>
+      <StyledStep ref={ref} isHorizontal={context.isHorizontal} {...props}>
+        {context.isHorizontal && <StyledLine data-test-id="step-line" />}
         {props.children}
       </StyledStep>
     </StepContext.Provider>
