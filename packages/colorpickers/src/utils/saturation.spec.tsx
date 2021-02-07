@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { calculateNextHsv, limit } from './saturation';
+import { getNextHsv, limit } from './saturation';
 
 describe('saturation utility functions', () => {
   let originalGetBoundingClientRect: any;
@@ -33,12 +33,12 @@ describe('saturation utility functions', () => {
     Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
   });
 
-  describe('calculateNextHsv', () => {
+  describe('getNextHsv', () => {
     it('calculates the new HSV color upon mousedown on colorwell', () => {
       const div = document.createElement('div');
       const event = { pageX: 695, pageY: 276 } as MouseEvent;
       const hsv = { h: 184, s: 0, v: 0 };
-      const nextHsv = calculateNextHsv(event, hsv.h, div, false);
+      const nextHsv = getNextHsv(event, hsv.h, div, false);
 
       expect(nextHsv).toStrictEqual({ h: 184, s: 0.9951923076923077, v: 1 });
     });

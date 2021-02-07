@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useCallback, useContext, useEffect, useMemo } from 'react';
+import React, { useRef, useState, useCallback, useContext, useEffect, useMemo } from 'react';
 import { ThemeContext } from 'styled-components';
 import throttle from 'lodash.throttle';
 import { IHSVColor } from '../../utils/types';
 import { hsl2hsv } from '../../utils/conversion';
-import { calculateNextHsv } from '../../utils/saturation';
+import { getNextHsv, getThumbPosition } from '../../utils/saturation';
 import {
   StyledColorWell,
   StyledColorWellGradient,
@@ -29,20 +29,47 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
   const { rtl } = useContext(ThemeContext);
   const container = useRef<HTMLDivElement>(null);
   const hsv = hsl2hsv(hue, saturation, lightness);
+  const mouseActiveRef = useRef(false);
+
+  // State for thumb position when change come from mouse activity on the color well
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+  const { topFromMouse, leftFromMouse } = getThumbPosition(x, y, rtl, container);
+
+  // State for thumb position when change come from saturation and lightness props without mouse activity
+  const [topPosition, setTopPosition] = useState(0);
+  const [leftPosition, setLeftPosition] = useState(0);
+
+  useEffect(() => {
+    setTopPosition(100 - hsv.v);
+    setLeftPosition(rtl ? 100 - hsv.s : hsv.s);
+  }, [hsv.s, hsv.v, rtl]);
 
   const throttledChange = useMemo(() => {
     return throttle((e: MouseEvent) => {
       if (container.current) {
-        const nextHsv = calculateNextHsv(e, hue, container.current, rtl);
+        const nextHsv = getNextHsv(e, hue, container.current, rtl);
 
         onChange && onChange(nextHsv, e);
       }
     }, 50);
   }, [hue, rtl, onChange]);
 
-  const handleMouseMove = useCallback((e: MouseEvent) => throttledChange(e), [throttledChange]);
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      mouseActiveRef.current = true;
+      setX(e.pageX);
+      setY(e.pageY);
+      throttledChange(e);
+    },
+    [throttledChange]
+  );
 
   const handleMouseUp = useCallback(() => {
+    mouseActiveRef.current = true;
+    setTimeout(() => {
+      mouseActiveRef.current = false;
+    });
     throttledChange.cancel();
     window.removeEventListener('mousemove', handleMouseMove);
     window.removeEventListener('mouseup', handleMouseUp);
@@ -50,6 +77,8 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
 
   const handleMouseDown = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      mouseActiveRef.current = true;
+      handleMouseMove(e as any);
       throttledChange(e as any);
       window.addEventListener('mousemove', handleMouseMove);
       window.addEventListener('mouseup', handleMouseUp);
@@ -65,14 +94,14 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
     };
   }, [throttledChange, handleMouseMove, handleMouseUp]);
 
-  const topPosition = 100 - hsv.v;
-  const leftPosition = rtl ? 100 - hsv.s : hsv.s;
-
   return (
     <StyledColorWellWrapper>
       <StyledColorWell hue={hue} ref={container} role="presentation" onMouseDown={handleMouseDown}>
         <StyledColorWellGradient>
-          <StyledColorWellThumb top={topPosition} left={leftPosition} />
+          <StyledColorWellThumb
+            top={mouseActiveRef.current ? topFromMouse : topPosition}
+            left={mouseActiveRef.current ? leftFromMouse : leftPosition}
+          />
         </StyledColorWellGradient>
       </StyledColorWell>
     </StyledColorWellWrapper>

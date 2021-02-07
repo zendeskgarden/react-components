@@ -17,41 +17,70 @@ export function limit(value: number, max: number, min = 0) {
   return value;
 }
 
-export function calculateNextHsv(
+const getSaturationLightness = (element: HTMLDivElement, x: number, y: number, rtl: boolean) => {
+  const { width, height } = element.getBoundingClientRect();
+
+  let left = x - (element.getBoundingClientRect().left + window.pageXOffset);
+  let top = y - (element.getBoundingClientRect().top + window.pageYOffset);
+
+  if (left < 0) {
+    left = 0;
+  } else if (left > width) {
+    left = width;
+  }
+
+  if (top < 0) {
+    top = 0;
+  } else if (top > height) {
+    top = height;
+  }
+
+  if (rtl) {
+    left = width - left;
+  }
+
+  const saturation = left / width;
+  const bright = 1 - top / height;
+
+  return {
+    saturation,
+    bright
+  };
+};
+
+export function getNextHsv(
   e: MouseEvent,
   hue: number,
   container: HTMLDivElement,
   rtl: boolean
 ): IHSVColor {
-  const { width: containerWidth, height: containerHeight } = container.getBoundingClientRect();
-  const x = typeof e.pageX === 'number' ? e.pageX : ((e as unknown) as TouchEvent).touches[0].pageX;
-  const y = typeof e.pageY === 'number' ? e.pageY : ((e as unknown) as TouchEvent).touches[0].pageY;
-
-  let left = x - (container.getBoundingClientRect().left + window.pageXOffset);
-  let top = y - (container.getBoundingClientRect().top + window.pageYOffset);
-
-  if (left < 0) {
-    left = 0;
-  } else if (left > containerWidth) {
-    left = containerWidth;
-  }
-
-  if (top < 0) {
-    top = 0;
-  } else if (top > containerHeight) {
-    top = containerHeight;
-  }
-
-  if (rtl) {
-    left = containerWidth - left;
-  }
-
-  const saturation = left / containerWidth;
-  const bright = 1 - top / containerHeight;
-
+  const { saturation, bright } = getSaturationLightness(container, e.pageX, e.pageY, rtl);
   return {
     h: hue,
     s: saturation,
     v: bright
   };
 }
+
+export const getThumbPosition = (
+  x: number,
+  y: number,
+  rtl: boolean,
+  container: React.RefObject<HTMLDivElement>
+) => {
+  if (container.current) {
+    const { saturation, bright } = getSaturationLightness(container.current, x, y, rtl);
+    const topFromMouse = (1 - bright) * 100;
+    const leftFromMouse = rtl ? 100 - saturation * 100 : saturation * 100;
+
+    return {
+      topFromMouse,
+      leftFromMouse
+    };
+  }
+
+  return {
+    topFromMouse: 0,
+    leftFromMouse: 0
+  };
+};
