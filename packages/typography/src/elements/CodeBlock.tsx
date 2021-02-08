@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useCallback, useEffect, useRef, useState } from 'react';
+import React, { HTMLAttributes, useEffect, useRef, useState } from 'react';
 import Highlight, { Language, Prism } from 'prism-react-renderer';
 import debounce from 'lodash.debounce';
 import {
@@ -40,25 +40,21 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
   ) => {
     const [containerTabIndex, setContainerTabIndex] = useState(-1);
     const containerRef = useRef<HTMLDivElement>(null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const updateContainerTabIndex = useCallback(
-      debounce(() => {
-        if (containerRef.current) {
-          const codeBlock = containerRef.current.children[0];
-          const codeBlockHeight = codeBlock.scrollHeight;
-          const codeBlockWidth = codeBlock.scrollWidth;
-          const containerHeight = containerRef.current.offsetHeight;
-          const containerWidth = containerRef.current.offsetWidth;
+    const updateContainerTabIndex = debounce(() => {
+      if (containerRef.current) {
+        const codeBlock = containerRef.current.children[0];
+        const codeBlockHeight = codeBlock.scrollHeight;
+        const codeBlockWidth = codeBlock.scrollWidth;
+        const containerHeight = containerRef.current.offsetHeight;
+        const containerWidth = containerRef.current.offsetWidth;
 
-          if (codeBlockWidth > containerWidth || codeBlockHeight > containerHeight) {
-            setContainerTabIndex(0);
-          } else {
-            setContainerTabIndex(-1);
-          }
+        if (codeBlockWidth > containerWidth || codeBlockHeight > containerHeight) {
+          setContainerTabIndex(0);
+        } else {
+          setContainerTabIndex(-1);
         }
-      }, 100),
-      [containerRef, setContainerTabIndex]
-    );
+      }
+    }, 100);
     const code = (Array.isArray(children) ? children[0] : children) as string;
     let _size: 'sm' | 'md' | 'lg';
 
@@ -76,6 +72,7 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
 
       return () => {
         removeEventListener('resize', updateContainerTabIndex);
+        updateContainerTabIndex.cancel();
       };
     }, [updateContainerTabIndex, isNumbered, size, children]);
 
