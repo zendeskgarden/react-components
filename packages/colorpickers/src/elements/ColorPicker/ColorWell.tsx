@@ -89,10 +89,8 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
   useEffect(() => {
     return () => {
       throttledChange.cancel();
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [throttledChange, handleMouseMove, handleMouseUp]);
+  }, [throttledChange]);
 
   return (
     <StyledColorWellWrapper>

@@ -5,35 +5,30 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { ColorPicker } from '@zendeskgarden/react-colorpickers';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 export default {
   title: 'Components/ColorPicker',
   component: ColorPicker
 } as Meta;
 
-export const UncontrolledColorPicker: Story = ({
-  alphaSlider,
-  hueSlider,
-  hex,
-  red,
-  green,
-  blue,
-  alpha
-}) => {
+export const Uncontrolled: Story = ({ alphaSlider, hueSlider, hex, red, green, blue, alpha }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ColorPicker onChange={console.log} labels={labels} />
+      <ColorPicker
+        labels={labels}
+        onChange={action('onChange')}
+        defaultColor="rgba(23, 73, 77, 100)"
+      />
     </div>
   );
 };
 
-UncontrolledColorPicker.args = {
+Uncontrolled.args = {
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
   hex: 'Hex',
@@ -43,7 +38,7 @@ UncontrolledColorPicker.args = {
   alpha: 'A'
 };
 
-UncontrolledColorPicker.argTypes = {
+Uncontrolled.argTypes = {
   color: { control: 'disable' },
   alphaSlider: {
     control: 'text',
@@ -62,7 +57,7 @@ UncontrolledColorPicker.argTypes = {
   alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' }
 };
 
-UncontrolledColorPicker.parameters = {
+Uncontrolled.parameters = {
   docs: {
     description: {
       component: `

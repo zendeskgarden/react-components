@@ -6,6 +6,7 @@
  */
 
 import React, {
+  useState,
   useEffect,
   useCallback,
   useReducer,
@@ -35,8 +36,8 @@ import {
   StyledAlphaField,
   StyledHueField
 } from '../../styled';
-import { getInitialState, reducer, IColorPickerState } from './reducer';
-import { IColor, IHSVColor } from '../../utils/types';
+import { getInitialState, reducer } from './reducer';
+import { IColor, IHSVColor, IRGBColor } from '../../utils/types';
 import { parseToHsl, parseToRgb, rgb as rgbToString } from 'polished';
 export interface IColorPickerLabels {
   hueSlider?: string;
@@ -48,7 +49,7 @@ export interface IColorPickerLabels {
   alpha?: string;
 }
 
-function getControlledState(controlledColor: IColorPickerState | string): IColorPickerState {
+function getControlledState(controlledColor: IColor | string): IColor {
   if (typeof controlledColor === 'string') {
     if (isValidHex(controlledColor)) {
       const { hue, saturation, lightness } = parseToHsl(controlledColor);
@@ -68,7 +69,7 @@ function getControlledState(controlledColor: IColorPickerState | string): IColor
 
     if (controlledColor.includes('rgb')) {
       const { hue, saturation, lightness } = parseToHsl(controlledColor);
-      const { red, green, blue, alpha } = parseToRgb(controlledColor) as any;
+      const { red, green, blue, alpha } = parseToRgb(controlledColor) as IRGBColor;
       const hex = rgbToHex(red, green, blue);
 
       return {
@@ -125,7 +126,7 @@ export interface IColorPickerProps
   labels?: IColorPickerLabels;
   /** Autofocuses the hex input element */
   autofocus?: boolean;
-  defaultColor?: any;
+  defaultColor?: string | IColor;
 }
 
 /**
@@ -137,7 +138,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
 
     const [uncontrolledState, dispatch] = useReducer(
       reducer,
-      getInitialState(defaultColor || '#b4da55')
+      getInitialState(defaultColor || '#ffffff')
     );
 
     useEffect(() => {
@@ -148,11 +149,11 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
 
     const state = isControlled ? getControlledState(color as any) : uncontrolledState;
 
-    const [hexInput, setHexInput] = React.useState<number | string>(state.hex);
-    const [redInput, setRedInput] = React.useState<number | string>(state.red);
-    const [greenInput, setGreenInput] = React.useState<number | string>(state.green);
-    const [blueInput, setBlueInput] = React.useState<number | string>(state.blue);
-    const [alphaInput, setAlphaInput] = React.useState<number | string>(state.alpha);
+    const [hexInput, setHexInput] = useState<string>(state.hex);
+    const [redInput, setRedInput] = useState<string | number>(state.red);
+    const [greenInput, setGreenInput] = useState<string | number>(state.green);
+    const [blueInput, setBlueInput] = useState<string | number>(state.blue);
+    const [alphaInput, setAlphaInput] = useState<string | number>(state.alpha);
 
     const handleColorWellChange = useCallback(
       (hsv: IHSVColor) => {

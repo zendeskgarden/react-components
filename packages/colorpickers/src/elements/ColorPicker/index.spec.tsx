@@ -72,7 +72,7 @@ describe('ColorPicker', () => {
 
       expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
-      expect(hexInput.value).toBe('#17494D');
+      expect(hexInput.value).toBe('#17494d');
       expect(redInput.value).toBe('23');
       expect(greenInput.value).toBe('73');
       expect(blueInput.value).toBe('77');
@@ -90,15 +90,7 @@ describe('ColorPicker', () => {
     });
 
     it('updates the color picker when the alpha slider is changed', () => {
-      render(
-        <ColorPicker
-          defaultColor={{
-            red: 23,
-            green: 73,
-            blue: 77
-          }}
-        />
-      );
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const previewBox = screen.getByTestId('preview-box');
       const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
       const alphaInput = screen.getByLabelText('A') as HTMLInputElement;
@@ -112,7 +104,7 @@ describe('ColorPicker', () => {
     });
 
     it('updates the color picker when the input is changed to a valid hex without the number sign', () => {
-      render(<ColorPicker defaultColor={{ red: 23, green: 73, blue: 77 }} />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const previewBox = screen.getByTestId('preview-box');
       const colorwell = screen.getByTestId('colorwell');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
@@ -148,7 +140,7 @@ describe('ColorPicker', () => {
     });
 
     it('updates the color picker when the hex input is changed', () => {
-      render(<ColorPicker defaultColor={{ red: 23, green: 73, blue: 77 }} />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const previewBox = screen.getByTestId('preview-box');
       const colorwell = screen.getByTestId('colorwell');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
@@ -182,7 +174,7 @@ describe('ColorPicker', () => {
     });
 
     it('updates the color picker when the R input is changed', () => {
-      render(<ColorPicker defaultColor={{ red: 23, green: 73, blue: 77 }} />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const previewBox = screen.getByTestId('preview-box');
       const colorwell = screen.getByTestId('colorwell');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
@@ -209,7 +201,7 @@ describe('ColorPicker', () => {
     });
 
     it('updates the color picker when the G input is changed', () => {
-      render(<ColorPicker defaultColor={{ red: 23, green: 73, blue: 77 }} />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const previewBox = screen.getByTestId('preview-box');
       const colorwell = screen.getByTestId('colorwell');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
@@ -236,7 +228,7 @@ describe('ColorPicker', () => {
     });
 
     it('updates the color picker when the B input is changed', () => {
-      render(<ColorPicker defaultColor={{ red: 23, green: 73, blue: 77 }} />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const previewBox = screen.getByTestId('preview-box');
       const colorwell = screen.getByTestId('colorwell');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
@@ -263,7 +255,7 @@ describe('ColorPicker', () => {
     });
 
     it('updates with correct alpha when the A input is changed', () => {
-      render(<ColorPicker defaultColor={{ red: 23, green: 73, blue: 77, alpha: 100 }} />);
+      render(<ColorPicker defaultColor="rgba(23, 73, 77, 100)" />);
 
       const previewBox = screen.getByTestId('preview-box');
       const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
@@ -282,7 +274,7 @@ describe('ColorPicker', () => {
     });
 
     it('keeps current color when user changes RGB/A inputs to invalid values', () => {
-      render(<ColorPicker defaultColor={{ red: 23, green: 73, blue: 77, alpha: 50 }} />);
+      render(<ColorPicker defaultColor="rgba(23, 73, 77, 50)" />);
 
       const redInput = screen.getByLabelText('R') as HTMLInputElement;
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
@@ -334,7 +326,7 @@ describe('ColorPicker', () => {
   describe('Controlled usage', () => {
     it('updates the color picker when the hue slider is changed', () => {
       const Basic = () => {
-        const [color, setColor] = React.useState<any>('#17494D');
+        const [color, setColor] = React.useState<string | IColor>('#17494D');
 
         return <ColorPicker color={color} onChange={setColor} />;
       };

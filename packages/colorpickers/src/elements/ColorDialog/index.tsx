@@ -19,7 +19,6 @@ import mergeRefs from 'react-merge-refs';
 import { GARDEN_PLACEMENT } from '@zendeskgarden/react-modals';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { ColorPicker, IColorPickerProps } from '../ColorPicker';
-import { IColorPickerState } from '../ColorPicker/reducer';
 import { IColor } from '../../utils/types';
 import {
   StyledIcon,
@@ -34,7 +33,7 @@ export interface IColorDialogProps extends IColorPickerProps {
   /**
    * Handles close actions. Can be triggered from the backdrop.
    *
-   * @param {Object} state An color picker's state
+   * @param {Object} color An IColor value
    */
   onClose?: (color: IColor) => void;
   /** Adjusts the placement of the color dialog */
@@ -46,13 +45,16 @@ export interface IColorDialogProps extends IColorPickerProps {
  */
 export const ColorDialog = forwardRef<
   HTMLButtonElement,
-  IColorDialogProps & Omit<HTMLAttributes<HTMLButtonElement>, 'color'>
->(({ color, defaultColor, placement, onClose, labels, children, ...props }, ref) => {
+  IColorDialogProps & Omit<HTMLAttributes<HTMLButtonElement>, 'color' | 'onChange'>
+>(({ color, defaultColor, placement, onChange, onClose, labels, children, ...props }, ref) => {
+  const isControlled = color !== null && color !== undefined;
   const buttonRef = useRef<HTMLButtonElement>(null);
   const colorPickerRef = useRef<HTMLDivElement>(null);
-  const [selectedColor, setSelectedColor] = useState<string | IColor>(defaultColor || '#FFF');
-  const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
   const mergedRef = mergeRefs([ref, buttonRef]);
+  const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
+  const [uncontrolledColor, setUncontrolledColor] = useState<string | IColor>(
+    defaultColor || '#ffffff'
+  );
 
   const onClick = () => {
     if (referenceElement) {
@@ -72,7 +74,7 @@ export const ColorDialog = forwardRef<
       ) : (
         <StyledFauxInput tabIndex={-1}>
           <StyledButton {...props} ref={mergedRef} onClick={onClick}>
-            <StyledDialogPreview backgroundColor={selectedColor} />
+            <StyledDialogPreview backgroundColor={isControlled ? color : uncontrolledColor} />
             <StyledIcon isRotated={referenceElement}>
               <Chevron />
             </StyledIcon>
@@ -86,7 +88,7 @@ export const ColorDialog = forwardRef<
         referenceElement={referenceElement}
         onClose={() => {
           setReferenceElement(null);
-          onClose && onClose(selectedColor as IColorPickerState);
+          onClose && onClose(isControlled ? (color as IColor) : (uncontrolledColor as IColor));
         }}
       >
         <StyledTooltipBody>
@@ -95,8 +97,8 @@ export const ColorDialog = forwardRef<
             color={color}
             labels={labels}
             ref={colorPickerRef}
-            defaultColor={defaultColor}
-            onChange={setSelectedColor}
+            defaultColor={uncontrolledColor}
+            onChange={isControlled ? onChange : setUncontrolledColor}
           />
         </StyledTooltipBody>
       </StyledTooltipModal>
@@ -121,6 +123,7 @@ ColorDialog.propTypes = {
     'start-bottom'
   ]),
   onClose: PropTypes.func,
+  onChange: PropTypes.func,
   labels: PropTypes.object,
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
   defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string])

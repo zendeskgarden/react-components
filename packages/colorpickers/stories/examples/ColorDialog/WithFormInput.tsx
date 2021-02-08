@@ -6,11 +6,11 @@
  */
 
 import React, { useState } from 'react';
-import { Story, Meta } from '@storybook/react';
 import styled from 'styled-components';
+import { Story, Meta } from '@storybook/react';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Field, Label, Input } from '@zendeskgarden/react-forms';
 import { IColor, ColorDialog } from '@zendeskgarden/react-colorpickers';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export default {
   title: 'Components/ColorDialog',
@@ -35,8 +35,8 @@ const StyledContainer = styled.div`
 `;
 
 export const WithFormInput: Story = ({ labels, placement }) => {
-  const [input, setInput] = useState('');
-  const [color, setColor] = useState<string | IColor>(DEFAULT_THEME.palette.kale[600]);
+  const [input, setInput] = useState(DEFAULT_THEME.colors.background);
+  const [color, setColor] = useState<string | IColor>(DEFAULT_THEME.colors.background);
 
   return (
     <StyledField>
@@ -46,9 +46,9 @@ export const WithFormInput: Story = ({ labels, placement }) => {
           color={color}
           labels={labels}
           placement={placement}
-          onClose={selectedColor => {
+          onChange={selectedColor => {
             setColor(selectedColor);
-            setInput(selectedColor.hex as string);
+            setInput(selectedColor.hex);
           }}
         />
         <StyledInput
@@ -56,11 +56,10 @@ export const WithFormInput: Story = ({ labels, placement }) => {
           maxLength={7}
           value={input}
           onChange={e => {
+            setInput(e.target.value);
             if (validHex.test(e.target.value)) {
               setColor(e.target.value);
             }
-
-            setInput(e.target.value);
           }}
         />
       </StyledContainer>

@@ -12,7 +12,7 @@ import { IColor } from '../../utils/types';
 const COMPONENT_ID = 'colorpickers.colordialog.preview';
 
 export interface IStyleDialogPreviewProps extends ThemeProps<DefaultTheme> {
-  backgroundColor: string | IColor;
+  backgroundColor?: string | IColor;
 }
 
 const background = (props: IStyleDialogPreviewProps) => {
@@ -20,6 +20,10 @@ const background = (props: IStyleDialogPreviewProps) => {
 
   if (typeof backgroundColor === 'string') {
     return `background: ${backgroundColor}`;
+  }
+
+  if (backgroundColor === undefined) {
+    return `backround: rgb(255,255,255)`;
   }
 
   const { red, green, blue, alpha } = backgroundColor;

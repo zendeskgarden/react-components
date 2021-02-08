@@ -14,15 +14,7 @@ export default {
   component: ColorPicker
 } as Meta;
 
-export const ControlledColorPicker: Story = ({
-  alphaSlider,
-  hueSlider,
-  hex,
-  red,
-  green,
-  blue,
-  alpha
-}) => {
+export const Controlled: Story = ({ alphaSlider, hueSlider, hex, red, green, blue, alpha }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
@@ -38,7 +30,7 @@ export const ControlledColorPicker: Story = ({
   );
 };
 
-ControlledColorPicker.args = {
+Controlled.args = {
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
   hex: 'Hex',
@@ -48,7 +40,7 @@ ControlledColorPicker.args = {
   alpha: 'A'
 };
 
-ControlledColorPicker.argTypes = {
+Controlled.argTypes = {
   color: { control: 'disable' },
   alphaSlider: {
     control: 'text',
@@ -67,7 +59,7 @@ ControlledColorPicker.argTypes = {
   alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' }
 };
 
-ControlledColorPicker.parameters = {
+Controlled.parameters = {
   docs: {
     description: {
       component: `

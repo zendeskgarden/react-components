@@ -5,16 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { IColor, ColorDialog } from '@zendeskgarden/react-colorpickers';
+import { action } from '@storybook/addon-actions';
+import { ColorDialog } from '@zendeskgarden/react-colorpickers';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export default {
   title: 'Components/ColorDialog',
   component: ColorDialog
 } as Meta;
 
-export const Default: Story = ({
+export const Uncontrolled: Story = ({
   alphaSlider,
   hueSlider,
   hex,
@@ -25,21 +27,20 @@ export const Default: Story = ({
   placement
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
-  const [color, setColor] = useState<IColor>({
-    red: 23,
-    green: 73,
-    blue: 77,
-    alpha: 100
-  });
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ColorDialog defaultColor={color} labels={labels} onClose={setColor} placement={placement} />
+      <ColorDialog
+        labels={labels}
+        placement={placement}
+        onChange={action('onChange')}
+        defaultColor={DEFAULT_THEME.palette.kale[700]}
+      />
     </div>
   );
 };
 
-Default.args = {
+Uncontrolled.args = {
   placement: 'bottom',
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
@@ -50,7 +51,7 @@ Default.args = {
   alpha: 'A'
 };
 
-Default.argTypes = {
+Uncontrolled.argTypes = {
   color: { control: { disable: true } },
   alphaSlider: {
     control: 'text',
@@ -90,7 +91,7 @@ Default.argTypes = {
   }
 };
 
-Default.parameters = {
+Uncontrolled.parameters = {
   docs: {
     description: {
       component: `

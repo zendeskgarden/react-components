@@ -17,22 +17,23 @@ export default {
 } as Meta;
 
 export const WithIconButton: Story = ({ labels, placement }) => {
-  const [color, setColor] = useState<IColor>({
-    red: 23,
-    green: 73,
-    blue: 77,
-    alpha: 100
-  });
+  const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 100)');
+  const [selectedColor, setSelectedColor] = useState<string | IColor>('rgba(23, 73, 77, 100)');
+  const iconColor =
+    typeof selectedColor === 'string'
+      ? selectedColor
+      : `rgba(${selectedColor.red}, ${selectedColor.green}, ${selectedColor.blue}, ${selectedColor.alpha})`;
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ColorDialog color={color} labels={labels} onClose={setColor} placement={placement}>
-        <IconButton
-          style={{
-            color: `rgba(${color.red}, ${color.green}, ${color.blue}, ${color.alpha})`
-          }}
-          aria-label="leaf"
-        >
+      <ColorDialog
+        color={color}
+        labels={labels}
+        onChange={setColor}
+        placement={placement}
+        onClose={setSelectedColor}
+      >
+        <IconButton style={{ color: iconColor }} aria-label="leaf">
           <LeafIcon />
         </IconButton>
       </ColorDialog>

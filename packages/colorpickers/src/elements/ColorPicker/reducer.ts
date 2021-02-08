@@ -6,20 +6,9 @@
  */
 
 import { parseToHsl, parseToRgb, rgb as rgbToString } from 'polished';
-import { hsvToHsl, rgbToHsl, hslToRgb } from '../../utils/conversion';
-import { IRGBColor, IHSVColor } from '../../utils/types';
+import { hsvToHsl, rgbToHsl, hslToRgb, rgbToHex } from '../../utils/conversion';
+import { IColor, IRGBColor, IHSVColor } from '../../utils/types';
 import { isValidHex } from '../../utils/validation';
-
-export interface IColorPickerState {
-  hex: string;
-  hue: number;
-  saturation: number;
-  lightness: number;
-  red: number;
-  green: number;
-  blue: number;
-  alpha: number;
-}
 
 type ColorPickerActionTypes =
   | { type: 'SATURATION_CHANGE'; payload: IHSVColor }
@@ -31,12 +20,13 @@ type ColorPickerActionTypes =
   | { type: 'BLUE_CHANGE'; payload: string }
   | { type: 'ALPHA_CHANGE'; payload: string };
 
-type ReducerType = (state: IColorPickerState, action: ColorPickerActionTypes) => IColorPickerState;
+type ReducerType = (state: IColor, action: ColorPickerActionTypes) => IColor;
 
 export function getInitialState(initialColor: IRGBColor | string) {
   if (typeof initialColor === 'string') {
     const { hue, saturation, lightness } = parseToHsl(initialColor);
     const { red, green, blue } = parseToRgb(initialColor);
+    const hex = rgbToHex(red, green, blue);
 
     return {
       hue,
@@ -45,9 +35,8 @@ export function getInitialState(initialColor: IRGBColor | string) {
       red,
       green,
       blue,
-
       alpha: 100,
-      hex: initialColor
+      hex
     };
   }
 

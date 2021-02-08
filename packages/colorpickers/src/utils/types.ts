@@ -6,14 +6,14 @@
  */
 
 export interface IColor {
-  hex?: string;
-  hue?: number;
-  saturation?: number;
-  lightness?: number;
-  red?: number;
-  green?: number;
-  blue?: number;
-  alpha?: number;
+  hex: string;
+  hue: number;
+  saturation: number;
+  lightness: number;
+  red: number;
+  green: number;
+  blue: number;
+  alpha: number;
 }
 export interface IHSVColor {
   h: number;

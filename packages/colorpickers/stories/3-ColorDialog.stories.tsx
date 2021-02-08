@@ -13,6 +13,7 @@ export default {
   component: ColorDialog
 } as Meta;
 
-export { Default } from './examples/ColorDialog';
-export { WithIconButton } from './examples/WithIconButton';
-export { WithFormInput } from './examples/WithFormInput';
+export { Uncontrolled } from './examples/ColorDialog/Uncontrolled';
+export { Controlled } from './examples/ColorDialog/Controlled';
+export { WithIconButton } from './examples/ColorDialog/WithIconButton';
+export { WithFormInput } from './examples/ColorDialog/WithFormInput';
