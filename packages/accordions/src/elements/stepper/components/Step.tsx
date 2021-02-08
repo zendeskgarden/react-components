@@ -14,9 +14,12 @@ const useStep = () => {
   const [index, setIndex] = useState(currentIndexRef.current);
   const isMounted = useRef(true);
 
-  useEffect(() => {
-    isMounted.current = false;
-  }, []);
+  useEffect(
+    () => () => {
+      isMounted.current = false;
+    },
+    []
+  );
 
   useEffect(() => {
     setIndex(currentIndexRef.current);
