@@ -7,40 +7,38 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
-import { IColor, ColorDialog } from '@zendeskgarden/react-colorpickers';
-
+import { Button } from '@zendeskgarden/react-buttons';
+import { ColorPicker, IColor } from '@zendeskgarden/react-colorpickers';
 export default {
-  title: 'Components/ColorDialog',
-  component: ColorDialog
+  title: 'Components/ColorPicker',
+  component: ColorPicker
 } as Meta;
 
-export const Default: Story = ({
+export const ControlledColorPicker: Story = ({
   alphaSlider,
   hueSlider,
   hex,
   red,
   green,
   blue,
-  alpha,
-  placement
+  alpha
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
-  const [color, setColor] = useState<IColor>({
-    red: 23,
-    green: 73,
-    blue: 77,
-    alpha: 100
-  });
+  const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ColorDialog defaultColor={color} labels={labels} onClose={setColor} placement={placement} />
-    </div>
+    <>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
+        <Button onClick={() => setColor('#CE9FB7')}>Control to #CE9FB7</Button>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <ColorPicker color={color} onChange={setColor} labels={labels} />
+      </div>
+    </>
   );
 };
 
-Default.args = {
-  placement: 'bottom',
+ControlledColorPicker.args = {
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
   hex: 'Hex',
@@ -50,8 +48,8 @@ Default.args = {
   alpha: 'A'
 };
 
-Default.argTypes = {
-  color: { control: { disable: true } },
+ControlledColorPicker.argTypes = {
+  color: { control: 'disable' },
   alphaSlider: {
     control: 'text',
     name: 'Alpha slider label',
@@ -66,35 +64,14 @@ Default.argTypes = {
   red: { control: 'text', name: 'Red input label', description: 'A label for the red input' },
   green: { control: 'text', name: 'Green input label', description: 'A label for the green input' },
   blue: { control: 'text', name: 'Blue input label', description: 'A label for the blue input' },
-  alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' },
-  placement: {
-    labels: { control: 'object' },
-    control: {
-      type: 'select',
-      options: [
-        'auto',
-        'top',
-        'top-start',
-        'top-end',
-        'bottom',
-        'bottom-start',
-        'bottom-end',
-        'end',
-        'end-top',
-        'end-bottom',
-        'start',
-        'start-top',
-        'start-bottom'
-      ]
-    }
-  }
+  alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' }
 };
 
-Default.parameters = {
+ControlledColorPicker.parameters = {
   docs: {
     description: {
       component: `
-The \`ColorDialog\` component reveals a color picker when a user selects the dialog button.
+ The \`ColorPicker\` component is used to select a color.
       `
     }
   }

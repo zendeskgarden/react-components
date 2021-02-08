@@ -9,23 +9,19 @@ import React, { useState, createRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent, screen } from 'garden-test-utils';
 import { ColorDialog } from '.';
-import { IRGBColor } from '../../utils/types';
+import { IColor } from '../../utils/types';
 
 describe('ColorDialog', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = createRef<HTMLButtonElement>();
 
-    render(<ColorDialog color="#17494D" ref={ref} data-test-id="colordialog" />);
+    render(<ColorDialog defaultColor="#17494D" ref={ref} data-test-id="colordialog" />);
 
     expect(screen.getByTestId('colordialog')).toBe(ref.current);
   });
 
   it('focuses on the hex input and trigger when the color dialog is opened and closed', () => {
-    const Basic = () => {
-      const [color, setColor] = useState<IRGBColor | string>('rgba(23,73,77,1)');
-
-      return <ColorDialog color={color} onClose={setColor} />;
-    };
+    const Basic = () => <ColorDialog defaultColor="rgba(23,73,77,1)" />;
 
     render(<Basic />);
 
@@ -44,9 +40,9 @@ describe('ColorDialog', () => {
 
   it('updates the color dialog button preview color', () => {
     const Basic = () => {
-      const [color, setColor] = useState<IRGBColor | string>('rgba(23,73,77,1)');
+      const [color, setColor] = useState<string | IColor>('rgba(23,73,77,1)');
 
-      return <ColorDialog color={color} onClose={setColor} />;
+      return <ColorDialog defaultColor={color} onClose={setColor} />;
     };
 
     render(<Basic />);

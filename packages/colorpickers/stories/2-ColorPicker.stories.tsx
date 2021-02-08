@@ -13,4 +13,5 @@ export default {
   component: ColorPicker
 } as Meta;
 
-export { Default } from './examples/ColorPicker';
+export { UncontrolledColorPicker } from './examples/UncontrolledColorPicker';
+export { ControlledColorPicker } from './examples/ControlledColorPicker';

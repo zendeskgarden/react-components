@@ -55,6 +55,7 @@ export function getNextHsv(
   rtl: boolean
 ): IHSVColor {
   const { saturation, bright } = getSaturationLightness(container, e.pageX, e.pageY, rtl);
+
   return {
     h: hue,
     s: saturation,

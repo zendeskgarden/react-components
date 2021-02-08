@@ -9,7 +9,7 @@ import React, { useRef, useState, useCallback, useContext, useEffect, useMemo } 
 import { ThemeContext } from 'styled-components';
 import throttle from 'lodash.throttle';
 import { IHSVColor } from '../../utils/types';
-import { hsl2hsv } from '../../utils/conversion';
+import { hslToHsv } from '../../utils/conversion';
 import { getNextHsv, getThumbPosition } from '../../utils/saturation';
 import {
   StyledColorWell,
@@ -28,7 +28,7 @@ interface IColorWellProps {
 export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightness, onChange }) => {
   const { rtl } = useContext(ThemeContext);
   const container = useRef<HTMLDivElement>(null);
-  const hsv = hsl2hsv(hue, saturation, lightness);
+  const hsv = hslToHsv(hue, saturation, lightness);
   const mouseActiveRef = useRef(false);
 
   // State for thumb position when change come from mouse activity on the color well

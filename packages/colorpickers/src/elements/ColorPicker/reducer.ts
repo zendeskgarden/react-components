@@ -6,7 +6,7 @@
  */
 
 import { parseToHsl, parseToRgb, rgb as rgbToString } from 'polished';
-import { hsv2hsl, rgbToHsl, hsl2rgb } from '../../utils/conversion';
+import { hsvToHsl, rgbToHsl, hslToRgb } from '../../utils/conversion';
 import { IRGBColor, IHSVColor } from '../../utils/types';
 import { isValidHex } from '../../utils/validation';
 
@@ -19,10 +19,6 @@ export interface IColorPickerState {
   green: number;
   blue: number;
   alpha: number;
-  redInput: number | string;
-  greenInput: number | string;
-  blueInput: number | string;
-  alphaInput: number | string;
 }
 
 type ColorPickerActionTypes =
@@ -49,11 +45,8 @@ export function getInitialState(initialColor: IRGBColor | string) {
       red,
       green,
       blue,
-      redInput: red,
-      greenInput: green,
-      blueInput: blue,
+
       alpha: 100,
-      alphaInput: 100,
       hex: initialColor
     };
   }
@@ -69,11 +62,8 @@ export function getInitialState(initialColor: IRGBColor | string) {
     red,
     green,
     blue,
-    redInput: red,
-    greenInput: green,
-    blueInput: blue,
+
     alpha,
-    alphaInput: 100,
     hex
   };
 }
@@ -81,8 +71,8 @@ export function getInitialState(initialColor: IRGBColor | string) {
 export const reducer: ReducerType = (state, action) => {
   switch (action.type) {
     case 'SATURATION_CHANGE': {
-      const hsl = hsv2hsl(action.payload.h, action.payload.s * 100, action.payload.v * 100);
-      const rgb = hsl2rgb(state.hue, hsl.s, hsl.l);
+      const hsl = hsvToHsl(action.payload.h, action.payload.s * 100, action.payload.v * 100);
+      const rgb = hslToRgb(state.hue, hsl.s, hsl.l);
       const hex = rgbToString(rgb.r, rgb.g, rgb.b);
 
       return {
@@ -92,15 +82,12 @@ export const reducer: ReducerType = (state, action) => {
         hex,
         red: rgb.r,
         green: rgb.g,
-        blue: rgb.b,
-        redInput: rgb.r,
-        greenInput: rgb.g,
-        blueInput: rgb.b
+        blue: rgb.b
       };
     }
     case 'HUE_CHANGE': {
       const hue = Number(action.payload);
-      const rgb = hsl2rgb(hue, state.saturation, state.lightness);
+      const rgb = hslToRgb(hue, state.saturation, state.lightness);
       const hex = rgbToString({
         red: rgb.r,
         green: rgb.g,
@@ -113,10 +100,7 @@ export const reducer: ReducerType = (state, action) => {
         hex,
         red: rgb.r,
         green: rgb.g,
-        blue: rgb.b,
-        redInput: rgb.r,
-        greenInput: rgb.g,
-        blueInput: rgb.b
+        blue: rgb.b
       };
     }
     case 'ALPHA_SLIDER_CHANGE': {
@@ -139,17 +123,11 @@ export const reducer: ReducerType = (state, action) => {
           hex: action.payload,
           red: rgb.red,
           green: rgb.green,
-          blue: rgb.blue,
-          redInput: rgb.red,
-          greenInput: rgb.green,
-          blueInput: rgb.blue
+          blue: rgb.blue
         };
       }
 
-      return {
-        ...state,
-        hex: action.payload
-      };
+      return state;
     }
     case 'RED_CHANGE': {
       const red = Number(action.payload);
@@ -164,7 +142,6 @@ export const reducer: ReducerType = (state, action) => {
         ...state,
         hex,
         red: action.payload === '' ? state.red : red,
-        redInput: action.payload,
         hue: hsl.h,
         lightness: hsl.l,
         saturation: hsl.s
@@ -183,7 +160,6 @@ export const reducer: ReducerType = (state, action) => {
         ...state,
         hex,
         green: action.payload === '' ? state.green : green,
-        greenInput: action.payload,
         hue: hsl.h,
         lightness: hsl.l,
         saturation: hsl.s
@@ -202,7 +178,6 @@ export const reducer: ReducerType = (state, action) => {
         ...state,
         hex,
         blue: action.payload === '' ? state.blue : blue,
-        blueInput: action.payload,
         hue: hsl.h,
         lightness: hsl.l,
         saturation: hsl.s
@@ -216,8 +191,7 @@ export const reducer: ReducerType = (state, action) => {
 
       return {
         ...state,
-        alpha,
-        alphaInput: action.payload
+        alpha
       };
     }
     default:

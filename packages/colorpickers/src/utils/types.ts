@@ -5,6 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+export interface IColor {
+  hex?: string;
+  hue?: number;
+  saturation?: number;
+  lightness?: number;
+  red?: number;
+  green?: number;
+  blue?: number;
+  alpha?: number;
+}
 export interface IHSVColor {
   h: number;
   s: number;

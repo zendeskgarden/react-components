@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export function hsl2hsv(h: number, s: number, l: number) {
+export function hslToHsv(h: number, s: number, l: number) {
   let saturation = s;
 
   saturation *= (l < 50 ? l : 100 - l) / 100;
@@ -18,7 +18,7 @@ export function hsl2hsv(h: number, s: number, l: number) {
   };
 }
 
-export function hsv2hsl(h: number, s: number, v: number) {
+export function hsvToHsl(h: number, s: number, v: number) {
   let saturation = s;
   let value = v;
 
@@ -35,7 +35,7 @@ export function hsv2hsl(h: number, s: number, v: number) {
   return { h, s: sl * 100, l: l * 100 };
 }
 
-export function rgb2hsv(r: number, g: number, b: number) {
+export function rgbToHsv(r: number, g: number, b: number) {
   let h = NaN;
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
@@ -67,7 +67,7 @@ export function rgb2hsv(r: number, g: number, b: number) {
   return { h, s, v };
 }
 
-export function hsv2rgb(h: number, s: number, v: number) {
+export function hsvToRgb(h: number, s: number, v: number) {
   let saturation = s;
   let value = v;
 
@@ -116,14 +116,18 @@ export function hsv2rgb(h: number, s: number, v: number) {
   };
 }
 
-export function hsl2rgb(h: number, s: number, l: number) {
-  const hsv = hsl2hsv(h, s, l);
+export function hslToRgb(h: number, s: number, l: number) {
+  const hsv = hslToHsv(h, s, l);
 
-  return hsv2rgb(hsv.h, hsv.s, hsv.v);
+  return hsvToRgb(hsv.h, hsv.s, hsv.v);
 }
 
 export function rgbToHsl(r: number, g: number, b: number) {
-  const hsv = rgb2hsv(r, g, b);
+  const hsv = rgbToHsv(r, g, b);
 
-  return hsv2hsl(hsv.h, hsv.s, hsv.v);
+  return hsvToHsl(hsv.h, hsv.s, hsv.v);
+}
+
+export function rgbToHex(r: number, g: number, b: number) {
+  return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }

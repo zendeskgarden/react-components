@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { ColorDialog, IRGBColor, IColorPickerState } from '@zendeskgarden/react-colorpickers';
+import { ColorDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-fill.svg';
 
 export default {
@@ -17,7 +17,7 @@ export default {
 } as Meta;
 
 export const WithIconButton: Story = ({ labels, placement }) => {
-  const [color, setColor] = useState<IColorPickerState | IRGBColor>({
+  const [color, setColor] = useState<IColor>({
     red: 23,
     green: 73,
     blue: 77,
@@ -26,14 +26,7 @@ export const WithIconButton: Story = ({ labels, placement }) => {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ColorDialog
-        color={color}
-        labels={labels}
-        onClose={selectedColor => {
-          setColor(selectedColor as IColorPickerState);
-        }}
-        placement={placement}
-      >
+      <ColorDialog color={color} labels={labels} onClose={setColor} placement={placement}>
         <IconButton
           style={{
             color: `rgba(${color.red}, ${color.green}, ${color.blue}, ${color.alpha})`

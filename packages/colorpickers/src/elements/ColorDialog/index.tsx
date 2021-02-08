@@ -20,7 +20,7 @@ import { GARDEN_PLACEMENT } from '@zendeskgarden/react-modals';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { ColorPicker, IColorPickerProps } from '../ColorPicker';
 import { IColorPickerState } from '../ColorPicker/reducer';
-import { IRGBColor } from '../../utils/types';
+import { IColor } from '../../utils/types';
 import {
   StyledIcon,
   StyledButton,
@@ -36,7 +36,7 @@ export interface IColorDialogProps extends IColorPickerProps {
    *
    * @param {Object} state An color picker's state
    */
-  onClose?: (state: IColorPickerState) => void;
+  onClose?: (color: IColor) => void;
   /** Adjusts the placement of the color dialog */
   placement?: GARDEN_PLACEMENT;
 }
@@ -47,10 +47,10 @@ export interface IColorDialogProps extends IColorPickerProps {
 export const ColorDialog = forwardRef<
   HTMLButtonElement,
   IColorDialogProps & Omit<HTMLAttributes<HTMLButtonElement>, 'color'>
->(({ color, placement, onClose, labels, children, ...props }, ref) => {
+>(({ color, defaultColor, placement, onClose, labels, children, ...props }, ref) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const colorPickerRef = useRef<HTMLDivElement>(null);
-  const [selectedColor, setSelectedColor] = useState<IColorPickerState | IRGBColor | string>(color);
+  const [selectedColor, setSelectedColor] = useState<string | IColor>(defaultColor || '#FFF');
   const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
   const mergedRef = mergeRefs([ref, buttonRef]);
 
@@ -95,6 +95,7 @@ export const ColorDialog = forwardRef<
             color={color}
             labels={labels}
             ref={colorPickerRef}
+            defaultColor={defaultColor}
             onChange={setSelectedColor}
           />
         </StyledTooltipBody>
@@ -121,7 +122,8 @@ ColorDialog.propTypes = {
   ]),
   onClose: PropTypes.func,
   labels: PropTypes.object,
-  color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]).isRequired
+  color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
+  defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string])
 };
 
 ColorDialog.displayName = 'ColorDialog';

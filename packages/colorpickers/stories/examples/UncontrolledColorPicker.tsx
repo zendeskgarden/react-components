@@ -15,18 +15,25 @@ export default {
   component: ColorPicker
 } as Meta;
 
-export const Default: Story = ({ alphaSlider, hueSlider, hex, red, green, blue, alpha }) => {
+export const UncontrolledColorPicker: Story = ({
+  alphaSlider,
+  hueSlider,
+  hex,
+  red,
+  green,
+  blue,
+  alpha
+}) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
-  const [color] = useState(DEFAULT_THEME.palette.kale[600]);
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ColorPicker color={color} onChange={action('onChange')} labels={labels} />
+      <ColorPicker onChange={console.log} labels={labels} />
     </div>
   );
 };
 
-Default.args = {
+UncontrolledColorPicker.args = {
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
   hex: 'Hex',
@@ -36,7 +43,7 @@ Default.args = {
   alpha: 'A'
 };
 
-Default.argTypes = {
+UncontrolledColorPicker.argTypes = {
   color: { control: 'disable' },
   alphaSlider: {
     control: 'text',
@@ -55,7 +62,7 @@ Default.argTypes = {
   alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' }
 };
 
-Default.parameters = {
+UncontrolledColorPicker.parameters = {
   docs: {
     description: {
       component: `

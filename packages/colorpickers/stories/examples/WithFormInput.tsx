@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import styled from 'styled-components';
 import { Field, Label, Input } from '@zendeskgarden/react-forms';
-import { ColorDialog, IColorPickerState } from '@zendeskgarden/react-colorpickers';
+import { IColor, ColorDialog } from '@zendeskgarden/react-colorpickers';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export default {
@@ -36,7 +36,7 @@ const StyledContainer = styled.div`
 
 export const WithFormInput: Story = ({ labels, placement }) => {
   const [input, setInput] = useState('');
-  const [color, setColor] = useState<IColorPickerState | string>(DEFAULT_THEME.palette.kale[600]);
+  const [color, setColor] = useState<string | IColor>(DEFAULT_THEME.palette.kale[600]);
 
   return (
     <StyledField>
@@ -47,8 +47,8 @@ export const WithFormInput: Story = ({ labels, placement }) => {
           labels={labels}
           placement={placement}
           onClose={selectedColor => {
-            setColor(selectedColor as IColorPickerState);
-            setInput((selectedColor as IColorPickerState).hex);
+            setColor(selectedColor);
+            setInput(selectedColor.hex as string);
           }}
         />
         <StyledInput
