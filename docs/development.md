@@ -92,7 +92,6 @@ dependencies include:
   - `polished`
 - Peer dependencies
   - `@zendeskgarden/react-theming`
-  - `prop-types`
   - `react`
   - `react-dom`
   - `styled-components`

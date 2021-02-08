@@ -9,7 +9,7 @@ This package includes components related to accordions in the
 npm install @zendeskgarden/react-accordions
 
 # Peer Dependencies - Also Required
-npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
+npm install react react-dom styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage

@@ -25,7 +25,6 @@ your needs.
 All components require the following shared dependencies:
 
 - `@zendeskgarden/react-theming`
-- `prop-types`
 - `react`
 - `react-dom`
 - `styled-components`

@@ -9,7 +9,7 @@ This package includes components relating to buttons in the
 npm install @zendeskgarden/react-buttons
 
 # Peer Dependencies - Also Required
-npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
+npm install react react-dom styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
