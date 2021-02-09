@@ -103,6 +103,36 @@ describe('ColorPicker', () => {
       expect(alphaInput.value).toBe('50');
     });
 
+    it('updates the rgb/a inputs correctly when one is cleared and user types into another', () => {
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
+      const previewBox = screen.getByTestId('preview-box');
+      const colorwell = screen.getByTestId('colorwell');
+      const colorWellThumb = screen.getByTestId('colorwell-thumb');
+      const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
+      const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
+      const redInput = screen.getByLabelText('R') as HTMLInputElement;
+      const greenInput = screen.getByLabelText('G') as HTMLInputElement;
+      const blueInput = screen.getByLabelText('B') as HTMLInputElement;
+
+      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
+      expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
+      expect(hueSlider.value).toBe('184.44444444444443');
+      expect(redInput.value).toBe('23');
+      expect(greenInput.value).toBe('73');
+      expect(blueInput.value).toBe('77');
+      expect(colorWellThumb).toHaveAttribute(
+        'style',
+        'top: 69.80392156862746%; left: 70.12987012987013%;'
+      );
+
+      userEvent.clear(greenInput);
+      expect(greenInput.value).toBe('');
+      userEvent.type(redInput, '2');
+
+      expect(greenInput.value).toBe('73');
+      expect(hexInput.value).toBe('#e8494d');
+    });
+
     it('updates the color picker when the input is changed to a valid hex without the number sign', () => {
       render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const previewBox = screen.getByTestId('preview-box');
@@ -378,6 +408,42 @@ describe('ColorPicker', () => {
 
       expect(previewBox).toHaveAttribute('style', 'background-color: rgba(23, 73, 77, 0.5);');
       expect(alphaInput.value).toBe('50');
+    });
+
+    it('updates the rgb/a inputs correctly when one is cleared and user types into another', () => {
+      const Basic = () => {
+        const [color, setColor] = React.useState<any>('rgb(23,73,77)');
+
+        return <ColorPicker color={color} onChange={setColor} />;
+      };
+
+      render(<Basic />);
+      const previewBox = screen.getByTestId('preview-box');
+      const colorwell = screen.getByTestId('colorwell');
+      const colorWellThumb = screen.getByTestId('colorwell-thumb');
+      const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
+      const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
+      const redInput = screen.getByLabelText('R') as HTMLInputElement;
+      const greenInput = screen.getByLabelText('G') as HTMLInputElement;
+      const blueInput = screen.getByLabelText('B') as HTMLInputElement;
+
+      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
+      expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
+      expect(hueSlider.value).toBe('184.44444444444443');
+      expect(redInput.value).toBe('23');
+      expect(greenInput.value).toBe('73');
+      expect(blueInput.value).toBe('77');
+      expect(colorWellThumb).toHaveAttribute(
+        'style',
+        'top: 69.80392156862746%; left: 70.12987012987013%;'
+      );
+
+      userEvent.clear(greenInput);
+      expect(greenInput.value).toBe('');
+      userEvent.type(redInput, '2');
+
+      expect(greenInput.value).toBe('73');
+      expect(hexInput.value).toBe('#e8494d');
     });
 
     it('updates the color picker when the input is changed to a valid hex without the number sign', () => {

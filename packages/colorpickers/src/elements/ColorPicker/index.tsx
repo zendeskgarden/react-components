@@ -188,7 +188,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
       [isControlled, onChange, state.alpha]
     );
 
-    // test for this
     useEffect(() => {
       if (isControlled) {
         setHexInput(state.hex);
@@ -377,11 +376,11 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               maxLength={3}
               value={redInput}
               onChange={e => {
-                setRedInput(e.target.value);
-
                 const red = Number(e.target.value);
                 const hsl = rgbToHsl(red, state.green, state.blue);
                 const hex = rgbToString(red, state.green, state.blue);
+
+                setRedInput(e.target.value);
 
                 if (e.target.value === '') {
                   return;
@@ -398,6 +397,8 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                 }
 
                 setHexInput(hex);
+                setGreenInput(state.green);
+                setBlueInput(state.blue);
 
                 if (isControlled) {
                   onChange &&
@@ -427,13 +428,11 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               maxLength={3}
               value={greenInput}
               onChange={e => {
-                setGreenInput(e.target.value);
-
                 const green = Number(e.target.value);
                 const hsl = rgbToHsl(state.red, green, state.blue);
                 const hex = rgbToString(state.red, green, state.blue);
 
-                setHexInput(hex);
+                setGreenInput(e.target.value);
 
                 if (e.target.value === '') {
                   return;
@@ -448,6 +447,10 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
 
                   return;
                 }
+
+                setHexInput(hex);
+                setRedInput(state.red);
+                setBlueInput(state.blue);
 
                 if (isControlled) {
                   onChange &&
@@ -483,8 +486,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                 const hsl = rgbToHsl(state.red, state.green, blue);
                 const hex = rgbToString(state.red, state.green, blue);
 
-                setHexInput(hex);
-
                 if (e.target.value === '') {
                   return;
                 }
@@ -498,6 +499,10 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
 
                   return;
                 }
+
+                setHexInput(hex);
+                setRedInput(state.red);
+                setGreenInput(state.green);
 
                 if (isControlled) {
                   onChange &&
