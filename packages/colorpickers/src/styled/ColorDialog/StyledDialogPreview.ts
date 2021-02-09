@@ -46,8 +46,8 @@ export const StyledDialogPreview = styled.div.attrs<IStyleDialogPreviewProps>({
       0.25
     )}`};
   border-radius: ${props => props.theme.borderRadii.sm};
-  width: ${props => props.theme.space.base * 5}px;
-  height: ${props => props.theme.space.base * 5}px;
+  width: ${props => props.theme.space.base * 4.5}px;
+  height: ${props => props.theme.space.base * 4.5}px;
 
   ${background}
 
