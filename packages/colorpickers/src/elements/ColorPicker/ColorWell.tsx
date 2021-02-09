@@ -6,8 +6,9 @@
  */
 
 import React, { useRef, useState, useCallback, useContext, useEffect, useMemo } from 'react';
-import { ThemeContext } from 'styled-components';
 import throttle from 'lodash.throttle';
+import { ThemeContext } from 'styled-components';
+import { useDocument } from '@zendeskgarden/react-theming';
 import { IHSVColor } from '../../utils/types';
 import { hslToHsv } from '../../utils/conversion';
 import { getNextHsv, getThumbPosition } from '../../utils/saturation';
@@ -26,10 +27,13 @@ interface IColorWellProps {
 }
 
 export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightness, onChange }) => {
+  const theme = useContext(ThemeContext);
+  const environment = useDocument(theme);
   const { rtl } = useContext(ThemeContext);
   const container = useRef<HTMLDivElement>(null);
   const hsv = hslToHsv(hue, saturation, lightness);
   const mouseActiveRef = useRef(false);
+  const [isMouseDown, setIsMouseDown] = React.useState(false);
 
   // State for thumb position when change come from mouse activity on the color well
   const [x, setX] = useState(0);
@@ -44,6 +48,30 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
     setTopPosition(100 - hsv.v);
     setLeftPosition(rtl ? 100 - hsv.s : hsv.s);
   }, [hsv.s, hsv.v, rtl]);
+
+  useEffect(() => {
+    if (environment) {
+      const originalUserSelect = environment.body.style.userSelect;
+
+      if (isMouseDown) {
+        environment.body.style.userSelect = 'none';
+        environment.body.style.webkitUserSelect = 'none';
+        (environment.body.style as any).msUserSelect = 'none';
+      } else {
+        environment.body.style.userSelect = originalUserSelect;
+        environment.body.style.webkitUserSelect = originalUserSelect;
+        (environment.body.style as any).msUserSelect = originalUserSelect;
+      }
+    }
+
+    return () => {
+      if (environment) {
+        environment.body.style.userSelect = 'auto';
+        environment.body.style.webkitUserSelect = 'auto';
+        environment.body.style['msUserSelect' as any] = 'auto';
+      }
+    };
+  }, [environment, isMouseDown]);
 
   const throttledChange = useMemo(() => {
     return throttle((e: MouseEvent) => {
@@ -66,6 +94,7 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
   );
 
   const handleMouseUp = useCallback(() => {
+    setIsMouseDown(false);
     mouseActiveRef.current = true;
     setTimeout(() => {
       mouseActiveRef.current = false;
@@ -77,6 +106,7 @@ export const ColorWell: React.FC<IColorWellProps> = ({ hue, saturation, lightnes
 
   const handleMouseDown = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      setIsMouseDown(true);
       mouseActiveRef.current = true;
       handleMouseMove(e as any);
       throttledChange(e as any);
