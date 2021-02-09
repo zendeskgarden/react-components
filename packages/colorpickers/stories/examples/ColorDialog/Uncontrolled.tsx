@@ -24,7 +24,8 @@ export const Uncontrolled: Story = ({
   green,
   blue,
   alpha,
-  placement
+  placement,
+  disabled
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
 
@@ -32,6 +33,7 @@ export const Uncontrolled: Story = ({
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <ColorDialog
         labels={labels}
+        disabled={disabled}
         placement={placement}
         onChange={action('onChange')}
         defaultColor={DEFAULT_THEME.palette.kale[700]}
@@ -48,7 +50,8 @@ Uncontrolled.args = {
   red: 'R',
   green: 'G',
   blue: 'B',
-  alpha: 'A'
+  alpha: 'A',
+  disabled: false
 };
 
 Uncontrolled.argTypes = {
@@ -68,6 +71,7 @@ Uncontrolled.argTypes = {
   green: { control: 'text', name: 'Green input label', description: 'A label for the green input' },
   blue: { control: 'text', name: 'Blue input label', description: 'A label for the blue input' },
   alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' },
+  disabled: { control: 'boolean' },
   placement: {
     labels: { control: 'object' },
     control: {

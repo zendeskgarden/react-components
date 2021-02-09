@@ -40,31 +40,12 @@ Controlled.args = {
   alpha: 'A'
 };
 
-Controlled.argTypes = {
-  color: { control: 'disable' },
-  alphaSlider: {
-    control: 'text',
-    name: 'Alpha slider label',
-    description: 'A label for the alpha slider'
-  },
-  hueSlider: {
-    control: 'text',
-    name: 'Hue slider label',
-    description: 'A label for the hue slider'
-  },
-  hex: { control: 'text', name: 'Hex input label', description: 'A label for the hex input' },
-  red: { control: 'text', name: 'Red input label', description: 'A label for the red input' },
-  green: { control: 'text', name: 'Green input label', description: 'A label for the green input' },
-  blue: { control: 'text', name: 'Blue input label', description: 'A label for the blue input' },
-  alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' }
-};
-
 Controlled.parameters = {
   docs: {
     description: {
-      component: `
- The \`ColorPicker\` component is used to select a color.
-      `
+      story: `
+The \`ColorPicker\` component can be controlled with a \`color\` prop.
+`
     }
   }
 };

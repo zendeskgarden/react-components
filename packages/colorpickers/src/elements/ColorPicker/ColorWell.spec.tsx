@@ -68,6 +68,7 @@ describe('Saturation', () => {
   it('uses original user selection when unmounted', () => {
     const Basic = () => {
       const [mount, setMount] = useState(true);
+
       return (
         <>
           {mount ? (
@@ -81,6 +82,7 @@ describe('Saturation', () => {
         </>
       );
     };
+
     render(<Basic />);
 
     const colorwell = screen.getByTestId('colorwell');

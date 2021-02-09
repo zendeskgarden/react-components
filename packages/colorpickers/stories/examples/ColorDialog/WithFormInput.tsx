@@ -80,32 +80,6 @@ WithFormInput.args = {
   }
 };
 
-WithFormInput.argTypes = {
-  color: { control: { disable: true } },
-  labels: { control: 'object' },
-  placement: {
-    labels: { control: 'object' },
-    control: {
-      type: 'select',
-      options: [
-        'auto',
-        'top',
-        'top-start',
-        'top-end',
-        'bottom',
-        'bottom-start',
-        'bottom-end',
-        'end',
-        'end-top',
-        'end-bottom',
-        'start',
-        'start-top',
-        'start-bottom'
-      ]
-    }
-  }
-};
-
 WithFormInput.parameters = {
   docs: {
     description: {

@@ -16,6 +16,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
+import { Button } from '@zendeskgarden/react-buttons';
 import { GARDEN_PLACEMENT } from '@zendeskgarden/react-modals';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { ColorPicker, IColorPickerProps } from '../ColorPicker';
@@ -38,6 +39,8 @@ export interface IColorDialogProps extends IColorPickerProps {
   onClose?: (color: IColor) => void;
   /** Adjusts the placement of the color dialog */
   placement?: GARDEN_PLACEMENT;
+  /** Disables the color dialog button */
+  disabled?: boolean;
 }
 
 /**
@@ -46,65 +49,72 @@ export interface IColorDialogProps extends IColorPickerProps {
 export const ColorDialog = forwardRef<
   HTMLButtonElement,
   IColorDialogProps & Omit<HTMLAttributes<HTMLButtonElement>, 'color' | 'onChange'>
->(({ color, defaultColor, placement, onChange, onClose, labels, children, ...props }, ref) => {
-  const isControlled = color !== null && color !== undefined;
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const colorPickerRef = useRef<HTMLDivElement>(null);
-  const mergedRef = mergeRefs([ref, buttonRef]);
-  const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
-  const [uncontrolledColor, setUncontrolledColor] = useState<string | IColor>(
-    defaultColor || '#ffffff'
-  );
+>(
+  (
+    { color, disabled, defaultColor, placement, onChange, onClose, labels, children, ...props },
+    ref
+  ) => {
+    const isControlled = color !== null && color !== undefined;
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const colorPickerRef = useRef<HTMLDivElement>(null);
+    const mergedRef = mergeRefs([ref, buttonRef]);
+    const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
+    const [uncontrolledColor, setUncontrolledColor] = useState<string | IColor>(
+      defaultColor || '#ffffff'
+    );
 
-  const onClick = () => {
-    if (referenceElement) {
-      setReferenceElement(null);
-    } else {
-      setReferenceElement(buttonRef.current);
-    }
-  };
+    const onClick = () => {
+      if (referenceElement) {
+        setReferenceElement(null);
+      } else {
+        setReferenceElement(buttonRef.current);
+      }
+    };
 
-  return (
-    <>
-      {children ? (
-        cloneElement(Children.only(children as ReactElement), {
-          onClick,
-          ref: mergedRef
-        })
-      ) : (
-        <StyledFauxInput tabIndex={-1}>
-          <StyledButton {...props} ref={mergedRef} onClick={onClick}>
-            <StyledDialogPreview backgroundColor={isControlled ? color : uncontrolledColor} />
-            <StyledIcon isRotated={referenceElement}>
-              <Chevron />
-            </StyledIcon>
-          </StyledButton>
-        </StyledFauxInput>
-      )}
-      <StyledTooltipModal
-        hasArrow={false}
-        focusOnMount={false}
-        placement={placement}
-        referenceElement={referenceElement}
-        onClose={() => {
-          setReferenceElement(null);
-          onClose && onClose(isControlled ? (color as IColor) : (uncontrolledColor as IColor));
-        }}
-      >
-        <StyledTooltipBody>
-          <ColorPicker
-            autofocus
-            color={color}
-            labels={labels}
-            ref={colorPickerRef}
-            defaultColor={uncontrolledColor}
-            onChange={isControlled ? onChange : setUncontrolledColor}
-          />
-        </StyledTooltipBody>
-      </StyledTooltipModal>
-    </>
-  );
-});
+    return (
+      <>
+        {children ? (
+          cloneElement(Children.only(children as ReactElement), {
+            onClick,
+            ref: mergedRef
+          })
+        ) : (
+          <StyledFauxInput disabled={disabled}>
+            <StyledButton disabled={disabled} ref={mergedRef} onClick={onClick} {...props}>
+              <StyledDialogPreview backgroundColor={isControlled ? color : uncontrolledColor} />
+              <Button.EndIcon>
+                <StyledIcon isRotated={referenceElement}>
+                  <Chevron />
+                </StyledIcon>
+              </Button.EndIcon>
+            </StyledButton>
+          </StyledFauxInput>
+        )}
+        <StyledTooltipModal
+          hasArrow={false}
+          focusOnMount={false}
+          placement={placement}
+          referenceElement={referenceElement}
+          onClose={() => {
+            setReferenceElement(null);
+            onClose && onClose(isControlled ? (color as IColor) : (uncontrolledColor as IColor));
+          }}
+        >
+          <StyledTooltipBody>
+            <ColorPicker
+              autofocus
+              color={color}
+              labels={labels}
+              ref={colorPickerRef}
+              defaultColor={uncontrolledColor}
+              onChange={isControlled ? onChange : setUncontrolledColor}
+            />
+          </StyledTooltipBody>
+        </StyledTooltipModal>
+      </>
+    );
+  }
+);
 
 ColorDialog.propTypes = {
   placement: PropTypes.oneOf([
