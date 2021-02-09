@@ -1,3 +1,10 @@
+import { Meta, Description, Canvas } from '@storybook/addon-docs/blocks';
+import { ColorPaletteExample } from './examples/ColorPaletteExample';
+
+<Meta title="Components/Theming/Elements/Palette" />
+
+## Palette
+
 The Garden palette contains **product** and **UI** colors along with `white`
 and `black`. UI colors are used to style interface elements. Primary colors
 are used to style interface structure, actionable items, and validation.
@@ -43,59 +50,7 @@ white or `100` backgrounds.
 
 ### Color palette
 
-```jsx noeditor
-const { LG } = require('@zendeskgarden/react-typography/src');
+<Canvas>
+ <ColorPaletteExample />
+</Canvas>
 
-const Swatch = styled.div`
-  max-width: 92px;
-  box-shadow: ${props =>
-    props.theme.shadows.lg('8px', '12px', getColor('chromeHue', 600, props.theme, 0.15))};
-`;
-
-const SwatchColor = styled.div`
-  height: 80px;
-  background-color: ${props => props.color};
-`;
-
-const SwatchInfo = styled.div`
-  padding: ${props => props.theme.space.xs};
-  font-size: ${props => props.theme.fontSizes.sm};
-`;
-
-const SwatchName = styled.div`
-  font-weight: ${props => props.theme.fontWeights.semibold};
-`;
-
-const SwatchHex = styled.div`
-  text-transform: uppercase;
-  color: ${props => props.theme.colors.neutralHue[600]};
-`;
-
-<Grid>
-  {Object.keys(PALETTE).map(
-    hue =>
-      typeof PALETTE[hue] === 'object' && (
-        <div key={hue}>
-          <Row>
-            <Col>
-              <LG>{hue.toUpperCase()}</LG>
-            </Col>
-          </Row>
-          <Row>
-            {Object.keys(PALETTE[hue]).map(shade => (
-              <Col key={shade} style={{ marginBottom: 16 }}>
-                <Swatch title={`${hue}[${shade}]: ${PALETTE[hue][shade]}`}>
-                  <SwatchColor color={PALETTE[hue][shade]} />
-                  <SwatchInfo>
-                    <SwatchName>{shade}</SwatchName>
-                    <SwatchHex>{PALETTE[hue][shade]}</SwatchHex>
-                  </SwatchInfo>
-                </Swatch>
-              </Col>
-            ))}
-          </Row>
-        </div>
-      )
-  )}
-</Grid>;
-```

@@ -1,3 +1,10 @@
+import { Meta, Description, Canvas } from '@storybook/addon-docs/blocks';
+import { DefaultThemeExample } from './examples/DefaultThemeExample';
+
+<Meta title="Components/Theming/Elements/DEFAULT_THEME" />
+
+## DEFAULT_THEME
+
 The default theme object provides common variables used to visually style
 Garden components. Use it to consistently style your own components or
 application in conjunction with Garden. One of the easiest ways to customize
@@ -13,7 +20,7 @@ Both the `sm` and `md` values are used to determine the "roundness" of
 various components. For example, the following `theme` update would
 render Garden buttons with square corners:
 
-```jsx static
+```jsx
 const theme = {
   ...DEFAULT_THEME,
   borderRadii: {
@@ -71,7 +78,7 @@ helpful in cases where you need advanced composition or access to component
 `props`. The following example code illustrates potential component styling
 overrides.
 
-```jsx static
+```jsx
 import { DEFAULT_THEME, ThemeProvider } from '@zendeskgarden/react-theming';
 import { Notification, Title, Paragraph } from '@zendeskgarden/react-notifications';
 import { css } from 'styled-components';
@@ -108,7 +115,7 @@ A `document` object may be added to the theme and will be used to support
 components (i.e. menus, modals, etc) that require a document context. For
 example:
 
-```jsx static
+```jsx
 const theme = {
   ...DEFAULT_THEME,
   document: document.getElementsByTagName('iframe')[0].contentDocument
@@ -145,7 +152,7 @@ think is a more pragmatic approach. We give you access to modify and extend
 our full color palette. Using online generators such as [Material's color
 tool](https://material.io/tools/color/), you have the ability to amplify the
 default theme with your own accessible palette of color hues and shades. Used
-in conjuction with the **Colors** values described above, you have the power
+in conjunction with the **Colors** values described above, you have the power
 of setting custom `primary`, `neutral`, etc. hues that will be applied
 throughout the component system.
 
@@ -161,7 +168,7 @@ hover"), consider using **Components** theming described above.
 The following snippet shows how Garden's palette can be modified and extended
 with colors from Material-UI.
 
-```jsx static
+```jsx
 import { DEFAULT_THEME, ThemeProvider } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 import { colors } from '@material-ui/core';
@@ -210,33 +217,6 @@ values (i.e. `borderRadii` & `lineHeights`) to correspond with your `base` of ch
 
 The following reference displays Garden's `DEFAULT_THEME` in its entirety.
 
-```jsx noeditor
-const { math } = require('polished');
-const { Well } = require('@zendeskgarden/react-notifications/src');
-
-const StyledTheme = styled.pre`
-  margin: 0;
-  padding: 0;
-  font-family: ${props => props.theme.fonts.mono};
-  font-size: ${props => math(`${props.theme.fontSizes.sm} - 1px`)};
-  overflow: hidden;
-`;
-
-const replacer = (key, value) => {
-  let retVal = value;
-
-  if (typeof value === 'function') {
-    const fn = value.toString();
-    const start = fn.indexOf('(');
-    const end = fn.indexOf(')') + 1;
-
-    retVal = `${fn.substring(start, end)} => expression`;
-  }
-
-  return retVal;
-};
-
-<Well isRecessed>
-  <StyledTheme>{JSON.stringify(DEFAULT_THEME, replacer, '  ')}</StyledTheme>
-</Well>;
-```
+<Canvas>
+  <DefaultThemeExample />
+</Canvas>
