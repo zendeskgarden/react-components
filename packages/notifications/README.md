@@ -9,7 +9,7 @@ the [Garden Design System](https://zendeskgarden.github.io/).
 npm install @zendeskgarden/react-notifications
 
 # Peer Dependencies - Also Required
-npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
+npm install react react-dom styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage

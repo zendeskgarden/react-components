@@ -9,7 +9,7 @@ in the Garden Design System.
 npm install @zendeskgarden/react-tooltips
 
 # Peer Dependencies - Also Required
-npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
+npm install react react-dom styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
