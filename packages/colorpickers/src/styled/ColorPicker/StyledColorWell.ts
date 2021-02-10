@@ -43,17 +43,19 @@ StyledColorWellGradient.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledColorWell = styled.div.attrs<IStyledColorWellProps>({
+export const StyledColorWell = styled.div.attrs<IStyledColorWellProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'data-test-id': 'colorwell'
-})<IStyledColorWellProps>`
+  'data-test-id': 'colorwell',
+  style: {
+    background: `hsl(${props.hue}, 100%, 50%)`
+  }
+}))<IStyledColorWellProps>`
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: ${props => `hsl(${props.hue}, 100%, 50%)`};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
