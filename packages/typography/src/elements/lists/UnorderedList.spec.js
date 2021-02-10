@@ -30,9 +30,7 @@ describe('UnorderedList', () => {
         </UnorderedList>
       );
 
-      expect(container.querySelector('li')).not.toHaveStyleRule('padding-top', undefined, {
-        modifier: '::before'
-      });
+      expect(container.querySelector('li')).not.toHaveStyleRule('padding-top');
     });
 
     it('renders medium styling if provided', () => {
@@ -42,9 +40,7 @@ describe('UnorderedList', () => {
         </UnorderedList>
       );
 
-      expect(container.querySelector('li')).toHaveStyleRule('padding-top', '4px', {
-        modifier: '::before'
-      });
+      expect(container.querySelector('li')).toHaveStyleRule('padding-top', '4px');
     });
 
     it('renders large styling if provided', () => {
@@ -54,9 +50,7 @@ describe('UnorderedList', () => {
         </UnorderedList>
       );
 
-      expect(container.querySelector('li')).toHaveStyleRule('padding-top', '8px', {
-        modifier: '::before'
-      });
+      expect(container.querySelector('li')).toHaveStyleRule('padding-top', '8px');
     });
   });
 

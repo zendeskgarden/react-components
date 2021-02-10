@@ -29,22 +29,18 @@ const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultT
    * 2. Restore padding on first list items that are nested.
    */
   return css`
-    &::before {
-      display: block;
-      padding-top: ${paddingTop};
-      content: '';
-    }
+    padding-top: ${paddingTop};
 
     /* stylelint-disable */
-    ${StyledOrderedList} > &:first-child::before,
-    ${StyledUnorderedList} > &:first-child::before {
+    ${StyledOrderedList} > &:first-child,
+    ${StyledUnorderedList} > &:first-child {
       padding-top: 0; /* [1] */
     }
 
-    ${StyledOrderedList} ${StyledOrderedList} > &:first-child::before,
-    ${StyledOrderedList} ${StyledUnorderedList} > &:first-child::before,
-    ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child::before,
-    ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child::before {
+    ${StyledOrderedList} ${StyledOrderedList} > &:first-child,
+    ${StyledOrderedList} ${StyledUnorderedList} > &:first-child,
+    ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child,
+    ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child {
       padding-top: ${paddingTop}; /* [2] */
     }
     /* stylelint-enable */

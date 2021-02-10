@@ -17,8 +17,6 @@ describe('UnorderedListItem', () => {
       </UnorderedList>
     );
 
-    expect(container.querySelector('li')).toHaveStyleRule('padding-top', '4px', {
-      modifier: '::before'
-    });
+    expect(container.querySelector('li')).toHaveStyleRule('padding-top', '4px');
   });
 });

@@ -20,21 +20,19 @@ describe('StyledListItem', () => {
     it('renders small spacing', () => {
       const { container } = render(<StyledListItem space="small" />);
 
-      expect(container.firstChild).not.toHaveStyleRule('padding-top', undefined, {
-        modifier: '::before'
-      });
+      expect(container.firstChild).not.toHaveStyleRule('padding-top');
     });
 
     it('renders medium spacing', () => {
       const { container } = render(<StyledListItem space="medium" />);
 
-      expect(container.firstChild).toHaveStyleRule('padding-top', '4px', { modifier: '::before' });
+      expect(container.firstChild).toHaveStyleRule('padding-top', '4px');
     });
 
     it('renders large spacing', () => {
       const { container } = render(<StyledListItem space="large" />);
 
-      expect(container.firstChild).toHaveStyleRule('padding-top', '8px', { modifier: '::before' });
+      expect(container.firstChild).toHaveStyleRule('padding-top', '8px');
     });
   });
 });
