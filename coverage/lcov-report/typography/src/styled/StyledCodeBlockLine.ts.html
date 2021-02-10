@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
@@ -121,7 +121,20 @@
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -133,6 +146,15 @@
 <span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -160,6 +182,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -167,18 +191,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">19x</span>
@@ -198,6 +224,15 @@ import { StyledFont } from './StyledFont';
 &nbsp;
 const COMPONENT_ID = 'typography.codeblock_code';
 &nbsp;
+const highlightStyles = (props: IStyledCodeBlockLineProps &amp; ThemeProps&lt;DefaultTheme&gt;) =&gt; {
+  const hue = props.isLight ? props.theme.palette.black : props.theme.palette.white;
+  const backgroundColor = getColor(hue, 600, props.theme, 0.1);
+&nbsp;
+  return css`
+    background-color: ${backgroundColor};
+  `;
+};
+&nbsp;
 const lineNumberStyles = (props: IStyledCodeBlockLineProps &amp; ThemeProps&lt;DefaultTheme&gt;) =&gt; {
   const padding = `${props.theme.space.base * 6}px`;
   const color = getColor('neutralHue', props.isLight ? 600 : 500, props.theme);
@@ -206,6 +241,7 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps &amp; ThemeProps&lt;D
     &amp;::before {
       display: table-cell;
       padding-right: ${padding};
+      width: 1px;
       text-align: right;
       color: ${color};
       content: counter(linenumber);
@@ -215,6 +251,7 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps &amp; ThemeProps&lt;D
 };
 &nbsp;
 export interface IStyledCodeBlockLineProps {
+  isHighlighted?: boolean;
   isLight?: boolean;
   isNumbered?: boolean;
   size?: 'sm' | 'md' | 'lg';
@@ -224,7 +261,7 @@ export interface IStyledCodeBlockLineProps {
  * 1. Fix line display for mobile.
  * 2. Match parent padding for overflow scroll.
  */
-export const StyledCodeBlockLine = styled(StyledFont).attrs({
+export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'code',
@@ -233,6 +270,8 @@ export const StyledCodeBlockLine = styled(StyledFont).attrs({
   display: table-row;
   height: ${props =&gt; props.theme.lineHeights[props.size!]}; /* [1] */
   direction: ltr;
+&nbsp;
+  ${props =&gt; props.isHighlighted &amp;&amp; highlightStyles(props)};
 &nbsp;
   ${props =&gt; props.isNumbered &amp;&amp; lineNumberStyles(props)};
 &nbsp;
@@ -256,7 +295,7 @@ StyledCodeBlockLine.defaultProps = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Feb 08 2021 20:43:40 GMT+0000 (Coordinated Universal Time)
+                at Wed Feb 10 2021 19:16:34 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
