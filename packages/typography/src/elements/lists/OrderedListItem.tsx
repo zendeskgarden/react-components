@@ -7,21 +7,15 @@
 
 import React, { LiHTMLAttributes } from 'react';
 import useOrderedListContext from '../../utils/useOrderedListContext';
-import { StyledOrderedListItem, StyledOrderedListItemContent } from '../../styled';
+import { StyledOrderedListItem } from '../../styled';
 
 const OrderedListItem: React.FunctionComponent<
   LiHTMLAttributes<HTMLLIElement> & React.RefAttributes<HTMLLIElement>
-> = React.forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
-  ({ children, ...other }, ref) => {
-    const { size } = useOrderedListContext();
+> = React.forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
+  const { size } = useOrderedListContext();
 
-    return (
-      <StyledOrderedListItem ref={ref} {...other}>
-        <StyledOrderedListItemContent space={size}>{children}</StyledOrderedListItemContent>
-      </StyledOrderedListItem>
-    );
-  }
-);
+  return <StyledOrderedListItem ref={ref} space={size} {...props} />;
+});
 
 OrderedListItem.displayName = 'OrderedListItem';
 
