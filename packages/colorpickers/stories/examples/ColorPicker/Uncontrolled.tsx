@@ -22,7 +22,7 @@ export const Uncontrolled: Story = ({ alphaSlider, hueSlider, hex, red, green, b
       <ColorPicker
         labels={labels}
         onChange={action('onChange')}
-        defaultColor="rgba(23, 73, 77, 100)"
+        defaultColor="rgba(23, 73, 77, 1)"
       />
     </div>
   );

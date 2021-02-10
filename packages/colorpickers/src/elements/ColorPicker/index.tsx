@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import { Label } from '@zendeskgarden/react-forms';
 import { ColorWell } from './ColorWell';
 import { isValidHex } from '../../utils/validation';
-import { hsvToHsl, hslToRgb, rgbToHsl, rgbToHex } from '../../utils/conversion';
+import { hsvToHsl, hslToRgb, rgbToHsl } from '../../utils/conversion';
 import {
   StyledHue,
   StyledSliderGroup,
@@ -36,9 +36,9 @@ import {
   StyledAlphaField,
   StyledHueField
 } from '../../styled';
-import { getInitialState, reducer } from './reducer';
-import { IColor, IHSVColor, IRGBColor } from '../../utils/types';
-import { parseToHsl, parseToRgb, rgb as rgbToString } from 'polished';
+import { toState, reducer } from './reducer';
+import { IColor, IHSVColor } from '../../utils/types';
+import { parseToRgb, rgb as rgbToString } from 'polished';
 export interface IColorPickerLabels {
   hueSlider?: string;
   alphaSlider?: string;
@@ -49,84 +49,22 @@ export interface IColorPickerLabels {
   alpha?: string;
 }
 
-function getControlledState(controlledColor: IColor | string): IColor {
-  if (typeof controlledColor === 'string') {
-    if (isValidHex(controlledColor)) {
-      const { hue, saturation, lightness } = parseToHsl(controlledColor);
-      const { red, green, blue } = parseToRgb(controlledColor);
-
-      return {
-        hue,
-        saturation: saturation * 100,
-        lightness: lightness * 100,
-        red,
-        green,
-        blue,
-        alpha: 100,
-        hex: controlledColor
-      };
-    }
-
-    if (controlledColor.includes('rgb')) {
-      const { hue, saturation, lightness } = parseToHsl(controlledColor);
-      const { red, green, blue, alpha } = parseToRgb(controlledColor) as IRGBColor;
-      const hex = rgbToHex(red, green, blue);
-
-      return {
-        hue,
-        saturation: saturation * 100,
-        lightness: lightness * 100,
-        red,
-        green,
-        blue,
-        alpha: alpha === undefined ? 100 : alpha,
-        hex
-      };
-    }
-
-    return {
-      hue: 0,
-      saturation: 0,
-      lightness: 0,
-      red: 255,
-      green: 255,
-      blue: 255,
-      alpha: 100,
-      hex: '#ffffff'
-    };
-  }
-
-  const { red, green, blue, alpha = 100 } = controlledColor as any;
-  const hex = rgbToString({ red, green, blue });
-  const { saturation, lightness } = parseToHsl(hex);
-
-  return {
-    hue: controlledColor.hue,
-    saturation: saturation * 100,
-    lightness: lightness * 100,
-    red,
-    green,
-    blue,
-    alpha,
-    hex
-  };
-}
-
 export interface IColorPickerProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'onChange'> {
-  /** A hex string, RGB string, RGB object, or color picker state that represents the current color */
+  /** A default color for a uncontrolled color picker. Can be a valid color string or IColor state */
+  defaultColor?: string | IColor;
+  /** A color value for a controlled color picker. Can be a valid color string or IColor state */
   color?: string | IColor;
   /**
    * Handles color picker changes
    *
-   * @param {Object} state An color picker's state
+   * @param {Object} color a color picker state
    */
   onChange?: (color: IColor) => void;
   /** Replaces the default labels within the color picker */
   labels?: IColorPickerLabels;
   /** Autofocuses the hex input element */
   autofocus?: boolean;
-  defaultColor?: string | IColor;
 }
 
 /**
@@ -135,11 +73,7 @@ export interface IColorPickerProps
 export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
   ({ color, defaultColor, labels = {}, autofocus, onChange, ...props }, ref) => {
     const isControlled = color !== null && color !== undefined;
-
-    const [uncontrolledState, dispatch] = useReducer(
-      reducer,
-      getInitialState(defaultColor || '#ffffff')
-    );
+    const [uncontrolledState, dispatch] = useReducer(reducer, toState(defaultColor));
 
     useEffect(() => {
       if (isControlled === false) {
@@ -147,8 +81,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
       }
     }, [uncontrolledState, onChange, isControlled]);
 
-    const state = isControlled ? getControlledState(color as any) : uncontrolledState;
-
+    const state = isControlled ? toState(color) : uncontrolledState;
     const [hexInput, setHexInput] = useState<string>(state.hex);
     const [redInput, setRedInput] = useState<string | number>(state.red);
     const [greenInput, setGreenInput] = useState<string | number>(state.green);
@@ -160,11 +93,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
         const hsl = hsvToHsl(hsv.h, hsv.s * 100, hsv.v * 100);
         const rgb = hslToRgb(hsl.h, hsl.s, hsl.l);
         const hex = rgbToString(rgb.r, rgb.g, rgb.b);
-
-        setHexInput(hex);
-        setRedInput(rgb.r);
-        setGreenInput(rgb.g);
-        setBlueInput(rgb.b);
 
         if (isControlled) {
           onChange &&
@@ -189,14 +117,12 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
     );
 
     useEffect(() => {
-      if (isControlled) {
-        setHexInput(state.hex);
-        setRedInput(state.red);
-        setGreenInput(state.green);
-        setBlueInput(state.blue);
-        setAlphaInput(state.alpha);
-      }
-    }, [state.hex, state.red, state.green, state.blue, state.alpha, color, isControlled]);
+      setHexInput(state.hex);
+      setRedInput(state.red);
+      setGreenInput(state.green);
+      setBlueInput(state.blue);
+      setAlphaInput(state.alpha);
+    }, [state.hex, state.red, state.green, state.blue, state.alpha]);
 
     return (
       <StyledColorPicker ref={ref} {...props}>
@@ -231,22 +157,15 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                     blue: rgb.b
                   });
 
-                  setHexInput(hex);
-                  setRedInput(rgb.r);
-                  setGreenInput(rgb.g);
-                  setBlueInput(rgb.b);
-
                   if (isControlled) {
                     onChange &&
                       onChange({
-                        saturation: state.saturation,
-                        lightness: state.lightness,
+                        ...state,
                         hue: Number(e.target.value),
                         hex,
                         red: rgb.r,
                         green: rgb.g,
-                        blue: rgb.b,
-                        alpha: state.alpha
+                        blue: rgb.b
                       });
                   } else {
                     dispatch({ type: 'HUE_CHANGE', payload: e.target.value });
@@ -266,20 +185,12 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                   blue: state.blue
                 }}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  setAlphaInput(Math.round(Number(e.target.value) * 100));
+                  const alpha = Math.round(Number(e.target.value) * 100);
+
+                  setAlphaInput(alpha);
 
                   if (isControlled) {
-                    onChange &&
-                      onChange({
-                        saturation: state.saturation,
-                        lightness: state.lightness,
-                        hue: state.hue,
-                        hex: state.hex,
-                        red: state.red,
-                        green: state.green,
-                        blue: state.blue,
-                        alpha: Number(e.target.value) * 100
-                      });
+                    onChange && onChange({ ...state, alpha });
                   } else {
                     dispatch({ type: 'ALPHA_SLIDER_CHANGE', payload: e.target.value });
                   }
@@ -312,10 +223,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                   const rgb = parseToRgb(e.target.value);
                   const hsl = rgbToHsl(rgb.red, rgb.green, rgb.blue);
 
-                  setRedInput(rgb.red);
-                  setGreenInput(rgb.green);
-                  setBlueInput(rgb.blue);
-
                   if (isControlled) {
                     onChange &&
                       onChange({
@@ -341,10 +248,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                     setHexInput(hexInputString);
                     const rgb = parseToRgb(hexInputString);
                     const hsl = rgbToHsl(rgb.red, rgb.green, rgb.blue);
-
-                    setRedInput(rgb.red);
-                    setGreenInput(rgb.green);
-                    setBlueInput(rgb.blue);
 
                     if (isControlled) {
                       onChange &&
@@ -396,10 +299,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                   return;
                 }
 
-                setHexInput(hex);
-                setGreenInput(state.green);
-                setBlueInput(state.blue);
-
                 if (isControlled) {
                   onChange &&
                     onChange({
@@ -447,10 +346,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
 
                   return;
                 }
-
-                setHexInput(hex);
-                setRedInput(state.red);
-                setBlueInput(state.blue);
 
                 if (isControlled) {
                   onChange &&
@@ -500,10 +395,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                   return;
                 }
 
-                setHexInput(hex);
-                setRedInput(state.red);
-                setGreenInput(state.green);
-
                 if (isControlled) {
                   onChange &&
                     onChange({
@@ -537,11 +428,11 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                   setAlphaInput(e.target.value);
                 }
 
-                if (isControlled) {
-                  if (e.target.value === '') {
-                    return;
-                  }
+                if (e.target.value === '') {
+                  return;
+                }
 
+                if (isControlled) {
                   if (isNaN(alpha)) {
                     return;
                   }

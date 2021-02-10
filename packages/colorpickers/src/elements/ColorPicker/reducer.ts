@@ -22,10 +22,29 @@ type ColorPickerActionTypes =
 
 type ReducerType = (state: IColor, action: ColorPickerActionTypes) => IColor;
 
-export function getInitialState(initialColor: IRGBColor | string) {
-  if (typeof initialColor === 'string') {
-    const { hue, saturation, lightness } = parseToHsl(initialColor);
-    const { red, green, blue } = parseToRgb(initialColor);
+export function toState(color?: string | IColor) {
+  const white = {
+    hue: 0,
+    saturation: 0,
+    lightness: 0,
+    red: 255,
+    green: 255,
+    blue: 255,
+    alpha: 100,
+    hex: '#ffffff'
+  };
+
+  if (color === undefined) {
+    return white;
+  }
+
+  if (typeof color === 'string') {
+    if (color.includes('#') && isValidHex(color) === false) {
+      return white;
+    }
+
+    const { hue, saturation, lightness } = parseToHsl(color);
+    const { red, green, blue, alpha } = parseToRgb(color) as IRGBColor;
     const hex = rgbToHex(red, green, blue);
 
     return {
@@ -35,23 +54,22 @@ export function getInitialState(initialColor: IRGBColor | string) {
       red,
       green,
       blue,
-      alpha: 100,
+      alpha: alpha === undefined ? 100 : alpha * 100,
       hex
     };
   }
 
-  const { red, green, blue, alpha = 100 } = initialColor;
+  const { red, green, blue, alpha = 100 } = color;
   const hex = rgbToString({ red, green, blue });
-  const { hue, saturation, lightness } = parseToHsl(hex);
+  const { saturation, lightness } = parseToHsl(hex);
 
   return {
-    hue,
+    hue: color.hue,
     saturation: saturation * 100,
     lightness: lightness * 100,
     red,
     green,
     blue,
-
     alpha,
     hex
   };
@@ -95,8 +113,7 @@ export const reducer: ReducerType = (state, action) => {
     case 'ALPHA_SLIDER_CHANGE': {
       return {
         ...state,
-        alpha: Number(action.payload) * 100,
-        alphaInput: Math.round(Number(action.payload) * 100)
+        alpha: Math.round(Number(action.payload) * 100)
       };
     }
     case 'HEX_CHANGE': {

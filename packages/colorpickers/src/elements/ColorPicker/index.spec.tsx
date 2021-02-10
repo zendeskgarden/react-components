@@ -285,7 +285,7 @@ describe('ColorPicker', () => {
     });
 
     it('updates with correct alpha when the A input is changed', () => {
-      render(<ColorPicker defaultColor="rgba(23, 73, 77, 100)" />);
+      render(<ColorPicker defaultColor="rgba(23, 73, 77, 1)" />);
 
       const previewBox = screen.getByTestId('preview-box');
       const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
@@ -372,7 +372,7 @@ describe('ColorPicker', () => {
 
       expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(colorwell).toHaveStyleRule('background', 'hsl(184.44444444444443,100%,50%)');
-      expect(hexInput.value).toBe('#17494D');
+      expect(hexInput.value).toBe('#17494d');
       expect(redInput.value).toBe('23');
       expect(greenInput.value).toBe('73');
       expect(blueInput.value).toBe('77');
@@ -750,7 +750,9 @@ describe('ColorPicker', () => {
             <button onClick={() => setColor('#b4da55')}>Change #b4da55</button>
             <button onClick={() => setColor('#b!da5!')}>Change #b!da5!</button>
             <button onClick={() => setColor('rgb(85, 211, 218)')}>Change rgb(85, 211, 218)</button>
-            <button onClick={() => setColor('rgba(0, 0, 0, 50)')}>Change rgba(0, 0, 0, 50)</button>
+            <button onClick={() => setColor('rgba(0, 0, 0, .50)')}>
+              Change rgba(0, 0, 0, .50)
+            </button>
           </>
         );
       };
@@ -777,7 +779,7 @@ describe('ColorPicker', () => {
       expect(blueInput.value).toBe('85');
       expect(alphaInput.value).toBe('100');
 
-      userEvent.click(screen.getByText('Change rgba(0, 0, 0, 50)'));
+      userEvent.click(screen.getByText('Change rgba(0, 0, 0, .50)'));
 
       expect(hexInput.value).toBe('#000000');
       expect(redInput.value).toBe('0');

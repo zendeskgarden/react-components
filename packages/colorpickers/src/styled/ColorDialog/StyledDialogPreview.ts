@@ -28,7 +28,7 @@ const background = (props: IStyleDialogPreviewProps) => {
 
   const { red, green, blue, alpha } = backgroundColor;
 
-  return `background: rgba(${red}, ${green}, ${blue}, ${alpha ? alpha / 100 : 0})`;
+  return `background: rgba(${red}, ${green}, ${blue}, ${alpha ? alpha / 100 : 1})`;
 };
 
 export const StyledDialogPreview = styled.div.attrs<IStyleDialogPreviewProps>({
