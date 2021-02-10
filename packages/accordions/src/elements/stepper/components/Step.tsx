@@ -9,9 +9,9 @@ import React, { forwardRef, LiHTMLAttributes, useEffect, useState } from 'react'
 import { StyledStep, StyledLine } from '../../../styled';
 import { StepContext, useStepperContext } from '../../../utils';
 
-const useStep = () => {
-  const { currentIndexRef, ...context } = useStepperContext();
-  const [index, setIndex] = useState(currentIndexRef.current);
+export const Step = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
+  const { currentIndexRef, isHorizontal } = useStepperContext();
+  const [currentStepIndex, setIndex] = useState(currentIndexRef.current);
 
   useEffect(() => {
     setIndex(currentIndexRef.current);
@@ -23,16 +23,10 @@ const useStep = () => {
     };
   }, [currentIndexRef]);
 
-  return [index, context] as const;
-};
-
-export const Step = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
-  const [currentStepIndex, context] = useStep();
-
   return (
     <StepContext.Provider value={{ currentStepIndex }}>
-      <StyledStep ref={ref} isHorizontal={context.isHorizontal} {...props}>
-        {context.isHorizontal && <StyledLine data-test-id="step-line" />}
+      <StyledStep ref={ref} isHorizontal={isHorizontal} {...props}>
+        {isHorizontal && <StyledLine data-test-id="step-line" />}
         {props.children}
       </StyledStep>
     </StepContext.Provider>

@@ -48,7 +48,7 @@ describe('Step', () => {
   });
 
   it('does not change step number when running outside strict mode', async () => {
-    const { findByText } = render(
+    const { findAllByText } = render(
       <Stepper>
         <Stepper.Step>
           <Stepper.Label />
@@ -59,12 +59,14 @@ describe('Step', () => {
       </Stepper>
     );
 
-    expect(await findByText('1')).toBeInTheDocument();
-    expect(await findByText('2')).toBeInTheDocument();
+    const elements = await findAllByText(/1|2/u);
+
+    expect(elements[0]).toContainHTML('1');
+    expect(elements[1]).toContainHTML('2');
   });
 
   it('does not change step number when running in strict mode', async () => {
-    const { findByText } = render(
+    const { findAllByText } = render(
       <React.StrictMode>
         <Stepper>
           <Stepper.Step>
@@ -77,7 +79,9 @@ describe('Step', () => {
       </React.StrictMode>
     );
 
-    expect(await findByText('1')).toBeTruthy();
-    expect(await findByText('2')).toBeTruthy();
+    const elements = await findAllByText(/1|2/u);
+
+    expect(elements[0]).toContainHTML('1');
+    expect(elements[1]).toContainHTML('2');
   });
 });
