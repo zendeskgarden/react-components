@@ -13,33 +13,49 @@ import {
   isRtl,
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
+import { StyledOrderedList, StyledUnorderedList } from './StyledList';
 import { StyledFont } from './StyledFont';
 
 interface IStyledListItemProps {
   space?: 'small' | 'medium' | 'large';
 }
 
+const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) => {
+  const base = props.theme.space.base;
+  const paddingTop = props.space === 'large' ? `${base * 2}px` : `${base}px`;
+
+  /**
+   * 1. Prevent padding the very first list item.
+   * 2. Restore padding on first list items that are nested.
+   */
+  return css`
+    &::before {
+      display: block;
+      padding-top: ${paddingTop};
+      content: '';
+    }
+
+    /* stylelint-disable */
+    ${StyledOrderedList} > &:first-child::before,
+    ${StyledUnorderedList} > &:first-child::before {
+      padding-top: 0; /* [1] */
+    }
+
+    ${StyledOrderedList} ${StyledOrderedList} > &:first-child::before,
+    ${StyledOrderedList} ${StyledUnorderedList} > &:first-child::before,
+    ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child::before,
+    ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child::before {
+      padding-top: ${paddingTop}; /* [2] */
+    }
+    /* stylelint-enable */
+  `;
+};
+
 const listItemStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) => {
-  let markerLineHeight;
-
-  switch (props.space) {
-    case 'small':
-      break;
-    case 'large':
-      markerLineHeight = `${props.theme.space.base * 7}px`;
-      break;
-    case 'medium':
-    default:
-      markerLineHeight = `${props.theme.space.base * 6}px`;
-      break;
-  }
-
   return css`
     line-height: ${getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
 
-    &::marker {
-      line-height: ${markerLineHeight};
-    }
+    ${props.space !== 'small' && listItemPaddingStyles(props)};
   `;
 };
 
