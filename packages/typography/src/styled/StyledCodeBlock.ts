@@ -30,9 +30,11 @@ export const StyledCodeBlock = styled.pre.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledCodeBlockProps>`
+  display: table;
   margin: 0;
   padding: ${props => props.theme.space.base * 3}px;
-  overflow: auto;
+  box-sizing: border-box;
+  width: 100%;
   direction: ltr;
   white-space: pre;
   counter-reset: linenumber;
