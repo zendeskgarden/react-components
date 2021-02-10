@@ -7,10 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import {
-  StyledOrderedListItem as StyledListItem,
-  StyledOrderedListItemContent as StyledListItemContent
-} from './StyledListItem';
+import { StyledOrderedListItem as StyledListItem } from './StyledListItem';
 
 describe('StyledListItem', () => {
   it('renders the expected element', () => {
@@ -21,21 +18,23 @@ describe('StyledListItem', () => {
 
   describe('StyledListItemContent', () => {
     it('renders small spacing', () => {
-      const { container } = render(<StyledListItemContent space="small" />);
+      const { container } = render(<StyledListItem space="small" />);
 
-      expect(container.firstChild).toHaveStyleRule('padding', '0');
+      expect(container.firstChild).not.toHaveStyleRule('padding-top', undefined, {
+        modifier: '::before'
+      });
     });
 
     it('renders medium spacing', () => {
-      const { container } = render(<StyledListItemContent space="medium" />);
+      const { container } = render(<StyledListItem space="medium" />);
 
-      expect(container.firstChild).toHaveStyleRule('padding', '2px 0');
+      expect(container.firstChild).toHaveStyleRule('padding-top', '4px', { modifier: '::before' });
     });
 
     it('renders large spacing', () => {
-      const { container } = render(<StyledListItemContent space="large" />);
+      const { container } = render(<StyledListItem space="large" />);
 
-      expect(container.firstChild).toHaveStyleRule('padding', '4px 0');
+      expect(container.firstChild).toHaveStyleRule('padding-top', '8px', { modifier: '::before' });
     });
   });
 });
