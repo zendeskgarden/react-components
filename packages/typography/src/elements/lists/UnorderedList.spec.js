@@ -30,7 +30,9 @@ describe('UnorderedList', () => {
         </UnorderedList>
       );
 
-      expect(container.querySelector('div')).toHaveStyleRule('padding', '0');
+      expect(container.querySelector('li')).not.toHaveStyleRule('padding-top', undefined, {
+        modifier: '::before'
+      });
     });
 
     it('renders medium styling if provided', () => {
@@ -40,7 +42,9 @@ describe('UnorderedList', () => {
         </UnorderedList>
       );
 
-      expect(container.querySelector('div')).toHaveStyleRule('padding', '2px 0');
+      expect(container.querySelector('li')).toHaveStyleRule('padding-top', '4px', {
+        modifier: '::before'
+      });
     });
 
     it('renders large styling if provided', () => {
@@ -50,7 +54,9 @@ describe('UnorderedList', () => {
         </UnorderedList>
       );
 
-      expect(container.querySelector('div')).toHaveStyleRule('padding', '4px 0');
+      expect(container.querySelector('li')).toHaveStyleRule('padding-top', '8px', {
+        modifier: '::before'
+      });
     });
   });
 
