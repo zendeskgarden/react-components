@@ -270,7 +270,7 @@ export const reducer = (
 
       return {
         ...state,
-        greenInput: action.payload,
+        blueInput: action.payload,
         color
       };
     }
