@@ -11,6 +11,15 @@ import { StyledFont } from './StyledFont';
 
 const COMPONENT_ID = 'typography.codeblock_code';
 
+const highlightStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
+  const hue = props.isLight ? props.theme.palette.black : props.theme.palette.white;
+  const backgroundColor = getColor(hue, 600, props.theme, 0.1);
+
+  return css`
+    background-color: ${backgroundColor};
+  `;
+};
+
 const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
   const padding = `${props.theme.space.base * 6}px`;
   const color = getColor('neutralHue', props.isLight ? 600 : 500, props.theme);
@@ -19,6 +28,7 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultT
     &::before {
       display: table-cell;
       padding-right: ${padding};
+      width: 1px;
       text-align: right;
       color: ${color};
       content: counter(linenumber);
@@ -28,6 +38,7 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultT
 };
 
 export interface IStyledCodeBlockLineProps {
+  isHighlighted?: boolean;
   isLight?: boolean;
   isNumbered?: boolean;
   size?: 'sm' | 'md' | 'lg';
@@ -37,7 +48,7 @@ export interface IStyledCodeBlockLineProps {
  * 1. Fix line display for mobile.
  * 2. Match parent padding for overflow scroll.
  */
-export const StyledCodeBlockLine = styled(StyledFont).attrs({
+export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'code',
@@ -46,6 +57,8 @@ export const StyledCodeBlockLine = styled(StyledFont).attrs({
   display: table-row;
   height: ${props => props.theme.lineHeights[props.size!]}; /* [1] */
   direction: ltr;
+
+  ${props => props.isHighlighted && highlightStyles(props)};
 
   ${props => props.isNumbered && lineNumberStyles(props)};
 

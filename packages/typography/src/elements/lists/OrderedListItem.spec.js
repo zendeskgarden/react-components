@@ -17,6 +17,6 @@ describe('OrderedListItem', () => {
       </OrderedList>
     );
 
-    expect(container.querySelector('div')).toHaveStyleRule('padding', '2px 0');
+    expect(container.querySelector('li')).toHaveStyleRule('padding-top', '4px');
   });
 });

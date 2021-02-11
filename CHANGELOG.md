@@ -11,6 +11,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.32.0 (2021-02-10)
+
+#### :rocket: New Feature
+
+- `typography`
+  - [#1012](https://github.com/zendeskgarden/react-components/pull/1012) feat(typography): add line highlighting to CodeBlock component ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+
+- `typography`
+  - [#1015](https://github.com/zendeskgarden/react-components/pull/1015) fix(typography): simplify DOM structure for list components ([@jzempel](https://github.com/jzempel))
+- `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`, `utilities`
+  - [#1011](https://github.com/zendeskgarden/react-components/pull/1011) fix(deps): ensure all packages include prop-types and lodash correctly ([@austingreendev](https://github.com/austingreendev))
 
 ## v8.31.1 (2021-02-04)
 

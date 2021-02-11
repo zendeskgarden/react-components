@@ -7,25 +7,19 @@
 
 import React, { LiHTMLAttributes } from 'react';
 import useUnorderedListContext from '../../utils/useUnorderedListContext';
-import { StyledUnorderedListItem, StyledUnorderedListItemContent } from '../../styled';
+import { StyledUnorderedListItem } from '../../styled';
 
-/**
- * @export LiHTMLAttributes<HTMLLIElement>
- */
 const UnorderedListItem: React.FunctionComponent<
   LiHTMLAttributes<HTMLLIElement> & React.RefAttributes<HTMLLIElement>
-> = React.forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
-  ({ children, ...other }, ref) => {
-    const { size } = useUnorderedListContext();
+> = React.forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
+  const { size } = useUnorderedListContext();
 
-    return (
-      <StyledUnorderedListItem ref={ref} {...other}>
-        <StyledUnorderedListItemContent space={size}>{children}</StyledUnorderedListItemContent>
-      </StyledUnorderedListItem>
-    );
-  }
-);
+  return <StyledUnorderedListItem ref={ref} space={size} {...props} />;
+});
 
 UnorderedListItem.displayName = 'UnorderedListItem';
 
+/**
+ * @extends LiHTMLAttributes<HTMLLIElement>
+ */
 export default UnorderedListItem;

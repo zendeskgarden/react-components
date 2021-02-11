@@ -7,38 +7,61 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  getLineHeight,
+  isRtl,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
+import { StyledOrderedList, StyledUnorderedList } from './StyledList';
 import { StyledFont } from './StyledFont';
 
-const listItemContentStyles = (
-  props: IStyledOrderedListItemContentProps & ThemeProps<DefaultTheme>
-) => {
-  let padding;
+interface IStyledListItemProps {
+  space?: 'small' | 'medium' | 'large';
+}
 
-  switch (props.space) {
-    case 'small':
-      padding = '0';
-      break;
-    case 'large':
-      padding = `${math(`${props.theme.space.base} * 1px`)} 0`;
-      break;
-    case 'medium':
-    default:
-      padding = `${math(`${props.theme.space.base} * 0.5px`)} 0`;
-      break;
-  }
+const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) => {
+  const base = props.theme.space.base;
+  const paddingTop = props.space === 'large' ? `${base * 2}px` : `${base}px`;
 
+  /**
+   * 1. Prevent padding the very first list item.
+   * 2. Restore padding on first list items that are nested.
+   */
   return css`
-    padding: ${padding};
+    padding-top: ${paddingTop};
+
+    /* stylelint-disable */
+    ${StyledOrderedList} > &:first-child,
+    ${StyledUnorderedList} > &:first-child {
+      padding-top: 0; /* [1] */
+    }
+
+    ${StyledOrderedList} ${StyledOrderedList} > &:first-child,
+    ${StyledOrderedList} ${StyledUnorderedList} > &:first-child,
+    ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child,
+    ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child {
+      padding-top: ${paddingTop}; /* [2] */
+    }
+    /* stylelint-enable */
+  `;
+};
+
+const listItemStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) => {
+  return css`
+    line-height: ${getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
+
+    ${props.space !== 'small' && listItemPaddingStyles(props)};
   `;
 };
 
 const ORDERED_ID = 'typography.ordered_list_item';
 
-export const StyledOrderedListItem = styled.li.attrs({
+export const StyledOrderedListItem = styled(StyledFont as 'li').attrs({
   'data-garden-id': ORDERED_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+  'data-garden-version': PACKAGE_VERSION,
+  as: 'li'
+})<IStyledListItemProps>`
   /* stylelint-disable */
   margin-${props => (isRtl(props) ? 'right' : 'left')}: ${props =>
   math(`${props.theme.space.base} * -1px`)};
@@ -46,46 +69,29 @@ export const StyledOrderedListItem = styled.li.attrs({
   math(`${props.theme.space.base} * 1px`)};
   /* stylelint-enable */
 
+  ${props => listItemStyles(props)};
+
   ${props => retrieveComponentStyles(ORDERED_ID, props)};
 `;
 
 StyledOrderedListItem.defaultProps = {
+  space: 'medium',
   theme: DEFAULT_THEME
-};
-
-interface IStyledOrderedListItemContentProps {
-  space?: 'small' | 'medium' | 'large';
-}
-
-export const StyledOrderedListItemContent = styled(StyledFont)<IStyledOrderedListItemContentProps>`
-  ${props => listItemContentStyles(props)};
-`;
-
-StyledOrderedListItemContent.defaultProps = {
-  theme: DEFAULT_THEME,
-  space: 'medium'
 };
 
 const UNORDERED_ID = 'typography.unordered_list_item';
 
-export const StyledUnorderedListItem = styled.li.attrs({
+export const StyledUnorderedListItem = styled(StyledFont as 'li').attrs({
   'data-garden-id': UNORDERED_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+  'data-garden-version': PACKAGE_VERSION,
+  as: 'li'
+})<IStyledListItemProps>`
+  ${props => listItemStyles(props)};
+
   ${props => retrieveComponentStyles(UNORDERED_ID, props)};
 `;
 
 StyledUnorderedListItem.defaultProps = {
+  space: 'medium',
   theme: DEFAULT_THEME
-};
-
-export const StyledUnorderedListItemContent = styled(
-  StyledFont
-)<IStyledOrderedListItemContentProps>`
-  ${props => listItemContentStyles(props)};
-`;
-
-StyledUnorderedListItemContent.defaultProps = {
-  theme: DEFAULT_THEME,
-  space: 'medium'
 };

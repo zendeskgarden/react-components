@@ -46,4 +46,42 @@ describe('Step', () => {
 
     expect(queryAllByTestId('step-line')).toHaveLength(0);
   });
+
+  it('does not change step number when running outside strict mode', async () => {
+    const { findAllByText } = render(
+      <Stepper>
+        <Stepper.Step>
+          <Stepper.Label />
+        </Stepper.Step>
+        <Stepper.Step>
+          <Stepper.Label />
+        </Stepper.Step>
+      </Stepper>
+    );
+
+    const elements = await findAllByText(/1|2/u);
+
+    expect(elements[0]).toContainHTML('1');
+    expect(elements[1]).toContainHTML('2');
+  });
+
+  it('does not change step number when running in strict mode', async () => {
+    const { findAllByText } = render(
+      <React.StrictMode>
+        <Stepper>
+          <Stepper.Step>
+            <Stepper.Label />
+          </Stepper.Step>
+          <Stepper.Step>
+            <Stepper.Label />
+          </Stepper.Step>
+        </Stepper>
+      </React.StrictMode>
+    );
+
+    const elements = await findAllByText(/1|2/u);
+
+    expect(elements[0]).toContainHTML('1');
+    expect(elements[1]).toContainHTML('2');
+  });
 });

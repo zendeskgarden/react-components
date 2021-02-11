@@ -484,9 +484,16 @@ interface IDefaultStoryProps {
   size: 'small' | 'medium' | 'large' | undefined;
   isLight: boolean;
   isNumbered: boolean;
+  highlightLines: number[];
 }
 
-export const Default: Story<IDefaultStoryProps> = ({ language, size, isLight, isNumbered }) => (
+export const Default: Story<IDefaultStoryProps> = ({
+  language,
+  size,
+  isLight,
+  isNumbered,
+  highlightLines
+}) => (
   <Grid>
     <Row>
       <Col textAlign="center">
@@ -496,6 +503,7 @@ export const Default: Story<IDefaultStoryProps> = ({ language, size, isLight, is
           size={size}
           isLight={isLight}
           isNumbered={isNumbered}
+          highlightLines={highlightLines}
         >
           {CODE[language]}
         </CodeBlock>
@@ -503,6 +511,12 @@ export const Default: Story<IDefaultStoryProps> = ({ language, size, isLight, is
     </Row>
   </Grid>
 );
+
+const range = (size: number, start = 0) => [...Array(size).keys()].map(x => x + start);
+
+Default.args = {
+  highlightLines: range(15, 17)
+};
 
 Default.argTypes = {
   language: {
@@ -520,14 +534,5 @@ Default.argTypes = {
         'typescript'
       ]
     }
-  },
-  size: {
-    control: { type: 'select', options: ['small', 'medium', 'large'] }
-  },
-  isLight: {
-    control: 'boolean'
-  },
-  isNumbered: {
-    control: 'boolean'
   }
 };
