@@ -36,9 +36,15 @@ const SwatchHex = styled.div`
   color: ${props => props.theme.colors.neutralHue[600]};
 `;
 
+const StyledGrid = styled(Grid)`
+  color: ${p => p.theme.colors.foreground};
+  font-family: ${p => p.theme.fonts.system};
+  font-size: ${p => p.theme.fontSizes.md};
+`;
+
 export const ColorPaletteExample = () => (
   <ThemeProvider>
-    <Grid>
+    <StyledGrid>
       {Object.keys(PALETTE).map(
         hue =>
           typeof (PALETTE as Record<string, any>)[hue] === 'object' && (
@@ -66,6 +72,6 @@ export const ColorPaletteExample = () => (
             </div>
           )
       )}
-    </Grid>
+    </StyledGrid>
   </ThemeProvider>
 );

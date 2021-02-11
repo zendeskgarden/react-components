@@ -86,16 +86,18 @@ export const MenuStyles: Story<IMenuStylesProps> = ({ isAnimated, position }) =>
         <Col textAlign="center" style={{ padding: 80 }}>
           <div style={{ display: 'inline-block', position: 'relative' }}>
             <Button onClick={() => setIsHidden(!isHidden)}>Trigger</Button>
-            <StyledWrapper
-              data-garden-animate={isAnimated}
-              position={position}
-              isHidden={isHidden}
-              style={style}
-            >
-              <StyledMenu data-garden-animate={isAnimated} position={position}>
-                Menu
-              </StyledMenu>
-            </StyledWrapper>
+            {!isHidden && (
+              <StyledWrapper
+                data-garden-animate={isAnimated}
+                position={position}
+                isHidden={isHidden}
+                style={style}
+              >
+                <StyledMenu data-garden-animate={isAnimated} position={position}>
+                  Menu
+                </StyledMenu>
+              </StyledWrapper>
+            )}
           </div>
         </Col>
       </Row>

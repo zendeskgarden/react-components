@@ -56,7 +56,7 @@ export const Default: Story = ({ foo }) => {
     }
   };
 
-  const nestedTheme = {
+  const nestedTheme: IGardenTheme = {
     ...DEFAULT_THEME,
     borderRadii: {
       ...DEFAULT_THEME.borderRadii,
