@@ -6,6 +6,7 @@
  */
 
 import { parseToHsl, parseToRgb, rgb as rgbToString } from 'polished';
+import isEqual from 'lodash.isequal';
 import { hsvToHsl, rgbToHsl, hslToRgb, rgbToHex } from '../../utils/conversion';
 import { IColor, IRGBColor, IHSVColor } from '../../utils/types';
 import { isValidHex } from '../../utils/validation';
@@ -18,12 +19,57 @@ type ColorPickerActionTypes =
   | { type: 'RED_CHANGE'; payload: string }
   | { type: 'GREEN_CHANGE'; payload: string }
   | { type: 'BLUE_CHANGE'; payload: string }
-  | { type: 'ALPHA_CHANGE'; payload: string };
+  | { type: 'ALPHA_CHANGE'; payload: string }
+  | { type: 'RESET_COLOR'; payload: IColor };
 
-type ReducerType = (state: IColor, action: ColorPickerActionTypes) => IColor;
+interface IColorPickerState {
+  color: IColor;
+  hexInput: string;
+  redInput: string;
+  blueInput: string;
+  greenInput: string;
+  alphaInput: string;
+}
 
-export function toState(color?: string | IColor) {
-  const white = {
+export function convertStringToColor(colorString: string): IColor | undefined {
+  if (colorString.includes('#') && !isValidHex(colorString)) {
+    return undefined;
+  }
+
+  const { hue, saturation, lightness } = parseToHsl(colorString);
+  const { red, green, blue, alpha } = parseToRgb(colorString) as IRGBColor;
+  const computedAlpha = alpha === undefined ? 100 : alpha * 100;
+  const computedHex = rgbToHex(red, green, blue);
+
+  return {
+    hue,
+    saturation: saturation * 100,
+    lightness: lightness * 100,
+    red,
+    green,
+    blue,
+    alpha: computedAlpha,
+    hex: computedHex
+  };
+}
+
+export const areColorsEqual = (a: IColor | string | undefined, b: IColor | string | undefined) => {
+  if (a === undefined || b === undefined) {
+    return false;
+  }
+
+  const colorA = typeof a === 'string' ? convertStringToColor(a) : a;
+  const colorB = typeof b === 'string' ? convertStringToColor(b) : b;
+
+  if (colorA === undefined || colorB === undefined) {
+    return false;
+  }
+
+  return isEqual(colorA, colorB);
+};
+
+export function getInitialState(color?: string | IColor): IColorPickerState {
+  const whiteColor: IColor = {
     hue: 0,
     saturation: 0,
     lightness: 0,
@@ -35,66 +81,51 @@ export function toState(color?: string | IColor) {
   };
 
   if (color === undefined) {
-    return white;
+    return getInitialState(whiteColor);
   }
 
   if (typeof color === 'string') {
-    if (color.includes('#') && isValidHex(color) === false) {
-      return white;
-    }
+    const computedColor = convertStringToColor(color);
 
-    const { hue, saturation, lightness } = parseToHsl(color);
-    const { red, green, blue, alpha } = parseToRgb(color) as IRGBColor;
-    const hex = rgbToHex(red, green, blue);
-
-    return {
-      hue,
-      saturation: saturation * 100,
-      lightness: lightness * 100,
-      red,
-      green,
-      blue,
-      alpha: alpha === undefined ? 100 : alpha * 100,
-      hex
-    };
+    return getInitialState(computedColor || whiteColor);
   }
 
-  const { red, green, blue, alpha = 100 } = color;
-  const hex = rgbToString({ red, green, blue });
-  const { saturation, lightness } = parseToHsl(hex);
-
   return {
-    hue: color.hue,
-    saturation: saturation * 100,
-    lightness: lightness * 100,
-    red,
-    green,
-    blue,
-    alpha,
-    hex
+    color,
+    hexInput: color.hex,
+    redInput: color.red.toString(),
+    blueInput: color.blue.toString(),
+    greenInput: color.green.toString(),
+    alphaInput: color.alpha.toString()
   };
 }
 
-export const reducer: ReducerType = (state, action) => {
+export const reducer = (
+  state: IColorPickerState,
+  action: ColorPickerActionTypes
+): IColorPickerState => {
   switch (action.type) {
     case 'SATURATION_CHANGE': {
       const hsl = hsvToHsl(action.payload.h, action.payload.s * 100, action.payload.v * 100);
-      const rgb = hslToRgb(state.hue, hsl.s, hsl.l);
+      const rgb = hslToRgb(state.color.hue, hsl.s, hsl.l);
       const hex = rgbToString(rgb.r, rgb.g, rgb.b);
 
       return {
         ...state,
-        saturation: hsl.s,
-        lightness: hsl.l,
-        hex,
-        red: rgb.r,
-        green: rgb.g,
-        blue: rgb.b
+        color: {
+          ...state.color,
+          saturation: hsl.s,
+          lightness: hsl.l,
+          hex,
+          red: rgb.r,
+          green: rgb.g,
+          blue: rgb.b
+        }
       };
     }
     case 'HUE_CHANGE': {
       const hue = Number(action.payload);
-      const rgb = hslToRgb(hue, state.saturation, state.lightness);
+      const rgb = hslToRgb(hue, state.color.saturation, state.color.lightness);
       const hex = rgbToString({
         red: rgb.r,
         green: rgb.g,
@@ -103,26 +134,34 @@ export const reducer: ReducerType = (state, action) => {
 
       return {
         ...state,
-        hue,
-        hex,
-        red: rgb.r,
-        green: rgb.g,
-        blue: rgb.b
+        color: {
+          ...state.color,
+          hue,
+          hex,
+          red: rgb.r,
+          green: rgb.g,
+          blue: rgb.b
+        }
       };
     }
     case 'ALPHA_SLIDER_CHANGE': {
       return {
         ...state,
-        alpha: Math.round(Number(action.payload) * 100)
+        color: {
+          ...state.color,
+          alpha: Math.round(Number(action.payload) * 100)
+        }
       };
     }
     case 'HEX_CHANGE': {
+      let color = state.color;
+
       if (isValidHex(action.payload)) {
         const rgb = parseToRgb(action.payload);
         const hsl = rgbToHsl(rgb.red, rgb.green, rgb.blue);
 
-        return {
-          ...state,
+        color = {
+          ...color,
           hue: hsl.h,
           saturation: hsl.s,
           lightness: hsl.l,
@@ -133,72 +172,135 @@ export const reducer: ReducerType = (state, action) => {
         };
       }
 
-      return state;
+      return {
+        ...state,
+        hexInput: action.payload,
+        color
+      };
     }
     case 'RED_CHANGE': {
-      const red = Number(action.payload);
+      let red = parseInt(action.payload, 10);
+      let color = state.color;
 
-      if (isNaN(red)) return state;
-      if (red > 255) return state;
+      if (!isNaN(red)) {
+        if (red >= 255) {
+          red = 255;
+        }
 
-      const hsl = rgbToHsl(red, state.green, state.blue);
-      const hex = rgbToString(red, state.green, state.blue);
+        if (red < 0) {
+          red = 0;
+        }
+
+        const hsl = rgbToHsl(red, color.green, color.blue);
+        const hex = rgbToString(red, color.green, color.blue);
+
+        color = {
+          ...color,
+          hex,
+          red: action.payload === '' ? color.red : red,
+          hue: hsl.h,
+          lightness: hsl.l,
+          saturation: hsl.s
+        };
+      }
 
       return {
         ...state,
-        hex,
-        red: action.payload === '' ? state.red : red,
-        hue: hsl.h,
-        lightness: hsl.l,
-        saturation: hsl.s
+        redInput: action.payload,
+        color
       };
     }
     case 'GREEN_CHANGE': {
-      const green = Number(action.payload);
+      let green = parseInt(action.payload, 10);
+      let color = state.color;
 
-      if (isNaN(green)) return state;
-      if (green > 255) return state;
+      if (!isNaN(green)) {
+        if (green >= 255) {
+          green = 255;
+        }
 
-      const hsl = rgbToHsl(state.red, green, state.blue);
-      const hex = rgbToString(state.red, green, state.blue);
+        if (green < 0) {
+          green = 0;
+        }
+
+        const hsl = rgbToHsl(color.red, green, color.blue);
+        const hex = rgbToString(color.red, green, color.blue);
+
+        color = {
+          ...color,
+          hex,
+          green: action.payload === '' ? color.green : green,
+          hue: hsl.h,
+          lightness: hsl.l,
+          saturation: hsl.s
+        };
+      }
 
       return {
         ...state,
-        hex,
-        green: action.payload === '' ? state.green : green,
-        hue: hsl.h,
-        lightness: hsl.l,
-        saturation: hsl.s
+        greenInput: action.payload,
+        color
       };
     }
     case 'BLUE_CHANGE': {
-      const blue = Number(action.payload);
+      let blue = parseInt(action.payload, 10);
+      let color = state.color;
 
-      if (isNaN(blue)) return state;
-      if (blue > 255) return state;
+      if (!isNaN(blue)) {
+        if (blue >= 255) {
+          blue = 255;
+        }
 
-      const hsl = rgbToHsl(state.red, state.green, blue);
-      const hex = rgbToString(state.red, state.green, blue);
+        if (blue < 0) {
+          blue = 0;
+        }
+
+        const hsl = rgbToHsl(color.red, color.green, blue);
+        const hex = rgbToString(color.red, color.green, blue);
+
+        color = {
+          ...color,
+          hex,
+          blue: action.payload === '' ? color.blue : blue,
+          hue: hsl.h,
+          lightness: hsl.l,
+          saturation: hsl.s
+        };
+      }
 
       return {
         ...state,
-        hex,
-        blue: action.payload === '' ? state.blue : blue,
-        hue: hsl.h,
-        lightness: hsl.l,
-        saturation: hsl.s
+        greenInput: action.payload,
+        color
       };
     }
     case 'ALPHA_CHANGE': {
-      const alpha = Number(action.payload);
+      let alpha = parseInt(action.payload, 10);
+      let color = state.color;
 
-      if (isNaN(alpha)) return state;
-      if (alpha > 100) return state;
+      if (!isNaN(alpha)) {
+        if (alpha > 100) {
+          alpha = 100;
+        }
+
+        if (alpha < 0) {
+          alpha = 0;
+        }
+
+        color = {
+          ...color,
+          alpha
+        };
+      }
 
       return {
         ...state,
-        alpha
+        alphaInput: action.payload,
+        color
       };
+    }
+    case 'RESET_COLOR': {
+      return getInitialState(action.payload);
     }
     default:
       throw new Error('Unknown reducer case.');

@@ -15,6 +15,7 @@ export interface IColor {
   blue: number;
   alpha: number;
 }
+
 export interface IHSVColor {
   h: number;
   s: number;

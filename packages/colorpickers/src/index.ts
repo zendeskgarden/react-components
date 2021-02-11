@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { ColorPicker, IColorPickerLabels, IColorPickerProps } from './elements/ColorPicker';
-export { IColorDialogProps, ColorDialog } from './elements/ColorDialog';
-export { IColor } from './utils/types';
+export { ColorPicker } from './elements/ColorPicker';
+export type { IColorPickerLabels, IColorPickerProps } from './elements/ColorPicker';
+export { ColorDialog } from './elements/ColorDialog';
+export type { IColorDialogProps } from './elements/ColorDialog';
+export type { IColor } from './utils/types';
