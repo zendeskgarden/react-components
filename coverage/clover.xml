@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1613062888223" clover="3.2.0">
-  <project timestamp="1613062888223" name="All files">
-    <metrics statements="6957" coveredstatements="6799" conditionals="2754" coveredconditionals="2489" methods="1476" coveredmethods="1443" elements="11187" coveredelements="10731" complexity="0" loc="6957" ncloc="6957" packages="113" files="454" classes="454"/>
+<coverage generated="1613499526868" clover="3.2.0">
+  <project timestamp="1613499526868" name="All files">
+    <metrics statements="6957" coveredstatements="6799" conditionals="2755" coveredconditionals="2490" methods="1476" coveredmethods="1443" elements="11188" coveredelements="10732" complexity="0" loc="6957" ncloc="6957" packages="113" files="454" classes="454"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -918,7 +918,7 @@
       </file>
     </package>
     <package name="buttons.src.styled">
-      <metrics statements="152" coveredstatements="152" conditionals="144" coveredconditionals="142" methods="45" coveredmethods="45"/>
+      <metrics statements="152" coveredstatements="152" conditionals="145" coveredconditionals="143" methods="45" coveredmethods="45"/>
       <file name="StyledAnchor.ts" path="/home/circleci/project/packages/buttons/src/styled/StyledAnchor.ts">
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="8" count="9" type="stmt"/>
@@ -1059,7 +1059,7 @@
         <line num="51" count="13" type="stmt"/>
       </file>
       <file name="StyledIconButton.ts" path="/home/circleci/project/packages/buttons/src/styled/StyledIconButton.ts">
-        <metrics statements="22" coveredstatements="22" conditionals="9" coveredconditionals="9" methods="6" coveredmethods="6"/>
+        <metrics statements="22" coveredstatements="22" conditionals="10" coveredconditionals="10" methods="6" coveredmethods="6"/>
         <line num="8" count="10" type="stmt"/>
         <line num="9" count="10" type="stmt"/>
         <line num="10" count="10" type="stmt"/>
@@ -1074,14 +1074,14 @@
         <line num="36" count="10" type="stmt"/>
         <line num="37" count="19" type="stmt"/>
         <line num="39" count="19" type="stmt"/>
-        <line num="56" count="10" type="stmt"/>
-        <line num="57" count="19" type="stmt"/>
+        <line num="58" count="10" type="stmt"/>
         <line num="59" count="19" type="stmt"/>
-        <line num="69" count="10" type="stmt"/>
-        <line num="73" count="19" type="stmt"/>
-        <line num="76" count="19" type="stmt"/>
-        <line num="79" count="19" type="stmt"/>
-        <line num="82" count="10" type="stmt"/>
+        <line num="61" count="19" type="stmt"/>
+        <line num="71" count="10" type="stmt"/>
+        <line num="75" count="19" type="stmt"/>
+        <line num="78" count="19" type="stmt"/>
+        <line num="81" count="19" type="stmt"/>
+        <line num="84" count="10" type="stmt"/>
       </file>
       <file name="index.ts" path="/home/circleci/project/packages/buttons/src/styled/index.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
