@@ -8,7 +8,7 @@
 import { Range } from '@zendeskgarden/react-forms';
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { thumbStyles } from './StyledHue';
+import { thumbStyles, colorStyles } from './StyledHue';
 
 const COMPONENT_ID = 'colorpickers.colorpicker.alpha';
 
@@ -50,6 +50,8 @@ export const StyledAlpha = styled(Range).attrs({
     height: ${props.theme.space.base * 4}px;
     width: ${props.theme.space.base * 4}px;
   `)}
+
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
