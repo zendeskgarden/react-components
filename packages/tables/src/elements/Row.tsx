@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, HTMLAttributes } from 'react';
+import React, { useState, HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { StyledRow, IStyledRowProps } from '../styled';
@@ -21,6 +21,18 @@ export const Row = React.forwardRef<
   const [isFocused, setIsFocused] = useState(false);
   const { size, isReadOnly } = useTableContext();
 
+  const computedFocused = useMemo(() => {
+    if (typeof focused !== 'undefined') {
+      return focused;
+    }
+
+    if (isReadOnly) {
+      return false;
+    }
+
+    return isFocused;
+  }, [focused, isFocused, isReadOnly]);
+
   return (
     <StyledRow
       onFocus={composeEventHandlers(onFocus, () => {
@@ -31,7 +43,7 @@ export const Row = React.forwardRef<
       })}
       size={size}
       isReadOnly={isReadOnly}
-      isFocused={typeof focused === 'undefined' ? isFocused : focused}
+      isFocused={computedFocused}
       ref={ref}
       {...otherProps}
     />
