@@ -66,6 +66,30 @@ describe('Row', () => {
     );
   });
 
+  it('does not apply focus styling when table is readonly', () => {
+    const { getByTestId } = render(
+      <Table isReadOnly>
+        <Body>
+          <Row data-test-id="row" />
+        </Body>
+      </Table>
+    );
+    const row = getByTestId('row');
+
+    userEvent.click(row);
+
+    expect(row).not.toHaveStyleRule(
+      'box-shadow',
+      `inset 3px 0 0 0 ${getColor('primaryHue', 600, DEFAULT_THEME)}`,
+      {
+        /* prettier-ignore */
+        /* stylelint-disable */
+        modifier: css`${StyledCell}:first-of-type` as any
+        /* stylelint-enable */
+      }
+    );
+  });
+
   it('removes focus styling when blurred', () => {
     const { getByTestId } = render(
       <Table>
