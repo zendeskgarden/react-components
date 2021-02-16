@@ -9,7 +9,7 @@ This package includes components related to colorpickers in the
 npm install @zendeskgarden/react-colorpickers
 
 # Peer Dependencies - Also Required
-npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
+npm install react react-dom styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
@@ -17,7 +17,6 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { ColorPicker } from '@zendeskgarden/react-colorpickers';
-
 
 /**
  * Place a `ThemeProvider` at the root of your React application
