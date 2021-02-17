@@ -102,6 +102,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
     const triggerRef = useCombinedRefs<HTMLDivElement>(popperReferenceElementRef, ref);
     const blurTimeoutRef = useRef<number | undefined>();
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
+    const previousIsFocusedRef = useRef<boolean | undefined>(undefined);
     const [isHovered, setIsHovered] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
     const [focusedItem, setFocusedItem] = useState(undefined);
@@ -127,12 +128,17 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
 
     useEffect(() => {
       // Focus internal input when Menu is opened
-      if (inputRef.current && isOpen && !previousIsOpenRef.current) {
-        inputRef.current.focus();
+      if (inputRef.current) {
+        if (isOpen && !previousIsOpenRef.current) {
+          inputRef.current.focus();
+        } else if (isFocused && !previousIsFocusedRef.current && focusedItem === undefined) {
+          inputRef.current.focus();
+        }
       }
 
       previousIsOpenRef.current = isOpen;
-    }, [isOpen, inputRef]);
+      previousIsFocusedRef.current = isFocused;
+    }, [isOpen, inputRef, isFocused, focusedItem]);
 
     /**
      * Close menu when an item becomes focused
@@ -288,13 +294,6 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                 data-test-id="show-more"
                 isCompact={props.isCompact}
                 isDisabled={props.disabled}
-                onMouseDown={e => {
-                  /**
-                   * Prevent anchor from receiving focus on mouse down.
-                   * This allows the input to receive focus.
-                   **/
-                  e.preventDefault();
-                }}
               >
                 {renderShowMore
                   ? renderShowMore(itemValues.length - x)
