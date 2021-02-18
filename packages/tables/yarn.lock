@@ -43,12 +43,19 @@
     "@types/react" "*"
 
 "@types/react@*":
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.0.tgz#5af3eb7fad2807092f0046a1302b7823e27919b8"
-  integrity sha512-aj/L7RIMsRlWML3YB6KZiXB3fV2t41+5RBGYF8z+tAKU43Px8C3cYUZsDvf1/+Bm4FK21QWBrDutu8ZJ/70qOw==
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.2.tgz#3de24c4efef902dd9795a49c75f760cbe4f7a5a8"
+  integrity sha512-Xt40xQsrkdvjn1EyWe1Bc0dJLcil/9x2vAuW7ya+PuQip4UYUaXyhzWmAbwRsdMgwOFHpfp7/FFZebDU6Y8VHA==
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
+
+"@zendeskgarden/container-focusvisible@^0.4.6":
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.6.tgz#bf1736353babb632ff04e4f7330c7da98bdd8ce0"
+  integrity sha512-YLGJ2+i9PKzP4ND9OtuWrUomJvKp+Mel8QSIGsWkUQ6DqabVZPi2//BZ0slqnyq4LcIS0MjTSCLi28H6IFjrrA==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
 
 "@zendeskgarden/container-utilities@^0.5.5":
   version "0.5.5"
@@ -56,6 +63,16 @@
   integrity sha512-41qrK/ePXbPD+t2bKOtbzIZAjIlrIcN7EVGShPAjMjRzhQpZeX5UFsIrmN56/vQ8+xMVh/BxNEXgbtAO37FgwA==
   dependencies:
     "@babel/runtime" "^7.8.4"
+
+"@zendeskgarden/react-theming@^8.32.0":
+  version "8.32.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.32.0.tgz#8489fa2da317c0ea19a14d78813641d3b61aab90"
+  integrity sha512-0eYYnM3JM61PUF1uzOGPcOIrpWOZjtqIZS/MTb02YiP40SjG4r5YH1gFmg86jj2B2iqUXOGeo5gHQFJ+LBVWJg==
+  dependencies:
+    "@zendeskgarden/container-focusvisible" "^0.4.6"
+    "@zendeskgarden/container-utilities" "^0.5.5"
+    polished "^4.0.0"
+    prop-types "^15.5.7"
 
 "@zendeskgarden/svg-icons@6.28.0":
   version "6.28.0"

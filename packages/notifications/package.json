@@ -21,7 +21,9 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "prop-types": "^15.5.7"
+    "nanoid": "^3.1.20",
+    "prop-types": "^15.5.7",
+    "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",
@@ -30,6 +32,7 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
+    "@types/react-transition-group": "^4.4.0",
     "@zendeskgarden/react-theming": "^8.32.0",
     "@zendeskgarden/svg-icons": "6.28.0"
   },

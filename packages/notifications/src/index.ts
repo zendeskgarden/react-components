@@ -11,3 +11,7 @@ export { Well } from './elements/Well';
 export { Close } from './elements/content/Close';
 export { Paragraph } from './elements/content/Paragraph';
 export { Title } from './elements/content/Title';
+export { ToastProvider } from './elements/toaster/ToastProvider';
+export type { IToastProviderProps } from './elements/toaster/ToastProvider';
+export type { IToast, IToastOptions, ToastPlacement } from './elements/toaster/reducer';
+export { useToast } from './elements/toaster/useToast';
