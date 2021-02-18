@@ -1,6 +1,6 @@
 # @zendeskgarden/react-colorpickers [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-colorpickers)](https://www.npmjs.com/package/@zendeskgarden/react-colorpickers)
 
-This package includes components related to colorpickers in the
+This package includes components related to color pickers in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
@@ -18,10 +18,11 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { ColorPicker } from '@zendeskgarden/react-colorpickers';
 
+
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <ColorPicker color="#17494D">
+  <ColorPicker defaultColor="#17494D">
 </ThemeProvider>
 ```

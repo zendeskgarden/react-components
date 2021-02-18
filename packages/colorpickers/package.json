@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "8.29.3",
+  "version": "8.32.1",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
