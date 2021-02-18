@@ -56,12 +56,13 @@ export const ToastSlot: React.FC<IToastSlotProps> = ({ toasts, placement, zIndex
     <StyledTransitionGroup
       key={placement}
       placement={placement}
+      zIndex={zIndex}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {toasts.map(toast => (
         <CSSTransition key={toast.id} timeout={400} classNames={TRANSITION_CLASS}>
-          <StyledFadeInTransition zIndex={zIndex} placement={placement}>
+          <StyledFadeInTransition placement={placement}>
             <Toast toast={toast} pauseTimers={pauseTimers} />
           </StyledFadeInTransition>
         </CSSTransition>

@@ -23,7 +23,8 @@ import { Dropdown, Field, Label, Select, Menu, Item } from '@zendeskgarden/react
 import { ToastPlacement } from '../src/elements/toaster/reducer';
 
 export default {
-  title: 'Components/Notifications/Toasts'
+  title: 'Components/Notifications/Toasts',
+  component: ToastProvider
 } as Meta;
 
 type VALIDATION_TYPE = 'success' | 'warning' | 'error' | 'info';
@@ -118,16 +119,20 @@ const NotificationExample: React.FC = () => {
   );
 };
 
-export const Default: Story<IToastProviderProps> = ({ limit }) => {
+export const Default: Story<IToastProviderProps> = ({ limit, zIndex }) => {
   return (
     <Grid>
       <Row>
         <Col sm={12} offsetSm={0} md={6} offsetMd={3} lg={4} offsetLg={4}>
-          <ToastProvider limit={limit}>
+          <ToastProvider limit={limit} zIndex={zIndex}>
             <NotificationExample />
           </ToastProvider>
         </Col>
       </Row>
     </Grid>
   );
+};
+
+Default.args = {
+  zIndex: 100
 };

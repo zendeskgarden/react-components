@@ -12,8 +12,7 @@ import { ToastPlacement } from './reducer';
 
 export const TRANSITION_CLASS = 'garden-toast-transition';
 
-export const StyledFadeInTransition = styled.div<{ zIndex?: number; placement: ToastPlacement }>`
-  z-index: ${p => p.zIndex};
+export const StyledFadeInTransition = styled.div<{ placement: ToastPlacement }>`
   margin-bottom: ${p => p.theme.space.base * 2}px;
 
   &.${TRANSITION_CLASS}-enter {
@@ -25,10 +24,10 @@ export const StyledFadeInTransition = styled.div<{ zIndex?: number; placement: T
           props.placement === 'bottom' ||
           props.placement === 'bottom-end'
         ) {
-          return '-100px';
+          return '100px';
         }
 
-        return '100px';
+        return '-100px';
       }}
     );
     /* stylelint-enable */
@@ -85,6 +84,7 @@ StyledFadeInTransition.defaultProps = {
 
 interface IStyledTransitionGroupProps {
   placement: ToastPlacement;
+  zIndex?: number;
 }
 
 const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionGroupProps) => {
@@ -158,6 +158,7 @@ const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionGrou
 
 export const StyledTransitionGroup = styled(TransitionGroup)<IStyledTransitionGroupProps>`
   position: fixed;
+  z-index: ${props => props.zIndex};
 
   ${placementStyles};
 `;
