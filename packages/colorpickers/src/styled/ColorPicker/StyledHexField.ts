@@ -13,7 +13,8 @@ const COMPONENT_ID = 'colorpickers.colorpicker.hex_field';
 
 export const StyledHexField = styled(Field).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  spellcheck: false
 })`
   display: flex;
   flex-direction: column;

@@ -17,6 +17,7 @@ export const StyledLabel = styled(Label).attrs({
 })`
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -256,7 +256,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
 );
 
 ColorPicker.defaultProps = {
-  defaultColor: '#ffffff'
+  defaultColor: '#fff'
 };
 
 ColorPicker.displayName = 'ColorPicker';

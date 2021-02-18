@@ -17,7 +17,7 @@ export const StyledFauxInput = styled(FauxInput).attrs({
 })`
   padding: 0;
   width: ${props => props.theme.space.base * 17}px;
-  height: 40px;
+  height: ${props => props.theme.space.base * 10}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
