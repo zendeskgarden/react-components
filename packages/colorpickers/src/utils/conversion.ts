@@ -116,12 +116,6 @@ export function hsvToRgb(h: number, s: number, v: number) {
   };
 }
 
-export function hslToRgb(h: number, s: number, l: number) {
-  const hsv = hslToHsv(h, s, l);
-
-  return hsvToRgb(hsv.h, hsv.s, hsv.v);
-}
-
 export function rgbToHsl(r: number, g: number, b: number) {
   const hsv = rgbToHsv(r, g, b);
 

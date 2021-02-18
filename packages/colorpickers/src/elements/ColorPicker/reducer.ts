@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { parseToHsl, parseToRgb, rgb as rgbToString } from 'polished';
+import { parseToHsl, parseToRgb, rgb as rgbToString, hsl as hslObjectToHexString } from 'polished';
 import isEqual from 'lodash.isequal';
-import { hsvToHsl, rgbToHsl, hslToRgb, rgbToHex } from '../../utils/conversion';
+import { hsvToHsl, rgbToHsl, rgbToHex } from '../../utils/conversion';
 import { IColor, IRGBColor, IHSVColor } from '../../utils/types';
 import { isValidHex } from '../../utils/validation';
 
@@ -107,8 +107,12 @@ export const reducer = (
   switch (action.type) {
     case 'SATURATION_CHANGE': {
       const hsl = hsvToHsl(action.payload.h, action.payload.s * 100, action.payload.v * 100);
-      const rgb = hslToRgb(state.color.hue, hsl.s, hsl.l);
-      const hex = rgbToString(rgb.r, rgb.g, rgb.b);
+      const hex = hslObjectToHexString({
+        hue: action.payload.h,
+        saturation: hsl.s / 100,
+        lightness: hsl.l / 100
+      });
+      const rgb = parseToRgb(hex);
 
       return {
         ...state,
@@ -117,20 +121,20 @@ export const reducer = (
           saturation: hsl.s,
           lightness: hsl.l,
           hex,
-          red: rgb.r,
-          green: rgb.g,
-          blue: rgb.b
+          red: rgb.red,
+          green: rgb.green,
+          blue: rgb.blue
         }
       };
     }
     case 'HUE_CHANGE': {
       const hue = Number(action.payload);
-      const rgb = hslToRgb(hue, state.color.saturation, state.color.lightness);
-      const hex = rgbToString({
-        red: rgb.r,
-        green: rgb.g,
-        blue: rgb.b
+      const hex = hslObjectToHexString({
+        hue,
+        saturation: state.color.saturation / 100,
+        lightness: state.color.lightness / 100
       });
+      const rgb = parseToRgb(hex);
 
       return {
         ...state,
@@ -138,9 +142,9 @@ export const reducer = (
           ...state.color,
           hue,
           hex,
-          red: rgb.r,
-          green: rgb.g,
-          blue: rgb.b
+          red: rgb.red,
+          green: rgb.green,
+          blue: rgb.blue
         }
       };
     }

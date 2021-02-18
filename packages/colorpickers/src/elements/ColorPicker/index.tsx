@@ -166,7 +166,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
           <StyledSliders>
             <StyledHueField>
               <Label hidden>{labels.hueSlider || 'Hue slider'}</Label>
-              <StyledHue step={1} max={359} value={computedColor.hue} onChange={handleHueChange} />
+              <StyledHue step={1} max={360} value={computedColor.hue} onChange={handleHueChange} />
             </StyledHueField>
             <StyledAlphaField>
               <Label hidden>{labels.alphaSlider || 'Alpha slider'}</Label>
