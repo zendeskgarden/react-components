@@ -54,7 +54,8 @@ Uncontrolled.argTypes = {
   red: { control: 'text', name: 'Red input label', description: 'A label for the red input' },
   green: { control: 'text', name: 'Green input label', description: 'A label for the green input' },
   blue: { control: 'text', name: 'Blue input label', description: 'A label for the blue input' },
-  alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' }
+  alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' },
+  labels: { control: false }
 };
 
 Uncontrolled.parameters = {

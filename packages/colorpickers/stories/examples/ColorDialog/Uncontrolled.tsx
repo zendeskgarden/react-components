@@ -72,8 +72,8 @@ Uncontrolled.argTypes = {
   blue: { control: 'text', name: 'Blue input label', description: 'A label for the blue input' },
   alpha: { control: 'text', name: 'Alpha input label', description: 'A label for the alpha input' },
   disabled: { control: 'boolean' },
+  labels: { control: false },
   placement: {
-    labels: { control: 'object' },
     control: {
       type: 'select',
       options: [
