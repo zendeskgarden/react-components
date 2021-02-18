@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { parseToHsl, parseToRgb, rgb as rgbToString, hsl as hslObjectToHexString } from 'polished';
 import isEqual from 'lodash.isequal';
-import { hsvToHsl, rgbToHsl, rgbToHex } from '../../utils/conversion';
-import { IColor, IRGBColor, IHSVColor } from '../../utils/types';
+import { parseToHsl, parseToRgb, rgb as rgbObjectToHex, hsl as hslObjectToHex } from 'polished';
+import { hsvToHsl } from '../../utils/conversion';
 import { isValidHex } from '../../utils/validation';
+import { IColor, IRGBColor, IHSVColor } from '../../utils/types';
 
 type ColorPickerActionTypes =
   | { type: 'SATURATION_CHANGE'; payload: IHSVColor }
@@ -39,7 +39,7 @@ export function convertStringToColor(colorString: string): IColor | undefined {
   const { hue, saturation, lightness } = parseToHsl(colorString);
   const { red, green, blue, alpha } = parseToRgb(colorString) as IRGBColor;
   const computedAlpha = alpha === undefined ? 100 : alpha * 100;
-  const computedHex = rgbToHex(red, green, blue);
+  const computedHex = rgbObjectToHex({ red, green, blue });
 
   return {
     hue,
@@ -107,7 +107,7 @@ export const reducer = (
   switch (action.type) {
     case 'SATURATION_CHANGE': {
       const hsl = hsvToHsl(action.payload.h, action.payload.s * 100, action.payload.v * 100);
-      const hex = hslObjectToHexString({
+      const hex = hslObjectToHex({
         hue: action.payload.h,
         saturation: hsl.s / 100,
         lightness: hsl.l / 100
@@ -129,7 +129,7 @@ export const reducer = (
     }
     case 'HUE_CHANGE': {
       const hue = Number(action.payload);
-      const hex = hslObjectToHexString({
+      const hex = hslObjectToHex({
         hue,
         saturation: state.color.saturation / 100,
         lightness: state.color.lightness / 100
@@ -162,13 +162,13 @@ export const reducer = (
 
       if (isValidHex(action.payload)) {
         const rgb = parseToRgb(action.payload);
-        const hsl = rgbToHsl(rgb.red, rgb.green, rgb.blue);
+        const hsl = parseToHsl(`rgb(${rgb.red}, ${rgb.green}, ${rgb.blue})`);
 
         color = {
           ...color,
-          hue: hsl.h,
-          saturation: hsl.s,
-          lightness: hsl.l,
+          hue: hsl.hue,
+          saturation: hsl.saturation * 100,
+          lightness: hsl.lightness * 100,
           hex: action.payload,
           red: rgb.red,
           green: rgb.green,
@@ -195,16 +195,16 @@ export const reducer = (
           red = 0;
         }
 
-        const hsl = rgbToHsl(red, color.green, color.blue);
-        const hex = rgbToString(red, color.green, color.blue);
+        const hsl = parseToHsl(`rgb(${red}, ${color.green}, ${color.blue})`);
+        const hex = rgbObjectToHex(red, color.green, color.blue);
 
         color = {
           ...color,
           hex,
           red: action.payload === '' ? color.red : red,
-          hue: hsl.h,
-          lightness: hsl.l,
-          saturation: hsl.s
+          hue: hsl.hue,
+          saturation: hsl.saturation * 100,
+          lightness: hsl.lightness * 100
         };
       }
 
@@ -227,16 +227,16 @@ export const reducer = (
           green = 0;
         }
 
-        const hsl = rgbToHsl(color.red, green, color.blue);
-        const hex = rgbToString(color.red, green, color.blue);
+        const hsl = parseToHsl(`rgb(${color.red}, ${green}, ${color.blue})`);
+        const hex = rgbObjectToHex(color.red, green, color.blue);
 
         color = {
           ...color,
           hex,
           green: action.payload === '' ? color.green : green,
-          hue: hsl.h,
-          lightness: hsl.l,
-          saturation: hsl.s
+          hue: hsl.hue,
+          saturation: hsl.saturation * 100,
+          lightness: hsl.lightness * 100
         };
       }
 
@@ -259,16 +259,16 @@ export const reducer = (
           blue = 0;
         }
 
-        const hsl = rgbToHsl(color.red, color.green, blue);
-        const hex = rgbToString(color.red, color.green, blue);
+        const hsl = parseToHsl(`rgb(${color.red}, ${color.green}, ${blue})`);
+        const hex = rgbObjectToHex(color.red, color.green, blue);
 
         color = {
           ...color,
           hex,
           blue: action.payload === '' ? color.blue : blue,
-          hue: hsl.h,
-          lightness: hsl.l,
-          saturation: hsl.s
+          hue: hsl.hue,
+          saturation: hsl.saturation * 100,
+          lightness: hsl.lightness * 100
         };
       }
 

@@ -188,11 +188,14 @@ describe('ColorPicker', () => {
       userEvent.type(hexInput, '#b4da55');
 
       expect(previewBox).toHaveAttribute('style', 'background-color: rgb(180, 218, 85);');
-      expect(hueSlider.value).toBe('77');
+      expect(hueSlider.value).toBe('77.14285714285714');
       expect(redInput.value).toBe('180');
       expect(greenInput.value).toBe('218');
       expect(blueInput.value).toBe('85');
-      expect(colorWellThumb).toHaveAttribute('style', 'top: 15%; left: 60.99999999999998%;');
+      expect(colorWellThumb).toHaveAttribute(
+        'style',
+        'top: 14.509803921568633%; left: 61.00917431192659%;'
+      );
     });
 
     it('updates the color picker when the R input is changed', () => {
@@ -215,8 +218,8 @@ describe('ColorPicker', () => {
       userEvent.type(redInput, '255');
 
       expect(previewBox).toHaveAttribute('style', 'background-color: rgb(255, 73, 77);');
-      expect(hueSlider.value).toBe('359');
-      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 71%;');
+      expect(hueSlider.value).toBe('358.68131868131866');
+      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 71.37254901960785%;');
     });
 
     it('updates the color picker when the G input is changed', () => {
@@ -239,8 +242,8 @@ describe('ColorPicker', () => {
       userEvent.type(greenInput, '255');
 
       expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 255, 77);');
-      expect(hueSlider.value).toBe('134');
-      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 91%;');
+      expect(hueSlider.value).toBe('133.9655172413793');
+      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
 
     it('updates the color picker when the B input is changed', () => {
@@ -263,8 +266,8 @@ describe('ColorPicker', () => {
       userEvent.type(blueInput, '255');
 
       expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 255);');
-      expect(hueSlider.value).toBe('227');
-      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 91%;');
+      expect(hueSlider.value).toBe('227.06896551724137');
+      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
 
     it('updates with correct alpha when the A input is changed', () => {
@@ -331,8 +334,11 @@ describe('ColorPicker', () => {
 
       userEvent.type(hexInput, 'da55'); // now valid hex
 
-      expect(hueSlider.value).toBe('77');
-      expect(colorWellThumb).toHaveAttribute('style', 'top: 15%; left: 60.99999999999998%;');
+      expect(hueSlider.value).toBe('77.14285714285714');
+      expect(colorWellThumb).toHaveAttribute(
+        'style',
+        'top: 14.509803921568633%; left: 61.00917431192659%;'
+      );
     });
   });
 
@@ -497,11 +503,14 @@ describe('ColorPicker', () => {
       userEvent.type(hexInput, '#b4da55');
 
       expect(previewBox).toHaveAttribute('style', 'background-color: rgb(180, 218, 85);');
-      expect(hueSlider.value).toBe('77');
+      expect(hueSlider.value).toBe('77.14285714285714');
       expect(redInput.value).toBe('180');
       expect(greenInput.value).toBe('218');
       expect(blueInput.value).toBe('85');
-      expect(colorWellThumb).toHaveAttribute('style', 'top: 15%; left: 60.99999999999998%;');
+      expect(colorWellThumb).toHaveAttribute(
+        'style',
+        'top: 14.509803921568633%; left: 61.00917431192659%;'
+      );
     });
 
     it('updates the color picker when the R input is changed', () => {
@@ -531,8 +540,8 @@ describe('ColorPicker', () => {
       userEvent.type(redInput, '255');
 
       expect(previewBox).toHaveAttribute('style', 'background-color: rgb(255, 73, 77);');
-      expect(hueSlider.value).toBe('359');
-      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 71%;');
+      expect(hueSlider.value).toBe('358.68131868131866');
+      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 71.37254901960785%;');
     });
 
     it('updates the color picker when the G input is changed', () => {
@@ -562,8 +571,8 @@ describe('ColorPicker', () => {
       userEvent.type(greenInput, '255');
 
       expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 255, 77);');
-      expect(hueSlider.value).toBe('134');
-      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 91%;');
+      expect(hueSlider.value).toBe('133.9655172413793');
+      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
 
     it('updates the color picker when the B input is changed', () => {
@@ -593,8 +602,8 @@ describe('ColorPicker', () => {
       userEvent.type(blueInput, '255');
 
       expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 255);');
-      expect(hueSlider.value).toBe('227');
-      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 91%;');
+      expect(hueSlider.value).toBe('227.06896551724137');
+      expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
 
     it('updates with correct alpha when the A input is changed', () => {
@@ -688,8 +697,11 @@ describe('ColorPicker', () => {
 
       userEvent.type(hexInput, 'da55'); // now valid hex
 
-      expect(hueSlider.value).toBe('77');
-      expect(colorWellThumb).toHaveAttribute('style', 'top: 15%; left: 60.99999999999998%;');
+      expect(hueSlider.value).toBe('77.14285714285714');
+      expect(colorWellThumb).toHaveAttribute(
+        'style',
+        'top: 14.509803921568633%; left: 61.00917431192659%;'
+      );
     });
 
     it('sets color picker text inputs when color prop is manually controlled', () => {
@@ -733,7 +745,7 @@ describe('ColorPicker', () => {
 
       userEvent.click(screen.getByText('Change rgba(0, 0, 0, .50)'));
 
-      expect(hexInput.value).toBe('#000000');
+      expect(hexInput.value).toBe('#000');
       expect(redInput.value).toBe('0');
       expect(greenInput.value).toBe('0');
       expect(blueInput.value).toBe('0');
