@@ -20,6 +20,10 @@ export const StyledHexField = styled(Field).attrs({
   width: ${props => props.theme.space.base * 21.5}px;
   text-align: center;
 
+  input {
+    direction: ltr;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
