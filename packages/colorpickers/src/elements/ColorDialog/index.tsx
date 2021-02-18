@@ -79,7 +79,7 @@ export const ColorDialog = forwardRef<
             ref: mergedRef
           })
         ) : (
-          <StyledFauxInput disabled={disabled}>
+          <StyledFauxInput tabIndex={-1} disabled={disabled}>
             <StyledButton disabled={disabled} ref={mergedRef} onClick={onClick} {...props}>
               <StyledDialogPreview backgroundColor={isControlled ? color : uncontrolledColor} />
               <Button.EndIcon>
