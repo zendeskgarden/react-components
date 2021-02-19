@@ -22,7 +22,6 @@ import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { ColorPicker, IColorPickerProps } from '../ColorPicker';
 import { IColor } from '../../utils/types';
 import {
-  StyledIcon,
   StyledButton,
   StyledDialogPreview,
   StyledTooltipModal,
@@ -76,10 +75,9 @@ export const ColorDialog = forwardRef<
       ) : (
         <StyledButton ref={mergedRef} onClick={onClick} {...props}>
           <StyledDialogPreview backgroundColor={isControlled ? color : uncontrolledColor} />
-          <Button.EndIcon>
-            <StyledIcon isRotated={referenceElement}>
-              <Chevron />
-            </StyledIcon>
+          {/* eslint-disable-next-line no-eq-null, eqeqeq */}
+          <Button.EndIcon isRotated={referenceElement != null}>
+            <Chevron />
           </Button.EndIcon>
         </StyledButton>
       )}

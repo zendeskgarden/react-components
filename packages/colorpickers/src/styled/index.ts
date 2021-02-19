@@ -26,6 +26,5 @@ export * from './ColorPicker/StyledAlphaField';
 
 export * from './ColorDialog/StyledDialogPreview';
 export * from './ColorDialog/StyledButton';
-export * from './ColorDialog/StyledIcon';
 export * from './ColorDialog/StyledTooltipModal';
 export * from './ColorDialog/StyledTooltipBody';
