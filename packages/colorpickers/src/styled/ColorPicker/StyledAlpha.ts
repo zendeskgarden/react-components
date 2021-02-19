@@ -8,7 +8,7 @@
 import { Range } from '@zendeskgarden/react-forms';
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { thumbStyles, colorStyles } from './StyledHue';
+import { colorStyles, thumbStyles, trackStyles, trackLowerStyles } from './StyledHue';
 
 const COMPONENT_ID = 'colorpickers.colorpicker.alpha';
 
@@ -21,26 +21,6 @@ export const StyledAlpha = styled(Range).attrs({
   border-radius: 0;
   height: ${props => props.theme.space.base * 3}px;
 
-  &::-webkit-slider-runnable-track {
-    background: none;
-  }
-
-  &::-moz-range-track {
-    background: none;
-  }
-
-  &::-ms-track {
-    background: none;
-  }
-
-  &::-moz-range-progress {
-    background: none;
-  }
-
-  &::-ms-fill-lower {
-    background: none;
-  }
-
   &::-webkit-slider-thumb {
     margin-top: -5px;
   }
@@ -50,6 +30,10 @@ export const StyledAlpha = styled(Range).attrs({
     height: ${props.theme.space.base * 4}px;
     width: ${props.theme.space.base * 4}px;
   `)}
+
+  ${trackStyles(`background: none;`)}
+
+  ${trackLowerStyles(`background: none;`)}
 
   ${colorStyles}
 

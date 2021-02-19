@@ -27,23 +27,31 @@ export const thumbStyles = (styles: string, modifier = '') => {
   `;
 };
 
-const hueTrackStyles = (props: ThemeProps<DefaultTheme>) => {
+export const trackStyles = (styles: string, modifier = '') => {
   return `
-    margin: 0;
-    border-radius: 0;
-    /* stylelint-disable */
-    background: linear-gradient(
-      to ${props.theme.rtl ? 'left' : 'right'},
-      #f00 0%,
-      #ff0 17%,
-      #0f0 33%,
-      #0ff 50%,
-      #00f 67%,
-      #f0f 83%,
-      #f00 100%
-    );
-    /* stylelint-enable */
-    height: ${props.theme.space.base * 3}px;
+    &${modifier}::-moz-range-track {
+      ${styles}
+    }
+
+    &${modifier}::-ms-track {
+      ${styles}
+    }
+
+    &${modifier}::-webkit-slider-runnable-track {
+      ${styles}
+    }
+  `;
+};
+
+export const trackLowerStyles = (styles: string, modifier = '') => {
+  return `
+    &${modifier}::-moz-range-progress {
+      ${styles}
+    }
+
+    &${modifier}::-ms-fill-lower {
+      ${styles}
+    }
   `;
 };
 
@@ -109,25 +117,26 @@ export const StyledHue = styled(Range).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  &::-moz-range-track {
-    ${hueTrackStyles}
-  }
+  ${props =>
+    trackStyles(`
+      margin: 0;
+      border-radius: 0;
+      /* stylelint-disable */
+      background: linear-gradient(
+        to ${props.theme.rtl ? 'left' : 'right'},
+        #f00 0%,
+        #ff0 17%,
+        #0f0 33%,
+        #0ff 50%,
+        #00f 67%,
+        #f0f 83%,
+        #f00 100%
+      );
+      /* stylelint-enable */
+      height: ${props.theme.space.base * 3}px;
+  `)}
 
-  &::-webkit-slider-runnable-track {
-    ${hueTrackStyles}
-  }
-
-  &::-ms-track {
-    ${hueTrackStyles}
-  }
-
-  &::-moz-range-progress {
-    opacity: 0;
-  }
-
-  &::-ms-fill-lower {
-    opacity: 0;
-  }
+  ${trackLowerStyles(`opacity: 0;`)}
 
   &::-webkit-slider-thumb {
     margin-top: -${props => props.theme.space.base / 2}px;
