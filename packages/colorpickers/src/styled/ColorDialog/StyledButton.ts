@@ -41,7 +41,9 @@ export const StyledButton = styled(Button).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  border: none;
+  padding: 0;
+  width: ${props => props.theme.space.base * 17}px;
+  height: ${props => props.theme.space.base * 10}px;
 
   &:hover {
     background-color: ${props => props.theme.colors.background};
