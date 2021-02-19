@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { Input } from '@zendeskgarden/react-forms';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker.input';
+const COMPONENT_ID = 'colorpickers.colorpicker_input';
 
 export const StyledInput = styled(Input).attrs({
   'data-garden-id': COMPONENT_ID,

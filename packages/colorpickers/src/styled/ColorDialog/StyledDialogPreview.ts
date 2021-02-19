@@ -9,7 +9,7 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IColor } from '../../utils/types';
 
-const COMPONENT_ID = 'colorpickers.colordialog.preview';
+const COMPONENT_ID = 'colorpickers.colordialog_preview';
 
 export interface IStyleDialogPreviewProps extends ThemeProps<DefaultTheme> {
   backgroundColor?: string | IColor;

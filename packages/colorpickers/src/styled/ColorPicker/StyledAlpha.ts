@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { colorStyles, thumbStyles, trackStyles, trackLowerStyles } from './StyledHue';
 
-const COMPONENT_ID = 'colorpickers.colorpicker.alpha';
+const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
 
 export const StyledAlpha = styled(Range).attrs({
   'data-garden-id': COMPONENT_ID,

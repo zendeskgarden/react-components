@@ -8,8 +8,7 @@
 import styled from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker.colorwell';
-
+const COMPONENT_ID = 'colorpickers.colorpicker_colorwell';
 interface IStyledColorWellProps {
   hue: number;
 }

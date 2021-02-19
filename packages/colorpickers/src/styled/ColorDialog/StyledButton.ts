@@ -9,7 +9,7 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
-const COMPONENT_ID = 'colorpickers.colordialog.button';
+const COMPONENT_ID = 'colorpickers.colordialog_button';
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const shade = 600;

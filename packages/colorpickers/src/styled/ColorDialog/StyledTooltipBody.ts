@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { TooltipModal } from '@zendeskgarden/react-modals';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colordialog.tooltipmodal_body';
+const COMPONENT_ID = 'colorpickers.colordialog_tooltipmodal_body';
 
 export const StyledTooltipBody = styled(TooltipModal.Body).attrs({
   'data-garden-id': COMPONENT_ID,

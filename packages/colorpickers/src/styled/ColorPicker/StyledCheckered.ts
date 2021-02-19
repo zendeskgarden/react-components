@@ -8,7 +8,7 @@
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker.checkered';
+const COMPONENT_ID = 'colorpickers.colorpicker_checkered';
 
 export const backgroundStyles = (props: ThemeProps<DefaultTheme>) => {
   const checkColor = getColor('neutralHue', 400, props.theme);

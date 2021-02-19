@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { Label } from '@zendeskgarden/react-forms';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker.label';
+const COMPONENT_ID = 'colorpickers.colorpicker_label';
 
 export const StyledLabel = styled(Label).attrs({
   'data-garden-id': COMPONENT_ID,

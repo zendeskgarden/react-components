@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IRGBColor } from '../../utils/types';
 
-const COMPONENT_ID = 'colorpickers.colorpicker.alpha_gradient';
+const COMPONENT_ID = 'colorpickers.colorpicker_alpha_gradient';
 
 export const StyledAlphaGradient = styled.div.attrs<IRGBColor>(props => ({
   style: {

@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker.colorwell_wrapper';
+const COMPONENT_ID = 'colorpickers.colorpicker_colorwell_wrapper';
 
 export const StyledColorWellWrapper = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
