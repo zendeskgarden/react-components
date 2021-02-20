@@ -37,6 +37,8 @@ export const StyledDialogPreview = styled.div.attrs<IStyleDialogPreviewProps>({
   'data-test-id': 'dialog-preview'
 })<IStyleDialogPreviewProps>`
   display: inline-block;
+  position: relative;
+  z-index: 1;
   /* stylelint-disable-next-line color-function-notation */
   border: ${props =>
     `${props.theme.borders.sm} ${getColor(

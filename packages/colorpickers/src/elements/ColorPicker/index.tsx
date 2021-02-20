@@ -8,6 +8,7 @@
 import React, {
   useEffect,
   useCallback,
+  useContext,
   useReducer,
   forwardRef,
   HTMLAttributes,
@@ -15,6 +16,7 @@ import React, {
   useRef
 } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeContext } from 'styled-components';
 import { Label } from '@zendeskgarden/react-forms';
 import { ColorWell } from './ColorWell';
 import {
@@ -73,6 +75,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
     const [state, dispatch] = useReducer(reducer, getInitialState(color || defaultColor));
     const previousComputedColorRef = useRef<IColor>(state.color);
     const previousStateColorRef = useRef<IColor>(state.color);
+    const theme = useContext(ThemeContext);
 
     const computedColor = useMemo(() => {
       if (color) {
@@ -163,6 +166,13 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             blue={computedColor.blue}
             alpha={computedColor.alpha}
           />
+          <StyledCheckered
+            height={`${theme.space.base * 8}px`}
+            width={`${theme.space.base * 8}px`}
+            size={`${theme.space.base * 3.25}px`}
+            position={`${theme.space.base * 1.5}px`}
+            sticky
+          />
           <StyledSliders>
             <StyledHueField>
               <Label hidden>{labels.hueSlider || 'Hue slider'}</Label>
@@ -176,7 +186,12 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                 value={computedColor.alpha / 100}
                 onChange={handleAlphaSliderChange}
               />
-              <StyledCheckered />
+              <StyledCheckered
+                height={`${theme.space.base * 3}px`}
+                width="100%"
+                size={`${theme.space.base * 3}px`}
+                position={`${theme.space.base * 1.5}px`}
+              />
               <StyledAlphaGradient
                 red={computedColor.red}
                 green={computedColor.green}

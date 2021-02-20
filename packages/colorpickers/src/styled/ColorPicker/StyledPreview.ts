@@ -21,7 +21,9 @@ export const StyledPreview = styled.div.attrs<IRGBColor>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'preview-box'
 }))<IRGBColor>`
+  position: relative;
   flex-shrink: 0;
+  z-index: 1;
   border-radius: ${props => props.theme.borderRadii.md};
   /* stylelint-disable-next-line color-function-notation */
   box-shadow: inset 0 0 0 ${props => props.theme.borderWidths.sm}

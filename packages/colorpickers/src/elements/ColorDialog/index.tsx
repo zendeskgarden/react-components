@@ -7,6 +7,7 @@
 
 import React, {
   useState,
+  useContext,
   useRef,
   Children,
   cloneElement,
@@ -16,6 +17,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
+import { ThemeContext } from 'styled-components';
 import { Button } from '@zendeskgarden/react-buttons';
 import { GARDEN_PLACEMENT } from '@zendeskgarden/react-modals';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
@@ -24,6 +26,8 @@ import { IColor } from '../../utils/types';
 import {
   StyledButton,
   StyledDialogPreview,
+  StyledPreviewContainer,
+  StyledCheckered,
   StyledTooltipModal,
   StyledTooltipBody
 } from '../../styled';
@@ -48,6 +52,7 @@ export const ColorDialog = forwardRef<
   HTMLButtonElement,
   IColorDialogProps & Omit<HTMLAttributes<HTMLButtonElement>, 'color' | 'onChange'>
 >(({ color, defaultColor, placement, onChange, onClose, labels, children, ...props }, ref) => {
+  const theme = useContext(ThemeContext);
   const isControlled = color !== null && color !== undefined;
   const buttonRef = useRef<HTMLButtonElement>(null);
   const colorPickerRef = useRef<HTMLDivElement>(null);
@@ -74,7 +79,16 @@ export const ColorDialog = forwardRef<
         })
       ) : (
         <StyledButton ref={mergedRef} onClick={onClick} {...props}>
-          <StyledDialogPreview backgroundColor={isControlled ? color : uncontrolledColor} />
+          <StyledPreviewContainer>
+            <StyledDialogPreview backgroundColor={isControlled ? color : uncontrolledColor} />
+            <StyledCheckered
+              height={`${theme.space.base * 5}px`}
+              width={`${theme.space.base * 5}px`}
+              size={`${theme.space.base * 2}px`}
+              position={`${theme.space.base}px`}
+              sticky
+            />
+          </StyledPreviewContainer>
           {/* eslint-disable-next-line no-eq-null, eqeqeq */}
           <Button.EndIcon isRotated={referenceElement != null}>
             <Chevron />

@@ -8,20 +8,18 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_slider_group';
+const COMPONENT_ID = 'colorpickers.colordialog_preview_container';
 
-export const StyledSliderGroup = styled.div.attrs({
+export const StyledPreviewContainer = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   display: flex;
   position: relative;
-  justify-content: space-between;
-  margin-bottom: ${props => props.theme.space.base * 2}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledSliderGroup.defaultProps = {
+StyledPreviewContainer.defaultProps = {
   theme: DEFAULT_THEME
 };

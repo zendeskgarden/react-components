@@ -8,9 +8,17 @@
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_checkered';
+const COMPONENT_ID = 'colorpickers.checkered';
 
-export const backgroundStyles = (props: ThemeProps<DefaultTheme>) => {
+interface IStyledCheckered {
+  height: string;
+  width: string;
+  size: string;
+  position: string;
+  sticky?: boolean;
+}
+
+const backgroundStyles = (props: IStyledCheckered & ThemeProps<DefaultTheme>) => {
   const checkColor = getColor('neutralHue', 400, props.theme);
 
   return `
@@ -18,24 +26,26 @@ export const backgroundStyles = (props: ThemeProps<DefaultTheme>) => {
       linear-gradient(135deg, ${checkColor} 25%, transparent 25%),
       linear-gradient(45deg, transparent 75%, ${checkColor} 75%),
       linear-gradient(135deg, transparent 75%, ${checkColor} 75%);
-    background-position: 0 0, 6px 0, 6px -6px, 0 6px;
-    background-size: ${props.theme.space.base * 3}px ${props.theme.space.base * 3}px;
+    background-position: 0 0, ${props.position} 0, ${props.position} -${props.position}, 0 ${props.position};
+    background-size: ${props.size} ${props.size};
   `;
 };
 
-export const StyledCheckered = styled.div.attrs({
+export const StyledCheckered = styled.div.attrs<IStyledCheckered>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledCheckered>`
   position: absolute;
+  ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => (props.sticky ? 0 : undefined)};
   z-index: 0;
   ${backgroundStyles}
-  width: 100%;
-  height: ${props => props.theme.space.base * 3}px;
+  width: ${props => props.width};
+  height: ${props => props.height};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledCheckered.defaultProps = {
-  theme: DEFAULT_THEME
+  theme: DEFAULT_THEME,
+  sticky: false
 };
