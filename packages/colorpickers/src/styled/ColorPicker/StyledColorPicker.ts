@@ -17,6 +17,7 @@ export const StyledColorPicker = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   width: ${COLORPICKER_WIDTH}px;
+  min-width: ${COLORPICKER_WIDTH}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

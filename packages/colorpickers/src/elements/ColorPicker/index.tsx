@@ -58,7 +58,7 @@ export interface IColorPickerProps
   /**
    * Handles color picker changes
    *
-   * @param {Object} color a color picker state
+   * @param {Object} color A color picker state
    */
   onChange?: (color: IColor) => void;
   /** Replaces the default labels within the color picker */

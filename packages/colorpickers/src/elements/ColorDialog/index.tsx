@@ -36,7 +36,7 @@ export interface IColorDialogProps extends IColorPickerProps {
   /**
    * Handles close actions. Can be triggered from the backdrop.
    *
-   * @param {Object} color a color picker state
+   * @param {Object} color A color picker state
    */
   onClose?: (color: IColor) => void;
   /** Adjusts the placement of the color dialog */
