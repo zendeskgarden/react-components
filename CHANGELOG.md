@@ -11,6 +11,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v8.32.1 (2021-02-17)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1020](https://github.com/zendeskgarden/react-components/pull/1020) fix(dropdowns): allow multiselect to receive focus when state is cont… ([@austingreendev](https://github.com/austingreendev))
+* `tables`
+  * [#1019](https://github.com/zendeskgarden/react-components/pull/1019) fix(tables): ensure readonly tables don't show focus treatment ([@austingreendev](https://github.com/austingreendev))
+* `buttons`
+  * [#1017](https://github.com/zendeskgarden/react-components/pull/1017) fix(buttons): danger IconButton foreground color styling ([@jzempel](https://github.com/jzempel))
+* `accordions`
+  * [#1013](https://github.com/zendeskgarden/react-components/pull/1013) fix(accordions): Stop stepper's counter incrementing twice in React.StrictMode ([@MarkSFrancis](https://github.com/MarkSFrancis))
 ## v8.32.0 (2021-02-10)
 
 #### :rocket: New Feature
