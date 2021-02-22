@@ -34,7 +34,20 @@ const StyledContainer = styled.div`
   margin-top: ${props => props.theme.space.base}px;
 `;
 
-export const WithFormInput: Story = ({ labels, placement }) => {
+export const WithFormInput: Story = ({
+  placement,
+  alphaSlider,
+  hueSlider,
+  hex,
+  red,
+  green,
+  blue,
+  alpha,
+  disabled,
+  hasArrow,
+  isAnimated
+}) => {
+  const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [input, setInput] = useState(DEFAULT_THEME.colors.background);
   const [color, setColor] = useState<string | IColor>(DEFAULT_THEME.colors.background);
 
@@ -50,11 +63,15 @@ export const WithFormInput: Story = ({ labels, placement }) => {
             setColor(selectedColor);
             setInput(selectedColor.hex);
           }}
+          disabled={disabled}
+          hasArrow={hasArrow}
+          isAnimated={isAnimated}
         />
         <StyledInput
           isCompact
           maxLength={7}
           value={input}
+          disabled={disabled}
           onChange={e => {
             setInput(e.target.value);
             if (validHex.test(e.target.value)) {
@@ -68,15 +85,42 @@ export const WithFormInput: Story = ({ labels, placement }) => {
 };
 
 WithFormInput.args = {
-  placement: 'top',
-  labels: {
-    alphaSlider: 'Alpha slider',
-    hueSlider: 'Hue slider',
-    hex: 'Hex',
-    red: 'R',
-    green: 'G',
-    blue: 'B',
-    alpha: 'A'
+  placement: 'bottom',
+  alphaSlider: 'Alpha slider',
+  hueSlider: 'Hue slider',
+  hex: 'Hex',
+  red: 'R',
+  green: 'G',
+  blue: 'B',
+  alpha: 'A',
+  disabled: false,
+  hasArrow: false,
+  isAnimated: true
+};
+
+WithFormInput.argTypes = {
+  labels: { control: false },
+  zIndex: { control: { disable: true } },
+  popperModifiers: { control: { disable: true } },
+  placement: {
+    control: {
+      type: 'select',
+      options: [
+        'auto',
+        'top',
+        'top-start',
+        'top-end',
+        'bottom',
+        'bottom-start',
+        'bottom-end',
+        'end',
+        'end-top',
+        'end-bottom',
+        'start',
+        'start-top',
+        'start-bottom'
+      ]
+    }
   }
 };
 
@@ -84,9 +128,8 @@ WithFormInput.parameters = {
   docs: {
     description: {
       story: `
-  The color dialog can use a custom trigger element for the dialog button.
-  This example demonstrates using a \`IconButton\` as the color dialog
-  trigger element.
+  The color dialog can share controlled color state with form inputs.
+  This example demonstrates using a color dialog with a form input.
 `
     }
   }

@@ -18,6 +18,7 @@ import React, {
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
+import { Modifier } from 'react-popper';
 import { Button } from '@zendeskgarden/react-buttons';
 import { GARDEN_PLACEMENT } from '@zendeskgarden/react-modals';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
@@ -43,6 +44,22 @@ export interface IColorDialogProps extends IColorPickerProps {
   placement?: GARDEN_PLACEMENT;
   /** Disables the color dialog button */
   disabled?: boolean;
+  /**
+   * Modifies [Popper instance](https://popper.js.org/docs/v2/modifiers/) to customize positioning logic
+   */
+  popperModifiers?: Partial<Modifier<any, any>>[];
+  /**
+   * Sets the `z-index` of the color dialog
+   */
+  zIndex?: number;
+  /**
+   * Adds an arrow to the color dialog
+   */
+  hasArrow?: boolean;
+  /**
+   * Animates the color dialog
+   */
+  isAnimated?: boolean;
 }
 
 /**
@@ -51,74 +68,95 @@ export interface IColorDialogProps extends IColorPickerProps {
 export const ColorDialog = forwardRef<
   HTMLButtonElement,
   IColorDialogProps & Omit<HTMLAttributes<HTMLButtonElement>, 'color' | 'onChange'>
->(({ color, defaultColor, placement, onChange, onClose, labels, children, ...props }, ref) => {
-  const theme = useContext(ThemeContext);
-  const isControlled = color !== null && color !== undefined;
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const colorPickerRef = useRef<HTMLDivElement>(null);
-  const mergedRef = mergeRefs([ref, buttonRef]);
-  const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
-  const [uncontrolledColor, setUncontrolledColor] = useState<string | IColor>(
-    defaultColor || '#ffffff'
-  );
+>(
+  (
+    {
+      color,
+      defaultColor,
+      placement,
+      onChange,
+      onClose,
+      labels,
+      hasArrow,
+      isAnimated,
+      popperModifiers,
+      zIndex,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const theme = useContext(ThemeContext);
+    const isControlled = color !== null && color !== undefined;
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const colorPickerRef = useRef<HTMLDivElement>(null);
+    const mergedRef = mergeRefs([ref, buttonRef]);
+    const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
+    const [uncontrolledColor, setUncontrolledColor] = useState<string | IColor>(
+      defaultColor || '#ffffff'
+    );
 
-  const onClick = () => {
-    if (referenceElement) {
-      setReferenceElement(null);
-    } else {
-      setReferenceElement(buttonRef.current);
-    }
-  };
+    const onClick = () => {
+      if (referenceElement) {
+        setReferenceElement(null);
+      } else {
+        setReferenceElement(buttonRef.current);
+      }
+    };
 
-  return (
-    <>
-      {children ? (
-        cloneElement(Children.only(children as ReactElement), {
-          onClick,
-          ref: mergedRef
-        })
-      ) : (
-        <StyledButton ref={mergedRef} onClick={onClick} {...props}>
-          <StyledPreviewContainer>
-            <StyledDialogPreview backgroundColor={isControlled ? color : uncontrolledColor} />
-            <StyledCheckered
-              height={`${theme.space.base * 5}px`}
-              width={`${theme.space.base * 5}px`}
-              size={`${theme.space.base * 2}px`}
-              position={`${theme.space.base}px`}
-              sticky
+    return (
+      <>
+        {children ? (
+          cloneElement(Children.only(children as ReactElement), {
+            onClick,
+            ref: mergedRef
+          })
+        ) : (
+          <StyledButton ref={mergedRef} onClick={onClick} {...props}>
+            <StyledPreviewContainer>
+              <StyledDialogPreview backgroundColor={isControlled ? color : uncontrolledColor} />
+              <StyledCheckered
+                height={`${theme.space.base * 5}px`}
+                width={`${theme.space.base * 5}px`}
+                size={`${theme.space.base * 2}px`}
+                position={`${theme.space.base}px`}
+                sticky
+              />
+            </StyledPreviewContainer>
+            {/* eslint-disable-next-line no-eq-null, eqeqeq */}
+            <Button.EndIcon isRotated={referenceElement != null}>
+              <Chevron />
+            </Button.EndIcon>
+          </StyledButton>
+        )}
+        <StyledTooltipModal
+          hasArrow={hasArrow}
+          popperModifiers={popperModifiers}
+          zIndex={zIndex}
+          isAnimated={isAnimated}
+          focusOnMount={false}
+          placement={placement}
+          referenceElement={referenceElement}
+          onClose={() => {
+            setReferenceElement(null);
+            onClose && onClose(isControlled ? (color as IColor) : (uncontrolledColor as IColor));
+          }}
+        >
+          <StyledTooltipBody>
+            <ColorPicker
+              autofocus
+              color={color}
+              labels={labels}
+              ref={colorPickerRef}
+              defaultColor={uncontrolledColor}
+              onChange={isControlled ? onChange : setUncontrolledColor}
             />
-          </StyledPreviewContainer>
-          {/* eslint-disable-next-line no-eq-null, eqeqeq */}
-          <Button.EndIcon isRotated={referenceElement != null}>
-            <Chevron />
-          </Button.EndIcon>
-        </StyledButton>
-      )}
-      <StyledTooltipModal
-        hasArrow={false}
-        focusOnMount={false}
-        placement={placement}
-        referenceElement={referenceElement}
-        onClose={() => {
-          setReferenceElement(null);
-          onClose && onClose(isControlled ? (color as IColor) : (uncontrolledColor as IColor));
-        }}
-      >
-        <StyledTooltipBody>
-          <ColorPicker
-            autofocus
-            color={color}
-            labels={labels}
-            ref={colorPickerRef}
-            defaultColor={uncontrolledColor}
-            onChange={isControlled ? onChange : setUncontrolledColor}
-          />
-        </StyledTooltipBody>
-      </StyledTooltipModal>
-    </>
-  );
-});
+          </StyledTooltipBody>
+        </StyledTooltipModal>
+      </>
+    );
+  }
+);
 
 ColorDialog.propTypes = {
   placement: PropTypes.oneOf([
@@ -141,6 +179,10 @@ ColorDialog.propTypes = {
   labels: PropTypes.object,
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
   defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string])
+};
+
+ColorDialog.defaultProps = {
+  hasArrow: false
 };
 
 ColorDialog.displayName = 'ColorDialog';

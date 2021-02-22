@@ -23,7 +23,10 @@ export const Controlled: Story = ({
   green,
   blue,
   alpha,
-  placement
+  placement,
+  disabled,
+  hasArrow,
+  isAnimated
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [color, setColor] = useState<string | IColor>('rgba(22,73,77,100)');
@@ -31,7 +34,15 @@ export const Controlled: Story = ({
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <div style={{ display: 'flex', justifyContent: 'space-around', width: '212px' }}>
-        <ColorDialog color={color} labels={labels} onChange={setColor} placement={placement} />
+        <ColorDialog
+          color={color}
+          labels={labels}
+          onChange={setColor}
+          placement={placement}
+          disabled={disabled}
+          hasArrow={hasArrow}
+          isAnimated={isAnimated}
+        />
         <Button onClick={() => setColor('#CE9FB7')}>Set to #CE9FB7</Button>
       </div>
     </div>
@@ -46,7 +57,38 @@ Controlled.args = {
   red: 'R',
   green: 'G',
   blue: 'B',
-  alpha: 'A'
+  alpha: 'A',
+  disabled: false,
+  hasArrow: false,
+  isAnimated: true
+};
+
+Controlled.argTypes = {
+  color: { control: false },
+  defaultColor: { control: false },
+  labels: { control: false },
+  zIndex: { control: { disable: true } },
+  popperModifiers: { control: { disable: true } },
+  placement: {
+    control: {
+      type: 'select',
+      options: [
+        'auto',
+        'top',
+        'top-start',
+        'top-end',
+        'bottom',
+        'bottom-start',
+        'bottom-end',
+        'end',
+        'end-top',
+        'end-bottom',
+        'start',
+        'start-top',
+        'start-bottom'
+      ]
+    }
+  }
 };
 
 Controlled.parameters = {

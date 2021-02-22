@@ -16,7 +16,20 @@ export default {
   component: ColorDialog
 } as Meta;
 
-export const WithIconButton: Story = ({ labels, placement }) => {
+export const WithIconButton: Story = ({
+  placement,
+  alphaSlider,
+  hueSlider,
+  hex,
+  red,
+  green,
+  blue,
+  alpha,
+  disabled,
+  hasArrow,
+  isAnimated
+}) => {
+  const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 100)');
   const [selectedColor, setSelectedColor] = useState<string | IColor>('rgba(23, 73, 77, 100)');
   const iconColor =
@@ -32,8 +45,14 @@ export const WithIconButton: Story = ({ labels, placement }) => {
         onChange={setColor}
         placement={placement}
         onClose={setSelectedColor}
+        hasArrow={hasArrow}
+        isAnimated={isAnimated}
       >
-        <IconButton style={{ color: iconColor }} aria-label="leaf">
+        <IconButton
+          style={{ color: disabled ? undefined : iconColor }}
+          aria-label="leaf"
+          disabled={disabled}
+        >
           <LeafIcon />
         </IconButton>
       </ColorDialog>
@@ -43,14 +62,41 @@ export const WithIconButton: Story = ({ labels, placement }) => {
 
 WithIconButton.args = {
   placement: 'bottom',
-  labels: {
-    alphaSlider: 'Alpha slider',
-    hueSlider: 'Hue slider',
-    hex: 'Hex',
-    red: 'R',
-    green: 'G',
-    blue: 'B',
-    alpha: 'A'
+  alphaSlider: 'Alpha slider',
+  hueSlider: 'Hue slider',
+  hex: 'Hex',
+  red: 'R',
+  green: 'G',
+  blue: 'B',
+  alpha: 'A',
+  disabled: false,
+  hasArrow: false,
+  isAnimated: true
+};
+
+WithIconButton.argTypes = {
+  labels: { control: false },
+  zIndex: { control: { disable: true } },
+  popperModifiers: { control: { disable: true } },
+  placement: {
+    control: {
+      type: 'select',
+      options: [
+        'auto',
+        'top',
+        'top-start',
+        'top-end',
+        'bottom',
+        'bottom-start',
+        'bottom-end',
+        'end',
+        'end-top',
+        'end-bottom',
+        'start',
+        'start-top',
+        'start-bottom'
+      ]
+    }
   }
 };
 

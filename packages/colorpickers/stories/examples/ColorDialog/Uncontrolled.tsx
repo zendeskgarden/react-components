@@ -25,17 +25,25 @@ export const Uncontrolled: Story = ({
   blue,
   alpha,
   placement,
-  disabled
+  disabled,
+  zIndex,
+  hasArrow,
+  isAnimated,
+  popperModifiers
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <ColorDialog
+        zIndex={zIndex}
         labels={labels}
         disabled={disabled}
         placement={placement}
+        hasArrow={hasArrow}
+        isAnimated={isAnimated}
         onChange={action('onChange')}
+        popperModifiers={popperModifiers}
         defaultColor={DEFAULT_THEME.palette.kale[700]}
       />
     </div>
@@ -51,12 +59,16 @@ Uncontrolled.args = {
   green: 'G',
   blue: 'B',
   alpha: 'A',
-  disabled: false
+  disabled: false,
+  hasArrow: false,
+  isAnimated: true
 };
 
 Uncontrolled.argTypes = {
   color: { control: { disable: true } },
   labels: { control: false },
+  zIndex: { control: { disable: true } },
+  popperModifiers: { control: { disable: true } },
   placement: {
     control: {
       type: 'select',
