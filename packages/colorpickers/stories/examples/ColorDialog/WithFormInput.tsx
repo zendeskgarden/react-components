@@ -8,8 +8,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { Field, Label, Input } from '@zendeskgarden/react-forms';
+import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { IColor, ColorDialog } from '@zendeskgarden/react-colorpickers';
 
 export default {
@@ -26,6 +25,10 @@ const StyledField = styled(Field)`
 
 const StyledInput = styled(Input)`
   width: ${props => props.theme.space.base * 23.25}px;
+`;
+
+const StyledColorDialog = styled(ColorDialog)`
+  padding: 0 ${props => props.theme.space.base * 8}px;
 `;
 
 const StyledContainer = styled.div`
@@ -48,37 +51,39 @@ export const WithFormInput: Story = ({
   isAnimated
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
-  const [input, setInput] = useState(DEFAULT_THEME.colors.background);
-  const [color, setColor] = useState<string | IColor>(DEFAULT_THEME.colors.background);
+  const [input, setInput] = useState('#17494d');
+  const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 100)');
 
   return (
     <StyledField>
       <Label>Favorite color</Label>
       <StyledContainer>
-        <ColorDialog
-          color={color}
-          labels={labels}
-          placement={placement}
-          onChange={selectedColor => {
-            setColor(selectedColor);
-            setInput(selectedColor.hex);
-          }}
-          disabled={disabled}
-          hasArrow={hasArrow}
-          isAnimated={isAnimated}
-        />
-        <StyledInput
-          isCompact
-          maxLength={7}
-          value={input}
-          disabled={disabled}
-          onChange={e => {
-            setInput(e.target.value);
-            if (validHex.test(e.target.value)) {
-              setColor(e.target.value);
-            }
-          }}
-        />
+        <InputGroup>
+          <StyledInput
+            isCompact
+            maxLength={7}
+            value={input}
+            disabled={disabled}
+            onChange={e => {
+              setInput(e.target.value);
+              if (validHex.test(e.target.value)) {
+                setColor(e.target.value);
+              }
+            }}
+          />
+          <StyledColorDialog
+            color={color}
+            labels={labels}
+            placement={placement}
+            onChange={selectedColor => {
+              setColor(selectedColor);
+              setInput(selectedColor.hex);
+            }}
+            disabled={disabled}
+            hasArrow={hasArrow}
+            isAnimated={isAnimated}
+          />
+        </InputGroup>
       </StyledContainer>
     </StyledField>
   );
@@ -129,7 +134,7 @@ WithFormInput.parameters = {
     description: {
       story: `
   The color dialog can share controlled color state with form inputs.
-  This example demonstrates using a color dialog with a form input.
+  This example demonstrates using a color dialog with an input group.
 `
     }
   }
