@@ -90,7 +90,7 @@ export const WithFormInput: Story = ({
 };
 
 WithFormInput.args = {
-  placement: 'bottom',
+  placement: 'top',
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
   hex: 'Hex',

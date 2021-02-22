@@ -12,7 +12,8 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'colorpickers.colorpicker_hue_field';
 
 /**
- * 1. IE11 specific CSS to achieve styling parity with modern browsers.
+ * 1. Adjust spacing in IE11 to match other browsers
+ * 2. Provides height for the input so that the thumb shadow styles are not cut off in IE11.
  */
 export const StyledHueField = styled(Field).attrs({
   'data-garden-id': COMPONENT_ID,
@@ -23,7 +24,6 @@ export const StyledHueField = styled(Field).attrs({
   input {
     /* stylelint-disable-next-line declaration-no-important */
     margin-top: -${props => props.theme.space.base * 2}px !important;
-    height: ${props => props.theme.space.base * 3}px;
   }
 
   /* stylelint-disable-next-line */
@@ -31,7 +31,7 @@ export const StyledHueField = styled(Field).attrs({
     margin-top: -1px; /* [1] */
 
     input {
-      height: ${props => props.theme.space.base * 8}px; /* [1] */
+      height: ${props => props.theme.space.base * 8}px; /* [2] */
     }
   }
 

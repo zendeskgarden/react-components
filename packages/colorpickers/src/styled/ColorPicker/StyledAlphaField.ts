@@ -12,7 +12,8 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'colorpickers.colorpicker_alpha_field';
 
 /**
- * 1. IE11 specific CSS to achieve styling parity with modern browsers.
+ * 1. Adjust spacing in IE11 to match other browsers
+ * 2. Provides height for the input so that the thumb shadow styles are not cut off in IE11.
  */
 export const StyledAlphaField = styled(Field).attrs({
   'data-garden-id': COMPONENT_ID,
@@ -23,14 +24,13 @@ export const StyledAlphaField = styled(Field).attrs({
   input {
     /* stylelint-disable-next-line declaration-no-important */
     margin-top: 0 !important;
-    height: ${props => props.theme.space.base * 3}px;
   }
 
   /* stylelint-disable-next-line */
   @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
     input {
-      top: -10px; /* [1] */
-      height: ${props => props.theme.space.base * 8}px; /* [1] */
+      top: -${props => props.theme.space.base * 2.5}px; /* [1] */
+      height: ${props => props.theme.space.base * 8}px; /* [2] */
     }
   }
 
