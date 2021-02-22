@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
-import { IconButton } from '@zendeskgarden/react-buttons';
+import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ColorDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-fill.svg';
 
@@ -30,6 +30,7 @@ export const WithIconButton: Story = ({
   isAnimated
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
+  const [isPressed, setIsPressed] = useState(false);
   const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 100)');
   const [selectedColor, setSelectedColor] = useState<string | IColor>('rgba(23, 73, 77, 100)');
   const iconColor =
@@ -43,18 +44,23 @@ export const WithIconButton: Story = ({
         color={color}
         labels={labels}
         onChange={setColor}
-        placement={placement}
-        onClose={setSelectedColor}
         hasArrow={hasArrow}
+        placement={placement}
         isAnimated={isAnimated}
+        onClick={() => setIsPressed(true)}
+        onClose={nextColor => {
+          setIsPressed(false);
+          setSelectedColor(nextColor);
+        }}
       >
-        <IconButton
-          style={{ color: disabled ? undefined : iconColor }}
+        <ToggleIconButton
           aria-label="leaf"
           disabled={disabled}
+          isPressed={isPressed}
+          style={{ color: disabled ? undefined : iconColor }}
         >
           <LeafIcon />
-        </IconButton>
+        </ToggleIconButton>
       </ColorDialog>
     </div>
   );

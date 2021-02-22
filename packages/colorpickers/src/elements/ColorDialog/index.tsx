@@ -21,6 +21,7 @@ import { ThemeContext } from 'styled-components';
 import { Modifier } from 'react-popper';
 import { Button } from '@zendeskgarden/react-buttons';
 import { GARDEN_PLACEMENT } from '@zendeskgarden/react-modals';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { ColorPicker, IColorPickerProps } from '../ColorPicker';
 import { IColor } from '../../utils/types';
@@ -96,13 +97,13 @@ export const ColorDialog = forwardRef<
       defaultColor || '#ffffff'
     );
 
-    const onClick = () => {
+    const onClick = composeEventHandlers(props.onClick, () => {
       if (referenceElement) {
         setReferenceElement(null);
       } else {
         setReferenceElement(buttonRef.current);
       }
-    };
+    });
 
     return (
       <>

@@ -43,7 +43,9 @@ export const Controlled: Story = ({
           hasArrow={hasArrow}
           isAnimated={isAnimated}
         />
-        <Button onClick={() => setColor('#CE9FB7')}>Set to #CE9FB7</Button>
+        <Button disabled={disabled} onClick={() => setColor('#CE9FB7')}>
+          Set to #CE9FB7
+        </Button>
       </div>
     </div>
   );
