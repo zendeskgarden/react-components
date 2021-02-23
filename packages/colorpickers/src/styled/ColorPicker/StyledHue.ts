@@ -113,10 +113,21 @@ export const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
+/**
+ * 1. Provides height for the input so that the thumb shadow styles are not cut off in IE11.
+ */
 export const StyledHue = styled((Range as unknown) as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  /* stylelint-disable-next-line declaration-no-important */
+  margin-top: -${props => props.theme.space.base * 2}px !important;
+
+  /* stylelint-disable-next-line */
+  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    height: ${props => props.theme.space.base * 8}px; /* [1] */
+  }
+
   ${props =>
     trackStyles(`
       margin: 0;

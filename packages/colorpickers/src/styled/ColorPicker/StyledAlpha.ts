@@ -12,12 +12,18 @@ import { colorStyles, thumbStyles, trackStyles, trackLowerStyles } from './Style
 
 const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
 
+/**
+ * 1. Adjust spacing in IE11 to match other browsers
+ * 2. Provides height for the input so that the thumb shadow styles are not cut off in IE11.
+ */
 export const StyledAlpha = styled((Range as unknown) as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   position: absolute;
   z-index: 2;
+  /* stylelint-disable-next-line declaration-no-important */
+  margin-top: 0 !important;
   border-radius: 0;
   height: ${props => props.theme.space.base * 3}px;
 
@@ -36,6 +42,12 @@ export const StyledAlpha = styled((Range as unknown) as 'input').attrs({
   ${trackLowerStyles(`background: none;`)}
 
   ${colorStyles}
+
+  /* stylelint-disable-next-line */
+  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    top: -${props => props.theme.space.base * 2.5}px; /* [1] */
+    height: ${props => props.theme.space.base * 8}px; /* [2] */
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
