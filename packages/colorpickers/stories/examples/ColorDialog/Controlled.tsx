@@ -29,7 +29,7 @@ export const Controlled: Story = ({
   isAnimated
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
-  const [color, setColor] = useState<string | IColor>('rgba(22,73,77,100)');
+  const [color, setColor] = useState<string | IColor>('rgba(22,73,77,1)');
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>

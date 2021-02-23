@@ -31,7 +31,7 @@ export const WithIconButton: Story = ({
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [isPressed, setIsPressed] = useState(false);
-  const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 100)');
+  const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 1)');
   const [selectedColor, setSelectedColor] = useState<string | IColor>('rgba(23, 73, 77, 100)');
   const iconColor =
     typeof selectedColor === 'string'

@@ -52,7 +52,7 @@ export const WithFormInput: Story = ({
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [input, setInput] = useState('#17494d');
-  const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 100)');
+  const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 1)');
 
   return (
     <StyledField>
