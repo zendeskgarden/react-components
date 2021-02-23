@@ -15,7 +15,6 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const shade = 600;
   const baseColor = getColor('neutralHue', shade, props.theme);
   const hoverColor = getColor('neutralHue', shade + 100, props.theme);
-  const activeColor = getColor('neutralHue', shade + 200, props.theme);
   const disabledForegroundColor = getColor('neutralHue', shade - 200, props.theme);
 
   return `
@@ -23,12 +22,6 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 
     &:hover {
       color: ${hoverColor};
-    }
-
-    &:active,
-    &[aria-pressed='true'],
-    &[aria-pressed='mixed'] {
-      color: ${activeColor};
     }
 
     &:disabled {
