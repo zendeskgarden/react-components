@@ -6,6 +6,7 @@
  */
 
 export { default as ThemeProvider } from './elements/ThemeProvider';
+export type { IThemeProviderProps } from './elements/ThemeProvider';
 export { default as DEFAULT_THEME } from './elements/theme';
 export type { IGardenTheme } from './elements/theme';
 export { default as PALETTE } from './elements/palette';
