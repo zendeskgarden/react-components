@@ -15,6 +15,7 @@ const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
 /**
  * 1. Adjust spacing in IE11 to match other browsers
  * 2. Provides height for the input so that the thumb shadow styles are not cut off in IE11.
+ * 3. Adjusts the spacing to align thumb with track on Chrome, Safari, and Edge.
  */
 export const StyledAlpha = styled((Range as unknown) as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
@@ -28,7 +29,7 @@ export const StyledAlpha = styled((Range as unknown) as 'input').attrs({
   height: ${props => props.theme.space.base * 3}px;
 
   &::-webkit-slider-thumb {
-    margin-top: -5px;
+    margin-top: -5px; /* [3] */
   }
 
   ${props =>

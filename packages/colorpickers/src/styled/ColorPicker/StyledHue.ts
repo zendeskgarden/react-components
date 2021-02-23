@@ -115,6 +115,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 
 /**
  * 1. Provides height for the input so that the thumb shadow styles are not cut off in IE11.
+ * 2. Adjusts the spacing to align thumb with track on Chrome, Safari, and Edge.
  */
 export const StyledHue = styled((Range as unknown) as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
@@ -150,7 +151,7 @@ export const StyledHue = styled((Range as unknown) as 'input').attrs({
   ${trackLowerStyles(`opacity: 0;`)}
 
   &::-webkit-slider-thumb {
-    margin-top: -${props => props.theme.space.base / 2}px;
+    margin-top: -${props => props.theme.space.base / 2}px; /* [2] */
   }
 
   ${colorStyles};
