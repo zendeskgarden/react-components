@@ -15,7 +15,7 @@ const COMPONENT_ID = 'colorpickers.colorpicker_alpha_field';
  * 1. Adjust spacing in IE11 to match other browsers
  * 2. Provides height for the input so that the thumb shadow styles are not cut off in IE11.
  */
-export const StyledAlphaField = styled(Field).attrs({
+export const StyledAlphaField = styled((Field as unknown) as 'div').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

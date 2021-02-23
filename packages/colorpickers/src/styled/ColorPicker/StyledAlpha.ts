@@ -12,7 +12,7 @@ import { colorStyles, thumbStyles, trackStyles, trackLowerStyles } from './Style
 
 const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
 
-export const StyledAlpha = styled(Range).attrs({
+export const StyledAlpha = styled((Range as unknown) as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

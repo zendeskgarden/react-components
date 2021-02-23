@@ -63,7 +63,14 @@ export function getNextHsv(
   };
 }
 
-export const getThumbPosition = (
+type GET_THUMB_POSITION = (
+  x: number,
+  y: number,
+  rtl: boolean,
+  container: React.RefObject<HTMLDivElement>
+) => { topFromMouse: number; leftFromMouse: number };
+
+export const getThumbPosition: GET_THUMB_POSITION = (
   x: number,
   y: number,
   rtl: boolean,

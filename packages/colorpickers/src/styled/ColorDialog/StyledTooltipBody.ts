@@ -11,7 +11,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'colorpickers.colordialog_tooltipmodal_body';
 
-export const StyledTooltipBody = styled(TooltipModal.Body).attrs({
+export const StyledTooltipBody = styled((TooltipModal.Body as unknown) as 'div').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

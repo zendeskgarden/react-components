@@ -113,7 +113,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledHue = styled(Range).attrs({
+export const StyledHue = styled((Range as unknown) as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

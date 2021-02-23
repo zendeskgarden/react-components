@@ -11,7 +11,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'colorpickers.colorpicker_input';
 
-export const StyledInput = styled(Input).attrs({
+export const StyledInput = styled(Input as any).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

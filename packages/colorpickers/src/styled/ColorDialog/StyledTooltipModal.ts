@@ -12,7 +12,7 @@ import { COLORPICKER_WIDTH } from '../ColorPicker/StyledColorPicker';
 
 const COMPONENT_ID = 'colorpickers.colordialog_tooltipmodal';
 
-export const StyledTooltipModal = styled(TooltipModal).attrs({
+export const StyledTooltipModal = styled(TooltipModal as any).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

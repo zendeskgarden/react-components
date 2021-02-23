@@ -11,7 +11,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'colorpickers.colorpicker_rgb_field';
 
-export const StyledRGBAField = styled(Field).attrs({
+export const StyledRGBAField = styled((Field as unknown) as 'div').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

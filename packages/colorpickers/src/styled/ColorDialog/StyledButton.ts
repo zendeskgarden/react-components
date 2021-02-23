@@ -37,7 +37,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledButton = styled(Button).attrs({
+export const StyledButton = styled((Button as unknown) as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
