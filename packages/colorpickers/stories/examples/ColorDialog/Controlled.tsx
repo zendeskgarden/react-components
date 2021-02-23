@@ -52,7 +52,6 @@ export const Controlled: Story = ({
 };
 
 Controlled.args = {
-  placement: 'bottom',
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
   hex: 'Hex',

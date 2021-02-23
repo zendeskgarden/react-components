@@ -51,7 +51,6 @@ export const Uncontrolled: Story = ({
 };
 
 Uncontrolled.args = {
-  placement: 'bottom',
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
   hex: 'Hex',

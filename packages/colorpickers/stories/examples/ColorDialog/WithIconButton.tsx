@@ -61,7 +61,6 @@ export const WithIconButton: Story = ({
 };
 
 WithIconButton.args = {
-  placement: 'bottom',
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
   hex: 'Hex',

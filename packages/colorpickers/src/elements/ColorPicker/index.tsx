@@ -51,9 +51,9 @@ export interface IColorPickerLabels {
 
 export interface IColorPickerProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'onChange'> {
-  /** A default color for a uncontrolled color picker. Can be a valid color string or IColor state */
+  /** Sets the color for an uncontrolled color picker */
   defaultColor?: string | IColor;
-  /** A color value for a controlled color picker. Can be a valid color string or IColor state */
+  /** Sets the color for a controlled color picker */
   color?: string | IColor;
   /**
    * Handles color picker changes
@@ -61,7 +61,7 @@ export interface IColorPickerProps
    * @param {Object} color A color picker state
    */
   onChange?: (color: IColor) => void;
-  /** Replaces the default labels within the color picker */
+  /** Replaces label text within the color picker */
   labels?: IColorPickerLabels;
   /** Autofocuses the hex input element */
   autofocus?: boolean;
