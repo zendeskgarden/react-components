@@ -6,7 +6,7 @@
  */
 
 export { ColorPicker } from './elements/ColorPicker';
-export type { IColorPickerLabels, IColorPickerProps } from './elements/ColorPicker';
+export type { IColorPickerProps } from './elements/ColorPicker';
 export { ColorDialog } from './elements/ColorDialog';
 export type { IColorDialogProps } from './elements/ColorDialog';
 export type { IColor } from './utils/types';

@@ -39,16 +39,6 @@ import {
 import { areColorsEqual, convertStringToColor, getInitialState, reducer } from './reducer';
 import { IColor, IHSVColor } from '../../utils/types';
 
-export interface IColorPickerLabels {
-  hueSlider?: string;
-  alphaSlider?: string;
-  hex?: string;
-  red?: string;
-  green?: string;
-  blue?: string;
-  alpha?: string;
-}
-
 export interface IColorPickerProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'onChange'> {
   /** Sets the color for an uncontrolled color picker */
@@ -62,7 +52,15 @@ export interface IColorPickerProps
    */
   onChange?: (color: IColor) => void;
   /** Replaces label text within the color picker */
-  labels?: IColorPickerLabels;
+  labels?: {
+    hueSlider?: string;
+    alphaSlider?: string;
+    hex?: string;
+    red?: string;
+    green?: string;
+    blue?: string;
+    alpha?: string;
+  };
   /** Autofocuses the hex input element */
   autofocus?: boolean;
 }
@@ -271,7 +269,8 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
 );
 
 ColorPicker.defaultProps = {
-  defaultColor: '#fff'
+  defaultColor: '#fff',
+  autofocus: true
 };
 
 ColorPicker.displayName = 'ColorPicker';
