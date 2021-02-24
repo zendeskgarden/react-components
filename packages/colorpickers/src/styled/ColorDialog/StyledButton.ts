@@ -22,10 +22,12 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 
     &:hover {
       color: ${hoverColor};
+      background-color: ${props.theme.colors.background};
     }
 
     &:disabled {
       color: ${disabledForegroundColor};
+      background-color: ${getColor('neutralHue', 100, props.theme)};
     }
   `;
 };
@@ -37,14 +39,6 @@ export const StyledButton = styled((Button as unknown) as 'button').attrs({
   padding: 0;
   width: ${props => props.theme.space.base * 17}px;
   height: ${props => props.theme.space.base * 10}px;
-
-  &:hover {
-    background-color: ${props => props.theme.colors.background};
-  }
-
-  &:disabled {
-    background-color: ${props => getColor('neutralHue', 100, props.theme)};
-  }
 
   ${colorStyles}
 
