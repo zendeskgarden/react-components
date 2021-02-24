@@ -93,8 +93,8 @@ export const ColorDialog = forwardRef<
     const colorPickerRef = useRef<HTMLDivElement>(null);
     const mergedRef = mergeRefs([ref, buttonRef]);
     const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
-    const [uncontrolledColor, setUncontrolledColor] = useState<string | IColor>(
-      defaultColor || '#ffffff'
+    const [uncontrolledColor, setUncontrolledColor] = useState<string | IColor | undefined>(
+      defaultColor
     );
 
     const onClick = composeEventHandlers(props.onClick, () => {

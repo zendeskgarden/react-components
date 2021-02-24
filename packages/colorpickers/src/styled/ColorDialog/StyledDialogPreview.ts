@@ -23,7 +23,7 @@ const background = (props: IStyleDialogPreviewProps) => {
   }
 
   if (backgroundColor === undefined) {
-    return `backround: rgb(255,255,255)`;
+    return `background: rgba(255,255,255, 1)`;
   }
 
   const { red, green, blue, alpha } = backgroundColor;
