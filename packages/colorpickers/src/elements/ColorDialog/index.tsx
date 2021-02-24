@@ -183,8 +183,9 @@ ColorDialog.propTypes = {
 };
 
 ColorDialog.defaultProps = {
-  hasArrow: false,
-  placement: 'bottom-start'
+  placement: 'bottom-start',
+  isAnimated: true,
+  zIndex: 1000
 };
 
 ColorDialog.displayName = 'ColorDialog';
