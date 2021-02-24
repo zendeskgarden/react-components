@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Range } from '@zendeskgarden/react-forms';
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { colorStyles, thumbStyles, trackStyles, trackLowerStyles } from './StyledHue';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { trackStyles, trackLowerStyles } from '../common/trackStyles';
+import { StyledRange } from '../common/StyledRange';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
 
@@ -17,7 +17,7 @@ const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
  * 2. Provides height for the input so that the thumb shadow styles are not cut off in IE11.
  * 3. Adjusts the spacing to align thumb with track on Chrome, Safari, and Edge.
  */
-export const StyledAlpha = styled((Range as unknown) as 'input').attrs({
+export const StyledAlpha = styled((StyledRange as unknown) as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -28,29 +28,18 @@ export const StyledAlpha = styled((Range as unknown) as 'input').attrs({
   border-radius: 0;
   height: ${props => props.theme.space.base * 3}px;
 
+  /* stylelint-disable-next-line */
+  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    top: -${props => props.theme.space.base * 2.5}px; /* [1] */
+  }
+
   &::-webkit-slider-thumb {
     margin-top: -5px; /* [3] */
   }
 
-  ${props =>
-    thumbStyles(`
-    height: ${props.theme.space.base * 4}px;
-    width: ${props.theme.space.base * 4}px;
-  `)}
-
   ${trackStyles(`background: none;`)}
 
   ${trackLowerStyles(`background: none;`)}
-
-  ${colorStyles}
-
-  /* stylelint-disable-next-line */
-  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-    top: -${props => props.theme.space.base * 2.5}px; /* [1] */
-    height: ${props => props.theme.space.base * 8}px; /* [2] */
-  }
-
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledAlpha.defaultProps = {
