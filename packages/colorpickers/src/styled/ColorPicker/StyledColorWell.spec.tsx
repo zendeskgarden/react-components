@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledColorWellGradient } from './StyledColorWell';
+import { StyledColorWellGradient } from './StyledColorWellGradient';
 
 describe('StyledColorWellGradient', () => {
   it('renders default style', () => {
