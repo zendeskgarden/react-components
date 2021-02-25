@@ -6,14 +6,19 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import { hideVisually } from 'polished';
 import { TransitionGroup } from 'react-transition-group';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ToastPlacement } from './reducer';
 
 export const TRANSITION_CLASS = 'garden-toast-transition';
 
-export const StyledFadeInTransition = styled.div<{ placement: ToastPlacement }>`
+export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement: ToastPlacement }>`
+  transition: opacity 400ms ease-in 100ms;
+  opacity: ${p => (p.isHidden ? '0 !important' : 1)};
   margin-bottom: ${p => p.theme.space.base * 2}px;
+
+  ${p => p.isHidden && hideVisually()}
 
   &.${TRANSITION_CLASS}-enter {
     /* stylelint-disable */
@@ -39,9 +44,9 @@ export const StyledFadeInTransition = styled.div<{ placement: ToastPlacement }>`
     transform: translateY(0);
     /* prettier-ignore */
     transition:
-      max-height 200ms ease-in,
-      opacity 300ms ease-in 100ms,
-      transform 400ms;
+      opacity 400ms ease-in,
+      transform 400ms,
+      max-height 400ms;
     opacity: 1;
     max-height: 500px;
   }
@@ -70,9 +75,9 @@ export const StyledFadeInTransition = styled.div<{ placement: ToastPlacement }>`
     /* stylelint-enable */
     /* prettier-ignore */
     transition:
-      opacity 300ms ease-out,
-      transform 400ms ease-out,
-      max-height 200ms ease-out 200ms;
+      opacity 400ms,
+      transform 250ms ease-in 150ms,
+      max-height 400ms ease-in-out;
     opacity: 0;
     max-height: 0;
   }

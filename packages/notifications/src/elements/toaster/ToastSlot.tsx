@@ -16,10 +16,11 @@ import { StyledFadeInTransition, StyledTransitionGroup, TRANSITION_CLASS } from 
 interface IToastSlotProps {
   toasts: IToast[];
   placement: ToastPlacement;
+  limit: number;
   zIndex?: number;
 }
 
-export const ToastSlot: React.FC<IToastSlotProps> = ({ toasts, placement, zIndex }) => {
+export const ToastSlot: React.FC<IToastSlotProps> = ({ toasts, placement, zIndex, limit }) => {
   const [pauseTimers, setPauseTimers] = useState(false);
   const theme = useContext(ThemeContext);
   const environment = useDocument(theme);
@@ -52,6 +53,17 @@ export const ToastSlot: React.FC<IToastSlotProps> = ({ toasts, placement, zIndex
     setPauseTimers(false);
   }, []);
 
+  const isHidden = useCallback(
+    (index: number) => {
+      if (placement === 'bottom' || placement === 'bottom-start' || placement === 'bottom-end') {
+        return index < toasts.length - limit;
+      }
+
+      return index >= limit;
+    },
+    [limit, placement, toasts.length]
+  );
+
   return (
     <StyledTransitionGroup
       key={placement}
@@ -60,9 +72,9 @@ export const ToastSlot: React.FC<IToastSlotProps> = ({ toasts, placement, zIndex
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {toasts.map(toast => (
+      {toasts.map((toast, index) => (
         <CSSTransition key={toast.id} timeout={400} classNames={TRANSITION_CLASS}>
-          <StyledFadeInTransition placement={placement}>
+          <StyledFadeInTransition placement={placement} isHidden={isHidden(index)}>
             <Toast toast={toast} pauseTimers={pauseTimers} />
           </StyledFadeInTransition>
         </CSSTransition>

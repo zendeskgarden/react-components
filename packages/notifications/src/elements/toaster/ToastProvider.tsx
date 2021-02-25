@@ -41,13 +41,13 @@ export const ToastProvider: React.FC<IToastProviderProps> = ({ limit, zIndex, ch
     (placement: ToastPlacement) => {
       let matchingToasts = state.toasts.filter(toast => toast.options.placement === placement);
 
-      matchingToasts = matchingToasts.slice(0, limit);
-
       if (placement === 'bottom' || placement === 'bottom-start' || placement === 'bottom-end') {
         matchingToasts = matchingToasts.reverse();
       }
 
-      return <ToastSlot placement={placement} toasts={matchingToasts} zIndex={zIndex} />;
+      return (
+        <ToastSlot placement={placement} toasts={matchingToasts} zIndex={zIndex} limit={limit!} />
+      );
     },
     [limit, state.toasts, zIndex]
   );
