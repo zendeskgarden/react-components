@@ -8,6 +8,7 @@
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { IconButton } from '@zendeskgarden/react-buttons';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { ColorDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-fill.svg';
 
@@ -38,25 +39,31 @@ export const WithIconButton: Story = ({
       : `rgba(${selectedColor.red}, ${selectedColor.green}, ${selectedColor.blue}, ${selectedColor.alpha})`;
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ColorDialog
-        color={color}
-        labels={labels}
-        onChange={setColor}
-        hasArrow={hasArrow}
-        placement={placement}
-        isAnimated={isAnimated}
-        onClose={setSelectedColor}
-      >
-        <IconButton
-          aria-label="leaf"
-          disabled={disabled}
-          style={{ color: disabled ? undefined : iconColor }}
-        >
-          <LeafIcon />
-        </IconButton>
-      </ColorDialog>
-    </div>
+    <Grid>
+      <Row alignItems="center" style={{ minHeight: 640 }}>
+        <Col>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <ColorDialog
+              color={color}
+              labels={labels}
+              onChange={setColor}
+              hasArrow={hasArrow}
+              placement={placement}
+              isAnimated={isAnimated}
+              onClose={setSelectedColor}
+            >
+              <IconButton
+                aria-label="leaf"
+                disabled={disabled}
+                style={{ color: disabled ? undefined : iconColor }}
+              >
+                <LeafIcon />
+              </IconButton>
+            </ColorDialog>
+          </div>
+        </Col>
+      </Row>
+    </Grid>
   );
 };
 

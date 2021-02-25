@@ -8,6 +8,7 @@
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Button } from '@zendeskgarden/react-buttons';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { IColor, ColorDialog } from '@zendeskgarden/react-colorpickers';
 
 export default {
@@ -32,22 +33,28 @@ export const Controlled: Story = ({
   const [color, setColor] = useState<string | IColor>('rgba(22,73,77,1)');
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-around', width: '212px' }}>
-        <ColorDialog
-          color={color}
-          labels={labels}
-          onChange={setColor}
-          placement={placement}
-          disabled={disabled}
-          hasArrow={hasArrow}
-          isAnimated={isAnimated}
-        />
-        <Button disabled={disabled} onClick={() => setColor('#CE9FB7')}>
-          Set to #CE9FB7
-        </Button>
-      </div>
-    </div>
+    <Grid>
+      <Row alignItems="center" style={{ minHeight: 640 }}>
+        <Col>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-around', width: '212px' }}>
+              <ColorDialog
+                color={color}
+                labels={labels}
+                onChange={setColor}
+                placement={placement}
+                disabled={disabled}
+                hasArrow={hasArrow}
+                isAnimated={isAnimated}
+              />
+              <Button disabled={disabled} onClick={() => setColor('#CE9FB7')}>
+                Set to #CE9FB7
+              </Button>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </Grid>
   );
 };
 

@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { IColor, ColorDialog } from '@zendeskgarden/react-colorpickers';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { getColor } from '@zendeskgarden/react-theming';
 
 export default {
@@ -67,42 +68,47 @@ export const WithFormInput: Story = ({
   const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 1)');
 
   return (
-    <StyledField>
-      <Label>Favorite color</Label>
-      <StyledContainer>
-        <InputGroup>
-          <StyledInput
-            isCompact
-            maxLength={7}
-            value={input}
-            disabled={disabled}
-            onChange={e => {
-              setInput(e.target.value);
-              if (validHex.test(e.target.value)) {
-                setColor(e.target.value);
-              }
-            }}
-          />
-          <StyledColorDialog
-            color={color}
-            labels={labels}
-            placement={placement}
-            onChange={selectedColor => {
-              setColor(selectedColor);
-              setInput(selectedColor.hex);
-            }}
-            disabled={disabled}
-            hasArrow={hasArrow}
-            isAnimated={isAnimated}
-          />
-        </InputGroup>
-      </StyledContainer>
-    </StyledField>
+    <Grid>
+      <Row alignItems="center" style={{ minHeight: 680 }}>
+        <Col>
+          <StyledField>
+            <Label>Favorite color</Label>
+            <StyledContainer>
+              <InputGroup>
+                <StyledInput
+                  isCompact
+                  maxLength={7}
+                  value={input}
+                  disabled={disabled}
+                  onChange={e => {
+                    setInput(e.target.value);
+                    if (validHex.test(e.target.value)) {
+                      setColor(e.target.value);
+                    }
+                  }}
+                />
+                <StyledColorDialog
+                  color={color}
+                  labels={labels}
+                  placement={placement}
+                  onChange={selectedColor => {
+                    setColor(selectedColor);
+                    setInput(selectedColor.hex);
+                  }}
+                  disabled={disabled}
+                  hasArrow={hasArrow}
+                  isAnimated={isAnimated}
+                />
+              </InputGroup>
+            </StyledContainer>
+          </StyledField>
+        </Col>
+      </Row>
+    </Grid>
   );
 };
 
 WithFormInput.args = {
-  placement: 'top-start',
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
   hex: 'Hex',

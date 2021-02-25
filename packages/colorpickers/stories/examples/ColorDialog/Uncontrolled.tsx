@@ -8,6 +8,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { ColorDialog } from '@zendeskgarden/react-colorpickers';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
@@ -34,19 +35,25 @@ export const Uncontrolled: Story = ({
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ColorDialog
-        zIndex={zIndex}
-        labels={labels}
-        disabled={disabled}
-        placement={placement}
-        hasArrow={hasArrow}
-        isAnimated={isAnimated}
-        onChange={action('onChange')}
-        popperModifiers={popperModifiers}
-        defaultColor={DEFAULT_THEME.palette.kale[700]}
-      />
-    </div>
+    <Grid>
+      <Row alignItems="center" style={{ minHeight: 640 }}>
+        <Col>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <ColorDialog
+              zIndex={zIndex}
+              labels={labels}
+              disabled={disabled}
+              placement={placement}
+              hasArrow={hasArrow}
+              isAnimated={isAnimated}
+              onChange={action('onChange')}
+              popperModifiers={popperModifiers}
+              defaultColor={DEFAULT_THEME.palette.kale[700]}
+            />
+          </div>
+        </Col>
+      </Row>
+    </Grid>
   );
 };
 
