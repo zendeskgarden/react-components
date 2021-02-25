@@ -39,7 +39,8 @@ Uncontrolled.args = {
 };
 
 Uncontrolled.argTypes = {
-  color: { control: 'disable' },
+  color: { control: { disable: true } },
+  defaultColor: { control: { disable: true } },
   labels: { control: false }
 };
 
