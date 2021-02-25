@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { IColor, ColorDialog } from '@zendeskgarden/react-colorpickers';
+import { getColor } from '@zendeskgarden/react-theming';
 
 export default {
   title: 'Components/ColorDialog',
@@ -29,6 +30,17 @@ const StyledInput = styled(Input)`
 
 const StyledColorDialog = styled(ColorDialog)`
   padding: 0 ${props => props.theme.space.base * 8}px;
+
+  &:disabled {
+    /* stylelint-disable declaration-no-important */
+    border-top-width: 1px !important;
+    border-bottom-width: 1px !important;
+    /* stylelint-disable-next-line property-no-unknown, property-case */
+    border-${props => (props.theme.rtl ? 'right' : 'left')}-width: 0 !important;
+    /* stylelint-enable declaration-no-important */
+    border-color: ${props => getColor('neutralHue', 200, props.theme)};
+    background-color: ${props => getColor('neutralHue', 200, props.theme)};
+  }
 `;
 
 const StyledContainer = styled.div`

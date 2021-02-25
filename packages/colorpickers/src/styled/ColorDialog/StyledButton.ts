@@ -19,6 +19,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 
   return `
     color: ${baseColor};
+    border-color: ${getColor('neutralHue', 300, props.theme)};
 
     &:hover {
       color: ${hoverColor};
