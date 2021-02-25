@@ -36,6 +36,10 @@ export const StyledButton = styled((Button as unknown) as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  /* stylelint-disable property-no-unknown, property-case, declaration-no-important, max-line-length */
+  border-top-${props => (props.theme.rtl ? 'left' : 'right')}-radius: 4px !important;
+  border-bottom-${props => (props.theme.rtl ? 'left' : 'right')}-radius: 4px !important;
+  /* stylelint-enable property-no-unknown, property-case, declaration-no-important, max-line-length */
   padding: 0;
   width: ${props => props.theme.space.base * 17}px;
   height: ${props => props.theme.space.base * 10}px;
