@@ -10,6 +10,8 @@ import userEvent from '@testing-library/user-event';
 import { render, renderRtl, act } from 'garden-test-utils';
 import { TooltipModal, ITooltipModalProps } from './TooltipModal';
 
+jest.useFakeTimers();
+
 describe('TooltipModal', () => {
   const TOOLTIP_MODAL_ID = 'TEST_ID';
   let onCloseSpy: jest.Mock;
@@ -121,7 +123,10 @@ describe('TooltipModal', () => {
 
       await act(async () => {
         await userEvent.click(getByText('open'));
+        jest.runOnlyPendingTimers();
+
         await userEvent.click(getByTestId('backdrop'));
+        jest.runOnlyPendingTimers();
       });
 
       expect(onCloseSpy).toHaveBeenCalled();
@@ -132,7 +137,10 @@ describe('TooltipModal', () => {
 
       await act(async () => {
         await userEvent.click(getByText('open'));
+        jest.runOnlyPendingTimers();
+
         await userEvent.click(getAllByRole('button')[1]);
+        jest.runOnlyPendingTimers();
       });
 
       expect(onCloseSpy).toHaveBeenCalled();
@@ -143,7 +151,10 @@ describe('TooltipModal', () => {
 
       await act(async () => {
         await userEvent.click(getByText('open'));
+        jest.runOnlyPendingTimers();
+
         await userEvent.type(getByRole('dialog'), '{esc}');
+        jest.runOnlyPendingTimers();
       });
 
       expect(onCloseSpy).toHaveBeenCalled();

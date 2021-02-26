@@ -122,6 +122,21 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
     const previousReferenceElementRef = useRef<HTMLElement | null>();
     const modalRef = useCombinedRefs(ref);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
+    const [isOpen, setIsOpen] = useState(false);
+    let closeTimeout: number | undefined = undefined;
+
+    const handleClose = (e: KeyboardEvent | MouseEvent) => {
+      if (isAnimated) {
+        closeTimeout = window.setTimeout(() => {
+          // Match the duration of the menu fade out transition.
+          onClose && onClose(e);
+          setIsOpen(false);
+        }, 200);
+      } else {
+        onClose && onClose(e);
+      }
+    };
+
     const {
       getTitleProps,
       getCloseProps,
@@ -130,7 +145,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
       getModalProps
     } = useModal({
       id,
-      onClose,
+      onClose: handleClose,
       modalRef,
       focusOnMount,
       /** Handle `restoreFocus` locally to return focus to `referenceElement` */
@@ -144,6 +159,24 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
 
       previousReferenceElementRef.current = referenceElement;
     }, [referenceElement, restoreFocus]);
+
+    useEffect(() => {
+      let timeout: number;
+
+      if (referenceElement) {
+        setIsOpen(true);
+      } else if (isAnimated) {
+        // Match the duration of the menu fade out transition.
+        timeout = window.setTimeout(() => setIsOpen(false), 200);
+      } else {
+        setIsOpen(false);
+      }
+
+      return () => {
+        window.clearTimeout(timeout);
+        window.clearTimeout(closeTimeout);
+      };
+    }, [referenceElement, isAnimated, closeTimeout]);
 
     const popperPlacement = useMemo(
       () => (theme.rtl ? getRtlPopperPlacement(placement!) : getPopperPlacement(placement!)),
@@ -173,7 +206,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
       ...props
     }) as any;
 
-    return referenceElement ? (
+    return isOpen ? (
       <TooltipModalContext.Provider value={value}>
         <StyledTooltipModalBackdrop {...(getBackdropProps(backdropProps) as any)}>
           <StyledTooltipWrapper
