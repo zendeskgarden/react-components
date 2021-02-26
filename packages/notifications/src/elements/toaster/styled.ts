@@ -14,7 +14,7 @@ import { ToastPlacement } from './reducer';
 export const TRANSITION_CLASS = 'garden-toast-transition';
 
 export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement: ToastPlacement }>`
-  transition: opacity 400ms ease-in 100ms;
+  transition: opacity 400ms ease-in 200ms;
   opacity: ${p => (p.isHidden ? '0 !important' : 1)};
   margin-bottom: ${p => p.theme.space.base * 2}px;
 
