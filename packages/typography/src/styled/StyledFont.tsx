@@ -28,6 +28,7 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
   if (monospace) {
     if (props.size === 'inherit') {
       fontSize = 'calc(1em - 1px)';
+      lineHeight = 'normal';
     } else {
       fontSize = math(`${props.theme.fontSizes[props.size!]} - 1px`);
       lineHeight = math(`${props.theme.lineHeights[props.size!]} - 1px`);
