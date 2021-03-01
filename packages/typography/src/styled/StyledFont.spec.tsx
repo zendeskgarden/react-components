@@ -24,6 +24,7 @@ describe('StyledFont', () => {
     const { container } = render(<StyledFont isMonospace />);
 
     expect(container.firstChild).toHaveStyleRule('font-family', /monospace/u);
+    expect(container.firstChild).toHaveStyleRule('line-height', 'normal');
   });
 
   it('renders expected RTL direction', () => {
