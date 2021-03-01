@@ -10,12 +10,14 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'colorpickers.colordialog_preview_container';
 
-export const StyledPreviewContainer = styled.div.attrs({
+export const StyledPreviewContainer = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  display: flex;
+  display: inline-block;
   position: relative;
+  width: ${props => props.theme.space.base * 5}px;
+  height: ${props => props.theme.space.base * 5}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

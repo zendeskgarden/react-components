@@ -26,12 +26,11 @@ const StyledField = styled(Field)`
 `;
 
 const StyledInput = styled(Input)`
-  width: ${props => props.theme.space.base * 23.25}px;
+  /* stylelint-disable-next-line declaration-no-important */
+  width: ${props => props.theme.space.base * 23.25}px !important;
 `;
 
 const StyledColorDialog = styled(ColorDialog)`
-  padding: 0 ${props => props.theme.space.base * 8}px;
-
   &:disabled {
     /* stylelint-disable declaration-no-important */
     border-top-width: 1px !important;

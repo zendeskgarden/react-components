@@ -31,10 +31,11 @@ const backgroundStyles = (props: IStyledCheckered & ThemeProps<DefaultTheme>) =>
   `;
 };
 
-export const StyledCheckered = styled.div.attrs<IStyledCheckered>({
+export const StyledCheckered = styled.span.attrs<IStyledCheckered>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledCheckered>`
+  display: inline-block;
   position: absolute;
   ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => (props.sticky ? 0 : undefined)};
   z-index: 0;

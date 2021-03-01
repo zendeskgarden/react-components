@@ -31,13 +31,17 @@ const background = (props: IStyleDialogPreviewProps) => {
   return `background: rgba(${red}, ${green}, ${blue}, ${alpha ? alpha / 100 : 0})`;
 };
 
-export const StyledDialogPreview = styled.div.attrs<IStyleDialogPreviewProps>({
+/**
+ * 1. Adjust spacing in IE11 to match other browsers
+ */
+export const StyledDialogPreview = styled.span.attrs<IStyleDialogPreviewProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'dialog-preview'
 })<IStyleDialogPreviewProps>`
   display: inline-block;
   position: relative;
+  bottom: ${props => props.theme.space.base}px;
   z-index: 1;
   /* stylelint-disable-next-line color-function-notation */
   border: ${props =>
@@ -50,6 +54,11 @@ export const StyledDialogPreview = styled.div.attrs<IStyleDialogPreviewProps>({
   border-radius: ${props => props.theme.borderRadii.sm};
   width: ${props => props.theme.space.base * 4.5}px;
   height: ${props => props.theme.space.base * 4.5}px;
+
+  /* stylelint-disable-next-line */
+  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    bottom: ${props => props.theme.space.base * 1.25}px; /* [1] */
+  }
 
   ${background}
 
