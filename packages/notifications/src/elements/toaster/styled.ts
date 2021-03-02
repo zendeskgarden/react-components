@@ -88,8 +88,8 @@ StyledFadeInTransition.defaultProps = {
 };
 
 interface IStyledTransitionGroupProps {
-  placement: ToastPlacement;
-  zIndex?: number;
+  $placement: ToastPlacement;
+  $zIndex?: number;
 }
 
 const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionGroupProps) => {
@@ -127,7 +127,7 @@ const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionGrou
     bottom: ${distance};
   `;
 
-  switch (props.placement) {
+  switch (props.$placement) {
     case 'top-start':
       if (props.theme.rtl) {
         return topRightStyles;
@@ -163,7 +163,7 @@ const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionGrou
 
 export const StyledTransitionGroup = styled(TransitionGroup)<IStyledTransitionGroupProps>`
   position: fixed;
-  z-index: ${props => props.zIndex};
+  z-index: ${props => props.$zIndex};
 
   ${placementStyles};
 `;

@@ -67,8 +67,8 @@ export const ToastSlot: React.FC<IToastSlotProps> = ({ toasts, placement, zIndex
   return (
     <StyledTransitionGroup
       key={placement}
-      placement={placement}
-      zIndex={zIndex}
+      $placement={placement}
+      $zIndex={zIndex}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
