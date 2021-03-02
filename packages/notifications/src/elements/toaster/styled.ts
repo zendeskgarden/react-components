@@ -45,7 +45,7 @@ export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement:
     /* prettier-ignore */
     transition:
       opacity 400ms ease-in,
-      transform 400ms,
+      transform 400ms cubic-bezier(0.15, 0.85, 0.35, 1.2),
       max-height 400ms;
     opacity: 1;
     max-height: 500px;
@@ -75,8 +75,8 @@ export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement:
     /* stylelint-enable */
     /* prettier-ignore */
     transition:
-      opacity 400ms,
-      transform 250ms ease-in 150ms,
+      opacity 400ms ease-out,
+      transform 200ms ease-in 200ms,
       max-height 400ms ease-in-out;
     opacity: 0;
     max-height: 0;
