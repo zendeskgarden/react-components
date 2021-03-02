@@ -40,6 +40,12 @@ Controlled.args = {
   alpha: 'A'
 };
 
+Controlled.argTypes = {
+  color: { control: { disable: true } },
+  defaultColor: { control: { disable: true } },
+  labels: { control: false }
+};
+
 Controlled.parameters = {
   docs: {
     description: {

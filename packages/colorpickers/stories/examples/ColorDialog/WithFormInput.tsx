@@ -124,6 +124,8 @@ WithFormInput.args = {
 };
 
 WithFormInput.argTypes = {
+  color: { control: { disable: true } },
+  defaultColor: { control: { disable: true } },
   labels: { control: false },
   zIndex: { control: { disable: true } },
   popperModifiers: { control: { disable: true } },
