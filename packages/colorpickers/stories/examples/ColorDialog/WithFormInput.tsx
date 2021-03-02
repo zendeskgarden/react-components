@@ -31,6 +31,8 @@ const StyledInput = styled(Input)`
 `;
 
 const StyledColorDialog = styled(ColorDialog)`
+  border-color: ${props => getColor('primaryHue', 600, props.theme)};
+
   &:disabled {
     /* stylelint-disable declaration-no-important */
     border-top-width: 1px !important;
@@ -87,6 +89,7 @@ export const WithFormInput: Story = ({
                   }}
                 />
                 <StyledColorDialog
+                  focusInset
                   color={color}
                   labels={labels}
                   placement={placement}

@@ -61,6 +61,10 @@ export interface IColorDialogProps extends IColorPickerProps {
    * Animates the color dialog
    */
   isAnimated?: boolean;
+  /**
+   * Applies inset `box-shadow` styling on focus
+   */
+  focusInset?: boolean;
 }
 
 /**
@@ -82,6 +86,7 @@ export const ColorDialog = forwardRef<
       isAnimated,
       popperModifiers,
       zIndex,
+      focusInset,
       children,
       ...props
     },
@@ -113,7 +118,7 @@ export const ColorDialog = forwardRef<
             ref: mergedRef
           })
         ) : (
-          <StyledButton ref={mergedRef} onClick={onClick} {...props}>
+          <StyledButton focusInset={focusInset} ref={mergedRef} onClick={onClick} {...props}>
             <StyledPreviewContainer>
               <StyledDialogPreview backgroundColor={isControlled ? color : uncontrolledColor} />
               <StyledCheckered
