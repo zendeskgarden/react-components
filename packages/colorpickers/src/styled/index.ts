@@ -21,9 +21,6 @@ export * from './ColorPicker/StyledInputGroup';
 export * from './ColorPicker/StyledRGBAField';
 export * from './ColorPicker/StyledSliders';
 export * from './common/StyledCheckered';
-export * from './ColorPicker/StyledAlphaGradient';
-export * from './ColorPicker/StyledHueField';
-export * from './ColorPicker/StyledAlphaField';
 
 export * from './ColorDialog/StyledDialogPreview';
 export * from './ColorDialog/StyledPreviewContainer';

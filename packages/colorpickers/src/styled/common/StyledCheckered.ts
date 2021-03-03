@@ -38,7 +38,6 @@ export const StyledCheckered = styled.span.attrs<IStyledCheckered>({
   display: inline-block;
   position: absolute;
   ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => (props.sticky ? 0 : undefined)};
-  z-index: 0;
   ${backgroundStyles}
   width: ${props => props.width};
   height: ${props => props.height};

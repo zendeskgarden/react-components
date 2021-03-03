@@ -18,6 +18,7 @@ export const StyledSliderGroup = styled.div.attrs({
   position: relative;
   justify-content: space-between;
   margin-bottom: ${props => props.theme.space.base * 2}px;
+  height: ${props => props.theme.space.base * 8}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

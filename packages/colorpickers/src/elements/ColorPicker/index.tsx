@@ -17,7 +17,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import { Label } from '@zendeskgarden/react-forms';
+import { Field, Label } from '@zendeskgarden/react-forms';
 import { ColorWell } from './ColorWell';
 import {
   StyledHue,
@@ -31,10 +31,7 @@ import {
   StyledInputGroup,
   StyledPreview,
   StyledColorPicker,
-  StyledCheckered,
-  StyledAlphaGradient,
-  StyledAlphaField,
-  StyledHueField
+  StyledCheckered
 } from '../../styled';
 import { areColorsEqual, convertStringToColor, getInitialState, reducer } from './reducer';
 import { IColor, IHSVColor } from '../../utils/types';
@@ -172,30 +169,29 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             sticky
           />
           <StyledSliders>
-            <StyledHueField>
+            <Field style={{ top: theme.space.base * -1.25 }}>
               <Label hidden>{labels.hueSlider || 'Hue slider'}</Label>
               <StyledHue step={1} max={360} value={computedColor.hue} onChange={handleHueChange} />
-            </StyledHueField>
-            <StyledAlphaField>
+            </Field>
+            <Field style={{ bottom: theme.space.base * 1.75 }}>
+              <StyledCheckered
+                height={`${theme.space.base * 3}px`}
+                width="100%"
+                size={`${theme.space.base * 3}px`}
+                position={`${theme.space.base * 1.5}px`}
+                style={{ top: theme.space.base * 1.25 }}
+              />
               <Label hidden>{labels.alphaSlider || 'Alpha slider'}</Label>
               <StyledAlpha
                 max={1}
                 step={0.01}
                 value={computedColor.alpha / 100}
                 onChange={handleAlphaSliderChange}
-              />
-              <StyledCheckered
-                height={`${theme.space.base * 3}px`}
-                width="100%"
-                size={`${theme.space.base * 3}px`}
-                position={`${theme.space.base * 1.5}px`}
-              />
-              <StyledAlphaGradient
                 red={computedColor.red}
                 green={computedColor.green}
                 blue={computedColor.blue}
               />
-            </StyledAlphaField>
+            </Field>
           </StyledSliders>
         </StyledSliderGroup>
         <StyledInputGroup>
