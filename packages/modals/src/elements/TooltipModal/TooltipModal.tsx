@@ -19,6 +19,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { usePopper, Modifier } from 'react-popper';
+import { CSSTransition } from 'react-transition-group';
 import { useModal } from '@zendeskgarden/container-modal';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import {
@@ -173,22 +174,33 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
       ...props
     }) as any;
 
-    return referenceElement ? (
-      <TooltipModalContext.Provider value={value}>
-        <StyledTooltipModalBackdrop {...(getBackdropProps(backdropProps) as any)}>
-          <StyledTooltipWrapper
-            ref={setPopperElement}
-            style={styles.popper}
-            placement={state ? state.placement : undefined}
-            zIndex={zIndex}
-            isAnimated={isAnimated}
-            {...attributes.popper}
-          >
-            <StyledTooltipModal {...modalProps} />
-          </StyledTooltipWrapper>
-        </StyledTooltipModalBackdrop>
-      </TooltipModalContext.Provider>
-    ) : null;
+    return (
+      <CSSTransition
+        unmountOnExit
+        timeout={isAnimated ? 200 : 0}
+        in={Boolean(referenceElement)}
+        classNames={isAnimated ? 'garden-tooltip-modal-transition' : ''}
+      >
+        {transitionState => {
+          return (
+            <TooltipModalContext.Provider value={value}>
+              <StyledTooltipModalBackdrop {...(getBackdropProps(backdropProps) as any)}>
+                <StyledTooltipWrapper
+                  ref={setPopperElement}
+                  style={styles.popper}
+                  placement={state ? state.placement : undefined}
+                  zIndex={zIndex}
+                  isAnimated={isAnimated}
+                  {...attributes.popper}
+                >
+                  <StyledTooltipModal transitionState={transitionState} {...modalProps} />
+                </StyledTooltipWrapper>
+              </StyledTooltipModalBackdrop>
+            </TooltipModalContext.Provider>
+          );
+        }}
+      </CSSTransition>
+    );
   }
 ) as IStaticTooltipModalExport<HTMLDivElement, ITooltipModalProps>;
 

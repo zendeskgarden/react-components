@@ -19,6 +19,7 @@ export interface IStyledTooltipModalProps {
    */
   placement: Placement;
   isAnimated?: boolean;
+  transitionState?: string;
 }
 
 /**
@@ -38,13 +39,19 @@ export const StyledTooltipModal = styled.div.attrs<IStyledTooltipModalProps>(pro
   padding: ${props => props.theme.space.base * 5}px;
   width: 400px;
 
-  ${props =>
-    props.hasArrow &&
-    arrowStyles(getArrowPosition(props.placement), {
+  ${props => {
+    const computedArrowStyles = arrowStyles(getArrowPosition(props.placement), {
       size: `${props.theme.space.base * 2.5}px`,
       inset: `${props.theme.space.base / 2}px`,
       animationModifier: '.is-animated'
-    })};
+    });
+
+    if (props.isAnimated) {
+      return props.hasArrow && props.transitionState === 'entered' && computedArrowStyles;
+    }
+
+    return props.hasArrow && computedArrowStyles;
+  }};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
