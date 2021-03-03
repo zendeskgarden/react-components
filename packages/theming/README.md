@@ -44,7 +44,7 @@ complex, depending on your needs:
 
 ### RTL
 
-```jsx static
+```jsx
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Notification } from '@zendeskgarden/react-notifications';
 
@@ -56,7 +56,7 @@ import { Notification } from '@zendeskgarden/react-notifications';
 The `withTheme` [HOC](https://reactjs.org/docs/higher-order-components.html)
 utility allows any component to interact with its `ThemeProvider`.
 
-```jsx static
+```jsx
 import { withTheme } from '@zendeskgarden/react-theming';
 
 const Div = ({ theme, children }) => (

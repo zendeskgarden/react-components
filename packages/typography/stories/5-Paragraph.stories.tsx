@@ -35,9 +35,3 @@ export const Default: Story = ({ size }) => (
     </Row>
   </Grid>
 );
-
-Default.argTypes = {
-  size: {
-    control: { type: 'select', options: ['small', 'medium', 'large'] }
-  }
-};

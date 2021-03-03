@@ -1,0 +1,148 @@
+import { Meta, Description, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ArrowStyles } from './examples/ArrowStyles.tsx';
+import { MenuStyles } from './examples/MenuStyles.tsx';
+import { WithTheme } from './examples/WithTheme.tsx';
+
+<Meta title="Components/Theming/Utils" />
+
+## arrowStyles
+
+CSS for an arrow at the given position and with the given size. The arrow is
+positioned via \`::before\` and \`::after\` pseudo-elements and inherits the
+base element's border, background, and box-shadow.
+
+IMPORTANT: the element that receives arrow styling must be wrapped in a
+positioned box (i.e. \`relative\`, \`absolute\`, \`fixed\`) that has a \`z-index\`
+greater than or equal to zero. Without this, the arrow cannot properly
+display inherited border or box-shadow styling.
+
+<Canvas>
+  <Story
+    name="arrowStyles()"
+    args={{
+      position: 'bottom',
+      hasBoxShadow: true,
+      hasBorder: true,
+      isAnimated: false,
+      size: 6,
+      inset: 0
+    }}
+    argTypes={{
+      position: {
+        name: 'Position',
+        control: {
+          type: 'select',
+          options: [
+            'top',
+            'top-left',
+            'top-right',
+            'right',
+            'right-top',
+            'right-bottom',
+            'bottom',
+            'bottom-left',
+            'bottom-right',
+            'left',
+            'left-top',
+            'left-bottom'
+          ]
+        }
+      },
+      hasBoxShadow: {
+        name: 'Box shadow'
+      },
+      hasBorder: {
+        name: 'Border'
+      },
+      isAnimated: {
+        name: 'Animate'
+      },
+      size: {
+        name: 'Size (px)',
+        control: { type: 'range', min: 2, max: 10, step: 1 }
+      },
+      inset: {
+        name: 'Inset (px)',
+        control: { type: 'range', min: -4, max: 4, step: 1 }
+      }
+    }}
+  >
+    {ArrowStyles.bind({})}
+  </Story>
+</Canvas>
+
+## getColor
+
+Get the palette color for the given hue, shade, and theme.
+
+## getDocument
+
+## getLineHeight
+
+Get unitless line height based on the given pixel-valued height and font size.
+
+## isRtl
+
+## mediaQuery
+
+Get a media query string for the given query specifier, breakpoint name, and theme.
+
+## menuStyles
+
+CSS for a `wrapper > menu` at the given position. The wrapper provides
+absolute positioning (e.g. via Popper). The menu provides basic styling and
+optional animation.
+
+<Canvas>
+  <Story
+    name="menuStyles()"
+    args={{
+      position: 'bottom',
+      isAnimated: true
+    }}
+    argTypes={{
+      position: {
+        name: 'Position',
+        control: {
+          type: 'select',
+          options: [
+            'top',
+            'right',
+            'bottom',
+            'left',
+          ]
+        }
+      },
+      isAnimated: {
+        name: 'Animate'
+      }
+    }}
+  >
+    {MenuStyles.bind({})}
+  </Story>
+</Canvas>
+
+## retrieveComponentStyles
+
+## useDocument
+
+## withTheme
+
+The `withTheme` HOC allows you to interact with the `ThemeProvider` in
+any child component.
+
+<Canvas>
+  <Story
+    name="withTheme()"
+    args={{
+      isRtl: true
+    }}
+    argTypes={{
+      isRtl: {
+        name: 'RTL'
+      }
+    }}
+  >
+    {WithTheme.bind({})}
+  </Story>
+</Canvas>
