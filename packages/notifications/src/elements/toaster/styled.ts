@@ -76,38 +76,39 @@ interface IStyledTransitionGroupProps {
 }
 
 const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionGroupProps) => {
-  const distance = `${props.theme.space.base * 10}px`;
+  const verticalDistance = `${props.theme.space.base * 16}px`;
+  const horizontalDistance = `${props.theme.space.base * 3}px`;
 
   const topLeftStyles = css`
-    top: ${distance};
-    left: ${distance};
+    top: ${verticalDistance};
+    left: ${horizontalDistance};
   `;
 
   const topStyles = css`
-    top: ${distance};
+    top: ${verticalDistance};
     left: 50%;
     transform: translate(-50%, 0);
   `;
 
   const topRightStyles = css`
-    top: ${distance};
-    right: ${distance};
+    top: ${verticalDistance};
+    right: ${horizontalDistance};
   `;
 
   const bottomLeftStyles = css`
-    bottom: ${distance};
-    left: ${distance};
+    bottom: ${verticalDistance};
+    left: ${horizontalDistance};
   `;
 
   const bottomStyles = css`
-    bottom: ${distance};
+    bottom: ${verticalDistance};
     left: 50%;
     transform: translate(-50%, 0);
   `;
 
   const bottomRightStyles = css`
-    right: ${distance};
-    bottom: ${distance};
+    right: ${horizontalDistance};
+    bottom: ${verticalDistance};
   `;
 
   switch (props.$placement) {
@@ -139,6 +140,7 @@ const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionGrou
       }
 
       return bottomRightStyles;
+    /* istanbul ignore next */
     default:
       return '';
   }

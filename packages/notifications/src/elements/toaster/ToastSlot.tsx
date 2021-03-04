@@ -76,10 +76,11 @@ export const ToastSlot: React.FC<IToastSlotProps> = ({ toasts, placement, zIndex
         <CSSTransition
           key={toast.id}
           timeout={{ enter: 400, exit: 550 }}
+          unmountOnExit
           classNames={TRANSITION_CLASS}
         >
           <StyledFadeInTransition placement={placement} isHidden={isHidden(index)}>
-            <Toast toast={toast} pauseTimers={pauseTimers} />
+            <Toast toast={toast} pauseTimers={pauseTimers || isHidden(index)} />
           </StyledFadeInTransition>
         </CSSTransition>
       ))}

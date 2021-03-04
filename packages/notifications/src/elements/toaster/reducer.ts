@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ReactNode } from 'react';
+import { ReactElement } from 'react';
 
 export type ToastPlacement =
   | 'top-start'
@@ -15,7 +15,7 @@ export type ToastPlacement =
   | 'bottom'
   | 'bottom-end';
 
-export type ToastContent = ({ close }: { close: () => void }) => ReactNode;
+export type ToastContent = ({ close }: { close: () => void }) => ReactElement;
 
 export interface IToastOptions<T = any> {
   id?: string;

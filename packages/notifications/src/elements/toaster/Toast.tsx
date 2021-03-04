@@ -67,5 +67,5 @@ export const Toast: React.FC<IToastProps> = ({ toast, pauseTimers }) => {
     removeToast(toast.id);
   }, [removeToast, toast.id]);
 
-  return <div>{toast.content({ close })}</div>;
+  return toast.content({ close });
 };
