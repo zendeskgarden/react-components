@@ -12,11 +12,11 @@ import { IColor } from '../../utils/types';
 
 const COMPONENT_ID = 'colorpickers.colordialog_preview';
 
-export interface IStyleDialogPreviewProps extends ThemeProps<DefaultTheme> {
+export interface IStyleButtonPreviewProps extends ThemeProps<DefaultTheme> {
   backgroundColor?: string | IColor;
 }
 
-const background = (props: IStyleDialogPreviewProps) => {
+const background = (props: IStyleButtonPreviewProps) => {
   const { backgroundColor } = props;
   let color;
 
@@ -33,14 +33,14 @@ const background = (props: IStyleDialogPreviewProps) => {
   return `linear-gradient(${color}, ${color})`;
 };
 
-export const StyledDialogPreview = styled.span.attrs<IStyleDialogPreviewProps>(props => ({
+export const StyledButtonPreview = styled.span.attrs<IStyleButtonPreviewProps>(props => ({
   style: {
     background: `${background(props)}, ${checkeredBackground(props.theme, 8)}`
   },
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'dialog-preview'
-}))<IStyleDialogPreviewProps>`
+}))<IStyleButtonPreviewProps>`
   display: inline-block;
   bottom: ${props => props.theme.space.base}px;
   border-radius: ${props => props.theme.borderRadii.sm};
@@ -53,6 +53,6 @@ export const StyledDialogPreview = styled.span.attrs<IStyleDialogPreviewProps>(p
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledDialogPreview.defaultProps = {
+StyledButtonPreview.defaultProps = {
   theme: DEFAULT_THEME
 };

@@ -8,10 +8,10 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { ColorPicker } from '@zendeskgarden/react-colorpickers';
+import { Colorpicker } from '@zendeskgarden/react-colorpickers';
 export default {
-  title: 'Components/ColorPicker',
-  component: ColorPicker
+  title: 'Components/Colorpicker',
+  component: Colorpicker
 } as Meta;
 
 export const Uncontrolled: Story = ({ alphaSlider, hueSlider, hex, red, green, blue, alpha }) => {
@@ -19,7 +19,7 @@ export const Uncontrolled: Story = ({ alphaSlider, hueSlider, hex, red, green, b
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ColorPicker
+      <Colorpicker
         labels={labels}
         onChange={action('onChange')}
         defaultColor="rgba(23, 73, 77, 1)"
@@ -48,7 +48,7 @@ Uncontrolled.parameters = {
   docs: {
     description: {
       component: `
- The \`ColorPicker\` component is used to select a color.
+ The \`Colorpicker\` component is used to select a color.
       `
     }
   }

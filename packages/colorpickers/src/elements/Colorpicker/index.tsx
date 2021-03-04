@@ -18,11 +18,11 @@ import PropTypes from 'prop-types';
 import { Field, Label } from '@zendeskgarden/react-forms';
 import { ColorWell } from './ColorWell';
 import {
-  StyledHue,
+  StyledHueRange,
   StyledSliderGroup,
   StyledLabel,
   StyledInput,
-  StyledAlpha,
+  StyledAlphaRange,
   StyledSliders,
   StyledHexField,
   StyledRGBAField,
@@ -33,7 +33,7 @@ import {
 import { areColorsEqual, convertStringToColor, getInitialState, reducer } from './reducer';
 import { IColor, IHSVColor } from '../../utils/types';
 
-export interface IColorPickerProps
+export interface IColorpickerProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'onChange'> {
   /** Sets the color for an uncontrolled color picker */
   defaultColor?: string | IColor;
@@ -62,7 +62,7 @@ export interface IColorPickerProps
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
+export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
   ({ color, defaultColor, labels = {}, autofocus, onChange, ...props }, ref) => {
     const [state, dispatch] = useReducer(reducer, getInitialState(color || defaultColor));
     const previousComputedColorRef = useRef<IColor>(state.color);
@@ -160,11 +160,16 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
           <StyledSliders>
             <Field>
               <Label hidden>{labels.hueSlider || 'Hue slider'}</Label>
-              <StyledHue step={1} max={360} value={computedColor.hue} onChange={handleHueChange} />
+              <StyledHueRange
+                step={1}
+                max={360}
+                value={computedColor.hue}
+                onChange={handleHueChange}
+              />
             </Field>
             <Field>
               <Label hidden>{labels.alphaSlider || 'Alpha slider'}</Label>
-              <StyledAlpha
+              <StyledAlphaRange
                 max={1}
                 step={0.01}
                 value={computedColor.alpha / 100}
@@ -246,14 +251,14 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
   }
 );
 
-ColorPicker.defaultProps = {
+Colorpicker.defaultProps = {
   defaultColor: '#fff',
   autofocus: true
 };
 
-ColorPicker.displayName = 'ColorPicker';
+Colorpicker.displayName = 'Colorpicker';
 
-ColorPicker.propTypes = {
+Colorpicker.propTypes = {
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
   onChange: PropTypes.func,
   labels: PropTypes.object,

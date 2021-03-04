@@ -5,19 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import { Button } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import { ColorDialog } from '@zendeskgarden/react-colorpickers';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { IColor, ColorpickerDialog } from '@zendeskgarden/react-colorpickers';
 
 export default {
-  title: 'Components/ColorDialog',
-  component: ColorDialog
+  title: 'Components/ColorpickerDialog',
+  component: ColorpickerDialog
 } as Meta;
 
-export const Uncontrolled: Story = ({
+export const Controlled: Story = ({
   alphaSlider,
   hueSlider,
   hex,
@@ -27,29 +26,31 @@ export const Uncontrolled: Story = ({
   alpha,
   placement,
   disabled,
-  zIndex,
   hasArrow,
-  isAnimated,
-  popperModifiers
+  isAnimated
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
+  const [color, setColor] = useState<string | IColor>('rgba(22,73,77,1)');
 
   return (
     <Grid>
       <Row alignItems="center" style={{ minHeight: 640 }}>
         <Col>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <ColorDialog
-              zIndex={zIndex}
-              labels={labels}
-              disabled={disabled}
-              placement={placement}
-              hasArrow={hasArrow}
-              isAnimated={isAnimated}
-              onChange={action('onChange')}
-              popperModifiers={popperModifiers}
-              defaultColor={DEFAULT_THEME.palette.kale[700]}
-            />
+            <div style={{ display: 'flex', justifyContent: 'space-around', width: '212px' }}>
+              <ColorpickerDialog
+                color={color}
+                labels={labels}
+                onChange={setColor}
+                placement={placement}
+                disabled={disabled}
+                hasArrow={hasArrow}
+                isAnimated={isAnimated}
+              />
+              <Button disabled={disabled} onClick={() => setColor('#CE9FB7')}>
+                Set to #CE9FB7
+              </Button>
+            </div>
           </div>
         </Col>
       </Row>
@@ -57,7 +58,7 @@ export const Uncontrolled: Story = ({
   );
 };
 
-Uncontrolled.args = {
+Controlled.args = {
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
   hex: 'Hex',
@@ -70,9 +71,9 @@ Uncontrolled.args = {
   isAnimated: true
 };
 
-Uncontrolled.argTypes = {
-  color: { control: { disable: true } },
-  defaultColor: { control: { disable: true } },
+Controlled.argTypes = {
+  color: { control: false },
+  defaultColor: { control: false },
   labels: { control: false },
   zIndex: { control: { disable: true } },
   popperModifiers: { control: { disable: true } },
@@ -98,12 +99,12 @@ Uncontrolled.argTypes = {
   }
 };
 
-Uncontrolled.parameters = {
+Controlled.parameters = {
   docs: {
     description: {
-      component: `
-The \`ColorDialog\` component reveals a color picker when a user selects the dialog button.
-      `
+      story: `
+The \`ColorpickerDialog\` component can be controlled with a \`color\` prop.
+`
     }
   }
 };

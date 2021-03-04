@@ -5,20 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { IconButton } from '@zendeskgarden/react-buttons';
+import { action } from '@storybook/addon-actions';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import { ColorDialog, IColor } from '@zendeskgarden/react-colorpickers';
-import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-fill.svg';
+import { ColorpickerDialog } from '@zendeskgarden/react-colorpickers';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export default {
-  title: 'Components/ColorDialog',
-  component: ColorDialog
+  title: 'Components/ColorpickerDialog',
+  component: ColorpickerDialog
 } as Meta;
 
-export const WithIconButton: Story = ({
-  placement,
+export const Uncontrolled: Story = ({
   alphaSlider,
   hueSlider,
   hex,
@@ -26,40 +25,31 @@ export const WithIconButton: Story = ({
   green,
   blue,
   alpha,
+  placement,
   disabled,
+  zIndex,
   hasArrow,
-  isAnimated
+  isAnimated,
+  popperModifiers
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
-  const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 1)');
-  const [selectedColor, setSelectedColor] = useState<string | IColor>('rgba(23, 73, 77, 100)');
-  const iconColor =
-    typeof selectedColor === 'string'
-      ? selectedColor
-      : `rgba(${selectedColor.red}, ${selectedColor.green}, ${selectedColor.blue}, ${selectedColor.alpha})`;
 
   return (
     <Grid>
       <Row alignItems="center" style={{ minHeight: 640 }}>
         <Col>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <ColorDialog
-              color={color}
+            <ColorpickerDialog
+              zIndex={zIndex}
               labels={labels}
-              onChange={setColor}
-              hasArrow={hasArrow}
+              disabled={disabled}
               placement={placement}
+              hasArrow={hasArrow}
               isAnimated={isAnimated}
-              onClose={setSelectedColor}
-            >
-              <IconButton
-                aria-label="leaf"
-                disabled={disabled}
-                style={{ color: disabled ? undefined : iconColor }}
-              >
-                <LeafIcon />
-              </IconButton>
-            </ColorDialog>
+              onChange={action('onChange')}
+              popperModifiers={popperModifiers}
+              defaultColor={DEFAULT_THEME.palette.kale[700]}
+            />
           </div>
         </Col>
       </Row>
@@ -67,7 +57,7 @@ export const WithIconButton: Story = ({
   );
 };
 
-WithIconButton.args = {
+Uncontrolled.args = {
   alphaSlider: 'Alpha slider',
   hueSlider: 'Hue slider',
   hex: 'Hex',
@@ -76,11 +66,11 @@ WithIconButton.args = {
   blue: 'B',
   alpha: 'A',
   disabled: false,
-  hasArrow: true,
+  hasArrow: false,
   isAnimated: true
 };
 
-WithIconButton.argTypes = {
+Uncontrolled.argTypes = {
   color: { control: { disable: true } },
   defaultColor: { control: { disable: true } },
   labels: { control: false },
@@ -108,16 +98,12 @@ WithIconButton.argTypes = {
   }
 };
 
-WithIconButton.parameters = {
+Uncontrolled.parameters = {
   docs: {
     description: {
-      story: `
-  The color dialog can use a custom trigger element for the dialog button.
-  This example demonstrates using a \`IconButton\` as the color dialog
-  trigger element.
-`
+      component: `
+The \`ColorpickerDialog\` component reveals a color picker when a user selects the dialog button.
+      `
     }
   }
 };
-
-WithIconButton.storyName = 'Custom trigger';

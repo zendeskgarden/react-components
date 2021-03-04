@@ -8,10 +8,10 @@
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Button } from '@zendeskgarden/react-buttons';
-import { ColorPicker, IColor } from '@zendeskgarden/react-colorpickers';
+import { Colorpicker, IColor } from '@zendeskgarden/react-colorpickers';
 export default {
-  title: 'Components/ColorPicker',
-  component: ColorPicker
+  title: 'Components/Colorpicker',
+  component: Colorpicker
 } as Meta;
 
 export const Controlled: Story = ({ alphaSlider, hueSlider, hex, red, green, blue, alpha }) => {
@@ -24,7 +24,7 @@ export const Controlled: Story = ({ alphaSlider, hueSlider, hex, red, green, blu
         <Button onClick={() => setColor('#CE9FB7')}>Control to #CE9FB7</Button>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <ColorPicker color={color} onChange={setColor} labels={labels} />
+        <Colorpicker color={color} onChange={setColor} labels={labels} />
       </div>
     </>
   );
@@ -50,7 +50,7 @@ Controlled.parameters = {
   docs: {
     description: {
       story: `
-The \`ColorPicker\` component can be controlled with a \`color\` prop.
+The \`Colorpicker\` component can be controlled with a \`color\` prop.
 `
     }
   }

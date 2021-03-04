@@ -7,11 +7,11 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledHue } from './StyledHue';
+import { StyledHueRange } from './StyledHueRange';
 
 describe('StyledHue', () => {
   it('renders default style', () => {
-    const { container } = render(<StyledHue />);
+    const { container } = render(<StyledHueRange />);
     const modifiers = ['&::-ms-track', '&::-moz-range-track', '&::-webkit-slider-runnable-track'];
 
     modifiers.forEach(modifier => {
@@ -24,7 +24,7 @@ describe('StyledHue', () => {
   });
 
   it('renders RTL style', () => {
-    const { container } = renderRtl(<StyledHue />);
+    const { container } = renderRtl(<StyledHueRange />);
     const modifiers = ['&::-ms-track', '&::-moz-range-track', '&::-webkit-slider-runnable-track'];
 
     modifiers.forEach(modifier => {

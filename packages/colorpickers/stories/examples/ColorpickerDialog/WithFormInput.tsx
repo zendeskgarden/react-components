@@ -9,13 +9,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
-import { IColor, ColorDialog } from '@zendeskgarden/react-colorpickers';
+import { IColor, ColorpickerDialog } from '@zendeskgarden/react-colorpickers';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { getColor } from '@zendeskgarden/react-theming';
 
 export default {
-  title: 'Components/ColorDialog',
-  component: ColorDialog
+  title: 'Components/ColorpickerDialog',
+  component: ColorpickerDialog
 } as Meta;
 
 const validHex = /^#(?<hex>[0-9A-F]{3}){1,2}$/iu;
@@ -30,7 +30,7 @@ const StyledInput = styled(Input)`
   width: ${props => props.theme.space.base * 23.25}px !important;
 `;
 
-const StyledColorDialog = styled(ColorDialog)`
+const StyledColorpickerDialog = styled(ColorpickerDialog)`
   border-color: ${props => getColor('primaryHue', 600, props.theme)};
 
   &:disabled {
@@ -88,7 +88,7 @@ export const WithFormInput: Story = ({
                     }
                   }}
                 />
-                <StyledColorDialog
+                <StyledColorpickerDialog
                   focusInset
                   color={color}
                   labels={labels}

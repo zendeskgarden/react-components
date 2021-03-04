@@ -23,7 +23,7 @@ const gradientBackground = (props: IRGBColor & ThemeProps<DefaultTheme>) => {
   return `linear-gradient(${direction}, ${fromColor}, ${toColor}) 0 ${positionY} / 100% ${height} no-repeat`;
 };
 
-export const StyledAlpha = styled(StyledRange as 'input').attrs<IRGBColor>(props => ({
+export const StyledAlphaRange = styled(StyledRange as 'input').attrs<IRGBColor>(props => ({
   style: {
     backgroundSize: 'auto' /* Range reset */,
     background: `${gradientBackground(props)},
@@ -37,6 +37,6 @@ export const StyledAlpha = styled(StyledRange as 'input').attrs<IRGBColor>(props
   `)}
 `;
 
-StyledAlpha.defaultProps = {
+StyledAlphaRange.defaultProps = {
   theme: DEFAULT_THEME
 };

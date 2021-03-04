@@ -16,13 +16,13 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { ColorPicker } from '@zendeskgarden/react-colorpickers';
+import { Colorpicker } from '@zendeskgarden/react-colorpickers';
 
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <ColorPicker defaultColor="#17494D">
+  <Colorpicker defaultColor="#17494D">
 </ThemeProvider>
 ```

@@ -21,16 +21,16 @@ import { Button } from '@zendeskgarden/react-buttons';
 import { GARDEN_PLACEMENT } from '@zendeskgarden/react-modals';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { ColorPicker, IColorPickerProps } from '../ColorPicker';
+import { Colorpicker, IColorpickerProps } from '../Colorpicker';
 import { IColor } from '../../utils/types';
 import {
   StyledButton,
-  StyledDialogPreview,
+  StyledButtonPreview,
   StyledTooltipModal,
   StyledTooltipBody
 } from '../../styled';
 
-export interface IColorDialogProps extends IColorPickerProps {
+export interface IColorpickerDialogProps extends IColorpickerProps {
   /**
    * Handles close actions. Can be triggered from the backdrop.
    *
@@ -66,9 +66,9 @@ export interface IColorDialogProps extends IColorPickerProps {
 /**
  * @extends HTMLAttributes<HTMLButtonElement>
  */
-export const ColorDialog = forwardRef<
+export const ColorpickerDialog = forwardRef<
   HTMLButtonElement,
-  IColorDialogProps & Omit<HTMLAttributes<HTMLButtonElement>, 'color' | 'onChange'>
+  IColorpickerDialogProps & Omit<HTMLAttributes<HTMLButtonElement>, 'color' | 'onChange'>
 >(
   (
     {
@@ -114,7 +114,7 @@ export const ColorDialog = forwardRef<
           })
         ) : (
           <StyledButton focusInset={focusInset} ref={mergedRef} onClick={onClick} {...props}>
-            <StyledDialogPreview backgroundColor={isControlled ? color : uncontrolledColor} />
+            <StyledButtonPreview backgroundColor={isControlled ? color : uncontrolledColor} />
             {/* eslint-disable-next-line no-eq-null, eqeqeq */}
             <Button.EndIcon isRotated={referenceElement != null}>
               <Chevron />
@@ -135,7 +135,7 @@ export const ColorDialog = forwardRef<
           }}
         >
           <StyledTooltipBody>
-            <ColorPicker
+            <Colorpicker
               autofocus
               color={color}
               labels={labels}
@@ -150,7 +150,7 @@ export const ColorDialog = forwardRef<
   }
 );
 
-ColorDialog.propTypes = {
+ColorpickerDialog.propTypes = {
   placement: PropTypes.oneOf([
     'auto',
     'top',
@@ -173,10 +173,10 @@ ColorDialog.propTypes = {
   defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string])
 };
 
-ColorDialog.defaultProps = {
+ColorpickerDialog.defaultProps = {
   placement: 'bottom-start',
   isAnimated: true,
   zIndex: 1000
 };
 
-ColorDialog.displayName = 'ColorDialog';
+ColorpickerDialog.displayName = 'ColorDialog';

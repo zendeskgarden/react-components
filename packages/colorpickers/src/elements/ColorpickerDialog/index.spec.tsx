@@ -8,20 +8,20 @@
 import React, { useState, createRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent, screen } from 'garden-test-utils';
-import { ColorDialog } from '.';
+import { ColorpickerDialog } from '.';
 import { IColor } from '../../utils/types';
 
-describe('ColorDialog', () => {
+describe('ColorpickerDialog', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = createRef<HTMLButtonElement>();
 
-    render(<ColorDialog defaultColor="#17494D" ref={ref} data-test-id="colordialog" />);
+    render(<ColorpickerDialog defaultColor="#17494D" ref={ref} data-test-id="colordialog" />);
 
     expect(screen.getByTestId('colordialog')).toBe(ref.current);
   });
 
   it('focuses on the hex input and trigger when the color dialog is opened and closed', () => {
-    const Basic = () => <ColorDialog defaultColor="rgba(23,73,77,1)" />;
+    const Basic = () => <ColorpickerDialog defaultColor="rgba(23,73,77,1)" />;
 
     render(<Basic />);
 
@@ -42,7 +42,7 @@ describe('ColorDialog', () => {
     const Basic = () => {
       const [color, setColor] = useState<string | IColor>('rgba(23,73,77,1)');
 
-      return <ColorDialog defaultColor={color} onClose={setColor} />;
+      return <ColorpickerDialog defaultColor={color} onClose={setColor} />;
     };
 
     render(<Basic />);
