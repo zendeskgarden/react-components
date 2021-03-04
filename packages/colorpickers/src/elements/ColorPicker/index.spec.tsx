@@ -63,13 +63,11 @@ describe('ColorPicker', () => {
     it('updates the color picker when the hue slider is changed', () => {
       render(<ColorPicker defaultColor="#17494D" />);
 
-      const previewBox = screen.getByTestId('preview-box');
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
       const redInput = screen.getByLabelText('R') as HTMLInputElement;
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hexInput.value).toBe('#17494d');
       expect(redInput.value).toBe('23');
       expect(greenInput.value).toBe('73');
@@ -79,7 +77,6 @@ describe('ColorPicker', () => {
 
       fireEvent.change(hueSlider, { target: { value: '349' } });
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(77, 23, 33);');
       expect(hexInput.value).toBe('#4d1721');
       expect(redInput.value).toBe('77');
       expect(greenInput.value).toBe('23');
@@ -88,21 +85,16 @@ describe('ColorPicker', () => {
 
     it('updates the color picker when the alpha slider is changed', () => {
       render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
-      const previewBox = screen.getByTestId('preview-box');
       const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
       const alphaInput = screen.getByLabelText('A') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
-
       fireEvent.change(alphaSlider, { target: { value: '0.5' } });
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgba(23, 73, 77, 0.5);');
       expect(alphaInput.value).toBe('50');
     });
 
     it('updates the rgb/a inputs correctly when one is cleared and user types into another', () => {
       render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
@@ -110,7 +102,6 @@ describe('ColorPicker', () => {
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(redInput.value).toBe('23');
       expect(greenInput.value).toBe('73');
@@ -130,7 +121,6 @@ describe('ColorPicker', () => {
 
     it('resets the hex input to the last valid hex string', () => {
       render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
@@ -138,7 +128,6 @@ describe('ColorPicker', () => {
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(hexInput.value).toBe('#17494d');
       expect(redInput.value).toBe('23');
@@ -153,7 +142,6 @@ describe('ColorPicker', () => {
       userEvent.type(hexInput, 'b4!a55');
       userEvent.tab();
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(redInput.value).toBe('23');
       expect(greenInput.value).toBe('73');
@@ -166,7 +154,6 @@ describe('ColorPicker', () => {
 
     it('updates the color picker when the hex input is changed', () => {
       render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex');
@@ -174,7 +161,6 @@ describe('ColorPicker', () => {
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(redInput.value).toBe('23');
       expect(greenInput.value).toBe('73');
@@ -187,7 +173,6 @@ describe('ColorPicker', () => {
       userEvent.clear(hexInput);
       userEvent.type(hexInput, '#b4da55');
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(180, 218, 85);');
       expect(hueSlider.value).toBe('77.14285714285714');
       expect(redInput.value).toBe('180');
       expect(greenInput.value).toBe('218');
@@ -200,13 +185,11 @@ describe('ColorPicker', () => {
 
     it('updates the color picker when the R input is changed', () => {
       render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
       const redInput = screen.getByLabelText('R') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hexInput.value).toBe('#17494d');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(colorWellThumb).toHaveAttribute(
@@ -217,20 +200,17 @@ describe('ColorPicker', () => {
       userEvent.clear(redInput);
       userEvent.type(redInput, '255');
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(255, 73, 77);');
       expect(hueSlider.value).toBe('358.68131868131866');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 71.37254901960785%;');
     });
 
     it('updates the color picker when the G input is changed', () => {
       render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hexInput.value).toBe('#17494d');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(colorWellThumb).toHaveAttribute(
@@ -241,20 +221,17 @@ describe('ColorPicker', () => {
       userEvent.clear(greenInput);
       userEvent.type(greenInput, '255');
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 255, 77);');
       expect(hueSlider.value).toBe('133.9655172413793');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
 
     it('updates the color picker when the B input is changed', () => {
       render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hexInput.value).toBe('#17494d');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(colorWellThumb).toHaveAttribute(
@@ -265,7 +242,6 @@ describe('ColorPicker', () => {
       userEvent.clear(blueInput);
       userEvent.type(blueInput, '255');
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 255);');
       expect(hueSlider.value).toBe('227.06896551724137');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
@@ -273,18 +249,15 @@ describe('ColorPicker', () => {
     it('updates with correct alpha when the A input is changed', () => {
       render(<ColorPicker defaultColor="rgba(23, 73, 77, 1)" />);
 
-      const previewBox = screen.getByTestId('preview-box');
       const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
       const alphaInput = screen.getByLabelText('A') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(alphaSlider.value).toBe('1');
       expect(alphaInput.value).toBe('100');
 
       userEvent.clear(alphaInput);
       userEvent.type(alphaInput, '50');
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgba(23, 73, 77, 0.5);');
       expect(alphaSlider.value).toBe('0.5');
       expect(alphaInput.value).toBe('50');
     });
@@ -352,13 +325,11 @@ describe('ColorPicker', () => {
 
       render(<Basic />);
 
-      const previewBox = screen.getByTestId('preview-box');
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
       const redInput = screen.getByLabelText('R') as HTMLInputElement;
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hexInput.value).toBe('#17494d');
       expect(redInput.value).toBe('23');
       expect(greenInput.value).toBe('73');
@@ -368,7 +339,6 @@ describe('ColorPicker', () => {
 
       fireEvent.change(hueSlider, { target: { value: '349' } });
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(77, 23, 33);');
       expect(hexInput.value).toBe('#4d1721');
       expect(redInput.value).toBe('77');
       expect(greenInput.value).toBe('23');
@@ -384,15 +354,11 @@ describe('ColorPicker', () => {
 
       render(<Basic />);
 
-      const previewBox = screen.getByTestId('preview-box');
       const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
       const alphaInput = screen.getByLabelText('A') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
-
       fireEvent.change(alphaSlider, { target: { value: '0.5' } });
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgba(23, 73, 77, 0.5);');
       expect(alphaInput.value).toBe('50');
     });
 
@@ -404,7 +370,6 @@ describe('ColorPicker', () => {
       };
 
       render(<Basic />);
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
@@ -412,7 +377,6 @@ describe('ColorPicker', () => {
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(redInput.value).toBe('23');
       expect(greenInput.value).toBe('73');
@@ -439,7 +403,6 @@ describe('ColorPicker', () => {
 
       render(<Basic />);
 
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
@@ -447,7 +410,6 @@ describe('ColorPicker', () => {
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(redInput.value).toBe('23');
       expect(greenInput.value).toBe('73');
@@ -461,7 +423,6 @@ describe('ColorPicker', () => {
       userEvent.type(hexInput, 'b4a!a55');
       userEvent.tab();
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(redInput.value).toBe('23');
       expect(greenInput.value).toBe('73');
@@ -481,7 +442,6 @@ describe('ColorPicker', () => {
 
       render(<Basic />);
 
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex');
@@ -489,7 +449,6 @@ describe('ColorPicker', () => {
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(redInput.value).toBe('23');
       expect(greenInput.value).toBe('73');
@@ -502,7 +461,6 @@ describe('ColorPicker', () => {
       userEvent.clear(hexInput);
       userEvent.type(hexInput, '#b4da55');
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(180, 218, 85);');
       expect(hueSlider.value).toBe('77.14285714285714');
       expect(redInput.value).toBe('180');
       expect(greenInput.value).toBe('218');
@@ -522,13 +480,11 @@ describe('ColorPicker', () => {
 
       render(<Basic />);
 
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
       const redInput = screen.getByLabelText('R') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hexInput.value).toBe('#17494d');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(colorWellThumb).toHaveAttribute(
@@ -539,7 +495,6 @@ describe('ColorPicker', () => {
       userEvent.clear(redInput);
       userEvent.type(redInput, '255');
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(255, 73, 77);');
       expect(hueSlider.value).toBe('358.68131868131866');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 71.37254901960785%;');
     });
@@ -553,13 +508,11 @@ describe('ColorPicker', () => {
 
       render(<Basic />);
 
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hexInput.value).toBe('#17494d');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(colorWellThumb).toHaveAttribute(
@@ -570,7 +523,6 @@ describe('ColorPicker', () => {
       userEvent.clear(greenInput);
       userEvent.type(greenInput, '255');
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 255, 77);');
       expect(hueSlider.value).toBe('133.9655172413793');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
@@ -584,13 +536,11 @@ describe('ColorPicker', () => {
 
       render(<Basic />);
 
-      const previewBox = screen.getByTestId('preview-box');
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(hexInput.value).toBe('#17494d');
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(colorWellThumb).toHaveAttribute(
@@ -601,7 +551,6 @@ describe('ColorPicker', () => {
       userEvent.clear(blueInput);
       userEvent.type(blueInput, '255');
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 255);');
       expect(hueSlider.value).toBe('227.06896551724137');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
@@ -615,18 +564,15 @@ describe('ColorPicker', () => {
 
       render(<Basic />);
 
-      const previewBox = screen.getByTestId('preview-box');
       const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
       const alphaInput = screen.getByLabelText('A') as HTMLInputElement;
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgb(23, 73, 77);');
       expect(alphaSlider.value).toBe('1');
       expect(alphaInput.value).toBe('100');
 
       userEvent.clear(alphaInput);
       userEvent.type(alphaInput, '50');
 
-      expect(previewBox).toHaveAttribute('style', 'background-color: rgba(23, 73, 77, 0.5);');
       expect(alphaSlider.value).toBe('0.5');
       expect(alphaInput.value).toBe('50');
     });

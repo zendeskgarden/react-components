@@ -48,11 +48,8 @@ describe('ColorDialog', () => {
     render(<Basic />);
 
     const trigger = screen.getByRole('button');
-    const preview = screen.getByTestId('dialog-preview');
 
     userEvent.click(trigger);
-
-    expect(preview).toHaveStyleRule('background', 'rgba(23,73,77,1)');
 
     const hueSlider = screen.getByLabelText('Hue slider');
     const alphaSlider = screen.getByLabelText('Alpha slider');
@@ -65,6 +62,5 @@ describe('ColorDialog', () => {
     expect(screen.queryByLabelText('Hex')).toBeNull();
     expect(screen.queryByLabelText('Hue slider')).toBeNull();
     expect(screen.queryByLabelText('Alpha slider')).toBeNull();
-    expect(preview).toHaveStyleRule('background', 'rgba(77,23,33,0.5)');
   });
 });

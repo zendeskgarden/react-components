@@ -5,31 +5,33 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledRange, trackStyles } from '../common/StyledRange';
+import { getTrackHeight, getTrackMargin, StyledRange, trackStyles } from '../common/StyledRange';
+import { checkeredBackground } from '../common/checkeredBackground';
 import { IRGBColor } from '../../utils/types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
 
+const gradientBackground = (props: IRGBColor & ThemeProps<DefaultTheme>) => {
+  const direction = `to ${props.theme.rtl ? 'left' : 'right'}`;
+  const fromColor = `rgba(${props.red}, ${props.green}, ${props.blue}, 0)`;
+  const toColor = `rgb(${props.red}, ${props.green}, ${props.blue})`;
+  const positionY = `${getTrackMargin(props.theme)}px`;
+  const height = `${getTrackHeight(props.theme)}px`;
+
+  return `linear-gradient(${direction}, ${fromColor}, ${toColor}) 0 ${positionY} / 100% ${height} no-repeat`;
+};
+
 export const StyledAlpha = styled(StyledRange as 'input').attrs<IRGBColor>(props => ({
   style: {
-    backgroundImage: `linear-gradient(
-      to ${props.theme.rtl ? 'left' : 'right'},
-      rgba(${props.red},${props.green},
-      ${props.blue}, 0) 0%,
-      rgba(${props.red}, ${props.green}, ${props.blue}, 1) 100%
-    )`
+    backgroundSize: 'auto' /* Range reset */,
+    background: `${gradientBackground(props)},
+      ${checkeredBackground(props.theme, 12, 5, 'repeat-x')}`
   },
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 }))<IRGBColor>`
-  position: absolute;
-  background-repeat: no-repeat;
-  /* stylelint-disable-next-line declaration-no-important */
-  background-size: 100% ${props => props.theme.space.base * 3}px !important;
-  background-position-y: center;
-
   ${trackStyles(`
     background-image: none;
   `)}

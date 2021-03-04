@@ -7,7 +7,7 @@
 
 import { Range } from '@zendeskgarden/react-forms';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
+import { math, stripUnit } from 'polished';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_range';
@@ -104,10 +104,17 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
+const getThumbSize = (theme: DefaultTheme) => theme.space.base * 4;
+
+export const getTrackHeight = (theme: DefaultTheme) => theme.space.base * 3;
+
+export const getTrackMargin = (theme: DefaultTheme) =>
+  (getThumbSize(theme) - getTrackHeight(theme)) / 2 + (stripUnit(theme.shadowWidths.md) as number);
+
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const thumbSize = props.theme.space.base * 4;
-  const trackHeight = props.theme.space.base * 3;
-  const trackMargin = math(`(${thumbSize} - ${trackHeight}) / 2 + ${props.theme.shadowWidths.md}`);
+  const thumbSize = getThumbSize(props.theme);
+  const trackHeight = getTrackHeight(props.theme);
+  const trackMargin = getTrackMargin(props.theme);
   const thumbMargin = (trackHeight - thumbSize) / 2;
 
   return `
@@ -115,7 +122,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
     margin-top: 0 !important;
 
     ${trackStyles(`
-      margin: ${trackMargin} 0;
+      margin: ${trackMargin}px 0;
       height: ${trackHeight}px;
     `)}
 

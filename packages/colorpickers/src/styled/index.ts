@@ -20,10 +20,8 @@ export * from './ColorPicker/StyledInput';
 export * from './ColorPicker/StyledInputGroup';
 export * from './ColorPicker/StyledRGBAField';
 export * from './ColorPicker/StyledSliders';
-export * from './common/StyledCheckered';
 
 export * from './ColorDialog/StyledDialogPreview';
-export * from './ColorDialog/StyledPreviewContainer';
 export * from './ColorDialog/StyledButton';
 export * from './ColorDialog/StyledTooltipModal';
 export * from './ColorDialog/StyledTooltipBody';

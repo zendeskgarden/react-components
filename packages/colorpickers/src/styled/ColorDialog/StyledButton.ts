@@ -43,7 +43,6 @@ export const StyledButton = styled(Button as any).attrs({
   /* stylelint-enable property-no-unknown, property-case, declaration-no-important, max-line-length */
   padding: 0;
   width: ${props => props.theme.space.base * 17}px;
-  height: ${props => props.theme.space.base * 10}px;
 
   ${colorStyles}
 

@@ -8,7 +8,6 @@
 import React, {
   useEffect,
   useCallback,
-  useContext,
   useReducer,
   forwardRef,
   HTMLAttributes,
@@ -16,7 +15,6 @@ import React, {
   useRef
 } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
 import { Field, Label } from '@zendeskgarden/react-forms';
 import { ColorWell } from './ColorWell';
 import {
@@ -30,8 +28,7 @@ import {
   StyledRGBAField,
   StyledInputGroup,
   StyledPreview,
-  StyledColorPicker,
-  StyledCheckered
+  StyledColorPicker
 } from '../../styled';
 import { areColorsEqual, convertStringToColor, getInitialState, reducer } from './reducer';
 import { IColor, IHSVColor } from '../../utils/types';
@@ -70,7 +67,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
     const [state, dispatch] = useReducer(reducer, getInitialState(color || defaultColor));
     const previousComputedColorRef = useRef<IColor>(state.color);
     const previousStateColorRef = useRef<IColor>(state.color);
-    const theme = useContext(ThemeContext);
 
     const computedColor = useMemo(() => {
       if (color) {
@@ -161,26 +157,12 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             blue={computedColor.blue}
             alpha={computedColor.alpha}
           />
-          <StyledCheckered
-            height={`${theme.space.base * 8}px`}
-            width={`${theme.space.base * 8}px`}
-            size={`${theme.space.base * 3.25}px`}
-            position={`${theme.space.base * 1.5}px`}
-            sticky
-          />
           <StyledSliders>
-            <Field style={{ top: theme.space.base * -1.25 }}>
+            <Field>
               <Label hidden>{labels.hueSlider || 'Hue slider'}</Label>
               <StyledHue step={1} max={360} value={computedColor.hue} onChange={handleHueChange} />
             </Field>
-            <Field style={{ bottom: theme.space.base * 1.75 }}>
-              <StyledCheckered
-                height={`${theme.space.base * 3}px`}
-                width="100%"
-                size={`${theme.space.base * 3}px`}
-                position={`${theme.space.base * 1.5}px`}
-                style={{ top: theme.space.base * 1.25 }}
-              />
+            <Field>
               <Label hidden>{labels.alphaSlider || 'Alpha slider'}</Label>
               <StyledAlpha
                 max={1}

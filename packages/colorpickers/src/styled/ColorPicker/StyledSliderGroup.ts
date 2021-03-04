@@ -15,7 +15,6 @@ export const StyledSliderGroup = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   display: flex;
-  position: relative;
   justify-content: space-between;
   margin-bottom: ${props => props.theme.space.base * 2}px;
   height: ${props => props.theme.space.base * 8}px;
