@@ -6,13 +6,13 @@
  */
 
 import React, { useRef } from 'react';
-import { ThemeProvider, ThemeProps } from 'styled-components';
+import { ThemeProvider as StyledThemeProvider, ThemeProps } from 'styled-components';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
 import DEFAULT_THEME, { IGardenTheme } from './theme';
 import { useDocument } from '../utils/useDocument';
 
-interface IGardenThemeProviderProps extends Partial<ThemeProps<IGardenTheme>> {
+export interface IThemeProviderProps extends Partial<ThemeProps<IGardenTheme>> {
   /**
    * Provides values for component styling. See styled-components
    * [`ThemeProvider`](https://styled-components.com/docs/api#themeprovider)
@@ -28,7 +28,7 @@ interface IGardenThemeProviderProps extends Partial<ThemeProps<IGardenTheme>> {
   focusVisibleRef?: React.RefObject<HTMLElement> | null;
 }
 
-const GardenThemeProvider: React.FunctionComponent<IGardenThemeProviderProps> = ({
+const ThemeProvider: React.FunctionComponent<IThemeProviderProps> = ({
   theme,
   focusVisibleRef,
   children,
@@ -44,18 +44,18 @@ const GardenThemeProvider: React.FunctionComponent<IGardenThemeProviderProps> = 
   useFocusVisible({ scope: controlledScopeRef, relativeDocument });
 
   return (
-    <ThemeProvider theme={theme!} {...other}>
+    <StyledThemeProvider theme={theme!} {...other}>
       {focusVisibleRef === undefined ? (
         <div ref={scopeRef}>{children as any}</div>
       ) : (
         (children as any)
       )}
-    </ThemeProvider>
+    </StyledThemeProvider>
   );
 };
 
-GardenThemeProvider.defaultProps = {
+ThemeProvider.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export default GardenThemeProvider;
+export default ThemeProvider;
