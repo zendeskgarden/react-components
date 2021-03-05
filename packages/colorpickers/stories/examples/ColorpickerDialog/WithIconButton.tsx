@@ -40,7 +40,7 @@ export const WithIconButton: Story = ({
 
   return (
     <Grid>
-      <Row>
+      <Row style={{ minHeight: 470 }}>
         <Col textAlign="center">
           <ColorpickerDialog
             color={color}

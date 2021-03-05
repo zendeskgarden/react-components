@@ -43,11 +43,37 @@ export const WithFormInput: Story = ({
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [input, setInput] = useState('#17494d99');
-  const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 1)');
+  const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, .6)');
+
+  const toHex = (selectedColor: IColor) => {
+    let colorHex = selectedColor.hex;
+
+    if (selectedColor.alpha === 100) {
+      return colorHex;
+    }
+
+    let alphaHex = Math.round((selectedColor.alpha / 100) * 255).toString(16);
+
+    if (alphaHex.length === 1) {
+      alphaHex = `0${alphaHex}`;
+    }
+
+    if (colorHex.length === 4) {
+      if (alphaHex.charAt(0) === alphaHex.charAt(1)) {
+        alphaHex = alphaHex.charAt(0);
+      } else {
+        colorHex = `#${colorHex.charAt(1)}${colorHex.charAt(1)}${colorHex.charAt(
+          2
+        )}${colorHex.charAt(2)}${colorHex.charAt(3)}${colorHex.charAt(3)}`;
+      }
+    }
+
+    return `${colorHex}${alphaHex}`;
+  };
 
   return (
     <Grid>
-      <Row>
+      <Row style={{ minHeight: 470 }}>
         <Col textAlign="center">
           <StyledField>
             <Label>Favorite color</Label>
@@ -71,7 +97,7 @@ export const WithFormInput: Story = ({
                 placement={placement}
                 onChange={selectedColor => {
                   setColor(selectedColor);
-                  setInput(selectedColor.hex);
+                  setInput(toHex(selectedColor));
                 }}
                 disabled={disabled}
                 hasArrow={hasArrow}

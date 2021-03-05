@@ -36,7 +36,7 @@ export const Uncontrolled: Story = ({
 
   return (
     <Grid>
-      <Row>
+      <Row style={{ minHeight: 470 }}>
         <Col textAlign="center">
           <ColorpickerDialog
             zIndex={zIndex}
