@@ -35,12 +35,11 @@ export const StyledColorWellThumb = styled.div.attrs<IStyledSaturationPointerPro
   /* stylelint-enable */
   border-radius: 50%;
   box-shadow: ${props =>
-    `0 ${props.theme.space.base}px ${props.theme.space.base * 2}px 0 ${getColor(
-      'neutralHue',
-      800,
-      props.theme,
-      0.24
-    )}`};
+    props.theme.shadows.lg(
+      `${props.theme.space.base}px`,
+      `${props.theme.space.base * 2}px`,
+      getColor('neutralHue', 800, props.theme, 0.24)!
+    )};
   width: ${props => props.theme.space.base * 4}px;
   height: ${props => props.theme.space.base * 4}px;
 

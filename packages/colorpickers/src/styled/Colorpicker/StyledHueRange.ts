@@ -11,7 +11,7 @@ import { StyledRange, trackStyles } from '../common/StyledRange';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_hue';
 
-export const StyledHueRange = styled((StyledRange as unknown) as 'input').attrs({
+export const StyledHueRange = styled(StyledRange as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

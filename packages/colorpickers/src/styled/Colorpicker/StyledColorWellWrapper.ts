@@ -16,7 +16,7 @@ export const StyledColorWellWrapper = styled.div.attrs({
 })`
   position: relative;
   margin-bottom: ${props => props.theme.space.base * 2}px;
-  height: ${props => props.theme.space.base * 52}px;
+  height: 208px;
   overflow: hidden;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

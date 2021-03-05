@@ -6,7 +6,8 @@
  */
 
 import styled from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { rgba } from 'polished';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_colorwell_gradient';
 
@@ -23,13 +24,13 @@ export const StyledColorWellGradient = styled.div.attrs({
   background: linear-gradient(
       0deg,
       ${props => props.theme.palette.black},
-      ${props => getColor(props.theme.palette.black, undefined, props.theme, 0.9)} 1%,
+      ${props => rgba(props.theme.palette.black as string, 0.9)} 1%,
       transparent 99%
     ),
     linear-gradient(
       ${props => props.theme.rtl && '-'}90deg,
       ${props => props.theme.colors.background} 1%,
-      rgba(0, 0, 0, 0)
+      ${props => rgba(props.theme.palette.black as string, 0)}
     );
   /* stylelint-enable */
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

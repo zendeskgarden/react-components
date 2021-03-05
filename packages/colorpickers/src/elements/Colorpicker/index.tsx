@@ -55,7 +55,7 @@ export interface IColorpickerProps
     blue?: string;
     alpha?: string;
   };
-  /** Autofocuses the hex input element */
+  /** @ignore */
   autofocus?: boolean;
 }
 

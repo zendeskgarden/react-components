@@ -6,7 +6,8 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { rgba } from 'polished';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { checkeredBackground } from '../common/checkeredBackground';
 import { IColor } from '../../utils/types';
 
@@ -46,7 +47,7 @@ export const StyledButtonPreview = styled.span.attrs<IStyleButtonPreviewProps>(p
   border-radius: ${props => props.theme.borderRadii.sm};
   /* stylelint-disable-next-line color-function-notation */
   box-shadow: inset 0 0 0 ${props => props.theme.borderWidths.sm}
-    ${props => getColor(props.theme.palette.black, 600, props.theme, 0.19)};
+    ${props => rgba(props.theme.palette.black as string, 0.19)};
   width: ${props => props.theme.space.base * 5}px;
   height: ${props => props.theme.space.base * 5}px;
 

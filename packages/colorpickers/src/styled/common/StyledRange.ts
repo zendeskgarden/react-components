@@ -145,13 +145,6 @@ export const StyledRange = styled((Range as unknown) as 'input').attrs({
     border-radius: 0;
   `)}
 
-  ${props =>
-    thumbStyles(`
-      height: ${props.theme.space.base * 4}px;
-      width: ${props.theme.space.base * 4}px;
-      border-width: ${math(`${props.theme.borderWidths.sm} * 2`)};
-    `)};
-
   ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
