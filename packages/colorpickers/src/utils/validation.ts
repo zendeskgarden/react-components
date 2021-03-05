@@ -6,7 +6,7 @@
  */
 
 export const isValidHex = (hexString: string) => {
-  const regEx = /^#(?<hex>[0-9A-F]{3}){1,2}$/iu;
+  const regEx = /^#(?:(?:[0-9A-F]{6}(?:[0-9A-F]{2})?)|(?:[0-9A-F]{3})(?:[0-9A-F]?))$/iu;
 
   return regEx.test(hexString);
 };

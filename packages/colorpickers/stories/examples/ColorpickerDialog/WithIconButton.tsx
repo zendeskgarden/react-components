@@ -10,7 +10,7 @@ import { Story, Meta } from '@storybook/react';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
-import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-fill.svg';
+import PaletteIcon from '@zendeskgarden/svg-icons/src/16/palette-fill.svg';
 
 export default {
   title: 'Components/ColorpickerDialog',
@@ -40,27 +40,25 @@ export const WithIconButton: Story = ({
 
   return (
     <Grid>
-      <Row alignItems="center" style={{ minHeight: 640 }}>
-        <Col>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <ColorpickerDialog
-              color={color}
-              labels={labels}
-              onChange={setColor}
-              hasArrow={hasArrow}
-              placement={placement}
-              isAnimated={isAnimated}
-              onClose={setSelectedColor}
+      <Row>
+        <Col textAlign="center">
+          <ColorpickerDialog
+            color={color}
+            labels={labels}
+            onChange={setColor}
+            hasArrow={hasArrow}
+            placement={placement}
+            isAnimated={isAnimated}
+            onClose={setSelectedColor}
+          >
+            <IconButton
+              aria-label="palette"
+              disabled={disabled}
+              style={{ color: disabled ? undefined : iconColor }}
             >
-              <IconButton
-                aria-label="leaf"
-                disabled={disabled}
-                style={{ color: disabled ? undefined : iconColor }}
-              >
-                <LeafIcon />
-              </IconButton>
-            </ColorpickerDialog>
-          </div>
+              <PaletteIcon />
+            </IconButton>
+          </ColorpickerDialog>
         </Col>
       </Row>
     </Grid>
@@ -77,7 +75,8 @@ WithIconButton.args = {
   alpha: 'A',
   disabled: false,
   hasArrow: true,
-  isAnimated: true
+  isAnimated: true,
+  placement: 'bottom'
 };
 
 WithIconButton.argTypes = {

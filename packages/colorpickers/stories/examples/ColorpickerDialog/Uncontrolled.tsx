@@ -36,21 +36,19 @@ export const Uncontrolled: Story = ({
 
   return (
     <Grid>
-      <Row alignItems="center" style={{ minHeight: 640 }}>
-        <Col>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <ColorpickerDialog
-              zIndex={zIndex}
-              labels={labels}
-              disabled={disabled}
-              placement={placement}
-              hasArrow={hasArrow}
-              isAnimated={isAnimated}
-              onChange={action('onChange')}
-              popperModifiers={popperModifiers}
-              defaultColor={DEFAULT_THEME.palette.kale[700]}
-            />
-          </div>
+      <Row>
+        <Col textAlign="center">
+          <ColorpickerDialog
+            zIndex={zIndex}
+            labels={labels}
+            disabled={disabled}
+            placement={placement}
+            hasArrow={hasArrow}
+            isAnimated={isAnimated}
+            onChange={action('onChange')}
+            popperModifiers={popperModifiers}
+            defaultColor={DEFAULT_THEME.palette.kale[700]}
+          />
         </Col>
       </Row>
     </Grid>

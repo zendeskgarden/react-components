@@ -34,24 +34,22 @@ export const Controlled: Story = ({
 
   return (
     <Grid>
-      <Row alignItems="center" style={{ minHeight: 640 }}>
+      <Row>
+        <Col textAlign="end">
+          <ColorpickerDialog
+            color={color}
+            labels={labels}
+            onChange={setColor}
+            placement={placement}
+            disabled={disabled}
+            hasArrow={hasArrow}
+            isAnimated={isAnimated}
+          />
+        </Col>
         <Col>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-around', width: '212px' }}>
-              <ColorpickerDialog
-                color={color}
-                labels={labels}
-                onChange={setColor}
-                placement={placement}
-                disabled={disabled}
-                hasArrow={hasArrow}
-                isAnimated={isAnimated}
-              />
-              <Button disabled={disabled} onClick={() => setColor('#CE9FB7')}>
-                Set to #CE9FB7
-              </Button>
-            </div>
-          </div>
+          <Button disabled={disabled} onClick={() => setColor('#CE9A')}>
+            Set to #CE9A
+          </Button>
         </Col>
       </Row>
     </Grid>

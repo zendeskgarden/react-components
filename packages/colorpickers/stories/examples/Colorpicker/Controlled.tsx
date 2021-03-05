@@ -21,7 +21,7 @@ export const Controlled: Story = ({ alphaSlider, hueSlider, hex, red, green, blu
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
-        <Button onClick={() => setColor('#CE9FB7')}>Control to #CE9FB7</Button>
+        <Button onClick={() => setColor('#CE9FB777')}>Control to #CE9FB777</Button>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <Colorpicker color={color} onChange={setColor} labels={labels} />

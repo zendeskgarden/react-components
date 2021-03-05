@@ -18,18 +18,18 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const disabledForegroundColor = getColor('neutralHue', shade - 200, props.theme);
 
   return `
-    color: ${baseColor};
-    border-color: ${getColor('neutralHue', 300, props.theme)};
+    // color: ${baseColor};
+    // border-color: ${getColor('neutralHue', 300, props.theme)};
 
-    &:hover {
-      color: ${hoverColor};
-      background-color: ${props.theme.colors.background};
-    }
+    // &:hover {
+    //   color: ${hoverColor};
+    //   background-color: ${props.theme.colors.background};
+    // }
 
-    &:disabled {
-      color: ${disabledForegroundColor};
-      background-color: ${getColor('neutralHue', 100, props.theme)};
-    }
+    // &:disabled {
+    //   color: ${disabledForegroundColor};
+    //   background-color: ${getColor('neutralHue', 100, props.theme)};
+    // }
   `;
 };
 
@@ -37,10 +37,6 @@ export const StyledButton = styled(Button as any).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  /* stylelint-disable property-no-unknown, property-case, declaration-no-important, max-line-length */
-  border-top-${props => (props.theme.rtl ? 'left' : 'right')}-radius: 4px !important;
-  border-bottom-${props => (props.theme.rtl ? 'left' : 'right')}-radius: 4px !important;
-  /* stylelint-enable property-no-unknown, property-case, declaration-no-important, max-line-length */
   padding: 0;
   width: ${props => props.theme.space.base * 17}px;
 
