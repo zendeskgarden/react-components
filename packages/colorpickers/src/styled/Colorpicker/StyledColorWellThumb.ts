@@ -18,15 +18,15 @@ interface IStyledSaturationPointerProps {
 
 const sizeStyles = (theme: DefaultTheme) => {
   const borderWidth = (stripUnit(theme.borderWidths.sm) as number) * 2;
-  const size = theme.space.base * 4 + borderWidth;
+  const size = theme.space.base * 5;
   const translateValue = size / -2;
 
   return `
-    transform: translate(${translateValue}, ${translateValue});
+    transform: translate(${translateValue}px, ${translateValue}px);
     box-sizing: border-box;
-    border: ${borderWidth} solid;
-    width: ${size};
-    height: ${size};
+    border-width: ${borderWidth}px;
+    width: ${size}px;
+    height: ${size}px;
   `;
 };
 
@@ -40,8 +40,8 @@ export const StyledColorWellThumb = styled.div.attrs<IStyledSaturationPointerPro
   }
 }))<IStyledSaturationPointerProps>`
   position: absolute;
+  border: solid ${props => props.theme.palette.white};
   border-radius: 50%;
-  border-color: ${props => props.theme.palette.white};
   box-shadow: ${props =>
     props.theme.shadows.lg(
       `${props.theme.space.base}px`,
