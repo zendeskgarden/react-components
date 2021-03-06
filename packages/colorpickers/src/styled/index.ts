@@ -10,8 +10,6 @@ export * from './Colorpicker/StyledHueRange';
 export * from './Colorpicker/StyledAlphaRange';
 export * from './Colorpicker/StyledPreview';
 export * from './Colorpicker/StyledColorWell';
-export * from './Colorpicker/StyledColorWellGradient';
-export * from './Colorpicker/StyledColorWellWrapper';
 export * from './Colorpicker/StyledColorWellThumb';
 export * from './Colorpicker/StyledSliderGroup';
 export * from './Colorpicker/StyledHexField';

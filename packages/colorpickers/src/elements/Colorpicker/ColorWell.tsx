@@ -11,12 +11,7 @@ import { ThemeContext } from 'styled-components';
 import { IHSVColor } from '../../utils/types';
 import { hslToHsv } from '../../utils/conversion';
 import { getNextHsv, getThumbPosition } from '../../utils/saturation';
-import {
-  StyledColorWell,
-  StyledColorWellGradient,
-  StyledColorWellThumb,
-  StyledColorWellWrapper
-} from '../../styled';
+import { StyledColorWell, StyledColorWellThumb } from '../../styled';
 
 interface IColorWellProps {
   hue: number;
@@ -95,21 +90,17 @@ export const ColorWell: React.FC<IColorWellProps> = React.memo(
     }, [throttledChange]);
 
     return (
-      <StyledColorWellWrapper>
-        <StyledColorWell
-          hue={hue}
-          ref={containerRef}
-          role="presentation"
-          onMouseDown={handleMouseDown}
-        >
-          <StyledColorWellGradient>
-            <StyledColorWellThumb
-              top={mouseActiveRef.current ? topFromMouse : topPosition}
-              left={mouseActiveRef.current ? leftFromMouse : leftPosition}
-            />
-          </StyledColorWellGradient>
-        </StyledColorWell>
-      </StyledColorWellWrapper>
+      <StyledColorWell
+        hue={hue}
+        ref={containerRef}
+        role="presentation"
+        onMouseDown={handleMouseDown}
+      >
+        <StyledColorWellThumb
+          top={mouseActiveRef.current ? topFromMouse : topPosition}
+          left={mouseActiveRef.current ? leftFromMouse : leftPosition}
+        />
+      </StyledColorWell>
     );
   }
 );
