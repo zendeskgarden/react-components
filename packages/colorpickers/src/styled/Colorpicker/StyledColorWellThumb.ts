@@ -5,7 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
+import { stripUnit } from 'polished';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_colorwell_thumb';
@@ -14,6 +15,20 @@ interface IStyledSaturationPointerProps {
   top: number;
   left: number;
 }
+
+const sizeStyles = (theme: DefaultTheme) => {
+  const borderWidth = (stripUnit(theme.borderWidths.sm) as number) * 2;
+  const size = theme.space.base * 4 + borderWidth;
+  const translateValue = size / -2;
+
+  return `
+    transform: translate(${translateValue}, ${translateValue});
+    box-sizing: border-box;
+    border: ${borderWidth} solid;
+    width: ${size};
+    height: ${size};
+  `;
+};
 
 export const StyledColorWellThumb = styled.div.attrs<IStyledSaturationPointerProps>(props => ({
   'data-garden-id': COMPONENT_ID,
@@ -25,23 +40,17 @@ export const StyledColorWellThumb = styled.div.attrs<IStyledSaturationPointerPro
   }
 }))<IStyledSaturationPointerProps>`
   position: absolute;
-  border: 2px solid ${props => props.theme.colors.background};
-  cursor: default;
-  /* stylelint-disable */
-  transform: translate(
-    -${props => props.theme.space.base * 2.5}px,
-    -${props => props.theme.space.base * 2.5}px
-  );
-  /* stylelint-enable */
   border-radius: 50%;
+  border-color: ${props => props.theme.palette.white};
   box-shadow: ${props =>
     props.theme.shadows.lg(
       `${props.theme.space.base}px`,
       `${props.theme.space.base * 2}px`,
       getColor('neutralHue', 800, props.theme, 0.24)!
     )};
-  width: ${props => props.theme.space.base * 4}px;
-  height: ${props => props.theme.space.base * 4}px;
+  cursor: default;
+
+  ${props => sizeStyles(props.theme)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
