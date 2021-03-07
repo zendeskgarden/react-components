@@ -116,13 +116,14 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const trackHeight = getTrackHeight(props.theme);
   const trackMargin = getTrackMargin(props.theme);
   const thumbMargin = (trackHeight - thumbSize) / 2;
+  const trackOffset = thumbSize - trackHeight - 1;
 
   return `
     /* stylelint-disable-next-line declaration-no-important */
     margin-top: 0 !important;
 
     ${trackStyles(`
-      margin: ${trackMargin}px 0;
+      margin: ${trackMargin}px -${trackOffset}px;
       height: ${trackHeight}px;
     `)}
 
@@ -143,6 +144,7 @@ export const StyledRange = styled((Range as unknown) as 'input').attrs({
 
   ${trackStyles(`
     border-radius: 0;
+    background-image: none;
   `)}
 
   ${colorStyles};

@@ -7,35 +7,36 @@
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { getTrackHeight, getTrackMargin, StyledRange, trackStyles } from '../common/StyledRange';
+import { getTrackHeight, getTrackMargin, StyledRange } from '../common/StyledRange';
 import { checkeredBackground } from '../common/checkeredBackground';
 import { IRGBColor } from '../../utils/types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
 
-const gradientBackground = (props: IRGBColor & ThemeProps<DefaultTheme>) => {
+const background = (props: IRGBColor & ThemeProps<DefaultTheme>) => {
   const direction = `to ${props.theme.rtl ? 'left' : 'right'}`;
   const fromColor = `rgba(${props.red}, ${props.green}, ${props.blue}, 0)`;
   const toColor = `rgb(${props.red}, ${props.green}, ${props.blue})`;
-  const positionY = `${getTrackMargin(props.theme)}px`;
-  const height = `${getTrackHeight(props.theme)}px`;
+  const positionY = getTrackMargin(props.theme);
+  const height = getTrackHeight(props.theme);
+  const gradientBackground = `linear-gradient(${direction}, ${fromColor}, ${toColor}) 0 ${positionY}px / 100% ${height}px no-repeat`;
 
-  return `linear-gradient(${direction}, ${fromColor}, ${toColor}) 0 ${positionY} / 100% ${height} no-repeat`;
+  return `${gradientBackground}, ${checkeredBackground(
+    props.theme,
+    height,
+    positionY,
+    'repeat-x'
+  )}`;
 };
 
 export const StyledAlphaRange = styled(StyledRange as 'input').attrs<IRGBColor>(props => ({
   style: {
     backgroundSize: 'auto' /* Range reset */,
-    background: `${gradientBackground(props)},
-      ${checkeredBackground(props.theme, 12, 5, 'repeat-x')}`
+    background: background(props)
   },
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-}))<IRGBColor>`
-  ${trackStyles(`
-    background-image: none;
-  `)}
-`;
+}))<IRGBColor>``;
 
 StyledAlphaRange.defaultProps = {
   theme: DEFAULT_THEME
