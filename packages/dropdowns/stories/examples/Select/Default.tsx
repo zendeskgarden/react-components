@@ -1,0 +1,116 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React, { useState } from 'react';
+import { Story } from '@storybook/react';
+import { Dropdown, Menu, Select, Field, Label, Hint, Item } from '@zendeskgarden/react-dropdowns';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+
+interface IStoryProps {
+  placement:
+    | 'auto'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'end'
+    | 'end-top'
+    | 'end-bottom'
+    | 'start'
+    | 'start-top'
+    | 'start-bottom';
+  hasArrow: boolean;
+  isAnimated: boolean;
+  isCompact: boolean;
+}
+
+const options = [
+  { label: 'Item 1', value: 'item-1' },
+  { label: 'Item 2', value: 'item-2' },
+  { label: 'Item 3', value: 'item-3' }
+];
+
+export const Default: Story<IStoryProps> = ({ hasArrow, isAnimated, isCompact, placement }) => {
+  const [selectedItem, setSelectedItem] = useState(options[0]);
+
+  return (
+    <Grid>
+      <Row alignItems="center" justifyContent="center" style={{ minHeight: 250 }}>
+        <Col md={3}>
+          <Dropdown
+            selectedItem={selectedItem}
+            onSelect={item => setSelectedItem(item)}
+            downshiftProps={{ itemToString: (item: any) => item && item.label }}
+          >
+            <Field>
+              <Label>Default Layout</Label>
+              <Hint>This is a basic Select</Hint>
+              <Select>{selectedItem.label}</Select>
+            </Field>
+            <Menu
+              placement={placement}
+              hasArrow={hasArrow}
+              isCompact={isCompact}
+              isAnimated={isAnimated}
+            >
+              {options.map(option => (
+                <Item key={option.value} value={option}>
+                  {option.label}
+                </Item>
+              ))}
+            </Menu>
+          </Dropdown>
+        </Col>
+      </Row>
+    </Grid>
+  );
+};
+
+Default.argTypes = {
+  hasArrow: { name: 'hasArrow', control: 'boolean' },
+  isAnimated: { name: 'isAnimated', control: 'boolean' },
+  isCompact: { name: 'isCompact', control: 'boolean' },
+  placement: {
+    name: 'Placement',
+    control: {
+      type: 'select',
+      options: [
+        'auto',
+        'top',
+        'top-start',
+        'top-end',
+        'bottom',
+        'bottom-start',
+        'bottom-end',
+        'end',
+        'end-top',
+        'end-bottom',
+        'start',
+        'start-top',
+        'start-bottom'
+      ]
+    }
+  }
+};
+
+Default.args = {
+  placement: 'bottom'
+};
+
+Default.parameters = {
+  docs: {
+    description: {
+      component: `
+When building a table with the \`react-tables\` package follow the
+[MDN Table Accessibility Practices](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced#Tables_for_visually_impaired_users)
+guidelines to ensure your implementation is accessible to screen-readers.
+      `
+    }
+  }
+};
