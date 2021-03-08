@@ -23,7 +23,7 @@ export const ToastContext = createContext<
 
 export interface IToastProviderProps {
   /**
-   * Limit the number of visible toasts
+   * Limits the number of visible toasts
    */
   limit?: number;
   /**

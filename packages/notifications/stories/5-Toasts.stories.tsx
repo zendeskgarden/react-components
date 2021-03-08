@@ -33,7 +33,7 @@ const StyledRow = styled(Row)`
   margin-bottom: ${p => p.theme.space.sm};
 `;
 
-const NotificationExample: React.FC = () => {
+const NotificationExample: React.FC<{ timeout: number }> = ({ timeout }) => {
   const [placement, setPlacement] = useState<ToastPlacement>('top-end');
   const { addToast, removeAllToasts } = useToast();
 
@@ -50,12 +50,12 @@ const NotificationExample: React.FC = () => {
           </Notification>
         ),
         {
-          autoDismiss: type === 'error' ? false : 5000,
+          autoDismiss: type === 'error' ? false : timeout,
           placement
         }
       );
     },
-    [addToast, placement]
+    [addToast, placement, timeout]
   );
 
   return (
@@ -119,13 +119,17 @@ const NotificationExample: React.FC = () => {
   );
 };
 
-export const Default: Story<IToastProviderProps> = ({ limit, zIndex }) => {
+export const Default: Story<IToastProviderProps & { timeout: number }> = ({
+  limit,
+  zIndex,
+  timeout
+}) => {
   return (
     <Grid>
       <Row>
         <Col sm={12} offsetSm={0} md={6} offsetMd={3} lg={4} offsetLg={4}>
           <ToastProvider limit={limit} zIndex={zIndex}>
-            <NotificationExample />
+            <NotificationExample timeout={timeout} />
           </ToastProvider>
         </Col>
       </Row>
@@ -134,5 +138,6 @@ export const Default: Story<IToastProviderProps> = ({ limit, zIndex }) => {
 };
 
 Default.args = {
-  zIndex: 100
+  zIndex: 100,
+  timeout: 5000
 };

@@ -13,8 +13,10 @@ import { ToastPlacement } from './reducer';
 
 export const TRANSITION_CLASS = 'garden-toast-transition';
 
+const DEFAULT_DURATION = '400ms';
+
 export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement: ToastPlacement }>`
-  transition: opacity 400ms ease-in 300ms;
+  transition: opacity ${DEFAULT_DURATION} ease-in 300ms;
   opacity: ${p => (p.isHidden ? '0 !important' : 1)};
   margin-bottom: ${p => p.theme.space.base * 2}px;
 
@@ -44,9 +46,9 @@ export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement:
     transform: translateY(0);
     /* prettier-ignore */
     transition:
-      opacity 400ms ease-in,
-      transform 400ms cubic-bezier(0.15, 0.85, 0.35, 1.2),
-      max-height 400ms;
+      opacity ${DEFAULT_DURATION} ease-in,
+      transform ${DEFAULT_DURATION} cubic-bezier(0.15, 0.85, 0.35, 1.2),
+      max-height ${DEFAULT_DURATION};
     opacity: 1;
     max-height: 500px;
   }
@@ -60,7 +62,7 @@ export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement:
     /* prettier-ignore */
     transition:
       opacity 550ms ease-out,
-      max-height 400ms linear 150ms;
+      max-height ${DEFAULT_DURATION} linear 150ms;
     opacity: 0;
     max-height: 0;
   }
