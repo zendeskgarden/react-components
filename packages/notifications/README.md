@@ -28,3 +28,36 @@ import { Notification, Title } from '@zendeskgarden/react-notifications';
   </Notification>
 </ThemeProvider>;
 ```
+
+## Toasts
+
+```jsx
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Button } from '@zendeskgarden/react-buttons';
+import { Notification, Close, ToastProvider, useToast } from '@zendeskgarden/react-notifications';
+
+const ToastExample = () => {
+  const { addToast } = useToast();
+
+  return (
+    <Button
+      onClick={() =>
+        addToast(({ close }) => (
+          <Notification>
+            Example notification
+            <Close onClick={close} aria-label="Close" />
+          </Notification>
+        ))
+      }
+    >
+      Add toast
+    </Button>
+  );
+};
+
+<ThemeProvider>
+  <ToastProvider>
+    <ToastExample />
+  </ToastProvider>
+</ThemeProvider>;
+```
