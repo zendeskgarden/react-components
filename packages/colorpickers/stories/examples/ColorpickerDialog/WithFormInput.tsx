@@ -11,6 +11,7 @@ import { Story, Meta } from '@storybook/react';
 import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { IColor, ColorpickerDialog } from '@zendeskgarden/react-colorpickers';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { parseToRgb, toColorString } from 'polished';
 
 export default {
   title: 'Components/ColorpickerDialog',
@@ -86,7 +87,7 @@ export const WithFormInput: Story = ({
                 onChange={e => {
                   setInput(e.target.value);
                   if (validHex.test(e.target.value)) {
-                    setColor(e.target.value);
+                    setColor(toColorString(parseToRgb(e.target.value)));
                   }
                 }}
               />

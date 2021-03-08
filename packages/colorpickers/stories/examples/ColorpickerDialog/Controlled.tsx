@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
+import { parseToRgb, toColorString } from 'polished';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { IColor, ColorpickerDialog } from '@zendeskgarden/react-colorpickers';
@@ -47,7 +48,7 @@ export const Controlled: Story = ({
           />
         </Col>
         <Col>
-          <Button disabled={disabled} onClick={() => setColor('#CE9A')}>
+          <Button disabled={disabled} onClick={() => setColor(toColorString(parseToRgb('#CE9A')))}>
             Set to #CE9A
           </Button>
         </Col>
