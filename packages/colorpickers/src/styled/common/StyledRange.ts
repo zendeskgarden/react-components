@@ -111,16 +111,21 @@ export const getTrackHeight = (theme: DefaultTheme) => theme.space.base * 3;
 export const getTrackMargin = (theme: DefaultTheme) =>
   (getThumbSize(theme) - getTrackHeight(theme)) / 2 + (stripUnit(theme.shadowWidths.md) as number);
 
+/**
+ * 1. Firefox reset.
+ */
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const thumbSize = getThumbSize(props.theme);
   const trackHeight = getTrackHeight(props.theme);
   const trackMargin = getTrackMargin(props.theme);
   const thumbMargin = (trackHeight - thumbSize) / 2;
   const trackOffset = thumbSize - trackHeight - 1;
+  const height = trackMargin * 2 + trackHeight;
 
   return `
     /* stylelint-disable-next-line declaration-no-important */
     margin-top: 0 !important;
+    height: ${height}px; /* [1] */
 
     ${trackStyles(`
       margin: ${trackMargin}px -${trackOffset}px;
