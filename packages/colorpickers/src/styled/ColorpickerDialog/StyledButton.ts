@@ -12,7 +12,8 @@ import { Button } from '@zendeskgarden/react-buttons';
 const COMPONENT_ID = 'colorpickers.colordialog_button';
 
 /**
- * 1. Input group border overrides.
+ * 1. IE11 group width override.
+ * 2. Input group border overrides.
  */
 export const StyledButton = styled(Button as any).attrs({
   'data-garden-id': COMPONENT_ID,
@@ -20,13 +21,14 @@ export const StyledButton = styled(Button as any).attrs({
 })`
   padding: 0;
   width: ${props => props.theme.space.base * 17}px;
+  max-width: ${props => props.theme.space.base * 17}px; /* [1] */
 
   &:last-of-type:not(:first-child) {
     /* stylelint-disable */
     border-top-${props => (props.theme.rtl ? 'left' : 'right')}-radius:
-      ${props => props.theme.borderRadii.md} !important; /* [1] */
+      ${props => props.theme.borderRadii.md} !important; /* [2] */
     border-bottom-${props => (props.theme.rtl ? 'left' : 'right')}-radius:
-      ${props => props.theme.borderRadii.md} !important; /* [1] */
+      ${props => props.theme.borderRadii.md} !important; /* [2] */
     /* stylelint-enable */
   }
 
