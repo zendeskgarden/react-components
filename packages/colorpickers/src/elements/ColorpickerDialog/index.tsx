@@ -179,4 +179,4 @@ ColorpickerDialog.defaultProps = {
   zIndex: 1000
 };
 
-ColorpickerDialog.displayName = 'ColorDialog';
+ColorpickerDialog.displayName = 'ColorpickerDialog';
