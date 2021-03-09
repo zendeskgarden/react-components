@@ -176,7 +176,8 @@ ColorpickerDialog.propTypes = {
 ColorpickerDialog.defaultProps = {
   placement: 'bottom-start',
   isAnimated: true,
-  zIndex: 1000
+  zIndex: 1000,
+  hasArrow: false /* TooltipModal override */
 };
 
 ColorpickerDialog.displayName = 'ColorpickerDialog';
