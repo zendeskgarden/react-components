@@ -7,7 +7,7 @@
 
 import React, { useState, createRef } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, fireEvent, screen } from 'garden-test-utils';
+import { render, fireEvent, screen, waitForElementToBeRemoved } from 'garden-test-utils';
 import { ColorpickerDialog } from '.';
 import { IColor } from '../../utils/types';
 
@@ -38,7 +38,7 @@ describe('ColorpickerDialog', () => {
     expect(trigger).toHaveFocus();
   });
 
-  it('updates the color dialog button preview color', () => {
+  it('updates the color dialog button preview color', async () => {
     const Basic = () => {
       const [color, setColor] = useState<string | IColor>('rgba(23,73,77,1)');
 
@@ -51,6 +51,7 @@ describe('ColorpickerDialog', () => {
 
     userEvent.click(trigger);
 
+    const dialog = screen.getByRole('dialog');
     const hueSlider = screen.getByLabelText('Hue slider');
     const alphaSlider = screen.getByLabelText('Alpha slider');
     const hexInput = screen.getByLabelText('Hex');
@@ -58,6 +59,8 @@ describe('ColorpickerDialog', () => {
     fireEvent.change(hueSlider, { target: { value: '349' } });
     fireEvent.change(alphaSlider, { target: { value: '.5' } });
     userEvent.type(hexInput, '{esc}');
+
+    await waitForElementToBeRemoved(dialog);
 
     expect(screen.queryByLabelText('Hex')).toBeNull();
     expect(screen.queryByLabelText('Hue slider')).toBeNull();
