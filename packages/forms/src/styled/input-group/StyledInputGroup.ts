@@ -37,7 +37,7 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
     }
     /* stylelint-enable */
 
-    ${StyledTextInput} {
+    & > ${StyledTextInput} {
       position: relative;
       flex: 1 1 auto;
       margin-top: 0;
@@ -46,14 +46,14 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
       min-width: 0;
     }
 
-    ${StyledTextInput}:not(:first-child) {
+    & > ${StyledTextInput}:not(:first-child) {
       /* stylelint-disable */
       border-top-${startDirection}-radius: 0;
       border-bottom-${startDirection}-radius: 0;
       /* stylelint-enable */
     }
 
-    ${StyledTextInput}:not(:last-child) {
+    & > ${StyledTextInput}:not(:last-child) {
       /* stylelint-disable */
       border-top-${endDirection}-radius: 0;
       border-bottom-${endDirection}-radius: 0;

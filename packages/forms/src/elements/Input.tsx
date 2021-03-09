@@ -48,7 +48,7 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
       combinedProps = {
         ...combinedProps,
         isCompact: inputGroupContext.isCompact || combinedProps.isCompact,
-        focusInset: true
+        focusInset: props.focusInset === undefined ? true : props.focusInset
       };
     }
 
