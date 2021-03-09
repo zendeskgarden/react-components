@@ -14,7 +14,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ## Usage
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Field, Label, Hint, Input, Message } from '@zendeskgarden/react-forms';
 

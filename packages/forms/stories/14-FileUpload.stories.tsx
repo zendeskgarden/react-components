@@ -1,24 +1,40 @@
-The `FileUpload` component is a styled `<div>` which can be used
-with 3rd-party file upload libraries like [react-dropzone](https://github.com/react-dropzone/react-dropzone/).
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
 
-The example below includes an a mock file upload implementation that
-accepts any file type or size.
+import React from 'react';
+import styled from 'styled-components';
+import { Meta, Story } from '@storybook/react';
+import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Ellipsis, Span } from '@zendeskgarden/react-typography';
+import { getColor } from '@zendeskgarden/react-theming';
+import { IconButton } from '@zendeskgarden/react-buttons';
+import { Progress } from '@zendeskgarden/react-loaders';
+import {
+  Field,
+  Hint,
+  Label,
+  Input,
+  FileUpload,
+  IFileUploadProps
+} from '@zendeskgarden/react-forms';
+import { useDropzone } from 'react-dropzone';
+import FileImageStroke from '@zendeskgarden/svg-icons/src/16/file-image-stroke.svg';
+import CloseStroke from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
-```jsx
-const { useDropzone } = require('react-dropzone');
-const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Code, Ellipsis, Span } = require('@zendeskgarden/react-typography/src');
-const { getColor } = require('@zendeskgarden/react-theming/src');
-const { IconButton } = require('@zendeskgarden/react-buttons/src');
-const { Progress } = require('@zendeskgarden/react-loaders/src');
-const FileImageStroke = require('@zendeskgarden/svg-icons/src/16/file-image-stroke.svg').default;
-const CloseStroke = require('@zendeskgarden/svg-icons/src/16/x-stroke.svg').default;
+export default {
+  title: 'Components/Forms/FileUpload',
+  component: FileUpload
+} as Meta;
 
 const StyledFileWrapper = styled.ul`
   direction: ${p => (p.theme.rtl ? 'rtl' : 'ltr')};
   margin-top: ${p => p.theme.space.sm};
-  list-style: none;
   padding: 0;
+  list-style: none;
 
   & > *:not(:first-child) {
     margin-top: ${p => p.theme.space.xs};
@@ -26,28 +42,28 @@ const StyledFileWrapper = styled.ul`
 `;
 
 const StyledFile = styled.div`
-  position: relative;
-  border: ${p => p.theme.borders.sm};
-  border-color: ${p => getColor('neutralHue', 300, p.theme)};
-  border-radius: ${p => p.theme.borderRadii.md};
-  padding: ${p => p.theme.space.xxs} ${p => p.theme.space.xs};
   display: inline-flex;
-  min-width: 200px;
+  position: relative;
   flex-wrap: nowrap;
+  border: ${p => p.theme.borders.sm};
+  border-radius: ${p => p.theme.borderRadii.md};
+  border-color: ${p => getColor('neutralHue', 300, p.theme)};
+  padding: ${p => p.theme.space.xxs} ${p => p.theme.space.xs};
+  min-width: 200px;
 `;
 
 const StyledSpan = styled(Span)`
-  flex-grow: 1;
   display: flex;
+  flex-grow: 1;
   align-items: center;
   padding-right: ${p => p.theme.space.xs};
 `;
 
 const StyledProgress = styled(Progress)`
   position: absolute;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   margin: 0;
 `;
 
@@ -55,7 +71,7 @@ const StyledEllipsis = styled(Ellipsis)`
   max-width: 300px;
 `;
 
-const File = React.memo(({ name, onRemove }) => {
+const File: React.FC<{ name: string; onRemove: any }> = React.memo(({ name, onRemove }) => {
   const [uploadProgress, setUploadProgress] = React.useState(0);
 
   React.useEffect(() => {
@@ -65,6 +81,7 @@ const File = React.memo(({ name, onRemove }) => {
       setUploadProgress(prevProgress => {
         if (prevProgress >= 100) {
           clearInterval(uploadInterval);
+
           return 100;
         }
 
@@ -95,13 +112,13 @@ const File = React.memo(({ name, onRemove }) => {
   );
 });
 
-const Example = () => {
-  const [isCompact, setIsCompact] = React.useState(false);
-  const [isDisabled, setIsDisabled] = React.useState(false);
+File.displayName = 'File';
+
+export const Default: Story<IFileUploadProps> = ({ isCompact, disabled }) => {
   const [files, setFiles] = React.useState(['squash.jpg', 'soybean.pdf']);
 
   const onDrop = React.useCallback(
-    acceptedFiles => {
+    (acceptedFiles: File[]) => {
       if (acceptedFiles && acceptedFiles.length > 0) {
         const fileNames = acceptedFiles.map(file => file.name);
 
@@ -120,45 +137,13 @@ const Example = () => {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    disabled: isDisabled
+    disabled
   });
 
   return (
     <Grid>
       <Row>
-        <Col>
-          <Well isRecessed className="u-mb-sm">
-            <Row>
-              <Col>
-                <Field>
-                  <Toggle
-                    checked={isCompact}
-                    onChange={event => setIsCompact(event.target.checked)}
-                  >
-                    <Label>
-                      <Code>isCompact</Code>
-                    </Label>
-                  </Toggle>
-                </Field>
-              </Col>
-              <Col>
-                <Field>
-                  <Toggle
-                    checked={isDisabled}
-                    onChange={event => setIsDisabled(event.target.checked)}
-                  >
-                    <Label>
-                      <Code>disabled</Code>
-                    </Label>
-                  </Toggle>
-                </Field>
-              </Col>
-            </Row>
-          </Well>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
+        <Col lg={8} offsetLg={2}>
           <Field>
             <Label>File upload</Label>
             <Hint>Works with react-dropzone</Hint>
@@ -166,14 +151,14 @@ const Example = () => {
               {...getRootProps()}
               isDragging={isDragActive}
               isCompact={isCompact}
-              disabled={isDisabled}
+              disabled={disabled}
             >
               {isDragActive ? (
                 <span>Drop files here</span>
               ) : (
                 <span>Drag files here or click to upload</span>
               )}
-              <Input {...getInputProps()} disabled={isDisabled} />
+              <Input {...getInputProps()} disabled={disabled} />
             </FileUpload>
           </Field>
           <StyledFileWrapper>
@@ -194,5 +179,24 @@ const Example = () => {
   );
 };
 
-<Example />;
-```
+Default.argTypes = {
+  isDragging: {
+    table: {
+      disable: true
+    }
+  }
+};
+
+Default.parameters = {
+  docs: {
+    description: {
+      component: `
+The \`FileUpload\` component is a styled \`<div>\` which can be used
+with 3rd-party file upload libraries like [react-dropzone](https://github.com/react-dropzone/react-dropzone/).
+
+The example below includes an a mock file upload implementation that
+accepts any file type or size.
+       `
+    }
+  }
+};
