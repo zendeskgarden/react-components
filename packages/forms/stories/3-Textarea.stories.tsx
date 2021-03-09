@@ -28,7 +28,9 @@ export const Default: Story<IInputStoryProps & ITextareaProps> = ({
   isBare,
   focusInset,
   validation,
-  isResizable
+  isResizable,
+  minRows,
+  maxRows
 }) => {
   return (
     <Grid>
@@ -46,7 +48,8 @@ export const Default: Story<IInputStoryProps & ITextareaProps> = ({
               focusInset={focusInset}
               validation={validation}
               isResizable={isResizable}
-              minRows={3}
+              minRows={minRows}
+              maxRows={maxRows}
             />
             {showMessage && <Message validation={validation}>Message</Message>}
           </Field>
