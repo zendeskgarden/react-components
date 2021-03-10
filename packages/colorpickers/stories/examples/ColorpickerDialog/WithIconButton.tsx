@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import PaletteIcon from '@zendeskgarden/svg-icons/src/16/palette-fill.svg';
 
@@ -42,23 +43,25 @@ export const WithIconButton: Story = ({
     <Grid>
       <Row style={{ minHeight: 470 }}>
         <Col textAlign="center">
-          <ColorpickerDialog
-            color={color}
-            labels={labels}
-            onChange={setColor}
-            hasArrow={hasArrow}
-            placement={placement}
-            isAnimated={isAnimated}
-            onClose={setSelectedColor}
-          >
-            <IconButton
-              aria-label="palette"
-              disabled={disabled}
-              style={{ color: disabled ? undefined : iconColor }}
+          <Tooltip content="Color picker palette">
+            <ColorpickerDialog
+              color={color}
+              labels={labels}
+              onChange={setColor}
+              hasArrow={hasArrow}
+              placement={placement}
+              isAnimated={isAnimated}
+              onClose={setSelectedColor}
             >
-              <PaletteIcon />
-            </IconButton>
-          </ColorpickerDialog>
+              <IconButton
+                aria-label="palette"
+                disabled={disabled}
+                style={{ color: disabled ? undefined : iconColor }}
+              >
+                <PaletteIcon />
+              </IconButton>
+            </ColorpickerDialog>
+          </Tooltip>
         </Col>
       </Row>
     </Grid>

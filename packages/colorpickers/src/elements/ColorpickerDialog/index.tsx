@@ -110,7 +110,8 @@ export const ColorpickerDialog = forwardRef<
         {children ? (
           cloneElement(Children.only(children as ReactElement), {
             onClick,
-            ref: mergedRef
+            ref: mergedRef,
+            ...props
           })
         ) : (
           <StyledButton focusInset={focusInset} ref={mergedRef} onClick={onClick} {...props}>
