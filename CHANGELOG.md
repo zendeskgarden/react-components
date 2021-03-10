@@ -11,6 +11,17 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.32.2 (2021-03-03)
+
+#### :bug: Bug Fix
+
+- `avatars`, `typography`
+  - [#1023](https://github.com/zendeskgarden/react-components/pull/1023) fix(typography): prevent monospace Code and Span from pixel shifting line heights ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+
+- `theming`
+  - [#1014](https://github.com/zendeskgarden/react-components/pull/1014) chore(theming): migrate theming documentation to storybook ([@austingreendev](https://github.com/austingreendev))
 
 ## v8.32.1 (2021-02-17)
 

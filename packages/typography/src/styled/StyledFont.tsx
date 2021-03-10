@@ -17,22 +17,25 @@ import {
 const COMPONENT_ID = 'typography.font';
 
 const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
-  const lineHeight = props.size !== 'inherit' && props.theme.lineHeights[props.size!];
   const monospace = props.isMonospace && ['sm', 'md', 'lg', 'inherit'].indexOf(props.size!) !== -1;
   const fontFamily = monospace && props.theme.fonts.mono;
   const direction = isRtl(props) ? 'rtl' : 'ltr';
   let fontSize;
   let fontWeight;
+  let lineHeight;
   let color;
 
   if (monospace) {
     if (props.size === 'inherit') {
       fontSize = 'calc(1em - 1px)';
+      lineHeight = 'normal';
     } else {
       fontSize = math(`${props.theme.fontSizes[props.size!]} - 1px`);
+      lineHeight = math(`${props.theme.lineHeights[props.size!]} - 1px`);
     }
   } else if (props.size !== 'inherit') {
     fontSize = props.theme.fontSizes[props.size!];
+    lineHeight = props.theme.lineHeights[props.size!];
   }
 
   if (props.isBold === true) {
