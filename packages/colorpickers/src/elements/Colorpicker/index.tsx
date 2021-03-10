@@ -190,6 +190,7 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
               value={state.hexInput}
               /* eslint-disable jsx-a11y/no-autofocus */
               autoFocus={autofocus}
+              spellCheck={false}
               onBlur={handleBlur}
               onChange={handleHexChange}
             />
