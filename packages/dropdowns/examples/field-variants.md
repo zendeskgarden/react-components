@@ -39,6 +39,7 @@ const StyledMessage = styled(Message)`
 
 initialState = {
   regularWeightLabel: false,
+  hiddenLabel: false,
   showHint: true,
   isCompact: false,
   isBare: false,
@@ -60,6 +61,15 @@ initialState = {
             onChange={e => setState({ regularWeightLabel: e.target.checked })}
           >
             <FormLabel>Regular weight label</FormLabel>
+          </Toggle>
+        </FormField>
+        <StyledSpacer />
+        <FormField>
+          <Toggle
+            checked={state.hiddenLabel}
+            onChange={e => setState({ hiddenLabel: e.target.checked })}
+          >
+            <FormLabel>Hidden label</FormLabel>
           </Toggle>
         </FormField>
         <StyledSpacer />
@@ -142,7 +152,9 @@ initialState = {
       <div style={{ width: `${state.width}%` }}>
         <Dropdown>
           <StyledField>
-            <StyledLabel isRegular={state.regularWeightLabel}>Select dropdown</StyledLabel>
+            <StyledLabel hidden={state.hiddenLabel} isRegular={state.regularWeightLabel}>
+              Select dropdown
+            </StyledLabel>
             {state.showHint && <StyledHint>Hint</StyledHint>}
             <Select
               isCompact={state.isCompact}
@@ -169,7 +181,9 @@ initialState = {
         <StyledSpacer />
         <Dropdown>
           <StyledField>
-            <StyledLabel isRegular={state.regularWeightLabel}>Autocomplete dropdown</StyledLabel>
+            <StyledLabel hidden={state.hiddenLabel} isRegular={state.regularWeightLabel}>
+              Autocomplete dropdown
+            </StyledLabel>
             {state.showHint && <StyledHint>Hint</StyledHint>}
             <Autocomplete
               isCompact={state.isCompact}
@@ -204,7 +218,9 @@ initialState = {
           ]}
         >
           <StyledField>
-            <StyledLabel isRegular={state.regularWeightLabel}>Multiselect dropdown</StyledLabel>
+            <StyledLabel hidden={state.hiddenLabel} isRegular={state.regularWeightLabel}>
+              Multiselect dropdown
+            </StyledLabel>
             {state.showHint && <StyledHint>Hint</StyledHint>}
             <Multiselect
               isCompact={state.isCompact}

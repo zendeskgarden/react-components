@@ -187,6 +187,10 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
     & + ${StyledMessage} {
       margin-top: ${math(`${props.theme.space.base} * ${props.isCompact ? '1px' : '2px'}`)};
     }
+    ${StyledLabel}[hidden] + & {
+      margin-top: 0;
+    }
+
     /* stylelint-enable */
   `;
 };

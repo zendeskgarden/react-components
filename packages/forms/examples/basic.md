@@ -15,6 +15,7 @@ const EndIcon = require('@zendeskgarden/svg-icons/src/16/shield-stroke.svg').def
 
 initialState = {
   hint: true,
+  hidden: false,
   message: true,
   type: 'text'
 };
@@ -58,6 +59,14 @@ const StyledMessage = styled(Message)`
             onChange={event => setState({ regular: event.target.checked })}
           >
             <Label>Regular weight label</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.hidden}
+            onChange={event => setState({ hidden: event.target.checked })}
+          >
+            <Label>Hidden label</Label>
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
@@ -165,7 +174,9 @@ const StyledMessage = styled(Message)`
     </Col>
     <Col>
       <StyledField>
-        <StyledLabel isRegular={state.regular}>Input</StyledLabel>
+        <StyledLabel hidden={state.hidden} isRegular={state.regular}>
+          Input
+        </StyledLabel>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <Input
           disabled={state.disabled}
@@ -182,7 +193,9 @@ const StyledMessage = styled(Message)`
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">
-        <StyledLabel isRegular={state.regular}>Textarea</StyledLabel>
+        <StyledLabel hidden={state.hidden} isRegular={state.regular}>
+          Textarea
+        </StyledLabel>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <Textarea
           disabled={state.disabled}
@@ -200,7 +213,9 @@ const StyledMessage = styled(Message)`
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">
-        <StyledLabel isRegular={state.regular}>Select</StyledLabel>
+        <StyledLabel hidden={state.hidden} isRegular={state.regular}>
+          Select
+        </StyledLabel>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <Select
           disabled={state.disabled}
@@ -218,7 +233,9 @@ const StyledMessage = styled(Message)`
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">
-        <StyledLabel isRegular={state.regular}>MediaInput</StyledLabel>
+        <StyledLabel hidden={state.hidden} isRegular={state.regular}>
+          MediaInput
+        </StyledLabel>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <MediaInput
           disabled={state.disabled}
@@ -236,7 +253,9 @@ const StyledMessage = styled(Message)`
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">
-        <StyledLabel isRegular={state.regular}>FauxInput</StyledLabel>
+        <StyledLabel hidden={state.hidden} isRegular={state.regular}>
+          FauxInput
+        </StyledLabel>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <FauxInput
           disabled={state.disabled}
@@ -410,6 +429,7 @@ const {
 } = require('@zendeskgarden/react-dropdowns/src');
 
 initialState = {
+  hidden: false,
   hint: true,
   message: true,
   minValue: 0,
@@ -424,6 +444,14 @@ initialState = {
         <Field>
           <Toggle onChange={event => setState({ disabled: event.target.checked })}>
             <Label>Disabled</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.hidden}
+            onChange={event => setState({ hidden: event.target.checked })}
+          >
+            <Label>Hidden label</Label>
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
@@ -474,13 +502,13 @@ initialState = {
     </Col>
     <Col>
       <Field>
-        <Label>Range</Label>
+        <Label hidden={state.hidden}>Range</Label>
         {state.hint && <Hint>Hint</Hint>}
         <Range disabled={state.disabled} step={state.step} />
         {state.message && <Message validation={state.validation}>Message</Message>}
       </Field>
       <Field className="u-mt-sm">
-        <Label>MultiThumbRange</Label>
+        <Label hidden={state.hidden}>MultiThumbRange</Label>
         {state.hint && <Hint>Hint</Hint>}
         <MultiThumbRange
           disabled={state.disabled}

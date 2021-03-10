@@ -43,6 +43,8 @@ export const StyledRadioLabel = styled(StyledLabel).attrs({
 
   &[hidden] {
     display: inline-block; /* [2] */
+    margin: auto;
+    height: auto;
     vertical-align: top;
     text-indent: -100%;
     font-size: 0;

@@ -83,5 +83,18 @@ describe('StyledRangeInput', () => {
         modifier: `${StyledLabel} + &`
       });
     });
+
+    it('renders with expected margin if associated label is hidden', () => {
+      const { getByTestId } = render(
+        <>
+          <StyledLabel />
+          <StyledRangeInput data-test-id="range" />
+        </>
+      );
+      const range = getByTestId('range');
+      expect(range).toHaveStyleRule('margin-top', '0', {
+        modifier: `${StyledLabel}[hidden] + &`
+      });
+    });
   });
 });

@@ -98,6 +98,7 @@ const File = React.memo(({ name, onRemove }) => {
 const Example = () => {
   const [isCompact, setIsCompact] = React.useState(false);
   const [isDisabled, setIsDisabled] = React.useState(false);
+  const [hiddenLabel, setHiddenLabel] = React.useState(false);
   const [files, setFiles] = React.useState(['squash.jpg', 'soybean.pdf']);
 
   const onDrop = React.useCallback(
@@ -153,6 +154,18 @@ const Example = () => {
                   </Toggle>
                 </Field>
               </Col>
+              <Col>
+                <Field>
+                  <Toggle
+                    checked={hiddenLabel}
+                    onChange={event => setHiddenLabel(event.target.checked)}
+                  >
+                    <Label>
+                      <Code>hidden label</Code>
+                    </Label>
+                  </Toggle>
+                </Field>
+              </Col>
             </Row>
           </Well>
         </Col>
@@ -160,7 +173,7 @@ const Example = () => {
       <Row>
         <Col>
           <Field>
-            <Label>File upload</Label>
+            <Label hidden={hiddenLabel}>File upload</Label>
             <Hint>Works with react-dropzone</Hint>
             <FileUpload
               {...getRootProps()}

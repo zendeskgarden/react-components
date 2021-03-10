@@ -165,6 +165,10 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
     & + ${StyledMessage} {
       margin-top: ${math(`${props.theme.space.base} * 2px`)};
     }
+    ${StyledLabel}[hidden] + & {
+      margin-top: 0;
+    }
+
     /* stylelint-enable */
 
     ${trackStyles(`

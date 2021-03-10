@@ -9,6 +9,7 @@ import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { getColor } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from './StyledTextInput';
+import { StyledLabel } from '../common/StyledLabel';
 
 describe('StyledTextInput', () => {
   it('renders the expected element', () => {
@@ -45,6 +46,19 @@ describe('StyledTextInput', () => {
     const { container } = renderRtl(<StyledTextInput />);
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
+  });
+
+  it('renders with expected margin if associated label is hidden', () => {
+    const { getByTestId } = render(
+      <>
+        <StyledLabel />
+        <StyledTextInput data-test-id="textInput" />
+      </>
+    );
+    const textInput = getByTestId('textInput');
+    expect(textInput).toHaveStyleRule('margin-top', '0', {
+      modifier: `${StyledLabel}[hidden] + &`
+    });
   });
 
   describe('Validation', () => {

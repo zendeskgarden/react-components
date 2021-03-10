@@ -36,6 +36,10 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps
     & + ${StyledMessage} {
       margin-top: ${topMargin};
     }
+    ${StyledLabel}[hidden] + & {
+      margin-top: 0;
+    }
+
     /* stylelint-enable */
   `;
 };

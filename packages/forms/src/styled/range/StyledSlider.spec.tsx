@@ -61,5 +61,18 @@ describe('StyledSlider', () => {
         modifier: `${StyledLabel} + &`
       });
     });
+
+    it('renders with expected margin if associated label is hidden', () => {
+      const { getByTestId } = render(
+        <>
+          <StyledLabel />
+          <StyledSlider data-test-id="slider" />
+        </>
+      );
+      const slider = getByTestId('slider');
+      expect(slider).toHaveStyleRule('margin-top', '0', {
+        modifier: `${StyledLabel}[hidden] + &`
+      });
+    });
   });
 });

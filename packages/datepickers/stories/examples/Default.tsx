@@ -17,9 +17,16 @@ interface IDefaultStoryProps {
   isCompact: boolean;
   minDate?: Date;
   maxDate?: Date;
+  hiddenLabel: boolean;
 }
 
-export const Default: Story<IDefaultStoryProps> = ({ locale, isCompact, minDate, maxDate }) => {
+export const Default: Story<IDefaultStoryProps> = ({
+  locale,
+  isCompact,
+  minDate,
+  maxDate,
+  hiddenLabel
+}) => {
   const [date, setDate] = useState(new Date());
 
   return (
@@ -27,7 +34,7 @@ export const Default: Story<IDefaultStoryProps> = ({ locale, isCompact, minDate,
       <Row style={{ minHeight: 450 }}>
         <Col md={6} offsetMd={3}>
           <Field>
-            <Label>Standard datepicker</Label>
+            <Label hidden={hiddenLabel}>Standard datepicker</Label>
             <Hint>Using Intl.DateTimeFormat localization</Hint>
             <Datepicker
               value={date}
@@ -51,7 +58,8 @@ export const Default: Story<IDefaultStoryProps> = ({ locale, isCompact, minDate,
 
 Default.args = {
   locale: 'en-US',
-  isCompact: false
+  isCompact: false,
+  hiddenLabel: false
 };
 
 Default.argTypes = {
@@ -64,6 +72,9 @@ Default.argTypes = {
   },
   isCompact: {
     name: 'Compact'
+  },
+  hiddenLabel: {
+    name: 'Hidden Label'
   },
   minDate: {
     name: 'Min date',

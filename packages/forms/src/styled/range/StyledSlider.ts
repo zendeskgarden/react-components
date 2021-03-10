@@ -43,6 +43,10 @@ export const StyledSlider = styled.div.attrs<IStyledSliderProps>(props => ({
   & + ${StyledMessage} {
     margin-top: ${props => math(`${props.theme.space.base} * 2px`)};
   }
+  ${StyledLabel}[hidden] + & {
+    margin-top: 0;
+  }
+
   /* stylelint-enable */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
