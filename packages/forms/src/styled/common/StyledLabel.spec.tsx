@@ -26,6 +26,21 @@ describe('StyledLabel', () => {
     );
   });
 
+  it('renders expected hidden styling when hidden prop is passed', () => {
+    const { container } = render(<StyledLabel hidden />);
+
+    expect(container.firstChild).toHaveStyleRule('display', 'inline', { modifier: '[hidden]' });
+    expect(container.firstChild).toHaveStyleRule('border', '0');
+    expect(container.firstChild).toHaveStyleRule('clip', 'rect(0 0 0 0)');
+    expect(container.firstChild).toHaveStyleRule('height', '1px');
+    expect(container.firstChild).toHaveStyleRule('margin', '-1px');
+    expect(container.firstChild).toHaveStyleRule('overflow', 'hidden');
+    expect(container.firstChild).toHaveStyleRule('padding', '0');
+    expect(container.firstChild).toHaveStyleRule('position', 'absolute');
+    expect(container.firstChild).toHaveStyleRule('white-space', 'nowrap');
+    expect(container.firstChild).toHaveStyleRule('width', '1px');
+  });
+
   it('renders expected RTL styling', () => {
     const { container } = renderRtl(<StyledLabel />);
 

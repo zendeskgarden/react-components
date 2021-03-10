@@ -11,6 +11,7 @@ import {
   DEFAULT_THEME,
   getLineHeight
 } from '@zendeskgarden/react-theming';
+import { hideVisually } from 'polished';
 
 const COMPONENT_ID = 'forms.input_label';
 
@@ -30,6 +31,11 @@ export const StyledLabel = styled.label.attrs({
   font-weight: ${props =>
     props.isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};
 
+  &[hidden] {
+    display: inline;
+  }
+
+  ${props => props.hidden && hideVisually()}
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
