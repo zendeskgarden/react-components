@@ -3,8 +3,7 @@
     "@zendeskgarden",
     "@zendeskgarden/eslint-config/plugins/notice",
     "@zendeskgarden/eslint-config/plugins/react",
-    "prettier",
-    "prettier/react"
+    "prettier"
   ],
   "rules": {
     "sort-imports": "off",
@@ -16,7 +15,7 @@
       "files": ["*.ts", "*.tsx"],
       "extends": [
         "@zendeskgarden/eslint-config/plugins/typescript",
-        "prettier/@typescript-eslint"
+        "prettier"
       ],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "off",
