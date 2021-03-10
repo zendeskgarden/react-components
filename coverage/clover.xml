@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1615324335694" clover="3.2.0">
-  <project timestamp="1615324335694" name="All files">
+<coverage generated="1615337205572" clover="3.2.0">
+  <project timestamp="1615337205572" name="All files">
     <metrics statements="7639" coveredstatements="7430" conditionals="3015" coveredconditionals="2704" methods="1615" coveredmethods="1575" elements="12269" coveredelements="11709" complexity="0" loc="7639" ncloc="7639" packages="121" files="487" classes="487"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -2071,9 +2071,9 @@
         <line num="141" count="266" type="stmt"/>
         <line num="142" count="12" type="stmt"/>
         <line num="145" count="266" type="stmt"/>
-        <line num="254" count="2" type="stmt"/>
-        <line num="258" count="2" type="stmt"/>
-        <line num="260" count="2" type="stmt"/>
+        <line num="255" count="2" type="stmt"/>
+        <line num="259" count="2" type="stmt"/>
+        <line num="261" count="2" type="stmt"/>
       </file>
       <file name="reducer.ts" path="/home/circleci/project/packages/colorpickers/src/elements/Colorpicker/reducer.ts">
         <metrics statements="89" coveredstatements="78" conditionals="66" coveredconditionals="54" methods="4" coveredmethods="4"/>
@@ -2196,7 +2196,7 @@
         <line num="134" count="2" type="cond" truecount="3" falsecount="1"/>
         <line num="153" count="1" type="stmt"/>
         <line num="176" count="1" type="stmt"/>
-        <line num="182" count="1" type="stmt"/>
+        <line num="183" count="1" type="stmt"/>
       </file>
     </package>
     <package name="colorpickers.src.styled">
