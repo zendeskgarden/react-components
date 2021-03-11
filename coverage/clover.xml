@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1615487326859" clover="3.2.0">
-  <project timestamp="1615487326859" name="All files">
+<coverage generated="1615497098279" clover="3.2.0">
+  <project timestamp="1615497098279" name="All files">
     <metrics statements="7640" coveredstatements="7431" conditionals="3015" coveredconditionals="2704" methods="1616" coveredmethods="1576" elements="12271" coveredelements="11711" complexity="0" loc="7640" ncloc="7640" packages="121" files="487" classes="487"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -6918,14 +6918,14 @@
         <line num="10" count="19" type="stmt"/>
         <line num="11" count="19" type="stmt"/>
         <line num="13" count="19" type="stmt"/>
-        <line num="31" count="50" type="stmt"/>
-        <line num="39" count="50" type="stmt"/>
-        <line num="43" count="50" type="stmt"/>
-        <line num="49" count="50" type="cond" truecount="1" falsecount="1"/>
-        <line num="50" count="50" type="cond" truecount="3" falsecount="0"/>
-        <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="56" count="50" type="stmt"/>
-        <line num="59" count="19" type="stmt"/>
+        <line num="25" count="50" type="stmt"/>
+        <line num="30" count="50" type="stmt"/>
+        <line num="34" count="50" type="stmt"/>
+        <line num="40" count="50" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="50" type="cond" truecount="3" falsecount="0"/>
+        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="47" count="50" type="stmt"/>
+        <line num="50" count="19" type="stmt"/>
       </file>
       <file name="StyledTooltipModalBackdrop.ts" path="/home/circleci/project/packages/modals/src/styled/StyledTooltipModalBackdrop.ts">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
