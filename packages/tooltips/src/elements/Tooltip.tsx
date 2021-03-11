@@ -9,6 +9,7 @@ import React, { cloneElement, useRef, useEffect, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
+import mergeRefs from 'react-merge-refs';
 import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers, getControlledValue } from '@zendeskgarden/container-utilities';
 import { Manager, Popper, Reference } from 'react-popper';
@@ -99,7 +100,9 @@ export const Tooltip: React.FC<ITooltipProps> = ({
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 
-  const singleChild = React.Children.only(children);
+  const singleChild = React.Children.only<
+    React.ReactElement & React.RefAttributes<HTMLButtonElement>
+  >(children);
 
   /**
    * By default PopperJS treats an overflow container as its boundary.
@@ -119,7 +122,10 @@ export const Tooltip: React.FC<ITooltipProps> = ({
         {({ ref }) => {
           return cloneElement(
             singleChild,
-            getTriggerProps({ ...singleChild.props, [refKey!]: ref })
+            getTriggerProps({
+              ...singleChild.props,
+              [refKey!]: mergeRefs([ref, singleChild.ref ? singleChild.ref : null])
+            })
           );
         }}
       </Reference>

@@ -53,7 +53,6 @@ export const ColorWell: React.FC<IColorWellProps> = React.memo(
 
     const handleMouseMove = useCallback(
       (e: MouseEvent) => {
-        e.preventDefault();
         mouseActiveRef.current = true;
         setX(e.pageX);
         setY(e.pageY);
@@ -75,6 +74,7 @@ export const ColorWell: React.FC<IColorWellProps> = React.memo(
     const handleMouseDown = useCallback(
       (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         mouseActiveRef.current = true;
+        e.persist();
         handleMouseMove(e as any);
         throttledChange(e as any);
         window.addEventListener('mousemove', handleMouseMove);
