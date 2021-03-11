@@ -22,27 +22,18 @@ export interface IStyledTooltipModalProps {
   transitionState?: string;
 }
 
-/**
- * Accepts all `<div>` props
- *
- * 1. Override arrow parent positioning to ensure arrow is visible beyond block
- *    overflow boundaries.
- */
 export const StyledTooltipModal = styled.div.attrs<IStyledTooltipModalProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: props.isAnimated && 'is-animated'
 }))<IStyledTooltipModalProps>`
-  /* stylelint-disable-next-line declaration-no-important */
-  position: static !important; /* [1] */
-
   padding: ${props => props.theme.space.base * 5}px;
   width: 400px;
 
   ${props => {
     const computedArrowStyles = arrowStyles(getArrowPosition(props.placement), {
-      size: `${props.theme.space.base * 2.5}px`,
-      inset: `${props.theme.space.base / 2}px`,
+      size: `${props.theme.space.base * 2}px`,
+      inset: '1px',
       animationModifier: '.is-animated'
     });
 
