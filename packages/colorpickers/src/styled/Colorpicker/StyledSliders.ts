@@ -19,6 +19,10 @@ export const StyledSliders = styled.div.attrs({
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 2}px;
   width: 100%;
 
+  & > * {
+    height: ${props => getTrackMargin(props.theme) * 2 + getTrackHeight(props.theme)}px;
+  }
+
   & > :first-child {
     top: -${props => getTrackMargin(props.theme)}px;
   }
