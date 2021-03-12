@@ -28,8 +28,7 @@
     "lodash.isequal": "^4.5.0",
     "lodash.throttle": "^4.1.1",
     "polished": "^4.0.0",
-    "prop-types": "^15.7.2",
-    "react-merge-refs": "^1.1.0"
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",

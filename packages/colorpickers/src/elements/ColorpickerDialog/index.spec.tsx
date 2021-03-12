@@ -7,15 +7,19 @@
 
 import React, { useState, createRef } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, fireEvent, screen, waitForElementToBeRemoved } from 'garden-test-utils';
+import { render, fireEvent, screen, waitForElementToBeRemoved, act } from 'garden-test-utils';
 import { ColorpickerDialog } from '.';
 import { IColor } from '../../utils/types';
 
 describe('ColorpickerDialog', () => {
-  it('passes ref to underlying DOM element', () => {
-    const ref = createRef<HTMLButtonElement>();
+  it('passes ref to underlying DOM element', async () => {
+    const ref = createRef<HTMLDivElement>();
 
     render(<ColorpickerDialog defaultColor="#17494D" ref={ref} data-test-id="colordialog" />);
+
+    await act(async () => {
+      await userEvent.click(screen.getByRole('button'));
+    });
 
     expect(screen.getByTestId('colordialog')).toBe(ref.current);
   });

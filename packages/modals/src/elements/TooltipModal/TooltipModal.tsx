@@ -21,7 +21,7 @@ import { ThemeContext } from 'styled-components';
 import { usePopper, Modifier } from 'react-popper';
 import { CSSTransition } from 'react-transition-group';
 import { useModal } from '@zendeskgarden/container-modal';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
+import mergeRefs from 'react-merge-refs';
 import {
   GARDEN_PLACEMENT,
   getRtlPopperPlacement,
@@ -121,7 +121,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
   ) => {
     const theme = useContext(ThemeContext);
     const previousReferenceElementRef = useRef<HTMLElement | null>();
-    const modalRef = useCombinedRefs(ref);
+    const modalRef = useRef<HTMLDivElement>(null);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
     const {
       getTitleProps,
@@ -166,7 +166,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
     };
 
     const modalProps = getModalProps({
-      ref: modalRef,
+      ref: mergeRefs([modalRef, ref]),
       placement: state ? state.placement : 'top',
       hasArrow,
       isAnimated,

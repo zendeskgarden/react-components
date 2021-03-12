@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
@@ -16,6 +17,30 @@ export default {
   title: 'Components/ColorpickerDialog',
   component: ColorpickerDialog
 } as Meta;
+
+interface IPaletteIconButton {
+  iconColor: string;
+}
+
+const PaletteIconButton = React.forwardRef(
+  (
+    props: IPaletteIconButton & React.ComponentPropsWithoutRef<'button'>,
+    ref: React.Ref<HTMLButtonElement>
+  ) => (
+    <Tooltip content="Palette">
+      <IconButton
+        aria-label="palette"
+        ref={ref}
+        style={{ color: props.disabled ? undefined : props.iconColor }}
+        {...props}
+      >
+        <PaletteIcon />
+      </IconButton>
+    </Tooltip>
+  )
+);
+
+PaletteIconButton.displayName = 'PaletteIconButton';
 
 export const WithIconButton: Story = ({
   placement,
@@ -51,13 +76,7 @@ export const WithIconButton: Story = ({
             isAnimated={isAnimated}
             onClose={setSelectedColor}
           >
-            <IconButton
-              aria-label="palette"
-              disabled={disabled}
-              style={{ color: disabled ? undefined : iconColor }}
-            >
-              <PaletteIcon />
-            </IconButton>
+            <PaletteIconButton iconColor={iconColor} disabled={disabled} />
           </ColorpickerDialog>
         </Col>
       </Row>
