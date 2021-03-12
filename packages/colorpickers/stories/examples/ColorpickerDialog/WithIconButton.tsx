@@ -28,7 +28,12 @@ const PaletteIconButton = React.forwardRef(
     ref: React.Ref<HTMLButtonElement>
   ) => (
     <Tooltip content="Palette">
-      <IconButton aria-label="palette" ref={ref} {...props}>
+      <IconButton
+        aria-label="palette"
+        ref={ref}
+        style={{ color: props.disabled ? undefined : props.iconColor }}
+        {...props}
+      >
         <PaletteIcon />
       </IconButton>
     </Tooltip>
