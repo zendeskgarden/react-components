@@ -15,7 +15,6 @@ import React, {
   HTMLAttributes
 } from 'react';
 import PropTypes from 'prop-types';
-import mergeRefs from 'react-merge-refs';
 import { Modifier } from 'react-popper';
 import { Button } from '@zendeskgarden/react-buttons';
 import { GARDEN_PLACEMENT } from '@zendeskgarden/react-modals';
@@ -64,11 +63,11 @@ export interface IColorpickerDialogProps extends IColorpickerProps {
 }
 
 /**
- * @extends HTMLAttributes<HTMLButtonElement>
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const ColorpickerDialog = forwardRef<
-  HTMLButtonElement,
-  IColorpickerDialogProps & Omit<HTMLAttributes<HTMLButtonElement>, 'color' | 'onChange'>
+  HTMLDivElement,
+  IColorpickerDialogProps & Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'onChange'>
 >(
   (
     {
@@ -91,7 +90,6 @@ export const ColorpickerDialog = forwardRef<
     const isControlled = color !== null && color !== undefined;
     const buttonRef = useRef<HTMLButtonElement>(null);
     const colorPickerRef = useRef<HTMLDivElement>(null);
-    const mergedRef = mergeRefs([ref, buttonRef]);
     const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
     const [uncontrolledColor, setUncontrolledColor] = useState<string | IColor | undefined>(
       defaultColor
@@ -110,11 +108,10 @@ export const ColorpickerDialog = forwardRef<
         {children ? (
           cloneElement(Children.only(children as ReactElement), {
             onClick,
-            ref: mergedRef,
-            ...props
+            ref: buttonRef
           })
         ) : (
-          <StyledButton focusInset={focusInset} ref={mergedRef} onClick={onClick} {...props}>
+          <StyledButton focusInset={focusInset} ref={buttonRef} onClick={onClick}>
             <StyledButtonPreview backgroundColor={isControlled ? color : uncontrolledColor} />
             {/* eslint-disable-next-line no-eq-null, eqeqeq */}
             <Button.EndIcon isRotated={referenceElement != null}>
@@ -123,6 +120,7 @@ export const ColorpickerDialog = forwardRef<
           </StyledButton>
         )}
         <StyledTooltipModal
+          ref={ref}
           hasArrow={hasArrow}
           popperModifiers={popperModifiers}
           zIndex={zIndex}
@@ -134,6 +132,7 @@ export const ColorpickerDialog = forwardRef<
             setReferenceElement(null);
             onClose && onClose(isControlled ? (color as IColor) : (uncontrolledColor as IColor));
           }}
+          {...props}
         >
           <StyledTooltipBody>
             <Colorpicker
