@@ -11,6 +11,37 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v8.33.0 (2021-03-12)
+
+#### :rocket: New Feature
+* `.template`, `colorpickers`, `forms`
+  * [#1018](https://github.com/zendeskgarden/react-components/pull/1018) feat(colorpickers): introduce color pickers package ([@hzhu](https://github.com/hzhu))
+* `modals`, `notifications`, `tables`
+  * [#1021](https://github.com/zendeskgarden/react-components/pull/1021) feat(notifications): introduce toast pattern and utilities ([@austingreendev](https://github.com/austingreendev))
+
+#### :bug: Bug Fix
+* `colorpickers`, `modals`, `tooltips`
+  * [#1033](https://github.com/zendeskgarden/react-components/pull/1033) fix(colorpickers|tooltips): color well and tooltip fixes ([@hzhu](https://github.com/hzhu))
+* `modals`
+  * [#1035](https://github.com/zendeskgarden/react-components/pull/1035) fix(modals): TooltipModal arrow styling ([@jzempel](https://github.com/jzempel))
+  * [#1024](https://github.com/zendeskgarden/react-components/pull/1024) fix(modals): fadeout tooltip modal ([@hzhu](https://github.com/hzhu))
+* `colorpickers`
+  * [#1034](https://github.com/zendeskgarden/react-components/pull/1034) fix(colorpickers): prevent subpixel slider height increase ([@jzempel](https://github.com/jzempel))
+  * [#1031](https://github.com/zendeskgarden/react-components/pull/1031) fix(colorpickers): disable hex spell checking and arrow by default ([@jzempel](https://github.com/jzempel))
+  * [#1030](https://github.com/zendeskgarden/react-components/pull/1030) fix(colorpickers): move react-buttons to a direct dependency ([@jzempel](https://github.com/jzempel))
+  * [#1029](https://github.com/zendeskgarden/react-components/pull/1029) fix(colorpickers): fix broken color picker dialog test ([@hzhu](https://github.com/hzhu))
+  * [#1027](https://github.com/zendeskgarden/react-components/pull/1027) fix(colorpickers): correct ColorpickerDialog displayName ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* `forms`
+  * [#1028](https://github.com/zendeskgarden/react-components/pull/1028) chore(docs): migrate react-forms to storybook ([@austingreendev](https://github.com/austingreendev))
+
+#### :seedling: Internal
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#1008](https://github.com/zendeskgarden/react-components/pull/1008) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `modals`
+  * [#1025](https://github.com/zendeskgarden/react-components/pull/1025) chore(modals): upgrade container-modal version ([@hzhu](https://github.com/hzhu))
 ## v8.32.2 (2021-03-03)
 
 #### :bug: Bug Fix
