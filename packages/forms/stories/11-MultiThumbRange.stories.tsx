@@ -27,6 +27,8 @@ export default {
 
 export const Default: Story<IRangeStoryProps & IMultiThumbRangeProps> = ({
   disabled,
+  isRegular,
+  isHidden,
   validation,
   showHint,
   showMessage,
@@ -40,7 +42,9 @@ export const Default: Story<IRangeStoryProps & IMultiThumbRangeProps> = ({
       <Row style={{ minHeight: 450 }}>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Field>
-            <Label>Range</Label>
+            <Label hidden={isHidden} isRegular={isRegular}>
+              Multi-thumb range
+            </Label>
             {showHint && <Hint>Hint</Hint>}
             <MultiThumbRange
               disabled={disabled}
@@ -61,7 +65,9 @@ export const Default: Story<IRangeStoryProps & IMultiThumbRangeProps> = ({
 };
 
 Default.args = {
-  ...RANGE_ARGS
+  ...RANGE_ARGS,
+  isHidden: false,
+  isRegular: false
 };
 
 Default.argTypes = {

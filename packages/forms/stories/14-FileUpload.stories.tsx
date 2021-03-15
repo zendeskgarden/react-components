@@ -114,7 +114,17 @@ const File: React.FC<{ name: string; onRemove: any }> = React.memo(({ name, onRe
 
 File.displayName = 'File';
 
-export const Default: Story<IFileUploadProps> = ({ isCompact, disabled }) => {
+interface IFileUploadStoryProps {
+  isHidden: false;
+  showHint: boolean;
+}
+
+export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
+  isCompact,
+  disabled,
+  isHidden,
+  showHint
+}) => {
   const [files, setFiles] = React.useState(['squash.jpg', 'soybean.pdf']);
 
   const onDrop = React.useCallback(
@@ -145,8 +155,8 @@ export const Default: Story<IFileUploadProps> = ({ isCompact, disabled }) => {
       <Row>
         <Col lg={8} offsetLg={2}>
           <Field>
-            <Label>File upload</Label>
-            <Hint>Works with react-dropzone</Hint>
+            <Label hidden={isHidden}>File upload</Label>
+            {showHint && <Hint>Works with react-dropzone</Hint>}
             <FileUpload
               {...getRootProps()}
               isDragging={isDragActive}
@@ -179,7 +189,18 @@ export const Default: Story<IFileUploadProps> = ({ isCompact, disabled }) => {
   );
 };
 
+Default.args = {
+  showHint: true,
+  isHidden: false
+};
+
 Default.argTypes = {
+  isHidden: {
+    name: 'Hidden label'
+  },
+  showHint: {
+    name: 'Hint'
+  },
   isDragging: {
     table: {
       disable: true
