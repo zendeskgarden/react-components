@@ -226,5 +226,6 @@ Default.argTypes = {
 };
 
 Default.args = {
+  isAnimated: true,
   placement: 'bottom'
 };

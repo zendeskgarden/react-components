@@ -162,5 +162,6 @@ Default.argTypes = {
 
 Default.args = {
   placement: 'bottom',
+  isAnimated: true,
   showMessage: false
 };

@@ -168,5 +168,6 @@ Tree.argTypes = {
 };
 
 Tree.args = {
-  placement: 'end'
+  placement: 'end',
+  isAnimated: true
 };

@@ -161,5 +161,6 @@ Advanced.argTypes = {
 };
 
 Advanced.args = {
-  placement: 'bottom'
+  placement: 'bottom-start',
+  isAnimated: true
 };
