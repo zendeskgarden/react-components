@@ -47,7 +47,7 @@ export const Default: Story<IStoryProps> = ({
           {/* eslint-disable-next-line no-alert */}
           <Dropdown onSelect={item => alert(item)}>
             <Trigger>
-              <Button>Default Menu</Button>
+              <Button size={isCompact ? 'small' : 'medium'}>Default Menu</Button>
             </Trigger>
             <Menu
               hasArrow={hasArrow}
@@ -71,7 +71,11 @@ export const Default: Story<IStoryProps> = ({
           {/* eslint-disable-next-line no-alert */}
           <Dropdown onSelect={item => alert(item)}>
             <Trigger>
-              <IconButton aria-label="Settings" title="Settings">
+              <IconButton
+                aria-label="Settings"
+                title="Settings"
+                size={isCompact ? 'small' : 'medium'}
+              >
                 <SettingsIcon />
               </IconButton>
             </Trigger>

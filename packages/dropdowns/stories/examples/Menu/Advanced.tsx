@@ -70,7 +70,7 @@ export const Advanced: Story<IStoryProps> = ({
             }}
           >
             <Trigger>
-              <Button>Advanced Layout</Button>
+              <Button size={isCompact ? 'small' : 'medium'}>Advanced Layout</Button>
             </Trigger>
             <Menu
               placement={placement}

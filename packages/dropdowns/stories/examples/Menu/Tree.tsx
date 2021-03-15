@@ -122,7 +122,7 @@ export const Tree: Story<IStoryProps> = ({
             }}
           >
             <Trigger>
-              <Button>Tree Layout</Button>
+              <Button size={isCompact ? 'small' : 'medium'}>Tree Layout</Button>
             </Trigger>
             <Menu
               hasArrow={hasArrow}
