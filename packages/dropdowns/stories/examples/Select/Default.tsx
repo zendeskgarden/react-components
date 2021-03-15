@@ -52,7 +52,6 @@ const options = [
 ];
 
 export const Default: Story<IStoryProps> = ({
-  hasArrow,
   isAnimated,
   isCompact,
   placement,
@@ -87,12 +86,7 @@ export const Default: Story<IStoryProps> = ({
               </Select>
               {showMessage && <Message validation={validation}>Message</Message>}
             </Field>
-            <Menu
-              placement={placement}
-              hasArrow={hasArrow}
-              isCompact={isCompact}
-              isAnimated={isAnimated}
-            >
+            <Menu placement={placement} isCompact={isCompact} isAnimated={isAnimated}>
               {options.map(option => (
                 <Item key={option.value} value={option}>
                   {option.label}
@@ -111,7 +105,6 @@ Default.argTypes = {
     name: 'Message',
     control: 'boolean'
   },
-  hasArrow: { name: 'hasArrow', control: 'boolean' },
   isAnimated: { name: 'isAnimated', control: 'boolean' },
   isCompact: { name: 'isCompact', control: 'boolean' },
   placement: {

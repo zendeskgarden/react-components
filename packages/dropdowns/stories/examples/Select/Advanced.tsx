@@ -30,6 +30,9 @@ interface IStoryProps {
   hasArrow: boolean;
   isAnimated: boolean;
   isCompact: boolean;
+  disabled: boolean;
+  focusInset: boolean;
+  isBare: boolean;
 }
 
 const options = [
@@ -75,7 +78,14 @@ const Color = ({ name, color, includeSample }: any) =>
     </ColorSamplePreview>
   );
 
-export const Advanced: Story<IStoryProps> = ({ hasArrow, isAnimated, isCompact, placement }) => {
+export const Advanced: Story<IStoryProps> = ({
+  isAnimated,
+  isCompact,
+  placement,
+  disabled,
+  focusInset,
+  isBare
+}) => {
   const [selectedItem, setSelectedItem] = useState(options[0]);
 
   return (
@@ -90,16 +100,16 @@ export const Advanced: Story<IStoryProps> = ({ hasArrow, isAnimated, isCompact, 
             <Field>
               <Label>Product Color</Label>
               <Hint>The branded colors for the Zendesk products</Hint>
-              <Select>
+              <Select
+                disabled={disabled}
+                focusInset={focusInset}
+                isBare={isBare}
+                isCompact={isCompact}
+              >
                 <Color color={selectedItem.value} name={selectedItem.label} />
               </Select>
             </Field>
-            <Menu
-              hasArrow={hasArrow}
-              isAnimated={isAnimated}
-              isCompact={isCompact}
-              placement={placement}
-            >
+            <Menu isAnimated={isAnimated} isCompact={isCompact} placement={placement}>
               {options.map(option => (
                 <Item key={`${option.label}-${option.value}`} value={option}>
                   <Color color={option.value} name={option.label} includeSample />
@@ -114,7 +124,6 @@ export const Advanced: Story<IStoryProps> = ({ hasArrow, isAnimated, isCompact, 
 };
 
 Advanced.argTypes = {
-  hasArrow: { name: 'hasArrow', control: 'boolean' },
   isAnimated: { name: 'isAnimated', control: 'boolean' },
   isCompact: { name: 'isCompact', control: 'boolean' },
   placement: {
