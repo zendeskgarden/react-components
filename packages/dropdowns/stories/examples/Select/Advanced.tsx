@@ -124,6 +124,7 @@ export const Advanced: Story<IStoryProps> = ({
 };
 
 Advanced.argTypes = {
+  isOpen: { name: 'isOpen', control: 'disabled' },
   isAnimated: { name: 'isAnimated', control: 'boolean' },
   isCompact: { name: 'isCompact', control: 'boolean' },
   placement: {

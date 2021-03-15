@@ -105,6 +105,7 @@ Default.argTypes = {
     name: 'Message',
     control: 'boolean'
   },
+  isOpen: { name: 'isOpen', control: 'disabled' },
   isAnimated: { name: 'isAnimated', control: 'boolean' },
   isCompact: { name: 'isCompact', control: 'boolean' },
   placement: {
