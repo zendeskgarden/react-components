@@ -8,7 +8,8 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { Dropdown, Menu, Trigger, Item } from '@zendeskgarden/react-dropdowns';
-import { Button } from '@zendeskgarden/react-buttons';
+import { IconButton } from '@zendeskgarden/react-buttons';
+import SettingsIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 
 interface IStoryProps {
@@ -32,7 +33,7 @@ interface IStoryProps {
   isDisabled: boolean;
 }
 
-export const Default: Story<IStoryProps> = ({
+export const Icon: Story<IStoryProps> = ({
   hasArrow,
   isAnimated,
   isCompact,
@@ -41,12 +42,18 @@ export const Default: Story<IStoryProps> = ({
 }) => {
   return (
     <Grid>
-      <Row style={{ minHeight: 200 }}>
+      <Row alignItems="center" style={{ minHeight: 200 }}>
         <Col textAlign="center">
           {/* eslint-disable-next-line no-alert */}
           <Dropdown onSelect={item => alert(item)}>
             <Trigger>
-              <Button size={isCompact ? 'small' : 'medium'}>Default Menu</Button>
+              <IconButton
+                aria-label="Settings"
+                title="Settings"
+                size={isCompact ? 'small' : 'medium'}
+              >
+                <SettingsIcon />
+              </IconButton>
             </Trigger>
             <Menu
               hasArrow={hasArrow}
@@ -71,7 +78,7 @@ export const Default: Story<IStoryProps> = ({
   );
 };
 
-Default.argTypes = {
+Icon.argTypes = {
   hasArrow: { name: 'hasArrow', control: 'boolean' },
   isAnimated: { name: 'isAnimated', control: 'boolean' },
   isCompact: { name: 'isCompact', control: 'boolean' },
@@ -99,7 +106,8 @@ Default.argTypes = {
   isDisabled: { name: 'Disabled items', control: 'boolean' }
 };
 
-Default.args = {
-  placement: 'bottom-start',
-  isAnimated: true
+Icon.args = {
+  placement: 'end',
+  isAnimated: true,
+  hasArrow: true
 };

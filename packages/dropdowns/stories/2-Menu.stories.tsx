@@ -14,5 +14,6 @@ export default {
 } as Meta;
 
 export { Default } from './examples/Menu/Default';
+export { Icon } from './examples/Menu/Icon';
 export { Advanced } from './examples/Menu/Advanced';
 export { Tree } from './examples/Menu/Tree';
