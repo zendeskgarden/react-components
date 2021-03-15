@@ -29,7 +29,7 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps
 
   return css`
     /* stylelint-disable */
-    ${StyledLabel} + &,
+    ${StyledLabel}:not([hidden]) + &,
     ${StyledHint} + &,
     ${StyledMessage} + &,
     & + ${StyledHint},

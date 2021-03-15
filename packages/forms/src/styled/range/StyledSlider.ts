@@ -36,7 +36,7 @@ export const StyledSlider = styled.div.attrs<IStyledSliderProps>(props => ({
   }
 
   /* stylelint-disable */
-  ${StyledLabel} + &,
+  ${StyledLabel}:not([hidden]) + &,
   ${StyledHint} + &,
   ${StyledMessage} + &,
   & + ${StyledHint},

@@ -30,7 +30,7 @@ describe('StyledSlider', () => {
       const slider = getByTestId('slider');
 
       expect(slider).toHaveStyleRule('margin-top', '8px', {
-        modifier: `${StyledLabel} + &`
+        modifier: `${StyledLabel}:not([hidden]) + &`
       });
     });
 
@@ -44,7 +44,7 @@ describe('StyledSlider', () => {
       const slider = getByTestId('slider');
 
       expect(slider).toHaveStyleRule('margin-top', '8px', {
-        modifier: `${StyledLabel} + &`
+        modifier: `${StyledLabel}:not([hidden]) + &`
       });
     });
 
@@ -58,7 +58,7 @@ describe('StyledSlider', () => {
       const slider = getByTestId('slider');
 
       expect(slider).toHaveStyleRule('margin-top', '8px', {
-        modifier: `${StyledLabel} + &`
+        modifier: `${StyledLabel}:not([hidden]) + &`
       });
     });
   });

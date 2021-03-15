@@ -158,7 +158,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 
   return css`
     /* stylelint-disable */
-    ${StyledLabel} + &,
+    ${StyledLabel}:not([hidden]) + &,
     ${StyledHint} + &,
     ${StyledMessage} + &,
     & + ${StyledHint},
