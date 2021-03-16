@@ -19,6 +19,7 @@ import {
 import { Col, Row } from '@zendeskgarden/react-grid';
 import debounce from 'lodash.debounce';
 import { VALIDATION } from '../../../src/utils/validation';
+import StarStrokeIcon from '@zendeskgarden/svg-icons/src/12/star-stroke.svg';
 
 const options = [
   'Asparagus',
@@ -45,6 +46,7 @@ interface IStoryProps {
   validation: VALIDATION;
   showMessage: boolean;
   disabled: boolean;
+  showStartIcon: boolean;
 }
 
 export const Default: Story<IStoryProps> = ({
@@ -53,7 +55,8 @@ export const Default: Story<IStoryProps> = ({
   focusInset,
   validation,
   showMessage,
-  disabled
+  disabled,
+  showStartIcon
 }) => {
   const [selectedItem, setSelectedItem] = useState(options[0]);
   const [inputValue, setInputValue] = useState('');
@@ -94,6 +97,7 @@ export const Default: Story<IStoryProps> = ({
               isBare={isBare}
               validation={validation}
               disabled={disabled}
+              start={showStartIcon && <StarStrokeIcon />}
             >
               {selectedItem}
             </Autocomplete>
@@ -118,7 +122,8 @@ export const Default: Story<IStoryProps> = ({
 
 Default.argTypes = {
   isCompact: { name: 'isCompact', control: 'boolean' },
-  isOpen: { name: 'isOpen', control: 'disabled' }
+  isOpen: { name: 'isOpen', control: 'disabled' },
+  showStartIcon: { name: 'Show start icon', control: 'boolean' }
 };
 
 Default.args = {
