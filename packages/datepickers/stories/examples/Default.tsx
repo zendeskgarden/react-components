@@ -15,11 +15,20 @@ import { Field, Label, Hint, Input } from '@zendeskgarden/react-forms';
 interface IDefaultStoryProps {
   locale: string;
   isCompact: boolean;
+  isHidden: boolean;
+  showHint: boolean;
   minDate?: Date;
   maxDate?: Date;
 }
 
-export const Default: Story<IDefaultStoryProps> = ({ locale, isCompact, minDate, maxDate }) => {
+export const Default: Story<IDefaultStoryProps> = ({
+  locale,
+  isCompact,
+  isHidden,
+  showHint,
+  minDate,
+  maxDate
+}) => {
   const [date, setDate] = useState(new Date());
 
   return (
@@ -27,8 +36,8 @@ export const Default: Story<IDefaultStoryProps> = ({ locale, isCompact, minDate,
       <Row style={{ minHeight: 450 }}>
         <Col md={6} offsetMd={3}>
           <Field>
-            <Label>Standard datepicker</Label>
-            <Hint>Using Intl.DateTimeFormat localization</Hint>
+            <Label hidden={isHidden}>Standard datepicker</Label>
+            {showHint && <Hint>Using Intl.DateTimeFormat localization</Hint>}
             <Datepicker
               value={date}
               isCompact={isCompact}
@@ -51,7 +60,9 @@ export const Default: Story<IDefaultStoryProps> = ({ locale, isCompact, minDate,
 
 Default.args = {
   locale: 'en-US',
-  isCompact: false
+  isCompact: false,
+  isHidden: false,
+  showHint: true
 };
 
 Default.argTypes = {
@@ -64,6 +75,12 @@ Default.argTypes = {
   },
   isCompact: {
     name: 'Compact'
+  },
+  isHidden: {
+    name: 'Hidden label'
+  },
+  showHint: {
+    name: 'Hint'
   },
   minDate: {
     name: 'Min date',
