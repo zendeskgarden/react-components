@@ -102,6 +102,7 @@ export const Advanced: Story<IStoryProps> = ({
                 focusInset={focusInset}
                 isBare={isBare}
                 isCompact={isCompact}
+                validation={validation}
               >
                 <Color color={selectedItem.value} name={selectedItem.label} />
               </Select>
