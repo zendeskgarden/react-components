@@ -21,7 +21,7 @@ import {
   Message
 } from '@zendeskgarden/react-dropdowns';
 import { VALIDATION } from '../../../src/utils/validation';
-import StarStrokeIcon from '@zendeskgarden/svg-icons/src/12/star-stroke.svg';
+import TagIcon from '@zendeskgarden/svg-icons/src/12/tag-stroke.svg';
 
 interface IStoryProps {
   hasArrow: boolean;
@@ -153,7 +153,7 @@ export const Default: Story<IStoryProps> = ({
                 focusInset={focusInset}
                 validation={validation}
                 maxItems={maxItems}
-                start={showStartIcon && <StarStrokeIcon />}
+                start={showStartIcon && <TagIcon />}
                 renderShowMore={showMoreText ? value => `+ ${value} ${showMoreText}` : undefined}
               />
               {showMessage && <Message validation={validation}>Message</Message>}
