@@ -122,5 +122,5 @@ Default.argTypes = {
 };
 
 Default.args = {
-  showMessage: false
+  showMessage: true
 };

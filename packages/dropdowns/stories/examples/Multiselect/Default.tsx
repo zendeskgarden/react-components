@@ -181,3 +181,7 @@ Default.argTypes = {
   maxItems: { name: 'maxItems', control: 'number' },
   showStartIcon: { name: 'Show start icon', control: 'boolean' }
 };
+
+Default.args = {
+  showMessage: true
+};
