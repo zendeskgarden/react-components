@@ -24,21 +24,6 @@ import { VALIDATION } from '../../../src/utils/validation';
 import StarStrokeIcon from '@zendeskgarden/svg-icons/src/12/star-stroke.svg';
 
 interface IStoryProps {
-  placement:
-    | 'auto'
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'end'
-    | 'end-top'
-    | 'end-bottom'
-    | 'start'
-    | 'start-top'
-    | 'start-bottom';
-  isAnimated: boolean;
   hasArrow: boolean;
   isCompact: boolean;
   isBare: boolean;
@@ -81,13 +66,10 @@ const options = [
 ];
 
 export const Default: Story<IStoryProps> = ({
-  isAnimated,
-  placement,
   isCompact,
   isBare,
   disabled,
   focusInset,
-  placeholder,
   validation,
   maxItems,
   showMessage,
@@ -165,16 +147,13 @@ export const Default: Story<IStoryProps> = ({
                 isBare={isBare}
                 disabled={disabled}
                 focusInset={focusInset}
-                placeholder={placeholder}
                 validation={validation}
                 maxItems={maxItems}
                 start={showStartIcon && <StarStrokeIcon />}
               />
               {showMessage && <Message validation={validation}>Message</Message>}
             </Field>
-            <Menu placement={placement} isCompact={isCompact} isAnimated={isAnimated}>
-              {renderOptions()}
-            </Menu>
+            <Menu isCompact={isCompact}>{renderOptions()}</Menu>
           </Dropdown>
         </Col>
       </Row>
@@ -186,28 +165,6 @@ Default.argTypes = {
   showMessage: {
     name: 'Message',
     control: 'boolean'
-  },
-  isAnimated: { name: 'isAnimated', control: 'boolean' },
-  placement: {
-    name: 'Placement',
-    control: {
-      type: 'select',
-      options: [
-        'auto',
-        'top',
-        'top-start',
-        'top-end',
-        'bottom',
-        'bottom-start',
-        'bottom-end',
-        'end',
-        'end-top',
-        'end-bottom',
-        'start',
-        'start-top',
-        'start-bottom'
-      ]
-    }
   },
   isCompact: { name: 'isCompact', control: 'boolean' },
   isBare: { name: 'isBare', control: 'boolean' },
@@ -223,9 +180,4 @@ Default.argTypes = {
   },
   maxItems: { name: 'maxItems', control: 'number' },
   showStartIcon: { name: 'Show start icon', control: 'boolean' }
-};
-
-Default.args = {
-  isAnimated: true,
-  placement: 'bottom'
 };
