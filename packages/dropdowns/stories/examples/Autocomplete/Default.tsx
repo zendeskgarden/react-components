@@ -39,21 +39,6 @@ const options = [
 ];
 
 interface IStoryProps {
-  placement:
-    | 'auto'
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'end'
-    | 'end-top'
-    | 'end-bottom'
-    | 'start'
-    | 'start-top'
-    | 'start-bottom';
-  isAnimated: boolean;
   isCompact: boolean;
   isBare: boolean;
   focusInset: boolean;
@@ -63,11 +48,9 @@ interface IStoryProps {
 }
 
 export const Default: Story<IStoryProps> = ({
-  isAnimated,
   isCompact,
   isBare,
   focusInset,
-  placement,
   validation,
   showMessage,
   disabled
@@ -116,7 +99,7 @@ export const Default: Story<IStoryProps> = ({
             </Autocomplete>
             {showMessage && <Message validation={validation}>Message</Message>}
           </Field>
-          <Menu isAnimated={isAnimated} isCompact={isCompact} placement={placement}>
+          <Menu isCompact={isCompact}>
             {matchingOptions.length ? (
               matchingOptions.map(option => (
                 <Item key={option} value={option}>
@@ -134,34 +117,10 @@ export const Default: Story<IStoryProps> = ({
 };
 
 Default.argTypes = {
-  isAnimated: { name: 'isAnimated', control: 'boolean' },
   isCompact: { name: 'isCompact', control: 'boolean' },
-  isOpen: { name: 'isOpen', control: 'disabled' },
-  placement: {
-    name: 'Placement',
-    control: {
-      type: 'select',
-      options: [
-        'auto',
-        'top',
-        'top-start',
-        'top-end',
-        'bottom',
-        'bottom-start',
-        'bottom-end',
-        'end',
-        'end-top',
-        'end-bottom',
-        'start',
-        'start-top',
-        'start-bottom'
-      ]
-    }
-  }
+  isOpen: { name: 'isOpen', control: 'disabled' }
 };
 
 Default.args = {
-  placement: 'bottom',
-  isAnimated: true,
   showMessage: false
 };
