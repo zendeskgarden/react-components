@@ -7,10 +7,20 @@
 
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
-import { Dropdown, Menu, Item, Select, Field, Label, Hint } from '@zendeskgarden/react-dropdowns';
+import {
+  Dropdown,
+  Menu,
+  Item,
+  Select,
+  Field,
+  Label,
+  Hint,
+  Message
+} from '@zendeskgarden/react-dropdowns';
 import styled from 'styled-components';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { PALETTE } from '@zendeskgarden/react-theming';
+import { VALIDATION } from '../../../src/utils/validation';
 
 interface IStoryProps {
   hasArrow: boolean;
@@ -18,6 +28,8 @@ interface IStoryProps {
   disabled: boolean;
   focusInset: boolean;
   isBare: boolean;
+  validation: VALIDATION;
+  showMessage: boolean;
 }
 
 const options = [
@@ -63,7 +75,14 @@ const Color = ({ name, color, includeSample }: any) =>
     </ColorSamplePreview>
   );
 
-export const Advanced: Story<IStoryProps> = ({ isCompact, disabled, focusInset, isBare }) => {
+export const Advanced: Story<IStoryProps> = ({
+  isCompact,
+  disabled,
+  focusInset,
+  isBare,
+  showMessage,
+  validation
+}) => {
   const [selectedItem, setSelectedItem] = useState(options[0]);
 
   return (
@@ -86,6 +105,7 @@ export const Advanced: Story<IStoryProps> = ({ isCompact, disabled, focusInset, 
               >
                 <Color color={selectedItem.value} name={selectedItem.label} />
               </Select>
+              {showMessage && <Message validation={validation}>Message</Message>}
             </Field>
             <Menu isCompact={isCompact}>
               {options.map(option => (
@@ -103,5 +123,13 @@ export const Advanced: Story<IStoryProps> = ({ isCompact, disabled, focusInset, 
 
 Advanced.argTypes = {
   isOpen: { name: 'isOpen', control: 'disabled' },
-  isCompact: { name: 'isCompact', control: 'boolean' }
+  isCompact: { name: 'isCompact', control: 'boolean' },
+  showMessage: {
+    name: 'Message',
+    control: 'boolean'
+  }
+};
+
+Advanced.args = {
+  showMessage: true
 };
