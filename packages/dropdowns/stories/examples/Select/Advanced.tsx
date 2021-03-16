@@ -13,22 +13,7 @@ import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { PALETTE } from '@zendeskgarden/react-theming';
 
 interface IStoryProps {
-  placement:
-    | 'auto'
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'end'
-    | 'end-top'
-    | 'end-bottom'
-    | 'start'
-    | 'start-top'
-    | 'start-bottom';
   hasArrow: boolean;
-  isAnimated: boolean;
   isCompact: boolean;
   disabled: boolean;
   focusInset: boolean;
@@ -78,14 +63,7 @@ const Color = ({ name, color, includeSample }: any) =>
     </ColorSamplePreview>
   );
 
-export const Advanced: Story<IStoryProps> = ({
-  isAnimated,
-  isCompact,
-  placement,
-  disabled,
-  focusInset,
-  isBare
-}) => {
+export const Advanced: Story<IStoryProps> = ({ isCompact, disabled, focusInset, isBare }) => {
   const [selectedItem, setSelectedItem] = useState(options[0]);
 
   return (
@@ -109,7 +87,7 @@ export const Advanced: Story<IStoryProps> = ({
                 <Color color={selectedItem.value} name={selectedItem.label} />
               </Select>
             </Field>
-            <Menu isAnimated={isAnimated} isCompact={isCompact} placement={placement}>
+            <Menu isCompact={isCompact}>
               {options.map(option => (
                 <Item key={`${option.label}-${option.value}`} value={option}>
                   <Color color={option.value} name={option.label} includeSample />
@@ -125,31 +103,5 @@ export const Advanced: Story<IStoryProps> = ({
 
 Advanced.argTypes = {
   isOpen: { name: 'isOpen', control: 'disabled' },
-  isAnimated: { name: 'isAnimated', control: 'boolean' },
-  isCompact: { name: 'isCompact', control: 'boolean' },
-  placement: {
-    name: 'Placement',
-    control: {
-      type: 'select',
-      options: [
-        'auto',
-        'top',
-        'top-start',
-        'top-end',
-        'bottom',
-        'bottom-start',
-        'bottom-end',
-        'end',
-        'end-top',
-        'end-bottom',
-        'start',
-        'start-top',
-        'start-bottom'
-      ]
-    }
-  }
-};
-
-Advanced.args = {
-  placement: 'bottom'
+  isCompact: { name: 'isCompact', control: 'boolean' }
 };

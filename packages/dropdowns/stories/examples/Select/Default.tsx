@@ -21,22 +21,7 @@ import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { VALIDATION } from '../../../src/utils/validation';
 
 interface IStoryProps {
-  placement:
-    | 'auto'
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'end'
-    | 'end-top'
-    | 'end-bottom'
-    | 'start'
-    | 'start-top'
-    | 'start-bottom';
   hasArrow: boolean;
-  isAnimated: boolean;
   isCompact: boolean;
   validation: VALIDATION;
   isBare: boolean;
@@ -52,9 +37,7 @@ const options = [
 ];
 
 export const Default: Story<IStoryProps> = ({
-  isAnimated,
   isCompact,
-  placement,
   validation,
   isBare,
   disabled,
@@ -86,7 +69,7 @@ export const Default: Story<IStoryProps> = ({
               </Select>
               {showMessage && <Message validation={validation}>Message</Message>}
             </Field>
-            <Menu placement={placement} isCompact={isCompact} isAnimated={isAnimated}>
+            <Menu isCompact={isCompact}>
               {options.map(option => (
                 <Item key={option.value} value={option}>
                   {option.label}
@@ -106,32 +89,9 @@ Default.argTypes = {
     control: 'boolean'
   },
   isOpen: { name: 'isOpen', control: 'disabled' },
-  isAnimated: { name: 'isAnimated', control: 'boolean' },
-  isCompact: { name: 'isCompact', control: 'boolean' },
-  placement: {
-    name: 'Placement',
-    control: {
-      type: 'select',
-      options: [
-        'auto',
-        'top',
-        'top-start',
-        'top-end',
-        'bottom',
-        'bottom-start',
-        'bottom-end',
-        'end',
-        'end-top',
-        'end-bottom',
-        'start',
-        'start-top',
-        'start-bottom'
-      ]
-    }
-  }
+  isCompact: { name: 'isCompact', control: 'boolean' }
 };
 
 Default.args = {
-  placement: 'bottom',
   showMessage: true
 };
