@@ -34,6 +34,7 @@ interface IStoryProps {
   maxItems: number;
   showMessage: boolean;
   showStartIcon: boolean;
+  showMoreText: string;
 }
 
 const options = [
@@ -73,7 +74,8 @@ export const Default: Story<IStoryProps> = ({
   validation,
   maxItems,
   showMessage,
-  showStartIcon
+  showStartIcon,
+  showMoreText
 }) => {
   const [selectedItems, setSelectedItems] = useState([
     options[0],
@@ -150,6 +152,7 @@ export const Default: Story<IStoryProps> = ({
                 validation={validation}
                 maxItems={maxItems}
                 start={showStartIcon && <StarStrokeIcon />}
+                renderShowMore={showMoreText ? value => `+${value} ${showMoreText}` : undefined}
               />
               {showMessage && <Message validation={validation}>Message</Message>}
             </Field>
@@ -179,7 +182,8 @@ Default.argTypes = {
     }
   },
   maxItems: { name: 'maxItems', control: 'number' },
-  showStartIcon: { name: 'Show start icon', control: 'boolean' }
+  showStartIcon: { name: 'Show start icon', control: 'boolean' },
+  showMoreText: { name: 'Show more text', control: 'text' }
 };
 
 Default.args = {
