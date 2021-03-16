@@ -75,7 +75,8 @@ export const Default: Story<IStoryProps> = ({
   maxItems,
   showMessage,
   showStartIcon,
-  showMoreText
+  showMoreText,
+  placeholder
 }) => {
   const [selectedItems, setSelectedItems] = useState([
     options[0],
@@ -145,6 +146,7 @@ export const Default: Story<IStoryProps> = ({
                     <Tag.Close onClick={() => removeValue()} />
                   </Tag>
                 )}
+                placeholder={placeholder}
                 isCompact={isCompact}
                 isBare={isBare}
                 disabled={disabled}
@@ -152,7 +154,7 @@ export const Default: Story<IStoryProps> = ({
                 validation={validation}
                 maxItems={maxItems}
                 start={showStartIcon && <StarStrokeIcon />}
-                renderShowMore={showMoreText ? value => `+${value} ${showMoreText}` : undefined}
+                renderShowMore={showMoreText ? value => `+ ${value} ${showMoreText}` : undefined}
               />
               {showMessage && <Message validation={validation}>Message</Message>}
             </Field>
