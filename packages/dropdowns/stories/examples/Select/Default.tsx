@@ -19,6 +19,7 @@ import {
 } from '@zendeskgarden/react-dropdowns';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { VALIDATION } from '../../../src/utils/validation';
+import StarStrokeIcon from '@zendeskgarden/svg-icons/src/12/star-stroke.svg';
 
 interface IStoryProps {
   hasArrow: boolean;
@@ -28,6 +29,7 @@ interface IStoryProps {
   disabled: boolean;
   focusInset: boolean;
   showMessage: boolean;
+  showStartIcon: boolean;
 }
 
 const options = [
@@ -42,7 +44,8 @@ export const Default: Story<IStoryProps> = ({
   isBare,
   disabled,
   focusInset,
-  showMessage
+  showMessage,
+  showStartIcon
 }) => {
   const [selectedItem, setSelectedItem] = useState(options[0]);
 
@@ -64,6 +67,7 @@ export const Default: Story<IStoryProps> = ({
                 isCompact={isCompact}
                 disabled={disabled}
                 focusInset={focusInset}
+                start={showStartIcon && <StarStrokeIcon />}
               >
                 {selectedItem.label}
               </Select>
@@ -89,7 +93,8 @@ Default.argTypes = {
     control: 'boolean'
   },
   isOpen: { name: 'isOpen', control: 'disabled' },
-  isCompact: { name: 'isCompact', control: 'boolean' }
+  isCompact: { name: 'isCompact', control: 'boolean' },
+  showStartIcon: { name: 'Show start icon', control: 'boolean' }
 };
 
 Default.args = {

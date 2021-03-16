@@ -20,6 +20,7 @@ import {
 import styled from 'styled-components';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { PALETTE } from '@zendeskgarden/react-theming';
+import StarStrokeIcon from '@zendeskgarden/svg-icons/src/12/star-stroke.svg';
 import { VALIDATION } from '../../../src/utils/validation';
 
 interface IStoryProps {
@@ -30,6 +31,7 @@ interface IStoryProps {
   isBare: boolean;
   validation: VALIDATION;
   showMessage: boolean;
+  showStartIcon: boolean;
 }
 
 const options = [
@@ -81,6 +83,7 @@ export const Advanced: Story<IStoryProps> = ({
   focusInset,
   isBare,
   showMessage,
+  showStartIcon,
   validation
 }) => {
   const [selectedItem, setSelectedItem] = useState(options[0]);
@@ -103,6 +106,7 @@ export const Advanced: Story<IStoryProps> = ({
                 isBare={isBare}
                 isCompact={isCompact}
                 validation={validation}
+                start={showStartIcon && <StarStrokeIcon />}
               >
                 <Color color={selectedItem.value} name={selectedItem.label} />
               </Select>
@@ -125,6 +129,7 @@ export const Advanced: Story<IStoryProps> = ({
 Advanced.argTypes = {
   isOpen: { name: 'isOpen', control: 'disabled' },
   isCompact: { name: 'isCompact', control: 'boolean' },
+  showStartIcon: { name: 'Show start icon', control: 'boolean' },
   showMessage: {
     name: 'Message',
     control: 'boolean'
