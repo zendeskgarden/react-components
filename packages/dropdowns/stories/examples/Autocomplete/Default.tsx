@@ -14,6 +14,7 @@ import {
   Field,
   Label,
   Item,
+  Hint,
   Message
 } from '@zendeskgarden/react-dropdowns';
 import { Col, Row } from '@zendeskgarden/react-grid';
@@ -42,8 +43,10 @@ const options = [
 interface IStoryProps {
   isCompact: boolean;
   isBare: boolean;
+  isHidden: boolean;
   focusInset: boolean;
   validation: VALIDATION;
+  showHint: boolean;
   showMessage: boolean;
   disabled: boolean;
   showStartIcon: boolean;
@@ -52,8 +55,10 @@ interface IStoryProps {
 export const Default: Story<IStoryProps> = ({
   isCompact,
   isBare,
+  isHidden,
   focusInset,
   validation,
+  showHint,
   showMessage,
   disabled,
   showStartIcon
@@ -90,7 +95,8 @@ export const Default: Story<IStoryProps> = ({
           downshiftProps={{ defaultHighlightedIndex: 0 }}
         >
           <Field>
-            <Label>Choose a vegetable</Label>
+            <Label hidden={isHidden}>Choose a vegetable</Label>
+            {showHint && <Hint>Veggies are good for you</Hint>}
             <Autocomplete
               focusInset={focusInset}
               isCompact={isCompact}
@@ -122,10 +128,14 @@ export const Default: Story<IStoryProps> = ({
 
 Default.argTypes = {
   isCompact: { name: 'isCompact', control: 'boolean' },
+  isHidden: { name: 'Hidden label', control: 'boolean' },
   isOpen: { name: 'isOpen', control: 'disabled' },
+  showHint: { name: 'Hint' },
+  showMessage: { name: 'Message' },
   showStartIcon: { name: 'Show start icon', control: 'boolean' }
 };
 
 Default.args = {
+  showHint: true,
   showMessage: true
 };
