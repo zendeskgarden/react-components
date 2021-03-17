@@ -24,7 +24,7 @@ export interface ICheckboxStoryProps {
 
 export interface IRangeStoryProps {
   isRegular: boolean;
-  isHidden: false;
+  isHidden: boolean;
   showHint: boolean;
   showMessage: boolean;
   validation?: VALIDATION;

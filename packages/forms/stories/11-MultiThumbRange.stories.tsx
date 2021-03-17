@@ -65,9 +65,7 @@ export const Default: Story<IRangeStoryProps & IMultiThumbRangeProps> = ({
 };
 
 Default.args = {
-  ...RANGE_ARGS,
-  isHidden: false,
-  isRegular: false
+  ...RANGE_ARGS
 };
 
 Default.argTypes = {

@@ -46,9 +46,7 @@ export const Default: Story<IRangeStoryProps & InputHTMLAttributes<HTMLInputElem
 };
 
 Default.args = {
-  ...RANGE_ARGS,
-  isHidden: false,
-  isRegular: false
+  ...RANGE_ARGS
 };
 
 Default.argTypes = {
