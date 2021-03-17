@@ -122,6 +122,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
     const theme = useContext(ThemeContext);
     const previousReferenceElementRef = useRef<HTMLElement | null>();
     const modalRef = useRef<HTMLDivElement>(null);
+    const transitionRef = useRef<HTMLDivElement>(null);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
     const {
       getTitleProps,
@@ -180,11 +181,14 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
         timeout={isAnimated ? 200 : 0}
         in={Boolean(referenceElement)}
         classNames={isAnimated ? 'garden-tooltip-modal-transition' : ''}
+        nodRef={transitionRef}
       >
         {transitionState => {
           return (
             <TooltipModalContext.Provider value={value}>
-              <StyledTooltipModalBackdrop {...(getBackdropProps(backdropProps) as any)}>
+              <StyledTooltipModalBackdrop
+                {...(getBackdropProps({ ref: transitionRef, ...backdropProps }) as any)}
+              >
                 <StyledTooltipWrapper
                   ref={setPopperElement}
                   style={styles.popper}
