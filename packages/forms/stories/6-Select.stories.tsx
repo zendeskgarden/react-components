@@ -20,6 +20,7 @@ export default {
 
 export const Default: Story<IInputStoryProps & ISelectProps> = ({
   isRegular,
+  isHidden,
   showHint,
   disabled,
   showMessage,
@@ -33,7 +34,9 @@ export const Default: Story<IInputStoryProps & ISelectProps> = ({
       <Row style={{ minHeight: 450 }}>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Field>
-            <Label isRegular={isRegular}>Input</Label>
+            <Label hidden={isHidden} isRegular={isRegular}>
+              Select
+            </Label>
             {showHint && <Hint>Hint</Hint>}
             <Select
               disabled={disabled}

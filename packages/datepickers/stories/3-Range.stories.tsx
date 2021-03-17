@@ -29,11 +29,12 @@ const StyledCol = styled(Col)<{ isCompact: boolean }>`
 
 interface IDefaultStoryProps {
   isCompact: boolean;
+  isHidden: boolean;
   minDate?: Date;
   maxDate?: Date;
 }
 
-export const Default: Story<IDefaultStoryProps> = ({ isCompact, minDate, maxDate }) => {
+export const Default: Story<IDefaultStoryProps> = ({ isCompact, isHidden, minDate, maxDate }) => {
   const [startValue, setStartValue] = useState<Date | undefined>(new Date());
   const [endValue, setEndValue] = useState<Date | undefined>(addDays(new Date(), 16));
 
@@ -61,7 +62,7 @@ export const Default: Story<IDefaultStoryProps> = ({ isCompact, minDate, maxDate
         <Row>
           <StyledCol md isCompact={isCompact}>
             <Field>
-              <Label>Start</Label>
+              <Label hidden={isHidden}>Start</Label>
               <DatepickerRange.Start>
                 <Input isCompact={isCompact} />
               </DatepickerRange.Start>
@@ -69,7 +70,7 @@ export const Default: Story<IDefaultStoryProps> = ({ isCompact, minDate, maxDate
           </StyledCol>
           <StyledCol md isCompact={isCompact}>
             <Field>
-              <Label>End</Label>
+              <Label hidden={isHidden}>End</Label>
               <DatepickerRange.End>
                 <Input isCompact={isCompact} validation={isInvalid ? 'error' : undefined} />
               </DatepickerRange.End>
@@ -90,12 +91,16 @@ export const Default: Story<IDefaultStoryProps> = ({ isCompact, minDate, maxDate
 };
 
 Default.args = {
-  isCompact: false
+  isCompact: false,
+  isHidden: false
 };
 
 Default.argTypes = {
   isCompact: {
     name: 'Compact'
+  },
+  isHidden: {
+    name: 'Hidden labels'
   },
   minDate: {
     name: 'Min date',

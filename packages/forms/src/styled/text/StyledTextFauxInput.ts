@@ -18,15 +18,15 @@ export interface IStyledTextFauxInputProps extends IStyledTextInputProps {
   isReadOnly?: boolean;
 }
 
-export const StyledTextFauxInput = styled(StyledTextInput).attrs<IStyledTextFauxInputProps>(
-  props => ({
-    as: 'div',
-    'aria-readonly': props.isReadOnly,
-    'aria-disabled': props.isDisabled,
-    'data-garden-id': COMPONENT_ID,
-    'data-garden-version': PACKAGE_VERSION
-  })
-)<IStyledTextFauxInputProps>`
+export const StyledTextFauxInput = styled(
+  StyledTextInput as 'div'
+).attrs<IStyledTextFauxInputProps>(props => ({
+  as: 'div',
+  'aria-readonly': props.isReadOnly,
+  'aria-disabled': props.isDisabled,
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+}))<IStyledTextFauxInputProps>`
   display: ${props => (props.mediaLayout ? 'inline-flex' : 'inline-block')};
   align-items: ${props => props.mediaLayout && 'baseline'};
   cursor: ${props => (props.mediaLayout && !props.isDisabled ? 'text' : 'default')};

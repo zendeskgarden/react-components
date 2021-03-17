@@ -27,6 +27,7 @@ export default {
 
 export const Default: Story<IInputStoryProps & IFauxInputProps> = ({
   isRegular,
+  isHidden,
   showHint,
   readOnly,
   disabled,
@@ -41,7 +42,9 @@ export const Default: Story<IInputStoryProps & IFauxInputProps> = ({
       <Row style={{ minHeight: 450 }}>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Field>
-            <Label isRegular={isRegular}>Input</Label>
+            <Label hidden={isHidden} isRegular={isRegular}>
+              Faux input
+            </Label>
             {showHint && <Hint>Hint</Hint>}
             <FauxInput
               readOnly={readOnly}

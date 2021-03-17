@@ -21,6 +21,8 @@ export default {
 export const Default: Story<IRangeStoryProps & InputHTMLAttributes<HTMLInputElement>> = ({
   disabled,
   validation,
+  isRegular,
+  isHidden,
   showHint,
   showMessage,
   step
@@ -30,7 +32,9 @@ export const Default: Story<IRangeStoryProps & InputHTMLAttributes<HTMLInputElem
       <Row style={{ minHeight: 450 }}>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Field>
-            <Label>Range</Label>
+            <Label hidden={isHidden} isRegular={isRegular}>
+              Range
+            </Label>
             {showHint && <Hint>Hint</Hint>}
             <Range disabled={disabled} step={step} />
             {showMessage && <Message validation={validation}>Message</Message>}

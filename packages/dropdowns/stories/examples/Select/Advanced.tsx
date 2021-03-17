@@ -26,10 +26,12 @@ import { VALIDATION } from '../../../src/utils/validation';
 interface IStoryProps {
   hasArrow: boolean;
   isCompact: boolean;
+  isHidden: boolean;
   disabled: boolean;
   focusInset: boolean;
   isBare: boolean;
   validation: VALIDATION;
+  showHint: boolean;
   showMessage: boolean;
   showStartIcon: boolean;
 }
@@ -79,9 +81,11 @@ const Color = ({ name, color, includeSample }: any) =>
 
 export const Advanced: Story<IStoryProps> = ({
   isCompact,
+  isHidden,
   disabled,
   focusInset,
   isBare,
+  showHint,
   showMessage,
   showStartIcon,
   validation
@@ -98,8 +102,8 @@ export const Advanced: Story<IStoryProps> = ({
             downshiftProps={{ itemToString: (item: any) => item && item.label }}
           >
             <Field>
-              <Label>Product Color</Label>
-              <Hint>The branded colors for the Zendesk products</Hint>
+              <Label hidden={isHidden}>Product Color</Label>
+              {showHint && <Hint>The branded colors for the Zendesk products</Hint>}
               <Select
                 disabled={disabled}
                 focusInset={focusInset}
@@ -127,9 +131,14 @@ export const Advanced: Story<IStoryProps> = ({
 };
 
 Advanced.argTypes = {
+  isHidden: {
+    name: 'Hidden label',
+    control: 'boolean'
+  },
   isOpen: { name: 'isOpen', control: 'disabled' },
   isCompact: { name: 'isCompact', control: 'boolean' },
   showStartIcon: { name: 'Show start icon', control: 'boolean' },
+  showHint: { name: 'Hint' },
   showMessage: {
     name: 'Message',
     control: 'boolean'
@@ -137,5 +146,6 @@ Advanced.argTypes = {
 };
 
 Advanced.args = {
+  showHint: true,
   showMessage: true
 };

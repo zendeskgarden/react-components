@@ -19,6 +19,7 @@ export default {
 
 export const Default: Story<IInputStoryProps & ITextareaProps> = ({
   isRegular,
+  isHidden,
   showHint,
   readOnly,
   disabled,
@@ -37,7 +38,9 @@ export const Default: Story<IInputStoryProps & ITextareaProps> = ({
       <Row style={{ minHeight: 450 }}>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Field>
-            <Label isRegular={isRegular}>Input</Label>
+            <Label hidden={isHidden} isRegular={isRegular}>
+              Textarea
+            </Label>
             {showHint && <Hint>Hint</Hint>}
             <Textarea
               readOnly={readOnly}

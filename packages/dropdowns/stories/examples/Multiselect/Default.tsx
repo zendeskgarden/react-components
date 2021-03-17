@@ -27,11 +27,13 @@ interface IStoryProps {
   hasArrow: boolean;
   isCompact: boolean;
   isBare: boolean;
+  isHidden: boolean;
   disabled: boolean;
   focusInset: boolean;
   placeholder: string;
   validation: VALIDATION;
   maxItems: number;
+  showHint: boolean;
   showMessage: boolean;
   showStartIcon: boolean;
   showMoreText: string;
@@ -69,10 +71,12 @@ const options = [
 export const Default: Story<IStoryProps> = ({
   isCompact,
   isBare,
+  isHidden,
   disabled,
   focusInset,
   validation,
   maxItems,
+  showHint,
   showMessage,
   showStartIcon,
   showMoreText,
@@ -137,8 +141,8 @@ export const Default: Story<IStoryProps> = ({
             onInputValueChange={value => setInputValue(value)}
           >
             <Field>
-              <Label>Multiselect with debounce</Label>
-              <Hint>This example includes basic debounce logic</Hint>
+              <Label hidden={isHidden}>Multiselect with debounce</Label>
+              {showHint && <Hint>This example includes basic debounce logic</Hint>}
               <Multiselect
                 renderItem={({ value, removeValue }) => (
                   <Tag>
@@ -167,12 +171,14 @@ export const Default: Story<IStoryProps> = ({
 };
 
 Default.argTypes = {
+  showHint: { name: 'Hint' },
   showMessage: {
     name: 'Message',
     control: 'boolean'
   },
   isCompact: { name: 'isCompact', control: 'boolean' },
   isBare: { name: 'isBare', control: 'boolean' },
+  isHidden: { name: 'Hidden label', control: 'boolean' },
   disabled: { name: 'disabled', control: 'boolean' },
   focusInset: { name: 'focusInset', control: 'boolean' },
   placeholder: { name: 'placeholder', control: 'text' },
@@ -189,5 +195,6 @@ Default.argTypes = {
 };
 
 Default.args = {
+  showHint: true,
   showMessage: true
 };

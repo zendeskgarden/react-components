@@ -65,7 +65,7 @@ export const StyledMessage = styled.div.attrs({
   }
 
   /* stylelint-disable-next-line */
-  ${StyledLabel} + & {
+  ${StyledLabel}:not([hidden]) + & {
     display: block;
     margin-top: ${props => math(`${props.theme.space.base} * 1px`)};
   }

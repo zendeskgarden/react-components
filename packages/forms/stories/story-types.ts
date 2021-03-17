@@ -8,6 +8,7 @@
 import { VALIDATION } from '../src/utils/validation';
 
 export interface IInputStoryProps {
+  isHidden: boolean;
   isRegular: boolean;
   showHint: boolean;
   showMessage: boolean;
@@ -22,6 +23,8 @@ export interface ICheckboxStoryProps {
 }
 
 export interface IRangeStoryProps {
+  isRegular: boolean;
+  isHidden: boolean;
   showHint: boolean;
   showMessage: boolean;
   validation?: VALIDATION;
@@ -29,6 +32,7 @@ export interface IRangeStoryProps {
 
 export const INPUT_ARGS = {
   isRegular: false,
+  isHidden: false,
   showHint: true,
   showMessage: true
 };
@@ -43,6 +47,8 @@ export const CHECKBOX_ARGS = {
 };
 
 export const RANGE_ARGS = {
+  isRegular: false,
+  isHidden: false,
   disabled: false,
   showHint: true,
   showMessage: true,
@@ -73,6 +79,9 @@ export const INPUT_ARG_TYPES = {
   },
   disabled: {
     name: 'Disabled'
+  },
+  isHidden: {
+    name: 'Hidden label'
   },
   placeholder: {
     name: 'Placeholder'
@@ -114,6 +123,12 @@ export const CHECKBOX_ARGS_TYPES = {
 };
 
 export const RANGE_ARG_TYPES = {
+  isHidden: {
+    name: 'Hidden label'
+  },
+  isRegular: {
+    name: 'Regular weight label'
+  },
   disabled: {
     name: 'Disabled'
   },

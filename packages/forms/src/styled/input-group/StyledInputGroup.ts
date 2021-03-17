@@ -28,7 +28,7 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 
   return css`
     /* stylelint-disable */
-    ${StyledLabel} + &,
+    ${StyledLabel}:not([hidden]) + &,
     ${StyledHint} + &,
     ${StyledMessage} + &,
     & + ${StyledHint},

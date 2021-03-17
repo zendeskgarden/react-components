@@ -22,6 +22,7 @@ export const Default: Story<IInputStoryProps & IInputProps> = ({
   showHint,
   readOnly,
   disabled,
+  isHidden,
   placeholder,
   showMessage,
   isCompact,
@@ -35,7 +36,9 @@ export const Default: Story<IInputStoryProps & IInputProps> = ({
       <Row style={{ minHeight: 450 }}>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Field>
-            <Label isRegular={isRegular}>Input</Label>
+            <Label hidden={isHidden} isRegular={isRegular}>
+              Input
+            </Label>
             {showHint && <Hint>Hint</Hint>}
             <Input
               readOnly={readOnly}

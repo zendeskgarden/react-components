@@ -24,10 +24,12 @@ import StarStrokeIcon from '@zendeskgarden/svg-icons/src/12/star-stroke.svg';
 interface IStoryProps {
   hasArrow: boolean;
   isCompact: boolean;
+  isHidden: boolean;
   validation: VALIDATION;
   isBare: boolean;
   disabled: boolean;
   focusInset: boolean;
+  showHint: boolean;
   showMessage: boolean;
   showStartIcon: boolean;
 }
@@ -40,10 +42,12 @@ const options = [
 
 export const Default: Story<IStoryProps> = ({
   isCompact,
+  isHidden,
   validation,
   isBare,
   disabled,
   focusInset,
+  showHint,
   showMessage,
   showStartIcon
 }) => {
@@ -59,8 +63,8 @@ export const Default: Story<IStoryProps> = ({
             downshiftProps={{ itemToString: (item: any) => item && item.label }}
           >
             <Field>
-              <Label>Default Layout</Label>
-              <Hint>This is a basic Select</Hint>
+              <Label hidden={isHidden}>Default Layout</Label>
+              {showHint && <Hint>This is a basic Select</Hint>}
               <Select
                 isBare={isBare}
                 validation={validation}
@@ -88,8 +92,13 @@ export const Default: Story<IStoryProps> = ({
 };
 
 Default.argTypes = {
+  showHint: { name: 'Hint' },
   showMessage: {
     name: 'Message',
+    control: 'boolean'
+  },
+  isHidden: {
+    name: 'Hidden label',
     control: 'boolean'
   },
   isOpen: { name: 'isOpen', control: 'disabled' },
@@ -98,5 +107,6 @@ Default.argTypes = {
 };
 
 Default.args = {
+  showHint: true,
   showMessage: true
 };
