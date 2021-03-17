@@ -187,7 +187,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
           return (
             <TooltipModalContext.Provider value={value}>
               <StyledTooltipModalBackdrop
-                {...(getBackdropProps({ transitionRef, ...backdropProps }) as any)}
+                {...(getBackdropProps({ ref: transitionRef, ...backdropProps }) as any)}
               >
                 <StyledTooltipWrapper
                   ref={setPopperElement}
