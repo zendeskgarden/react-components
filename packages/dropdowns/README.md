@@ -14,7 +14,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ## Basic Example
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
 
@@ -60,7 +60,7 @@ for its positioning calculations.
 The `<Menu>` component accepts all customizations regarding placement, boundaries, overflows,
 etc. via the `popperModifiers` prop.
 
-```jsx static
+```jsx
 /** Customize default overflow settings to position against the `viewport` */
 <Menu popperModifiers={{ preventOverflow: { boundariesElement: 'viewport' } }}>
   <Item value="item-1">Item 1</Item>
