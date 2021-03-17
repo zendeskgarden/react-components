@@ -163,6 +163,7 @@ export const DrawerModal = forwardRef<
           in={isOpen}
           timeout={250}
           unmountOnExit
+          nodeRef={modalRef}
           classNames="garden-drawer-transition"
         >
           <StyledDrawerModal {...modalProps} />

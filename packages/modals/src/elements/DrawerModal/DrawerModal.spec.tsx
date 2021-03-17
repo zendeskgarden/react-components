@@ -22,16 +22,18 @@ describe('DrawerModal', () => {
         <button ref={buttonRef} onClick={() => setIsOpen(true)}>
           Open Drawer
         </button>
-        <DrawerModal ref={ref} isOpen={isOpen} onClose={() => setIsOpen(false)} {...props}>
-          <DrawerModal.Header>title</DrawerModal.Header>
-          <DrawerModal.Close />
-          <DrawerModal.Body>body</DrawerModal.Body>
-          <DrawerModal.Footer>
-            <DrawerModal.FooterItem>
-              <button>Click</button>
-            </DrawerModal.FooterItem>
-          </DrawerModal.Footer>
-        </DrawerModal>
+        <React.StrictMode>
+          <DrawerModal ref={ref} isOpen={isOpen} onClose={() => setIsOpen(false)} {...props}>
+            <DrawerModal.Header>title</DrawerModal.Header>
+            <DrawerModal.Close />
+            <DrawerModal.Body>body</DrawerModal.Body>
+            <DrawerModal.Footer>
+              <DrawerModal.FooterItem>
+                <button>Click</button>
+              </DrawerModal.FooterItem>
+            </DrawerModal.Footer>
+          </DrawerModal>
+        </React.StrictMode>
       </>
     );
   });
