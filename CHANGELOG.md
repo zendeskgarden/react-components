@@ -12,6 +12,28 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.34.0 (2021-03-17)
+
+#### :rocket: New Feature
+* `datepickers`, `dropdowns`, `forms`
+  * [#1041](https://github.com/zendeskgarden/react-components/pull/1041) feat(forms): add support for accessibly hidden labels ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `modals`, `notifications`
+  * [#1046](https://github.com/zendeskgarden/react-components/pull/1046) fix(modals|notifications): ensure react-transition-group usage works with StrictMode ([@austingreendev](https://github.com/austingreendev))
+* `colorpickers`
+  * [#1043](https://github.com/zendeskgarden/react-components/pull/1043) fix(colorpickers): add missing react-popper peer dependency ([@jzempel](https://github.com/jzempel))
+  * [#1040](https://github.com/zendeskgarden/react-components/pull/1040) fix(colorpickers): add missing popper dependency ([@jzempel](https://github.com/jzempel))
+* `dropdowns`
+  * [#1039](https://github.com/zendeskgarden/react-components/pull/1039) fix(deps): update dropdowns peer dependencies to include React v17 ([@austingreendev](https://github.com/austingreendev))
+
+#### :memo: Documentation
+* `dropdowns`
+  * [#1037](https://github.com/zendeskgarden/react-components/pull/1037) chore(dropdowns): migrate react-dropdowns to Storybook ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* [#1026](https://github.com/zendeskgarden/react-components/pull/1026) chore(deps): bump elliptic from 6.5.3 to 6.5.4 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## v8.33.0 (2021-03-12)
 
 #### :rocket: New Feature
