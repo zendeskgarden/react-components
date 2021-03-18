@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import { hideVisually } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
@@ -16,8 +17,12 @@ const COMPONENT_ID = 'forms.input_label';
 
 export interface IStyledLabelProps {
   isRegular?: boolean;
+  isRadio?: boolean;
 }
 
+/**
+ * 1. CSS Bedrock override.
+ */
 export const StyledLabel = styled.label.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -29,6 +34,15 @@ export const StyledLabel = styled.label.attrs({
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props =>
     props.isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};
+
+  &[hidden] {
+    display: ${props => (props.isRadio ? 'inline-block' : 'inline')}; /* [1] */
+    vertical-align: ${props => props.isRadio && 'top'};
+    text-indent: ${props => props.isRadio && '-100%'};
+    font-size: ${props => props.isRadio && '0'};
+
+    ${props => !props.isRadio && hideVisually()};
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

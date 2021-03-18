@@ -26,6 +26,12 @@ describe('StyledLabel', () => {
     );
   });
 
+  it('renders expected hidden styling', () => {
+    const { container } = render(<StyledLabel hidden />);
+
+    expect(container.firstChild).toHaveStyleRule('clip', 'rect(0 0 0 0)', { modifier: '[hidden]' });
+  });
+
   it('renders expected RTL styling', () => {
     const { container } = renderRtl(<StyledLabel />);
 

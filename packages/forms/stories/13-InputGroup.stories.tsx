@@ -24,17 +24,15 @@ export default {
   subcomponents: { Field, Label, Input, Message }
 } as Meta;
 
-export const Default: Story<IInputGroupProps & InputHTMLAttributes<HTMLInputElement>> = ({
-  isCompact,
-  readOnly,
-  disabled
-}) => {
+export const Default: Story<
+  IInputGroupProps & InputHTMLAttributes<HTMLInputElement> & { isHidden: boolean }
+> = ({ isCompact, isHidden, readOnly, disabled }) => {
   return (
     <Grid>
       <Row>
         <Col lg={8} offsetLg={2}>
           <Field>
-            <Label>Input Group</Label>
+            <Label hidden={isHidden}>Input Group</Label>
             <InputGroup isCompact={isCompact}>
               <Button focusInset disabled={disabled} size={isCompact ? 'small' : undefined}>
                 A
@@ -57,6 +55,13 @@ export const Default: Story<IInputGroupProps & InputHTMLAttributes<HTMLInputElem
 
 Default.args = {
   isCompact: false,
+  isHidden: false,
   readOnly: false,
   disabled: false
+};
+
+Default.argTypes = {
+  isHidden: {
+    name: 'Hidden label'
+  }
 };

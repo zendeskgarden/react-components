@@ -180,7 +180,7 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
     }
 
     /* stylelint-disable */
-    ${StyledLabel} + &,
+    ${StyledLabel}:not([hidden]) + &,
     ${StyledHint} + &,
     ${StyledMessage} + &,
     & + ${StyledHint},
