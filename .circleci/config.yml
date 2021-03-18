@@ -45,7 +45,7 @@ jobs:
       NODE_DEBUG: gh-pages
     steps:
       - *attach_workspace
-      - run: yarn build:storybook --no-dll
+      - run: yarn build:demo --no-dll
       - run: utils/scripts/deploy.js
 
   publish:
