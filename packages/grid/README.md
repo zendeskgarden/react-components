@@ -20,7 +20,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ## Usage
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 
