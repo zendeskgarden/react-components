@@ -41,9 +41,9 @@ const withThemeProvider = (Story, context) => {
   const rtl = context.globals.locale === 'rtl';
 
   if (context.globals.bedrock === 'enabled') {
-    document.querySelector('link[href$="bedrock/index.css"]').removeAttribute('disabled');
+    document.querySelector('link[href$="bedrock/dist/index.css"]').removeAttribute('disabled');
   } else {
-    document.querySelector('link[href$="bedrock/index.css"]').setAttribute('disabled', true);
+    document.querySelector('link[href$="bedrock/dist/index.css"]').setAttribute('disabled', true);
   }
 
   return (
