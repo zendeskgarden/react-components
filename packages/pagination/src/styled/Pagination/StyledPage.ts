@@ -33,9 +33,12 @@ export const StyledPage = styled(StyledPageBase).attrs({
 
   ${props => sizeStyles(props)};
 
-  &[aria-current='true'] {
+  /* stylelint-disable */
+  /* prettier-ignore */
+  &[aria-current="true"] {
     font-weight: ${props => props.theme.fontWeights.semibold};
   }
+  /* stylelint-enable */
 
   &${props => (props.theme.rtl ? ':last-of-type' : ':first-of-type')} {
     margin-left: 0;

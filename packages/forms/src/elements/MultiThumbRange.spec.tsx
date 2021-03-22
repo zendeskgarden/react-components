@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { css } from 'styled-components';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent, createEvent } from 'garden-test-utils';
 import { getColor } from '@zendeskgarden/react-theming';
@@ -113,10 +112,7 @@ describe('MultiThumbRange', () => {
 
       ['border-color', 'background-color'].forEach(color => {
         expect(minThumb).toHaveStyleRule(color, getColor('blue', 700), {
-          /* prettier-ignore */
-          modifier: css`
-            &[data-garden-hover='true']
-          ` as any
+          modifier: ':hover'
         });
       });
     });
@@ -137,16 +133,10 @@ describe('MultiThumbRange', () => {
       userEvent.click(label);
 
       expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600), {
-        /* prettier-ignore */
-        modifier: css`
-          &[data-garden-active='true']
-        ` as any
+        modifier: ':active'
       });
       expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 700), {
-        /* prettier-ignore */
-        modifier: css`
-          &[data-garden-active='true']
-        ` as any
+        modifier: ':active'
       });
     });
   });

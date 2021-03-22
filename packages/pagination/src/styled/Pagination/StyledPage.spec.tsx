@@ -36,7 +36,7 @@ describe('StyledPage', () => {
     expect(container.firstChild).toHaveStyleRule(
       'font-weight',
       DEFAULT_THEME.fontWeights.semibold.toString(),
-      { modifier: "[aria-current='true']" }
+      { modifier: '[aria-current="true"]' }
     );
   });
 });
