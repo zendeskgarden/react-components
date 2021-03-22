@@ -36,10 +36,7 @@ describe('StyledLabel', () => {
   it('renders styles for active label', () => {
     const { container } = render(<StyledLabel isActive />);
 
-    expect(container.firstChild).toHaveStyleRule(
-      'color',
-      getColor('neutralHue', 800, DEFAULT_THEME)
-    );
+    expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground);
     expect(container.firstChild).toHaveStyleRule('font-weight', '600');
   });
 });
