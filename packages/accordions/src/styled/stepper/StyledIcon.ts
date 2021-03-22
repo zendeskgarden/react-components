@@ -51,9 +51,7 @@ const colorStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
     background: ${props.isActive
       ? getColor('neutralHue', 600, props.theme)
       : getColor('neutralHue', 200, props.theme)};
-    color: ${props.isActive
-      ? props.theme.colors.background
-      : getColor('neutralHue', 800, props.theme)};
+    color: ${props.isActive ? props.theme.colors.background : props.theme.colors.foreground};
   `;
 };
 

@@ -14,10 +14,7 @@ describe('StyledIcon', () => {
   it('renders default styles', () => {
     const { container } = render(<StyledIcon />);
 
-    expect(container.firstChild).toHaveStyleRule(
-      'color',
-      getColor('neutralHue', 800, DEFAULT_THEME)
-    );
+    expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground);
     expect(container.firstChild).toHaveStyleRule(
       'background',
       getColor('neutralHue', 200, DEFAULT_THEME)
