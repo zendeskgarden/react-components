@@ -6,7 +6,11 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getLineHeight,
+  retrieveComponentStyles,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_inner_content';
 
@@ -21,6 +25,8 @@ export const StyledInnerContent = styled.div.attrs<IStyledInnerContent>({
   transition: max-height 0.25s ease-in-out;
   overflow: hidden;
   max-height: ${props => !props.isActive && '0 !important'}; /* stylelint-disable-line */
+  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
+  font-size: ${props => props.theme.fontSizes.md};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
