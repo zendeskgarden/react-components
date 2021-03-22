@@ -26,9 +26,7 @@ export const parameters = {
 const GlobalPreviewStyling = createGlobalStyle`
   body {
     background-color: ${p => p.theme.colors.background};
-    color: ${p => p.theme.colors.foreground};
     font-family: ${p => p.theme.fonts.system};
-    font-size: ${p => p.theme.fontSizes.md};
   }
 `;
 
