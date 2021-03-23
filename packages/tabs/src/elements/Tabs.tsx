@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useRef, useContext, HTMLAttributes } from 'react';
+import React, { useState, useRef, useContext, HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { useTabs } from '@zendeskgarden/container-tabs';
@@ -59,7 +59,9 @@ const Tabs = React.forwardRef<HTMLDivElement, ITabsProps>(
       }
     });
 
-    const tabsContextValue = { ...tabPropGetters, tabIndexRef, tabPanelIndexRef };
+    const tabsContextValue = useMemo(() => ({ ...tabPropGetters, tabIndexRef, tabPanelIndexRef }), [
+      tabPropGetters
+    ]);
 
     return (
       <TabsContext.Provider value={tabsContextValue}>

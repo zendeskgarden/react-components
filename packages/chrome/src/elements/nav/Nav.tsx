@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useChromeContext } from '../../utils/useChromeContext';
 import { NavContext } from '../../utils/useNavContext';
@@ -21,7 +21,7 @@ interface INavProps extends HTMLAttributes<HTMLElement> {
  */
 export const Nav = React.forwardRef<HTMLElement, INavProps>((props, ref) => {
   const { hue, isLight, isDark } = useChromeContext();
-  const navContextValue = { isExpanded: !!props.isExpanded };
+  const navContextValue = useMemo(() => ({ isExpanded: !!props.isExpanded }), [props.isExpanded]);
 
   return (
     <NavContext.Provider value={navContextValue}>

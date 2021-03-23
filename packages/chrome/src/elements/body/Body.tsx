@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { StyledBody } from '../../styled';
 import { BodyContext } from '../../utils/useBodyContext';
@@ -20,7 +20,7 @@ interface IBodyProps {
  */
 export const Body = React.forwardRef<HTMLDivElement, IBodyProps & HTMLAttributes<HTMLDivElement>>(
   ({ hasFooter, ...props }, ref) => {
-    const bodyContextValue = { hasFooter: !!hasFooter };
+    const bodyContextValue = useMemo(() => ({ hasFooter: !!hasFooter }), [hasFooter]);
 
     return (
       <BodyContext.Provider value={bodyContextValue}>

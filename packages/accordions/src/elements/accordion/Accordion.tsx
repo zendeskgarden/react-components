@@ -12,7 +12,8 @@ import React, {
   RefAttributes,
   HTMLAttributes,
   PropsWithoutRef,
-  ForwardRefExoticComponent
+  ForwardRefExoticComponent,
+  useMemo
 } from 'react';
 import { useAccordion } from '@zendeskgarden/container-accordion';
 import { StyledAccordion } from '../../styled';
@@ -83,18 +84,32 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       currentIndexRef.current = 0;
     });
 
-    const value = {
-      level,
-      isBare,
-      isCompact,
-      isAnimated,
-      isCollapsible,
-      getPanelProps,
-      getHeaderProps,
-      getTriggerProps,
-      currentIndexRef,
-      expandedSections
-    };
+    const value = useMemo(
+      () => ({
+        level,
+        isBare,
+        isCompact,
+        isAnimated,
+        isCollapsible,
+        getPanelProps,
+        getHeaderProps,
+        getTriggerProps,
+        currentIndexRef,
+        expandedSections
+      }),
+      [
+        level,
+        isBare,
+        isCompact,
+        isAnimated,
+        isCollapsible,
+        getPanelProps,
+        getHeaderProps,
+        getTriggerProps,
+        currentIndexRef,
+        expandedSections
+      ]
+    );
 
     return (
       <AccordionContext.Provider value={value}>

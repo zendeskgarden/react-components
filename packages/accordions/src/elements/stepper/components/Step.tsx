@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, LiHTMLAttributes, useEffect, useState } from 'react';
+import React, { forwardRef, LiHTMLAttributes, useEffect, useMemo, useState } from 'react';
 import { StyledStep, StyledLine } from '../../../styled';
 import { StepContext, useStepperContext } from '../../../utils';
 
@@ -23,8 +23,10 @@ export const Step = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((
     };
   }, [currentIndexRef]);
 
+  const value = useMemo(() => ({ currentStepIndex }), [currentStepIndex]);
+
   return (
-    <StepContext.Provider value={{ currentStepIndex }}>
+    <StepContext.Provider value={value}>
       <StyledStep ref={ref} isHorizontal={isHorizontal} {...props}>
         {isHorizontal && <StyledLine data-test-id="step-line" />}
         {props.children}

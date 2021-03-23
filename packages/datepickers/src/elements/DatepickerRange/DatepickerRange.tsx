@@ -5,7 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, useReducer, useCallback, useEffect, useRef } from 'react';
+import React, {
+  PropsWithChildren,
+  useReducer,
+  useCallback,
+  useEffect,
+  useRef,
+  useMemo
+} from 'react';
 import PropTypes from 'prop-types';
 import { datepickerRangeReducer, retrieveInitialState } from './utils/datepicker-range-reducer';
 import { DatepickerRangeContext } from './utils/useDatepickerRangeContext';
@@ -126,24 +133,37 @@ export const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>)
     previousEndValue.current = endValue;
   }, [props, endValue]);
 
+  const value = useMemo(
+    () => ({
+      state,
+      dispatch,
+      isCompact,
+      locale,
+      minValue,
+      maxValue,
+      startValue,
+      endValue,
+      onChange,
+      startInputRef,
+      endInputRef
+    }),
+    [
+      state,
+      dispatch,
+      isCompact,
+      locale,
+      minValue,
+      maxValue,
+      startValue,
+      endValue,
+      onChange,
+      startInputRef,
+      endInputRef
+    ]
+  );
+
   return (
-    <DatepickerRangeContext.Provider
-      value={{
-        state,
-        dispatch,
-        isCompact,
-        locale,
-        minValue,
-        maxValue,
-        startValue,
-        endValue,
-        onChange,
-        startInputRef,
-        endInputRef
-      }}
-    >
-      {children}
-    </DatepickerRangeContext.Provider>
+    <DatepickerRangeContext.Provider value={value}>{children}</DatepickerRangeContext.Provider>
   );
 };
 

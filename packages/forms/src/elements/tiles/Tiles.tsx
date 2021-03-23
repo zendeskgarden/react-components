@@ -12,7 +12,8 @@ import React, {
   useState,
   ForwardRefExoticComponent,
   PropsWithoutRef,
-  RefAttributes
+  RefAttributes,
+  useMemo
 } from 'react';
 import PropTypes from 'prop-types';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
@@ -46,7 +47,7 @@ interface IStaticTilesExport<T, P>
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Tiles = React.forwardRef<HTMLDivElement, ITilesProps>(
-  ({ onChange, value: controlledValue, isCentered, ...props }, ref) => {
+  ({ onChange, value: controlledValue, name, isCentered, ...props }, ref) => {
     const [value, setValue] = useState(controlledValue);
 
     const handleOnChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
@@ -61,7 +62,10 @@ export const Tiles = React.forwardRef<HTMLDivElement, ITilesProps>(
     );
 
     const selectedValue = getControlledValue(controlledValue, value);
-    const tileContext = { onChange: handleOnChange, value: selectedValue, name, isCentered };
+    const tileContext = useMemo(
+      () => ({ onChange: handleOnChange, value: selectedValue, name, isCentered }),
+      [handleOnChange, selectedValue, name, isCentered]
+    );
 
     return (
       <TilesContext.Provider value={tileContext}>

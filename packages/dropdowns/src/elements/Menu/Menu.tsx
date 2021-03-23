@@ -119,6 +119,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
     : getPopperPlacement(placement!);
 
   return (
+    /* eslint-disable react/jsx-no-constructed-context-values */
     <MenuContext.Provider value={{ itemIndexRef, isCompact }}>
       <Popper
         placement={popperPlacement as any}
