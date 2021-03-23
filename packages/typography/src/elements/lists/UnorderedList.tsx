@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import UnorderedListItem from './UnorderedListItem';
 import { UnorderedListContext } from '../../utils/useUnorderedListContext';
@@ -19,11 +19,15 @@ interface IUnorderedListProps extends HTMLAttributes<HTMLUListElement> {
 }
 
 const UnorderedList = React.forwardRef<HTMLUListElement, IUnorderedListProps>(
-  ({ size, type, ...other }, ref) => (
-    <UnorderedListContext.Provider value={{ size: size! }}>
-      <StyledUnorderedList ref={ref} listType={type} {...other} />
-    </UnorderedListContext.Provider>
-  )
+  ({ size, type, ...other }, ref) => {
+    const value = useMemo(() => ({ size: size! }), [size]);
+
+    return (
+      <UnorderedListContext.Provider value={value}>
+        <StyledUnorderedList ref={ref} listType={type} {...other} />
+      </UnorderedListContext.Provider>
+    );
+  }
 );
 
 UnorderedList.displayName = 'UnorderedList';

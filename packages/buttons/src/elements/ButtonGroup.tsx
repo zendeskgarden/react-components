@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useButtonGroup } from '@zendeskgarden/container-buttongroup';
 
@@ -38,7 +38,10 @@ const ButtonGroup: React.FunctionComponent<IButtonGroupProps> = ({
     onSelect
   });
 
-  const contextValue = { selectedItem, getButtonProps };
+  const contextValue = useMemo(() => ({ selectedItem, getButtonProps }), [
+    selectedItem,
+    getButtonProps
+  ]);
 
   return (
     <ButtonGroupContext.Provider value={contextValue}>

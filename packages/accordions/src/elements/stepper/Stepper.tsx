@@ -12,7 +12,8 @@ import React, {
   OlHTMLAttributes,
   ForwardRefExoticComponent,
   PropsWithoutRef,
-  RefAttributes
+  RefAttributes,
+  useMemo
 } from 'react';
 import { StyledStepper } from '../../styled';
 import { StepperContext } from '../../utils';
@@ -41,11 +42,14 @@ interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {
 export const Stepper = forwardRef<HTMLOListElement, IStepperProps>(
   ({ isHorizontal, activeIndex, ...props }, ref) => {
     const currentIndexRef = useRef(0);
-    const stepperContext = {
-      isHorizontal: isHorizontal!,
-      activeIndex: activeIndex!,
-      currentIndexRef
-    };
+    const stepperContext = useMemo(
+      () => ({
+        isHorizontal: isHorizontal!,
+        activeIndex: activeIndex!,
+        currentIndexRef
+      }),
+      [isHorizontal, activeIndex, currentIndexRef]
+    );
 
     useEffect(() => {
       currentIndexRef.current = 0;

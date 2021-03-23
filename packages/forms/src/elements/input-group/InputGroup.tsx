@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { InputGroupContext } from '../../utils/useInputGroupContext';
 import { StyledInputGroup } from '../../styled';
@@ -20,7 +20,7 @@ export interface IInputGroupProps extends HTMLAttributes<HTMLDivElement> {
  */
 export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
   ({ isCompact, ...props }, ref) => {
-    const contextValue = { isCompact };
+    const contextValue = useMemo(() => ({ isCompact }), [isCompact]);
 
     return (
       <InputGroupContext.Provider value={contextValue}>

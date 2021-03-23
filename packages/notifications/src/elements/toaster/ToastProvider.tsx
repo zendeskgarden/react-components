@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createContext, useReducer, Dispatch, useCallback } from 'react';
+import React, { createContext, useReducer, Dispatch, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -35,7 +35,7 @@ export interface IToastProviderProps {
 export const ToastProvider: React.FC<IToastProviderProps> = ({ limit, zIndex, children }) => {
   const [state, dispatch] = useReducer(toasterReducer, getInitialState());
 
-  const contextValue = { state, dispatch };
+  const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   const toastsByPlacement = useCallback(
     (placement: ToastPlacement) => {

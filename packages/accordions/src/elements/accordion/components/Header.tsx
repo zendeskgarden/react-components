@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, FocusEvent, forwardRef, HTMLAttributes } from 'react';
+import React, { useState, FocusEvent, forwardRef, HTMLAttributes, useMemo } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { useAccordionContext, useSectionContext, HeaderContext } from '../../../utils';
@@ -48,10 +48,13 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
     }, 0);
   };
 
-  const value = {
-    isHovered,
-    otherTriggerProps
-  };
+  const value = useMemo(
+    () => ({
+      isHovered,
+      otherTriggerProps
+    }),
+    [isHovered, otherTriggerProps]
+  );
 
   return (
     <HeaderContext.Provider value={value}>
