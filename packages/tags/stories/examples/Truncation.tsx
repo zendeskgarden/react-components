@@ -65,7 +65,7 @@ export const Truncation: Story<ITruncationStoryProps> = ({
               <Tag key={index} isPill={isPill} size={size} style={{ margin: 2 }} tabIndex={0}>
                 {includeAvatar && (
                   <Tag.Avatar>
-                    <img alt="" src="images/avatar-4.png" />
+                    <img alt="" src="images/tags/truncation.png" />
                   </Tag.Avatar>
                 )}
                 <span>{tag}</span>

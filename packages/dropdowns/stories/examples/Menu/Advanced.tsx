@@ -93,7 +93,7 @@ export const Advanced: Story<IStoryProps> = ({
               <Separator />
               <MediaItem value="image" disabled={isDisabled}>
                 <MediaFigure>
-                  <img src="images/amir.png" alt="Example Avatar" />
+                  <img src="images/dropdowns/media.png" alt="Example Media" />
                 </MediaFigure>
                 <MediaBody>
                   Image Media Item
@@ -112,7 +112,7 @@ export const Advanced: Story<IStoryProps> = ({
               <MediaItem value="avatar" disabled={isDisabled}>
                 <MediaFigure>
                   <Avatar size="extraextrasmall" status="available">
-                    <img alt="Sage" src="images/avatar-48.png" />
+                    <img alt="Sage" src="images/dropdowns/avatar.png" />
                   </Avatar>
                 </MediaFigure>
                 <MediaBody>

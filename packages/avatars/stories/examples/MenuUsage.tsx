@@ -44,7 +44,7 @@ export const MenuUsage: Story = ({ foo }) => {
                     status="away"
                     surfaceColor={highlightedItem === 0 ? PALETTE.blue[100] : undefined}
                   >
-                    <img alt="Linden" src="images/avatar-25.png" />
+                    <img alt="Linden" src="images/avatars/linden.png" />
                   </Avatar>
                 </MediaFigure>
                 <MediaBody>
@@ -59,7 +59,7 @@ export const MenuUsage: Story = ({ foo }) => {
                     status="available"
                     surfaceColor={highlightedItem === 1 ? PALETTE.blue[100] : undefined}
                   >
-                    <img alt="Reed" src="images/avatar-30.png" />
+                    <img alt="Reed" src="images/avatars/reed.png" />
                   </Avatar>
                 </MediaFigure>
                 <MediaBody>
@@ -74,7 +74,7 @@ export const MenuUsage: Story = ({ foo }) => {
                     badge="3"
                     surfaceColor={highlightedItem === 2 ? PALETTE.blue[100] : undefined}
                   >
-                    <img alt="Sage" src="images/avatar-48.png" />
+                    <img alt="Sage" src="images/avatars/sage.png" />
                   </Avatar>
                 </MediaFigure>
                 <MediaBody>
@@ -98,7 +98,7 @@ export const MenuUsage: Story = ({ foo }) => {
                     status="away"
                     surfaceColor={highlightedItem === 0 ? PALETTE.blue[100] : undefined}
                   >
-                    <img alt="Clove" src="images/avatar-31.png" />
+                    <img alt="Clove" src="images/avatars/clove.png" />
                   </Avatar>
                 </MediaFigure>
                 <MediaBody>
@@ -113,7 +113,7 @@ export const MenuUsage: Story = ({ foo }) => {
                     status="available"
                     surfaceColor={highlightedItem === 1 ? PALETTE.blue[100] : undefined}
                   >
-                    <img alt="Fennel" src="images/avatar-32.png" />
+                    <img alt="Fennel" src="images/avatars/fennel.png" />
                   </Avatar>
                 </MediaFigure>
                 <MediaBody>
@@ -128,7 +128,7 @@ export const MenuUsage: Story = ({ foo }) => {
                     badge="1"
                     surfaceColor={highlightedItem === 2 ? PALETTE.blue[100] : undefined}
                   >
-                    <img alt="Rue" src="images/avatar-33.png" />
+                    <img alt="Rue" src="images/avatars/rue.png" />
                   </Avatar>
                 </MediaFigure>
                 <MediaBody>

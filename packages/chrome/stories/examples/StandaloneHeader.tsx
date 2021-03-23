@@ -57,7 +57,7 @@ export const StandaloneHeader: Story<IStandaloneHeaderStoryProps> = ({ isStandal
           </HeaderItem>
           <HeaderItem isRound>
             <HeaderItemIcon>
-              <img alt="User avatar" src="images/avatar-30.png" />
+              <img alt="User avatar" src="images/chrome/user.png" />
             </HeaderItemIcon>
             <HeaderItemText isClipped>User</HeaderItemText>
           </HeaderItem>
