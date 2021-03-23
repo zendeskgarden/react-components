@@ -5,7 +5,7 @@
   "scripts": {
     "build": "lerna run build --stream",
     "build:analyze": "ANALYZE_BUNDLE=true yarn build:single",
-    "build:demo": "build-storybook -s ./utils/public -o ./demo",
+    "build:demo": "build-storybook -s ./utils/storybook -o ./demo",
     "build:single": "utils/scripts/scoped-npm-command.js --script build",
     "format": "prettier-package-json --write && yarn format:package_json --write && yarn format:js --write && yarn format:md --write",
     "format:all": "prettier-package-json --list-different && yarn format:package_json --list-different && yarn format:js --check && yarn format:md --check",
@@ -19,7 +19,7 @@
     "lint:md": "markdownlint README.md docs/*.md stories/**/*.md packages/*/examples/*.md packages/*/src/**/*.md packages/*/README.md",
     "new": "utils/scripts/new.js",
     "prepare": "yarn build",
-    "start": "start-storybook -s ./utils/public -p 6006",
+    "start": "start-storybook -s ./utils/storybook -p 6006",
     "tag": "utils/scripts/tag.js",
     "test": "yarn test:all --watch",
     "test:all": "jest --config=utils/test/jest.config.js",

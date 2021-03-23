@@ -43,7 +43,7 @@ export const Default: Story<IDefaultStoryProps> = ({
         >
           {includeAvatar && (
             <Tag.Avatar>
-              <img alt="" src={`images/avatar-${Math.floor(Math.random() * 70 + 1)}.png`} />
+              <img alt="" src="images/tags/default.png" />
             </Tag.Avatar>
           )}
           <span>{text}</span>
