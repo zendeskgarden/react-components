@@ -38,8 +38,7 @@ export interface IToastProviderProps {
    */
   zIndex?: number;
   /**
-   * Props to be spread onto the wrapping element for each Toast placement.
-   * Can be used to customize the positioning of a placement.
+   * Passes placement-based customization props to the toast's parent element
    */
   placementProps?: Partial<Record<ToastPlacement, HTMLAttributes<HTMLDivElement>>>;
 }
