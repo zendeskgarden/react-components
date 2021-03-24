@@ -5,7 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createContext, useReducer, Dispatch, useCallback, useMemo } from 'react';
+import React, {
+  createContext,
+  useReducer,
+  Dispatch,
+  useCallback,
+  useMemo,
+  HTMLAttributes
+} from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -30,9 +37,19 @@ export interface IToastProviderProps {
    * Sets the `z-index` of the toast
    */
   zIndex?: number;
+  /**
+   * Props to be spread onto the wrapping element for each Toast placement.
+   * Can be used to customize the positioning of a placement.
+   */
+  placementProps?: Partial<Record<ToastPlacement, HTMLAttributes<HTMLDivElement>>>;
 }
 
-export const ToastProvider: React.FC<IToastProviderProps> = ({ limit, zIndex, children }) => {
+export const ToastProvider: React.FC<IToastProviderProps> = ({
+  limit,
+  zIndex,
+  placementProps = {},
+  children
+}) => {
   const [state, dispatch] = useReducer(toasterReducer, getInitialState());
 
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
@@ -46,10 +63,16 @@ export const ToastProvider: React.FC<IToastProviderProps> = ({ limit, zIndex, ch
       }
 
       return (
-        <ToastSlot placement={placement} toasts={matchingToasts} zIndex={zIndex} limit={limit!} />
+        <ToastSlot
+          placement={placement}
+          toasts={matchingToasts}
+          zIndex={zIndex}
+          limit={limit!}
+          {...placementProps[placement]}
+        />
       );
     },
-    [limit, state.toasts, zIndex]
+    [limit, state.toasts, zIndex, placementProps]
   );
 
   return (
