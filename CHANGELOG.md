@@ -11,6 +11,40 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.35.0 (2021-03-24)
+
+#### :rocket: New Feature
+
+- `notifications`
+  - [#1055](https://github.com/zendeskgarden/react-components/pull/1055) feat(notifications): allow placement customizations for toast ([@austingreendev](https://github.com/austingreendev))
+
+#### :bug: Bug Fix
+
+- `modals`
+  - [#1052](https://github.com/zendeskgarden/react-components/pull/1052) fix(modals): allow pointer-events to pass through fading tooltip modal ([@hzhu](https://github.com/hzhu))
+- `accordions`
+  - [#1050](https://github.com/zendeskgarden/react-components/pull/1050) fix(accordions): stepper and accordion typeface styling ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+
+- `modals`
+  - [#1057](https://github.com/zendeskgarden/react-components/pull/1057) chore(modals): update README example to use correct props ([@hzhu](https://github.com/hzhu))
+- `.template`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `tables`, `tags`, `theming`, `tooltips`, `utilities`
+  - [#1042](https://github.com/zendeskgarden/react-components/pull/1042) chore(docs): remove styleguidist dependencies ([@austingreendev](https://github.com/austingreendev))
+- `grid`
+  - [#1047](https://github.com/zendeskgarden/react-components/pull/1047) chore(docs): migrate react-grid to storybook ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+
+- `modals`
+  - [#1056](https://github.com/zendeskgarden/react-components/pull/1056) chore(modals): remove @types/react-transition-group direct dependency ([@jzempel](https://github.com/jzempel))
+  - [#1054](https://github.com/zendeskgarden/react-components/pull/1054) chore(modals): upgrade container-modal ([@hzhu](https://github.com/hzhu))
+- `accordions`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `tables`, `tabs`, `typography`
+  - [#1004](https://github.com/zendeskgarden/react-components/pull/1004) chore(deps): update dependency @zendeskgarden/eslint-config to v19 ([@renovate[bot]](https://github.com/apps/renovate))
+- `avatars`, `chrome`, `dropdowns`, `tables`, `tags`
+  - [#1053](https://github.com/zendeskgarden/react-components/pull/1053) chore(docs): remove unused storybook example images ([@jzempel](https://github.com/jzempel))
+- Other
+  - [#1049](https://github.com/zendeskgarden/react-components/pull/1049) chore(docs): use evergreen bedrock CSS link ([@jzempel](https://github.com/jzempel))
 
 ## v8.34.0 (2021-03-17)
 
