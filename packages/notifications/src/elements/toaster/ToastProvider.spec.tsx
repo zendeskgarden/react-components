@@ -8,12 +8,12 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl } from 'garden-test-utils';
-import { useToast, ToastProvider } from '../../';
+import { useToast, ToastProvider, IToastProviderProps } from '../../';
 
 import { config } from 'react-transition-group';
 config.disabled = true;
 
-const ToastExample = () => {
+const ToastExample: React.FC<IToastProviderProps> = props => {
   const NotificationExample = () => {
     const { addToast } = useToast();
 
@@ -27,7 +27,7 @@ const ToastExample = () => {
   };
 
   return (
-    <ToastProvider zIndex={100}>
+    <ToastProvider {...props}>
       <NotificationExample />
     </ToastProvider>
   );
@@ -75,12 +75,33 @@ describe('ToastProvider', () => {
   });
 
   it('renders toasts with provided zIndex', () => {
-    const { getByRole, getByText } = render(<ToastExample />);
+    const { getByRole, getByText } = render(<ToastExample zIndex={100} />);
 
     userEvent.click(getByRole('button'));
     const notificationElement = getByText('notification');
 
     expect(notificationElement).toBeInTheDocument();
     expect(notificationElement.parentElement?.parentElement).toHaveStyleRule('z-index', '100');
+  });
+
+  it('applies placementProps when provided', () => {
+    const customizationProps = { 'data-test-id': 'placement-prop' } as any;
+
+    const { getAllByTestId } = render(
+      <ToastExample
+        placementProps={{
+          'top-start': customizationProps,
+          top: customizationProps,
+          'top-end': customizationProps,
+          'bottom-start': customizationProps,
+          bottom: customizationProps,
+          'bottom-end': customizationProps
+        }}
+      />
+    );
+
+    const customizedPlacements = getAllByTestId('placement-prop');
+
+    expect(customizedPlacements).toHaveLength(6);
   });
 });
