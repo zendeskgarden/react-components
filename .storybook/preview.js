@@ -8,7 +8,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { create } from '@storybook/theming/create';
-import { ThemeProvider, DEFAULT_THEME, PALETTE } from '../packages/theming/src';
+import { ThemeProvider, DEFAULT_THEME } from '../packages/theming/src';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
