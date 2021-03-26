@@ -31,6 +31,7 @@ const background = (props: IRGBColor & ThemeProps<DefaultTheme>) => {
 
 export const StyledAlphaRange = styled(StyledRange as 'input').attrs<IRGBColor>(props => ({
   style: {
+    backgroundSize: 'auto',
     background: background(props)
   },
   'data-garden-id': COMPONENT_ID,
