@@ -143,13 +143,13 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 
 export const StyledRange = styled((Range as unknown) as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  hasLowerTrack: false
 })`
   ${sizeStyles};
 
   ${trackStyles(`
     border-radius: 0;
-    background-image: none;
   `)}
 
   ${colorStyles};
