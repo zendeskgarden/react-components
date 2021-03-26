@@ -10,11 +10,16 @@ import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-
 import useFieldContext from '../utils/useFieldContext';
 import { StyledRangeInput } from '../styled';
 
+export interface IRangeProps extends InputHTMLAttributes<HTMLInputElement> {
+  /** @ignore */
+  hasLowerTrack?: boolean;
+}
+
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
-export const Range = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
-  ({ min, max, step, ...props }, ref) => {
+export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
+  ({ hasLowerTrack, min, max, step, ...props }, ref) => {
     const [backgroundSize, setBackgroundSize] = useState('0');
     const rangeRef = useCombinedRefs(ref);
     const fieldContext = useFieldContext();
@@ -42,16 +47,21 @@ export const Range = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTML
       updateBackgroundWidthFromInput(rangeRef.current!);
     }, [rangeRef, updateBackgroundWidthFromInput, props.value]);
 
+    const onChange = hasLowerTrack
+      ? composeEventHandlers(props.onChange, (event: ChangeEvent<HTMLInputElement>) => {
+          updateBackgroundWidthFromInput(event.target);
+        })
+      : props.onChange;
+
     let combinedProps = {
       ref: rangeRef,
+      hasLowerTrack,
       min,
       max,
       step,
       backgroundSize,
       ...props,
-      onChange: composeEventHandlers(props.onChange, (event: ChangeEvent<HTMLInputElement>) => {
-        updateBackgroundWidthFromInput(event.target);
-      })
+      onChange
     };
 
     if (fieldContext) {
@@ -63,6 +73,7 @@ export const Range = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTML
 );
 
 Range.defaultProps = {
+  hasLowerTrack: true,
   min: 0,
   max: 100,
   step: 1

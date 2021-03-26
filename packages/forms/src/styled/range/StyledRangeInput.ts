@@ -58,7 +58,7 @@ const trackLowerStyles = (styles: string, modifier = '') => {
   `;
 };
 
-const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) => {
   const SHADE = 600;
   const thumbBackgroundColor = getColor('primaryHue', SHADE, props.theme);
   const thumbBorderColor = thumbBackgroundColor;
@@ -77,10 +77,14 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const thumbHoverBackgroundColor = thumbActiveBackgroundColor;
   const thumbHoverBorderColor = thumbHoverBackgroundColor;
   const trackBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
-  const trackLowerBackgroundColor = thumbBackgroundColor;
-  const trackBackgroundImage = `linear-gradient(${trackLowerBackgroundColor}, ${trackLowerBackgroundColor})`;
-  const trackDisabledLowerBackgroundColor = thumbDisabledBackgroundColor;
-  const trackDisabledBackgroundImage = `linear-gradient(${trackDisabledLowerBackgroundColor}, ${trackDisabledLowerBackgroundColor})`;
+  const trackLowerBackgroundColor = props.hasLowerTrack ? thumbBackgroundColor : '';
+  const trackBackgroundImage = props.hasLowerTrack
+    ? `linear-gradient(${trackLowerBackgroundColor}, ${trackLowerBackgroundColor})`
+    : '';
+  const trackDisabledLowerBackgroundColor = props.hasLowerTrack ? thumbDisabledBackgroundColor : '';
+  const trackDisabledBackgroundImage = props.hasLowerTrack
+    ? `linear-gradient(${trackDisabledLowerBackgroundColor}, ${trackDisabledLowerBackgroundColor})`
+    : '';
 
   return css`
     ${trackStyles(`
@@ -95,7 +99,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     `)}
 
     ${trackLowerStyles(`
-      background-color: ${trackLowerBackgroundColor};
+      background-color: ${props.hasLowerTrack && trackLowerBackgroundColor};
     `)}
 
     ${thumbStyles(
@@ -189,6 +193,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 
 interface IStyledRangeInputProps {
   backgroundSize?: number | string;
+  hasLowerTrack?: boolean;
 }
 
 export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props => ({
@@ -196,7 +201,7 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
   'data-garden-version': PACKAGE_VERSION,
   type: 'range',
   style: {
-    backgroundSize: props.backgroundSize
+    backgroundSize: props.hasLowerTrack ? props.backgroundSize : undefined
   }
 }))<IStyledRangeInputProps>`
   appearance: none;
@@ -259,5 +264,6 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
 
 StyledRangeInput.defaultProps = {
   backgroundSize: '0%',
+  hasLowerTrack: true,
   theme: DEFAULT_THEME
 };
