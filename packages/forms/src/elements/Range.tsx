@@ -10,7 +10,7 @@ import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-
 import useFieldContext from '../utils/useFieldContext';
 import { StyledRangeInput } from '../styled';
 
-export interface IRangeProps extends InputHTMLAttributes<HTMLInputElement> {
+interface IRangeProps extends InputHTMLAttributes<HTMLInputElement> {
   /** @ignore */
   hasLowerTrack?: boolean;
 }
