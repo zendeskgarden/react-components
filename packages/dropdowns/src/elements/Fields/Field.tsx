@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, HTMLAttributes } from 'react';
+import React, { useState, HTMLAttributes, useMemo } from 'react';
 import { Field as FormField } from '@zendeskgarden/react-forms';
 import useDropdownContext from '../../utils/useDropdownContext';
 import { FieldContext } from '../../utils/useFieldContext';
@@ -24,8 +24,13 @@ export const Field: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = pr
    */
   const { ref } = getRootProps();
 
+  const value = useMemo(() => ({ isLabelHovered, setIsLabelHovered }), [
+    isLabelHovered,
+    setIsLabelHovered
+  ]);
+
   return (
-    <FieldContext.Provider value={{ isLabelHovered, setIsLabelHovered }}>
+    <FieldContext.Provider value={value}>
       <FormField ref={ref} {...props} />
     </FieldContext.Provider>
   );

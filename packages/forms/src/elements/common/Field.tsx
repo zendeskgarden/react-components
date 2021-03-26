@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, HTMLAttributes } from 'react';
+import React, { useRef, useState, HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useField } from '@zendeskgarden/container-field';
 import { FieldContext } from '../../utils/useFieldContext';
@@ -24,15 +24,19 @@ export const Field = React.forwardRef<HTMLDivElement, IFieldProps>((props, ref) 
   const [isLabelHovered, setIsLabelHovered] = useState(false);
   const multiThumbRangeRef = useRef<HTMLDivElement>(null);
   const getMessageProps = (messageProps: any) => ({ role: 'alert', ...messageProps });
-  const fieldProps = {
-    ...useField(props.id),
-    getMessageProps,
-    isLabelActive,
-    setIsLabelActive,
-    isLabelHovered,
-    setIsLabelHovered,
-    multiThumbRangeRef
-  };
+  const propGetters = useField(props.id);
+  const fieldProps = useMemo(
+    () => ({
+      ...propGetters,
+      getMessageProps,
+      isLabelActive,
+      setIsLabelActive,
+      isLabelHovered,
+      setIsLabelHovered,
+      multiThumbRangeRef
+    }),
+    [propGetters, isLabelActive, isLabelHovered]
+  );
 
   return (
     <FieldContext.Provider value={fieldProps}>

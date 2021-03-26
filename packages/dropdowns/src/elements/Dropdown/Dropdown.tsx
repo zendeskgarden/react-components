@@ -226,6 +226,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
       >
         {downshift => (
           <DropdownContext.Provider
+            /* eslint-disable react/jsx-no-constructed-context-values */
             value={{
               hasMenuRef,
               itemIndexRef,

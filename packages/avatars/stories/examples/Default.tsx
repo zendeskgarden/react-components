@@ -116,7 +116,7 @@ export const Default: Story<IStoryProps> = ({
               badge={computedBadge}
               surfaceColor={surfaceColor}
             >
-              <img alt="" src="images/avatar-3.png" />
+              <img alt="" src="images/avatars/default.png" />
             </Avatar>
           </StyledAvatarTd>
           <StyledAvatarTd>
@@ -127,7 +127,7 @@ export const Default: Story<IStoryProps> = ({
               surfaceColor={surfaceColor}
               isSystem
             >
-              <img alt="" src="images/system.png" />
+              <img alt="" src="images/avatars/system.png" />
             </Avatar>
           </StyledAvatarTd>
         </tr>

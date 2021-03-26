@@ -29,10 +29,7 @@ export const ChromeUsage: Story = ({ foo }) => {
           </CustomHeaderItem>
           <CustomHeaderItem as="button" isRound aria-label="User profile">
             <Avatar size="extrasmall">
-              <img
-                alt="Example User"
-                src={`images/avatar-${Math.floor(Math.random() * 70 + 1)}.png`}
-              />
+              <img alt="Example User" src="images/avatars/chrome.png" />
             </Avatar>
           </CustomHeaderItem>
         </Header>

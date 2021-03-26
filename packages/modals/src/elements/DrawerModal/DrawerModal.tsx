@@ -144,11 +144,14 @@ export const DrawerModal = forwardRef<
       return undefined;
     }, [appendToNode, environment]);
 
-    const value = {
-      getTitleProps,
-      getContentProps,
-      getCloseProps
-    };
+    const value = useMemo(
+      () => ({
+        getTitleProps,
+        getContentProps,
+        getCloseProps
+      }),
+      [getTitleProps, getContentProps, getCloseProps]
+    );
 
     if (!rootNode) {
       return null;

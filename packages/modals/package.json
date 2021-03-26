@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "8.34.0",
+  "version": "8.35.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -22,9 +22,8 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@popperjs/core": "^2.4.4",
-    "@types/react-transition-group": "^4.4.1",
     "@zendeskgarden/container-focusvisible": "^0.4.6",
-    "@zendeskgarden/container-modal": "^0.8.6",
+    "@zendeskgarden/container-modal": "^0.8.7",
     "@zendeskgarden/container-utilities": "^0.5.5",
     "dom-helpers": "^5.1.0",
     "prop-types": "^15.5.7",
@@ -40,7 +39,7 @@
   },
   "devDependencies": {
     "@types/react-transition-group": "4.4.1",
-    "@zendeskgarden/react-theming": "^8.34.0",
+    "@zendeskgarden/react-theming": "^8.35.0",
     "@zendeskgarden/svg-icons": "6.28.0"
   },
   "keywords": [

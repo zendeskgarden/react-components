@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { GRID_NUMBER, SPACE, ARRAY_SPACE } from '../utils/types';
 import { GridContext } from '../utils/useGridContext';
@@ -24,11 +24,19 @@ export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
-  ({ columns, debug, ...props }, ref) => (
-    <GridContext.Provider value={{ columns, gutters: props.gutters!, debug }}>
-      <StyledGrid debug={debug} ref={ref} {...props} />
-    </GridContext.Provider>
-  )
+  ({ columns, debug, ...props }, ref) => {
+    const value = useMemo(() => ({ columns, gutters: props.gutters!, debug }), [
+      columns,
+      props.gutters,
+      debug
+    ]);
+
+    return (
+      <GridContext.Provider value={value}>
+        <StyledGrid debug={debug} ref={ref} {...props} />
+      </GridContext.Provider>
+    );
+  }
 );
 
 Grid.displayName = 'Grid';

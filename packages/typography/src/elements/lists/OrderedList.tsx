@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import OrderedListItem from './OrderedListItem';
 import { OrderedListContext } from '../../utils/useOrderedListContext';
@@ -26,8 +26,10 @@ interface IOrderedListProps extends HTMLAttributes<HTMLOListElement> {
 
 const OrderedList = React.forwardRef<HTMLOListElement, IOrderedListProps>(
   ({ size, type, ...other }, ref) => {
+    const value = useMemo(() => ({ size: size! }), [size]);
+
     return (
-      <OrderedListContext.Provider value={{ size: size! }}>
+      <OrderedListContext.Provider value={value}>
         <StyledOrderedList ref={ref} listType={type} {...other} />
       </OrderedListContext.Provider>
     );

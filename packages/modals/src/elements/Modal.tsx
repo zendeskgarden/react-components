@@ -170,12 +170,15 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
       return undefined;
     }, [appendToNode, environment]);
 
-    const value = {
-      isLarge,
-      getTitleProps,
-      getContentProps,
-      getCloseProps
-    };
+    const value = useMemo(
+      () => ({
+        isLarge,
+        getTitleProps,
+        getContentProps,
+        getCloseProps
+      }),
+      [isLarge, getTitleProps, getContentProps, getCloseProps]
+    );
 
     if (!rootNode) {
       return null;

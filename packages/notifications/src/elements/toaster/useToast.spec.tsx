@@ -132,7 +132,9 @@ describe('useToast()', () => {
 
       expect(queryByRole('alert')).toBeInTheDocument();
 
-      jest.runOnlyPendingTimers();
+      act(() => {
+        jest.runOnlyPendingTimers();
+      });
 
       expect(queryByRole('alert')).not.toBeInTheDocument();
     });
@@ -146,7 +148,9 @@ describe('useToast()', () => {
 
       expect(queryByRole('alert')).toBeInTheDocument();
 
-      jest.runOnlyPendingTimers();
+      act(() => {
+        jest.runOnlyPendingTimers();
+      });
 
       expect(queryByRole('alert')).toBeInTheDocument();
     });

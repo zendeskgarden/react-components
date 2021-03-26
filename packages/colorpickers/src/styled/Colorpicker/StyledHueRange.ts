@@ -28,7 +28,7 @@ export const StyledHueRange = styled(StyledRange as 'input').attrs({
     )
     no-repeat;
   background-position: 0 ${props => getTrackMargin(props.theme)}px;
-  background-size: 100% ${props => getTrackHeight(props.theme)}px !important;
+  background-size: 100% ${props => getTrackHeight(props.theme)}px;
 `;
 
 StyledHueRange.defaultProps = {

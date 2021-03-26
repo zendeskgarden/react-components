@@ -28,10 +28,10 @@ import { Button } from '@zendeskgarden/react-buttons';
     <Body>Some content</Body>
     <Footer>
       <FooterItem>
-        <Button basic>Cancel</Button>
+        <Button isBasic>Cancel</Button>
       </FooterItem>
       <FooterItem>
-        <Button primary>Confirm</Button>
+        <Button isPrimary>Confirm</Button>
       </FooterItem>
     </Footer>
     <Close aria-label="Close modal" />

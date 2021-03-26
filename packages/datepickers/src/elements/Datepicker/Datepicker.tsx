@@ -5,7 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useReducer, useCallback, useState, useContext } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useReducer,
+  useCallback,
+  useState,
+  useContext,
+  useMemo
+} from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
@@ -162,7 +170,7 @@ export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 
-  const contextValue = { state, dispatch };
+  const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   return (
     <DatepickerContext.Provider value={contextValue}>

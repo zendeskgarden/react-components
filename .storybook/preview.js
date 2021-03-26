@@ -26,9 +26,7 @@ export const parameters = {
 const GlobalPreviewStyling = createGlobalStyle`
   body {
     background-color: ${p => p.theme.colors.background};
-    color: ${p => p.theme.colors.foreground};
     font-family: ${p => p.theme.fonts.system};
-    font-size: ${p => p.theme.fontSizes.md};
   }
 `;
 
@@ -46,8 +44,14 @@ const withThemeProvider = (Story, context) => {
     document.querySelector('link[href$="bedrock/dist/index.css"]').setAttribute('disabled', true);
   }
 
+  const theme = {
+    ...DEFAULT_THEME,
+    colors: { ...DEFAULT_THEME.colors, primaryHue: context.globals.primaryHue },
+    rtl
+  };
+
   return (
-    <ThemeProvider theme={{ ...DEFAULT_THEME, rtl }}>
+    <ThemeProvider theme={theme}>
       <GlobalPreviewStyling />
       {/* Work-around to get Storybook to play well with CSS transitions that are associated to props.
       See: https://github.com/storybookjs/storybook/issues/12255 */}
@@ -77,10 +81,22 @@ export const globalTypes = {
     description: 'CSS Bedrock',
     defaultValue: 'disabled',
     toolbar: {
-      icon: 'paintbrush',
+      icon: 'link',
       items: [
         { value: 'disabled', title: 'Bedrock disabled' },
         { value: 'enabled', title: 'Bedrock enabled' }
+      ]
+    }
+  },
+  primaryHue: {
+    name: 'primaryHue',
+    description: 'Primary hue',
+    defaultValue: DEFAULT_THEME.colors.primaryHue,
+    toolbar: {
+      icon: 'paintbrush',
+      items: [
+        { value: DEFAULT_THEME.colors.primaryHue, title: 'Default primary hue' },
+        { value: 'fuschia', title: 'Custom primary hue' }
       ]
     }
   }
