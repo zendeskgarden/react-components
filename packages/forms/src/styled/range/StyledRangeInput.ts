@@ -99,7 +99,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) =
     `)}
 
     ${trackLowerStyles(`
-      background-color: ${props.hasLowerTrack && trackLowerBackgroundColor};
+      background-color: ${trackLowerBackgroundColor};
     `)}
 
     ${thumbStyles(
@@ -201,7 +201,7 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
   'data-garden-version': PACKAGE_VERSION,
   type: 'range',
   style: {
-    backgroundSize: props.hasLowerTrack ? props.backgroundSize : undefined
+    backgroundSize: props.hasLowerTrack && props.backgroundSize
   }
 }))<IStyledRangeInputProps>`
   appearance: none;
