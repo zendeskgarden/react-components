@@ -58,7 +58,7 @@
     "@zendeskgarden/css-bedrock": "8.0.1",
     "@zendeskgarden/eslint-config": "19.0.0",
     "@zendeskgarden/scripts": "0.1.11",
-    "@zendeskgarden/stylelint-config": "15.0.0",
+    "@zendeskgarden/stylelint-config": "16.0.0",
     "@zendeskgarden/svg-icons": "6.29.0",
     "acorn-jsx": "5.3.1",
     "babel-core": "7.0.0-bridge.0",
