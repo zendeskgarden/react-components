@@ -1,5 +1,0 @@
-{
-  "hooks": {
-    "pre-commit": "lint-staged && yarn run build --since main"
-  }
-}
