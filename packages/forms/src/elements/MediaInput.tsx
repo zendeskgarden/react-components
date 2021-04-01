@@ -102,8 +102,8 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
         readOnly={readOnly}
         validation={validation}
         mediaLayout
-        ref={wrapperRef}
         {...otherWrapperProps}
+        ref={wrapperRef}
       >
         {start && <FauxInput.StartIcon isDisabled={disabled}>{start}</FauxInput.StartIcon>}
         <StyledTextMediaInput {...(combinedProps as any)} />

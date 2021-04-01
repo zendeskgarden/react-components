@@ -8,6 +8,7 @@
 export { default as Dropdown } from './elements/Dropdown/Dropdown';
 export { default as Trigger } from './elements/Trigger/Trigger';
 export { default as Autocomplete } from './elements/Autocomplete/Autocomplete';
+export { default as Combobox } from './elements/Combobox/Combobox';
 export { default as Multiselect } from './elements/Multiselect/Multiselect';
 export { Select } from './elements/Select/Select';
 export { Field } from './elements/Fields/Field';
