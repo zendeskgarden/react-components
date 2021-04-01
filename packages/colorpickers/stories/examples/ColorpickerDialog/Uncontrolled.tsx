@@ -48,6 +48,7 @@ export const Uncontrolled: Story = ({
             onChange={action('onChange')}
             popperModifiers={popperModifiers}
             defaultColor={DEFAULT_THEME.palette.kale[700]}
+            triggerProps={{ 'aria-label': 'Select your favorite color' }}
           />
         </Col>
       </Row>

@@ -45,6 +45,7 @@ export const Controlled: Story = ({
             disabled={disabled}
             hasArrow={hasArrow}
             isAnimated={isAnimated}
+            triggerProps={{ 'aria-label': 'Select your favorite color' }}
           />
         </Col>
         <Col>
