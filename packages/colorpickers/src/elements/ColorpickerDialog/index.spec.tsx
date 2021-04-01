@@ -24,11 +24,11 @@ describe('ColorpickerDialog', () => {
     expect(screen.getByTestId('colordialog')).toBe(ref.current);
   });
 
-  it('applies triggerProps to the button element', () => {
+  it('applies buttonProps to the button element', () => {
     render(
       <ColorpickerDialog
         defaultColor="rgba(23,73,77,1)"
-        triggerProps={{
+        buttonProps={{
           'aria-label': 'Choose your favorite color'
         }}
       />

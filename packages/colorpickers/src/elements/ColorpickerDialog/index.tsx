@@ -63,7 +63,7 @@ export interface IColorpickerDialogProps extends IColorpickerProps {
   /**
    * Passes HTML attributes to the color dialog button element
    */
-  triggerProps?: HTMLAttributes<HTMLButtonElement>;
+  buttonProps?: HTMLAttributes<HTMLButtonElement>;
 }
 
 /**
@@ -86,7 +86,7 @@ export const ColorpickerDialog = forwardRef<
       popperModifiers,
       zIndex,
       focusInset,
-      triggerProps,
+      buttonProps,
       children,
       ...props
     },
@@ -116,7 +116,7 @@ export const ColorpickerDialog = forwardRef<
             ref: buttonRef
           })
         ) : (
-          <StyledButton focusInset={focusInset} ref={buttonRef} onClick={onClick} {...triggerProps}>
+          <StyledButton focusInset={focusInset} ref={buttonRef} onClick={onClick} {...buttonProps}>
             <StyledButtonPreview backgroundColor={isControlled ? color : uncontrolledColor} />
             {/* eslint-disable-next-line no-eq-null, eqeqeq */}
             <Button.EndIcon isRotated={referenceElement != null}>
@@ -176,7 +176,7 @@ ColorpickerDialog.propTypes = {
   labels: PropTypes.object,
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
   defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
-  triggerProps: PropTypes.object
+  buttonProps: PropTypes.object
 };
 
 ColorpickerDialog.defaultProps = {
