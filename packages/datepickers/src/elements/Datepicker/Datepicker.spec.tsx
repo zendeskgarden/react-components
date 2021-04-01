@@ -105,7 +105,7 @@ describe('Datepicker', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
       userEvent.click(getByTestId('input'));
-      userEvent.click(getByTestId('previous-month'));
+      fireEvent.click(getByTestId('previous-month'));
 
       expect(getByTestId('month-display')).toHaveTextContent('January 2019');
     });
@@ -114,7 +114,7 @@ describe('Datepicker', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
       userEvent.click(getByTestId('input'));
-      userEvent.click(getByTestId('next-month'));
+      fireEvent.click(getByTestId('next-month'));
 
       expect(getByTestId('month-display')).toHaveTextContent('March 2019');
     });
@@ -135,7 +135,7 @@ describe('Datepicker', () => {
       );
 
       userEvent.click(getByTestId('input'));
-      userEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByTestId('day')[1]);
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
     });
@@ -148,7 +148,7 @@ describe('Datepicker', () => {
       const input = getByTestId('input');
 
       userEvent.click(input);
-      userEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByTestId('day')[1]);
 
       expect(input).toHaveValue('January 28, 2019');
     });
