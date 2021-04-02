@@ -129,7 +129,6 @@ export const Default: Story<IStoryProps> = ({
 Default.argTypes = {
   isCompact: { name: 'isCompact', control: 'boolean' },
   isHidden: { name: 'Hidden label', control: 'boolean' },
-  isOpen: { name: 'isOpen', control: 'disabled' },
   showHint: { name: 'Hint' },
   showMessage: { name: 'Message' },
   showStartIcon: { name: 'Show start icon', control: 'boolean' }

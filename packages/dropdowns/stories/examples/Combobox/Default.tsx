@@ -51,6 +51,7 @@ const items = [
 ];
 
 export const Default: Story = ({
+  hidden,
   isCompact,
   isBare,
   disabled,
@@ -78,7 +79,7 @@ export const Default: Story = ({
             }}
           >
             <Field>
-              <Label>Combobox</Label>
+              <Label hidden={hidden}>Combobox</Label>
               {hint && <Hint>Hint text</Hint>}
               <Combobox
                 isCompact={isCompact}
@@ -107,6 +108,7 @@ export const Default: Story = ({
 };
 
 Default.argTypes = {
+  hidden: { name: 'hidden label', control: 'boolean' },
   start: { name: 'start icon', control: 'boolean' },
   end: { name: 'end icon', control: 'boolean' }
 };

@@ -101,7 +101,6 @@ Default.argTypes = {
     name: 'Hidden label',
     control: 'boolean'
   },
-  isOpen: { name: 'isOpen', control: 'disabled' },
   isCompact: { name: 'isCompact', control: 'boolean' },
   showStartIcon: { name: 'Show start icon', control: 'boolean' }
 };
