@@ -22,8 +22,6 @@ interface IComboboxProps extends ComponentPropsWithoutRef<'div'> {
   disabled?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Indicates that the element's menu is open */
-  isOpen?: boolean;
   /** Defines text that appears in the element when no items are selected */
   placeholder?: string;
   /** Defines the element's validation state */
@@ -129,7 +127,6 @@ Combobox.propTypes = {
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
   focusInset: PropTypes.bool,
-  isOpen: PropTypes.bool,
   placeholder: PropTypes.string,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };

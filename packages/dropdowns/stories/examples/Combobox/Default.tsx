@@ -7,8 +7,19 @@
 
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
-import { Combobox, Dropdown, Field, Item, Label, Menu } from '@zendeskgarden/react-dropdowns';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import {
+  Combobox,
+  Dropdown,
+  Field,
+  Hint,
+  Item,
+  Label,
+  Menu,
+  Message
+} from '@zendeskgarden/react-dropdowns';
 import SearchIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
+import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const items = [
   'Aster',
@@ -39,30 +50,70 @@ const items = [
   'Zinnia'
 ];
 
-export const Default: Story = () => {
+export const Default: Story = ({
+  isCompact,
+  isBare,
+  disabled,
+  focusInset,
+  placeholder,
+  start,
+  end,
+  validation,
+  hint,
+  message
+}) => {
   const [inputValue, setInputValue] = useState('');
 
   return (
-    <Dropdown
-      inputValue={inputValue}
-      onInputValueChange={value => setInputValue(value)}
-      onStateChange={({ highlightedIndex }) => {
-        if (highlightedIndex !== null && highlightedIndex !== undefined) {
-          setInputValue(items[highlightedIndex]);
-        }
-      }}
-    >
-      <Field>
-        <Label>Combobox</Label>
-        <Combobox placeholder="test" start={<SearchIcon />} />
-      </Field>
-      <Menu>
-        {items.map(item => (
-          <Item key={item} value={item}>
-            <span>{item}</span>
-          </Item>
-        ))}
-      </Menu>
-    </Dropdown>
+    <Grid>
+      <Row justifyContent="center">
+        <Col sm={5}>
+          <Dropdown
+            inputValue={inputValue}
+            onInputValueChange={value => setInputValue(value)}
+            onStateChange={({ highlightedIndex }) => {
+              if (highlightedIndex !== null && highlightedIndex !== undefined) {
+                setInputValue(items[highlightedIndex]);
+              }
+            }}
+          >
+            <Field>
+              <Label>Combobox</Label>
+              {hint && <Hint>Hint text</Hint>}
+              <Combobox
+                isCompact={isCompact}
+                isBare={isBare}
+                disabled={disabled}
+                focusInset={focusInset}
+                placeholder={placeholder}
+                start={start && <SearchIcon />}
+                end={end && <LeafIcon />}
+                validation={validation}
+              />
+              {message && <Message validation={validation}>Message</Message>}
+            </Field>
+            <Menu isCompact={isCompact}>
+              {items.map(item => (
+                <Item key={item} value={item}>
+                  <span>{item}</span>
+                </Item>
+              ))}
+            </Menu>
+          </Dropdown>
+        </Col>
+      </Row>
+    </Grid>
   );
+};
+
+Default.argTypes = {
+  start: { name: 'start icon', control: 'boolean' },
+  end: { name: 'end icon', control: 'boolean' }
+};
+
+Default.args = {
+  placeholder: 'Search',
+  start: true,
+  hint: true,
+  message: true
 };
