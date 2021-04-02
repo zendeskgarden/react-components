@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { DefaultTheme, ThemeProps } from 'styled-components';
 import Downshift, { ControllerStateAndHelpers, StateChangeOptions } from 'downshift';
 import { Manager } from 'react-popper';
 import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { DropdownContext } from '../../utils/useDropdownContext';
+import { DropdownContext, DROPDOWN_TYPE } from '../../utils/useDropdownContext';
 
 export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
 
@@ -79,6 +79,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
   const nextItemsHashRef = useRef<Record<string, unknown>>({});
   const containsMultiselectRef = useRef(false);
   const itemSearchRegistry = useRef([]);
+  const [dropdownType, setDropdownType] = useState<DROPDOWN_TYPE>('');
 
   // Ref used to determine ARIA attributes for menu dropdowns
   const hasMenuRef = useRef(false);
@@ -126,7 +127,8 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
           }
         } else if (
           (e.keyCode === KEY_CODES.ENTER || e.keyCode === KEY_CODES.SPACE) &&
-          !downshift.isOpen
+          !downshift.isOpen &&
+          dropdownType !== 'combobox'
         ) {
           e.preventDefault();
           e.stopPropagation();
@@ -160,7 +162,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
             if (stateAndHelpers.isOpen) {
               onInputValueChange(inputVal, stateAndHelpers);
             } else {
-              onInputValueChange('', stateAndHelpers);
+              // onInputValueChange('', stateAndHelpers);
             }
           }
         }}
@@ -195,7 +197,9 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
             }
 
             // Reset input value when item is selected
-            stateAndHelpers.setState({ inputValue: '' });
+            if (dropdownType !== 'combobox') {
+              stateAndHelpers.setState({ inputValue: '' });
+            }
           }
 
           onStateChange && onStateChange(changes, stateAndHelpers);
@@ -205,6 +209,12 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
            * Set inputValue to an empty string during any event that updates the inputValue
            */
           switch (changes.type) {
+            case Downshift.stateChangeTypes.changeInput:
+              if (changes.inputValue === '' && dropdownType === 'combobox') {
+                return { ...changes, isOpen: false };
+              }
+
+              return changes;
             case Downshift.stateChangeTypes.controlledPropUpdatedSelectedItem:
             case Downshift.stateChangeTypes.mouseUp:
             case Downshift.stateChangeTypes.keyDownSpaceButton:
@@ -237,7 +247,8 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               selectedItems,
               downshift: transformDownshift(downshift),
               containsMultiselectRef,
-              itemSearchRegistry
+              itemSearchRegistry,
+              setDropdownType
             }}
           >
             {children}

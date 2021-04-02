@@ -8,6 +8,8 @@
 import React, { useContext } from 'react';
 import { ControllerStateAndHelpers } from 'downshift';
 
+export type DROPDOWN_TYPE = '' | 'autocomplete' | 'combobox' | 'multiselect';
+
 export interface IDropdownContext {
   itemIndexRef: React.MutableRefObject<number>;
   previousItemRef: React.MutableRefObject<any>;
@@ -19,6 +21,7 @@ export interface IDropdownContext {
   containsMultiselectRef: React.MutableRefObject<boolean>;
   hasMenuRef: React.MutableRefObject<boolean>;
   itemSearchRegistry: React.MutableRefObject<string[]>;
+  setDropdownType: React.Dispatch<React.SetStateAction<DROPDOWN_TYPE>>;
 }
 
 export const DropdownContext = React.createContext<IDropdownContext | undefined>(undefined);

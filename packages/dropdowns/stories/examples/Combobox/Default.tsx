@@ -10,7 +10,7 @@ import { Story } from '@storybook/react';
 import { Combobox, Dropdown, Field, Item, Label, Menu } from '@zendeskgarden/react-dropdowns';
 import SearchIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
-const options = [
+const items = [
   'Aster',
   "Bachelor's button",
   'Celosia',
@@ -41,23 +41,25 @@ const options = [
 
 export const Default: Story = () => {
   const [inputValue, setInputValue] = useState('');
-  const [selectedItem, setSelectedItem] = useState();
 
   return (
     <Dropdown
       inputValue={inputValue}
       onInputValueChange={value => setInputValue(value)}
-      selectedItem={selectedItem}
-      onSelect={item => setSelectedItem(item)}
+      onStateChange={({ highlightedIndex }) => {
+        if (highlightedIndex !== null && highlightedIndex !== undefined) {
+          setInputValue(items[highlightedIndex]);
+        }
+      }}
     >
       <Field>
         <Label>Combobox</Label>
         <Combobox placeholder="test" start={<SearchIcon />} />
       </Field>
       <Menu>
-        {options.map(option => (
-          <Item key={option} value={option}>
-            <span>{option}</span>
+        {items.map(item => (
+          <Item key={item} value={item}>
+            <span>{item}</span>
           </Item>
         ))}
       </Menu>

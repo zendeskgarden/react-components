@@ -54,7 +54,8 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
   ) => {
     const {
       popperReferenceElementRef,
-      downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen }
+      downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen },
+      setDropdownType
     } = useDropdownContext();
     const wrapperRef = useCombinedRefs<HTMLDivElement>(ref);
     const inputRef = useCombinedRefs<HTMLInputElement>(inputRefProp);
@@ -79,7 +80,10 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
       end,
       role: 'combobox',
       onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => {
-        if (!isOpen && (event.keyCode === KEY_CODES.DOWN || event.keyCode === KEY_CODES.UP)) {
+        if (
+          event.keyCode === KEY_CODES.SPACE ||
+          (!isOpen && [KEY_CODES.DOWN, KEY_CODES.UP].includes(event.keyCode))
+        ) {
           (event.nativeEvent as any).preventDownshiftDefault = true;
         }
       },
@@ -87,6 +91,8 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
         (event as any).nativeEvent.preventDownshiftDefault = true;
       }
     });
+
+    setDropdownType('combobox');
 
     return (
       <Reference>
