@@ -24,6 +24,21 @@ describe('ColorpickerDialog', () => {
     expect(screen.getByTestId('colordialog')).toBe(ref.current);
   });
 
+  it('applies buttonProps to the button element', () => {
+    render(
+      <ColorpickerDialog
+        defaultColor="rgba(23,73,77,1)"
+        buttonProps={{
+          'aria-label': 'Choose your favorite color'
+        }}
+      />
+    );
+
+    const button = screen.getByRole('button');
+
+    expect(button).toBe(screen.getByLabelText('Choose your favorite color'));
+  });
+
   it('focuses on the hex input and trigger when the color dialog is opened and closed', () => {
     const Basic = () => <ColorpickerDialog defaultColor="rgba(23,73,77,1)" />;
 

@@ -60,6 +60,10 @@ export interface IColorpickerDialogProps extends IColorpickerProps {
    * Applies inset `box-shadow` styling on focus
    */
   focusInset?: boolean;
+  /**
+   * Passes HTML attributes to the color dialog button element
+   */
+  buttonProps?: HTMLAttributes<HTMLButtonElement>;
 }
 
 /**
@@ -82,6 +86,7 @@ export const ColorpickerDialog = forwardRef<
       popperModifiers,
       zIndex,
       focusInset,
+      buttonProps,
       children,
       ...props
     },
@@ -111,7 +116,7 @@ export const ColorpickerDialog = forwardRef<
             ref: buttonRef
           })
         ) : (
-          <StyledButton focusInset={focusInset} ref={buttonRef} onClick={onClick}>
+          <StyledButton focusInset={focusInset} ref={buttonRef} onClick={onClick} {...buttonProps}>
             <StyledButtonPreview backgroundColor={isControlled ? color : uncontrolledColor} />
             {/* eslint-disable-next-line no-eq-null, eqeqeq */}
             <Button.EndIcon isRotated={referenceElement != null}>
@@ -170,7 +175,8 @@ ColorpickerDialog.propTypes = {
   onChange: PropTypes.func,
   labels: PropTypes.object,
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
-  defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string])
+  defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
+  buttonProps: PropTypes.object
 };
 
 ColorpickerDialog.defaultProps = {

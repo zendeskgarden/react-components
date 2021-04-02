@@ -45,6 +45,7 @@ export const Controlled: Story = ({
             disabled={disabled}
             hasArrow={hasArrow}
             isAnimated={isAnimated}
+            buttonProps={{ 'aria-label': 'select your favorite color' }}
           />
         </Col>
         <Col>
