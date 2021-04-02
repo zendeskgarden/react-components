@@ -28,8 +28,6 @@ interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Indicates that the element's menu is open */
-  isOpen?: boolean;
   /** Defines the element's validation state */
   validation?: VALIDATION;
   /** Defines the icon rendered before the element's content */
@@ -269,6 +267,5 @@ Select.propTypes = {
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
   focusInset: PropTypes.bool,
-  isOpen: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };

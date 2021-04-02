@@ -24,8 +24,6 @@ interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Indicates that the element's menu is open */
-  isOpen?: boolean;
   /** Defines the element's validation state */
   validation?: VALIDATION;
   /** Provides ref access to the underlying input element */
@@ -149,13 +147,9 @@ Autocomplete.displayName = 'Autocomplete';
 
 Autocomplete.propTypes = {
   isCompact: PropTypes.bool,
-  /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
-  /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  /** Displays select open state */
-  isOpen: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
 
