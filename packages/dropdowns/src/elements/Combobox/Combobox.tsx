@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ComponentPropsWithoutRef, KeyboardEvent } from 'react';
+import React, { ComponentPropsWithoutRef, KeyboardEvent, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { KEY_CODES, useCombinedRefs } from '@zendeskgarden/container-utilities';
@@ -90,7 +90,9 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
       }
     });
 
-    setDropdownType('combobox');
+    useEffect(() => {
+      setDropdownType('combobox');
+    }, [setDropdownType]);
 
     return (
       <Reference>
