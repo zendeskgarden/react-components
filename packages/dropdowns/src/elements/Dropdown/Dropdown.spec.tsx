@@ -241,7 +241,7 @@ describe('Dropdown', () => {
       container.querySelector('input')!.readOnly = false;
       userEvent.type(container.querySelector('input')!, 't');
 
-      expect(onInputValueChangeSpy.mock.calls[0][0]).toBe('t');
+      expect(onInputValueChangeSpy.mock.calls[1][0]).toBe('t');
     });
   });
 });

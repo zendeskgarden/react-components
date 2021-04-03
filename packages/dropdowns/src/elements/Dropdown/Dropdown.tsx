@@ -161,8 +161,8 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
           if (onInputValueChange) {
             if (stateAndHelpers.isOpen) {
               onInputValueChange(inputVal, stateAndHelpers);
-            } else {
-              // onInputValueChange('', stateAndHelpers);
+            } else if (dropdownType !== 'combobox') {
+              onInputValueChange('', stateAndHelpers);
             }
           }
         }}
