@@ -101,7 +101,7 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
             // Pass ref to Popper for positioning
             (popperReference as any)(element);
 
-            // Store ref locally to return focus on close
+            // Store ref locally
             (wrapperRef as any).current = element;
 
             // Apply wrapper to global Dropdown context

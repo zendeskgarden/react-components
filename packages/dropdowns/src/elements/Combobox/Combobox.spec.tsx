@@ -73,6 +73,7 @@ describe('Combobox', () => {
 
       userEvent.click(combobox);
 
+      expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
 
@@ -81,8 +82,10 @@ describe('Combobox', () => {
       const combobox = getByTestId('combobox');
 
       userEvent.type(combobox.querySelector('input')!, '{arrowdown}');
+      expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
       userEvent.type(combobox.querySelector('input')!, '{arrowup}');
+      expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
 
@@ -93,6 +96,7 @@ describe('Combobox', () => {
 
       userEvent.type(input, '{enter}');
 
+      expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
 
@@ -102,6 +106,7 @@ describe('Combobox', () => {
       const input = combobox.querySelector('input')!;
 
       userEvent.type(input, 'test');
+      expect(combobox).toHaveAttribute('aria-expanded', 'true');
       expect(combobox).toHaveAttribute('aria-owns');
     });
 
@@ -165,8 +170,10 @@ describe('Combobox', () => {
       const input = combobox.querySelector('input')!;
 
       userEvent.type(input, '{space}');
+      expect(combobox).toHaveAttribute('aria-expanded', 'true');
       expect(combobox).toHaveAttribute('aria-owns');
       userEvent.type(input, '{backspace}');
+      expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
 
@@ -176,8 +183,10 @@ describe('Combobox', () => {
       const input = combobox.querySelector('input')!;
 
       userEvent.type(input, 'test');
+      expect(combobox).toHaveAttribute('aria-expanded', 'true');
       expect(combobox).toHaveAttribute('aria-owns');
       userEvent.type(input, '{escape}');
+      expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
   });
