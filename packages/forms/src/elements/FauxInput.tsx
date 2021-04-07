@@ -80,8 +80,8 @@ export const FauxInput = forwardRef<HTMLDivElement, IFauxInputProps>(
         isReadOnly={readOnly}
         isDisabled={disabled}
         tabIndex={disabled ? undefined : 0}
-        ref={ref as RefObject<HTMLInputElement>}
         {...props}
+        ref={ref as RefObject<HTMLInputElement>}
       />
     );
   }
