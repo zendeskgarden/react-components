@@ -11,6 +11,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.36.1 (2021-04-07)
+
+#### :bug: Bug Fix
+
+- `colorpickers`
+  - [#1074](https://github.com/zendeskgarden/react-components/pull/1074) fix(colorpickers): override tooltip modal width ([@hzhu](https://github.com/hzhu))
 ## v8.36.0 (2021-04-07)
 
 #### :rocket: New Feature
