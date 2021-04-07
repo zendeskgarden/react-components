@@ -12,11 +12,16 @@ import { COLORPICKER_WIDTH } from '../Colorpicker/StyledColorPicker';
 
 const COMPONENT_ID = 'colorpickers.colordialog_tooltipmodal';
 
+/**
+ * 1. Override default TooltipModal styling
+ */
 export const StyledTooltipModal = styled(TooltipModal as any).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  width: ${props => COLORPICKER_WIDTH + props.theme.space.base * 10}px;
+  /* stylelint-disable declaration-no-important */
+  width: ${props => COLORPICKER_WIDTH + props.theme.space.base * 10}px !important; /* [1] */
+  /* stylelint-enable declaration-no-important */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
