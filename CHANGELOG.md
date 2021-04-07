@@ -11,6 +11,43 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.36.0 (2021-04-07)
+
+#### :rocket: New Feature
+
+- `dropdowns`, `forms`
+  - [#1073](https://github.com/zendeskgarden/react-components/pull/1073) feat(dropdowns): new combobox component ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+
+- `colorpickers`
+  - [#1071](https://github.com/zendeskgarden/react-components/pull/1071) fix(colorpickers): allow props to be applied to color dialog trigger ([@hzhu](https://github.com/hzhu))
+- `notifications`
+  - [#1072](https://github.com/zendeskgarden/react-components/pull/1072) fix(notifications): use IE11 compatible react-uid ([@hzhu](https://github.com/hzhu))
+- `dropdowns`
+  - [#1059](https://github.com/zendeskgarden/react-components/pull/1059) fix(dropdowns): ensure current theme is passed to underlying FauxInput ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+
+- Other
+  - [#1068](https://github.com/zendeskgarden/react-components/pull/1068) chore(deps): update dependency inquirer to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#1069](https://github.com/zendeskgarden/react-components/pull/1069) chore(deps): update dependency lerna to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#1064](https://github.com/zendeskgarden/react-components/pull/1064) chore(deps): update dependency @rollup/plugin-commonjs to v18 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#1070](https://github.com/zendeskgarden/react-components/pull/1070) chore: upgrade husky and stylelint ([@jzempel](https://github.com/jzempel))
+  - [#1067](https://github.com/zendeskgarden/react-components/pull/1067) chore(deps): update dependency husky to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#1066](https://github.com/zendeskgarden/react-components/pull/1066) chore(deps): update dependency @zendeskgarden/stylelint-config to v16 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#1061](https://github.com/zendeskgarden/react-components/pull/1061) chore(deps): update node orb to v4.2.1 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#1058](https://github.com/zendeskgarden/react-components/pull/1058) chore: add "primary hue" tool to storybook ([@jzempel](https://github.com/jzempel))
+- `datepickers`, `dropdowns`
+  - [#1065](https://github.com/zendeskgarden/react-components/pull/1065) chore(deps): update dependency @testing-library/user-event to v13 ([@renovate[bot]](https://github.com/apps/renovate))
+- `accordions`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  - [#1063](https://github.com/zendeskgarden/react-components/pull/1063) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+- `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  - [#1062](https://github.com/zendeskgarden/react-components/pull/1062) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+- `colorpickers`, `forms`, `loaders`, `pagination`
+  - [#1051](https://github.com/zendeskgarden/react-components/pull/1051) chore(deps): upgrade styled-components to v5 ([@austingreendev](https://github.com/austingreendev))
+- `colorpickers`, `forms`
+  - [#1060](https://github.com/zendeskgarden/react-components/pull/1060) chore(forms, colorpickers): provide mechanism for removing Range lower track ([@jzempel](https://github.com/jzempel))
 ## v8.35.0 (2021-03-24)
 
 #### :rocket: New Feature
