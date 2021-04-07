@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "8.35.0",
+  "version": "8.36.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/lodash.debounce": "4.0.6",
-    "@zendeskgarden/react-theming": "^8.35.0"
+    "@zendeskgarden/react-theming": "^8.36.0"
   },
   "keywords": [
     "components",
