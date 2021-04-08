@@ -18,6 +18,7 @@
     "lint:js": "eslint packages/*/src/ utils/ .storybook/ --ext js,ts,tsx --max-warnings 0",
     "lint:md": "markdownlint README.md docs/*.md stories/**/*.md packages/*/examples/*.md packages/*/src/**/*.md packages/*/README.md",
     "new": "utils/scripts/new.js",
+    "prepare": "yarn build",
     "start": "start-storybook -s ./utils/storybook -p 6006",
     "tag": "utils/scripts/tag.js",
     "test": "yarn test:all --watch",
