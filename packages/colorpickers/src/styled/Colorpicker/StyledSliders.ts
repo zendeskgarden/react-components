@@ -15,11 +15,14 @@ export const StyledSliders = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  position: relative;
   /* stylelint-disable property-no-unknown */
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 2}px;
   width: 100%;
 
   & > * {
+    position: absolute;
+    width: 100%;
     height: ${props => getTrackMargin(props.theme) * 2 + getTrackHeight(props.theme)}px;
   }
 
@@ -28,7 +31,7 @@ export const StyledSliders = styled.div.attrs({
   }
 
   & > :last-child {
-    bottom: ${props => getTrackHeight(props.theme) - getTrackMargin(props.theme)}px;
+    bottom: -${props => getTrackMargin(props.theme)}px;
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
