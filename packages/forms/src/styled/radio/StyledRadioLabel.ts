@@ -40,6 +40,8 @@ export const StyledRadioLabel = styled(StyledLabel).attrs({
   position: relative;
   cursor: pointer;
   user-select: none;
+  font-weight: ${props =>
+    props.isRegular === false ? props.theme.fontWeights.semibold : props.theme.fontWeights.regular};
 
   ${props => sizeStyles(props)};
 
