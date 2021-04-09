@@ -37,6 +37,9 @@ export { Tiles } from './elements/tiles/Tiles';
 export { InputGroup } from './elements/input-group/InputGroup';
 export type { IInputGroupProps } from './elements/input-group/InputGroup';
 
+/** Radio Group */
+export { RadioGroup } from './elements/radio-group/RadioGroup';
+
 /** File Upload */
 export { FileUpload } from './elements/FileUpload';
 export type { IFileUploadProps } from './elements/FileUpload';
