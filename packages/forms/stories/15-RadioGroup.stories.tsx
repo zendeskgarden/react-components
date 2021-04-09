@@ -1,0 +1,72 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React, { InputHTMLAttributes } from 'react';
+import { Meta, Story } from '@storybook/react';
+import { MD } from '@zendeskgarden/react-typography';
+import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Field, Label, Hint, Radio, Message, RadioGroup } from '@zendeskgarden/react-forms';
+
+import { ICheckboxStoryProps, CHECKBOX_ARGS, CHECKBOX_ARGS_TYPES } from './story-types';
+
+export default {
+  title: 'Components/Forms/RadioGroup',
+  component: RadioGroup,
+  subcomponents: { Field, Label, Hint, Message, Radio }
+} as Meta;
+
+export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputElement>> = ({
+  disabled,
+  validation,
+  isRegular,
+  isHidden,
+  showHint,
+  showMessage
+}) => {
+  return (
+    <Grid>
+      <Row style={{ minHeight: 450 }}>
+        <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
+          <MD isBold>Radio group label</MD>
+          <RadioGroup aria-label="radio group label">
+            <Field>
+              <Radio disabled={disabled} name="example">
+                <Label hidden={isHidden} isRegular={isRegular}>
+                  Radio
+                </Label>
+                {showHint && <Hint>Hint</Hint>}
+                {showMessage && <Message validation={validation}>Message</Message>}
+              </Radio>
+            </Field>
+            <Field className="u-mt-xxs">
+              <Radio disabled={disabled} name="example">
+                <Label hidden={isHidden} isRegular={isRegular}>
+                  Radio
+                </Label>
+                {showHint && <Hint>Hint</Hint>}
+                {showMessage && <Message validation={validation}>Message</Message>}
+              </Radio>
+            </Field>
+          </RadioGroup>
+        </Col>
+      </Row>
+    </Grid>
+  );
+};
+
+Default.args = {
+  ...CHECKBOX_ARGS
+};
+
+Default.argTypes = {
+  ...CHECKBOX_ARGS_TYPES,
+  indeterminate: {
+    table: {
+      disable: true
+    }
+  }
+};
