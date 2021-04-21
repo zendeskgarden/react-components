@@ -11,6 +11,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.36.2 (2021-04-21)
+
+#### :bug: Bug Fix
+
+- `colorpickers`
+  - [#1075](https://github.com/zendeskgarden/react-components/pull/1075) fix(colorpickers): stabilize slider position styling ([@jzempel](https://github.com/jzempel))
 ## v8.36.1 (2021-04-07)
 
 #### :bug: Bug Fix
