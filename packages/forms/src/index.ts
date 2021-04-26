@@ -9,7 +9,7 @@
 export { Field } from './elements/common/Field';
 export type { IFieldProps } from './elements/common/Field';
 export { Fieldset } from './elements/common/Fieldset';
-export { Legend } from './elements/common/Legend';
+export type { IFieldsetProps } from './elements/common/Fieldset';
 
 export { Hint } from './elements/common/Hint';
 export { Label } from './elements/common/Label';

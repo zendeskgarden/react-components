@@ -17,7 +17,9 @@ export const StyledFieldset = styled.fieldset.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  margin: 0; /* [1] */
   border: 0; /* [1] */
+  padding: 0; /* [1] */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

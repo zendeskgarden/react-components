@@ -8,19 +8,23 @@
 import React, { InputHTMLAttributes } from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { Field, Label, Hint, Radio, Message, Fieldset, Legend } from '@zendeskgarden/react-forms';
+import { Field, Label, Hint, Radio, Message, Fieldset } from '@zendeskgarden/react-forms';
 
-import { ICheckboxStoryProps, CHECKBOX_ARGS, CHECKBOX_ARGS_TYPES } from './story-types';
+import { IFieldsetStoryProps, FIELDSET_ARGS, FIELDSET_ARGS_TYPES } from './story-types';
 
 export default {
   title: 'Components/Forms/Fieldset',
   component: Fieldset,
-  subcomponents: { Fieldset, Legend, Field, Label, Hint, Message, Radio }
+  subcomponents: {
+    Fieldset,
+    'Fieldset.Legend': Fieldset.Legend
+  }
 } as Meta;
 
-export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputElement>> = ({
+export const Default: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInputElement>> = ({
   disabled,
   validation,
+  isCompact,
   isRegular,
   isHidden,
   showHint,
@@ -30,21 +34,17 @@ export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputE
     <Grid>
       <Row style={{ minHeight: 450 }}>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
-          <Fieldset>
-            <Legend>Choose a growth type</Legend>
+          <Fieldset isCompact={isCompact} disabled={disabled}>
+            <Fieldset.Legend isHidden={isHidden}>Choose a growth type</Fieldset.Legend>
             <Field>
-              <Radio value="annual" disabled={disabled} name="example">
-                <Label hidden={isHidden} isRegular={isRegular}>
-                  Annual
-                </Label>
+              <Radio value="annual" name="example">
+                <Label isRegular={isRegular}>Annual</Label>
                 {showHint && <Hint>Hint</Hint>}
               </Radio>
             </Field>
             <Field>
-              <Radio value="perennial" disabled={disabled} name="example">
-                <Label hidden={isHidden} isRegular={isRegular}>
-                  Perennial
-                </Label>
+              <Radio value="perennial" name="example">
+                <Label isRegular={isRegular}>Perennial</Label>
                 {showHint && <Hint>Hint</Hint>}
                 {showMessage && <Message validation={validation}>Message</Message>}
               </Radio>
@@ -57,14 +57,9 @@ export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputE
 };
 
 Default.args = {
-  ...CHECKBOX_ARGS
+  ...FIELDSET_ARGS
 };
 
 Default.argTypes = {
-  ...CHECKBOX_ARGS_TYPES,
-  indeterminate: {
-    table: {
-      disable: true
-    }
-  }
+  ...FIELDSET_ARGS_TYPES
 };
