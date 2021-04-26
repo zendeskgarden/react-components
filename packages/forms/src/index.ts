@@ -8,6 +8,8 @@
 /** Common */
 export { Field } from './elements/common/Field';
 export type { IFieldProps } from './elements/common/Field';
+export { Fieldset } from './elements/common/Fieldset';
+export { Legend } from './elements/common/Legend';
 
 export { Hint } from './elements/common/Hint';
 export { Label } from './elements/common/Label';
@@ -36,9 +38,6 @@ export { Tiles } from './elements/tiles/Tiles';
 /** Input Group */
 export { InputGroup } from './elements/input-group/InputGroup';
 export type { IInputGroupProps } from './elements/input-group/InputGroup';
-
-/** Radio Group */
-export { RadioGroup } from './elements/radio-group/RadioGroup';
 
 /** File Upload */
 export { FileUpload } from './elements/FileUpload';

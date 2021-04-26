@@ -9,6 +9,8 @@
  * Common styles
  */
 export * from './common/StyledField';
+export * from './common/StyledFieldset';
+export * from './common/StyledLegend';
 export * from './common/StyledHint';
 export * from './common/StyledLabel';
 export * from './common/StyledMessage';

@@ -7,16 +7,15 @@
 
 import React, { InputHTMLAttributes } from 'react';
 import { Meta, Story } from '@storybook/react';
-import { MD } from '@zendeskgarden/react-typography';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { Field, Label, Hint, Radio, Message, RadioGroup } from '@zendeskgarden/react-forms';
+import { Field, Label, Hint, Radio, Message, Fieldset, Legend } from '@zendeskgarden/react-forms';
 
 import { ICheckboxStoryProps, CHECKBOX_ARGS, CHECKBOX_ARGS_TYPES } from './story-types';
 
 export default {
-  title: 'Components/Forms/RadioGroup',
-  component: RadioGroup,
-  subcomponents: { Field, Label, Hint, Message, Radio }
+  title: 'Components/Forms/Fieldset',
+  component: Fieldset,
+  subcomponents: { Fieldset, Legend, Field, Label, Hint, Message, Radio }
 } as Meta;
 
 export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputElement>> = ({
@@ -31,27 +30,26 @@ export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputE
     <Grid>
       <Row style={{ minHeight: 450 }}>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
-          <MD isBold>Radio group label</MD>
-          <RadioGroup aria-label="radio group label">
+          <Fieldset>
+            <Legend>Choose a growth type</Legend>
             <Field>
-              <Radio disabled={disabled} name="example">
+              <Radio value="annual" disabled={disabled} name="example">
                 <Label hidden={isHidden} isRegular={isRegular}>
-                  Radio
+                  Annual
+                </Label>
+                {showHint && <Hint>Hint</Hint>}
+              </Radio>
+            </Field>
+            <Field>
+              <Radio value="perennial" disabled={disabled} name="example">
+                <Label hidden={isHidden} isRegular={isRegular}>
+                  Perennial
                 </Label>
                 {showHint && <Hint>Hint</Hint>}
                 {showMessage && <Message validation={validation}>Message</Message>}
               </Radio>
             </Field>
-            <Field className="u-mt-xxs">
-              <Radio disabled={disabled} name="example">
-                <Label hidden={isHidden} isRegular={isRegular}>
-                  Radio
-                </Label>
-                {showHint && <Hint>Hint</Hint>}
-                {showMessage && <Message validation={validation}>Message</Message>}
-              </Radio>
-            </Field>
-          </RadioGroup>
+          </Fieldset>
         </Col>
       </Row>
     </Grid>
