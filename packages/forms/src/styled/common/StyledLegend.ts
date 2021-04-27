@@ -13,7 +13,6 @@ const COMPONENT_ID = 'forms.fieldset_legend';
 
 interface IStyledLegend {
   isCompact?: boolean;
-  isHidden?: boolean;
 }
 
 export const StyledLegend = styled.legend.attrs({
@@ -22,7 +21,11 @@ export const StyledLegend = styled.legend.attrs({
 })<IStyledLegend>`
   margin-bottom: ${props =>
     props.isCompact ? props.theme.space.base : props.theme.space.base * 2}px;
-  ${props => props.isHidden && hideVisually()}
+
+  &[hidden] {
+    ${hideVisually()};
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

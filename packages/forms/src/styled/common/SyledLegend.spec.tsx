@@ -27,11 +27,11 @@ describe('StyledLegend', () => {
     expect(legend).toHaveStyleRule('margin-bottom', '4px');
   });
 
-  it('renders hidden styling', () => {
-    render(<StyledLegend isHidden>Example Legend Text</StyledLegend>);
+  it('renders expected hidden styling', () => {
+    render(<StyledLegend hidden>Example Legend Text</StyledLegend>);
 
     const legend = screen.getByText('Example Legend Text');
 
-    expect(legend).toHaveStyleRule('clip', 'rect(0 0 0 0)');
+    expect(legend).toHaveStyleRule('clip', 'rect(0 0 0 0)', { modifier: '[hidden]' });
   });
 });
