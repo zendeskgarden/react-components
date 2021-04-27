@@ -31,7 +31,7 @@ export const Default: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInputE
 }) => {
   return (
     <Grid>
-      <Row style={{ minHeight: 450 }}>
+      <Row>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Fieldset isCompact={isCompact} disabled={disabled}>
             <Fieldset.Legend isHidden={isHidden}>Choose a growth type</Fieldset.Legend>
