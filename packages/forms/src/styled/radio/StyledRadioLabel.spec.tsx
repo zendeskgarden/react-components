@@ -8,7 +8,6 @@
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { StyledRadioLabel } from './StyledRadioLabel';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledRadioLabel', () => {
   it('renders the expected element', () => {
@@ -28,23 +27,5 @@ describe('StyledRadioLabel', () => {
     const { container } = renderRtl(<StyledRadioLabel />);
 
     expect(container.firstChild).toHaveStyleRule('padding-right', '24px');
-  });
-
-  it('renders default styling', () => {
-    const { container } = render(<StyledRadioLabel />);
-
-    expect(container.firstChild).toHaveStyleRule(
-      'font-weight',
-      DEFAULT_THEME.fontWeights.regular.toString()
-    );
-  });
-
-  it('renders regular font weight when isRegular is set to false', () => {
-    const { container } = render(<StyledRadioLabel isRegular={false} />);
-
-    expect(container.firstChild).toHaveStyleRule(
-      'font-weight',
-      DEFAULT_THEME.fontWeights.semibold.toString()
-    );
   });
 });
