@@ -49,7 +49,7 @@ export const INPUT_ARGS = {
 export const FIELDSET_ARGS = {
   isHidden: false,
   disabled: false,
-  showHint: true,
+  showHint: false,
   showMessage: true
 };
 
