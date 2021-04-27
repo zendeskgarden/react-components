@@ -6,8 +6,8 @@
  */
 
 import styled from 'styled-components';
-import { hideVisually } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledLabel } from './StyledLabel';
 
 const COMPONENT_ID = 'forms.fieldset_legend';
 
@@ -15,16 +15,17 @@ interface IStyledLegend {
   isCompact?: boolean;
 }
 
-export const StyledLegend = styled.legend.attrs({
+/**
+ * 1. Reset for <legend>.
+ */
+export const StyledLegend = styled(StyledLabel).attrs({
+  as: 'legend',
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledLegend>`
   margin-bottom: ${props =>
     props.isCompact ? props.theme.space.base : props.theme.space.base * 2}px;
-
-  &[hidden] {
-    ${hideVisually()};
-  }
+  padding: 0; /* [1] */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
