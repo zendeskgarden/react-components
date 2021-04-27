@@ -22,7 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "polished": "^4.0.0",
-    "prop-types": "^15.5.7"
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",
