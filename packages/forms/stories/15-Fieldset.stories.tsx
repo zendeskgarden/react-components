@@ -8,7 +8,16 @@
 import React, { InputHTMLAttributes } from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { Field, Label, Hint, Radio, Message, Fieldset } from '@zendeskgarden/react-forms';
+import {
+  Field,
+  Label,
+  Hint,
+  Radio,
+  Checkbox,
+  Toggle,
+  Message,
+  Fieldset
+} from '@zendeskgarden/react-forms';
 
 import { IFieldsetStoryProps, FIELDSET_ARGS, FIELDSET_ARGS_TYPES } from './story-types';
 
@@ -21,7 +30,7 @@ export default {
   }
 } as Meta;
 
-export const Default: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInputElement>> = ({
+export const RadioGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInputElement>> = ({
   disabled,
   validation,
   isCompact,
@@ -55,10 +64,94 @@ export const Default: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInputE
   );
 };
 
-Default.args = {
+RadioGroup.args = {
   ...FIELDSET_ARGS
 };
 
-Default.argTypes = {
+RadioGroup.argTypes = {
+  ...FIELDSET_ARGS_TYPES
+};
+
+export const CheckboxGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInputElement>> = ({
+  disabled,
+  validation,
+  isCompact,
+  isHidden,
+  showHint,
+  showMessage
+}) => {
+  return (
+    <Grid>
+      <Row>
+        <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
+          <Fieldset isCompact={isCompact} disabled={disabled}>
+            <Fieldset.Legend hidden={isHidden}>Choose growth types</Fieldset.Legend>
+            <Field>
+              <Checkbox>
+                <Label>Annual</Label>
+                {showHint && <Hint>Hint</Hint>}
+              </Checkbox>
+            </Field>
+            <Field>
+              <Checkbox>
+                <Label>Perennial</Label>
+                {showHint && <Hint>Hint</Hint>}
+                {showMessage && <Message validation={validation}>Message</Message>}
+              </Checkbox>
+            </Field>
+          </Fieldset>
+        </Col>
+      </Row>
+    </Grid>
+  );
+};
+
+CheckboxGroup.args = {
+  ...FIELDSET_ARGS
+};
+
+CheckboxGroup.argTypes = {
+  ...FIELDSET_ARGS_TYPES
+};
+
+export const ToggleGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInputElement>> = ({
+  disabled,
+  validation,
+  isCompact,
+  isHidden,
+  showHint,
+  showMessage
+}) => {
+  return (
+    <Grid>
+      <Row>
+        <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
+          <Fieldset isCompact={isCompact} disabled={disabled}>
+            <Fieldset.Legend hidden={isHidden}>Toggle a growth types</Fieldset.Legend>
+            <Field style={{ marginBottom: '4px' }}>
+              <Toggle>
+                <Label>Annual</Label>
+                {showHint && <Hint>Hint</Hint>}
+              </Toggle>
+            </Field>
+            <Field>
+              <Toggle>
+                <Label>Perennial</Label>
+                {showHint && <Hint>Hint</Hint>}
+                {showMessage && <Message validation={validation}>Message</Message>}
+              </Toggle>
+            </Field>
+          </Fieldset>
+        </Col>
+      </Row>
+    </Grid>
+  );
+};
+
+ToggleGroup.args = {
+  ...FIELDSET_ARGS
+};
+
+ToggleGroup.argTypes = {
   ...FIELDSET_ARGS_TYPES
 };
