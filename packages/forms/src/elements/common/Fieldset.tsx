@@ -28,7 +28,7 @@ interface IStaticFieldsetExport<T, P>
 
 /* eslint-disable react/display-name */
 /**
- * @extends HTMLAttributes<HTMLFieldSetElement>
+ * @extends FieldsetHTMLAttributes<HTMLFieldSetElement>
  */
 export const Fieldset = forwardRef<HTMLFieldSetElement, IFieldsetProps>((props, ref) => {
   const fieldsetContext = useMemo(
