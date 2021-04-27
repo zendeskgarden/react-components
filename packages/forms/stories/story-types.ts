@@ -47,7 +47,6 @@ export const INPUT_ARGS = {
 };
 
 export const FIELDSET_ARGS = {
-  isRegular: false,
   isHidden: false,
   disabled: false,
   showHint: true,
@@ -114,9 +113,6 @@ export const INPUT_ARG_TYPES = {
 export const FIELDSET_ARGS_TYPES = {
   isHidden: {
     name: 'Hidden legend'
-  },
-  isRegular: {
-    name: 'Regular weight label'
   },
   disabled: {
     name: 'Disabled'

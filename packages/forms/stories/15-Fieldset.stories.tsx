@@ -25,7 +25,6 @@ export const Default: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInputE
   disabled,
   validation,
   isCompact,
-  isRegular,
   isHidden,
   showHint,
   showMessage
@@ -38,13 +37,13 @@ export const Default: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInputE
             <Fieldset.Legend isHidden={isHidden}>Choose a growth type</Fieldset.Legend>
             <Field>
               <Radio value="annual" name="example">
-                <Label isRegular={isRegular}>Annual</Label>
+                <Label>Annual</Label>
                 {showHint && <Hint>Hint</Hint>}
               </Radio>
             </Field>
             <Field>
               <Radio value="perennial" name="example">
-                <Label isRegular={isRegular}>Perennial</Label>
+                <Label>Perennial</Label>
                 {showHint && <Hint>Hint</Hint>}
                 {showMessage && <Message validation={validation}>Message</Message>}
               </Radio>
