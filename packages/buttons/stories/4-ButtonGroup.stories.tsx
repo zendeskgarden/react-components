@@ -15,7 +15,7 @@ export default {
   component: ButtonGroup
 } as Meta;
 
-export const Default: Story = ({ disabled, isPrimary, isDanger, size, isPill }) => {
+export const Default: Story = ({ disabled, isNeutral, isPrimary, isDanger, size, isPill }) => {
   const [selectedItem, setSelectedItem] = useState('button-1');
 
   return (
@@ -25,6 +25,7 @@ export const Default: Story = ({ disabled, isPrimary, isDanger, size, isPill }) 
           <ButtonGroup selectedItem={selectedItem} onSelect={setSelectedItem}>
             <Button
               value="button-1"
+              isNeutral={isNeutral}
               isPrimary={isPrimary}
               isDanger={isDanger}
               isPill={isPill}
@@ -35,6 +36,7 @@ export const Default: Story = ({ disabled, isPrimary, isDanger, size, isPill }) 
             </Button>
             <Button
               value="button-2"
+              isNeutral={isNeutral}
               isPrimary={isPrimary}
               isDanger={isDanger}
               isPill={isPill}
@@ -45,6 +47,7 @@ export const Default: Story = ({ disabled, isPrimary, isDanger, size, isPill }) 
             </Button>
             <Button
               value="button-3"
+              isNeutral={isNeutral}
               isPrimary={isPrimary}
               isDanger={isDanger}
               isPill={isPill}
@@ -64,6 +67,9 @@ Default.argTypes = {
   disabled: {
     control: 'boolean'
   },
+  isNeutral: {
+    control: 'boolean'
+  },
   isPrimary: {
     control: 'boolean'
   },
@@ -71,7 +77,7 @@ Default.argTypes = {
     control: 'boolean'
   },
   size: {
-    control: { type: 'select', options: ['small', 'medium', 'large'] }
+    control: { type: 'radio', options: ['small', 'medium', 'large'] }
   },
   isPill: {
     control: 'boolean'
