@@ -26,7 +26,7 @@ export default {
 
 export const Default: Story<
   IInputGroupProps & InputHTMLAttributes<HTMLInputElement> & { isHidden: boolean }
-> = ({ isCompact, isHidden, readOnly, disabled }) => {
+> = ({ isCompact, isHidden, isNeutral, readOnly, disabled }) => {
   return (
     <Grid>
       <Row>
@@ -34,14 +34,29 @@ export const Default: Story<
           <Field>
             <Label hidden={isHidden}>Input Group</Label>
             <InputGroup isCompact={isCompact}>
-              <Button focusInset disabled={disabled} size={isCompact ? 'small' : undefined}>
+              <Button
+                focusInset
+                disabled={disabled}
+                isNeutral={isNeutral}
+                size={isCompact ? 'small' : undefined}
+              >
                 A
               </Button>
-              <Button focusInset disabled={disabled} size={isCompact ? 'small' : undefined}>
+              <Button
+                focusInset
+                disabled={disabled}
+                isNeutral={isNeutral}
+                size={isCompact ? 'small' : undefined}
+              >
                 B
               </Button>
               <Input placeholder="Input content" readOnly={readOnly} disabled={disabled} />
-              <Button focusInset disabled={disabled} size={isCompact ? 'small' : undefined}>
+              <Button
+                focusInset
+                disabled={disabled}
+                isNeutral={isNeutral}
+                size={isCompact ? 'small' : undefined}
+              >
                 Copy
               </Button>
             </InputGroup>
@@ -63,5 +78,8 @@ Default.args = {
 Default.argTypes = {
   isHidden: {
     name: 'Hidden label'
+  },
+  isNeutral: {
+    control: 'boolean'
   }
 };
