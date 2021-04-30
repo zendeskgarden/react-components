@@ -75,6 +75,8 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
 
     & > ${StyledTextInput}:hover,
     & > button:hover,
+    & > ${StyledTextInput}[data-garden-focus-visible],
+    & > button[data-garden-focus-visible],
     & > ${StyledTextInput}:active,
     & > button:active {
       z-index: 1;
