@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, SVGAttributes } from 'react';
+import React, { ButtonHTMLAttributes, SVGAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton, StyledIcon } from '../styled';
+import { ButtonContext, useButtonContext } from '../utils/useButtonContext';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
@@ -58,7 +59,16 @@ const Button: React.FunctionComponent<
     });
   }
 
-  return <StyledButton ref={ref} {...computedProps} />;
+  const contextValue = useMemo(() => ({ isNeutral: props.isNeutral, isPrimary: props.isPrimary }), [
+    props.isNeutral,
+    props.isPrimary
+  ]);
+
+  return (
+    <ButtonContext.Provider value={contextValue}>
+      <StyledButton ref={ref} {...computedProps} />
+    </ButtonContext.Provider>
+  );
 });
 
 Button.propTypes = {
@@ -83,8 +93,31 @@ export interface IIconProps extends SVGAttributes<SVGSVGElement> {
   children: any;
 }
 
-const StartIcon = (props: IIconProps) => <StyledIcon position="start" {...props} />;
-const EndIcon = (props: IIconProps) => <StyledIcon position="end" {...props} />;
+const StartIcon = (props: IIconProps) => {
+  const buttonContext = useButtonContext() || {};
+
+  return (
+    <StyledIcon
+      position="start"
+      isNeutral={buttonContext.isNeutral}
+      isPrimary={buttonContext.isPrimary}
+      {...props}
+    />
+  );
+};
+
+const EndIcon = (props: IIconProps) => {
+  const buttonContext = useButtonContext() || {};
+
+  return (
+    <StyledIcon
+      position="end"
+      isNeutral={buttonContext.isNeutral}
+      isPrimary={buttonContext.isPrimary}
+      {...props}
+    />
+  );
+};
 
 (Button as any).StartIcon = StartIcon;
 (Button as any).EndIcon = EndIcon;

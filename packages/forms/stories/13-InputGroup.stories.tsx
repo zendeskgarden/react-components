@@ -25,7 +25,8 @@ export default {
 } as Meta;
 
 export const Default: Story<
-  IInputGroupProps & InputHTMLAttributes<HTMLInputElement> & { isHidden: boolean }
+  IInputGroupProps &
+    InputHTMLAttributes<HTMLInputElement> & { isHidden: boolean; isNeutral: boolean }
 > = ({ isCompact, isHidden, isNeutral, readOnly, disabled }) => {
   return (
     <Grid>

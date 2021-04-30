@@ -13,6 +13,8 @@ const COMPONENT_ID = 'buttons.icon';
 
 interface IStyledIconProps {
   isRotated: boolean;
+  isNeutral?: boolean;
+  isPrimary?: boolean;
   position?: 'start' | 'end';
 }
 
