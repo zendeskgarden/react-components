@@ -16,6 +16,7 @@ const COMPONENT_ID = 'colorpickers.colordialog_button';
  * 2. Input group border overrides.
  */
 export const StyledButton = styled(Button as any).attrs({
+  isNeutral: true,
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
