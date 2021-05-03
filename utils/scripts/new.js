@@ -96,7 +96,8 @@ const updateStoryReadme = ({ packageName }) => {
     '1-Readme.stories.mdx'
   );
 
-  fs.readFile(storyPath, 'utf-8')
+  return fs
+    .readFile(storyPath, 'utf-8')
     .then(originalStory => {
       const template = handlebars.compile(originalStory);
       const newStoryContent = template({
@@ -119,7 +120,8 @@ const updateStory = ({ packageName }) => {
     '2-Example.stories.tsx'
   );
 
-  fs.readFile(storyPath, 'utf-8')
+  return fs
+    .readFile(storyPath, 'utf-8')
     .then(originalStory => {
       const template = handlebars.compile(originalStory);
       const newStoryContent = template({
