@@ -127,7 +127,7 @@ export const ToggleGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLIn
       <Row>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Fieldset isCompact={isCompact} disabled={disabled}>
-            <Fieldset.Legend hidden={isHidden}>Toggle a growth types</Fieldset.Legend>
+            <Fieldset.Legend hidden={isHidden}>Toggle growth types</Fieldset.Legend>
             <Field style={{ marginBottom: '4px' }}>
               <Toggle>
                 <Label>Annual</Label>
