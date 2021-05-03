@@ -40,10 +40,6 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
     {
       start,
       end,
-      onFocus,
-      onBlur,
-      onMouseOver,
-      onMouseOut,
       disabled,
       isCompact,
       isBare,
@@ -59,11 +55,36 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
   ) => {
     const fieldContext = useFieldContext();
     const inputRef = useCombinedRefs(ref);
+    const [isFocused, setIsFocused] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
 
-    const { onClick, ...otherWrapperProps } = wrapperProps;
+    const {
+      onClick,
+      onFocus,
+      onBlur,
+      onMouseOver,
+      onMouseOut,
+      ...otherWrapperProps
+    } = wrapperProps;
 
     const onFauxInputClickHandler = composeEventHandlers(onClick, () => {
       inputRef.current && inputRef.current.focus();
+    });
+
+    const onFauxInputFocusHandler = composeEventHandlers(onFocus, () => {
+      setIsFocused(true);
+    });
+
+    const onFauxInputBlurHandler = composeEventHandlers(onBlur, () => {
+      setIsFocused(false);
+    });
+
+    const onFauxInputMouseOverHandler = composeEventHandlers(onMouseOver, () => {
+      setIsHovered(true);
+    });
+
+    const onFauxInputMouseOutHandler = composeEventHandlers(onMouseOut, () => {
+      setIsHovered(false);
     });
 
     const onSelectHandler = readOnly
@@ -80,26 +101,6 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       ...props
     };
 
-    const [isFocused, setIsFocused] = useState(false);
-
-    const onFocusHandler = composeEventHandlers(onFocus, () => {
-      setIsFocused(true);
-    });
-
-    const onBlurHandler = composeEventHandlers(onBlur, () => {
-      setIsFocused(false);
-    });
-
-    const [isHovered, setIsHovered] = useState(false);
-
-    const onMouseOverHandler = composeEventHandlers(onMouseOver, () => {
-      setIsHovered(true);
-    });
-
-    const onMouseOutHandler = composeEventHandlers(onMouseOut, () => {
-      setIsHovered(false);
-    });
-
     let isLabelHovered;
 
     if (fieldContext) {
@@ -111,10 +112,10 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       <FauxInput
         tabIndex={null}
         onClick={onFauxInputClickHandler}
-        onFocus={onFocusHandler}
-        onBlur={onBlurHandler}
-        onMouseOver={onMouseOverHandler}
-        onMouseOut={onMouseOutHandler}
+        onFocus={onFauxInputFocusHandler}
+        onBlur={onFauxInputBlurHandler}
+        onMouseOver={onFauxInputMouseOverHandler}
+        onMouseOut={onFauxInputMouseOutHandler}
         disabled={disabled}
         isFocused={isFocused}
         isHovered={isHovered || isLabelHovered}
