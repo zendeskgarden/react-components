@@ -176,6 +176,10 @@ const colorStyles = (
       &:active ${StyledIcon} {
         color: ${props.isNeutral && foregroundColor};
       }
+
+      &:disabled ${StyledIcon} {
+        color: ${disabledForegroundColor};
+      }
     `;
   }
 

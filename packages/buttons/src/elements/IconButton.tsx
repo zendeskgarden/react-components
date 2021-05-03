@@ -11,6 +11,8 @@ import { StyledIconButton, StyledIcon } from '../styled';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
 export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Applies neutral button styling */
+  isNeutral?: boolean;
   /** Applies primary button styling */
   isPrimary?: boolean;
   /** Applies danger button styling */
@@ -49,6 +51,7 @@ IconButton.displayName = 'IconButton';
 IconButton.propTypes = {
   isDanger: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  isNeutral: PropTypes.bool,
   isPrimary: PropTypes.bool,
   isBasic: PropTypes.bool,
   isPill: PropTypes.bool,

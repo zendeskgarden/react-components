@@ -22,7 +22,7 @@ const StyledRow = styled(Row)`
   padding: ${props => props.theme.space.xxl} 0;
 `;
 
-export const Default: Story = ({ isPrimary, isDanger, isPill, disabled, size }) => {
+export const Default: Story = ({ isNeutral, isPrimary, isDanger, isPill, disabled, size }) => {
   const [isOpen, setIsOpen] = useState<boolean | undefined>(false);
 
   return (
@@ -31,6 +31,7 @@ export const Default: Story = ({ isPrimary, isDanger, isPill, disabled, size }) 
         <Col textAlign="center">
           <SplitButton>
             <Button
+              isNeutral={isNeutral}
               isPrimary={isPrimary}
               isDanger={isDanger}
               isPill={isPill}
@@ -50,6 +51,7 @@ export const Default: Story = ({ isPrimary, isDanger, isPill, disabled, size }) 
             >
               <Trigger>
                 <ChevronButton
+                  isNeutral={isNeutral}
                   isPrimary={isPrimary}
                   isDanger={isDanger}
                   isPill={isPill}
@@ -72,6 +74,9 @@ export const Default: Story = ({ isPrimary, isDanger, isPill, disabled, size }) 
 };
 
 Default.argTypes = {
+  isNeutral: {
+    control: 'boolean'
+  },
   isPrimary: {
     control: 'boolean'
   },
