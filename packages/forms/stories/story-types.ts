@@ -23,7 +23,6 @@ export interface ICheckboxStoryProps {
 }
 
 export interface IFieldsetStoryProps {
-  isRegular: boolean;
   isHidden: boolean;
   showHint: boolean;
   showMessage: boolean;
