@@ -56,6 +56,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
     const [isHovered, setIsHovered] = useState(false);
+    const [isFocused, setIsFocused] = useState(false);
     const hiddenInputRef = useRef<HTMLInputElement>(null);
     const triggerRef = useCombinedRefs<HTMLDivElement>(ref, popperReferenceElementRef);
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
@@ -195,10 +196,13 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
       tabIndex: props.disabled ? undefined : 0,
       onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
       onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
+      onFocus: composeEventHandlers(props.onFocus, () => setIsFocused(true)),
+      onBlur: composeEventHandlers(props.onBlur, () => setIsFocused(false)),
       ...props
     } as any);
 
     const isContainerHovered = isLabelHovered && !isOpen;
+    const isContainerFocused = isFocused || isOpen;
 
     return (
       <Reference>
@@ -208,7 +212,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             data-test-is-hovered={isContainerHovered}
             data-test-is-focused={isOpen}
             isHovered={isContainerHovered}
-            isFocused={isOpen}
+            isFocused={isContainerFocused}
             {...selectProps}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
@@ -222,7 +226,11 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             }}
           >
             {start && (
-              <StyledFauxInput.StartIcon isDisabled={props.disabled}>
+              <StyledFauxInput.StartIcon
+                isHovered={isHovered || (isLabelHovered && !isOpen)}
+                isFocused={isContainerFocused}
+                isDisabled={props.disabled}
+              >
                 {start}
               </StyledFauxInput.StartIcon>
             )}
@@ -246,7 +254,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
               <StyledFauxInput.EndIcon
                 data-test-id="select-icon"
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
-                isFocused={isOpen}
+                isFocused={isContainerFocused}
                 isDisabled={props.disabled}
                 isRotated={isOpen}
               >

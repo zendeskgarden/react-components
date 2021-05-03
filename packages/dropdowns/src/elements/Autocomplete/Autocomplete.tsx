@@ -102,7 +102,11 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             }}
           >
             {start && (
-              <StyledFauxInput.StartIcon isDisabled={props.disabled}>
+              <StyledFauxInput.StartIcon
+                isHovered={isHovered || (isLabelHovered && !isOpen)}
+                isFocused={isContainerFocused}
+                isDisabled={props.disabled}
+              >
                 {start}
               </StyledFauxInput.StartIcon>
             )}
@@ -129,7 +133,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             {!props.isBare && (
               <StyledFauxInput.EndIcon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
-                isFocused={isOpen}
+                isFocused={isContainerFocused}
                 isDisabled={props.disabled}
                 isRotated={isOpen}
               >

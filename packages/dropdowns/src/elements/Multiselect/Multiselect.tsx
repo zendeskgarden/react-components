@@ -342,7 +342,11 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
             })}
           >
             {start && (
-              <StyledFauxInput.StartIcon isDisabled={props.disabled}>
+              <StyledFauxInput.StartIcon
+                isHovered={isHovered || (isLabelHovered && !isOpen)}
+                isFocused={isContainerFocused}
+                isDisabled={props.disabled}
+              >
                 {start}
               </StyledFauxInput.StartIcon>
             )}
@@ -397,7 +401,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
             {!props.isBare && (
               <StyledFauxInput.EndIcon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
-                isFocused={isOpen}
+                isFocused={isContainerFocused}
                 isDisabled={props.disabled}
                 isRotated={isOpen}
               >
