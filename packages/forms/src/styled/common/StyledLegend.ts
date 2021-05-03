@@ -18,7 +18,7 @@ interface IStyledLegend {
 /**
  * 1. Reset for <legend>.
  */
-export const StyledLegend = styled(StyledLabel).attrs({
+export const StyledLegend = styled(StyledLabel as 'legend').attrs({
   as: 'legend',
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION

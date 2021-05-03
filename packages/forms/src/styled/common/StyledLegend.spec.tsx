@@ -10,6 +10,12 @@ import { render, screen } from 'garden-test-utils';
 import { StyledLegend } from './StyledLegend';
 
 describe('StyledLegend', () => {
+  it('renders the expected element', () => {
+    const { container } = render(<StyledLegend />);
+
+    expect(container.firstChild!.nodeName).toBe('LEGEND');
+  });
+
   it('renders default styling', () => {
     render(<StyledLegend>Example Legend Text</StyledLegend>);
 
