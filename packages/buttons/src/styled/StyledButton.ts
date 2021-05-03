@@ -162,6 +162,18 @@ const colorStyles = (
         background-color: ${disabledBackgroundColor};
         color: ${disabledForegroundColor};
       }
+
+      & ${StyledIcon} {
+        color: ${props.isNeutral && getColor('neutralHue', shade, props.theme)};
+      }
+
+      &:hover ${StyledIcon} {
+        color: ${props.isNeutral && getColor('neutralHue', shade + 100, props.theme)};
+      }
+
+      &:active ${StyledIcon} {
+        color: ${props.isNeutral && foregroundColor};
+      }
     `;
   }
 

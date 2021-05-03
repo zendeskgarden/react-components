@@ -13,8 +13,6 @@ const COMPONENT_ID = 'buttons.icon';
 
 interface IStyledIconProps {
   isRotated: boolean;
-  isNeutral?: boolean;
-  isPrimary?: boolean;
   position?: 'start' | 'end';
 }
 
@@ -43,7 +41,7 @@ export const StyledIcon = styled(({ children, isRotated, theme, ...props }) =>
   'data-garden-version': PACKAGE_VERSION
 })<IStyledIconProps>`
   transform: ${props => props.isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
-  transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out, color 0.25s ease-in-out;
 
   ${props => sizeStyles(props)};
 
