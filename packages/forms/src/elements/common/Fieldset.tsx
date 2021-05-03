@@ -18,6 +18,9 @@ import { StyledFieldset } from '../../styled';
 import { FieldsetContext } from '../../utils/useFieldsetContext';
 
 export interface IFieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
+  /**
+   * Applies compact styling
+   */
   isCompact?: boolean;
 }
 
