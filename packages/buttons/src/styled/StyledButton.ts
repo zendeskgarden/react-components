@@ -167,7 +167,9 @@ const colorStyles = (
         color: ${props.isNeutral && getColor('neutralHue', shade, props.theme)};
       }
 
-      &:hover ${StyledIcon} {
+      /* prettier-ignore */
+      &:hover ${StyledIcon},
+      &[data-garden-focus-visible] ${StyledIcon} {
         color: ${props.isNeutral && getColor('neutralHue', shade + 100, props.theme)};
       }
 
