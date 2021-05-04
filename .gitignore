@@ -12,3 +12,4 @@ package-lock.json
 
 # Demo specific
 demo/**/*
+utils/storybook/coverage
