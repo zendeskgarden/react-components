@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColor, PALETTE } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 describe('StyledButton', () => {
@@ -52,6 +52,12 @@ describe('StyledButton', () => {
     const { container } = render(<StyledButton isPrimary />);
 
     expect(container.firstChild).toHaveStyleRule('background-color', getColor('primaryHue'));
+  });
+
+  it('renders neutral styling if provided', () => {
+    const { container } = render(<StyledButton isNeutral />);
+
+    expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.grey[300]);
   });
 
   it('renders pill styling if provided', () => {
