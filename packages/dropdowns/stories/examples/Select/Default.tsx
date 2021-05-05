@@ -25,6 +25,7 @@ interface IStoryProps {
   hasArrow: boolean;
   isCompact: boolean;
   isHidden: boolean;
+  isOpen: boolean;
   validation: VALIDATION;
   isBare: boolean;
   disabled: boolean;
@@ -43,6 +44,7 @@ const options = [
 export const Default: Story<IStoryProps> = ({
   isCompact,
   isHidden,
+  isOpen,
   validation,
   isBare,
   disabled,
@@ -58,6 +60,7 @@ export const Default: Story<IStoryProps> = ({
       <Row justifyContent="center" style={{ minHeight: 250 }}>
         <Col md={3}>
           <Dropdown
+            isOpen={isOpen || undefined}
             selectedItem={selectedItem}
             onSelect={item => setSelectedItem(item)}
             downshiftProps={{ itemToString: (item: any) => item && item.label }}
@@ -102,6 +105,7 @@ Default.argTypes = {
     control: 'boolean'
   },
   isCompact: { name: 'isCompact', control: 'boolean' },
+  isOpen: { control: 'boolean' },
   showStartIcon: { name: 'Show start icon', control: 'boolean' }
 };
 

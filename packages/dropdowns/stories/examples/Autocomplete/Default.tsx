@@ -44,6 +44,7 @@ interface IStoryProps {
   isCompact: boolean;
   isBare: boolean;
   isHidden: boolean;
+  isOpen: boolean;
   focusInset: boolean;
   validation: VALIDATION;
   showHint: boolean;
@@ -56,6 +57,7 @@ export const Default: Story<IStoryProps> = ({
   isCompact,
   isBare,
   isHidden,
+  isOpen,
   focusInset,
   validation,
   showHint,
@@ -88,6 +90,7 @@ export const Default: Story<IStoryProps> = ({
     <Row justifyContent="center" style={{ minHeight: 450 }}>
       <Col md={3}>
         <Dropdown
+          isOpen={isOpen || undefined}
           inputValue={inputValue}
           selectedItem={selectedItem}
           onSelect={item => setSelectedItem(item)}
@@ -129,6 +132,7 @@ export const Default: Story<IStoryProps> = ({
 Default.argTypes = {
   isCompact: { name: 'isCompact', control: 'boolean' },
   isHidden: { name: 'Hidden label', control: 'boolean' },
+  isOpen: { control: 'boolean' },
   showHint: { name: 'Hint' },
   showMessage: { name: 'Message' },
   showStartIcon: { name: 'Show start icon', control: 'boolean' }

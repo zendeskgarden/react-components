@@ -30,6 +30,7 @@ interface IStoryProps {
   isAnimated: boolean;
   isCompact: boolean;
   isDisabled: boolean;
+  isOpen: boolean;
 }
 
 export const Default: Story<IStoryProps> = ({
@@ -37,14 +38,15 @@ export const Default: Story<IStoryProps> = ({
   isAnimated,
   isCompact,
   placement,
-  isDisabled
+  isDisabled,
+  isOpen
 }) => {
   return (
     <Grid>
       <Row style={{ minHeight: 200 }}>
         <Col textAlign="center">
           {/* eslint-disable-next-line no-alert */}
-          <Dropdown onSelect={item => alert(item)}>
+          <Dropdown onSelect={item => alert(item)} isOpen={isOpen || undefined}>
             <Trigger>
               <Button size={isCompact ? 'small' : 'medium'}>Default Menu</Button>
             </Trigger>
@@ -96,7 +98,8 @@ Default.argTypes = {
       ]
     }
   },
-  isDisabled: { name: 'Disabled items', control: 'boolean' }
+  isDisabled: { name: 'Disabled items', control: 'boolean' },
+  isOpen: { control: 'boolean' }
 };
 
 Default.args = {
