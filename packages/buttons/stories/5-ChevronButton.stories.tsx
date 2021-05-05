@@ -18,6 +18,7 @@ export default {
 export const Default: Story = ({
   isDanger,
   size,
+  isNeutral,
   isPrimary,
   isBasic,
   isPill,
@@ -29,6 +30,7 @@ export const Default: Story = ({
     <Row>
       <Col textAlign="center">
         <ChevronButton
+          isNeutral={isNeutral}
           isPrimary={isPrimary}
           isDanger={isDanger}
           isBasic={isBasic}
@@ -45,28 +47,7 @@ export const Default: Story = ({
 );
 
 Default.argTypes = {
-  isPrimary: {
-    control: 'boolean'
-  },
-  isDanger: {
-    control: 'boolean'
-  },
-  isBasic: {
-    control: 'boolean'
-  },
-  isPill: {
-    control: 'boolean'
-  },
-  focusInset: {
-    control: 'boolean'
-  },
-  isRotated: {
-    control: 'boolean'
-  },
   disabled: {
     control: 'boolean'
-  },
-  size: {
-    control: { type: 'select', options: ['small', 'medium', 'large'] }
   }
 };
