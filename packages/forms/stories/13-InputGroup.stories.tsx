@@ -84,3 +84,7 @@ Default.argTypes = {
     control: 'boolean'
   }
 };
+
+Default.args = {
+  isNeutral: true
+};

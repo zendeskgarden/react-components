@@ -130,7 +130,7 @@ const colorStyles = (
     const borderColor =
       props.isNeutral && !props.isDanger ? getColor('neutralHue', 300, props.theme) : baseColor;
     const foregroundColor = props.isNeutral ? props.theme.colors.foreground : baseColor;
-    const hoverBorderColor = props.isNeutral ? baseColor : hoverColor;
+    const hoverBorderColor = props.isNeutral && !props.isDanger ? baseColor : hoverColor;
     const hoverForegroundColor = props.isNeutral ? foregroundColor : hoverColor;
 
     retVal = css`
