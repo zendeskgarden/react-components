@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ComponentPropsWithoutRef, KeyboardEvent, useEffect } from 'react';
+import React, { ComponentPropsWithoutRef, KeyboardEvent, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { KEY_CODES, useCombinedRefs } from '@zendeskgarden/container-utilities';
@@ -57,6 +57,7 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
     } = useDropdownContext();
     const wrapperRef = useCombinedRefs<HTMLDivElement>(ref);
     const inputRef = useCombinedRefs<HTMLInputElement>(inputRefProp);
+    const isOpenRef = useRef<boolean | undefined>(isOpen);
     const wrapperProps = getToggleButtonProps(
       getRootProps({
         role: null, // apply role to input for Safari screenreader support
@@ -89,6 +90,14 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
         (event as any).nativeEvent.preventDownshiftDefault = true;
       }
     });
+
+    useEffect(() => {
+      if (inputRef.current && isOpen !== isOpenRef.current) {
+        inputRef.current.focus();
+      }
+
+      isOpenRef.current = isOpen;
+    }, [inputRef, isOpen]);
 
     useEffect(() => {
       setDropdownType('combobox');
