@@ -11,7 +11,6 @@ import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import {
   Field,
   Label,
-  Hint,
   Radio,
   Checkbox,
   Toggle,
@@ -35,7 +34,6 @@ export const RadioGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInp
   validation,
   isCompact,
   isHidden,
-  showHint,
   showMessage
 }) => {
   return (
@@ -47,13 +45,11 @@ export const RadioGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInp
             <Field>
               <Radio value="annual" name="example">
                 <Label>Annual</Label>
-                {showHint && <Hint>Hint</Hint>}
               </Radio>
             </Field>
             <Field>
               <Radio value="perennial" name="example">
                 <Label>Perennial</Label>
-                {showHint && <Hint>Hint</Hint>}
                 {showMessage && <Message validation={validation}>Message</Message>}
               </Radio>
             </Field>
@@ -77,7 +73,6 @@ export const CheckboxGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTML
   validation,
   isCompact,
   isHidden,
-  showHint,
   showMessage
 }) => {
   return (
@@ -89,13 +84,11 @@ export const CheckboxGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTML
             <Field>
               <Checkbox>
                 <Label>Annual</Label>
-                {showHint && <Hint>Hint</Hint>}
               </Checkbox>
             </Field>
             <Field>
               <Checkbox>
                 <Label>Perennial</Label>
-                {showHint && <Hint>Hint</Hint>}
                 {showMessage && <Message validation={validation}>Message</Message>}
               </Checkbox>
             </Field>
@@ -119,7 +112,6 @@ export const ToggleGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLIn
   validation,
   isCompact,
   isHidden,
-  showHint,
   showMessage
 }) => {
   return (
@@ -131,13 +123,11 @@ export const ToggleGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLIn
             <Field>
               <Toggle>
                 <Label>Annual</Label>
-                {showHint && <Hint>Hint</Hint>}
               </Toggle>
             </Field>
             <Field>
               <Toggle>
                 <Label>Perennial</Label>
-                {showHint && <Hint>Hint</Hint>}
                 {showMessage && <Message validation={validation}>Message</Message>}
               </Toggle>
             </Field>

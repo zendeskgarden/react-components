@@ -24,7 +24,6 @@ export interface ICheckboxStoryProps {
 
 export interface IFieldsetStoryProps {
   isHidden: boolean;
-  showHint: boolean;
   showMessage: boolean;
   validation?: VALIDATION;
   isCompact?: boolean;
@@ -48,7 +47,6 @@ export const INPUT_ARGS = {
 export const FIELDSET_ARGS = {
   isHidden: false,
   disabled: false,
-  showHint: false,
   showMessage: true
 };
 
@@ -115,9 +113,6 @@ export const FIELDSET_ARGS_TYPES = {
   },
   disabled: {
     name: 'Disabled'
-  },
-  showHint: {
-    name: 'Hint'
   },
   showMessage: {
     name: 'Message'

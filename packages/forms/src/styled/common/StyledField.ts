@@ -13,6 +13,7 @@ const COMPONENT_ID = 'forms.field';
 /**
  * 1. Set positioning context for absolute contents (Checkbox, Radio, Toggle).
  * 2. Resets for <fieldset>.
+ * 3. Normalize block / line-height treatment for consistent height
  */
 export const StyledField = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
@@ -23,6 +24,7 @@ export const StyledField = styled.div.attrs({
   margin: 0; /* [2] */
   border: 0; /* [2] */
   padding: 0; /* [2] */
+  font-size: 0; /* [3] */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
