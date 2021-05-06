@@ -16,6 +16,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const childProcess = require('child_process');
 const handlebars = require('handlebars');
+const prettier = require('prettier');
 
 /**
  * Register handlebars template helper utilities
@@ -23,6 +24,10 @@ const handlebars = require('handlebars');
 require('handlebars-helpers')({
   handlebars
 });
+
+const tsconfigPath = path.resolve(__dirname, '..', '..', 'tsconfig.json');
+
+const tsconfig = require(tsconfigPath);
 
 const welcomeSplashScreen = () => {
   console.log(pelorous('#################################'));
@@ -80,22 +85,53 @@ const updateReadme = ({ packageName }) => {
   });
 };
 
-const updateStyleguideConfig = ({ packageName }) => {
-  const styleguideConfigPath = path.resolve(
+const updateStoryReadme = ({ packageName }) => {
+  const storyPath = path.resolve(
     __dirname,
     '..',
     '..',
     'packages',
     packageName,
-    'styleguide.config.js'
+    'stories',
+    '1-Readme.stories.mdx'
   );
 
-  return fs.readFile(styleguideConfigPath, 'utf-8').then(originalStyleguideConfigContent => {
-    const template = handlebars.compile(originalStyleguideConfigContent);
-    const newStyleguideConfigContent = template({ component: packageName });
+  return fs
+    .readFile(storyPath, 'utf-8')
+    .then(originalStory => {
+      const template = handlebars.compile(originalStory);
+      const newStoryContent = template({
+        componentName: packageName.charAt(0).toUpperCase() + packageName.slice(1)
+      });
 
-    return fs.writeFile(styleguideConfigPath, newStyleguideConfigContent);
-  });
+      return fs.writeFile(storyPath, newStoryContent);
+    })
+    .catch(console.error);
+};
+
+const updateStory = ({ packageName }) => {
+  const storyPath = path.resolve(
+    __dirname,
+    '..',
+    '..',
+    'packages',
+    packageName,
+    'stories',
+    '2-Example.stories.tsx'
+  );
+
+  return fs
+    .readFile(storyPath, 'utf-8')
+    .then(originalStory => {
+      const template = handlebars.compile(originalStory);
+      const newStoryContent = template({
+        component: packageName,
+        componentName: packageName.charAt(0).toUpperCase() + packageName.slice(1)
+      });
+
+      return fs.writeFile(storyPath, newStoryContent);
+    })
+    .catch(console.error);
 };
 
 const performLernaBootstrap = ({ packageName }) => {
@@ -121,7 +157,8 @@ retrievePrompts()
     return Promise.all([
       updatePackageJson({ packageName }),
       updateReadme({ packageName }),
-      updateStyleguideConfig({ packageName })
+      updateStory({ packageName }),
+      updateStoryReadme({ packageName })
     ]).then(() => {
       console.log(
         chalk.green(
@@ -134,11 +171,22 @@ retrievePrompts()
   })
   .then(performLernaBootstrap)
   .then(({ packageName }) => {
-    console.log(
-      pelorous(
-        `Start local development with: "${chalk.white(
-          `yarn start --scope @zendeskgarden/react-${packageName}`
-        )}"`
-      )
+    tsconfig.compilerOptions.paths[`@zendeskgarden/react-${packageName}`] = [
+      `./packages/${packageName}/src/index.ts`
+    ];
+
+    fs.writeFile(
+      tsconfigPath,
+      prettier.format(JSON.stringify(tsconfig), {
+        parser: 'json',
+        printWidth: 100
+      }),
+      err => {
+        if (err) console.error(err);
+      }
     );
-  });
+  })
+  .then(() => {
+    console.log(pelorous(`Start local development with: "${chalk.white('yarn start')}"`));
+  })
+  .catch(console.error);

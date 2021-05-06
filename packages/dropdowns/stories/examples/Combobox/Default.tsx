@@ -54,6 +54,7 @@ export const Default: Story = ({
   hidden,
   isCompact,
   isBare,
+  isOpen,
   disabled,
   focusInset,
   placeholder,
@@ -70,6 +71,7 @@ export const Default: Story = ({
       <Row justifyContent="center">
         <Col sm={5}>
           <Dropdown
+            isOpen={isOpen || undefined}
             inputValue={inputValue}
             onInputValueChange={value => setInputValue(value)}
             onStateChange={({ highlightedIndex }) => {
@@ -110,7 +112,8 @@ export const Default: Story = ({
 Default.argTypes = {
   hidden: { name: 'hidden label', control: 'boolean' },
   start: { name: 'start icon', control: 'boolean' },
-  end: { name: 'end icon', control: 'boolean' }
+  end: { name: 'end icon', control: 'boolean' },
+  isOpen: { control: 'boolean' }
 };
 
 Default.args = {

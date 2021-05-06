@@ -31,6 +31,7 @@ interface IStoryProps {
   isAnimated: boolean;
   isCompact: boolean;
   isDisabled: boolean;
+  isOpen: boolean;
 }
 
 export const Icon: Story<IStoryProps> = ({
@@ -38,14 +39,15 @@ export const Icon: Story<IStoryProps> = ({
   isAnimated,
   isCompact,
   placement,
-  isDisabled
+  isDisabled,
+  isOpen
 }) => {
   return (
     <Grid>
       <Row alignItems="center" style={{ minHeight: 200 }}>
         <Col textAlign="center">
           {/* eslint-disable-next-line no-alert */}
-          <Dropdown onSelect={item => alert(item)}>
+          <Dropdown onSelect={item => alert(item)} isOpen={isOpen || undefined}>
             <Trigger>
               <IconButton
                 aria-label="Settings"
@@ -103,7 +105,8 @@ Icon.argTypes = {
       ]
     }
   },
-  isDisabled: { name: 'Disabled items', control: 'boolean' }
+  isDisabled: { name: 'Disabled items', control: 'boolean' },
+  isOpen: { control: 'boolean' }
 };
 
 Icon.args = {
