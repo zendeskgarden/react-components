@@ -43,7 +43,7 @@ export const Fieldset = forwardRef<HTMLFieldSetElement, IFieldsetProps>((props, 
 
   return (
     <FieldsetContext.Provider value={fieldsetContext}>
-      <StyledFieldset {...props} ref={ref} isCompact={props.isCompact} />
+      <StyledFieldset {...props} ref={ref} />
     </FieldsetContext.Provider>
   );
 }) as IStaticFieldsetExport<HTMLFieldSetElement, IFieldsetProps>;
