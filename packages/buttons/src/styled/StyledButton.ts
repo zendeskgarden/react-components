@@ -140,7 +140,7 @@ const colorStyles = (
 
       &:hover {
         border-color: ${!props.isBasic && hoverBorderColor};
-        background-color: ${!props.isNeutral && rgba(baseColor as string, 0.08)};
+        background-color: ${rgba(baseColor as string, 0.08)};
         color: ${hoverForegroundColor};
       }
 
