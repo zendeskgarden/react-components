@@ -19,6 +19,7 @@ export default {
 
 export const Default: Story = ({
   buttonText,
+  isNeutral,
   isPrimary,
   isDanger,
   isPill,
@@ -35,6 +36,7 @@ export const Default: Story = ({
     <Row>
       <Col textAlign="center">
         <Button
+          isNeutral={isNeutral}
           isPrimary={isPrimary}
           isDanger={isDanger}
           isPill={isPill}
@@ -70,27 +72,6 @@ Default.argTypes = {
   buttonText: {
     control: 'text'
   },
-  isPrimary: {
-    control: 'boolean'
-  },
-  isDanger: {
-    control: 'boolean'
-  },
-  isPill: {
-    control: 'boolean'
-  },
-  isBasic: {
-    control: 'boolean'
-  },
-  focusInset: {
-    control: 'boolean'
-  },
-  isLink: {
-    control: 'boolean'
-  },
-  isStretched: {
-    control: 'boolean'
-  },
   disabled: {
     control: 'boolean'
   },
@@ -99,8 +80,5 @@ Default.argTypes = {
   },
   endIcon: {
     control: 'boolean'
-  },
-  size: {
-    control: { type: 'select', options: ['small', 'medium', 'large'] }
   }
 };

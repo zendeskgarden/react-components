@@ -19,6 +19,7 @@ export default {
 } as Meta;
 
 export const Default: Story = ({
+  isNeutral,
   isPrimary,
   isDanger,
   focusInset,
@@ -34,6 +35,7 @@ export const Default: Story = ({
         <IconButton
           title="Gear"
           aria-label="Gear"
+          isNeutral={isNeutral}
           isPrimary={isPrimary}
           isDanger={isDanger}
           focusInset={focusInset}
@@ -50,6 +52,7 @@ export const Default: Story = ({
         <IconButton
           title="Paperclip"
           aria-label="Paperclip"
+          isNeutral={isNeutral}
           isPrimary={isPrimary}
           isDanger={isDanger}
           focusInset={focusInset}
@@ -66,6 +69,7 @@ export const Default: Story = ({
         <IconButton
           title="Email"
           aria-label="Email"
+          isNeutral={isNeutral}
           isPrimary={isPrimary}
           isDanger={isDanger}
           focusInset={focusInset}
@@ -83,28 +87,7 @@ export const Default: Story = ({
 );
 
 Default.argTypes = {
-  isPrimary: {
-    control: 'boolean'
-  },
-  isDanger: {
-    control: 'boolean'
-  },
-  focusInset: {
-    control: 'boolean'
-  },
-  isBasic: {
-    control: 'boolean'
-  },
-  isPill: {
-    control: 'boolean'
-  },
-  isRotated: {
-    control: 'boolean'
-  },
   disabled: {
     control: 'boolean'
-  },
-  size: {
-    control: { type: 'select', options: ['small', 'medium', 'large'] }
   }
 };

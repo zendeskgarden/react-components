@@ -86,6 +86,7 @@ export const ColorpickerDialog = forwardRef<
       popperModifiers,
       zIndex,
       focusInset,
+      disabled,
       buttonProps,
       children,
       ...props
@@ -116,7 +117,13 @@ export const ColorpickerDialog = forwardRef<
             ref: buttonRef
           })
         ) : (
-          <StyledButton focusInset={focusInset} ref={buttonRef} onClick={onClick} {...buttonProps}>
+          <StyledButton
+            disabled={disabled}
+            focusInset={focusInset}
+            ref={buttonRef}
+            onClick={onClick}
+            {...buttonProps}
+          >
             <StyledButtonPreview backgroundColor={isControlled ? color : uncontrolledColor} />
             {/* eslint-disable-next-line no-eq-null, eqeqeq */}
             <Button.EndIcon isRotated={referenceElement != null}>
@@ -173,6 +180,7 @@ ColorpickerDialog.propTypes = {
   ]),
   onClose: PropTypes.func,
   onChange: PropTypes.func,
+  disabled: PropTypes.bool,
   labels: PropTypes.object,
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
   defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),

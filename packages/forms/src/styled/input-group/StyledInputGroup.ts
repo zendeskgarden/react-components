@@ -64,7 +64,10 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 
 const itemStyles = (props: ThemeProps<DefaultTheme>) => {
   return css`
-    /* stylelint-disable property-no-unknown, property-case */
+    /* stylelint-disable
+      property-no-unknown,
+      property-case,
+      selector-no-qualifying-type */
     & > * {
       margin-${props.theme.rtl ? 'right' : 'left'}: -${props.theme.borderWidths.sm};
     }
@@ -75,6 +78,8 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
 
     & > ${StyledTextInput}:hover,
     & > button:hover,
+    & > ${StyledTextInput}[data-garden-focus-visible],
+    & > button[data-garden-focus-visible],
     & > ${StyledTextInput}:active,
     & > button:active {
       z-index: 1;
@@ -104,7 +109,10 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
     & > *:not(:first-child):not(:last-child) {
       border-radius: 0;
     }
-    /* stylelint-enable property-no-unknown, property-case */
+    /* stylelint-enable
+      property-no-unknown,
+      property-case,
+      selector-no-qualifying-type */
   `;
 };
 

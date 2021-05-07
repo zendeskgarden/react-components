@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, useState } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { StyledTextMediaInput } from '../styled';
@@ -30,10 +30,6 @@ export interface IMediaInputProps extends InputHTMLAttributes<HTMLInputElement> 
   wrapperProps?: any;
   /** Applies a ref to the wrapping [FauxInput](#fauxinput) element */
   wrapperRef?: any;
-  /** @ignore */
-  isFocused?: boolean;
-  /** @ignore */
-  isHovered?: boolean;
 }
 
 /**
@@ -50,8 +46,6 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       focusInset,
       readOnly,
       validation,
-      isFocused,
-      isHovered,
       wrapperProps = {},
       wrapperRef,
       onSelect,
@@ -61,11 +55,36 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
   ) => {
     const fieldContext = useFieldContext();
     const inputRef = useCombinedRefs(ref);
+    const [isFocused, setIsFocused] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
 
-    const { onClick, ...otherWrapperProps } = wrapperProps;
+    const {
+      onClick,
+      onFocus,
+      onBlur,
+      onMouseOver,
+      onMouseOut,
+      ...otherWrapperProps
+    } = wrapperProps;
 
     const onFauxInputClickHandler = composeEventHandlers(onClick, () => {
       inputRef.current && inputRef.current.focus();
+    });
+
+    const onFauxInputFocusHandler = composeEventHandlers(onFocus, () => {
+      setIsFocused(true);
+    });
+
+    const onFauxInputBlurHandler = composeEventHandlers(onBlur, () => {
+      setIsFocused(false);
+    });
+
+    const onFauxInputMouseOverHandler = composeEventHandlers(onMouseOver, () => {
+      setIsHovered(true);
+    });
+
+    const onFauxInputMouseOutHandler = composeEventHandlers(onMouseOut, () => {
+      setIsHovered(false);
     });
 
     const onSelectHandler = readOnly
@@ -93,6 +112,10 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       <FauxInput
         tabIndex={null}
         onClick={onFauxInputClickHandler}
+        onFocus={onFauxInputFocusHandler}
+        onBlur={onFauxInputBlurHandler}
+        onMouseOver={onFauxInputMouseOverHandler}
+        onMouseOut={onFauxInputMouseOutHandler}
         disabled={disabled}
         isFocused={isFocused}
         isHovered={isHovered || isLabelHovered}
@@ -105,9 +128,25 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
         {...otherWrapperProps}
         ref={wrapperRef}
       >
-        {start && <FauxInput.StartIcon isDisabled={disabled}>{start}</FauxInput.StartIcon>}
+        {start && (
+          <FauxInput.StartIcon
+            isDisabled={disabled}
+            isFocused={isFocused}
+            isHovered={isHovered || isLabelHovered}
+          >
+            {start}
+          </FauxInput.StartIcon>
+        )}
         <StyledTextMediaInput {...(combinedProps as any)} />
-        {end && <FauxInput.EndIcon isDisabled={disabled}>{end}</FauxInput.EndIcon>}
+        {end && (
+          <FauxInput.EndIcon
+            isDisabled={disabled}
+            isFocused={isFocused}
+            isHovered={isHovered || isLabelHovered}
+          >
+            {end}
+          </FauxInput.EndIcon>
+        )}
       </FauxInput>
     );
   }

@@ -16,6 +16,7 @@ export default {
 } as Meta;
 
 export const Default: Story = ({
+  isNeutral,
   isPrimary,
   isDanger,
   isPill,
@@ -31,6 +32,7 @@ export const Default: Story = ({
     <Row>
       <Col textAlign="center">
         <ToggleButton
+          isNeutral={isNeutral}
           isPrimary={isPrimary}
           isDanger={isDanger}
           isPill={isPill}
@@ -50,35 +52,11 @@ export const Default: Story = ({
 );
 
 Default.argTypes = {
-  isPrimary: {
-    control: 'boolean'
-  },
-  isDanger: {
-    control: 'boolean'
-  },
-  isPill: {
-    control: 'boolean'
-  },
-  isBasic: {
-    control: 'boolean'
-  },
-  focusInset: {
-    control: 'boolean'
-  },
-  isLink: {
-    control: 'boolean'
-  },
-  isStretched: {
-    control: 'boolean'
-  },
   isPressed: {
     control: 'boolean'
   },
   disabled: {
     control: 'boolean'
-  },
-  size: {
-    control: { type: 'select', options: ['small', 'medium', 'large'] }
   }
 };
 

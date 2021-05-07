@@ -18,6 +18,8 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'small' | 'medium' | 'large';
   /** Stretches the button fill to its container width */
   isStretched?: boolean;
+  /** Applies neutral button styling */
+  isNeutral?: boolean;
   /** Applies primary button styling */
   isPrimary?: boolean;
   /** Applies basic button styling */
@@ -60,6 +62,7 @@ const Button: React.FunctionComponent<
 });
 
 Button.propTypes = {
+  isNeutral: PropTypes.bool,
   isPrimary: PropTypes.bool,
   isDanger: PropTypes.bool,
   isPill: PropTypes.bool,
