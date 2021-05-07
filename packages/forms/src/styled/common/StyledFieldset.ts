@@ -20,9 +20,7 @@ export const StyledFieldset = styled(StyledField as 'fieldset').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledFieldsetProps>`
-  /* stylelint-disable declaration-block-semicolon-newline-after,
-  rule-empty-line-before */
-  ${StyledField} + ${StyledField} {
+  ${StyledField} {
     margin-top: ${props => props.theme.space.base * (props.isCompact ? 1 : 2)}px;
   }
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render, screen } from 'garden-test-utils';
+import { render } from 'garden-test-utils';
 import { StyledLegend } from './StyledLegend';
 
 describe('StyledLegend', () => {
@@ -14,21 +14,5 @@ describe('StyledLegend', () => {
     const { container } = render(<StyledLegend />);
 
     expect(container.firstChild!.nodeName).toBe('LEGEND');
-  });
-
-  it('renders default styling', () => {
-    render(<StyledLegend>Example Legend Text</StyledLegend>);
-
-    const legend = screen.getByText('Example Legend Text');
-
-    expect(legend).toHaveStyleRule('margin-bottom', '8px');
-  });
-
-  it('renders compact styling', () => {
-    render(<StyledLegend isCompact>Example Legend Text</StyledLegend>);
-
-    const legend = screen.getByText('Example Legend Text');
-
-    expect(legend).toHaveStyleRule('margin-bottom', '4px');
   });
 });

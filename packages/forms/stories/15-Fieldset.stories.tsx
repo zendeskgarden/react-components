@@ -11,6 +11,7 @@ import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import {
   Field,
   Label,
+  Hint,
   Radio,
   Checkbox,
   Toggle,
@@ -34,6 +35,7 @@ export const RadioGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInp
   validation,
   isCompact,
   isHidden,
+  showHint,
   showMessage
 }) => {
   return (
@@ -42,6 +44,7 @@ export const RadioGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInp
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Fieldset isCompact={isCompact} disabled={disabled}>
             <Fieldset.Legend hidden={isHidden}>Choose a growth type</Fieldset.Legend>
+            {showHint && <Hint>Hint text</Hint>}
             <Field>
               <Radio value="annual" name="example">
                 <Label>Annual</Label>
@@ -73,6 +76,7 @@ export const CheckboxGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTML
   validation,
   isCompact,
   isHidden,
+  showHint,
   showMessage
 }) => {
   return (
@@ -81,6 +85,7 @@ export const CheckboxGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTML
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Fieldset isCompact={isCompact} disabled={disabled}>
             <Fieldset.Legend hidden={isHidden}>Choose growth types</Fieldset.Legend>
+            {showHint && <Hint>Hint text</Hint>}
             <Field>
               <Checkbox>
                 <Label>Annual</Label>
@@ -112,6 +117,7 @@ export const ToggleGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLIn
   validation,
   isCompact,
   isHidden,
+  showHint,
   showMessage
 }) => {
   return (
@@ -120,6 +126,7 @@ export const ToggleGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLIn
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Fieldset isCompact={isCompact} disabled={disabled}>
             <Fieldset.Legend hidden={isHidden}>Toggle growth types</Fieldset.Legend>
+            {showHint && <Hint>Hint text</Hint>}
             <Field>
               <Toggle>
                 <Label>Annual</Label>

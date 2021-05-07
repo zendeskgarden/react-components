@@ -23,8 +23,6 @@ export const StyledLegend = styled(StyledLabel as 'legend').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledLegend>`
-  margin-bottom: ${props =>
-    props.isCompact ? props.theme.space.base : props.theme.space.base * 2}px;
   padding: 0; /* [1] */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
