@@ -7,28 +7,27 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledLabel } from './StyledLabel';
 
-const COMPONENT_ID = 'forms.field';
+const COMPONENT_ID = 'forms.fieldset_legend';
+
+interface IStyledLegend {
+  isCompact?: boolean;
+}
 
 /**
- * 1. Set positioning context for absolute contents (Checkbox, Radio, Toggle).
- * 2. Resets for <fieldset>.
- * 3. Normalize block / line-height treatment for consistent height
+ * 1. Reset for <legend>.
  */
-export const StyledField = styled.div.attrs({
+export const StyledLegend = styled(StyledLabel as 'legend').attrs({
+  as: 'legend',
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
-  position: relative; /* [1] */
-  direction: ${props => props.theme.rtl && 'rtl'};
-  margin: 0; /* [2] */
-  border: 0; /* [2] */
-  padding: 0; /* [2] */
-  font-size: 0; /* [3] */
+})<IStyledLegend>`
+  padding: 0; /* [1] */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledField.defaultProps = {
+StyledLegend.defaultProps = {
   theme: DEFAULT_THEME
 };

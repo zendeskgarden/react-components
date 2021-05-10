@@ -22,6 +22,14 @@ export interface ICheckboxStoryProps {
   validation?: VALIDATION;
 }
 
+export interface IFieldsetStoryProps {
+  isHidden: boolean;
+  showHint: boolean;
+  showMessage: boolean;
+  validation?: VALIDATION;
+  isCompact?: boolean;
+}
+
 export interface IRangeStoryProps {
   isRegular: boolean;
   isHidden: boolean;
@@ -34,6 +42,13 @@ export const INPUT_ARGS = {
   isRegular: false,
   isHidden: false,
   showHint: true,
+  showMessage: true
+};
+
+export const FIELDSET_ARGS = {
+  isHidden: false,
+  disabled: false,
+  showHint: false,
   showMessage: true
 };
 
@@ -91,6 +106,28 @@ export const INPUT_ARG_TYPES = {
   },
   validation: {
     name: 'Validation'
+  }
+};
+
+export const FIELDSET_ARGS_TYPES = {
+  isHidden: {
+    name: 'Hidden legend'
+  },
+  disabled: {
+    name: 'Disabled'
+  },
+  showHint: {
+    name: 'Hint'
+  },
+  showMessage: {
+    name: 'Message'
+  },
+  validation: {
+    name: 'Validation',
+    control: {
+      type: 'radio',
+      options: ['success', 'warning', 'error']
+    }
   }
 };
 
