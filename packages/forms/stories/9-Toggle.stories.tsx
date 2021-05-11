@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { InputHTMLAttributes } from 'react';
+import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { Field, Label, Hint, Toggle, Message } from '@zendeskgarden/react-forms';
+import { Field, Label, Hint, Toggle, Message, IToggleProps } from '@zendeskgarden/react-forms';
 
 import { ICheckboxStoryProps, CHECKBOX_ARGS, CHECKBOX_ARGS_TYPES } from './story-types';
 
@@ -18,7 +18,7 @@ export default {
   subcomponents: { Field, Label, Hint, Message, Toggle }
 } as Meta;
 
-export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputElement>> = ({
+export const Default: Story<ICheckboxStoryProps & IToggleProps> = ({
   disabled,
   validation,
   isRegular,
