@@ -17,7 +17,6 @@ export interface IInputStoryProps {
 export interface ICheckboxStoryProps {
   isRegular: boolean;
   isHidden: boolean;
-  isCompact: boolean;
   showHint: boolean;
   showMessage: boolean;
   validation?: VALIDATION;
