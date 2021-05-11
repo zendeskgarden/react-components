@@ -23,6 +23,7 @@ export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputE
   validation,
   isRegular,
   isHidden,
+  isCompact,
   showHint,
   showMessage
 }) => {
@@ -31,7 +32,7 @@ export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputE
       <Row style={{ minHeight: 450 }}>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Field>
-            <Toggle disabled={disabled}>
+            <Toggle disabled={disabled} isCompact={isCompact}>
               <Label hidden={isHidden} isRegular={isRegular}>
                 Toggle
               </Label>

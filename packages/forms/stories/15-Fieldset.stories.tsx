@@ -53,6 +53,11 @@ export const RadioGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLInp
             <Field>
               <Radio value="perennial" name="example">
                 <Label>Perennial</Label>
+              </Radio>
+            </Field>
+            <Field>
+              <Radio value="biennial" name="example">
+                <Label>Biennial</Label>
                 {showMessage && <Message validation={validation}>Message</Message>}
               </Radio>
             </Field>
@@ -94,6 +99,11 @@ export const CheckboxGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTML
             <Field>
               <Checkbox>
                 <Label>Perennial</Label>
+              </Checkbox>
+            </Field>
+            <Field>
+              <Checkbox>
+                <Label>Biennial</Label>
                 {showMessage && <Message validation={validation}>Message</Message>}
               </Checkbox>
             </Field>
@@ -135,6 +145,11 @@ export const ToggleGroup: Story<IFieldsetStoryProps & InputHTMLAttributes<HTMLIn
             <Field>
               <Toggle>
                 <Label>Perennial</Label>
+              </Toggle>
+            </Field>
+            <Field>
+              <Toggle>
+                <Label>Biennial</Label>
                 {showMessage && <Message validation={validation}>Message</Message>}
               </Toggle>
             </Field>

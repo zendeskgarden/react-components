@@ -23,6 +23,7 @@ export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputE
   validation,
   isRegular,
   isHidden,
+  isCompact,
   showHint,
   showMessage
 }) => {
@@ -31,16 +32,7 @@ export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputE
       <Row style={{ minHeight: 450 }}>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Field>
-            <Radio disabled={disabled} name="example">
-              <Label hidden={isHidden} isRegular={isRegular}>
-                Radio
-              </Label>
-              {showHint && <Hint>Hint</Hint>}
-              {showMessage && <Message validation={validation}>Message</Message>}
-            </Radio>
-          </Field>
-          <Field className="u-mt-xxs">
-            <Radio disabled={disabled} name="example">
+            <Radio disabled={disabled} isCompact={isCompact}>
               <Label hidden={isHidden} isRegular={isRegular}>
                 Radio
               </Label>
