@@ -9,8 +9,8 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from '../checkbox/StyledCheckInput';
+import { IStyledRadioInputProps } from '../radio/StyledRadioInput';
 import { StyledToggleLabel } from './StyledToggleLabel';
-import { StyledToggleMessage } from './StyledToggleMessage';
 
 const COMPONENT_ID = 'forms.toggle';
 
@@ -38,13 +38,12 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: IStyledToggleInputProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledRadioInputProps & ThemeProps<DefaultTheme>) => {
   const height = `${props.theme.space.base * 5}px`;
   const width = `${props.theme.space.base * 10}px`;
   const iconSize = props.theme.iconSizes.md;
   const iconPosition = math(`(${height} - ${iconSize}) / 2`);
   const checkedIconPosition = math(`${width} - ${iconSize} - ${iconPosition}`);
-  const marginTop = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
 
   return css`
     & ~ ${StyledToggleLabel}::before {
@@ -62,16 +61,8 @@ const sizeStyles = (props: IStyledToggleInputProps & ThemeProps<DefaultTheme>) =
     &:checked ~ ${StyledToggleLabel} > svg {
       ${props.theme.rtl ? 'right' : 'left'}: ${checkedIconPosition};
     }
-
-    & ~ ${StyledToggleLabel} ~ ${StyledToggleMessage} {
-      margin-top: ${marginTop};
-    }
   `;
 };
-
-interface IStyledToggleInputProps {
-  isCompact?: boolean;
-}
 
 export const StyledToggleInput = styled(StyledCheckInput).attrs({
   'data-garden-id': COMPONENT_ID,
