@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { InputHTMLAttributes } from 'react';
+import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { Field, Label, Hint, Radio, Message } from '@zendeskgarden/react-forms';
+import { Field, Label, Hint, Radio, Message, IRadioProps } from '@zendeskgarden/react-forms';
 
 import { ICheckboxStoryProps, CHECKBOX_ARGS, CHECKBOX_ARGS_TYPES } from './story-types';
 
@@ -18,11 +18,12 @@ export default {
   subcomponents: { Field, Label, Hint, Message, Radio }
 } as Meta;
 
-export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputElement>> = ({
+export const Default: Story<ICheckboxStoryProps & IRadioProps> = ({
   disabled,
   validation,
   isRegular,
   isHidden,
+  isCompact,
   showHint,
   showMessage
 }) => {
@@ -31,16 +32,7 @@ export const Default: Story<ICheckboxStoryProps & InputHTMLAttributes<HTMLInputE
       <Row style={{ minHeight: 450 }}>
         <Col lg={4} offsetLg={4} md={6} offsetMd={3}>
           <Field>
-            <Radio disabled={disabled} name="example">
-              <Label hidden={isHidden} isRegular={isRegular}>
-                Radio
-              </Label>
-              {showHint && <Hint>Hint</Hint>}
-              {showMessage && <Message validation={validation}>Message</Message>}
-            </Radio>
-          </Field>
-          <Field className="u-mt-xxs">
-            <Radio disabled={disabled} name="example">
+            <Radio disabled={disabled} isCompact={isCompact}>
               <Label hidden={isHidden} isRegular={isRegular}>
                 Radio
               </Label>

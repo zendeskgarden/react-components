@@ -9,17 +9,25 @@ import React, { InputHTMLAttributes } from 'react';
 import useFieldContext from '../utils/useFieldContext';
 import { InputContext } from '../utils/useInputContext';
 import { StyledToggleInput } from '../styled';
+import useFieldsetContext from '../utils/useFieldsetContext';
+
+export interface IToggleProps extends InputHTMLAttributes<HTMLInputElement> {
+  /** Applies compact styling */
+  isCompact?: boolean;
+}
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
-export const Toggle = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
+export const Toggle = React.forwardRef<HTMLInputElement, IToggleProps>(
   ({ children, ...props }, ref) => {
+    const fieldsetContext = useFieldsetContext();
     const fieldContext = useFieldContext();
 
     let combinedProps = {
       ref,
-      ...props
+      ...props,
+      ...fieldsetContext
     };
 
     if (fieldContext) {

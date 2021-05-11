@@ -9,6 +9,7 @@ import React, { InputHTMLAttributes } from 'react';
 import useFieldContext from '../utils/useFieldContext';
 import { InputContext } from '../utils/useInputContext';
 import { StyledCheckInput } from '../styled';
+import useFieldsetContext from '../utils/useFieldsetContext';
 
 export interface ICheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -16,6 +17,8 @@ export interface ICheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
    * [indeterminate](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)
    */
   indeterminate?: boolean;
+  /** Applies compact styling */
+  isCompact?: boolean;
 }
 
 /**
@@ -23,6 +26,7 @@ export interface ICheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
  */
 export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
   ({ indeterminate, children, ...props }, ref) => {
+    const fieldsetContext = useFieldsetContext();
     const fieldContext = useFieldContext();
 
     const inputRef = (inputElement: HTMLInputElement) => {
@@ -43,7 +47,8 @@ export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
 
     let combinedProps = {
       ref: combinedRef,
-      ...props
+      ...props,
+      ...fieldsetContext
     };
 
     if (fieldContext) {

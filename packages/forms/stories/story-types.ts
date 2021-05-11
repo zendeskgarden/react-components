@@ -150,6 +150,9 @@ export const CHECKBOX_ARGS_TYPES = {
   showMessage: {
     name: 'Message'
   },
+  isCompact: {
+    name: 'Compact'
+  },
   validation: {
     name: 'Validation',
     control: {
