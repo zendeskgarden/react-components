@@ -9,7 +9,6 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from '../checkbox/StyledCheckInput';
-import { IStyledRadioInputProps } from '../radio/StyledRadioInput';
 import { StyledToggleLabel } from './StyledToggleLabel';
 
 const COMPONENT_ID = 'forms.toggle';
@@ -38,7 +37,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: IStyledRadioInputProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const height = `${props.theme.space.base * 5}px`;
   const width = `${props.theme.space.base * 10}px`;
   const iconSize = props.theme.iconSizes.md;
