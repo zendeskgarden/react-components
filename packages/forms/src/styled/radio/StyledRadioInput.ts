@@ -9,6 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, rgba } from 'polished';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledRadioLabel } from './StyledRadioLabel';
+import { StyledRadioMessage } from './StyledRadioMessage';
 
 const COMPONENT_ID = 'forms.radio';
 
@@ -81,13 +82,14 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledRadioInputProps & ThemeProps<DefaultTheme>) => {
   const lineHeight = `${props.theme.space.base * 5}px`; /* from StyledLabel */
   const size = `${props.theme.space.base * 4}px`;
   const top = math(`(${lineHeight} - ${size}) / 2`);
   const iconSize = props.theme.iconSizes.sm;
   const iconPosition = math(`(${size} - ${iconSize}) / 2`);
   const iconTop = math(`${iconPosition} + ${top}`);
+  const marginTop = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
 
   return css`
     & ~ ${StyledRadioLabel}::before {
@@ -104,8 +106,16 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
       width: ${iconSize};
       height: ${iconSize};
     }
+
+    & ~ ${StyledRadioLabel} ~ ${StyledRadioMessage} {
+      margin-top: ${marginTop};
+    }
   `;
 };
+
+interface IStyledRadioInputProps {
+  isCompact?: boolean;
+}
 
 export const StyledRadioInput = styled.input.attrs({
   'data-garden-id': COMPONENT_ID,
