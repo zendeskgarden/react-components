@@ -11,6 +11,34 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.37.0 (2021-05-12)
+
+#### :rocket: New Feature
+
+- `forms`
+  - [#1088](https://github.com/zendeskgarden/react-components/pull/1088) feat(forms): add compact styling to Radio, Checkbox, and Toggle components ([@jzempel](https://github.com/jzempel))
+  - [#1076](https://github.com/zendeskgarden/react-components/pull/1076) feat(forms): add new fieldset & legend component ([@hzhu](https://github.com/hzhu))
+- `buttons`, `colorpickers`, `dropdowns`, `forms`
+  - [#1081](https://github.com/zendeskgarden/react-components/pull/1081) feat(buttons,colorpickers,dropdowns,forms): add support for neutral button styling ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+
+- `dropdowns`
+  - [#1083](https://github.com/zendeskgarden/react-components/pull/1083) fix(dropdowns): handle combobox controlled open ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+
+- Other
+  - [#1087](https://github.com/zendeskgarden/react-components/pull/1087) chore(deps): bump hosted-git-info from 2.8.5 to 2.8.9 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#1086](https://github.com/zendeskgarden/react-components/pull/1086) chore(deps): bump ua-parser-js from 0.7.21 to 0.7.28 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#1085](https://github.com/zendeskgarden/react-components/pull/1085) chore(deps): bump lodash from 4.17.19 to 4.17.21 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#1084](https://github.com/zendeskgarden/react-components/pull/1084) chore(deps): bump url-parse from 1.4.7 to 1.5.1 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#1082](https://github.com/zendeskgarden/react-components/pull/1082) chore(demo): restore coverage report ([@jzempel](https://github.com/jzempel))
+  - [#1077](https://github.com/zendeskgarden/react-components/pull/1077) chore(deps): bump ssri from 6.0.1 to 6.0.2 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `.template`
+  - [#1080](https://github.com/zendeskgarden/react-components/pull/1080) chore(template): update yarn new ([@hzhu](https://github.com/hzhu))
+- `dropdowns`
+  - [#1078](https://github.com/zendeskgarden/react-components/pull/1078) chore(dropdowns): update lock & upgrade downshift ([@hzhu](https://github.com/hzhu))
 ## v8.36.2 (2021-04-21)
 
 #### :bug: Bug Fix
