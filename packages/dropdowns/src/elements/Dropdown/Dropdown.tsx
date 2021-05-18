@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState } from 'react';
+import React, { HTMLAttributes, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { DefaultTheme, ThemeProps } from 'styled-components';
 import Downshift, { ControllerStateAndHelpers, StateChangeOptions } from 'downshift';
@@ -57,6 +57,8 @@ export interface IDropdownProps {
   /** Passes customization props to the [Downshift](https://www.downshift-js.com/) component */
   // eslint-disable-next-line @typescript-eslint/ban-types
   downshiftProps?: object;
+  /** Allows Dropdown to be selected by dataTestId **/
+  dataTestId?: string;
 }
 
 const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme>> = props => {

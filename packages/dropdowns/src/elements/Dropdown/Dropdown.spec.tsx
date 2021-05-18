@@ -12,7 +12,7 @@ import { Dropdown, Trigger, Menu, Item, NextItem, PreviousItem } from '../..';
 import { IDropdownProps } from './Dropdown';
 
 const ExampleDropdown = (props: IDropdownProps) => (
-  <Dropdown {...props}>
+  <Dropdown dataTestId="dropdown" {...props}>
     <Trigger>
       <button data-test-id="trigger">Trigger</button>
     </Trigger>
