@@ -77,6 +77,9 @@ Default.args = {
 };
 
 Default.argTypes = {
+  disabled: {
+    control: 'boolean'
+  },
   isHidden: {
     name: 'Hidden label'
   },
