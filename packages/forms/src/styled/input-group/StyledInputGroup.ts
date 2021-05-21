@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledTextInput } from '../text/StyledTextInput';
+import { StyledTextInput, TRANSITION } from '../text/StyledTextInput';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledHint } from '../common/StyledHint';
 import { StyledMessage } from '../common/StyledMessage';
@@ -69,6 +69,7 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
       property-case,
       selector-no-qualifying-type */
     & > * {
+      transition: ${TRANSITION}, z-index .25s ease-in-out;
       margin-${props.theme.rtl ? 'right' : 'left'}: -${props.theme.borderWidths.sm};
     }
 

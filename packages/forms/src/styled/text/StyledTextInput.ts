@@ -200,18 +200,16 @@ export interface IStyledTextInputProps {
   validation?: VALIDATION;
 }
 
+export const TRANSITION =
+  'border-color .25s ease-in-out, box-shadow .1s ease-in-out, background-color .25s ease-in-out, color .25s ease-in-out';
+
 export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'aria-invalid': isInvalid(props.validation)
 }))<IStyledTextInputProps>`
   appearance: none;
-  /* prettier-ignore */
-  transition:
-    border-color .25s ease-in-out,
-    box-shadow .1s ease-in-out,
-    background-color .25s ease-in-out,
-    color .25s ease-in-out;
+  transition: ${TRANSITION};
   direction: ${props => props.theme.rtl && 'rtl'};
   border: ${props => (props.isBare ? 'none' : props.theme.borders.sm)};
   border-radius: ${props => (props.isBare ? '0' : props.theme.borderRadii.md)};
