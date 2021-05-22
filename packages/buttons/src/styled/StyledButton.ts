@@ -330,7 +330,8 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
     border-color 0.25s ease-in-out,
     box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
-    color 0.25s ease-in-out;
+    color 0.25s ease-in-out,
+    z-index 0.25s ease-in-out;
   margin: 0;
   border: ${props => (props.isLink ? 'none' : `${props.theme.borders.sm} transparent`)};
   border-radius: ${props => getBorderRadius(props)};
@@ -375,7 +376,8 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
     transition:
       border-color 0.1s ease-in-out,
       background-color 0.1s ease-in-out,
-      color 0.1s ease-in-out;
+      color 0.1s ease-in-out,
+      z-index 0.25s ease-in-out;
     text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
   }
 

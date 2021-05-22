@@ -70,9 +70,6 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
       selector-no-qualifying-type */
     & > * {
       margin-${props.theme.rtl ? 'right' : 'left'}: -${props.theme.borderWidths.sm};
-    }
-
-    & > ${StyledTextInput} {
       z-index: -1;
     }
 
@@ -86,7 +83,6 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
     }
 
     & > button:disabled {
-      z-index: -1;
       border-top-width: 0;
       border-bottom-width: 0;
     }
