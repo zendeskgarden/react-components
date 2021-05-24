@@ -180,8 +180,8 @@ describe('Datepicker', () => {
       userEvent.click(getByTestId('input'));
       const days = getAllByTestId('day');
 
-      userEvent.click(days[0]);
-      userEvent.click(days[days.length - 1]);
+      fireEvent.click(days[0]);
+      fireEvent.click(days[days.length - 1]);
 
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
@@ -286,7 +286,7 @@ describe('Datepicker', () => {
       const input = getByTestId('input');
 
       userEvent.click(input);
-      userEvent.click(getByTestId('calendar-wrapper'));
+      fireEvent.click(getByTestId('calendar-wrapper'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });
