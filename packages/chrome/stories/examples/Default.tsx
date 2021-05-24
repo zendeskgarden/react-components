@@ -73,6 +73,7 @@ interface IDefaultStoryProps {
   showSubnav: boolean;
   showSidebar: boolean;
   hueColor?: string;
+  itemCount: number;
 }
 
 export const Default: Story<IDefaultStoryProps> = ({
@@ -80,11 +81,15 @@ export const Default: Story<IDefaultStoryProps> = ({
   isExpanded,
   showSubnav,
   showSidebar,
-  hueColor
+  hueColor,
+  itemCount
 }) => {
   const [currentNavItem, setCurrentNavItem] = useState('home');
   const [currentSubnavItem, setCurrentSubnavItem] = useState('item-1');
   const [showCollapsed, setShowCollapsed] = useState(false);
+  const subNavItems = Array(itemCount)
+    .fill(undefined)
+    .map((s, i) => i);
 
   return (
     <Chrome isFluid style={{ height: 500 }} hue={hueColor}>
@@ -160,26 +165,17 @@ export const Default: Story<IDefaultStoryProps> = ({
           <CollapsibleSubNavItem
             header="Collapsible Item"
             isExpanded={showCollapsed}
-            onChange={newCollapsed => setShowCollapsed(newCollapsed)}
+            onChange={setShowCollapsed}
           >
-            <SubNavItem
-              isCurrent={currentSubnavItem === 'collapsed-item-1'}
-              onClick={() => setCurrentSubnavItem('collapsed-item-1')}
-            >
-              <SubNavItemText>Item 1</SubNavItemText>
-            </SubNavItem>
-            <SubNavItem
-              isCurrent={currentSubnavItem === 'collapsed-item-2'}
-              onClick={() => setCurrentSubnavItem('collapsed-item-2')}
-            >
-              <SubNavItemText>Item 2</SubNavItemText>
-            </SubNavItem>
-            <SubNavItem
-              isCurrent={currentSubnavItem === 'collapsed-item-3'}
-              onClick={() => setCurrentSubnavItem('collapsed-item-3')}
-            >
-              <SubNavItemText>Item 3</SubNavItemText>
-            </SubNavItem>
+            {subNavItems.map(item => (
+              <SubNavItem
+                key={item}
+                isCurrent={currentSubnavItem === `collapsed-item-${item}`}
+                onClick={() => setCurrentSubnavItem(`collapsed-item-${item}`)}
+              >
+                <SubNavItemText>Item {item + 1}</SubNavItemText>
+              </SubNavItem>
+            ))}
           </CollapsibleSubNavItem>
           <SubNavItem
             isCurrent={currentSubnavItem === 'item-3'}
@@ -262,7 +258,8 @@ Default.args = {
   isExpanded: false,
   showSubnav: true,
   showSidebar: false,
-  hueColor: undefined
+  hueColor: undefined,
+  itemCount: 3
 };
 
 Default.argTypes = {
@@ -282,7 +279,11 @@ Default.argTypes = {
   showSidebar: {
     name: 'Show sidebar'
   },
-  hueColor: { name: 'Hue', control: 'color' }
+  hueColor: { name: 'Hue', control: 'color' },
+  itemCount: {
+    name: 'Item count',
+    control: { type: 'range', min: 1, max: 8, step: 1 }
+  }
 };
 
 Default.parameters = {
