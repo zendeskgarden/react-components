@@ -45,7 +45,7 @@
     "@svgr/rollup": "5.5.0",
     "@svgr/webpack": "5.5.0",
     "@testing-library/jest-dom": "5.11.10",
-    "@testing-library/react": "11.2.6",
+    "@testing-library/react": "11.2.7",
     "@testing-library/react-hooks": "5.1.1",
     "@testing-library/user-event": "13.1.1",
     "@types/jest": "26.0.22",
