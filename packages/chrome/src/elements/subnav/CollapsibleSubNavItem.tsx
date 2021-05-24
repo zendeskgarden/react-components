@@ -57,7 +57,7 @@ export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsib
       if (expanded && panelRef.current) {
         panelRef.current.style.maxHeight = `${panelRef.current.scrollHeight}px`;
       }
-    }, [expanded]);
+    }, [expanded, children]);
 
     return (
       <div ref={ref}>
