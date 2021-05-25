@@ -24,8 +24,8 @@
     "@zendeskgarden/react-buttons": "^8.0.0",
     "@zendeskgarden/react-theming": "^8.0.0",
     "babel-plugin-styled-components": "^1.10.7",
-    "gatsby": "^2.19.7",
-    "gatsby-plugin-styled-components": "^3.1.19",
+    "gatsby": "^3.0.0",
+    "gatsby-plugin-styled-components": "^4.0.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "styled-components": "^5.1.0"
