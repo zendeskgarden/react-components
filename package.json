@@ -51,7 +51,7 @@
     "@types/jest": "26.0.23",
     "@types/prop-types": "15.7.3",
     "@types/react": "17.0.2",
-    "@types/react-dom": "17.0.1",
+    "@types/react-dom": "17.0.5",
     "@types/styled-components": "5.1.9",
     "@typescript-eslint/eslint-plugin": "4.20.0",
     "@typescript-eslint/parser": "4.20.0",
