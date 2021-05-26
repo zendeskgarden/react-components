@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useEffect, useMemo, useRef, useState } from 'react';
+import React, { HTMLAttributes, useMemo, useRef } from 'react';
 import Highlight, { Language, Prism } from 'prism-react-renderer';
-import debounce from 'lodash.debounce';
+import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
 import {
   StyledCodeBlock,
   StyledCodeBlockContainer,
@@ -38,27 +38,8 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
     { children, containerProps, highlightLines, isLight, isNumbered, language, size, ...other },
     ref
   ) => {
-    const [containerTabIndex, setContainerTabIndex] = useState(-1);
     const containerRef = useRef<HTMLDivElement>(null);
-    const updateContainerTabIndex = useMemo(
-      () =>
-        debounce(() => {
-          if (containerRef.current) {
-            const codeBlock = containerRef.current.children[0];
-            const codeBlockHeight = codeBlock.scrollHeight;
-            const codeBlockWidth = codeBlock.scrollWidth;
-            const containerHeight = containerRef.current.offsetHeight;
-            const containerWidth = containerRef.current.offsetWidth;
 
-            if (codeBlockWidth > containerWidth || codeBlockHeight > containerHeight) {
-              setContainerTabIndex(0);
-            } else {
-              setContainerTabIndex(-1);
-            }
-          }
-        }, 100),
-      [containerRef, setContainerTabIndex]
-    );
     const code = (Array.isArray(children) ? children[0] : children) as string;
     let _size: 'sm' | 'md' | 'lg';
 
@@ -70,15 +51,9 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
       _size = 'lg';
     }
 
-    useEffect(() => {
-      addEventListener('resize', updateContainerTabIndex);
-      updateContainerTabIndex();
+    const dependency = useMemo(() => [size, children], [size, children]);
 
-      return () => {
-        removeEventListener('resize', updateContainerTabIndex);
-        updateContainerTabIndex.cancel();
-      };
-    }, [updateContainerTabIndex, isNumbered, size, children]);
+    const containerTabIndex = useScrollRegion({ containerRef, dependency });
 
     return (
       <StyledCodeBlockContainer {...containerProps} ref={containerRef} tabIndex={containerTabIndex}>
