@@ -16,24 +16,22 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@types/lodash.debounce@4.0.6":
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/@types/lodash.debounce/-/lodash.debounce-4.0.6.tgz#c5a2326cd3efc46566c47e4c0aa248dc0ee57d60"
-  integrity sha512-4WTmnnhCfDvvuLMaF3KV4Qfki93KebocUF45msxhYyjMttZDQYzHkO639ohhk8+oco2cluAFL3t5+Jn4mleylQ==
-  dependencies:
-    "@types/lodash" "*"
-
-"@types/lodash@*":
-  version "4.14.168"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.168.tgz#fe24632e79b7ade3f132891afff86caa5e5ce008"
-  integrity sha512-oVfRvqHV/V6D1yifJbVRU3TMp8OT6o6BG+U9MkwuJ3U8/CsDHvalRpsxBqivn71ztOFZBTfJMvETbqHiaNSj7Q==
-
 "@zendeskgarden/container-focusvisible@^0.4.6":
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.6.tgz#bf1736353babb632ff04e4f7330c7da98bdd8ce0"
   integrity sha512-YLGJ2+i9PKzP4ND9OtuWrUomJvKp+Mel8QSIGsWkUQ6DqabVZPi2//BZ0slqnyq4LcIS0MjTSCLi28H6IFjrrA==
   dependencies:
     "@babel/runtime" "^7.8.4"
+
+"@zendeskgarden/container-scrollregion@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-scrollregion/-/container-scrollregion-0.1.0.tgz#18a3600a1380e282ee3925a017bd6d12c8aaaecb"
+  integrity sha512-uZqZb/NLDrNkuAGMTPdsEzPS04HRCFAVxnFQPzThvGd5e22OLm5H/CS8IKwFJN9kB0Ivs0Enzwur2J8W+cN1RQ==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    lodash.debounce "^4.0.8"
+    prop-types "^15.7.2"
+    react-merge-refs "^1.1.0"
 
 "@zendeskgarden/container-utilities@^0.5.5":
   version "0.5.5"
@@ -42,14 +40,15 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/react-theming@^8.31.1":
-  version "8.31.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.31.1.tgz#fcce2c6c4cf89ad00bea6f7e9616b8575ec9aa66"
-  integrity sha512-fXee4OGNsYnVzALJFF3ud75CNxvCt+Sde8hWTV+4ts+SUnPSYubwqq1mxQae7+MgrtdS+Gy6cVkVmpHceu19RA==
+"@zendeskgarden/react-theming@^8.37.1":
+  version "8.37.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.37.1.tgz#39308cb410efdfb1a34fe9bbf1c2c18601088412"
+  integrity sha512-9/yZkIL3xersw6yPAD8WCz7BXaPcDmLdoOX3WWzjrWGDXrxoFCG1IfYp8DNYSDtfJI2rAEDyidJEvhpT58eAZA==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.5.5"
     polished "^4.0.0"
+    prop-types "^15.5.7"
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
@@ -85,7 +84,7 @@ prism-react-renderer@^1.1.1:
   resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-1.1.1.tgz#1c1be61b1eb9446a146ca7a50b7bcf36f2a70a44"
   integrity sha512-MgMhSdHuHymNRqD6KM3eGS0PNqgK9q4QF5P0yoQQvpB6jNjeSAi3jcSAz0Sua/t9fa4xDOMar9HJbLa08gl9ug==
 
-prop-types@^15.5.7:
+prop-types@^15.5.7, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -98,6 +97,11 @@ react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-merge-refs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
+  integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
 regenerator-runtime@^0.13.4:
   version "0.13.5"
