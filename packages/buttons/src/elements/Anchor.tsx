@@ -23,28 +23,27 @@ export interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 /**
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
-const Anchor: React.FunctionComponent<
-  IAnchorProps & React.RefAttributes<HTMLAnchorElement>
-> = React.forwardRef<HTMLAnchorElement, IAnchorProps>(
-  ({ children, isExternal, ...otherProps }, ref) => {
-    let anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = otherProps;
+const Anchor: React.FunctionComponent<IAnchorProps & React.RefAttributes<HTMLAnchorElement>> =
+  React.forwardRef<HTMLAnchorElement, IAnchorProps>(
+    ({ children, isExternal, ...otherProps }, ref) => {
+      let anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = otherProps;
 
-    if (isExternal) {
-      anchorProps = {
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        ...anchorProps
-      };
+      if (isExternal) {
+        anchorProps = {
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          ...anchorProps
+        };
+      }
+
+      return (
+        <StyledAnchor ref={ref} {...(anchorProps as any)}>
+          {children}
+          {isExternal && <StyledExternalIcon />}
+        </StyledAnchor>
+      );
     }
-
-    return (
-      <StyledAnchor ref={ref} {...(anchorProps as any)}>
-        {children}
-        {isExternal && <StyledExternalIcon />}
-      </StyledAnchor>
-    );
-  }
-);
+  );
 
 Anchor.displayName = 'Anchor';
 

@@ -59,9 +59,10 @@ const Tabs = React.forwardRef<HTMLDivElement, ITabsProps>(
       }
     });
 
-    const tabsContextValue = useMemo(() => ({ ...tabPropGetters, tabIndexRef, tabPanelIndexRef }), [
-      tabPropGetters
-    ]);
+    const tabsContextValue = useMemo(
+      () => ({ ...tabPropGetters, tabIndexRef, tabPanelIndexRef }),
+      [tabPropGetters]
+    );
 
     return (
       <TabsContext.Provider value={tabsContextValue}>

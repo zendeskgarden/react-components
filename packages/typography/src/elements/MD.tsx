@@ -21,11 +21,10 @@ interface IMDProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const MD: React.FunctionComponent<
-  IMDProps & React.RefAttributes<HTMLDivElement>
-> = React.forwardRef<HTMLDivElement, IMDProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="md" {...other} />
-));
+const MD: React.FunctionComponent<IMDProps & React.RefAttributes<HTMLDivElement>> =
+  React.forwardRef<HTMLDivElement, IMDProps>(({ tag, ...other }, ref) => (
+    <StyledFont as={tag} ref={ref} size="md" {...other} />
+  ));
 
 MD.displayName = 'MD';
 

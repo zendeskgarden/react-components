@@ -60,7 +60,7 @@ OrderedList.defaultProps = {
 /**
  * @extends HTMLAttributes<HTMLOListElement>
  */
-export default (OrderedList as unknown) as React.FunctionComponent<
+export default OrderedList as unknown as React.FunctionComponent<
   IOrderedListProps & React.RefAttributes<HTMLOListElement>
 > & {
   Item: typeof OrderedListItem;

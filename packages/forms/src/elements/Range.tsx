@@ -34,7 +34,7 @@ export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
         }
 
         const percentage =
-          (100 * (((value as unknown) as number) - (min as number))) /
+          (100 * ((value as unknown as number) - (min as number))) /
           (relativeMax - (min as number));
 
         setBackgroundSize(`${percentage}%`);

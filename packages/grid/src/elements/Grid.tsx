@@ -25,11 +25,10 @@ export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
  */
 export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
   ({ columns, debug, ...props }, ref) => {
-    const value = useMemo(() => ({ columns, gutters: props.gutters!, debug }), [
-      columns,
-      props.gutters,
-      debug
-    ]);
+    const value = useMemo(
+      () => ({ columns, gutters: props.gutters!, debug }),
+      [columns, props.gutters, debug]
+    );
 
     return (
       <GridContext.Provider value={value}>

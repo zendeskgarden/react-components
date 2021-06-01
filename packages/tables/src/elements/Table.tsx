@@ -19,10 +19,10 @@ interface ITableProps extends IStyledTableProps, TableHTMLAttributes<HTMLTableEl
  * @extends TableHTMLAttributes<HTMLTableElement>
  */
 export const Table = React.forwardRef<HTMLTableElement, ITableProps>((props, ref) => {
-  const tableContextValue = useMemo(() => ({ size: props.size!, isReadOnly: props.isReadOnly! }), [
-    props.size,
-    props.isReadOnly
-  ]);
+  const tableContextValue = useMemo(
+    () => ({ size: props.size!, isReadOnly: props.isReadOnly! }),
+    [props.size, props.isReadOnly]
+  );
 
   return (
     <TableContext.Provider value={tableContextValue}>

@@ -30,8 +30,12 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
    * `onKeyDown` is plucked out and not passed to the Label (button) element
    * to prevent double invocations of the click event.
    */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { onClick: onTriggerClick, onKeyDown, ...otherTriggerProps } = getTriggerProps({
+  const {
+    onClick: onTriggerClick,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    onKeyDown,
+    ...otherTriggerProps
+  } = getTriggerProps({
     type: 'button',
     index: sectionIndex
   });

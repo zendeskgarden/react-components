@@ -47,7 +47,7 @@ UnorderedList.defaultProps = {
 /**
  * @extends HTMLAttributes<HTMLUListElement>
  */
-export default (UnorderedList as unknown) as React.FunctionComponent<
+export default UnorderedList as unknown as React.FunctionComponent<
   IUnorderedListProps & React.RefAttributes<HTMLUListElement>
 > & {
   Item: typeof UnorderedListItem;

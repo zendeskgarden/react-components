@@ -58,14 +58,8 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
     const [isFocused, setIsFocused] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
-    const {
-      onClick,
-      onFocus,
-      onBlur,
-      onMouseOver,
-      onMouseOut,
-      ...otherWrapperProps
-    } = wrapperProps;
+    const { onClick, onFocus, onBlur, onMouseOver, onMouseOut, ...otherWrapperProps } =
+      wrapperProps;
 
     const onFauxInputClickHandler = composeEventHandlers(onClick, () => {
       inputRef.current && inputRef.current.focus();

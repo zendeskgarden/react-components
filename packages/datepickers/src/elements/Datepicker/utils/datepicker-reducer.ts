@@ -92,72 +92,74 @@ export type DatepickerAction =
   | { type: 'CONTROLLED_LOCALE_CHANGE' }
   | { type: 'SELECT_DATE'; value: Date };
 
-export const datepickerReducer = ({
-  value,
-  formatDate,
-  locale,
-  customParseDate,
-  onChange
-}: {
-  value?: Date;
-  formatDate?: (date: Date) => string;
-  locale: any;
-  customParseDate?: (inputValue: string) => Date;
-  onChange?: (date: Date) => void;
-}) => (state: IDatepickerState, action: DatepickerAction): IDatepickerState => {
-  switch (action.type) {
-    case 'OPEN':
-      return { ...state, isOpen: true, previewDate: value || new Date() };
-    case 'CLOSE': {
-      const inputValue = formatInputValue({ date: value, locale, formatDate });
+export const datepickerReducer =
+  ({
+    value,
+    formatDate,
+    locale,
+    customParseDate,
+    onChange
+  }: {
+    value?: Date;
+    formatDate?: (date: Date) => string;
+    locale: any;
+    customParseDate?: (inputValue: string) => Date;
+    onChange?: (date: Date) => void;
+  }) =>
+  (state: IDatepickerState, action: DatepickerAction): IDatepickerState => {
+    switch (action.type) {
+      case 'OPEN':
+        return { ...state, isOpen: true, previewDate: value || new Date() };
+      case 'CLOSE': {
+        const inputValue = formatInputValue({ date: value, locale, formatDate });
 
-      return { ...state, isOpen: false, inputValue };
-    }
-    case 'PREVIEW_NEXT_MONTH': {
-      const previewDate = addMonths(state.previewDate, 1);
-
-      return { ...state, previewDate };
-    }
-    case 'PREVIEW_PREVIOUS_MONTH': {
-      const previewDate = subMonths(state.previewDate, 1);
-
-      return { ...state, previewDate };
-    }
-    case 'MANUALLY_UPDATE_INPUT': {
-      const inputValue = action.value;
-      const currentDate = parseInputValue({ inputValue, customParseDate });
-
-      if (onChange && currentDate && isValid(currentDate) && !isSameDay(value!, currentDate)) {
-        onChange(currentDate);
+        return { ...state, isOpen: false, inputValue };
       }
+      case 'PREVIEW_NEXT_MONTH': {
+        const previewDate = addMonths(state.previewDate, 1);
 
-      return { ...state, isOpen: true, inputValue };
-    }
-    case 'CONTROLLED_VALUE_CHANGE': {
-      const previewDate = action.value || new Date();
-      const inputValue = formatInputValue({ date: action.value, locale, formatDate });
-
-      return { ...state, previewDate, inputValue };
-    }
-    case 'CONTROLLED_LOCALE_CHANGE': {
-      const inputValue = formatInputValue({ date: value, locale, formatDate });
-
-      return { ...state, inputValue };
-    }
-    case 'SELECT_DATE': {
-      const inputValue = formatInputValue({ date: action.value, locale, formatDate });
-
-      if (onChange && action.value && isValid(action.value) && !isSameDay(value!, action.value)) {
-        onChange(action.value);
+        return { ...state, previewDate };
       }
+      case 'PREVIEW_PREVIOUS_MONTH': {
+        const previewDate = subMonths(state.previewDate, 1);
 
-      return { ...state, isOpen: false, inputValue };
+        return { ...state, previewDate };
+      }
+      case 'MANUALLY_UPDATE_INPUT': {
+        const inputValue = action.value;
+        const currentDate = parseInputValue({ inputValue, customParseDate });
+
+        if (onChange && currentDate && isValid(currentDate) && !isSameDay(value!, currentDate)) {
+          onChange(currentDate);
+        }
+
+        return { ...state, isOpen: true, inputValue };
+      }
+      case 'CONTROLLED_VALUE_CHANGE': {
+        const previewDate = action.value || new Date();
+        const inputValue = formatInputValue({ date: action.value, locale, formatDate });
+
+        return { ...state, previewDate, inputValue };
+      }
+      case 'CONTROLLED_LOCALE_CHANGE': {
+        const inputValue = formatInputValue({ date: value, locale, formatDate });
+
+        return { ...state, inputValue };
+      }
+      case 'SELECT_DATE': {
+        const inputValue = formatInputValue({ date: action.value, locale, formatDate });
+
+        if (onChange && action.value && isValid(action.value) && !isSameDay(value!, action.value)) {
+          onChange(action.value);
+        }
+
+        return { ...state, isOpen: false, inputValue };
+      }
+      /* istanbul ignore next */
+      default:
+        throw new Error();
     }
-    /* istanbul ignore next */
-    default:
-      throw new Error();
-  }
-};
+  };
 
 /**
  * Retrieve initial state for the Datepicker reducer

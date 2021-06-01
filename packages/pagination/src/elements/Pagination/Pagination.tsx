@@ -72,46 +72,42 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps>(
     const currentPage = getControlledValue(controlledCurrentPage, internalCurrentPage)!;
     const theme = useContext(ThemeContext);
 
-    const {
-      getContainerProps,
-      getPageProps,
-      getPreviousPageProps,
-      getNextPageProps
-    } = usePagination<number | string | undefined>({
-      rtl: theme.rtl,
-      focusedItem,
-      selectedItem: currentPage,
-      onFocus: item => {
-        setFocusedItem(item);
-      },
-      onSelect: item => {
-        let updatedCurrentPage = item;
-        let updatedFocusedKey = focusedItem;
+    const { getContainerProps, getPageProps, getPreviousPageProps, getNextPageProps } =
+      usePagination<number | string | undefined>({
+        rtl: theme.rtl,
+        focusedItem,
+        selectedItem: currentPage,
+        onFocus: item => {
+          setFocusedItem(item);
+        },
+        onSelect: item => {
+          let updatedCurrentPage = item;
+          let updatedFocusedKey = focusedItem;
 
-        if (updatedCurrentPage === PREVIOUS_KEY && currentPage > 1) {
-          updatedCurrentPage = currentPage - 1;
+          if (updatedCurrentPage === PREVIOUS_KEY && currentPage > 1) {
+            updatedCurrentPage = currentPage - 1;
 
-          // Must manually change focusedKey once PreviousPage is no longer visible
-          if (updatedCurrentPage === 1 && focusedItem === PREVIOUS_KEY) {
-            updatedFocusedKey = 1;
+            // Must manually change focusedKey once PreviousPage is no longer visible
+            if (updatedCurrentPage === 1 && focusedItem === PREVIOUS_KEY) {
+              updatedFocusedKey = 1;
+            }
+          } else if (updatedCurrentPage === NEXT_KEY && currentPage < totalPages) {
+            updatedCurrentPage = currentPage + 1;
+
+            // Must manually change focusedKey once NextPage is no longer visible
+            if (updatedCurrentPage === totalPages && updatedFocusedKey === NEXT_KEY) {
+              updatedFocusedKey = totalPages;
+            }
           }
-        } else if (updatedCurrentPage === NEXT_KEY && currentPage < totalPages) {
-          updatedCurrentPage = currentPage + 1;
 
-          // Must manually change focusedKey once NextPage is no longer visible
-          if (updatedCurrentPage === totalPages && updatedFocusedKey === NEXT_KEY) {
-            updatedFocusedKey = totalPages;
+          if (onChange && updatedCurrentPage !== undefined) {
+            onChange(updatedCurrentPage as number);
           }
-        }
 
-        if (onChange && updatedCurrentPage !== undefined) {
-          onChange(updatedCurrentPage as number);
+          setFocusedItem(updatedFocusedKey);
+          setCurrentPage(updatedCurrentPage as number);
         }
-
-        setFocusedItem(updatedFocusedKey);
-        setCurrentPage(updatedCurrentPage as number);
-      }
-    });
+      });
 
     const getTransformedProps = (pageType: PAGE_TYPE, props: any = {}) => {
       if (transformPageProps) {

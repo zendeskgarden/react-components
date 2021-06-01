@@ -1,5 +1,6 @@
 {
   "name": "@zendeskgarden/react-loaders",
+  "version": "8.37.1",
   "description": "Components relating to loaders in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -8,7 +9,6 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "8.37.1",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
