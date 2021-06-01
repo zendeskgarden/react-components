@@ -75,7 +75,7 @@ describe('Spinner', () => {
 
       expect(container.firstChild!.firstChild).toMatchInlineSnapshot(`
         <circle
-          class="sc-furvIG"
+          class="sc-fujyAs"
           cx="40"
           cy="40"
           fill="none"

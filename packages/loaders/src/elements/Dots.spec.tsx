@@ -158,21 +158,21 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class="sc-bdvvaa sc-gsDJrp  jpkUtI"
+            class="sc-bdnxRM sc-gtsrHT  gBzMUY"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdvvaa sc-dkPtyc  fyXSoc"
+            class="sc-bdnxRM sc-dlnjwi  cquPjx"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdvvaa sc-hKwCoD  jEqgiH"
+            class="sc-bdnxRM sc-hKFxyN  fnDyrH"
             cx="71"
             cy="36"
             r="9"
@@ -243,21 +243,21 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class="sc-bdvvaa sc-gsDJrp  bWhBYN"
+            class="sc-bdnxRM sc-gtsrHT  hhvydV"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdvvaa sc-dkPtyc  bRrsVp"
+            class="sc-bdnxRM sc-dlnjwi  ijMpyk"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdvvaa sc-hKwCoD  lmHfIi"
+            class="sc-bdnxRM sc-hKFxyN  kCdNwm"
             cx="71"
             cy="36"
             r="9"
@@ -328,21 +328,21 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class="sc-bdvvaa sc-gsDJrp  dRzgCi"
+            class="sc-bdnxRM sc-gtsrHT  grVrvy"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdvvaa sc-dkPtyc  iIwUwe"
+            class="sc-bdnxRM sc-dlnjwi  GgFtX"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdvvaa sc-hKwCoD  cibsYF"
+            class="sc-bdnxRM sc-hKFxyN  jFDdbV"
             cx="71"
             cy="36"
             r="9"
