@@ -21,11 +21,10 @@ interface ILGProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const LG: React.FunctionComponent<
-  ILGProps & React.RefAttributes<HTMLDivElement>
-> = React.forwardRef<HTMLDivElement, ILGProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="lg" {...other} />
-));
+const LG: React.FunctionComponent<ILGProps & React.RefAttributes<HTMLDivElement>> =
+  React.forwardRef<HTMLDivElement, ILGProps>(({ tag, ...other }, ref) => (
+    <StyledFont as={tag} ref={ref} size="lg" {...other} />
+  ));
 
 LG.displayName = 'LG';
 

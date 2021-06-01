@@ -96,20 +96,15 @@ export const DrawerModal = forwardRef<
 
     useFocusVisible({ scope: modalRef, relativeDocument: modalRef.current });
 
-    const {
-      getTitleProps,
-      getCloseProps,
-      getContentProps,
-      getBackdropProps,
-      getModalProps
-    } = useModal({
-      id,
-      modalRef,
-      focusOnMount,
-      restoreFocus,
-      environment,
-      onClose
-    });
+    const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
+      useModal({
+        id,
+        modalRef,
+        focusOnMount,
+        restoreFocus,
+        environment,
+        onClose
+      });
 
     useEffect(() => {
       if (!environment) {

@@ -169,11 +169,11 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
         onBlur: (e: React.FocusEvent<HTMLElement>) => {
           const currentTarget = e.currentTarget;
 
-          blurTimeoutRef.current = (setTimeout(() => {
+          blurTimeoutRef.current = setTimeout(() => {
             if (!currentTarget.contains(document.activeElement)) {
               setIsFocused(false);
             }
-          }, 0) as unknown) as number;
+          }, 0) as unknown as number;
         },
         onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
         onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),

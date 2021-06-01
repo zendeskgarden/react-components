@@ -24,7 +24,7 @@ import { ModalsContext } from '../utils/useModalContext';
 
 const isOverflowing = (element: Element) => {
   const doc = ownerDocument(element);
-  const win = ownerWindow((doc as unknown) as Element);
+  const win = ownerWindow(doc as unknown as Element);
 
   const isBody = element && element.tagName.toLowerCase() === 'body';
 
@@ -105,19 +105,14 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
     const modalRef = useRef<HTMLDivElement>(null);
     const environment = useDocument(theme);
 
-    const {
-      getBackdropProps,
-      getModalProps,
-      getTitleProps,
-      getContentProps,
-      getCloseProps
-    } = useModal({
-      id,
-      onClose,
-      modalRef,
-      focusOnMount,
-      restoreFocus
-    });
+    const { getBackdropProps, getModalProps, getTitleProps, getContentProps, getCloseProps } =
+      useModal({
+        id,
+        onClose,
+        modalRef,
+        focusOnMount,
+        restoreFocus
+      });
 
     useFocusVisible({ scope: modalRef, relativeDocument: environment });
 

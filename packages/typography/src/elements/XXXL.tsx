@@ -19,11 +19,10 @@ interface IXXXLProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const XXXL: React.FunctionComponent<
-  IXXXLProps & React.RefAttributes<HTMLDivElement>
-> = React.forwardRef<HTMLDivElement, IXXXLProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="xxxl" {...other} />
-));
+const XXXL: React.FunctionComponent<IXXXLProps & React.RefAttributes<HTMLDivElement>> =
+  React.forwardRef<HTMLDivElement, IXXXLProps>(({ tag, ...other }, ref) => (
+    <StyledFont as={tag} ref={ref} size="xxxl" {...other} />
+  ));
 
 XXXL.displayName = 'XXXL';
 

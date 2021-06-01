@@ -24,11 +24,10 @@ interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   hue?: string;
 }
 
-const Span: React.FunctionComponent<
-  ISpanProps & React.RefAttributes<HTMLSpanElement>
-> = React.forwardRef<HTMLSpanElement, ISpanProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="inherit" {...other} />
-));
+const Span: React.FunctionComponent<ISpanProps & React.RefAttributes<HTMLSpanElement>> =
+  React.forwardRef<HTMLSpanElement, ISpanProps>(({ tag, ...other }, ref) => (
+    <StyledFont as={tag} ref={ref} size="inherit" {...other} />
+  ));
 
 Span.displayName = 'Span';
 

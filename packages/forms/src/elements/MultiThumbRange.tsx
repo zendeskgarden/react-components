@@ -198,7 +198,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
       }
 
       const newValue =
-        min! + parseInt(((((max! - min!) * diffX) / trackWidth) as unknown) as string, 10);
+        min! + parseInt((((max! - min!) * diffX) / trackWidth) as unknown as string, 10);
 
       // Reduce updated value to align with step size
       return Math.floor(newValue / step!) * step!;
@@ -387,7 +387,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
             aria-valuemin={min}
             aria-valuemax={maxValue}
             aria-valuenow={minValue}
-            aria-valuetext={(minValue as unknown) as string}
+            aria-valuetext={minValue as unknown as string}
             data-test-id="thumb"
             isDisabled={disabled}
             position={minPosition}
@@ -416,7 +416,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
             aria-valuemin={minValue}
             aria-valuemax={max}
             aria-valuenow={maxValue}
-            aria-valuetext={(maxValue as unknown) as string}
+            aria-valuetext={maxValue as unknown as string}
             data-test-id="thumb"
             isDisabled={disabled}
             position={maxPosition}

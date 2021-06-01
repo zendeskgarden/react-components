@@ -24,7 +24,8 @@ module.exports = {
       }
     ],
     '@babel/proposal-object-rest-spread',
-    'babel-plugin-styled-components'
+    'babel-plugin-styled-components',
+    ['@babel/plugin-proposal-private-methods', { loose: true }]
   ],
   env: {
     production: {

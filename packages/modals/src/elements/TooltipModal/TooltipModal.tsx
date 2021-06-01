@@ -124,20 +124,15 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
     const modalRef = useRef<HTMLDivElement>(null);
     const transitionRef = useRef<HTMLDivElement>(null);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
-    const {
-      getTitleProps,
-      getCloseProps,
-      getContentProps,
-      getBackdropProps,
-      getModalProps
-    } = useModal({
-      id,
-      onClose,
-      modalRef,
-      focusOnMount,
-      /** Handle `restoreFocus` locally to return focus to `referenceElement` */
-      restoreFocus: false
-    });
+    const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
+      useModal({
+        id,
+        onClose,
+        modalRef,
+        focusOnMount,
+        /** Handle `restoreFocus` locally to return focus to `referenceElement` */
+        restoreFocus: false
+      });
 
     useEffect(() => {
       if (!referenceElement && previousReferenceElementRef.current && restoreFocus) {

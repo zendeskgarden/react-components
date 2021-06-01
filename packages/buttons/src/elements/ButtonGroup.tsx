@@ -38,10 +38,10 @@ const ButtonGroup: React.FunctionComponent<IButtonGroupProps> = ({
     onSelect
   });
 
-  const contextValue = useMemo(() => ({ selectedItem, getButtonProps }), [
-    selectedItem,
-    getButtonProps
-  ]);
+  const contextValue = useMemo(
+    () => ({ selectedItem, getButtonProps }),
+    [selectedItem, getButtonProps]
+  );
 
   return (
     <ButtonGroupContext.Provider value={contextValue}>

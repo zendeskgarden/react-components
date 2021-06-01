@@ -24,10 +24,10 @@ export const Field: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = pr
    */
   const { ref } = getRootProps();
 
-  const value = useMemo(() => ({ isLabelHovered, setIsLabelHovered }), [
-    isLabelHovered,
-    setIsLabelHovered
-  ]);
+  const value = useMemo(
+    () => ({ isLabelHovered, setIsLabelHovered }),
+    [isLabelHovered, setIsLabelHovered]
+  );
 
   return (
     <FieldContext.Provider value={value}>

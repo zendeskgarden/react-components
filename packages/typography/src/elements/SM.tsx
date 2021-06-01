@@ -21,11 +21,10 @@ interface ISMProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const SM: React.FunctionComponent<
-  ISMProps & React.RefAttributes<HTMLDivElement>
-> = React.forwardRef<HTMLDivElement, ISMProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="sm" {...other} />
-));
+const SM: React.FunctionComponent<ISMProps & React.RefAttributes<HTMLDivElement>> =
+  React.forwardRef<HTMLDivElement, ISMProps>(({ tag, ...other }, ref) => (
+    <StyledFont as={tag} ref={ref} size="sm" {...other} />
+  ));
 
 SM.displayName = 'SM';
 

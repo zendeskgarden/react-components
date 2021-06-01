@@ -41,11 +41,10 @@ const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(({ hue, isFluid, .
 
   const isLight = hue ? isLightMemoized : false;
   const isDark = hue ? !isLightMemoized : false;
-  const chromeContextValue = useMemo(() => ({ hue: hue || 'chromeHue', isLight, isDark }), [
-    hue,
-    isLight,
-    isDark
-  ]);
+  const chromeContextValue = useMemo(
+    () => ({ hue: hue || 'chromeHue', isLight, isDark }),
+    [hue, isLight, isDark]
+  );
   const environment = useDocument(theme);
 
   useEffect(() => {
