@@ -248,7 +248,9 @@
 <a name='L189'></a><a href='#L189'>189</a>
 <a name='L190'></a><a href='#L190'>190</a>
 <a name='L191'></a><a href='#L191'>191</a>
-<a name='L192'></a><a href='#L192'>192</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -343,6 +345,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -533,72 +537,74 @@ export type DatepickerAction =
   | { type: 'CONTROLLED_LOCALE_CHANGE' }
   | { type: 'SELECT_DATE'; value: Date };
 &nbsp;
-export const datepickerReducer = ({
-  value,
-  formatDate,
-  locale,
-  customParseDate,
-  onChange
-}: {
-  value?: Date;
-  formatDate?: (date: Date) =&gt; string;
-  locale: any;
-  customParseDate?: (inputValue: string) =&gt; Date;
-  onChange?: (date: Date) =&gt; void;
-}) =&gt; (state: IDatepickerState, action: DatepickerAction): IDatepickerState =&gt; {
-  switch (action.type) {
-    case 'OPEN':
-      return { ...state, isOpen: true, previewDate: value || new Date() };
-    case 'CLOSE': {
-      const inputValue = formatInputValue({ date: value, locale, formatDate });
+export const datepickerReducer =
+  ({
+    value,
+    formatDate,
+    locale,
+    customParseDate,
+    onChange
+  }: {
+    value?: Date;
+    formatDate?: (date: Date) =&gt; string;
+    locale: any;
+    customParseDate?: (inputValue: string) =&gt; Date;
+    onChange?: (date: Date) =&gt; void;
+  }) =&gt;
+  (state: IDatepickerState, action: DatepickerAction): IDatepickerState =&gt; {
+    switch (action.type) {
+      case 'OPEN':
+        return { ...state, isOpen: true, previewDate: value || new Date() };
+      case 'CLOSE': {
+        const inputValue = formatInputValue({ date: value, locale, formatDate });
 &nbsp;
-      return { ...state, isOpen: false, inputValue };
-    }
-    case 'PREVIEW_NEXT_MONTH': {
-      const previewDate = addMonths(state.previewDate, 1);
-&nbsp;
-      return { ...state, previewDate };
-    }
-    case 'PREVIEW_PREVIOUS_MONTH': {
-      const previewDate = subMonths(state.previewDate, 1);
-&nbsp;
-      return { ...state, previewDate };
-    }
-    case 'MANUALLY_UPDATE_INPUT': {
-      const inputValue = action.value;
-      const currentDate = parseInputValue({ inputValue, customParseDate });
-&nbsp;
-      if (onChange &amp;&amp; currentDate &amp;&amp; isValid(currentDate) &amp;&amp; !isSameDay(value!, currentDate)) {
-        onChange(currentDate);
+        return { ...state, isOpen: false, inputValue };
       }
+      case 'PREVIEW_NEXT_MONTH': {
+        const previewDate = addMonths(state.previewDate, 1);
 &nbsp;
-      return { ...state, isOpen: true, inputValue };
-    }
-    case 'CONTROLLED_VALUE_CHANGE': {
-      const previewDate = action.value || new Date();
-      const inputValue = formatInputValue({ date: action.value, locale, formatDate });
-&nbsp;
-      return { ...state, previewDate, inputValue };
-    }
-    case 'CONTROLLED_LOCALE_CHANGE': {
-      const inputValue = formatInputValue({ date: value, locale, formatDate });
-&nbsp;
-      return { ...state, inputValue };
-    }
-    case 'SELECT_DATE': {
-      const inputValue = formatInputValue({ date: action.value, locale, formatDate });
-&nbsp;
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (onChange &amp;&amp; action.value &amp;&amp; isValid(action.value) &amp;&amp; !isSameDay(value!, action.value)) {
-        onChange(action.value);
+        return { ...state, previewDate };
       }
+      case 'PREVIEW_PREVIOUS_MONTH': {
+        const previewDate = subMonths(state.previewDate, 1);
 &nbsp;
-      return { ...state, isOpen: false, inputValue };
+        return { ...state, previewDate };
+      }
+      case 'MANUALLY_UPDATE_INPUT': {
+        const inputValue = action.value;
+        const currentDate = parseInputValue({ inputValue, customParseDate });
+&nbsp;
+        if (onChange &amp;&amp; currentDate &amp;&amp; isValid(currentDate) &amp;&amp; !isSameDay(value!, currentDate)) {
+          onChange(currentDate);
+        }
+&nbsp;
+        return { ...state, isOpen: true, inputValue };
+      }
+      case 'CONTROLLED_VALUE_CHANGE': {
+        const previewDate = action.value || new Date();
+        const inputValue = formatInputValue({ date: action.value, locale, formatDate });
+&nbsp;
+        return { ...state, previewDate, inputValue };
+      }
+      case 'CONTROLLED_LOCALE_CHANGE': {
+        const inputValue = formatInputValue({ date: value, locale, formatDate });
+&nbsp;
+        return { ...state, inputValue };
+      }
+      case 'SELECT_DATE': {
+        const inputValue = formatInputValue({ date: action.value, locale, formatDate });
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (onChange &amp;&amp; action.value &amp;&amp; isValid(action.value) &amp;&amp; !isSameDay(value!, action.value)) {
+          onChange(action.value);
+        }
+&nbsp;
+        return { ...state, isOpen: false, inputValue };
+      }
+      /* istanbul ignore next */
+      default:
+        throw new Error();
     }
-    /* istanbul ignore next */
-    default:
-      throw new Error();
-  }
-};
+  };
 &nbsp;
 /**
  * Retrieve initial state for the Datepicker reducer
@@ -637,7 +643,7 @@ export function retrieveInitialState(initialProps: IDatepickerProps): IDatepicke
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri May 28 2021 22:34:52 GMT+0000 (Coordinated Universal Time)
+                at Tue Jun 01 2021 19:53:12 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>

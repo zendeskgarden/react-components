@@ -384,7 +384,10 @@
 <a name='L325'></a><a href='#L325'>325</a>
 <a name='L326'></a><a href='#L326'>326</a>
 <a name='L327'></a><a href='#L327'>327</a>
-<a name='L328'></a><a href='#L328'>328</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L328'></a><a href='#L328'>328</a>
+<a name='L329'></a><a href='#L329'>329</a>
+<a name='L330'></a><a href='#L330'>330</a>
+<a name='L331'></a><a href='#L331'>331</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -495,6 +498,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">376x</span>
 <span class="cline-any cline-yes">386x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -547,6 +552,7 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -808,205 +814,208 @@ export type DatepickerRangeAction =
   | { type: 'CONTROLLED_START_VALUE_CHANGE'; value?: Date }
   | { type: 'CONTROLLED_END_VALUE_CHANGE'; value?: Date };
 &nbsp;
-export const datepickerRangeReducer = ({
-  startValue,
-  endValue,
-  locale,
-  formatDate,
-  onChange,
-  customParseDate
-}: {
-  startValue?: Date;
-  endValue?: Date;
-  locale?: string;
-  formatDate?: any;
-  onChange?: (values: { startValue?: Date; endValue?: Date }) =&gt; void;
-  customParseDate?: (inputValue?: string) =&gt; Date;
-}) =&gt; (state: IDatepickerRangeState, action: DatepickerRangeAction): IDatepickerRangeState =&gt; {
-  switch (action.type) {
-    case 'START_FOCUS': {
-      let previewDate = state.previewDate;
+export const datepickerRangeReducer =
+  ({
+    startValue,
+    endValue,
+    locale,
+    formatDate,
+    onChange,
+    customParseDate
+  }: {
+    startValue?: Date;
+    endValue?: Date;
+    locale?: string;
+    formatDate?: any;
+    onChange?: (values: { startValue?: Date; endValue?: Date }) =&gt; void;
+    customParseDate?: (inputValue?: string) =&gt; Date;
+  }) =&gt;
+  (state: IDatepickerRangeState, action: DatepickerRangeAction): IDatepickerRangeState =&gt; {
+    switch (action.type) {
+      case 'START_FOCUS': {
+        let previewDate = state.previewDate;
 &nbsp;
-      if (startValue) {
-        if (
-          compareAsc(startValue, startOfMonth(state.previewDate)) === 1 &amp;&amp;
-          compareAsc(startValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
-        ) {
-          previewDate = state.previewDate;
-        } else {
-          previewDate = startOfMonth(startValue);
-        }
-      }
-&nbsp;
-      return { ...state, previewDate, isStartFocused: true, isEndFocused: false };
-    }
-    case 'END_FOCUS': {
-      let previewDate = state.previewDate;
-&nbsp;
-      if (endValue) {
-        if (
-          compareAsc(endValue, startOfMonth(state.previewDate)) === 1 &amp;&amp;
-          compareAsc(endValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
-        ) {
-          previewDate = state.previewDate;
-        } else {
-          previewDate = startOfMonth(endValue);
-        }
-      }
-&nbsp;
-      return { ...state, previewDate, isEndFocused: true, isStartFocused: false };
-    }
-    case 'START_BLUR': {
-      let parsedDate;
-&nbsp;
-      if (customParseDate) {
-        parsedDate = customParseDate(state.startInputValue);
-      } else {
-        parsedDate = parseInputValue({
-          inputValue: state.startInputValue
-        });
-      }
-&nbsp;
-      if (onChange &amp;&amp; parsedDate &amp;&amp; isValid(parsedDate) &amp;&amp; !isSameDay(parsedDate, startValue!)) {
-        onChange({ startValue: parsedDate, endValue });
-      }
-&nbsp;
-      const startInputValue = formatValue({ value: parsedDate, locale, formatDate });
-&nbsp;
-      return {
-        ...state,
-        startInputValue: startInputValue || formatValue({ value: startValue, locale, formatDate }),
-        isStartFocused: false
-      };
-    }
-    case 'END_BLUR': {
-      let parsedDate;
-&nbsp;
-      if (customParseDate) {
-        parsedDate = customParseDate(state.endInputValue);
-      } else {
-        parsedDate = parseInputValue({
-          inputValue: state.endInputValue
-        });
-      }
-&nbsp;
-      if (onChange &amp;&amp; parsedDate &amp;&amp; isValid(parsedDate) &amp;&amp; !isSameDay(parsedDate, endValue!)) {
-        onChange({ startValue, endValue: parsedDate });
-      }
-&nbsp;
-      const endInputValue =
-        formatValue({ value: parsedDate, locale, formatDate }) ||
-        formatValue({ value: endValue, locale, formatDate });
-&nbsp;
-      return {
-        ...state,
-        endInputValue,
-        isEndFocused: false
-      };
-    }
-    case 'CONTROLLED_START_VALUE_CHANGE': {
-      const startInputValue = formatValue({ value: action.value, locale, formatDate });
-&nbsp;
-      let previewDate = state.previewDate;
-&nbsp;
-      if (action.value) {
-        if (
-          compareAsc(action.value, startOfMonth(state.previewDate)) === 1 &amp;&amp;
-          compareAsc(action.value, addMonths(endOfMonth(state.previewDate), 1)) === -1
-        ) {
-          previewDate = state.previewDate;
-        } else {
-          previewDate = startOfMonth(action.value);
-        }
-      }
-&nbsp;
-      return {
-        ...state,
-        startInputValue,
-        hoverDate: undefined,
-        previewDate
-      };
-    }
-    case 'CONTROLLED_END_VALUE_CHANGE': {
-      const endInputValue = formatValue({ value: action.value, locale, formatDate });
-&nbsp;
-      let previewDate = state.previewDate;
-&nbsp;
-      if (action.value) {
-        if (
-          compareAsc(action.value, startOfMonth(state.previewDate)) === 1 &amp;&amp;
-          compareAsc(action.value, addMonths(endOfMonth(state.previewDate), 1)) === -1
-        ) {
-          previewDate = state.previewDate;
-        } else {
-          previewDate = startOfMonth(action.value);
-        }
-      }
-&nbsp;
-      return {
-        ...state,
-        endInputValue,
-        hoverDate: undefined,
-        previewDate
-      };
-    }
-    case 'CLICK_DATE':
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (onChange) {
-        if (state.isStartFocused) {
+        if (startValue) {
           if (
-            endValue !== undefined &amp;&amp;
-            (isBefore(action.value, endValue) || isSameDay(action.value, endValue))
+            compareAsc(startValue, startOfMonth(state.previewDate)) === 1 &amp;&amp;
+            compareAsc(startValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
           ) {
-            onChange({ startValue: action.value, endValue });
+            previewDate = state.previewDate;
           } else {
-            onChange({ startValue: action.value, endValue: undefined });
+            previewDate = startOfMonth(startValue);
           }
-        } else if (state.isEndFocused) {
-          if (
-            startValue !== undefined &amp;&amp;
-            (isAfter(action.value, startValue) || isSameDay(action.value, startValue))
-          ) {
-            onChange({ startValue, endValue: action.value });
-          } else {
-            onChange({ startValue: action.value, endValue: undefined });
-          }
-        } else if (startValue === undefined) {
-          onChange({ startValue: action.value, endValue: undefined });
-        } else if (endValue === undefined) {
-          if (isBefore(action.value, startValue)) {
-            onChange({ startValue: action.value, endValue: undefined });
-          } else {
-            onChange({ startValue, endValue: action.value });
-          }
-        } else {
-          onChange({ startValue: action.value, endValue: undefined });
         }
+&nbsp;
+        return { ...state, previewDate, isStartFocused: true, isEndFocused: false };
       }
+      case 'END_FOCUS': {
+        let previewDate = state.previewDate;
 &nbsp;
-      return state;
-    case 'START_INPUT_ONCHANGE': {
-      return { ...state, startInputValue: action.value };
-    }
-    case 'END_INPUT_ONCHANGE': {
-      return { ...state, endInputValue: action.value };
-    }
-    case 'HOVER_DATE':
-      return { ...state, hoverDate: action.value };
-    case 'PREVIEW_NEXT_MONTH': {
-      const previewDate = addMonths(state.previewDate, 1);
+        if (endValue) {
+          if (
+            compareAsc(endValue, startOfMonth(state.previewDate)) === 1 &amp;&amp;
+            compareAsc(endValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
+          ) {
+            previewDate = state.previewDate;
+          } else {
+            previewDate = startOfMonth(endValue);
+          }
+        }
 &nbsp;
-      return { ...state, previewDate, hoverDate: undefined };
-    }
-    case 'PREVIEW_PREVIOUS_MONTH': {
-      const previewDate = subMonths(state.previewDate, 1);
+        return { ...state, previewDate, isEndFocused: true, isStartFocused: false };
+      }
+      case 'START_BLUR': {
+        let parsedDate;
 &nbsp;
-      return { ...state, previewDate, hoverDate: undefined };
+        if (customParseDate) {
+          parsedDate = customParseDate(state.startInputValue);
+        } else {
+          parsedDate = parseInputValue({
+            inputValue: state.startInputValue
+          });
+        }
+&nbsp;
+        if (onChange &amp;&amp; parsedDate &amp;&amp; isValid(parsedDate) &amp;&amp; !isSameDay(parsedDate, startValue!)) {
+          onChange({ startValue: parsedDate, endValue });
+        }
+&nbsp;
+        const startInputValue = formatValue({ value: parsedDate, locale, formatDate });
+&nbsp;
+        return {
+          ...state,
+          startInputValue:
+            startInputValue || formatValue({ value: startValue, locale, formatDate }),
+          isStartFocused: false
+        };
+      }
+      case 'END_BLUR': {
+        let parsedDate;
+&nbsp;
+        if (customParseDate) {
+          parsedDate = customParseDate(state.endInputValue);
+        } else {
+          parsedDate = parseInputValue({
+            inputValue: state.endInputValue
+          });
+        }
+&nbsp;
+        if (onChange &amp;&amp; parsedDate &amp;&amp; isValid(parsedDate) &amp;&amp; !isSameDay(parsedDate, endValue!)) {
+          onChange({ startValue, endValue: parsedDate });
+        }
+&nbsp;
+        const endInputValue =
+          formatValue({ value: parsedDate, locale, formatDate }) ||
+          formatValue({ value: endValue, locale, formatDate });
+&nbsp;
+        return {
+          ...state,
+          endInputValue,
+          isEndFocused: false
+        };
+      }
+      case 'CONTROLLED_START_VALUE_CHANGE': {
+        const startInputValue = formatValue({ value: action.value, locale, formatDate });
+&nbsp;
+        let previewDate = state.previewDate;
+&nbsp;
+        if (action.value) {
+          if (
+            compareAsc(action.value, startOfMonth(state.previewDate)) === 1 &amp;&amp;
+            compareAsc(action.value, addMonths(endOfMonth(state.previewDate), 1)) === -1
+          ) {
+            previewDate = state.previewDate;
+          } else {
+            previewDate = startOfMonth(action.value);
+          }
+        }
+&nbsp;
+        return {
+          ...state,
+          startInputValue,
+          hoverDate: undefined,
+          previewDate
+        };
+      }
+      case 'CONTROLLED_END_VALUE_CHANGE': {
+        const endInputValue = formatValue({ value: action.value, locale, formatDate });
+&nbsp;
+        let previewDate = state.previewDate;
+&nbsp;
+        if (action.value) {
+          if (
+            compareAsc(action.value, startOfMonth(state.previewDate)) === 1 &amp;&amp;
+            compareAsc(action.value, addMonths(endOfMonth(state.previewDate), 1)) === -1
+          ) {
+            previewDate = state.previewDate;
+          } else {
+            previewDate = startOfMonth(action.value);
+          }
+        }
+&nbsp;
+        return {
+          ...state,
+          endInputValue,
+          hoverDate: undefined,
+          previewDate
+        };
+      }
+      case 'CLICK_DATE':
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (onChange) {
+          if (state.isStartFocused) {
+            if (
+              endValue !== undefined &amp;&amp;
+              (isBefore(action.value, endValue) || isSameDay(action.value, endValue))
+            ) {
+              onChange({ startValue: action.value, endValue });
+            } else {
+              onChange({ startValue: action.value, endValue: undefined });
+            }
+          } else if (state.isEndFocused) {
+            if (
+              startValue !== undefined &amp;&amp;
+              (isAfter(action.value, startValue) || isSameDay(action.value, startValue))
+            ) {
+              onChange({ startValue, endValue: action.value });
+            } else {
+              onChange({ startValue: action.value, endValue: undefined });
+            }
+          } else if (startValue === undefined) {
+            onChange({ startValue: action.value, endValue: undefined });
+          } else if (endValue === undefined) {
+            if (isBefore(action.value, startValue)) {
+              onChange({ startValue: action.value, endValue: undefined });
+            } else {
+              onChange({ startValue, endValue: action.value });
+            }
+          } else {
+            onChange({ startValue: action.value, endValue: undefined });
+          }
+        }
+&nbsp;
+        return state;
+      case 'START_INPUT_ONCHANGE': {
+        return { ...state, startInputValue: action.value };
+      }
+      case 'END_INPUT_ONCHANGE': {
+        return { ...state, endInputValue: action.value };
+      }
+      case 'HOVER_DATE':
+        return { ...state, hoverDate: action.value };
+      case 'PREVIEW_NEXT_MONTH': {
+        const previewDate = addMonths(state.previewDate, 1);
+&nbsp;
+        return { ...state, previewDate, hoverDate: undefined };
+      }
+      case 'PREVIEW_PREVIOUS_MONTH': {
+        const previewDate = subMonths(state.previewDate, 1);
+&nbsp;
+        return { ...state, previewDate, hoverDate: undefined };
+      }
+      /* istanbul ignore next */
+      default:
+        throw new Error();
     }
-    /* istanbul ignore next */
-    default:
-      throw new Error();
-  }
-};
+  };
 &nbsp;
 /**
  * Retrieve initial state for the Datepicker reducer
@@ -1045,7 +1054,7 @@ export function retrieveInitialState(initialProps: IDatepickerRangeProps): IDate
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri May 28 2021 22:34:52 GMT+0000 (Coordinated Universal Time)
+                at Tue Jun 01 2021 19:53:12 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>
