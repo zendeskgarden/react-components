@@ -10,3 +10,5 @@ export * from './useStepContext';
 export * from './useAccordionContext';
 export * from './useSectionContext';
 export * from './useHeaderContext';
+export * from './useTimelineContext';
+export * from './useTimelineItemContext';
