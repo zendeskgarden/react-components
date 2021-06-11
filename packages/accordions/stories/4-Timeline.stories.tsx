@@ -15,24 +15,26 @@ import EmailIcon from '@zendeskgarden/svg-icons/src/12/email-stroke.svg';
 import CartIcon from '@zendeskgarden/svg-icons/src/12/shopping-cart-stroke.svg';
 import ClipboardIcon from '@zendeskgarden/svg-icons/src/12/clipboard-blank-stroke.svg';
 
+const iconSize = { width: 11, height: 11 };
+
 const items = [
   {
-    icon: <EmailIcon />,
+    icon: <EmailIcon {...iconSize} />,
     time: 'Today 9:00 AM',
     activity: 'Issue with order'
   },
   {
-    icon: <ClipboardIcon />,
+    icon: <ClipboardIcon {...iconSize} />,
     time: 'Feb 08, 9:05 AM',
     activity: 'Ordered 3 items'
   },
   {
-    icon: <CartIcon />,
+    icon: <CartIcon {...iconSize} />,
     time: 'Jan 21, 9:13 AM',
     activity: 'Added 3 items to cart'
   },
   {
-    icon: <EyeIcon />,
+    icon: <EyeIcon {...iconSize} />,
     time: 'Jan 21, 9:21 AM',
     activity: 'Viewed product page'
   }

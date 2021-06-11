@@ -27,3 +27,4 @@ export * from './timeline/StyledItem';
 export * from './timeline/StyledContent';
 export * from './timeline/StyledOppositeContent';
 export * from './timeline/StyledSeparator';
+export * from './timeline/StyledCircleStrokeIcon';

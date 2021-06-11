@@ -21,7 +21,9 @@ export const StyledSeparator = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledSeparator>`
+  display: flex;
   position: relative;
+  justify-content: center;
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base}px`};
 
   svg {
@@ -39,7 +41,6 @@ export const StyledSeparator = styled.div.attrs({
 
   &::after {
     position: absolute;
-    left: calc(50% - 0.5px);
     z-index: 1;
     border-left: ${props =>
       `${props.theme.borders.sm} ${getColor('neutralHue', 600, props.theme)}`};

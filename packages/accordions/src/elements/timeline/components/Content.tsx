@@ -6,8 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
-import CircleStrokeIcon from '@zendeskgarden/svg-icons/src/12/circle-full-stroke.svg';
-import { StyledTimelineContent, StyledSeparator } from '../../../styled';
+import { StyledTimelineContent, StyledCircleStrokeIcon, StyledSeparator } from '../../../styled';
 import { useTimelineItemContext } from '../../../utils';
 
 export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
@@ -15,7 +14,9 @@ export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
 
   return (
     <>
-      <StyledSeparator surfaceColor={surfaceColor}>{icon || <CircleStrokeIcon />}</StyledSeparator>
+      <StyledSeparator surfaceColor={surfaceColor}>
+        {icon || <StyledCircleStrokeIcon />}
+      </StyledSeparator>
       <StyledTimelineContent ref={ref} {...props} />
     </>
   );
