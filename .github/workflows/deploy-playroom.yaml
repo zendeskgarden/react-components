@@ -30,6 +30,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
+          BRANCH: gh-pages-playroom # The branch the action should deploy to.
           FOLDER: playroom/dist # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
