@@ -37,6 +37,6 @@ module.exports = {
   // "packages/utilities/src/index.ts",
   // '!**/node_modules'
   // ],
-  widths: [320, 1024],
+  widths: [320, 768, 1024],
   webpackConfig: () => makeWebpackConfig()
 };
