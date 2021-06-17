@@ -1,5 +1,6 @@
 # General ignores
 node_modules
+playroom/dist
 *.log
 .changelog
 .vscode
