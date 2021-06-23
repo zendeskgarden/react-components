@@ -7,3 +7,7 @@
 
 export { Stepper } from './elements/stepper/Stepper';
 export { Accordion } from './elements/accordion/Accordion';
+
+export { Timeline } from './elements/timeline/Timeline';
+export type { ITimelineProps } from './elements/timeline/Timeline';
+export type { IItem } from './elements/timeline/components/Item';
