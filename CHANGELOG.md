@@ -11,6 +11,25 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.38.0 (2021-06-23)
+
+#### :rocket: New Feature
+
+- `accordions`
+  - [#1120](https://github.com/zendeskgarden/react-components/pull/1120) feat(accordions): create new timeline component ([@hzhu](https://github.com/hzhu))
+
+#### :memo: Documentation
+
+- [#1123](https://github.com/zendeskgarden/react-components/pull/1123) chore(readme): update copyright year ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+
+- `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`, `utilities`
+  - [#1112](https://github.com/zendeskgarden/react-components/pull/1112) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+- Other
+  - [#1119](https://github.com/zendeskgarden/react-components/pull/1119) chore(deps): bump dns-packet from 1.3.1 to 1.3.4 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `typography`
+  - [#1118](https://github.com/zendeskgarden/react-components/pull/1118) chore(typography): use scroll region hook for code block ([@hzhu](https://github.com/hzhu))
 ## v8.37.1 (2021-05-26)
 
 #### :bug: Bug Fix
