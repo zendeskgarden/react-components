@@ -29,7 +29,7 @@
     "prop-types": "^15.5.7",
     "react-merge-refs": "^1.1.0",
     "react-popper": "^2.2.3",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.2"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",
