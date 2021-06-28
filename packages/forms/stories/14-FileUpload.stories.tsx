@@ -8,10 +8,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Meta, Story } from '@storybook/react';
+import { CSSTransition } from 'react-transition-group';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { Ellipsis, Span } from '@zendeskgarden/react-typography';
-import { getColor } from '@zendeskgarden/react-theming';
-import { IconButton } from '@zendeskgarden/react-buttons';
 import { Progress } from '@zendeskgarden/react-loaders';
 import {
   Field,
@@ -19,44 +18,48 @@ import {
   Label,
   Input,
   FileUpload,
-  IFileUploadProps
+  IFileUploadProps,
+  File,
+  FileList
 } from '@zendeskgarden/react-forms';
 import { useDropzone } from 'react-dropzone';
-import FileImageStroke from '@zendeskgarden/svg-icons/src/16/file-image-stroke.svg';
-import CloseStroke from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 export default {
   title: 'Components/Forms/FileUpload',
   component: FileUpload
 } as Meta;
 
-const StyledFileWrapper = styled.ul`
-  direction: ${p => (p.theme.rtl ? 'rtl' : 'ltr')};
-  margin-top: ${p => p.theme.space.sm};
-  padding: 0;
-  list-style: none;
+const StyledFile = styled(File)`
+  .progress-bar {
+    &.enter {
+      opacity: 0;
+    }
 
-  & > *:not(:first-child) {
-    margin-top: ${p => p.theme.space.xs};
+    &.enter-active {
+      transition: opacity 200ms;
+      opacity: 1;
+    }
+
+    &.exit {
+      opacity: 1;
+    }
+
+    &.exit-active {
+      transition: opacity 200ms;
+      opacity: 0;
+    }
+
+    &.exit-done {
+      display: none;
+    }
   }
-`;
-
-const StyledFile = styled.div`
-  display: inline-flex;
-  position: relative;
-  flex-wrap: nowrap;
-  border: ${p => p.theme.borders.sm};
-  border-radius: ${p => p.theme.borderRadii.md};
-  border-color: ${p => getColor('neutralHue', 300, p.theme)};
-  padding: ${p => p.theme.space.xxs} ${p => p.theme.space.xs};
-  min-width: 200px;
 `;
 
 const StyledSpan = styled(Span)`
   display: flex;
-  flex-grow: 1;
   align-items: center;
-  padding-right: ${p => p.theme.space.xs};
+  justify-content: space-between;
+  width: 100%;
 `;
 
 const StyledProgress = styled(Progress)`
@@ -68,10 +71,20 @@ const StyledProgress = styled(Progress)`
 `;
 
 const StyledEllipsis = styled(Ellipsis)`
+  /* stylelint-disable-next-line property-no-unknown */
+  margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.base * 2}px;
+  min-width: 200px;
   max-width: 300px;
 `;
 
-const File: React.FC<{ name: string; onRemove: any }> = React.memo(({ name, onRemove }) => {
+type EXTENSION = 'pdf' | 'zip' | 'image' | 'document' | 'spreadsheet' | 'presentation';
+
+const FileWrapper: React.FC<{
+  name: string;
+  onRemove: any;
+  isCompact?: boolean;
+  type?: EXTENSION;
+}> = React.memo(({ name, onRemove, isCompact, type }) => {
   const [uploadProgress, setUploadProgress] = React.useState(0);
 
   React.useEffect(() => {
@@ -95,37 +108,40 @@ const File: React.FC<{ name: string; onRemove: any }> = React.memo(({ name, onRe
   }, []);
 
   return (
-    <StyledFile aria-label="File">
-      <StyledSpan aria-label="File name">
-        <Span.StartIcon>
-          <FileImageStroke />
-        </Span.StartIcon>
-        <StyledEllipsis>{name}</StyledEllipsis>
-      </StyledSpan>
-      <IconButton size="small" focusInset onClick={onRemove} aria-label="Remove file">
-        <CloseStroke />
-      </IconButton>
-      {uploadProgress < 100 && (
-        <StyledProgress value={uploadProgress} aria-label="Upload progress" />
-      )}
-    </StyledFile>
+    <FileList.Item key={name}>
+      <StyledFile type={type} isCompact={isCompact} aria-label="File">
+        <StyledSpan>
+          <StyledEllipsis>{name}</StyledEllipsis>
+          <File.Close onClick={onRemove} aria-label="Remove file" />
+        </StyledSpan>
+        <CSSTransition in={uploadProgress < 100} timeout={200} className="progress-bar">
+          <StyledProgress value={uploadProgress} />
+        </CSSTransition>
+      </StyledFile>
+    </FileList.Item>
   );
 });
 
-File.displayName = 'File';
+FileWrapper.displayName = 'FileWrapper';
 
 interface IFileUploadStoryProps {
   isHidden: false;
   showHint: boolean;
+  type: EXTENSION;
 }
 
 export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
   isCompact,
   disabled,
   isHidden,
-  showHint
+  showHint,
+  type
 }) => {
-  const [files, setFiles] = React.useState(['squash.jpg', 'soybean.pdf']);
+  const [files, setFiles] = React.useState([
+    'squash.jpg',
+    'soybean.jpg',
+    'fresh-spicy-minced-hungarian-wax-peppers.jpg'
+  ]);
 
   const onDrop = React.useCallback(
     (acceptedFiles: File[]) => {
@@ -171,18 +187,18 @@ export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
               <Input {...getInputProps()} disabled={disabled} />
             </FileUpload>
           </Field>
-          <StyledFileWrapper>
+
+          <FileList style={{ width: '320px', marginTop: '20px' }}>
             {files.map((file, index) => (
-              <li key={file}>
-                <File
-                  name={file}
-                  onRemove={() => {
-                    removeFile(index);
-                  }}
-                />
-              </li>
+              <FileWrapper
+                key={file}
+                name={file}
+                type={type}
+                isCompact={isCompact}
+                onRemove={() => removeFile(index)}
+              />
             ))}
-          </StyledFileWrapper>
+          </FileList>
         </Col>
       </Row>
     </Grid>
@@ -191,7 +207,8 @@ export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
 
 Default.args = {
   showHint: true,
-  isHidden: false
+  isHidden: false,
+  type: 'image'
 };
 
 Default.argTypes = {
@@ -205,6 +222,12 @@ Default.argTypes = {
     table: {
       disable: true
     }
+  },
+  type: {
+    control: {
+      type: 'select',
+      options: ['pdf', 'zip', 'image', 'document', 'spreadsheet', 'presentation', undefined]
+    }
   }
 };
 
@@ -216,7 +239,8 @@ The \`FileUpload\` component is a styled \`<div>\` which can be used
 with 3rd-party file upload libraries like [react-dropzone](https://github.com/react-dropzone/react-dropzone/).
 
 The example below includes an a mock file upload implementation that
-accepts any file type or size.
+accepts any file type or size. It also uses the \`FileList\` component to
+display a list of uploaded files.
        `
     }
   }

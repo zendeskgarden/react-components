@@ -45,6 +45,11 @@ export type { IInputGroupProps } from './elements/input-group/InputGroup';
 export { FileUpload } from './elements/FileUpload';
 export type { IFileUploadProps } from './elements/FileUpload';
 
+/** File List */
+export { FileList } from './elements/file-list/FileList';
+export { File } from './elements/file-list/components/File';
+export type { IFileProps } from './elements/file-list/components/File';
+
 /** Other */
 export { FauxInput } from './elements/FauxInput';
 export type { IFauxInputProps, IStaticFauxInputExport, IIconProps } from './elements/FauxInput';
