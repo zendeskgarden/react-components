@@ -13,16 +13,18 @@ import FileDocumentStroke from '@zendeskgarden/svg-icons/src/16/file-document-st
 import FileSpreadsheetStroke from '@zendeskgarden/svg-icons/src/16/file-spreadsheet-stroke.svg';
 import FilePresentationStroke from '@zendeskgarden/svg-icons/src/16/file-presentation-stroke.svg';
 
-export type FILE_TYPE = 'pdf' | 'zip' | 'image' | 'document' | 'spreadsheet' | 'presentation';
+export enum FileType {
+  pdf = 'pdf',
+  zip = 'zip',
+  image = 'image',
+  document = 'document',
+  spreadsheet = 'spreadsheet',
+  presentation = 'presentation'
+}
 
-export const ARRAY_FILE_TYPE: FILE_TYPE[] = [
-  'pdf',
-  'zip',
-  'image',
-  'document',
-  'spreadsheet',
-  'presentation'
-];
+export type FILE_TYPE = keyof typeof FileType;
+
+export const ARRAY_FILE_TYPE: FILE_TYPE[] = [...Object.values(FileType)];
 
 export const fileIcons: Record<FILE_TYPE, React.ReactNode> = {
   pdf: <FilePdfStroke />,
