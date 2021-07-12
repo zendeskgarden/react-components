@@ -7,7 +7,7 @@
 
 import React, { Children } from 'react';
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export const StyledIcon = styled(({ children, ...props }) =>
   React.cloneElement(Children.only(children), props)
@@ -15,6 +15,7 @@ export const StyledIcon = styled(({ children, ...props }) =>
   min-width: ${props => props.theme.space.base * 4}px;
   /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.base * 2}px;
+  color: ${props => getColor('neutralHue', 600, props.theme)};
 `;
 
 StyledIcon.defaultProps = {
