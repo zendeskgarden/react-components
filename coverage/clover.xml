@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1624896908139" clover="3.2.0">
-  <project timestamp="1624896908139" name="All files">
-    <metrics statements="7880" coveredstatements="7661" conditionals="3126" coveredconditionals="2807" methods="1810" coveredmethods="1749" elements="12816" coveredelements="12217" complexity="0" loc="7880" ncloc="7880" packages="125" files="505" classes="505"/>
+<coverage generated="1626208537290" clover="3.2.0">
+  <project timestamp="1626208537290" name="All files">
+    <metrics statements="7975" coveredstatements="7729" conditionals="3136" coveredconditionals="2809" methods="1839" coveredmethods="1750" elements="12950" coveredelements="12288" complexity="0" loc="7975" ncloc="7975" packages="128" files="515" classes="515"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -5230,6 +5230,69 @@
         <line num="63" count="36" type="stmt"/>
       </file>
     </package>
+    <package name="forms.src.elements.file-list">
+      <metrics statements="22" coveredstatements="21" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
+      <file name="FileList.tsx" path="/home/circleci/project/packages/forms/src/elements/file-list/FileList.tsx">
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="8" count="36" type="stmt"/>
+        <line num="15" count="36" type="stmt"/>
+        <line num="16" count="36" type="stmt"/>
+        <line num="27" count="36" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="36" type="stmt"/>
+      </file>
+      <file name="utils.tsx" path="/home/circleci/project/packages/forms/src/elements/file-list/utils.tsx">
+        <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="8" count="36" type="stmt"/>
+        <line num="9" count="36" type="stmt"/>
+        <line num="10" count="36" type="stmt"/>
+        <line num="11" count="36" type="stmt"/>
+        <line num="12" count="36" type="stmt"/>
+        <line num="13" count="36" type="stmt"/>
+        <line num="14" count="36" type="stmt"/>
+        <line num="16" count="36" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="36" type="stmt"/>
+        <line num="18" count="36" type="stmt"/>
+        <line num="19" count="36" type="stmt"/>
+        <line num="20" count="36" type="stmt"/>
+        <line num="21" count="36" type="stmt"/>
+        <line num="22" count="36" type="stmt"/>
+        <line num="27" count="36" type="stmt"/>
+        <line num="29" count="36" type="stmt"/>
+      </file>
+    </package>
+    <package name="forms.src.elements.file-list.components">
+      <metrics statements="20" coveredstatements="17" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="Close.tsx" path="/home/circleci/project/packages/forms/src/elements/file-list/components/Close.tsx">
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="8" count="36" type="stmt"/>
+        <line num="9" count="36" type="stmt"/>
+        <line num="10" count="36" type="stmt"/>
+        <line num="12" count="36" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="20" count="36" type="stmt"/>
+      </file>
+      <file name="File.tsx" path="/home/circleci/project/packages/forms/src/elements/file-list/components/File.tsx">
+        <metrics statements="9" coveredstatements="8" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="8" count="36" type="stmt"/>
+        <line num="15" count="36" type="stmt"/>
+        <line num="16" count="36" type="stmt"/>
+        <line num="17" count="36" type="stmt"/>
+        <line num="18" count="36" type="stmt"/>
+        <line num="40" count="36" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="47" count="36" type="stmt"/>
+        <line num="49" count="36" type="stmt"/>
+      </file>
+      <file name="Item.tsx" path="/home/circleci/project/packages/forms/src/elements/file-list/components/Item.tsx">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="8" count="36" type="stmt"/>
+        <line num="9" count="36" type="stmt"/>
+        <line num="14" count="36" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="36" type="stmt"/>
+      </file>
+    </package>
     <package name="forms.src.elements.input-group">
       <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="InputGroup.tsx" path="/home/circleci/project/packages/forms/src/elements/input-group/InputGroup.tsx">
@@ -5337,9 +5400,9 @@
       </file>
     </package>
     <package name="forms.src.styled">
-      <metrics statements="42" coveredstatements="42" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="47" coveredstatements="47" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="/home/circleci/project/packages/forms/src/styled/index.ts">
-        <metrics statements="42" coveredstatements="42" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="47" coveredstatements="47" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="11" count="47" type="stmt"/>
         <line num="12" count="47" type="stmt"/>
         <line num="13" count="47" type="stmt"/>
@@ -5372,9 +5435,9 @@
         <line num="64" count="47" type="stmt"/>
         <line num="69" count="47" type="stmt"/>
         <line num="70" count="47" type="stmt"/>
-        <line num="75" count="47" type="stmt"/>
-        <line num="76" count="47" type="stmt"/>
-        <line num="77" count="47" type="stmt"/>
+        <line num="71" count="47" type="stmt"/>
+        <line num="72" count="47" type="stmt"/>
+        <line num="73" count="47" type="stmt"/>
         <line num="78" count="47" type="stmt"/>
         <line num="79" count="47" type="stmt"/>
         <line num="84" count="47" type="stmt"/>
@@ -5382,6 +5445,11 @@
         <line num="86" count="47" type="stmt"/>
         <line num="87" count="47" type="stmt"/>
         <line num="88" count="47" type="stmt"/>
+        <line num="93" count="47" type="stmt"/>
+        <line num="94" count="47" type="stmt"/>
+        <line num="95" count="47" type="stmt"/>
+        <line num="96" count="47" type="stmt"/>
+        <line num="97" count="47" type="stmt"/>
       </file>
     </package>
     <package name="forms.src.styled.checkbox">
@@ -5580,6 +5648,72 @@
         <line num="43" count="7" type="stmt"/>
         <line num="45" count="7" type="stmt"/>
         <line num="48" count="66" type="stmt"/>
+      </file>
+    </package>
+    <package name="forms.src.styled.file-list">
+      <metrics statements="48" coveredstatements="25" conditionals="6" coveredconditionals="0" methods="24" coveredmethods="0"/>
+      <file name="StyledClose.ts" path="/home/circleci/project/packages/forms/src/styled/file-list/StyledClose.ts">
+        <metrics statements="13" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="8" coveredmethods="0"/>
+        <line num="8" count="47" type="stmt"/>
+        <line num="9" count="47" type="stmt"/>
+        <line num="16" count="47" type="stmt"/>
+        <line num="22" count="47" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="63" count="47" type="stmt"/>
+      </file>
+      <file name="StyledFile.ts" path="/home/circleci/project/packages/forms/src/styled/file-list/StyledFile.ts">
+        <metrics statements="12" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="8" count="47" type="stmt"/>
+        <line num="9" count="47" type="stmt"/>
+        <line num="11" count="47" type="stmt"/>
+        <line num="18" count="47" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="47" type="stmt"/>
+      </file>
+      <file name="StyledFileList.ts" path="/home/circleci/project/packages/forms/src/styled/file-list/StyledFileList.ts">
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="8" count="47" type="stmt"/>
+        <line num="9" count="47" type="stmt"/>
+        <line num="11" count="47" type="stmt"/>
+        <line num="21" count="47" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="47" type="stmt"/>
+      </file>
+      <file name="StyledFileListItem.ts" path="/home/circleci/project/packages/forms/src/styled/file-list/StyledFileListItem.ts">
+        <metrics statements="8" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="8" count="47" type="stmt"/>
+        <line num="9" count="47" type="stmt"/>
+        <line num="11" count="47" type="stmt"/>
+        <line num="18" count="47" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="47" type="stmt"/>
+      </file>
+      <file name="StyledIcon.ts" path="/home/circleci/project/packages/forms/src/styled/file-list/StyledIcon.ts">
+        <metrics statements="9" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="8" count="47" type="stmt"/>
+        <line num="9" count="47" type="stmt"/>
+        <line num="10" count="47" type="stmt"/>
+        <line num="12" count="47" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="47" type="stmt"/>
       </file>
     </package>
     <package name="forms.src.styled.file-upload">
