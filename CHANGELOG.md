@@ -11,6 +11,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.39.0 (2021-07-14)
+
+#### :rocket: New Feature
+
+- `dropdowns`, `forms`
+  - [#1126](https://github.com/zendeskgarden/react-components/pull/1126) feat(forms): create file list component ([@hzhu](https://github.com/hzhu))
+  - [#1126](https://github.com/zendeskgarden/react-components/pull/1126) feat(forms): create file list component ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+
+- `modals`, `notifications`, `tables`
+  - [#1097](https://github.com/zendeskgarden/react-components/pull/1097) chore(deps): update dependency @types/react to v17.0.11 ([@renovate[bot]](https://github.com/apps/renovate))
 ## v8.38.0 (2021-06-23)
 
 #### :rocket: New Feature
