@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-tables",
-  "version": "8.38.0",
+  "version": "8.39.0",
   "description": "Components relating to tables in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@types/react-beautiful-dnd": "13.0.0",
     "@types/react-window": "1.8.3",
-    "@zendeskgarden/react-theming": "^8.38.0",
+    "@zendeskgarden/react-theming": "^8.39.0",
     "@zendeskgarden/svg-icons": "6.30.2",
     "react-beautiful-dnd": "13.1.0",
     "react-window": "1.8.6"
