@@ -14,9 +14,10 @@ const COMPONENT_ID = 'cursor_pagination.cursor';
 /**
  * 1. Reset CSS from <button>.
  */
-export const StyledCursor = styled(StyledPageBase).attrs({
+export const StyledCursor = styled(StyledPageBase as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  as: 'button'
 })`
   display: flex;
   align-items: center;
