@@ -21,6 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
+    "@types/react-transition-group": "^4.4.2",
     "@zendeskgarden/container-field": "^1.3.6",
     "@zendeskgarden/container-utilities": "^0.5.5",
     "lodash.debounce": "^4.0.8",
@@ -36,7 +37,6 @@
   },
   "devDependencies": {
     "@types/lodash.debounce": "4.0.6",
-    "@types/react-transition-group": "4.4.1",
     "@zendeskgarden/react-theming": "^8.39.0",
     "@zendeskgarden/svg-icons": "6.30.2",
     "react-dropzone": "11.3.2"
