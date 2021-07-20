@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1626760563450" clover="3.2.0">
-  <project timestamp="1626760563450" name="All files">
+<coverage generated="1626796835657" clover="3.2.0">
+  <project timestamp="1626796835657" name="All files">
     <metrics statements="7975" coveredstatements="7729" conditionals="3136" coveredconditionals="2809" methods="1839" coveredmethods="1750" elements="12950" coveredelements="12288" complexity="0" loc="7975" ncloc="7975" packages="128" files="515" classes="515"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -8119,11 +8119,11 @@
         <line num="10" count="6" type="stmt"/>
         <line num="12" count="6" type="stmt"/>
         <line num="17" count="6" type="stmt"/>
-        <line num="25" count="6" type="stmt"/>
-        <line num="28" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="29" count="6" type="stmt"/>
-        <line num="32" count="6" type="stmt"/>
-        <line num="35" count="6" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="29" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="36" count="6" type="stmt"/>
       </file>
       <file name="StyledCursorPagination.ts" path="/home/circleci/project/packages/pagination/src/styled/CursorPagination/StyledCursorPagination.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
