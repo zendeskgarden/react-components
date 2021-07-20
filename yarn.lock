@@ -7286,10 +7286,10 @@ env-paths@^2.2.0:
   resolved "https://registry.yarnpkg.com/env-paths/-/env-paths-2.2.0.tgz#cdca557dc009152917d6166e2febe1f039685e43"
   integrity sha512-6u0VYSCo/OW6IoD5WCLLy9JUGARbamfSavcNXry/eu8aHVFei6CD3Sw+VGX5alea1i9pgPHW0mbu6Xj0uBh7gA==
 
-envalid@7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/envalid/-/envalid-7.1.0.tgz#fccc499abb257e3992d73b02d014c867a85e2a69"
-  integrity sha512-C5rtCxfj+ozW5q79fBYKcBEf0KSNklKwZudjCzXy9ANT8Pz1MKxPBn6unZnYXXy6e+cqVgnEURQeXmdueG9/kA==
+envalid@7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/envalid/-/envalid-7.1.1.tgz#6429c5e3ef6987e4ea44893dd354b6cc1646de75"
+  integrity sha512-2MIPjXAWcAVsO2jTVbgMFRc66lQCy2bQDP+zPT3NucrbWMD3pij5iGZMwQiv3zdveyVfl0qAGpI1JRQGfkmu1w==
 
 envinfo@^7.7.4:
   version "7.7.4"
