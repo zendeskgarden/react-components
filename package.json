@@ -55,7 +55,7 @@
     "@types/styled-components": "5.1.11",
     "@typescript-eslint/eslint-plugin": "4.28.4",
     "@typescript-eslint/parser": "4.28.4",
-    "@zendeskgarden/css-bedrock": "8.0.1",
+    "@zendeskgarden/css-bedrock": "9.0.0",
     "@zendeskgarden/eslint-config": "19.0.0",
     "@zendeskgarden/scripts": "0.1.11",
     "@zendeskgarden/stylelint-config": "16.0.1",

@@ -10,7 +10,7 @@
     "test": "react-scripts test"
   },
   "dependencies": {
-    "@zendeskgarden/css-bedrock": "^8.0.0",
+    "@zendeskgarden/css-bedrock": "^9.0.0",
     "@zendeskgarden/css-variables": "^6.4.3",
     "@zendeskgarden/react-accordions": "^8.0.0",
     "@zendeskgarden/react-avatars": "^8.0.0",

@@ -4336,13 +4336,13 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zendeskgarden/css-bedrock@8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-bedrock/-/css-bedrock-8.0.1.tgz#3810ed52b0542b8976c27e766b57b48720a25d97"
-  integrity sha512-VbtJHzwdTjlpxqexzZTiaNTYQ5/xdQkALp01fDudC9NgL5KueehTi8VW64cYCi1NoCJvGrKXzaey9aSRBYPepA==
+"@zendeskgarden/css-bedrock@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-bedrock/-/css-bedrock-9.0.0.tgz#7bc9e54b0d847e18f4e33e08a5a9961cdad360f6"
+  integrity sha512-dHwlDJ5v4ijX3yCr4Z97UGaRYFrD3AeWv+HmFcr4QQRlOE4prkIvahXxR6eD4QhxwEs91FtWpJxvCsZAJGHuRA==
   dependencies:
     "@zendeskgarden/css-variables" "^6.4.5"
-    normalize.css "^8.0.0"
+    modern-normalize "^1.0.0"
 
 "@zendeskgarden/css-variables@^6.4.5":
   version "6.4.5"
@@ -12260,6 +12260,11 @@ mockdate@3.0.5:
   resolved "https://registry.yarnpkg.com/mockdate/-/mockdate-3.0.5.tgz#789be686deb3149e7df2b663d2bc4392bc3284fb"
   integrity sha512-iniQP4rj1FhBdBYS/+eQv7j1tadJ9lJtdzgOpvsOHng/GbcDh2Fhdeq+ZRldrPYdXvCyfFUmFeEwEGXZB5I/AQ==
 
+modern-normalize@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/modern-normalize/-/modern-normalize-1.1.0.tgz#da8e80140d9221426bd4f725c6e11283d34f90b7"
+  integrity sha512-2lMlY1Yc1+CUy0gw4H95uNN7vjbpoED7NNRSBHE25nWfLBdmMzFCsPshlzbxHz+gYMcBEUN8V4pU16prcdPSgA==
+
 modify-values@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
@@ -12606,11 +12611,6 @@ normalize-url@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
-
-normalize.css@^8.0.0:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
-  integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
 
 npm-bundled@^1.1.1:
   version "1.1.1"
