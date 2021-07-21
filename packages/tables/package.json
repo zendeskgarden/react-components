@@ -33,7 +33,7 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
-    "@types/react-beautiful-dnd": "13.0.0",
+    "@types/react-beautiful-dnd": "13.1.1",
     "@types/react-window": "1.8.4",
     "@zendeskgarden/react-theming": "^8.39.0",
     "@zendeskgarden/svg-icons": "6.30.2",
