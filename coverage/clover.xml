@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1626976961412" clover="3.2.0">
-  <project timestamp="1626976961412" name="All files">
-    <metrics statements="7974" coveredstatements="7728" conditionals="3134" coveredconditionals="2807" methods="1838" coveredmethods="1749" elements="12946" coveredelements="12284" complexity="0" loc="7974" ncloc="7974" packages="128" files="515" classes="515"/>
+<coverage generated="1626982102826" clover="3.2.0">
+  <project timestamp="1626982102826" name="All files">
+    <metrics statements="7975" coveredstatements="7729" conditionals="3134" coveredconditionals="2807" methods="1838" coveredmethods="1749" elements="12947" coveredelements="12285" complexity="0" loc="7975" ncloc="7975" packages="128" files="515" classes="515"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -4253,7 +4253,7 @@
       </file>
     </package>
     <package name="dropdowns.src.styled.items">
-      <metrics statements="92" coveredstatements="92" conditionals="33" coveredconditionals="30" methods="39" coveredmethods="39"/>
+      <metrics statements="93" coveredstatements="93" conditionals="33" coveredconditionals="30" methods="39" coveredmethods="39"/>
       <file name="StyledAddItem.ts" path="/home/circleci/project/packages/dropdowns/src/styled/items/StyledAddItem.ts">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="8" count="23" type="stmt"/>
@@ -4287,21 +4287,22 @@
         <line num="75" count="23" type="stmt"/>
       </file>
       <file name="StyledItemIcon.ts" path="/home/circleci/project/packages/dropdowns/src/styled/items/StyledItemIcon.ts">
-        <metrics statements="14" coveredstatements="14" conditionals="6" coveredconditionals="5" methods="8" coveredmethods="8"/>
+        <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="5" methods="8" coveredmethods="8"/>
         <line num="8" count="23" type="stmt"/>
         <line num="9" count="23" type="stmt"/>
         <line num="10" count="23" type="stmt"/>
         <line num="11" count="23" type="stmt"/>
-        <line num="19" count="23" type="stmt"/>
-        <line num="20" count="232" type="stmt"/>
-        <line num="26" count="23" type="stmt"/>
-        <line num="30" count="232" type="cond" truecount="2" falsecount="0"/>
-        <line num="34" count="232" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="23" type="stmt"/>
+        <line num="21" count="23" type="stmt"/>
+        <line num="22" count="232" type="stmt"/>
+        <line num="28" count="23" type="stmt"/>
         <line num="35" count="232" type="cond" truecount="2" falsecount="0"/>
-        <line num="37" count="232" type="stmt"/>
-        <line num="40" count="232" type="stmt"/>
-        <line num="41" count="232" type="stmt"/>
-        <line num="45" count="23" type="stmt"/>
+        <line num="39" count="232" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="232" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="232" type="stmt"/>
+        <line num="45" count="232" type="stmt"/>
+        <line num="46" count="232" type="stmt"/>
+        <line num="50" count="23" type="stmt"/>
       </file>
       <file name="StyledItemMeta.ts" path="/home/circleci/project/packages/dropdowns/src/styled/items/StyledItemMeta.ts">
         <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="5" coveredmethods="5"/>
