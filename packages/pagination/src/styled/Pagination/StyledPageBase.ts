@@ -89,7 +89,7 @@ export const StyledPageBase = styled.li.attrs({
   transition: box-shadow 0.1s ease-in-out, color 0.25s ease-in-out;
   visibility: ${props => props.hidden && 'hidden'};
   border-radius: ${props => props.theme.borderRadii.md};
-  cursor: ${props => !(props as any).disabled && 'pointer'};
+  cursor: pointer;
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -107,6 +107,11 @@ export const StyledPageBase = styled.li.attrs({
 
   &[aria-current='true'] {
     font-weight: ${props => props.theme.fontWeights.semibold};
+  }
+
+  :disabled,
+  [aria-disabled='true'] {
+    cursor: default;
   }
 
   ${props => colorStyles(props)};
