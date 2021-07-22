@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1626900957936" clover="3.2.0">
-  <project timestamp="1626900957936" name="All files">
-    <metrics statements="7975" coveredstatements="7729" conditionals="3136" coveredconditionals="2809" methods="1839" coveredmethods="1750" elements="12950" coveredelements="12288" complexity="0" loc="7975" ncloc="7975" packages="128" files="515" classes="515"/>
+<coverage generated="1626976961412" clover="3.2.0">
+  <project timestamp="1626976961412" name="All files">
+    <metrics statements="7974" coveredstatements="7728" conditionals="3134" coveredconditionals="2807" methods="1838" coveredmethods="1749" elements="12946" coveredelements="12284" complexity="0" loc="7974" ncloc="7974" packages="128" files="515" classes="515"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -8152,7 +8152,7 @@
       </file>
     </package>
     <package name="pagination.src.styled.Pagination">
-      <metrics statements="74" coveredstatements="74" conditionals="8" coveredconditionals="7" methods="22" coveredmethods="22"/>
+      <metrics statements="73" coveredstatements="73" conditionals="6" coveredconditionals="5" methods="21" coveredmethods="21"/>
       <file name="StyledGap.ts" path="/home/circleci/project/packages/pagination/src/styled/Pagination/StyledGap.ts">
         <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="8" count="6" type="stmt"/>
@@ -8199,7 +8199,7 @@
         <line num="50" count="8" type="stmt"/>
       </file>
       <file name="StyledPageBase.ts" path="/home/circleci/project/packages/pagination/src/styled/Pagination/StyledPageBase.ts">
-        <metrics statements="30" coveredstatements="30" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9"/>
+        <metrics statements="29" coveredstatements="29" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
         <line num="8" count="9" type="stmt"/>
         <line num="9" count="9" type="stmt"/>
         <line num="16" count="9" type="stmt"/>
@@ -8222,14 +8222,13 @@
         <line num="73" count="282" type="stmt"/>
         <line num="75" count="282" type="stmt"/>
         <line num="83" count="9" type="stmt"/>
-        <line num="90" count="282" type="cond" truecount="2" falsecount="0"/>
-        <line num="91" count="282" type="stmt"/>
-        <line num="92" count="282" type="cond" truecount="2" falsecount="0"/>
-        <line num="98" count="282" type="stmt"/>
+        <line num="94" count="282" type="cond" truecount="2" falsecount="0"/>
+        <line num="95" count="282" type="stmt"/>
+        <line num="102" count="282" type="stmt"/>
         <line num="109" count="282" type="stmt"/>
-        <line num="112" count="282" type="stmt"/>
-        <line num="114" count="282" type="stmt"/>
-        <line num="117" count="9" type="stmt"/>
+        <line num="117" count="282" type="stmt"/>
+        <line num="119" count="282" type="stmt"/>
+        <line num="122" count="9" type="stmt"/>
       </file>
       <file name="StyledPagination.ts" path="/home/circleci/project/packages/pagination/src/styled/Pagination/StyledPagination.ts">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
