@@ -86,10 +86,14 @@ export const StyledPageBase = styled.li.attrs({
 })`
   box-sizing: border-box;
   display: inline-block;
-  transition: box-shadow 0.1s ease-in-out, color 0.25s ease-in-out;
+  /* prettier-ignore */
+  transition:
+    box-shadow 0.1s ease-in-out,
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out;
   visibility: ${props => props.hidden && 'hidden'};
   border-radius: ${props => props.theme.borderRadii.md};
-  cursor: ${props => !(props as any).disabled && 'pointer'};
+  cursor: pointer;
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -97,16 +101,17 @@ export const StyledPageBase = styled.li.attrs({
 
   ${props => sizeStyles(props)};
 
-  &:hover {
-    transition: background-color 0.25s ease-in-out;
-  }
-
   &:focus {
     outline: none;
   }
 
   &[aria-current='true'] {
     font-weight: ${props => props.theme.fontWeights.semibold};
+  }
+
+  :disabled,
+  [aria-disabled='true'] {
+    cursor: default;
   }
 
   ${props => colorStyles(props)};
