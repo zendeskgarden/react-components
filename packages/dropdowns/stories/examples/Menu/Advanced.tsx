@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Story } from '@storybook/react';
 import {
   Dropdown,
@@ -46,6 +46,7 @@ interface IStoryProps {
   isAnimated: boolean;
   isCompact: boolean;
   isDisabled: boolean;
+  isOpen: boolean;
 }
 
 export const Advanced: Story<IStoryProps> = ({
@@ -53,22 +54,14 @@ export const Advanced: Story<IStoryProps> = ({
   isAnimated,
   isCompact,
   placement,
-  isDisabled
+  isDisabled,
+  isOpen
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <Grid>
       <Row style={{ minHeight: 400 }}>
         <Col textAlign="center">
-          <Dropdown
-            isOpen={isOpen}
-            onStateChange={changes => {
-              if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
-                setIsOpen(changes.isOpen === true);
-              }
-            }}
-          >
+          <Dropdown isOpen={isOpen || undefined}>
             <Trigger>
               <Button size={isCompact ? 'small' : 'medium'}>Advanced Layout</Button>
             </Trigger>
@@ -157,7 +150,8 @@ Advanced.argTypes = {
       ]
     }
   },
-  isDisabled: { name: 'Disabled items', control: 'boolean' }
+  isDisabled: { name: 'Disabled items', control: 'boolean' },
+  isOpen: { control: 'boolean' }
 };
 
 Advanced.args = {
