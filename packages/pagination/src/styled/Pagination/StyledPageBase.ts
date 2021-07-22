@@ -86,7 +86,11 @@ export const StyledPageBase = styled.li.attrs({
 })`
   box-sizing: border-box;
   display: inline-block;
-  transition: box-shadow 0.1s ease-in-out, color 0.25s ease-in-out;
+  /* prettier-ignore */
+  transition:
+    box-shadow 0.1s ease-in-out,
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out;
   visibility: ${props => props.hidden && 'hidden'};
   border-radius: ${props => props.theme.borderRadii.md};
   cursor: pointer;
@@ -96,10 +100,6 @@ export const StyledPageBase = styled.li.attrs({
   user-select: none;
 
   ${props => sizeStyles(props)};
-
-  &:hover {
-    transition: background-color 0.25s ease-in-out;
-  }
 
   &:focus {
     outline: none;
