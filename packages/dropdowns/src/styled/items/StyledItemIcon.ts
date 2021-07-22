@@ -10,6 +10,8 @@ import { math } from 'polished';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { getItemPaddingVertical } from './StyledItem';
 
+const COMPONENT_ID = 'dropdowns.item_icon';
+
 interface IStyledItemIconProps {
   isCompact?: boolean;
   isVisible?: boolean;
@@ -23,7 +25,10 @@ const getSizeStyles = (props: IStyledItemIconProps & ThemeProps<DefaultTheme>) =
   `;
 };
 
-export const StyledItemIcon = styled.div<IStyledItemIconProps>`
+export const StyledItemIcon = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledItemIconProps>`
   display: flex;
   position: absolute;
   top: 0;
