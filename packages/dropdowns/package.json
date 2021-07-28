@@ -21,13 +21,14 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
+    "@popperjs/core": "^2.4.4",
     "@zendeskgarden/container-selection": "^1.3.8",
     "@zendeskgarden/container-utilities": "^0.5.5",
     "@zendeskgarden/react-forms": "^8.39.0",
     "downshift": "^6.0.0",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7",
-    "react-popper": "^1.3.4"
+    "react-popper": "^2.2.3"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",
