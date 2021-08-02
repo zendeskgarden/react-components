@@ -47,6 +47,7 @@ export const StyledSeparator = styled.div.attrs({
     height: 100%;
     content: '';
   }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

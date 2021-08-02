@@ -15,7 +15,6 @@ export const StyledOppositeContent = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   flex: 1;
-  margin-right: auto;
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 4}px`};
   text-align: ${props => (props.theme.rtl ? 'left' : 'right')};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
