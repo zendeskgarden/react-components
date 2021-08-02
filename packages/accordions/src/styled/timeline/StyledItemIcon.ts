@@ -27,6 +27,7 @@ export const StyledItemIcon = styled(({ surfaceColor, children, ...props }) =>
   'data-garden-version': PACKAGE_VERSION
 })<IStyledItemIcon>`
   z-index: 1;
+  box-sizing: content-box;
   background-color: ${props => props.surfaceColor || props.theme.colors.background};
   padding: ${props => props.theme.space.base}px 0;
   width: ${props => math(`${props.theme.iconSizes.sm} + 1`)}; /* [1] */
