@@ -42,6 +42,7 @@ interface IStoryProps {
   isAlternate: boolean;
   customIcons: boolean;
   showOppositeContent: boolean;
+  surfaceColor: string;
 }
 
 export default {
@@ -55,29 +56,40 @@ export default {
 } as Meta;
 
 const StyledTime = styled(MD)`
-  color: ${props => props.theme.palette.grey[800]};
+  color: ${props => props.theme.colors.foreground};
 `;
 
 const StyledActivity = styled(MD)`
   color: ${props => props.theme.palette.grey[600]};
 `;
 
-export const Default: Story<IStoryProps> = ({ isAlternate, customIcons, showOppositeContent }) => (
-  <Timeline isAlternate={isAlternate}>
-    {items.map((item, index) => (
-      <Timeline.Item key={index} icon={customIcons ? item.icon : null}>
-        {showOppositeContent ? (
-          <Timeline.OppositeContent>
-            <StyledTime isBold>{item.time}</StyledTime>
-          </Timeline.OppositeContent>
-        ) : null}
-        <Timeline.Content>
-          {showOppositeContent ? null : <StyledTime isBold>{item.time}</StyledTime>}
-          <StyledActivity>{item.activity}</StyledActivity>
-        </Timeline.Content>
-      </Timeline.Item>
-    ))}
-  </Timeline>
+export const Default: Story<IStoryProps> = ({
+  isAlternate,
+  customIcons,
+  showOppositeContent,
+  surfaceColor
+}) => (
+  <div style={{ backgroundColor: surfaceColor }}>
+    <Timeline isAlternate={isAlternate}>
+      {items.map((item, index) => (
+        <Timeline.Item
+          key={index}
+          icon={customIcons ? item.icon : null}
+          surfaceColor={surfaceColor}
+        >
+          {showOppositeContent ? (
+            <Timeline.OppositeContent>
+              <StyledTime isBold>{item.time}</StyledTime>
+            </Timeline.OppositeContent>
+          ) : null}
+          <Timeline.Content>
+            {showOppositeContent ? null : <StyledTime isBold>{item.time}</StyledTime>}
+            <StyledActivity>{item.activity}</StyledActivity>
+          </Timeline.Content>
+        </Timeline.Item>
+      ))}
+    </Timeline>
+  </div>
 );
 
 Default.args = {
@@ -92,6 +104,9 @@ Default.argTypes = {
   },
   showOppositeContent: {
     name: 'Show opposite content'
+  },
+  surfaceColor: {
+    control: { type: 'color' }
   }
 };
 
