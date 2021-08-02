@@ -15,8 +15,8 @@ export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
 
   return (
     <>
-      <StyledSeparator surfaceColor={surfaceColor}>
-        <StyledItemIcon>{icon || <CircleIcon />}</StyledItemIcon>
+      <StyledSeparator>
+        <StyledItemIcon surfaceColor={surfaceColor}>{icon || <CircleIcon />}</StyledItemIcon>
       </StyledSeparator>
       <StyledTimelineContent ref={ref} {...props} />
     </>
