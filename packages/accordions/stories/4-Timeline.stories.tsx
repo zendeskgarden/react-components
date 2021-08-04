@@ -15,26 +15,24 @@ import EmailIcon from '@zendeskgarden/svg-icons/src/12/email-stroke.svg';
 import CartIcon from '@zendeskgarden/svg-icons/src/12/shopping-cart-stroke.svg';
 import ClipboardIcon from '@zendeskgarden/svg-icons/src/12/clipboard-blank-stroke.svg';
 
-const iconSize = { width: 11, height: 11 };
-
 const items = [
   {
-    icon: <EmailIcon {...iconSize} />,
+    icon: <EmailIcon />,
     time: 'Today 9:00 AM',
     activity: 'Issue with order'
   },
   {
-    icon: <ClipboardIcon {...iconSize} />,
+    icon: <ClipboardIcon />,
     time: 'Feb 08, 9:05 AM',
     activity: 'Ordered 3 items'
   },
   {
-    icon: <CartIcon {...iconSize} />,
+    icon: <CartIcon />,
     time: 'Jan 21, 9:13 AM',
     activity: 'Added 3 items to cart'
   },
   {
-    icon: <EyeIcon {...iconSize} />,
+    icon: <EyeIcon />,
     time: 'Jan 21, 9:21 AM',
     activity: 'Viewed product page'
   }
@@ -44,6 +42,7 @@ interface IStoryProps {
   isAlternate: boolean;
   customIcons: boolean;
   showOppositeContent: boolean;
+  surfaceColor: string;
 }
 
 export default {
@@ -57,29 +56,40 @@ export default {
 } as Meta;
 
 const StyledTime = styled(MD)`
-  color: ${props => props.theme.palette.grey[800]};
+  color: ${props => props.theme.colors.foreground};
 `;
 
 const StyledActivity = styled(MD)`
   color: ${props => props.theme.palette.grey[600]};
 `;
 
-export const Default: Story<IStoryProps> = ({ isAlternate, customIcons, showOppositeContent }) => (
-  <Timeline isAlternate={isAlternate}>
-    {items.map((item, index) => (
-      <Timeline.Item key={index} icon={customIcons ? item.icon : null}>
-        {showOppositeContent ? (
-          <Timeline.OppositeContent>
-            <StyledTime isBold>{item.time}</StyledTime>
-          </Timeline.OppositeContent>
-        ) : null}
-        <Timeline.Content>
-          {showOppositeContent ? null : <StyledTime isBold>{item.time}</StyledTime>}
-          <StyledActivity>{item.activity}</StyledActivity>
-        </Timeline.Content>
-      </Timeline.Item>
-    ))}
-  </Timeline>
+export const Default: Story<IStoryProps> = ({
+  isAlternate,
+  customIcons,
+  showOppositeContent,
+  surfaceColor
+}) => (
+  <div style={{ backgroundColor: surfaceColor }}>
+    <Timeline isAlternate={isAlternate}>
+      {items.map((item, index) => (
+        <Timeline.Item
+          key={index}
+          icon={customIcons ? item.icon : null}
+          surfaceColor={surfaceColor}
+        >
+          {showOppositeContent ? (
+            <Timeline.OppositeContent>
+              <StyledTime isBold>{item.time}</StyledTime>
+            </Timeline.OppositeContent>
+          ) : null}
+          <Timeline.Content>
+            {showOppositeContent ? null : <StyledTime isBold>{item.time}</StyledTime>}
+            <StyledActivity>{item.activity}</StyledActivity>
+          </Timeline.Content>
+        </Timeline.Item>
+      ))}
+    </Timeline>
+  </div>
 );
 
 Default.args = {
@@ -94,6 +104,9 @@ Default.argTypes = {
   },
   showOppositeContent: {
     name: 'Show opposite content'
+  },
+  surfaceColor: {
+    control: { type: 'color' }
   }
 };
 

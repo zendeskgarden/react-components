@@ -24,7 +24,7 @@ export * from './accordion/StyledRotateIcon';
 
 export * from './timeline/StyledTimeline';
 export * from './timeline/StyledItem';
+export * from './timeline/StyledItemIcon';
 export * from './timeline/StyledContent';
 export * from './timeline/StyledOppositeContent';
 export * from './timeline/StyledSeparator';
-export * from './timeline/StyledCircleStrokeIcon';

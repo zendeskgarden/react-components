@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'timeline.timeline';
+const COMPONENT_ID = 'timeline';
 
 /**
  * 1. <ol> reset.
