@@ -10,18 +10,13 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'forms.file_list';
 
-interface IStyledFileListProps {
-  isDragging?: boolean;
-  isCompact?: boolean;
-}
-
 /**
  * 1. <ul> reset.
  */
 export const StyledFileList = styled.ul.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledFileListProps>`
+})`
   margin: 0; /* [1] */
   padding: 0; /* [1] */
   list-style: none; /* [1] */

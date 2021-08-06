@@ -49,8 +49,7 @@ export const StyledClose = styled.button.attrs({
 
   &[data-garden-focus-visible] {
     background-color: ${props => getColor('primaryHue', 600, props.theme, 0.15)};
-    color: ${props =>
-      props.hue ? getColor(props.hue, 800, props.theme) : getColor('primaryHue', 800, props.theme)};
+    color: ${props => getColor('primaryHue', 800, props.theme)};
 
     &::-moz-focus-inner {
       border: 0; /* [2] */
