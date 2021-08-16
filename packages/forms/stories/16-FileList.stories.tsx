@@ -27,19 +27,20 @@ const StyledEllipsis = styled(Ellipsis)`
 `;
 
 interface IFileListStoryProps {
+  includeClose: boolean;
   isCompact: boolean;
   type: 'pdf' | 'zip' | 'image' | 'document' | 'spreadsheet' | 'presentation';
 }
 
 const files = ['squash.jpg', 'soybean.jpg', 'fresh-spicy-minced-hungarian-wax-peppers.jpg'];
 
-export const Default: Story<IFileListStoryProps> = ({ isCompact, type }) => (
+export const Default: Story<IFileListStoryProps> = ({ includeClose, isCompact, type }) => (
   <FileList>
     {files.map(file => (
       <FileList.Item key={file}>
         <File isCompact={isCompact} type={type} aria-label="File">
           <StyledEllipsis>{file}</StyledEllipsis>
-          <File.Close aria-label="Remove file" />
+          {includeClose && <File.Close aria-label="Remove file" />}
         </File>
       </FileList.Item>
     ))}
@@ -47,11 +48,15 @@ export const Default: Story<IFileListStoryProps> = ({ isCompact, type }) => (
 );
 
 Default.args = {
+  includeClose: false,
   isCompact: false,
   type: 'image'
 };
 
 Default.argTypes = {
+  includeClose: {
+    name: 'Include File.Close'
+  },
   isCompact: {
     control: 'boolean'
   },

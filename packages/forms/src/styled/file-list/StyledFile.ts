@@ -11,7 +11,6 @@ import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden
 const COMPONENT_ID = 'forms.file';
 
 interface IStyledFileProps {
-  isDragging?: boolean;
   isCompact?: boolean;
 }
 
