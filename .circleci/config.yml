@@ -47,6 +47,7 @@ jobs:
       - *attach_workspace
       - run: yarn build:demo --no-dll
       - run: utils/scripts/deploy.js
+      - run: yarn bojagi deploy
 
   publish:
     <<: *executor
