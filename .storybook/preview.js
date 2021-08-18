@@ -20,7 +20,8 @@ export const parameters = {
     theme: create({
       base: DEFAULT_THEME.colors.base
     })
-  }
+  },
+  layout: 'padded' // default story layout processed by Bojagi
 };
 
 const GlobalPreviewStyling = createGlobalStyle`

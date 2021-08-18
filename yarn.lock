@@ -1296,10 +1296,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bojagi/cli@0.18.1":
-  version "0.18.1"
-  resolved "https://registry.yarnpkg.com/@bojagi/cli/-/cli-0.18.1.tgz#0441a86ef313cc06cc230490aa0d4cf1559c9372"
-  integrity sha512-1JrRwKMXrsbr6hQrQ9IV598W1yPwrDMMzEvschcVMcJjnkmmr6Gww3od0pHYKvPj90o+wDu7p4DXktwZjZ9kBg==
+"@bojagi/cli@0.19.0-next.0":
+  version "0.19.0-next.0"
+  resolved "https://registry.yarnpkg.com/@bojagi/cli/-/cli-0.19.0-next.0.tgz#ea350bbd811cd7244168d30d01ad5a42b6f509a7"
+  integrity sha512-ZKR4tD4VN5sQBJnHv/jZ52Y0ReRkVi0/Q6sTzpZyQAAh3KqkVV6/4cCkITgXkmoVY22TwAwPVo16o3P5T4MR+g==
   dependencies:
     "@bojagi/types" "^0.9.0"
     adm-zip "^0.4.13"
