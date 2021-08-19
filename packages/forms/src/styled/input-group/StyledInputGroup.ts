@@ -62,14 +62,20 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   `;
 };
 
+/**
+ * 1. Garden <Button> override.
+ */
 const itemStyles = (props: ThemeProps<DefaultTheme>) => {
+  const horizontal = props.theme.rtl ? 'right' : 'left';
+
   return css`
     /* stylelint-disable
+      declaration-no-important,
       property-no-unknown,
       property-case,
       selector-no-qualifying-type */
     & > * {
-      margin-${props.theme.rtl ? 'right' : 'left'}: -${props.theme.borderWidths.sm};
+      margin-${horizontal}: -${props.theme.borderWidths.sm} !important; /* [1] */
       z-index: -1;
     }
 
