@@ -57,13 +57,15 @@ export interface IColorpickerProps
   };
   /** @ignore */
   autofocus?: boolean;
+  /** Handles whether the alpha slider and input will be shown for modification */
+  hideAlphaModifiers?: boolean;
 }
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
-  ({ color, defaultColor, labels = {}, autofocus, onChange, ...props }, ref) => {
+  ({ color, defaultColor, labels = {}, autofocus, onChange, hideAlphaModifiers, ...props }, ref) => {
     const [state, dispatch] = useReducer(reducer, getInitialState(color || defaultColor));
     const previousComputedColorRef = useRef<IColor>(state.color);
     const previousStateColorRef = useRef<IColor>(state.color);
@@ -167,18 +169,20 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
                 onChange={handleHueChange}
               />
             </Field>
-            <Field>
-              <Label hidden>{labels.alphaSlider || 'Alpha slider'}</Label>
-              <StyledAlphaRange
-                max={1}
-                step={0.01}
-                value={computedColor.alpha / 100}
-                onChange={handleAlphaSliderChange}
-                red={computedColor.red}
-                green={computedColor.green}
-                blue={computedColor.blue}
-              />
-            </Field>
+            {!hideAlphaModifiers &&
+              <Field>
+                <Label hidden>{labels.alphaSlider || 'Alpha slider'}</Label>
+                <StyledAlphaRange
+                  max={1}
+                  step={0.01}
+                  value={computedColor.alpha / 100}
+                  onChange={handleAlphaSliderChange}
+                  red={computedColor.red}
+                  green={computedColor.green}
+                  blue={computedColor.blue}
+                />
+              </Field>
+            }
           </StyledSliders>
         </StyledSliderGroup>
         <StyledInputGroup>
@@ -234,18 +238,20 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
               onChange={handleBlueChange}
             />
           </StyledRGBAField>
-          <StyledRGBAField>
-            <StyledLabel isRegular>{labels.alpha || 'A'}</StyledLabel>
-            <StyledInput
-              isCompact
-              type="number"
-              min="0"
-              max="100"
-              value={state.alphaInput}
-              onBlur={handleBlur}
-              onChange={handleAlphaChange}
-            />
-          </StyledRGBAField>
+          {!hideAlphaModifiers &&
+            <StyledRGBAField>
+              <StyledLabel isRegular>{labels.alpha || 'A'}</StyledLabel>
+              <StyledInput
+                isCompact
+                type="number"
+                min="0"
+                max="100"
+                value={state.alphaInput}
+                onBlur={handleBlur}
+                onChange={handleAlphaChange}
+              />
+            </StyledRGBAField>
+          }
         </StyledInputGroup>
       </StyledColorPicker>
     );
@@ -253,7 +259,8 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
 );
 
 Colorpicker.defaultProps = {
-  defaultColor: '#fff'
+  defaultColor: '#fff', 
+  hideAlphaModifiers: false
 };
 
 Colorpicker.displayName = 'Colorpicker';
@@ -262,5 +269,6 @@ Colorpicker.propTypes = {
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
   onChange: PropTypes.func,
   labels: PropTypes.object,
-  defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string])
+  defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
+  hideAlphaModifiers: PropTypes.bool
 };
