@@ -7,6 +7,7 @@
 
 import React, {
   forwardRef,
+  Children,
   RefAttributes,
   HTMLAttributes,
   PropsWithoutRef,
@@ -14,7 +15,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { Close } from './Close';
-import { StyledFile, StyledIcon } from '../../../styled';
+import { StyledFile, StyledFileIcon } from '../../../styled';
 import { fileIcons, FILE_TYPE, ARRAY_FILE_TYPE } from '../utils';
 
 export interface IFileProps extends HTMLAttributes<HTMLDivElement> {
@@ -39,10 +40,12 @@ interface IStaticFileExport<T, P>
  */
 export const File = forwardRef<HTMLDivElement, IFileProps>(({ children, type, ...props }, ref) => (
   <StyledFile {...props} ref={ref}>
-    {type && <StyledIcon>{fileIcons[type]}</StyledIcon>}
-    {children}
+    {type && <StyledFileIcon>{fileIcons[type]}</StyledFileIcon>}
+    {Children.map(children, child => (typeof child === 'string' ? <span>{child}</span> : child))}
   </StyledFile>
 )) as IStaticFileExport<HTMLDivElement, IFileProps>;
+
+File.displayName = 'File';
 
 File.Close = Close;
 

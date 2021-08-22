@@ -8,19 +8,32 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'forms.file_list.item';
+const COMPONENT_ID = 'forms.file.close';
 
-export const StyledFileListItem = styled.li.attrs({
+export const StyledFileClose = styled.div.attrs<unknown>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  'aria-label': 'Remove file'
 })`
-  &:not(:first-child) {
-    margin-top: ${props => props.theme.space.base * 2}px;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:focus {
+    outline: none;
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledFileListItem.defaultProps = {
+StyledFileClose.defaultProps = {
   theme: DEFAULT_THEME
 };

@@ -28,4 +28,6 @@ export const FileList = forwardRef<HTMLUListElement, HTMLAttributes<HTMLUListEle
   ({ ...props }, ref) => <StyledFileList {...props} ref={ref} />
 ) as IStaticFileListExport<HTMLUListElement, HTMLAttributes<HTMLUListElement>>;
 
+FileList.displayName = 'FileList';
+
 FileList.Item = Item;

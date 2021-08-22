@@ -49,10 +49,10 @@ export * from './file-upload/StyledFileUpload';
  * FileList styles
  */
 export * from './file-list/StyledFile';
+export * from './file-list/StyledFileClose';
+export * from './file-list/StyledFileIcon';
 export * from './file-list/StyledFileList';
 export * from './file-list/StyledFileListItem';
-export * from './file-list/StyledClose';
-export * from './file-list/StyledIcon';
 
 /**
  * Radio styles
