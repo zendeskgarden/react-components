@@ -20,6 +20,7 @@ export default {
 } as Meta;
 
 interface IFileListStoryProps {
+  focusInset: boolean;
   includeClose: boolean;
   includeProgress: boolean;
   isCompact: boolean;
@@ -35,6 +36,7 @@ const files = [
 ];
 
 export const Default: Story<IFileListStoryProps> = ({
+  focusInset,
   includeClose,
   includeProgress,
   isCompact,
@@ -46,7 +48,7 @@ export const Default: Story<IFileListStoryProps> = ({
         <FileList>
           {files.map((file, index) => (
             <FileList.Item key={file}>
-              <File isCompact={isCompact} type={type} aria-label="File">
+              <File isCompact={isCompact} type={type} aria-label="File" focusInset={focusInset}>
                 {file}
                 {includeClose && <File.Close aria-label="Remove file" />}
                 {includeProgress && (
@@ -62,6 +64,7 @@ export const Default: Story<IFileListStoryProps> = ({
 );
 
 Default.args = {
+  focusInset: false,
   includeClose: false,
   includeProgress: false,
   isCompact: false,
@@ -69,6 +72,9 @@ Default.args = {
 };
 
 Default.argTypes = {
+  focusInset: {
+    name: 'Inset File box-shadow'
+  },
   includeClose: {
     name: 'Include File.Close'
   },

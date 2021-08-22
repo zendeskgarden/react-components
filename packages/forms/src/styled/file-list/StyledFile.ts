@@ -6,6 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import { rgba } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledFileClose } from './StyledFileClose';
 
@@ -13,11 +14,20 @@ const COMPONENT_ID = 'forms.file';
 
 const colorStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
   const borderColor = getColor('neutralHue', 300, props.theme);
+  const focusBorderColor = getColor('primaryHue', 600, props.theme);
   const foregroundColor = getColor('neutralHue', 800, props.theme);
+  const boxShadow = `
+    ${props.focusInset ? 'inset' : ''}
+    ${props.theme.shadows.md(rgba(focusBorderColor!, 0.35))}`;
 
   return `
     border-color: ${borderColor};
     color: ${foregroundColor};
+
+    &[data-garden-focus-visible] {
+      box-shadow: ${boxShadow};
+      border-color: ${focusBorderColor};
+    }
   `;
 };
 
@@ -47,6 +57,7 @@ const sizeStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
 
 interface IStyledFileProps {
   isCompact?: boolean;
+  focusInset?: boolean;
 }
 
 export const StyledFile = styled.div.attrs({
@@ -59,6 +70,11 @@ export const StyledFile = styled.div.attrs({
   align-items: center;
 
   ${sizeStyles};
+
+  &:focus {
+    outline: none;
+  }
+
   ${colorStyles};
 
   & > span {
