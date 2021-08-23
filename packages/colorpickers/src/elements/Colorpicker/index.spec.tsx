@@ -59,6 +59,15 @@ describe('Colorpicker', () => {
     expect(alphaInput.value).toBe('100');
   });
 
+  it('does not render alpha modifiers when passed with relavant prop value', () => {
+    render(<Colorpicker hideAlphaModifiers={true} />);
+    const alphaSlider = screen.queryByLabelText('Alpha slider') as HTMLInputElement;
+    const alphaInput = screen.queryByLabelText('A') as HTMLInputElement;
+
+    expect(alphaSlider).not.toBeInTheDocument();
+    expect(alphaInput).not.toBeInTheDocument();
+  });
+
   describe('Uncontrolled usage', () => {
     it('updates the color picker when the hue slider is changed', () => {
       render(<Colorpicker defaultColor="#17494D" />);
