@@ -37,8 +37,8 @@ interface IStaticFileExport<T, P>
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const File = forwardRef<HTMLDivElement, IFileProps>(
-  ({ children, type, focusInset, tabIndex, ...props }, ref) => (
-    <StyledFile {...props} focusInset={focusInset} tabIndex={tabIndex || 0} ref={ref}>
+  ({ children, type, focusInset, ...props }, ref) => (
+    <StyledFile {...props} focusInset={focusInset} ref={ref}>
       {type && <StyledFileIcon>{fileIcons[type]}</StyledFileIcon>}
       {Children.map(children, child => (typeof child === 'string' ? <span>{child}</span> : child))}
     </StyledFile>
@@ -50,6 +50,7 @@ File.displayName = 'File';
 File.Close = Close;
 
 File.propTypes = {
+  focusInset: PropTypes.bool,
   isCompact: PropTypes.bool,
   type: PropTypes.oneOf(ARRAY_FILE_TYPE)
 };

@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { FileList, File } from '@zendeskgarden/react-forms';
@@ -35,6 +36,14 @@ const files = [
   'fresh-spicy-minced-hungarian-wax-peppers.jpg'
 ];
 
+const handleKeyDown = (e: React.KeyboardEvent<any>) => {
+  if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+    e.preventDefault();
+    /* eslint-disable-next-line no-alert */
+    alert('File dismissed via keyboard');
+  }
+};
+
 export const Default: Story<IFileListStoryProps> = ({
   focusInset,
   includeClose,
@@ -48,9 +57,22 @@ export const Default: Story<IFileListStoryProps> = ({
         <FileList>
           {files.map((file, index) => (
             <FileList.Item key={file}>
-              <File isCompact={isCompact} type={type} aria-label="File" focusInset={focusInset}>
+              <File
+                isCompact={isCompact}
+                type={type}
+                aria-label="File"
+                focusInset={focusInset}
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+              >
                 {file}
-                {includeClose && <File.Close aria-label="Remove file" />}
+                {includeClose && (
+                  <File.Close
+                    aria-label="Remove file"
+                    /* eslint-disable-next-line no-alert */
+                    onClick={() => alert('File dismissed via mouse')}
+                  />
+                )}
                 {includeProgress && (
                   <Progress value={index * 25} size={isCompact ? 'small' : 'medium'} />
                 )}

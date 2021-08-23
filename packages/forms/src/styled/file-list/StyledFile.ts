@@ -24,7 +24,7 @@ const colorStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
     border-color: ${borderColor};
     color: ${foregroundColor};
 
-    &[data-garden-focus-visible] {
+    &:focus {
       box-shadow: ${boxShadow};
       border-color: ${focusBorderColor};
     }
