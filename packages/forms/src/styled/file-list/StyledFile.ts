@@ -7,7 +7,12 @@
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { rgba } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  getLineHeight
+} from '@zendeskgarden/react-theming';
 import { StyledFileClose } from './StyledFileClose';
 
 const COMPONENT_ID = 'forms.file';
@@ -34,6 +39,8 @@ const colorStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
 const sizeStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
   const size = `${props.theme.space.base * (props.isCompact ? 7 : 10)}px`;
   const spacing = `${props.theme.space.base * 3}px`;
+  const fontSize = props.theme.fontSizes.md;
+  const lineHeight = getLineHeight(props.theme.space.base * 5, fontSize);
 
   return `
     box-sizing: border-box;
@@ -41,7 +48,8 @@ const sizeStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
     border-radius: ${props.theme.borderRadii.md};
     padding: 0 ${spacing};
     height: ${size};
-    font-size: ${props.theme.fontSizes.md};
+    line-height: ${lineHeight};
+    font-size: ${fontSize};
 
     & > span {
       width: 100%;
