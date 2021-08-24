@@ -10,10 +10,9 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'forms.file.close';
 
-export const StyledFileClose = styled.div.attrs<unknown>({
+export const StyledFileClose = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'aria-label': 'Remove file'
+  'data-garden-version': PACKAGE_VERSION
 })`
   display: flex;
   flex-shrink: 0;

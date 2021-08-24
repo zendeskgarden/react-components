@@ -68,9 +68,9 @@ export const Default: Story<IFileListStoryProps> = ({
                 {file}
                 {includeClose && (
                   <File.Close
-                    aria-label="Remove file"
                     /* eslint-disable-next-line no-alert */
                     onClick={() => alert('File dismissed via mouse')}
+                    title="Remove file"
                   />
                 )}
                 {includeProgress && (

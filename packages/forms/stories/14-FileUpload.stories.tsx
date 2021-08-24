@@ -74,7 +74,7 @@ const FileWrapper: React.FC<{
         tabIndex={0}
       >
         {name}
-        <File.Close onClick={onRemove} aria-label="Remove file" />
+        <File.Close onClick={onRemove} title="Remove file" />
         <Progress value={uploadProgress} size={isCompact ? 'small' : 'medium'} />
       </File>
     </FileList.Item>
