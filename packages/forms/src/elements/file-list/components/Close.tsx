@@ -6,14 +6,17 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import XIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
-import { StyledClose } from '../../../styled';
+import XIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import { StyledFileClose } from '../../../styled';
 
-export const Close = React.forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Close = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => (
-    <StyledClose ref={ref} {...props}>
+    <StyledFileClose ref={ref} {...props}>
       <XIcon />
-    </StyledClose>
+    </StyledFileClose>
   )
 );
 

@@ -7,17 +7,24 @@
 
 import React, { Children } from 'react';
 import styled from 'styled-components';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
-export const StyledIcon = styled(({ children, ...props }) =>
+const COMPONENT_ID = 'forms.file.icon';
+
+export const StyledFileIcon = styled(({ children, ...props }) =>
   React.cloneElement(Children.only(children), props)
-)`
-  min-width: ${props => props.theme.space.base * 4}px;
+).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
+  flex-shrink: 0;
+  width: ${props => props.theme.iconSizes.md};
   /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.base * 2}px;
-  color: ${props => getColor('neutralHue', 600, props.theme)};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledIcon.defaultProps = {
+StyledFileIcon.defaultProps = {
   theme: DEFAULT_THEME
 };

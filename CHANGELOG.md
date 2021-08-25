@@ -17,7 +17,6 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 - `dropdowns`, `forms`
   - [#1126](https://github.com/zendeskgarden/react-components/pull/1126) feat(forms): create file list component ([@hzhu](https://github.com/hzhu))
-  - [#1126](https://github.com/zendeskgarden/react-components/pull/1126) feat(forms): create file list component ([@hzhu](https://github.com/hzhu))
 
 #### :seedling: Internal
 

@@ -6,11 +6,9 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
 import { Meta, Story } from '@storybook/react';
-import { CSSTransition } from 'react-transition-group';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { Ellipsis, Span } from '@zendeskgarden/react-typography';
 import { Progress } from '@zendeskgarden/react-loaders';
 import {
   Field,
@@ -28,54 +26,6 @@ export default {
   title: 'Components/Forms/FileUpload',
   component: FileUpload
 } as Meta;
-
-const StyledFile = styled(File)`
-  .progress-bar {
-    &.enter {
-      opacity: 0;
-    }
-
-    &.enter-active {
-      transition: opacity 200ms;
-      opacity: 1;
-    }
-
-    &.exit {
-      opacity: 1;
-    }
-
-    &.exit-active {
-      transition: opacity 200ms;
-      opacity: 0;
-    }
-
-    &.exit-done {
-      display: none;
-    }
-  }
-`;
-
-const StyledSpan = styled(Span)`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-`;
-
-const StyledProgress = styled(Progress)`
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0;
-`;
-
-const StyledEllipsis = styled(Ellipsis)`
-  /* stylelint-disable-next-line property-no-unknown */
-  margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.base * 2}px;
-  min-width: 200px;
-  max-width: 300px;
-`;
 
 type EXTENSION = 'pdf' | 'zip' | 'image' | 'document' | 'spreadsheet' | 'presentation';
 
@@ -107,17 +57,26 @@ const FileWrapper: React.FC<{
     };
   }, []);
 
+  const handleKeyDown = (e: React.KeyboardEvent<any>) => {
+    if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+      e.preventDefault();
+      onRemove();
+    }
+  };
+
   return (
     <FileList.Item key={name}>
-      <StyledFile type={type} isCompact={isCompact} aria-label="File">
-        <StyledSpan>
-          <StyledEllipsis>{name}</StyledEllipsis>
-          <File.Close onClick={onRemove} aria-label="Remove file" />
-        </StyledSpan>
-        <CSSTransition in={uploadProgress < 100} timeout={200} className="progress-bar">
-          <StyledProgress value={uploadProgress} />
-        </CSSTransition>
-      </StyledFile>
+      <File
+        type={type}
+        isCompact={isCompact}
+        onKeyDown={handleKeyDown}
+        aria-label="File"
+        tabIndex={0}
+      >
+        {name}
+        <File.Close onClick={onRemove} title="Remove file" />
+        <Progress value={uploadProgress} size={isCompact ? 'small' : 'medium'} />
+      </File>
     </FileList.Item>
   );
 });
@@ -137,11 +96,7 @@ export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
   showHint,
   type
 }) => {
-  const [files, setFiles] = React.useState([
-    'squash.jpg',
-    'soybean.jpg',
-    'fresh-spicy-minced-hungarian-wax-peppers.jpg'
-  ]);
+  const [files, setFiles] = React.useState([] as string[]);
 
   const onDrop = React.useCallback(
     (acceptedFiles: File[]) => {
@@ -168,8 +123,8 @@ export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
 
   return (
     <Grid>
-      <Row>
-        <Col lg={8} offsetLg={2}>
+      <Row justifyContent="center">
+        <Col sm={5}>
           <Field>
             <Label hidden={isHidden}>File upload</Label>
             {showHint && <Hint>Works with react-dropzone</Hint>}
@@ -188,7 +143,7 @@ export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
             </FileUpload>
           </Field>
 
-          <FileList style={{ width: '320px', marginTop: '20px' }}>
+          <FileList style={{ marginTop: 8 }}>
             {files.map((file, index) => (
               <FileWrapper
                 key={file}

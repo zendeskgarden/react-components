@@ -6,9 +6,10 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
 import { Meta, Story } from '@storybook/react';
-import { Ellipsis } from '@zendeskgarden/react-typography';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Progress } from '@zendeskgarden/react-loaders';
 import { FileList, File } from '@zendeskgarden/react-forms';
 
 export default {
@@ -19,39 +20,89 @@ export default {
   }
 } as Meta;
 
-const StyledEllipsis = styled(Ellipsis)`
-  /* stylelint-disable-next-line property-no-unknown */
-  margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.base * 2}px;
-  min-width: 200px;
-  max-width: 300px;
-`;
-
 interface IFileListStoryProps {
+  focusInset: boolean;
+  includeClose: boolean;
+  includeProgress: boolean;
   isCompact: boolean;
   type: 'pdf' | 'zip' | 'image' | 'document' | 'spreadsheet' | 'presentation';
 }
 
-const files = ['squash.jpg', 'soybean.jpg', 'fresh-spicy-minced-hungarian-wax-peppers.jpg'];
+const files = [
+  'tomato.txt',
+  'squash.jpg',
+  'kimchi.pdf',
+  'soybean.jpg',
+  'fresh-spicy-minced-hungarian-wax-peppers.jpg'
+];
 
-export const Default: Story<IFileListStoryProps> = ({ isCompact, type }) => (
-  <FileList>
-    {files.map(file => (
-      <FileList.Item key={file}>
-        <File isCompact={isCompact} type={type} aria-label="File">
-          <StyledEllipsis>{file}</StyledEllipsis>
-          <File.Close aria-label="Remove file" />
-        </File>
-      </FileList.Item>
-    ))}
-  </FileList>
+const handleKeyDown = (e: React.KeyboardEvent<any>) => {
+  if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+    e.preventDefault();
+    /* eslint-disable-next-line no-alert */
+    alert('File dismissed via keyboard');
+  }
+};
+
+export const Default: Story<IFileListStoryProps> = ({
+  focusInset,
+  includeClose,
+  includeProgress,
+  isCompact,
+  type
+}) => (
+  <Grid>
+    <Row justifyContent="center">
+      <Col sm={5}>
+        <FileList>
+          {files.map((file, index) => (
+            <FileList.Item key={file}>
+              <File
+                isCompact={isCompact}
+                type={type}
+                aria-label="File"
+                focusInset={focusInset}
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+              >
+                {file}
+                {includeClose && (
+                  <File.Close
+                    /* eslint-disable-next-line no-alert */
+                    onClick={() => alert('File dismissed via mouse')}
+                    title="Remove file"
+                  />
+                )}
+                {includeProgress && (
+                  <Progress value={index * 25} size={isCompact ? 'small' : 'medium'} />
+                )}
+              </File>
+            </FileList.Item>
+          ))}
+        </FileList>
+      </Col>
+    </Row>
+  </Grid>
 );
 
 Default.args = {
+  focusInset: false,
+  includeClose: false,
+  includeProgress: false,
   isCompact: false,
   type: 'image'
 };
 
 Default.argTypes = {
+  focusInset: {
+    name: 'Inset File box-shadow'
+  },
+  includeClose: {
+    name: 'Include File.Close'
+  },
+  includeProgress: {
+    name: 'Include Progress'
+  },
   isCompact: {
     control: 'boolean'
   },
