@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1629930466241" clover="3.2.0">
-  <project timestamp="1629930466241" name="All files">
+<coverage generated="1629930670426" clover="3.2.0">
+  <project timestamp="1629930670426" name="All files">
     <metrics statements="7984" coveredstatements="7739" conditionals="3140" coveredconditionals="2807" methods="1829" coveredmethods="1749" elements="12953" coveredelements="12295" complexity="0" loc="7984" ncloc="7984" packages="128" files="515" classes="515"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -4279,15 +4279,15 @@
         <line num="25" count="912" type="stmt"/>
         <line num="28" count="23" type="stmt"/>
         <line num="29" count="686" type="stmt"/>
-        <line num="43" count="686" type="stmt"/>
-        <line num="51" count="686" type="cond" truecount="2" falsecount="0"/>
-        <line num="52" count="686" type="stmt"/>
-        <line num="54" count="686" type="stmt"/>
+        <line num="50" count="686" type="stmt"/>
+        <line num="58" count="686" type="cond" truecount="2" falsecount="0"/>
         <line num="59" count="686" type="stmt"/>
-        <line num="63" count="686" type="stmt"/>
+        <line num="61" count="686" type="stmt"/>
+        <line num="66" count="686" type="stmt"/>
         <line num="70" count="686" type="stmt"/>
-        <line num="72" count="686" type="stmt"/>
-        <line num="75" count="23" type="stmt"/>
+        <line num="85" count="686" type="stmt"/>
+        <line num="87" count="686" type="stmt"/>
+        <line num="90" count="23" type="stmt"/>
       </file>
       <file name="StyledItemIcon.ts" path="/home/circleci/project/packages/dropdowns/src/styled/items/StyledItemIcon.ts">
         <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="5" methods="8" coveredmethods="8"/>
