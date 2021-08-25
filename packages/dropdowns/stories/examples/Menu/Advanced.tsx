@@ -21,7 +21,7 @@ import {
   ItemMeta,
   Separator
 } from '@zendeskgarden/react-dropdowns';
-import { Button } from '@zendeskgarden/react-buttons';
+import { Anchor, Button } from '@zendeskgarden/react-buttons';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import GroupIcon from '@zendeskgarden/svg-icons/src/16/user-group-stroke.svg';
@@ -82,6 +82,14 @@ export const Advanced: Story<IStoryProps> = ({
               </Item>
               <Item value="settings" disabled={isDisabled}>
                 Option 2<ItemMeta>Optional meta</ItemMeta>
+              </Item>
+              <Item value="anchor" disabled={isDisabled}>
+                <a href>Anchor 1</a>
+              </Item>
+              <Item value="garden-anchor" disabled={isDisabled}>
+                <Anchor>
+                  Anchor 2<ItemMeta>Optional meta</ItemMeta>
+                </Anchor>
               </Item>
               <Separator />
               <MediaItem value="image" disabled={isDisabled}>

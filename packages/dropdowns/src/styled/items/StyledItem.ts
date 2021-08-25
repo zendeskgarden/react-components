@@ -33,6 +33,13 @@ const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
     color: ${props.disabled
       ? getColor('neutralHue', 400, props.theme)
       : props.theme.colors.foreground};
+
+    & a,
+    & a:hover,
+    & a:focus,
+    & a:active {
+      color: inherit;
+    }
   `;
 };
 
@@ -65,6 +72,14 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
 
   &:focus {
     outline: none;
+  }
+
+  /* stylelint-disable no-descending-specificity */
+  & a,
+  & a:hover,
+  & a:focus,
+  & a:active {
+    text-decoration: none;
   }
 
   ${props => getColorStyles(props)}
