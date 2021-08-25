@@ -84,7 +84,7 @@ export const Advanced: Story<IStoryProps> = ({
                 Option 2<ItemMeta>Optional meta</ItemMeta>
               </Item>
               <Item value="anchor" disabled={isDisabled}>
-                <a href>Anchor 1</a>
+                <a href=".">Anchor 1</a>
               </Item>
               <Item value="garden-anchor" disabled={isDisabled}>
                 <Anchor>
