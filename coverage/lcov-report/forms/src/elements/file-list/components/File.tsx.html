@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.89% </span>
+                <span class="strong">81.82% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/9</span>
+                <span class='fraction'>9/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.89% </span>
+                <span class="strong">81.82% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/9</span>
+                <span class='fraction'>9/11</span>
             </div>
         
             
@@ -109,7 +109,11 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -123,12 +127,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,15 +152,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,6 +178,7 @@
 &nbsp;
 import React, {
   forwardRef,
+  Children,
   RefAttributes,
   HTMLAttributes,
   PropsWithoutRef,
@@ -177,18 +186,16 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { Close } from './Close';
-import { StyledFile, StyledIcon } from '../../../styled';
+import { StyledFile, StyledFileIcon } from '../../../styled';
 import { fileIcons, FILE_TYPE, ARRAY_FILE_TYPE } from '../utils';
 &nbsp;
 export interface IFileProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
-  /**
-   * Applies compact styling
-   */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /**
-   * Determines the icon to display
-   */
+  /** Determines the icon to display */
   type?: FILE_TYPE;
+  /** Applies inset `box-shadow` styling on focus */
+  focusInset?: boolean;
 }
 &nbsp;
 interface IStaticFileExport&lt;T, P&gt;
@@ -200,16 +207,21 @@ interface IStaticFileExport&lt;T, P&gt;
 /**
  * @extends HTMLAttributes&lt;HTMLDivElement&gt;
  */
-export const File = forwardRef&lt;HTMLDivElement, IFileProps&gt;(<span class="fstat-no" title="function not covered" >({</span> children, type, ...props }, ref) =&gt; (
-<span class="cstat-no" title="statement not covered" >  &lt;StyledFile {...props} ref={ref}&gt;</span>
-    {type &amp;&amp; &lt;StyledIcon&gt;{fileIcons[type]}&lt;/StyledIcon&gt;}
-    {children}
-  &lt;/StyledFile&gt;
-)) as IStaticFileExport&lt;HTMLDivElement, IFileProps&gt;;
+export const File = forwardRef&lt;HTMLDivElement, IFileProps&gt;(
+<span class="fstat-no" title="function not covered" >  ({</span> children, type, focusInset, ...props }, ref) =&gt; (
+<span class="cstat-no" title="statement not covered" >    &lt;StyledFile {...props} focusInset={focusInset} ref={ref}&gt;</span>
+      {type &amp;&amp; &lt;StyledFileIcon&gt;{fileIcons[type]}&lt;/StyledFileIcon&gt;}
+      {Children.map(children, <span class="fstat-no" title="function not covered" >child </span>=&gt; (<span class="cstat-no" title="statement not covered" >typeof child === 'string' ? &lt;span&gt;{child}&lt;/span&gt; : child)</span>)}
+    &lt;/StyledFile&gt;
+  )
+) as IStaticFileExport&lt;HTMLDivElement, IFileProps&gt;;
+&nbsp;
+File.displayName = 'File';
 &nbsp;
 File.Close = Close;
 &nbsp;
 File.propTypes = {
+  focusInset: PropTypes.bool,
   isCompact: PropTypes.bool,
   type: PropTypes.oneOf(ARRAY_FILE_TYPE)
 };
@@ -220,7 +232,7 @@ File.propTypes = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Aug 23 2021 20:08:46 GMT+0000 (Coordinated Universal Time)
+                at Wed Aug 25 2021 22:27:45 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>
