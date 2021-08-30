@@ -28,10 +28,12 @@ export const Controlled: Story = ({
   placement,
   disabled,
   hasArrow,
-  isAnimated
+  isAnimated,
+  isOpaque
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [color, setColor] = useState<string | IColor>('rgba(22,73,77,1)');
+  const controlledColor = isOpaque ? '#CE9' : '#CE9A';
 
   return (
     <Grid>
@@ -45,12 +47,16 @@ export const Controlled: Story = ({
             disabled={disabled}
             hasArrow={hasArrow}
             isAnimated={isAnimated}
+            isOpaque={isOpaque}
             buttonProps={{ 'aria-label': 'select your favorite color' }}
           />
         </Col>
         <Col>
-          <Button disabled={disabled} onClick={() => setColor(toColorString(parseToRgb('#CE9A')))}>
-            Set to #CE9A
+          <Button
+            disabled={disabled}
+            onClick={() => setColor(toColorString(parseToRgb(controlledColor)))}
+          >
+            Set to {controlledColor}
           </Button>
         </Col>
       </Row>
@@ -68,7 +74,8 @@ Controlled.args = {
   alpha: 'A',
   disabled: false,
   hasArrow: false,
-  isAnimated: true
+  isAnimated: true,
+  isOpaque: false
 };
 
 Controlled.argTypes = {

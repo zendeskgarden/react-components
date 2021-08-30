@@ -83,6 +83,7 @@ export const ColorpickerDialog = forwardRef<
       labels,
       hasArrow,
       isAnimated,
+      isOpaque,
       popperModifiers,
       zIndex,
       focusInset,
@@ -149,6 +150,7 @@ export const ColorpickerDialog = forwardRef<
             <Colorpicker
               autofocus
               color={color}
+              isOpaque={isOpaque}
               labels={labels}
               ref={colorPickerRef}
               defaultColor={uncontrolledColor}

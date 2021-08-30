@@ -39,6 +39,8 @@ export interface IColorpickerProps
   defaultColor?: string | IColor;
   /** Sets the color for a controlled color picker */
   color?: string | IColor;
+  /** Hides alpha transparency fields */
+  isOpaque?: boolean;
   /**
    * Handles color picker changes
    *
@@ -63,26 +65,32 @@ export interface IColorpickerProps
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
-  ({ color, defaultColor, labels = {}, autofocus, onChange, ...props }, ref) => {
+  ({ color, defaultColor, isOpaque, labels = {}, autofocus, onChange, ...props }, ref) => {
     const [state, dispatch] = useReducer(reducer, getInitialState(color || defaultColor));
     const previousComputedColorRef = useRef<IColor>(state.color);
     const previousStateColorRef = useRef<IColor>(state.color);
 
     const computedColor = useMemo(() => {
+      let retVal = state.color;
+
       if (color) {
         if (typeof color === 'string') {
           const convertedColor = convertStringToColor(color);
 
           if (convertedColor) {
-            return convertedColor;
+            retVal = convertedColor;
           }
         } else {
-          return color;
+          retVal = color;
         }
       }
 
-      return state.color;
-    }, [color, state.color]);
+      if (isOpaque) {
+        retVal.alpha = 100;
+      }
+
+      return retVal;
+    }, [color, isOpaque, state.color]);
 
     useEffect(() => {
       if (
@@ -167,18 +175,20 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
                 onChange={handleHueChange}
               />
             </Field>
-            <Field>
-              <Label hidden>{labels.alphaSlider || 'Alpha slider'}</Label>
-              <StyledAlphaRange
-                max={1}
-                step={0.01}
-                value={computedColor.alpha / 100}
-                onChange={handleAlphaSliderChange}
-                red={computedColor.red}
-                green={computedColor.green}
-                blue={computedColor.blue}
-              />
-            </Field>
+            {!isOpaque && (
+              <Field>
+                <Label hidden>{labels.alphaSlider || 'Alpha slider'}</Label>
+                <StyledAlphaRange
+                  max={1}
+                  step={0.01}
+                  value={computedColor.alpha / 100}
+                  onChange={handleAlphaSliderChange}
+                  red={computedColor.red}
+                  green={computedColor.green}
+                  blue={computedColor.blue}
+                />
+              </Field>
+            )}
           </StyledSliders>
         </StyledSliderGroup>
         <StyledInputGroup>
@@ -234,18 +244,20 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
               onChange={handleBlueChange}
             />
           </StyledRGBAField>
-          <StyledRGBAField>
-            <StyledLabel isRegular>{labels.alpha || 'A'}</StyledLabel>
-            <StyledInput
-              isCompact
-              type="number"
-              min="0"
-              max="100"
-              value={state.alphaInput}
-              onBlur={handleBlur}
-              onChange={handleAlphaChange}
-            />
-          </StyledRGBAField>
+          {!isOpaque && (
+            <StyledRGBAField>
+              <StyledLabel isRegular>{labels.alpha || 'A'}</StyledLabel>
+              <StyledInput
+                isCompact
+                type="number"
+                min="0"
+                max="100"
+                value={state.alphaInput}
+                onBlur={handleBlur}
+                onChange={handleAlphaChange}
+              />
+            </StyledRGBAField>
+          )}
         </StyledInputGroup>
       </StyledColorPicker>
     );
@@ -260,6 +272,7 @@ Colorpicker.displayName = 'Colorpicker';
 
 Colorpicker.propTypes = {
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
+  isOpaque: PropTypes.bool,
   onChange: PropTypes.func,
   labels: PropTypes.object,
   defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string])
