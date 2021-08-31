@@ -137,6 +137,7 @@ export const ColorpickerDialog = forwardRef<
           popperModifiers={popperModifiers}
           zIndex={zIndex}
           isAnimated={isAnimated}
+          isOpaque={isOpaque}
           focusOnMount={false}
           placement={placement}
           referenceElement={referenceElement}

@@ -151,7 +151,7 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
     }, [computedColor]);
 
     return (
-      <StyledColorPicker ref={ref} {...props}>
+      <StyledColorPicker ref={ref} isOpaque={isOpaque} {...props}>
         <ColorWell
           hue={computedColor.hue}
           saturation={computedColor.saturation}
@@ -164,6 +164,7 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
             green={computedColor.green}
             blue={computedColor.blue}
             alpha={computedColor.alpha}
+            isOpaque={isOpaque}
           />
           <StyledSliders>
             <Field>
