@@ -10,7 +10,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'colorpickers.colorpicker';
 
-export interface IStyledColorPickerProps {
+interface IStyledColorPickerProps {
   isOpaque?: boolean;
 }
 

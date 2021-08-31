@@ -166,13 +166,14 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
             alpha={computedColor.alpha}
             isOpaque={isOpaque}
           />
-          <StyledSliders>
+          <StyledSliders isOpaque={isOpaque}>
             <Field>
               <Label hidden>{labels.hueSlider || 'Hue slider'}</Label>
               <StyledHueRange
                 step={1}
                 max={360}
                 value={computedColor.hue}
+                isOpaque={isOpaque}
                 onChange={handleHueChange}
               />
             </Field>

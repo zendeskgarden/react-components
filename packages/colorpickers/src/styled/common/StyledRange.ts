@@ -10,6 +10,10 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { math, stripUnit } from 'polished';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
+export interface IStyledRangeProps {
+  isOpaque?: boolean;
+}
+
 const COMPONENT_ID = 'colorpickers.colorpicker_range';
 
 const thumbStyles = (styles: string, modifier = '') => {
@@ -104,22 +108,25 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const getThumbSize = (theme: DefaultTheme) => theme.space.base * 4;
+const getThumbSize = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
+  props.theme.space.base * (props.isOpaque ? 6 : 4);
 
-export const getTrackHeight = (theme: DefaultTheme) => theme.space.base * 3;
+export const getTrackHeight = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
+  props.theme.space.base * (props.isOpaque ? 6 : 3);
 
-export const getTrackMargin = (theme: DefaultTheme) =>
-  (getThumbSize(theme) - getTrackHeight(theme)) / 2 + (stripUnit(theme.shadowWidths.md) as number);
+export const getTrackMargin = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
+  (getThumbSize(props) - getTrackHeight(props)) / 2 +
+  (stripUnit(props.theme.shadowWidths.md) as number);
 
 /**
  * 1. Firefox reset.
  */
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const thumbSize = getThumbSize(props.theme);
-  const trackHeight = getTrackHeight(props.theme);
-  const trackMargin = getTrackMargin(props.theme);
+const sizeStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
+  const thumbSize = getThumbSize(props);
+  const trackHeight = getTrackHeight(props);
+  const trackMargin = getTrackMargin(props);
   const thumbMargin = (trackHeight - thumbSize) / 2;
-  const trackOffset = thumbSize - trackHeight - 1;
+  const trackOffset = props.theme.space.base * (props.isOpaque ? -2 : -1);
   const height = trackMargin * 2 + trackHeight;
 
   return `
@@ -128,7 +135,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
     height: ${height}px; /* [1] */
 
     ${trackStyles(`
-      margin: ${trackMargin}px -${trackOffset}px;
+      margin: ${trackMargin}px ${trackOffset}px;
       height: ${trackHeight}px;
     `)}
 
