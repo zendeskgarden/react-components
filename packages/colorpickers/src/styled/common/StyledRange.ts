@@ -60,7 +60,7 @@ const trackLowerStyles = (styles: string, modifier = '') => {
   `;
 };
 
-const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+const colorStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
   const thumbBackgroundColor = getColor('neutralHue', 100, props.theme);
   const thumbBorderColor = thumbBackgroundColor;
   const thumbActiveBackgroundColor = getColor('neutralHue', 200, props.theme);
@@ -69,6 +69,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const thumbHoverBorderColor = thumbHoverBackgroundColor;
 
   return `
+    border-color: ${props.isOpaque && props.theme.colors.background};
+
     ${trackStyles(`
       background-color: transparent;
     `)}
@@ -127,12 +129,25 @@ const sizeStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
   const trackMargin = getTrackMargin(props);
   const thumbMargin = (trackHeight - thumbSize) / 2;
   const trackOffset = props.theme.space.base * (props.isOpaque ? -2 : -1);
-  const height = trackMargin * 2 + trackHeight;
+  const height = props.isOpaque ? trackHeight : trackMargin * 2 + trackHeight;
+  let marginHorizontal;
+  let border;
+  let borderRadius;
+
+  if (props.isOpaque) {
+    marginHorizontal = `-${trackMargin}px`;
+    border = `${trackMargin}px ${props.theme.borderStyles.solid}`;
+    borderRadius = `${trackMargin + (stripUnit(props.theme.shadowWidths.md) as number)}px`;
+  }
 
   return `
     /* stylelint-disable-next-line declaration-no-important */
     margin-top: 0 !important;
+    margin-${props.theme.rtl ? 'right' : 'left'}: ${marginHorizontal};
     height: ${height}px; /* [1] */
+    box-sizing: content-box;
+    border: ${border};
+    border-radius: ${borderRadius};
 
     ${trackStyles(`
       margin: ${trackMargin}px ${trackOffset}px;
