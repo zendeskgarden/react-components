@@ -11,13 +11,18 @@ import { Field } from '@zendeskgarden/react-forms';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_hex_field';
 
+/**
+ * 1. IE11 reset.
+ */
 export const StyledHexField = styled(Field as unknown as 'div').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   spellcheck: false
 })`
   display: flex;
+  flex-basis: 0; /* [1] */
   flex-direction: column;
+  flex-grow: 1;
   width: auto;
   text-align: center;
 
