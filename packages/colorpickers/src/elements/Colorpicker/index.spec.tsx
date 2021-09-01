@@ -59,6 +59,18 @@ describe('Colorpicker', () => {
     expect(alphaInput.value).toBe('100');
   });
 
+  describe('Opaque layout', () => {
+    it('hides alpha', () => {
+      render(<Colorpicker isOpaque />);
+
+      const findAlphaSlider = () => screen.getByLabelText('Alpha slider');
+      const findAlphaInput = () => screen.getByLabelText('A');
+
+      expect(findAlphaSlider).toThrow();
+      expect(findAlphaInput).toThrow();
+    });
+  });
+
   describe('Uncontrolled usage', () => {
     it('updates the color picker when the hue slider is changed', () => {
       render(<Colorpicker defaultColor="#17494D" />);
