@@ -17,8 +17,8 @@ const background = (props: IRGBColor & ThemeProps<DefaultTheme>) => {
   const direction = `to ${props.theme.rtl ? 'left' : 'right'}`;
   const fromColor = `rgba(${props.red}, ${props.green}, ${props.blue}, 0)`;
   const toColor = `rgb(${props.red}, ${props.green}, ${props.blue})`;
-  const positionY = getTrackMargin(props.theme);
-  const height = getTrackHeight(props.theme);
+  const positionY = getTrackMargin(props);
+  const height = getTrackHeight(props);
   const gradientBackground = `linear-gradient(${direction}, ${fromColor}, ${toColor}) 0 ${positionY}px / 100% ${height}px no-repeat`;
 
   return `${gradientBackground}, ${checkeredBackground(

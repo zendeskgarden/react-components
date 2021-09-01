@@ -14,17 +14,27 @@ export default {
   component: Colorpicker
 } as Meta;
 
-export const Controlled: Story = ({ alphaSlider, hueSlider, hex, red, green, blue, alpha }) => {
+export const Controlled: Story = ({
+  alphaSlider,
+  hueSlider,
+  hex,
+  red,
+  green,
+  blue,
+  alpha,
+  isOpaque
+}) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
+  const controlledColor = isOpaque ? '#CE9FB7' : '#CE9FB777';
 
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
-        <Button onClick={() => setColor('#CE9FB777')}>Control to #CE9FB777</Button>
+        <Button onClick={() => setColor(controlledColor)}>Control to {controlledColor}</Button>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Colorpicker color={color} onChange={setColor} labels={labels} />
+        <Colorpicker color={color} onChange={setColor} labels={labels} isOpaque={isOpaque} />
       </div>
     </>
   );

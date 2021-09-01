@@ -7,14 +7,19 @@
 
 import styled from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { getTrackHeight, getTrackMargin, StyledRange } from '../common/StyledRange';
+import {
+  getTrackHeight,
+  getTrackMargin,
+  StyledRange,
+  IStyledRangeProps
+} from '../common/StyledRange';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_hue';
 
 export const StyledHueRange = styled(StyledRange as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledRangeProps>`
   /* stylelint-disable */
   background: linear-gradient(
       to ${props => (props.theme.rtl ? 'left' : 'right')},
@@ -27,8 +32,8 @@ export const StyledHueRange = styled(StyledRange as 'input').attrs({
       #f00 100%
     )
     no-repeat;
-  background-position: 0 ${props => getTrackMargin(props.theme)}px;
-  background-size: 100% ${props => getTrackHeight(props.theme)}px;
+  background-position: ${props => !props.isOpaque && `0 ${getTrackMargin(props)}px`};
+  background-size: 100% ${props => getTrackHeight(props)}px;
 `;
 
 StyledHueRange.defaultProps = {

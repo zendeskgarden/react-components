@@ -14,13 +14,23 @@ export default {
   component: Colorpicker
 } as Meta;
 
-export const Uncontrolled: Story = ({ alphaSlider, hueSlider, hex, red, green, blue, alpha }) => {
+export const Uncontrolled: Story = ({
+  alphaSlider,
+  hueSlider,
+  hex,
+  red,
+  green,
+  blue,
+  alpha,
+  isOpaque
+}) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Colorpicker
         labels={labels}
+        isOpaque={isOpaque}
         onChange={action('onChange')}
         defaultColor="rgba(23, 73, 77, 1)"
       />

@@ -30,6 +30,7 @@ export const Uncontrolled: Story = ({
   zIndex,
   hasArrow,
   isAnimated,
+  isOpaque,
   popperModifiers
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
@@ -45,6 +46,7 @@ export const Uncontrolled: Story = ({
             placement={placement}
             hasArrow={hasArrow}
             isAnimated={isAnimated}
+            isOpaque={isOpaque}
             onChange={action('onChange')}
             popperModifiers={popperModifiers}
             defaultColor={DEFAULT_THEME.palette.kale[700]}
@@ -66,7 +68,8 @@ Uncontrolled.args = {
   alpha: 'A',
   disabled: false,
   hasArrow: false,
-  isAnimated: true
+  isAnimated: true,
+  isOpaque: false
 };
 
 Uncontrolled.argTypes = {

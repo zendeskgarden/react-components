@@ -10,6 +10,10 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { math, stripUnit } from 'polished';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
+export interface IStyledRangeProps {
+  isOpaque?: boolean;
+}
+
 const COMPONENT_ID = 'colorpickers.colorpicker_range';
 
 const thumbStyles = (styles: string, modifier = '') => {
@@ -56,7 +60,7 @@ const trackLowerStyles = (styles: string, modifier = '') => {
   `;
 };
 
-const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+const colorStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
   const thumbBackgroundColor = getColor('neutralHue', 100, props.theme);
   const thumbBorderColor = thumbBackgroundColor;
   const thumbActiveBackgroundColor = getColor('neutralHue', 200, props.theme);
@@ -65,6 +69,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const thumbHoverBorderColor = thumbHoverBackgroundColor;
 
   return `
+    border-color: ${props.isOpaque && props.theme.colors.background};
+
     ${trackStyles(`
       background-color: transparent;
     `)}
@@ -104,31 +110,48 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const getThumbSize = (theme: DefaultTheme) => theme.space.base * 4;
+const getThumbSize = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
+  props.theme.space.base * (props.isOpaque ? 6 : 4);
 
-export const getTrackHeight = (theme: DefaultTheme) => theme.space.base * 3;
+export const getTrackHeight = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
+  props.theme.space.base * (props.isOpaque ? 6 : 3);
 
-export const getTrackMargin = (theme: DefaultTheme) =>
-  (getThumbSize(theme) - getTrackHeight(theme)) / 2 + (stripUnit(theme.shadowWidths.md) as number);
+export const getTrackMargin = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
+  (getThumbSize(props) - getTrackHeight(props)) / 2 +
+  (stripUnit(props.theme.shadowWidths.md) as number);
 
 /**
  * 1. Firefox reset.
+ * 2. Bedrock override.
  */
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const thumbSize = getThumbSize(props.theme);
-  const trackHeight = getTrackHeight(props.theme);
-  const trackMargin = getTrackMargin(props.theme);
+const sizeStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
+  const thumbSize = getThumbSize(props);
+  const trackHeight = getTrackHeight(props);
+  const trackMargin = getTrackMargin(props);
   const thumbMargin = (trackHeight - thumbSize) / 2;
-  const trackOffset = thumbSize - trackHeight - 1;
-  const height = trackMargin * 2 + trackHeight;
+  const trackOffset = props.theme.space.base * (props.isOpaque ? -2 : -1);
+  const height = props.isOpaque ? trackHeight : trackMargin * 2 + trackHeight;
+  let marginHorizontal;
+  let border;
+  let borderRadius;
+
+  if (props.isOpaque) {
+    marginHorizontal = `-${trackMargin}px`;
+    border = `${trackMargin}px ${props.theme.borderStyles.solid}`;
+    borderRadius = `${trackMargin + (stripUnit(props.theme.shadowWidths.md) as number)}px`;
+  }
 
   return `
     /* stylelint-disable-next-line declaration-no-important */
     margin-top: 0 !important;
+    margin-${props.theme.rtl ? 'right' : 'left'}: ${marginHorizontal};
     height: ${height}px; /* [1] */
+    box-sizing: content-box; /* [2] */
+    border: ${border};
+    border-radius: ${borderRadius};
 
     ${trackStyles(`
-      margin: ${trackMargin}px -${trackOffset}px;
+      margin: ${trackMargin}px ${trackOffset}px;
       height: ${trackHeight}px;
     `)}
 
