@@ -31,11 +31,11 @@ export const StyledSliders = styled.div.attrs({
   }
 
   & > :first-child {
-    top: -${props => getTrackMargin(props)}px;
+    top: -${getTrackMargin}px;
   }
 
   & > :last-child {
-    bottom: -${props => getTrackMargin(props)}px;
+    bottom: -${getTrackMargin}px;
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
