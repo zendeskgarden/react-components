@@ -12,6 +12,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.40.0 (2021-09-01)
+
+#### :rocket: New Feature
+* `colorpickers`
+  * [#1171](https://github.com/zendeskgarden/react-components/pull/1171) feat(colorpickers): add `isOpaque` prop for removing alpha controls ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* [#1169](https://github.com/zendeskgarden/react-components/pull/1169) chore: remove bojagi ([@jzempel](https://github.com/jzempel))
+
 ## v8.39.1 (2021-08-26)
 
 #### :bug: Bug Fix
