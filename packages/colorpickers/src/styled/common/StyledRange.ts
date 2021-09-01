@@ -122,6 +122,7 @@ export const getTrackMargin = (props: IStyledRangeProps & ThemeProps<DefaultThem
 
 /**
  * 1. Firefox reset.
+ * 2. Bedrock override.
  */
 const sizeStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
   const thumbSize = getThumbSize(props);
@@ -145,7 +146,7 @@ const sizeStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
     margin-top: 0 !important;
     margin-${props.theme.rtl ? 'right' : 'left'}: ${marginHorizontal};
     height: ${height}px; /* [1] */
-    box-sizing: content-box;
+    box-sizing: content-box; /* [2] */
     border: ${border};
     border-radius: ${borderRadius};
 

@@ -18,7 +18,7 @@ export const StyledHexField = styled(Field as unknown as 'div').attrs({
 })`
   display: flex;
   flex-direction: column;
-  width: ${props => props.theme.space.base * 21.5}px;
+  width: auto;
   text-align: center;
 
   input {
