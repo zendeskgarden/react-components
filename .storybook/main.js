@@ -12,7 +12,7 @@ const TS_CONFIG_PATH = path.resolve(__dirname, '../tsconfig.json');
 
 module.exports = {
   stories: ['../packages/*/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y'],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y', '@storybook/addon-ie11'],
   typescript: {
     check: true,
     checkOptions: {

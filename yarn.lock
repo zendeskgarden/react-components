@@ -2868,6 +2868,15 @@
     storybook-addon-outline "^1.4.1"
     ts-dedent "^2.0.0"
 
+"@storybook/addon-ie11@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-ie11/-/addon-ie11-0.0.6.tgz#aa3c704a74880328c1c3522a95a46950538c367e"
+  integrity sha512-4f8Q8vRtJwf7pujMKsPcMq+OwlON9gTp11ddhd2I5EYUp9Zrb58anCfif+rPEhUMsmOKhLjVf/H7W5RUNeEdvw==
+  dependencies:
+    "@babel/preset-env" "^7.12.11"
+    "@storybook/node-logger" "*"
+    babel-loader "^8.1.0"
+
 "@storybook/addon-measure@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@storybook/addon-measure/-/addon-measure-2.0.0.tgz#c40bbe91bacd3f795963dc1ee6ff86be87deeda9"
@@ -3304,6 +3313,17 @@
     webpack "4"
     webpack-dev-middleware "^3.7.3"
     webpack-virtual-modules "^0.2.2"
+
+"@storybook/node-logger@*":
+  version "6.3.7"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.3.7.tgz#492469ea4749de8d984af144976961589a1ac382"
+  integrity sha512-YXHCblruRe6HcNefDOpuXJoaybHnnSryIVP9Z+gDv6OgLAMkyxccTIaQL9dbc/eI4ywgzAz4kD8t1RfVwXNVXw==
+  dependencies:
+    "@types/npmlog" "^4.1.2"
+    chalk "^4.1.0"
+    core-js "^3.8.2"
+    npmlog "^4.1.2"
+    pretty-hrtime "^1.0.3"
 
 "@storybook/node-logger@6.3.4":
   version "6.3.4"
@@ -5219,7 +5239,7 @@ babel-jest@26.6.3, babel-jest@^26.6.3:
     graceful-fs "^4.2.4"
     slash "^3.0.0"
 
-babel-loader@8.2.2, babel-loader@^8.2.2:
+babel-loader@8.2.2, babel-loader@^8.1.0, babel-loader@^8.2.2:
   version "8.2.2"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.2.tgz#9363ce84c10c9a40e6c753748e1441b60c8a0b81"
   integrity sha512-JvTd0/D889PQBtUXJ2PXaKU/pjZDMtHA9V2ecm+eNRmmBCMR09a+fmpGTNwnJtFmFl5Ei7Vy47LjBb+L0wQ99g==
