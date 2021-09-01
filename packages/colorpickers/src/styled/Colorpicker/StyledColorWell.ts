@@ -36,6 +36,7 @@ export const StyledColorWell = styled.div.attrs<IStyledColorWellProps>(props => 
 }))<IStyledColorWellProps>`
   position: relative;
   margin-bottom: ${props => props.theme.space.base * 2}px;
+  cursor: pointer;
   height: 208px;
   overflow: hidden;
 
