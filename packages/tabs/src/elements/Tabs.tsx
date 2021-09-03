@@ -8,9 +8,9 @@
 import React, { useState, useRef, useContext, HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { useTabs } from '@zendeskgarden/container-tabs';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
-
 import { TabsContext } from '../utils/useTabsContext';
 import { StyledTabs } from '../styled/StyledTabs';
 
@@ -39,7 +39,7 @@ const Tabs = React.forwardRef<HTMLDivElement, ITabsProps>(
     { isVertical, children, onChange, selectedItem: controlledSelectedItem, ...otherProps },
     ref
   ) => {
-    const theme = useContext(ThemeContext);
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const [internalSelectedItem, setSelectedItem] = useState();
     const tabIndexRef = useRef<number>(0);
     const tabPanelIndexRef = useRef<number>(0);
