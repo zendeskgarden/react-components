@@ -157,15 +157,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
         highlightedIndex={highlightedIndex}
         selectedItem={selectedItem || null} // Ensures that selectedItem never becomes controlled internally by Downshift
         inputValue={inputValue}
-        onInputValueChange={(inputVal, stateAndHelpers) => {
-          if (onInputValueChange) {
-            if (stateAndHelpers.isOpen) {
-              onInputValueChange(inputVal, stateAndHelpers);
-            } else if (dropdownType !== 'combobox') {
-              onInputValueChange('', stateAndHelpers);
-            }
-          }
-        }}
+        onInputValueChange={onInputValueChange}
         onStateChange={(changes, stateAndHelpers) => {
           if (
             Object.prototype.hasOwnProperty.call(changes, 'selectedItem') &&
@@ -196,8 +188,8 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               onSelect && onSelect(changes.selectedItem, stateAndHelpers);
             }
 
-            // Reset input value when item is selected
-            if (dropdownType !== 'combobox') {
+            // Reset input value when item is selected for multiselect - to clear input for next use
+            if (dropdownType === 'multiselect') {
               stateAndHelpers.setState({ inputValue: '' });
             }
           }
@@ -219,7 +211,6 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
             case Downshift.stateChangeTypes.mouseUp:
             case Downshift.stateChangeTypes.keyDownSpaceButton:
             case Downshift.stateChangeTypes.blurButton:
-            case Downshift.stateChangeTypes.blurInput:
               return {
                 ...changes,
                 inputValue: ''
