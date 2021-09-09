@@ -26,7 +26,7 @@ envalid.cleanEnv(process.env, {
     if (branch === 'main') {
       url = await garden.githubPages({ dir });
     } else {
-      const bandwidth = await garden.netlifyBandwidth({});
+      const bandwidth = await garden.netlifyBandwidth();
       const usage = await garden.cmdDu(dir);
 
       if (bandwidth.available > usage) {
@@ -45,7 +45,7 @@ envalid.cleanEnv(process.env, {
         url = await garden.githubDeploy({ command });
       } else {
         throw new Error(
-          `Insufficient Netlify bandwidth. ${bandwidth.available} bytes available. ${usage} bytes required.`
+          `Insufficient Netlify bandwidth: ${bandwidth.available} bytes available, ${usage} bytes required.`
         );
       }
     }
