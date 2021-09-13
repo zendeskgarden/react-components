@@ -197,9 +197,6 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
           onStateChange && onStateChange(changes, stateAndHelpers);
         }}
         stateReducer={(_state, changes) => {
-          /**
-           * Set inputValue to an empty string during any event that updates the inputValue
-           */
           switch (changes.type) {
             case Downshift.stateChangeTypes.changeInput:
               if (changes.inputValue === '' && dropdownType === 'combobox') {
@@ -207,14 +204,6 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               }
 
               return changes;
-            case Downshift.stateChangeTypes.controlledPropUpdatedSelectedItem:
-            case Downshift.stateChangeTypes.mouseUp:
-            case Downshift.stateChangeTypes.keyDownSpaceButton:
-            case Downshift.stateChangeTypes.blurButton:
-              return {
-                ...changes,
-                inputValue: ''
-              };
             case Downshift.stateChangeTypes.keyDownEnter:
             case Downshift.stateChangeTypes.clickItem:
             case REMOVE_ITEM_STATE_TYPE as any:
