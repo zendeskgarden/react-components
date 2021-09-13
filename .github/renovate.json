@@ -11,7 +11,7 @@
   },
   "packageRules": [
     {
-      "paths": ["package.json"],
+      "matchPaths": ["+(package.json)"],
       "rangeStrategy": "replace",
       "minor": {
         "groupName": "non-major shared dependencies",
@@ -19,14 +19,14 @@
       }
     },
     {
-      "paths": ["packages/**"],
+      "matchPaths": ["packages/**"],
       "minor": {
         "groupName": "non-major package dependencies",
         "groupSlug": "packages-minor-patch"
       }
     },
     {
-      "paths": ["examples/**"],
+      "matchPaths": ["examples/**"],
       "minor": {
         "groupName": "non-major example dependencies",
         "groupSlug": "examples-minor-patch"
