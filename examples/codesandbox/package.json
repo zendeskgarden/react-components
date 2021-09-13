@@ -31,7 +31,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-scripts": "^4.0.0",
+    "react-scripts": "4.0.3",
     "styled-components": "^5.1.0"
   },
   "keywords": [
