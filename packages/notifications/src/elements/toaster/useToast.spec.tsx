@@ -53,7 +53,6 @@ const NotificationExample = () => {
       <button
         onClick={() => {
           updateToast(recentToast, {
-            // eslint-disable-next-line react/display-name
             content: ({ close }) => <Notification close={close}>updated content</Notification>
           });
         }}

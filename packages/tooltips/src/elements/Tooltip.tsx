@@ -100,8 +100,9 @@ export const Tooltip: React.FC<ITooltipProps> = ({
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 
-  const singleChild =
-    React.Children.only<React.ReactElement & React.RefAttributes<HTMLButtonElement>>(children);
+  const singleChild = React.Children.only<
+    React.ReactElement & React.RefAttributes<HTMLButtonElement>
+  >(children);
 
   /**
    * By default PopperJS treats an overflow container as its boundary.
