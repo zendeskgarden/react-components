@@ -20,17 +20,17 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@zendeskgarden/css-bedrock": "^9.0.0",
+    "@zendeskgarden/css-bedrock": "9.0.0",
     "@zendeskgarden/react-buttons": "^8.0.0",
     "@zendeskgarden/react-theming": "^8.0.0",
-    "babel-plugin-styled-components": "^1.10.7",
-    "gatsby": "^3.0.0",
-    "gatsby-plugin-styled-components": "^4.0.0",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "styled-components": "^5.1.0"
+    "babel-plugin-styled-components": "1.10.7",
+    "gatsby": "3.6.0",
+    "gatsby-plugin-styled-components": "4.6.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "styled-components": "5.1.0"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "prettier": "1.19.1"
   }
 }
