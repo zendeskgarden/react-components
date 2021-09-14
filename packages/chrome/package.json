@@ -23,7 +23,7 @@
   "dependencies": {
     "@zendeskgarden/container-accordion": "^1.0.3",
     "@zendeskgarden/container-keyboardfocus": "^0.4.7",
-    "@zendeskgarden/container-utilities": "^0.5.5",
+    "@zendeskgarden/container-utilities": "^0.6.0",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7"
   },

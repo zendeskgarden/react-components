@@ -22,7 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@popperjs/core": "^2.4.4",
-    "@zendeskgarden/container-utilities": "^0.5.5",
+    "@zendeskgarden/container-utilities": "^0.6.0",
     "@zendeskgarden/react-buttons": "^8.40.0",
     "@zendeskgarden/react-forms": "^8.40.0",
     "@zendeskgarden/react-modals": "^8.40.0",
