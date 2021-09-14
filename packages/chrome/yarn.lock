@@ -16,6 +16,22 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@reach/auto-id@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.16.0.tgz#dfabc3227844e8c04f8e6e45203a8e14a8edbaed"
+  integrity sha512-5ssbeP5bCkM39uVsfQCwBBL+KT8YColdnMN5/Eto6Rj7929ql95R3HZUOkKIvj7mgPtEb60BLQxd1P3o6cjbmg==
+  dependencies:
+    "@reach/utils" "0.16.0"
+    tslib "^2.3.0"
+
+"@reach/utils@0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.16.0.tgz#5b0777cf16a7cab1ddd4728d5d02762df0ba84ce"
+  integrity sha512-PCggBet3qaQmwFNcmQ/GqHSefadAFyNCUekq9RrWoaU9hh/S4iaFgf2MBMdM47eQj5i/Bk0Mm07cP/XPFlkN+Q==
+  dependencies:
+    tiny-warning "^1.0.3"
+    tslib "^2.3.0"
+
 "@zendeskgarden/container-accordion@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-accordion/-/container-accordion-1.0.3.tgz#8eb4278f629564e77d246d9901e182c2f16c291e"
@@ -47,10 +63,18 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/react-theming@^8.37.0":
-  version "8.37.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.37.0.tgz#2e14c7fc1c98a9facee3c00492a4b569b9c08408"
-  integrity sha512-MfBNfzpw9pCjQP3ZD8bxMtGKzQn5FGipve60sp4IO8nT3tssBPc8xOCPkj+YEnpZKKQCr5mAFuauIZHC0CLcOw==
+"@zendeskgarden/container-utilities@^0.6.0":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.6.1.tgz#a786189a6b1f328ab3f608d89a12a17a5457a7af"
+  integrity sha512-eoTlYIJQ7NmAQT2Q5qXrPEZULzS3y/2AyQDImYvA3aep7sMrEid59+RFsLHM0CBnygND4rJi54LPOP8bWvxetQ==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    "@reach/auto-id" "^0.16.0"
+
+"@zendeskgarden/react-theming@^8.40.0":
+  version "8.40.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.40.0.tgz#4cb50982818225969319f288c3a006645a577797"
+  integrity sha512-nr1VsRA1+rkP4xb6NXeZ6RMwv4ai/NINl+ubb6whilfSrUnhMd1QrOu5EaiYcSv9ra56a5oivLgkmFDhiqGRFQ==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.5.5"
@@ -109,3 +133,13 @@ regenerator-runtime@^0.13.4:
   version "0.13.4"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.4.tgz#e96bf612a3362d12bb69f7e8f74ffeab25c7ac91"
   integrity sha512-plpwicqEzfEyTQohIKktWigcLzmNStMGwbOUbykx51/29Z3JOGYldaaNGK7ngNXV+UcoqvIMmloZ48Sr74sd+g==
+
+tiny-warning@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754"
+  integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
+
+tslib@^2.3.0:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==

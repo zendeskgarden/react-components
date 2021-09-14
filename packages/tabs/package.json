@@ -22,7 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-tabs": "^0.5.8",
-    "@zendeskgarden/container-utilities": "^0.5.5",
+    "@zendeskgarden/container-utilities": "^0.6.0",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7"
   },
