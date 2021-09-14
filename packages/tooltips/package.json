@@ -21,7 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-tooltip": "^0.5.7",
+    "@zendeskgarden/container-tooltip": "^0.5.12",
     "@zendeskgarden/container-utilities": "^0.6.0",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7",
