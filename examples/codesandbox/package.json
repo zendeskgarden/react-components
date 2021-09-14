@@ -10,8 +10,8 @@
     "test": "react-scripts test"
   },
   "dependencies": {
-    "@zendeskgarden/css-bedrock": "^9.0.0",
-    "@zendeskgarden/css-variables": "^6.4.3",
+    "@zendeskgarden/css-bedrock": "9.0.0",
+    "@zendeskgarden/css-variables": "6.4.3",
     "@zendeskgarden/react-accordions": "^8.0.0",
     "@zendeskgarden/react-avatars": "^8.0.0",
     "@zendeskgarden/react-buttons": "^8.0.0",
@@ -27,12 +27,12 @@
     "@zendeskgarden/react-tags": "^8.0.0",
     "@zendeskgarden/react-theming": "^8.0.0",
     "@zendeskgarden/react-typography": "^8.0.0",
-    "@zendeskgarden/svg-icons": "^6.10.0",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "react-scripts": "^4.0.0",
-    "styled-components": "^5.1.0"
+    "@zendeskgarden/svg-icons": "6.10.0",
+    "prop-types": "15.7.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-scripts": "4.0.0",
+    "styled-components": "5.1.0"
   },
   "keywords": [
     "a11y",

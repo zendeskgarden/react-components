@@ -2443,7 +2443,7 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/css-bedrock@^9.0.0":
+"@zendeskgarden/css-bedrock@9.0.0":
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/css-bedrock/-/css-bedrock-9.0.0.tgz#7bc9e54b0d847e18f4e33e08a5a9961cdad360f6"
   integrity sha512-dHwlDJ5v4ijX3yCr4Z97UGaRYFrD3AeWv+HmFcr4QQRlOE4prkIvahXxR6eD4QhxwEs91FtWpJxvCsZAJGHuRA==
@@ -2451,7 +2451,7 @@
     "@zendeskgarden/css-variables" "^6.4.5"
     modern-normalize "^1.0.0"
 
-"@zendeskgarden/css-variables@^6.4.3":
+"@zendeskgarden/css-variables@6.4.3":
   version "6.4.3"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-6.4.3.tgz#9cdfb0a0d97dc9a92e108b625d29ecc7330627ee"
   integrity sha512-YKxw63ErJKzKmpCcHSqgABuFCakpU3DQFsR1fKm3rLcHVEeXPvjEPLIp73lzG2/YY24psv0/eiSq1VJDEoeReg==
@@ -2598,7 +2598,7 @@
   dependencies:
     polished "^3.4.4"
 
-"@zendeskgarden/svg-icons@^6.10.0":
+"@zendeskgarden/svg-icons@6.10.0":
   version "6.10.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.10.0.tgz#cb50b0f93a70cd11b79cf83526c122a1fcf053f0"
   integrity sha512-lytNS9gsuiIPX5cmAP/L+DUZH9UdVyvUmaUoPsq1e+b82hVcA2sUj6S82WTtDeh/Kzu897duENiNRkthdt4Cow==
@@ -9863,7 +9863,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@^15.6.1, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.6.1, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -10069,7 +10069,7 @@ react-dev-utils@^11.0.0:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
-react-dom@^17.0.0:
+react-dom@17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
   integrity sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug==
@@ -10115,7 +10115,7 @@ react-refresh@^0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react-scripts@^4.0.0:
+react-scripts@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-4.0.0.tgz#36f3d84ffff708ac0618fd61e71eaaea11c26417"
   integrity sha512-icJ/ctwV5XwITUOupBP9TUVGdWOqqZ0H08tbJ1kVC5VpNWYzEZ3e/x8axhV15ZXRsixLo27snwQE7B6Zd9J2Tg==
@@ -10185,7 +10185,7 @@ react-uid@^2.2.0:
   resolved "https://registry.yarnpkg.com/react-uid/-/react-uid-2.2.0.tgz#0f77e1e0594fbf29fc4fe528cc9aa415c5bf9159"
   integrity sha512-z+g5+hFOQ08hCfrGcJ1PNs+cmvH8Uq2CVzCmPeWBsUi5A4W4NWXR5jouledzy3oSKGMU9HOzf8zFuGi15TXJoQ==
 
-react@^17.0.0:
+react@17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
   integrity sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w==
@@ -11513,7 +11513,7 @@ style-loader@1.3.0:
     loader-utils "^2.0.0"
     schema-utils "^2.7.0"
 
-styled-components@^5.1.0:
+styled-components@5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.1.0.tgz#2e3985b54f461027e1c91af3229e1c2530872a4e"
   integrity sha512-0Qs2wEkFBXHFlysz6CV831VG6HedcrFUwChjnWylNivsx14MtmqQsohi21rMHZxzuTba063dEyoe/SR6VGJI7Q==
