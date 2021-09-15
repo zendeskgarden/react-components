@@ -17,7 +17,6 @@ export interface IDatepickerRangeContext {
   maxValue?: Date;
   startValue?: Date;
   endValue?: Date;
-  onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   startInputRef: MutableRefObject<HTMLInputElement | undefined>;
   endInputRef: MutableRefObject<HTMLInputElement | undefined>;
 }

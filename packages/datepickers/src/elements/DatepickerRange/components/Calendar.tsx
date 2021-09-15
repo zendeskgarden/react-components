@@ -13,7 +13,7 @@ import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 import Month from './Month';
 
 const Calendar: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = props => {
-  const { state, dispatch, locale, isCompact, minValue, maxValue, startValue, endValue, onChange } =
+  const { state, dispatch, locale, isCompact, minValue, maxValue, startValue, endValue } =
     useDatepickerRangeContext();
 
   return (
@@ -33,7 +33,6 @@ const Calendar: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = props 
         maxValue={maxValue}
         startValue={startValue}
         endValue={endValue}
-        onChange={onChange}
         hoverDate={state.hoverDate}
       />
       <Month
@@ -46,7 +45,6 @@ const Calendar: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = props 
         maxValue={maxValue}
         startValue={startValue}
         endValue={endValue}
-        onChange={onChange}
         hoverDate={state.hoverDate}
       />
     </StyledRangeCalendar>
