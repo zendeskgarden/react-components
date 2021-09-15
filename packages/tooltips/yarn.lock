@@ -40,7 +40,7 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-tooltip@^0.5.7":
+"@zendeskgarden/container-tooltip@^0.5.12":
   version "0.5.12"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-tooltip/-/container-tooltip-0.5.12.tgz#016672710cce5b4e143f004d2263b26df04dfc63"
   integrity sha512-1KLGtqe/TbiC4VwhqtFp5yuLgZgB9prPIlPrU2Vi9KU/2rFMmrt4nXR3gtuV2OL91Saelpb5iJpk6thilr//ig==
@@ -242,6 +242,11 @@ react-uid@^2.2.0:
   integrity sha512-6C5pwNYP1udgp5feQ9MTBZBKD4su9nhD2aYCFY1bB0Bpask8wYKYz0ZhAtAJ4lcmTDC5kY1ByGTQMFDHQW6p0w==
   dependencies:
     tslib "^1.10.0"
+
+regenerator-runtime@^0.13.2:
+  version "0.13.3"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.3.tgz#7cf6a77d8f5c6f60eb73c5fc1955b2ceb01e6bf5"
+  integrity sha512-naKIZz2GQ8JWh///G7L3X6LaQUAMp2lvb1rvwwsURe/VXwD6VMfr+/1NuNw3ag8v2kY1aQ/go5SNn79O9JU7yw==
 
 regenerator-runtime@^0.13.4:
   version "0.13.9"
