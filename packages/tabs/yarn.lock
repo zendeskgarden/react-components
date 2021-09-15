@@ -2,17 +2,10 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.12.0":
-  version "7.12.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
-  integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.8.4":
-  version "7.12.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.1.tgz#b4116a6b6711d010b2dad3b7b6e43bf1b9954740"
-  integrity sha512-J5AIf3vPj3UwXaAzb5j1xM4WAQDX3EMgemF8rjCP3SoW09LfRKAXQKt6CoVYl230P6iWdRcBbnLDDdnqWxZSCA==
+"@babel/runtime@^7.14.0", "@babel/runtime@^7.8.4":
+  version "7.15.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
+  integrity sha512-99catp6bHCaxr4sJ/DbTGgHS4+Rs2RVd2g7iOap6SLGPDknRK9ztKNsE/Fg6QhSeh1FGE5f6gHGQmvvn3I3xhw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -39,31 +32,31 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-selection@^1.3.8":
-  version "1.3.8"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.8.tgz#1c1d92c71206a9eec641476152e01b191875beda"
-  integrity sha512-e6xSGxrQOjbW1mh30nZCS9rRkfMWZvWowoXuAe0z0kfU4T+tRNRSZtFmWklb3jvLoFDvDdHja7HElYyDlBa+1g==
+"@zendeskgarden/container-selection@^1.3.12":
+  version "1.3.12"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.12.tgz#166963396154aff2f030d5ba30605a958da49b4b"
+  integrity sha512-TGWcJ3c5goZ4yvPLnsuqIDg6xWA1t8hfclGW/az9zaomhooAcVOR3I1MApUjDncLZrSd0i0sw6tQYV/eAuJN1g==
   dependencies:
     "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-utilities" "^0.5.5"
+    "@zendeskgarden/container-utilities" "^0.6.1"
 
 "@zendeskgarden/container-tabs@^0.5.8":
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-tabs/-/container-tabs-0.5.8.tgz#c1178f0c5d2a6b5286b0fa45a9178d6634e42290"
-  integrity sha512-lW6JhA0Le82cewEkhGBwjRguFO0B0fmyqUj8Ufd0p34B8twyrmFFEuropAmQG0nV3sLezl8AjCS/7CfB53Q39Q==
+  version "0.5.12"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-tabs/-/container-tabs-0.5.12.tgz#b78541b6308ec35ce9cf306f4d86f14a69d37bd5"
+  integrity sha512-jcn4gHsflC7yvnr6FWlY4fXHZqMML7xRcWoqUyY+eAuZl8VL+Xyp6OEISjBFh42tygTd++ntSzuRa1s+srUxOA==
   dependencies:
     "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-selection" "^1.3.8"
+    "@zendeskgarden/container-selection" "^1.3.12"
     react-uid "^2.2.0"
 
 "@zendeskgarden/container-utilities@^0.5.5":
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.5.tgz#c291e7c2454fe6a638afe947b51e74d56387fc79"
-  integrity sha512-41qrK/ePXbPD+t2bKOtbzIZAjIlrIcN7EVGShPAjMjRzhQpZeX5UFsIrmN56/vQ8+xMVh/BxNEXgbtAO37FgwA==
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.6.tgz#f5c27c120e91d0c020773179db605010c11a72b6"
+  integrity sha512-20NH+UceCdjCprCbEVEwxGiD++RSulN5THJ7M0Y36rx7EHkbCZ6fIQwGlbj+PZhLJnH5KX87ZlZM6RwdjxNpXQ==
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-utilities@^0.6.0":
+"@zendeskgarden/container-utilities@^0.6.0", "@zendeskgarden/container-utilities@^0.6.1":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.6.1.tgz#a786189a6b1f328ab3f608d89a12a17a5457a7af"
   integrity sha512-eoTlYIJQ7NmAQT2Q5qXrPEZULzS3y/2AyQDImYvA3aep7sMrEid59+RFsLHM0CBnygND4rJi54LPOP8bWvxetQ==
@@ -99,11 +92,11 @@ object-assign@^4.1.1:
   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
 
 polished@^4.0.0:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-4.0.3.tgz#e2bde249f8884bdabc6997dd3eca225ee32f7a26"
-  integrity sha512-yOALHMrqcYHlHIxFkHvGX8NGsjsbSaYMZ8Z3uEElVpzF5ZgNmTgqMOh4bnSVXGC6sXjBTZCH6+GebTRWhJR4zQ==
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-4.1.3.tgz#7a3abf2972364e7d97770b827eec9a9e64002cfc"
+  integrity sha512-ocPAcVBUOryJEKe0z2KLd1l9EBa1r5mSwlKpExmrLzsnIzJo4axsoU9O2BjOTkDGDT4mZ0WFE5XKTlR3nLnZOA==
   dependencies:
-    "@babel/runtime" "^7.12.0"
+    "@babel/runtime" "^7.14.0"
 
 prop-types@^15.5.7:
   version "15.7.2"
@@ -120,16 +113,16 @@ react-is@^16.8.1:
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
 react-uid@^2.2.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/react-uid/-/react-uid-2.3.0.tgz#bfd47cfd5ad3e37956ed1a8520964842d7bdcc6b"
-  integrity sha512-tsPZ77GR0pISGYmpCLHAbZTabKXZ7zBniKPVqVMMfnXFyo39zq5g/psIlD5vLTKkjQEhWOO8JhqcHnxkwNu6eA==
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/react-uid/-/react-uid-2.3.1.tgz#22a75d4a948a4824b9b8078cbf864d55d91ca4be"
+  integrity sha512-6C5pwNYP1udgp5feQ9MTBZBKD4su9nhD2aYCFY1bB0Bpask8wYKYz0ZhAtAJ4lcmTDC5kY1ByGTQMFDHQW6p0w==
   dependencies:
     tslib "^1.10.0"
 
 regenerator-runtime@^0.13.4:
-  version "0.13.7"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.7.tgz#cac2dacc8a1ea675feaabaeb8ae833898ae46f55"
-  integrity sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==
+  version "0.13.9"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
+  integrity sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
 
 tiny-warning@^1.0.3:
   version "1.0.3"
