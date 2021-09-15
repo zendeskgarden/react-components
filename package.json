@@ -56,7 +56,7 @@
     "@typescript-eslint/eslint-plugin": "4.31.1",
     "@typescript-eslint/parser": "4.31.1",
     "@zendeskgarden/css-bedrock": "9.0.0",
-    "@zendeskgarden/eslint-config": "19.0.0",
+    "@zendeskgarden/eslint-config": "21.0.0",
     "@zendeskgarden/scripts": "1.2.1",
     "@zendeskgarden/stylelint-config": "16.0.1",
     "@zendeskgarden/svg-icons": "6.30.2",
