@@ -23,3 +23,8 @@ export * from './ColorpickerDialog/StyledButton';
 export * from './ColorpickerDialog/StyledButtonPreview';
 export * from './ColorpickerDialog/StyledTooltipModal';
 export * from './ColorpickerDialog/StyledTooltipBody';
+
+export * from './ColorSwatch/StyledSwatchButton';
+export * from './ColorSwatch/StyledColorSwatch';
+export * from './ColorSwatch/StyledCheckIcon';
+export * from './ColorSwatch/StyledCell';
