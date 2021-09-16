@@ -157,8 +157,23 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
         highlightedIndex={highlightedIndex}
         selectedItem={selectedItem || null} // Ensures that selectedItem never becomes controlled internally by Downshift
         inputValue={inputValue}
-        onInputValueChange={onInputValueChange}
+        onInputValueChange={(inputVal, stateAndHelpers) => {
+          if (onInputValueChange) {
+            if (stateAndHelpers.isOpen) {
+              onInputValueChange(inputVal, stateAndHelpers);
+            } else if (dropdownType === 'multiselect') {
+              onInputValueChange('', stateAndHelpers);
+            }
+          }
+        }}
         onStateChange={(changes, stateAndHelpers) => {
+          if (
+            dropdownType === 'autocomplete' &&
+            changes.isOpen === false &&
+            !changes.selectedItem
+          ) {
+            onSelect && onSelect(selectedItem, stateAndHelpers);
+          }
           if (
             Object.prototype.hasOwnProperty.call(changes, 'selectedItem') &&
             changes.selectedItem !== null
@@ -197,6 +212,9 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
           onStateChange && onStateChange(changes, stateAndHelpers);
         }}
         stateReducer={(_state, changes) => {
+          /**
+           * Close the menu when the combobox input is cleared by the user
+           */
           switch (changes.type) {
             case Downshift.stateChangeTypes.changeInput:
               if (changes.inputValue === '' && dropdownType === 'combobox') {
@@ -204,10 +222,6 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               }
 
               return changes;
-            case Downshift.stateChangeTypes.keyDownEnter:
-            case Downshift.stateChangeTypes.clickItem:
-            case REMOVE_ITEM_STATE_TYPE as any:
-              return { ...changes, inputValue: '', isOpen: false };
             default:
               return changes;
           }
