@@ -23,12 +23,12 @@
     "@zendeskgarden/css-bedrock": "9.0.0",
     "@zendeskgarden/react-buttons": "^8.0.0",
     "@zendeskgarden/react-theming": "^8.0.0",
-    "babel-plugin-styled-components": "1.10.7",
-    "gatsby": "3.6.0",
-    "gatsby-plugin-styled-components": "4.6.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "styled-components": "5.1.0"
+    "babel-plugin-styled-components": "1.13.2",
+    "gatsby": "3.13.0",
+    "gatsby-plugin-styled-components": "4.13.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "styled-components": "5.3.1"
   },
   "devDependencies": {
     "prettier": "1.19.1"
