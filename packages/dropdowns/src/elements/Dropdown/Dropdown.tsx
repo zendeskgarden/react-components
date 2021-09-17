@@ -161,12 +161,19 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
           if (onInputValueChange) {
             if (stateAndHelpers.isOpen) {
               onInputValueChange(inputVal, stateAndHelpers);
-            } else if (dropdownType !== 'combobox') {
+            } else if (dropdownType === 'multiselect') {
               onInputValueChange('', stateAndHelpers);
             }
           }
         }}
         onStateChange={(changes, stateAndHelpers) => {
+          if (
+            dropdownType === 'autocomplete' &&
+            changes.isOpen === false &&
+            !changes.selectedItem
+          ) {
+            onSelect && onSelect(selectedItem, stateAndHelpers);
+          }
           if (
             Object.prototype.hasOwnProperty.call(changes, 'selectedItem') &&
             changes.selectedItem !== null
@@ -196,8 +203,8 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               onSelect && onSelect(changes.selectedItem, stateAndHelpers);
             }
 
-            // Reset input value when item is selected
-            if (dropdownType !== 'combobox') {
+            // Reset input value when item is selected for multiselect - to clear input for next use
+            if (dropdownType === 'multiselect') {
               stateAndHelpers.setState({ inputValue: '' });
             }
           }
@@ -206,7 +213,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
         }}
         stateReducer={(_state, changes) => {
           /**
-           * Set inputValue to an empty string during any event that updates the inputValue
+           * Close the menu when the combobox input is cleared by the user
            */
           switch (changes.type) {
             case Downshift.stateChangeTypes.changeInput:
@@ -215,19 +222,6 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               }
 
               return changes;
-            case Downshift.stateChangeTypes.controlledPropUpdatedSelectedItem:
-            case Downshift.stateChangeTypes.mouseUp:
-            case Downshift.stateChangeTypes.keyDownSpaceButton:
-            case Downshift.stateChangeTypes.blurButton:
-            case Downshift.stateChangeTypes.blurInput:
-              return {
-                ...changes,
-                inputValue: ''
-              };
-            case Downshift.stateChangeTypes.keyDownEnter:
-            case Downshift.stateChangeTypes.clickItem:
-            case REMOVE_ITEM_STATE_TYPE as any:
-              return { ...changes, inputValue: '', isOpen: false };
             default:
               return changes;
           }
