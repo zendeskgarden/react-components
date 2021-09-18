@@ -11,9 +11,22 @@ import { StyledFont } from './StyledFont';
 
 const COMPONENT_ID = 'typography.codeblock_code';
 
-const highlightStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
-  const hue = props.isLight ? props.theme.palette.black : props.theme.palette.white;
-  const backgroundColor = getColor(hue, 600, props.theme, 0.1);
+const colorStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
+  let backgroundColor;
+
+  if (props.isHunk) {
+    backgroundColor = getColor('royal', 400, props.theme, 0.4);
+  } else if (props.isChanged) {
+    backgroundColor = getColor('lemon', 400, props.theme, 0.4);
+  } else if (props.isDeleted) {
+    backgroundColor = getColor('crimson', 400, props.theme, 0.4);
+  } else if (props.isAdded) {
+    backgroundColor = getColor('lime', 400, props.theme, 0.4);
+  } else if (props.isHighlighted) {
+    const hue = props.isLight ? props.theme.palette.black : props.theme.palette.white;
+
+    backgroundColor = getColor(hue, 600, props.theme, 0.1);
+  }
 
   return css`
     background-color: ${backgroundColor};
@@ -24,7 +37,7 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultT
   const padding = `${props.theme.space.base * 6}px`;
   const color = getColor('neutralHue', props.isLight ? 600 : 500, props.theme);
 
-  return css`
+  return `
     &::before {
       display: table-cell;
       padding-right: ${padding};
@@ -39,6 +52,10 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultT
 
 export interface IStyledCodeBlockLineProps {
   isHighlighted?: boolean;
+  isHunk?: boolean;
+  isDeleted?: boolean;
+  isAdded?: boolean;
+  isChanged?: boolean;
   isLight?: boolean;
   isNumbered?: boolean;
   size?: 'sm' | 'md' | 'lg';
@@ -58,7 +75,7 @@ export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
   height: ${props => props.theme.lineHeights[props.size!]}; /* [1] */
   direction: ltr;
 
-  ${props => props.isHighlighted && highlightStyles(props)};
+  ${props => colorStyles(props)};
 
   ${props => props.isNumbered && lineNumberStyles(props)};
 
