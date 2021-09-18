@@ -24,10 +24,9 @@ import {
 } from './reducer';
 import { ToastSlot } from './ToastSlot';
 
-export const ToastContext =
-  createContext<{ state: IToasterState; dispatch: Dispatch<ToasterReducerAction> } | undefined>(
-    undefined
-  );
+export const ToastContext = createContext<
+  { state: IToasterState; dispatch: Dispatch<ToasterReducerAction> } | undefined
+>(undefined);
 
 export interface IToastProviderProps {
   /**

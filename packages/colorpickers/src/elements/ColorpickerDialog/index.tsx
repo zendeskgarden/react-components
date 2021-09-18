@@ -98,8 +98,9 @@ export const ColorpickerDialog = forwardRef<
     const buttonRef = useRef<HTMLButtonElement>(null);
     const colorPickerRef = useRef<HTMLDivElement>(null);
     const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
-    const [uncontrolledColor, setUncontrolledColor] =
-      useState<string | IColor | undefined>(defaultColor);
+    const [uncontrolledColor, setUncontrolledColor] = useState<string | IColor | undefined>(
+      defaultColor
+    );
 
     const onClick = composeEventHandlers(props.onClick, () => {
       if (referenceElement) {

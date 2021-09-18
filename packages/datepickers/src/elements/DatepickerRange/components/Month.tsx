@@ -47,6 +47,7 @@ const Month: React.FunctionComponent<{
   maxValue?: Date;
   startValue?: Date;
   endValue?: Date;
+  /* eslint-disable-next-line react/no-unused-prop-types */
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   hoverDate?: Date;
 }> = ({

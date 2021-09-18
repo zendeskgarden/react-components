@@ -36,7 +36,8 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
   ({ children, inputRef: controlledInputRef, start, ...props }, ref) => {
     const {
       popperReferenceElementRef,
-      downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen }
+      downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen },
+      setDropdownType
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
     const inputRef = useCombinedRefs<HTMLInputElement>(controlledInputRef);
@@ -78,6 +79,10 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
 
     const isContainerHovered = isLabelHovered && !isOpen;
     const isContainerFocused = isOpen || isFocused;
+
+    useEffect(() => {
+      setDropdownType('autocomplete');
+    }, [setDropdownType]);
 
     return (
       <Reference>

@@ -66,7 +66,7 @@ export const Default: Story<IStoryProps> = ({
   showStartIcon
 }) => {
   const [selectedItem, setSelectedItem] = useState(options[0]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(options[0]);
   const [matchingOptions, setMatchingOptions] = useState(options);
 
   /**
@@ -93,7 +93,10 @@ export const Default: Story<IStoryProps> = ({
           isOpen={isOpen || undefined}
           inputValue={inputValue}
           selectedItem={selectedItem}
-          onSelect={item => setSelectedItem(item)}
+          onSelect={item => {
+            setSelectedItem(item);
+            setInputValue(item);
+          }}
           onInputValueChange={value => setInputValue(value)}
           downshiftProps={{ defaultHighlightedIndex: 0 }}
         >

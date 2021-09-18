@@ -12,6 +12,28 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.40.1 (2021-09-15)
+
+#### :bug: Bug Fix
+* `tabs`
+  * [#1172](https://github.com/zendeskgarden/react-components/pull/1172) fix(tabs): render without a `ThemeProvider` ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `tooltips`
+  * [#1206](https://github.com/zendeskgarden/react-components/pull/1206) chore(tooltips): update container-tooltip ([@hzhu](https://github.com/hzhu))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1203](https://github.com/zendeskgarden/react-components/pull/1203) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`
+  * [#1193](https://github.com/zendeskgarden/react-components/pull/1193) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1195](https://github.com/zendeskgarden/react-components/pull/1195) fix(deps): pin dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1202](https://github.com/zendeskgarden/react-components/pull/1202) chore(renovate): refactor config ([@rarkins](https://github.com/rarkins))
+  * [#1175](https://github.com/zendeskgarden/react-components/pull/1175) chore(scripts): enhance deploy with added bandwidth checking ([@jzempel](https://github.com/jzempel))
+  * [#1192](https://github.com/zendeskgarden/react-components/pull/1192) chore(renovate): update to resolve config warnings ([@jzempel](https://github.com/jzempel))
+  * [#1173](https://github.com/zendeskgarden/react-components/pull/1173) chore(storybook): add browser env for disabling addon-docs ([@jzempel](https://github.com/jzempel))
+* `colorpickers`, `datepickers`, `notifications`, `tooltips`
+  * [#1189](https://github.com/zendeskgarden/react-components/pull/1189) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.40.0 (2021-09-01)
 
 #### :rocket: New Feature

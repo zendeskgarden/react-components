@@ -93,7 +93,8 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
         inputValue,
         setState: setDownshiftState,
         itemToString
-      }
+      },
+      setDropdownType
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
     const inputRef = useCombinedRefs<HTMLInputElement>(externalInputRef);
@@ -320,6 +321,10 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
 
     const isContainerHovered = isLabelHovered && !isOpen;
     const isContainerFocused = isOpen || isFocused;
+
+    useEffect(() => {
+      setDropdownType('multiselect');
+    }, [setDropdownType]);
 
     return (
       <Reference>
