@@ -9,6 +9,8 @@ import React, { HTMLAttributes, useMemo, useRef } from 'react';
 import Highlight, { Language, Prism } from 'prism-react-renderer';
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
 import {
+  DIFF,
+  SIZE,
   StyledCodeBlock,
   StyledCodeBlockContainer,
   StyledCodeBlockLine,
@@ -41,14 +43,20 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
     const containerRef = useRef<HTMLDivElement>(null);
 
     const code = (Array.isArray(children) ? children[0] : children) as string;
-    let _size: 'sm' | 'md' | 'lg';
+    let _size: SIZE;
 
-    if (size === 'small') {
-      _size = 'sm';
-    } else if (size === 'medium') {
-      _size = 'md';
-    } else {
-      _size = 'lg';
+    switch (size) {
+      case 'small':
+        _size = 'sm';
+        break;
+
+      case 'medium':
+        _size = 'md';
+        break;
+
+      case 'large':
+        _size = 'lg';
+        break;
     }
 
     const dependency = useMemo(() => [size, children], [size, children]);
@@ -61,14 +69,26 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
           {({ className, tokens, getLineProps, getTokenProps }) => (
             <StyledCodeBlock className={className} ref={ref} isLight={isLight} {...other}>
               {tokens.map((line, index) => {
-                const isDiffType = (type: string) => {
-                  if (language === 'diff' && line.length > 1) {
-                    const token = index === 0 ? line[0] : line[1];
+                const getDiff = () => {
+                  let retVal: DIFF | undefined;
 
-                    return token.types.includes(type);
+                  if (language === 'diff') {
+                    const token = line.find(value => !(value.empty || value.content === ''));
+
+                    if (token) {
+                      if (token.types.includes('deleted')) {
+                        retVal = 'delete';
+                      } else if (token.types.includes('inserted')) {
+                        retVal = 'add';
+                      } else if (token.types.includes('coord')) {
+                        retVal = 'hunk';
+                      } else if (token.types.includes('diff')) {
+                        retVal = 'change';
+                      }
+                    }
                   }
 
-                  return false;
+                  return retVal;
                 };
 
                 return (
@@ -76,12 +96,9 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
                     {...getLineProps({ line })}
                     key={index}
                     isHighlighted={highlightLines && highlightLines.includes(index + 1)}
-                    isHunk={isDiffType('coord')}
-                    isDeleted={isDiffType('deleted')}
-                    isAdded={isDiffType('inserted')}
-                    isChanged={isDiffType('diff')}
                     isLight={isLight}
                     isNumbered={isNumbered}
+                    diff={getDiff()}
                     size={_size}
                   >
                     {line.map((token, tokenKey) => (

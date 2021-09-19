@@ -14,14 +14,28 @@ const COMPONENT_ID = 'typography.codeblock_code';
 const colorStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
   let backgroundColor;
 
-  if (props.isHunk) {
-    backgroundColor = getColor('royal', 400, props.theme, 0.4);
-  } else if (props.isChanged) {
-    backgroundColor = getColor('lemon', 400, props.theme, 0.4);
-  } else if (props.isDeleted) {
-    backgroundColor = getColor('crimson', 400, props.theme, 0.4);
-  } else if (props.isAdded) {
-    backgroundColor = getColor('lime', 400, props.theme, 0.4);
+  if (props.diff) {
+    let hue;
+
+    switch (props.diff) {
+      case 'hunk':
+        hue = 'royal';
+        break;
+
+      case 'add':
+        hue = 'lime';
+        break;
+
+      case 'delete':
+        hue = 'crimson';
+        break;
+
+      case 'change':
+        hue = 'lemon';
+        break;
+    }
+
+    backgroundColor = getColor(hue, 400, props.theme, 0.4);
   } else if (props.isHighlighted) {
     const hue = props.isLight ? props.theme.palette.black : props.theme.palette.white;
 
@@ -50,15 +64,15 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultT
   `;
 };
 
+export type DIFF = 'hunk' | 'add' | 'delete' | 'change';
+export type SIZE = 'sm' | 'md' | 'lg';
+
 export interface IStyledCodeBlockLineProps {
   isHighlighted?: boolean;
-  isHunk?: boolean;
-  isDeleted?: boolean;
-  isAdded?: boolean;
-  isChanged?: boolean;
   isLight?: boolean;
   isNumbered?: boolean;
-  size?: 'sm' | 'md' | 'lg';
+  diff?: DIFF;
+  size?: SIZE;
 }
 
 /**
