@@ -70,27 +70,27 @@ button,
 +the beginning of this
 +document!
 +
-  This part of the
-  document has stayed the
-  same from version to
+ This part of the
+ document has stayed the
+ same from version to
 @@ -8,13 +14,8 @@
-  compress the size of the
-  changes.
-
+ compress the size of the
+ changes.
+ 
 -This paragraph contains
 -text that is outdated.
 -It will be deleted in the
 -near future.
 -
-  It is important to spell
+ It is important to spell
 !check this document. On
-  the other hand, a
-  misspelled word isn't
-  the end of the world.
+ the other hand, a
+ misspelled word isn't
+ the end of the world.
 @@ -22,3 +23,7 @@
-  this paragraph needs to
-  be changed. Things can
-  be added after it.
+ this paragraph needs to
+ be changed. Things can
+ be added after it.
 +
 +This paragraph contains
 +important new additions
