@@ -77,7 +77,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                   <StyledCell key={value}>
                     <Tooltip content={label}>
                       <StyledSwatchButton backgroundColor={value} {...gridCellProps}>
-                        {gridCellProps['aria-selected'] ? <StyledCheckIcon color={value} /> : null}
+                        <StyledCheckIcon color={value} selected={gridCellProps['aria-selected']} />
                       </StyledSwatchButton>
                     </Tooltip>
                   </StyledCell>

@@ -34,9 +34,9 @@ describe('ColorSwatch', () => {
     render(<ColorSwatch colors={colors} />);
 
     userEvent.tab();
-    expect(screen.getByTestId('#0b3b29').firstChild?.nodeName).not.toBeDefined();
+    expect(screen.getByTestId('#0b3b29').firstChild).toHaveStyleRule('opacity', '0');
 
     userEvent.type(document.activeElement as HTMLElement, '{enter}');
-    expect(screen.getByTestId('#0b3b29').firstChild?.nodeName).toBe('svg');
+    expect(screen.getByTestId('#0b3b29').firstChild).toHaveStyleRule('opacity', '1');
   });
 });

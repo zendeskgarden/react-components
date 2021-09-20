@@ -33,6 +33,8 @@ const colorStyles = (props: IStyledCheckIcon & ThemeProps<DefaultTheme>) => {
 };
 
 export const StyledCheckIcon = styled(CheckIcon)`
+  transition: opacity 0.25s ease-in-out;
+  opacity: ${props => (props.selected ? 1 : 0)};
   width: ${props => props.theme.space.base * 5}px;
   height: ${props => props.theme.space.base * 5}px;
   ${colorStyles}
