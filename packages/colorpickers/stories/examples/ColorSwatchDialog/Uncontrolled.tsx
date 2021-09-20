@@ -90,7 +90,7 @@ export const Uncontrolled: Story = ({
 
 Uncontrolled.args = {
   alpha: 1,
-  isWrapped: false,
+  isWrapped: true,
   disabled: false,
   hasArrow: false,
   isAnimated: true

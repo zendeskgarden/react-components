@@ -69,7 +69,7 @@ export const Uncontrolled: Story = ({ alpha, isWrapped }) => {
 
 Uncontrolled.args = {
   alpha: 1,
-  isWrapped: false
+  isWrapped: true
 };
 
 Uncontrolled.argTypes = {

@@ -111,7 +111,7 @@ export const Controlled: Story = ({
 };
 
 Controlled.args = {
-  isWrapped: false,
+  isWrapped: true,
   disabled: false,
   hasArrow: false,
   isAnimated: true

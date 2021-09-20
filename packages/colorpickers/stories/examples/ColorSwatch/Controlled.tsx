@@ -107,7 +107,7 @@ export const Controlled: Story = ({ isWrapped }) => {
 };
 
 Controlled.args = {
-  isWrapped: false
+  isWrapped: true
 };
 
 Controlled.argTypes = {
