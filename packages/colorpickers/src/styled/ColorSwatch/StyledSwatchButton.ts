@@ -6,7 +6,6 @@
  */
 
 import styled from 'styled-components';
-import { rgba } from 'polished';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledButtonPreview, IStyleButtonPreviewProps } from '..';
 
@@ -27,7 +26,7 @@ export const StyledSwatchButton = styled(StyledButtonPreview).attrs<IStyleButton
 
   &[data-garden-focus-visible] {
     box-shadow: ${props =>
-      props.theme.shadows.md(rgba(getColor('primaryHue', 600, props.theme) as string, 0.35))};
+      props.theme.shadows.md(getColor('primaryHue', 600, props.theme, 0.35) as string)};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
