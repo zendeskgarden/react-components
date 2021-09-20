@@ -16,8 +16,7 @@ interface IStyledCell {
 
 export const StyledCell = styled.td.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  role: 'presentation'
+  'data-garden-version': PACKAGE_VERSION
 })<IStyledCell>`
   padding: ${props => props.theme.space.base}px;
   font-size: 0;

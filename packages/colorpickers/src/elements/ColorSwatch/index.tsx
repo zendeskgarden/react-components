@@ -70,7 +70,8 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                 const gridCellProps = getGridCellProps({
                   colIdx,
                   rowIdx,
-                  type: 'button'
+                  type: 'button',
+                  role: undefined
                 });
 
                 return (
