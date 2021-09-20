@@ -7,7 +7,7 @@
 
 import { parseToRgb, readableColor } from 'polished';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
 import { IRGBColor } from '../../utils/types';
 
@@ -19,12 +19,11 @@ interface IStyledCheckIcon {
 
 const colorStyles = (props: IStyledCheckIcon & ThemeProps<DefaultTheme>) => {
   const { theme, color } = props;
-  const darkCheckColor = getColor('neutralHue', 800, theme);
   const { alpha } = parseToRgb(color) as IRGBColor;
-  let checkColor = readableColor(color, darkCheckColor, theme.colors.background);
+  let checkColor = readableColor(color, theme.colors.foreground, theme.colors.background);
 
   if (alpha !== undefined && alpha < 0.4) {
-    checkColor = darkCheckColor as string;
+    checkColor = theme.colors.foreground;
   }
 
   return `
