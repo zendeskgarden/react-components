@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { InputHTMLAttributes, useState } from 'react';
+import React, { InputHTMLAttributes, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import mergeRefs from 'react-merge-refs';
 import { StyledTextMediaInput } from '../styled';
 import { FauxInput } from './FauxInput';
 import useFieldContext from '../utils/useFieldContext';
@@ -54,7 +55,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
     ref
   ) => {
     const fieldContext = useFieldContext();
-    const inputRef = useCombinedRefs(ref);
+    const inputRef = useRef<HTMLInputElement | null>(null);
     const [isFocused, setIsFocused] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -90,7 +91,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
     let combinedProps = {
       disabled,
       readOnly,
-      ref: inputRef,
+      ref: mergeRefs([inputRef, ref]),
       onSelect: onSelectHandler,
       ...props
     };

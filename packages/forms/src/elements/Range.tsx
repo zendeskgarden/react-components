@@ -5,8 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useEffect, useCallback, InputHTMLAttributes, ChangeEvent } from 'react';
-import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  InputHTMLAttributes,
+  ChangeEvent
+} from 'react';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import mergeRefs from 'react-merge-refs';
 import useFieldContext from '../utils/useFieldContext';
 import { StyledRangeInput } from '../styled';
 
@@ -21,7 +29,7 @@ interface IRangeProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
   ({ hasLowerTrack, min, max, step, ...props }, ref) => {
     const [backgroundSize, setBackgroundSize] = useState('0');
-    const rangeRef = useCombinedRefs(ref);
+    const rangeRef = useRef<HTMLInputElement | null>(null);
     const fieldContext = useFieldContext();
 
     const updateBackgroundWidthFromInput = useCallback(
@@ -54,7 +62,7 @@ export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
       : props.onChange;
 
     let combinedProps = {
-      ref: rangeRef,
+      ref: mergeRefs([rangeRef, ref]),
       hasLowerTrack,
       min,
       max,

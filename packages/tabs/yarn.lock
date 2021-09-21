@@ -49,13 +49,6 @@
     "@zendeskgarden/container-selection" "^1.3.12"
     react-uid "^2.2.0"
 
-"@zendeskgarden/container-utilities@^0.5.5":
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.6.tgz#f5c27c120e91d0c020773179db605010c11a72b6"
-  integrity sha512-20NH+UceCdjCprCbEVEwxGiD++RSulN5THJ7M0Y36rx7EHkbCZ6fIQwGlbj+PZhLJnH5KX87ZlZM6RwdjxNpXQ==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-
 "@zendeskgarden/container-utilities@^0.6.0", "@zendeskgarden/container-utilities@^0.6.1":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.6.1.tgz#a786189a6b1f328ab3f608d89a12a17a5457a7af"
@@ -64,13 +57,13 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/react-theming@^8.40.0":
-  version "8.40.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.40.0.tgz#4cb50982818225969319f288c3a006645a577797"
-  integrity sha512-nr1VsRA1+rkP4xb6NXeZ6RMwv4ai/NINl+ubb6whilfSrUnhMd1QrOu5EaiYcSv9ra56a5oivLgkmFDhiqGRFQ==
+"@zendeskgarden/react-theming@^8.40.1":
+  version "8.40.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.40.1.tgz#e90bab269859dcfe40446fd4363c1caf78a2a267"
+  integrity sha512-IE09ZcWzgHZapm/29ncdnhrwjRPpKIE2hCPhFck4x8D+Lr2MJ9BFozTOXu0a7xFEj90xPAU+j8dzksqNmD+r2A==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
-    "@zendeskgarden/container-utilities" "^0.5.5"
+    "@zendeskgarden/container-utilities" "^0.6.0"
     polished "^4.0.0"
     prop-types "^15.5.7"
 
@@ -111,6 +104,11 @@ react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-merge-refs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
+  integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
 react-uid@^2.2.0:
   version "2.3.1"

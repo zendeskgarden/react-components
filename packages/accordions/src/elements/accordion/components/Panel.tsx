@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, forwardRef, HTMLAttributes } from 'react';
+import React, { useCallback, useRef, forwardRef, HTMLAttributes } from 'react';
 import debounce from 'lodash.debounce';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
+import mergeRefs from 'react-merge-refs';
 import { useAccordionContext, useSectionContext } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
 
 export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCompact, isBare, isAnimated, getPanelProps, expandedSections } = useAccordionContext();
-  const panelRef = useCombinedRefs<HTMLElement>(ref);
+  const panelRef = useRef<HTMLElement | null>(null);
   const index = useSectionContext();
   const isExpanded = expandedSections.includes(index);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -45,14 +45,14 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props
     <StyledPanel
       {...getPanelProps({
         role: null,
-        ref: panelRef,
+        ref: mergeRefs([panelRef, ref]),
         index,
         isBare,
         isCompact,
         isExpanded,
         isAnimated,
         ...props
-      })}
+      } as any)}
     >
       <StyledInnerPanel isExpanded={isExpanded} isAnimated={isAnimated}>
         {props.children}
