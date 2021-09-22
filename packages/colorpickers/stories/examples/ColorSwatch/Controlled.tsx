@@ -26,7 +26,7 @@ export const colors = labeledColors(
 
 const matrix = convertToMatrix(colors, 7);
 
-export const Controlled: Story = ({ isWrapped }) => {
+export const Controlled: Story = () => {
   const [rowIndex, setRowIndex] = useState(0);
   const [colIndex, setColIndex] = useState(0);
   const [selectedRowIndex, setSelectedRowIndex] = useState(0);
@@ -70,7 +70,6 @@ export const Controlled: Story = ({ isWrapped }) => {
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <ColorSwatch
           colors={matrix}
-          isWrapped={isWrapped}
           onChange={onChange}
           onSelect={onSelect}
           rowIndex={rowIndex}
@@ -81,10 +80,6 @@ export const Controlled: Story = ({ isWrapped }) => {
       </div>
     </>
   );
-};
-
-Controlled.args = {
-  isWrapped: true
 };
 
 Controlled.argTypes = {

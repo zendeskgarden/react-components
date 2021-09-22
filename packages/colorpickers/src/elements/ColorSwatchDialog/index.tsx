@@ -58,7 +58,6 @@ export const ColorSwatchDialog = forwardRef<
   (
     {
       colors,
-      isWrapped,
       rowIndex,
       colIndex,
       selectedRowIndex,
@@ -169,7 +168,6 @@ export const ColorSwatchDialog = forwardRef<
               ref={colorSwatchRef}
               rowIndex={rowIndex}
               colIndex={colIndex}
-              isWrapped={isWrapped}
               selectedRowIndex={selectedRowIndex}
               selectedColIndex={selectedColIndex}
               defaultRowIndex={uncontrolledSelectedRowIndex}

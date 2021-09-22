@@ -19,8 +19,6 @@ export interface ILabeledColor {
 }
 
 export interface IColorSwatchProps {
-  /** Enables wrapped keyboard navigation */
-  isWrapped?: boolean;
   /** Sets the two-dimension array of labeled HEX and RGB/A string colors */
   colors: ILabeledColor[][];
   /** Sets the focused row index in a controlled color swatch */
@@ -49,13 +47,13 @@ export interface IColorSwatchProps {
  * @extends HTMLAttributes<HTMLTableElement>
  */
 export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
-  ({ colors, isWrapped, ...props }, ref) => {
+  ({ colors, ...props }, ref) => {
     const { rtl } = useContext(ThemeContext);
     const { getGridCellProps } = useGrid({
       rtl,
       matrix: colors,
       selection: true,
-      wrap: isWrapped,
+      wrap: true,
       idPrefix: useId(),
       ...props
     });
@@ -96,7 +94,6 @@ ColorSwatch.displayName = 'ColorSwatch';
 
 ColorSwatch.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.any).isRequired,
-  isWrapped: PropTypes.bool,
   rowIndex: PropTypes.number,
   colIndex: PropTypes.number,
   selectedRowIndex: PropTypes.number,

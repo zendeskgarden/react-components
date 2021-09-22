@@ -28,7 +28,6 @@ export const colors = labeledColors(
 const matrix = convertToMatrix(colors, 7);
 
 export const Controlled: Story = ({
-  isWrapped,
   placement,
   disabled,
   zIndex,
@@ -55,7 +54,6 @@ export const Controlled: Story = ({
         <Col textAlign="end">
           <ColorSwatchDialog
             colors={matrix}
-            isWrapped={isWrapped}
             onChange={onChange}
             onSelect={onSelect}
             rowIndex={rowIndex}
@@ -88,7 +86,6 @@ export const Controlled: Story = ({
 };
 
 Controlled.args = {
-  isWrapped: true,
   disabled: false,
   hasArrow: false,
   isAnimated: true

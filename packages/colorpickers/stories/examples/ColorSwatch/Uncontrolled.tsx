@@ -24,7 +24,7 @@ export const colors = labeledColors(
   ['200', '300', '400', '500', '600', '700', '800']
 );
 
-export const Uncontrolled: Story = ({ alpha, isWrapped }) => {
+export const Uncontrolled: Story = ({ alpha }) => {
   const alphaColors = colors.map(labeledColor => ({
     ...labeledColor,
     value: rgbToColorString({ ...parseToRgb(labeledColor.value), alpha })
@@ -34,19 +34,13 @@ export const Uncontrolled: Story = ({ alpha, isWrapped }) => {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ColorSwatch
-        colors={matrix}
-        isWrapped={isWrapped}
-        onChange={action('onChange')}
-        onSelect={action('onSelect')}
-      />
+      <ColorSwatch colors={matrix} onChange={action('onChange')} onSelect={action('onSelect')} />
     </div>
   );
 };
 
 Uncontrolled.args = {
-  alpha: 1,
-  isWrapped: true
+  alpha: 1
 };
 
 Uncontrolled.argTypes = {

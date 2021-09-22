@@ -28,7 +28,6 @@ export const colors = labeledColors(
 
 export const Uncontrolled: Story = ({
   alpha,
-  isWrapped,
   placement,
   disabled,
   zIndex,
@@ -52,7 +51,6 @@ export const Uncontrolled: Story = ({
             zIndex={zIndex}
             disabled={disabled}
             hasArrow={hasArrow}
-            isWrapped={isWrapped}
             placement={placement}
             isAnimated={isAnimated}
             onChange={action('onChange')}
@@ -67,7 +65,6 @@ export const Uncontrolled: Story = ({
 
 Uncontrolled.args = {
   alpha: 1,
-  isWrapped: true,
   disabled: false,
   hasArrow: false,
   isAnimated: true

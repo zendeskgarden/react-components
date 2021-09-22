@@ -53,7 +53,7 @@ PaletteIconButton.displayName = 'PaletteIconButton';
 
 const matrix = convertToMatrix(colors, 7);
 
-export const WithIconButton: Story = ({ placement, disabled, hasArrow, isAnimated, isWrapped }) => {
+export const WithIconButton: Story = ({ placement, disabled, hasArrow, isAnimated }) => {
   const [selectedColor, setSelectedColor] = useState<string>(matrix[0][0].value);
 
   return (
@@ -63,7 +63,6 @@ export const WithIconButton: Story = ({ placement, disabled, hasArrow, isAnimate
           <ColorSwatchDialog
             colors={matrix}
             hasArrow={hasArrow}
-            isWrapped={isWrapped}
             placement={placement}
             isAnimated={isAnimated}
             onSelect={(rowIndex, colIndex) => setSelectedColor(matrix[rowIndex][colIndex].value)}
@@ -77,7 +76,6 @@ export const WithIconButton: Story = ({ placement, disabled, hasArrow, isAnimate
 };
 
 WithIconButton.args = {
-  isWrapped: true,
   disabled: false,
   hasArrow: true,
   isAnimated: true,
