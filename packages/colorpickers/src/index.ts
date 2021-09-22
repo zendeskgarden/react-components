@@ -6,10 +6,11 @@
  */
 
 export { Colorpicker } from './elements/Colorpicker';
-export { ColorSwatch } from './elements/ColorSwatch';
 export type { IColorpickerProps } from './elements/Colorpicker';
 export { ColorpickerDialog } from './elements/ColorpickerDialog';
 export type { IColorpickerDialogProps } from './elements/ColorpickerDialog';
 export type { IColor } from './utils/types';
+export { ColorSwatch } from './elements/ColorSwatch';
+export type { ILabeledColor } from './elements/ColorSwatch';
 export { ColorSwatchDialog } from './elements/ColorSwatchDialog';
 export type { IColorSwatchDialogProps } from './elements/ColorSwatchDialog';

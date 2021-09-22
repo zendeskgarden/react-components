@@ -11,42 +11,19 @@ import { Button } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
 import { convertToMatrix } from '@zendeskgarden/container-utilities';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { labeledColors } from '../utils';
 
 export default {
   title: 'Components/Colorpickers/ColorSwatchDialog',
   component: ColorSwatchDialog
 } as Meta;
 
-export const colors = [
-  { label: 'Green-800', value: '#0b3b29' },
-  { label: 'Green-700', value: '#186146' },
-  { label: 'Green-600', value: '#038153' },
-  { label: 'Green-500', value: '#228f67' },
-  { label: 'Green-400', value: '#5eae91' },
-  { label: 'Green-300', value: '#aecfc2' },
-  { label: 'Green-200', value: '#d1e8df' },
-  { label: 'Red-800', value: '#681219' },
-  { label: 'Red-700', value: '#8c232c' },
-  { label: 'Red-600', value: '#cc3340' },
-  { label: 'Red-500', value: '#d93f4c' },
-  { label: 'Red-400', value: '#e35b66' },
-  { label: 'Red-300', value: '#f5b5ba' },
-  { label: 'Red-200', value: '#f5d5d8' },
-  { label: 'Blue-800', value: '#0f3554' },
-  { label: 'Blue-700', value: '#144a75' },
-  { label: 'Blue-600', value: '#1f73b7' },
-  { label: 'Blue-500', value: '#337fbd' },
-  { label: 'Blue-400', value: '#5293c7' },
-  { label: 'Blue-300', value: '#adcce4' },
-  { label: 'Blue-200', value: '#cee2f2' },
-  { label: 'Yellow-800', value: '#703b15' },
-  { label: 'Yellow-700', value: '#ad5e18' },
-  { label: 'Yellow-600', value: '#ed961c' },
-  { label: 'Yellow-500', value: '#f5a133' },
-  { label: 'Yellow-400', value: '#ffb648' },
-  { label: 'Yellow-300', value: '#fcdba9' },
-  { label: 'Yellow-200', value: '#fff0db' }
-];
+export const colors = labeledColors(
+  DEFAULT_THEME.palette,
+  ['green', 'red', 'blue', 'yellow'],
+  ['200', '300', '400', '500', '600', '700', '800']
+);
 
 const matrix = convertToMatrix(colors, 7);
 
