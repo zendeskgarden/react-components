@@ -8,8 +8,10 @@
 import React, { useCallback, useRef, forwardRef, HTMLAttributes } from 'react';
 import debounce from 'lodash.debounce';
 import mergeRefs from 'react-merge-refs';
-import { useAccordionContext, useSectionContext } from '../../../utils';
+import { useAccordionContext, useSectionContext, IAccordionContext } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
+
+type PanelProps = IAccordionContext | { isBare?: boolean; isExpanded?: boolean };
 
 export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCompact, isBare, isAnimated, getPanelProps, expandedSections } = useAccordionContext();
@@ -43,7 +45,7 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props
 
   return (
     <StyledPanel
-      {...getPanelProps({
+      {...getPanelProps<PanelProps>({
         role: null,
         ref: mergeRefs([panelRef, ref]),
         index,
@@ -52,7 +54,7 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props
         isExpanded,
         isAnimated,
         ...props
-      } as any)}
+      })}
     >
       <StyledInnerPanel isExpanded={isExpanded} isAnimated={isAnimated}>
         {props.children}
