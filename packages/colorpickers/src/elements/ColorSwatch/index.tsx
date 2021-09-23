@@ -65,7 +65,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
             <tr key={row[0].value}>
               {row.map((color: ILabeledColor, colIdx: number) => {
                 const { label, value } = color;
-                const gridCellProps = getGridCellProps({
+                const { 'aria-selected': ariaSelected, ...other } = getGridCellProps({
                   colIdx,
                   rowIdx,
                   type: 'button',
@@ -73,14 +73,14 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                 });
 
                 return (
-                  <StyledCell key={value}>
+                  <StyledCell key={value} aria-selected={ariaSelected}>
                     <Tooltip content={label}>
                       <StyledSwatchButton
                         backgroundColor={value}
-                        aria-pressed={gridCellProps['aria-selected']}
-                        {...gridCellProps}
+                        aria-pressed={ariaSelected}
+                        {...other}
                       >
-                        <StyledCheckIcon color={value} selected={gridCellProps['aria-selected']} />
+                        <StyledCheckIcon color={value} selected={ariaSelected} />
                       </StyledSwatchButton>
                     </Tooltip>
                   </StyledCell>

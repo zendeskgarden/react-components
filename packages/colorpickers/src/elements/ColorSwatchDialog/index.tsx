@@ -113,11 +113,11 @@ export const ColorSwatchDialog = forwardRef<
     useEffect(() => {
       if (referenceElement && colorSwatchRef.current) {
         const buttons = colorSwatchRef.current.querySelectorAll<HTMLElement>('button');
-        const selectedButtons =
+        const selectedCells =
           colorSwatchRef.current.querySelectorAll<HTMLElement>('[aria-selected="true"]');
 
-        if (selectedButtons.length) {
-          selectedButtons[0].focus();
+        if (selectedCells.length) {
+          (selectedCells[0].children[0] as HTMLButtonElement).focus();
         } else {
           buttons[0].focus();
         }
