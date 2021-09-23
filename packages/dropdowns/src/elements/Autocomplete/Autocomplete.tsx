@@ -41,8 +41,8 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
       setDropdownType
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
-    const inputRef = useRef<HTMLInputElement | null>(null);
-    const triggerRef = useRef<HTMLDivElement | null>(null);
+    const inputRef = useRef<HTMLInputElement>();
+    const triggerRef = useRef<HTMLDivElement>();
     const previousIsOpenRef = useRef<boolean | undefined>(isOpen);
     const [isHovered, setIsHovered] = useState(false);
     const [isFocused, setIsFocused] = useState(false);

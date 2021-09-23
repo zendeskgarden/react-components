@@ -48,7 +48,7 @@ const parseStyleValue = (value: string) => {
 export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
   ({ minRows, maxRows, style, onChange, onSelect, ...props }, ref) => {
     const fieldContext = useFieldContext();
-    const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
+    const textAreaRef = useRef<HTMLTextAreaElement>();
     const shadowTextAreaRef = useRef<HTMLInputElement | null>(null);
     const [state, setState] = useState<{ overflow: boolean; height: number }>({
       overflow: false,

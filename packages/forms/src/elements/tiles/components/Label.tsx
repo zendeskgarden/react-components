@@ -16,7 +16,7 @@ import { useTilesContext } from '../../../utils/useTilesContext';
 export const Label = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
   (props, forwardedRef) => {
     const [title, setTitle] = useState<string | undefined>('');
-    const ref = useRef<HTMLSpanElement | null>(null);
+    const ref = useRef<HTMLSpanElement>();
     const tilesContext = useTilesContext();
 
     useEffect(() => {

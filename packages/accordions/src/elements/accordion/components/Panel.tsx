@@ -15,7 +15,7 @@ type PanelProps = IAccordionContext | { isBare?: boolean; isExpanded?: boolean }
 
 export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCompact, isBare, isAnimated, getPanelProps, expandedSections } = useAccordionContext();
-  const panelRef = useRef<HTMLElement | null>(null);
+  const panelRef = useRef<HTMLElement>();
   const index = useSectionContext();
   const isExpanded = expandedSections.includes(index);
   // eslint-disable-next-line react-hooks/exhaustive-deps

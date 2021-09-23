@@ -29,7 +29,7 @@ interface IRangeProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
   ({ hasLowerTrack, min, max, step, ...props }, ref) => {
     const [backgroundSize, setBackgroundSize] = useState('0');
-    const rangeRef = useRef<HTMLInputElement | null>(null);
+    const rangeRef = useRef<HTMLInputElement>();
     const fieldContext = useFieldContext();
 
     const updateBackgroundWidthFromInput = useCallback(

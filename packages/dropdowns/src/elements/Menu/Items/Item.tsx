@@ -44,7 +44,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
       }
     } = useDropdownContext();
     const { itemIndexRef, isCompact } = useMenuContext();
-    const itemRef = useRef<HTMLLIElement | null>(null);
+    const itemRef = useRef<HTMLLIElement>();
     const Component = component;
 
     if ((value === undefined || value === null) && !disabled) {

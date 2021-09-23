@@ -12,7 +12,7 @@ import { StyledContent, StyledInnerContent } from '../../../styled';
 import { useStepContext, useStepperContext } from '../../../utils';
 
 export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const contentRef = useRef<HTMLDivElement | null>(null);
+  const contentRef = useRef<HTMLDivElement>();
   const { activeIndex, isHorizontal } = useStepperContext();
   const { currentStepIndex } = useStepContext();
   const isActive = currentStepIndex === activeIndex;

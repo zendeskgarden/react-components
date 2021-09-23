@@ -94,8 +94,8 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       setDropdownType
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
-    const inputRef = useRef<HTMLInputElement | null>(null);
-    const triggerRef = useRef<HTMLDivElement | null>(null);
+    const inputRef = useRef<HTMLInputElement>();
+    const triggerRef = useRef<HTMLDivElement>();
     const blurTimeoutRef = useRef<number | undefined>();
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
     const previousIsFocusedRef = useRef<boolean | undefined>(undefined);

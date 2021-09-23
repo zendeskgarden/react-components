@@ -56,8 +56,8 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
       downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen },
       setDropdownType
     } = useDropdownContext();
-    const wrapperRef = useRef<HTMLDivElement | null>(null);
-    const inputRef = useRef<HTMLInputElement | null>(null);
+    const wrapperRef = useRef<HTMLDivElement>();
+    const inputRef = useRef<HTMLInputElement>();
     const isOpenRef = useRef<boolean | undefined>(isOpen);
     const wrapperProps = getToggleButtonProps(
       getRootProps({

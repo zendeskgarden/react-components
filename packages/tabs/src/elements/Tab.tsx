@@ -24,7 +24,7 @@ export interface ITabProps extends HTMLAttributes<HTMLDivElement> {
 export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
   ({ disabled, item, ...otherProps }, ref) => {
     const tabsPropGetters = useTabsContext();
-    const tabRef = useRef<HTMLDivElement | null>(null);
+    const tabRef = useRef<HTMLDivElement>();
 
     if (disabled || !tabsPropGetters) {
       return <StyledTab disabled={disabled} ref={mergeRefs([tabRef, ref])} {...otherProps} />;

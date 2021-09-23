@@ -55,7 +55,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
     ref
   ) => {
     const fieldContext = useFieldContext();
-    const inputRef = useRef<HTMLInputElement | null>(null);
+    const inputRef = useRef<HTMLInputElement>();
     const [isFocused, setIsFocused] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
