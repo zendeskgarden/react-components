@@ -28,5 +28,5 @@ export { MediaItem } from './elements/Menu/Items/MediaItem';
 export { NextItem } from './elements/Menu/Items/NextItem';
 export { PreviousItem } from './elements/Menu/Items/PreviousItem';
 export type { GARDEN_PLACEMENT, POPPER_PLACEMENT } from './utils/garden-placements';
-
+export type { ILabelProps } from './elements/Fields/Label';
 export { resetIdCounter } from 'downshift';

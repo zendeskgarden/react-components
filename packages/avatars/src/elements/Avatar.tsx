@@ -9,7 +9,7 @@ import React, { Children, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledAvatar, StyledText } from '../styled';
 
-interface IAvatarProps extends HTMLAttributes<HTMLElement> {
+export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   /** Sets the avatar background color */
   backgroundColor?: string;
   /** Sets the color for child SVG or `Avatar.Text` components */
