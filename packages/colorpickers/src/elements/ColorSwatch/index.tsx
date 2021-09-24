@@ -29,13 +29,13 @@ export interface IColorSwatchProps {
   selectedRowIndex?: number;
   /** Sets the selected column index in a controlled color swatch */
   selectedColIndex?: number;
-  /** Sets the default focused row index in a uncontrolled color swatch */
+  /** Sets the default focused row index in an uncontrolled color swatch */
   defaultRowIndex?: number;
-  /** Sets the default focused column index in a uncontrolled color swatch */
+  /** Sets the default focused column index in an uncontrolled color swatch */
   defaultColIndex?: number;
-  /** Sets the default selected row index in a uncontrolled color swatch */
+  /** Sets the default selected row index in an uncontrolled color swatch */
   defaultSelectedRowIndex?: number;
-  /** Sets the default selected column index in a uncontrolled color swatch */
+  /** Sets the default selected column index in an uncontrolled color swatch */
   defaultSelectedColIndex?: number;
   /** Handles color swatch changes */
   onChange?: (rowIndex: number, colIndex: number) => void;
