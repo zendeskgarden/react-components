@@ -48,13 +48,21 @@ const colorStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>
 };
 
 const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
-  const padding = `${props.theme.space.base * 6}px`;
   const color = getColor('neutralHue', props.isLight ? 600 : 500, props.theme);
+  let padding;
+
+  if (props.size === 'sm') {
+    padding = props.theme.space.base * 4;
+  } else if (props.size === 'lg') {
+    padding = props.theme.space.base * 7;
+  } else {
+    padding = props.theme.space.base * 6;
+  }
 
   return `
     &::before {
       display: table-cell;
-      padding-right: ${padding};
+      padding-right: ${padding}px;
       width: 1px;
       text-align: right;
       color: ${color};
