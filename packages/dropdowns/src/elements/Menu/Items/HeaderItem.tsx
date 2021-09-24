@@ -9,7 +9,7 @@ import React, { LiHTMLAttributes } from 'react';
 import { StyledHeaderItem } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
-interface IHeaderItemProps extends LiHTMLAttributes<HTMLLIElement> {
+export interface IHeaderItemProps extends LiHTMLAttributes<HTMLLIElement> {
   /** Applies icon styling */
   hasIcon?: boolean;
 }
