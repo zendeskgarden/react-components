@@ -11,7 +11,7 @@ import mergeRefs from 'react-merge-refs';
 import { useAccordionContext, useSectionContext, IAccordionContext } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
 
-type PanelProps = IAccordionContext | { isBare?: boolean; isExpanded?: boolean };
+type PanelProps = IAccordionContext | { isExpanded?: boolean };
 
 export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCompact, isBare, isAnimated, getPanelProps, expandedSections } = useAccordionContext();
