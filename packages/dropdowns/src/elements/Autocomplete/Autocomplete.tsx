@@ -34,7 +34,7 @@ interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
-  ({ children, inputRef: controlledInputRef = null, start, ...props }, ref) => {
+  ({ children, inputRef: controlledInputRef, start, ...props }, ref) => {
     const {
       popperReferenceElementRef,
       downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen },
@@ -133,7 +133,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
                   }
                 },
                 role: 'combobox',
-                ref: mergeRefs([inputRef, controlledInputRef])
+                ref: mergeRefs([inputRef, controlledInputRef || null])
               } as any)}
             />
             {!props.isBare && (
