@@ -26,5 +26,5 @@ export * from './ColorpickerDialog/StyledTooltipBody';
 
 export * from './ColorSwatch/StyledSwatchButton';
 export * from './ColorSwatch/StyledColorSwatch';
-export * from './ColorSwatch/StyledCheckIcon';
+export * from './ColorSwatch/StyledIcon';
 export * from './ColorSwatch/StyledCell';

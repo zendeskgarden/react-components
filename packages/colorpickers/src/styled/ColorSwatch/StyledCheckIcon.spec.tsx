@@ -7,18 +7,27 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { StyledCheckIcon } from './StyledCheckIcon';
+import { StyledIcon } from './StyledIcon';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
 
 describe('StyledCheckIcon', () => {
   it('renders a light check icon on a dark background', () => {
-    const { container } = render(<StyledCheckIcon color="#000" />);
+    const { container } = render(
+      <StyledIcon color="#000">
+        <CheckIcon />
+      </StyledIcon>
+    );
 
     expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.background);
   });
 
   it('renders a dark check icon on a light background', () => {
-    const { container } = render(<StyledCheckIcon color="#FFF" />);
+    const { container } = render(
+      <StyledIcon color="#FFF">
+        <CheckIcon />
+      </StyledIcon>
+    );
 
     expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.palette.grey[800]);
   });

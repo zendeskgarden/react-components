@@ -11,7 +11,8 @@ import { ThemeContext } from 'styled-components';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { useGrid } from '@zendeskgarden/container-grid';
 import { useId } from '@zendeskgarden/container-utilities';
-import { StyledSwatchButton, StyledCheckIcon, StyledCell, StyledColorSwatch } from '../../styled';
+import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
+import { StyledSwatchButton, StyledIcon, StyledCell, StyledColorSwatch } from '../../styled';
 
 export interface ILabeledColor {
   value: string;
@@ -80,7 +81,9 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                         aria-pressed={ariaSelected}
                         {...other}
                       >
-                        <StyledCheckIcon color={value} selected={ariaSelected} />
+                        <StyledIcon color={value} selected={ariaSelected}>
+                          <CheckIcon />
+                        </StyledIcon>
                       </StyledSwatchButton>
                     </Tooltip>
                   </StyledCell>

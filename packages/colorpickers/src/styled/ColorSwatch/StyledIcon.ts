@@ -8,7 +8,7 @@
 import { parseToRgb, readableColor } from 'polished';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
+import React, { Children } from 'react';
 import { IRGBColor } from '../../utils/types';
 
 const COMPONENT_ID = 'colorpickers.colorswatch_check';
@@ -31,16 +31,22 @@ const colorStyles = (props: IStyledCheckIcon & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledCheckIcon = styled(CheckIcon)`
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+export const StyledIcon = styled(({ children, color, theme, ...props }) =>
+  React.cloneElement(Children.only(children), props)
+).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
   transition: opacity 0.2s ease-in-out;
   opacity: ${props => (props.selected ? 1 : 0)};
   width: ${props => props.theme.space.base * 5}px;
   height: ${props => props.theme.space.base * 5}px;
-  ${colorStyles}
 
+  ${colorStyles}
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledCheckIcon.defaultProps = {
+StyledIcon.defaultProps = {
   theme: DEFAULT_THEME
 };
