@@ -6,14 +6,11 @@
  */
 
 import React, { useRef, useState, useEffect, useCallback, HTMLAttributes } from 'react';
-import {
-  composeEventHandlers,
-  useCombinedRefs,
-  KEY_CODES
-} from '@zendeskgarden/container-utilities';
+import { composeEventHandlers, KEY_CODES } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
+import mergeRefs from 'react-merge-refs';
 import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
@@ -57,8 +54,8 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
     const { isLabelHovered } = useFieldContext();
     const [isHovered, setIsHovered] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
-    const hiddenInputRef = useRef<HTMLInputElement>(null);
-    const triggerRef = useCombinedRefs<HTMLDivElement>(ref, popperReferenceElementRef);
+    const hiddenInputRef = useRef<HTMLInputElement>();
+    const triggerRef = useRef<HTMLDivElement>();
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
     const [searchString, setSearchString] = useState('');
     const searchTimeoutRef = useRef<number>();
@@ -219,10 +216,8 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
               (popperReference as any)(selectRef);
 
               // Store ref locally to return focus on close
-              (triggerRef.current as any) = selectRef;
-
               // Apply Select ref to global Dropdown context
-              popperReferenceElementRef.current = selectRef;
+              mergeRefs([triggerRef, ref, popperReferenceElementRef])(selectRef);
             }}
           >
             {start && (

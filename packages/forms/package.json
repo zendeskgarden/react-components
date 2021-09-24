@@ -25,7 +25,8 @@
     "@zendeskgarden/container-utilities": "^0.6.0",
     "lodash.debounce": "^4.0.8",
     "polished": "^4.0.0",
-    "prop-types": "^15.5.7"
+    "prop-types": "^15.5.7",
+    "react-merge-refs": "^1.1.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",

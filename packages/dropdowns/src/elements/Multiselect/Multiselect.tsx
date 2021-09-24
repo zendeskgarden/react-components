@@ -10,13 +10,10 @@ import PropTypes from 'prop-types';
 import { DefaultTheme, ThemeProps } from 'styled-components';
 import { Reference } from 'react-popper';
 import { useSelection } from '@zendeskgarden/container-selection';
-import {
-  KEY_CODES,
-  composeEventHandlers,
-  useCombinedRefs
-} from '@zendeskgarden/container-utilities';
+import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import mergeRefs from 'react-merge-refs';
 import {
   StyledFauxInput,
   StyledMultiselectInput,
@@ -73,7 +70,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       placeholder,
       maxItems,
       renderShowMore,
-      inputRef: externalInputRef,
+      inputRef: externalInputRef = null,
       start,
       ...props
     },
@@ -97,8 +94,8 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       setDropdownType
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
-    const inputRef = useCombinedRefs<HTMLInputElement>(externalInputRef);
-    const triggerRef = useCombinedRefs<HTMLDivElement>(popperReferenceElementRef, ref);
+    const inputRef = useRef<HTMLInputElement>();
+    const triggerRef = useRef<HTMLDivElement>();
     const blurTimeoutRef = useRef<number | undefined>();
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
     const previousIsFocusedRef = useRef<boolean | undefined>(undefined);
@@ -342,7 +339,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                 (popperReference as any)(selectRef);
 
                 // Apply Select ref to global Dropdown context
-                (triggerRef as React.MutableRefObject<any>).current = selectRef;
+                mergeRefs([triggerRef, popperReferenceElementRef, ref])(selectRef);
               }
             })}
           >
@@ -398,7 +395,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                   isVisible: isFocused || inputValue || selectedItems.length === 0,
                   isCompact: props.isCompact,
                   role: 'combobox',
-                  ref: inputRef,
+                  ref: mergeRefs([inputRef, externalInputRef]),
                   placeholder: selectedItems.length === 0 ? placeholder : undefined
                 }) as any)}
               />

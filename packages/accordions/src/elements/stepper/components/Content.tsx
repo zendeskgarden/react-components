@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useCallback, useEffect, HTMLAttributes } from 'react';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
+import React, { forwardRef, useRef, useCallback, useEffect, HTMLAttributes } from 'react';
+import mergeRefs from 'react-merge-refs';
 import debounce from 'lodash.debounce';
 import { StyledContent, StyledInnerContent } from '../../../styled';
 import { useStepContext, useStepperContext } from '../../../utils';
 
 export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const contentRef = useCombinedRefs<HTMLDivElement>(ref);
+  const contentRef = useRef<HTMLDivElement>();
   const { activeIndex, isHorizontal } = useStepperContext();
   const { currentStepIndex } = useStepContext();
   const isActive = currentStepIndex === activeIndex;
@@ -43,7 +43,7 @@ export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
   }, [isActive, isHorizontal, props.children, updateMaxHeight]);
 
   return isHorizontal === false ? (
-    <StyledContent ref={contentRef} isActive={isActive} {...props}>
+    <StyledContent ref={mergeRefs([contentRef, ref])} isActive={isActive} {...props}>
       <StyledInnerContent isActive={isActive}>{props.children}</StyledInnerContent>
     </StyledContent>
   ) : null;

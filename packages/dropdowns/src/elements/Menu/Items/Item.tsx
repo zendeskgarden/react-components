@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, LiHTMLAttributes, useMemo } from 'react';
+import React, { useEffect, useRef, LiHTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import SelectedSvg from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
+import mergeRefs from 'react-merge-refs';
 import { StyledItem, StyledItemIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
@@ -44,7 +44,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
       }
     } = useDropdownContext();
     const { itemIndexRef, isCompact } = useMenuContext();
-    const itemRef = useCombinedRefs(forwardRef);
+    const itemRef = useRef<HTMLLIElement>();
     const Component = component;
 
     if ((value === undefined || value === null) && !disabled) {
@@ -86,11 +86,12 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
     }, [currentIndex, disabled, isOpen, isSelected, selectedItems, setHighlightedIndex]);
 
     const contextValue = useMemo(() => ({ isDisabled: disabled }), [disabled]);
+    const ref = mergeRefs([itemRef, forwardRef]);
 
     if (disabled) {
       return (
         <ItemContext.Provider value={contextValue}>
-          <Component ref={itemRef} disabled={disabled} isCompact={isCompact} {...props}>
+          <Component ref={ref} disabled={disabled} isCompact={isCompact} {...props}>
             {isSelected && (
               <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
                 <SelectedSvg />
@@ -113,7 +114,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
           {...getItemProps({
             item: value,
             isFocused,
-            ref: itemRef,
+            ref,
             isCompact,
             ...(hasMenuRef.current && {
               role: 'menuitem',

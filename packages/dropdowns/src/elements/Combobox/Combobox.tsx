@@ -8,8 +8,9 @@
 import React, { ComponentPropsWithoutRef, KeyboardEvent, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { KEY_CODES, useCombinedRefs } from '@zendeskgarden/container-utilities';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { MediaInput } from '@zendeskgarden/react-forms';
+import mergeRefs from 'react-merge-refs';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 
@@ -43,7 +44,7 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
       focusInset,
       placeholder,
       validation,
-      inputRef: inputRefProp,
+      inputRef: inputRefProp = null,
       start,
       end,
       ...props
@@ -55,8 +56,8 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
       downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen },
       setDropdownType
     } = useDropdownContext();
-    const wrapperRef = useCombinedRefs<HTMLDivElement>(ref);
-    const inputRef = useCombinedRefs<HTMLInputElement>(inputRefProp);
+    const wrapperRef = useRef<HTMLDivElement>();
+    const inputRef = useRef<HTMLInputElement>();
     const isOpenRef = useRef<boolean | undefined>(isOpen);
     const wrapperProps = getToggleButtonProps(
       getRootProps({
@@ -111,7 +112,7 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
             (popperReference as any)(element);
 
             // Store ref locally
-            (wrapperRef as any).current = element;
+            mergeRefs([wrapperRef, ref])(element);
 
             // Apply wrapper to global Dropdown context
             popperReferenceElementRef.current = element;
@@ -122,7 +123,7 @@ const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
               {...inputProps}
               wrapperProps={wrapperProps}
               wrapperRef={wrapperRefProp}
-              ref={inputRef}
+              ref={mergeRefs([inputRef, inputRefProp])}
             />
           );
         }}

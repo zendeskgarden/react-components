@@ -7,7 +7,6 @@
 
 import React, { SelectHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { StyledSelect, StyledSelectWrapper } from '../styled';
 import { FauxInput } from './FauxInput';
@@ -31,11 +30,10 @@ export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
   ({ disabled, ...props }, ref) => {
     const fieldContext = useFieldContext();
-    const selectRef = useCombinedRefs(ref);
 
     let combinedProps = {
       disabled,
-      ref: selectRef,
+      ref,
       ...props
     };
 
