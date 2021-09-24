@@ -6,25 +6,24 @@
  */
 
 import styled from 'styled-components';
-import { TooltipModal } from '@zendeskgarden/react-modals';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colordialog_tooltipmodal';
+const COMPONENT_ID = 'colorpickers.swatch_cell';
 
-/**
- * 1. Override default TooltipModal styling
- */
-export const StyledTooltipModal = styled(TooltipModal as any).attrs({
+interface IStyledCell {
+  isCompact?: boolean;
+}
+
+export const StyledCell = styled.td.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
-  /* stylelint-disable declaration-no-important */
-  width: auto !important; /* [1] */
-  /* stylelint-enable declaration-no-important */
+})<IStyledCell>`
+  padding: ${props => props.theme.space.base}px;
+  font-size: 0;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledTooltipModal.defaultProps = {
+StyledCell.defaultProps = {
   theme: DEFAULT_THEME
 };
