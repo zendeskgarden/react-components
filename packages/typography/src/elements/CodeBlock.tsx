@@ -95,6 +95,7 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
                   <StyledCodeBlockLine
                     {...getLineProps({ line })}
                     key={index}
+                    language={language}
                     isHighlighted={highlightLines && highlightLines.includes(index + 1)}
                     isLight={isLight}
                     isNumbered={isNumbered}

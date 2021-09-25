@@ -23,7 +23,7 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
     builtin: palette.teal[400],
     comment: props.isLight ? palette.lime[600] : palette.mint[400],
     constant: props.isLight ? palette.azure[400] : palette.blue[500],
-    coord: props.isLight ? palette.blue[700] : palette.blue[200],
+    coord: props.isLight ? palette.purple[600] : palette.blue[200],
     deleted: props.isLight ? palette.red[700] : palette.red[200],
     diff: props.isLight ? palette.yellow[800] : palette.yellow[200],
     function: props.isLight ? palette.orange['M600' as any] : palette.yellow[300],
@@ -155,8 +155,17 @@ export const StyledCodeBlockToken = styled.span.attrs({
     font-weight: ${props => props.theme.fontWeights.semibold};
   }
 
+  &.coord {
+    padding-left: 0.75em;
+  }
+
   &.italic {
     font-style: italic;
+  }
+
+  &.prefix {
+    width: 2em;
+    text-align: center;
   }
 
   ${props => colorStyles(props)};

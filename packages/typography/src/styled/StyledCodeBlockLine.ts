@@ -6,6 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import { Language } from 'prism-react-renderer';
 import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledFont } from './StyledFont';
 
@@ -51,7 +52,9 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultT
   const color = getColor('neutralHue', props.isLight ? 600 : 500, props.theme);
   let padding;
 
-  if (props.size === 'sm') {
+  if (props.language && props.language === 'diff') {
+    padding = 0;
+  } else if (props.size === 'sm') {
     padding = props.theme.space.base * 4;
   } else if (props.size === 'lg') {
     padding = props.theme.space.base * 7;
@@ -76,6 +79,7 @@ export type DIFF = 'hunk' | 'add' | 'delete' | 'change';
 export type SIZE = 'sm' | 'md' | 'lg';
 
 export interface IStyledCodeBlockLineProps {
+  language?: Language;
   isHighlighted?: boolean;
   isLight?: boolean;
   isNumbered?: boolean;
