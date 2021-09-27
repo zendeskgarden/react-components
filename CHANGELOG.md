@@ -12,6 +12,31 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.41.0 (2021-09-24)
+
+#### :rocket: New Feature
+* `colorpickers`
+  * [#1208](https://github.com/zendeskgarden/react-components/pull/1208) feat(colorpickers): introduce color swatch ([@hzhu](https://github.com/hzhu))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1176](https://github.com/zendeskgarden/react-components/pull/1176) fix(dropdowns): Ensure the input value is preserved and announced by screen readers ([@smritimadan](https://github.com/smritimadan))
+
+#### :seedling: Internal
+* `accordions`, `dropdowns`, `forms`, `tabs`
+  * [#1213](https://github.com/zendeskgarden/react-components/pull/1213) refactor(components): replace utility useCombinedRefs with mergeRefs ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* Other
+  * [#1214](https://github.com/zendeskgarden/react-components/pull/1214) chore(babel): update config for private-property-in-object plugin ([@Francois-Esquire](https://github.com/Francois-Esquire))
+  * [#1194](https://github.com/zendeskgarden/react-components/pull/1194) chore(deps): update dependency @rollup/plugin-commonjs to v20 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1212](https://github.com/zendeskgarden/react-components/pull/1212) chore(deps): bump y18n from 4.0.0 to 4.0.3 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1205](https://github.com/zendeskgarden/react-components/pull/1205) chore(deps): update dependency husky to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1210](https://github.com/zendeskgarden/react-components/pull/1210) chore(deps): bump axios from 0.21.1 to 0.21.4 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1211](https://github.com/zendeskgarden/react-components/pull/1211) chore(deps): bump ws from 5.2.2 to 5.2.3 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1201](https://github.com/zendeskgarden/react-components/pull/1201) chore(deps): update dependency @types/jest to v27 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1209](https://github.com/zendeskgarden/react-components/pull/1209) chore(deps): bump glob-parent from 5.1.0 to 5.1.2 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1204](https://github.com/zendeskgarden/react-components/pull/1204) chore(deps): update dependency @zendeskgarden/eslint-config to v21 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1200](https://github.com/zendeskgarden/react-components/pull/1200) fix(deps): update non-major example dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.40.1 (2021-09-15)
 
 #### :bug: Bug Fix

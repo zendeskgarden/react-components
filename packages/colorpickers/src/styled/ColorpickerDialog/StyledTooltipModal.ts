@@ -8,7 +8,6 @@
 import styled from 'styled-components';
 import { TooltipModal } from '@zendeskgarden/react-modals';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { getColorPickerWidth } from '../Colorpicker/StyledColorPicker';
 
 const COMPONENT_ID = 'colorpickers.colordialog_tooltipmodal';
 
@@ -20,8 +19,7 @@ export const StyledTooltipModal = styled(TooltipModal as any).attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   /* stylelint-disable declaration-no-important */
-  width: ${props =>
-    getColorPickerWidth(props) + props.theme.space.base * 10}px !important; /* [1] */
+  width: auto !important; /* [1] */
   /* stylelint-enable declaration-no-important */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

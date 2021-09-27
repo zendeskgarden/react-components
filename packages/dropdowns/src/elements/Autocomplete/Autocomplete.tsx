@@ -8,14 +8,15 @@
 import React, { useRef, useEffect, useState, HTMLAttributes, KeyboardEvent } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import mergeRefs from 'react-merge-refs';
 import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
-interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
+export interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies compact styling */
   isCompact?: boolean;
   /** Removes borders and padding */
@@ -40,8 +41,8 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
       setDropdownType
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
-    const inputRef = useCombinedRefs<HTMLInputElement>(controlledInputRef);
-    const triggerRef = useCombinedRefs<HTMLDivElement>(ref);
+    const inputRef = useRef<HTMLInputElement>();
+    const triggerRef = useRef<HTMLDivElement>();
     const previousIsOpenRef = useRef<boolean | undefined>(isOpen);
     const [isHovered, setIsHovered] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
@@ -100,7 +101,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
               (popperReference as any)(selectRef);
 
               // Store ref locally to return focus on close
-              (triggerRef as any).current = selectRef;
+              mergeRefs([triggerRef, ref])(selectRef);
 
               // Apply Select ref to global Dropdown context
               popperReferenceElementRef.current = selectRef;
@@ -132,7 +133,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
                   }
                 },
                 role: 'combobox',
-                ref: inputRef
+                ref: mergeRefs([inputRef, controlledInputRef || null])
               } as any)}
             />
             {!props.isBare && (

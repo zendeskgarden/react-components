@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useState, useEffect } from 'react';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
+import React, { HTMLAttributes, useState, useEffect, useRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import { StyledTileLabel } from '../../../styled';
 import { useTilesContext } from '../../../utils/useTilesContext';
 
@@ -16,7 +16,7 @@ import { useTilesContext } from '../../../utils/useTilesContext';
 export const Label = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
   (props, forwardedRef) => {
     const [title, setTitle] = useState<string | undefined>('');
-    const ref = useCombinedRefs(forwardedRef);
+    const ref = useRef<HTMLSpanElement>();
     const tilesContext = useTilesContext();
 
     useEffect(() => {
@@ -27,7 +27,7 @@ export const Label = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanEl
 
     return (
       <StyledTileLabel
-        ref={ref}
+        ref={mergeRefs([ref, forwardedRef])}
         title={title}
         isCentered={tilesContext && tilesContext.isCentered}
         {...props}

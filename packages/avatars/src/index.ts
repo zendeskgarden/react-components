@@ -6,3 +6,4 @@
  */
 
 export { default as Avatar } from './elements/Avatar';
+export type { IAvatarProps } from './elements/Avatar';
