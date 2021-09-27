@@ -36,7 +36,7 @@ const colorStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>
         break;
     }
 
-    backgroundColor = getColor(hue, 400, props.theme, props.isLight ? 0.4 : 0.2);
+    backgroundColor = getColor(hue, 400, props.theme, 0.2);
   } else if (props.isHighlighted) {
     const hue = props.isLight ? props.theme.palette.black : props.theme.palette.white;
 
