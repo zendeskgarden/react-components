@@ -59,6 +59,22 @@ describe('CodeBlock', () => {
     );
   });
 
+  it('renders diff lines as expected', () => {
+    const code = `@@ -1,3 +1,9 @@
++added line
+-deleted line
+!changed line
+ unchanged line`;
+    const { container } = render(<CodeBlock language="diff">{code}</CodeBlock>);
+    const codeElements = container.getElementsByTagName('code');
+
+    expect(codeElements[0]).toHaveStyleRule('background-color', rgba(PALETTE.royal[400], 0.2));
+    expect(codeElements[1]).toHaveStyleRule('background-color', rgba(PALETTE.lime[400], 0.2));
+    expect(codeElements[2]).toHaveStyleRule('background-color', rgba(PALETTE.crimson[400], 0.2));
+    expect(codeElements[3]).toHaveStyleRule('background-color', rgba(PALETTE.lemon[400], 0.2));
+    expect(codeElements[4]).not.toHaveStyleRule('background-color');
+  });
+
   it('highlights lines as expected', () => {
     const code = `one
     two`;
