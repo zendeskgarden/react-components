@@ -17,6 +17,13 @@ import {
   StyledCodeBlockToken
 } from '../styled';
 
+/* prism-react-renderer Token type replica */
+interface IToken {
+  types: string[];
+  content: string;
+  empty?: boolean;
+}
+
 export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
   /** Selects the language used by the [Prism](https://prismjs.com/) tokenizer */
   language?: Language;
@@ -47,62 +54,58 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
       medium: 'md',
       large: 'lg'
     };
-
     const dependency = useMemo(() => [size, children], [size, children]);
-
     const containerTabIndex = useScrollRegion({ containerRef, dependency });
+
+    const getDiff = (line: IToken[]) => {
+      let retVal: DIFF | undefined;
+
+      if (language === 'diff') {
+        const token = line.find(value => !(value.empty || value.content === ''));
+
+        if (token) {
+          if (token.types.includes('deleted')) {
+            retVal = 'delete';
+          } else if (token.types.includes('inserted')) {
+            retVal = 'add';
+          } else if (token.types.includes('coord')) {
+            retVal = 'hunk';
+          } else if (token.types.includes('diff')) {
+            retVal = 'change';
+          }
+        }
+      }
+
+      return retVal;
+    };
 
     return (
       <StyledCodeBlockContainer {...containerProps} ref={containerRef} tabIndex={containerTabIndex}>
         <Highlight Prism={Prism} code={code ? code.trim() : ''} language={language || 'tsx'}>
           {({ className, tokens, getLineProps, getTokenProps }) => (
             <StyledCodeBlock className={className} ref={ref} isLight={isLight} {...other}>
-              {tokens.map((line, index) => {
-                const getDiff = () => {
-                  let retVal: DIFF | undefined;
-
-                  if (language === 'diff') {
-                    const token = line.find(value => !(value.empty || value.content === ''));
-
-                    if (token) {
-                      if (token.types.includes('deleted')) {
-                        retVal = 'delete';
-                      } else if (token.types.includes('inserted')) {
-                        retVal = 'add';
-                      } else if (token.types.includes('coord')) {
-                        retVal = 'hunk';
-                      } else if (token.types.includes('diff')) {
-                        retVal = 'change';
-                      }
-                    }
-                  }
-
-                  return retVal;
-                };
-
-                return (
-                  <StyledCodeBlockLine
-                    {...getLineProps({ line })}
-                    key={index}
-                    language={language}
-                    isHighlighted={highlightLines && highlightLines.includes(index + 1)}
-                    isLight={isLight}
-                    isNumbered={isNumbered}
-                    diff={getDiff()}
-                    size={size ? SIZES[size] : undefined}
-                  >
-                    {line.map((token, tokenKey) => (
-                      <StyledCodeBlockToken
-                        {...getTokenProps({ token })}
-                        key={tokenKey}
-                        isLight={isLight}
-                      >
-                        {token.empty ? '\n' : token.content}
-                      </StyledCodeBlockToken>
-                    ))}
-                  </StyledCodeBlockLine>
-                );
-              })}
+              {tokens.map((line, index) => (
+                <StyledCodeBlockLine
+                  {...getLineProps({ line })}
+                  key={index}
+                  language={language}
+                  isHighlighted={highlightLines && highlightLines.includes(index + 1)}
+                  isLight={isLight}
+                  isNumbered={isNumbered}
+                  diff={getDiff(line)}
+                  size={size ? SIZES[size] : undefined}
+                >
+                  {line.map((token, tokenKey) => (
+                    <StyledCodeBlockToken
+                      {...getTokenProps({ token })}
+                      key={tokenKey}
+                      isLight={isLight}
+                    >
+                      {token.empty ? '\n' : token.content}
+                    </StyledCodeBlockToken>
+                  ))}
+                </StyledCodeBlockLine>
+              ))}
             </StyledCodeBlock>
           )}
         </Highlight>
