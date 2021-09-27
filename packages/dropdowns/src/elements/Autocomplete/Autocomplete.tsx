@@ -16,7 +16,7 @@ import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
-interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
+export interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies compact styling */
   isCompact?: boolean;
   /** Removes borders and padding */

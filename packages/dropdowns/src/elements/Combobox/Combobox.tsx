@@ -14,7 +14,7 @@ import mergeRefs from 'react-merge-refs';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 
-interface IComboboxProps extends ComponentPropsWithoutRef<'div'> {
+export interface IComboboxProps extends ComponentPropsWithoutRef<'div'> {
   /** Applies compact styling */
   isCompact?: boolean;
   /** Removes borders and padding */

@@ -12,7 +12,7 @@ import { Label as FormLabel } from '@zendeskgarden/react-forms';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
-interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /** Applies regular (non-bold) font weight */
   isRegular?: boolean;
 }
