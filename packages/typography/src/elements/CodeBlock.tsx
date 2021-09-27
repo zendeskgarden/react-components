@@ -41,23 +41,12 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
     ref
   ) => {
     const containerRef = useRef<HTMLDivElement>(null);
-
     const code = (Array.isArray(children) ? children[0] : children) as string;
-    let _size: SIZE;
-
-    switch (size) {
-      case 'small':
-        _size = 'sm';
-        break;
-
-      case 'medium':
-        _size = 'md';
-        break;
-
-      case 'large':
-        _size = 'lg';
-        break;
-    }
+    const SIZES: Record<string, SIZE> = {
+      small: 'sm',
+      medium: 'md',
+      large: 'lg'
+    };
 
     const dependency = useMemo(() => [size, children], [size, children]);
 
@@ -100,7 +89,7 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
                     isLight={isLight}
                     isNumbered={isNumbered}
                     diff={getDiff()}
-                    size={_size}
+                    size={size ? SIZES[size] : undefined}
                   >
                     {line.map((token, tokenKey) => (
                       <StyledCodeBlockToken
