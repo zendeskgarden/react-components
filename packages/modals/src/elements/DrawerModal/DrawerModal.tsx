@@ -154,7 +154,7 @@ export const DrawerModal = forwardRef<
 
     const modalProps = isOpen
       ? getModalProps({ ref: mergeRefs([ref, modalRef, transitionRef]), ...props } as any)
-      : { ref: mergeRefs([ref, transitionRef]), ...props };
+      : { ref: mergeRefs([ref, modalRef, transitionRef]), ...props };
 
     return ReactDOM.createPortal(
       <ModalsContext.Provider value={value}>
@@ -165,11 +165,10 @@ export const DrawerModal = forwardRef<
           classNames="garden-drawer-transition"
           nodeRef={transitionRef}
         >
-          <StyledDrawerModal {...modalProps} />
+          <StyledBackdrop {...(getBackdropProps({ isAnimated: true, ...backdropProps }) as any)}>
+            <StyledDrawerModal {...modalProps} />
+          </StyledBackdrop>
         </CSSTransition>
-        {isOpen && (
-          <StyledBackdrop {...(getBackdropProps({ isAnimated: true, ...backdropProps }) as any)} />
-        )}
       </ModalsContext.Provider>,
       rootNode
     );
