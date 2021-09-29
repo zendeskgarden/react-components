@@ -12,6 +12,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.42.0 (2021-09-29)
+
+#### :rocket: New Feature
+* `typography`
+  * [#1216](https://github.com/zendeskgarden/react-components/pull/1216) feat(typography): add diff language styling to `CodeBlock` ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `modals`
+  * [#1218](https://github.com/zendeskgarden/react-components/pull/1218) fix(modals): drawer modal backdrop required two clicks to close ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `avatars`, `dropdowns`
+  * [#1215](https://github.com/zendeskgarden/react-components/pull/1215) fix(types): export IAvatarProps and ILabelProps ([@mtomcal](https://github.com/mtomcal))
+
 ## v8.41.0 (2021-09-24)
 
 #### :rocket: New Feature
