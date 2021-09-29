@@ -9,14 +9,23 @@ import React, { HTMLAttributes, useMemo, useRef } from 'react';
 import Highlight, { Language, Prism } from 'prism-react-renderer';
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
 import {
+  DIFF,
+  SIZE,
   StyledCodeBlock,
   StyledCodeBlockContainer,
   StyledCodeBlockLine,
   StyledCodeBlockToken
 } from '../styled';
 
+/* prism-react-renderer Token type replica */
+interface IToken {
+  types: string[];
+  content: string;
+  empty?: boolean;
+}
+
 export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
-  /** Selects the language used by the Prism tokenizer */
+  /** Selects the language used by the [Prism](https://prismjs.com/) tokenizer */
   language?: Language;
   /** Specifies the font size */
   size?: 'small' | 'medium' | 'large';
@@ -39,21 +48,36 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
     ref
   ) => {
     const containerRef = useRef<HTMLDivElement>(null);
-
     const code = (Array.isArray(children) ? children[0] : children) as string;
-    let _size: 'sm' | 'md' | 'lg';
-
-    if (size === 'small') {
-      _size = 'sm';
-    } else if (size === 'medium') {
-      _size = 'md';
-    } else {
-      _size = 'lg';
-    }
-
+    const SIZES: Record<string, SIZE> = {
+      small: 'sm',
+      medium: 'md',
+      large: 'lg'
+    };
     const dependency = useMemo(() => [size, children], [size, children]);
-
     const containerTabIndex = useScrollRegion({ containerRef, dependency });
+
+    const getDiff = (line: IToken[]) => {
+      let retVal: DIFF | undefined;
+
+      if (language === 'diff') {
+        const token = line.find(value => !(value.empty || value.content === ''));
+
+        if (token) {
+          if (token.types.includes('deleted')) {
+            retVal = 'delete';
+          } else if (token.types.includes('inserted')) {
+            retVal = 'add';
+          } else if (token.types.includes('coord')) {
+            retVal = 'hunk';
+          } else if (token.types.includes('diff')) {
+            retVal = 'change';
+          }
+        }
+      }
+
+      return retVal;
+    };
 
     return (
       <StyledCodeBlockContainer {...containerProps} ref={containerRef} tabIndex={containerTabIndex}>
@@ -64,10 +88,12 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
                 <StyledCodeBlockLine
                   {...getLineProps({ line })}
                   key={index}
+                  language={language}
                   isHighlighted={highlightLines && highlightLines.includes(index + 1)}
                   isLight={isLight}
                   isNumbered={isNumbered}
-                  size={_size}
+                  diff={getDiff(line)}
+                  size={size ? SIZES[size] : undefined}
                 >
                   {line.map((token, tokenKey) => (
                     <StyledCodeBlockToken
