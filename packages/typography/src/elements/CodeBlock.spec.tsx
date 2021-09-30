@@ -38,6 +38,12 @@ describe('CodeBlock', () => {
     expect(container.getElementsByTagName('pre')[0]).toHaveClass('language-go');
   });
 
+  it('renders the expected fallback for an invalid language', () => {
+    const { container } = render(<CodeBlock language={'swift' as any} />);
+
+    expect(container.getElementsByTagName('pre')[0]).toHaveClass('language-tsx');
+  });
+
   it('renders as expected in light mode', () => {
     const { container } = render(<CodeBlock isLight />);
 
