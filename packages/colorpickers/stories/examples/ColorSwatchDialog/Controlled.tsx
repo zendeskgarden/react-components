@@ -35,10 +35,10 @@ export const Controlled: Story = ({
   isAnimated,
   popperModifiers
 }) => {
-  const [rowIndex, setRowIndex] = useState(0);
-  const [colIndex, setColIndex] = useState(0);
-  const [selectedRowIndex, setSelectedRowIndex] = useState(0);
-  const [selectedColIndex, setSelectedColIndex] = useState(0);
+  const [rowIndex, setRowIndex] = useState(-1);
+  const [colIndex, setColIndex] = useState(-1);
+  const [selectedRowIndex, setSelectedRowIndex] = useState(-1);
+  const [selectedColIndex, setSelectedColIndex] = useState(-1);
   const onChange = (rowIdx: number, colIdx: number) => {
     setRowIndex(rowIdx);
     setColIndex(colIdx);
@@ -70,15 +70,31 @@ export const Controlled: Story = ({
           />
         </Col>
         <Col>
-          <Button
-            disabled={disabled}
-            onClick={() => {
-              onChange(2, 2);
-              onSelect(2, 2);
+          <div
+            style={{
+              width: 320,
+              display: 'flex',
+              justifyContent: 'space-between'
             }}
           >
-            Set to {matrix[2][2].label}
-          </Button>
+            <Button
+              disabled={disabled}
+              onClick={() => {
+                onChange(2, 2);
+                onSelect(2, 2);
+              }}
+            >
+              Set to {matrix[2][2].label}
+            </Button>
+            <Button
+              onClick={() => {
+                onChange(-1, -1);
+                onSelect(-1, -1);
+              }}
+            >
+              Clear color selection
+            </Button>
+          </div>
         </Col>
       </Row>
     </Grid>
