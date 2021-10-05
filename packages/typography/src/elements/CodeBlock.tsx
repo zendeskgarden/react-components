@@ -24,9 +24,45 @@ interface IToken {
   empty?: boolean;
 }
 
+/* until https://github.com/FormidableLabs/prism-react-renderer/pull/127 is available */
+const LANGUAGES = [
+  'markup',
+  'bash',
+  'clike',
+  'c',
+  'cpp',
+  'css',
+  'javascript',
+  'jsx',
+  'coffeescript',
+  'actionscript',
+  'css-extr',
+  'diff',
+  'git',
+  'go',
+  'graphql',
+  'handlebars',
+  'json',
+  'less',
+  'makefile',
+  'markdown',
+  'objectivec',
+  'ocaml',
+  'python',
+  'reason',
+  'sass',
+  'scss',
+  'sql',
+  'stylus',
+  'tsx',
+  'typescript',
+  'wasm',
+  'yaml'
+] as const;
+
 export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
   /** Selects the language used by the [Prism](https://prismjs.com/) tokenizer */
-  language?: Language;
+  language?: typeof LANGUAGES[number];
   /** Specifies the font size */
   size?: 'small' | 'medium' | 'large';
   /** Applies light mode styling */
@@ -81,7 +117,11 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
 
     return (
       <StyledCodeBlockContainer {...containerProps} ref={containerRef} tabIndex={containerTabIndex}>
-        <Highlight Prism={Prism} code={code ? code.trim() : ''} language={language || 'tsx'}>
+        <Highlight
+          Prism={Prism}
+          code={code ? code.trim() : ''}
+          language={LANGUAGES.includes(language as Language) ? (language as Language) : 'tsx'}
+        >
           {({ className, tokens, getLineProps, getTokenProps }) => (
             <StyledCodeBlock className={className} ref={ref} isLight={isLight} {...other}>
               {tokens.map((line, index) => (
