@@ -100,7 +100,7 @@ export const ColorSwatchDialog = forwardRef<
     );
 
     let uncontrolledSelectedColor;
-    let controlledSelectedColorColor;
+    let controlledSelectedColor;
 
     if (uncontrolledSelectedRowIndex > -1 && uncontrolledSelectedColIndex > -1) {
       uncontrolledSelectedColor =
@@ -113,7 +113,7 @@ export const ColorSwatchDialog = forwardRef<
       selectedRowIndex > -1 &&
       selectedColIndex > -1
     ) {
-      controlledSelectedColorColor = colors[selectedRowIndex][selectedColIndex];
+      controlledSelectedColor = colors[selectedRowIndex][selectedColIndex];
     }
 
     const onClick = composeEventHandlers(props.onClick, () => {
@@ -155,9 +155,7 @@ export const ColorSwatchDialog = forwardRef<
           >
             <StyledButtonPreview
               backgroundColor={
-                isControlled
-                  ? controlledSelectedColorColor?.value
-                  : uncontrolledSelectedColor?.value
+                isControlled ? controlledSelectedColor?.value : uncontrolledSelectedColor?.value
               }
             />
             {/* eslint-disable-next-line no-eq-null, eqeqeq */}
