@@ -134,6 +134,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
 
           // Calculate custom width if ref is provided from Select or Autocomplete
           if (
+            (isOpen || isVisible) &&
             popperReferenceElementRef.current &&
             popperReferenceElementRef.current.getBoundingClientRect
           ) {
