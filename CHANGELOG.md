@@ -12,6 +12,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.42.1 (2021-10-06)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1222](https://github.com/zendeskgarden/react-components/pull/1222) fix(dropdowns): improve `Menu` performance by deferring `getBoundingClientRect` call ([@jzempel](https://github.com/jzempel))
+  * [#1220](https://github.com/zendeskgarden/react-components/pull/1220) fix(dropdowns): display compact menu `ItemMeta` info ([@jzempel](https://github.com/jzempel))
+* `typography`
+  * [#1219](https://github.com/zendeskgarden/react-components/pull/1219) fix(typography): improve fallback handling for invalid `CodeBlock` language ([@jzempel](https://github.com/jzempel))
+
 ## v8.42.0 (2021-09-29)
 
 #### :rocket: New Feature
