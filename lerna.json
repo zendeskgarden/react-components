@@ -1,5 +1,5 @@
 {
-  "version": "8.42.0",
+  "version": "8.42.1",
   "npmClient": "yarn",
   "npmClientArgs": [
     "--frozen-lockfile"
