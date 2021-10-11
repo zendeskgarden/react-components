@@ -52,6 +52,30 @@ describe('ColorSwatchDialog', () => {
   });
 
   describe('uncontrolled', () => {
+    it('renders the color swatch dialog with no color selection', async () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          defaultRowIndex={-1}
+          defaultColIndex={-1}
+          defaultSelectedRowIndex={-1}
+          defaultSelectedColIndex={-1}
+        />
+      );
+
+      const trigger = screen.getByRole('button');
+
+      expect(document.body).toHaveFocus();
+
+      act(() => {
+        userEvent.click(trigger);
+      });
+
+      await waitFor(() => {
+        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+      });
+    });
+
     it('focuses on the first swatch button when the color dialog is opened', async () => {
       render(<ColorSwatchDialog colors={colors} />);
 
@@ -97,9 +121,81 @@ describe('ColorSwatchDialog', () => {
 
       expect(trigger).toHaveFocus();
     });
+
+    it('focuses on the selected swatch button when the color dialog is opened with no color selection', async () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          rowIndex={-1}
+          colIndex={-1}
+          defaultSelectedRowIndex={-1}
+          defaultSelectedColIndex={-1}
+        />
+      );
+
+      const trigger = screen.getByRole('button');
+
+      expect(document.body).toHaveFocus();
+
+      act(() => {
+        userEvent.click(trigger);
+      });
+
+      await waitFor(() => {
+        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+      });
+    });
   });
 
   describe('controlled', () => {
+    it('renders the color swatch dialog with no color selection', async () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          rowIndex={-1}
+          colIndex={-1}
+          selectedRowIndex={-1}
+          selectedColIndex={-1}
+        />
+      );
+
+      const trigger = screen.getByRole('button');
+
+      expect(document.body).toHaveFocus();
+
+      act(() => {
+        userEvent.click(trigger);
+      });
+
+      await waitFor(() => {
+        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+      });
+    });
+
+    it('focuses on the selected swatch button when the color dialog is opened with no color selection', async () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          rowIndex={-1}
+          colIndex={-1}
+          selectedRowIndex={-1}
+          selectedColIndex={-1}
+        />
+      );
+
+      const trigger = screen.getByRole('button');
+
+      expect(document.body).toHaveFocus();
+
+      act(() => {
+        userEvent.click(trigger);
+      });
+
+      await waitFor(() => {
+        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+      });
+    });
+
     it('focuses on the selected swatch button when the color dialog is opened', async () => {
       render(<ColorSwatchDialog colors={colors} selectedRowIndex={1} selectedColIndex={1} />);
 

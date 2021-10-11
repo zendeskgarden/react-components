@@ -24,13 +24,21 @@ export interface IColorSwatchProps {
   colors: ILabeledColor[][];
   /** Sets the focused row index in a controlled color swatch */
   rowIndex?: number;
-  /** Sets the focused column index in a controlled color swatch */
+  /** Sets the focused column index in a controlled color swatch.
+   * Can be set to `-1` to clear the row focus.
+   */
   colIndex?: number;
-  /** Sets the selected row index in a controlled color swatch */
+  /** Sets the selected row index in a controlled color swatch.
+   * Can be set to `-1` to clear the column focus.
+   */
   selectedRowIndex?: number;
-  /** Sets the selected column index in a controlled color swatch */
+  /** Sets the selected column index in a controlled color swatch.
+   * Can be set to `-1` to clear the row selection.
+   */
   selectedColIndex?: number;
-  /** Sets the default focused row index in an uncontrolled color swatch */
+  /** Sets the default focused row index in an uncontrolled color swatch.
+   * Can be set to `-1` to clear the column selection.
+   */
   defaultRowIndex?: number;
   /** Sets the default focused column index in an uncontrolled color swatch */
   defaultColIndex?: number;
