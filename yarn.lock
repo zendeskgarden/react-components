@@ -3193,7 +3193,7 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@storybook/addon-a11y@^6.3.10":
+"@storybook/addon-a11y@6.3.10":
   version "6.3.10"
   resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-6.3.10.tgz#a23a1e837c4f750d0efd90aaf64599954fb30f25"
   integrity sha512-EYDTuGIpyFFE/9yah0R6c8+4fTb7ibf5LHb2hh9k++ZOMJbt8SmSSV3WVvt+uvtmN8LZgMvmAfJC8REk1UV+Lg==
@@ -3320,7 +3320,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-essentials@^6.3.10":
+"@storybook/addon-essentials@6.3.10":
   version "6.3.10"
   resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-6.3.10.tgz#c8e515291ce119796cc19eb323cfdd347c612195"
   integrity sha512-cjIXfsgAVw+DTVLbD6x8jg8HInOJyY7PKSlHXNOR8HWtH36BEbiuWE6jqnn5jg3o8rjS73DmfkfPHPX8Jdb3YA==
@@ -3533,7 +3533,7 @@
     webpack-hot-middleware "^2.25.0"
     webpack-virtual-modules "^0.2.2"
 
-"@storybook/builder-webpack5@^6.3.10":
+"@storybook/builder-webpack5@6.3.10":
   version "6.3.10"
   resolved "https://registry.yarnpkg.com/@storybook/builder-webpack5/-/builder-webpack5-6.3.10.tgz#888f5f9bd2c801e444e3b477fd88eacfcd6ff0cc"
   integrity sha512-fnDFS25dVaAapp5ECsnTPVQU0ws5Tpj/x8Lfa/wCqSmq5ia79O9pNFt5vQ+tumhjezYxSUeitI0vF1hHlQrJrg==
@@ -3935,7 +3935,7 @@
     webpack-dev-middleware "^3.7.3"
     webpack-virtual-modules "^0.2.2"
 
-"@storybook/manager-webpack5@^6.3.10":
+"@storybook/manager-webpack5@6.3.10":
   version "6.3.10"
   resolved "https://registry.yarnpkg.com/@storybook/manager-webpack5/-/manager-webpack5-6.3.10.tgz#41748c3ebd350c25901a27f5ae001cd291b3aa0e"
   integrity sha512-wl57VS/iQl0pUxv4IOVO8BXn1HLeaIN9H62Ja2dJ1Nd3hKb8FiQdt9m81MB/Ig2wTqpclMq8Oribef8j9W4Vow==
@@ -4007,7 +4007,7 @@
     react-docgen-typescript "^2.0.0"
     tslib "^2.0.0"
 
-"@storybook/react@^6.3.10":
+"@storybook/react@6.3.10":
   version "6.3.10"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.3.10.tgz#af065ea32a051244065920df4e86029f65dba2c3"
   integrity sha512-UNznbvkpxrBd3yVcptcednjhdoEWSz9wLE6yuTbrW5/E9lv4wuHmxFA42GHKVTNy8Pa7qqPgW5t1XfWivNwOOg==
@@ -20358,7 +20358,7 @@ webpack@4, webpack@^4.43.0:
     watchpack "^1.7.4"
     webpack-sources "^1.4.1"
 
-webpack@^5.58.0, webpack@^5.9.0:
+webpack@5.58.0, webpack@^5.9.0:
   version "5.58.0"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.58.0.tgz#9ec621cf8534f23c25e779e7c35dfde1211d5ccb"
   integrity sha512-xc2k5MLbR1iah24Z5xUm1nBh1PZXEdUnrX6YkTSOScq/VWbl5JCLREXJzGYqEAUbIO8tZI+Dzv82lGtnuUnVCQ==
