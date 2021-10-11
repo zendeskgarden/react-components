@@ -7,7 +7,6 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const TS_CONFIG_PATH = path.resolve(__dirname, '../tsconfig.json');
 const docs = process.env.BROWSER ? process.env.BROWSER.toUpperCase() !== 'IE11' : true;
 
 module.exports = {
