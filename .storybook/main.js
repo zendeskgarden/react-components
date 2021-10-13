@@ -7,18 +7,13 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const TS_CONFIG_PATH = path.resolve(__dirname, '../tsconfig.json');
 const docs = process.env.BROWSER ? process.env.BROWSER.toUpperCase() !== 'IE11' : true;
 
 module.exports = {
   stories: ['../packages/*/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   addons: [{ name: '@storybook/addon-essentials', options: { docs } }, '@storybook/addon-a11y'],
-  typescript: {
-    check: true,
-    checkOptions: {
-      configFile: TS_CONFIG_PATH
-    }
+  core: {
+    builder: 'webpack5'
   },
   webpackFinal: config => {
     const fileLoaderRule = config.module.rules.find(rule => rule.test.test('.svg'));
@@ -27,7 +22,7 @@ module.exports = {
 
     config.module.rules.push({
       test: /\.tsx?$/u,
-      loaders: [
+      use: [
         {
           loader: 'eslint-loader',
           options: {
@@ -55,8 +50,6 @@ module.exports = {
         PACKAGE_VERSION: JSON.stringify('storybook')
       })
     );
-
-    config.resolve.plugins.push(new TsconfigPathsPlugin({ configFile: TS_CONFIG_PATH }));
 
     return config;
   }
