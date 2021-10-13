@@ -12,6 +12,17 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.42.2 (2021-10-13)
+
+#### :bug: Bug Fix
+* `chrome`, `typography`
+  * [#1225](https://github.com/zendeskgarden/react-components/pull/1225) fix(chrome,typography): use precedence boost notation to apply per instance styling ([@jzempel](https://github.com/jzempel))
+* `colorpickers`
+  * [#1221](https://github.com/zendeskgarden/react-components/pull/1221) fix(colorpickers): allow no selection on color swatch dialog ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* [#1223](https://github.com/zendeskgarden/react-components/pull/1223) chore(deps): upgrade webpack to v5 and storybook ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.42.1 (2021-10-06)
 
 #### :bug: Bug Fix
