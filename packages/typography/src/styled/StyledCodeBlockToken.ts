@@ -115,23 +115,23 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
     }
 
     /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before  */
-    ${StyledCodeBlock}.language-css &.plain {
+    ${StyledCodeBlock}.language-css &&.plain {
       color: ${colors.value};
     }
 
-    ${StyledCodeBlock}.language-diff &.coord {
+    ${StyledCodeBlock}.language-diff &&.coord {
       color: ${colors.coord};
     }
 
-    ${StyledCodeBlock}.language-diff &.deleted {
+    ${StyledCodeBlock}.language-diff &&.deleted {
       color: ${colors.deleted};
     }
 
-    ${StyledCodeBlock}.language-diff &.diff {
+    ${StyledCodeBlock}.language-diff &&.diff {
       color: ${colors.diff};
     }
 
-    ${StyledCodeBlock}.language-diff &.inserted {
+    ${StyledCodeBlock}.language-diff &&.inserted {
       color: ${colors.inserted};
     }
     /* stylelint-enable selector-max-specificity,
