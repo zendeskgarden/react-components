@@ -55,6 +55,7 @@ export const Uncontrolled: Story = ({
             isAnimated={isAnimated}
             onChange={action('onChange')}
             popperModifiers={popperModifiers}
+            onDialogChange={action('onDialogChange')}
             buttonProps={{ 'aria-label': 'select your favorite color' }}
           />
         </Col>
