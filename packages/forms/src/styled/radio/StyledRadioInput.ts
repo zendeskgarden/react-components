@@ -107,7 +107,7 @@ const sizeStyles = (props: IStyledRadioInputProps & ThemeProps<DefaultTheme>) =>
       height: ${iconSize};
     }
 
-    & ~ ${StyledRadioLabel} ~ ${StyledMessage} {
+    && ~ ${StyledRadioLabel} ~ ${StyledMessage} {
       margin-top: ${marginTop};
     }
   `;

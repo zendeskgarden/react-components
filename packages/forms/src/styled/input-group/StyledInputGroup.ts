@@ -28,11 +28,11 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 
   return css`
     /* stylelint-disable */
-    ${StyledLabel}:not([hidden]) + &,
-    ${StyledHint} + &,
-    ${StyledMessage} + &,
-    & + ${StyledHint},
-    & + ${StyledMessage} {
+    ${StyledLabel}:not([hidden]) + &&,
+    ${StyledHint} + &&,
+    ${StyledMessage} + &&,
+    && + ${StyledHint},
+    && + ${StyledMessage} {
       margin-top: ${topMargin};
     }
     /* stylelint-enable */
