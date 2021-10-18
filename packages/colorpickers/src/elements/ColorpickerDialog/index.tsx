@@ -29,6 +29,10 @@ import {
   StyledTooltipBody
 } from '../../styled';
 
+interface IDialogChanges {
+  isOpen?: boolean;
+}
+
 export interface IColorpickerDialogProps extends IColorpickerProps {
   /**
    * Handles close actions. Can be triggered from the backdrop.
@@ -64,6 +68,12 @@ export interface IColorpickerDialogProps extends IColorpickerProps {
    * Passes HTML attributes to the color dialog button element
    */
   buttonProps?: HTMLAttributes<HTMLButtonElement>;
+  /**
+   * Handles dialog changes
+   *
+   * @param {Object} changes The changed dialog state
+   */
+  onDialogChange?: (changes: IDialogChanges) => void;
 }
 
 /**
@@ -89,6 +99,7 @@ export const ColorpickerDialog = forwardRef<
       focusInset,
       disabled,
       buttonProps,
+      onDialogChange,
       children,
       ...props
     },
@@ -102,11 +113,21 @@ export const ColorpickerDialog = forwardRef<
       defaultColor
     );
 
+    const openDialog = () => {
+      setReferenceElement(buttonRef.current);
+      onDialogChange && onDialogChange({ isOpen: true });
+    };
+
+    const closeDialog = () => {
+      setReferenceElement(null);
+      onDialogChange && onDialogChange({ isOpen: false });
+    };
+
     const onClick = composeEventHandlers(props.onClick, () => {
       if (referenceElement) {
-        setReferenceElement(null);
+        closeDialog();
       } else {
-        setReferenceElement(buttonRef.current);
+        openDialog();
       }
     });
 
@@ -143,7 +164,7 @@ export const ColorpickerDialog = forwardRef<
           placement={placement}
           referenceElement={referenceElement}
           onClose={() => {
-            setReferenceElement(null);
+            closeDialog();
             onClose && onClose(isControlled ? (color as IColor) : (uncontrolledColor as IColor));
           }}
           {...props}
@@ -183,6 +204,7 @@ ColorpickerDialog.propTypes = {
   ]),
   onClose: PropTypes.func,
   onChange: PropTypes.func,
+  onDialogChange: PropTypes.func,
   disabled: PropTypes.bool,
   labels: PropTypes.object,
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),

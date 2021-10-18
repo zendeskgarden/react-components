@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
@@ -75,6 +76,7 @@ export const WithIconButton: Story = ({
             placement={placement}
             isAnimated={isAnimated}
             onClose={setSelectedColor}
+            onDialogChange={action('onDialogChange')}
           >
             <PaletteIconButton iconColor={iconColor} disabled={disabled} />
           </ColorpickerDialog>

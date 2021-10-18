@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
@@ -66,6 +67,7 @@ export const Controlled: Story = ({
             placement={placement}
             isAnimated={isAnimated}
             popperModifiers={popperModifiers}
+            onDialogChange={action('onDialogChange')}
             buttonProps={{ 'aria-label': 'select your favorite color' }}
           />
         </Col>

@@ -29,6 +29,10 @@ import {
   StyledTooltipBody
 } from '../../styled';
 
+interface IDialogChanges {
+  isOpen?: boolean;
+}
+
 export interface IColorSwatchDialogProps extends IColorSwatchProps {
   /** Adjusts the placement of the color dialog */
   placement?: GARDEN_PLACEMENT;
@@ -46,6 +50,12 @@ export interface IColorSwatchDialogProps extends IColorSwatchProps {
   focusInset?: boolean;
   /** Passes HTML attributes to the color dialog button element */
   buttonProps?: HTMLAttributes<HTMLButtonElement>;
+  /**
+   * Handles dialog changes
+   *
+   * @param {Object} changes The changed dialog state
+   */
+  onDialogChange?: (changes: IDialogChanges) => void;
 }
 
 /**
@@ -76,6 +86,7 @@ export const ColorSwatchDialog = forwardRef<
       focusInset,
       disabled,
       buttonProps,
+      onDialogChange,
       children,
       ...props
     },
@@ -116,11 +127,21 @@ export const ColorSwatchDialog = forwardRef<
       controlledSelectedColor = colors[selectedRowIndex][selectedColIndex];
     }
 
+    const openDialog = () => {
+      setReferenceElement(buttonRef.current);
+      onDialogChange && onDialogChange({ isOpen: true });
+    };
+
+    const closeDialog = () => {
+      setReferenceElement(null);
+      onDialogChange && onDialogChange({ isOpen: false });
+    };
+
     const onClick = composeEventHandlers(props.onClick, () => {
       if (referenceElement) {
-        setReferenceElement(null);
+        closeDialog();
       } else {
-        setReferenceElement(buttonRef.current);
+        openDialog();
       }
     });
 
@@ -173,7 +194,7 @@ export const ColorSwatchDialog = forwardRef<
           isAnimated={isAnimated}
           popperModifiers={popperModifiers}
           referenceElement={referenceElement}
-          onClose={() => setReferenceElement(null)}
+          onClose={closeDialog}
           {...props}
         >
           <StyledTooltipBody>
@@ -221,6 +242,7 @@ ColorSwatchDialog.propTypes = {
     'start-bottom'
   ]),
   onChange: PropTypes.func,
+  onDialogChange: PropTypes.func,
   disabled: PropTypes.bool,
   buttonProps: PropTypes.object
 };
