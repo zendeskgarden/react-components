@@ -43,3 +43,13 @@ export { StyledSubNavItemHeader } from './subnav/StyledSubNavItemHeader';
 export type { IStyledSubNavItemHeaderProps } from './subnav/StyledSubNavItemHeader';
 export { StyledSubNavItemIconWrapper, StyledSubNavItemIcon } from './subnav/StyledSubNavItemIcon';
 export { StyledSubNavPanel } from './subnav/StyledSubNavPanel';
+export { StyledSheet } from './sheet/StyledSheet';
+export { StyledSheetTitle } from './sheet/StyledSheetTitle';
+export { StyledSheetDescription } from './sheet/StyledSheetDescription';
+export { StyledSheetBody } from './sheet/StyledSheetBody';
+export { StyledSheetCloseButton } from './sheet/StyledSheetCloseButton';
+export { StyledSheetFooter } from './sheet/StyledSheetFooter';
+export type { IStyledSheetFooterProps } from './sheet/StyledSheetFooter';
+export { StyledSheetFooterItem } from './sheet/StyledSheetFooterItem';
+export { StyledSheetHeader } from './sheet/StyledSheetHeader';
+
