@@ -24,6 +24,33 @@ describe('ColorpickerDialog', () => {
     expect(screen.getByTestId('colordialog')).toBe(ref.current);
   });
 
+  it('calls onDialogChange when the dialog state changes', () => {
+    const onDialogChange = jest.fn();
+    const label = 'Choose your favorite color';
+
+    render(
+      <ColorpickerDialog
+        defaultColor="#17494D"
+        onDialogChange={onDialogChange}
+        buttonProps={{ 'aria-label': label }}
+      />
+    );
+
+    const trigger = screen.getByLabelText(label);
+
+    act(() => {
+      userEvent.click(trigger);
+    });
+
+    expect(onDialogChange).toHaveBeenCalledTimes(1);
+    expect(onDialogChange).toHaveBeenCalledWith({ isOpen: true });
+
+    userEvent.keyboard('{esc}');
+
+    expect(onDialogChange).toHaveBeenCalledTimes(2);
+    expect(onDialogChange).toHaveBeenCalledWith({ isOpen: false });
+  });
+
   it('applies buttonProps to the button element', () => {
     render(
       <ColorpickerDialog

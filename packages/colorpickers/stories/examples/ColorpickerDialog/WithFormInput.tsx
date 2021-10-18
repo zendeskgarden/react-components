@@ -8,6 +8,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { IColor, ColorpickerDialog } from '@zendeskgarden/react-colorpickers';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
@@ -103,6 +104,7 @@ export const WithFormInput: Story = ({
                 disabled={disabled}
                 hasArrow={hasArrow}
                 isAnimated={isAnimated}
+                onDialogChange={action('onDialogChange')}
               />
             </InputGroup>
           </StyledField>

@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { parseToRgb, toColorString } from 'polished';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
@@ -48,6 +49,7 @@ export const Controlled: Story = ({
             hasArrow={hasArrow}
             isAnimated={isAnimated}
             isOpaque={isOpaque}
+            onDialogChange={action('onDialogChange')}
             buttonProps={{ 'aria-label': 'select your favorite color' }}
           />
         </Col>
