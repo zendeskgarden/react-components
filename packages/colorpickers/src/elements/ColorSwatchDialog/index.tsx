@@ -53,7 +53,7 @@ export interface IColorSwatchDialogProps extends IColorSwatchProps {
   /**
    * Handles dialog changes
    *
-   * @param {object} changes The changed dialog state
+   * @param {Object} changes The changed dialog state
    */
   onDialogChange?: (changes: IDialogChanges) => void;
 }
@@ -242,6 +242,7 @@ ColorSwatchDialog.propTypes = {
     'start-bottom'
   ]),
   onChange: PropTypes.func,
+  onDialogChange: PropTypes.func,
   disabled: PropTypes.bool,
   buttonProps: PropTypes.object
 };

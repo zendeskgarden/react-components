@@ -71,7 +71,7 @@ export interface IColorpickerDialogProps extends IColorpickerProps {
   /**
    * Handles dialog changes
    *
-   * @param {object} changes The changed dialog state
+   * @param {Object} changes The changed dialog state
    */
   onDialogChange?: (changes: IDialogChanges) => void;
 }
@@ -204,6 +204,7 @@ ColorpickerDialog.propTypes = {
   ]),
   onClose: PropTypes.func,
   onChange: PropTypes.func,
+  onDialogChange: PropTypes.func,
   disabled: PropTypes.bool,
   labels: PropTypes.object,
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
