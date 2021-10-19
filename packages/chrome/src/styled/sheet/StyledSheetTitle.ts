@@ -14,6 +14,7 @@ export const StyledSheetTitle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  font-weight: ${props => props.theme.fontWeights.semibold};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

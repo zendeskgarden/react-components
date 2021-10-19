@@ -10,9 +10,9 @@ import { Story } from '@storybook/react';
 
 import { Sheet } from '@zendeskgarden/react-chrome';
 
-export const SheetStory: Story = () => {
+export const SheetStory: Story = ({ isOpen }) => {
   return (
-    <Sheet isOpen={true}>
+    <Sheet isOpen={isOpen} style={{ maxHeight: '600px' }}>
       <Sheet.Header>
         <Sheet.Title>Garden</Sheet.Title>
         <Sheet.Description>Vegetables in the Garden</Sheet.Description>
@@ -66,11 +66,12 @@ export const SheetStory: Story = () => {
 SheetStory.storyName = 'Standalone Sheet';
 
 SheetStory.args = {
-  visible: true
+  isOpen: true
 };
 
 SheetStory.argTypes = {
-  visible: {
-    name: 'visible'
+  isOpen: {
+    name: 'isOpen',
+    control: 'boolean'
   }
 };

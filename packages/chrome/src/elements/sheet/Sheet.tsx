@@ -35,7 +35,7 @@ interface ISheetProps {
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Sheet = React.forwardRef<HTMLElement, ISheetProps & HTMLAttributes<HTMLElement>>(
-  ({ isOpen, focusOnMount, onClose, isAnimated, children, ...props }: ISheetProps, ref) => {
+  ({ isOpen, focusOnMount, onClose, isAnimated = true, children, ...props }: ISheetProps, ref) => {
     const sheetRef = useRef<HTMLElement>();
 
     const { getSheetProps, ...context } = useSheet({
@@ -48,7 +48,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps & HTMLAttributes<
       if (isOpen && focusOnMount && sheetRef.current) {
         sheetRef.current.focus();
       }
-    }, [focusOnMount]);
+    }, [focusOnMount, isOpen]);
 
     if (isAnimated) {
       return (

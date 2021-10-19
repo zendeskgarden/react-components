@@ -10,10 +10,14 @@ import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 import { StyledSheetCloseButton } from '../../../styled';
 
+import { useSheetContext } from '../../../utils/useSheetContext';
+
 export const SheetCloseButton = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   (props, ref) => {
+    const { getCloseButtonProps } = useSheetContext();
+
     return (
-      <StyledSheetCloseButton ref={ref} {...props}>
+      <StyledSheetCloseButton ref={ref} {...getCloseButtonProps(props)}>
         <XStrokeIcon />
       </StyledSheetCloseButton>
     );
