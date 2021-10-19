@@ -7,14 +7,16 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
- 
+
 const COMPONENT_ID = 'chrome.sheet_footer_item';
 
 export const StyledSheetFooterItem = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION 
+  'data-garden-version': PACKAGE_VERSION
 })`
   margin: auto 10px;
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledSheetFooterItem.defaultProps = {

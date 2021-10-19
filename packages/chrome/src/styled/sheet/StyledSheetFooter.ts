@@ -11,20 +11,22 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'chrome.sheet_footer';
 
 export interface IStyledSheetFooterProps {
-  isCompact?: boolean
+  isCompact?: boolean;
 }
 
 export const StyledSheetFooter = styled.footer.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-}) <IStyledSheetFooterProps>`
-  border-top: 1px solid #d8dcde;
-  padding: ${(props) => (props.isCompact ? "10px" : "20px")};
+  /* add RTL support with start/end */
+})<IStyledSheetFooterProps>`
   display: flex;
   flex-flow: row wrap;
-  /* add RTL support with start/end */
-  justify-content: ${(props) => (props.isCompact ? "center" : "flex-end")};
   align-items: center;
+  justify-content: ${props => (props.isCompact ? 'center' : 'flex-end')};
+  border-top: 1px solid #d8dcde;
+  padding: ${props => (props.isCompact ? '10px' : '20px')};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledSheetFooter.defaultProps = {

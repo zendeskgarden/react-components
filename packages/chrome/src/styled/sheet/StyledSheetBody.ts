@@ -16,6 +16,8 @@ export const StyledSheetBody = styled.div.attrs({
 })`
   flex: 1;
   overflow: auto;
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledSheetBody.defaultProps = {
