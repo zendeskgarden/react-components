@@ -112,4 +112,22 @@ describe('ColorpickerDialog', () => {
     expect(screen.queryByLabelText('Hue slider')).toBeNull();
     expect(screen.queryByLabelText('Alpha slider')).toBeNull();
   });
+
+  it('opens a controlled color dialog', async () => {
+    render(<ColorpickerDialog color="rgba(23,73,77,1)" isOpen />);
+
+    await act(async () => {
+      const dialog = await screen.queryByRole('dialog');
+
+      expect(dialog).toBeInTheDocument();
+    });
+  });
+
+  it('closes a controlled color dialog', () => {
+    render(<ColorpickerDialog color="rgba(23,73,77,1)" isOpen={false} />);
+
+    const dialog = screen.queryByRole('dialog');
+
+    expect(dialog).toBeNull();
+  });
 });

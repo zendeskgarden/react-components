@@ -53,7 +53,7 @@ PaletteIconButton.displayName = 'PaletteIconButton';
 
 const matrix = convertToMatrix(colors, 5);
 
-export const WithIconButton: Story = ({ placement, disabled, hasArrow, isAnimated }) => {
+export const WithIconButton: Story = ({ placement, disabled, hasArrow, isAnimated, isOpen }) => {
   const [rowIndex, setRowIndex] = useState(-1);
   const [colIndex, setColIndex] = useState(-1);
   const [selectedRowIndex, setSelectedRowIndex] = useState(-1);
@@ -95,6 +95,7 @@ export const WithIconButton: Story = ({ placement, disabled, hasArrow, isAnimate
             hasArrow={hasArrow}
             placement={placement}
             isAnimated={isAnimated}
+            isOpen={isOpen}
             onChange={onChange}
             onSelect={onSelect}
           >
@@ -127,6 +128,7 @@ export const WithIconButton: Story = ({ placement, disabled, hasArrow, isAnimate
 };
 
 WithIconButton.args = {
+  isOpen: false,
   disabled: false,
   hasArrow: true,
   isAnimated: true,

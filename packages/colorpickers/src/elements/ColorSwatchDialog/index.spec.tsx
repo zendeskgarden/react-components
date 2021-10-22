@@ -242,5 +242,41 @@ describe('ColorSwatchDialog', () => {
 
       expect(trigger).toHaveFocus();
     });
+
+    it('opens a controlled color dialog', async () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          rowIndex={-1}
+          colIndex={-1}
+          selectedRowIndex={-1}
+          selectedColIndex={-1}
+          isOpen
+        />
+      );
+
+      await act(async () => {
+        const dialog = await screen.queryByRole('dialog');
+
+        expect(dialog).toBeInTheDocument();
+      });
+    });
+
+    it('closes a controlled color dialog', () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          rowIndex={-1}
+          colIndex={-1}
+          selectedRowIndex={-1}
+          selectedColIndex={-1}
+          isOpen={false}
+        />
+      );
+
+      const dialog = screen.queryByRole('dialog');
+
+      expect(dialog).toBeNull();
+    });
   });
 });

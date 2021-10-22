@@ -54,7 +54,8 @@ export const WithIconButton: Story = ({
   alpha,
   disabled,
   hasArrow,
-  isAnimated
+  isAnimated,
+  isOpen
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 1)');
@@ -75,6 +76,7 @@ export const WithIconButton: Story = ({
             hasArrow={hasArrow}
             placement={placement}
             isAnimated={isAnimated}
+            isOpen={isOpen}
             onClose={setSelectedColor}
             onDialogChange={action('onDialogChange')}
           >
@@ -97,6 +99,7 @@ WithIconButton.args = {
   disabled: false,
   hasArrow: true,
   isAnimated: true,
+  isOpen: false,
   placement: 'bottom'
 };
 

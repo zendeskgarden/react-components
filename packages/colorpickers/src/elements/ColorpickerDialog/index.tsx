@@ -8,6 +8,7 @@
 import React, {
   useState,
   useRef,
+  useEffect,
   Children,
   cloneElement,
   forwardRef,
@@ -61,6 +62,10 @@ export interface IColorpickerDialogProps extends IColorpickerProps {
    */
   isAnimated?: boolean;
   /**
+   * Opens the dialog in a controlled color picker dialog
+   */
+  isOpen?: boolean;
+  /**
    * Applies inset `box-shadow` styling on focus
    */
   focusInset?: boolean;
@@ -94,6 +99,7 @@ export const ColorpickerDialog = forwardRef<
       hasArrow,
       isAnimated,
       isOpaque,
+      isOpen,
       popperModifiers,
       zIndex,
       focusInset,
@@ -106,6 +112,7 @@ export const ColorpickerDialog = forwardRef<
     ref
   ) => {
     const isControlled = color !== null && color !== undefined;
+    const isDialogControlled = isOpen !== undefined && isOpen !== null;
     const buttonRef = useRef<HTMLButtonElement>(null);
     const colorPickerRef = useRef<HTMLDivElement>(null);
     const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
@@ -130,6 +137,16 @@ export const ColorpickerDialog = forwardRef<
         openDialog();
       }
     });
+
+    useEffect(() => {
+      if (isDialogControlled) {
+        if (isOpen) {
+          setReferenceElement(buttonRef.current);
+        } else {
+          setReferenceElement(null);
+        }
+      }
+    }, [isOpen, isDialogControlled]);
 
     return (
       <>
