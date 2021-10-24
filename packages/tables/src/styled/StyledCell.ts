@@ -23,7 +23,7 @@ export interface IStyledCellProps {
   isTruncated?: boolean;
   /** Applies styling for a cell that contains an overflow menu */
   hasOverflow?: boolean;
-  /** Adjusts the width of the cell */
+  /** Adjusts the [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) of the cell */
   width?: string | number;
   /** Adjusts the vertical padding of the cell */
   size: SIZE;
