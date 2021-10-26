@@ -50,6 +50,8 @@ export interface IColorSwatchDialogProps extends IColorSwatchProps {
   focusInset?: boolean;
   /** Passes HTML attributes to the color dialog button element */
   buttonProps?: HTMLAttributes<HTMLButtonElement>;
+  /** Opens the dialog in a controlled color swatch dialog */
+  isOpen?: boolean;
   /**
    * Handles dialog changes
    *
@@ -83,6 +85,7 @@ export const ColorSwatchDialog = forwardRef<
       isAnimated,
       popperModifiers,
       zIndex,
+      isOpen,
       focusInset,
       disabled,
       buttonProps,
@@ -100,6 +103,7 @@ export const ColorSwatchDialog = forwardRef<
       selectedRowIndex !== undefined &&
       selectedColIndex !== undefined;
     const isControlled = controlledFocus || controlledSelect;
+    const isDialogControlled = isOpen !== undefined && isOpen !== null;
     const buttonRef = useRef<HTMLButtonElement>(null);
     const colorSwatchRef = useRef<HTMLTableElement>(null);
     const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
@@ -109,6 +113,16 @@ export const ColorSwatchDialog = forwardRef<
     const [uncontrolledSelectedColIndex, setUncontrolledSelectedColIndex] = useState(
       defaultSelectedColIndex || 0
     );
+
+    useEffect(() => {
+      if (isDialogControlled) {
+        if (isOpen) {
+          setReferenceElement(buttonRef.current);
+        } else {
+          setReferenceElement(null);
+        }
+      }
+    }, [isOpen, isDialogControlled]);
 
     let uncontrolledSelectedColor;
     let controlledSelectedColor;

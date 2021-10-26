@@ -34,7 +34,8 @@ export const Controlled: Story = ({
   zIndex,
   hasArrow,
   isAnimated,
-  popperModifiers
+  popperModifiers,
+  isOpen
 }) => {
   const [rowIndex, setRowIndex] = useState(-1);
   const [colIndex, setColIndex] = useState(-1);
@@ -66,6 +67,7 @@ export const Controlled: Story = ({
             disabled={disabled}
             placement={placement}
             isAnimated={isAnimated}
+            isOpen={isOpen}
             popperModifiers={popperModifiers}
             onDialogChange={action('onDialogChange')}
             buttonProps={{ 'aria-label': 'select your favorite color' }}
@@ -104,6 +106,7 @@ export const Controlled: Story = ({
 };
 
 Controlled.args = {
+  isOpen: false,
   disabled: false,
   hasArrow: false,
   isAnimated: true

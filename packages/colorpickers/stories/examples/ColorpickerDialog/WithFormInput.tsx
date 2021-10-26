@@ -41,7 +41,8 @@ export const WithFormInput: Story = ({
   alpha,
   disabled,
   hasArrow,
-  isAnimated
+  isAnimated,
+  isOpen
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [input, setInput] = useState('#17494d99');
@@ -104,6 +105,7 @@ export const WithFormInput: Story = ({
                 disabled={disabled}
                 hasArrow={hasArrow}
                 isAnimated={isAnimated}
+                isOpen={isOpen}
                 onDialogChange={action('onDialogChange')}
               />
             </InputGroup>
@@ -125,6 +127,7 @@ WithFormInput.args = {
   disabled: false,
   hasArrow: false,
   isAnimated: true,
+  isOpen: false,
   placement: 'bottom-end'
 };
 
