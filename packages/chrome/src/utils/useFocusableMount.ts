@@ -12,7 +12,7 @@ export interface IUseFocusableMountProp {
   isMounted?: boolean;
   focusOnMount?: boolean;
   restoreFocus?: boolean;
-  targetRef: MutableRefObject<HTMLElement | undefined>;
+  targetRef: MutableRefObject<HTMLElement | null>;
 }
 
 export function useFocusableMount({
@@ -21,7 +21,7 @@ export function useFocusableMount({
   restoreFocus,
   targetRef
 }: IUseFocusableMountProp) {
-  const wasOpenRef = useRef(false);
+  const wasOpenRef = useRef<boolean>(false);
   const triggerRef = useRef<HTMLElement | Element | null>();
 
   useEffect(() => {
