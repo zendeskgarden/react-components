@@ -9,10 +9,25 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import { Sheet } from '@zendeskgarden/react-chrome';
+import { Button } from '@zendeskgarden/react-buttons';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { useState } from '@storybook/addons';
 
-export const SheetStory: Story = ({ isOpen }) => {
+export const SheetStory: Story = ({
+  isOpen,
+  isAnimated,
+  focusOnMount,
+  restoreFocus,
+  onClick = () => null
+}) => {
   return (
-    <Sheet isOpen={isOpen} style={{ maxHeight: '600px' }}>
+    <Sheet
+      isOpen={isOpen}
+      isAnimated={isAnimated}
+      focusOnMount={focusOnMount}
+      restoreFocus={restoreFocus}
+      style={{ maxHeight: '600px' }}
+    >
       <Sheet.Header>
         <Sheet.Title>Garden</Sheet.Title>
         <Sheet.Description>Vegetables in the Garden</Sheet.Description>
@@ -58,7 +73,7 @@ export const SheetStory: Story = ({ isOpen }) => {
           <a href="/#">Footer</a>
         </Sheet.FooterItem>
       </Sheet.Footer>
-      <Sheet.Close />
+      <Sheet.Close onClick={onClick} />
     </Sheet>
   );
 };
@@ -66,12 +81,69 @@ export const SheetStory: Story = ({ isOpen }) => {
 SheetStory.storyName = 'Standalone Sheet';
 
 SheetStory.args = {
-  isOpen: true
+  isOpen: true,
+  isAnimated: true,
+  focusOnMount: false,
+  restoreFocus: false
 };
 
 SheetStory.argTypes = {
   isOpen: {
     name: 'isOpen',
+    control: 'boolean'
+  },
+  isAnimated: {
+    name: 'isAnimated',
+    control: 'boolean'
+  },
+  focusOnMount: {
+    name: 'focusOnMount',
+    control: 'boolean'
+  },
+  restoreFocus: {
+    name: 'restoreFocus',
+    control: 'boolean'
+  }
+};
+
+export const ControlledSheetStory: Story = ({ focusOnMount, restoreFocus }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Grid>
+      <Row>
+        <Col>
+          <Button onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen}>
+            Open Sheet
+          </Button>
+        </Col>
+        <Col>
+          <SheetStory
+            isOpen={isOpen}
+            focusOnMount={focusOnMount}
+            restoreFocus={restoreFocus}
+            onClick={() => setIsOpen(false)}
+          />
+        </Col>
+      </Row>
+    </Grid>
+  );
+};
+
+ControlledSheetStory.storyName = 'Controlled Sheet';
+
+ControlledSheetStory.args = {
+  focusOnMount: true,
+  restoreFocus: true
+};
+
+ControlledSheetStory.argTypes = {
+  focusOnMount: {
+    name: 'focusOnMount',
+    control: 'boolean'
+  },
+  restoreFocus: {
+    name: 'restoreFocus',
     control: 'boolean'
   }
 };

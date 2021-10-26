@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useEffect, useRef } from 'react';
+import React, { HTMLAttributes, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 
 import { StyledSheet } from '../../styled';
 import { SheetContext } from '../../utils/useSheetContext';
 import { useSheet } from '../../utils/useSheet';
+import { useFocusableMount } from '../../utils/useFocusableMount';
 
 import { SheetTitle } from './components/Title';
 import { SheetDescription } from './components/Description';
@@ -23,11 +24,10 @@ import { SheetCloseButton } from './components/Close';
 
 interface ISheetProps {
   isOpen: boolean;
+  isAnimated?: boolean;
   focusOnMount?: boolean;
   restoreFocus?: boolean;
-  isAnimated?: boolean;
   placement?: 'start' | 'end';
-  onClose?: (event: any) => void;
   children?: React.ReactNode;
 }
 
@@ -35,20 +35,17 @@ interface ISheetProps {
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Sheet = React.forwardRef<HTMLElement, ISheetProps & HTMLAttributes<HTMLElement>>(
-  ({ isOpen, focusOnMount, onClose, isAnimated = true, children, ...props }: ISheetProps, ref) => {
+  (
+    { isOpen, isAnimated = true, focusOnMount, restoreFocus, children, ...props }: ISheetProps,
+    ref
+  ) => {
     const sheetRef = useRef<HTMLElement>();
 
-    const { getSheetProps, ...context } = useSheet({
-      isOpen,
-      focusOnMount,
-      onClose
-    });
+    useFocusableMount({ targetRef: sheetRef, isMounted: isOpen, focusOnMount, restoreFocus });
 
-    useEffect(() => {
-      if (isOpen && focusOnMount && sheetRef.current) {
-        sheetRef.current.focus();
-      }
-    }, [focusOnMount, isOpen]);
+    const { getSheetProps, ...context } = useSheet({
+      isOpen
+    });
 
     if (isAnimated) {
       return (
@@ -62,7 +59,6 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps & HTMLAttributes<
       );
     }
 
-    // todo for Deric: Find a better way to disable CSSTransition.
     return (
       <SheetContext.Provider value={context as any}>
         {isOpen ? (
@@ -76,6 +72,14 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps & HTMLAttributes<
 ) as any;
 
 Sheet.displayName = 'Sheet';
+
+Sheet.defaultProps = {
+  isOpen: false,
+  isAnimated: false,
+  focusOnMount: false,
+  restoreFocus: false,
+  placement: 'end'
+};
 
 Sheet.Title = SheetTitle;
 Sheet.Description = SheetDescription;

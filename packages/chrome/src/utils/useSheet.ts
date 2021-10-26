@@ -6,9 +6,8 @@
  */
 
 import { useCallback, useMemo, useState } from 'react';
-import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 
-export const useSheet = ({ isOpen, onClose }: any) => {
+export const useSheet = ({ isOpen }: any) => {
   // TODO: generate ids
   const [labelId] = useState('title-id');
   const [descriptionId] = useState('description-id');
@@ -21,17 +20,14 @@ export const useSheet = ({ isOpen, onClose }: any) => {
   );
 
   const getCloseButtonProps = useCallback(
-    ({ onClick, ...other }) => {
+    ({ ...other }) => {
       return {
         'aria-expanded': `${isOpen}`,
         'aria-label': 'Close Side Sheet',
-        onClick: composeEventHandlers(onClick, (event: any) => {
-          onClose && onClose(event);
-        }),
         ...other
       };
     },
-    [onClose, isOpen]
+    [isOpen]
   );
 
   const getSheetProps = useCallback(

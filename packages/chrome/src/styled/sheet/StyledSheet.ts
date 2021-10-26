@@ -12,18 +12,20 @@ const COMPONENT_ID = 'chrome.sheet';
 
 export const StyledSheet = styled.aside.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION 
+  'data-garden-version': PACKAGE_VERSION
 })`
-  position: relative;
-  min-height: 100%;
-  width: 380px;
-  border: 1px solid #d8dcde;
   display: flex;
+  position: relative;
   flex-direction: column;
   order: 10; /* arbitrary number for now to set side position */
 
-  will-change: width;
   transition: width 0.25s ease-in-out;
+  will-change: width;
+
+  border: 1px solid #d8dcde;
+
+  width: 380px;
+  min-height: 100%;
 
   & > * {
     transition: opacity 0.5s ease-in-out;
@@ -31,7 +33,8 @@ export const StyledSheet = styled.aside.attrs({
   }
 
   &.side-sheet-transition-enter {
-    width: 0px;
+    width: 0;
+
     & > * {
       opacity: 0;
     }
@@ -39,13 +42,15 @@ export const StyledSheet = styled.aside.attrs({
 
   &.side-sheet-transition-enter-active {
     width: 380px;
+
     & > * {
       opacity: 100;
     }
   }
 
   &.side-sheet-transition-exit {
-    width: 0px;
+    width: 0;
+
     & > * {
       transition: opacity 0.125s ease-in-out;
       opacity: 0;
