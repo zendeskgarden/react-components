@@ -243,12 +243,15 @@ export const Default: Story<IDefaultStoryProps> = ({
               gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu
               beetroot horseradish carrot squash brussels sprout chard.
             </p>
-            <Button onClick={() => setShowSheet(!showSheet)}> Open Sheet </Button>
+            <Button aria-expanded={showSheet} onClick={() => setShowSheet(!showSheet)}>
+              {' '}
+              Open Sheet{' '}
+            </Button>
           </Main>
-          <Sheet isOpen={showSheet} onClose={() => setShowSheet(false)}>
+          <Sheet isOpen={showSheet}>
             <Sheet.Header>
-              <Sheet.Title> Heading </Sheet.Title>
-              <Sheet.Description> Details </Sheet.Description>
+              <Sheet.Title> Gardening </Sheet.Title>
+              <Sheet.Description> Somebody gotta start gardening. </Sheet.Description>
             </Sheet.Header>
             <Sheet.Body>
               <Accordion level={4}>
@@ -327,7 +330,7 @@ export const Default: Story<IDefaultStoryProps> = ({
                 </Button>
               </Sheet.FooterItem>
             </Sheet.Footer>
-            <Sheet.Close />
+            <Sheet.Close onClick={() => setShowSheet(false)} />
           </Sheet>
         </Content>
         <Footer>

@@ -7,19 +7,18 @@
 
 import React, { forwardRef, HTMLAttributes } from 'react';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import { IconButton } from '@zendeskgarden/react-buttons';
 
-import { StyledSheetCloseButton } from '../../../styled';
-
-import { useSheetContext } from '../../../utils/useSheetContext';
+import { StyledSheetCloseButtonContainer } from '../../../styled';
 
 export const SheetCloseButton = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   (props, ref) => {
-    const { getCloseButtonProps } = useSheetContext();
-
     return (
-      <StyledSheetCloseButton ref={ref} {...getCloseButtonProps(props)}>
-        <XStrokeIcon />
-      </StyledSheetCloseButton>
+      <StyledSheetCloseButtonContainer>
+        <IconButton aria-expanded ref={ref} {...props}>
+          <XStrokeIcon />
+        </IconButton>
+      </StyledSheetCloseButtonContainer>
     );
   }
 );

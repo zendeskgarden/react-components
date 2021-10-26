@@ -6,8 +6,13 @@
  */
 
 import { createContext, useContext } from 'react';
+interface ISheetContext {
+  idPrefix?: string;
+}
 
-export const SheetContext = createContext(undefined);
+export const SheetContext = createContext<ISheetContext>({
+  idPrefix: undefined
+});
 
 export const useSheetContext = () => {
   const context = useContext(SheetContext);

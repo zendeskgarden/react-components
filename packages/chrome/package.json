@@ -24,6 +24,8 @@
     "@zendeskgarden/container-accordion": "^1.0.3",
     "@zendeskgarden/container-keyboardfocus": "^0.4.7",
     "@zendeskgarden/container-utilities": "^0.6.0",
+    "@zendeskgarden/react-buttons": "^8.43.0",
+    "@zendeskgarden/react-typography": "^8.43.0",
     "dom-helpers": "^5.2.1",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7",
