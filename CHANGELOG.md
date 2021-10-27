@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.44.0 (2021-10-27)
+
+#### :rocket: New Feature
+* `colorpickers`
+  * [#1228](https://github.com/zendeskgarden/react-components/pull/1228) feat(colorpickers): add isOpen control prop to dialogs ([@hzhu](https://github.com/hzhu))
+
 ## v8.43.0 (2021-10-20)
 
 #### :rocket: New Feature
