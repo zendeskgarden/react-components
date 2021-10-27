@@ -6,7 +6,7 @@
  */
 
 import { createContext, useContext } from 'react';
-interface ISheetContext {
+export interface ISheetContext {
   idPrefix?: string;
 }
 

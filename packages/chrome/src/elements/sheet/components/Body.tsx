@@ -10,7 +10,7 @@ import { StyledSheetBody } from '../../../styled';
 
 export const SheetBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
-    return <StyledSheetBody ref={ref} {...props} />;
+    return <StyledSheetBody tabIndex="0" ref={ref} {...props} />;
   }
 );
 

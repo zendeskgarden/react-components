@@ -15,7 +15,7 @@ export const StyledSheetBody = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   flex: 1;
-  overflow: auto;
+  overflow-y: auto;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

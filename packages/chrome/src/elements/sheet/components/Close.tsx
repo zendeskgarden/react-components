@@ -15,7 +15,7 @@ export const SheetCloseButton = forwardRef<HTMLElement, HTMLAttributes<HTMLEleme
   (props, ref) => {
     return (
       <StyledSheetCloseButtonContainer>
-        <IconButton aria-expanded ref={ref} {...props}>
+        <IconButton aria-expanded aria-label="Close Sheet" ref={ref} {...props}>
           <XStrokeIcon />
         </IconButton>
       </StyledSheetCloseButtonContainer>

@@ -13,9 +13,9 @@ import { useSheetContext } from '../../../utils/useSheetContext';
 export const SheetDescription = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   ({ id, ...props }, ref) => {
     const { idPrefix } = useSheetContext();
-    const DescriptionId = `${idPrefix}--description`;
+    const descriptionId = `${idPrefix}--description`;
 
-    return <SM id={id || DescriptionId} ref={ref} {...props} />;
+    return <SM id={id || descriptionId} ref={ref} {...props} />;
   }
 );
 

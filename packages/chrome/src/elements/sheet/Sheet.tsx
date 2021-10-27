@@ -19,7 +19,7 @@ import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 
 import { StyledSheet } from '../../styled';
-import { SheetContext } from '../../utils/useSheetContext';
+import { SheetContext, ISheetContext } from '../../utils/useSheetContext';
 import { useFocusableMount } from '../../utils/useFocusableMount';
 
 import { SheetTitle } from './components/Title';
@@ -42,9 +42,9 @@ interface IStaticSheetExport<T, P>
 }
 
 interface ISheetProps extends HTMLAttributes<HTMLElement> {
+  id?: string;
   isOpen: boolean;
   isAnimated?: boolean;
-  id?: string;
   focusOnMount?: boolean;
   restoreFocus?: boolean;
   placement?: 'start' | 'end';
@@ -56,29 +56,28 @@ interface ISheetProps extends HTMLAttributes<HTMLElement> {
 // eslint-disable-next-line react/display-name
 export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
   (
-    { isOpen, id, isAnimated, focusOnMount, restoreFocus, children, ...props }: ISheetProps,
+    { id, isOpen, isAnimated, focusOnMount, restoreFocus, children, ...props }: ISheetProps,
     ref
   ) => {
-    const sheetRef = useRef<HTMLElement>();
+    const sheetRef = useRef<HTMLElement>(null);
 
     const seed = useUIDSeed();
-    const [idPrefix] = useState(id || seed(`sheet_${PACKAGE_VERSION}`));
-
-    useFocusableMount({ targetRef: sheetRef, isMounted: isOpen, focusOnMount, restoreFocus });
+    const [idPrefix] = useState<string>(id || seed(`sheet_${PACKAGE_VERSION}`));
+    const titleId = `${idPrefix}--title`;
+    const descriptionId = `${idPrefix}--description`;
 
     const context = useMemo(() => ({ idPrefix }), [idPrefix]);
 
-    const titleId = `${idPrefix}--title`;
-    const DescriptionId = `${idPrefix}--description`;
+    useFocusableMount({ targetRef: sheetRef, isMounted: isOpen, focusOnMount, restoreFocus });
 
     if (isAnimated) {
       return (
-        <SheetContext.Provider value={context as any}>
+        <SheetContext.Provider value={context as ISheetContext}>
           <CSSTransition in={isOpen} unmountOnExit timeout={250} classNames="side-sheet-transition">
             <StyledSheet
               tabIndex="-1"
               aria-labelledby={titleId}
-              aria-describedby={DescriptionId}
+              aria-describedby={descriptionId}
               ref={mergeRefs([sheetRef, ref])}
               {...props}
             >
@@ -90,12 +89,12 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
     }
 
     return (
-      <SheetContext.Provider value={context as any}>
+      <SheetContext.Provider value={context as ISheetContext}>
         {isOpen ? (
           <StyledSheet
             tabIndex="-1"
             aria-labelledby={titleId}
-            aria-describedby={DescriptionId}
+            aria-describedby={descriptionId}
             ref={mergeRefs([sheetRef, ref])}
             {...props}
           >
@@ -120,7 +119,7 @@ Sheet.displayName = 'Sheet';
 Sheet.defaultProps = {
   isOpen: false,
   isAnimated: true,
-  focusOnMount: true,
-  restoreFocus: true,
+  focusOnMount: false,
+  restoreFocus: false,
   placement: 'end'
 };

@@ -19,14 +19,12 @@ const placementStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledSheetCloseButtonContainer = styled.button.attrs({
+export const StyledSheetCloseButtonContainer = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
   display: block;
   position: absolute;
-  border: none;
-  background: none;
   ${props => placementStyles(props)};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

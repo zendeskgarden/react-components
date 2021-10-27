@@ -9,7 +9,8 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import { Sheet } from '@zendeskgarden/react-chrome';
-import { Button } from '@zendeskgarden/react-buttons';
+import { SM } from '@zendeskgarden/react-typography';
+import { Button, Anchor } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { useState } from '@storybook/addons';
 
@@ -33,7 +34,7 @@ export const SheetStory: Story = ({
         <Sheet.Description>Vegetables in the Garden</Sheet.Description>
       </Sheet.Header>
       <Sheet.Body style={{ padding: '20px' }}>
-        <p style={{ textAlign: 'left' }}>
+        <SM style={{ textAlign: 'left' }}>
           Shaved almonds soy milk black bean chili dip second course salad edamame apple vinaigrette
           cremini mushrooms tofu mint with fiery fruit coconut sugar roasted peanuts Thai dark and
           stormy banana crunchy seaweed sparkling pomegranate punch summer blackberries strawberry
@@ -43,8 +44,8 @@ export const SheetStory: Story = ({
           basil pesto Thai super chili. Blueberries casserole cumin picnic salad cherries heat miso
           turmeric glazed aubergine vine tomatoes cool fig arugula cashew salad chia seeds homemade
           balsamic sesame soba noodles.
-        </p>
-        <p style={{ textAlign: 'left' }}>
+        </SM>
+        <SM style={{ textAlign: 'left' }}>
           Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
           Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Corn
           amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke. Nori
@@ -53,8 +54,8 @@ export const SheetStory: Story = ({
           grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Corn
           amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke. Nori
           grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
-        </p>
-        <p style={{ textAlign: 'left' }}>
+        </SM>
+        <SM style={{ textAlign: 'left' }}>
           Candy cane winter Malaysian sleepy morning tea refreshing cucumber splash chilies dessert
           blueberry pops avocado fresh bananas lingonberry. Tasty grenadillo peach strawberry mango
           cayenne hummus Caribbean red habanero edamame hummus bento box pumpkin butternut mix chili
@@ -66,11 +67,11 @@ export const SheetStory: Story = ({
           kung pao pepper vitamin glow picnic hearty sweet potato peaches appetizer green grapes
           tabasco pepper red amazon pepper Mexican fiesta dark chocolate coriander Sicilian
           pistachio pesto ginger tofu basil chocolate.
-        </p>
+        </SM>
       </Sheet.Body>
       <Sheet.Footer isCompact={true}>
         <Sheet.FooterItem>
-          <a href="/#">Footer</a>
+          <Anchor href="/#">Footer</Anchor>
         </Sheet.FooterItem>
       </Sheet.Footer>
       <Sheet.Close onClick={onClick} />
