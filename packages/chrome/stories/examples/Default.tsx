@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
+import { useArgs } from '@storybook/client-api';
 import GuideIcon from '@zendeskgarden/svg-icons/src/26/relationshape-guide.svg';
 import SupportIcon from '@zendeskgarden/svg-icons/src/26/relationshape-support.svg';
 import ChatIcon from '@zendeskgarden/svg-icons/src/26/relationshape-chat.svg';
@@ -76,6 +77,7 @@ interface IDefaultStoryProps {
   isExpanded: boolean;
   showSubnav: boolean;
   showSidebar: boolean;
+  showSheet: boolean;
   hueColor?: string;
   itemCount: number;
 }
@@ -85,13 +87,14 @@ export const Default: Story<IDefaultStoryProps> = ({
   isExpanded,
   showSubnav,
   showSidebar,
+  showSheet,
   hueColor,
   itemCount
 }) => {
+  const [_, updateArgs] = useArgs();
   const [currentNavItem, setCurrentNavItem] = useState('home');
   const [currentSubnavItem, setCurrentSubnavItem] = useState('item-1');
   const [showCollapsed, setShowCollapsed] = useState(false);
-  const [showSheet, setShowSheet] = useState(false);
   const subNavItems = Array(itemCount)
     .fill(undefined)
     .map((s, i) => i);
@@ -243,9 +246,12 @@ export const Default: Story<IDefaultStoryProps> = ({
               gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu
               beetroot horseradish carrot squash brussels sprout chard.
             </p>
-            <Button aria-expanded={showSheet} onClick={() => setShowSheet(!showSheet)}>
+            <Button
+              aria-expanded={showSheet}
+              onClick={() => updateArgs({ ..._, showSheet: !showSheet })}
+            >
               {' '}
-              Open Sheet{' '}
+              {showSheet ? 'Close' : 'Open'} Sheet{' '}
             </Button>
           </Main>
           <Sheet isOpen={showSheet}>
@@ -253,7 +259,7 @@ export const Default: Story<IDefaultStoryProps> = ({
               <Sheet.Title> Gardening </Sheet.Title>
               <Sheet.Description> Somebody gotta start gardening. </Sheet.Description>
             </Sheet.Header>
-            <Sheet.Body>
+            <Sheet.Body style={{ padding: 0 }}>
               <Accordion level={4}>
                 <Accordion.Section>
                   <Accordion.Header>
@@ -324,13 +330,13 @@ export const Default: Story<IDefaultStoryProps> = ({
                 <Button isBasic> Action </Button>
               </Sheet.FooterItem>
               <Sheet.FooterItem>
-                <Button isPrimary onClick={() => setShowSheet(false)}>
+                <Button isPrimary onClick={() => updateArgs({ ..._, showSheet: false })}>
                   {' '}
                   Close{' '}
                 </Button>
               </Sheet.FooterItem>
             </Sheet.Footer>
-            <Sheet.Close onClick={() => setShowSheet(false)} />
+            <Sheet.Close onClick={() => updateArgs({ ..._, showSheet: false })} />
           </Sheet>
         </Content>
         <Footer>
@@ -351,6 +357,7 @@ Default.args = {
   isExpanded: false,
   showSubnav: true,
   showSidebar: false,
+  showSheet: false,
   hueColor: undefined,
   itemCount: 3
 };
@@ -371,6 +378,9 @@ Default.argTypes = {
   },
   showSidebar: {
     name: 'Show sidebar'
+  },
+  showSheet: {
+    name: 'Show sheet'
   },
   hueColor: { name: 'Hue', control: 'color' },
   itemCount: {

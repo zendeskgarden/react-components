@@ -61,4 +61,4 @@ export default {
 
 export { Default } from './examples/Default';
 export { StandaloneHeader } from './examples/StandaloneHeader';
-export { SheetStory, ControlledSheetStory } from './examples/Sheet';
+export { SheetStory } from './examples/Sheet';

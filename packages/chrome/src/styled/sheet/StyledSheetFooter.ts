@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_footer';
@@ -17,13 +17,12 @@ export interface IStyledSheetFooterProps {
 export const StyledSheetFooter = styled.footer.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-  /* add RTL support with start/end */
-})<IStyledSheetFooterProps>`
+})<IStyledSheetFooterProps & ThemeProps<DefaultTheme>>`
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: ${props => (props.theme.rtl ? 'row-reverse' : 'row')} wrap;
   align-items: center;
   justify-content: ${props => (props.isCompact ? 'center' : 'flex-end')};
-  border-top: 1px solid #d8dcde;
+  border-top: 1px solid ${props => props.theme.palette.grey[300]};
   padding: ${props => (props.isCompact ? '10px' : '20px')};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

@@ -7,88 +7,123 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
+import { useArgs } from '@storybook/client-api';
 
+import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Sheet } from '@zendeskgarden/react-chrome';
-import { SM } from '@zendeskgarden/react-typography';
+import { SM, Paragraph } from '@zendeskgarden/react-typography';
 import { Button, Anchor } from '@zendeskgarden/react-buttons';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import { useState } from '@storybook/addons';
 
 export const SheetStory: Story = ({
+  rtl,
   isOpen,
   isAnimated,
   focusOnMount,
   restoreFocus,
-  onClick = () => null
+  isCompact,
+  placement
 }) => {
+  const [_, updateArgs] = useArgs();
+
   return (
-    <Sheet
-      isOpen={isOpen}
-      isAnimated={isAnimated}
-      focusOnMount={focusOnMount}
-      restoreFocus={restoreFocus}
-      style={{ maxHeight: '600px' }}
-    >
-      <Sheet.Header>
-        <Sheet.Title>Garden</Sheet.Title>
-        <Sheet.Description>Vegetables in the Garden</Sheet.Description>
-      </Sheet.Header>
-      <Sheet.Body style={{ padding: '20px' }}>
-        <SM style={{ textAlign: 'left' }}>
-          Shaved almonds soy milk black bean chili dip second course salad edamame apple vinaigrette
-          cremini mushrooms tofu mint with fiery fruit coconut sugar roasted peanuts Thai dark and
-          stormy banana crunchy seaweed sparkling pomegranate punch summer blackberries strawberry
-          spinach salad crispy Thai curry mediterranean vegetables crumbled lentils. Apricot
-          shiitake mushrooms seasonal rich coconut cream ginger carrot spiced juice guacamole hot
-          sandwiches burritos jalapeño four-layer green tea overflowing berries pomegranate avocado
-          basil pesto Thai super chili. Blueberries casserole cumin picnic salad cherries heat miso
-          turmeric glazed aubergine vine tomatoes cool fig arugula cashew salad chia seeds homemade
-          balsamic sesame soba noodles.
-        </SM>
-        <SM style={{ textAlign: 'left' }}>
-          Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
-          Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Corn
-          amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke. Nori
-          grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Corn
-          amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke. Nori
-          grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Corn
-          amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke. Nori
-          grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
-        </SM>
-        <SM style={{ textAlign: 'left' }}>
-          Candy cane winter Malaysian sleepy morning tea refreshing cucumber splash chilies dessert
-          blueberry pops avocado fresh bananas lingonberry. Tasty grenadillo peach strawberry mango
-          cayenne hummus Caribbean red habanero edamame hummus bento box pumpkin butternut mix chili
-          asian pear green tea lime entree maple orange tempeh miso dressing alfalfa sprouts winter
-          cherry black bean wraps toasted hazelnuts lavender lemonade. Pesto banh mi salad rolls
-          peanut butter one bowl apples mocha chocolate cool off lemon Bolivian rainbow pepper
-          avocado dressing drizzle black beans cinnamon mangos garlic sriracha noodles Thai sun
-          pepper creamiest lentils oranges soba noodles. Lime mango crisp couscous paprika pine nuts
-          kung pao pepper vitamin glow picnic hearty sweet potato peaches appetizer green grapes
-          tabasco pepper red amazon pepper Mexican fiesta dark chocolate coriander Sicilian
-          pistachio pesto ginger tofu basil chocolate.
-        </SM>
-      </Sheet.Body>
-      <Sheet.Footer isCompact={true}>
-        <Sheet.FooterItem>
-          <Anchor href="/#">Footer</Anchor>
-        </Sheet.FooterItem>
-      </Sheet.Footer>
-      <Sheet.Close onClick={onClick} />
-    </Sheet>
+    <ThemeProvider theme={{ ...DEFAULT_THEME, rtl }}>
+      <Sheet
+        isOpen={isOpen}
+        isAnimated={isAnimated}
+        focusOnMount={focusOnMount}
+        restoreFocus={restoreFocus}
+        placement={placement}
+        style={{ maxHeight: '600px' }}
+      >
+        <Sheet.Header>
+          <Sheet.Title>Garden</Sheet.Title>
+          <Sheet.Description>Vegetables in the Garden</Sheet.Description>
+        </Sheet.Header>
+        <Sheet.Body>
+          <Paragraph>
+            <SM>
+              Shaved almonds soy milk black bean chili dip second course salad edamame apple
+              vinaigrette cremini mushrooms tofu mint with fiery fruit coconut sugar roasted peanuts
+              Thai dark and stormy banana crunchy seaweed sparkling pomegranate punch summer
+              blackberries strawberry spinach salad crispy Thai curry mediterranean vegetables
+              crumbled lentils. Apricot shiitake mushrooms seasonal rich coconut cream ginger carrot
+              spiced juice guacamole hot sandwiches burritos jalapeño four-layer green tea
+              overflowing berries pomegranate avocado basil pesto Thai super chili. Blueberries
+              casserole cumin picnic salad cherries heat miso turmeric glazed aubergine vine
+              tomatoes cool fig arugula cashew salad chia seeds homemade balsamic sesame soba
+              noodles.
+            </SM>
+          </Paragraph>
+          <Paragraph>
+            <SM>
+              Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper
+              artichoke. Nori grape silver beet broccoli kombu beet greens fava bean potato quandong
+              celery. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper
+              artichoke. Nori grape silver beet broccoli kombu beet greens fava bean potato quandong
+              celery. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper
+              artichoke. Nori grape silver beet broccoli kombu beet greens fava bean potato quandong
+              celery. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper
+              artichoke. Nori grape silver beet broccoli kombu beet greens fava bean potato quandong
+              celery.
+            </SM>
+          </Paragraph>
+          <Paragraph>
+            <SM>
+              Candy cane winter Malaysian sleepy morning tea refreshing cucumber splash chilies
+              dessert blueberry pops avocado fresh bananas lingonberry. Tasty grenadillo peach
+              strawberry mango cayenne hummus Caribbean red habanero edamame hummus bento box
+              pumpkin butternut mix chili asian pear green tea lime entree maple orange tempeh miso
+              dressing alfalfa sprouts winter cherry black bean wraps toasted hazelnuts lavender
+              lemonade. Pesto banh mi salad rolls peanut butter one bowl apples mocha chocolate cool
+              off lemon Bolivian rainbow pepper avocado dressing drizzle black beans cinnamon mangos
+              garlic sriracha noodles Thai sun pepper creamiest lentils oranges soba noodles. Lime
+              mango crisp couscous paprika pine nuts kung pao pepper vitamin glow picnic hearty
+              sweet potato peaches appetizer green grapes tabasco pepper red amazon pepper Mexican
+              fiesta dark chocolate coriander Sicilian pistachio pesto ginger tofu basil chocolate.
+            </SM>
+          </Paragraph>
+        </Sheet.Body>
+        <Sheet.Footer isCompact={isCompact}>
+          {isCompact ? (
+            <Sheet.FooterItem>
+              <Anchor href="/#">Footer</Anchor>
+            </Sheet.FooterItem>
+          ) : (
+            <>
+              <Sheet.FooterItem>
+                <Button isBasic>Action</Button>
+              </Sheet.FooterItem>
+              <Sheet.FooterItem>
+                <Button isPrimary onClick={() => updateArgs({ ..._, isOpen: false })}>
+                  Close
+                </Button>
+              </Sheet.FooterItem>
+            </>
+          )}
+        </Sheet.Footer>
+        <Sheet.Close onClick={() => updateArgs({ ..._, isOpen: false })} />
+      </Sheet>
+    </ThemeProvider>
   );
 };
 
 SheetStory.storyName = 'Standalone Sheet';
 
 SheetStory.args = {
+  rtl: false,
   isOpen: true,
   isAnimated: true,
   focusOnMount: false,
-  restoreFocus: false
+  restoreFocus: false,
+  isCompact: false,
+  placement: 'end'
 };
 
 SheetStory.argTypes = {
+  rtl: {
+    name: 'rtl',
+    control: 'boolean'
+  },
   isOpen: {
     name: 'isOpen',
     control: 'boolean'
@@ -104,47 +139,14 @@ SheetStory.argTypes = {
   restoreFocus: {
     name: 'restoreFocus',
     control: 'boolean'
-  }
-};
-
-export const ControlledSheetStory: Story = ({ focusOnMount, restoreFocus }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <Grid>
-      <Row>
-        <Col>
-          <Button onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen}>
-            Open Sheet
-          </Button>
-        </Col>
-        <Col>
-          <SheetStory
-            isOpen={isOpen}
-            focusOnMount={focusOnMount}
-            restoreFocus={restoreFocus}
-            onClick={() => setIsOpen(false)}
-          />
-        </Col>
-      </Row>
-    </Grid>
-  );
-};
-
-ControlledSheetStory.storyName = 'Controlled Sheet';
-
-ControlledSheetStory.args = {
-  focusOnMount: true,
-  restoreFocus: true
-};
-
-ControlledSheetStory.argTypes = {
-  focusOnMount: {
-    name: 'focusOnMount',
+  },
+  isCompact: {
+    name: 'isCompact',
     control: 'boolean'
   },
-  restoreFocus: {
-    name: 'restoreFocus',
-    control: 'boolean'
+  placement: {
+    name: 'placement',
+    options: ['start', 'end'],
+    control: { type: 'select' }
   }
 };

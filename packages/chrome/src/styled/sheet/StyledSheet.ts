@@ -5,24 +5,37 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet';
 
+interface IStyledSheetProps {
+  placement: 'start' | 'end';
+}
+
+const sheetSmartBorderStyle = ({
+  theme,
+  placement
+}: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
+  let borderSide = '';
+
+  if (placement === 'end') borderSide = '-left';
+  else if (placement === 'start') borderSide = '-right';
+
+  return `border${borderSide}: 1px solid ${theme.palette.grey[300]};`;
+};
+
 export const StyledSheet = styled.aside.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledSheetProps>`
   display: flex;
   position: relative;
   flex-direction: column;
-  order: 10; /* arbitrary number for now to set side position */
 
   transition: width 0.25s ease-in-out;
   will-change: width;
-
-  border: 1px solid #d8dcde;
 
   width: 380px;
   min-height: 100%;
@@ -57,6 +70,7 @@ export const StyledSheet = styled.aside.attrs({
     }
   }
 
+  ${props => sheetSmartBorderStyle(props)}
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

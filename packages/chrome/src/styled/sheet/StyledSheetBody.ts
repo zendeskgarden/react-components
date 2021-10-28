@@ -16,6 +16,7 @@ export const StyledSheetBody = styled.div.attrs({
 })`
   flex: 1;
   overflow-y: auto;
+  padding: 20px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

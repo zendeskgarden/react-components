@@ -15,7 +15,7 @@ const placementStyles = (props: ThemeProps<DefaultTheme>) => {
 
   return css`
     top: ${props.theme.space.base * 3}px;
-    ${placement}: ${props.theme.space.base * 0}px;
+    ${placement}: ${props.theme.space.base * 1}px;
   `;
 };
 
