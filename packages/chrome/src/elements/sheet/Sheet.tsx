@@ -42,12 +42,18 @@ interface IStaticSheetExport<T, P>
   Close: typeof SheetCloseButton;
 }
 
-interface ISheetProps extends HTMLAttributes<HTMLElement> {
+export interface ISheetProps extends HTMLAttributes<HTMLElement> {
+  /** An ID that is applied to Sheet elements */
   id?: string;
-  isOpen: boolean;
+  /** Determines whether the Sheet is open or not **/
+  isOpen?: boolean;
+  /** Determines whether animation for opening and closing the Sheet is used **/
   isAnimated?: boolean;
+  /** Focuses on the Sheet when isOpen is true and mounted **/
   focusOnMount?: boolean;
+  /** Restores focus to the previous element after the Sheet is closed **/
   restoreFocus?: boolean;
+  /** Determines the position of the Sheet **/
   placement?: 'start' | 'end';
 }
 
@@ -74,13 +80,16 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
     if (isAnimated) {
       return (
         <SheetContext.Provider value={context as ISheetContext}>
-          <CSSTransition in={isOpen} unmountOnExit timeout={250} classNames="side-sheet-transition">
+          <CSSTransition 
+            in={isOpen} 
+            unmountOnExit 
+            timeout={250} 
+            classNames="side-sheet-transition">
             <StyledSheet
-              tabIndex="-1"
               aria-labelledby={titleId}
               aria-describedby={descriptionId}
               ref={mergeRefs([sheetRef, ref])}
-              {...props}
+              {...props as any}
             >
               {children}
             </StyledSheet>
@@ -93,11 +102,10 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
       <SheetContext.Provider value={context as ISheetContext}>
         {isOpen ? (
           <StyledSheet
-            tabIndex="-1"
             aria-labelledby={titleId}
             aria-describedby={descriptionId}
             ref={mergeRefs([sheetRef, ref])}
-            {...props}
+            {...props as any}
           >
             {children}
           </StyledSheet>

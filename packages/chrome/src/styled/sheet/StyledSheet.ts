@@ -28,7 +28,8 @@ const sheetSmartBorderStyle = ({
 
 export const StyledSheet = styled.aside.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  tabIndex: -1
 })<IStyledSheetProps>`
   display: flex;
   position: relative;
