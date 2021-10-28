@@ -33,6 +33,7 @@ export const StyledSheet = styled.aside.attrs({
   display: flex;
   position: relative;
   flex-direction: column;
+  order: 1;
 
   transition: width 0.25s ease-in-out;
   will-change: width;
