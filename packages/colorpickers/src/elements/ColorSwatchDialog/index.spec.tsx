@@ -7,7 +7,7 @@
 
 import React, { createRef } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, screen, act, waitFor } from 'garden-test-utils';
+import { render, screen, act, waitFor, waitForElementToBeRemoved } from 'garden-test-utils';
 import { ColorSwatchDialog } from './index';
 
 const colors = [
@@ -167,6 +167,38 @@ describe('ColorSwatchDialog', () => {
       act(() => {
         userEvent.click(trigger);
       });
+
+      await waitFor(() => {
+        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+      });
+    });
+
+    it('retains previously selected indices when dialog is opened again', async () => {
+      render(<ColorSwatchDialog colors={colors} />);
+
+      const trigger = screen.getByRole('button');
+
+      userEvent.click(trigger);
+
+      expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+
+      userEvent.keyboard('{arrowright}');
+
+      expect(screen.getByTestId('#aecfc2')).toHaveFocus();
+
+      userEvent.keyboard('{enter}');
+
+      userEvent.keyboard('{esc}');
+
+      expect(trigger).toHaveFocus();
+
+      await waitForElementToBeRemoved(screen.getByRole('dialog'));
+
+      userEvent.click(trigger);
+
+      expect(screen.getByTestId('#aecfc2')).toHaveFocus();
+
+      userEvent.keyboard('{arrowleft}');
 
       await waitFor(() => {
         expect(screen.getByTestId('#d1e8df')).toHaveFocus();
