@@ -14,6 +14,7 @@ import React, {
   RefAttributes,
   ForwardRefExoticComponent
 } from 'react';
+import PropTypes from 'prop-types';
 import { useUIDSeed } from 'react-uid';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
@@ -115,6 +116,14 @@ Sheet.FooterItem = SheetFooterItem;
 Sheet.Close = SheetCloseButton;
 
 Sheet.displayName = 'Sheet';
+
+Sheet.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  isAnimated: PropTypes.bool,
+  focusOnMount: PropTypes.bool,
+  restoreFocus: PropTypes.bool,
+  placement: PropTypes.oneOf(['start', 'end'])
+};
 
 Sheet.defaultProps = {
   isOpen: false,
