@@ -41,7 +41,7 @@ export const SheetStory: Story = ({
         </Sheet.Header>
         <Sheet.Body>
           <Paragraph>
-            <SM>
+            <SM tag="span">
               Shaved almonds soy milk black bean chili dip second course salad edamame apple
               vinaigrette cremini mushrooms tofu mint with fiery fruit coconut sugar roasted peanuts
               Thai dark and stormy banana crunchy seaweed sparkling pomegranate punch summer
@@ -55,7 +55,7 @@ export const SheetStory: Story = ({
             </SM>
           </Paragraph>
           <Paragraph>
-            <SM>
+            <SM tag="span">
               Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper
               artichoke. Nori grape silver beet broccoli kombu beet greens fava bean potato quandong
               celery. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper
@@ -68,7 +68,7 @@ export const SheetStory: Story = ({
             </SM>
           </Paragraph>
           <Paragraph>
-            <SM>
+            <SM tag="span">
               Candy cane winter Malaysian sleepy morning tea refreshing cucumber splash chilies
               dessert blueberry pops avocado fresh bananas lingonberry. Tasty grenadillo peach
               strawberry mango cayenne hummus Caribbean red habanero edamame hummus bento box
@@ -108,6 +108,10 @@ export const SheetStory: Story = ({
 };
 
 SheetStory.storyName = 'Standalone Sheet';
+
+SheetStory.parameters = {
+  layout: 'centered'
+};
 
 SheetStory.args = {
   rtl: false,

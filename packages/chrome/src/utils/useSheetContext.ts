@@ -11,15 +11,9 @@ export interface ISheetContext {
 }
 
 export const SheetContext = createContext<ISheetContext>({
-  idPrefix: undefined
+  idPrefix: 'sheet'
 });
 
 export const useSheetContext = () => {
-  const context = useContext(SheetContext);
-
-  if (context === undefined) {
-    throw new Error('useSheetContext must be used within a SheetContext.Provider');
-  }
-
-  return context;
+  return useContext(SheetContext);
 };
