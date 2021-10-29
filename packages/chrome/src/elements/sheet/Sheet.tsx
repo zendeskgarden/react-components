@@ -80,16 +80,12 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
     if (isAnimated) {
       return (
         <SheetContext.Provider value={context as ISheetContext}>
-          <CSSTransition 
-            in={isOpen} 
-            unmountOnExit 
-            timeout={250} 
-            classNames="side-sheet-transition">
+          <CSSTransition in={isOpen} unmountOnExit timeout={250} classNames="side-sheet-transition">
             <StyledSheet
               aria-labelledby={titleId}
               aria-describedby={descriptionId}
               ref={mergeRefs([sheetRef, ref])}
-              {...props as any}
+              {...(props as any)}
             >
               {children}
             </StyledSheet>
@@ -105,7 +101,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
             aria-labelledby={titleId}
             aria-describedby={descriptionId}
             ref={mergeRefs([sheetRef, ref])}
-            {...props as any}
+            {...(props as any)}
           >
             {children}
           </StyledSheet>
