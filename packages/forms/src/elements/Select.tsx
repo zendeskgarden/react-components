@@ -28,11 +28,12 @@ export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
  * @extends SelectHTMLAttributes<HTMLSelectElement>
  */
 export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
-  ({ disabled, ...props }, ref) => {
+  ({ disabled, isCompact, ...props }, ref) => {
     const fieldContext = useFieldContext();
 
     let combinedProps = {
       disabled,
+      isCompact,
       ref,
       ...props
     };
@@ -42,7 +43,7 @@ export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
     }
 
     return (
-      <StyledSelectWrapper>
+      <StyledSelectWrapper isCompact={isCompact}>
         <StyledSelect {...(combinedProps as any)} />
         {!props.isBare && (
           <FauxInput.EndIcon isDisabled={disabled}>

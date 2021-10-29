@@ -180,12 +180,12 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
     }
 
     /* stylelint-disable */
-    ${StyledLabel}:not([hidden]) + &,
-    ${StyledHint} + &,
-    ${StyledMessage} + &,
-    & + ${StyledHint},
-    & + ${StyledMessage} {
-      margin-top: ${math(`${props.theme.space.base} * ${props.isCompact ? '1px' : '2px'}`)};
+    ${StyledLabel}:not([hidden]) + &&,
+    ${StyledHint} + &&,
+    ${StyledMessage} + &&,
+    && + ${StyledHint},
+    && + ${StyledMessage} {
+      margin-top: ${props.theme.space.base * (props.isCompact ? 1 : 2)}px;
     }
     /* stylelint-enable */
   `;

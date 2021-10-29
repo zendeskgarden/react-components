@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
@@ -53,7 +54,8 @@ export const WithIconButton: Story = ({
   alpha,
   disabled,
   hasArrow,
-  isAnimated
+  isAnimated,
+  isOpen
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, 1)');
@@ -74,7 +76,9 @@ export const WithIconButton: Story = ({
             hasArrow={hasArrow}
             placement={placement}
             isAnimated={isAnimated}
+            isOpen={isOpen}
             onClose={setSelectedColor}
+            onDialogChange={action('onDialogChange')}
           >
             <PaletteIconButton iconColor={iconColor} disabled={disabled} />
           </ColorpickerDialog>
@@ -95,6 +99,7 @@ WithIconButton.args = {
   disabled: false,
   hasArrow: true,
   isAnimated: true,
+  isOpen: false,
   placement: 'bottom'
 };
 

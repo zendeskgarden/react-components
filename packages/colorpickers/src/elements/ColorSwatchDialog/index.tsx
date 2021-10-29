@@ -29,6 +29,10 @@ import {
   StyledTooltipBody
 } from '../../styled';
 
+interface IDialogChanges {
+  isOpen?: boolean;
+}
+
 export interface IColorSwatchDialogProps extends IColorSwatchProps {
   /** Adjusts the placement of the color dialog */
   placement?: GARDEN_PLACEMENT;
@@ -46,6 +50,14 @@ export interface IColorSwatchDialogProps extends IColorSwatchProps {
   focusInset?: boolean;
   /** Passes HTML attributes to the color dialog button element */
   buttonProps?: HTMLAttributes<HTMLButtonElement>;
+  /** Opens the dialog in a controlled color swatch dialog */
+  isOpen?: boolean;
+  /**
+   * Handles dialog changes
+   *
+   * @param {Object} changes The changed dialog state
+   */
+  onDialogChange?: (changes: IDialogChanges) => void;
 }
 
 /**
@@ -62,6 +74,8 @@ export const ColorSwatchDialog = forwardRef<
       colIndex,
       selectedRowIndex,
       selectedColIndex,
+      defaultRowIndex,
+      defaultColIndex,
       defaultSelectedRowIndex,
       defaultSelectedColIndex,
       placement,
@@ -71,9 +85,11 @@ export const ColorSwatchDialog = forwardRef<
       isAnimated,
       popperModifiers,
       zIndex,
+      isOpen,
       focusInset,
       disabled,
       buttonProps,
+      onDialogChange,
       children,
       ...props
     },
@@ -87,6 +103,7 @@ export const ColorSwatchDialog = forwardRef<
       selectedRowIndex !== undefined &&
       selectedColIndex !== undefined;
     const isControlled = controlledFocus || controlledSelect;
+    const isDialogControlled = isOpen !== undefined && isOpen !== null;
     const buttonRef = useRef<HTMLButtonElement>(null);
     const colorSwatchRef = useRef<HTMLTableElement>(null);
     const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
@@ -96,30 +113,62 @@ export const ColorSwatchDialog = forwardRef<
     const [uncontrolledSelectedColIndex, setUncontrolledSelectedColIndex] = useState(
       defaultSelectedColIndex || 0
     );
-    const uncontrolledSelectedColor =
-      colors[uncontrolledSelectedRowIndex][uncontrolledSelectedColIndex];
-    const controlledColor = isControlled
-      ? colors[selectedRowIndex as number][selectedColIndex as number]
-      : undefined;
+
+    useEffect(() => {
+      if (isDialogControlled) {
+        if (isOpen) {
+          setReferenceElement(buttonRef.current);
+        } else {
+          setReferenceElement(null);
+        }
+      }
+    }, [isOpen, isDialogControlled]);
+
+    let uncontrolledSelectedColor;
+    let controlledSelectedColor;
+
+    if (uncontrolledSelectedRowIndex > -1 && uncontrolledSelectedColIndex > -1) {
+      uncontrolledSelectedColor =
+        colors[uncontrolledSelectedRowIndex][uncontrolledSelectedColIndex];
+    }
+
+    if (
+      selectedRowIndex !== undefined &&
+      selectedColIndex !== undefined &&
+      selectedRowIndex > -1 &&
+      selectedColIndex > -1
+    ) {
+      controlledSelectedColor = colors[selectedRowIndex][selectedColIndex];
+    }
+
+    const openDialog = () => {
+      setReferenceElement(buttonRef.current);
+      onDialogChange && onDialogChange({ isOpen: true });
+    };
+
+    const closeDialog = () => {
+      setReferenceElement(null);
+      onDialogChange && onDialogChange({ isOpen: false });
+    };
 
     const onClick = composeEventHandlers(props.onClick, () => {
       if (referenceElement) {
-        setReferenceElement(null);
+        closeDialog();
       } else {
-        setReferenceElement(buttonRef.current);
+        openDialog();
       }
     });
 
     useEffect(() => {
       if (referenceElement && colorSwatchRef.current) {
-        const buttons = colorSwatchRef.current.querySelectorAll<HTMLElement>('button');
-        const selectedCells =
-          colorSwatchRef.current.querySelectorAll<HTMLElement>('[aria-selected="true"]');
+        const focusableButton =
+          colorSwatchRef.current.querySelector<HTMLButtonElement>('[tabindex="0"]');
+        const selectedCell = colorSwatchRef.current.querySelector('[aria-selected="true"]');
 
-        if (selectedCells.length) {
-          (selectedCells[0].children[0] as HTMLButtonElement).focus();
+        if (selectedCell) {
+          (selectedCell.children[0] as HTMLButtonElement).focus();
         } else {
-          buttons[0].focus();
+          focusableButton?.focus();
         }
       }
     }, [referenceElement]);
@@ -141,7 +190,7 @@ export const ColorSwatchDialog = forwardRef<
           >
             <StyledButtonPreview
               backgroundColor={
-                isControlled ? controlledColor?.value : uncontrolledSelectedColor.value
+                isControlled ? controlledSelectedColor?.value : uncontrolledSelectedColor?.value
               }
             />
             {/* eslint-disable-next-line no-eq-null, eqeqeq */}
@@ -159,7 +208,7 @@ export const ColorSwatchDialog = forwardRef<
           isAnimated={isAnimated}
           popperModifiers={popperModifiers}
           referenceElement={referenceElement}
-          onClose={() => setReferenceElement(null)}
+          onClose={closeDialog}
           {...props}
         >
           <StyledTooltipBody>
@@ -170,8 +219,8 @@ export const ColorSwatchDialog = forwardRef<
               colIndex={colIndex}
               selectedRowIndex={selectedRowIndex}
               selectedColIndex={selectedColIndex}
-              defaultRowIndex={uncontrolledSelectedRowIndex}
-              defaultColIndex={uncontrolledSelectedColIndex}
+              defaultRowIndex={defaultRowIndex}
+              defaultColIndex={defaultColIndex}
               defaultSelectedRowIndex={uncontrolledSelectedRowIndex}
               defaultSelectedColIndex={uncontrolledSelectedColIndex}
               onChange={onChange}
@@ -207,6 +256,7 @@ ColorSwatchDialog.propTypes = {
     'start-bottom'
   ]),
   onChange: PropTypes.func,
+  onDialogChange: PropTypes.func,
   disabled: PropTypes.bool,
   buttonProps: PropTypes.object
 };

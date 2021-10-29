@@ -42,7 +42,7 @@ export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>({
   ${props =>
     props.isExpanded &&
     `
-    ${StyledNavItem} > & {
+    ${StyledNavItem} > && {
       position: static;
       flex: 1;
       clip: auto;

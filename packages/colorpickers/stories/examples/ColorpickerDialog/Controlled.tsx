@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { parseToRgb, toColorString } from 'polished';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
@@ -29,7 +30,8 @@ export const Controlled: Story = ({
   disabled,
   hasArrow,
   isAnimated,
-  isOpaque
+  isOpaque,
+  isOpen
 }) => {
   const labels = { alphaSlider, hueSlider, hex, red, green, blue, alpha };
   const [color, setColor] = useState<string | IColor>('rgba(22,73,77,1)');
@@ -48,6 +50,8 @@ export const Controlled: Story = ({
             hasArrow={hasArrow}
             isAnimated={isAnimated}
             isOpaque={isOpaque}
+            isOpen={isOpen}
+            onDialogChange={action('onDialogChange')}
             buttonProps={{ 'aria-label': 'select your favorite color' }}
           />
         </Col>
@@ -75,7 +79,8 @@ Controlled.args = {
   disabled: false,
   hasArrow: false,
   isAnimated: true,
-  isOpaque: false
+  isOpaque: false,
+  isOpen: false
 };
 
 Controlled.argTypes = {

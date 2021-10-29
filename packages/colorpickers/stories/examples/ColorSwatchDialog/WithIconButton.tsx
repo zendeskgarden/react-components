@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
-import { IconButton } from '@zendeskgarden/react-buttons';
+import { Button, IconButton } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
 import { convertToMatrix } from '@zendeskgarden/container-utilities';
@@ -24,7 +24,7 @@ export default {
 export const colors = labeledColors(
   DEFAULT_THEME.palette,
   ['green', 'red', 'blue', 'yellow'],
-  ['200', '300', '400', '500', '600', '700', '800']
+  ['200', '300', '400', '500', '600']
 );
 
 interface IPaletteIconButton {
@@ -51,24 +51,76 @@ const PaletteIconButton = React.forwardRef(
 
 PaletteIconButton.displayName = 'PaletteIconButton';
 
-const matrix = convertToMatrix(colors, 7);
+const matrix = convertToMatrix(colors, 5);
 
-export const WithIconButton: Story = ({ placement, disabled, hasArrow, isAnimated }) => {
-  const [selectedColor, setSelectedColor] = useState<string>(matrix[0][0].value);
+export const WithIconButton: Story = ({ placement, disabled, hasArrow, isAnimated, isOpen }) => {
+  const [rowIndex, setRowIndex] = useState(-1);
+  const [colIndex, setColIndex] = useState(-1);
+  const [selectedRowIndex, setSelectedRowIndex] = useState(-1);
+  const [selectedColIndex, setSelectedColIndex] = useState(-1);
+
+  const onChange = (rowIdx: number, colIdx: number) => {
+    setRowIndex(rowIdx);
+    setColIndex(colIdx);
+  };
+
+  const onSelect = (rowIdx: number, colIdx: number) => {
+    setSelectedRowIndex(rowIdx);
+    setSelectedColIndex(colIdx);
+  };
+
+  const clearSelection = () => {
+    onChange(-1, -1);
+    onSelect(-1, -1);
+  };
+
+  let selectedColor: string;
+
+  if (selectedColIndex === -1 && selectedRowIndex === -1) {
+    selectedColor = DEFAULT_THEME.palette.black as string;
+  } else {
+    selectedColor = matrix[selectedRowIndex][selectedColIndex].value;
+  }
 
   return (
     <Grid>
       <Row style={{ minHeight: 470 }}>
-        <Col textAlign="center">
+        <Col textAlign="end">
           <ColorSwatchDialog
+            rowIndex={rowIndex}
+            colIndex={colIndex}
+            selectedRowIndex={selectedRowIndex}
+            selectedColIndex={selectedColIndex}
             colors={matrix}
             hasArrow={hasArrow}
             placement={placement}
             isAnimated={isAnimated}
-            onSelect={(rowIndex, colIndex) => setSelectedColor(matrix[rowIndex][colIndex].value)}
+            isOpen={isOpen}
+            onChange={onChange}
+            onSelect={onSelect}
           >
             <PaletteIconButton iconColor={selectedColor} disabled={disabled} />
           </ColorSwatchDialog>
+        </Col>
+        <Col>
+          <div
+            style={{
+              width: 320,
+              display: 'flex',
+              justifyContent: 'space-between'
+            }}
+          >
+            <Button
+              disabled={disabled}
+              onClick={() => {
+                onChange(2, 2);
+                onSelect(2, 2);
+              }}
+            >
+              Set to {matrix[2][2].label}
+            </Button>
+            <Button onClick={clearSelection}>Clear color selection</Button>
+          </div>
         </Col>
       </Row>
     </Grid>
@@ -76,6 +128,7 @@ export const WithIconButton: Story = ({ placement, disabled, hasArrow, isAnimate
 };
 
 WithIconButton.args = {
+  isOpen: false,
   disabled: false,
   hasArrow: true,
   isAnimated: true,

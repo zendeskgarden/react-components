@@ -27,10 +27,10 @@ export const colors = labeledColors(
 const matrix = convertToMatrix(colors, 7);
 
 export const Controlled: Story = () => {
-  const [rowIndex, setRowIndex] = useState(0);
-  const [colIndex, setColIndex] = useState(0);
-  const [selectedRowIndex, setSelectedRowIndex] = useState(0);
-  const [selectedColIndex, setSelectedColIndex] = useState(0);
+  const [rowIndex, setRowIndex] = useState(-1);
+  const [colIndex, setColIndex] = useState(-1);
+  const [selectedRowIndex, setSelectedRowIndex] = useState(-1);
+  const [selectedColIndex, setSelectedColIndex] = useState(-1);
   const onChange = (rowIdx: number, colIdx: number) => {
     setRowIndex(rowIdx);
     setColIndex(colIdx);
@@ -44,7 +44,7 @@ export const Controlled: Story = () => {
     <>
       <div
         style={{
-          width: 350,
+          width: 500,
           display: 'flex',
           justifyContent: 'space-around',
           margin: '0 auto 12px auto'
@@ -65,6 +65,14 @@ export const Controlled: Story = () => {
           }}
         >
           Control to {matrix[2][1].label}
+        </Button>
+        <Button
+          onClick={() => {
+            onChange(-1, -1);
+            onSelect(-1, -1);
+          }}
+        >
+          Clear color selection
         </Button>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>

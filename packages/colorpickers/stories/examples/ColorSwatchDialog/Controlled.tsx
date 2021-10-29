@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
@@ -33,12 +34,13 @@ export const Controlled: Story = ({
   zIndex,
   hasArrow,
   isAnimated,
-  popperModifiers
+  popperModifiers,
+  isOpen
 }) => {
-  const [rowIndex, setRowIndex] = useState(0);
-  const [colIndex, setColIndex] = useState(0);
-  const [selectedRowIndex, setSelectedRowIndex] = useState(0);
-  const [selectedColIndex, setSelectedColIndex] = useState(0);
+  const [rowIndex, setRowIndex] = useState(-1);
+  const [colIndex, setColIndex] = useState(-1);
+  const [selectedRowIndex, setSelectedRowIndex] = useState(-1);
+  const [selectedColIndex, setSelectedColIndex] = useState(-1);
   const onChange = (rowIdx: number, colIdx: number) => {
     setRowIndex(rowIdx);
     setColIndex(colIdx);
@@ -65,20 +67,38 @@ export const Controlled: Story = ({
             disabled={disabled}
             placement={placement}
             isAnimated={isAnimated}
+            isOpen={isOpen}
             popperModifiers={popperModifiers}
+            onDialogChange={action('onDialogChange')}
             buttonProps={{ 'aria-label': 'select your favorite color' }}
           />
         </Col>
         <Col>
-          <Button
-            disabled={disabled}
-            onClick={() => {
-              onChange(2, 2);
-              onSelect(2, 2);
+          <div
+            style={{
+              width: 320,
+              display: 'flex',
+              justifyContent: 'space-between'
             }}
           >
-            Set to {matrix[2][2].label}
-          </Button>
+            <Button
+              disabled={disabled}
+              onClick={() => {
+                onChange(2, 2);
+                onSelect(2, 2);
+              }}
+            >
+              Set to {matrix[2][2].label}
+            </Button>
+            <Button
+              onClick={() => {
+                onChange(-1, -1);
+                onSelect(-1, -1);
+              }}
+            >
+              Clear color selection
+            </Button>
+          </div>
         </Col>
       </Row>
     </Grid>
@@ -86,6 +106,7 @@ export const Controlled: Story = ({
 };
 
 Controlled.args = {
+  isOpen: false,
   disabled: false,
   hasArrow: false,
   isAnimated: true

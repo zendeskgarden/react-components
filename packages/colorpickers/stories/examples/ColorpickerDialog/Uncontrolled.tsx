@@ -50,6 +50,7 @@ export const Uncontrolled: Story = ({
             onChange={action('onChange')}
             popperModifiers={popperModifiers}
             defaultColor={DEFAULT_THEME.palette.kale[700]}
+            onDialogChange={action('onDialogChange')}
             buttonProps={{ 'aria-label': 'select your favorite color' }}
           />
         </Col>

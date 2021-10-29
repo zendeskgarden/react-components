@@ -51,7 +51,58 @@ describe('ColorSwatchDialog', () => {
     expect(button).toBe(screen.getByLabelText('Choose your favorite color'));
   });
 
+  it('calls onDialogChange when the dialog state changes', () => {
+    const onDialogChange = jest.fn();
+    const label = 'Choose your favorite color';
+
+    render(
+      <ColorSwatchDialog
+        colors={colors}
+        onDialogChange={onDialogChange}
+        buttonProps={{ 'aria-label': label }}
+      />
+    );
+
+    const trigger = screen.getByLabelText(label);
+
+    act(() => {
+      userEvent.click(trigger);
+    });
+
+    expect(onDialogChange).toHaveBeenCalledTimes(1);
+    expect(onDialogChange).toHaveBeenCalledWith({ isOpen: true });
+
+    userEvent.keyboard('{esc}');
+
+    expect(onDialogChange).toHaveBeenCalledTimes(2);
+    expect(onDialogChange).toHaveBeenCalledWith({ isOpen: false });
+  });
+
   describe('uncontrolled', () => {
+    it('renders the color swatch dialog with no color selection', async () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          defaultRowIndex={-1}
+          defaultColIndex={-1}
+          defaultSelectedRowIndex={-1}
+          defaultSelectedColIndex={-1}
+        />
+      );
+
+      const trigger = screen.getByRole('button');
+
+      expect(document.body).toHaveFocus();
+
+      act(() => {
+        userEvent.click(trigger);
+      });
+
+      await waitFor(() => {
+        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+      });
+    });
+
     it('focuses on the first swatch button when the color dialog is opened', async () => {
       render(<ColorSwatchDialog colors={colors} />);
 
@@ -97,9 +148,81 @@ describe('ColorSwatchDialog', () => {
 
       expect(trigger).toHaveFocus();
     });
+
+    it('focuses on the selected swatch button when the color dialog is opened with no color selection', async () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          rowIndex={-1}
+          colIndex={-1}
+          defaultSelectedRowIndex={-1}
+          defaultSelectedColIndex={-1}
+        />
+      );
+
+      const trigger = screen.getByRole('button');
+
+      expect(document.body).toHaveFocus();
+
+      act(() => {
+        userEvent.click(trigger);
+      });
+
+      await waitFor(() => {
+        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+      });
+    });
   });
 
   describe('controlled', () => {
+    it('renders the color swatch dialog with no color selection', async () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          rowIndex={-1}
+          colIndex={-1}
+          selectedRowIndex={-1}
+          selectedColIndex={-1}
+        />
+      );
+
+      const trigger = screen.getByRole('button');
+
+      expect(document.body).toHaveFocus();
+
+      act(() => {
+        userEvent.click(trigger);
+      });
+
+      await waitFor(() => {
+        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+      });
+    });
+
+    it('focuses on the selected swatch button when the color dialog is opened with no color selection', async () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          rowIndex={-1}
+          colIndex={-1}
+          selectedRowIndex={-1}
+          selectedColIndex={-1}
+        />
+      );
+
+      const trigger = screen.getByRole('button');
+
+      expect(document.body).toHaveFocus();
+
+      act(() => {
+        userEvent.click(trigger);
+      });
+
+      await waitFor(() => {
+        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+      });
+    });
+
     it('focuses on the selected swatch button when the color dialog is opened', async () => {
       render(<ColorSwatchDialog colors={colors} selectedRowIndex={1} selectedColIndex={1} />);
 
@@ -118,6 +241,42 @@ describe('ColorSwatchDialog', () => {
       userEvent.type(screen.getByTestId('#228f67'), '{esc}');
 
       expect(trigger).toHaveFocus();
+    });
+
+    it('opens a controlled color dialog', async () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          rowIndex={-1}
+          colIndex={-1}
+          selectedRowIndex={-1}
+          selectedColIndex={-1}
+          isOpen
+        />
+      );
+
+      await act(async () => {
+        const dialog = await screen.queryByRole('dialog');
+
+        expect(dialog).toBeInTheDocument();
+      });
+    });
+
+    it('closes a controlled color dialog', () => {
+      render(
+        <ColorSwatchDialog
+          colors={colors}
+          rowIndex={-1}
+          colIndex={-1}
+          selectedRowIndex={-1}
+          selectedColIndex={-1}
+          isOpen={false}
+        />
+      );
+
+      const dialog = screen.queryByRole('dialog');
+
+      expect(dialog).toBeNull();
     });
   });
 });
