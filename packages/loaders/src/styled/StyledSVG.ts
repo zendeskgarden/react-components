@@ -14,6 +14,8 @@ interface IStyledSVGProps {
   fontSize?: string | number;
   width: number | string;
   height: number | string;
+  containerWidth?: string;
+  containerHeight?: string;
 }
 
 export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
@@ -25,8 +27,8 @@ export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
   viewBox: `0 0 ${props.width} ${props.height}`,
   role: 'progressbar'
 }))<IStyledSVGProps>`
-  width: 1em;
-  height: 0.9em;
+  width: ${props => props.containerWidth || '1em'};
+  height: ${props => props.containerHeight || '0.9em'};
   color: ${props => props.color || 'inherit'};
   font-size: ${props => props.fontSize || 'inherit'};
 

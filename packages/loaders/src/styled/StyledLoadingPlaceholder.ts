@@ -14,10 +14,10 @@ export const StyledLoadingPlaceholder = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   role: 'progressbar'
-})<{ fontSize: string | number }>`
-  display: inline;
-  width: 1em;
-  height: 0.9em;
+})<{ fontSize: string | number; width?: string; height?: string }>`
+  display: block;
+  width: ${props => props.width || '1em'};
+  height: ${props => props.height || '0.9em'};
   font-size: ${props => props.fontSize};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)}
