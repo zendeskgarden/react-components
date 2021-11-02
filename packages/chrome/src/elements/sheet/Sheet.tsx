@@ -62,10 +62,7 @@ export interface ISheetProps extends HTMLAttributes<HTMLElement> {
  */
 // eslint-disable-next-line react/display-name
 export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
-  (
-    { id, isOpen, isAnimated, focusOnMount, restoreFocus, children, ...props }: ISheetProps,
-    ref
-  ) => {
+  ({ id, isOpen, isAnimated, focusOnMount, restoreFocus, children, ...props }, ref) => {
     const sheetRef = useRef<HTMLElement>(null);
 
     const seed = useUIDSeed();
@@ -82,6 +79,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
         <SheetContext.Provider value={context as ISheetContext}>
           <CSSTransition in={isOpen} unmountOnExit timeout={250} classNames="side-sheet-transition">
             <StyledSheet
+              id={idPrefix}
               aria-labelledby={titleId}
               aria-describedby={descriptionId}
               ref={mergeRefs([sheetRef, ref])}
@@ -98,6 +96,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
       <SheetContext.Provider value={context as ISheetContext}>
         {isOpen ? (
           <StyledSheet
+            id={idPrefix}
             aria-labelledby={titleId}
             aria-describedby={descriptionId}
             ref={mergeRefs([sheetRef, ref])}
@@ -122,7 +121,8 @@ Sheet.Close = SheetCloseButton;
 Sheet.displayName = 'Sheet';
 
 Sheet.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
+  id: PropTypes.string,
+  isOpen: PropTypes.bool,
   isAnimated: PropTypes.bool,
   focusOnMount: PropTypes.bool,
   restoreFocus: PropTypes.bool,

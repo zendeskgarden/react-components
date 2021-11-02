@@ -10,7 +10,7 @@ import { StyledSheetFooterItem } from '../../../styled';
 
 export const SheetFooterItem = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   (props, ref) => {
-    return <StyledSheetFooterItem ref={ref as any} {...(props as any)} />;
+    return <StyledSheetFooterItem ref={ref} {...(props as any)} />;
   }
 );
 

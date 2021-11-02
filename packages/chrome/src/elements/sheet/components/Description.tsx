@@ -10,12 +10,12 @@ import { SM } from '@zendeskgarden/react-typography';
 
 import { useSheetContext } from '../../../utils/useSheetContext';
 
-export const SheetDescription = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
+export const SheetDescription = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ id, ...props }, ref) => {
     const { idPrefix } = useSheetContext();
     const descriptionId = `${idPrefix}--description`;
 
-    return <SM id={id || descriptionId} ref={ref as any} {...(props as any)} />;
+    return <SM id={id || descriptionId} ref={ref} {...(props as any)} />;
   }
 );
 

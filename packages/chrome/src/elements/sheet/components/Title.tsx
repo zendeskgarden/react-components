@@ -10,12 +10,12 @@ import { MD } from '@zendeskgarden/react-typography';
 
 import { useSheetContext } from '../../../utils/useSheetContext';
 
-export const SheetTitle = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
+export const SheetTitle = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ id, ...props }, ref) => {
     const { idPrefix } = useSheetContext();
     const titleId = `${idPrefix}--title`;
 
-    return <MD isBold id={id || titleId} ref={ref as any} {...(props as any)} />;
+    return <MD isBold id={id || titleId} ref={ref} {...(props as any)} />;
   }
 );
 
