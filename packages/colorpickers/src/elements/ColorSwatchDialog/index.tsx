@@ -149,6 +149,8 @@ export const ColorSwatchDialog = forwardRef<
     };
 
     const closeDialog = () => {
+      setUncontrolledRowIndex(uncontrolledSelectedRowIndex);
+      setUncontrolledColIndex(uncontrolledSelectedColIndex);
       setReferenceElement(null);
       onDialogChange && onDialogChange({ isOpen: false });
     };

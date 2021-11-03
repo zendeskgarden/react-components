@@ -204,6 +204,38 @@ describe('ColorSwatchDialog', () => {
         expect(screen.getByTestId('#d1e8df')).toHaveFocus();
       });
     });
+
+    it('moves focus correctly after dialog is opened with a selected color and a different focused color', async () => {
+      render(<ColorSwatchDialog colors={colors} />);
+
+      const trigger = screen.getByRole('button');
+
+      userEvent.click(trigger);
+
+      expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+
+      userEvent.keyboard('{arrowright}');
+
+      expect(screen.getByTestId('#aecfc2')).toHaveFocus();
+
+      userEvent.keyboard('{enter}');
+
+      userEvent.keyboard('{arrowdown}');
+
+      expect(screen.getByTestId('#228f67')).toHaveFocus();
+
+      userEvent.keyboard('{esc}');
+
+      await waitForElementToBeRemoved(screen.getByRole('dialog'));
+
+      userEvent.keyboard('{enter}');
+
+      userEvent.keyboard('{arrowleft}');
+
+      await waitFor(() => {
+        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+      });
+    });
   });
 
   describe('controlled', () => {
