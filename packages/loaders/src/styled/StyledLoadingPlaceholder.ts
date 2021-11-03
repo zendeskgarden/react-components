@@ -15,7 +15,7 @@ export const StyledLoadingPlaceholder = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION,
   role: 'progressbar'
 })<{ fontSize: string | number; width?: string; height?: string }>`
-  display: block;
+  display: inline-block;
   width: ${props => props.width || '1em'};
   height: ${props => props.height || '0.9em'};
   font-size: ${props => props.fontSize};
