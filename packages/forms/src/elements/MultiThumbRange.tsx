@@ -392,7 +392,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
             isDisabled={disabled}
             position={minPosition}
             ref={minThumbRef}
-            onKeyDown={e => onKeyDown('min')(e)}
+            onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => onKeyDown('min')(e)}
             onFocus={() => {
               setIsMinThumbFocused(true);
             }}
@@ -420,7 +420,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
             data-test-id="thumb"
             isDisabled={disabled}
             position={maxPosition}
-            onKeyDown={e => onKeyDown('max')(e)}
+            onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => onKeyDown('max')(e)}
             ref={maxThumbRef}
             onMouseDown={e => {
               setIsMousedDown(true);
