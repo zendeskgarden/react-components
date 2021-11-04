@@ -23,7 +23,7 @@ export const StyledSheetFooter = styled.footer.attrs({
   align-items: center;
   justify-content: ${props => (props.isCompact ? 'center' : 'flex-end')};
   border-top: 1px solid ${props => props.theme.palette.grey[300]};
-  padding: ${props => (props.isCompact ? '10px' : '20px')};
+  padding: ${props => props.theme.space.base * (props.isCompact ? 2.5 : 5)}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

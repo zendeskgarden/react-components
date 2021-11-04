@@ -70,13 +70,13 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
     const titleId = `${idPrefix}--title`;
     const descriptionId = `${idPrefix}--description`;
 
-    const context = useMemo(() => ({ idPrefix }), [idPrefix]);
+    const sheetContext = useMemo(() => ({ idPrefix }), [idPrefix]);
 
     useFocusableMount({ targetRef: sheetRef, isMounted: isOpen, focusOnMount, restoreFocus });
 
     if (isAnimated) {
       return (
-        <SheetContext.Provider value={context as ISheetContext}>
+        <SheetContext.Provider value={sheetContext as ISheetContext}>
           <CSSTransition in={isOpen} unmountOnExit timeout={250} classNames="side-sheet-transition">
             <StyledSheet
               id={idPrefix}
@@ -93,7 +93,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
     }
 
     return (
-      <SheetContext.Provider value={context as ISheetContext}>
+      <SheetContext.Provider value={sheetContext as ISheetContext}>
         {isOpen ? (
           <StyledSheet
             id={idPrefix}

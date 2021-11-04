@@ -16,7 +16,7 @@ export const StyledSheetBody = styled.div.attrs({
 })`
   flex: 1;
   overflow-y: auto;
-  padding: 20px;
+  padding: ${props => props.theme.space.base * 5}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

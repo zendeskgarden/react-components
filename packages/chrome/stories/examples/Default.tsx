@@ -91,7 +91,7 @@ export const Default: Story<IDefaultStoryProps> = ({
   hueColor,
   itemCount
 }) => {
-  const [_, updateArgs] = useArgs();
+  const [, updateArgs] = useArgs();
   const [currentNavItem, setCurrentNavItem] = useState('home');
   const [currentSubnavItem, setCurrentSubnavItem] = useState('item-1');
   const [showCollapsed, setShowCollapsed] = useState(false);
@@ -246,10 +246,7 @@ export const Default: Story<IDefaultStoryProps> = ({
               gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu
               beetroot horseradish carrot squash brussels sprout chard.
             </p>
-            <Button
-              aria-expanded={showSheet}
-              onClick={() => updateArgs({ ..._, showSheet: !showSheet })}
-            >
+            <Button aria-expanded={showSheet} onClick={() => updateArgs({ showSheet: !showSheet })}>
               {' '}
               {showSheet ? 'Close' : 'Open'} Sheet{' '}
             </Button>
@@ -330,13 +327,13 @@ export const Default: Story<IDefaultStoryProps> = ({
                 <Button isBasic> Action </Button>
               </Sheet.FooterItem>
               <Sheet.FooterItem>
-                <Button isPrimary onClick={() => updateArgs({ ..._, showSheet: false })}>
+                <Button isPrimary onClick={() => updateArgs({ showSheet: false })}>
                   {' '}
                   Close{' '}
                 </Button>
               </Sheet.FooterItem>
             </Sheet.Footer>
-            <Sheet.Close onClick={() => updateArgs({ ..._, showSheet: false })} />
+            <Sheet.Close onClick={() => updateArgs({ showSheet: false })} />
           </Sheet>
         </Content>
         <Footer>

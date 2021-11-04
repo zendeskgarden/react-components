@@ -23,7 +23,7 @@ export const SheetStory: Story = ({
   isCompact,
   placement
 }) => {
-  const [_, updateArgs] = useArgs();
+  const [, updateArgs] = useArgs();
 
   return (
     <ThemeProvider theme={{ ...DEFAULT_THEME, rtl }}>
@@ -94,14 +94,14 @@ export const SheetStory: Story = ({
                 <Button isBasic>Action</Button>
               </Sheet.FooterItem>
               <Sheet.FooterItem>
-                <Button isPrimary onClick={() => updateArgs({ ..._, isOpen: false })}>
+                <Button isPrimary onClick={() => updateArgs({ isOpen: false })}>
                   Close
                 </Button>
               </Sheet.FooterItem>
             </>
           )}
         </Sheet.Footer>
-        <Sheet.Close onClick={() => updateArgs({ ..._, isOpen: false })} />
+        <Sheet.Close onClick={() => updateArgs({ isOpen: false })} />
       </Sheet>
     </ThemeProvider>
   );

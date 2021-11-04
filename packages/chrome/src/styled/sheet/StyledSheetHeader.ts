@@ -19,8 +19,8 @@ export const StyledSheetHeader = styled.header.attrs({
   align-content: space-between;
   align-items: center;
   border-bottom: 1px solid ${props => props.theme.palette.grey[300]};
-  padding: 20px;
-  min-height: 40px;
+  padding: ${props => props.theme.space.base * 5}px;
+  min-height: ${props => props.theme.space.base * 10}px;
   text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
 
   & > * {

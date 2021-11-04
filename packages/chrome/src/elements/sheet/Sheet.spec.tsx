@@ -8,13 +8,12 @@
 import React, { useRef, useState, forwardRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
-import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { Sheet, ISheetProps } from './Sheet';
 
 describe('Sheet', () => {
   const Example = forwardRef<HTMLElement, ISheetProps>((props: ISheetProps, ref) => {
-    const [isOpen, setIsOpen] = useState(() => props.isOpen);
+    const [isOpen, setIsOpen] = useState(props.isOpen);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     return (
@@ -23,12 +22,12 @@ describe('Sheet', () => {
           Toggle Sheet
         </button>
         <Sheet ref={ref} isOpen={isOpen} {...props}>
-          <Sheet.Header data-test-id="header">
-            <Sheet.Title data-test-id="title">title</Sheet.Title>
-            <Sheet.Description data-test-id="description">description</Sheet.Description>
+          <Sheet.Header>
+            <Sheet.Title>title</Sheet.Title>
+            <Sheet.Description>description</Sheet.Description>
           </Sheet.Header>
           <Sheet.Body>body</Sheet.Body>
-          <Sheet.Footer data-test-id="footer">
+          <Sheet.Footer>
             <Sheet.FooterItem>
               <button>button1</button>
             </Sheet.FooterItem>
@@ -36,7 +35,7 @@ describe('Sheet', () => {
               <button>button2</button>
             </Sheet.FooterItem>
           </Sheet.Footer>
-          <Sheet.Close data-test-id="close-btn" />
+          <Sheet.Close />
         </Sheet>
       </>
     );
@@ -77,37 +76,12 @@ describe('Sheet', () => {
     const titleId = `${SHEET_ID}--title`;
     const descriptionId = `${SHEET_ID}--description`;
 
-    const { getByRole, getByTestId } = render(<Example id={SHEET_ID} isOpen />);
+    const { getByRole, getByText } = render(<Example id={SHEET_ID} isOpen />);
     const sheet = getByRole('complementary');
 
     expect(sheet).toHaveAttribute('aria-labelledby', titleId);
     expect(sheet).toHaveAttribute('aria-describedby', descriptionId);
-    expect(getByTestId('title')).toHaveAttribute('id', titleId);
-    expect(getByTestId('description')).toHaveAttribute('id', descriptionId);
-  });
-
-  it('uses placement prop to apply smart border to the correct side', () => {
-    const { getByRole } = render(<Example isOpen placement="start" />);
-
-    expect(getByRole('complementary')).toHaveStyleRule(
-      'border-right',
-      `1px solid ${DEFAULT_THEME.palette.grey[300]}`
-    );
-  });
-
-  it('renders correctly in rtl mode', () => {
-    const { getByTestId } = render(
-      <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: true }}>
-        <Example isOpen placement="start" />
-      </ThemeProvider>
-    );
-    const header = getByTestId('header');
-    const footer = getByTestId('footer');
-    const btn = getByTestId('close-btn');
-
-    expect(btn).toHaveStyleRule('left');
-    expect(header).toHaveStyleRule('text-align', 'right');
-    expect(header).toHaveStyleRule('flex-flow', 'row-reverse wrap');
-    expect(footer).toHaveStyleRule('flex-flow', 'row-reverse wrap');
+    expect(getByText('title')).toHaveAttribute('id', titleId);
+    expect(getByText('description')).toHaveAttribute('id', descriptionId);
   });
 });

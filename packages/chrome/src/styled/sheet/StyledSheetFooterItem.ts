@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_footer_item';
@@ -13,8 +13,8 @@ const COMPONENT_ID = 'chrome.sheet_footer_item';
 export const StyledSheetFooterItem = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
-  margin: auto 10px;
+})<ThemeProps<DefaultTheme>>`
+  margin: auto ${props => props.theme.space.base * 2.5}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
