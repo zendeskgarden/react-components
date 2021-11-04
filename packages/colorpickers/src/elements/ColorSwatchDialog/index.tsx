@@ -113,6 +113,8 @@ export const ColorSwatchDialog = forwardRef<
     const [uncontrolledSelectedColIndex, setUncontrolledSelectedColIndex] = useState(
       defaultSelectedColIndex || 0
     );
+    const [uncontrolledRowIndex, setUncontrolledRowIndex] = useState(defaultRowIndex || 0);
+    const [uncontrolledColIndex, setUncontrolledColIndex] = useState(defaultColIndex || 0);
 
     useEffect(() => {
       if (isDialogControlled) {
@@ -147,6 +149,8 @@ export const ColorSwatchDialog = forwardRef<
     };
 
     const closeDialog = () => {
+      setUncontrolledRowIndex(uncontrolledSelectedRowIndex);
+      setUncontrolledColIndex(uncontrolledSelectedColIndex);
       setReferenceElement(null);
       onDialogChange && onDialogChange({ isOpen: false });
     };
@@ -219,11 +223,17 @@ export const ColorSwatchDialog = forwardRef<
               colIndex={colIndex}
               selectedRowIndex={selectedRowIndex}
               selectedColIndex={selectedColIndex}
-              defaultRowIndex={defaultRowIndex}
-              defaultColIndex={defaultColIndex}
+              defaultRowIndex={uncontrolledRowIndex}
+              defaultColIndex={uncontrolledColIndex}
               defaultSelectedRowIndex={uncontrolledSelectedRowIndex}
               defaultSelectedColIndex={uncontrolledSelectedColIndex}
-              onChange={onChange}
+              onChange={(rowIdx, colIdx) => {
+                if (isControlled === false) {
+                  setUncontrolledRowIndex(rowIdx);
+                  setUncontrolledColIndex(colIdx);
+                }
+                onChange && onChange(rowIdx, colIdx);
+              }}
               onSelect={(rowIdx, colIdx) => {
                 if (isControlled === false) {
                   setUncontrolledSelectedRowIndex(rowIdx);

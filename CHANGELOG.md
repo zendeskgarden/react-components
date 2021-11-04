@@ -12,6 +12,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.44.1 (2021-11-03)
+
+#### :bug: Bug Fix
+* `colorpickers`
+  * [#1230](https://github.com/zendeskgarden/react-components/pull/1230) fix(colorpickers): retain previous indices for uncontrolled color swatch ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* `forms`, `modals`, `notifications`, `tables`
+  * [#1232](https://github.com/zendeskgarden/react-components/pull/1232) chore(deps): align root and sub-package @types/react ([@hzhu](https://github.com/hzhu))
+
 ## v8.44.0 (2021-10-27)
 
 #### :rocket: New Feature

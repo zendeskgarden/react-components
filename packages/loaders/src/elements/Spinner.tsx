@@ -83,7 +83,11 @@ const Spinner: React.FC<ISpinnerProps> = ({ size, duration, color, delayMS, ...o
   const HEIGHT = 80;
 
   if (!delayComplete && delayMS !== 0) {
-    return <StyledLoadingPlaceholder fontSize={size!}>&nbsp;</StyledLoadingPlaceholder>;
+    return (
+      <StyledLoadingPlaceholder width="1em" height="1em" fontSize={size!}>
+        &nbsp;
+      </StyledLoadingPlaceholder>
+    );
   }
 
   return (
@@ -93,6 +97,8 @@ const Spinner: React.FC<ISpinnerProps> = ({ size, duration, color, delayMS, ...o
       width={WIDTH}
       height={HEIGHT}
       dataGardenId={COMPONENT_ID}
+      containerHeight="1em"
+      containerWidth="1em"
       {...other}
     >
       <StyledSpinnerCircle
