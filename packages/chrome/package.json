@@ -24,8 +24,8 @@
     "@zendeskgarden/container-accordion": "^1.0.3",
     "@zendeskgarden/container-keyboardfocus": "^0.4.7",
     "@zendeskgarden/container-utilities": "^0.6.0",
-    "@zendeskgarden/react-buttons": "^8.43.0",
-    "@zendeskgarden/react-typography": "^8.43.0",
+    "@zendeskgarden/react-buttons": "^8.44.1",
+    "@zendeskgarden/react-typography": "^8.44.1",
     "dom-helpers": "^5.2.1",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7",
@@ -39,7 +39,7 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
-    "@types/react-transition-group": "^4.4.4",
+    "@types/react-transition-group": "4.4.2",
     "@zendeskgarden/react-theming": "^8.44.1",
     "@zendeskgarden/svg-icons": "6.30.2"
   },
