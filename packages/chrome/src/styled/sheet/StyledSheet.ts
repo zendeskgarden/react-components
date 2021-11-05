@@ -11,7 +11,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'chrome.sheet';
 
 interface IStyledSheetProps {
-  placement: 'start' | 'end';
+  placement?: 'start' | 'end';
 }
 
 const sheetSmartBorderStyle = ({
@@ -28,8 +28,7 @@ const sheetSmartBorderStyle = ({
 
 export const StyledSheet = styled.aside.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  tabIndex: -1
+  'data-garden-version': PACKAGE_VERSION
 })<IStyledSheetProps>`
   display: flex;
   position: relative;
@@ -44,7 +43,6 @@ export const StyledSheet = styled.aside.attrs({
 
   & > * {
     transition: opacity 0.5s ease-in-out;
-    will-change: opacity;
   }
 
   &.side-sheet-transition-enter {
@@ -77,5 +75,6 @@ export const StyledSheet = styled.aside.attrs({
 `;
 
 StyledSheet.defaultProps = {
-  theme: DEFAULT_THEME
+  theme: DEFAULT_THEME,
+  placement: 'end'
 };

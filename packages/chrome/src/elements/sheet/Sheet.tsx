@@ -20,7 +20,7 @@ import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 
 import { StyledSheet } from '../../styled';
-import { SheetContext, ISheetContext } from '../../utils/useSheetContext';
+import { SheetContext } from '../../utils/useSheetContext';
 import { useFocusableMount } from '../../utils/useFocusableMount';
 
 import { SheetTitle } from './components/Title';
@@ -76,9 +76,10 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
 
     if (isAnimated) {
       return (
-        <SheetContext.Provider value={sheetContext as ISheetContext}>
+        <SheetContext.Provider value={sheetContext}>
           <CSSTransition in={isOpen} unmountOnExit timeout={250} classNames="side-sheet-transition">
             <StyledSheet
+              tabIndex={-1}
               id={idPrefix}
               aria-labelledby={titleId}
               aria-describedby={descriptionId}
@@ -93,9 +94,10 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
     }
 
     return (
-      <SheetContext.Provider value={sheetContext as ISheetContext}>
+      <SheetContext.Provider value={sheetContext}>
         {isOpen ? (
           <StyledSheet
+            tabIndex={-1}
             id={idPrefix}
             aria-labelledby={titleId}
             aria-describedby={descriptionId}
