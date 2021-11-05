@@ -7,11 +7,12 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
+
 import { SheetFooter as Footer } from './Footer';
 
 describe('Sheet.Footer', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.createRef<HTMLElement>();
     const { container } = render(<Footer ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);

@@ -15,7 +15,7 @@ export const SheetDescription = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDi
     const { idPrefix } = useSheetContext();
     const descriptionId = `${idPrefix}--description`;
 
-    return <SM id={id || descriptionId} ref={ref} {...(props as any)} />;
+    return <SM id={id || descriptionId} ref={ref} {...props} />;
   }
 );
 

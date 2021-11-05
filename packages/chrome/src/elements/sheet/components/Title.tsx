@@ -15,7 +15,7 @@ export const SheetTitle = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
     const { idPrefix } = useSheetContext();
     const titleId = `${idPrefix}--title`;
 
-    return <MD isBold id={id || titleId} ref={ref} {...(props as any)} />;
+    return <MD isBold id={id || titleId} ref={ref} {...props} />;
   }
 );
 

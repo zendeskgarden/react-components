@@ -6,20 +6,24 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, screen } from 'garden-test-utils';
+
 import { SheetTitle as Title } from './Title';
 
 describe('Sheet.Title', () => {
+  const titleText = 'Sheet.Title';
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(<Title ref={ref} />);
 
-    expect(container.firstChild).toBe(ref.current);
+    render(<Title ref={ref}>{titleText}</Title>);
+
+    expect(screen.getByText(titleText)).toBe(ref.current);
   });
 
   it('has an id passed from context', () => {
-    const { container } = render(<Title />);
+    render(<Title>{titleText}</Title>);
 
-    expect(container.firstChild).toHaveAttribute('id', 'sheet--title');
+    expect(screen.getByText(titleText)).toHaveAttribute('id', 'sheet--title');
   });
 });

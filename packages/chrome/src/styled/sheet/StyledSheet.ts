@@ -36,7 +36,6 @@ export const StyledSheet = styled.aside.attrs({
   order: 1;
 
   transition: width 0.25s ease-in-out;
-  will-change: width;
 
   width: 380px;
   min-height: 100%;

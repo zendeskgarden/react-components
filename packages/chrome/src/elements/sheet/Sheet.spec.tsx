@@ -5,22 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, forwardRef } from 'react';
+import React, { useState, forwardRef } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render } from 'garden-test-utils';
+import { render, screen } from 'garden-test-utils';
 
 import { Sheet, ISheetProps } from './Sheet';
 
 describe('Sheet', () => {
   const Example = forwardRef<HTMLElement, ISheetProps>((props: ISheetProps, ref) => {
     const [isOpen, setIsOpen] = useState(props.isOpen);
-    const buttonRef = useRef<HTMLButtonElement>(null);
 
     return (
       <>
-        <button ref={buttonRef} onClick={() => setIsOpen(!isOpen)}>
-          Toggle Sheet
-        </button>
+        <button onClick={() => setIsOpen(!isOpen)}>Toggle Sheet</button>
         <Sheet ref={ref} isOpen={isOpen} {...props}>
           <Sheet.Header>
             <Sheet.Title>title</Sheet.Title>
@@ -44,7 +41,7 @@ describe('Sheet', () => {
   Example.displayName = 'Example';
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.createRef<HTMLElement>();
     const { getByRole, getByText } = render(<Example ref={ref} />);
 
     userEvent.click(getByText('Toggle Sheet'));
@@ -52,36 +49,37 @@ describe('Sheet', () => {
     expect(getByRole('complementary')).toBe(ref.current);
   });
 
-  it('is only mounted when isOpen is true', () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const { getByRole, getByText } = render(<Example ref={ref} />);
+  it('opens and closes sheet', () => {
+    const { getByRole, getByText } = render(<Example />);
 
     expect(() => getByRole('complementary')).toThrow();
 
     userEvent.click(getByText('Toggle Sheet'));
 
-    expect(getByRole('complementary')).toBe(ref.current);
+    expect(getByRole('complementary')).toBeInTheDocument();
   });
 
-  it('does not animate a transition when isAnimated is false', () => {
+  it('does not apply the animation class', () => {
     const { getByRole, getByText } = render(<Example isAnimated={false} />);
 
     userEvent.click(getByText('Toggle Sheet'));
 
-    expect(getByRole('complementary')).not.toHaveAttribute('class', 'side-sheet-transition');
+    expect(getByRole('complementary')).not.toHaveClass('side-sheet-transition');
+  });
+
+  it('does apply the animation class', () => {
+    const { getByRole, getByText } = render(<Example />);
+
+    userEvent.click(getByText('Toggle Sheet'));
+
+    expect(getByRole('complementary')).toHaveClass('side-sheet-transition-enter-active');
   });
 
   it('contains a11y bindings to label and describe the sheet', () => {
-    const SHEET_ID = 'TEST_ID';
-    const titleId = `${SHEET_ID}--title`;
-    const descriptionId = `${SHEET_ID}--description`;
-
-    const { getByRole, getByText } = render(<Example id={SHEET_ID} isOpen />);
+    const { getByRole } = render(<Example isOpen />);
     const sheet = getByRole('complementary');
 
-    expect(sheet).toHaveAttribute('aria-labelledby', titleId);
-    expect(sheet).toHaveAttribute('aria-describedby', descriptionId);
-    expect(getByText('title')).toHaveAttribute('id', titleId);
-    expect(getByText('description')).toHaveAttribute('id', descriptionId);
+    expect(screen.getByLabelText('title')).toBe(sheet);
+    expect(sheet).toHaveDescription('description');
   });
 });

@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
+
 import { SheetBody as Body } from './Body';
 
 describe('Sheet.Body', () => {

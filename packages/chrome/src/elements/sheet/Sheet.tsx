@@ -84,7 +84,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
               aria-labelledby={titleId}
               aria-describedby={descriptionId}
               ref={mergeRefs([sheetRef, ref])}
-              {...(props as any)}
+              {...props}
             >
               {children}
             </StyledSheet>
@@ -102,7 +102,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
             aria-labelledby={titleId}
             aria-describedby={descriptionId}
             ref={mergeRefs([sheetRef, ref])}
-            {...(props as any)}
+            {...props}
           >
             {children}
           </StyledSheet>

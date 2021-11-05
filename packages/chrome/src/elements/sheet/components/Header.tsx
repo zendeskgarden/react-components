@@ -9,7 +9,7 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledSheetHeader } from '../../../styled';
 
 export const SheetHeader = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
-  return <StyledSheetHeader ref={ref} {...(props as any)} />;
+  return <StyledSheetHeader ref={ref} {...props} />;
 });
 
 SheetHeader.displayName = 'SheetHeader';

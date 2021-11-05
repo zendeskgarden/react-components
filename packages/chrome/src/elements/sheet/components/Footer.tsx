@@ -12,7 +12,7 @@ export const SheetFooter = forwardRef<
   HTMLElement,
   IStyledSheetFooterProps & HTMLAttributes<HTMLElement>
 >((props, ref) => {
-  return <StyledSheetFooter ref={ref} {...(props as any)} />;
+  return <StyledSheetFooter ref={ref} {...props} />;
 });
 
 SheetFooter.displayName = 'SheetFooter';

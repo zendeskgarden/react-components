@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
+
 import { SheetFooterItem as FooterItem } from './FooterItem';
 
 describe('Sheet.FooterItem', () => {

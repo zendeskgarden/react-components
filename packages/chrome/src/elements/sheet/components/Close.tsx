@@ -11,11 +11,11 @@ import { IconButton } from '@zendeskgarden/react-buttons';
 
 import { StyledSheetCloseButtonContainer } from '../../../styled';
 
-export const SheetCloseButton = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
+export const SheetCloseButton = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     return (
       <StyledSheetCloseButtonContainer>
-        <IconButton aria-expanded aria-label="Close Sheet" ref={ref} {...(props as any)}>
+        <IconButton aria-label="Close Sheet" ref={ref} {...props}>
           <XStrokeIcon />
         </IconButton>
       </StyledSheetCloseButtonContainer>
