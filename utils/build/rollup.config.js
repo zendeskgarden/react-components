@@ -73,7 +73,7 @@ export default [
       /**
        * Replace PACKAGE_VERSION constant with the current package version
        */
-      replace({ PACKAGE_VERSION: `'${pkg.version}'` }),
+      replace({ PACKAGE_VERSION: `'${pkg.version}'`, preventAssignment: true }),
       /**
        * Remove comments from source files
        */
