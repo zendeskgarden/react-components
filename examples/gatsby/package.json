@@ -31,6 +31,6 @@
     "styled-components": "5.3.1"
   },
   "devDependencies": {
-    "prettier": "1.19.1"
+    "prettier": "2.4.1"
   }
 }
