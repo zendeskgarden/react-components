@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_footer';
 
@@ -19,10 +19,11 @@ export const StyledSheetFooter = styled.footer.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledSheetFooterProps & ThemeProps<DefaultTheme>>`
   display: flex;
-  flex-flow: ${props => (props.theme.rtl ? 'row-reverse' : 'row')} wrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: ${props => (props.isCompact ? 'center' : 'flex-end')};
-  border-top: 1px solid ${props => props.theme.palette.grey[300]};
+  border-top: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}}`};
+
   padding: ${props => props.theme.space.base * (props.isCompact ? 2.5 : 5)}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

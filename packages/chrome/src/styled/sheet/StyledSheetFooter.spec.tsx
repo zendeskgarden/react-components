@@ -17,7 +17,7 @@ describe('StyledSheetFooter', () => {
 
     const footer = getByText('footer');
 
-    expect(footer).toHaveStyleRule('flex-flow', 'row-reverse wrap');
+    expect(footer).toHaveStyleRule('flex-flow', 'row wrap');
   });
 
   it('renders correctly when isCompact is true', () => {

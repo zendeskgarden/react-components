@@ -22,7 +22,6 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-accordion": "^1.0.3",
-    "@zendeskgarden/container-keyboardfocus": "^0.4.7",
     "@zendeskgarden/container-utilities": "^0.6.0",
     "@zendeskgarden/react-buttons": "^8.44.1",
     "@zendeskgarden/react-typography": "^8.44.1",

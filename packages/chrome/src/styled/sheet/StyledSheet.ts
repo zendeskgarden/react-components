@@ -9,21 +9,35 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet';
+const SHEET_WIDTH = 380;
 
 interface IStyledSheetProps {
   placement?: 'start' | 'end';
 }
 
+// todo: add rtl support
 const sheetSmartBorderStyle = ({
   theme,
   placement
 }: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
   let borderSide = '';
 
-  if (placement === 'end') borderSide = '-left';
-  else if (placement === 'start') borderSide = '-right';
+  // todo: clean up
+  if (placement === 'end') {
+    if (theme.rtl) {
+      borderSide = '-right';
+    } else {
+      borderSide = '-left';
+    }
+  } else if (placement === 'start') {
+    if (theme.rtl) {
+      borderSide = '-left';
+    } else {
+      borderSide = '-right';
+    }
+  }
 
-  return `border${borderSide}: 1px solid ${theme.palette.grey[300]};`;
+  return `border${borderSide}: ${theme.borders.sm} ${theme.palette.grey[300]};`;
 };
 
 export const StyledSheet = styled.aside.attrs({
@@ -34,10 +48,9 @@ export const StyledSheet = styled.aside.attrs({
   position: relative;
   flex-direction: column;
   order: 1;
-
   transition: width 0.25s ease-in-out;
-
-  width: 380px;
+  background-color: ${props => props.theme.colors.background};
+  width: ${SHEET_WIDTH}px;
   min-height: 100%;
 
   & > * {
@@ -53,7 +66,7 @@ export const StyledSheet = styled.aside.attrs({
   }
 
   &.side-sheet-transition-enter-active {
-    width: 380px;
+    width: ${SHEET_WIDTH}px;
 
     & > * {
       opacity: 100;
@@ -69,7 +82,7 @@ export const StyledSheet = styled.aside.attrs({
     }
   }
 
-  ${props => sheetSmartBorderStyle(props)}
+  ${props => sheetSmartBorderStyle(props)};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
