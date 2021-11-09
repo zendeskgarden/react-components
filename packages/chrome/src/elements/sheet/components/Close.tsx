@@ -9,16 +9,16 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
-import { StyledSheetCloseButtonContainer } from '../../../styled';
+import { StyledSheetClose } from '../../../styled';
 
 export const SheetCloseButton = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     return (
-      <StyledSheetCloseButtonContainer>
+      <StyledSheetClose>
         <IconButton aria-label="Close Sheet" ref={ref} {...props}>
           <XStrokeIcon />
         </IconButton>
-      </StyledSheetCloseButtonContainer>
+      </StyledSheetClose>
     );
   }
 );

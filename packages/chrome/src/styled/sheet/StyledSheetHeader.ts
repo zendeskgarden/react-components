@@ -14,19 +14,10 @@ export const StyledSheetHeader = styled.header.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
-  display: flex;
-  flex-flow: ${props => (props.theme.rtl ? 'row-reverse' : 'row')} wrap;
-  align-content: space-between;
-  align-items: center;
   border-bottom: ${props =>
     `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}}`};
   padding: ${props => props.theme.space.base * 5}px;
   min-height: ${props => props.theme.space.base * 10}px;
-  text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
-
-  & > * {
-    width: 100%;
-  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

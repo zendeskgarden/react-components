@@ -9,13 +9,11 @@ import React from 'react';
 import { renderRtl } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { StyledSheetCloseButtonContainer } from './StyledSheetCloseButtonContainer';
+import { StyledSheetClose } from './StyledSheetClose';
 
-describe('StyledSheetCloseButtonContainer', () => {
+describe('StyledSheetClose', () => {
   it('renders correctly in rtl mode', () => {
-    const { getByText } = renderRtl(
-      <StyledSheetCloseButtonContainer>btn</StyledSheetCloseButtonContainer>
-    );
+    const { getByText } = renderRtl(<StyledSheetClose>btn</StyledSheetClose>);
 
     expect(getByText('btn')).toHaveStyleRule('left', `${DEFAULT_THEME.space.base}px`);
   });

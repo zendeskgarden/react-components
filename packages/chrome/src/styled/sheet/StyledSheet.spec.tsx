@@ -6,18 +6,20 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { render, renderRtl } from 'garden-test-utils';
 
 import { StyledSheet } from './StyledSheet';
 
 describe('StyledSheet', () => {
-  it('uses placement prop to apply smart border to the correct side', () => {
+  it('renders correctly in rtl mode', () => {
+    const { getByRole } = renderRtl(<StyledSheet />);
+
+    expect(getByRole('complementary')).toHaveStyleRule('border-right', '1px solid #d8dcde');
+  });
+
+  it('renders correctly when placement is set', () => {
     const { getByRole } = render(<StyledSheet placement="start" />);
 
-    expect(getByRole('complementary')).toHaveStyleRule(
-      'border-right',
-      `1px solid ${DEFAULT_THEME.palette.grey[300]}`
-    );
+    expect(getByRole('complementary')).toHaveStyleRule('border-right', '1px solid #d8dcde');
   });
 });

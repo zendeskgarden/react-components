@@ -6,8 +6,8 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { SM } from '@zendeskgarden/react-typography';
 
+import { StyledSheetDescription } from '../../../styled';
 import { useSheetContext } from '../../../utils/useSheetContext';
 
 export const SheetDescription = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
@@ -15,7 +15,7 @@ export const SheetDescription = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDi
     const { idPrefix } = useSheetContext();
     const descriptionId = `${idPrefix}--description`;
 
-    return <SM id={id || descriptionId} ref={ref} {...props} />;
+    return <StyledSheetDescription id={id || descriptionId} ref={ref} {...props} />;
   }
 );
 

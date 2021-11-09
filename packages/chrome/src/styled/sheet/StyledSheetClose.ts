@@ -14,20 +14,20 @@ const placementStyles = (props: ThemeProps<DefaultTheme>) => {
   const placement = props.theme.rtl ? 'left' : 'right';
 
   return css`
+    position: absolute;
     top: ${props.theme.space.base * 3}px;
     ${placement}: ${props.theme.space.base * 1}px;
   `;
 };
 
-export const StyledSheetCloseButtonContainer = styled.div.attrs({
+export const StyledSheetClose = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
-  position: absolute;
   ${props => placementStyles(props)};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledSheetCloseButtonContainer.defaultProps = {
+StyledSheetClose.defaultProps = {
   theme: DEFAULT_THEME
 };

@@ -6,8 +6,8 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { MD } from '@zendeskgarden/react-typography';
 
+import { StyledSheetTitle } from '../../../styled';
 import { useSheetContext } from '../../../utils/useSheetContext';
 
 export const SheetTitle = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
@@ -15,7 +15,7 @@ export const SheetTitle = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
     const { idPrefix } = useSheetContext();
     const titleId = `${idPrefix}--title`;
 
-    return <MD isBold id={id || titleId} ref={ref} {...props} />;
+    return <StyledSheetTitle id={id || titleId} ref={ref} {...props} />;
   }
 );
 

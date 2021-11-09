@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet';
 const SHEET_WIDTH = 380;
@@ -15,7 +15,6 @@ interface IStyledSheetProps {
   placement?: 'start' | 'end';
 }
 
-// todo: add rtl support
 const sheetSmartBorderStyle = ({
   theme,
   placement
@@ -37,7 +36,7 @@ const sheetSmartBorderStyle = ({
     }
   }
 
-  return `border${borderSide}: ${theme.borders.sm} ${theme.palette.grey[300]};`;
+  return `border${borderSide}: ${theme.borders.sm} ${getColor('neutralHue', 300, theme)};`;
 };
 
 export const StyledSheet = styled.aside.attrs({
