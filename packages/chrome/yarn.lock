@@ -60,36 +60,12 @@
     "@zendeskgarden/container-utilities" "^0.6.2"
     react-uid "^2.2.0"
 
-"@zendeskgarden/container-buttongroup@^0.3.8":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-buttongroup/-/container-buttongroup-0.3.13.tgz#f810fb3ddcd27ac546f4d6267a7a2bc24de64198"
-  integrity sha512-xzl3HIisX0u4TTeZ7zhVyKbPAsfY76X/Dv20yiLR0/Rl5+t1/DzF5fCW6cbTN6NEjcyhQ3U2dcCWSoVrl63ljQ==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-selection" "^1.3.13"
-
 "@zendeskgarden/container-focusvisible@^0.4.6":
   version "0.4.8"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.8.tgz#97026300d1766bf7b30c218eb614b87900b26ebd"
   integrity sha512-oCd7ippef7YupfHaKOvyBwiCShFKYfJZRGFei1iLOhfWDtr7znrjgiLHwIw7TBlbGz/uSqaF0mPkwkvVjAebAQ==
   dependencies:
     "@babel/runtime" "^7.8.4"
-
-"@zendeskgarden/container-keyboardfocus@^0.4.7":
-  version "0.4.12"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-keyboardfocus/-/container-keyboardfocus-0.4.12.tgz#663e9ff307bb376d40d523bfe60318d6537eb52e"
-  integrity sha512-G2k6/hfiddXYdaaScxhiYsmma18vCcAOxWwh0ek5yPvX353PxjQl8zt/F5mIiMhk/AWLGiSSw5QY0oPucgU+Vg==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-utilities" "^0.6.2"
-
-"@zendeskgarden/container-selection@^1.3.13":
-  version "1.3.13"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.13.tgz#8abc11e2493397d002e55eba8e05edbd14294cc4"
-  integrity sha512-eU+I0eU8fCmLl0hBbqx4A0H4ZKbfiEVL/4sAMtYM47LHdZtMZ08CG2EQLgXcmq96XdjdqL+PwE7y3q0c8goeKw==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-utilities" "^0.6.2"
 
 "@zendeskgarden/container-utilities@^0.6.0", "@zendeskgarden/container-utilities@^0.6.2":
   version "0.6.2"
@@ -98,16 +74,6 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
-
-"@zendeskgarden/react-buttons@^8.44.1":
-  version "8.44.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.44.1.tgz#3be40ea10a858a3f918257d71956251f02ad27df"
-  integrity sha512-vY7LtO4euCF8K6563wNPSITvHIXXO9goKxsOSwQmmU6cerLJA6/ARbFx7kLxYauzyhetaOrFlKH8JmKT8r5trw==
-  dependencies:
-    "@zendeskgarden/container-buttongroup" "^0.3.8"
-    "@zendeskgarden/container-keyboardfocus" "^0.4.7"
-    polished "^4.0.0"
-    prop-types "^15.5.7"
 
 "@zendeskgarden/react-theming@^8.44.1":
   version "8.44.1"
