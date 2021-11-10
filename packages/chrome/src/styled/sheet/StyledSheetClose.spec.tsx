@@ -15,6 +15,6 @@ describe('StyledSheetClose', () => {
   it('renders correctly in rtl mode', () => {
     const { getByText } = renderRtl(<StyledSheetClose>btn</StyledSheetClose>);
 
-    expect(getByText('btn')).toHaveStyleRule('left', `${DEFAULT_THEME.space.base}px`);
+    expect(getByText('btn')).toHaveStyleRule('left', `${DEFAULT_THEME.space.base * 2}px`);
   });
 });
