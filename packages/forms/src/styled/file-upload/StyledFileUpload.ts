@@ -81,6 +81,9 @@ export const StyledFileUpload = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledFileUploadProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: content-box;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
   /* prettier-ignore */
