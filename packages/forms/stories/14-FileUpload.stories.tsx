@@ -15,26 +15,32 @@ import {
   Hint,
   Label,
   Input,
+  Message,
   FileUpload,
   IFileUploadProps,
   File,
   FileList
 } from '@zendeskgarden/react-forms';
 import { useDropzone } from 'react-dropzone';
+import {
+  EXTENSION,
+  FILE_UPLOAD_ARGS,
+  FILE_UPLOAD_ARG_TYPES,
+  IFileUploadStoryProps
+} from './story-types';
 
 export default {
   title: 'Components/Forms/FileUpload',
   component: FileUpload
 } as Meta;
 
-type EXTENSION = 'pdf' | 'zip' | 'image' | 'document' | 'spreadsheet' | 'presentation';
-
 const FileWrapper: React.FC<{
   name: string;
   onRemove: any;
   isCompact?: boolean;
+  disabled?: boolean;
   type?: EXTENSION;
-}> = React.memo(({ name, onRemove, isCompact, type }) => {
+}> = React.memo(({ name, disabled, onRemove, isCompact, type }) => {
   const [uploadProgress, setUploadProgress] = React.useState(0);
 
   React.useEffect(() => {
@@ -71,10 +77,10 @@ const FileWrapper: React.FC<{
         isCompact={isCompact}
         onKeyDown={handleKeyDown}
         aria-label="File"
-        tabIndex={0}
+        tabIndex={disabled ? undefined : 0}
       >
         {name}
-        <File.Close onClick={onRemove} title="Remove file" />
+        {!disabled && <File.Close onClick={onRemove} title="Remove file" />}
         <Progress value={uploadProgress} size={isCompact ? 'small' : 'medium'} />
       </File>
     </FileList.Item>
@@ -83,17 +89,13 @@ const FileWrapper: React.FC<{
 
 FileWrapper.displayName = 'FileWrapper';
 
-interface IFileUploadStoryProps {
-  isHidden: false;
-  showHint: boolean;
-  type: EXTENSION;
-}
-
-export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
+export const Default: Story<IFileUploadStoryProps & IFileUploadProps> = ({
   isCompact,
   disabled,
   isHidden,
   showHint,
+  showMessage,
+  validation,
   type
 }) => {
   const [files, setFiles] = React.useState([] as string[]);
@@ -141,6 +143,7 @@ export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
               )}
               <Input {...getInputProps()} disabled={disabled} />
             </FileUpload>
+            {showMessage && <Message validation={validation}>Message</Message>}
             <FileList>
               {files.map((file, index) => (
                 <FileWrapper
@@ -148,6 +151,7 @@ export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
                   name={file}
                   type={type}
                   isCompact={isCompact}
+                  disabled={disabled}
                   onRemove={() => removeFile(index)}
                 />
               ))}
@@ -160,42 +164,8 @@ export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
 };
 
 Default.args = {
-  showHint: true,
-  isHidden: false,
-  type: 'image'
+  ...FILE_UPLOAD_ARGS,
+  isHidden: false
 };
 
-Default.argTypes = {
-  isHidden: {
-    name: 'Hidden label'
-  },
-  showHint: {
-    name: 'Hint'
-  },
-  isDragging: {
-    table: {
-      disable: true
-    }
-  },
-  type: {
-    control: {
-      type: 'select',
-      options: ['pdf', 'zip', 'image', 'document', 'spreadsheet', 'presentation', undefined]
-    }
-  }
-};
-
-Default.parameters = {
-  docs: {
-    description: {
-      component: `
-The \`FileUpload\` component is a styled \`<div>\` which can be used
-with 3rd-party file upload libraries like [react-dropzone](https://github.com/react-dropzone/react-dropzone/).
-
-The example below includes an a mock file upload implementation that
-accepts any file type or size. It also uses the \`FileList\` component to
-display a list of uploaded files.
-       `
-    }
-  }
-};
+Default.argTypes = FILE_UPLOAD_ARG_TYPES;

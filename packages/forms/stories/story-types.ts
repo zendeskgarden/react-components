@@ -7,6 +7,8 @@
 
 import { VALIDATION } from '../src/utils/validation';
 
+export type EXTENSION = 'pdf' | 'zip' | 'image' | 'document' | 'spreadsheet' | 'presentation';
+
 export interface IInputStoryProps {
   isHidden: boolean;
   isRegular: boolean;
@@ -30,6 +32,14 @@ export interface IFieldsetStoryProps {
   isCompact?: boolean;
 }
 
+export interface IFileUploadStoryProps {
+  isHidden: false;
+  showHint: boolean;
+  showMessage: boolean;
+  validation: VALIDATION;
+  type?: EXTENSION;
+}
+
 export interface IRangeStoryProps {
   isRegular: boolean;
   isHidden: boolean;
@@ -43,6 +53,12 @@ export const INPUT_ARGS = {
   isHidden: false,
   showHint: true,
   showMessage: true
+};
+
+export const FILE_UPLOAD_ARGS = {
+  showHint: true,
+  showMessage: false,
+  type: 'image' as EXTENSION
 };
 
 export const FIELDSET_ARGS = {
@@ -127,6 +143,36 @@ export const FIELDSET_ARGS_TYPES = {
     control: {
       type: 'radio',
       options: ['success', 'warning', 'error']
+    }
+  }
+};
+
+export const FILE_UPLOAD_ARG_TYPES = {
+  isHidden: {
+    name: 'Hidden label'
+  },
+  showHint: {
+    name: 'Hint'
+  },
+  showMessage: {
+    name: 'Message'
+  },
+  validation: {
+    name: 'Validation',
+    control: {
+      type: 'radio',
+      options: ['success', 'warning', 'error']
+    }
+  },
+  isDragging: {
+    table: {
+      disable: true
+    }
+  },
+  type: {
+    control: {
+      type: 'select',
+      options: ['pdf', 'zip', 'image', 'document', 'spreadsheet', 'presentation', undefined]
     }
   }
 };
