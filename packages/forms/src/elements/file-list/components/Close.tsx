@@ -20,4 +20,4 @@ export const Close = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
   )
 );
 
-Close.displayName = 'Close';
+Close.displayName = 'File.Close';

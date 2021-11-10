@@ -80,7 +80,11 @@ const FileWrapper: React.FC<{
         tabIndex={disabled ? undefined : 0}
       >
         {name}
-        {!disabled && <File.Close onClick={onRemove} title="Remove file" />}
+        {!disabled && uploadProgress < 100 ? (
+          <File.Close onClick={onRemove} title="Stop upload" />
+        ) : (
+          <File.Delete onClick={onRemove} title="Remove file" />
+        )}
         <Progress value={uploadProgress} size={isCompact ? 'small' : 'medium'} />
       </File>
     </FileList.Item>

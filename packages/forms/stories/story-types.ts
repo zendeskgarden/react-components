@@ -40,6 +40,14 @@ export interface IFileUploadStoryProps {
   type?: EXTENSION;
 }
 
+export interface IFileListStoryProps {
+  focusInset: boolean;
+  includeProgress: boolean;
+  isCompact: boolean;
+  type: EXTENSION;
+  remove?: 'close' | 'delete';
+}
+
 export interface IRangeStoryProps {
   isRegular: boolean;
   isHidden: boolean;
@@ -58,6 +66,13 @@ export const INPUT_ARGS = {
 export const FILE_UPLOAD_ARGS = {
   showHint: true,
   showMessage: false,
+  type: 'image' as EXTENSION
+};
+
+export const FILE_LIST_ARGS = {
+  focusInset: false,
+  includeProgress: false,
+  isCompact: false,
   type: 'image' as EXTENSION
 };
 
@@ -173,6 +188,27 @@ export const FILE_UPLOAD_ARG_TYPES = {
     control: {
       type: 'select',
       options: ['pdf', 'zip', 'image', 'document', 'spreadsheet', 'presentation', undefined]
+    }
+  }
+};
+
+export const FILE_LIST_ARG_TYPES = {
+  focusInset: {
+    name: 'Inset File box-shadow'
+  },
+  includeProgress: {
+    name: 'Include Progress'
+  },
+  type: {
+    control: {
+      type: 'select',
+      options: ['pdf', 'zip', 'image', 'document', 'spreadsheet', 'presentation', undefined]
+    }
+  },
+  remove: {
+    control: {
+      type: 'radio',
+      options: ['close', 'delete', undefined]
     }
   }
 };

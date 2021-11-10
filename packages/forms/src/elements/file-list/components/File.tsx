@@ -15,6 +15,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { Close } from './Close';
+import { Delete } from './Delete';
 import { StyledFile, StyledFileIcon } from '../../../styled';
 import { fileIcons, FILE_TYPE, ARRAY_FILE_TYPE } from '../utils';
 
@@ -30,6 +31,7 @@ export interface IFileProps extends HTMLAttributes<HTMLDivElement> {
 interface IStaticFileExport<T, P>
   extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
   Close: typeof Close;
+  Delete: typeof Delete;
 }
 
 /* eslint-disable react/display-name */
@@ -48,6 +50,8 @@ export const File = forwardRef<HTMLDivElement, IFileProps>(
 File.displayName = 'File';
 
 File.Close = Close;
+
+File.Delete = Delete;
 
 File.propTypes = {
   focusInset: PropTypes.bool,

@@ -50,6 +50,7 @@ export * from './file-upload/StyledFileUpload';
  */
 export * from './file-list/StyledFile';
 export * from './file-list/StyledFileClose';
+export * from './file-list/StyledFileDelete';
 export * from './file-list/StyledFileIcon';
 export * from './file-list/StyledFileList';
 export * from './file-list/StyledFileListItem';
