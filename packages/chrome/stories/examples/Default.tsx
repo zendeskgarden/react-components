@@ -251,7 +251,7 @@ export const Default: Story<IDefaultStoryProps> = ({
               {showSheet ? 'Close' : 'Open'} Sheet{' '}
             </Button>
           </Main>
-          <Sheet isOpen={showSheet}>
+          <Sheet isOpen={showSheet} focusOnMount restoreFocus>
             <Sheet.Header>
               <Sheet.Title> Gardening </Sheet.Title>
               <Sheet.Description> Somebody gotta start gardening. </Sheet.Description>

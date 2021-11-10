@@ -52,11 +52,11 @@ describe('Sheet', () => {
   it('opens and closes sheet', () => {
     const { getByRole, getByText } = render(<Example />);
 
-    expect(() => getByRole('complementary')).toThrow();
+    expect(getByRole('complementary').firstChild).not.toBeInTheDocument();
 
     userEvent.click(getByText('Toggle Sheet'));
 
-    expect(getByRole('complementary')).toBeInTheDocument();
+    expect(getByRole('complementary').firstChild).toBeInTheDocument();
   });
 
   it('does not apply the animation class', () => {
@@ -64,7 +64,7 @@ describe('Sheet', () => {
 
     userEvent.click(getByText('Toggle Sheet'));
 
-    expect(getByRole('complementary')).not.toHaveClass('side-sheet-transition');
+    expect(getByRole('complementary').firstChild).not.toHaveClass('side-sheet-transition');
   });
 
   it('does apply the animation class', () => {
@@ -72,7 +72,7 @@ describe('Sheet', () => {
 
     userEvent.click(getByText('Toggle Sheet'));
 
-    expect(getByRole('complementary')).toHaveClass('side-sheet-transition-enter-active');
+    expect(getByRole('complementary').firstChild).toHaveClass('side-sheet-transition-enter-active');
   });
 
   it('contains a11y bindings to label and describe the sheet', () => {

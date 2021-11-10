@@ -44,6 +44,7 @@ export type { IStyledSubNavItemHeaderProps } from './subnav/StyledSubNavItemHead
 export { StyledSubNavItemIconWrapper, StyledSubNavItemIcon } from './subnav/StyledSubNavItemIcon';
 export { StyledSubNavPanel } from './subnav/StyledSubNavPanel';
 export { StyledSheet } from './sheet/StyledSheet';
+export { StyledSheetWrapper } from './sheet/StyledSheetWrapper';
 export { StyledSheetTitle } from './sheet/StyledSheetTitle';
 export { StyledSheetDescription } from './sheet/StyledSheetDescription';
 export { StyledSheetBody } from './sheet/StyledSheetBody';

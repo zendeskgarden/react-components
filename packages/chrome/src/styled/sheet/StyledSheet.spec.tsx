@@ -14,12 +14,12 @@ describe('StyledSheet', () => {
   it('renders correctly in rtl mode', () => {
     const { getByRole } = renderRtl(<StyledSheet />);
 
-    expect(getByRole('complementary')).toHaveStyleRule('border-right', '1px solid #d8dcde');
+    expect(getByRole('complementary')).toHaveStyleRule('border-right', '1px solid transparent');
   });
 
   it('renders correctly when placement is set', () => {
     const { getByRole } = render(<StyledSheet placement="start" />);
 
-    expect(getByRole('complementary')).toHaveStyleRule('border-right', '1px solid #d8dcde');
+    expect(getByRole('complementary')).toHaveStyleRule('border-right', '1px solid transparent');
   });
 });

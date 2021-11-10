@@ -19,7 +19,7 @@ import { useUIDSeed } from 'react-uid';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 
-import { StyledSheet } from '../../styled';
+import { StyledSheet, StyledSheetWrapper } from '../../styled';
 import { SheetContext } from '../../utils/useSheetContext';
 import { useFocusableMount } from '../../utils/useFocusableMount';
 
@@ -77,26 +77,9 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
     if (isAnimated) {
       return (
         <SheetContext.Provider value={sheetContext}>
-          <CSSTransition in={isOpen} unmountOnExit timeout={250} classNames="side-sheet-transition">
-            <StyledSheet
-              tabIndex={-1}
-              id={idPrefix}
-              aria-labelledby={titleId}
-              aria-describedby={descriptionId}
-              ref={mergeRefs([sheetRef, ref])}
-              {...props}
-            >
-              {children}
-            </StyledSheet>
-          </CSSTransition>
-        </SheetContext.Provider>
-      );
-    }
-
-    return (
-      <SheetContext.Provider value={sheetContext}>
-        {isOpen ? (
           <StyledSheet
+            isOpen={isOpen}
+            isAnimated
             tabIndex={-1}
             id={idPrefix}
             aria-labelledby={titleId}
@@ -104,9 +87,33 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
             ref={mergeRefs([sheetRef, ref])}
             {...props}
           >
-            {children}
+            <CSSTransition
+              in={isOpen}
+              unmountOnExit
+              timeout={500}
+              classNames="side-sheet-transition"
+            >
+              <StyledSheetWrapper>{children}</StyledSheetWrapper>
+            </CSSTransition>
           </StyledSheet>
-        ) : null}
+        </SheetContext.Provider>
+      );
+    }
+
+    return (
+      <SheetContext.Provider value={sheetContext}>
+        <StyledSheet
+          isOpen={isOpen}
+          isAnimated={false}
+          tabIndex={-1}
+          id={idPrefix}
+          aria-labelledby={titleId}
+          aria-describedby={descriptionId}
+          ref={mergeRefs([sheetRef, ref])}
+          {...props}
+        >
+          {isOpen ? <StyledSheetWrapper>{children}</StyledSheetWrapper> : null}
+        </StyledSheet>
       </SheetContext.Provider>
     );
   }

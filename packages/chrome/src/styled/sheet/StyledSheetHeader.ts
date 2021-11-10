@@ -17,7 +17,6 @@ export const StyledSheetHeader = styled.header.attrs({
   border-bottom: ${props =>
     `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}}`};
   padding: ${props => props.theme.space.base * 5}px;
-  min-height: ${props => props.theme.space.base * 10}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

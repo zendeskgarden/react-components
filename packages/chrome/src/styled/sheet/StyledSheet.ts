@@ -5,20 +5,25 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet';
-const SHEET_WIDTH = 380;
+
+export const SHEET_WIDTH = 380;
 
 interface IStyledSheetProps {
   placement?: 'start' | 'end';
+  isOpen?: boolean;
+  isAnimated?: boolean;
 }
 
-const sheetSmartBorderStyle = ({
+const sheetBorderStyle = ({
   theme,
-  placement
+  placement,
+  isOpen
 }: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
+  const borderColor = isOpen ? getColor('neutralHue', 300, theme) : 'transparent';
   let borderSide = '';
 
   // todo: clean up
@@ -36,7 +41,7 @@ const sheetSmartBorderStyle = ({
     }
   }
 
-  return `border${borderSide}: ${theme.borders.sm} ${getColor('neutralHue', 300, theme)};`;
+  return `border${borderSide}: ${theme.borders.sm} ${borderColor};`;
 };
 
 export const StyledSheet = styled.aside.attrs({
@@ -45,47 +50,22 @@ export const StyledSheet = styled.aside.attrs({
 })<IStyledSheetProps>`
   display: flex;
   position: relative;
-  flex-direction: column;
   order: 1;
-  transition: width 0.25s ease-in-out;
+  ${props =>
+    css`
+      transition: ${props.isAnimated ? 'width 0.5s ease-in-out, border 0.5s ease-in-out' : 'none'};
+    `}
   background-color: ${props => props.theme.colors.background};
-  width: ${SHEET_WIDTH}px;
+  width: ${props => (props.isOpen ? SHEET_WIDTH : 0)}px;
   min-height: 100%;
 
-  & > * {
-    transition: opacity 0.5s ease-in-out;
-  }
-
-  &.side-sheet-transition-enter {
-    width: 0;
-
-    & > * {
-      opacity: 0;
-    }
-  }
-
-  &.side-sheet-transition-enter-active {
-    width: ${SHEET_WIDTH}px;
-
-    & > * {
-      opacity: 100;
-    }
-  }
-
-  &.side-sheet-transition-exit {
-    width: 0;
-
-    & > * {
-      transition: opacity 0.125s ease-in-out;
-      opacity: 0;
-    }
-  }
-
-  ${props => sheetSmartBorderStyle(props)};
+  ${props => sheetBorderStyle(props)};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledSheet.defaultProps = {
   theme: DEFAULT_THEME,
-  placement: 'end'
+  placement: 'end',
+  isOpen: false,
+  isAnimated: true
 };
