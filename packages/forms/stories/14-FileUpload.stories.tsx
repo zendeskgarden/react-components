@@ -141,19 +141,18 @@ export const Default: Story<IFileUploadProps & IFileUploadStoryProps> = ({
               )}
               <Input {...getInputProps()} disabled={disabled} />
             </FileUpload>
+            <FileList>
+              {files.map((file, index) => (
+                <FileWrapper
+                  key={file}
+                  name={file}
+                  type={type}
+                  isCompact={isCompact}
+                  onRemove={() => removeFile(index)}
+                />
+              ))}
+            </FileList>
           </Field>
-
-          <FileList style={{ marginTop: 8 }}>
-            {files.map((file, index) => (
-              <FileWrapper
-                key={file}
-                name={file}
-                type={type}
-                isCompact={isCompact}
-                onRemove={() => removeFile(index)}
-              />
-            ))}
-          </FileList>
         </Col>
       </Row>
     </Grid>
