@@ -11,6 +11,7 @@ import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden
 const COMPONENT_ID = 'chrome.sheet_footer';
 
 export interface IStyledSheetFooterProps {
+  /** Sets the SheetFooter padding to half the standard and centers the elements  */
   isCompact?: boolean;
 }
 

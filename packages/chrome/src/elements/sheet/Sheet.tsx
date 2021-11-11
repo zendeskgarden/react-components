@@ -55,6 +55,8 @@ export interface ISheetProps extends HTMLAttributes<HTMLElement> {
   restoreFocus?: boolean;
   /** Determines the position of the Sheet **/
   placement?: 'start' | 'end';
+  /** Sets the width in pixels, based on the placement of the Sheet */
+  size?: number;
 }
 
 /**
@@ -62,7 +64,7 @@ export interface ISheetProps extends HTMLAttributes<HTMLElement> {
  */
 // eslint-disable-next-line react/display-name
 export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
-  ({ id, isOpen, isAnimated, focusOnMount, restoreFocus, children, ...props }, ref) => {
+  ({ id, isOpen, isAnimated, focusOnMount, restoreFocus, size, children, ...props }, ref) => {
     const sheetRef = useRef<HTMLElement>(null);
 
     const seed = useUIDSeed();
@@ -79,6 +81,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
         <SheetContext.Provider value={sheetContext}>
           <StyledSheet
             isOpen={isOpen}
+            size={size}
             isAnimated
             tabIndex={-1}
             id={idPrefix}
@@ -93,7 +96,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
               timeout={500}
               classNames="side-sheet-transition"
             >
-              <StyledSheetWrapper>{children}</StyledSheetWrapper>
+              <StyledSheetWrapper size={size}>{children}</StyledSheetWrapper>
             </CSSTransition>
           </StyledSheet>
         </SheetContext.Provider>
@@ -104,6 +107,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
       <SheetContext.Provider value={sheetContext}>
         <StyledSheet
           isOpen={isOpen}
+          size={size}
           isAnimated={false}
           tabIndex={-1}
           id={idPrefix}
@@ -112,7 +116,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
           ref={mergeRefs([sheetRef, ref])}
           {...props}
         >
-          {isOpen ? <StyledSheetWrapper>{children}</StyledSheetWrapper> : null}
+          {isOpen ? <StyledSheetWrapper size={size}>{children}</StyledSheetWrapper> : null}
         </StyledSheet>
       </SheetContext.Provider>
     );
@@ -135,7 +139,8 @@ Sheet.propTypes = {
   isAnimated: PropTypes.bool,
   focusOnMount: PropTypes.bool,
   restoreFocus: PropTypes.bool,
-  placement: PropTypes.oneOf(['start', 'end'])
+  placement: PropTypes.oneOf(['start', 'end']),
+  size: PropTypes.number
 };
 
 Sheet.defaultProps = {
