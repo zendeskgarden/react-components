@@ -7,7 +7,8 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, fireEvent } from 'garden-test-utils';
+import { screen, render, fireEvent } from 'garden-test-utils';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Dropdown, Trigger, Menu, Item } from '../../..';
 
 describe('Item', () => {
@@ -76,7 +77,7 @@ describe('Item', () => {
     expect(getByTestId('item')).toBe(ref.current);
   });
 
-  it('highlights first selected index on open', () => {
+  it.only('highlights first selected index on open', () => {
     const { getByTestId, getAllByTestId } = render(
       <Dropdown selectedItem="item-2">
         <Trigger>
@@ -95,6 +96,23 @@ describe('Item', () => {
 
     userEvent.click(getByTestId('trigger'));
     expect(getAllByTestId('item')[1]).toHaveAttribute('data-test-is-focused', 'true');
+  });
+
+  it('renders danger styling if provided', () => {
+    const { getByRole } = render(
+      <Dropdown isOpen>
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu data-test-id="menu">
+          <Item isDanger value="item-1">
+            Item 1
+          </Item>
+        </Menu>
+      </Dropdown>
+    );
+
+    expect(getByRole('menuitem')).toHaveStyleRule('color', getColor('dangerHue'));
   });
 
   it('applies correct icon styling when isCompact', () => {

@@ -16,9 +16,9 @@ import useItemContext from '../../../utils/useItemContext';
 export const ItemMeta = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
   (props, ref) => {
     const { isCompact } = useMenuContext();
-    const { isDisabled } = useItemContext();
+    const { isDisabled, isDanger } = useItemContext();
 
-    return <StyledItemMeta ref={ref} isCompact={isCompact} isDisabled={isDisabled} {...props} />;
+    return <StyledItemMeta ref={ref} isCompact={isCompact} isDanger={isDanger} isDisabled={isDisabled} {...props} />;
   }
 );
 

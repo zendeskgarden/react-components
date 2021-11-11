@@ -29,6 +29,7 @@ interface IStoryProps {
   hasArrow: boolean;
   isAnimated: boolean;
   isCompact: boolean;
+  isDanger: boolean;
   isDisabled: boolean;
   isOpen: boolean;
 }
@@ -37,6 +38,7 @@ export const Default: Story<IStoryProps> = ({
   hasArrow,
   isAnimated,
   isCompact,
+  isDanger,
   placement,
   isDisabled,
   isOpen
@@ -56,13 +58,13 @@ export const Default: Story<IStoryProps> = ({
               isCompact={isCompact}
               placement={placement}
             >
-              <Item disabled={isDisabled} value="option-1">
+              <Item disabled={isDisabled} isDanger={isDanger} value="option-1">
                 Option 1
               </Item>
-              <Item disabled={isDisabled} value="option-2">
+              <Item disabled={isDisabled} isDanger={isDanger} value="option-2">
                 Option 2
               </Item>
-              <Item disabled={isDisabled} value="option-3">
+              <Item disabled={isDisabled} isDanger={isDanger} value="option-3">
                 Option 3
               </Item>
             </Menu>
@@ -77,6 +79,7 @@ Default.argTypes = {
   hasArrow: { name: 'hasArrow', control: 'boolean' },
   isAnimated: { name: 'isAnimated', control: 'boolean' },
   isCompact: { name: 'isCompact', control: 'boolean' },
+  isDanger: { name: 'isDanger', control: 'boolean' },
   placement: {
     name: 'Placement',
     control: {

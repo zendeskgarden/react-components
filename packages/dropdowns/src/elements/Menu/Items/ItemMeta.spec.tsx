@@ -33,4 +33,5 @@ describe('ItemMeta', () => {
 
     expect(getByTestId('item-meta')).toBe(ref.current);
   });
+
 });
