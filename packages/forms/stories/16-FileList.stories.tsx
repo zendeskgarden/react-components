@@ -62,14 +62,14 @@ export const Default: Story<IFileListStoryProps> = ({
                 onKeyDown={handleKeyDown}
               >
                 {file}
-                {remove === 'delete' && (
+                {remove === File.Delete.displayName && (
                   <File.Delete
                     /* eslint-disable-next-line no-alert */
                     onClick={() => alert('File dismissed via mouse')}
                     title="Delete file"
                   />
                 )}
-                {remove === 'close' && (
+                {remove === File.Close.displayName && (
                   <File.Close
                     /* eslint-disable-next-line no-alert */
                     onClick={() => alert('File dismissed via mouse')}

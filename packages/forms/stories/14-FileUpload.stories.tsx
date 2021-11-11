@@ -44,22 +44,20 @@ const FileWrapper: React.FC<{
   const [uploadProgress, setUploadProgress] = React.useState(0);
 
   React.useEffect(() => {
-    const randomUploadInterval = Math.random() * (600 - 200) + 600;
-
-    const uploadInterval = setInterval(() => {
-      setUploadProgress(prevProgress => {
-        if (prevProgress >= 100) {
-          clearInterval(uploadInterval);
+    const interval = setInterval(() => {
+      setUploadProgress(value => {
+        if (value >= 100) {
+          clearInterval(interval);
 
           return 100;
         }
 
-        return prevProgress + 10;
+        return value + 10;
       });
-    }, randomUploadInterval);
+    }, Math.random() * 300 + 100);
 
     return () => {
-      clearInterval(uploadInterval);
+      clearInterval(interval);
     };
   }, []);
 
@@ -80,11 +78,12 @@ const FileWrapper: React.FC<{
         tabIndex={disabled ? undefined : 0}
       >
         {name}
-        {!disabled && uploadProgress < 100 ? (
-          <File.Close onClick={onRemove} title="Stop upload" />
-        ) : (
-          <File.Delete onClick={onRemove} title="Remove file" />
-        )}
+        {!disabled &&
+          (uploadProgress < 100 ? (
+            <File.Close onClick={onRemove} title="Stop upload" />
+          ) : (
+            <File.Delete onClick={onRemove} title="Remove file" />
+          ))}
         <Progress value={uploadProgress} size={isCompact ? 'small' : 'medium'} />
       </File>
     </FileList.Item>

@@ -7,7 +7,14 @@
 
 import { VALIDATION } from '../src/utils/validation';
 
-export type EXTENSION = 'pdf' | 'zip' | 'image' | 'document' | 'spreadsheet' | 'presentation';
+export type EXTENSION =
+  | 'pdf'
+  | 'zip'
+  | 'image'
+  | 'document'
+  | 'spreadsheet'
+  | 'presentation'
+  | 'generic';
 
 export interface IInputStoryProps {
   isHidden: boolean;
@@ -45,7 +52,7 @@ export interface IFileListStoryProps {
   includeProgress: boolean;
   isCompact: boolean;
   type: EXTENSION;
-  remove?: 'close' | 'delete';
+  remove?: 'File.Close' | 'File.Delete';
 }
 
 export interface IRangeStoryProps {
@@ -66,14 +73,14 @@ export const INPUT_ARGS = {
 export const FILE_UPLOAD_ARGS = {
   showHint: true,
   showMessage: false,
-  type: 'image' as EXTENSION
+  type: 'generic' as EXTENSION
 };
 
 export const FILE_LIST_ARGS = {
   focusInset: false,
   includeProgress: false,
   isCompact: false,
-  type: 'image' as EXTENSION
+  type: 'generic' as EXTENSION
 };
 
 export const FIELDSET_ARGS = {
@@ -187,7 +194,16 @@ export const FILE_UPLOAD_ARG_TYPES = {
   type: {
     control: {
       type: 'select',
-      options: ['pdf', 'zip', 'image', 'document', 'spreadsheet', 'presentation', undefined]
+      options: [
+        'pdf',
+        'zip',
+        'image',
+        'document',
+        'spreadsheet',
+        'presentation',
+        'generic',
+        undefined
+      ]
     }
   }
 };
@@ -202,13 +218,23 @@ export const FILE_LIST_ARG_TYPES = {
   type: {
     control: {
       type: 'select',
-      options: ['pdf', 'zip', 'image', 'document', 'spreadsheet', 'presentation', undefined]
+      options: [
+        'pdf',
+        'zip',
+        'image',
+        'document',
+        'spreadsheet',
+        'presentation',
+        'generic',
+        undefined
+      ]
     }
   },
   remove: {
+    name: 'Include Remove',
     control: {
       type: 'radio',
-      options: ['close', 'delete', undefined]
+      options: ['File.Close', 'File.Delete', undefined]
     }
   }
 };

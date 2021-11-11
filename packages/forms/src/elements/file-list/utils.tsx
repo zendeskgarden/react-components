@@ -12,6 +12,7 @@ import FileImageStroke from '@zendeskgarden/svg-icons/src/16/file-image-stroke.s
 import FileDocumentStroke from '@zendeskgarden/svg-icons/src/16/file-document-stroke.svg';
 import FileSpreadsheetStroke from '@zendeskgarden/svg-icons/src/16/file-spreadsheet-stroke.svg';
 import FilePresentationStroke from '@zendeskgarden/svg-icons/src/16/file-presentation-stroke.svg';
+import FileGenericStroke from '@zendeskgarden/svg-icons/src/16/file-generic-stroke.svg';
 
 export enum FileType {
   pdf = 'pdf',
@@ -19,7 +20,8 @@ export enum FileType {
   image = 'image',
   document = 'document',
   spreadsheet = 'spreadsheet',
-  presentation = 'presentation'
+  presentation = 'presentation',
+  generic = 'generic'
 }
 
 export type FILE_TYPE = keyof typeof FileType;
@@ -32,5 +34,6 @@ export const fileIcons: Record<FILE_TYPE, React.ReactNode> = {
   image: <FileImageStroke />,
   document: <FileDocumentStroke />,
   spreadsheet: <FileSpreadsheetStroke />,
-  presentation: <FilePresentationStroke />
+  presentation: <FilePresentationStroke />,
+  generic: <FileGenericStroke />
 };
