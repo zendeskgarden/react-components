@@ -12,6 +12,27 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.44.2 (2021-11-11)
+
+#### :bug: Bug Fix
+* `loaders`
+  * [#1233](https://github.com/zendeskgarden/react-components/pull/1233) fix(spinner): fix placeholder proportions ([@mtomcal](https://github.com/mtomcal))
+
+#### :seedling: Internal
+* Other
+  * [#1243](https://github.com/zendeskgarden/react-components/pull/1243) chore: remove version lifecycle package lockfile updates ([@jzempel](https://github.com/jzempel))
+  * [#1240](https://github.com/zendeskgarden/react-components/pull/1240) fix: duplicate characters in `version` script ([@jzempel](https://github.com/jzempel))
+  * [#1239](https://github.com/zendeskgarden/react-components/pull/1239) chore(deps): bump path-parse from 1.0.6 to 1.0.7 in /examples/codesandbox ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1238](https://github.com/zendeskgarden/react-components/pull/1238) chore(deps): update dependency prettier to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1236](https://github.com/zendeskgarden/react-components/pull/1236) chore(deps): bump tar from 4.4.13 to 4.4.19 in /examples/codesandbox ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1235](https://github.com/zendeskgarden/react-components/pull/1235) chore(deps): bump tmpl from 1.0.4 to 1.0.5 in /examples/codesandbox ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `dropdowns`
+  * [#1241](https://github.com/zendeskgarden/react-components/pull/1241) chore: remove multiple `displayName` assignments per file ([@jzempel](https://github.com/jzempel))
+* `forms`, `modals`, `notifications`
+  * [#1237](https://github.com/zendeskgarden/react-components/pull/1237) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`, `typography`, `utilities`
+  * [#1234](https://github.com/zendeskgarden/react-components/pull/1234) chore: update renovate configuration ([@jzempel](https://github.com/jzempel))
+
 ## v8.44.1 (2021-11-03)
 
 #### :bug: Bug Fix

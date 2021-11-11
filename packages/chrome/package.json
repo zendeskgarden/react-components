@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-chrome",
-  "version": "8.44.1",
+  "version": "8.44.2",
   "description": "Components relating to Chrome within the Garden Design System.",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@types/react-transition-group": "4.4.2",
-    "@zendeskgarden/react-theming": "^8.44.1",
+    "@zendeskgarden/react-theming": "^8.44.2",
     "@zendeskgarden/svg-icons": "6.30.2"
   },
   "keywords": [
