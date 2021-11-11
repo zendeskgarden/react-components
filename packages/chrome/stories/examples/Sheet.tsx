@@ -19,7 +19,8 @@ export const SheetStory: Story = ({
   focusOnMount,
   restoreFocus,
   isCompact,
-  placement
+  placement,
+  size
 }) => {
   const [, updateArgs] = useArgs();
 
@@ -30,6 +31,7 @@ export const SheetStory: Story = ({
       focusOnMount={focusOnMount}
       restoreFocus={restoreFocus}
       placement={placement}
+      size={size}
       style={{ maxHeight: '600px' }}
     >
       <Sheet.Header>
@@ -113,7 +115,8 @@ SheetStory.args = {
   focusOnMount: false,
   restoreFocus: false,
   isCompact: false,
-  placement: 'end'
+  placement: 'end',
+  size: 380
 };
 
 SheetStory.argTypes = {
@@ -141,5 +144,9 @@ SheetStory.argTypes = {
     name: 'placement',
     options: ['start', 'end'],
     control: { type: 'select' }
+  },
+  size: {
+    name: 'size',
+    control: 'number'
   }
 };
