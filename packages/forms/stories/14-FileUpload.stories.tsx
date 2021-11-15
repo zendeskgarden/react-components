@@ -40,7 +40,8 @@ const FileWrapper: React.FC<{
   isCompact?: boolean;
   disabled?: boolean;
   type?: EXTENSION;
-}> = React.memo(({ name, disabled, onRemove, isCompact, type }) => {
+  validation?: 'success' | 'error';
+}> = React.memo(({ name, disabled, onRemove, isCompact, type, validation }) => {
   const [uploadProgress, setUploadProgress] = React.useState(0);
 
   React.useEffect(() => {
@@ -76,6 +77,7 @@ const FileWrapper: React.FC<{
         onKeyDown={handleKeyDown}
         aria-label="File"
         tabIndex={disabled ? undefined : 0}
+        validation={validation}
       >
         {name}
         {!disabled &&
@@ -156,6 +158,9 @@ export const Default: Story<IFileUploadStoryProps & IFileUploadProps> = ({
                   isCompact={isCompact}
                   disabled={disabled}
                   onRemove={() => removeFile(index)}
+                  validation={
+                    validation === 'success' || validation === 'error' ? validation : undefined
+                  }
                 />
               ))}
             </FileList>

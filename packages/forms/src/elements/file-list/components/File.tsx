@@ -15,6 +15,7 @@ import React, {
   useMemo
 } from 'react';
 import PropTypes from 'prop-types';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { Close } from './Close';
 import { Delete } from './Delete';
 import { StyledFile, StyledFileIcon } from '../../../styled';
@@ -51,6 +52,9 @@ interface IStaticFileExport<T, P>
 export const File = forwardRef<HTMLDivElement, IFileProps>(
   ({ children, type, isCompact, focusInset, validation, ...props }, ref) => {
     const fileContextValue = useMemo(() => ({ isCompact }), [isCompact]);
+    const onMouseDown = composeEventHandlers(props.onMouseDown, (event: MouseEvent) =>
+      (event.target as HTMLDivElement).focus()
+    );
     const validationType = validation || type;
 
     return (
@@ -60,6 +64,7 @@ export const File = forwardRef<HTMLDivElement, IFileProps>(
           isCompact={isCompact}
           focusInset={focusInset}
           validation={validation}
+          onMouseDown={onMouseDown}
           ref={ref}
         >
           {validationType && (
