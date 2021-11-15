@@ -45,7 +45,8 @@ export const Default: Story<IFileListStoryProps> = ({
   includeProgress,
   isCompact,
   type,
-  remove
+  remove,
+  validation
 }) => (
   <Grid>
     <Row justifyContent="center">
@@ -58,6 +59,7 @@ export const Default: Story<IFileListStoryProps> = ({
                 type={type}
                 aria-label="File"
                 focusInset={focusInset}
+                validation={validation}
                 tabIndex={0}
                 onKeyDown={handleKeyDown}
               >

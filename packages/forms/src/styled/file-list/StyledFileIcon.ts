@@ -18,7 +18,7 @@ export const StyledFileIcon = styled(({ children, ...props }) =>
   'data-garden-version': PACKAGE_VERSION
 })`
   flex-shrink: 0;
-  width: ${props => props.theme.iconSizes.md};
+  width: ${props => (props.isCompact ? props.theme.iconSizes.sm : props.theme.iconSizes.md)};
   /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.base * 2}px;
 

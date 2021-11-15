@@ -53,6 +53,7 @@ export interface IFileListStoryProps {
   isCompact: boolean;
   type: EXTENSION;
   remove?: 'File.Close' | 'File.Delete';
+  validation?: 'success' | 'error';
 }
 
 export interface IRangeStoryProps {
@@ -234,7 +235,14 @@ export const FILE_LIST_ARG_TYPES = {
     name: 'Include Remove',
     control: {
       type: 'radio',
-      options: ['File.Close', 'File.Delete', undefined]
+      options: ['File.Close', 'File.Delete']
+    }
+  },
+  validation: {
+    name: 'Validation',
+    control: {
+      type: 'radio',
+      options: ['success', 'error']
     }
   }
 };

@@ -18,9 +18,24 @@ import { StyledFileClose } from './StyledFileClose';
 const COMPONENT_ID = 'forms.file';
 
 const colorStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
-  const borderColor = getColor('neutralHue', 300, props.theme);
-  const focusBorderColor = getColor('primaryHue', 600, props.theme);
-  const foregroundColor = getColor('neutralHue', 800, props.theme);
+  let borderColor;
+  let focusBorderColor;
+  let foregroundColor;
+
+  if (props.validation === 'success') {
+    borderColor = getColor('successHue', 600, props.theme);
+    focusBorderColor = borderColor;
+    foregroundColor = borderColor;
+  } else if (props.validation === 'error') {
+    borderColor = getColor('dangerHue', 600, props.theme);
+    focusBorderColor = borderColor;
+    foregroundColor = borderColor;
+  } else {
+    borderColor = getColor('neutralHue', 300, props.theme);
+    focusBorderColor = getColor('primaryHue', 600, props.theme);
+    foregroundColor = props.theme.colors.foreground;
+  }
+
   const boxShadow = `
     ${props.focusInset ? 'inset' : ''}
     ${props.theme.shadows.md(rgba(focusBorderColor!, 0.35))}`;
@@ -66,6 +81,7 @@ const sizeStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
 interface IStyledFileProps {
   isCompact?: boolean;
   focusInset?: boolean;
+  validation?: 'success' | 'error';
 }
 
 export const StyledFile = styled.div.attrs({
