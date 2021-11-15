@@ -13,6 +13,7 @@ const COMPONENT_ID = 'dropdowns.item';
 export interface IStyledItemProps {
   isFocused?: boolean;
   isCompact?: boolean;
+  isDanger?: boolean;
   disabled?: boolean;
   checked?: boolean;
 }
@@ -26,13 +27,15 @@ export const getItemPaddingVertical = (props: IStyledItemProps & ThemeProps<Defa
 };
 
 const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
+  const color = props.isDanger
+    ? getColor('dangerHue', 600, props.theme)
+    : props.theme.colors.foreground;
+
   return css`
     background-color: ${props.isFocused &&
     !props.disabled &&
-    getColor('primaryHue', 600, props.theme, 0.08)};
-    color: ${props.disabled
-      ? getColor('neutralHue', 400, props.theme)
-      : props.theme.colors.foreground};
+    getColor(props.isDanger ? 'dangerHue' : 'primaryHue', 600, props.theme, 0.08)};
+    color: ${props.disabled ? getColor('neutralHue', 400, props.theme) : color};
 
     & a,
     & a:hover,
@@ -82,8 +85,7 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
     text-decoration: none;
   }
 
-  ${props => getColorStyles(props)}
-
+  ${props => getColorStyles(props)};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

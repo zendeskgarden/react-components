@@ -46,6 +46,7 @@ interface IStoryProps {
   isAnimated: boolean;
   isCompact: boolean;
   isDisabled: boolean;
+  isDanger: boolean;
   isOpen: boolean;
 }
 
@@ -55,6 +56,7 @@ export const Advanced: Story<IStoryProps> = ({
   isCompact,
   placement,
   isDisabled,
+  isDanger,
   isOpen
 }) => {
   return (
@@ -77,22 +79,22 @@ export const Advanced: Story<IStoryProps> = ({
                 </HeaderIcon>
                 Header Item
               </HeaderItem>
-              <Item value="profile" disabled={isDisabled}>
+              <Item value="profile" isDanger={isDanger} disabled={isDisabled}>
                 Option 1
               </Item>
-              <Item value="settings" disabled={isDisabled}>
+              <Item value="settings" isDanger={isDanger} disabled={isDisabled}>
                 Option 2<ItemMeta>Optional meta</ItemMeta>
               </Item>
-              <Item value="anchor" disabled={isDisabled}>
+              <Item value="anchor" isDanger={isDanger} disabled={isDisabled}>
                 <a href=".">Anchor 1</a>
               </Item>
-              <Item value="garden-anchor" disabled={isDisabled}>
+              <Item value="garden-anchor" isDanger={isDanger} disabled={isDisabled}>
                 <Anchor>
                   Anchor 2<ItemMeta>Optional meta</ItemMeta>
                 </Anchor>
               </Item>
               <Separator />
-              <MediaItem value="image" disabled={isDisabled}>
+              <MediaItem value="image" isDanger={isDanger} disabled={isDisabled}>
                 <MediaFigure>
                   <img src="images/dropdowns/media.png" alt="Example Media" />
                 </MediaFigure>
@@ -101,7 +103,7 @@ export const Advanced: Story<IStoryProps> = ({
                   <ItemMeta>Meta info</ItemMeta>
                 </MediaBody>
               </MediaItem>
-              <MediaItem value="icon" disabled={isDisabled}>
+              <MediaItem value="icon" isDanger={isDanger} disabled={isDisabled}>
                 <MediaFigure>
                   <GroupIcon />
                 </MediaFigure>
@@ -110,7 +112,7 @@ export const Advanced: Story<IStoryProps> = ({
                   <ItemMeta>Meta info</ItemMeta>
                 </MediaBody>
               </MediaItem>
-              <MediaItem value="avatar" disabled={isDisabled}>
+              <MediaItem value="avatar" isDanger={isDanger} disabled={isDisabled}>
                 <MediaFigure>
                   <Avatar size="extraextrasmall" status="available">
                     <img alt="Sage" src="images/dropdowns/avatar.png" />
@@ -137,6 +139,7 @@ Advanced.argTypes = {
   hasArrow: { name: 'hasArrow', control: 'boolean' },
   isAnimated: { name: 'isAnimated', control: 'boolean' },
   isCompact: { name: 'isCompact', control: 'boolean' },
+  isDanger: { name: 'Danger items', control: 'boolean' },
   placement: {
     name: 'Placement',
     control: {
