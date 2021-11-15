@@ -44,5 +44,5 @@ export const StyledSheetWrapper = styled.div.attrs({
 `;
 
 StyledSheetWrapper.defaultProps = {
-  theme: DEFAULT_THEME,
+  theme: DEFAULT_THEME
 };

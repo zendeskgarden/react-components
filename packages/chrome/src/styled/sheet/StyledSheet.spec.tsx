@@ -12,7 +12,7 @@ import { StyledSheet } from './StyledSheet';
 
 describe('StyledSheet', () => {
   it('renders correctly in rtl mode', () => {
-    const { getByRole } = renderRtl(<StyledSheet />);
+    const { getByRole } = renderRtl(<StyledSheet placement="end" />);
 
     expect(getByRole('complementary')).toHaveStyleRule('border-right', '1px solid transparent');
   });
