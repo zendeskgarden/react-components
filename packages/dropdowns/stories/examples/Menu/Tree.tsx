@@ -39,6 +39,7 @@ interface IStoryProps {
   isAnimated: boolean;
   isCompact: boolean;
   isDisabled: boolean;
+  isDanger: boolean;
 }
 
 export const Tree: Story<IStoryProps> = ({
@@ -46,7 +47,8 @@ export const Tree: Story<IStoryProps> = ({
   isAnimated,
   isCompact,
   placement,
-  isDisabled
+  isDisabled,
+  isDanger
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [tempSelectedItem, setTempSelectedItem] = useState();
@@ -67,19 +69,19 @@ export const Tree: Story<IStoryProps> = ({
     return (
       <>
         <HeaderItem>General Settings</HeaderItem>
-        <Item disabled={isDisabled} value="profile">
+        <Item disabled={isDisabled} isDanger={isDanger} value="profile">
           Profile
         </Item>
-        <Item disabled={isDisabled} value="settings">
+        <Item disabled={isDisabled} isDanger={isDanger} value="settings">
           Settings
         </Item>
-        <Item disabled={isDisabled} value="user-images">
+        <Item disabled={isDisabled} isDanger={isDanger} value="user-images">
           User Images
         </Item>
-        <NextItem disabled={isDisabled} value="specific-settings">
+        <NextItem disabled={isDisabled} isDanger={isDanger} value="specific-settings">
           Specific Settings
         </NextItem>
-        <Item disabled={isDisabled} value="theme-editor">
+        <Item disabled={isDisabled} isDanger={isDanger} value="theme-editor">
           Theme Editor
         </Item>
       </>
@@ -143,6 +145,7 @@ Tree.argTypes = {
   hasArrow: { name: 'hasArrow', control: 'boolean' },
   isAnimated: { name: 'isAnimated', control: 'boolean' },
   isCompact: { name: 'isCompact', control: 'boolean' },
+  isDanger: { name: 'Danger items', control: 'boolean' },
   placement: {
     name: 'Placement',
     control: {

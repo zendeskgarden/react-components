@@ -79,7 +79,7 @@ Default.argTypes = {
   hasArrow: { name: 'hasArrow', control: 'boolean' },
   isAnimated: { name: 'isAnimated', control: 'boolean' },
   isCompact: { name: 'isCompact', control: 'boolean' },
-  isDanger: { name: 'isDanger', control: 'boolean' },
+  isDanger: { name: 'Danger items', control: 'boolean' },
   placement: {
     name: 'Placement',
     control: {

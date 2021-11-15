@@ -87,16 +87,19 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
       }
     }, [currentIndex, disabled, isDanger, isOpen, isSelected, selectedItems, setHighlightedIndex]);
 
-    const contextValue = useMemo(() => ({ 
-      isDisabled: disabled,
-      isDanger: isDanger
-    }), [disabled, isDanger]);
+    const contextValue = useMemo(() => ({ isDisabled: disabled, isDanger }), [disabled, isDanger]);
     const ref = mergeRefs([itemRef, forwardRef]);
 
     if (disabled) {
       return (
         <ItemContext.Provider value={contextValue}>
-          <Component ref={ref} disabled={disabled} isDanger={isDanger} isCompact={isCompact} {...props}>
+          <Component
+            ref={ref}
+            disabled={disabled}
+            isDanger={isDanger}
+            isCompact={isCompact}
+            {...props}
+          >
             {isSelected && (
               <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
                 <SelectedSvg />

@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Dropdown, Trigger, Menu, MediaItem, MediaBody, ItemMeta } from '../../..';
 
 describe('ItemMeta', () => {
@@ -34,4 +35,23 @@ describe('ItemMeta', () => {
     expect(getByTestId('item-meta')).toBe(ref.current);
   });
 
+  it('renders danger styling if provided', () => {
+    const { getByTestId } = render(
+      <Dropdown isOpen>
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu>
+          <MediaItem isDanger value="image">
+            <MediaBody>
+              Image Media Item
+              <ItemMeta data-test-id="item-meta">Meta info</ItemMeta>
+            </MediaBody>
+          </MediaItem>
+        </Menu>
+      </Dropdown>
+    );
+
+    expect(getByTestId('item-meta')).toHaveStyleRule('color', getColor('dangerHue'));
+  });
 });
