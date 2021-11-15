@@ -6,18 +6,24 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import TrashIcon from '@zendeskgarden/svg-icons/src/16/trash-stroke.svg';
+import TrashIconCompact from '@zendeskgarden/svg-icons/src/12/trash-stroke.svg';
+import TrashIconDefault from '@zendeskgarden/svg-icons/src/16/trash-stroke.svg';
+import useFileContext from '../../../utils/useFileContext';
 import { StyledFileDelete } from '../../../styled';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Delete = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => (
-    <StyledFileDelete ref={ref} {...props}>
-      <TrashIcon />
-    </StyledFileDelete>
-  )
+  (props, ref) => {
+    const fileContext = useFileContext();
+
+    return (
+      <StyledFileDelete ref={ref} {...props}>
+        {fileContext && fileContext.isCompact ? <TrashIconCompact /> : <TrashIconDefault />}
+      </StyledFileDelete>
+    );
+  }
 );
 
 Delete.displayName = 'File.Delete';

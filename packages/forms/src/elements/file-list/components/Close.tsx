@@ -6,18 +6,24 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import XIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import XIconCompact from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
+import XIconDefault from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import useFileContext from '../../../utils/useFileContext';
 import { StyledFileClose } from '../../../styled';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Close = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => (
-    <StyledFileClose ref={ref} {...props}>
-      <XIcon />
-    </StyledFileClose>
-  )
+  (props, ref) => {
+    const fileContext = useFileContext();
+
+    return (
+      <StyledFileClose ref={ref} {...props}>
+        {fileContext && fileContext.isCompact ? <XIconCompact /> : <XIconDefault />}
+      </StyledFileClose>
+    );
+  }
 );
 
 Close.displayName = 'File.Close';

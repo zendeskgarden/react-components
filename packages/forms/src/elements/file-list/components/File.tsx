@@ -19,7 +19,13 @@ import { Close } from './Close';
 import { Delete } from './Delete';
 import { StyledFile, StyledFileIcon } from '../../../styled';
 import { FileContext } from '../../../utils/useFileContext';
-import { FILE_TYPE, ARRAY_FILE_TYPE, fileIconsDefault, fileIconsCompact } from '../utils';
+import {
+  FILE_TYPE,
+  ARRAY_FILE_TYPE,
+  VALIDATION_TYPE,
+  fileIconsDefault,
+  fileIconsCompact
+} from '../utils';
 
 export interface IFileProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies compact styling */
@@ -29,7 +35,7 @@ export interface IFileProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
   /** Applies validation state styling */
-  validation?: 'success' | 'error';
+  validation?: VALIDATION_TYPE;
 }
 
 interface IStaticFileExport<T, P>
