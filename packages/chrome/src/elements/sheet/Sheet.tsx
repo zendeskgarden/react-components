@@ -43,20 +43,20 @@ interface IStaticSheetExport<T, P>
 }
 
 export interface ISheetProps extends HTMLAttributes<HTMLElement> {
-  /** An ID that is applied to Sheet elements */
+  /** Sets the root ID. A unique ID is created if none is provided. **/
   id?: string;
-  /** Determines whether the Sheet is open or not **/
+  /** Opens the Sheet **/
   isOpen?: boolean;
   /** Determines whether animation for opening and closing the Sheet is used **/
   isAnimated?: boolean;
-  /** Focuses on the Sheet when isOpen is true and mounted **/
+  /** Focuses on the Sheet when `isOpen` is true and mounted **/
   focusOnMount?: boolean;
-  /** Restores focus to the previous element after the Sheet is closed **/
+  /** Directs keyboard focus to the Sheet on mount **/
   restoreFocus?: boolean;
-  /** Determines the position of the Sheet **/
+  /** Returns keyboard focus to the element that triggered the Sheet **/
   placement?: 'start' | 'end';
   /** Sets the width in pixels, based on the placement of the Sheet */
-  size?: number;
+  size?: string;
 }
 
 /**
@@ -140,7 +140,7 @@ Sheet.propTypes = {
   focusOnMount: PropTypes.bool,
   restoreFocus: PropTypes.bool,
   placement: PropTypes.oneOf(['start', 'end']),
-  size: PropTypes.number
+  size: PropTypes.string
 };
 
 Sheet.defaultProps = {
@@ -148,5 +148,6 @@ Sheet.defaultProps = {
   isAnimated: true,
   focusOnMount: false,
   restoreFocus: false,
-  placement: 'end'
+  placement: 'end',
+  size: '380px'
 };

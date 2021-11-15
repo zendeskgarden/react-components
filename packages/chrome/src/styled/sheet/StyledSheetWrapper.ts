@@ -8,12 +8,10 @@
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { SHEET_SIZE } from './StyledSheet';
-
 const COMPONENT_ID = 'chrome.sheet_wrapper';
 
 interface IStyledSheetWrapperProps {
-  size?: number;
+  size?: string;
 }
 
 export const StyledSheetWrapper = styled.div.attrs({
@@ -24,7 +22,7 @@ export const StyledSheetWrapper = styled.div.attrs({
   position: relative;
   flex-direction: column;
   transition: opacity 0.5s ease-in-out;
-  min-width: ${props => props.size || SHEET_SIZE}px;
+  min-width: ${props => props.size};
 
   &.side-sheet-transition-enter {
     opacity: 0;
@@ -47,5 +45,4 @@ export const StyledSheetWrapper = styled.div.attrs({
 
 StyledSheetWrapper.defaultProps = {
   theme: DEFAULT_THEME,
-  size: SHEET_SIZE
 };

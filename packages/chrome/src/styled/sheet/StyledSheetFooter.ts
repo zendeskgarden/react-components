@@ -24,7 +24,6 @@ export const StyledSheetFooter = styled.footer.attrs({
   align-items: center;
   justify-content: ${props => (props.isCompact ? 'center' : 'flex-end')};
   border-top: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}}`};
-
   padding: ${props => props.theme.space.base * (props.isCompact ? 2.5 : 5)}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

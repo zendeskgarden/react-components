@@ -116,7 +116,7 @@ SheetStory.args = {
   restoreFocus: false,
   isCompact: false,
   placement: 'end',
-  size: 380
+  size: '380px'
 };
 
 SheetStory.argTypes = {
@@ -147,6 +147,6 @@ SheetStory.argTypes = {
   },
   size: {
     name: 'size',
-    control: 'number'
+    control: 'text'
   }
 };
