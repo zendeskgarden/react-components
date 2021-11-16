@@ -17,7 +17,6 @@ import React, {
 import PropTypes from 'prop-types';
 import { useUIDSeed } from 'react-uid';
 import mergeRefs from 'react-merge-refs';
-import { CSSTransition } from 'react-transition-group';
 
 import { StyledSheet, StyledSheetWrapper } from '../../styled';
 import { SheetContext } from '../../utils/useSheetContext';
@@ -72,43 +71,16 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
     const titleId = `${idPrefix}--title`;
     const descriptionId = `${idPrefix}--description`;
 
-    const sheetContext = useMemo(() => ({ idPrefix }), [idPrefix]);
+    const sheetContext = useMemo(() => ({ titleId, descriptionId }), [titleId, descriptionId]);
 
     useFocusableMount({ targetRef: sheetRef, isMounted: isOpen, focusOnMount, restoreFocus });
-
-    if (isAnimated) {
-      return (
-        <SheetContext.Provider value={sheetContext}>
-          <StyledSheet
-            isOpen={isOpen}
-            size={size}
-            isAnimated
-            tabIndex={-1}
-            id={idPrefix}
-            aria-labelledby={titleId}
-            aria-describedby={descriptionId}
-            ref={mergeRefs([sheetRef, ref])}
-            {...props}
-          >
-            <CSSTransition
-              in={isOpen}
-              unmountOnExit
-              timeout={500}
-              classNames="side-sheet-transition"
-            >
-              <StyledSheetWrapper size={size}>{children}</StyledSheetWrapper>
-            </CSSTransition>
-          </StyledSheet>
-        </SheetContext.Provider>
-      );
-    }
 
     return (
       <SheetContext.Provider value={sheetContext}>
         <StyledSheet
           isOpen={isOpen}
           size={size}
-          isAnimated={false}
+          isAnimated={isAnimated}
           tabIndex={-1}
           id={idPrefix}
           aria-labelledby={titleId}
@@ -116,7 +88,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
           ref={mergeRefs([sheetRef, ref])}
           {...props}
         >
-          {isOpen ? <StyledSheetWrapper size={size}>{children}</StyledSheetWrapper> : null}
+          <StyledSheetWrapper size={size}>{children}</StyledSheetWrapper>
         </StyledSheet>
       </SheetContext.Provider>
     );

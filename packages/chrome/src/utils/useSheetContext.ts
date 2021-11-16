@@ -8,11 +8,13 @@
 import { createContext, useContext } from 'react';
 
 export interface ISheetContext {
-  idPrefix: string;
+  titleId: string;
+  descriptionId: string;
 }
 
 export const SheetContext = createContext<ISheetContext>({
-  idPrefix: 'sheet'
+  titleId: 'sheet--title',
+  descriptionId: 'sheet--description'
 });
 
 export const useSheetContext = () => {

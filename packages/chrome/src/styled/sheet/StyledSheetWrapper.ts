@@ -21,24 +21,7 @@ export const StyledSheetWrapper = styled.div.attrs({
   display: flex;
   position: relative;
   flex-direction: column;
-  transition: opacity 0.5s ease-in-out;
   min-width: ${props => props.size};
-
-  &.side-sheet-transition-enter {
-    opacity: 0;
-  }
-
-  &.side-sheet-transition-enter-active {
-    opacity: 1;
-  }
-
-  &.side-sheet-transition-exit {
-    opacity: 1;
-  }
-
-  &.side-sheet-transition-exit-active {
-    opacity: 0;
-  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

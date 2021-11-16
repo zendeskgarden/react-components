@@ -12,8 +12,7 @@ import { useSheetContext } from '../../../utils/useSheetContext';
 
 export const SheetTitle = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ id, ...props }, ref) => {
-    const { idPrefix } = useSheetContext();
-    const titleId = `${idPrefix}--title`;
+    const { titleId } = useSheetContext();
 
     return <StyledSheetTitle id={id || titleId} ref={ref} {...props} />;
   }

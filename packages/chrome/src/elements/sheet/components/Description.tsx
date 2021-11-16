@@ -12,8 +12,7 @@ import { useSheetContext } from '../../../utils/useSheetContext';
 
 export const SheetDescription = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ id, ...props }, ref) => {
-    const { idPrefix } = useSheetContext();
-    const descriptionId = `${idPrefix}--description`;
+    const { descriptionId } = useSheetContext();
 
     return <StyledSheetDescription id={id || descriptionId} ref={ref} {...props} />;
   }

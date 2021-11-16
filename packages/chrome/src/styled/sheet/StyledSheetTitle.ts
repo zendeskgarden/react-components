@@ -6,15 +6,27 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { math } from 'polished';
+import {
+  retrieveComponentStyles,
+  getLineHeight,
+  getColor,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_title';
 
+const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+  const fontColor = getColor('neutralHue', 800, props.theme);
+
+  return css`
+    color: ${fontColor};
+  `;
+};
+
 const fontStyles = (props: ThemeProps<DefaultTheme>) => {
   return css`
-    line-height: ${math(`${props.theme.lineHeights.md} - 1px`)};
-    font-size: ${math(`${props.theme.fontSizes.md} - 1px`)};
+    line-height: ${getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
+    font-size: ${props.theme.fontSizes.md};
     font-weight: ${props.theme.fontWeights.semibold};
   `;
 };
@@ -23,8 +35,9 @@ export const StyledSheetTitle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
-  margin-bottom: ${props => props.theme.space.base / 4};
+  margin-bottom: ${props => props.theme.space.base / 4}px;
 
+  ${props => colorStyles(props)};
   ${props => fontStyles(props)};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

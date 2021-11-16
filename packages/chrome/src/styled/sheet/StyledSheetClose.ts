@@ -6,41 +6,36 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { rgba } from 'polished';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_close';
 
-const placementStyles = (props: ThemeProps<DefaultTheme>) => {
-  const placement = props.theme.rtl ? 'left' : 'right';
-
-  return css`
-    position: absolute;
-    top: ${props.theme.space.base * 2.5}px;
-    ${placement}: ${props.theme.space.base * 2}px;
-  `;
-};
-
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const shade = 600;
-  const baseColor = getColor('neutralHue', shade, props.theme);
-  const hoverColor = getColor('neutralHue', shade + 100, props.theme);
-  const activeColor = getColor('neutralHue', shade + 200, props.theme);
+  const backgroundColor = 'primaryHue';
+  const foregroundColor = 'neutralHue';
 
   return css`
     background-color: transparent;
-    color: ${baseColor};
+    color: ${getColor(foregroundColor, 600, props.theme)};
 
     &:hover {
-      background-color: ${rgba(baseColor as string, 0.08)};
-      color: ${hoverColor};
+      background-color: ${getColor(backgroundColor, 600, props.theme, 0.08)};
+      color: ${getColor(foregroundColor, 700, props.theme)};
     }
 
-    &:active,
-    &[aria-pressed='true'],
-    &[aria-pressed='mixed'] {
-      background-color: ${rgba(baseColor as string, 0.2)};
-      color: ${activeColor};
+    &[data-garden-focus-visible] {
+      box-shadow: ${props.theme.shadows.md(
+        getColor(backgroundColor, 600, props.theme, 0.35) as string
+      )};
+    }
+
+    &:active {
+      /* prettier-ignore */
+      transition:
+        background-color 0.1s ease-in-out,
+        color 0.1s ease-in-out;
+      background-color: ${getColor(backgroundColor, 600, props.theme, 0.2)};
+      color: ${getColor(foregroundColor, 800, props.theme)};
     }
   `;
 };
@@ -49,15 +44,24 @@ export const StyledSheetClose = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
-  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+  display: flex;
+  position: absolute;
+  top: ${props => props.theme.space.base * 2.5}px;
+  ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base * 2}px`};
+  align-items: center;
+  justify-content: center;
+  /* prettier-ignore */
+  transition:
+    box-shadow 0.1s ease-in-out,
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out;
   border: 0;
   border-radius: 50%;
+  cursor: pointer;
   padding: 0;
-  width: 40px;
-  height: 40px;
-  line-height: 0;
+  width: ${props => props.theme.space.base * 10}px;
+  height: ${props => props.theme.space.base * 10}px;
 
-  ${props => placementStyles(props)};
   ${props => colorStyles(props)};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

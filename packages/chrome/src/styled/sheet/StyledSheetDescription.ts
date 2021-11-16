@@ -6,15 +6,27 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { math } from 'polished';
+import {
+  retrieveComponentStyles,
+  getLineHeight,
+  getColor,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_description';
 
+const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+  const fontColor = getColor('neutralHue', 600, props.theme);
+
+  return css`
+    color: ${fontColor};
+  `;
+};
+
 const fontStyles = (props: ThemeProps<DefaultTheme>) => {
   return css`
-    line-height: ${math(`${props.theme.lineHeights.sm} - 1px`)};
-    font-size: ${math(`${props.theme.fontSizes.sm} - 1px`)};
+    line-height: ${getLineHeight(props.theme.lineHeights.sm, props.theme.fontSizes.md)};
+    font-size: ${props.theme.fontSizes.md};
   `;
 };
 
@@ -22,6 +34,7 @@ export const StyledSheetDescription = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
+  ${props => colorStyles(props)};
   ${props => fontStyles(props)};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
