@@ -54,6 +54,10 @@ export const StyledSheet = styled.aside.attrs({
   min-height: 100%;
   overflow: hidden;
 
+  &:focus {
+    outline: none;
+  }
+
   ${props => borderStyle(props)};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
