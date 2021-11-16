@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn build --since HEAD --exclude-dependents && git add packages/**/.size-snapshot.json && yarn lint-staged
+yarn lint-staged && yarn build --since HEAD --exclude-dependents && git add packages/**/.size-snapshot.json 
