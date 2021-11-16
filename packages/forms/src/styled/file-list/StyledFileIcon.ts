@@ -11,7 +11,8 @@ import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'forms.file.icon';
 
-export const StyledFileIcon = styled(({ children, ...props }) =>
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const StyledFileIcon = styled(({ children, isCompact, theme, ...props }) =>
   React.cloneElement(Children.only(children), props)
 ).attrs({
   'data-garden-id': COMPONENT_ID,
