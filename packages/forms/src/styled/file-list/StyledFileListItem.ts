@@ -7,7 +7,8 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledFileList, StyledFileUpload } from '..';
+import { StyledFileList } from './StyledFileList';
+import { StyledFileUpload } from '../file-upload/StyledFileUpload';
 
 const COMPONENT_ID = 'forms.file_list.item';
 

@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { StyledFileClose } from '..';
+import { StyledFileClose } from './StyledFileClose';
 
 const COMPONENT_ID = 'forms.file.delete';
 
