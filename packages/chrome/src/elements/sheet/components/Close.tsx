@@ -13,7 +13,7 @@ import { StyledSheetClose } from '../../../styled';
 export const SheetCloseButton = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     return (
-      <StyledSheetClose aria-label={props['aria-label'] || 'Close Sheet'} ref={ref} {...props}>
+      <StyledSheetClose aria-label="Close Sheet" ref={ref} {...props}>
         <XStrokeIcon />
       </StyledSheetClose>
     );
