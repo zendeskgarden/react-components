@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useLayoutEffect, useRef, MutableRefObject } from 'react';
+import { useEffect, useRef, MutableRefObject } from 'react';
 import activeElement from 'dom-helpers/activeElement';
 
 export interface IUseFocusableMountProp {
@@ -24,7 +24,7 @@ export function useFocusableMount({
   const wasOpenRef = useRef<boolean>(false);
   const triggerRef = useRef<HTMLElement | Element | null>();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isMounted && focusOnMount && targetRef.current) {
       triggerRef.current = activeElement();
       wasOpenRef.current = true;
@@ -32,7 +32,7 @@ export function useFocusableMount({
     }
   }, [wasOpenRef, isMounted, focusOnMount, targetRef]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (wasOpenRef.current && !isMounted && restoreFocus && triggerRef.current) {
       (triggerRef.current as HTMLElement).focus();
       wasOpenRef.current = false;
