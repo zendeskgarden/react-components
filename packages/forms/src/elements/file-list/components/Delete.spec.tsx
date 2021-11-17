@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
 import { File } from '../../..';
 
@@ -21,5 +22,16 @@ describe('File.Delete', () => {
     const { container } = render(<File.Delete ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
+  });
+
+  it('composes mousedown event', () => {
+    let test = 0;
+    const { getByTestId } = render(
+      <File.Delete data-test-id="delete" onMouseDown={() => test++} />
+    );
+
+    userEvent.click(getByTestId('delete'));
+
+    expect(test).toStrictEqual(1);
   });
 });

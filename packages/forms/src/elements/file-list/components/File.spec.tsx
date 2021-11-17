@@ -28,4 +28,24 @@ describe('File', () => {
 
     expect(container.firstChild!.firstChild).not.toBeNull();
   });
+
+  describe('children', () => {
+    it('wraps child text', () => {
+      const { container } = render(<File>test</File>);
+
+      expect(container.firstChild!.firstChild!.nodeName).toBe('SPAN');
+      expect(container.firstChild!.firstChild).toHaveTextContent('test');
+    });
+
+    it('renders unwrapped child element', () => {
+      const { container } = render(
+        <File>
+          <div>test</div>
+        </File>
+      );
+
+      expect(container.firstChild!.firstChild!.nodeName).toBe('DIV');
+      expect(container.firstChild!.firstChild).toHaveTextContent('test');
+    });
+  });
 });

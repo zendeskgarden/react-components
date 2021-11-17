@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
 import { File } from '../../..';
 
@@ -21,5 +22,14 @@ describe('File.Close', () => {
     const { container } = render(<File.Close ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
+  });
+
+  it('composes mousedown event', () => {
+    let test = 0;
+    const { getByTestId } = render(<File.Close data-test-id="close" onMouseDown={() => test++} />);
+
+    userEvent.click(getByTestId('close'));
+
+    expect(test).toStrictEqual(1);
   });
 });
