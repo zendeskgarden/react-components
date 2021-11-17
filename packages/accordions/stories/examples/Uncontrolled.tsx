@@ -109,6 +109,12 @@ Uncontrolled.args = {
   isBare: false
 };
 
+Uncontrolled.argTypes = {
+  defaultExpandedSections: {
+    control: { disable: true }
+  }
+};
+
 Uncontrolled.parameters = {
   docs: {
     description: {

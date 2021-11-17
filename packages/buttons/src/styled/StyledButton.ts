@@ -83,8 +83,11 @@ const colorStyles = (
       background-color: transparent;
       color: ${baseColor};
 
+      &:focus {
+        color: ${baseColor}; /* [1] */
+      }
+
       &:hover,
-      &:focus, /* [1] */
       &[data-garden-focus-visible] {
         color: ${hoverColor};
       }
