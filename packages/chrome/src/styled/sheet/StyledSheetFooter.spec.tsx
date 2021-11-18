@@ -13,18 +13,18 @@ import { StyledSheetFooter } from './StyledSheetFooter';
 
 describe('StyledSheetFooter', () => {
   it('renders default styling', () => {
-    render(<StyledSheetFooter>footer</StyledSheetFooter>);
+    render(<StyledSheetFooter />);
 
-    const footer = screen.getByText('footer');
+    const footer = screen.getByRole('contentinfo');
 
     expect(footer).toHaveStyleRule('justify-content', 'flex-end');
     expect(footer).toHaveStyleRule('padding', `${DEFAULT_THEME.space.base * 5}px`);
   });
 
   it('renders compact styling when provided', () => {
-    render(<StyledSheetFooter isCompact>footer</StyledSheetFooter>);
+    render(<StyledSheetFooter isCompact />);
 
-    const footer = screen.getByText('footer');
+    const footer = screen.getByRole('contentinfo');
 
     expect(footer).toHaveStyleRule('justify-content', 'center');
     expect(footer).toHaveStyleRule('padding', `${DEFAULT_THEME.space.base * 2.5}px`);
