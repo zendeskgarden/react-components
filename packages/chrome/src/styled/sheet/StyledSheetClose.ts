@@ -55,14 +55,31 @@ export const StyledSheetClose = styled.button.attrs({
     box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
     color 0.25s ease-in-out;
-  border: 0;
+  border: none;
   border-radius: 50%;
   cursor: pointer;
   padding: 0;
   width: ${props => props.theme.space.base * 10}px;
   height: ${props => props.theme.space.base * 10}px;
+  overflow: hidden;
+  text-decoration: none;
+  font-size: 0;
+  user-select: none;
+
+  &::-moz-focus-inner {
+    border: 0; /* [1] */
+  }
+
+  &:focus {
+    outline: none;
+  }
 
   ${props => colorStyles(props)};
+
+  & > svg {
+    vertical-align: middle;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

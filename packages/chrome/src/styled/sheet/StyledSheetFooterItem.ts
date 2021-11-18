@@ -14,7 +14,7 @@ export const StyledSheetFooterItem = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
-  margin: auto ${props => props.theme.space.base * 2.5}px;
+  ${props => `margin-${props.theme.rtl ? 'right' : 'left'}: ${props.theme.space.base * 5}px;`}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

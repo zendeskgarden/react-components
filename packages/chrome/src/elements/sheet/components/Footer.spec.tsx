@@ -17,11 +17,4 @@ describe('Sheet.Footer', () => {
 
     expect(container.firstChild).toBe(ref.current);
   });
-
-  it('is styled correctly when isCompact', () => {
-    const { container } = render(<Footer isCompact />);
-
-    expect(container.firstChild).toHaveStyleRule('justify-content', 'center');
-    expect(container.firstChild).toHaveStyleRule('padding', '10px');
-  });
 });

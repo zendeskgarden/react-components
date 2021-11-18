@@ -20,10 +20,4 @@ describe('Sheet.Title', () => {
 
     expect(screen.getByText(titleText)).toBe(ref.current);
   });
-
-  it('has an id passed from context', () => {
-    render(<Title>{titleText}</Title>);
-
-    expect(screen.getByText(titleText)).toHaveAttribute('id', 'sheet--title');
-  });
 });

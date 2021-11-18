@@ -20,27 +20,22 @@ describe('useFocusableMount', () => {
 
     return (
       <>
-        <button data-test-id="trigger-btn" onClick={() => setMounted(!mounted)}>
-          Trigger
-        </button>
-        <button data-test-id="target-btn" ref={targetRef}>
-          Target
-        </button>
+        <button onClick={() => setMounted(!mounted)}>Trigger</button>
+        <button ref={targetRef}>Target</button>
       </>
     );
   };
 
-  it('focuses on target button on mount', () => {
-    const { getByTestId } = render(<TestFocusOnMount />);
-    const btn = getByTestId('target-btn');
+  it('focuses on sheet when it is open', () => {
+    const { getByText } = render(<TestFocusOnMount />);
+    const btn = getByText('Target');
 
     expect(btn).toHaveFocus();
   });
 
-  it('focuses on trigger button after target is unmounted', () => {
-    const { getByTestId } = render(<TestFocusOnMount isMounted={false} />);
-    const targetBtn = getByTestId('target-btn');
-    const triggerBtn = getByTestId('trigger-btn');
+  it('focuses on trigger when sheet is closes', () => {
+    const { getAllByRole } = render(<TestFocusOnMount isMounted={false} />);
+    const [triggerBtn, targetBtn] = getAllByRole('button');
 
     expect(targetBtn).not.toHaveFocus();
 

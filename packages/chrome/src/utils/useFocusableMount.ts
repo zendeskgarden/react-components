@@ -21,21 +21,18 @@ export function useFocusableMount({
   restoreFocus,
   targetRef
 }: IUseFocusableMountProp) {
-  const wasOpenRef = useRef<boolean>(false);
   const triggerRef = useRef<HTMLElement | Element | null>();
 
   useEffect(() => {
     if (isMounted && focusOnMount && targetRef.current) {
       triggerRef.current = activeElement();
-      wasOpenRef.current = true;
       targetRef.current.focus();
     }
-  }, [wasOpenRef, isMounted, focusOnMount, targetRef]);
+  }, [isMounted, focusOnMount, targetRef]);
 
   useEffect(() => {
-    if (wasOpenRef.current && !isMounted && restoreFocus && triggerRef.current) {
+    if (!isMounted && restoreFocus && triggerRef.current) {
       (triggerRef.current as HTMLElement).focus();
-      wasOpenRef.current = false;
     }
-  }, [wasOpenRef, isMounted, restoreFocus, triggerRef]);
+  }, [isMounted, restoreFocus, triggerRef]);
 }
