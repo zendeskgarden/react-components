@@ -6,25 +6,25 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, screen } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { StyledSheetFooter } from './StyledSheetFooter';
 
 describe('StyledSheetFooter', () => {
   it('renders default styling', () => {
-    const { getByText } = render(<StyledSheetFooter>footer</StyledSheetFooter>);
+    render(<StyledSheetFooter>footer</StyledSheetFooter>);
 
-    const footer = getByText('footer');
+    const footer = screen.getByText('footer');
 
     expect(footer).toHaveStyleRule('justify-content', 'flex-end');
     expect(footer).toHaveStyleRule('padding', `${DEFAULT_THEME.space.base * 5}px`);
   });
 
   it('renders compact styling when provided', () => {
-    const { getByText } = render(<StyledSheetFooter isCompact>footer</StyledSheetFooter>);
+    render(<StyledSheetFooter isCompact>footer</StyledSheetFooter>);
 
-    const footer = getByText('footer');
+    const footer = screen.getByText('footer');
 
     expect(footer).toHaveStyleRule('justify-content', 'center');
     expect(footer).toHaveStyleRule('padding', `${DEFAULT_THEME.space.base * 2.5}px`);

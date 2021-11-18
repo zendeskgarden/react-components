@@ -6,16 +6,17 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, screen } from 'garden-test-utils';
 
 import { SheetCloseButton as Close } from './Close';
 
 describe('Sheet.Close', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLButtonElement>();
-    const { getByRole } = render(<Close ref={ref} />);
 
-    const btn = getByRole('button');
+    render(<Close ref={ref} />);
+
+    const btn = screen.getByRole('button');
 
     expect(btn).toBe(ref.current);
   });

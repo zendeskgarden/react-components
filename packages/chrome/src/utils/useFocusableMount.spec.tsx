@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render, act } from 'garden-test-utils';
+import { render, screen, act } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
 
 import { useFocusableMount } from './useFocusableMount';
@@ -27,15 +27,17 @@ describe('useFocusableMount', () => {
   };
 
   it('focuses on sheet when it is open', () => {
-    const { getByText } = render(<TestFocusOnMount />);
-    const btn = getByText('Target');
+    render(<TestFocusOnMount />);
+
+    const btn = screen.getByText('Target');
 
     expect(btn).toHaveFocus();
   });
 
-  it('focuses on trigger when sheet is closes', () => {
-    const { getAllByRole } = render(<TestFocusOnMount isMounted={false} />);
-    const [triggerBtn, targetBtn] = getAllByRole('button');
+  it('focuses on trigger when sheet is closed', () => {
+    render(<TestFocusOnMount isMounted={false} />);
+
+    const [triggerBtn, targetBtn] = screen.getAllByRole('button');
 
     expect(targetBtn).not.toHaveFocus();
 
