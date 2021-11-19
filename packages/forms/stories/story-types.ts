@@ -235,14 +235,14 @@ export const FILE_LIST_ARG_TYPES = {
     name: 'Include Remove',
     control: {
       type: 'radio',
-      options: ['File.Close', 'File.Delete']
+      options: ['File.Close', 'File.Delete', undefined]
     }
   },
   validation: {
     name: 'Validation',
     control: {
       type: 'radio',
-      options: ['success', 'error']
+      options: ['success', 'error', undefined]
     }
   }
 };
