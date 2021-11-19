@@ -15,4 +15,4 @@ export const SheetFooter = forwardRef<
   return <StyledSheetFooter ref={ref} {...props} />;
 });
 
-SheetFooter.displayName = 'SheetFooter';
+SheetFooter.displayName = 'Sheet.Footer';

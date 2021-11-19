@@ -19,7 +19,6 @@ export const StyledSheetTitle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
-  margin-bottom: ${props => props.theme.space.base / 4}px;
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   color: ${props => getColor('neutralHue', 800, props.theme)};
   font-weight: ${props => props.theme.fontWeights.semibold};

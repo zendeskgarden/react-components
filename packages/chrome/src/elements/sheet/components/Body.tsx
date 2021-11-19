@@ -14,4 +14,4 @@ export const SheetBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElemen
   }
 );
 
-SheetBody.displayName = 'SheetBody';
+SheetBody.displayName = 'Sheet.Body';

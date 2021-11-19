@@ -10,7 +10,7 @@ import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 import { StyledSheetClose } from '../../../styled';
 
-export const SheetCloseButton = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
+export const SheetClose = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     return (
       <StyledSheetClose aria-label="Close Sheet" ref={ref} {...props}>
@@ -20,4 +20,4 @@ export const SheetCloseButton = forwardRef<HTMLButtonElement, HTMLAttributes<HTM
   }
 );
 
-SheetCloseButton.displayName = 'SheetCloseButton';
+SheetClose.displayName = 'Sheet.Close';

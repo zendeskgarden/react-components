@@ -14,4 +14,4 @@ export const SheetFooterItem = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDiv
   }
 );
 
-SheetFooterItem.displayName = 'SheetFooterItem';
+SheetFooterItem.displayName = 'Sheet.FooterItem';

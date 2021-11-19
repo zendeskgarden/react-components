@@ -28,7 +28,7 @@ import { SheetHeader } from './components/Header';
 import { SheetBody } from './components/Body';
 import { SheetFooter } from './components/Footer';
 import { SheetFooterItem } from './components/FooterItem';
-import { SheetCloseButton } from './components/Close';
+import { SheetClose } from './components/Close';
 
 interface IStaticSheetExport<T, P>
   extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
@@ -38,12 +38,10 @@ interface IStaticSheetExport<T, P>
   Body: typeof SheetBody;
   Footer: typeof SheetFooter;
   FooterItem: typeof SheetFooterItem;
-  Close: typeof SheetCloseButton;
+  Close: typeof SheetClose;
 }
 
 export interface ISheetProps extends HTMLAttributes<HTMLElement> {
-  /** Sets the root ID. A unique ID is created if none is provided. **/
-  id?: string;
   /** Opens the Sheet **/
   isOpen?: boolean;
   /** Determines whether animation for opening and closing the Sheet is used **/
@@ -101,7 +99,7 @@ Sheet.Header = SheetHeader;
 Sheet.Body = SheetBody;
 Sheet.Footer = SheetFooter;
 Sheet.FooterItem = SheetFooterItem;
-Sheet.Close = SheetCloseButton;
+Sheet.Close = SheetClose;
 
 Sheet.displayName = 'Sheet';
 

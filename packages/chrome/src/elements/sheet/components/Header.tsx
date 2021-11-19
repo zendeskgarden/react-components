@@ -12,4 +12,4 @@ export const SheetHeader = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   return <StyledSheetHeader ref={ref} {...props} />;
 });
 
-SheetHeader.displayName = 'SheetHeader';
+SheetHeader.displayName = 'Sheet.Header';
