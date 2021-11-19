@@ -48,8 +48,7 @@ export const StyledSheet = styled.aside.attrs({
   transition: ${props => props.isAnimated && 'width 250ms ease-in-out'};
   background-color: ${props => props.theme.colors.background};
   width: ${props => (props.isOpen ? props.size : '0px')};
-  min-height: 100%;
-  max-height: 100%;
+  height: 100%;
   overflow: hidden;
   font-size: ${props => props.theme.fontSizes.md};
 
