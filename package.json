@@ -25,7 +25,7 @@
     "test:all": "jest --config=utils/test/jest.config.js",
     "test:ci": "yarn lint && yarn format:all && yarn tsc && yarn test:all --coverage",
     "preversion": "yarn test:ci",
-    "version": "lerna exec yarn install && yarn build && git add -A"
+    "version": "yarn build && git add -A"
   },
   "devDependencies": {
     "@babel/cli": "7.15.4",
@@ -52,7 +52,7 @@
     "@testing-library/user-event": "13.2.1",
     "@types/jest": "27.0.1",
     "@types/prop-types": "15.7.4",
-    "@types/react": "17.0.33",
+    "@types/react": "17.0.34",
     "@types/react-dom": "17.0.9",
     "@types/styled-components": "5.1.14",
     "@typescript-eslint/eslint-plugin": "4.31.1",

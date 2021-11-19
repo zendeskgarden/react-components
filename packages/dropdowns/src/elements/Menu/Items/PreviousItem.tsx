@@ -13,6 +13,7 @@ import { StyledPreviousItem, StyledItemIcon, StyledPreviousIcon } from '../../..
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
 
+// eslint-disable-next-line react/display-name
 const PreviousItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
   ({ children, disabled, ...props }, ref) => {
     const { isCompact } = useMenuContext();
@@ -27,8 +28,6 @@ const PreviousItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
     );
   }
 );
-
-PreviousItemComponent.displayName = 'PreviousItemComponent';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>

@@ -36,6 +36,8 @@ interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange
   level: number;
   /** Sets the expanded sections in a controlled accordion */
   expandedSections?: number[];
+  /** Sets the default expanded sections in an uncontrolled accordion */
+  defaultExpandedSections?: number[];
   /** Hides section borders */
   isBare?: boolean;
   /** Allows uncontrolled accordion sections to collapse */
@@ -67,6 +69,7 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       isAnimated,
       isExpandable,
       isCollapsible,
+      defaultExpandedSections,
       expandedSections: controlledExpandedSections,
       ...props
     },
@@ -76,6 +79,7 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       collapsible: isCollapsible,
       expandable: isExpandable,
       onChange,
+      defaultExpandedSections,
       expandedSections: controlledExpandedSections
     });
     const currentIndexRef = useRef(0);
