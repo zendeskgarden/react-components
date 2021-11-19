@@ -30,7 +30,7 @@ export const SheetStory: Story = ({
         width: '800px',
         height: '600px',
         display: 'flex',
-        flexFlow: 'row-reverse wrap',
+        flexFlow: `${placement === 'start' ? 'row' : 'row-reverse'} wrap`,
         outline: '1px dotted grey'
       }}
     >

@@ -44,16 +44,15 @@ describe('StyledSheet', () => {
 
     render(<StyledSheet size={sheetSize} isOpen />);
 
-    const aside = screen.getByRole('complementary');
-
-    expect(aside).toHaveStyleRule('width', sheetSize);
+    expect(screen.getByRole('complementary')).toHaveStyleRule('width', sheetSize);
   });
 
   it('renders styling correctly when animated', () => {
     render(<StyledSheet isAnimated />);
 
-    const aside = screen.getByRole('complementary');
-
-    expect(aside).toHaveStyleRule('transition', 'width 250ms ease-in-out');
+    expect(screen.getByRole('complementary')).toHaveStyleRule(
+      'transition',
+      'width 250ms ease-in-out'
+    );
   });
 });

@@ -61,7 +61,10 @@ export interface ISheetProps extends HTMLAttributes<HTMLElement> {
  */
 // eslint-disable-next-line react/display-name
 export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
-  ({ id, isOpen, isAnimated, focusOnMount, restoreFocus, size, children, ...props }, ref) => {
+  (
+    { id, isOpen, isAnimated, focusOnMount, restoreFocus, placement, size, children, ...props },
+    ref
+  ) => {
     const sheetRef = useRef<HTMLElement>(null);
 
     const seed = useUIDSeed();
@@ -77,8 +80,9 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
       <SheetContext.Provider value={sheetContext}>
         <StyledSheet
           isOpen={isOpen}
-          size={size}
           isAnimated={isAnimated}
+          placement={placement}
+          size={size}
           tabIndex={-1}
           id={idPrefix}
           aria-labelledby={titleId}
@@ -86,7 +90,14 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
           ref={mergeRefs([sheetRef, ref])}
           {...props}
         >
-          <StyledSheetWrapper size={size}>{children}</StyledSheetWrapper>
+          <StyledSheetWrapper
+            isOpen={isOpen}
+            isAnimated={isAnimated}
+            placement={placement}
+            size={size}
+          >
+            {children}
+          </StyledSheetWrapper>
         </StyledSheet>
       </SheetContext.Provider>
     );

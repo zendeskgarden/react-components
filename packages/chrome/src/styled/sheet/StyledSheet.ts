@@ -23,20 +23,17 @@ const borderStyle = ({
   isOpen
 }: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
   const borderColor = isOpen ? getColor('neutralHue', 300, theme) : 'transparent';
+  const borderSides = ['-left', '-right'];
   let borderSide = '';
 
+  if (theme.rtl) {
+    borderSides.reverse();
+  }
+
   if (placement === 'end') {
-    if (theme.rtl) {
-      borderSide = '-right';
-    } else {
-      borderSide = '-left';
-    }
+    borderSide = borderSides[0];
   } else if (placement === 'start') {
-    if (theme.rtl) {
-      borderSide = '-left';
-    } else {
-      borderSide = '-right';
-    }
+    borderSide = borderSides[1];
   }
 
   return `border${borderSide}: ${theme.borders.sm} ${borderColor};`;
