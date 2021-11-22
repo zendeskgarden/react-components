@@ -1,0 +1,14 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { {{capitalize component}} } from '@zendeskgarden/react-{{pluralize (lowercase component)}}';
+
+<Meta title="Components/{{pluralize (capitalize component)}}" component={ {{capitalize component}} } />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story name="{{capitalize component}}">{args => <{{capitalize component}} {...args} />}</Story>
+</Canvas>

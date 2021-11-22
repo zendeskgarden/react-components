@@ -11,6 +11,7 @@ const program = require('commander');
 const execa = require('execa');
 const garden = require('@zendeskgarden/scripts');
 const ora = require('ora');
+const pluralize = require('pluralize');
 const resolve = require('path').resolve;
 
 const info = (message, spinner) => spinner.info(message).start();
@@ -28,7 +29,7 @@ const bootstrap = async (component, spinner) => {
     'lerna',
     'bootstrap',
     '--scope',
-    `@zendeskgarden/react-${component.toLowerCase()}`
+    `@zendeskgarden/react-${pluralize.plural(component.toLowerCase())}`
   ];
 
   await execa('yarn', lernaArgs, { stdin: process.stdin, stdout: process.stdout });
@@ -44,8 +45,14 @@ const bootstrap = async (component, spinner) => {
  */
 const generate = async (component, spinner) => {
   const src = resolve(__dirname, '..', '..', 'packages', '.template');
-  const dest = resolve(__dirname, '..', '..', 'packages', component.toLowerCase());
-  const tags = { component };
+  const dest = resolve(
+    __dirname,
+    '..',
+    '..',
+    'packages',
+    pluralize.plural(component.toLowerCase())
+  );
+  const tags = { component: pluralize.singular(component) };
 
   info(`Generating package...`, spinner);
 
