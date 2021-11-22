@@ -62,8 +62,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) =
 };
 
 const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
-  const marginTop = props.theme.space.base * (props.isCompact ? 1 : 2);
-  const paddingHorizontal = props.theme.space.base * (props.isCompact ? 7.5 : 15);
+  const marginTop = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
+  const paddingHorizontal = `${props.isCompact ? 2 : 4}em`;
   const paddingVertical = math(
     `${props.theme.space.base * (props.isCompact ? 2.5 : 5)} - ${props.theme.borderWidths.sm}`
   );
@@ -71,7 +71,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) =>
   const lineHeight = getLineHeight(props.theme.space.base * 5, fontSize);
 
   return css`
-    padding: ${paddingVertical} ${paddingHorizontal}px;
+    padding: ${paddingVertical} ${paddingHorizontal};
     min-width: 4em;
     line-height: ${lineHeight};
     font-size: ${fontSize};
@@ -82,7 +82,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) =>
     ${StyledMessage} + &&,
     && + ${StyledHint},
     && + ${StyledMessage} {
-      margin-top: ${marginTop}px;
+      margin-top: ${marginTop};
     }
     /* stylelint-enable */
   `;
