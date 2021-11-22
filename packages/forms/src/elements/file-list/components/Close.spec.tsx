@@ -24,12 +24,12 @@ describe('File.Close', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
-  it('composes mousedown event', () => {
-    let test = 0;
-    const { getByTestId } = render(<File.Close data-test-id="close" onMouseDown={() => test++} />);
+  it('composes mousedown event handler', () => {
+    const mouseDown = jest.fn();
+    const { getByTestId } = render(<File.Close data-test-id="close" onMouseDown={mouseDown} />);
 
     userEvent.click(getByTestId('close'));
 
-    expect(test).toStrictEqual(1);
+    expect(mouseDown).toHaveBeenCalledTimes(1);
   });
 });

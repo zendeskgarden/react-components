@@ -24,14 +24,12 @@ describe('File.Delete', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
-  it('composes mousedown event', () => {
-    let test = 0;
-    const { getByTestId } = render(
-      <File.Delete data-test-id="delete" onMouseDown={() => test++} />
-    );
+  it('composes mousedown event handler', () => {
+    const mouseDown = jest.fn();
+    const { getByTestId } = render(<File.Delete data-test-id="delete" onMouseDown={mouseDown} />);
 
     userEvent.click(getByTestId('delete'));
 
-    expect(test).toStrictEqual(1);
+    expect(mouseDown).toHaveBeenCalledTimes(1);
   });
 });
