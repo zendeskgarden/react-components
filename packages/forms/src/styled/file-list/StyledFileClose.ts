@@ -21,6 +21,7 @@ export const StyledFileClose = styled.div.attrs({
   transition: opacity 0.25s ease-in-out;
   opacity: 0.8;
   cursor: pointer;
+  color: ${props => props.theme.colors.foreground};
 
   &:hover {
     opacity: 0.9;
