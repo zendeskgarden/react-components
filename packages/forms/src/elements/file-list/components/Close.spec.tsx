@@ -8,7 +8,7 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
-import { File } from '../../..';
+import { File } from './File';
 
 describe('File.Close', () => {
   it('renders the expected HTML element', () => {

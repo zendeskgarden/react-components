@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { FileList } from '../..';
+import { FileList } from './FileList';
 
 describe('FileList', () => {
   it('renders the expected HTML element', () => {
