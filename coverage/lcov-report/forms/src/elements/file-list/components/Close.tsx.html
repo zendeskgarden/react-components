@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/6</span>
+                <span class='fraction'>12/12</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">50% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/6</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -80,29 +80,51 @@
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">42x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Copyright Zendesk, Inc.
  *
@@ -111,21 +133,32 @@
  */
 &nbsp;
 import React, { HTMLAttributes } from 'react';
-import XIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import XIconCompact from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
+import XIconDefault from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import useFileContext from '../../../utils/useFileContext';
 import { StyledFileClose } from '../../../styled';
 &nbsp;
 /**
  * @extends HTMLAttributes&lt;HTMLDivElement&gt;
  */
 export const Close = React.forwardRef&lt;HTMLDivElement, HTMLAttributes&lt;HTMLDivElement&gt;&gt;(
-<span class="fstat-no" title="function not covered" >  (p</span>rops, ref) =&gt; (
-<span class="cstat-no" title="statement not covered" >    &lt;StyledFileClose ref={ref} {...props}&gt;</span>
-      &lt;XIcon /&gt;
-    &lt;/StyledFileClose&gt;
-  )
+  (props, ref) =&gt; {
+    const fileContext = useFileContext();
+    const onMouseDown = composeEventHandlers(
+      props.onMouseDown,
+      (event: MouseEvent) =&gt; event.preventDefault() // prevent parent File focus
+    );
+&nbsp;
+    return (
+      &lt;StyledFileClose ref={ref} {...props} onMouseDown={onMouseDown}&gt;
+        {fileContext &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >fileContext.isCompact </span>? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;XIconCompact /&gt; </span>: &lt;XIconDefault /&gt;}
+      &lt;/StyledFileClose&gt;
+    );
+  }
 );
 &nbsp;
-Close.displayName = 'Close';
+Close.displayName = 'File.Close';
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -133,7 +166,7 @@ Close.displayName = 'Close';
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Nov 18 2021 00:19:58 GMT+0000 (Coordinated Universal Time)
+                at Mon Nov 22 2021 19:25:17 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>
