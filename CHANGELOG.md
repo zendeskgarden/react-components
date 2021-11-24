@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.46.0 (2021-11-24)
+
+#### :rocket: New Feature
+* `forms`
+  * [#1249](https://github.com/zendeskgarden/react-components/pull/1249) feat(forms): add File component enhancements ([@jzempel](https://github.com/jzempel))
+
 ## v8.45.0 (2021-11-17)
 
 #### :rocket: New Feature
