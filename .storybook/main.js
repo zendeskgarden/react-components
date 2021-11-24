@@ -10,7 +10,7 @@ const webpack = require('webpack');
 const docs = process.env.BROWSER ? process.env.BROWSER.toUpperCase() !== 'IE11' : true;
 
 module.exports = {
-  stories: ['../packages/*/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+  stories: ['../packages/*/demo/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   addons: [{ name: '@storybook/addon-essentials', options: { docs } }, '@storybook/addon-a11y'],
   core: {
     builder: 'webpack5'

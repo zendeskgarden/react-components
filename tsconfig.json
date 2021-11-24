@@ -38,6 +38,6 @@
     "noEmit": true
   },
   "files": ["utils/build/declarations.d.ts", "utils/build/styled.d.ts", "utils/test/jest.d.ts"],
-  "include": ["packages/*/src/**/*", "packages/*/stories/**/*"],
+  "include": ["packages/*/src/**/*", "packages/*/demo/**/*"],
   "exclude": ["node_modules", "**/node_modules", "**/dist"]
 }
