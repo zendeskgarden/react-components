@@ -19,6 +19,9 @@ const colorStyles = (props: IStyled{{capitalize component}}Props) => {
   const borderColor = getColor('primaryHue', 600, props.theme);
   const foregroundColor = props.theme.colors.foreground;
   const hoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
+  const focusBoxShadow = props.theme.shadows.md(
+    getColor('primaryHue', 600, props.theme, 0.35) as string
+  );
 
   return css`
     border-color: ${borderColor};
@@ -27,6 +30,10 @@ const colorStyles = (props: IStyled{{capitalize component}}Props) => {
 
     :hover {
       background-color: ${hoverBackgroundColor};
+    }
+
+    &[data-garden-focus-visible='true'] {
+      box-shadow: ${focusBoxShadow};
     }
   `;
 };
