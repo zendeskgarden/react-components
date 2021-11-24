@@ -19,13 +19,15 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Example } from '@zendeskgarden/react-{{pluralize (lowercase component)}}';
+import { {{capitalize component}} } from '@zendeskgarden/react-{{pluralize (lowercase component)}}';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Example>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi...</Example>
+  <{{capitalize component}}>
+    <{{capitalize component}}.Text>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi...</{{capitalize component}}.Text>
+  </{{capitalize component}}>
 </ThemeProvider>;
 ```
 

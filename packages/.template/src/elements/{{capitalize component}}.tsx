@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { {{capitalize component}}Text } from './{{capitalize component}}Text';
 import { Styled{{capitalize component}} } from '../styled';
 
 export interface I{{capitalize component}}Props extends HTMLAttributes<HTMLDivElement> {
@@ -14,15 +15,21 @@ export interface I{{capitalize component}}Props extends HTMLAttributes<HTMLDivEl
   isCompact?: boolean;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const {{capitalize component}} = React.forwardRef<HTMLDivElement, I{{capitalize component}}Props>((props, ref) => (
+const {{capitalize component}}Component = forwardRef<HTMLDivElement, I{{capitalize component}}Props>((props, ref) => (
   <Styled{{capitalize component}} ref={ref} {...props} />
 ));
 
-{{capitalize component}}.displayName = '{{capitalize component}}';
+{{capitalize component}}Component.displayName = '{{capitalize component}}';
 
-{{capitalize component}}.propTypes = {
+{{capitalize component}}Component.propTypes = {
   isCompact: PropTypes.bool
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const {{capitalize component}} = {{capitalize component}}Component as typeof {{capitalize component}}Component & {
+  Text: typeof {{capitalize component}}Text;
+};
+
+{{capitalize component}}.Text = {{capitalize component}}Text;

@@ -1,7 +1,9 @@
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { {{capitalize component}} } from '@zendeskgarden/react-{{pluralize (lowercase component)}}';
 
-<Meta title="Components/{{pluralize (capitalize component)}}" component={ {{capitalize component}} } />
+export const subcomponents = { '{{capitalize component}}.Text': {{capitalize component}}.Text };
+
+<Meta title="Components/{{pluralize (capitalize component)}}" component={ {{capitalize component}} } subcomponents={subcomponents} />
 
 # API
 
@@ -9,6 +11,23 @@ import { {{capitalize component}} } from '@zendeskgarden/react-{{pluralize (lowe
 
 # Demo
 
+export const argTypes = {
+  '{{capitalize component}}.Text': {
+    control: { type: 'text' },
+    defaultValue: 'Text',
+    table: { category: 'Story' }
+  }
+};
+
 <Canvas>
-  <Story name="{{capitalize component}}">{args => <{{capitalize component}} {...args} />}</Story>
+  <Story
+    name="{{capitalize component}}"
+    argTypes={argTypes}
+  >
+    {args => (
+      <{{capitalize component}} {...args}>
+        <{{capitalize component}}.Text>{args['{{capitalize component}}.Text']}</{{capitalize component}}.Text>
+      </{{capitalize component}}>
+    )}
+  </Story>
 </Canvas>
