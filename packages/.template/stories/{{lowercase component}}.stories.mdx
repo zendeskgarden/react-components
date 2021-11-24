@@ -1,0 +1,37 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { {{capitalize component}} } from '@zendeskgarden/react-{{pluralize (lowercase component)}}';
+
+export const subcomponents = { '{{capitalize component}}.Text': {{capitalize component}}.Text };
+
+<Meta title="Components/{{pluralize (capitalize component)}}" component={ {{capitalize component}} } subcomponents={subcomponents} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+export const argTypes = {
+  isFocusable: {
+    control: { type: 'boolean' },
+    table: { category: 'Story' }
+  },
+  '{{capitalize component}}.Text': {
+    control: { type: 'text' },
+    defaultValue: 'Text',
+    table: { category: 'Story' }
+  }
+};
+
+<Canvas>
+  <Story
+    name="{{capitalize component}}"
+    argTypes={argTypes}
+  >
+    {args => (
+      <{{capitalize component}} {...args} tabIndex={args.isFocusable ? 0 : -1}>
+        <{{capitalize component}}.Text>{args['{{capitalize component}}.Text']}</{{capitalize component}}.Text>
+      </{{capitalize component}}>
+    )}
+  </Story>
+</Canvas>
