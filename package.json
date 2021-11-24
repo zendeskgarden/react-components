@@ -9,7 +9,7 @@
     "build:single": "utils/scripts/scoped-npm-command.js --script build",
     "format": "prettier-package-json --write && yarn format:package_json --write && yarn format:js --write && yarn format:md --write",
     "format:all": "prettier-package-json --list-different && yarn format:package_json --list-different && yarn format:js --check && yarn format:md --check",
-    "format:js": "prettier --loglevel warn '{packages,utils}/**/*.{js,ts,tsx}' '!packages/**/dist/**' '!utils/storybook/**/*'",
+    "format:js": "prettier --loglevel warn '{packages,utils}/**/*.{js,ts,tsx}' '!packages/.template' '!packages/**/dist/**' '!utils/storybook/**/*'",
     "format:md": "prettier --loglevel warn 'packages/**/*.md'",
     "format:package_json": "lerna exec -- prettier-package-json",
     "postinstall": "husky install && lerna bootstrap",
