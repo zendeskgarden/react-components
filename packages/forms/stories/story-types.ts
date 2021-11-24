@@ -7,6 +7,15 @@
 
 import { VALIDATION } from '../src/utils/validation';
 
+export type EXTENSION =
+  | 'pdf'
+  | 'zip'
+  | 'image'
+  | 'document'
+  | 'spreadsheet'
+  | 'presentation'
+  | 'generic';
+
 export interface IInputStoryProps {
   isHidden: boolean;
   isRegular: boolean;
@@ -30,6 +39,23 @@ export interface IFieldsetStoryProps {
   isCompact?: boolean;
 }
 
+export interface IFileUploadStoryProps {
+  isHidden: false;
+  showHint: boolean;
+  showMessage: boolean;
+  validation: VALIDATION;
+  type?: EXTENSION;
+}
+
+export interface IFileListStoryProps {
+  focusInset: boolean;
+  includeProgress: boolean;
+  isCompact: boolean;
+  type: EXTENSION;
+  remove?: 'File.Close' | 'File.Delete';
+  validation?: 'success' | 'error';
+}
+
 export interface IRangeStoryProps {
   isRegular: boolean;
   isHidden: boolean;
@@ -43,6 +69,19 @@ export const INPUT_ARGS = {
   isHidden: false,
   showHint: true,
   showMessage: true
+};
+
+export const FILE_UPLOAD_ARGS = {
+  showHint: true,
+  showMessage: false,
+  type: 'generic' as EXTENSION
+};
+
+export const FILE_LIST_ARGS = {
+  focusInset: false,
+  includeProgress: false,
+  isCompact: false,
+  type: 'generic' as EXTENSION
 };
 
 export const FIELDSET_ARGS = {
@@ -127,6 +166,83 @@ export const FIELDSET_ARGS_TYPES = {
     control: {
       type: 'radio',
       options: ['success', 'warning', 'error']
+    }
+  }
+};
+
+export const FILE_UPLOAD_ARG_TYPES = {
+  isHidden: {
+    name: 'Hidden label'
+  },
+  showHint: {
+    name: 'Hint'
+  },
+  showMessage: {
+    name: 'Message'
+  },
+  validation: {
+    name: 'Validation',
+    control: {
+      type: 'radio',
+      options: ['success', 'warning', 'error']
+    }
+  },
+  isDragging: {
+    table: {
+      disable: true
+    }
+  },
+  type: {
+    control: {
+      type: 'select',
+      options: [
+        'pdf',
+        'zip',
+        'image',
+        'document',
+        'spreadsheet',
+        'presentation',
+        'generic',
+        undefined
+      ]
+    }
+  }
+};
+
+export const FILE_LIST_ARG_TYPES = {
+  focusInset: {
+    name: 'Inset File box-shadow'
+  },
+  includeProgress: {
+    name: 'Include Progress'
+  },
+  type: {
+    control: {
+      type: 'select',
+      options: [
+        'pdf',
+        'zip',
+        'image',
+        'document',
+        'spreadsheet',
+        'presentation',
+        'generic',
+        undefined
+      ]
+    }
+  },
+  remove: {
+    name: 'Include Remove',
+    control: {
+      type: 'radio',
+      options: ['File.Close', 'File.Delete', undefined]
+    }
+  },
+  validation: {
+    name: 'Validation',
+    control: {
+      type: 'radio',
+      options: ['success', 'error', undefined]
     }
   }
 };
