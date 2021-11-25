@@ -14,3 +14,8 @@ export interface IStepperStep {
   label: string;
   content: string;
 }
+
+export interface ITimelineItem {
+  title: string;
+  description: string;
+}

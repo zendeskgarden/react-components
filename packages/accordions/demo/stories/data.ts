@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IAccordionSection, IStepperStep } from './types';
+import { IAccordionSection, IStepperStep, ITimelineItem } from './types';
 
 export const ACCORDION_SECTIONS: IAccordionSection[] = [
   {
@@ -140,5 +140,24 @@ export const STEPPER_STEPS: IStepperStep[] = [
       bean azuki horseradish pea chard. Sprout brussels squash carrot horseradish beetroot kombu seed
       wattle Grape nori. Greens collard seed wattle bitterleaf celery gram garlic catsear taro
       salsify potato. Pea earthnut chicory chard swiss quandong celery.`
+  }
+];
+
+export const TIMELINE_ITEMS: ITimelineItem[] = [
+  {
+    title: 'Issue with order',
+    description: 'Today 9:00 AM'
+  },
+  {
+    title: 'Ordered 3 items',
+    description: 'Feb 08, 9:05 AM'
+  },
+  {
+    title: 'Added 3 items to cart',
+    description: 'Jan 21, 9:13 AM'
+  },
+  {
+    title: 'Viewed product page',
+    description: 'Jan 21, 9:21 AM'
   }
 ];

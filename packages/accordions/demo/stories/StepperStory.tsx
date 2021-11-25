@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import Icon from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
+import Icon from '@zendeskgarden/svg-icons/src/12/clipboard-list-stroke.svg';
 import { Stepper, IStepperProps } from '@zendeskgarden/react-accordions';
 import { IStepperStep } from './types';
 
