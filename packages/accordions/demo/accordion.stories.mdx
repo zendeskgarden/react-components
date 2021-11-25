@@ -1,0 +1,79 @@
+import { useState } from 'react';
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Accordion } from '@zendeskgarden/react-accordions';
+import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
+
+<Meta
+  title="Components/Accordions/Accordion"
+  component={Accordion}
+  subcomponents={{
+    'Accordion.Header': Accordion.Header,
+    'Accordion.Label': Accordion.Label,
+    'Accordion.Panel': Accordion.Panel,
+    'Accordion.Section': Accordion.Section
+  }}
+  args={{ isAnimated: true, level: 1, sections: SECTIONS }}
+  argTypes={{
+    defaultExpandedSections: { control: false },
+    expandedSections: { control: false },
+    sections: { table: { category: 'Story' } }
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+## Uncontrolled
+
+<Canvas>
+  <Story name="Uncontrolled" args={{ isCollapsible: true }}>
+    {args => (
+      <Accordion {...args}>
+        {args.sections.map((section, index) => (
+          <Accordion.Section key={index}>
+            <Accordion.Header>
+              <Accordion.Label>{section.headerLabel}</Accordion.Label>
+            </Accordion.Header>
+            <Accordion.Panel>{section.panel}</Accordion.Panel>
+          </Accordion.Section>
+        ))}
+      </Accordion>
+    )}
+  </Story>
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story
+    name="Controlled"
+    args={{ expandedSections: [0] }}
+    argTypes={{ isCollapsible: { control: false }, isExpandable: { control: false } }}
+  >
+    {args => {
+      const [expandedSections, setExpandedSections] = useState(args.expandedSections);
+      const handleChange = index => {
+        setExpandedSections(sections =>
+          expandedSections.includes(index)
+            ? sections.filter(section => section !== index)
+            : [...expandedSections, index]
+        );
+      };
+      return (
+        <Accordion {...args} expandedSections={expandedSections} onChange={handleChange}>
+          {args.sections.map((section, index) => (
+            <Accordion.Section key={index}>
+              <Accordion.Header>
+                <Accordion.Label>{section.headerLabel}</Accordion.Label>
+              </Accordion.Header>
+              <Accordion.Panel>{section.panel}</Accordion.Panel>
+            </Accordion.Section>
+          ))}
+        </Accordion>
+      );
+    }}
+  </Story>
+</Canvas>
