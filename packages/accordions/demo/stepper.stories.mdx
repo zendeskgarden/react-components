@@ -1,0 +1,34 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Stepper } from '@zendeskgarden/react-accordions';
+import { StepperStory } from './stories/StepperStory';
+import { STEPPER_STEPS as STEPS } from './stories/data';
+
+<Meta
+  title="Components/Accordions"
+  component={Stepper}
+  subcomponents={{
+    'Stepper.Content': Stepper.Content,
+    'Stepper.Label': Stepper.Label,
+    'Stepper.Step': Stepper.Step
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Stepper"
+    args={{ hasIcon: false, isLabelHidden: false, steps: STEPS }}
+    argTypes={{
+      hasIcon: { name: 'Stepper.Label icon', table: { category: 'Story' } },
+      isLabelHidden: { name: 'Stepper.Label isHidden', table: { category: 'Story' } },
+      steps: { name: 'Stepper.Step[]', table: { category: 'Story' } }
+    }}
+  >
+    {args => <StepperStory {...args} />}
+  </Story>
+</Canvas>

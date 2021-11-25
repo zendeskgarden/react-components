@@ -28,7 +28,7 @@ interface IStaticStepperExport<T, P>
   Content: typeof Content;
 }
 
-interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {
+export interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {
   /** Defines the currently active step, starting at 0 */
   activeIndex?: number;
   /** Applies horizontal layout styling */

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { Accordion } from '@zendeskgarden/react-accordions';
+import { AccordionStory } from './stories/AccordionStory';
 import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
 
 <Meta
@@ -12,11 +13,12 @@ import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
     'Accordion.Panel': Accordion.Panel,
     'Accordion.Section': Accordion.Section
   }}
-  args={{ isAnimated: true, level: 1, sections: SECTIONS }}
+  args={{ isAnimated: true, level: 1, hasIconButtons: false, sections: SECTIONS }}
   argTypes={{
     defaultExpandedSections: { control: false },
     expandedSections: { control: false },
-    sections: { table: { category: 'Story' } }
+    hasIconButtons: { name: 'Accordion.Header icon buttons', table: { category: 'Story' } },
+    sections: { name: 'Accordion.Section[]', table: { category: 'Story' } }
   }}
 />
 
@@ -30,18 +32,7 @@ import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
 
 <Canvas>
   <Story name="Uncontrolled" args={{ isCollapsible: true }}>
-    {args => (
-      <Accordion {...args}>
-        {args.sections.map((section, index) => (
-          <Accordion.Section key={index}>
-            <Accordion.Header>
-              <Accordion.Label>{section.headerLabel}</Accordion.Label>
-            </Accordion.Header>
-            <Accordion.Panel>{section.panel}</Accordion.Panel>
-          </Accordion.Section>
-        ))}
-      </Accordion>
-    )}
+    {args => <AccordionStory {...args} />}
   </Story>
 </Canvas>
 
@@ -63,16 +54,7 @@ import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
         );
       };
       return (
-        <Accordion {...args} expandedSections={expandedSections} onChange={handleChange}>
-          {args.sections.map((section, index) => (
-            <Accordion.Section key={index}>
-              <Accordion.Header>
-                <Accordion.Label>{section.headerLabel}</Accordion.Label>
-              </Accordion.Header>
-              <Accordion.Panel>{section.panel}</Accordion.Panel>
-            </Accordion.Section>
-          ))}
-        </Accordion>
+        <AccordionStory {...args} expandedSections={expandedSections} onChange={handleChange} />
       );
     }}
   </Story>
