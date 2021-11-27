@@ -3,7 +3,7 @@ import { {{capitalize component}} } from '@zendeskgarden/react-{{pluralize (lowe
 
 export const subcomponents = { '{{capitalize component}}.Text': {{capitalize component}}.Text };
 
-<Meta title="Components/{{pluralize (capitalize component)}}" component={ {{capitalize component}} } subcomponents={subcomponents} />
+<Meta title="Components/{{pluralize (capitalize component)}}/{{capitalize component}}" component={ {{capitalize component}} } subcomponents={subcomponents} />
 
 # API
 
@@ -12,13 +12,13 @@ export const subcomponents = { '{{capitalize component}}.Text': {{capitalize com
 # Demo
 
 export const argTypes = {
-  isFocusable: {
-    control: { type: 'boolean' },
-    table: { category: 'Story' }
-  },
   '{{capitalize component}}.Text': {
     control: { type: 'text' },
     defaultValue: 'Text',
+    table: { category: '{{capitalize component}}.Text' }
+  },
+  isFocusable: {
+    control: { type: 'boolean' },
     table: { category: 'Story' }
   }
 };
