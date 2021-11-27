@@ -5,7 +5,7 @@
     "jest --config=utils/test/jest.config.js --bail --findRelatedTests",
     "prettier --write"
   ],
-  "!(*CHANGELOG).md": [
+  "!(*CHANGELOG).{md,mdx}": [
     "markdownlint",
     "prettier --write"
   ],

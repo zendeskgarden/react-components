@@ -10,7 +10,7 @@
     "format": "prettier-package-json --write && yarn format:package_json --write && yarn format:js --write && yarn format:md --write",
     "format:all": "prettier-package-json --list-different && yarn format:package_json --list-different && yarn format:js --check && yarn format:md --check",
     "format:js": "prettier --loglevel warn '{packages,utils}/**/*.{js,ts,tsx}' '!packages/.template' '!packages/**/dist/**' '!utils/storybook/**/*'",
-    "format:md": "prettier --loglevel warn 'packages/**/*.md'",
+    "format:md": "prettier --loglevel warn 'packages/**/*.{md,mdx}'",
     "format:package_json": "lerna exec -- prettier-package-json",
     "postinstall": "husky install && lerna bootstrap",
     "lint": "yarn lint:css && yarn lint:js && yarn lint:md",
