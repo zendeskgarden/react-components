@@ -12,7 +12,8 @@ export const subcomponents = { '{{capitalize component}}.Text': {{capitalize com
 # Demo
 
 export const argTypes = {
-  '{{capitalize component}}.Text': {
+  text: {
+    name: 'children',
     control: { type: 'text' },
     defaultValue: 'Text',
     table: { category: '{{capitalize component}}.Text' }
@@ -30,7 +31,7 @@ export const argTypes = {
   >
     {args => (
       <{{capitalize component}} {...args} tabIndex={args.isFocusable ? 0 : -1}>
-        <{{capitalize component}}.Text>{args['{{capitalize component}}.Text']}</{{capitalize component}}.Text>
+        <{{capitalize component}}.Text>{args.text}</{{capitalize component}}.Text>
       </{{capitalize component}}>
     )}
   </Story>
