@@ -1,0 +1,29 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import IconStroke from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
+import IconFill from '@zendeskgarden/svg-icons/src/16/star-fill.svg';
+import { ToggleIconButton } from '@zendeskgarden/react-buttons';
+
+<Meta title="Packages/Buttons/ToggleIconButton" component={ToggleIconButton} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="ToggleIconButton"
+    args={{ 'aria-label': 'Label', isBasic: true, isPill: true }}
+    argTypes={{
+      disabled: { control: 'boolean' },
+      isPressed: { control: 'radio', options: [false, true, 'mixed'] }
+    }}
+  >
+    {args => (
+      <ToggleIconButton {...args}>
+        {args.isPressed === true ? <IconFill /> : <IconStroke />}
+      </ToggleIconButton>
+    )}
+  </Story>
+</Canvas>

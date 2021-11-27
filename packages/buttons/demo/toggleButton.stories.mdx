@@ -1,0 +1,23 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { ToggleButton } from '@zendeskgarden/react-buttons';
+
+<Meta title="Packages/Buttons/ToggleButton" component={ToggleButton} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="ToggleButton"
+    args={{ children: 'Text' }}
+    argTypes={{
+      disabled: { control: 'boolean' },
+      isPressed: { control: 'radio', options: [false, true, 'mixed'] }
+    }}
+  >
+    {args => <ToggleButton {...args} />}
+  </Story>
+</Canvas>

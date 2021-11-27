@@ -1,0 +1,16 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Anchor } from '@zendeskgarden/react-buttons';
+
+<Meta title="Packages/Buttons/Anchor" component={Anchor} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story args={{ children: 'Text' }} name="Anchor">
+    {args => <Anchor {...args} />}
+  </Story>
+</Canvas>

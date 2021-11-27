@@ -1,0 +1,20 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { ChevronButton } from '@zendeskgarden/react-buttons';
+
+<Meta title="Packages/Buttons/ChevronButton" component={ChevronButton} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="ChevronButton"
+    args={{ 'aria-label': 'Label' }}
+    argTypes={{ disabled: { control: 'boolean' } }}
+  >
+    {args => <ChevronButton {...args} />}
+  </Story>
+</Canvas>
