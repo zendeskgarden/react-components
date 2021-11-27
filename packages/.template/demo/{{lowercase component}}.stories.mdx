@@ -11,11 +11,12 @@ export const subcomponents = { '{{capitalize component}}.Text': {{capitalize com
 
 # Demo
 
+export const args = { text: 'Text' };
+
 export const argTypes = {
   text: {
     name: 'children',
     control: { type: 'text' },
-    defaultValue: 'Text',
     table: { category: '{{capitalize component}}.Text' }
   },
   isFocusable: {
@@ -27,6 +28,7 @@ export const argTypes = {
 <Canvas>
   <Story
     name="{{capitalize component}}"
+    args={args}
     argTypes={argTypes}
   >
     {args => (

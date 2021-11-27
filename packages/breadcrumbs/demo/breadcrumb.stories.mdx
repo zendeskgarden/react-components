@@ -1,0 +1,14 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
+import { BreadcrumbStory } from './stories/BreadcrumbStory';
+import { BREADCRUMB_CHILDREN as CHILDREN } from './stories/data';
+
+<Meta title="Components/Breadcrumbs/Breadcrumb" component={Breadcrumb} />
+
+# Demo
+
+<Canvas>
+  <Story name="Breadcrumb" args={{ children: CHILDREN }}>
+    {args => <BreadcrumbStory {...args} />}
+  </Story>
+</Canvas>
