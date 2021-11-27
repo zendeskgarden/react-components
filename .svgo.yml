@@ -2,5 +2,5 @@ plugins:
   - addAttributesToSVGElement:
       attributes:
         - focusable: false
-        - role: "presentation"
+        - ariaHidden: true
   - removeViewBox: false
