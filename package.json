@@ -19,7 +19,7 @@
     "lint:md": "markdownlint README.md packages/*/README.md packages/*/demo/**/*.mdx",
     "new": "utils/scripts/new.js",
     "prepare": "yarn build",
-    "start": "start-storybook -s ./utils/storybook -p 6006",
+    "start": "start-storybook --no-version-updates -s ./utils/storybook -p 6006",
     "tag": "utils/scripts/tag.js",
     "test": "yarn test:all --watch",
     "test:all": "jest --config=utils/test/jest.config.js",
