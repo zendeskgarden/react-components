@@ -14,7 +14,7 @@ export interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   isDanger?: boolean;
   /**
    * Attaches `target="_blank"` and `rel="noopener noreferrer"` to an anchor that
-   * navigates to an external resource. This ensures ensures that the anchor is a
+   * navigates to an external resource. This ensures that the anchor is a
    * safe [cross-origin destination link](https://web.dev/external-anchors-use-rel-noopener/).
    **/
   isExternal?: boolean;
