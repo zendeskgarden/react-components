@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
 import { ButtonGroup, Button } from '@zendeskgarden/react-buttons';
 import { ButtonGroupStory } from './stories/ButtonGroupStory';
 import { BUTTON_GROUP_BUTTONS as BUTTONS } from './stories/data';
@@ -10,7 +10,6 @@ import { BUTTON_GROUP_BUTTONS as BUTTONS } from './stories/data';
   subcomponents={{ Button }}
   args={{ buttons: BUTTONS }}
   argTypes={{
-    selectedItem: { control: false },
     disabled: { control: 'boolean', table: { category: 'Button' } },
     isBasic: { control: 'boolean', table: { category: 'Button' } },
     isDanger: { control: 'boolean', table: { category: 'Button' } },
@@ -42,8 +41,9 @@ import { BUTTON_GROUP_BUTTONS as BUTTONS } from './stories/data';
 <Canvas>
   <Story name="Controlled" args={{ selectedItem: BUTTONS[1].value }}>
     {args => {
-      const [selectedItem, setSelectedItem] = useState(args.selectedItem);
-      return <ButtonGroupStory {...args} selectedItem={selectedItem} onSelect={setSelectedItem} />;
+      const updateArgs = useArgs()[1];
+      const handleSelect = selectedItem => updateArgs({ selectedItem });
+      return <ButtonGroupStory {...args} onSelect={handleSelect} />;
     }}
   </Story>
 </Canvas>

@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
 import { Accordion } from '@zendeskgarden/react-accordions';
 import { AccordionStory } from './stories/AccordionStory';
 import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
@@ -15,8 +15,6 @@ import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
   }}
   args={{ isAnimated: true, level: 1, hasIconButtons: false, sections: SECTIONS }}
   argTypes={{
-    defaultExpandedSections: { control: false },
-    expandedSections: { control: false },
     hasIconButtons: { name: 'Accordion.Header icon buttons', table: { category: 'Story' } },
     sections: { name: 'Accordion.Section[]', table: { category: 'Story' } }
   }}
@@ -31,7 +29,11 @@ import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
 ## Uncontrolled
 
 <Canvas>
-  <Story name="Uncontrolled" args={{ isCollapsible: true }}>
+  <Story
+    name="Uncontrolled"
+    args={{ isCollapsible: true }}
+    argTypes={{ expandedSections: { control: false } }}
+  >
     {args => <AccordionStory {...args} />}
   </Story>
 </Canvas>
@@ -42,20 +44,21 @@ import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
   <Story
     name="Controlled"
     args={{ expandedSections: [2] }}
-    argTypes={{ isCollapsible: { control: false }, isExpandable: { control: false } }}
+    argTypes={{
+      defaultExpandedSections: { control: false },
+      isCollapsible: { control: false },
+      isExpandable: { control: false }
+    }}
   >
     {args => {
-      const [expandedSections, setExpandedSections] = useState(args.expandedSections);
+      const updateArgs = useArgs()[1];
       const handleChange = index => {
-        setExpandedSections(sections =>
-          expandedSections.includes(index)
-            ? sections.filter(section => section !== index)
-            : [...expandedSections, index]
-        );
+        const expandedSections = args.expandedSections.includes(index)
+          ? args.expandedSections.filter(section => section !== index)
+          : [...args.expandedSections, index];
+        updateArgs({ expandedSections });
       };
-      return (
-        <AccordionStory {...args} expandedSections={expandedSections} onChange={handleChange} />
-      );
+      return <AccordionStory {...args} onChange={handleChange} />;
     }}
   </Story>
 </Canvas>
