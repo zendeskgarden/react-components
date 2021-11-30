@@ -20,4 +20,11 @@ export { default as Paragraph } from './elements/Paragraph';
 export { default as OrderedList } from './elements/lists/OrderedList';
 export { default as UnorderedList } from './elements/lists/UnorderedList';
 
+export type { ISMProps } from './elements/SM';
+export type { IMDProps } from './elements/MD';
+export type { ILGProps } from './elements/LG';
+export type { IXLProps } from './elements/XL';
+export type { IXXLProps } from './elements/XXL';
+export type { IXXXLProps } from './elements/XXXL';
+export type { IBlockquoteProps } from './elements/Blockquote';
 export type { ISpanProps } from './elements/Span';
