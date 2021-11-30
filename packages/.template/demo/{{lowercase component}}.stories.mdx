@@ -11,12 +11,10 @@ export const subcomponents = { '{{capitalize component}}.Text': {{capitalize com
 
 # Demo
 
-export const args = { text: 'Text' };
+export const args = { children: 'Text' };
 
 export const argTypes = {
-  text: {
-    name: 'children',
-    control: { type: 'text' },
+  children: {
     table: { category: '{{capitalize component}}.Text' }
   },
   isFocusable: {
@@ -26,14 +24,10 @@ export const argTypes = {
 };
 
 <Canvas>
-  <Story
-    name="{{capitalize component}}"
-    args={args}
-    argTypes={argTypes}
-  >
-    {args => (
+  <Story name="{{capitalize component}}" args={args} argTypes={argTypes}>
+    {({children, ...args}) => (
       <{{capitalize component}} {...args} tabIndex={args.isFocusable ? 0 : -1}>
-        <{{capitalize component}}.Text>{args.text}</{{capitalize component}}.Text>
+        <{{capitalize component}}.Text>{children}</{{capitalize component}}.Text>
       </{{capitalize component}}>
     )}
   </Story>
