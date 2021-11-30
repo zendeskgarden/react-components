@@ -17,8 +17,7 @@ export const parameters = {
     grid: { disable: true }
   },
   controls: {
-    hideNoControlsWarning: true,
-    sort: 'alpha'
+    hideNoControlsWarning: true
   },
   docs: {
     theme: create({
