@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { rgba } from 'polished';
+import { math, rgba } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
@@ -23,22 +23,6 @@ interface IStyledFileUploadProps {
   isDragging?: boolean;
   isCompact?: boolean;
 }
-
-const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
-  const topMargin = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
-
-  return css`
-    /* stylelint-disable */
-    ${StyledLabel}:not([hidden]) + &&,
-    ${StyledHint} + &&,
-    ${StyledMessage} + &&,
-    && + ${StyledHint},
-    && + ${StyledMessage} {
-      margin-top: ${topMargin};
-    }
-    /* stylelint-enable */
-  `;
-};
 
 const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
   const baseColor = getColor('primaryHue', 600, props.theme);
@@ -77,11 +61,41 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) =
   `;
 };
 
+const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
+  const marginTop = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
+  const paddingHorizontal = `${props.isCompact ? 2 : 4}em`;
+  const paddingVertical = math(
+    `${props.theme.space.base * (props.isCompact ? 2.5 : 5)} - ${props.theme.borderWidths.sm}`
+  );
+  const fontSize = props.theme.fontSizes.md;
+  const lineHeight = getLineHeight(props.theme.space.base * 5, fontSize);
+
+  return css`
+    padding: ${paddingVertical} ${paddingHorizontal};
+    min-width: 4em;
+    line-height: ${lineHeight};
+    font-size: ${fontSize};
+
+    /* stylelint-disable */
+    ${StyledLabel}:not([hidden]) + &&,
+    ${StyledHint} + &&,
+    ${StyledMessage} + &&,
+    && + ${StyledHint},
+    && + ${StyledMessage} {
+      margin-top: ${marginTop};
+    }
+    /* stylelint-enable */
+  `;
+};
+
 export const StyledFileUpload = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledFileUploadProps>`
-  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
   /* prettier-ignore */
   transition:
@@ -92,12 +106,10 @@ export const StyledFileUpload = styled.div.attrs({
   border: dashed ${props => props.theme.borderWidths.sm};
   border-radius: ${props => props.theme.borderRadii.md};
   cursor: pointer;
-  padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 15}px`};
-  min-width: 4em;
   text-align: center;
-  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-  font-size: ${props => props.theme.fontSizes.md};
   user-select: none;
+
+  ${sizeStyles};
 
   &:focus {
     outline: none;
@@ -107,8 +119,7 @@ export const StyledFileUpload = styled.div.attrs({
     cursor: default;
   }
 
-  ${props => colorStyles(props)};
-  ${props => positionStyles(props)};
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

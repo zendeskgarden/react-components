@@ -7,15 +7,15 @@
 
 import React, { HTMLAttributes } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import XIconCompact from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
-import XIconDefault from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import TrashIconCompact from '@zendeskgarden/svg-icons/src/12/trash-stroke.svg';
+import TrashIconDefault from '@zendeskgarden/svg-icons/src/16/trash-stroke.svg';
 import useFileContext from '../../../utils/useFileContext';
-import { StyledFileClose } from '../../../styled';
+import { StyledFileDelete } from '../../../styled';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Close = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+export const Delete = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const fileContext = useFileContext();
     const onMouseDown = composeEventHandlers(
@@ -24,11 +24,11 @@ export const Close = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
     );
 
     return (
-      <StyledFileClose ref={ref} {...props} onMouseDown={onMouseDown}>
-        {fileContext && fileContext.isCompact ? <XIconCompact /> : <XIconDefault />}
-      </StyledFileClose>
+      <StyledFileDelete ref={ref} {...props} onMouseDown={onMouseDown}>
+        {fileContext && fileContext.isCompact ? <TrashIconCompact /> : <TrashIconDefault />}
+      </StyledFileDelete>
     );
   }
 );
 
-Close.displayName = 'File.Close';
+Delete.displayName = 'File.Delete';

@@ -15,4 +15,4 @@ export const Item = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
   ({ ...props }, ref) => <StyledFileListItem {...props} ref={ref} />
 );
 
-Item.displayName = 'Item';
+Item.displayName = 'FileList.Item';

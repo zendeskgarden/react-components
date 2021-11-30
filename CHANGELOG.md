@@ -12,6 +12,29 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.46.0 (2021-11-24)
+
+#### :rocket: New Feature
+* `forms`
+  * [#1249](https://github.com/zendeskgarden/react-components/pull/1249) feat(forms): add File component enhancements ([@jzempel](https://github.com/jzempel))
+
+## v8.45.0 (2021-11-17)
+
+#### :rocket: New Feature
+* `accordions`
+  * [#1242](https://github.com/zendeskgarden/react-components/pull/1242) feat(accordions): add default expanded sections prop ([@hzhu](https://github.com/hzhu))
+
+#### :bug: Bug Fix
+* `buttons`
+  * [#1248](https://github.com/zendeskgarden/react-components/pull/1248) fix(buttons): do not persist link color on click ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1247](https://github.com/zendeskgarden/react-components/pull/1247) chore(deps): bump color-string from 1.5.3 to 1.6.0 in /examples/codesandbox ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1245](https://github.com/zendeskgarden/react-components/pull/1245) chore(deps): bump url-parse from 1.4.7 to 1.5.3 in /examples/codesandbox ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `modals`, `notifications`, `tables`
+  * [#1244](https://github.com/zendeskgarden/react-components/pull/1244) chore(deps): update @types/react ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.44.2 (2021-11-11)
 
 #### :bug: Bug Fix
