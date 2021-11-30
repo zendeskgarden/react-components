@@ -19,3 +19,5 @@ export { default as Ellipsis } from './elements/Ellipsis';
 export { default as Paragraph } from './elements/Paragraph';
 export { default as OrderedList } from './elements/lists/OrderedList';
 export { default as UnorderedList } from './elements/lists/UnorderedList';
+
+export type { ISpanProps } from './elements/Span';

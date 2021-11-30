@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFont, StyledIcon } from '../styled';
 
-interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
+export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   /** Updates the element's HTML tag */
   tag?: any;
   /** Applies bold font style. Font weight is inherited by default. */

@@ -1,0 +1,16 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { XL } from '@zendeskgarden/react-typography';
+
+<Meta title="Packages/Typography/Typescale/XL" component={XL} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story name="XL" args={{ children: 'Text' }} argTypes={{ tag: { control: 'text' } }}>
+    {args => <XL {...args} />}
+  </Story>
+</Canvas>

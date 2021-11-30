@@ -1,0 +1,16 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { MD } from '@zendeskgarden/react-typography';
+
+<Meta title="Packages/Typography/Typescale/MD" component={MD} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story name="MD" args={{ children: 'Text' }} argTypes={{ tag: { control: 'text' } }}>
+    {args => <MD {...args} />}
+  </Story>
+</Canvas>
