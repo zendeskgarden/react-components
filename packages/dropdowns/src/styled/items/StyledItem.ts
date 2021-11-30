@@ -27,15 +27,22 @@ export const getItemPaddingVertical = (props: IStyledItemProps & ThemeProps<Defa
 };
 
 const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
-  const color = props.isDanger
-    ? getColor('dangerHue', 600, props.theme)
-    : props.theme.colors.foreground;
+  let foregroundColor;
+  let backgroundColor;
+
+  if (props.disabled) {
+    foregroundColor = getColor('neutralHue', 400, props.theme);
+  } else if (props.isDanger) {
+    foregroundColor = getColor('dangerHue', 600, props.theme);
+    backgroundColor = props.isFocused ? getColor('dangerHue', 600, props.theme, 0.06) : 'inherit';
+  } else {
+    foregroundColor = props.theme.colors.foreground;
+    backgroundColor = props.isFocused ? getColor('primaryHue', 600, props.theme, 0.08) : 'inherit';
+  }
 
   return css`
-    background-color: ${props.isFocused &&
-    !props.disabled &&
-    getColor(props.isDanger ? 'dangerHue' : 'primaryHue', 600, props.theme, 0.08)};
-    color: ${props.disabled ? getColor('neutralHue', 400, props.theme) : color};
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
 
     & a,
     & a:hover,

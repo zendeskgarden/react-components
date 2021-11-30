@@ -85,9 +85,9 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
       if (isOpen && !disabled && !selectedItems && isSelected) {
         setHighlightedIndex(currentIndex);
       }
-    }, [currentIndex, disabled, isDanger, isOpen, isSelected, selectedItems, setHighlightedIndex]);
+    }, [currentIndex, disabled, isOpen, isSelected, selectedItems, setHighlightedIndex]);
 
-    const contextValue = useMemo(() => ({ isDisabled: disabled, isDanger }), [disabled, isDanger]);
+    const contextValue = useMemo(() => ({ isDisabled: disabled }), [disabled]);
     const ref = mergeRefs([itemRef, forwardRef]);
 
     if (disabled) {

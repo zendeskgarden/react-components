@@ -9,7 +9,6 @@ import React, { useContext } from 'react';
 
 export interface IItemContext {
   isDisabled?: boolean;
-  isDanger?: boolean;
 }
 
 export const ItemContext = React.createContext<IItemContext | undefined>(undefined);
