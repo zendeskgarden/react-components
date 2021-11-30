@@ -8,17 +8,20 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = '{{component}}.example';
+const COMPONENT_ID = '{{pluralize (lowercase component)}}.{{lowercase component}}';
 
-export interface IStyledExampleProps extends ThemeProps<DefaultTheme> {
+export interface IStyled{{capitalize component}}Props extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;
 }
 
-const colorStyles = (props: IStyledExampleProps) => {
+const colorStyles = (props: IStyled{{capitalize component}}Props) => {
   const backgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
   const borderColor = getColor('primaryHue', 600, props.theme);
   const foregroundColor = props.theme.colors.foreground;
   const hoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
+  const focusBoxShadow = props.theme.shadows.md(
+    getColor('primaryHue', 600, props.theme, 0.35) as string
+  );
 
   return css`
     border-color: ${borderColor};
@@ -28,10 +31,14 @@ const colorStyles = (props: IStyledExampleProps) => {
     :hover {
       background-color: ${hoverBackgroundColor};
     }
+
+    &[data-garden-focus-visible='true'] {
+      box-shadow: ${focusBoxShadow};
+    }
   `;
 };
 
-const sizeStyles = (props: IStyledExampleProps) => {
+const sizeStyles = (props: IStyled{{capitalize component}}Props) => {
   const size = `${props.theme.space.base * (props.isCompact ? 30 : 50)}px`;
   const padding = `${props.theme.space.base * (props.isCompact ? 4 : 5)}px`;
 
@@ -42,10 +49,10 @@ const sizeStyles = (props: IStyledExampleProps) => {
   `;
 };
 
-export const StyledExample = styled.div.attrs<IStyledExampleProps>({
+export const Styled{{capitalize component}} = styled.div.attrs<IStyled{{capitalize component}}Props>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledExampleProps>`
+})<IStyled{{capitalize component}}Props>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,6 +81,6 @@ export const StyledExample = styled.div.attrs<IStyledExampleProps>({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledExample.defaultProps = {
+Styled{{capitalize component}}.defaultProps = {
   theme: DEFAULT_THEME
 };

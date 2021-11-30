@@ -7,17 +7,17 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledExample } from './StyledExample';
+import { Styled{{capitalize component}} } from './Styled{{capitalize component}}';
 
-describe('StyledExample', () => {
+describe('Styled{{capitalize component}}', () => {
   it('renders default styling', () => {
-    const { container } = render(<StyledExample />);
+    const { container } = render(<Styled{{capitalize component}} />);
 
     expect(container.firstChild).toHaveStyleRule('display', 'flex');
   });
 
   it('renders RTL styling if provided', () => {
-    const { container } = renderRtl(<StyledExample />);
+    const { container } = renderRtl(<Styled{{capitalize component}} />);
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
