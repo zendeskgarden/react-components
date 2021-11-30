@@ -27,7 +27,8 @@ import {
   CollapsibleSubNavItem,
   SubNav,
   SubNavItem,
-  SubNavItemText
+  SubNavItemText,
+  Sheet
 } from '@zendeskgarden/react-chrome';
 
 export default {
@@ -53,9 +54,11 @@ export default {
     CollapsibleSubNavItem,
     SubNav,
     SubNavItem,
-    SubNavItemText
+    SubNavItemText,
+    Sheet
   }
 } as Meta;
 
 export { Default } from './examples/Default';
 export { StandaloneHeader } from './examples/StandaloneHeader';
+export { SheetStory } from './examples/Sheet';

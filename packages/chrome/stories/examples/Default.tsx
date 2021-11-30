@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
+import { useArgs } from '@storybook/client-api';
 import GuideIcon from '@zendeskgarden/svg-icons/src/26/relationshape-guide.svg';
 import SupportIcon from '@zendeskgarden/svg-icons/src/26/relationshape-support.svg';
 import ChatIcon from '@zendeskgarden/svg-icons/src/26/relationshape-chat.svg';
@@ -41,8 +42,12 @@ import {
   Sidebar,
   SubNav,
   SubNavItem,
-  SubNavItemText
+  SubNavItemText,
+  Sheet
 } from '@zendeskgarden/react-chrome';
+
+import { Accordion } from '@zendeskgarden/react-accordions';
+
 import { Button } from '@zendeskgarden/react-buttons';
 
 type PRODUCT = 'chat' | 'connect' | 'explore' | 'guide' | 'message' | 'support' | 'talk';
@@ -72,6 +77,7 @@ interface IDefaultStoryProps {
   isExpanded: boolean;
   showSubnav: boolean;
   showSidebar: boolean;
+  showSheet: boolean;
   hueColor?: string;
   itemCount: number;
 }
@@ -81,9 +87,11 @@ export const Default: Story<IDefaultStoryProps> = ({
   isExpanded,
   showSubnav,
   showSidebar,
+  showSheet,
   hueColor,
   itemCount
 }) => {
+  const [, updateArgs] = useArgs();
   const [currentNavItem, setCurrentNavItem] = useState('home');
   const [currentSubnavItem, setCurrentSubnavItem] = useState('item-1');
   const [showCollapsed, setShowCollapsed] = useState(false);
@@ -92,7 +100,7 @@ export const Default: Story<IDefaultStoryProps> = ({
     .map((s, i) => i);
 
   return (
-    <Chrome isFluid style={{ height: 500 }} hue={hueColor}>
+    <Chrome isFluid style={{ height: 650 }} hue={hueColor}>
       <SkipNav targetId="main-content">Skip to main content</SkipNav>
       <Nav isExpanded={isExpanded}>
         <NavItem hasLogo product={product} title="Zendesk">
@@ -238,7 +246,95 @@ export const Default: Story<IDefaultStoryProps> = ({
               gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu
               beetroot horseradish carrot squash brussels sprout chard.
             </p>
+            <Button aria-expanded={showSheet} onClick={() => updateArgs({ showSheet: !showSheet })}>
+              {' '}
+              {showSheet ? 'Close' : 'Open'} Sheet{' '}
+            </Button>
           </Main>
+          <Sheet isOpen={showSheet} focusOnMount restoreFocus>
+            <Sheet.Header>
+              <Sheet.Title> Gardening </Sheet.Title>
+              <Sheet.Description> Somebody gotta start gardening. </Sheet.Description>
+            </Sheet.Header>
+            <Sheet.Body style={{ padding: 0 }}>
+              <Accordion level={4}>
+                <Accordion.Section>
+                  <Accordion.Header>
+                    <Accordion.Label>How do you start gardening?</Accordion.Label>
+                  </Accordion.Header>
+                  <Accordion.Panel>
+                    Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi
+                    amaranth water spinach avocado daikon napa cabbage asparagus winter purslane
+                    kale.
+                  </Accordion.Panel>
+                </Accordion.Section>
+                <Accordion.Section>
+                  <Accordion.Header>
+                    <Accordion.Label>What are the basics of gardening?</Accordion.Label>
+                  </Accordion.Header>
+                  <Accordion.Panel>
+                    <p>
+                      Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper
+                      artichoke. Nori grape silver beet broccoli kombu beet greens fava bean potato
+                      quandong celery. Corn amaranth salsify bunya nuts nori azuki bean chickweed
+                      potato bell pepper artichoke. Nori grape silver beet broccoli kombu beet
+                      greens fava bean potato quandong celery. Corn amaranth salsify bunya nuts nori
+                      azuki bean chickweed potato bell pepper artichoke. Nori grape silver beet
+                      broccoli kombu beet greens fava bean potato quandong celery. Corn amaranth
+                      salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
+                      Nori grape silver beet broccoli kombu beet greens fava bean potato quandong
+                      celery.
+                    </p>
+                    <p>
+                      Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper
+                      artichoke. Nori grape silver beet broccoli kombu beet greens fava bean potato
+                      quandong celery. Corn amaranth salsify bunya nuts nori azuki bean chickweed
+                      potato bell pepper artichoke. Nori grape silver beet broccoli kombu beet
+                      greens fava bean potato quandong celery. Corn amaranth salsify bunya nuts nori
+                      azuki bean chickweed potato bell pepper artichoke. Nori grape silver beet
+                      broccoli kombu beet greens fava bean potato quandong celery. Corn amaranth
+                      salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
+                      Nori grape silver beet broccoli kombu beet greens fava bean potato quandong
+                      celery.
+                    </p>
+                    <p>
+                      Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper
+                      artichoke. Nori grape silver beet broccoli kombu beet greens fava bean potato
+                      quandong celery. Corn amaranth salsify bunya nuts nori azuki bean chickweed
+                      potato bell pepper artichoke. Nori grape silver beet broccoli kombu beet
+                      greens fava bean potato quandong celery. Corn amaranth salsify bunya nuts nori
+                      azuki bean chickweed potato bell pepper artichoke. Nori grape silver beet
+                      broccoli kombu beet greens fava bean potato quandong celery. Corn amaranth
+                      salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
+                      Nori grape silver beet broccoli kombu beet greens fava bean potato quandong
+                      celery.
+                    </p>
+                  </Accordion.Panel>
+                </Accordion.Section>
+                <Accordion.Section>
+                  <Accordion.Header>
+                    <Accordion.Label>What are the best tools?</Accordion.Label>
+                  </Accordion.Header>
+                  <Accordion.Panel>
+                    Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear
+                    garlic gram celery bitterleaf wattle seed collard greens nori.
+                  </Accordion.Panel>
+                </Accordion.Section>
+              </Accordion>
+            </Sheet.Body>
+            <Sheet.Footer>
+              <Sheet.FooterItem>
+                <Button isBasic> Action </Button>
+              </Sheet.FooterItem>
+              <Sheet.FooterItem>
+                <Button isPrimary onClick={() => updateArgs({ showSheet: false })}>
+                  {' '}
+                  Close{' '}
+                </Button>
+              </Sheet.FooterItem>
+            </Sheet.Footer>
+            <Sheet.Close onClick={() => updateArgs({ showSheet: false })} />
+          </Sheet>
         </Content>
         <Footer>
           <FooterItem>
@@ -258,6 +354,7 @@ Default.args = {
   isExpanded: false,
   showSubnav: true,
   showSidebar: false,
+  showSheet: false,
   hueColor: undefined,
   itemCount: 3
 };
@@ -278,6 +375,9 @@ Default.argTypes = {
   },
   showSidebar: {
     name: 'Show sidebar'
+  },
+  showSheet: {
+    name: 'Show sheet'
   },
   hueColor: { name: 'Hue', control: 'color' },
   itemCount: {
