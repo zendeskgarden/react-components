@@ -18,7 +18,7 @@ export interface IItemProps extends LiHTMLAttributes<HTMLLIElement> {
   /** Sets the value that is returned upon selection */
   value?: any;
   /**
-   * @ignore Sets the container for item.
+   * @ignore Sets the wrapping component for the item
    */
   component?: any;
   /** Indicates that the element is not interactive */

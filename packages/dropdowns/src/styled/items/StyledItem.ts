@@ -7,6 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { rgba } from 'polished';
 
 const COMPONENT_ID = 'dropdowns.item';
 
@@ -34,7 +35,7 @@ const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
     foregroundColor = getColor('neutralHue', 400, props.theme);
   } else if (props.isDanger) {
     foregroundColor = getColor('dangerHue', 600, props.theme);
-    backgroundColor = props.isFocused ? getColor('dangerHue', 600, props.theme, 0.06) : 'inherit';
+    backgroundColor = props.isFocused ? rgba(foregroundColor!, 0.06) : 'inherit';
   } else {
     foregroundColor = props.theme.colors.foreground;
     backgroundColor = props.isFocused ? getColor('primaryHue', 600, props.theme, 0.08) : 'inherit';
@@ -93,6 +94,7 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
   }
 
   ${props => getColorStyles(props)};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
