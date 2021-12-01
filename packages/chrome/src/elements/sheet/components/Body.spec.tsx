@@ -7,18 +7,13 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { Example } from './Example';
 
-describe('Example', () => {
-  it('is rendered as a div', () => {
-    const { container } = render(<Example />);
+import { SheetBody as Body } from './Body';
 
-    expect(container.firstChild!.nodeName).toBe('DIV');
-  });
-
+describe('Sheet.Body', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(<Example ref={ref} />);
+    const { container } = render(<Body ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
   });

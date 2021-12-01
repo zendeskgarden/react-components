@@ -1,6 +1,7 @@
 {
-  "name": "@zendeskgarden/react-{{component}}",
-  "description": "Components related to {{component}} in the Garden Design System",
+  "name": "@zendeskgarden/react-{{pluralize (lowercase component) }}",
+  "version": "0.0.0",
+  "description": "Components related to {{capitalize component}} in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "homepage": "https://garden.zendesk.com/",
@@ -8,7 +9,6 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "0.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [

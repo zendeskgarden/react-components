@@ -7,186 +7,78 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-/* eslint-disable no-console */
+const program = require('commander');
+const execa = require('execa');
+const garden = require('@zendeskgarden/scripts');
+const ora = require('ora');
+const pluralize = require('pluralize');
+const resolve = require('path').resolve;
 
-const inquirer = require('inquirer');
-const chalk = require('chalk');
-const pelorous = chalk.hex('#30AABC');
-const path = require('path');
-const fs = require('fs-extra');
-const childProcess = require('child_process');
-const handlebars = require('handlebars');
-const prettier = require('prettier');
+const info = (message, spinner) => spinner.info(message).start();
 
 /**
- * Register handlebars template helper utilities
+ * Bootstrap the new package.
+ *
+ * @param {String} component Component name.
+ * @param {Ora} spinner Terminal spinner.
  */
-require('handlebars-helpers')({
-  handlebars
-});
+const bootstrap = async (component, spinner) => {
+  info(`Bootstrapping package...`, spinner);
 
-const tsconfigPath = path.resolve(__dirname, '..', '..', 'tsconfig.json');
+  const lernaArgs = [
+    'lerna',
+    'bootstrap',
+    '--scope',
+    `@zendeskgarden/react-${pluralize.plural(component.toLowerCase())}`
+  ];
 
-const tsconfig = require(tsconfigPath);
-
-const welcomeSplashScreen = () => {
-  console.log(pelorous('#################################'));
-  console.log(pelorous(`#### ${chalk.white('Garden - Create Package')} ####`));
-  console.log(pelorous('#################################'));
+  await execa('yarn', lernaArgs, { stdin: process.stdin, stdout: process.stdout });
 };
 
-const retrievePrompts = () => {
-  return inquirer.prompt([
-    {
-      name: 'packageName',
-      message: 'What name would you like to give this package?',
-      default: 'example'
+/**
+ * Generate the new package based on the package template.
+ *
+ * @param {String} component Component name.
+ * @param {Ora} spinner Terminal spinner.
+ *
+ * @returns The package destination directory path.
+ */
+const generate = async (component, spinner) => {
+  const src = resolve(__dirname, '..', '..', 'packages', '.template');
+  const dest = resolve(
+    __dirname,
+    '..',
+    '..',
+    'packages',
+    pluralize.plural(component.toLowerCase())
+  );
+  const tags = { component: pluralize.singular(component) };
+
+  info(`Generating package...`, spinner);
+
+  const result = await garden.lernaNew({ src, dest, tags, spinner });
+
+  return result.dest;
+};
+
+program
+  .description('Generate a new react-components package')
+  .arguments('<name>', 'ComponentName')
+  .action(async component => {
+    const spinner = ora();
+
+    try {
+      spinner.start();
+
+      const path = await generate(component, spinner);
+
+      await bootstrap(component, spinner);
+      spinner.succeed(`Success.\nThe new package – ${path} – is ready for development.`);
+    } catch (error) {
+      spinner.fail(error.message || error);
+      process.exitCode = 1;
+    } finally {
+      spinner.stop();
     }
-  ]);
-};
-
-const copyDefaultPackage = ({ packageName }) => {
-  if (!packageName) {
-    throw new Error('"packageName" must be defined');
-  }
-
-  const defaultPackagePath = path.resolve(__dirname, '..', '..', 'packages', '.template');
-  const newPackagePath = path.resolve(__dirname, '..', '..', 'packages', packageName);
-
-  return fs.copy(defaultPackagePath, newPackagePath).then(() => ({ packageName }));
-};
-
-const updatePackageJson = ({ packageName }) => {
-  const packageJsonPath = path.resolve(
-    __dirname,
-    '..',
-    '..',
-    'packages',
-    packageName,
-    'package.json'
-  );
-
-  return fs.readFile(packageJsonPath, 'utf-8').then(originalPackageJsonContent => {
-    const template = handlebars.compile(originalPackageJsonContent);
-    const newPackageJsonContent = template({ component: packageName });
-
-    return fs.writeFile(packageJsonPath, newPackageJsonContent);
-  });
-};
-
-const updateReadme = ({ packageName }) => {
-  const readmePath = path.resolve(__dirname, '..', '..', 'packages', packageName, 'README.md');
-
-  return fs.readFile(readmePath, 'utf-8').then(originalReadmeContent => {
-    const template = handlebars.compile(originalReadmeContent);
-    const newReadmeContent = template({ component: packageName });
-
-    return fs.writeFile(readmePath, newReadmeContent);
-  });
-};
-
-const updateStoryReadme = ({ packageName }) => {
-  const storyPath = path.resolve(
-    __dirname,
-    '..',
-    '..',
-    'packages',
-    packageName,
-    'stories',
-    '1-Readme.stories.mdx'
-  );
-
-  return fs
-    .readFile(storyPath, 'utf-8')
-    .then(originalStory => {
-      const template = handlebars.compile(originalStory);
-      const newStoryContent = template({
-        componentName: packageName.charAt(0).toUpperCase() + packageName.slice(1)
-      });
-
-      return fs.writeFile(storyPath, newStoryContent);
-    })
-    .catch(console.error);
-};
-
-const updateStory = ({ packageName }) => {
-  const storyPath = path.resolve(
-    __dirname,
-    '..',
-    '..',
-    'packages',
-    packageName,
-    'stories',
-    '2-Example.stories.tsx'
-  );
-
-  return fs
-    .readFile(storyPath, 'utf-8')
-    .then(originalStory => {
-      const template = handlebars.compile(originalStory);
-      const newStoryContent = template({
-        component: packageName,
-        componentName: packageName.charAt(0).toUpperCase() + packageName.slice(1)
-      });
-
-      return fs.writeFile(storyPath, newStoryContent);
-    })
-    .catch(console.error);
-};
-
-const performLernaBootstrap = ({ packageName }) => {
-  console.log(chalk.blue('Bootstrapping dependencies for new package...'));
-
-  return new Promise((resolve, reject) => {
-    childProcess.exec('yarn postinstall', (err, stdout, stderr) => {
-      if (err) {
-        reject(stderr);
-      }
-
-      console.log(chalk.blue('Lerna Bootstrapping complete'));
-      resolve({ packageName });
-    });
-  });
-};
-
-welcomeSplashScreen();
-
-retrievePrompts()
-  .then(copyDefaultPackage)
-  .then(({ packageName }) => {
-    return Promise.all([
-      updatePackageJson({ packageName }),
-      updateReadme({ packageName }),
-      updateStory({ packageName }),
-      updateStoryReadme({ packageName })
-    ]).then(() => {
-      console.log(
-        chalk.green(
-          `Successfully created package "@zendeskgarden/react-${packageName}" at "packages/${packageName}"`
-        )
-      );
-
-      return { packageName };
-    });
   })
-  .then(performLernaBootstrap)
-  .then(({ packageName }) => {
-    tsconfig.compilerOptions.paths[`@zendeskgarden/react-${packageName}`] = [
-      `./packages/${packageName}/src/index.ts`
-    ];
-
-    fs.writeFile(
-      tsconfigPath,
-      prettier.format(JSON.stringify(tsconfig), {
-        parser: 'json',
-        printWidth: 100
-      }),
-      err => {
-        if (err) console.error(err);
-      }
-    );
-  })
-  .then(() => {
-    console.log(pelorous(`Start local development with: "${chalk.white('yarn start')}"`));
-  })
-  .catch(console.error);
+  .parse(process.argv);

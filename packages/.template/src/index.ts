@@ -5,4 +5,5 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Example } from './elements/Example';
+export { {{capitalize component}} } from './elements/{{capitalize component}}';
+export type { I{{capitalize component}}Props } from './elements/{{capitalize component}}';
