@@ -27,4 +27,7 @@ export type { IXLProps } from './elements/XL';
 export type { IXXLProps } from './elements/XXL';
 export type { IXXXLProps } from './elements/XXXL';
 export type { IBlockquoteProps } from './elements/Blockquote';
+export type { ICodeBlockProps } from './elements/CodeBlock';
 export type { ISpanProps } from './elements/Span';
+export type { IOrderedListProps } from './elements/lists/OrderedList';
+export type { IUnorderedListProps } from './elements/lists/UnorderedList';

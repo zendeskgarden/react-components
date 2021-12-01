@@ -11,7 +11,7 @@ import OrderedListItem from './OrderedListItem';
 import { OrderedListContext } from '../../utils/useOrderedListContext';
 import { StyledOrderedList } from '../../styled';
 
-interface IOrderedListProps extends HTMLAttributes<HTMLOListElement> {
+export interface IOrderedListProps extends HTMLAttributes<HTMLOListElement> {
   /** Adjusts the vertical spacing between list items */
   size?: 'small' | 'medium' | 'large';
   /** Sets the marker style */
