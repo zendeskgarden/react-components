@@ -18,18 +18,20 @@ export interface IItemProps extends LiHTMLAttributes<HTMLLIElement> {
   /** Sets the value that is returned upon selection */
   value?: any;
   /**
-   * @ignore
+   * @ignore Sets the wrapping component for the item
    */
   component?: any;
   /** Indicates that the element is not interactive */
   disabled?: boolean;
+  /** Applies danger styling */
+  isDanger?: boolean;
 }
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
-  ({ value, disabled, component = StyledItem, children, ...props }, forwardRef) => {
+  ({ value, disabled, isDanger, component = StyledItem, children, ...props }, forwardRef) => {
     const {
       selectedItems,
       hasMenuRef,
@@ -91,7 +93,13 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
     if (disabled) {
       return (
         <ItemContext.Provider value={contextValue}>
-          <Component ref={ref} disabled={disabled} isCompact={isCompact} {...props}>
+          <Component
+            ref={ref}
+            disabled={disabled}
+            isDanger={isDanger}
+            isCompact={isCompact}
+            {...props}
+          >
             {isSelected && (
               <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
                 <SelectedSvg />
@@ -116,6 +124,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
             isFocused,
             ref,
             isCompact,
+            isDanger,
             ...(hasMenuRef.current && {
               role: 'menuitem',
               'aria-selected': null
