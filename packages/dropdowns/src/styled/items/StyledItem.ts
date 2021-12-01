@@ -35,7 +35,7 @@ const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
     foregroundColor = getColor('neutralHue', 400, props.theme);
   } else if (props.isDanger) {
     foregroundColor = getColor('dangerHue', 600, props.theme);
-    backgroundColor = props.isFocused ? rgba(foregroundColor!, 0.06) : 'inherit';
+    backgroundColor = props.isFocused ? rgba(foregroundColor as string, 0.08) : 'inherit';
   } else {
     foregroundColor = props.theme.colors.foreground;
     backgroundColor = props.isFocused ? getColor('primaryHue', 600, props.theme, 0.08) : 'inherit';

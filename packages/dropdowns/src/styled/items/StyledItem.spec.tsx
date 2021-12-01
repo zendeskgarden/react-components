@@ -34,7 +34,7 @@ describe('StyledItem', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'background-color',
-      getColor('dangerHue', 600, DEFAULT_THEME, 0.06)
+      getColor('dangerHue', 600, DEFAULT_THEME, 0.08)
     );
   });
 });
