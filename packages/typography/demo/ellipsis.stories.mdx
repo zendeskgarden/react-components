@@ -1,0 +1,23 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Ellipsis } from '@zendeskgarden/react-typography';
+
+<Meta title="Packages/Typography/Ellipsis" component={Ellipsis} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Ellipsis"
+    args={{
+      children: 'Veggies es bonus vobis, proinde vos postulo essum magis.',
+      style: { width: 150 }
+    }}
+    argTypes={{ tag: { control: 'text' } }}
+  >
+    {args => <Ellipsis {...args} />}
+  </Story>
+</Canvas>

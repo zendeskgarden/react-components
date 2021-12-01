@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledEllipsis } from '../styled';
 
-interface IEllipsisProps extends HTMLAttributes<HTMLDivElement> {
+export interface IEllipsisProps extends HTMLAttributes<HTMLDivElement> {
   /** Overrides the auto-generated `title` attribute */
   title?: string;
   /** Updates the element's HTML tag */
