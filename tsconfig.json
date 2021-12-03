@@ -37,7 +37,12 @@
     "experimentalDecorators": true,
     "noEmit": true
   },
-  "files": ["utils/build/declarations.d.ts", "utils/build/styled.d.ts", "utils/test/jest.d.ts"],
+  "files": [
+    "utils/build/declarations.d.ts",
+    "utils/build/styled.d.ts",
+    "utils/build/Intl.d.ts",
+    "utils/test/jest.d.ts"
+  ],
   "include": ["packages/*/src/**/*", "packages/*/demo/**/*"],
   "exclude": ["node_modules", "**/node_modules", "**/dist"]
 }
