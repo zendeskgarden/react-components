@@ -1,0 +1,27 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Skeleton } from '@zendeskgarden/react-loaders';
+import { SkeletonStory } from './stories/SkeletonStory';
+import { TYPE_SCALE_OPTIONS } from './stories/data';
+
+<Meta title="Packages/Loaders/Skeleton" component={Skeleton} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Skeleton"
+    argTypes={{
+      typescale: {
+        control: 'radio',
+        options: TYPE_SCALE_OPTIONS,
+        table: { category: 'Story' }
+      }
+    }}
+  >
+    {args => <SkeletonStory {...args} />}
+  </Story>
+</Canvas>

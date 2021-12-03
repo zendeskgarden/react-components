@@ -1,0 +1,16 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Inline } from '@zendeskgarden/react-loaders';
+
+<Meta title="Packages/Loaders/Inline" component={Inline} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story name="Inline" argTypes={{ color: { control: 'color' } }}>
+    {args => <Inline {...args} />}
+  </Story>
+</Canvas>

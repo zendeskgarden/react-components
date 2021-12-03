@@ -1,0 +1,16 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Spinner } from '@zendeskgarden/react-loaders';
+
+<Meta title="Packages/Loaders/Spinner" component={Spinner} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story name="Spinner" argTypes={{ color: { control: 'color' }, size: { control: 'number' } }}>
+    {args => <Spinner {...args} />}
+  </Story>
+</Canvas>
