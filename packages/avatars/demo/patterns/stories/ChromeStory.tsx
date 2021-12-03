@@ -9,9 +9,9 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
 import { Chrome, Body, Header, HeaderItem, HeaderItemIcon } from '@zendeskgarden/react-chrome';
-import { Avatar } from '@zendeskgarden/react-avatars';
+import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
 
-export const ChromeStory: Story = () => (
+export const ChromeStory: Story<IAvatarProps> = args => (
   <Chrome isFluid style={{ height: 'auto' }}>
     <Body>
       <Header>
@@ -21,7 +21,7 @@ export const ChromeStory: Story = () => (
           </HeaderItemIcon>
         </HeaderItem>
         <HeaderItem isRound aria-label="User profile">
-          <Avatar size="extrasmall">
+          <Avatar {...args} size="extrasmall">
             <img alt="Example User" src="images/avatars/chrome.png" />
           </Avatar>
         </HeaderItem>
