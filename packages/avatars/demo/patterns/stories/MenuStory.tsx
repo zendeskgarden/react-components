@@ -7,6 +7,9 @@
 
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
+import Icon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import {
   Dropdown,
   Trigger,
@@ -16,27 +19,34 @@ import {
   MediaBody,
   ItemMeta
 } from '@zendeskgarden/react-dropdowns';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { Avatar } from '@zendeskgarden/react-avatars';
 import { Button } from '@zendeskgarden/react-buttons';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { Avatar } from '@zendeskgarden/react-avatars';
 
-/**
- * https://github.com/storybookjs/storybook/issues/13362
- */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const MenuUsage: Story = ({ foo }) => {
+export const MenuStory: Story = () => {
   const [highlightedItem, setHighlightedItem] = useState<number | null>();
+  const [isDefaultOpen, setDefaultOpen] = useState<boolean | undefined>();
+  const [isCompactOpen, setCompactOpen] = useState<boolean | undefined>();
 
   return (
     <Grid>
-      <Row>
-        <Col textAlign="center">
-          <Dropdown onStateChange={changes => setHighlightedItem(changes.highlightedIndex)}>
+      <Row style={{ height: 'calc(100vh - 112px)' }}>
+        <Col textAlign="center" alignSelf="center">
+          <Dropdown
+            onStateChange={changes => {
+              setHighlightedItem(changes.highlightedIndex);
+              Object.prototype.hasOwnProperty.call(changes, 'isOpen') &&
+                setDefaultOpen(changes.isOpen);
+            }}
+          >
             <Trigger>
-              <Button>Default menu</Button>
+              <Button>
+                Default
+                <Button.EndIcon isRotated={isDefaultOpen}>
+                  <Icon />
+                </Button.EndIcon>
+              </Button>
             </Trigger>
-            <Menu hasArrow>
+            <Menu>
               <MediaItem value="linden">
                 <MediaFigure>
                   <Avatar
@@ -85,12 +95,23 @@ export const MenuUsage: Story = ({ foo }) => {
             </Menu>
           </Dropdown>
         </Col>
-        <Col textAlign="center">
-          <Dropdown onStateChange={changes => setHighlightedItem(changes.highlightedIndex)}>
+        <Col textAlign="center" alignSelf="center">
+          <Dropdown
+            onStateChange={changes => {
+              setHighlightedItem(changes.highlightedIndex);
+              Object.prototype.hasOwnProperty.call(changes, 'isOpen') &&
+                setCompactOpen(changes.isOpen);
+            }}
+          >
             <Trigger>
-              <Button>Small menu</Button>
+              <Button size="small">
+                Compact
+                <Button.EndIcon isRotated={isCompactOpen}>
+                  <Icon />
+                </Button.EndIcon>
+              </Button>
             </Trigger>
-            <Menu hasArrow isCompact>
+            <Menu isCompact>
               <MediaItem value="clove">
                 <MediaFigure>
                   <Avatar
@@ -142,20 +163,4 @@ export const MenuUsage: Story = ({ foo }) => {
       </Row>
     </Grid>
   );
-};
-
-MenuUsage.storyName = 'Menu usage';
-
-MenuUsage.parameters = {
-  docs: {
-    description: {
-      story: `
-  The following example demonstrates intended avatar
-  sizing within menus. Additionally, note the detail of
-  dynamically modifying \`surfaceColor\` to blend with the
-  menu item's highlight color on focus and hover. See the code
-  for details.
-`
-    }
-  }
 };

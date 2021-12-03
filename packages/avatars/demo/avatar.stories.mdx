@@ -1,0 +1,36 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Avatar } from '@zendeskgarden/react-avatars';
+import { AvatarStory } from './stories/AvatarStory';
+import { AVATAR_TYPE as TYPE } from './stories/data';
+
+<Meta
+  title="Packages/Avatars/Avatar"
+  component={Avatar}
+  subcomponents={{ 'Avatar.Text': Avatar.Text }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Avatar"
+    args={{ type: TYPE[1] }}
+    argTypes={{
+      backgroundColor: { control: 'color' },
+      badge: { control: 'number' },
+      foregroundColor: { control: 'color' },
+      children: { control: 'text', table: { category: 'Avatar.Text' } },
+      type: {
+        control: 'radio',
+        options: TYPE,
+        table: { category: 'Story' }
+      }
+    }}
+  >
+    {args => <AvatarStory {...args} />}
+  </Story>
+</Canvas>
