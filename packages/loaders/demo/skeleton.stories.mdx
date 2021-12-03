@@ -14,7 +14,9 @@ import { TYPE_SCALE_OPTIONS } from './stories/data';
 <Canvas>
   <Story
     name="Skeleton"
+    args={{ count: 1 }}
     argTypes={{
+      count: { control: { type: 'range', min: 1, max: 20 }, table: { category: 'Story' } },
       typescale: {
         control: 'radio',
         options: TYPE_SCALE_OPTIONS,

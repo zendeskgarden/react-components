@@ -13,10 +13,11 @@ import { ISkeletonProps, Skeleton } from '@zendeskgarden/react-loaders';
 import { TYPE_SCALE } from './types';
 
 interface IArgs extends ISkeletonProps {
+  count?: number;
   typescale?: TYPE_SCALE;
 }
 
-export const SkeletonStory: Story<IArgs> = ({ typescale, ...args }) => {
+export const SkeletonStory: Story<IArgs> = ({ count = 1, typescale, ...args }) => {
   let Typescale: FunctionComponent | undefined;
 
   switch (typescale) {
@@ -52,12 +53,14 @@ export const SkeletonStory: Story<IArgs> = ({ typescale, ...args }) => {
         padding: DEFAULT_THEME.space.md
       }}
     >
-      {Typescale ? (
-        <Typescale>
-          <Skeleton {...args} />
-        </Typescale>
-      ) : (
-        <Skeleton {...args} />
+      {[...Array(count)].map((_, index) =>
+        Typescale ? (
+          <Typescale key={index + Math.random()}>
+            <Skeleton {...args} />
+          </Typescale>
+        ) : (
+          <Skeleton key={index + Math.random()} {...args} />
+        )
       )}
     </div>
   );
