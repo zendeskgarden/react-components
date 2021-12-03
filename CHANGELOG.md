@@ -12,6 +12,24 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.47.0 (2021-12-02)
+
+#### :rocket: New Feature
+* `dropdowns`, `theming`
+  * [#1246](https://github.com/zendeskgarden/react-components/pull/1246) feat(dropdown): add danger state to menu items ([@exelarios](https://github.com/exelarios))
+* `chrome`
+  * [#1231](https://github.com/zendeskgarden/react-components/pull/1231) feat(chrome): create sheet components ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :bug: Bug Fix
+* `buttons`
+  * [#1250](https://github.com/zendeskgarden/react-components/pull/1250) fix(buttons): Remove repeated word from prop description ([@smritimadan](https://github.com/smritimadan))
+
+#### :seedling: Internal
+* `chrome`
+  * [#1252](https://github.com/zendeskgarden/react-components/pull/1252) chore(chrome): update size snapshot ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `.template`
+  * [#1251](https://github.com/zendeskgarden/react-components/pull/1251) chore: enhance `yarn new` script ([@jzempel](https://github.com/jzempel))
+
 ## v8.46.0 (2021-11-24)
 
 #### :rocket: New Feature
