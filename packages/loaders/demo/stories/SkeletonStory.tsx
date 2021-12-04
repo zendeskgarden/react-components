@@ -13,11 +13,12 @@ import { ISkeletonProps, Skeleton } from '@zendeskgarden/react-loaders';
 import { TYPE_SCALE } from './types';
 
 interface IArgs extends ISkeletonProps {
+  backgroundColor?: string;
   count?: number;
   typescale?: TYPE_SCALE;
 }
 
-export const SkeletonStory: Story<IArgs> = ({ count = 1, typescale, ...args }) => {
+export const SkeletonStory: Story<IArgs> = ({ backgroundColor, count = 1, typescale, ...args }) => {
   let Typescale: FunctionComponent | undefined;
 
   switch (typescale) {
@@ -49,7 +50,7 @@ export const SkeletonStory: Story<IArgs> = ({ count = 1, typescale, ...args }) =
   return (
     <div
       style={{
-        backgroundColor: args.isLight ? PALETTE.kale[600] : undefined,
+        backgroundColor: backgroundColor || (args.isLight ? PALETTE.kale[600] : undefined),
         padding: DEFAULT_THEME.space.md
       }}
     >
