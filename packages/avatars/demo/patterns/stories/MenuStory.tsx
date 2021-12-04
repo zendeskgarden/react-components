@@ -22,10 +22,9 @@ import {
 import { Button } from '@zendeskgarden/react-buttons';
 import { Avatar } from '@zendeskgarden/react-avatars';
 
-export const MenuStory: Story = () => {
+export const MenuStory: Story = ({ isCompact }) => {
   const [highlightedItem, setHighlightedItem] = useState<number | null>();
-  const [isDefaultOpen, setDefaultOpen] = useState<boolean | undefined>();
-  const [isCompactOpen, setCompactOpen] = useState<boolean | undefined>();
+  const [isOpen, setOpen] = useState<boolean | undefined>();
 
   return (
     <Grid>
@@ -34,23 +33,22 @@ export const MenuStory: Story = () => {
           <Dropdown
             onStateChange={changes => {
               setHighlightedItem(changes.highlightedIndex);
-              Object.prototype.hasOwnProperty.call(changes, 'isOpen') &&
-                setDefaultOpen(changes.isOpen);
+              Object.prototype.hasOwnProperty.call(changes, 'isOpen') && setOpen(changes.isOpen);
             }}
           >
             <Trigger>
-              <Button>
-                Default
-                <Button.EndIcon isRotated={isDefaultOpen}>
+              <Button size={isCompact && 'small'}>
+                Demo
+                <Button.EndIcon isRotated={isOpen}>
                   <Icon />
                 </Button.EndIcon>
               </Button>
             </Trigger>
-            <Menu>
+            <Menu isCompact={isCompact}>
               <MediaItem value="linden">
                 <MediaFigure>
                   <Avatar
-                    size="small"
+                    size={isCompact ? 'extraextrasmall' : 'small'}
                     status="away"
                     surfaceColor={highlightedItem === 0 ? PALETTE.blue[100] : undefined}
                   >
@@ -65,7 +63,7 @@ export const MenuStory: Story = () => {
               <MediaItem value="reed">
                 <MediaFigure>
                   <Avatar
-                    size="small"
+                    size={isCompact ? 'extraextrasmall' : 'small'}
                     status="available"
                     surfaceColor={highlightedItem === 1 ? PALETTE.blue[100] : undefined}
                   >
@@ -80,7 +78,7 @@ export const MenuStory: Story = () => {
               <MediaItem value="sage">
                 <MediaFigure>
                   <Avatar
-                    size="small"
+                    size={isCompact ? 'extraextrasmall' : 'small'}
                     badge="3"
                     surfaceColor={highlightedItem === 2 ? PALETTE.blue[100] : undefined}
                   >
@@ -90,71 +88,6 @@ export const MenuStory: Story = () => {
                 <MediaBody>
                   Sage
                   <ItemMeta>sage@zendesk.garden</ItemMeta>
-                </MediaBody>
-              </MediaItem>
-            </Menu>
-          </Dropdown>
-        </Col>
-        <Col textAlign="center" alignSelf="center">
-          <Dropdown
-            onStateChange={changes => {
-              setHighlightedItem(changes.highlightedIndex);
-              Object.prototype.hasOwnProperty.call(changes, 'isOpen') &&
-                setCompactOpen(changes.isOpen);
-            }}
-          >
-            <Trigger>
-              <Button size="small">
-                Compact
-                <Button.EndIcon isRotated={isCompactOpen}>
-                  <Icon />
-                </Button.EndIcon>
-              </Button>
-            </Trigger>
-            <Menu isCompact>
-              <MediaItem value="clove">
-                <MediaFigure>
-                  <Avatar
-                    size="extraextrasmall"
-                    status="away"
-                    surfaceColor={highlightedItem === 0 ? PALETTE.blue[100] : undefined}
-                  >
-                    <img alt="Clove" src="images/avatars/clove.png" />
-                  </Avatar>
-                </MediaFigure>
-                <MediaBody>
-                  Clove
-                  <ItemMeta>clove@zendesk.garden</ItemMeta>
-                </MediaBody>
-              </MediaItem>
-              <MediaItem value="fennel">
-                <MediaFigure>
-                  <Avatar
-                    size="extraextrasmall"
-                    status="available"
-                    surfaceColor={highlightedItem === 1 ? PALETTE.blue[100] : undefined}
-                  >
-                    <img alt="Fennel" src="images/avatars/fennel.png" />
-                  </Avatar>
-                </MediaFigure>
-                <MediaBody>
-                  Fennel
-                  <ItemMeta>fennel@zendesk.garden</ItemMeta>
-                </MediaBody>
-              </MediaItem>
-              <MediaItem value="rue">
-                <MediaFigure>
-                  <Avatar
-                    size="extraextrasmall"
-                    badge="1"
-                    surfaceColor={highlightedItem === 2 ? PALETTE.blue[100] : undefined}
-                  >
-                    <img alt="Rue" src="images/avatars/rue.png" />
-                  </Avatar>
-                </MediaFigure>
-                <MediaBody>
-                  Rue
-                  <ItemMeta>rue@zendesk.garden</ItemMeta>
                 </MediaBody>
               </MediaItem>
             </Menu>

@@ -1,0 +1,66 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
+import {
+  AddItem,
+  Dropdown,
+  HeaderIcon,
+  HeaderItem,
+  Item,
+  ItemMeta,
+  MediaBody,
+  MediaFigure,
+  MediaItem,
+  Menu,
+  NextItem,
+  PreviousItem,
+  Separator,
+  Trigger
+} from '@zendeskgarden/react-dropdowns';
+import { MenuStory } from './stories/MenuStory';
+import { MENU_ITEMS as ITEMS } from './stories/data';
+
+<Meta
+  title="Packages/Dropdowns/Menu"
+  component={Menu}
+  subcomponents={{
+    AddItem,
+    Dropdown,
+    HeaderIcon,
+    HeaderItem,
+    Item,
+    ItemMeta,
+    MediaBody,
+    MediaFigure,
+    MediaItem,
+    Menu,
+    NextItem,
+    PreviousItem,
+    Separator,
+    Trigger
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Menu"
+    args={{ eventsEnabled: true, isAnimated: true, items: ITEMS, disabled: false, hasMedia: false }}
+    argTypes={{
+      isOpen: { control: 'boolean', table: { category: 'Dropdown' } },
+      disabled: { control: 'boolean', table: { category: 'Item' } },
+      hasMedia: { control: 'boolean', table: { category: 'Story' } },
+      items: { name: 'Item[]', table: { category: 'Story' } }
+    }}
+  >
+    {args => {
+      const updateArgs = useArgs()[1];
+      const handleTrigger = () => updateArgs({ isOpen: args.isOpen ? false : true });
+      return <MenuStory {...args} onTrigger={handleTrigger} />;
+    }}
+  </Story>
+</Canvas>

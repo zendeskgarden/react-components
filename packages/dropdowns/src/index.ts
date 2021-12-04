@@ -23,7 +23,7 @@ export { Label } from './elements/Fields/Label';
 export type { ILabelProps } from './elements/Fields/Label';
 export { Message } from './elements/Fields/Message';
 export type { IMessageProps } from './elements/Fields/Message';
-export { default as Menu } from './elements/Menu/Menu';
+export { Menu } from './elements/Menu/Menu';
 export type { IMenuProps } from './elements/Menu/Menu';
 export { Separator } from './elements/Menu/Separator';
 export { AddItem } from './elements/Menu/Items/AddItem';

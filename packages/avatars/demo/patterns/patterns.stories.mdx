@@ -32,7 +32,12 @@ with the menu item's highlight color on focus and hover. See the code for
 details.
 
 <Canvas>
-  <Story name="Menu" parameters={{ controls: { disabled: true } }}>
-    <MenuStory />
+  <Story
+    name="Menu"
+    parameters={{ controls: { include: ['isCompact'] } }}
+    args={{ isCompact: false }}
+    argTypes={{ isCompact: { control: 'boolean' } }}
+  >
+    {args => <MenuStory {...args} />}
   </Story>
 </Canvas>
