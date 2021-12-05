@@ -17,3 +17,5 @@ export const MENU_ITEMS: (IMenuItem | MENU_SEPARATOR)[] = [
   '---',
   { type: 'add', text: 'Add item' }
 ];
+
+export const SELECT_ITEMS = ['Item 1', 'Item 2', 'Item 3'];

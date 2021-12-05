@@ -1,0 +1,53 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
+import {
+  Dropdown,
+  Field,
+  Hint,
+  Label,
+  Menu,
+  Message,
+  Select
+} from '@zendeskgarden/react-dropdowns';
+import { SelectStory } from './stories/SelectStory';
+import { SELECT_ITEMS as ITEMS } from './stories/data';
+
+<Meta
+  title="Packages/Dropdowns/Select"
+  component={Select}
+  subcomponents={{ Dropdown, Field, Hint, Label, Menu, Message }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Select"
+    args={{
+      label: 'Label',
+      hint: 'Hint',
+      message: 'Message',
+      selectedItem: 1,
+      items: ITEMS
+    }}
+    argTypes={{
+      label: { name: 'children', table: { category: 'Label' } },
+      isRegular: { control: 'boolean', table: { category: 'Label' } },
+      hidden: { control: 'boolean', table: { category: 'Label' } },
+      hint: { name: 'children', table: { category: 'Hint' } },
+      message: { name: 'children', table: { category: 'Message' } },
+      selectedItem: { table: { category: 'Dropdown' } },
+      items: { name: 'Item[]', table: { category: 'Story' } }
+    }}
+  >
+    {args => {
+      const updateArgs = useArgs()[1];
+      const handleSelect = selectedItem => updateArgs({ selectedItem });
+      return <SelectStory {...args} onSelect={handleSelect} />;
+    }}
+  </Story>
+</Canvas>

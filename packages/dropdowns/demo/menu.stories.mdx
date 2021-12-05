@@ -1,5 +1,6 @@
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
+import Downshift from 'downshift';
 import {
   AddItem,
   Dropdown,
@@ -49,18 +50,33 @@ import { MENU_ITEMS as ITEMS } from './stories/data';
 <Canvas>
   <Story
     name="Menu"
-    args={{ eventsEnabled: true, isAnimated: true, items: ITEMS, disabled: false, hasMedia: false }}
+    args={{
+      eventsEnabled: true,
+      isAnimated: true,
+      selectedItems: [5],
+      items: ITEMS,
+      hasMedia: false,
+      isOpen: false
+    }}
     argTypes={{
-      isOpen: { control: 'boolean', table: { category: 'Dropdown' } },
+      downshiftProps: { control: 'object', table: { category: 'Dropdown' } },
+      highlightedIndex: { control: 'number', table: { category: 'Dropdown' } },
+      isOpen: { table: { category: 'Dropdown' } },
+      selectedItems: { table: { category: 'Dropdown' } },
       disabled: { control: 'boolean', table: { category: 'Item' } },
-      hasMedia: { control: 'boolean', table: { category: 'Story' } },
+      isDanger: { control: 'boolean', table: { category: 'Item' } },
+      hasMedia: { table: { category: 'Story' } },
       items: { name: 'Item[]', table: { category: 'Story' } }
     }}
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleTrigger = () => updateArgs({ isOpen: args.isOpen ? false : true });
-      return <MenuStory {...args} onTrigger={handleTrigger} />;
+      const handleSelect = selectedItems => updateArgs({ selectedItems });
+      const handleStateChange = changes =>
+        changes.hasOwnProperty('isOpen') &&
+        changes.type !== Downshift.stateChangeTypes.blurInput /*account for Storybook control*/ &&
+        updateArgs({ isOpen: changes.isOpen });
+      return <MenuStory {...args} onSelect={handleSelect} onStateChange={handleStateChange} />;
     }}
   </Story>
 </Canvas>
