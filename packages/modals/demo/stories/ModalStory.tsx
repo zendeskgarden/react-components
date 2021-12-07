@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { MouseEventHandler } from 'react';
+import React, { EventHandler, MouseEventHandler } from 'react';
 import { Story } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
 import {
@@ -23,6 +23,7 @@ import { IFooterItem } from './types';
 interface IArgs extends IModalProps {
   isVisible: boolean;
   onClick: MouseEventHandler<HTMLElement>;
+  onClose: EventHandler<any>;
   hasBody: boolean;
   body: string;
   hasClose: boolean;
@@ -35,6 +36,7 @@ interface IArgs extends IModalProps {
 
 export const ModalStory: Story<IArgs> = ({
   onClick,
+  onClose,
   isVisible,
   hasBody,
   body,
@@ -54,7 +56,7 @@ export const ModalStory: Story<IArgs> = ({
       </Button.EndIcon>
     </Button>
     {isVisible && (
-      <Modal {...args}>
+      <Modal {...args} onClose={onClose}>
         {hasHeader && <Header isDanger={isDanger}>{header}</Header>}
         {hasBody ? <Body>{body}</Body> : body}
         {hasFooter && (
@@ -65,6 +67,7 @@ export const ModalStory: Story<IArgs> = ({
                   isBasic={type === 'basic'}
                   isPrimary={type === 'primary'}
                   isDanger={isDanger && type === 'primary'}
+                  onClick={onClose}
                 >
                   {text}
                 </Button>
