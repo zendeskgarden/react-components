@@ -6,6 +6,8 @@
  */
 
 export { Modal } from './elements/Modal';
+export type { IModalProps } from './elements/Modal';
+
 export { Body } from './elements/Body';
 export { Close } from './elements/Close';
 export { Footer } from './elements/Footer';
