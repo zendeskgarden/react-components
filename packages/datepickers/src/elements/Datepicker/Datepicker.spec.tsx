@@ -41,6 +41,12 @@ describe('Datepicker', () => {
   });
 
   describe('Calendar display', () => {
+    it('doesnt render calendar elements when hidden', () => {
+      const { queryByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      expect(queryByTestId('datepicker-menu')).toBeEmptyDOMElement();
+    });
+
     it('displays dates with correct previous styling', () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
@@ -237,6 +243,18 @@ describe('Datepicker', () => {
     it('closes datepicker on blur', () => {
       const { getByTestId, queryByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      userEvent.click(input);
+      userEvent.tab();
+
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('closes datepicker when not animated', () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example isAnimated={false} value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
       const input = getByTestId('input');
 
