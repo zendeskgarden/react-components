@@ -1,0 +1,66 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
+import { TooltipModal } from '@zendeskgarden/react-modals';
+import { TooltipModalStory } from './stories/TooltipModalStory';
+import { TOOLTIP_MODAL_BODY as BODY } from './stories/data';
+
+<Meta
+  title="Packages/Modals/TooltipModal"
+  component={TooltipModal}
+  subcomponents={{
+    'TooltipModal.Body': TooltipModal.Body,
+    'TooltipModal.Close': TooltipModal.Close,
+    'TooltipModal.Footer': TooltipModal.Footer,
+    'TooltipModal.FooterItem': TooltipModal.FooterItem,
+    'TooltipModal.Title': TooltipModal.Title
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="TooltipModal"
+    args={{
+      focusOnMount: true,
+      hasArrow: true,
+      isAnimated: true,
+      restoreFocus: true,
+      hasBody: true,
+      body: BODY,
+      hasClose: true,
+      hasFooter: true,
+      hasTitle: true,
+      title: 'Title'
+    }}
+    argTypes={{
+      referenceElement: { control: false },
+      hasBody: { name: 'TooltipModal.Body', table: { category: 'Story' } },
+      hasClose: { name: 'TooltipModal.Close', table: { category: 'Story' } },
+      hasFooter: { name: 'TooltipModal.Footer', table: { category: 'Story' } },
+      hasTitle: { name: 'TooltipModal.Title', table: { category: 'Story' } },
+      body: { name: 'children', table: { category: 'TooltipModal.Body' } },
+      title: { name: 'children', table: { category: 'TooltipModal.Title' } }
+    }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A25593'
+      }
+    }}
+  >
+    {args => {
+      const updateArgs = useArgs()[1];
+      const handleClick = referenceElement => updateArgs({ referenceElement });
+      const handleClose = () => updateArgs({ referenceElement: null });
+      return (
+        <TooltipModalStory {...args} count={3} handleClick={handleClick} onClose={handleClose} />
+      );
+    }}
+  </Story>
+</Canvas>
