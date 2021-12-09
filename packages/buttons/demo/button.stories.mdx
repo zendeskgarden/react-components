@@ -33,6 +33,13 @@ import { ButtonStory } from './stories/ButtonStory';
       hasStartIcon: { name: 'Button.StartIcon', table: { category: 'Story' } },
       hasEndIcon: { name: 'Button.EndIcon', table: { category: 'Story' } }
     }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=1494%3A1'
+      }
+    }}
   >
     {args => <ButtonStory {...args} />}
   </Story>
