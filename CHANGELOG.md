@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.47.1 (2021-12-09)
+
+#### :bug: Bug Fix
+* `datepickers`
+  * [#1253](https://github.com/zendeskgarden/react-components/pull/1253) fix(datepicker): remove calender dom elements when hidden ([@mtomcal](https://github.com/mtomcal))
+
 ## v8.47.0 (2021-12-02)
 
 #### :rocket: New Feature
