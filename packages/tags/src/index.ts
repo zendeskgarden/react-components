@@ -6,3 +6,4 @@
  */
 
 export { default as Tag } from './elements/Tag';
+export type { ITagProps } from './elements/Tag';

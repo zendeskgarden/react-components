@@ -1,0 +1,36 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Tag } from '@zendeskgarden/react-tags';
+import { TagStory } from './stories/TagStory';
+
+<Meta
+  title="Packages/Tags/Tag"
+  component={Tag}
+  subcomponents={{ 'Tag.Avatar': Tag.Avatar, 'Tag.Close': Tag.Close }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Tag"
+    args={{ children: 'Tag', hasAvatar: false, hasClose: false }}
+    argTypes={{
+      hue: { control: 'color' },
+      hasAvatar: { name: 'Tag.Avatar', table: { category: 'Story' } },
+      hasClose: { name: 'Tag.Close', table: { category: 'Story' } }
+    }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=102%3A118'
+      }
+    }}
+  >
+    {args => <TagStory {...args} />}
+  </Story>
+</Canvas>
