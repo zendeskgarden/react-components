@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { StyledTable, IStyledTableProps } from '../styled';
 import { TableContext } from '../utils/useTableContext';
 
-interface ITableProps extends IStyledTableProps, TableHTMLAttributes<HTMLTableElement> {
+export interface ITableProps extends IStyledTableProps, TableHTMLAttributes<HTMLTableElement> {
   /** Removes interactive styling from table rows */
   isReadOnly?: boolean;
 }
