@@ -139,6 +139,7 @@ export const StyledRadioInput = styled.input.attrs({
       box-shadow .1s ease-in-out,
       background-color .25s ease-in-out,
       color .25s ease-in-out;
+    z-index: -1;
     border: ${props => props.theme.borders.sm};
     border-radius: 50%;
     background-repeat: no-repeat;
@@ -148,6 +149,7 @@ export const StyledRadioInput = styled.input.attrs({
 
   & ~ ${StyledRadioLabel} > svg {
     position: absolute;
+    z-index: -1;
   }
 
   ${props => sizeStyles(props)};
