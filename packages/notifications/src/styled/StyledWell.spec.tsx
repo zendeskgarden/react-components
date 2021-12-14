@@ -26,7 +26,7 @@ describe('StyledWell', () => {
   it('renders non-recessed styling correctly', () => {
     const { container } = render(<StyledWell />);
 
-    expect(container.firstChild).not.toHaveStyleRule('background-color');
+    expect(container.firstChild).toHaveStyleRule('background-color', '#fff');
   });
 
   it('renders recessed styling correctly', () => {

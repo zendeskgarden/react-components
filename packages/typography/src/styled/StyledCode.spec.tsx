@@ -37,7 +37,7 @@ describe('StyledCode', () => {
     it('renders inherited size', () => {
       const { container } = render(<StyledCode />);
 
-      expect(container.firstChild).not.toHaveStyleRule('font-size');
+      expect(container.firstChild).not.toHaveStyleRule('font-size', 'inherit');
     });
 
     it('renders small size', () => {
