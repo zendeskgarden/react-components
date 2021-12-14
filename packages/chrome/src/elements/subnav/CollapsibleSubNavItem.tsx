@@ -99,3 +99,5 @@ CollapsibleSubNavItem.propTypes = {
   onChange: PropTypes.func,
   children: PropTypes.node
 };
+
+CollapsibleSubNavItem.displayName = 'CollapsibleSubNavItem';

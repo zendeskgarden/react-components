@@ -77,6 +77,8 @@ Button.defaultProps = {
   size: 'medium'
 };
 
+Button.displayName = 'Button';
+
 export interface IIconProps extends SVGAttributes<SVGSVGElement> {
   isRotated?: boolean;
   children: any;

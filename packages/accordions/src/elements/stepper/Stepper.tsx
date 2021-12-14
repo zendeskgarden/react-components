@@ -38,7 +38,6 @@ interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {
 /**
  * @extends OlHTMLAttributes<HTMLOListElement>
  */
-// eslint-disable-next-line react/display-name
 export const Stepper = forwardRef<HTMLOListElement, IStepperProps>(
   ({ isHorizontal, activeIndex, ...props }, ref) => {
     const currentIndexRef = useRef(0);

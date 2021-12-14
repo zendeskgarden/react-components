@@ -19,17 +19,18 @@ describe('Modal', () => {
   const MODAL_ID = 'TEST_ID';
   let onCloseSpy: jest.Mock;
 
-  const BasicExample = (props: IModalProps) => (
+  const BasicExample = ({ onClose, ...other }: IModalProps) => (
     <Modal
-      {...props}
+      {...other}
       id={MODAL_ID}
+      onClose={onClose}
       data-test-id="modal"
       backdropProps={{ 'data-test-id': 'backdrop' } as any}
     >
       <Header data-test-id="header">Example Header</Header>
       <Body data-test-id="body">Body content</Body>
       <Footer data-test-id="footer">
-        <button onClick={() => props.onClose}>Confirm</button>
+        <button onClick={() => onClose}>Confirm</button>
       </Footer>
       <Close data-test-id="close" />
     </Modal>
