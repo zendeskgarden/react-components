@@ -42,7 +42,6 @@ interface IStaticTilesExport<T, P>
   Label: typeof Label;
 }
 
-/* eslint-disable react/display-name */
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */

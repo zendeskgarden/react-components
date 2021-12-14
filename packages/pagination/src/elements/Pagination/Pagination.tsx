@@ -285,6 +285,8 @@ Pagination.defaultProps = {
   pageGap: 2
 };
 
+Pagination.displayName = 'Pagination';
+
 /**
  * @extends HTMLAttributes<HTMLUListElement>
  */

@@ -154,25 +154,40 @@ describe('Dots', () => {
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
+        .c0 {
+          -webkit-animation: kVOdef 1250ms linear infinite;
+          animation: kVOdef 1250ms linear infinite;
+        }
+
+        .c1 {
+          -webkit-animation: idDvaf 1250ms linear infinite;
+          animation: idDvaf 1250ms linear infinite;
+        }
+
+        .c2 {
+          -webkit-animation: bDxIcz 1250ms linear infinite;
+          animation: bDxIcz 1250ms linear infinite;
+        }
+
         <g
           fill="currentColor"
         >
           <circle
-            class="sc-bdfBQB sc-gsTEea  twRRy"
+            class=" c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdfBQB sc-dlfnuX  ejav"
+            class=" c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdfBQB sc-hKgJUU  gSGQmG"
+            class=" c2"
             cx="71"
             cy="36"
             r="9"
@@ -239,25 +254,40 @@ describe('Dots', () => {
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
+        .c0 {
+          -webkit-animation: kVOdef 1125ms linear infinite;
+          animation: kVOdef 1125ms linear infinite;
+        }
+
+        .c1 {
+          -webkit-animation: idDvaf 1125ms linear infinite;
+          animation: idDvaf 1125ms linear infinite;
+        }
+
+        .c2 {
+          -webkit-animation: bDxIcz 1125ms linear infinite;
+          animation: bDxIcz 1125ms linear infinite;
+        }
+
         <g
           fill="currentColor"
         >
           <circle
-            class="sc-bdfBQB sc-gsTEea  dDXuKv"
+            class=" c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdfBQB sc-dlfnuX  cONgPq"
+            class=" c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdfBQB sc-hKgJUU  hnHItv"
+            class=" c2"
             cx="71"
             cy="36"
             r="9"
@@ -324,25 +354,40 @@ describe('Dots', () => {
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
+        .c0 {
+          -webkit-animation: kVOdef 1375ms linear infinite;
+          animation: kVOdef 1375ms linear infinite;
+        }
+
+        .c1 {
+          -webkit-animation: idDvaf 1375ms linear infinite;
+          animation: idDvaf 1375ms linear infinite;
+        }
+
+        .c2 {
+          -webkit-animation: bDxIcz 1375ms linear infinite;
+          animation: bDxIcz 1375ms linear infinite;
+        }
+
         <g
           fill="currentColor"
         >
           <circle
-            class="sc-bdfBQB sc-gsTEea  hcnGiI"
+            class=" c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdfBQB sc-dlfnuX  evKaid"
+            class=" c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdfBQB sc-hKgJUU  crJBYE"
+            class=" c2"
             cx="71"
             cy="36"
             r="9"

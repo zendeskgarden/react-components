@@ -431,6 +431,8 @@ Multiselect.defaultProps = {
   maxItems: 4
 };
 
+Multiselect.displayName = 'Multiselect';
+
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */

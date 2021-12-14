@@ -29,7 +29,6 @@ interface IStaticFieldsetExport<T, P>
   Legend: typeof Legend;
 }
 
-/* eslint-disable react/display-name */
 /**
  * @extends FieldsetHTMLAttributes<HTMLFieldSetElement>
  */

@@ -59,7 +59,6 @@ export interface ISheetProps extends HTMLAttributes<HTMLElement> {
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-// eslint-disable-next-line react/display-name
 export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
   (
     { id, isOpen, isAnimated, focusOnMount, restoreFocus, placement, size, children, ...props },

@@ -61,3 +61,5 @@ Select.propTypes = {
   focusInset: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
+
+Select.displayName = 'Select';

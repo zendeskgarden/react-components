@@ -34,7 +34,6 @@ export interface ITimelineProps extends Omit<HTMLAttributes<HTMLOListElement>, '
 /**
  * @extends HTMLAttributes<HTMLOListElement>
  */
-// eslint-disable-next-line react/display-name
 export const Timeline = forwardRef<HTMLOListElement, ITimelineProps>(
   ({ isAlternate, ...props }, ref) => {
     const value = useMemo(() => ({ isAlternate }), [isAlternate]);

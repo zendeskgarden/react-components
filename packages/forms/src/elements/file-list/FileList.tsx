@@ -20,7 +20,6 @@ interface IStaticFileListExport<T, P>
   Item: typeof Item;
 }
 
-/* eslint-disable react/display-name */
 /**
  * @extends HTMLAttributes<HTMLUListElement>
  */

@@ -48,3 +48,5 @@ export const Field = React.forwardRef<HTMLDivElement, IFieldProps>((props, ref) 
 Field.propTypes = {
   id: PropTypes.string
 };
+
+Field.displayName = 'Field';
