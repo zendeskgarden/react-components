@@ -8,6 +8,6 @@
 import { withTheme as styledWithTheme } from 'styled-components';
 
 /** @component */
-export default function withTheme(WrappedComponent: any) {
+export default function withTheme(WrappedComponent: any): any {
   return styledWithTheme(WrappedComponent);
 }

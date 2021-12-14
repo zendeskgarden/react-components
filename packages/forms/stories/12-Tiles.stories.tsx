@@ -102,11 +102,6 @@ Default.argTypes = {
   },
   disabled: {
     name: 'Disabled'
-  },
-  value: {
-    table: {
-      disable: true
-    }
   }
 };
 

@@ -28,6 +28,7 @@ export interface ICheckboxStoryProps {
   isHidden: boolean;
   showHint: boolean;
   showMessage: boolean;
+  indeterminate: boolean;
   validation?: VALIDATION;
 }
 

@@ -15,6 +15,7 @@ interface IStoryProps {
   isBare: boolean;
   isCompact: boolean;
   isAnimated: boolean;
+  defaultExpandedSections: number[];
 }
 
 export const Uncontrolled: Story<IStoryProps> = ({
