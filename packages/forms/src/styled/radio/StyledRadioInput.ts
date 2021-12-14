@@ -92,6 +92,10 @@ const sizeStyles = (props: IStyledRadioInputProps & ThemeProps<DefaultTheme>) =>
   const marginTop = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
 
   return css`
+    top: ${top};
+    width: ${size};
+    height: ${size};
+
     & ~ ${StyledRadioLabel}::before {
       top: ${top};
       background-size: ${props.theme.iconSizes.sm};
@@ -124,7 +128,7 @@ export const StyledRadioInput = styled.input.attrs({
 })<IStyledRadioInputProps>`
   /* hide <input> but retain accessiblity */
   position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
+  opacity: 0;
 
   & ~ ${StyledRadioLabel}::before {
     position: absolute;
