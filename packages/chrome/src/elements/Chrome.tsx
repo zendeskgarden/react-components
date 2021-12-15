@@ -13,7 +13,7 @@ import { getColor, useDocument } from '@zendeskgarden/react-theming';
 import { ChromeContext } from '../utils/useChromeContext';
 import { StyledChrome } from '../styled';
 
-interface IChromeProps extends HTMLAttributes<HTMLDivElement> {
+export interface IChromeProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies a custom hue to the chrome navigation */
   hue?: string;
   /** Prevents fixed positioning from being applied to the `<html>` element */

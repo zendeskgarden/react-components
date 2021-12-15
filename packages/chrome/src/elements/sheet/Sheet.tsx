@@ -125,10 +125,7 @@ Sheet.propTypes = {
 };
 
 Sheet.defaultProps = {
-  isOpen: false,
   isAnimated: true,
-  focusOnMount: false,
-  restoreFocus: false,
   placement: 'end',
   size: '380px'
 };
