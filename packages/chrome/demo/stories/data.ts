@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IFooterItem, IHeaderItem, INavItem, ISubNavItem } from './types';
+import { COLLAPSIBLE_SUB_NAV_ITEM, IFooterItem, IHeaderItem, INavItem, ISubNavItem } from './types';
 
 export const CHROME_FOOTER_ITEMS: IFooterItem[] = [
   {
@@ -107,6 +107,13 @@ export const CHROME_SUB_NAV_ITEMS: ISubNavItem[] = [
     text: 'Apps and integrations',
     items: ['Apps', 'Integrations', 'APIs', 'Webhooks']
   }
+];
+
+export const COLLAPSIBLE_SUB_NAV_ITEMS: COLLAPSIBLE_SUB_NAV_ITEM[] = [
+  'Item 1',
+  'Item 2',
+  'Item 3',
+  'Item 4'
 ];
 
 export const SHEET_BODY = `Onion cherry bomb pepper summertime raspberry fizz

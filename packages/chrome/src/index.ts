@@ -28,6 +28,7 @@ export { SubNav } from './elements/subnav/SubNav';
 export { SubNavItem } from './elements/subnav/SubNavItem';
 export { SubNavItemText } from './elements/subnav/SubNavItemText';
 export { CollapsibleSubNavItem } from './elements/subnav/CollapsibleSubNavItem';
+export type { ICollapsibleSubNavItemProps } from './elements/subnav/CollapsibleSubNavItem';
 export { Sheet } from './elements/sheet/Sheet';
 export type { ISheetProps } from './elements/sheet/Sheet';
 export { PRODUCT, PRODUCTS } from './utils/types';

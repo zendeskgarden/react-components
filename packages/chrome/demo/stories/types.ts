@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+export type COLLAPSIBLE_SUB_NAV_ITEM = string;
+
 export interface IFooterItem {
   text: string;
   type?: 'basic' | 'primary';
@@ -28,5 +30,5 @@ export interface INavItem {
 
 export interface ISubNavItem {
   text: string;
-  items?: string[];
+  items?: COLLAPSIBLE_SUB_NAV_ITEM[];
 }

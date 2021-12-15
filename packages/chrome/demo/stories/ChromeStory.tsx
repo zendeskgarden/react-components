@@ -162,9 +162,7 @@ export const ChromeStory: Story<IArgs> = ({
                 onNavClick({ hasSubNav: item.hasSubNav, hasSidebar: item.hasSidebar });
               }}
             >
-              <NavItemIcon>
-                {index < NAV_ICONS.length ? NAV_ICONS[index % NAV_ICONS.length] : <NavIcon />}
-              </NavItemIcon>
+              <NavItemIcon>{NAV_ICONS[index] || <NavIcon />}</NavItemIcon>
               <NavItemText isWrapped={isWrapped}>{item.text}</NavItemText>
             </NavItem>
           ))}
