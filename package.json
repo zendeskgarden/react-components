@@ -45,7 +45,7 @@
     "@storybook/manager-webpack5": "6.4.9",
     "@storybook/react": "6.4.9",
     "@svgr/rollup": "5.5.0",
-    "@svgr/webpack": "5.5.0",
+    "@svgr/webpack": "6.1.2",
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/react-hooks": "7.0.2",
