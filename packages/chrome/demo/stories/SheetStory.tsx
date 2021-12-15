@@ -22,6 +22,7 @@ interface ISheetComponentProps extends ISheetProps {
   hasFooter: boolean;
   footerItems: IFooterItem[];
   hasHeader: boolean;
+  isCompact: boolean;
   title: string;
   description: string;
 }
@@ -34,6 +35,7 @@ export const SheetComponent = ({
   body,
   hasFooter,
   footerItems,
+  isCompact,
   onClick,
   hasClose,
   ...props
@@ -47,11 +49,16 @@ export const SheetComponent = ({
     )}
     {hasBody ? <Sheet.Body>{body}</Sheet.Body> : body}
     {hasFooter && (
-      <Sheet.Footer>
+      <Sheet.Footer isCompact={isCompact}>
         {footerItems &&
           footerItems.map(({ text, type }, index) => (
             <Sheet.FooterItem key={index}>
-              <Button isBasic={type === 'basic'} isPrimary={type === 'primary'} onClick={onClick}>
+              <Button
+                isLink={isCompact}
+                isBasic={type === 'basic'}
+                isPrimary={type === 'primary'}
+                onClick={onClick}
+              >
                 {text}
               </Button>
             </Sheet.FooterItem>

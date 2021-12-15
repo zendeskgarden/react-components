@@ -53,7 +53,8 @@ import {
       footerItems: { name: 'Sheet.FooterItem[]', table: { category: 'Story' } },
       body: { name: 'children', table: { category: 'Sheet.Body' } },
       title: { name: 'children', table: { category: 'Sheet.Title' } },
-      description: { name: 'children', table: { category: 'Sheet.Description' } }
+      description: { name: 'children', table: { category: 'Sheet.Description' } },
+      isCompact: { control: 'boolean', table: { category: 'Sheet.Footer' } }
     }}
   >
     {args => {
