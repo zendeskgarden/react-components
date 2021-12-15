@@ -27,6 +27,13 @@ describe('StyledRadioInput', () => {
     expect(container.firstChild).not.toHaveStyleRule('clip');
     expect(container.firstChild).not.toHaveStyleRule('width', '1px');
     expect(container.firstChild).not.toHaveStyleRule('height', '1px');
+
+    expect(container.firstChild).toHaveStyleRule('z-index', '-1', {
+      modifier: `& ~ ${StyledRadioLabel}::before`
+    });
+    expect(container.firstChild).toHaveStyleRule('z-index', '-1', {
+      modifier: `& ~ ${StyledRadioLabel} > svg`
+    });
   });
 
   it('renders expected checked styling', () => {
