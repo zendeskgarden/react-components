@@ -129,6 +129,7 @@ export const StyledRadioInput = styled.input.attrs({
   /* hide <input> but retain accessiblity */
   position: absolute;
   opacity: 0;
+  margin: 0;
 
   & ~ ${StyledRadioLabel}::before {
     position: absolute;
