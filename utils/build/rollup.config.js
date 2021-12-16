@@ -23,6 +23,7 @@ import svgr from '@svgr/rollup';
 import tsc from 'typescript';
 
 const pkg = require(path.resolve('./package.json'));
+const svgoConfig = require(path.resolve('../../.svgo.config.js'));
 const babelOptions = require(path.resolve('../../babel.config.js'));
 const isTSPackage = fs.existsSync(path.resolve('tsconfig.build.json'));
 
@@ -56,7 +57,7 @@ export default [
       commonjs({
         include: 'node_modules/**'
       }),
-      svgr({ svgoConfig: path.resolve('../../.svgo.yml') }),
+      svgr({ svgoConfig }),
       isTSPackage &&
         typescript({
           check: false,
