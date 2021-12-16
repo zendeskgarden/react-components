@@ -7,6 +7,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const externalConfig = require('../.svgo.config.js');
 const docs = process.env.BROWSER ? process.env.BROWSER.toUpperCase() !== 'IE11' : true;
 
 module.exports = {
@@ -39,7 +40,7 @@ module.exports = {
         {
           loader: '@svgr/webpack',
           options: {
-            externalConfig: path.resolve('../.svgo.yml')
+            externalConfig
           }
         }
       ]
