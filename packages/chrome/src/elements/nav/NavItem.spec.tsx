@@ -154,8 +154,8 @@ describe('NavItem', () => {
       talk: PALETTE.product.talk
     };
 
-    PRODUCTS.forEach(product => {
-      it(`renders correct ${product} color if provided`, () => {
+    it('renders correct product color if provided', () => {
+      PRODUCTS.forEach(product => {
         const { container } = render(<NavItem hasLogo product={product} />);
 
         expect(container.firstChild).toHaveStyleRule('color', VALID_COLOR_MAP[product]);

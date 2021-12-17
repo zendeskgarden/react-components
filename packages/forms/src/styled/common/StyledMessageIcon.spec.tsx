@@ -23,8 +23,8 @@ describe('StyledMessageIcon', () => {
   });
 
   describe('Validation', () => {
-    (['success', 'warning', 'error'] as VALIDATION[]).forEach(validation => {
-      it(`renders ${validation} styling if provided`, () => {
+    it('renders validation styling', () => {
+      (['success', 'warning', 'error'] as VALIDATION[]).forEach(validation => {
         const { container } = render(<StyledMessageIcon validation={validation} />);
 
         expect(container.firstChild!.nodeName).toBe('svg');
