@@ -23,7 +23,20 @@ const ROW_COLUMNS_RESPONSIVE: IColProps[] = Array(12).fill({
   xs: 12
 });
 
+const ROW_COLUMNS_JUSTIFY: IColProps[] = [
+  { children: 'size={4}', size: 4, textAlign: 'center' },
+  { children: 'size={4}', size: 4, textAlign: 'center' }
+];
+
+const ROW_COLUMNS_OFFSET: IColProps[] = [
+  { children: 'md={4}', md: 3, textAlign: 'center' },
+  { children: 'md={4} offsetMd={4}', md: 3, offsetMd: 6, textAlign: 'center' }
+];
+
 export const GRID_ROWS: IGridRow[] = [
+  {
+    cols: [{ children: 'Col' }]
+  },
   {
     cols: ROW_COLUMNS_STANDARD
   },
@@ -31,35 +44,9 @@ export const GRID_ROWS: IGridRow[] = [
     cols: ROW_COLUMNS_RESPONSIVE
   },
   {
-    justifyContent: 'center',
-    cols: [{ children: 'Row justifyContent="center"', size: 4, textAlign: 'center' }]
+    cols: ROW_COLUMNS_JUSTIFY
   },
   {
-    justifyContent: 'start',
-    cols: [{ children: 'Row justifyContent="start"', size: 4, textAlign: 'center' }]
-  },
-  {
-    justifyContent: 'end',
-    cols: [{ children: 'Row justifyContent="end"', size: 4, textAlign: 'center' }]
-  },
-  {
-    justifyContent: 'around',
-    cols: [
-      { children: 'Row justifyContent="around"', size: 4, textAlign: 'center' },
-      { children: 'Row justifyContent="around"', size: 4, textAlign: 'center' }
-    ]
-  },
-  {
-    justifyContent: 'between',
-    cols: [
-      { children: 'Row justifyContent="between"', size: 4, textAlign: 'center' },
-      { children: 'Row justifyContent="between"', size: 4, textAlign: 'center' }
-    ]
-  },
-  {
-    cols: [
-      { children: 'md={4}', md: 3, textAlign: 'center' },
-      { children: 'md={4} offsetMd={4}', md: 3, offsetMd: 6, textAlign: 'center' }
-    ]
+    cols: ROW_COLUMNS_OFFSET
   }
 ];
