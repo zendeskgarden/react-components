@@ -1,0 +1,35 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { GridStory } from './stories/GridStory';
+import { GRID_ROWS as ROWS } from './stories/data';
+
+<Meta title="Packages/Grid/Grid" component={Grid} subcomponents={{ Col, Row }} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+The `children` control receives an array of objects that permit all related
+`Row` prop values along with a `cols` array. Each object in the `cols` array can
+set any related `Col` prop along with `children` text for display.
+
+<Canvas>
+  <Story
+    name="Grid"
+    args={{ columns: 12, gutters: 'md', rows: ROWS }}
+    argTypes={{
+      rows: { name: 'children' }
+    }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=102%3A108'
+      }
+    }}
+  >
+    {args => <GridStory {...args} />}
+  </Story>
+</Canvas>

@@ -95,6 +95,7 @@ import {
       sidebar: SIDEBAR,
       main: MAIN,
       isSheetOpen: true,
+      isSheetCompact: false,
       sheetBody: SHEET_BODY,
       sheetTitle: SHEET_TITLE,
       sheetDescription: SHEET_DESCRIPTION
@@ -123,6 +124,11 @@ import {
         table: { category: 'Story' }
       },
       isSheetOpen: { name: 'Sheet isOpen', table: { category: 'Story' } },
+      isSheetCompact: {
+        name: 'Sheet.Footer isCompact',
+        control: 'boolean',
+        table: { category: 'Story' }
+      },
       sheetBody: { name: 'Sheet.Body', table: { category: 'Sheet' } },
       sheetTitle: { name: 'Sheet.Title', table: { category: 'Sheet' } },
       sheetDescription: { name: 'Sheet.Description', table: { category: 'Sheet' } },

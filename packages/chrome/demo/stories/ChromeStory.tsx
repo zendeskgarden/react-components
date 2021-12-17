@@ -105,6 +105,7 @@ interface IArgs extends IChromeProps {
   sidebar: string;
   main: string;
   isSheetOpen: boolean;
+  isSheetCompact: boolean;
   sheetBody: string;
   sheetTitle: string;
   sheetDescription: string;
@@ -132,6 +133,7 @@ export const ChromeStory: Story<IArgs> = ({
   sidebar,
   main,
   isSheetOpen,
+  isSheetCompact,
   sheetBody,
   sheetTitle,
   sheetDescription,
@@ -255,6 +257,7 @@ export const ChromeStory: Story<IArgs> = ({
             hasFooter
             hasClose
             isOpen={isSheetOpen}
+            isCompact={isSheetCompact}
             title={sheetTitle}
             description={sheetDescription}
             body={sheetBody}
