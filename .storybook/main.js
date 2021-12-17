@@ -7,6 +7,7 @@
 
 const webpack = require('webpack');
 const externalConfig = require('../.svgo.config.js');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const docs = process.env.BROWSER ? process.env.BROWSER.toUpperCase() !== 'IE11' : true;
 
 module.exports = {
@@ -19,19 +20,6 @@ module.exports = {
     const fileLoaderRule = config.module.rules.find(rule => rule.test.test('.svg'));
 
     fileLoaderRule.exclude = /@zendeskgarden\/svg-icons/u;
-
-    config.module.rules.push({
-      test: /\.tsx?$/u,
-      use: [
-        {
-          loader: 'eslint-loader',
-          options: {
-            emitWarning: true
-          }
-        }
-      ],
-      enforce: 'pre'
-    });
 
     config.module.rules.push({
       test: /\.svg$/u,
@@ -48,7 +36,8 @@ module.exports = {
     config.plugins.push(
       new webpack.DefinePlugin({
         PACKAGE_VERSION: JSON.stringify('storybook')
-      })
+      }),
+      new ESLintPlugin({ emitWarning: true, extensions: '.tsx' })
     );
 
     return config;

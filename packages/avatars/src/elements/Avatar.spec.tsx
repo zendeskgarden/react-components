@@ -55,13 +55,13 @@ describe('Avatar', () => {
   });
 
   it('renders text element if provided', () => {
-    const { getByTestId } = render(
+    const { getByText } = render(
       <Avatar>
-        <Avatar.Text data-test-id="text">AG</Avatar.Text>
+        <Avatar.Text>AG</Avatar.Text>
       </Avatar>
     );
 
-    expect(getByTestId('text')).not.toBeUndefined();
+    expect(getByText('AG')).toBeDefined();
   });
 
   describe('Invalid', () => {

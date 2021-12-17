@@ -10,19 +10,19 @@ import { render } from 'garden-test-utils';
 import { StyledDotsCircleOne, StyledDotsCircleTwo, StyledDotsCircleThree } from '.';
 
 describe('StyledDots', () => {
-  const cx = [9, 40, 71];
+  it(`applies correct cx coordinates`, () => {
+    const cx = [9, 40, 71];
 
-  [StyledDotsCircleOne as any, StyledDotsCircleTwo as any, StyledDotsCircleThree as any].forEach(
-    (Circle, index) => {
-      it(`applies correct cx=${cx[index]} coord`, () => {
+    [StyledDotsCircleOne as any, StyledDotsCircleTwo as any, StyledDotsCircleThree as any].forEach(
+      (Circle, index) => {
         const { getByTestId } = render(
           <svg>
-            <Circle data-test-id="circle" />
+            <Circle data-test-id={`circle-${index}`} />
           </svg>
         );
 
-        expect(getByTestId('circle')).toHaveAttribute('cx', `${cx[index]}`);
-      });
-    }
-  );
+        expect(getByTestId(`circle-${index}`)).toHaveAttribute('cx', `${cx[index]}`);
+      }
+    );
+  });
 });
