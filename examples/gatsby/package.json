@@ -23,7 +23,7 @@
     "@zendeskgarden/css-bedrock": "9.0.0",
     "@zendeskgarden/react-buttons": "^8.0.0",
     "@zendeskgarden/react-theming": "^8.0.0",
-    "babel-plugin-styled-components": "1.13.3",
+    "babel-plugin-styled-components": "2.0.2",
     "gatsby": "3.14.6",
     "gatsby-plugin-styled-components": "4.14.0",
     "react": "17.0.2",
