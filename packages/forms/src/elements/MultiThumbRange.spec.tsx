@@ -10,7 +10,7 @@ import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent, createEvent } from 'garden-test-utils';
 import { getColor } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import MultiThumbRange from './MultiThumbRange';
+import { MultiThumbRange } from './MultiThumbRange';
 import { Label } from './common/Label';
 import { Field } from './common/Field';
 

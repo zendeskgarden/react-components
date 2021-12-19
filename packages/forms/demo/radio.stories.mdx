@@ -27,8 +27,15 @@ import { RadioStory } from './stories/RadioStory';
       control: { type: 'radio', options: ['success', 'warning', 'error'] },
       table: { category: 'Message' }
     },
-    hasHint: { table: { category: 'Story' } },
-    hasMessage: { table: { category: 'Story' } }
+    hasHint: { name: 'Hint', table: { category: 'Story' } },
+    hasMessage: { name: 'Message', table: { category: 'Story' } }
+  }}
+  parameters={{
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A20262'
+    }
   }}
 />
 

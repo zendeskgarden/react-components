@@ -1,11 +1,11 @@
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Input, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
-import { InputStory } from './stories/InputStory';
+import { Range, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { RangeStory } from './stories/RangeStory';
 
 <Meta
-  title="Packages/Forms/Input"
-  component={Input}
+  title="Packages/Forms/Range"
+  component={Range}
   subcomponents={{ Field, Label, Hint, Message }}
   args={{
     label: 'Label',
@@ -18,40 +18,26 @@ import { InputStory } from './stories/InputStory';
   }}
   argTypes={{
     disabled: { control: 'boolean' },
-    readOnly: { control: 'boolean' },
+    min: { control: 'number' },
+    max: { control: 'number' },
+    step: { control: 'number' },
     label: { name: 'children', table: { category: 'Label' } },
     isLabelRegular: { name: 'isRegular', table: { category: 'Label' } },
     isLabelHidden: { name: 'hidden', table: { category: 'Label' } },
     hint: { name: 'children', table: { category: 'Hint' } },
     message: { name: 'children', table: { category: 'Message' } },
+    validation: {
+      control: { type: 'radio', options: ['success', 'warning', 'error'] },
+      table: { category: 'Message' }
+    },
     hasHint: { name: 'Hint', table: { category: 'Story' } },
-    hasMessage: { name: 'Message', table: { category: 'Story' } },
-    placeholder: { control: 'text' },
-    type: {
-      control: {
-        type: 'select',
-        options: [
-          'date',
-          'datetime-local',
-          'email',
-          'month',
-          'number',
-          'password',
-          'search',
-          'tel',
-          'text',
-          'time',
-          'url',
-          'week'
-        ]
-      }
-    }
+    hasMessage: { name: 'Message', table: { category: 'Story' } }
   }}
   parameters={{
     design: {
       allowFullscreen: true,
       type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A20266'
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A20263'
     }
   }}
 />
@@ -65,19 +51,17 @@ import { InputStory } from './stories/InputStory';
 ## Uncontrolled
 
 <Canvas>
-  <Story name="Uncontrolled" args={{ placeholder: 'Placeholder' }}>
-    {args => <InputStory {...args} />}
-  </Story>
+  <Story name="Uncontrolled">{args => <RangeStory {...args} />}</Story>
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story name="Controlled" args={{ value: 'Value' }}>
+  <Story name="Controlled" args={{ value: '0' }}>
     {args => {
       const updateArgs = useArgs()[1];
       const handleChange = event => updateArgs({ value: event.target.value });
-      return <InputStory {...args} onChange={handleChange} />;
+      return <RangeStory {...args} onChange={handleChange} />;
     }}
   </Story>
 </Canvas>

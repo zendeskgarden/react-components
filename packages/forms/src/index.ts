@@ -25,13 +25,14 @@ export type { IInputProps } from './elements/Input';
 export { Radio } from './elements/Radio';
 export type { IRadioProps } from './elements/Radio';
 export { Range } from './elements/Range';
+export type { IRangeProps } from './elements/Range';
 export { Textarea } from './elements/Textarea';
 export type { ITextareaProps } from './elements/Textarea';
 export { Toggle } from './elements/Toggle';
 export type { IToggleProps } from './elements/Toggle';
 export { Select } from './elements/Select';
 export type { ISelectProps } from './elements/Select';
-export { default as MultiThumbRange } from './elements/MultiThumbRange';
+export { MultiThumbRange } from './elements/MultiThumbRange';
 export type { IMultiThumbRangeProps } from './elements/MultiThumbRange';
 
 /** Tiles */

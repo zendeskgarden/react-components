@@ -12,19 +12,19 @@ import React, {
   useRef,
   HTMLAttributes,
   KeyboardEvent,
-  FunctionComponent
+  useContext
 } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeContext } from 'styled-components';
 import debounce from 'lodash.debounce';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { withTheme, useDocument, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { useDocument } from '@zendeskgarden/react-theming';
 import {
   StyledSlider,
   StyledSliderTrack,
   StyledSliderTrackRail,
   StyledSliderThumb
 } from '../styled';
-import { ThemeProps, DefaultTheme } from 'styled-components';
 import useFieldContext from '../utils/useFieldContext';
 
 export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -50,7 +50,10 @@ export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElemen
   onChange?: (updatedValues: { minValue?: number; maxValue?: number }) => void;
 }
 
-const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>> = ({
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const MultiThumbRange: React.FC<IMultiThumbRangeProps> = ({
   min,
   max,
   minValue,
@@ -58,10 +61,10 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
   disabled,
   step,
   onChange,
-  theme,
   onMouseDown,
   ...props
 }) => {
+  const theme = useContext(ThemeContext);
   const themedDocument = useDocument(theme);
   const [isMinThumbFocused, setIsMinThumbFocused] = useState(false);
   const [railWidth, setRailWidth] = useState(0);
@@ -452,11 +455,5 @@ MultiThumbRange.defaultProps = {
   max: 100,
   minValue: 0,
   maxValue: 100,
-  step: 1,
-  theme: DEFAULT_THEME
+  step: 1
 };
-
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export default withTheme(MultiThumbRange) as FunctionComponent<IMultiThumbRangeProps>;

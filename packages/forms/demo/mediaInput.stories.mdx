@@ -1,11 +1,11 @@
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Input, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
-import { InputStory } from './stories/InputStory';
+import { MediaInput, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { MediaInputStory } from './stories/MediaInputStory';
 
 <Meta
-  title="Packages/Forms/Input"
-  component={Input}
+  title="Packages/Forms/MediaInput"
+  component={MediaInput}
   subcomponents={{ Field, Label, Hint, Message }}
   args={{
     label: 'Label',
@@ -19,6 +19,8 @@ import { InputStory } from './stories/InputStory';
   argTypes={{
     disabled: { control: 'boolean' },
     readOnly: { control: 'boolean' },
+    start: { control: 'boolean' },
+    end: { control: 'boolean' },
     label: { name: 'children', table: { category: 'Label' } },
     isLabelRegular: { name: 'isRegular', table: { category: 'Label' } },
     isLabelHidden: { name: 'hidden', table: { category: 'Label' } },
@@ -66,7 +68,7 @@ import { InputStory } from './stories/InputStory';
 
 <Canvas>
   <Story name="Uncontrolled" args={{ placeholder: 'Placeholder' }}>
-    {args => <InputStory {...args} />}
+    {args => <MediaInputStory {...args} />}
   </Story>
 </Canvas>
 
@@ -77,7 +79,7 @@ import { InputStory } from './stories/InputStory';
     {args => {
       const updateArgs = useArgs()[1];
       const handleChange = event => updateArgs({ value: event.target.value });
-      return <InputStory {...args} onChange={handleChange} />;
+      return <MediaInputStory {...args} onChange={handleChange} />;
     }}
   </Story>
 </Canvas>
