@@ -11,6 +11,7 @@ const docs = process.env.BROWSER ? process.env.BROWSER.toUpperCase() !== 'IE11' 
 
 module.exports = {
   stories: ['../packages/*/demo/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+  staticDirs: ['../utils/storybook'],
   addons: [
     { name: '@storybook/addon-essentials', options: { docs } },
     '@storybook/addon-a11y',
