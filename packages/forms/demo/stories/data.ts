@@ -6,7 +6,7 @@
  */
 
 import { IFileProps } from '@zendeskgarden/react-forms';
-import { IFileListItem, ITile } from './types';
+import { IFileListItem, IInputGroupItem, ITile } from './types';
 
 export const FIELDSET_FIELDS = ['Field one', 'Field two', 'Field three'];
 
@@ -65,6 +65,25 @@ export const FILELIST_ITEMS: IFileListItem[] = [
     text: 'Landscape.zip',
     remove: 'delete',
     value: 100
+  }
+];
+
+export const INPUT_GROUP_ITEMS: IInputGroupItem[] = [
+  {
+    text: 'A',
+    isButton: true
+  },
+  {
+    text: 'B',
+    isButton: true
+  },
+  {
+    text: 'Content',
+    isButton: false
+  },
+  {
+    text: 'Copy',
+    isButton: true
   }
 ];
 

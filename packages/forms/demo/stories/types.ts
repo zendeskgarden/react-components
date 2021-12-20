@@ -14,6 +14,11 @@ export interface IFileListItem {
   value?: number;
 }
 
+export interface IInputGroupItem {
+  text: string;
+  isButton: boolean;
+}
+
 export interface ITile {
   value: string;
   label: string;
