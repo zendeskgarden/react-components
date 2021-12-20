@@ -1,0 +1,61 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Fieldset, Field } from '@zendeskgarden/react-forms';
+import { FieldsetStory } from './stories/FieldsetStory';
+import { FIELDSET_FIELDS as FIELDS } from './stories/data';
+
+<Meta
+  title="Packages/Forms/Fieldset"
+  component={Fieldset}
+  subcomponents={{ 'Fieldset.Legend': Fieldset.Legend, Field }}
+  args={{
+    legend: 'Legend',
+    fields: FIELDS,
+    hasHint: true,
+    hint: 'Hint',
+    hasMessage: true,
+    message: 'Message'
+  }}
+  argTypes={{
+    fields: { name: 'children' },
+    legend: { name: 'children', table: { category: 'Legend' } },
+    hint: { name: 'children', table: { category: 'Hint' } },
+    message: { name: 'children', table: { category: 'Message' } },
+    validation: {
+      control: { type: 'radio', options: ['success', 'warning', 'error'] },
+      table: { category: 'Message' }
+    },
+    hasHint: { name: 'Hint', table: { category: 'Story' } },
+    hasMessage: { name: 'Message', table: { category: 'Story' } }
+  }}
+  parameters={{
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=1083%3A29244'
+    }
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+## Checkbox
+
+<Canvas>
+  <Story name="Checkbox">{args => <FieldsetStory type="checkbox" {...args} />}</Story>
+</Canvas>
+
+## Radio
+
+<Canvas>
+  <Story name="Radio">{args => <FieldsetStory type="radio" {...args} />}</Story>
+</Canvas>
+
+## Toggle
+
+<Canvas>
+  <Story name="Toggle">{args => <FieldsetStory type="toggle" {...args} />}</Story>
+</Canvas>

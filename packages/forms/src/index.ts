@@ -37,6 +37,7 @@ export type { IMultiThumbRangeProps } from './elements/MultiThumbRange';
 
 /** Tiles */
 export { Tiles } from './elements/tiles/Tiles';
+export type { ITilesProps } from './elements/tiles/Tiles';
 
 /** Input Group */
 export { InputGroup } from './elements/input-group/InputGroup';
