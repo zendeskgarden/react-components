@@ -5,17 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IMenuItem, MENU_SEPARATOR } from './types';
+import { IMenuItem, ITEM } from './types';
 
-export const MENU_ITEMS: (IMenuItem | MENU_SEPARATOR)[] = [
-  { type: 'header', text: 'Header item' },
+export const DROPDOWN_PLACEMENT = ['top', 'bottom', 'auto'];
+
+export const MENU_ITEMS: ITEM[] = [
+  { type: 'header', text: 'Header item', value: 'item-1' },
   '---',
-  { text: 'Item' },
-  { type: 'next', text: 'Next item' },
-  { text: 'Item', meta: 'Meta' },
-  { text: 'Item' },
+  { text: 'Item', value: 'item-2' },
+  { type: 'next', text: 'Next item', value: 'item-3' },
+  { text: 'Item', meta: 'Meta', value: 'item-4' },
+  { text: 'Item', value: 'item-5' },
   '---',
-  { type: 'add', text: 'Add item' }
+  { type: 'add', text: 'Add item', value: 'item-6' }
 ];
 
-export const SELECT_ITEMS = ['Item 1', 'Item 2', 'Item 3'];
+export const SELECT_ITEMS: IMenuItem[] = [
+  { text: 'Item 1', value: 'item-1' },
+  { text: 'Item 2', value: 'item-2' },
+  { text: 'Item 3', value: 'item-3' }
+];

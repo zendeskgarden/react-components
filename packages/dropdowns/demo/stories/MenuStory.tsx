@@ -8,14 +8,10 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
-import IconChevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import {
   AddItem,
-  Dropdown,
   HeaderIcon,
   HeaderItem,
-  IDropdownProps,
   IItemProps,
   IMenuProps,
   Item,
@@ -26,13 +22,15 @@ import {
   Menu,
   NextItem,
   PreviousItem,
-  Separator,
-  Trigger
+  Separator
 } from '@zendeskgarden/react-dropdowns';
-import { IMenuItem, MENU_SEPARATOR } from './types';
-import { Button } from '@zendeskgarden/react-buttons';
+import { IMenuItem, ITEM } from './types';
 
-interface IProps extends IItemProps, IMenuItem {}
+export interface IMenuItemProps extends IItemProps, Omit<IMenuItem, 'text' | 'value'> {}
+
+interface IProps extends IMenuItemProps {
+  text: IMenuItem['text'];
+}
 
 const MenuItem = ({ text: children, type, hasIcon, meta, ...props }: IProps) => {
   switch (type) {
@@ -93,72 +91,14 @@ const MenuItem = ({ text: children, type, hasIcon, meta, ...props }: IProps) => 
 };
 
 interface IArgs extends IMenuProps {
-  hasMedia?: boolean;
-  isDanger?: IItemProps['isDanger'];
-  disabled?: IItemProps['disabled'];
-  downshiftProps?: IDropdownProps['downshiftProps'];
-  highlightedIndex?: IDropdownProps['highlightedIndex'];
-  onStateChange: IDropdownProps['onStateChange'];
-  isOpen?: IDropdownProps['isOpen'];
-  selectedItems?: IDropdownProps['selectedItems'];
-  items: (IMenuItem | MENU_SEPARATOR)[];
+  items: ITEM[];
+  itemProps?: IMenuItemProps;
 }
 
-export const MenuStory: Story<IArgs> = ({
-  onSelect,
-  downshiftProps,
-  highlightedIndex,
-  onStateChange,
-  isOpen,
-  selectedItems,
-  items,
-  disabled,
-  isDanger,
-  hasMedia,
-  ...args
-}) => (
-  <Grid>
-    <Row style={{ height: 'calc(100vh - 112px)' }}>
-      <Col textAlign="center" alignSelf="center">
-        <Dropdown
-          isOpen={isOpen}
-          onSelect={onSelect}
-          onStateChange={onStateChange}
-          downshiftProps={downshiftProps}
-          highlightedIndex={highlightedIndex}
-          selectedItems={selectedItems}
-        >
-          <Trigger>
-            <Button isDanger={isDanger} size={args.isCompact ? 'small' : undefined}>
-              {hasMedia && (
-                <Button.StartIcon>
-                  <Icon />
-                </Button.StartIcon>
-              )}
-              Trigger
-              <Button.EndIcon isRotated={isOpen}>
-                <IconChevron />
-              </Button.EndIcon>
-            </Button>
-          </Trigger>
-          <Menu {...args}>
-            {items.map((item, index) =>
-              item === '---' ? (
-                <Separator key={index} />
-              ) : (
-                <MenuItem
-                  key={index}
-                  {...item}
-                  value={index}
-                  isDanger={isDanger}
-                  hasIcon={hasMedia}
-                  disabled={disabled}
-                />
-              )
-            )}
-          </Menu>
-        </Dropdown>
-      </Col>
-    </Row>
-  </Grid>
+export const MenuStory: Story<IArgs> = ({ items, itemProps, ...args }) => (
+  <Menu {...args}>
+    {items.map((item, index) =>
+      item === '---' ? <Separator key={index} /> : <MenuItem key={index} {...item} {...itemProps} />
+    )}
+  </Menu>
 );

@@ -17,7 +17,7 @@ import {
   Separator,
   Trigger
 } from '@zendeskgarden/react-dropdowns';
-import { MenuStory } from './stories/MenuStory';
+import { TriggerStory } from './stories/TriggerStory';
 import { MENU_ITEMS as ITEMS } from './stories/data';
 
 <Meta
@@ -53,7 +53,7 @@ import { MENU_ITEMS as ITEMS } from './stories/data';
     args={{
       eventsEnabled: true,
       isAnimated: true,
-      selectedItems: [5],
+      selectedItems: [ITEMS[5].value],
       items: ITEMS,
       hasMedia: false,
       isOpen: false
@@ -92,7 +92,7 @@ import { MENU_ITEMS as ITEMS } from './stories/data';
         changes.hasOwnProperty('isOpen') &&
         changes.type !== Downshift.stateChangeTypes.blurInput /*account for Storybook control*/ &&
         updateArgs({ isOpen: changes.isOpen });
-      return <MenuStory {...args} onSelect={handleSelect} onStateChange={handleStateChange} />;
+      return <TriggerStory {...args} onSelect={handleSelect} onStateChange={handleStateChange} />;
     }}
   </Story>
 </Canvas>

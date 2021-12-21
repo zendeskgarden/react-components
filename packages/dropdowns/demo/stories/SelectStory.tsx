@@ -7,65 +7,57 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import {
-  Dropdown,
-  Field,
-  Hint,
-  IDropdownProps,
-  ILabelProps,
-  ISelectProps,
-  Item,
-  Label,
-  Menu,
-  Message,
-  Select
-} from '@zendeskgarden/react-dropdowns';
+import { IDropdownProps, IMenuProps, ISelectProps, Select } from '@zendeskgarden/react-dropdowns';
+import { DropdownFieldStory } from './DropdownFieldStory';
+import { IMenuItem } from './types';
 
 interface IArgs extends ISelectProps {
   selectedItem: IDropdownProps['selectedItem'];
-  isRegular?: ILabelProps['isRegular'];
-  hidden?: ILabelProps['hidden'];
   label?: string;
+  isLabelRegular?: boolean;
+  isLabelHidden?: boolean;
+  hasHint?: boolean;
   hint?: string;
+  hasMessage?: boolean;
   message?: string;
-  items: string[];
+  items: IMenuItem[];
+  placement: IMenuProps['placement'];
 }
 
 export const SelectStory: Story<IArgs> = ({
   label,
-  hidden,
-  isRegular,
+  isLabelRegular,
+  isLabelHidden,
+  hasHint,
   hint,
+  hasMessage,
   message,
   selectedItem,
   onSelect,
+  placement,
   items,
   ...args
-}) => (
-  <Grid>
-    <Row justifyContent="center" style={{ height: 'calc(100vh - 112px)' }}>
-      <Col sm={5} lg={2} alignSelf="center">
-        <Dropdown selectedItem={selectedItem} onSelect={onSelect}>
-          <Field>
-            {label && (
-              <Label isRegular={isRegular} hidden={hidden}>
-                {label}
-              </Label>
-            )}
-            {hint && <Hint>{hint}</Hint>}
-            <Select {...args}>{items[selectedItem - 1]}</Select>
-            {message && <Message validation={args.validation}>{message}</Message>}
-          </Field>
-          <Menu>
-            {items.map((item, index) => (
-              <Item key={index} value={index + 1}>
-                {item}
-              </Item>
-            ))}
-          </Menu>
-        </Dropdown>
-      </Col>
-    </Row>
-  </Grid>
-);
+}) => {
+  const children = items.find(item => item.value === selectedItem);
+
+  return (
+    <DropdownFieldStory
+      dropdownProps={{
+        selectedItem,
+        onSelect
+      }}
+      label={label}
+      isLabelRegular={isLabelRegular}
+      isLabelHidden={isLabelHidden}
+      hasHint={hasHint}
+      hint={hint}
+      hasMessage={hasMessage}
+      message={message}
+      validation={args.validation}
+      menuProps={{ isCompact: args.isCompact, placement }}
+      items={items}
+    >
+      <Select {...args}>{children ? children.text : undefined}</Select>
+    </DropdownFieldStory>
+  );
+};
