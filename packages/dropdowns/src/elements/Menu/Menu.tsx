@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Popper } from 'react-popper';
 import { Modifiers } from 'popper.js';
-
 import { StyledMenu, StyledMenuWrapper } from '../../styled/index';
 import useDropdownContext from '../../utils/useDropdownContext';
 import {

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as Dropdown } from './elements/Dropdown/Dropdown';
+export { Dropdown } from './elements/Dropdown/Dropdown';
 export type { IDropdownProps } from './elements/Dropdown/Dropdown';
 export { default as Trigger } from './elements/Trigger/Trigger';
 export type { ITriggerProps } from './elements/Trigger/Trigger';
@@ -13,7 +13,7 @@ export { default as Autocomplete } from './elements/Autocomplete/Autocomplete';
 export type { IAutocompleteProps } from './elements/Autocomplete/Autocomplete';
 export { default as Combobox } from './elements/Combobox/Combobox';
 export type { IComboboxProps } from './elements/Combobox/Combobox';
-export { default as Multiselect } from './elements/Multiselect/Multiselect';
+export { Multiselect } from './elements/Multiselect/Multiselect';
 export type { IMultiselectProps } from './elements/Multiselect/Multiselect';
 export { Select } from './elements/Select/Select';
 export type { ISelectProps } from './elements/Select/Select';

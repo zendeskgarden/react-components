@@ -5,13 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState, useMemo, useCallback, HTMLAttributes } from 'react';
+import React, {
+  useContext,
+  useRef,
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+  HTMLAttributes
+} from 'react';
 import PropTypes from 'prop-types';
-import { DefaultTheme, ThemeProps } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { Reference } from 'react-popper';
 import { useSelection } from '@zendeskgarden/container-selection';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import mergeRefs from 'react-merge-refs';
 import {
@@ -63,7 +70,10 @@ export interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
   start?: any;
 }
 
-const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemeProps<DefaultTheme>>(
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
   (
     {
       renderItem,
@@ -102,9 +112,10 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
     const [isHovered, setIsHovered] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
     const [focusedItem, setFocusedItem] = useState(undefined);
+    const themeContext = useContext(ThemeContext);
 
     const { getContainerProps, getItemProps } = useSelection({
-      rtl: isRtl(props),
+      rtl: themeContext.rtl,
       focusedItem,
       selectedItem: undefined,
       onFocus: (item: any) => {
@@ -212,7 +223,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                 e.preventDefault();
               }
 
-              if (isRtl(props)) {
+              if (themeContext.rtl) {
                 if (e.keyCode === KEY_CODES.RIGHT && index === 0) {
                   e.preventDefault();
                 }
@@ -368,14 +379,14 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                   onKeyDown: (e: KeyboardEvent) => {
                     if (!inputValue) {
                       if (
-                        isRtl(props) &&
+                        themeContext.rtl &&
                         e.keyCode === KEY_CODES.RIGHT &&
                         selectedItems.length > 0 &&
                         previousIndexRef.current === undefined
                       ) {
                         setFocusedItem(selectedItems[selectedItems.length - 1]);
                       } else if (
-                        !isRtl(props) &&
+                        !themeContext.rtl &&
                         e.keyCode === KEY_CODES.LEFT &&
                         selectedItems.length > 0 &&
                         previousIndexRef.current === undefined
@@ -430,10 +441,3 @@ Multiselect.propTypes = {
 Multiselect.defaultProps = {
   maxItems: 4
 };
-
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export default withTheme(Multiselect) as React.FunctionComponent<
-  IMultiselectProps & React.RefAttributes<HTMLDivElement>
->;

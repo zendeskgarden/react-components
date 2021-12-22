@@ -98,7 +98,11 @@ interface IArgs extends IMenuProps {
 export const MenuStory: Story<IArgs> = ({ items, itemProps, ...args }) => (
   <Menu {...args}>
     {items.map((item, index) =>
-      item === '---' ? <Separator key={index} /> : <MenuItem key={index} {...item} {...itemProps} />
+      item === '---' ? (
+        <Separator key={index} />
+      ) : (
+        <MenuItem key={index} {...itemProps} {...item} value={item} />
+      )
     )}
   </Menu>
 );

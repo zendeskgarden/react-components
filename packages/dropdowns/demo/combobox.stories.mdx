@@ -2,20 +2,20 @@ import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import Downshift from 'downshift';
 import {
+  Combobox,
   Dropdown,
   Field,
   Hint,
   Label,
   Menu,
-  Message,
-  Select
+  Message
 } from '@zendeskgarden/react-dropdowns';
-import { SelectStory } from './stories/SelectStory';
-import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
+import { ComboboxStory } from './stories/ComboboxStory';
+import { COMBOBOX_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
 
 <Meta
-  title="Packages/Dropdowns/Select"
-  component={Select}
+  title="Packages/Dropdowns/Combobox"
+  component={Combobox}
   subcomponents={{ Dropdown, Field, Hint, Label, Menu, Message }}
 />
 
@@ -27,7 +27,7 @@ import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './storie
 
 <Canvas>
   <Story
-    name="Select"
+    name="Combobox"
     args={{
       label: 'Label',
       isLabelRegular: false,
@@ -36,13 +36,15 @@ import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './storie
       hint: 'Hint',
       hasMessage: true,
       message: 'Message',
-      hasIcon: false,
+      hasStartIcon: false,
+      hasEndIcon: false,
       items: ITEMS,
-      selectedItem: ITEMS[1],
+      inputValue: '',
       isOpen: false
     }}
     argTypes={{
-      hasIcon: { name: 'start' },
+      hasStartIcon: { name: 'start' },
+      hasEndIcon: { name: 'end' },
       label: { name: 'children', table: { category: 'Label' } },
       isLabelRegular: { name: 'isRegular', table: { category: 'Label' } },
       isLabelHidden: { name: 'hidden', table: { category: 'Label' } },
@@ -52,7 +54,7 @@ import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './storie
       hasMessage: { name: 'Message', table: { category: 'Story' } },
       items: { name: 'Item[]', table: { category: 'Story' } },
       downshiftProps: { control: 'object', table: { category: 'Dropdown' } },
-      selectedItem: { table: { category: 'Dropdown' } },
+      inputValue: { table: { category: 'Dropdown' } },
       isOpen: { table: { category: 'Dropdown' } },
       placement: {
         control: { type: 'radio', options: PLACEMENT },
@@ -69,14 +71,23 @@ import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './storie
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleSelect = selectedItem => updateArgs({ selectedItem });
-      const handleStateChange = changes =>
+      const handleInputValueChange = inputValue => updateArgs({ inputValue });
+      const handleStateChange = ({ highlightedIndex, ...changes }) => {
+        Number.isInteger(highlightedIndex) &&
+          updateArgs({ inputValue: args.items[highlightedIndex].text });
         changes.hasOwnProperty('isOpen') &&
-        ![Downshift.stateChangeTypes.blurButton, Downshift.stateChangeTypes.blurInput].includes(
-          changes.type
-        ) /*account for Storybook control*/ &&
-        updateArgs({ isOpen: changes.isOpen });
-      return <SelectStory {...args} onSelect={handleSelect} onStateChange={handleStateChange} />;
+          ![Downshift.stateChangeTypes.blurButton, Downshift.stateChangeTypes.blurInput].includes(
+            changes.type
+          ) /*account for Storybook control*/ &&
+          updateArgs({ isOpen: changes.isOpen });
+      };
+      return (
+        <ComboboxStory
+          {...args}
+          onInputValueChange={handleInputValueChange}
+          onStateChange={handleStateChange}
+        />
+      );
     }}
   </Story>
 </Canvas>

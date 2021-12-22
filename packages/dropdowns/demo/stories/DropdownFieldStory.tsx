@@ -18,6 +18,7 @@ import {
 } from '@zendeskgarden/react-dropdowns';
 import { DropdownStory } from './DropdownStory';
 import { ITEM } from './types';
+import { IMenuItemProps } from './MenuStory';
 
 interface IArgs extends HTMLAttributes<HTMLDivElement> {
   dropdownProps: IDropdownProps;
@@ -31,6 +32,7 @@ interface IArgs extends HTMLAttributes<HTMLDivElement> {
   validation?: IMessageProps['validation'];
   menuProps?: IMenuProps;
   items: ITEM[];
+  itemProps?: IMenuItemProps;
 }
 
 export const DropdownFieldStory: Story<IArgs> = ({
@@ -45,10 +47,11 @@ export const DropdownFieldStory: Story<IArgs> = ({
   validation,
   menuProps,
   items,
+  itemProps,
   children,
   ...args
 }) => (
-  <DropdownStory items={items} menuProps={menuProps} {...dropdownProps}>
+  <DropdownStory items={items} menuProps={menuProps} itemProps={itemProps} {...dropdownProps}>
     <Field {...args}>
       <Label hidden={isLabelHidden} isRegular={isLabelRegular}>
         {label}

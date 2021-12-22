@@ -5,12 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { DefaultTheme, ThemeProps } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import Downshift, { ControllerStateAndHelpers, StateChangeOptions } from 'downshift';
 import { Manager } from 'react-popper';
-import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { DropdownContext, DROPDOWN_TYPE } from '../../utils/useDropdownContext';
 
@@ -59,7 +58,7 @@ export interface IDropdownProps {
   downshiftProps?: object;
 }
 
-const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme>> = props => {
+export const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
   const {
     children,
     isOpen,
@@ -80,6 +79,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
   const containsMultiselectRef = useRef(false);
   const itemSearchRegistry = useRef([]);
   const [dropdownType, setDropdownType] = useState<DROPDOWN_TYPE>('');
+  const themeContext = useContext(ThemeContext);
 
   // Ref used to determine ARIA attributes for menu dropdowns
   const hasMenuRef = useRef(false);
@@ -142,7 +142,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
 
   const transformDownshift = ({ getInputProps, getToggleButtonProps, ...downshift }: any) => {
     return {
-      getInputProps: (p: any) => getInputProps(customGetInputProps(p, downshift, isRtl(props))),
+      getInputProps: (p: any) => getInputProps(customGetInputProps(p, downshift, themeContext.rtl)),
       // The default aria-label provided by Downshift is invalid due to our DOM structure
       getToggleButtonProps: (p: any) => getToggleButtonProps({ 'aria-label': undefined, ...p }),
       ...downshift
@@ -263,5 +263,3 @@ Dropdown.propTypes = {
   onStateChange: PropTypes.func,
   downshiftProps: PropTypes.object
 };
-
-export default withTheme(Dropdown) as React.FunctionComponent<IDropdownProps>;

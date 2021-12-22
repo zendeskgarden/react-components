@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Dropdown from '../elements/Dropdown/Dropdown';
+import { Dropdown } from '../elements/Dropdown/Dropdown';
 import { Menu } from '../elements/Menu/Menu';
 import { Item } from '../elements/Menu/Items/Item';
 import useItemContext from './useItemContext';

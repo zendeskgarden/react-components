@@ -10,7 +10,7 @@ import { Story } from '@storybook/react';
 import { Col, Grid, IColProps, Row } from '@zendeskgarden/react-grid';
 import { Dropdown, IDropdownProps, IMenuProps } from '@zendeskgarden/react-dropdowns';
 import { IMenuItemProps, MenuStory } from './MenuStory';
-import { ITEM } from './types';
+import { IMenuItem, ITEM } from './types';
 
 interface IArgs extends IDropdownProps {
   colProps?: IColProps;
@@ -34,8 +34,7 @@ export const DropdownStory: Story<IArgs> = ({
         <Dropdown
           {...args}
           downshiftProps={{
-            itemToString: (value?: string) =>
-              value && items.find(item => (item === '---' ? undefined : item.value === value)),
+            itemToString: (item?: IMenuItem) => item && item.value,
             ...args.downshiftProps
           }}
         >
