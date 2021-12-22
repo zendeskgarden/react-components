@@ -13,7 +13,6 @@ import {
   File,
   FileList,
   FileUpload,
-  IFieldProps,
   IFileProps,
   IFileUploadProps,
   Input
@@ -79,7 +78,7 @@ interface IArgs extends IFileUploadProps {
   maxSize?: DropzoneProps['maxSize'];
   minSize?: DropzoneProps['minSize'];
   multiple?: DropzoneProps['multiple'];
-  type?: IFieldProps['type'];
+  type?: IFileProps['type'];
 }
 
 export const FileUploadStory: Story<IArgs> = ({
