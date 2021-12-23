@@ -5,13 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-/* stylelint-disable declaration-no-important */
-
 import React, { useState } from 'react';
-import { Story } from '@storybook/react';
 import styled from 'styled-components';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { Button } from '@zendeskgarden/react-buttons';
+import { Story } from '@storybook/react';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { ToggleButton } from '@zendeskgarden/react-buttons';
 import {
   menuStyles,
   arrowStyles,
@@ -19,10 +17,22 @@ import {
   ARROW_POSITION
 } from '@zendeskgarden/react-theming';
 
-interface IMenuStylesProps {
-  position: MENU_POSITION;
-  isAnimated: boolean;
-}
+const TOP: Record<string, string> = {
+  right: 'calc(-50% - 8px)',
+  left: 'calc(-50% - 8px)'
+};
+
+const RIGHT: Record<string, string> = {
+  left: '100%'
+};
+
+const BOTTOM: Record<string, string> = {
+  top: '100%'
+};
+
+const LEFT: Record<string, string> = {
+  right: '100%'
+};
 
 const MENU_ARROW_MAPPING: Record<MENU_POSITION, ARROW_POSITION> = {
   top: 'bottom',
@@ -31,11 +41,13 @@ const MENU_ARROW_MAPPING: Record<MENU_POSITION, ARROW_POSITION> = {
   left: 'right'
 };
 
+/* stylelint-disable declaration-no-important */
 const StyledMenu = styled.div<{ position: MENU_POSITION }>`
-  padding-top: 41px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   width: 100px;
   height: 100px;
-  text-align: center !important;
 
   ${props =>
     arrowStyles(MENU_ARROW_MAPPING[props.position], {
@@ -53,25 +65,13 @@ const StyledWrapper = styled.div<{ position: MENU_POSITION; isHidden: boolean }>
     })};
 `;
 
-export const MenuStyles: Story<IMenuStylesProps> = ({ isAnimated, position }) => {
+interface IArgs {
+  position: MENU_POSITION;
+  isAnimated: boolean;
+}
+
+export const MenuStylesStory: Story<IArgs> = ({ isAnimated, position }) => {
   const [isHidden, setIsHidden] = useState(true);
-
-  const TOP: Record<string, string> = {
-    right: 'calc(-50% - 8px)',
-    left: 'calc(-50% - 8px)'
-  };
-
-  const RIGHT: Record<string, string> = {
-    left: '100%'
-  };
-
-  const BOTTOM: Record<string, string> = {
-    top: '100%'
-  };
-
-  const LEFT: Record<string, string> = {
-    right: '100%'
-  };
 
   const style = {
     top: TOP[position],
@@ -82,10 +82,12 @@ export const MenuStyles: Story<IMenuStylesProps> = ({ isAnimated, position }) =>
 
   return (
     <Grid>
-      <Row>
-        <Col textAlign="center" style={{ padding: 80 }}>
+      <Row style={{ height: 'calc(100vh - 112px)' }}>
+        <Col textAlign="center" alignSelf="center">
           <div style={{ display: 'inline-block', position: 'relative' }}>
-            <Button onClick={() => setIsHidden(!isHidden)}>Trigger</Button>
+            <ToggleButton onClick={() => setIsHidden(!isHidden)} isPressed={!isHidden}>
+              Trigger
+            </ToggleButton>
             {!isHidden && (
               <StyledWrapper
                 data-garden-animate={isAnimated}
@@ -94,7 +96,7 @@ export const MenuStyles: Story<IMenuStylesProps> = ({ isAnimated, position }) =>
                 style={style}
               >
                 <StyledMenu data-garden-animate={isAnimated} position={position}>
-                  Menu
+                  <span>Menu</span>
                 </StyledMenu>
               </StyledWrapper>
             )}

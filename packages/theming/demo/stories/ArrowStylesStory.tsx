@@ -6,11 +6,11 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
 import styled from 'styled-components';
+import { Story } from '@storybook/react';
 import { arrowStyles, getColor, DEFAULT_THEME, ARROW_POSITION } from '@zendeskgarden/react-theming';
 
-interface IArrowStylesProps {
+interface IArgs {
   position: ARROW_POSITION;
   hasBoxShadow: boolean;
   hasBorder: boolean;
@@ -19,7 +19,7 @@ interface IArrowStylesProps {
   inset: number;
 }
 
-const StyledDiv = styled.div<Omit<IArrowStylesProps, 'isAnimated'>>`
+const StyledDiv = styled.div<Omit<IArgs, 'isAnimated'>>`
   border: ${props => props.hasBorder && `${DEFAULT_THEME.borders.sm} ${getColor('primaryHue')}`};
   box-shadow: ${props =>
     props.hasBoxShadow &&
@@ -35,10 +35,8 @@ const StyledDiv = styled.div<Omit<IArrowStylesProps, 'isAnimated'>>`
     })};
 `;
 
-export const ArrowStyles: Story<IArrowStylesProps> = ({ isAnimated, ...args }) => {
-  return (
-    <div style={{ position: 'relative', zIndex: 0, margin: 64 }}>
-      <StyledDiv data-garden-animate={isAnimated} {...args} />
-    </div>
-  );
-};
+export const ArrowStylesStory: Story<IArgs> = ({ isAnimated, ...args }) => (
+  <div style={{ position: 'relative', zIndex: 0 }}>
+    <StyledDiv data-garden-animate={isAnimated} {...args} />
+  </div>
+);
