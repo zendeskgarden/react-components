@@ -34,7 +34,7 @@ interface IArgs extends IToastOptions {
   children: string;
 }
 
-export const ToastStory: Story<IArgs> = args => {
+export const ToastStory: Story<IArgs> = ({ children, ...args }) => {
   const {
     addToast,
     removeToast,
@@ -49,7 +49,7 @@ export const ToastStory: Story<IArgs> = args => {
       const retVal: ToastContent = ({ close }) => (
         <Notification>
           {id && <Title>{id}</Title>}
-          {args.children}
+          {children}
           <Close aria-label="Close" onClick={close} />
         </Notification>
       );
@@ -60,7 +60,7 @@ export const ToastStory: Story<IArgs> = args => {
     const id = addToast(getToast(), args);
 
     updateToast(id, { content: getToast(id) });
-  }, [addToast, updateToast, args]);
+  }, [addToast, updateToast, children, args]);
 
   return (
     <Grid>
