@@ -84,4 +84,6 @@ Tabs.defaultProps = {
   isVertical: false
 };
 
+Tabs.displayName = 'Tabs';
+
 export default Tabs;

@@ -156,3 +156,5 @@ MediaInput.propTypes = {
   validation: PropTypes.oneOf(['success', 'warning', 'error']),
   wrapperProps: PropTypes.object
 };
+
+MediaInput.displayName = 'MediaInput';

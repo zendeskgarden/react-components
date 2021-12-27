@@ -72,17 +72,16 @@ describe('Message', () => {
   });
 
   describe('Validation', () => {
-    (['success', 'warning', 'error'] as VALIDATION[]).forEach(validation => {
-      it(`renders expected ${validation} component`, () => {
-        const { getByTestId } = render(
+    it('renders expected component for each validation type', () => {
+      (['success', 'warning', 'error'] as VALIDATION[]).forEach(validation => {
+        const text = `This is ${validation} text`;
+        const { getByText } = render(
           <Field>
-            <Message data-test-id="message" validation={validation}>
-              Test
-            </Message>
+            <Message validation={validation}>{text}</Message>
           </Field>
         );
 
-        expect(getByTestId('message').firstChild!.nodeName).toBe('svg');
+        expect(getByText(text).firstChild!.nodeName).toBe('svg');
       });
     });
   });

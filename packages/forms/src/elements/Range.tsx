@@ -86,3 +86,5 @@ Range.defaultProps = {
   max: 100,
   step: 1
 };
+
+Range.displayName = 'Range';

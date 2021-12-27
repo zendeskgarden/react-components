@@ -205,3 +205,5 @@ Textarea.propTypes = {
   maxRows: PropTypes.number,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
+
+Textarea.displayName = 'Textarea';

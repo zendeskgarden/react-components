@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-forms",
-  "version": "8.46.0",
+  "version": "8.47.1",
   "description": "Components relating to form elements in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -22,7 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-field": "^1.3.6",
-    "@zendeskgarden/container-utilities": "^0.6.0",
+    "@zendeskgarden/container-utilities": "^0.7.0",
     "lodash.debounce": "^4.0.8",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7",
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@types/lodash.debounce": "4.0.6",
-    "@zendeskgarden/react-theming": "^8.46.0",
+    "@zendeskgarden/react-theming": "^8.47.1",
     "@zendeskgarden/svg-icons": "6.30.2",
     "react-dropzone": "11.4.2"
   },

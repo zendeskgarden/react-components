@@ -54,8 +54,7 @@ export interface IDropdownProps {
     stateAndHelpers: ControllerStateAndHelpers<any>
   ) => void;
   /** Passes customization props to the [Downshift](https://www.downshift-js.com/) component */
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  downshiftProps?: object;
+  downshiftProps?: Record<string, any>;
 }
 
 export const Dropdown: React.FunctionComponent<IDropdownProps> = props => {

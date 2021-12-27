@@ -249,15 +249,17 @@ export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
                 data-test-open={state.isOpen}
                 data-test-rtl={theme.rtl}
               >
-                <StyledMenu>
-                  <Calendar
-                    isCompact={isCompact}
-                    value={value}
-                    minValue={minValue}
-                    maxValue={maxValue}
-                    locale={locale}
-                  />
-                </StyledMenu>
+                {(state.isOpen || isVisible) && (
+                  <StyledMenu>
+                    <Calendar
+                      isCompact={isCompact}
+                      value={value}
+                      minValue={minValue}
+                      maxValue={maxValue}
+                      locale={locale}
+                    />
+                  </StyledMenu>
+                )}
               </StyledMenuWrapper>
             );
           }}

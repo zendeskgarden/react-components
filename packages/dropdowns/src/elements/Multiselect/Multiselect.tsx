@@ -263,7 +263,8 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
         itemToString,
         selectedItems,
         props,
-        inputRef
+        inputRef,
+        themeContext.rtl
       ]
     );
 
@@ -441,3 +442,5 @@ Multiselect.propTypes = {
 Multiselect.defaultProps = {
   maxItems: 4
 };
+
+Multiselect.displayName = 'Multiselect';

@@ -17,21 +17,23 @@ import {
 
 describe('Loader styled-elements', () => {
   describe('DotsCircles', () => {
-    const cx = [9, 40, 71];
+    it('applies correct cx coordinates', () => {
+      const cx = [9, 40, 71];
 
-    [StyledDotsCircleOne as any, StyledDotsCircleTwo as any, StyledDotsCircleThree as any].forEach(
-      (Circle, index) => {
-        it(`applies correct cx=${cx[index]} coord`, () => {
-          const { getByTestId } = render(
-            <svg>
-              <Circle data-test-id="circle" />
-            </svg>
-          );
+      [
+        StyledDotsCircleOne as any,
+        StyledDotsCircleTwo as any,
+        StyledDotsCircleThree as any
+      ].forEach((Circle, index) => {
+        const { getByTestId } = render(
+          <svg>
+            <Circle data-test-id={`circle-${index}`} />
+          </svg>
+        );
 
-          expect(getByTestId('circle')).toHaveAttribute('cx', `${cx[index]}`);
-        });
-      }
-    );
+        expect(getByTestId(`circle-${index}`)).toHaveAttribute('cx', `${cx[index]}`);
+      });
+    });
   });
 
   describe('SpinnerCircle', () => {

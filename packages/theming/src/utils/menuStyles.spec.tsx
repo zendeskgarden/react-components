@@ -74,10 +74,10 @@ describe('menuStyles', () => {
   });
 
   describe('position', () => {
-    const POSITION: MENU_POSITION[] = ['top', 'right', 'bottom', 'left'];
+    it('renders with the expected positions', () => {
+      const POSITION: MENU_POSITION[] = ['top', 'right', 'bottom', 'left'];
 
-    POSITION.forEach(position => {
-      it(`renders with the expected ${position} positioning`, () => {
+      POSITION.forEach(position => {
         const { container } = render(
           <StyledMenu menuPosition={position} menuMargin="0" menuAnimationModifier=".animate" />
         );
@@ -103,10 +103,8 @@ describe('menuStyles', () => {
   });
 
   describe('margin', () => {
-    const MARGIN = ['4px', '8px'];
-
-    MARGIN.forEach(margin => {
-      it(`renders with the expected ${margin} margin`, () => {
+    it('renders wit the expected margins', () => {
+      ['4px', '8px'].forEach(margin => {
         const { container } = render(<StyledMenu menuMargin={margin} />);
 
         expect(container.firstChild).toHaveStyleRule('margin-bottom', margin);

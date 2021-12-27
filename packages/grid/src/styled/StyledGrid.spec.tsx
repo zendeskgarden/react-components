@@ -35,23 +35,23 @@ describe('StyledGrid', () => {
   });
 
   describe('Gutters', () => {
-    ARRAY_SPACE.forEach(size => {
-      if (size) {
-        it(`renders ${size} gutters`, () => {
+    it('renders gutters', () => {
+      ARRAY_SPACE.forEach(size => {
+        if (typeof size === 'string') {
           const { container } = render(<StyledGrid gutters={size} />);
           const padding = math(`${DEFAULT_THEME.space[size]} / 2`);
 
           expect(container.firstChild).toHaveStyleRule('padding-right', padding);
           expect(container.firstChild).toHaveStyleRule('padding-left', padding);
-        });
-      } else {
-        it('collapses gutters', () => {
-          const { container } = render(<StyledGrid gutters={false} />);
+        }
+      });
+    });
 
-          expect(container.firstChild).toHaveStyleRule('padding-right', '0');
-          expect(container.firstChild).toHaveStyleRule('padding-left', '0');
-        });
-      }
+    it('collapses gutters', () => {
+      const { container } = render(<StyledGrid gutters={false} />);
+
+      expect(container.firstChild).toHaveStyleRule('padding-right', '0');
+      expect(container.firstChild).toHaveStyleRule('padding-left', '0');
     });
   });
 });

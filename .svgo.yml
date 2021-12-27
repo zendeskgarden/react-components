@@ -1,6 +1,0 @@
-plugins:
-  - addAttributesToSVGElement:
-      attributes:
-        - focusable: false
-        - ariaHidden: true
-  - removeViewBox: false

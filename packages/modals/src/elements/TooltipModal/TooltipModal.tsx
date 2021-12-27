@@ -230,3 +230,5 @@ TooltipModal.propTypes = {
   restoreFocus: PropTypes.bool,
   id: PropTypes.string
 };
+
+TooltipModal.displayName = 'TooltipModal';

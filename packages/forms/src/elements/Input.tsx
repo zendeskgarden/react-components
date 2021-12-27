@@ -66,3 +66,5 @@ Input.propTypes = {
   focusInset: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
+
+Input.displayName = 'Input';

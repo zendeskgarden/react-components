@@ -58,7 +58,6 @@ export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
 /**
  *  @extends HTMLAttributes<HTMLDivElement>
  */
-// eslint-disable-next-line react/display-name
 export const FauxInput = forwardRef<HTMLDivElement, IFauxInputProps>(
   ({ onFocus, onBlur, disabled, readOnly, isFocused: controlledIsFocused, ...props }, ref) => {
     const [isFocused, setIsFocused] = useState(false);

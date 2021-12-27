@@ -44,7 +44,6 @@ interface IStaticFileExport<T, P>
   Delete: typeof Delete;
 }
 
-/* eslint-disable react/display-name */
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
