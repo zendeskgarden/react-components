@@ -8,7 +8,7 @@ module.exports = {
             focusable: false
           },
           {
-            ariaHidden: true
+            'aria-hidden': true
           }
         ]
       }
