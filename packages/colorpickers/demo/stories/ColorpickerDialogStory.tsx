@@ -12,7 +12,7 @@ import { ColorpickerDialog, IColorpickerDialogProps } from '@zendeskgarden/react
 
 export const ColorpickerDialogStory: Story<IColorpickerDialogProps> = args => (
   <Grid>
-    <Row style={{ height: 'calc(100vh - 112px)' }}>
+    <Row style={{ height: 'calc(100vh - 80px)' }}>
       <Col textAlign="center" alignSelf="center">
         <ColorpickerDialog {...args} />
       </Col>

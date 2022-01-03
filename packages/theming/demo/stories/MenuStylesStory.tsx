@@ -82,7 +82,7 @@ export const MenuStylesStory: Story<IArgs> = ({ isAnimated, position }) => {
 
   return (
     <Grid>
-      <Row style={{ height: 'calc(100vh - 112px)' }}>
+      <Row style={{ height: 'calc(100vh - 80px)' }}>
         <Col textAlign="center" alignSelf="center">
           <div style={{ display: 'inline-block', position: 'relative' }}>
             <ToggleButton onClick={() => setIsHidden(!isHidden)} isPressed={!isHidden}>

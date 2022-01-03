@@ -28,6 +28,7 @@ import HeaderIcon1 from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import HeaderIcon2 from '@zendeskgarden/svg-icons/src/16/lifesaver-stroke.svg';
 import HeaderIcon3 from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
 import HeaderIcon4 from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import {
   Body,
   Chrome,
@@ -144,7 +145,7 @@ export const ChromeStory: Story<IArgs> = ({
   const [currentSubNav, setCurrentSubNav] = useState(0);
 
   return (
-    <Chrome {...args} style={{ margin: 'calc(-40px - 1em)' }}>
+    <Chrome {...args} style={{ margin: `-${DEFAULT_THEME.space.xl}` }}>
       <SkipNav targetId="main-content">{skipNav}</SkipNav>
       {hasNav && (
         <Nav isExpanded={isExpanded} aria-label="Nav">

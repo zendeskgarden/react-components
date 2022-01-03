@@ -28,7 +28,7 @@ export const MenuStory: Story = ({ isCompact }) => {
 
   return (
     <Grid>
-      <Row style={{ height: 'calc(100vh - 112px)' }}>
+      <Row style={{ height: 'calc(100vh - 80px)' }}>
         <Col textAlign="center" alignSelf="center">
           <Dropdown
             onStateChange={changes => {

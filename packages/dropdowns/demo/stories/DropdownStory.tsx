@@ -29,7 +29,7 @@ export const DropdownStory: Story<IArgs> = ({
   ...args
 }) => (
   <Grid>
-    <Row justifyContent="center" style={{ height: 'calc(100vh - 112px)' }}>
+    <Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
       <Col alignSelf="center" {...colProps}>
         <Dropdown
           {...args}

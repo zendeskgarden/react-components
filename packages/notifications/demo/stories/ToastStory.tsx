@@ -64,7 +64,7 @@ export const ToastStory: Story<IArgs> = ({ children, ...args }) => {
 
   return (
     <Grid>
-      <Row style={{ height: 'calc(100vh - 112px)' }}>
+      <Row style={{ height: 'calc(100vh - 80px)' }}>
         <Col sm={4} textAlign="center" textAlignSm="end" alignSelf="center">
           <Button onClick={handleAdd}>
             <Button.StartIcon>

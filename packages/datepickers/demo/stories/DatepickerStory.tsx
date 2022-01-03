@@ -22,7 +22,7 @@ export const DatepickerStory: Story<IArgs> = ({ dateStyle, isCompact, ...args })
 
   return (
     <Grid>
-      <Row style={{ height: 'calc(100vh - 112px)' }}>
+      <Row style={{ height: 'calc(100vh - 80px)' }}>
         <Col textAlign="center" alignSelf="center">
           <Field>
             <Label hidden>{Datepicker.displayName}</Label>

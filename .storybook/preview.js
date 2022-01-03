@@ -30,6 +30,8 @@ export const parameters = {
 const GlobalPreviewStyling = createGlobalStyle`
   body {
     background-color: ${p => p.theme.colors.background};
+    /* stylelint-disable-next-line declaration-no-important */
+    padding: 0 !important;
     font-family: ${p => p.theme.fonts.system};
   }
 `;

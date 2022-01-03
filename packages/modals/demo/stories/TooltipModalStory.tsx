@@ -74,7 +74,7 @@ export const TooltipModalStory: Story<IArgs> = ({
         {hasClose && <TooltipModal.Close />}
       </TooltipModal>
       <Grid>
-        <Row style={{ height: 'calc(100vh - 112px)' }}>
+        <Row style={{ height: 'calc(100vh - 80px)' }}>
           {[...Array(count)].map((_, index) => (
             <Col key={index} md={4} textAlign="center" alignSelf="center">
               <IconButton

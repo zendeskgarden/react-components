@@ -105,7 +105,7 @@ export const SheetStory: Story<IArgs> = ({
       </Field>
     </ThemeProvider>
     <Grid debug={debug} gutters={false} style={{ marginTop: 20 }}>
-      <Row style={{ height: 'calc(100vh - 152px)' }} justifyContent={args.placement || 'end'}>
+      <Row style={{ height: 'calc(100vh - 120px)' }} justifyContent={args.placement || 'end'}>
         <Col size="auto" style={{ maxHeight: '100%' }}>
           <SheetComponent
             hasHeader={hasHeader}
