@@ -45,6 +45,19 @@ Stick to the following conventions for authoring demo stories that are
 consistent with the existing codebase. You may find that running `yarn new` is
 helpful for auto-generating component demo scaffolding.
 
+### Structure
+
+- Place MDX stories under the package `demo` directory.
+- All `Story` TSX files are placed under a `demo/stories` directory.
+- Move all boilerplate data constants (i.e. control data for a component's
+  `children`) into `demo/stories/data.ts`
+- Capture all types and interfaces specific to story data under
+  `demo/stories/types.ts`
+- If a package has patterns (see [section](#patterns) below), tuck all pattern
+  demo code under a `demo/~patterns` directory – repeating the directory structure
+  as needed for `Story` TSX, `data.ts`, and `types.ts` files noted above. Prefix
+  with a tilde to ensure these stories are ordered last.
+
 ### Meta
 
 Story meta appears in the MDX file with the following structure:
@@ -155,16 +168,14 @@ be properly maintained. In its basic form, a `Story` looks like this:
 
 ```tsx
 import React from 'react';
-import { Story } from '@storybook/react';\
+import { Story } from '@storybook/react';
 import { Component, IComponentProps } from '@zendeskgarden/react-package';
 
 interface IArgs extends IComponentProps {
   /* Subcomponent and "Story" arg definitions go here */
 }
 
-export const ComponentStory: Story<IArgs> = args => (
-  <Component {...args} />
-);
+export const ComponentStory: Story<IArgs> = args => <Component {...args} />;
 ```
 
 Take time to ensure Story `args` and `argTypes` are defined well. Often you will
@@ -180,17 +191,10 @@ demonstrate component flexibility in isolation.
   that renders the package's README.md. Prefix with a hashtag to ensure this story
   is ordered first.
 - Subsequent component story files are named `componentName.stories.mdx`
+  (camelCase)
 - Use Garden's standard prop naming for story args (i.e. isXxx/hasXxx for
   boolean args), but use `argTypes` to rename with subcomponent notation. For
   example:
-- All `Story` TSX files are placed under a `demo/stories` directory. Additionally:
-  - Move all boilerplate data constants (i.e. control data for a component's
-    `children`) into `demo/stories/data.ts`
-  - Capture all types and interfaces specific to story data under
-    `demo/stories/types.ts`
-- If a package has patterns (see section below), tuck all pattern demo code
-  under a `demo/~patterns` directory. Prefix with a tilde to ensure these
-  stories are ordered last.
 
 ```js
 args={{
@@ -211,7 +215,7 @@ sequencing or a need to persist a visual test, a pattern can be a helpful tool
 for (temporarily) demonstrating component layout or behavior that supercedes the
 isolation of the component itself.
 
-Follow [naming](#naming) conventions to keep patterns collected in a
+Follow [structure](#structure) conventions to keep patterns collected in a
 (potentially) short-lived location. It is the component developer's
 responsibility to track example pattern movement to the website and subsequently
 remove the pattern from Storybook – keeping the website as the focal source of

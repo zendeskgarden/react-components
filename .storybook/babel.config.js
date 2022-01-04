@@ -7,9 +7,9 @@
 
 const path = require('path');
 const { readdirSync } = require('fs');
-const babel = require('@storybook/core-common');
+const { getStorybookBabelConfig } = require('@storybook/core-common');
 
-const config = babel.getStorybookBabelConfig();
+const config = getStorybookBabelConfig();
 
 const PACKAGE_NAMES = readdirSync(path.resolve(__dirname, '../packages')).filter(
   name => name !== '.template'
