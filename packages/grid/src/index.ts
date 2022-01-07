@@ -8,3 +8,29 @@
 export { Col } from './elements/Col';
 export { Grid } from './elements/Grid';
 export { Row } from './elements/Row';
+
+export type { IColProps } from './elements/Col';
+export type { IGridProps } from './elements/Grid';
+export type { IRowProps } from './elements/Row';
+
+export {
+  ARRAY_ALIGN_ITEMS,
+  ARRAY_ALIGN_SELF,
+  ARRAY_DIRECTION,
+  ARRAY_JUSTIFY_CONTENT,
+  ARRAY_TEXT_ALIGN,
+  ARRAY_SPACE,
+  ARRAY_WRAP
+} from './utils/types';
+
+export type {
+  ALIGN_ITEMS,
+  ALIGN_SELF,
+  DIRECTION,
+  JUSTIFY_CONTENT,
+  TEXT_ALIGN,
+  GRID_NUMBER,
+  BREAKPOINT,
+  SPACE,
+  WRAP
+} from './utils/types';

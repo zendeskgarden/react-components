@@ -12,7 +12,7 @@ import { validationIcons, validationHues } from '../utils/icons';
 import { ARRAY_VALIDATION_TYPE, VALIDATION_HUE } from '../utils/types';
 import { NotificationsContext } from '../utils/useNotificationsContext';
 
-export interface IAlertProps {
+export interface IAlertProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies alert type styles */
   type: 'success' | 'warning' | 'error' | 'info';
 }
@@ -20,23 +20,21 @@ export interface IAlertProps {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Alert = React.forwardRef<HTMLDivElement, IAlertProps & HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    const hue = validationHues[props.type];
-    const Icon = validationIcons[props.type] as any;
+export const Alert = React.forwardRef<HTMLDivElement, IAlertProps>((props, ref) => {
+  const hue = validationHues[props.type];
+  const Icon = validationIcons[props.type] as any;
 
-    return (
-      <NotificationsContext.Provider value={hue as VALIDATION_HUE}>
-        <StyledAlert ref={ref} hue={hue} {...props}>
-          <StyledIcon hue={hue}>
-            <Icon />
-          </StyledIcon>
-          {props.children}
-        </StyledAlert>
-      </NotificationsContext.Provider>
-    );
-  }
-);
+  return (
+    <NotificationsContext.Provider value={hue as VALIDATION_HUE}>
+      <StyledAlert ref={ref} hue={hue} {...props}>
+        <StyledIcon hue={hue}>
+          <Icon />
+        </StyledIcon>
+        {props.children}
+      </StyledAlert>
+    </NotificationsContext.Provider>
+  );
+});
 
 Alert.displayName = 'Alert';
 

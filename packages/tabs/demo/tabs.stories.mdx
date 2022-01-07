@@ -1,0 +1,46 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
+import { Tabs, Tab, TabList, TabPanel } from '@zendeskgarden/react-tabs';
+import { TabsStory } from './stories/TabsStory';
+import { TABS } from './stories/data';
+
+<Meta
+  title="Packages/Tabs/Tabs"
+  component={Tabs}
+  subcomponents={{ Tab, TabList, TabPanel }}
+  args={{ tabs: TABS }}
+  argTypes={{ tabs: { table: { category: 'Story' } } }}
+  parameters={{
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=102%3A123'
+    }
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+## Uncontrolled
+
+<Canvas>
+  <Story name="Uncontrolled" argTypes={{ selectedItem: { control: false } }}>
+    {args => <TabsStory {...args} />}
+  </Story>
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story name="Controlled" argTypes={{ selectedItem: { control: 'number' } }}>
+    {args => {
+      const updateArgs = useArgs()[1];
+      const handleChange = selectedItem => updateArgs({ selectedItem });
+      return <TabsStory {...args} onChange={handleChange} />;
+    }}
+  </Story>
+</Canvas>

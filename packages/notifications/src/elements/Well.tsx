@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledWell } from '../styled';
 
-interface IWellProps {
+export interface IWellProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies a background color */
   isRecessed?: boolean;
   /** Applies a drop shadow */
@@ -19,9 +19,9 @@ interface IWellProps {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Well = React.forwardRef<HTMLDivElement, IWellProps & HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => <StyledWell ref={ref} {...props} />
-);
+export const Well = React.forwardRef<HTMLDivElement, IWellProps>((props, ref) => (
+  <StyledWell ref={ref} {...props} />
+));
 
 Well.displayName = 'Well';
 

@@ -23,7 +23,7 @@ import { Description } from './components/Description';
 import { Icon } from './components/Icon';
 import { Label } from './components/Label';
 
-interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
+export interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the value of the selected radio button */
   value?: string;
   /** Handles radio selection */

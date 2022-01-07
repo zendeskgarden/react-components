@@ -1,0 +1,36 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Tooltip, Title, Paragraph } from '@zendeskgarden/react-tooltips';
+import { TooltipStory } from './stories/TooltipStory';
+import { TOOLTIP_CONTENT as CONTENT } from './stories/data';
+
+<Meta title="Packages/Tooltips/Tooltip" component={Tooltip} subcomponents={{ Paragraph, Title }} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Tooltip"
+    args={{
+      content: CONTENT,
+      eventsEnabled: true,
+      hasArrow: true
+    }}
+    argTypes={{
+      isVisible: { control: 'boolean' },
+      appendToNode: { control: false }
+    }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A25293'
+      }
+    }}
+  >
+    {args => <TooltipStory {...args} />}
+  </Story>
+</Canvas>

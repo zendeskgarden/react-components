@@ -12,7 +12,7 @@ import { PRODUCT, PRODUCTS } from '../../utils/types';
 import { useNavContext } from '../../utils/useNavContext';
 import { useChromeContext } from '../../utils/useChromeContext';
 
-interface INavItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface INavItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Applies a product-specific color palette */
   product?: PRODUCT;
   /** Indicates that the item is current in the nav */

@@ -48,7 +48,7 @@ on your system. After you clone this repo, run `yarn` to install
 dependencies needed for development. After installation, the following
 commands are available:
 
-- `yarn start` to launch Styleguidist with live reload.
+- `yarn start` to launch Storybook with live reload.
 - `yarn test` to run Jest testing.
 - `yarn lint` to enforce consistent JavaScript, CSS, and
   markdown code conventions across all component packages. Note this is

@@ -6,13 +6,18 @@
  */
 
 const webpack = require('webpack');
-const externalConfig = require('../.svgo.config.js');
+const svgoConfig = require('../.svgo.config.js');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const docs = process.env.BROWSER ? process.env.BROWSER.toUpperCase() !== 'IE11' : true;
 
 module.exports = {
-  stories: ['../packages/*/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: [{ name: '@storybook/addon-essentials', options: { docs } }, '@storybook/addon-a11y'],
+  stories: ['../packages/*/demo/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+  staticDirs: ['./static'],
+  addons: [
+    { name: '@storybook/addon-essentials', options: { docs } },
+    '@storybook/addon-a11y',
+    'storybook-addon-designs'
+  ],
   core: {
     builder: 'webpack5'
   },
@@ -26,9 +31,7 @@ module.exports = {
       use: [
         {
           loader: '@svgr/webpack',
-          options: {
-            externalConfig
-          }
+          options: { svgoConfig }
         }
       ]
     });

@@ -18,7 +18,7 @@ import mergeRefs from 'react-merge-refs';
 import useFieldContext from '../utils/useFieldContext';
 import { StyledRangeInput } from '../styled';
 
-interface IRangeProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface IRangeProps extends InputHTMLAttributes<HTMLInputElement> {
   /** @ignore */
   hasLowerTrack?: boolean;
 }

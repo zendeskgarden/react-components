@@ -1,9 +1,7 @@
 {
   "version": "8.47.1",
   "npmClient": "yarn",
-  "npmClientArgs": [
-    "--frozen-lockfile"
-  ],
+  "npmClientArgs": ["--frozen-lockfile"],
   "changelog": {
     "repo": "zendeskgarden/react-components",
     "cacheDir": ".changelog",
@@ -21,8 +19,7 @@
     "*.spec.ts",
     "*.spec.tsx",
     ".size-snapshot.json",
-    "**/__snapshots__/**",
-    "styleguide.config.js"
+    "**/__snapshots__/**"
   ],
   "command": {
     "publish": {

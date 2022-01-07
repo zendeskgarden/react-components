@@ -1,0 +1,37 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Notification, Close, Paragraph, Title } from '@zendeskgarden/react-notifications';
+import { NotificationStory } from './stories/NotificationStory';
+
+<Meta
+  title="Packages/Notifications/Notification"
+  component={Notification}
+  subcomponents={{ Close, Paragraph, Title }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Notification"
+    args={{ children: 'Text', title: 'Title', hasClose: true, hasParagraph: false }}
+    argTypes={{
+      title: { name: 'children', table: { category: 'Title' } },
+      isRegular: { control: { type: 'boolean' }, table: { category: 'Title' } },
+      hasClose: { name: 'Close', table: { category: 'Story' } },
+      hasParagraph: { name: 'Paragraph', table: { category: 'Story' } }
+    }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=1480%3A28056'
+      }
+    }}
+  >
+    {args => <NotificationStory {...args} />}
+  </Story>
+</Canvas>

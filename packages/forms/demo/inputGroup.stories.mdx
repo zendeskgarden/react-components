@@ -1,0 +1,61 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { InputGroup, Input, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { InputGroupStory } from './stories/InputGroupStory';
+import { INPUT_GROUP_ITEMS as ITEMS } from './stories/data';
+
+<Meta
+  title="Packages/Forms/InputGroup"
+  component={InputGroup}
+  subcomponents={{ Field, Input, Label, Hint, Message }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="InputGroup"
+    args={{
+      label: 'Label',
+      isLabelRegular: false,
+      isLabelHidden: false,
+      hasHint: true,
+      hint: 'Hint',
+      hasMessage: true,
+      message: 'Message',
+      items: ITEMS,
+      isNeutral: true
+    }}
+    argTypes={{
+      items: { name: 'children' },
+      label: { name: 'children', table: { category: 'Label' } },
+      isLabelRegular: { name: 'isRegular', table: { category: 'Label' } },
+      isLabelHidden: { name: 'hidden', table: { category: 'Label' } },
+      hint: { name: 'children', table: { category: 'Hint' } },
+      message: { name: 'children', table: { category: 'Message' } },
+      validation: {
+        control: { type: 'radio', options: ['success', 'warning', 'error'] },
+        table: { category: 'Message' }
+      },
+      hasHint: { name: 'Hint', table: { category: 'Story' } },
+      hasMessage: { name: 'Message', table: { category: 'Story' } },
+      disabled: { control: 'boolean', table: { category: 'Story' } },
+      isNeutral: { table: { category: 'Button' } },
+      isPrimary: { control: 'boolean', table: { category: 'Button' } },
+      isDanger: { control: 'boolean', table: { category: 'Button' } },
+      readOnly: { control: 'boolean', table: { category: 'Input' } }
+    }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A20265'
+      }
+    }}
+  >
+    {args => <InputGroupStory {...args} />}
+  </Story>
+</Canvas>

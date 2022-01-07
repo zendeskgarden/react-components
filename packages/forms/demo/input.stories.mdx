@@ -1,0 +1,83 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
+import { Input, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { InputStory } from './stories/InputStory';
+
+<Meta
+  title="Packages/Forms/Input"
+  component={Input}
+  subcomponents={{ Field, Label, Hint, Message }}
+  args={{
+    label: 'Label',
+    isLabelRegular: false,
+    isLabelHidden: false,
+    hasHint: true,
+    hint: 'Hint',
+    hasMessage: true,
+    message: 'Message'
+  }}
+  argTypes={{
+    disabled: { control: 'boolean' },
+    readOnly: { control: 'boolean' },
+    label: { name: 'children', table: { category: 'Label' } },
+    isLabelRegular: { name: 'isRegular', table: { category: 'Label' } },
+    isLabelHidden: { name: 'hidden', table: { category: 'Label' } },
+    hint: { name: 'children', table: { category: 'Hint' } },
+    message: { name: 'children', table: { category: 'Message' } },
+    hasHint: { name: 'Hint', table: { category: 'Story' } },
+    hasMessage: { name: 'Message', table: { category: 'Story' } },
+    placeholder: { control: 'text' },
+    type: {
+      control: {
+        type: 'select',
+        options: [
+          'date',
+          'datetime-local',
+          'email',
+          'month',
+          'number',
+          'password',
+          'search',
+          'tel',
+          'text',
+          'time',
+          'url',
+          'week'
+        ]
+      }
+    }
+  }}
+  parameters={{
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A20266'
+    }
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+## Uncontrolled
+
+<Canvas>
+  <Story name="Uncontrolled" args={{ placeholder: 'Placeholder' }}>
+    {args => <InputStory {...args} />}
+  </Story>
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story name="Controlled" args={{ value: 'Value' }}>
+    {args => {
+      const updateArgs = useArgs()[1];
+      const handleChange = event => updateArgs({ value: event.target.value });
+      return <InputStory {...args} onChange={handleChange} />;
+    }}
+  </Story>
+</Canvas>

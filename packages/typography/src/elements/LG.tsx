@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
 
-interface ILGProps extends HTMLAttributes<HTMLDivElement> {
+export interface ILGProps extends HTMLAttributes<HTMLDivElement> {
   /** Updates the element's HTML tag */
   tag?: any;
   /** Applies bold font style */

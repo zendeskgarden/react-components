@@ -5,13 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, HTMLAttributes, useState } from 'react';
+import React, { useRef, useEffect, HTMLAttributes, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProps, DefaultTheme } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { Popper } from 'react-popper';
 import { Modifiers } from 'popper.js';
-import { withTheme, isRtl } from '@zendeskgarden/react-theming';
-
 import { StyledMenu, StyledMenuWrapper } from '../../styled/index';
 import useDropdownContext from '../../utils/useDropdownContext';
 import {
@@ -56,7 +54,10 @@ export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   maxHeight?: string;
 }
 
-const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = props => {
+/**
+ * @extends HTMLAttributes<HTMLUListElement>
+ */
+export const Menu: React.FunctionComponent<IMenuProps> = props => {
   const {
     placement,
     popperModifiers,
@@ -108,13 +109,15 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
     return () => clearTimeout(timeout);
   }, [isOpen, isAnimated]);
 
+  const themeContext = useContext(ThemeContext);
+
   // Reset Downshift refs on every render
   itemIndexRef.current = 0;
   nextItemsHashRef.current = {};
   previousIndexRef.current = undefined;
   itemSearchRegistry.current = [];
 
-  const popperPlacement = isRtl(props)
+  const popperPlacement = themeContext.rtl
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 
@@ -214,8 +217,3 @@ Menu.defaultProps = {
   maxHeight: '400px',
   zIndex: 1000
 };
-
-/**
- * @extends HTMLAttributes<HTMLUListElement>
- */
-export default withTheme(Menu) as React.FunctionComponent<IMenuProps>;

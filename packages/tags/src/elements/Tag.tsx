@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { StyledTag, StyledAvatar } from '../styled';
 import Close from './Close';
 
-interface ITagProps extends HTMLAttributes<HTMLDivElement> {
+export interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   /** Adjusts font size and padding */
   size?: 'small' | 'medium' | 'large';
   /**

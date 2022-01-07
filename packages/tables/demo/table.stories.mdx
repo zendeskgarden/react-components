@@ -1,0 +1,67 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import {
+  Table,
+  Body,
+  Caption,
+  Cell,
+  GroupRow,
+  Head,
+  HeaderCell,
+  HeaderRow,
+  OverflowButton,
+  Row,
+  SortableCell
+} from '@zendeskgarden/react-tables';
+import { TableStory } from './stories/TableStory';
+import { TABLE_DATA as DATA } from './stories/data';
+
+<Meta
+  title="Packages/Tables/Table"
+  component={Table}
+  subcomponents={{
+    Body,
+    Caption,
+    Cell,
+    GroupRow,
+    Head,
+    HeaderCell,
+    HeaderRow,
+    OverflowButton,
+    Row,
+    SortableCell
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Table"
+    args={{ caption: 'Caption', data: DATA, widths: [], isBold: true }}
+    argTypes={{
+      isReadOnly: { control: 'boolean' },
+      hasOverflow: { control: 'boolean', table: { category: 'Cell' } },
+      isTruncated: { control: 'boolean', table: { category: 'Cell' } },
+      caption: { name: 'children', table: { category: 'Caption' } },
+      isBold: { control: 'boolean', table: { category: 'GroupRow' } },
+      isStriped: { control: 'boolean', table: { category: 'Row' } },
+      data: { name: 'Row[]', table: { category: 'Story' } },
+      widths: { name: 'Cell[] widths', table: { category: 'Story' } },
+      hasSelection: { control: 'boolean', table: { category: 'Story' } },
+      isSortable: { name: 'SortableCell', control: 'boolean', table: { category: 'Story' } }
+    }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=102%3A125'
+      }
+    }}
+  >
+    {args => <TableStory {...args} />}
+  </Story>
+</Canvas>

@@ -1,0 +1,21 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { CodeBlock } from '@zendeskgarden/react-typography';
+import { CODE_BLOCK_CHILDREN as CODE } from './stories/data';
+
+<Meta title="Packages/Typography/CodeBlock" component={CodeBlock} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="CodeBlock"
+    args={{ code: CODE, containerProps: { style: { maxHeight: 'calc(100vh - 80px)' } } }}
+    argTypes={{ code: { table: { category: 'Story' } } }}
+  >
+    {({ code, ...args }) => <CodeBlock {...args} children={code[args.language || 'tsx']} />}
+  </Story>
+</Canvas>

@@ -1,0 +1,28 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { SM } from '@zendeskgarden/react-typography';
+import { TypescaleStory } from './stories/TypescaleStory';
+
+<Meta title="Packages/Typography/Typescale/SM" component={SM} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="SM"
+    args={{ children: 'Text' }}
+    argTypes={{ tag: { control: 'text' } }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=102%3A107'
+      }
+    }}
+  >
+    {args => <TypescaleStory {...args} size="small" />}
+  </Story>
+</Canvas>

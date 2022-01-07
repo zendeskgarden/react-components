@@ -17,7 +17,7 @@ import {
   IStyledSortableButtonProps
 } from '../styled';
 
-interface ISortableCellProps extends IStyledSortableButtonProps {
+export interface ISortableCellProps extends IStyledSortableButtonProps {
   /** Passes props to the cell */
   cellProps?: any;
 }

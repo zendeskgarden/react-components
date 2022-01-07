@@ -31,7 +31,7 @@ interface IStaticAccordionExport<T, P>
   Panel: typeof Panel;
 }
 
-interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** Sets `aria-level` heading rank in the document structure */
   level: number;
   /** Sets the expanded sections in a controlled accordion */

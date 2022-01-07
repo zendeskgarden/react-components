@@ -8,7 +8,7 @@ module.exports = {
             focusable: false
           },
           {
-            role: 'presentation'
+            'aria-hidden': true
           }
         ]
       }

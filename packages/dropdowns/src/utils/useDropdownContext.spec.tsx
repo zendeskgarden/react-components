@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Dropdown from '../elements/Dropdown/Dropdown';
+import { Dropdown } from '../elements/Dropdown/Dropdown';
 import useDropdownContext from './useDropdownContext';
 
 describe('useDropdownContext', () => {
