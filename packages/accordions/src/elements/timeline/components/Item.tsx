@@ -13,7 +13,7 @@ import React, {
   ReactElement,
   LiHTMLAttributes
 } from 'react';
-import { Timeline } from '../Timeline';
+import { OppositeContent } from './OppositeContent';
 import { StyledTimelineItem } from '../../../styled';
 import { TimelineItemContext, useTimelineContext } from '../../../utils';
 
@@ -40,7 +40,7 @@ export const Item = forwardRef<HTMLLIElement, ITimelineItemProps>(
 
     Children.forEach(props.children, child => {
       if (child) {
-        if ((child as ReactElement).type === Timeline.OppositeContent) {
+        if ((child as ReactElement).type === OppositeContent) {
           hasOppositeContent = true;
         }
       }
