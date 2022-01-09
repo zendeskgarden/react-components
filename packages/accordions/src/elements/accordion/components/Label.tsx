@@ -9,6 +9,9 @@ import React, { forwardRef, ButtonHTMLAttributes } from 'react';
 import { StyledButton } from '../../../styled';
 import { useAccordionContext, useHeaderContext, useSectionContext } from '../../../utils';
 
+/**
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
 export const Label = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const sectionIndex = useSectionContext();
@@ -30,4 +33,4 @@ export const Label = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButt
   }
 );
 
-Label.displayName = 'Label';
+Label.displayName = 'Accordion.Label';

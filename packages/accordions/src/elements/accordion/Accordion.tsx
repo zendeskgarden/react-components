@@ -5,16 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useRef,
-  useEffect,
-  forwardRef,
-  RefAttributes,
-  HTMLAttributes,
-  PropsWithoutRef,
-  ForwardRefExoticComponent,
-  useMemo
-} from 'react';
+import React, { useRef, useEffect, forwardRef, HTMLAttributes, useMemo } from 'react';
 import { useAccordion } from '@zendeskgarden/container-accordion';
 import { StyledAccordion } from '../../styled';
 import { AccordionContext } from '../../utils';
@@ -22,14 +13,6 @@ import { Section } from '../accordion/components/Section';
 import { Header } from '../accordion/components/Header';
 import { Label } from '../accordion/components/Label';
 import { Panel } from '../accordion/components/Panel';
-
-interface IStaticAccordionExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Section: typeof Section;
-  Header: typeof Header;
-  Label: typeof Label;
-  Panel: typeof Panel;
-}
 
 export interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** Sets `aria-level` heading rank in the document structure */
@@ -56,10 +39,7 @@ export interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'o
   onChange?: (index: number) => void;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
+const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
   (
     {
       level,
@@ -121,16 +101,11 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       </AccordionContext.Provider>
     );
   }
-) as IStaticAccordionExport<HTMLDivElement, IAccordionProps>;
+);
 
-Accordion.Section = Section;
-Accordion.Header = Header;
-Accordion.Label = Label;
-Accordion.Panel = Panel;
+AccordionComponent.displayName = 'Accordion';
 
-Accordion.displayName = 'Accordion';
-
-Accordion.defaultProps = {
+AccordionComponent.defaultProps = {
   isBare: false,
   isCompact: false,
   isAnimated: true,
@@ -139,3 +114,18 @@ Accordion.defaultProps = {
   expandedSections: undefined,
   onChange: () => undefined
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Accordion = AccordionComponent as typeof AccordionComponent & {
+  Header: typeof Header;
+  Label: typeof Label;
+  Panel: typeof Panel;
+  Section: typeof Section;
+};
+
+Accordion.Header = Header;
+Accordion.Label = Label;
+Accordion.Panel = Panel;
+Accordion.Section = Section;

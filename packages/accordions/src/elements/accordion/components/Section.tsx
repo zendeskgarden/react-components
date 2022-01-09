@@ -9,6 +9,9 @@ import React, { forwardRef, useRef, HTMLAttributes } from 'react';
 import { useAccordionContext, SectionContext } from '../../../utils';
 import { StyledSection } from '../../../styled';
 
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
 export const Section = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { currentIndexRef } = useAccordionContext();
   const sectionIndexRef = useRef(currentIndexRef.current++);
@@ -21,4 +24,4 @@ export const Section = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
   );
 });
 
-Section.displayName = 'Section';
+Section.displayName = 'Accordion.Section';
