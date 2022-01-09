@@ -10,6 +10,9 @@ import CircleIcon from '@zendeskgarden/svg-icons/src/12/circle-full-stroke.svg';
 import { StyledTimelineContent, StyledSeparator, StyledItemIcon } from '../../../styled';
 import { useTimelineItemContext } from '../../../utils';
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { icon, surfaceColor } = useTimelineItemContext();
 
@@ -23,4 +26,4 @@ export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
   );
 });
 
-Content.displayName = 'Content';
+Content.displayName = 'Timeline.Content';

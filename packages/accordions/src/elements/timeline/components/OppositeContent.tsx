@@ -8,8 +8,11 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledOppositeContent } from '../../../styled';
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const OppositeContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => <StyledOppositeContent ref={ref} {...props} />
 );
 
-OppositeContent.displayName = 'OppositeContent';
+OppositeContent.displayName = 'Timeline.OppositeContent';

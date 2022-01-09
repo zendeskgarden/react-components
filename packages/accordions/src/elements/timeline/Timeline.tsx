@@ -5,36 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useMemo,
-  forwardRef,
-  RefAttributes,
-  HTMLAttributes,
-  PropsWithoutRef,
-  ForwardRefExoticComponent
-} from 'react';
+import React, { useMemo, forwardRef, OlHTMLAttributes } from 'react';
 import { TimelineContext } from '../../utils';
 import { StyledTimeline } from '../../styled';
 import { Item } from '../timeline/components/Item';
 import { Content } from '../timeline/components/Content';
 import { OppositeContent } from '../timeline/components/OppositeContent';
 
-interface IStaticTimelineExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Item: typeof Item;
-  Content: typeof Content;
-  OppositeContent: typeof OppositeContent;
-}
-
-export interface ITimelineProps extends Omit<HTMLAttributes<HTMLOListElement>, 'onChange'> {
+export interface ITimelineProps extends Omit<OlHTMLAttributes<HTMLOListElement>, 'onChange'> {
   /** Applies alternate styling */
   isAlternate?: boolean;
 }
 
-/**
- * @extends HTMLAttributes<HTMLOListElement>
- */
-export const Timeline = forwardRef<HTMLOListElement, ITimelineProps>(
+const TimelineComponent = forwardRef<HTMLOListElement, ITimelineProps>(
   ({ isAlternate, ...props }, ref) => {
     const value = useMemo(() => ({ isAlternate }), [isAlternate]);
 
@@ -44,10 +27,19 @@ export const Timeline = forwardRef<HTMLOListElement, ITimelineProps>(
       </TimelineContext.Provider>
     );
   }
-) as IStaticTimelineExport<HTMLOListElement, ITimelineProps>;
+);
 
-Timeline.Item = Item;
+TimelineComponent.displayName = 'Timeline';
+
+/**
+ * @extends OlHTMLAttributes<HTMLOListElement>
+ */
+export const Timeline = TimelineComponent as typeof TimelineComponent & {
+  Content: typeof Content;
+  Item: typeof Item;
+  OppositeContent: typeof OppositeContent;
+};
+
 Timeline.Content = Content;
+Timeline.Item = Item;
 Timeline.OppositeContent = OppositeContent;
-
-Timeline.displayName = 'Timeline';
