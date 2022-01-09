@@ -11,6 +11,9 @@ import debounce from 'lodash.debounce';
 import { StyledContent, StyledInnerContent } from '../../../styled';
 import { useStepContext, useStepperContext } from '../../../utils';
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const contentRef = useRef<HTMLDivElement>();
   const { activeIndex, isHorizontal } = useStepperContext();
@@ -49,4 +52,4 @@ export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
   ) : null;
 });
 
-Content.displayName = 'Content';
+Content.displayName = 'Stepper.Content';

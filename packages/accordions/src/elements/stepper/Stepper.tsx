@@ -5,28 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useRef,
-  useEffect,
-  forwardRef,
-  OlHTMLAttributes,
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  RefAttributes,
-  useMemo
-} from 'react';
+import React, { useRef, useEffect, forwardRef, OlHTMLAttributes, useMemo } from 'react';
 import { StyledStepper } from '../../styled';
 import { StepperContext } from '../../utils';
 import { Step } from './components/Step';
 import { Label } from './components/Label';
 import { Content } from './components/Content';
-
-interface IStaticStepperExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Step: typeof Step;
-  Label: typeof Label;
-  Content: typeof Content;
-}
 
 export interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {
   /** Defines the currently active step, starting at 0 */
@@ -35,10 +19,7 @@ export interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {
   isHorizontal?: boolean;
 }
 
-/**
- * @extends OlHTMLAttributes<HTMLOListElement>
- */
-export const Stepper = forwardRef<HTMLOListElement, IStepperProps>(
+const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
   ({ isHorizontal, activeIndex, ...props }, ref) => {
     const currentIndexRef = useRef(0);
     const stepperContext = useMemo(
@@ -60,15 +41,24 @@ export const Stepper = forwardRef<HTMLOListElement, IStepperProps>(
       </StepperContext.Provider>
     );
   }
-) as IStaticStepperExport<HTMLDivElement, IStepperProps>;
+);
 
-Stepper.Step = Step;
-Stepper.Label = Label;
-Stepper.Content = Content;
+StepperComponent.displayName = 'Stepper';
 
-Stepper.displayName = 'Stepper';
-
-Stepper.defaultProps = {
+StepperComponent.defaultProps = {
   activeIndex: 0,
   isHorizontal: false
 };
+
+/**
+ * @extends OlHTMLAttributes<HTMLOListElement>
+ */
+export const Stepper = StepperComponent as typeof StepperComponent & {
+  Content: typeof Content;
+  Label: typeof Label;
+  Step: typeof Step;
+};
+
+Stepper.Content = Content;
+Stepper.Label = Label;
+Stepper.Step = Step;
