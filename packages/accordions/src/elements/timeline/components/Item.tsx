@@ -18,7 +18,7 @@ import { StyledTimelineItem } from '../../../styled';
 import { TimelineItemContext, useTimelineContext } from '../../../utils';
 
 export interface ITimelineItemProps extends LiHTMLAttributes<HTMLLIElement> {
-  /** Defines the icon rendered in place of the dot */
+  /** Replaces the dot with an icon */
   icon?: ReactNode;
   /** Provides surface color for an SVG icon placed on a non-white background */
   surfaceColor?: string;
