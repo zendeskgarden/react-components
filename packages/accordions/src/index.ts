@@ -14,7 +14,4 @@ export type { IAccordionProps } from './elements/accordion/Accordion';
 
 export { Timeline } from './elements/timeline/Timeline';
 export type { ITimelineProps } from './elements/timeline/Timeline';
-export type { ITimelineItemProps } from './elements/timeline/components/Item';
-
-/* eslint-disable @typescript-eslint/no-duplicate-imports */
-export type { IItem } from './elements/timeline/components/Item';
+export type { ITimelineItemProps, IItem } from './elements/timeline/components/Item';
