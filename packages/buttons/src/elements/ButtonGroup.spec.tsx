@@ -8,8 +8,8 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
-import ButtonGroup from './ButtonGroup';
-import Button from './Button';
+import { ButtonGroup } from './ButtonGroup';
+import { Button } from './Button';
 
 describe('ButtonGroup', () => {
   const BasicExample = () => (

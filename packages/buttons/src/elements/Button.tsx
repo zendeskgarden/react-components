@@ -5,11 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, SVGAttributes } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, SVGAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledButton, StyledIcon } from '../styled';
+import { StyledButton } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
+import { StartIcon } from './components/StartIcon';
+import { EndIcon } from './components/EndIcon';
+
+/**
+ * @deprecated use IButtonStartIconProps or IButtonEndIconProps instead
+ */
+export interface IIconProps extends SVGAttributes<SVGSVGElement> {
+  isRotated?: boolean;
+}
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Applies danger styling */
@@ -34,33 +43,34 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isSelected?: boolean;
 }
 
-const Button: React.FunctionComponent<IButtonProps & React.RefAttributes<HTMLButtonElement>> =
-  React.forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
-    const buttonGroupContext = useButtonGroupContext();
-    const splitButtonContext = useSplitButtonContext();
+const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
+  const buttonGroupContext = useButtonGroupContext();
+  const splitButtonContext = useSplitButtonContext();
 
-    let computedProps = {
-      ...props,
-      focusInset: props.focusInset || buttonGroupContext !== undefined || splitButtonContext
-    };
+  let computedProps = {
+    ...props,
+    focusInset: props.focusInset || buttonGroupContext !== undefined || splitButtonContext
+  };
 
-    if (buttonGroupContext && !props.disabled) {
-      if (!props.value) {
-        throw new Error('"value" prop must be provided to Button when used within a ButtonGroup');
-      }
-
-      computedProps = buttonGroupContext.getButtonProps({
-        item: props.value,
-        focusRef: React.createRef(),
-        isSelected: props.value === buttonGroupContext.selectedItem,
-        ...computedProps
-      });
+  if (buttonGroupContext && !props.disabled) {
+    if (!props.value) {
+      throw new Error('"value" prop must be provided to Button when used within a ButtonGroup');
     }
 
-    return <StyledButton ref={ref} {...computedProps} />;
-  });
+    computedProps = buttonGroupContext.getButtonProps({
+      item: props.value,
+      focusRef: React.createRef(),
+      isSelected: props.value === buttonGroupContext.selectedItem,
+      ...computedProps
+    });
+  }
 
-Button.propTypes = {
+  return <StyledButton ref={ref} {...computedProps} />;
+});
+
+ButtonComponent.displayName = 'Button';
+
+ButtonComponent.propTypes = {
   isNeutral: PropTypes.bool,
   isPrimary: PropTypes.bool,
   isDanger: PropTypes.bool,
@@ -73,29 +83,17 @@ Button.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large'])
 };
 
-Button.defaultProps = {
+ButtonComponent.defaultProps = {
   size: 'medium'
 };
-
-Button.displayName = 'Button';
-
-export interface IIconProps extends SVGAttributes<SVGSVGElement> {
-  isRotated?: boolean;
-  children: any;
-}
-
-const StartIcon = (props: IIconProps) => <StyledIcon position="start" {...props} />;
-const EndIcon = (props: IIconProps) => <StyledIcon position="end" {...props} />;
-
-(Button as any).StartIcon = StartIcon;
-(Button as any).EndIcon = EndIcon;
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-export default Button as React.FunctionComponent<
-  IButtonProps & React.RefAttributes<HTMLButtonElement>
-> & {
-  StartIcon: typeof StartIcon;
+export const Button = ButtonComponent as typeof ButtonComponent & {
   EndIcon: typeof EndIcon;
+  StartIcon: typeof StartIcon;
 };
+
+Button.EndIcon = EndIcon;
+Button.StartIcon = StartIcon;

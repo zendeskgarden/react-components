@@ -5,20 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledButtonGroup } from '../styled';
 import { SplitButtonContext } from '../utils/useSplitButtonContext';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const SplitButton: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
-  children,
-  ...other
-}) => (
-  <SplitButtonContext.Provider value>
-    <StyledButtonGroup {...other}>{children}</StyledButtonGroup>
-  </SplitButtonContext.Provider>
+export const SplitButton = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ children, ...other }, ref) => (
+    <SplitButtonContext.Provider value>
+      <StyledButtonGroup ref={ref} {...other}>
+        {children}
+      </StyledButtonGroup>
+    </SplitButtonContext.Provider>
+  )
 );
 
-export default SplitButton;
+SplitButton.displayName = 'SplitButton';

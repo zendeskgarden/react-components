@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Anchor from './Anchor';
+import { Anchor } from './Anchor';
 
 describe('Anchor', () => {
   it('renders external SVG if provided', () => {
