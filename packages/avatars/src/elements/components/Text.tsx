@@ -8,11 +8,13 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledText } from '../../styled';
 
-/**
- * @extends HTMLAttributes<HTMLSpanElement>
- */
-export const Text = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>((props, ref) => (
+const TextComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>((props, ref) => (
   <StyledText ref={ref} {...props} />
 ));
 
-Text.displayName = 'Avatar.Text';
+TextComponent.displayName = 'Avatar.Text';
+
+/**
+ * @extends HTMLAttributes<HTMLSpanElement>
+ */
+export const Text = TextComponent;

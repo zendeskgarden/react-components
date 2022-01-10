@@ -18,10 +18,7 @@ export interface IStepperLabelProps extends HTMLAttributes<HTMLDivElement> {
   isHidden?: boolean;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Label = forwardRef<HTMLDivElement, IStepperLabelProps>((props, ref) => {
+const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>((props, ref) => {
   const { currentStepIndex } = useStepContext();
   const { activeIndex, isHorizontal } = useStepperContext();
   const numericStep = currentStepIndex + 1;
@@ -44,9 +41,14 @@ export const Label = forwardRef<HTMLDivElement, IStepperLabelProps>((props, ref)
   );
 });
 
-Label.displayName = 'Stepper.Label';
+LabelComponent.displayName = 'Stepper.Label';
 
-Label.propTypes = {
+LabelComponent.propTypes = {
   icon: PropTypes.node,
   isHidden: PropTypes.bool
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Label = LabelComponent;

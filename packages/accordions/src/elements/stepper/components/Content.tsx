@@ -11,45 +11,49 @@ import debounce from 'lodash.debounce';
 import { StyledContent, StyledInnerContent } from '../../../styled';
 import { useStepContext, useStepperContext } from '../../../utils';
 
+const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    const contentRef = useRef<HTMLDivElement>();
+    const { activeIndex, isHorizontal } = useStepperContext();
+    const { currentStepIndex } = useStepContext();
+    const isActive = currentStepIndex === activeIndex;
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const updateMaxHeight = useCallback(
+      debounce(() => {
+        if (contentRef.current) {
+          const child = contentRef.current.children[0] as any;
+
+          child.style.maxHeight = `${child.scrollHeight}px`;
+        }
+      }, 100),
+      [contentRef]
+    );
+
+    useEffect(() => {
+      if (isActive && isHorizontal === false) {
+        addEventListener('resize', updateMaxHeight);
+        updateMaxHeight();
+
+        return () => {
+          removeEventListener('resize', updateMaxHeight);
+        };
+      }
+
+      return undefined;
+    }, [isActive, isHorizontal, props.children, updateMaxHeight]);
+
+    return isHorizontal === false ? (
+      <StyledContent ref={mergeRefs([contentRef, ref])} isActive={isActive} {...props}>
+        <StyledInnerContent isActive={isActive}>{props.children}</StyledInnerContent>
+      </StyledContent>
+    ) : null;
+  }
+);
+
+ContentComponent.displayName = 'Stepper.Content';
+
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const contentRef = useRef<HTMLDivElement>();
-  const { activeIndex, isHorizontal } = useStepperContext();
-  const { currentStepIndex } = useStepContext();
-  const isActive = currentStepIndex === activeIndex;
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const updateMaxHeight = useCallback(
-    debounce(() => {
-      if (contentRef.current) {
-        const child = contentRef.current.children[0] as any;
-
-        child.style.maxHeight = `${child.scrollHeight}px`;
-      }
-    }, 100),
-    [contentRef]
-  );
-
-  useEffect(() => {
-    if (isActive && isHorizontal === false) {
-      addEventListener('resize', updateMaxHeight);
-      updateMaxHeight();
-
-      return () => {
-        removeEventListener('resize', updateMaxHeight);
-      };
-    }
-
-    return undefined;
-  }, [isActive, isHorizontal, props.children, updateMaxHeight]);
-
-  return isHorizontal === false ? (
-    <StyledContent ref={mergeRefs([contentRef, ref])} isActive={isActive} {...props}>
-      <StyledInnerContent isActive={isActive}>{props.children}</StyledInnerContent>
-    </StyledContent>
-  ) : null;
-});
-
-Content.displayName = 'Stepper.Content';
+export const Content = ContentComponent;

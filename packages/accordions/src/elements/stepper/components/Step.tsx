@@ -9,10 +9,7 @@ import React, { forwardRef, LiHTMLAttributes, useEffect, useMemo, useState } fro
 import { StyledStep, StyledLine } from '../../../styled';
 import { StepContext, useStepperContext } from '../../../utils';
 
-/**
- * @extends LiHTMLAttributes<HTMLLIElement>
- */
-export const Step = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
+const StepComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
   const { currentIndexRef, isHorizontal } = useStepperContext();
   const [currentStepIndex, setIndex] = useState(currentIndexRef.current);
 
@@ -38,4 +35,9 @@ export const Step = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((
   );
 });
 
-Step.displayName = 'Stepper.Step';
+StepComponent.displayName = 'Stepper.Step';
+
+/**
+ * @extends LiHTMLAttributes<HTMLLIElement>
+ */
+export const Step = StepComponent;

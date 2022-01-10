@@ -20,7 +20,7 @@ import { TimelineItemContext, useTimelineContext } from '../../../utils';
 export interface ITimelineItemProps extends LiHTMLAttributes<HTMLLIElement> {
   /** Replaces the dot with an icon */
   icon?: ReactNode;
-  /** Provides surface color for an SVG icon placed on a non-white background */
+  /** Provides surface color for an icon placed on a non-white background */
   surfaceColor?: string;
 }
 
@@ -29,10 +29,7 @@ export interface ITimelineItemProps extends LiHTMLAttributes<HTMLLIElement> {
  */
 export type IItem = ITimelineItemProps;
 
-/**
- * @extends LiHTMLAttributes<HTMLLIElement>
- */
-export const Item = forwardRef<HTMLLIElement, ITimelineItemProps>(
+const ItemComponent = forwardRef<HTMLLIElement, ITimelineItemProps>(
   ({ icon, surfaceColor, ...props }, ref) => {
     const value = useMemo(() => ({ icon, surfaceColor }), [icon, surfaceColor]);
     const { isAlternate } = useTimelineContext();
@@ -59,4 +56,9 @@ export const Item = forwardRef<HTMLLIElement, ITimelineItemProps>(
   }
 );
 
-Item.displayName = 'Timeline.Item';
+ItemComponent.displayName = 'Timeline.Item';
+
+/**
+ * @extends LiHTMLAttributes<HTMLLIElement>
+ */
+export const Item = ItemComponent;

@@ -9,19 +9,23 @@ import React, { forwardRef, useRef, HTMLAttributes } from 'react';
 import { useAccordionContext, SectionContext } from '../../../utils';
 import { StyledSection } from '../../../styled';
 
+const SectionComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    const { currentIndexRef } = useAccordionContext();
+    const sectionIndexRef = useRef(currentIndexRef.current++);
+    const sectionIndex = sectionIndexRef.current;
+
+    return (
+      <SectionContext.Provider value={sectionIndex}>
+        <StyledSection ref={ref} {...props} />
+      </SectionContext.Provider>
+    );
+  }
+);
+
+SectionComponent.displayName = 'Accordion.Section';
+
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-export const Section = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { currentIndexRef } = useAccordionContext();
-  const sectionIndexRef = useRef(currentIndexRef.current++);
-  const sectionIndex = sectionIndexRef.current;
-
-  return (
-    <SectionContext.Provider value={sectionIndex}>
-      <StyledSection ref={ref} {...props} />
-    </SectionContext.Provider>
-  );
-});
-
-Section.displayName = 'Accordion.Section';
+export const Section = SectionComponent;

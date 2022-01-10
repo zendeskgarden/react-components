@@ -10,20 +10,24 @@ import CircleIcon from '@zendeskgarden/svg-icons/src/12/circle-full-stroke.svg';
 import { StyledTimelineContent, StyledSeparator, StyledItemIcon } from '../../../styled';
 import { useTimelineItemContext } from '../../../utils';
 
+const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    const { icon, surfaceColor } = useTimelineItemContext();
+
+    return (
+      <>
+        <StyledSeparator>
+          <StyledItemIcon surfaceColor={surfaceColor}>{icon || <CircleIcon />}</StyledItemIcon>
+        </StyledSeparator>
+        <StyledTimelineContent ref={ref} {...props} />
+      </>
+    );
+  }
+);
+
+ContentComponent.displayName = 'Timeline.Content';
+
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { icon, surfaceColor } = useTimelineItemContext();
-
-  return (
-    <>
-      <StyledSeparator>
-        <StyledItemIcon surfaceColor={surfaceColor}>{icon || <CircleIcon />}</StyledItemIcon>
-      </StyledSeparator>
-      <StyledTimelineContent ref={ref} {...props} />
-    </>
-  );
-});
-
-Content.displayName = 'Timeline.Content';
+export const Content = ContentComponent;
