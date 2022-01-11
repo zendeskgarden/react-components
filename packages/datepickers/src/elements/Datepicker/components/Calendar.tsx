@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback } from 'react';
+import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
 import startOfMonth from 'date-fns/startOfMonth';
 import endOfMonth from 'date-fns/endOfMonth';
 import startOfWeek from 'date-fns/startOfWeek';
@@ -29,7 +29,7 @@ import useDatepickerContext from '../utils/useDatepickerContext';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
 import MonthSelector from './MonthSelector';
 
-interface ICalendarProps {
+interface ICalendarProps extends HTMLAttributes<HTMLDivElement> {
   value?: Date;
   minValue?: Date;
   maxValue?: Date;
@@ -37,105 +37,102 @@ interface ICalendarProps {
   locale?: string;
 }
 
-const Calendar: React.FunctionComponent<ICalendarProps> = ({
-  value,
-  minValue,
-  maxValue,
-  isCompact,
-  locale
-}) => {
-  const { state, dispatch } = useDatepickerContext();
+export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
+  ({ value, minValue, maxValue, isCompact, locale }, ref) => {
+    const { state, dispatch } = useDatepickerContext();
 
-  const weekStartsOn = getStartOfWeek(locale);
-  const monthStartDate = startOfMonth(state.previewDate);
-  const monthEndDate = endOfMonth(monthStartDate);
-  const startDate = startOfWeek(monthStartDate, {
-    weekStartsOn
-  });
-  const endDate = endOfWeek(monthEndDate, {
-    weekStartsOn
-  });
+    const weekStartsOn = getStartOfWeek(locale);
+    const monthStartDate = startOfMonth(state.previewDate);
+    const monthEndDate = endOfMonth(monthStartDate);
+    const startDate = startOfWeek(monthStartDate, {
+      weekStartsOn
+    });
+    const endDate = endOfWeek(monthEndDate, {
+      weekStartsOn
+    });
 
-  const dayLabelFormatter = useCallback(
-    date => {
-      const formatter = new Intl.DateTimeFormat(locale, {
-        weekday: 'short'
-      });
+    const dayLabelFormatter = useCallback(
+      date => {
+        const formatter = new Intl.DateTimeFormat(locale, {
+          weekday: 'short'
+        });
 
-      return formatter.format(date);
-    },
-    [locale]
-  );
+        return formatter.format(date);
+      },
+      [locale]
+    );
 
-  const dayLabels = eachDayOfInterval({ start: startDate, end: addDays(startDate, 6) }).map(
-    date => {
-      const formattedDayLabel = dayLabelFormatter(date);
+    const dayLabels = eachDayOfInterval({ start: startDate, end: addDays(startDate, 6) }).map(
+      date => {
+        const formattedDayLabel = dayLabelFormatter(date);
+
+        return (
+          <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isCompact={isCompact}>
+            <StyledDayLabel isCompact={isCompact!}>{formattedDayLabel}</StyledDayLabel>
+          </StyledCalendarItem>
+        );
+      }
+    );
+
+    const items = eachDayOfInterval({ start: startDate, end: endDate }).map((date, itemsIndex) => {
+      const formattedDayLabel = getDate(date);
+      const isCurrentDate = isToday(date);
+      const isPreviousMonth = !isSameMonth(date, state.previewDate);
+      const isSelected = value && isSameDay(date, value);
+
+      let isDisabled = false;
+
+      if (minValue !== undefined) {
+        isDisabled = isBefore(date, minValue) && !isSameDay(date, minValue);
+      }
+
+      if (maxValue !== undefined) {
+        isDisabled = isDisabled || (isAfter(date, maxValue) && !isSameDay(date, maxValue));
+      }
 
       return (
-        <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isCompact={isCompact}>
-          <StyledDayLabel isCompact={isCompact!}>{formattedDayLabel}</StyledDayLabel>
+        <StyledCalendarItem key={`day-${itemsIndex}`} isCompact={isCompact}>
+          <StyledDay
+            isToday={isCurrentDate}
+            isPreviousMonth={isPreviousMonth}
+            isSelected={isSelected}
+            isDisabled={isDisabled}
+            isCompact={isCompact!}
+            onClick={() => {
+              if (!isDisabled) {
+                dispatch({ type: 'SELECT_DATE', value: date });
+              }
+            }}
+            data-test-id="day"
+            data-test-previous={isPreviousMonth}
+            data-test-selected={isSelected}
+            data-test-disabled={isDisabled}
+            data-test-today={isCurrentDate}
+          >
+            {formattedDayLabel}
+          </StyledDay>
         </StyledCalendarItem>
       );
-    }
-  );
-
-  const items = eachDayOfInterval({ start: startDate, end: endDate }).map((date, itemsIndex) => {
-    const formattedDayLabel = getDate(date);
-    const isCurrentDate = isToday(date);
-    const isPreviousMonth = !isSameMonth(date, state.previewDate);
-    const isSelected = value && isSameDay(date, value);
-
-    let isDisabled = false;
-
-    if (minValue !== undefined) {
-      isDisabled = isBefore(date, minValue) && !isSameDay(date, minValue);
-    }
-
-    if (maxValue !== undefined) {
-      isDisabled = isDisabled || (isAfter(date, maxValue) && !isSameDay(date, maxValue));
-    }
+    });
 
     return (
-      <StyledCalendarItem key={`day-${itemsIndex}`} isCompact={isCompact}>
-        <StyledDay
-          isToday={isCurrentDate}
-          isPreviousMonth={isPreviousMonth}
-          isSelected={isSelected}
-          isDisabled={isDisabled}
-          isCompact={isCompact!}
-          onClick={() => {
-            if (!isDisabled) {
-              dispatch({ type: 'SELECT_DATE', value: date });
-            }
-          }}
-          data-test-id="day"
-          data-test-previous={isPreviousMonth}
-          data-test-selected={isSelected}
-          data-test-disabled={isDisabled}
-          data-test-today={isCurrentDate}
-        >
-          {formattedDayLabel}
-        </StyledDay>
-      </StyledCalendarItem>
+      <StyledDatepicker
+        ref={ref}
+        isCompact={isCompact!}
+        data-test-id="calendar-wrapper"
+        onMouseDown={e => {
+          /** Stop focus from escaping input */
+          e.preventDefault();
+        }}
+      >
+        <MonthSelector locale={locale} isCompact={isCompact!} />
+        <StyledCalendar isCompact={isCompact!}>
+          {dayLabels}
+          {items}
+        </StyledCalendar>
+      </StyledDatepicker>
     );
-  });
+  }
+);
 
-  return (
-    <StyledDatepicker
-      isCompact={isCompact!}
-      data-test-id="calendar-wrapper"
-      onMouseDown={e => {
-        /** Stop focus from escaping input */
-        e.preventDefault();
-      }}
-    >
-      <MonthSelector locale={locale} isCompact={isCompact!} />
-      <StyledCalendar isCompact={isCompact!}>
-        {dayLabels}
-        {items}
-      </StyledCalendar>
-    </StyledDatepicker>
-  );
-};
-
-export default Calendar;
+Calendar.displayName = 'Calendar';

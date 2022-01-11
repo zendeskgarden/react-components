@@ -9,7 +9,7 @@ import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 
-const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
+export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
   const { state, dispatch, startInputRef } = useDatepickerRangeContext();
 
   const onChangeCallback = useCallback(
@@ -62,5 +62,3 @@ const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
     onBlur: composeEventHandlers(childElement.props.onBlur, onBlurCallback)
   });
 };
-
-export default Start;

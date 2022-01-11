@@ -5,23 +5,27 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import addMonths from 'date-fns/addMonths';
 
 import { StyledRangeCalendar } from '../../../styled';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
-import Month from './Month';
+import { Month } from './Month';
 
-const Calendar: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = props => {
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { state, dispatch, locale, isCompact, minValue, maxValue, startValue, endValue, onChange } =
     useDatepickerRangeContext();
 
   return (
     <StyledRangeCalendar
+      ref={ref}
       data-garden-id="datepickers.range"
       data-garden-version={PACKAGE_VERSION}
       data-test-id="range-calendar"
-      {...(props as any)}
+      {...props}
     >
       <Month
         locale={locale}
@@ -51,6 +55,6 @@ const Calendar: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = props 
       />
     </StyledRangeCalendar>
   );
-};
+});
 
-export default Calendar;
+Calendar.displayName = 'Calendar';

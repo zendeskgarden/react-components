@@ -12,7 +12,9 @@ import React, {
   useCallback,
   useState,
   useContext,
-  useMemo
+  useMemo,
+  forwardRef,
+  HTMLAttributes
 } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
@@ -25,12 +27,15 @@ import {
   GARDEN_PLACEMENT,
   POPPER_PLACEMENT
 } from './utils/garden-placements';
-import Calendar from './components/Calendar';
+import { Calendar } from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
 import { DatepickerContext } from './utils/useDatepickerContext';
 import { StyledMenu, StyledMenuWrapper } from '../../styled';
 
-export interface IDatepickerProps {
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /**
    * Sets the selected date
    */
@@ -98,7 +103,7 @@ export interface IDatepickerProps {
   zIndex?: number;
 }
 
-export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
+export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, calendarRef) => {
   const {
     children,
     placement,
@@ -114,7 +119,8 @@ export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
     minValue,
     maxValue,
     locale,
-    customParseDate
+    customParseDate,
+    ...menuProps
   } = props;
   const theme = useContext(ThemeContext);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -250,8 +256,9 @@ export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
                 data-test-rtl={theme.rtl}
               >
                 {(state.isOpen || isVisible) && (
-                  <StyledMenu>
+                  <StyledMenu {...menuProps}>
                     <Calendar
+                      ref={calendarRef}
                       isCompact={isCompact}
                       value={value}
                       minValue={minValue}
@@ -267,7 +274,9 @@ export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
       </Manager>
     </DatepickerContext.Provider>
   );
-};
+});
+
+Datepicker.displayName = 'Datepicker';
 
 Datepicker.propTypes = {
   value: PropTypes.any,
