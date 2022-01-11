@@ -14,7 +14,7 @@ export interface IButtonEndIconProps extends SVGAttributes<SVGElement> {
 }
 
 const EndIconComponent = forwardRef<SVGElement, IButtonEndIconProps>((props, ref) => (
-  <StyledIcon position="start" ref={ref} {...props} />
+  <StyledIcon position="end" ref={ref} {...props} />
 ));
 
 EndIconComponent.displayName = 'Button.EndIcon';

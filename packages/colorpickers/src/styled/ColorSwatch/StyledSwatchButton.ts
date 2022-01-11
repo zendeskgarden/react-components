@@ -7,7 +7,10 @@
 
 import styled from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledButtonPreview, IStyleButtonPreviewProps } from '..';
+import {
+  StyledButtonPreview,
+  IStyleButtonPreviewProps
+} from '../ColorpickerDialog/StyledButtonPreview';
 
 const COMPONENT_ID = 'colorpickers.swatch_button';
 
