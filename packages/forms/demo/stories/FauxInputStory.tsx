@@ -7,12 +7,23 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
+import StartIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import EndIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import { FauxInput, IFauxInputProps } from '@zendeskgarden/react-forms';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
-interface IArgs extends IFauxInputProps, IFieldArgs {}
+interface IArgs extends IFauxInputProps, IFieldArgs {
+  hasStartIcon: boolean;
+  hasEndIcon: boolean;
+  isStartIconRotated: boolean;
+  isEndIconRotated: boolean;
+}
 
 export const FauxInputStory: Story<IArgs> = ({
+  hasStartIcon,
+  hasEndIcon,
+  isStartIconRotated,
+  isEndIconRotated,
   label,
   isLabelRegular,
   isLabelHidden,
@@ -32,6 +43,28 @@ export const FauxInputStory: Story<IArgs> = ({
     message={message}
     validation={args.validation}
   >
-    <FauxInput {...args} />
+    <FauxInput {...args}>
+      {hasStartIcon && (
+        <FauxInput.StartIcon
+          isRotated={isStartIconRotated}
+          isDisabled={args.disabled}
+          isFocused={args.isFocused}
+          isHovered={args.isHovered}
+        >
+          <StartIcon />
+        </FauxInput.StartIcon>
+      )}
+      {args.children}
+      {hasEndIcon && (
+        <FauxInput.EndIcon
+          isRotated={isEndIconRotated}
+          isDisabled={args.disabled}
+          isFocused={args.isFocused}
+          isHovered={args.isHovered}
+        >
+          <EndIcon />
+        </FauxInput.EndIcon>
+      )}
+    </FauxInput>
   </FieldStory>
 );

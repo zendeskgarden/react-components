@@ -18,16 +18,22 @@ interface IArgs extends IButtonProps {
   isEndIconRotated: boolean;
 }
 
-export const ButtonStory: Story<IArgs> = ({ hasStartIcon, hasEndIcon, ...args }) => (
+export const ButtonStory: Story<IArgs> = ({
+  hasStartIcon,
+  hasEndIcon,
+  isStartIconRotated,
+  isEndIconRotated,
+  ...args
+}) => (
   <Button {...args}>
     {hasStartIcon && (
-      <Button.StartIcon isRotated={args.isStartIconRotated}>
+      <Button.StartIcon isRotated={isStartIconRotated}>
         <StartIcon />
       </Button.StartIcon>
     )}
     {args.children}
     {hasEndIcon && (
-      <Button.EndIcon isRotated={args.isEndIconRotated}>
+      <Button.EndIcon isRotated={isEndIconRotated}>
         <EndIcon />
       </Button.EndIcon>
     )}

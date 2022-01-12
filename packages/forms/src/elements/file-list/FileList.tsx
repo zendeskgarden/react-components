@@ -5,28 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  forwardRef,
-  RefAttributes,
-  HTMLAttributes,
-  PropsWithoutRef,
-  ForwardRefExoticComponent
-} from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { Item } from './components/Item';
 import { StyledFileList } from '../../styled';
 
-interface IStaticFileListExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Item: typeof Item;
-}
+const FileListComponent = forwardRef<HTMLUListElement, HTMLAttributes<HTMLUListElement>>(
+  ({ ...props }, ref) => <StyledFileList {...props} ref={ref} />
+);
+
+FileListComponent.displayName = 'FileList';
 
 /**
  * @extends HTMLAttributes<HTMLUListElement>
  */
-export const FileList = forwardRef<HTMLUListElement, HTMLAttributes<HTMLUListElement>>(
-  ({ ...props }, ref) => <StyledFileList {...props} ref={ref} />
-) as IStaticFileListExport<HTMLUListElement, HTMLAttributes<HTMLUListElement>>;
-
-FileList.displayName = 'FileList';
+export const FileList = FileListComponent as typeof FileListComponent & {
+  Item: typeof Item;
+};
 
 FileList.Item = Item;

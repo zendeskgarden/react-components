@@ -12,10 +12,7 @@ import TrashIconDefault from '@zendeskgarden/svg-icons/src/16/trash-stroke.svg';
 import useFileContext from '../../../utils/useFileContext';
 import { StyledFileDelete } from '../../../styled';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Delete = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+const DeleteComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const fileContext = useFileContext();
     const onMouseDown = composeEventHandlers(
@@ -31,4 +28,9 @@ export const Delete = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEle
   }
 );
 
-Delete.displayName = 'File.Delete';
+DeleteComponent.displayName = 'File.Delete';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Delete = DeleteComponent;

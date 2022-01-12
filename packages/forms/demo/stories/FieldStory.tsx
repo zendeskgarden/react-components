@@ -5,16 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { Story } from '@storybook/react';
-import {
-  Field,
-  Hint,
-  IFieldProps,
-  IMessageProps,
-  Label,
-  Message
-} from '@zendeskgarden/react-forms';
+import { Field, Hint, IMessageProps, Label, Message } from '@zendeskgarden/react-forms';
 
 export interface IFieldArgs {
   hasLabel?: boolean;
@@ -28,7 +21,7 @@ export interface IFieldArgs {
   validation?: IMessageProps['validation'];
 }
 
-interface IArgs extends IFieldProps, IFieldArgs {}
+interface IArgs extends HTMLAttributes<HTMLDivElement>, IFieldArgs {}
 
 export const FieldStory: Story<IArgs> = ({
   hasLabel = true,

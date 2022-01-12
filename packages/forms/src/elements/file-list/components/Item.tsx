@@ -8,11 +8,13 @@
 import React, { forwardRef, LiHTMLAttributes } from 'react';
 import { StyledFileListItem } from '../../../styled';
 
-/**
- * @extends LiHTMLAttributes<HTMLLIElement>
- */
-export const Item = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
+const ItemComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
   ({ ...props }, ref) => <StyledFileListItem {...props} ref={ref} />
 );
 
-Item.displayName = 'FileList.Item';
+ItemComponent.displayName = 'FileList.Item';
+
+/**
+ * @extends LiHTMLAttributes<HTMLLIElement>
+ */
+export const Item = ItemComponent;
