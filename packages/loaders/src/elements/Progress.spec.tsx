@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Progress from './Progress';
+import { Progress } from './Progress';
 import { PALETTE } from '@zendeskgarden/react-theming';
 
 describe('Progress', () => {

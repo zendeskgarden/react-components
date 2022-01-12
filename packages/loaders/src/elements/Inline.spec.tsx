@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Inline from './Inline';
+import { Inline } from './Inline';
 
 describe('Inline', () => {
   it('applies size correctly', () => {

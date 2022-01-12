@@ -31,7 +31,7 @@ StyledCircle.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export interface IStyledTypingSvgProps extends React.HTMLAttributes<SVGSVGElement> {
+interface IStyledTypingSvgProps extends React.HTMLAttributes<SVGSVGElement> {
   size: number;
   color: string;
 }

@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledSkeleton } from '../styled';
 
-export interface ISkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ISkeletonProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the width as a percentage of the the parent element's width */
   width?: string;
   /** Sets the height as a percentage of parent element's height if the height is not already inherited by `line-height` */
@@ -21,13 +21,23 @@ export interface ISkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const Skeleton: React.FC<ISkeletonProps> = ({ width, height, isLight, ...other }) => {
-  return (
-    <StyledSkeleton isLight={isLight} customWidth={width} customHeight={height} {...other}>
-      &nbsp;
-    </StyledSkeleton>
-  );
-};
+export const Skeleton = forwardRef<HTMLDivElement, ISkeletonProps>(
+  ({ width, height, isLight, ...other }, ref) => {
+    return (
+      <StyledSkeleton
+        ref={ref}
+        isLight={isLight}
+        customWidth={width}
+        customHeight={height}
+        {...other}
+      >
+        &nbsp;
+      </StyledSkeleton>
+    );
+  }
+);
+
+Skeleton.displayName = 'Skeleton';
 
 Skeleton.propTypes = {
   width: PropTypes.string,
@@ -39,5 +49,3 @@ Skeleton.defaultProps = {
   width: '100%',
   height: '100%'
 };
-
-export default Skeleton;

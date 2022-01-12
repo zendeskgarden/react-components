@@ -8,7 +8,7 @@
 import React from 'react';
 import { render, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import Spinner from './Spinner';
+import { Spinner } from './Spinner';
 
 jest.useFakeTimers();
 
