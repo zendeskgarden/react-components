@@ -6,25 +6,37 @@
  */
 
 import React, { useState, HTMLAttributes, useMemo, forwardRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import { Field as FormField } from '@zendeskgarden/react-forms';
+import useDropdownContext from '../../utils/useDropdownContext';
 import { FieldContext } from '../../utils/useFieldContext';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Field = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const [isLabelHovered, setIsLabelHovered] = useState<boolean>(false);
+export const Field = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, fieldRef) => {
+    const {
+      downshift: { getRootProps }
+    } = useDropdownContext();
+    const [isLabelHovered, setIsLabelHovered] = useState<boolean>(false);
 
-  const value = useMemo(
-    () => ({ isLabelHovered, setIsLabelHovered }),
-    [isLabelHovered, setIsLabelHovered]
-  );
+    /**
+     * Only apply `rootRef` to allow correct screen-reader navigation in Safari
+     */
+    const { ref } = getRootProps();
 
-  return (
-    <FieldContext.Provider value={value}>
-      <FormField ref={ref} {...props} />
-    </FieldContext.Provider>
-  );
-});
+    const value = useMemo(
+      () => ({ isLabelHovered, setIsLabelHovered }),
+      [isLabelHovered, setIsLabelHovered]
+    );
+
+    return (
+      <FieldContext.Provider value={value}>
+        <FormField ref={mergeRefs([ref, fieldRef])} {...props} />
+      </FieldContext.Provider>
+    );
+  }
+);
 
 Field.displayName = 'Field';
