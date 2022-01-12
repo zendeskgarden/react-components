@@ -32,8 +32,6 @@ export interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
- *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(

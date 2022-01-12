@@ -5,24 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, HTMLAttributes, useMemo } from 'react';
+import React, { useState, HTMLAttributes, useMemo, forwardRef } from 'react';
 import { Field as FormField } from '@zendeskgarden/react-forms';
-import useDropdownContext from '../../utils/useDropdownContext';
 import { FieldContext } from '../../utils/useFieldContext';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Field: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = props => {
-  const {
-    downshift: { getRootProps }
-  } = useDropdownContext();
+export const Field = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const [isLabelHovered, setIsLabelHovered] = useState<boolean>(false);
-
-  /**
-   * Only apply `rootRef` to allow correct screen-reader navigation in Safari
-   */
-  const { ref } = getRootProps();
 
   const value = useMemo(
     () => ({ isLabelHovered, setIsLabelHovered }),
@@ -34,4 +25,6 @@ export const Field: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = pr
       <FormField ref={ref} {...props} />
     </FieldContext.Provider>
   );
-};
+});
+
+Field.displayName = 'Field';

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext, useRef, useState } from 'react';
+import React, { PropsWithChildren, useContext, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import Downshift, { ControllerStateAndHelpers, StateChangeOptions } from 'downshift';
@@ -57,7 +57,7 @@ export interface IDropdownProps {
   downshiftProps?: Record<string, any>;
 }
 
-export const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
+export const Dropdown = (props: PropsWithChildren<IDropdownProps>) => {
   const {
     children,
     isOpen,

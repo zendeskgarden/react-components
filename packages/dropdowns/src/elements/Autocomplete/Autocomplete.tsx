@@ -5,7 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState, HTMLAttributes, KeyboardEvent } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  HTMLAttributes,
+  KeyboardEvent,
+  forwardRef
+} from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
@@ -33,7 +40,10 @@ export interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   start?: any;
 }
 
-const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(
   ({ children, inputRef: controlledInputRef, start, ...props }, ref) => {
     const {
       popperReferenceElementRef,
@@ -162,10 +172,3 @@ Autocomplete.propTypes = {
   focusInset: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
-
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export default Autocomplete as React.FunctionComponent<
-  IAutocompleteProps & React.RefAttributes<HTMLDivElement>
->;

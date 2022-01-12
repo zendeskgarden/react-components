@@ -52,19 +52,22 @@ interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
 }
 
 export const Month = forwardRef<HTMLDivElement, IMonthProps>(
-  ({
-    locale,
-    displayDate,
-    isCompact,
-    isPreviousHidden,
-    isNextHidden,
-    dispatch,
-    minValue,
-    maxValue,
-    startValue,
-    endValue,
-    hoverDate
-  }) => {
+  (
+    {
+      locale,
+      displayDate,
+      isCompact,
+      isPreviousHidden,
+      isNextHidden,
+      dispatch,
+      minValue,
+      maxValue,
+      startValue,
+      endValue,
+      hoverDate
+    },
+    ref
+  ) => {
     const headerLabelFormatter = useCallback(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
@@ -250,6 +253,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
     return (
       <StyledDatepicker
+        ref={ref}
         isCompact={isCompact!}
         data-test-id="calendar-wrapper"
         onMouseDown={e => {

@@ -20,7 +20,7 @@ export interface ITriggerProps extends HTMLAttributes<HTMLElement> {
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...triggerProps }) => {
+export const Trigger = ({ children, refKey, ...triggerProps }: ITriggerProps) => {
   const {
     hasMenuRef,
     itemSearchRegistry,
@@ -248,5 +248,3 @@ Trigger.propTypes = {
 Trigger.defaultProps = {
   refKey: 'ref'
 };
-
-export default Trigger;
