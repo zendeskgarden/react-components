@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useRef, useContext, HTMLAttributes, useMemo } from 'react';
+import React, { useState, useRef, useContext, HTMLAttributes, useMemo, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
@@ -34,7 +34,7 @@ export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const Tabs = React.forwardRef<HTMLDivElement, ITabsProps>(
+export const Tabs = forwardRef<HTMLDivElement, ITabsProps>(
   (
     { isVertical, children, onChange, selectedItem: controlledSelectedItem, ...otherProps },
     ref
@@ -85,5 +85,3 @@ Tabs.defaultProps = {
 };
 
 Tabs.displayName = 'Tabs';
-
-export default Tabs;
