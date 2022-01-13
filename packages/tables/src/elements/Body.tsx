@@ -5,15 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import { StyledBody } from '../styled';
 
 /**
  * @extends HTMLAttributes<HTMLTableSectionElement>
  */
-export const Body = React.forwardRef<
-  HTMLTableSectionElement,
-  HTMLAttributes<HTMLTableSectionElement>
->((props, ref) => <StyledBody ref={ref} {...props} />);
+export const Body = forwardRef<HTMLTableSectionElement, HTMLAttributes<HTMLTableSectionElement>>(
+  (props, ref) => <StyledBody ref={ref} {...props} />
+);
 
 Body.displayName = 'Body';

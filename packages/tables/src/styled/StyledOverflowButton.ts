@@ -13,14 +13,10 @@ import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.overflow_button';
 
-export interface IStyledOverflowButtonProps {
-  /** Applies hover styling */
+interface IStyledOverflowButtonProps {
   isHovered?: boolean;
-  /** Applies active styling */
   isActive?: boolean;
-  /** Applies focus styling */
   isFocused?: boolean;
-  /** Sets the size */
   size: SIZE;
 }
 

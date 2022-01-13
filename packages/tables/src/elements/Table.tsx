@@ -7,10 +7,12 @@
 
 import React, { TableHTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { StyledTable, IStyledTableProps } from '../styled';
+import { StyledTable, SIZE } from '../styled';
 import { TableContext } from '../utils/useTableContext';
 
-export interface ITableProps extends IStyledTableProps, TableHTMLAttributes<HTMLTableElement> {
+export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
+  /** Sets the table size */
+  size?: SIZE;
   /** Removes interactive styling from table rows */
   isReadOnly?: boolean;
 }
@@ -38,5 +40,6 @@ Table.defaultProps = {
 };
 
 Table.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  isReadOnly: PropTypes.bool
 };

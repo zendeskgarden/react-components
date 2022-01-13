@@ -21,7 +21,8 @@ import {
   Row,
   SortableCell,
   ITableProps,
-  ISortableCellProps
+  ISortableCellProps,
+  IRowProps
 } from '@zendeskgarden/react-tables';
 import { CELL_WIDTH, TABLE_ROW } from './types';
 
@@ -33,7 +34,8 @@ interface IArgs extends ITableProps {
   hasSelection: boolean;
   isBold: boolean;
   isSortable: boolean;
-  isStriped?: boolean;
+  isSelected?: IRowProps['isSelected'];
+  isStriped?: IRowProps['isStriped'];
   isTruncated?: boolean;
 }
 
@@ -45,6 +47,7 @@ export const TableStory: Story<IArgs> = ({
   hasSelection,
   isBold,
   isSortable,
+  isSelected,
   isStriped,
   isTruncated,
   ...args
@@ -126,7 +129,11 @@ export const TableStory: Story<IArgs> = ({
                 </Cell>
               </GroupRow>
             ) : (
-              <Row key={rowIndex} isStriped={isStriped && rowIndex % 2 === 0}>
+              <Row
+                key={rowIndex}
+                isSelected={isSelected}
+                isStriped={isStriped && rowIndex % 2 === 0}
+              >
                 {hasSelection && (
                   <Cell isMinimum>
                     <Field>

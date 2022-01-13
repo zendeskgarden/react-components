@@ -5,15 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import { StyledHead } from '../styled';
 
 /**
  * @extends HTMLAttributes<HTMLTableSectionElement>
  */
-export const Head = React.forwardRef<
-  HTMLTableSectionElement,
-  HTMLAttributes<HTMLTableSectionElement>
->((props, ref) => <StyledHead ref={ref} {...props} />);
+export const Head = forwardRef<HTMLTableSectionElement, HTMLAttributes<HTMLTableSectionElement>>(
+  (props, ref) => <StyledHead ref={ref} {...props} />
+);
 
 Head.displayName = 'Head';

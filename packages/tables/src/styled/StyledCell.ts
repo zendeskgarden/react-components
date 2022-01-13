@@ -14,18 +14,10 @@ import { getRowHeight } from './style-utils';
 const COMPONENT_ID = 'tables.cell';
 
 export interface IStyledCellProps {
-  /**
-   * Applies minimum fixed width styling (e.g. for cells that contain
-   * checkboxes or icons)
-   */
   isMinimum?: boolean;
-  /** Truncates long text with an ellipsis */
   isTruncated?: boolean;
-  /** Applies styling for a cell that contains an overflow menu */
   hasOverflow?: boolean;
-  /** Adjusts the [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) of the cell */
   width?: string | number;
-  /** Adjusts the vertical padding of the cell */
   size: SIZE;
 }
 
