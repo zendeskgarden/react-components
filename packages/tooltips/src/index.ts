@@ -7,5 +7,5 @@
 
 export { Tooltip } from './elements/Tooltip';
 export type { ITooltipProps } from './elements/Tooltip';
-export { default as Paragraph } from './elements/Paragraph';
-export { default as Title } from './elements/Title';
+export { Paragraph } from './elements/Paragraph';
+export { Title } from './elements/Title';
