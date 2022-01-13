@@ -5,14 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { useModalContext } from '../../utils/useModalContext';
 import { StyledDrawerModalBody } from '../../styled';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Body = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+const BodyComponent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const { getContentProps } = useModalContext();
 
@@ -24,4 +21,9 @@ export const Body = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDi
   }
 );
 
-Body.displayName = 'DrawerModal.Body';
+BodyComponent.displayName = 'DrawerModal.Body';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Body = BodyComponent;

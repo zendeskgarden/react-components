@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useMemo, useContext, HTMLAttributes, useRef } from 'react';
+import React, { useEffect, useMemo, useContext, HTMLAttributes, useRef, forwardRef } from 'react';
 import { createPortal } from 'react-dom';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
@@ -18,7 +18,6 @@ import ownerDocument from 'dom-helpers/ownerDocument';
 import ownerWindow from 'dom-helpers/ownerWindow';
 import css from 'dom-helpers/css';
 import getScrollbarSize from 'dom-helpers/scrollbarSize';
-
 import { StyledModal, StyledBackdrop } from '../styled';
 import { ModalsContext } from '../utils/useModalContext';
 
@@ -60,10 +59,6 @@ export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
    */
   isAnimated?: boolean;
   /**
-   * Sets the root ID. A unique ID is created if none is provided.
-   */
-  id?: string;
-  /**
    * Defines the DOM element that the modal will attatch to
    */
   appendToNode?: Element;
@@ -84,7 +79,7 @@ export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
+export const Modal = forwardRef<HTMLDivElement, IModalProps>(
   (
     {
       backdropProps,

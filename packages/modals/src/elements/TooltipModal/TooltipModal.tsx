@@ -5,17 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useState,
-  useContext,
-  useMemo,
-  useEffect,
-  useRef,
-  HTMLAttributes,
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  RefAttributes
-} from 'react';
+import React, { useState, useContext, useMemo, useEffect, useRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { usePopper, Modifier } from 'react-popper';
@@ -28,25 +18,12 @@ import {
   getPopperPlacement
 } from '../../utils/gardenPlacements';
 import { TooltipModalContext } from '../../utils/useTooltipModalContext';
-import {
-  StyledTooltipWrapper,
-  StyledTooltipModal,
-  StyledTooltipModalFooter,
-  StyledTooltipModalFooterItem,
-  StyledTooltipModalBackdrop
-} from '../../styled';
+import { StyledTooltipWrapper, StyledTooltipModal, StyledTooltipModalBackdrop } from '../../styled';
 import { Title } from './Title';
 import { Body } from './Body';
 import { Close } from './Close';
-
-interface IStaticTooltipModalExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Title: typeof Title;
-  Body: typeof Body;
-  Close: typeof Close;
-  Footer: typeof StyledTooltipModalFooter;
-  FooterItem: typeof StyledTooltipModalFooterItem;
-}
+import { Footer } from './Footer';
+import { FooterItem } from './FooterItem';
 
 export interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -91,16 +68,9 @@ export interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
    * Returns keyboard focus to the element that triggered the modal
    */
   restoreFocus?: boolean;
-  /**
-   * Sets the root ID. A unique ID is created if none is provided.
-   */
-  id?: string;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>(
+const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProps>(
   (
     {
       referenceElement,
@@ -201,15 +171,11 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
       </CSSTransition>
     );
   }
-) as IStaticTooltipModalExport<HTMLDivElement, ITooltipModalProps>;
+);
 
-TooltipModal.Title = Title;
-TooltipModal.Body = Body;
-TooltipModal.Close = Close;
-TooltipModal.Footer = StyledTooltipModalFooter;
-TooltipModal.FooterItem = StyledTooltipModalFooterItem;
+TooltipModalComponent.displayName = 'TooltipModal';
 
-TooltipModal.defaultProps = {
+TooltipModalComponent.defaultProps = {
   placement: 'auto',
   isAnimated: true,
   hasArrow: true,
@@ -217,7 +183,7 @@ TooltipModal.defaultProps = {
   restoreFocus: true
 };
 
-TooltipModal.propTypes = {
+TooltipModalComponent.propTypes = {
   referenceElement: PropTypes.any,
   popperModifiers: PropTypes.any,
   placement: PropTypes.any,
@@ -231,4 +197,19 @@ TooltipModal.propTypes = {
   id: PropTypes.string
 };
 
-TooltipModal.displayName = 'TooltipModal';
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const TooltipModal = TooltipModalComponent as typeof TooltipModalComponent & {
+  Body: typeof Body;
+  Close: typeof Close;
+  Footer: typeof Footer;
+  FooterItem: typeof FooterItem;
+  Title: typeof Title;
+};
+
+TooltipModal.Body = Body;
+TooltipModal.Close = Close;
+TooltipModal.Footer = Footer;
+TooltipModal.FooterItem = FooterItem;
+TooltipModal.Title = Title;

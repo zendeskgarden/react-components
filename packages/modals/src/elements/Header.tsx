@@ -5,17 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import { useModalContext } from '../utils/useModalContext';
-import { StyledDangerIcon, StyledHeader, IStyledHeaderProps } from '../styled';
+import { StyledDangerIcon, StyledHeader } from '../styled';
+
+export interface IHeaderProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Applies danger styling
+   */
+  isDanger?: boolean;
+}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Header = React.forwardRef<
-  HTMLDivElement,
-  IStyledHeaderProps & React.HTMLAttributes<HTMLDivElement>
->((props, ref) => {
+export const Header = forwardRef<HTMLDivElement, IHeaderProps>((props, ref) => {
   const { getTitleProps } = useModalContext();
 
   return (

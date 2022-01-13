@@ -5,17 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useEffect,
-  useRef,
-  useMemo,
-  useContext,
-  forwardRef,
-  RefAttributes,
-  HTMLAttributes,
-  PropsWithoutRef,
-  ForwardRefExoticComponent
-} from 'react';
+import React, { useEffect, useRef, useMemo, useContext, forwardRef, HTMLAttributes } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
@@ -25,25 +15,12 @@ import { useModal } from '@zendeskgarden/container-modal';
 import { useDocument } from '@zendeskgarden/react-theming';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { ModalsContext } from '../../utils/useModalContext';
-import {
-  StyledBackdrop,
-  StyledDrawerModal,
-  StyledDrawerModalFooter,
-  StyledDrawerModalFooterItem
-} from '../../styled';
-
+import { StyledBackdrop, StyledDrawerModal } from '../../styled';
 import { Header } from './Header';
 import { Body } from './Body';
 import { Close } from './Close';
-
-interface IStaticDrawerModalExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Header: typeof Header;
-  Body: typeof Body;
-  Close: typeof Close;
-  Footer: typeof StyledDrawerModalFooter;
-  FooterItem: typeof StyledDrawerModalFooterItem;
-}
+import { Footer } from './Footer';
+import { FooterItem } from './FooterItem';
 
 export interface IDrawerModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -61,10 +38,6 @@ export interface IDrawerModalProps extends HTMLAttributes<HTMLDivElement> {
    */
   onClose?: (event: KeyboardEvent | MouseEvent) => void;
   /**
-   * Sets the root ID. A unique ID is created if none is provided.
-   */
-  id?: string;
-  /**
    * Defines the DOM element that the modal will attatch to
    */
   appendToNode?: Element;
@@ -78,13 +51,7 @@ export interface IDrawerModalProps extends HTMLAttributes<HTMLDivElement> {
   restoreFocus?: boolean;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const DrawerModal = forwardRef<
-  HTMLDivElement,
-  IDrawerModalProps & HTMLAttributes<HTMLDivElement>
->(
+const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
   (
     { id, isOpen, onClose, backdropProps, appendToNode, focusOnMount, restoreFocus, ...props },
     ref
@@ -173,17 +140,11 @@ export const DrawerModal = forwardRef<
       rootNode
     );
   }
-) as IStaticDrawerModalExport<HTMLDivElement, IDrawerModalProps>;
+);
 
-DrawerModal.Header = Header;
-DrawerModal.Body = Body;
-DrawerModal.Close = Close;
-DrawerModal.Footer = StyledDrawerModalFooter;
-DrawerModal.FooterItem = StyledDrawerModalFooterItem;
+DrawerModalComponent.displayName = 'DrawerModal';
 
-DrawerModal.displayName = 'DrawerModal';
-
-DrawerModal.propTypes = {
+DrawerModalComponent.propTypes = {
   backdropProps: PropTypes.object,
   focusOnMount: PropTypes.bool,
   restoreFocus: PropTypes.bool,
@@ -192,3 +153,20 @@ DrawerModal.propTypes = {
   id: PropTypes.string,
   isOpen: PropTypes.bool
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const DrawerModal = DrawerModalComponent as typeof DrawerModalComponent & {
+  Body: typeof Body;
+  Close: typeof Close;
+  Footer: typeof Footer;
+  FooterItem: typeof FooterItem;
+  Header: typeof Header;
+};
+
+DrawerModal.Body = Body;
+DrawerModal.Close = Close;
+DrawerModal.Footer = Footer;
+DrawerModal.FooterItem = FooterItem;
+DrawerModal.Header = Header;

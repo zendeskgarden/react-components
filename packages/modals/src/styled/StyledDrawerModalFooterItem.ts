@@ -11,7 +11,7 @@ import { StyledFooterItem } from './StyledFooterItem';
 
 const COMPONENT_ID = 'modals.drawer_modal.footer_item';
 
-export const StyledDrawerModalFooterItem = styled(StyledFooterItem).attrs({
+export const StyledDrawerModalFooterItem = styled(StyledFooterItem as 'span').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

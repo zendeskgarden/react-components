@@ -12,7 +12,6 @@ export { StyledClose } from './StyledClose';
 export { StyledFooter } from './StyledFooter';
 export { StyledFooterItem } from './StyledFooterItem';
 export { StyledHeader } from './StyledHeader';
-export type { IStyledHeaderProps } from './StyledHeader';
 export { StyledDangerIcon } from './StyledDangerIcon';
 export { StyledModal } from './StyledModal';
 export type { IStyledModalProps } from './StyledModal';

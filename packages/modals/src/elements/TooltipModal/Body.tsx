@@ -5,19 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import { StyledTooltipModalBody } from '../../styled';
 import { useTooltipModalContext } from '../../utils/useTooltipModalContext';
+
+const BodyComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { getContentProps } = useTooltipModalContext();
+
+  return <StyledTooltipModalBody ref={ref} {...getContentProps(props)} />;
+});
+
+BodyComponent.displayName = 'TooltipModal.Body';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Body = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    const { getContentProps } = useTooltipModalContext();
-
-    return <StyledTooltipModalBody ref={ref} {...getContentProps(props)} />;
-  }
-);
-
-Body.displayName = 'TooltipModal.Body';
+export const Body = BodyComponent;
