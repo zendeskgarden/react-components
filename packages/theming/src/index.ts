@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as ThemeProvider } from './elements/ThemeProvider';
+export { ThemeProvider } from './elements/ThemeProvider';
 export type { IThemeProviderProps } from './elements/ThemeProvider';
 export { default as DEFAULT_THEME } from './elements/theme';
 export type { IGardenTheme } from './elements/theme';

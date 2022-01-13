@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
+import React, { PropsWithChildren, useRef } from 'react';
 import { ThemeProvider as StyledThemeProvider, ThemeProps } from 'styled-components';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
@@ -28,12 +28,12 @@ export interface IThemeProviderProps extends Partial<ThemeProps<IGardenTheme>> {
   focusVisibleRef?: React.RefObject<HTMLElement> | null;
 }
 
-const ThemeProvider: React.FunctionComponent<IThemeProviderProps> = ({
+export const ThemeProvider = ({
   theme,
   focusVisibleRef,
   children,
   ...other
-}) => {
+}: PropsWithChildren<IThemeProviderProps>) => {
   const scopeRef = useRef<HTMLDivElement>(null);
   const relativeDocument = useDocument(theme);
   const controlledScopeRef =
@@ -57,5 +57,3 @@ const ThemeProvider: React.FunctionComponent<IThemeProviderProps> = ({
 ThemeProvider.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-export default ThemeProvider;

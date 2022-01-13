@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import ThemeProvider from './ThemeProvider';
+import { ThemeProvider } from './ThemeProvider';
 
 describe('ThemeProvider', () => {
   it('renders a :focus-visible scoping <div> by default', () => {
