@@ -8,7 +8,7 @@
 import { useCallback, useContext } from 'react';
 import { uid } from 'react-uid';
 import { IToast, IToastOptions, ToastContent } from './reducer';
-import { ToastContext } from './ToastProvider';
+import { ToastContext } from './ToastContext';
 
 const DEFAULT_TOAST_OPTIONS: IToastOptions = {
   autoDismiss: 5000,
