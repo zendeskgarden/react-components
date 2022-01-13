@@ -5,19 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledClose } from '../styled';
 import XIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-const Close = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
+const CloseComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
   <StyledClose ref={ref} {...props}>
     <XIcon />
   </StyledClose>
 ));
 
-Close.displayName = 'Close';
+CloseComponent.displayName = 'Tag.Close';
 
-export default Close;
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Close = CloseComponent;
