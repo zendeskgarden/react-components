@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import UnorderedList from './UnorderedList';
+import { UnorderedList } from './UnorderedList';
 
 describe('UnorderedList', () => {
   it('applies <ul> rendering by default', () => {

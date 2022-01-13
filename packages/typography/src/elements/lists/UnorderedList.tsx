@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useMemo } from 'react';
+import React, { forwardRef, HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import UnorderedListItem from './UnorderedListItem';
+import { Item } from './UnorderedListItem';
 import { UnorderedListContext } from '../../utils/useUnorderedListContext';
 import { StyledUnorderedList } from '../../styled';
 
@@ -18,7 +18,7 @@ export interface IUnorderedListProps extends HTMLAttributes<HTMLUListElement> {
   type?: 'circle' | 'disc' | 'square';
 }
 
-const UnorderedList = React.forwardRef<HTMLUListElement, IUnorderedListProps>(
+const UnorderedListComponent = forwardRef<HTMLUListElement, IUnorderedListProps>(
   ({ size, type, ...other }, ref) => {
     const value = useMemo(() => ({ size: size! }), [size]);
 
@@ -30,25 +30,23 @@ const UnorderedList = React.forwardRef<HTMLUListElement, IUnorderedListProps>(
   }
 );
 
-UnorderedList.displayName = 'UnorderedList';
+UnorderedListComponent.displayName = 'UnorderedList';
 
-UnorderedList.propTypes = {
+UnorderedListComponent.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   type: PropTypes.oneOf(['circle', 'disc', 'square'])
 };
 
-UnorderedList.defaultProps = {
+UnorderedListComponent.defaultProps = {
   size: 'medium',
   type: 'disc'
 };
 
-(UnorderedList as any).Item = UnorderedListItem;
-
 /**
  * @extends HTMLAttributes<HTMLUListElement>
  */
-export default UnorderedList as unknown as React.FunctionComponent<
-  IUnorderedListProps & React.RefAttributes<HTMLUListElement>
-> & {
-  Item: typeof UnorderedListItem;
+export const UnorderedList = UnorderedListComponent as typeof UnorderedListComponent & {
+  Item: typeof Item;
 };
+
+UnorderedList.Item = Item;

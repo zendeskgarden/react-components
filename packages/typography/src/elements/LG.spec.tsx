@@ -8,7 +8,7 @@
 import React from 'react';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
-import LG from './LG';
+import { LG } from './LG';
 
 describe('LG', () => {
   it('applies bold styling if provided', () => {

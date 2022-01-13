@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledParagraph } from '../styled';
 
@@ -17,21 +17,21 @@ export interface IParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
 /**
  * @extends HTMLAttributes<HTMLParagraphElement>
  */
-const Paragraph: React.FunctionComponent<
-  IParagraphProps & React.RefAttributes<HTMLParagraphElement>
-> = React.forwardRef<HTMLParagraphElement, IParagraphProps>(({ size, ...other }, ref) => {
-  let _size: 'sm' | 'md' | 'lg';
+export const Paragraph = forwardRef<HTMLParagraphElement, IParagraphProps>(
+  ({ size, ...other }, ref) => {
+    let _size: 'sm' | 'md' | 'lg';
 
-  if (size === 'small') {
-    _size = 'sm';
-  } else if (size === 'medium') {
-    _size = 'md';
-  } else {
-    _size = 'lg';
+    if (size === 'small') {
+      _size = 'sm';
+    } else if (size === 'medium') {
+      _size = 'md';
+    } else {
+      _size = 'lg';
+    }
+
+    return <StyledParagraph ref={ref} size={_size} {...other} />;
   }
-
-  return <StyledParagraph ref={ref} size={_size} {...other} />;
-});
+);
 
 Paragraph.displayName = 'Paragraph';
 
@@ -42,5 +42,3 @@ Paragraph.propTypes = {
 Paragraph.defaultProps = {
   size: 'medium'
 };
-
-export default Paragraph;

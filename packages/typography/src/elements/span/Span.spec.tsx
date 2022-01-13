@@ -8,7 +8,7 @@
 import React from 'react';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
-import Span from './Span';
+import { Span } from './Span';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 
 describe('Span', () => {

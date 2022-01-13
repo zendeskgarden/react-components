@@ -8,7 +8,7 @@
 import React from 'react';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
-import SM from './SM';
+import { SM } from './SM';
 
 describe('SM', () => {
   it('applies bold styling if provided', () => {

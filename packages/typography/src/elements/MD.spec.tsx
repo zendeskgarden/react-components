@@ -8,7 +8,7 @@
 import React from 'react';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
-import MD from './MD';
+import { MD } from './MD';
 
 describe('MD', () => {
   it('applies bold styling if provided', () => {

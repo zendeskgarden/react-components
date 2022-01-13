@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
 
@@ -19,10 +19,9 @@ export interface IXLProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const XL: React.FunctionComponent<IXLProps & React.RefAttributes<HTMLDivElement>> =
-  React.forwardRef<HTMLDivElement, IXLProps>(({ tag, ...other }, ref) => (
-    <StyledFont as={tag} ref={ref} size="xl" {...other} />
-  ));
+export const XL = forwardRef<HTMLDivElement, IXLProps>(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="xl" {...other} />
+));
 
 XL.displayName = 'XL';
 
@@ -34,5 +33,3 @@ XL.propTypes = {
 XL.defaultProps = {
   tag: 'div'
 };
-
-export default XL;

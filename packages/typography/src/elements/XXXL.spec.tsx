@@ -8,7 +8,7 @@
 import React from 'react';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
-import XXXL from './XXXL';
+import { XXXL } from './XXXL';
 
 describe('XXXL', () => {
   it('applies bold styling if provided', () => {
