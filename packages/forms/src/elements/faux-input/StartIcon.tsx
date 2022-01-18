@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, SVGAttributes } from 'react';
+import React, { SVGAttributes } from 'react';
 import { StyledTextMediaFigure } from '../../styled';
 
 export interface IFauxInputStartIconProps extends SVGAttributes<SVGElement> {
@@ -19,9 +19,9 @@ export interface IFauxInputStartIconProps extends SVGAttributes<SVGElement> {
   isRotated?: boolean;
 }
 
-const StartIconComponent = forwardRef<Element, IFauxInputStartIconProps>((props, ref) => (
-  <StyledTextMediaFigure position="start" ref={ref} {...props} />
-));
+const StartIconComponent = (props: IFauxInputStartIconProps) => (
+  <StyledTextMediaFigure position="start" {...props} />
+);
 
 StartIconComponent.displayName = 'FauxInput.StartIcon';
 

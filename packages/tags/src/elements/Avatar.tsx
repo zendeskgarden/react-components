@@ -5,12 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 import { StyledAvatar } from '../styled';
 
-const AvatarComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (
-  <StyledAvatar ref={ref} {...props} />
-));
+const AvatarComponent = (props: HTMLAttributes<HTMLElement>) => <StyledAvatar {...props} />;
 
 AvatarComponent.displayName = 'Tag.Avatar';
 
