@@ -5,16 +5,36 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, HTMLAttributes } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  HTMLAttributes,
+  isValidElement,
+  PropsWithChildren,
+  ReactHTMLElement
+} from 'react';
+import { ThemeProps } from 'styled-components';
 import { StyledHeaderItemIcon } from '../../styled';
 
 /**
- * @extends HTMLAttributes<any>
+ * @extends HTMLAttributes<HTMLElement>
  */
-export const HeaderItemIcon: React.FC<HTMLAttributes<any>> = ({ children, ...props }) => {
-  // The `forwardRef` API is not needed in this element since we are cloning the provided child.
-  const Element: React.FC<unknown> = elementProps =>
-    React.cloneElement(Children.only(children as any), { ...elementProps, ...props });
+export const HeaderItemIcon = ({
+  children,
+  ...props
+}: PropsWithChildren<HTMLAttributes<HTMLElement>>) => {
+  const element = Children.only(children) as ReactHTMLElement<HTMLElement>;
 
-  return <StyledHeaderItemIcon as={Element as any} {...props} />;
+  if (isValidElement(element)) {
+    const Icon = (iconProps: ThemeProps<HTMLAttributes<HTMLElement>>) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { theme, ...cloneProps } = { ...props, ...iconProps };
+
+      return cloneElement<HTMLAttributes<HTMLElement>, HTMLElement>(element, cloneProps);
+    };
+
+    return <StyledHeaderItemIcon as={Icon} {...props} />;
+  }
+
+  return null;
 };

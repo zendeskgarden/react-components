@@ -6,14 +6,22 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import { StyledHeaderItemWrapper, IStyledBaseHeaderItemProps } from '../../styled';
+import { StyledHeaderItemWrapper } from '../../styled';
+
+export interface IHeaderItemWrapperProps extends HTMLAttributes<HTMLDivElement> {
+  /** Maximizes the width of a flex item in the header */
+  maxX?: boolean;
+  /** Maximizes the height of the item (i.e. contains a search input) */
+  maxY?: boolean;
+  /** Rounds the border radius of the item */
+  isRound?: boolean;
+}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const HeaderItemWrapper = React.forwardRef<
-  HTMLDivElement,
-  IStyledBaseHeaderItemProps & HTMLAttributes<HTMLDivElement>
->((props, ref) => <StyledHeaderItemWrapper ref={ref} {...props} />);
+export const HeaderItemWrapper = React.forwardRef<HTMLDivElement, IHeaderItemWrapperProps>(
+  (props, ref) => <StyledHeaderItemWrapper ref={ref} {...props} />
+);
 
 HeaderItemWrapper.displayName = 'HeaderItemWrapper';

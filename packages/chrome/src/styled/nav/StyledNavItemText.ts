@@ -18,9 +18,7 @@ import { getNavWidth } from './StyledNav';
 const COMPONENT_ID = 'chrome.nav_item_text';
 
 export interface IStyledNavItemTextProps {
-  /** Wraps overflow item text instead of truncating long strings with an ellipsis **/
   isWrapped?: boolean;
-  /** Reveals item text */
   isExpanded?: boolean;
 }
 

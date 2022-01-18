@@ -17,10 +17,6 @@ import { getSubNavItemHeight } from './StyledSubNavItem';
 const COMPONENT_ID = 'chrome.subnav_item_text';
 
 export interface IStyledSubNavItemTextProps {
-  /**
-   * Wraps overflow item text instead of truncating long strings with an ellipsis.
-   * Use when `max-width` styling is applied to the subnav container.
-   **/
   isWrapped?: boolean;
 }
 

@@ -9,7 +9,7 @@ import React, { AnchorHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledSkipNav, StyledSkipNavIcon } from '../styled';
 
-interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /** Sets the ID of the element to navigate to */
   targetId: string;
   /** Sets the `z-index` of the element */

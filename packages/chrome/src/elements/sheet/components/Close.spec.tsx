@@ -8,7 +8,7 @@
 import React from 'react';
 import { render, screen } from 'garden-test-utils';
 
-import { SheetClose as Close } from './Close';
+import { Close } from './Close';
 
 describe('Sheet.Close', () => {
   it('passes ref to underlying DOM element', () => {

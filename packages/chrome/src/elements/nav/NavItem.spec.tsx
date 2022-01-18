@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { PALETTE, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import Chrome from '../Chrome';
+import { Chrome } from '../Chrome';
 import { NavItem } from './NavItem';
 import { Nav } from './Nav';
 import { PRODUCT, PRODUCTS } from '../../utils/types';

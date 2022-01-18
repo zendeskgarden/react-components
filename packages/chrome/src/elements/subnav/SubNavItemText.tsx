@@ -7,15 +7,22 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledSubNavItemText, IStyledSubNavItemTextProps } from '../../styled';
+import { StyledSubNavItemText } from '../../styled';
+
+export interface ISubNavItemTextProps extends HTMLAttributes<HTMLSpanElement> {
+  /**
+   * Wraps overflow item text instead of truncating long strings with an ellipsis.
+   * Use when `max-width` styling is applied to the subnav container.
+   **/
+  isWrapped?: boolean;
+}
 
 /**
  * @extends HTMLAttributes<HTMLSpanElement>
  */
-export const SubNavItemText = React.forwardRef<
-  HTMLElement,
-  IStyledSubNavItemTextProps & HTMLAttributes<HTMLSpanElement>
->((props, ref) => <StyledSubNavItemText ref={ref} {...props} />);
+export const SubNavItemText = React.forwardRef<HTMLElement, ISubNavItemTextProps>((props, ref) => (
+  <StyledSubNavItemText ref={ref} {...props} />
+));
 
 SubNavItemText.displayName = 'SubNavItemText';
 

@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 import { StyledSheetClose } from '../../../styled';
 
-export const SheetClose = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
+const SheetClose = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     return (
       <StyledSheetClose aria-label="Close Sheet" ref={ref} {...props}>
@@ -21,3 +21,8 @@ export const SheetClose = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButto
 );
 
 SheetClose.displayName = 'Sheet.Close';
+
+/**
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
+export const Close = SheetClose;

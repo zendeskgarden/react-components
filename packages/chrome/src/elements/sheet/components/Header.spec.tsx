@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
-import { SheetHeader as Header } from './Header';
+import { Header } from './Header';
 
 describe('Sheet.Header', () => {
   it('passes ref to underlying DOM element', () => {

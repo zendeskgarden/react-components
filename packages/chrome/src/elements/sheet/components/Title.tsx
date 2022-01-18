@@ -10,7 +10,7 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledSheetTitle } from '../../../styled';
 import { useSheetContext } from '../../../utils/useSheetContext';
 
-export const SheetTitle = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+const SheetTitle = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ id, ...props }, ref) => {
     const { titleId } = useSheetContext();
 
@@ -19,3 +19,8 @@ export const SheetTitle = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
 );
 
 SheetTitle.displayName = 'Sheet.Title';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Title = SheetTitle;

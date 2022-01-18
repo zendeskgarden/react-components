@@ -8,8 +8,13 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledSheetHeader } from '../../../styled';
 
-export const SheetHeader = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
+const SheetHeader = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   return <StyledSheetHeader ref={ref} {...props} />;
 });
 
 SheetHeader.displayName = 'Sheet.Header';
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+export const Header = SheetHeader;

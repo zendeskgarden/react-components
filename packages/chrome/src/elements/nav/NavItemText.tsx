@@ -7,16 +7,18 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledNavItemText, IStyledNavItemTextProps } from '../../styled';
+import { StyledNavItemText } from '../../styled';
 import { useNavContext } from '../../utils/useNavContext';
+
+export interface INavItemTextProps extends HTMLAttributes<HTMLSpanElement> {
+  /** Wraps overflow item text instead of truncating long strings with an ellipsis **/
+  isWrapped?: boolean;
+}
 
 /**
  * @extends HTMLAttributes<HTMLSpanElement>
  */
-export const NavItemText = React.forwardRef<
-  HTMLElement,
-  Omit<IStyledNavItemTextProps, 'isExpanded'> & HTMLAttributes<HTMLSpanElement>
->((props, ref) => {
+export const NavItemText = React.forwardRef<HTMLElement, INavItemTextProps>((props, ref) => {
   const { isExpanded } = useNavContext();
 
   return <StyledNavItemText ref={ref} isExpanded={isExpanded} {...props} />;

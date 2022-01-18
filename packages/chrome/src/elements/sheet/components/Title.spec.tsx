@@ -8,7 +8,7 @@
 import React from 'react';
 import { render, screen } from 'garden-test-utils';
 
-import { SheetTitle as Title } from './Title';
+import { Title } from './Title';
 
 describe('Sheet.Title', () => {
   const titleText = 'Sheet.Title';

@@ -15,11 +15,8 @@ import {
 const COMPONENT_ID = 'chrome.base_header_item';
 
 export interface IStyledBaseHeaderItemProps {
-  /** Maximizes the width of a flex item in the header */
   maxX?: boolean;
-  /** Maximizes the height of the item (i.e. contains a search input) */
   maxY?: boolean;
-  /** Rounds the border radius of the item */
   isRound?: boolean;
 }
 
