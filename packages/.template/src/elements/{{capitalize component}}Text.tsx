@@ -8,11 +8,13 @@
 import React, { HTMLAttributes, forwardRef } from 'react';
 import { Styled{{capitalize component}}Text } from '../styled';
 
-/**
- * @extends HTMLAttributes<HTMLElement>
- */
-export const {{capitalize component}}Text = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (
+const {{capitalize component}}TextComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (
   <Styled{{capitalize component}}Text ref={ref} {...props} />
 ));
 
-{{capitalize component}}Text.displayName = '{{capitalize component}}.Text';
+{{capitalize component}}TextComponent.displayName = '{{capitalize component}}.Text';
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+export const {{capitalize component}}Text = {{capitalize component}}TextComponent;
