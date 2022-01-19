@@ -10,13 +10,22 @@ import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden
 
 const COMPONENT_ID = 'chrome.sheet_header';
 
+export interface IStyledSheetHeaderProps {
+  isCloseButtonPresent?: boolean;
+}
+
 export const StyledSheetHeader = styled.header.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<ThemeProps<DefaultTheme>>`
+})<IStyledSheetHeaderProps & ThemeProps<DefaultTheme>>`
   border-bottom: ${props =>
     `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}}`};
   padding: ${props => props.theme.space.base * 5}px;
+  ${props =>
+    props.isCloseButtonPresent &&
+    // the padding size accounts for 40px (10 bse units) size of the button,
+    // 8px additional padding and 8px padding for the button position from a given side.
+    `padding-${props.theme.rtl ? 'left' : 'right'}: ${props.theme.space.base * 14}px;`}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
