@@ -13,7 +13,7 @@ import React, {
   PropsWithChildren,
   ReactHTMLElement
 } from 'react';
-import { ThemeProps } from 'styled-components';
+import { DefaultTheme, ThemeProps } from 'styled-components';
 import { StyledHeaderItemIcon } from '../../styled';
 
 /**
@@ -26,12 +26,12 @@ export const HeaderItemIcon = ({
   const element = Children.only(children) as ReactHTMLElement<HTMLElement>;
 
   if (isValidElement(element)) {
-    const Icon = (iconProps: ThemeProps<HTMLAttributes<HTMLElement>>) => {
+    const Icon = ({
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { theme, ...cloneProps } = { ...props, ...iconProps };
-
-      return cloneElement<HTMLAttributes<HTMLElement>, HTMLElement>(element, cloneProps);
-    };
+      theme,
+      ...iconProps
+    }: ThemeProps<DefaultTheme> & HTMLAttributes<HTMLElement>) =>
+      cloneElement<HTMLAttributes<HTMLElement>, HTMLElement>(element, { ...props, ...iconProps });
 
     return <StyledHeaderItemIcon as={Icon} {...props} />;
   }
