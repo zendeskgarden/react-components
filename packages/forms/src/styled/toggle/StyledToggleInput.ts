@@ -45,6 +45,10 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const checkedIconPosition = math(`${width} - ${iconSize} - ${iconPosition}`);
 
   return css`
+    top: 0;
+    width: ${width};
+    height: ${height};
+
     & ~ ${StyledToggleLabel}::before {
       width: ${width};
       height: ${height};
