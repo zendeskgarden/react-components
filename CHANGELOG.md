@@ -12,6 +12,29 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.47.2 (2022-01-13)
+
+#### :memo: Documentation
+* `grid`
+  * [#1266](https://github.com/zendeskgarden/react-components/pull/1266) docs(grid): visualize with debug ([@mtomcal](https://github.com/mtomcal))
+
+#### :seedling: Internal
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1265](https://github.com/zendeskgarden/react-components/pull/1265) chore(demo): refactor storybook ([@jzempel](https://github.com/jzempel))
+* `avatars`, `chrome`, `dropdowns`, `forms`, `grid`, `loaders`, `theming`
+  * [#1261](https://github.com/zendeskgarden/react-components/pull/1261) chore(deps): update dependency @zendeskgarden/eslint-config to v26 ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1263](https://github.com/zendeskgarden/react-components/pull/1263) chore(deps): update dependency babel-plugin-styled-components to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1258](https://github.com/zendeskgarden/react-components/pull/1258) chore(deps): update dependency @rollup/plugin-commonjs to v21 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1255](https://github.com/zendeskgarden/react-components/pull/1255) chore(deps): update node orb to v4.9.0 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1254](https://github.com/zendeskgarden/react-components/pull/1254) fix(deps): update non-major example dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#1260](https://github.com/zendeskgarden/react-components/pull/1260) chore(deps): update dependency @svgr/webpack to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`
+  * [#1257](https://github.com/zendeskgarden/react-components/pull/1257) fix(deps): update dependency @zendeskgarden/container-utilities to ^0.7.0 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1256](https://github.com/zendeskgarden/react-components/pull/1256) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.47.1 (2021-12-09)
 
 #### :bug: Bug Fix
