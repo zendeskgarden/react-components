@@ -56,7 +56,7 @@ export type { IFileProps } from './elements/file-list/components/File';
 /** Other */
 export { FauxInput } from './elements/faux-input/FauxInput';
 export type { IFauxInputProps, IIconProps } from './elements/faux-input/FauxInput';
-export type { IFauxInputStartIconProps } from './elements/faux-input/StartIcon';
-export type { IFauxInputEndIconProps } from './elements/faux-input/EndIcon';
+export type { IFauxInputStartIconProps } from './elements/faux-input/components/StartIcon';
+export type { IFauxInputEndIconProps } from './elements/faux-input/components/EndIcon';
 export { MediaInput } from './elements/MediaInput';
 export type { IMediaInputProps } from './elements/MediaInput';

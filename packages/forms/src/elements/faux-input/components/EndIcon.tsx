@@ -6,9 +6,9 @@
  */
 
 import React, { SVGAttributes } from 'react';
-import { StyledTextMediaFigure } from '../../styled';
+import { StyledTextMediaFigure } from '../../../styled';
 
-export interface IFauxInputStartIconProps extends SVGAttributes<SVGElement> {
+export interface IFauxInputEndIconProps extends SVGAttributes<SVGElement> {
   /** Applies hover styling */
   isHovered?: boolean;
   /** Applies focus styling */
@@ -19,13 +19,13 @@ export interface IFauxInputStartIconProps extends SVGAttributes<SVGElement> {
   isRotated?: boolean;
 }
 
-const StartIconComponent = (props: IFauxInputStartIconProps) => (
-  <StyledTextMediaFigure position="start" {...props} />
+const EndIconComponent = (props: IFauxInputEndIconProps) => (
+  <StyledTextMediaFigure position="end" {...props} />
 );
 
-StartIconComponent.displayName = 'FauxInput.StartIcon';
+EndIconComponent.displayName = 'FauxInput.EndIcon';
 
 /**
  * @extends SVGAttributes<SVGElement>
  */
-export const StartIcon = StartIconComponent;
+export const EndIcon = EndIconComponent;

@@ -27,7 +27,7 @@ import {
 } from '../../../styled';
 import useDatepickerContext from '../utils/useDatepickerContext';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
-import MonthSelector from './MonthSelector';
+import { MonthSelector } from './MonthSelector';
 
 interface ICalendarProps extends HTMLAttributes<HTMLDivElement> {
   value?: Date;

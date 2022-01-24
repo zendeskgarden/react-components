@@ -10,8 +10,8 @@ import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { StyledTextFauxInput } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
-import { StartIcon } from './StartIcon';
-import { EndIcon } from './EndIcon';
+import { StartIcon } from './components/StartIcon';
+import { EndIcon } from './components/EndIcon';
 
 /**
  * @deprecated use IFauxInputStartIconProps or IFauxInputEndIconProps instead

@@ -5,17 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import { useModalContext } from '../../utils/useModalContext';
 import { StyledDrawerModalHeader } from '../../styled';
 
-const HeaderComponent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    const { getTitleProps } = useModalContext();
+const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { getTitleProps } = useModalContext();
 
-    return <StyledDrawerModalHeader ref={ref} {...getTitleProps(props)} />;
-  }
-);
+  return <StyledDrawerModalHeader ref={ref} {...getTitleProps(props)} />;
+});
 
 HeaderComponent.displayName = 'DrawerModal.Header';
 
