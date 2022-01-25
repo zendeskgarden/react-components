@@ -31,8 +31,6 @@ export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
   delayMS?: number;
   /** Allows the tooltip to reposition during browser resize events */
   eventsEnabled?: boolean;
-  /** Sets the ID of the tooltip */
-  id?: string;
   /** Defines the content of the tooltip */
   content: React.ReactNode;
   /**
@@ -51,6 +49,7 @@ export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
   isInitialVisible?: boolean;
   /** Displays the tooltip */
   isVisible?: boolean;
+  /** @ignore ReactNode override */
   children: React.ReactElement;
   /** Defines the ref key used to position the tooltip */
   refKey?: string;
