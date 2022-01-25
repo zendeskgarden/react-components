@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent, renderRtl, act } from 'garden-test-utils';
 import { Dropdown, Multiselect, Field, Menu, Item, Label, PreviousItem } from '../..';
@@ -184,6 +184,70 @@ describe('Multiselect', () => {
 
     expect(icon).toHaveStyleRule('width', '16px');
     expect(icon).toHaveStyleRule('height', '16px');
+  });
+
+  it('composes onKeyDown handler', () => {
+    const onKeyDown = jest.fn();
+    const EVERLASTING_WINGED = 'Everlasting winged';
+    const options = ['Celosia', 'Dusty miller', EVERLASTING_WINGED];
+
+    const Example = () => {
+      const [inputValue, setInputValue] = useState('');
+      const [matchingOptions, setMatchingOptions] = useState(options);
+      const [selectedItems, setSelectedItems] = useState([options[0], options[1]]);
+
+      useEffect(() => {
+        const matchedOptions = options.filter(
+          option => option.trim().toLowerCase().indexOf(inputValue.trim().toLowerCase()) !== -1
+        );
+
+        setMatchingOptions(matchedOptions);
+      }, [inputValue]);
+
+      return (
+        <Dropdown
+          inputValue={inputValue}
+          selectedItems={selectedItems}
+          onSelect={setSelectedItems}
+          onInputValueChange={setInputValue}
+        >
+          <Field>
+            <Label>Seeds</Label>
+            <Multiselect
+              onKeyDown={onKeyDown}
+              renderItem={({ value, removeValue }) => (
+                <div>
+                  {value}
+                  <button onClick={removeValue} tabIndex={-1}>
+                    Remove
+                  </button>
+                </div>
+              )}
+            />
+          </Field>
+          <Menu>
+            {matchingOptions.map((option: string) => (
+              <Item key={option} value={option}>
+                <span>{option}</span>
+              </Item>
+            ))}
+          </Menu>
+        </Dropdown>
+      );
+    };
+
+    const { getByRole, queryByRole, queryAllByLabelText } = render(<Example />);
+    const combobox = getByRole('combobox');
+    const multiselect = queryAllByLabelText('Seeds')[0];
+    const addedOption = () => queryByRole('option', { name: new RegExp(EVERLASTING_WINGED, 'u') });
+
+    expect(addedOption()).not.toBeInTheDocument();
+
+    userEvent.type(multiselect, EVERLASTING_WINGED);
+    userEvent.type(combobox, '{enter}');
+
+    expect(addedOption()).toBeInTheDocument();
+    expect(onKeyDown).toHaveBeenCalledTimes(EVERLASTING_WINGED.length + 1);
   });
 
   describe('Interaction', () => {
