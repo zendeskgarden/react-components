@@ -19,7 +19,7 @@ import { useUIDSeed } from 'react-uid';
 import mergeRefs from 'react-merge-refs';
 
 import { StyledSheet, StyledSheetWrapper } from '../../styled';
-import { ISheetContext, SheetContext } from '../../utils/useSheetContext';
+import { SheetContext } from '../../utils/useSheetContext';
 import { useFocusableMount } from '../../utils/useFocusableMount';
 
 import { SheetTitle } from './components/Title';
@@ -77,9 +77,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
         titleId,
         descriptionId,
         isCloseButtonPresent,
-        setCloseButtonPresent(isPresent: boolean) {
-          setCloseButtonPresent(isPresent);
-        }
+        setCloseButtonPresent
       }),
       [titleId, descriptionId, isCloseButtonPresent]
     );
@@ -87,7 +85,7 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
     useFocusableMount({ targetRef: sheetRef, isMounted: isOpen, focusOnMount, restoreFocus });
 
     return (
-      <SheetContext.Provider value={sheetContext as ISheetContext}>
+      <SheetContext.Provider value={sheetContext}>
         <StyledSheet
           isOpen={isOpen}
           isAnimated={isAnimated}

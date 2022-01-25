@@ -11,7 +11,7 @@ export interface ISheetContext {
   titleId?: string;
   descriptionId?: string;
   isCloseButtonPresent?: boolean;
-  setCloseButtonPresent: (isPresent?: boolean) => void;
+  setCloseButtonPresent: (isPresent: boolean) => void;
 }
 
 export const SheetContext = createContext<ISheetContext>({

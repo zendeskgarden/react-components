@@ -37,15 +37,17 @@ describe('Sheet.Close', () => {
     expect(btn).toBe(ref.current);
   });
 
-  it('calls setCloseButtonPresent when mounting and unmounting', () => {
-    const { unmount } = render(<Close />);
-    const { setCloseButtonPresent } = useSheetContext();
+  describe('functionality', () => {
+    it('calls setCloseButtonPresent when mounting and unmounting', () => {
+      const { unmount } = render(<Close />);
+      const { setCloseButtonPresent } = useSheetContext();
 
-    expect(setCloseButtonPresent).toHaveBeenCalledWith(true);
+      expect(setCloseButtonPresent).toHaveBeenCalledWith(true);
 
-    unmount();
+      unmount();
 
-    expect(setCloseButtonPresent).toHaveBeenCalledWith(false);
-    expect(setCloseButtonPresent).toHaveBeenCalledTimes(2);
+      expect(setCloseButtonPresent).toHaveBeenCalledWith(false);
+      expect(setCloseButtonPresent).toHaveBeenCalledTimes(2);
+    });
   });
 });

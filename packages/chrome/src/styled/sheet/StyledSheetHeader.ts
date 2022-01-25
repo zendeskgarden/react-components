@@ -8,6 +8,8 @@
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
+import { baseMultipliers } from './StyledSheetClose';
+
 const COMPONENT_ID = 'chrome.sheet_header';
 
 export interface IStyledSheetHeaderProps {
@@ -23,9 +25,11 @@ export const StyledSheetHeader = styled.header.attrs({
   padding: ${props => props.theme.space.base * 5}px;
   ${props =>
     props.isCloseButtonPresent &&
-    // the padding size accounts for 40px (10 bse units) size of the button,
+    // the padding size accounts for 40px (10 base units) size of the button,
     // 8px additional padding and 8px padding for the button position from a given side.
-    `padding-${props.theme.rtl ? 'left' : 'right'}: ${props.theme.space.base * 14}px;`}
+    `padding-${props.theme.rtl ? 'left' : 'right'}: ${
+      props.theme.space.base * (baseMultipliers.size + baseMultipliers.side + 2)
+    }px;`}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
