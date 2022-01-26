@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-import ToggleIconButton from './ToggleIconButton';
+import { ToggleIconButton } from './ToggleIconButton';
 
 describe('ToggleIconButton', () => {
   it('passes ref to underlying DOM element', () => {

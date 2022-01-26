@@ -10,7 +10,7 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledSheetDescription } from '../../../styled';
 import { useSheetContext } from '../../../utils/useSheetContext';
 
-export const SheetDescription = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+const SheetDescription = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ id, ...props }, ref) => {
     const { descriptionId } = useSheetContext();
 
@@ -19,3 +19,8 @@ export const SheetDescription = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDi
 );
 
 SheetDescription.displayName = 'Sheet.Description';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Description = SheetDescription;

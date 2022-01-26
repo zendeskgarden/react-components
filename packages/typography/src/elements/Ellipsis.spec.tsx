@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import Ellipsis from './Ellipsis';
+import { Ellipsis } from './Ellipsis';
 
 describe('Ellipsis', () => {
   it('applies title by default', () => {

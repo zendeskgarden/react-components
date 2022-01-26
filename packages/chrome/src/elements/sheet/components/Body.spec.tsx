@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
-import { SheetBody as Body } from './Body';
+import { Body } from './Body';
 
 describe('Sheet.Body', () => {
   it('passes ref to underlying DOM element', () => {

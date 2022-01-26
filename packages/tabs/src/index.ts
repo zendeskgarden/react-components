@@ -10,5 +10,5 @@ export type { ITabProps } from './elements/Tab';
 export { TabList } from './elements/TabList';
 export { TabPanel } from './elements/TabPanel';
 export type { ITabPanelProps } from './elements/TabPanel';
-export { default as Tabs } from './elements/Tabs';
+export { Tabs } from './elements/Tabs';
 export type { ITabsProps } from './elements/Tabs';

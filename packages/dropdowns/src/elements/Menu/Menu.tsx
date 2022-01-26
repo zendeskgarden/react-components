@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, HTMLAttributes, useState, useContext } from 'react';
+import React, { useRef, useEffect, HTMLAttributes, useState, useContext, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Popper } from 'react-popper';
@@ -57,7 +57,7 @@ export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
 /**
  * @extends HTMLAttributes<HTMLUListElement>
  */
-export const Menu: React.FunctionComponent<IMenuProps> = props => {
+export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) => {
   const {
     placement,
     popperModifiers,
@@ -165,6 +165,7 @@ export const Menu: React.FunctionComponent<IMenuProps> = props => {
               zIndex={zIndex}
             >
               <StyledMenu
+                ref={menuRef}
                 isCompact={isCompact}
                 maxHeight={maxHeight}
                 style={computedStyle}
@@ -178,7 +179,9 @@ export const Menu: React.FunctionComponent<IMenuProps> = props => {
       </Popper>
     </MenuContext.Provider>
   );
-};
+});
+
+Menu.displayName = 'Menu';
 
 Menu.propTypes = {
   popperModifiers: PropTypes.any,

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import OrderedList from '../elements/lists/OrderedList';
+import { OrderedList } from '../elements/lists/OrderedList';
 import useOrderedListContext from './useOrderedListContext';
 
 describe('useOrderedListContext', () => {

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { StyledIconButton, StyledIcon } from '../styled';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
@@ -32,9 +32,7 @@ export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-const IconButton: React.FunctionComponent<
-  IIconButtonProps & React.RefAttributes<HTMLButtonElement>
-> = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
+export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
   ({ children, isRotated, ...otherProps }, ref) => {
     const focusInset = useSplitButtonContext();
 
@@ -64,5 +62,3 @@ IconButton.defaultProps = {
   isBasic: true,
   size: 'medium'
 };
-
-export default IconButton;

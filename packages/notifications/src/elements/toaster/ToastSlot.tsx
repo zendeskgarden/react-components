@@ -20,13 +20,7 @@ interface IToastSlotProps extends HTMLAttributes<HTMLDivElement> {
   zIndex?: number;
 }
 
-export const ToastSlot: React.FC<IToastSlotProps> = ({
-  toasts,
-  placement,
-  zIndex,
-  limit,
-  ...props
-}) => {
+export const ToastSlot = ({ toasts, placement, zIndex, limit, ...props }: IToastSlotProps) => {
   const [pauseTimers, setPauseTimers] = useState(false);
   const theme = useContext(ThemeContext);
   const environment = useDocument(theme);

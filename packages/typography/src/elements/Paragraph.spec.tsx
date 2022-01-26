@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import Paragraph from './Paragraph';
+import { Paragraph } from './Paragraph';
 
 describe('Paragraph', () => {
   it('applies correct styling with RTL locale', () => {

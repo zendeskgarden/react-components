@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { StyledBody } from '../../styled';
 import { BodyContext } from '../../utils/useBodyContext';
 
-interface IBodyProps {
+export interface IBodyProps extends HTMLAttributes<HTMLDivElement> {
   /** Adjusts the body content height to allow space for a footer component */
   hasFooter?: boolean;
 }
@@ -18,17 +18,15 @@ interface IBodyProps {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Body = React.forwardRef<HTMLDivElement, IBodyProps & HTMLAttributes<HTMLDivElement>>(
-  ({ hasFooter, ...props }, ref) => {
-    const bodyContextValue = useMemo(() => ({ hasFooter: !!hasFooter }), [hasFooter]);
+export const Body = React.forwardRef<HTMLDivElement, IBodyProps>(({ hasFooter, ...props }, ref) => {
+  const bodyContextValue = useMemo(() => ({ hasFooter: !!hasFooter }), [hasFooter]);
 
-    return (
-      <BodyContext.Provider value={bodyContextValue}>
-        <StyledBody ref={ref} {...props} />
-      </BodyContext.Provider>
-    );
-  }
-);
+  return (
+    <BodyContext.Provider value={bodyContextValue}>
+      <StyledBody ref={ref} {...props} />
+    </BodyContext.Provider>
+  );
+});
 
 Body.displayName = 'Body';
 

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ComponentPropsWithoutRef, KeyboardEvent, useEffect, useRef } from 'react';
+import React, { forwardRef, HTMLAttributes, KeyboardEvent, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
@@ -14,7 +14,7 @@ import mergeRefs from 'react-merge-refs';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 
-export interface IComboboxProps extends ComponentPropsWithoutRef<'div'> {
+export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies compact styling */
   isCompact?: boolean;
   /** Removes borders and padding */
@@ -35,7 +35,10 @@ export interface IComboboxProps extends ComponentPropsWithoutRef<'div'> {
   end?: any;
 }
 
-const Combobox = React.forwardRef<HTMLDivElement, IComboboxProps>(
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
   (
     {
       isCompact,
@@ -142,8 +145,3 @@ Combobox.propTypes = {
   placeholder: PropTypes.string,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
-
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export default Combobox as React.FC<IComboboxProps & React.RefAttributes<HTMLDivElement>>;

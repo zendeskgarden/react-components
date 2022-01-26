@@ -5,14 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useMemo,
-  forwardRef,
-  RefAttributes,
-  PropsWithoutRef,
-  FieldsetHTMLAttributes,
-  ForwardRefExoticComponent
-} from 'react';
+import React, { useMemo, forwardRef, FieldsetHTMLAttributes } from 'react';
 import { Legend } from './Legend';
 import { StyledFieldset } from '../../styled';
 import { FieldsetContext } from '../../utils/useFieldsetContext';
@@ -24,15 +17,7 @@ export interface IFieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetEleme
   isCompact?: boolean;
 }
 
-interface IStaticFieldsetExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Legend: typeof Legend;
-}
-
-/**
- * @extends FieldsetHTMLAttributes<HTMLFieldSetElement>
- */
-export const Fieldset = forwardRef<HTMLFieldSetElement, IFieldsetProps>((props, ref) => {
+const FieldsetComponent = forwardRef<HTMLFieldSetElement, IFieldsetProps>((props, ref) => {
   const fieldsetContext = useMemo(
     () => ({
       isCompact: props.isCompact
@@ -45,9 +30,15 @@ export const Fieldset = forwardRef<HTMLFieldSetElement, IFieldsetProps>((props, 
       <StyledFieldset {...props} ref={ref} />
     </FieldsetContext.Provider>
   );
-}) as IStaticFieldsetExport<HTMLFieldSetElement, IFieldsetProps>;
-/* eslint-enable react/display-name */
+});
+
+FieldsetComponent.displayName = 'Fieldset';
+
+/**
+ * @extends FieldsetHTMLAttributes<HTMLFieldSetElement>
+ */
+export const Fieldset = FieldsetComponent as typeof FieldsetComponent & {
+  Legend: typeof Legend;
+};
 
 Fieldset.Legend = Legend;
-
-Fieldset.displayName = 'Fieldset';

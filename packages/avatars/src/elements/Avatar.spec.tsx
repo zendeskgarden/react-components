@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import Avatar from './Avatar';
+import { Avatar } from './Avatar';
 
 const activeBoxShadow = DEFAULT_THEME.shadows.sm(getColor('crimson', 400)!);
 

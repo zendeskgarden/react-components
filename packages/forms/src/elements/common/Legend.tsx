@@ -9,10 +9,7 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledLegend } from '../../styled';
 import useFieldsetContext from '../../utils/useFieldsetContext';
 
-/**
- * @extends HTMLAttributes<HTMLLegendElement>
- */
-export const Legend = forwardRef<HTMLLegendElement, HTMLAttributes<HTMLLegendElement>>(
+const LegendComponent = forwardRef<HTMLLegendElement, HTMLAttributes<HTMLLegendElement>>(
   (props, ref) => {
     const fieldsetContext = useFieldsetContext();
 
@@ -20,4 +17,9 @@ export const Legend = forwardRef<HTMLLegendElement, HTMLAttributes<HTMLLegendEle
   }
 );
 
-Legend.displayName = 'Legend';
+LegendComponent.displayName = 'Fieldset.Legend';
+
+/**
+ * @extends HTMLAttributes<HTMLLegendElement>
+ */
+export const Legend = LegendComponent;

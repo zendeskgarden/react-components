@@ -9,7 +9,7 @@ import React, { SelectHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { StyledSelect, StyledSelectWrapper } from '../styled';
-import { FauxInput } from './FauxInput';
+import { FauxInput } from './faux-input/FauxInput';
 import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
 

@@ -5,28 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  createContext,
-  useReducer,
-  Dispatch,
-  useCallback,
-  useMemo,
-  HTMLAttributes
-} from 'react';
+import React, { useReducer, useCallback, useMemo, HTMLAttributes, PropsWithChildren } from 'react';
 import PropTypes from 'prop-types';
-
-import {
-  toasterReducer,
-  getInitialState,
-  IToasterState,
-  ToasterReducerAction,
-  ToastPlacement
-} from './reducer';
+import { toasterReducer, getInitialState, ToastPlacement } from './reducer';
+import { ToastContext } from './ToastContext';
 import { ToastSlot } from './ToastSlot';
-
-export const ToastContext = createContext<
-  { state: IToasterState; dispatch: Dispatch<ToasterReducerAction> } | undefined
->(undefined);
 
 export interface IToastProviderProps {
   /**
@@ -34,21 +17,21 @@ export interface IToastProviderProps {
    */
   limit?: number;
   /**
-   * Sets the `z-index` of the toast
-   */
-  zIndex?: number;
-  /**
    * Passes placement-based customization props to the toast's parent element
    */
   placementProps?: Partial<Record<ToastPlacement, HTMLAttributes<HTMLDivElement>>>;
+  /**
+   * Sets the `z-index` of the toast
+   */
+  zIndex?: number;
 }
 
-export const ToastProvider: React.FC<IToastProviderProps> = ({
+export const ToastProvider = ({
   limit,
   zIndex,
   placementProps = {},
   children
-}) => {
+}: PropsWithChildren<IToastProviderProps>) => {
   const [state, dispatch] = useReducer(toasterReducer, getInitialState());
 
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
@@ -95,5 +78,6 @@ ToastProvider.defaultProps = {
 
 ToastProvider.propTypes = {
   limit: PropTypes.number,
-  zIndex: PropTypes.number
+  zIndex: PropTypes.number,
+  placementProps: PropTypes.object
 };

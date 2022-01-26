@@ -7,11 +7,11 @@
 
 export { Dropdown } from './elements/Dropdown/Dropdown';
 export type { IDropdownProps } from './elements/Dropdown/Dropdown';
-export { default as Trigger } from './elements/Trigger/Trigger';
+export { Trigger } from './elements/Trigger/Trigger';
 export type { ITriggerProps } from './elements/Trigger/Trigger';
-export { default as Autocomplete } from './elements/Autocomplete/Autocomplete';
+export { Autocomplete } from './elements/Autocomplete/Autocomplete';
 export type { IAutocompleteProps } from './elements/Autocomplete/Autocomplete';
-export { default as Combobox } from './elements/Combobox/Combobox';
+export { Combobox } from './elements/Combobox/Combobox';
 export type { IComboboxProps } from './elements/Combobox/Combobox';
 export { Multiselect } from './elements/Multiselect/Multiselect';
 export type { IMultiselectProps } from './elements/Multiselect/Multiselect';

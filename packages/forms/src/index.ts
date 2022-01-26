@@ -38,6 +38,7 @@ export type { IMultiThumbRangeProps } from './elements/MultiThumbRange';
 /** Tiles */
 export { Tiles } from './elements/tiles/Tiles';
 export type { ITilesProps } from './elements/tiles/Tiles';
+export type { ITilesTileProps } from './elements/tiles/components/Tile';
 
 /** Input Group */
 export { InputGroup } from './elements/input-group/InputGroup';
@@ -53,7 +54,9 @@ export { File } from './elements/file-list/components/File';
 export type { IFileProps } from './elements/file-list/components/File';
 
 /** Other */
-export { FauxInput } from './elements/FauxInput';
-export type { IFauxInputProps, IStaticFauxInputExport, IIconProps } from './elements/FauxInput';
+export { FauxInput } from './elements/faux-input/FauxInput';
+export type { IFauxInputProps, IIconProps } from './elements/faux-input/FauxInput';
+export type { IFauxInputStartIconProps } from './elements/faux-input/components/StartIcon';
+export type { IFauxInputEndIconProps } from './elements/faux-input/components/EndIcon';
 export { MediaInput } from './elements/MediaInput';
 export type { IMediaInputProps } from './elements/MediaInput';

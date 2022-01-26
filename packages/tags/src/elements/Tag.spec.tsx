@@ -8,7 +8,7 @@
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import Tag from './Tag';
+import { Tag } from './Tag';
 
 describe('Tag', () => {
   it('applies correct styling with RTL locale', () => {

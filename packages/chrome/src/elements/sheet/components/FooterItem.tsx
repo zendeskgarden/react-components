@@ -8,10 +8,13 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledSheetFooterItem } from '../../../styled';
 
-export const SheetFooterItem = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    return <StyledSheetFooterItem ref={ref} {...props} />;
-  }
-);
+const SheetFooterItem = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  return <StyledSheetFooterItem ref={ref} {...props} />;
+});
 
 SheetFooterItem.displayName = 'Sheet.FooterItem';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const FooterItem = SheetFooterItem;

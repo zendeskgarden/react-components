@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { IToast } from './reducer';
 import { useToast } from './useToast';
 
@@ -14,7 +14,7 @@ interface IToastProps {
   pauseTimers: boolean;
 }
 
-export const Toast: React.FC<IToastProps> = ({ toast, pauseTimers }) => {
+export const Toast = ({ toast, pauseTimers }: IToastProps) => {
   const { removeToast } = useToast();
   const { id } = toast;
   const { autoDismiss } = toast.options;

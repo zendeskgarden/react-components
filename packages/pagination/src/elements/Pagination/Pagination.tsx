@@ -5,14 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useContext, HTMLAttributes } from 'react';
+import React, { useState, useContext, HTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import ChevronLeftIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import { usePagination } from '@zendeskgarden/container-pagination';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
-
 import { StyledPagination, StyledPage, StyledGap, StyledNavigation } from '../../styled';
 
 const PREVIOUS_KEY = 'previous';
@@ -47,14 +46,17 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
   /**
    * Applies localized labels, test attributes, etc. to individual pages
    *
-   * @param {string} pageType The type of the page accepting the props.
-   *  One of: "previous", "gap", "page", "next"
+   * @param {string} pageType The type of the page accepting the props; one of:
+   * "previous", "gap", "page", "next"
    * @param {any} props Default page props to transform
    */
   transformPageProps?: (pageType: PAGE_TYPE, props: any) => any;
 }
 
-const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps>(
+/**
+ * @extends HTMLAttributes<HTMLUListElement>
+ */
+export const Pagination = forwardRef<HTMLUListElement, IPaginationProps>(
   (
     {
       currentPage: controlledCurrentPage,
@@ -286,8 +288,3 @@ Pagination.defaultProps = {
 };
 
 Pagination.displayName = 'Pagination';
-
-/**
- * @extends HTMLAttributes<HTMLUListElement>
- */
-export default Pagination as React.FC<IPaginationProps & React.RefAttributes<HTMLUListElement>>;

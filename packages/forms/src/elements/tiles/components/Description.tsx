@@ -5,14 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledTileDescription } from '../../../styled';
 import { useTilesContext } from '../../../utils/useTilesContext';
 
-/**
- * Accepts all `<span>` attributes
- */
-export const Description = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
+const DescriptionComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
   (props, ref) => {
     const tilesContext = useTilesContext();
 
@@ -26,4 +23,9 @@ export const Description = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTML
   }
 );
 
-Description.displayName = 'TileDescription';
+DescriptionComponent.displayName = 'Tiles.Description';
+
+/**
+ * @extends HTMLAttributes<HTMLSpanElement>
+ */
+export const Description = DescriptionComponent;

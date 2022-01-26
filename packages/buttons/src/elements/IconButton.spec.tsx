@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-import IconButton from './IconButton';
+import { IconButton } from './IconButton';
 
 describe('IconButton', () => {
   it('renders a child SVG', () => {

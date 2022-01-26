@@ -8,7 +8,7 @@
 import React from 'react';
 import { render, screen } from 'garden-test-utils';
 
-import { SheetDescription as Description } from './Description';
+import { Description } from './Description';
 
 describe('Sheet.Description', () => {
   const descriptionText = 'Sheet.Description';

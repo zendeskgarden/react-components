@@ -5,21 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { forwardRef, SVGAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledInlineTypingSVG, StyledCircle, IStyledTypingSvgProps } from '../styled';
+import { StyledInlineTypingSVG, StyledCircle } from '../styled';
 
-const InlineTypingIndicator: React.FC<IStyledTypingSvgProps> = props => {
-  return (
-    <StyledInlineTypingSVG {...props}>
-      <StyledCircle cx="14" />
-      <StyledCircle cx="8" />
-      <StyledCircle cx="2" />
-    </StyledInlineTypingSVG>
-  );
-};
-
-export interface IInlineProps extends React.SVGAttributes<SVGSVGElement> {
+export interface IInlineProps extends SVGAttributes<SVGSVGElement> {
   /** Sets the width in pixels and scales the loader proportionally */
   size?: number;
   /** Sets the fill color. Inherits the parent's `color` by default. */
@@ -29,9 +19,15 @@ export interface IInlineProps extends React.SVGAttributes<SVGSVGElement> {
 /**
  * @extends SVGAttributes<SVGSVGElement>
  */
-const Inline: React.FC<IInlineProps> = ({ size, color, ...other }) => {
-  return <InlineTypingIndicator size={size!} color={color!} {...other} />;
-};
+export const Inline = forwardRef<SVGSVGElement, IInlineProps>(({ size, color, ...other }, ref) => (
+  <StyledInlineTypingSVG ref={ref} size={size!} color={color!} {...other}>
+    <StyledCircle cx="14" />
+    <StyledCircle cx="8" />
+    <StyledCircle cx="2" />
+  </StyledInlineTypingSVG>
+));
+
+Inline.displayName = 'Inline';
 
 Inline.propTypes = {
   size: PropTypes.number,
@@ -42,5 +38,3 @@ Inline.defaultProps = {
   size: 16,
   color: 'inherit'
 };
-
-export default Inline;

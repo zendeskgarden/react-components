@@ -10,18 +10,14 @@ export { StyledCaption } from './StyledCaption';
 export { StyledHeaderRow } from './StyledHeaderRow';
 export { StyledHead } from './StyledHead';
 export { StyledCell } from './StyledCell';
-export type { IStyledCellProps } from './StyledCell';
 export { StyledGroupRow } from './StyledGroupRow';
-export { StyledTable } from './StyledTable';
-export type { IStyledTableProps } from './StyledTable';
+export { StyledTable, SIZE } from './StyledTable';
 export { StyledHeaderCell } from './StyledHeaderCell';
 export {
   StyledSortableButton,
   StyledSortableFillIconWrapper,
-  StyledSortableStrokeIconWrapper
+  StyledSortableStrokeIconWrapper,
+  SORT
 } from './StyledSortableButton';
-export type { IStyledSortableButtonProps } from './StyledSortableButton';
 export { StyledOverflowButton, StyledOverflowButtonIconWrapper } from './StyledOverflowButton';
-export type { IStyledOverflowButtonProps } from './StyledOverflowButton';
 export { StyledRow } from './StyledRow';
-export type { IStyledRowProps } from './StyledRow';

@@ -5,15 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useRef,
-  useMemo,
-  useState,
-  HTMLAttributes,
-  PropsWithoutRef,
-  RefAttributes,
-  ForwardRefExoticComponent
-} from 'react';
+import React, { useRef, useMemo, useState, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { useUIDSeed } from 'react-uid';
 import mergeRefs from 'react-merge-refs';
@@ -22,24 +14,13 @@ import { StyledSheet, StyledSheetWrapper } from '../../styled';
 import { SheetContext } from '../../utils/useSheetContext';
 import { useFocusableMount } from '../../utils/useFocusableMount';
 
-import { SheetTitle } from './components/Title';
-import { SheetDescription } from './components/Description';
-import { SheetHeader } from './components/Header';
-import { SheetBody } from './components/Body';
-import { SheetFooter } from './components/Footer';
-import { SheetFooterItem } from './components/FooterItem';
-import { SheetClose } from './components/Close';
-
-interface IStaticSheetExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Title: typeof SheetTitle;
-  Description: typeof SheetDescription;
-  Header: typeof SheetHeader;
-  Body: typeof SheetBody;
-  Footer: typeof SheetFooter;
-  FooterItem: typeof SheetFooterItem;
-  Close: typeof SheetClose;
-}
+import { Title } from './components/Title';
+import { Description } from './components/Description';
+import { Header } from './components/Header';
+import { Body } from './components/Body';
+import { Footer } from './components/Footer';
+import { FooterItem } from './components/FooterItem';
+import { Close } from './components/Close';
 
 export interface ISheetProps extends HTMLAttributes<HTMLElement> {
   /** Opens the Sheet **/
@@ -56,10 +37,7 @@ export interface ISheetProps extends HTMLAttributes<HTMLElement> {
   size?: string;
 }
 
-/**
- * @extends HTMLAttributes<HTMLElement>
- */
-export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
+const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
   (
     { id, isOpen, isAnimated, focusOnMount, restoreFocus, placement, size, children, ...props },
     ref
@@ -110,19 +88,11 @@ export const Sheet = React.forwardRef<HTMLElement, ISheetProps>(
       </SheetContext.Provider>
     );
   }
-) as IStaticSheetExport<HTMLElement, ISheetProps>;
+);
 
-Sheet.Title = SheetTitle;
-Sheet.Description = SheetDescription;
-Sheet.Header = SheetHeader;
-Sheet.Body = SheetBody;
-Sheet.Footer = SheetFooter;
-Sheet.FooterItem = SheetFooterItem;
-Sheet.Close = SheetClose;
+SheetComponent.displayName = 'Sheet';
 
-Sheet.displayName = 'Sheet';
-
-Sheet.propTypes = {
+SheetComponent.propTypes = {
   id: PropTypes.string,
   isOpen: PropTypes.bool,
   isAnimated: PropTypes.bool,
@@ -132,8 +102,29 @@ Sheet.propTypes = {
   size: PropTypes.string
 };
 
-Sheet.defaultProps = {
+SheetComponent.defaultProps = {
   isAnimated: true,
   placement: 'end',
   size: '380px'
 };
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+export const Sheet = SheetComponent as typeof SheetComponent & {
+  Body: typeof Body;
+  Close: typeof Close;
+  Description: typeof Description;
+  Footer: typeof Footer;
+  FooterItem: typeof FooterItem;
+  Header: typeof Header;
+  Title: typeof Title;
+};
+
+Sheet.Body = Body;
+Sheet.Close = Close;
+Sheet.Description = Description;
+Sheet.Footer = Footer;
+Sheet.FooterItem = FooterItem;
+Sheet.Header = Header;
+Sheet.Title = Title;

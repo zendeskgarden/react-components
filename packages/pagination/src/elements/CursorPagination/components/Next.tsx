@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import ChevronRightIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import { StyledIcon, StyledCursor } from '../../../styled';
 
-export const Next = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
+export const NextComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   ({ children, ...other }, ref) => {
     return (
       <StyledCursor ref={ref} as="button" {...other}>
@@ -22,4 +22,9 @@ export const Next = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTM
   }
 );
 
-Next.displayName = 'Next';
+NextComponent.displayName = 'CursorPagination.Next';
+
+/**
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
+export const Next = NextComponent;

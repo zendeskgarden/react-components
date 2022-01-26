@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
-import { SheetFooter as Footer } from './Footer';
+import { Footer } from './Footer';
 
 describe('Sheet.Footer', () => {
   it('passes ref to underlying DOM element', () => {

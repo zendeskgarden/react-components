@@ -5,13 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { Story } from '@storybook/react';
 import {
   Checkbox,
   Fieldset,
   Hint,
-  IFieldProps,
   IFieldsetProps,
   Label,
   Radio,
@@ -22,7 +21,7 @@ import { FieldStory, IFieldArgs } from './FieldStory';
 interface IArgs extends IFieldsetProps, IFieldArgs {
   legend: string;
   isLegendHidden: boolean;
-  fields: IFieldProps[];
+  fields: HTMLAttributes<HTMLDivElement>[];
   type: 'radio' | 'checkbox' | 'toggle';
 }
 

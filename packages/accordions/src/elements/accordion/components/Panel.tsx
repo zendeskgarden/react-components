@@ -13,7 +13,7 @@ import { StyledPanel, StyledInnerPanel } from '../../../styled';
 
 type PanelProps = IAccordionContext | { isExpanded?: boolean };
 
-export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
+const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCompact, isBare, isAnimated, getPanelProps, expandedSections } = useAccordionContext();
   const panelRef = useRef<HTMLElement>();
   const index = useSectionContext();
@@ -63,4 +63,9 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props
   );
 });
 
-Panel.displayName = 'Panel';
+PanelComponent.displayName = 'Accordion.Panel';
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+export const Panel = PanelComponent;

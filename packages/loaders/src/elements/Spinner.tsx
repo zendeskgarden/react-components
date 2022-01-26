@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { forwardRef, SVGAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { useSchedule } from '@zendeskgarden/container-schedule';
-
 import {
   STROKE_WIDTH_FRAMES,
   DASHARRAY_FRAMES,
@@ -45,7 +44,7 @@ const computeFrames = (
   }, {});
 };
 
-export interface ISpinnerProps extends React.SVGAttributes<SVGSVGElement> {
+export interface ISpinnerProps extends SVGAttributes<SVGSVGElement> {
   /**
    * Sets the height and width in pixels. Inherits the parent's font size by default.
    **/
@@ -67,48 +66,53 @@ export interface ISpinnerProps extends React.SVGAttributes<SVGSVGElement> {
 /**
  * @extends SVGAttributes<SVGSVGElement>
  */
-const Spinner: React.FC<ISpinnerProps> = ({ size, duration, color, delayMS, ...other }) => {
-  const strokeWidthValues = computeFrames(STROKE_WIDTH_FRAMES, duration!);
-  const rotationValues = computeFrames(ROTATION_FRAMES, duration!);
-  const dasharrayValues = computeFrames(DASHARRAY_FRAMES, duration!);
+export const Spinner = forwardRef<SVGSVGElement, ISpinnerProps>(
+  ({ size, duration, color, delayMS, ...other }, ref) => {
+    const strokeWidthValues = computeFrames(STROKE_WIDTH_FRAMES, duration!);
+    const rotationValues = computeFrames(ROTATION_FRAMES, duration!);
+    const dasharrayValues = computeFrames(DASHARRAY_FRAMES, duration!);
 
-  const { elapsed, delayComplete } = useSchedule({ duration, delayMS });
-  const frame = (elapsed * 100).toFixed(0);
+    const { elapsed, delayComplete } = useSchedule({ duration, delayMS });
+    const frame = (elapsed * 100).toFixed(0);
 
-  const strokeWidthValue = strokeWidthValues[frame];
-  const rotationValue = rotationValues[frame];
-  const dasharrayValue = dasharrayValues[frame];
+    const strokeWidthValue = strokeWidthValues[frame];
+    const rotationValue = rotationValues[frame];
+    const dasharrayValue = dasharrayValues[frame];
 
-  const WIDTH = 80;
-  const HEIGHT = 80;
+    const WIDTH = 80;
+    const HEIGHT = 80;
 
-  if (!delayComplete && delayMS !== 0) {
+    if (!delayComplete && delayMS !== 0) {
+      return (
+        <StyledLoadingPlaceholder width="1em" height="1em" fontSize={size!}>
+          &nbsp;
+        </StyledLoadingPlaceholder>
+      );
+    }
+
     return (
-      <StyledLoadingPlaceholder width="1em" height="1em" fontSize={size!}>
-        &nbsp;
-      </StyledLoadingPlaceholder>
+      <StyledSVG
+        ref={ref}
+        fontSize={size}
+        color={color}
+        width={WIDTH}
+        height={HEIGHT}
+        dataGardenId={COMPONENT_ID}
+        containerHeight="1em"
+        containerWidth="1em"
+        {...other}
+      >
+        <StyledSpinnerCircle
+          dasharrayValue={dasharrayValue}
+          strokeWidthValue={strokeWidthValue}
+          transform={`rotate(${rotationValue}, ${WIDTH / 2}, ${HEIGHT / 2})`}
+        />
+      </StyledSVG>
     );
   }
+);
 
-  return (
-    <StyledSVG
-      fontSize={size}
-      color={color}
-      width={WIDTH}
-      height={HEIGHT}
-      dataGardenId={COMPONENT_ID}
-      containerHeight="1em"
-      containerWidth="1em"
-      {...other}
-    >
-      <StyledSpinnerCircle
-        dasharrayValue={dasharrayValue}
-        strokeWidthValue={strokeWidthValue}
-        transform={`rotate(${rotationValue}, ${WIDTH / 2}, ${HEIGHT / 2})`}
-      />
-    </StyledSVG>
-  );
-};
+Spinner.displayName = 'Spinner';
 
 Spinner.propTypes = {
   size: PropTypes.any,
@@ -123,5 +127,3 @@ Spinner.defaultProps = {
   color: 'inherit',
   delayMS: 750
 };
-
-export default Spinner;

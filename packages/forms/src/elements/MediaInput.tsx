@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import mergeRefs from 'react-merge-refs';
 import { StyledTextMediaInput } from '../styled';
-import { FauxInput } from './FauxInput';
+import { FauxInput } from './faux-input/FauxInput';
 import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
 

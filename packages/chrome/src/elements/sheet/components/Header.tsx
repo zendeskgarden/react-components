@@ -10,10 +10,15 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledSheetHeader } from '../../../styled';
 import { useSheetContext } from '../../../utils/useSheetContext';
 
-export const SheetHeader = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
+const SheetHeader = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCloseButtonPresent } = useSheetContext();
 
   return <StyledSheetHeader ref={ref} isCloseButtonPresent={isCloseButtonPresent} {...props} />;
 });
 
 SheetHeader.displayName = 'Sheet.Header';
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+export const Header = SheetHeader;

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
 
@@ -21,10 +21,9 @@ export interface IMDProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const MD: React.FunctionComponent<IMDProps & React.RefAttributes<HTMLDivElement>> =
-  React.forwardRef<HTMLDivElement, IMDProps>(({ tag, ...other }, ref) => (
-    <StyledFont as={tag} ref={ref} size="md" {...other} />
-  ));
+export const MD = forwardRef<HTMLDivElement, IMDProps>(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="md" {...other} />
+));
 
 MD.displayName = 'MD';
 
@@ -37,5 +36,3 @@ MD.propTypes = {
 MD.defaultProps = {
   tag: 'div'
 };
-
-export default MD;

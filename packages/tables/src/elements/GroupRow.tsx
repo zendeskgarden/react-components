@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import { StyledGroupRow } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 
 /**
  * @extends HTMLAttributes<HTMLTableRowElement>
  */
-export const GroupRow = React.forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>>(
+export const GroupRow = forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>>(
   (props, ref) => {
     const { size } = useTableContext();
 

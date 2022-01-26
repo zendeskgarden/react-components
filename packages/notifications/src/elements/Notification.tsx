@@ -13,6 +13,7 @@ import { ARRAY_VALIDATION_TYPE, VALIDATION_TYPE } from '../utils/types';
 import { validationIcons, validationHues } from '../utils/icons';
 
 export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies notification type styles */
   type?: VALIDATION_TYPE;
 }
 

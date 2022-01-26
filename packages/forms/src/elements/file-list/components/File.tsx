@@ -5,15 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  forwardRef,
-  Children,
-  RefAttributes,
-  HTMLAttributes,
-  PropsWithoutRef,
-  ForwardRefExoticComponent,
-  useMemo
-} from 'react';
+import React, { forwardRef, Children, HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Close } from './Close';
 import { Delete } from './Delete';
@@ -38,16 +30,7 @@ export interface IFileProps extends HTMLAttributes<HTMLDivElement> {
   validation?: VALIDATION_TYPE;
 }
 
-interface IStaticFileExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Close: typeof Close;
-  Delete: typeof Delete;
-}
-
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const File = forwardRef<HTMLDivElement, IFileProps>(
+const FileComponent = forwardRef<HTMLDivElement, IFileProps>(
   ({ children, type, isCompact, focusInset, validation, ...props }, ref) => {
     const fileContextValue = useMemo(() => ({ isCompact }), [isCompact]);
     const validationType = validation || type;
@@ -73,17 +56,24 @@ export const File = forwardRef<HTMLDivElement, IFileProps>(
       </FileContext.Provider>
     );
   }
-) as IStaticFileExport<HTMLDivElement, IFileProps>;
+);
 
-File.displayName = 'File';
+FileComponent.displayName = 'File';
 
-File.Close = Close;
-
-File.Delete = Delete;
-
-File.propTypes = {
+FileComponent.propTypes = {
   focusInset: PropTypes.bool,
   isCompact: PropTypes.bool,
   type: PropTypes.oneOf(ARRAY_FILE_TYPE),
   validation: PropTypes.oneOf(['success', 'error'])
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const File = FileComponent as typeof FileComponent & {
+  Close: typeof Close;
+  Delete: typeof Delete;
+};
+
+File.Close = Close;
+File.Delete = Delete;

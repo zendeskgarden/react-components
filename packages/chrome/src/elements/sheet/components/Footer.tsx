@@ -6,13 +6,20 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { StyledSheetFooter, IStyledSheetFooterProps } from '../../../styled';
+import { StyledSheetFooter } from '../../../styled';
 
-export const SheetFooter = forwardRef<
-  HTMLElement,
-  IStyledSheetFooterProps & HTMLAttributes<HTMLElement>
->((props, ref) => {
+export interface ISheetFooterProps extends HTMLAttributes<HTMLElement> {
+  /** Sets the footer padding to half the standard and centers the elements */
+  isCompact?: boolean;
+}
+
+const SheetFooter = forwardRef<HTMLElement, ISheetFooterProps>((props, ref) => {
   return <StyledSheetFooter ref={ref} {...props} />;
 });
 
 SheetFooter.displayName = 'Sheet.Footer';
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+export const Footer = SheetFooter;

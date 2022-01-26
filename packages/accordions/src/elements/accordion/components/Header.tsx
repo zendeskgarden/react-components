@@ -11,7 +11,7 @@ import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg
 import { useAccordionContext, useSectionContext, HeaderContext } from '../../../utils';
 import { StyledHeader, StyledRotateIcon, COMPONENT_ID as buttonGardenId } from '../../../styled';
 
-export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const {
     level: ariaLevel,
     isCompact,
@@ -94,4 +94,9 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
   );
 });
 
-Header.displayName = 'Header';
+HeaderComponent.displayName = 'Accordion.Header';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Header = HeaderComponent;

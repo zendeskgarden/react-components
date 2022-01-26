@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import Skeleton from './Skeleton';
+import { Skeleton } from './Skeleton';
 
 describe('Skeleton', () => {
   it('applies light mode correctly', () => {

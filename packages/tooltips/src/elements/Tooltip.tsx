@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement, useRef, useEffect, useContext } from 'react';
+import React, { cloneElement, useRef, useEffect, useContext, HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
@@ -22,7 +22,7 @@ import {
 } from '../utils/gardenPlacements';
 import { StyledTooltipWrapper, StyledTooltip, TOOLTIP_SIZE, TOOLTIP_TYPE } from '../styled';
 
-export interface ITooltipProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
   /** Appends the tooltip to the element provided */
   appendToNode?: Element;
   /** Adds an arrow to the tooltip */
@@ -31,8 +31,6 @@ export interface ITooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   delayMS?: number;
   /** Allows the tooltip to reposition during browser resize events */
   eventsEnabled?: boolean;
-  /** Sets the ID of the tooltip */
-  id?: string;
   /** Defines the content of the tooltip */
   content: React.ReactNode;
   /**
@@ -51,6 +49,7 @@ export interface ITooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   isInitialVisible?: boolean;
   /** Displays the tooltip */
   isVisible?: boolean;
+  /** @ignore ReactNode override */
   children: React.ReactElement;
   /** Defines the ref key used to position the tooltip */
   refKey?: string;
@@ -59,7 +58,7 @@ export interface ITooltipProps extends React.HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Tooltip: React.FC<ITooltipProps> = ({
+export const Tooltip = ({
   id,
   delayMS,
   isInitialVisible,
@@ -76,7 +75,7 @@ export const Tooltip: React.FC<ITooltipProps> = ({
   zIndex,
   isVisible: externalIsVisible,
   ...otherProps
-}) => {
+}: ITooltipProps) => {
   const theme = useContext(ThemeContext);
   const scheduleUpdateRef = useRef<() => void>();
   const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({

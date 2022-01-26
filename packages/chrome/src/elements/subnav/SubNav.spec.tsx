@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Chrome from '../Chrome';
+import { Chrome } from '../Chrome';
 import { SubNav } from './SubNav';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 

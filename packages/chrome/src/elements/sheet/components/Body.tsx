@@ -8,10 +8,13 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledSheetBody } from '../../../styled';
 
-export const SheetBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    return <StyledSheetBody ref={ref} {...props} />;
-  }
-);
+const SheetBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  return <StyledSheetBody ref={ref} {...props} />;
+});
 
 SheetBody.displayName = 'Sheet.Body';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Body = SheetBody;

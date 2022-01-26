@@ -11,45 +11,44 @@ import CheckCircleStrokeIcon from '@zendeskgarden/svg-icons/src/16/check-sm-stro
 import { StyledLabel, StyledLabelText, StyledIcon, StyledIconFlexContainer } from '../../../styled';
 import { useStepContext, useStepperContext } from '../../../utils';
 
-interface ILabel {
-  /** Replaces the stepper number with an icon */
+export interface IStepperLabelProps extends HTMLAttributes<HTMLDivElement> {
+  /** Replaces the label number with an icon */
   icon?: React.ReactNode;
-  /** Determines if the label is displayed */
+  /** Hides the label text */
   isHidden?: boolean;
 }
 
-export const Label = forwardRef<HTMLDivElement, ILabel & HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    const { currentStepIndex } = useStepContext();
-    const { activeIndex, isHorizontal } = useStepperContext();
-    const numericStep = currentStepIndex + 1;
-    const stepIcon = props.icon || numericStep;
-    const isActive = activeIndex === currentStepIndex;
-    const isCompleted = activeIndex > currentStepIndex;
-    const styledIcon = (
-      <StyledIcon isActive={isActive} isHorizontal={isHorizontal}>
-        {isCompleted ? <CheckCircleStrokeIcon /> : stepIcon}
-      </StyledIcon>
-    );
+const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>((props, ref) => {
+  const { currentStepIndex } = useStepContext();
+  const { activeIndex, isHorizontal } = useStepperContext();
+  const numericStep = currentStepIndex + 1;
+  const stepIcon = props.icon || numericStep;
+  const isActive = activeIndex === currentStepIndex;
+  const isCompleted = activeIndex > currentStepIndex;
+  const styledIcon = (
+    <StyledIcon isActive={isActive} isHorizontal={isHorizontal}>
+      {isCompleted ? <CheckCircleStrokeIcon /> : stepIcon}
+    </StyledIcon>
+  );
 
-    return (
-      <StyledLabel ref={ref} isActive={isActive} isHorizontal={isHorizontal} {...props}>
-        {isHorizontal ? (
-          <StyledIconFlexContainer>{styledIcon}</StyledIconFlexContainer>
-        ) : (
-          styledIcon
-        )}
-        <StyledLabelText isHidden={props.isHidden} isHorizontal={isHorizontal}>
-          {props.children}
-        </StyledLabelText>
-      </StyledLabel>
-    );
-  }
-);
+  return (
+    <StyledLabel ref={ref} isActive={isActive} isHorizontal={isHorizontal} {...props}>
+      {isHorizontal ? <StyledIconFlexContainer>{styledIcon}</StyledIconFlexContainer> : styledIcon}
+      <StyledLabelText isHidden={props.isHidden} isHorizontal={isHorizontal}>
+        {props.children}
+      </StyledLabelText>
+    </StyledLabel>
+  );
+});
 
-Label.displayName = 'Label';
+LabelComponent.displayName = 'Stepper.Label';
 
-Label.propTypes = {
+LabelComponent.propTypes = {
   icon: PropTypes.node,
   isHidden: PropTypes.bool
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Label = LabelComponent;

@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, useEffect } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, useEffect } from 'react';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 import { StyledSheetClose } from '../../../styled';
 import { useSheetContext } from '../../../utils/useSheetContext';
 
-export const SheetClose = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
+const SheetClose = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const { setCloseButtonPresent } = useSheetContext();
 
@@ -30,3 +30,8 @@ export const SheetClose = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButto
 );
 
 SheetClose.displayName = 'Sheet.Close';
+
+/**
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
+export const Close = SheetClose;

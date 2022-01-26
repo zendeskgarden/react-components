@@ -8,7 +8,7 @@
 import React from 'react';
 import { render, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import Dots from './Dots';
+import { Dots } from './Dots';
 
 jest.useFakeTimers();
 

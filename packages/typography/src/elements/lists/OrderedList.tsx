@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useMemo } from 'react';
+import React, { OlHTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import OrderedListItem from './OrderedListItem';
+import { Item } from './OrderedListItem';
 import { OrderedListContext } from '../../utils/useOrderedListContext';
 import { StyledOrderedList } from '../../styled';
 
-export interface IOrderedListProps extends HTMLAttributes<HTMLOListElement> {
+export interface IOrderedListProps extends Omit<OlHTMLAttributes<HTMLOListElement>, 'type'> {
   /** Adjusts the vertical spacing between list items */
   size?: 'small' | 'medium' | 'large';
   /** Sets the marker style */
@@ -24,7 +24,7 @@ export interface IOrderedListProps extends HTMLAttributes<HTMLOListElement> {
     | 'upper-roman';
 }
 
-const OrderedList = React.forwardRef<HTMLOListElement, IOrderedListProps>(
+const OrderedListComponent = React.forwardRef<HTMLOListElement, IOrderedListProps>(
   ({ size, type, ...other }, ref) => {
     const value = useMemo(() => ({ size: size! }), [size]);
 
@@ -36,9 +36,9 @@ const OrderedList = React.forwardRef<HTMLOListElement, IOrderedListProps>(
   }
 );
 
-OrderedList.displayName = 'OrderedList';
+OrderedListComponent.displayName = 'OrderedList';
 
-OrderedList.propTypes = {
+OrderedListComponent.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   type: PropTypes.oneOf([
     'decimal',
@@ -50,18 +50,16 @@ OrderedList.propTypes = {
   ])
 };
 
-OrderedList.defaultProps = {
+OrderedListComponent.defaultProps = {
   size: 'medium',
   type: 'decimal'
 };
 
-(OrderedList as any).Item = OrderedListItem;
-
 /**
- * @extends HTMLAttributes<HTMLOListElement>
+ * @extends OlHTMLAttributes<HTMLOListElement>
  */
-export default OrderedList as unknown as React.FunctionComponent<
-  IOrderedListProps & React.RefAttributes<HTMLOListElement>
-> & {
-  Item: typeof OrderedListItem;
+export const OrderedList = OrderedListComponent as typeof OrderedListComponent & {
+  Item: typeof Item;
 };
+
+OrderedList.Item = Item;

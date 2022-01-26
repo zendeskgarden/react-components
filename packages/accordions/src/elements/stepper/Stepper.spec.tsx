@@ -11,7 +11,7 @@ import { Stepper } from './Stepper';
 
 describe('Stepper', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.createRef<HTMLOListElement>();
     const { container } = render(<Stepper ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);

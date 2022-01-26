@@ -30,7 +30,7 @@ import {
   StyledTooltipBody
 } from '../../styled';
 
-interface IDialogChanges {
+export interface IColorpickerDialogChanges {
   isOpen?: boolean;
 }
 
@@ -78,16 +78,13 @@ export interface IColorpickerDialogProps extends IColorpickerProps {
    *
    * @param {Object} changes The changed dialog state
    */
-  onDialogChange?: (changes: IDialogChanges) => void;
+  onDialogChange?: (changes: IColorpickerDialogChanges) => void;
 }
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const ColorpickerDialog = forwardRef<
-  HTMLDivElement,
-  IColorpickerDialogProps & Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'onChange'>
->(
+export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogProps>(
   (
     {
       color,

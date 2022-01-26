@@ -7,15 +7,19 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledHeader, IStyledHeaderProps } from '../../styled';
+import { StyledHeader } from '../../styled';
+
+export interface IHeaderProps extends HTMLAttributes<HTMLElement> {
+  /** Displays logo for standlone usage  */
+  isStandalone?: boolean;
+}
 
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-export const Header = React.forwardRef<
-  HTMLElement,
-  IStyledHeaderProps & HTMLAttributes<HTMLElement>
->((props, ref) => <StyledHeader ref={ref} {...props} />);
+export const Header = React.forwardRef<HTMLElement, IHeaderProps>((props, ref) => (
+  <StyledHeader ref={ref} {...props} />
+));
 
 Header.displayName = 'Header';
 

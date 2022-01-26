@@ -5,9 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledFont, StyledIcon } from '../styled';
+import { StyledFont } from '../../styled';
+import { StartIcon } from './StartIcon';
+import { Icon } from './Icon';
 
 export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   /** Updates the element's HTML tag */
@@ -24,40 +26,30 @@ export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   hue?: string;
 }
 
-const Span: React.FunctionComponent<ISpanProps & React.RefAttributes<HTMLSpanElement>> =
-  React.forwardRef<HTMLSpanElement, ISpanProps>(({ tag, ...other }, ref) => (
-    <StyledFont as={tag} ref={ref} size="inherit" {...other} />
-  ));
+const SpanComponent = forwardRef<HTMLSpanElement, ISpanProps>(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="inherit" {...other} />
+));
 
-Span.displayName = 'Span';
+SpanComponent.displayName = 'Span';
 
-Span.propTypes = {
+SpanComponent.propTypes = {
   tag: PropTypes.any,
   isBold: PropTypes.bool,
   isMonospace: PropTypes.bool,
   hue: PropTypes.string
 };
 
-Span.defaultProps = {
+SpanComponent.defaultProps = {
   tag: 'span'
 };
-
-interface IIconProps extends HTMLAttributes<HTMLElement> {
-  children: any;
-}
-
-const StartIcon = (props: IIconProps) => <StyledIcon isStart {...props} />;
-const Icon = (props: IIconProps) => <StyledIcon {...props} />;
-
-(Span as any).StartIcon = StartIcon;
-(Span as any).Icon = Icon;
 
 /**
  * @extends HTMLAttributes<HTMLSpanElement>
  */
-export default Span as React.FunctionComponent<
-  ISpanProps & React.RefAttributes<HTMLSpanElement>
-> & {
-  StartIcon: typeof StartIcon;
+export const Span = SpanComponent as typeof SpanComponent & {
   Icon: typeof Icon;
+  StartIcon: typeof StartIcon;
 };
+
+Span.Icon = Icon;
+Span.StartIcon = StartIcon;

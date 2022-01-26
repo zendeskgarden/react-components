@@ -5,35 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useState,
-  HTMLAttributes,
-  RefObject,
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  RefAttributes,
-  forwardRef
-} from 'react';
+import React, { useState, HTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { StyledTextFauxInput, StyledTextMediaFigure } from '../styled';
-import { VALIDATION } from '../utils/validation';
+import { StyledTextFauxInput } from '../../styled';
+import { VALIDATION } from '../../utils/validation';
+import { StartIcon } from './components/StartIcon';
+import { EndIcon } from './components/EndIcon';
 
+/**
+ * @deprecated use IFauxInputStartIconProps or IFauxInputEndIconProps instead
+ */
 export interface IIconProps extends HTMLAttributes<HTMLElement> {
   isHovered?: boolean;
-  isFocused?: boolean;
-  isDisabled?: boolean;
-  isRotated?: boolean;
+  isFocused: boolean;
+  isDisabled: boolean;
+  isRotated: boolean;
   children: any;
-}
-
-const StartIcon = (props: IIconProps) => <StyledTextMediaFigure position="start" {...props} />;
-const EndIcon = (props: IIconProps) => <StyledTextMediaFigure position="end" {...props} />;
-
-export interface IStaticFauxInputExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  StartIcon: typeof StartIcon;
-  EndIcon: typeof EndIcon;
 }
 
 export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
@@ -55,10 +43,7 @@ export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
   isHovered?: boolean;
 }
 
-/**
- *  @extends HTMLAttributes<HTMLDivElement>
- */
-export const FauxInput = forwardRef<HTMLDivElement, IFauxInputProps>(
+const FauxInputComponent = forwardRef<HTMLDivElement, IFauxInputProps>(
   ({ onFocus, onBlur, disabled, readOnly, isFocused: controlledIsFocused, ...props }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
 
@@ -80,18 +65,15 @@ export const FauxInput = forwardRef<HTMLDivElement, IFauxInputProps>(
         isDisabled={disabled}
         tabIndex={disabled ? undefined : 0}
         {...props}
-        ref={ref as RefObject<HTMLInputElement>}
+        ref={ref}
       />
     );
   }
-) as IStaticFauxInputExport<HTMLDivElement, IFauxInputProps>;
+);
 
-FauxInput.StartIcon = StartIcon;
-FauxInput.EndIcon = EndIcon;
+FauxInputComponent.displayName = 'FauxInput';
 
-FauxInput.displayName = 'FauxInput';
-
-FauxInput.propTypes = {
+FauxInputComponent.propTypes = {
   isCompact: PropTypes.bool,
   isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
@@ -99,3 +81,14 @@ FauxInput.propTypes = {
   readOnly: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
+
+/**
+ *  @extends HTMLAttributes<HTMLDivElement>
+ */
+export const FauxInput = FauxInputComponent as typeof FauxInputComponent & {
+  EndIcon: typeof EndIcon;
+  StartIcon: typeof StartIcon;
+};
+
+FauxInput.EndIcon = EndIcon;
+FauxInput.StartIcon = StartIcon;

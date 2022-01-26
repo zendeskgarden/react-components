@@ -10,10 +10,8 @@ import React, {
   ChangeEventHandler,
   useCallback,
   useState,
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  RefAttributes,
-  useMemo
+  useMemo,
+  forwardRef
 } from 'react';
 import PropTypes from 'prop-types';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
@@ -34,18 +32,7 @@ export interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
   isCentered?: boolean;
 }
 
-interface IStaticTilesExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Tile: typeof Tile;
-  Description: typeof Description;
-  Icon: typeof Icon;
-  Label: typeof Label;
-}
-
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Tiles = React.forwardRef<HTMLDivElement, ITilesProps>(
+const TilesComponent = forwardRef<HTMLDivElement, ITilesProps>(
   ({ onChange, value: controlledValue, name, isCentered, ...props }, ref) => {
     const [value, setValue] = useState(controlledValue);
 
@@ -72,23 +59,32 @@ export const Tiles = React.forwardRef<HTMLDivElement, ITilesProps>(
       </TilesContext.Provider>
     );
   }
-) as IStaticTilesExport<HTMLDivElement, ITilesProps>;
-/* eslint-enable react/display-name */
+);
 
-Tiles.displayName = 'Tiles';
+TilesComponent.displayName = 'Tiles';
 
-Tiles.Tile = Tile;
-Tiles.Icon = Icon;
-Tiles.Label = Label;
-Tiles.Description = Description;
-
-Tiles.propTypes = {
+TilesComponent.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
   isCentered: PropTypes.bool
 };
 
-Tiles.defaultProps = {
+TilesComponent.defaultProps = {
   isCentered: true
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Tiles = TilesComponent as typeof TilesComponent & {
+  Description: typeof Description;
+  Icon: typeof Icon;
+  Label: typeof Label;
+  Tile: typeof Tile;
+};
+
+Tiles.Description = Description;
+Tiles.Icon = Icon;
+Tiles.Label = Label;
+Tiles.Tile = Tile;

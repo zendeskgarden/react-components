@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useContext } from 'react';
+import React, { forwardRef, HTMLAttributes, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -19,7 +19,8 @@ export interface ILabeledColor {
   label: string;
 }
 
-export interface IColorSwatchProps {
+export interface IColorSwatchProps
+  extends Omit<HTMLAttributes<HTMLTableElement>, 'onChange' | 'onSelect'> {
   /** Sets the two-dimension array of labeled HEX and RGB/A string colors */
   colors: ILabeledColor[][];
   /** Sets the focused row index in a controlled color swatch */

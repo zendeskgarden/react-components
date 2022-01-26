@@ -63,10 +63,7 @@ export interface IColorSwatchDialogProps extends IColorSwatchProps {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const ColorSwatchDialog = forwardRef<
-  HTMLDivElement,
-  IColorSwatchDialogProps & Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'onSelect'>
->(
+export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogProps>(
   (
     {
       colors,

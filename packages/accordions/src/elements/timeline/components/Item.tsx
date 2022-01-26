@@ -11,42 +11,54 @@ import React, {
   Children,
   ReactNode,
   ReactElement,
-  HTMLAttributes
+  LiHTMLAttributes
 } from 'react';
-import { Timeline } from '../Timeline';
+import { OppositeContent } from './OppositeContent';
 import { StyledTimelineItem } from '../../../styled';
 import { TimelineItemContext, useTimelineContext } from '../../../utils';
 
-export interface IItem extends HTMLAttributes<HTMLLIElement> {
-  /** Defines the icon rendered in place of the dot */
+export interface ITimelineItemProps extends LiHTMLAttributes<HTMLLIElement> {
+  /** Replaces the dot with an icon */
   icon?: ReactNode;
-  /** Provides surface color for an SVG icon placed on a non-white background */
+  /** Provides surface color for an icon placed on a non-white background */
   surfaceColor?: string;
 }
 
-export const Item = forwardRef<HTMLLIElement, IItem>(({ icon, surfaceColor, ...props }, ref) => {
-  const value = useMemo(() => ({ icon, surfaceColor }), [icon, surfaceColor]);
-  const { isAlternate } = useTimelineContext();
-  let hasOppositeContent = false;
+/**
+ * @deprecated use ITimelineItemProps instead
+ */
+export type IItem = ITimelineItemProps;
 
-  Children.forEach(props.children, child => {
-    if (child) {
-      if ((child as ReactElement).type === Timeline.OppositeContent) {
-        hasOppositeContent = true;
+const ItemComponent = forwardRef<HTMLLIElement, ITimelineItemProps>(
+  ({ icon, surfaceColor, ...props }, ref) => {
+    const value = useMemo(() => ({ icon, surfaceColor }), [icon, surfaceColor]);
+    const { isAlternate } = useTimelineContext();
+    let hasOppositeContent = false;
+
+    Children.forEach(props.children, child => {
+      if (child) {
+        if ((child as ReactElement).type === OppositeContent) {
+          hasOppositeContent = true;
+        }
       }
-    }
-  });
+    });
 
-  return (
-    <TimelineItemContext.Provider value={value}>
-      <StyledTimelineItem
-        ref={ref}
-        isAlternate={isAlternate}
-        hasOppositeContent={hasOppositeContent}
-        {...props}
-      />
-    </TimelineItemContext.Provider>
-  );
-});
+    return (
+      <TimelineItemContext.Provider value={value}>
+        <StyledTimelineItem
+          ref={ref}
+          isAlternate={isAlternate}
+          hasOppositeContent={hasOppositeContent}
+          {...props}
+        />
+      </TimelineItemContext.Provider>
+    );
+  }
+);
 
-Item.displayName = 'Item';
+ItemComponent.displayName = 'Timeline.Item';
+
+/**
+ * @extends LiHTMLAttributes<HTMLLIElement>
+ */
+export const Item = ItemComponent;

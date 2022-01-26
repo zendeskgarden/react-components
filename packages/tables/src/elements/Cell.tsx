@@ -7,7 +7,7 @@
 
 import React, { TdHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledCell, IStyledCellProps } from '../styled';
+import { StyledCell } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 
 export interface ICellProps extends TdHTMLAttributes<HTMLTableCellElement> {
@@ -21,7 +21,7 @@ export interface ICellProps extends TdHTMLAttributes<HTMLTableCellElement> {
   /** Applies styling for a cell that contains an overflow menu */
   hasOverflow?: boolean;
   /** Adjusts the [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) of the cell */
-  width?: IStyledCellProps['width'];
+  width?: string | number;
 }
 
 /**

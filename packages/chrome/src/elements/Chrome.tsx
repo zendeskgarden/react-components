@@ -23,59 +23,60 @@ export interface IChromeProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(({ hue, isFluid, ...props }, ref) => {
-  const theme = useContext(ThemeContext);
-  const isLightMemoized = useMemo(() => {
-    if (hue) {
-      const backgroundColor = getColor(hue, 600, theme);
-      const LIGHT_COLOR = 'white';
+export const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(
+  ({ hue, isFluid, ...props }, ref) => {
+    const theme = useContext(ThemeContext);
+    const isLightMemoized = useMemo(() => {
+      if (hue) {
+        const backgroundColor = getColor(hue, 600, theme);
+        const LIGHT_COLOR = 'white';
 
-      /* prevent this expensive computation on every render */
-      return (
-        readableColor(backgroundColor!, LIGHT_COLOR, undefined, false /* strict */) === LIGHT_COLOR
-      );
-    }
-
-    return false;
-  }, [hue, theme]);
-
-  const isLight = hue ? isLightMemoized : false;
-  const isDark = hue ? !isLightMemoized : false;
-  const chromeContextValue = useMemo(
-    () => ({ hue: hue || 'chromeHue', isLight, isDark }),
-    [hue, isLight, isDark]
-  );
-  const environment = useDocument(theme);
-
-  useEffect(() => {
-    if (environment && !isFluid) {
-      const htmlElement = environment.querySelector('html');
-
-      if (htmlElement) {
-        const defaultHtmlPosition = htmlElement.style.position;
-
-        htmlElement.style.position = 'fixed';
-
-        return () => {
-          htmlElement.style.position = defaultHtmlPosition;
-        };
+        /* prevent this expensive computation on every render */
+        return (
+          readableColor(backgroundColor!, LIGHT_COLOR, undefined, false /* strict */) ===
+          LIGHT_COLOR
+        );
       }
-    }
 
-    return undefined;
-  }, [environment, isFluid]);
+      return false;
+    }, [hue, theme]);
 
-  return (
-    <ChromeContext.Provider value={chromeContextValue}>
-      <StyledChrome ref={ref} {...props} data-test-light={isLight} data-test-dark={isDark} />
-    </ChromeContext.Provider>
-  );
-});
+    const isLight = hue ? isLightMemoized : false;
+    const isDark = hue ? !isLightMemoized : false;
+    const chromeContextValue = useMemo(
+      () => ({ hue: hue || 'chromeHue', isLight, isDark }),
+      [hue, isLight, isDark]
+    );
+    const environment = useDocument(theme);
+
+    useEffect(() => {
+      if (environment && !isFluid) {
+        const htmlElement = environment.querySelector('html');
+
+        if (htmlElement) {
+          const defaultHtmlPosition = htmlElement.style.position;
+
+          htmlElement.style.position = 'fixed';
+
+          return () => {
+            htmlElement.style.position = defaultHtmlPosition;
+          };
+        }
+      }
+
+      return undefined;
+    }, [environment, isFluid]);
+
+    return (
+      <ChromeContext.Provider value={chromeContextValue}>
+        <StyledChrome ref={ref} {...props} data-test-light={isLight} data-test-dark={isDark} />
+      </ChromeContext.Provider>
+    );
+  }
+);
 
 Chrome.displayName = 'Chrome';
 
 Chrome.propTypes = {
   hue: PropTypes.string
 };
-
-export default Chrome;

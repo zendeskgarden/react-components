@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledEllipsis } from '../styled';
 
@@ -19,8 +19,8 @@ export interface IEllipsisProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const Ellipsis: React.FunctionComponent<IEllipsisProps & React.RefAttributes<HTMLDivElement>> =
-  React.forwardRef<HTMLDivElement, IEllipsisProps>(({ children, title, tag, ...other }, ref) => {
+export const Ellipsis = forwardRef<HTMLDivElement, IEllipsisProps>(
+  ({ children, title, tag, ...other }, ref) => {
     let textContent = undefined;
 
     if (title !== undefined) {
@@ -34,7 +34,8 @@ const Ellipsis: React.FunctionComponent<IEllipsisProps & React.RefAttributes<HTM
         {children}
       </StyledEllipsis>
     );
-  });
+  }
+);
 
 Ellipsis.displayName = 'Ellipsis';
 
@@ -46,5 +47,3 @@ Ellipsis.propTypes = {
 Ellipsis.defaultProps = {
   tag: 'div'
 };
-
-export default Ellipsis;

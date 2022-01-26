@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import ToggleButton from './ToggleButton';
+import { ToggleButton } from './ToggleButton';
 
 describe('ToggleButton', () => {
   it('passes ref to underlying DOM element', () => {

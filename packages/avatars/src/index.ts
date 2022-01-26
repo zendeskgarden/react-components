@@ -5,5 +5,5 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as Avatar } from './elements/Avatar';
+export { Avatar } from './elements/Avatar';
 export type { IAvatarProps } from './elements/Avatar';

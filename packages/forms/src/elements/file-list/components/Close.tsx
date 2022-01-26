@@ -12,10 +12,7 @@ import XIconDefault from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import useFileContext from '../../../utils/useFileContext';
 import { StyledFileClose } from '../../../styled';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Close = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+const CloseComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const fileContext = useFileContext();
     const onMouseDown = composeEventHandlers(
@@ -31,4 +28,9 @@ export const Close = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
   }
 );
 
-Close.displayName = 'File.Close';
+CloseComponent.displayName = 'File.Close';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Close = CloseComponent;
