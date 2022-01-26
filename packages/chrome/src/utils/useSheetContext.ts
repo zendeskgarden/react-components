@@ -10,9 +10,14 @@ import { createContext, useContext } from 'react';
 export interface ISheetContext {
   titleId?: string;
   descriptionId?: string;
+  isCloseButtonPresent?: boolean;
+  setCloseButtonPresent: (isPresent: boolean) => void;
 }
 
-export const SheetContext = createContext<ISheetContext>({});
+export const SheetContext = createContext<ISheetContext>({
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setCloseButtonPresent() {}
+});
 
 export const useSheetContext = () => {
   return useContext(SheetContext);

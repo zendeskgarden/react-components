@@ -10,7 +10,23 @@ import { render, screen } from 'garden-test-utils';
 
 import { SheetClose as Close } from './Close';
 
+import { useSheetContext } from '../../../utils/useSheetContext';
+
+jest.mock('../../../utils/useSheetContext', () => {
+  const setCloseButtonPresent = jest.fn();
+
+  return {
+    useSheetContext: () => ({
+      setCloseButtonPresent
+    })
+  };
+});
+
 describe('Sheet.Close', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLButtonElement>();
 
@@ -19,5 +35,19 @@ describe('Sheet.Close', () => {
     const btn = screen.getByRole('button');
 
     expect(btn).toBe(ref.current);
+  });
+
+  describe('functionality', () => {
+    it('calls setCloseButtonPresent when mounting and unmounting', () => {
+      const { unmount } = render(<Close />);
+      const { setCloseButtonPresent } = useSheetContext();
+
+      expect(setCloseButtonPresent).toHaveBeenCalledWith(true);
+
+      unmount();
+
+      expect(setCloseButtonPresent).toHaveBeenCalledWith(false);
+      expect(setCloseButtonPresent).toHaveBeenCalledTimes(2);
+    });
   });
 });
