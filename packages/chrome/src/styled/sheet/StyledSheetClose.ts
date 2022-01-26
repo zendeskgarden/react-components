@@ -10,6 +10,12 @@ import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden
 
 const COMPONENT_ID = 'chrome.sheet_close';
 
+export const baseMultipliers = {
+  top: 2.5,
+  side: 2,
+  size: 10
+};
+
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const backgroundColor = 'primaryHue';
   const foregroundColor = 'neutralHue';
@@ -46,8 +52,9 @@ export const StyledSheetClose = styled.button.attrs({
 })<ThemeProps<DefaultTheme>>`
   display: flex;
   position: absolute;
-  top: ${props => props.theme.space.base * 2.5}px;
-  ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base * 2}px`};
+  top: ${props => props.theme.space.base * baseMultipliers.top}px;
+  ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
+    `${props.theme.space.base * baseMultipliers.side}px`};
   align-items: center;
   justify-content: center;
   /* prettier-ignore */
@@ -59,8 +66,8 @@ export const StyledSheetClose = styled.button.attrs({
   border-radius: 50%;
   cursor: pointer;
   padding: 0;
-  width: ${props => props.theme.space.base * 10}px;
-  height: ${props => props.theme.space.base * 10}px;
+  width: ${props => props.theme.space.base * baseMultipliers.size}px;
+  height: ${props => props.theme.space.base * baseMultipliers.size}px;
   overflow: hidden;
   text-decoration: none;
   font-size: 0;

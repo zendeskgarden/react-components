@@ -23,14 +23,18 @@ interface ISheetComponentProps extends ISheetProps {
   footerItems: IFooterItem[];
   hasHeader: boolean;
   isCompact: boolean;
+  hasTitle?: boolean;
   title: string;
+  hasDescription?: boolean;
   description: string;
 }
 
 export const SheetComponent = ({
   hasHeader,
   title,
+  hasTitle = !!title,
   description,
+  hasDescription = !!description,
   hasBody,
   body,
   hasFooter,
@@ -43,8 +47,8 @@ export const SheetComponent = ({
   <Sheet {...props}>
     {hasHeader && (
       <Sheet.Header>
-        <Sheet.Title>{title}</Sheet.Title>
-        <Sheet.Description>{description}</Sheet.Description>
+        {hasTitle && <Sheet.Title>{title}</Sheet.Title>}
+        {hasDescription && <Sheet.Description>{description}</Sheet.Description>}
       </Sheet.Header>
     )}
     {hasBody ? <Sheet.Body>{body}</Sheet.Body> : body}

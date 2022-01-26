@@ -45,11 +45,20 @@ const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
     const sheetRef = useRef<HTMLElement>(null);
 
     const seed = useUIDSeed();
+    const [isCloseButtonPresent, setCloseButtonPresent] = useState<boolean>(false);
     const [idPrefix] = useState<string>(id || seed(`sheet_${PACKAGE_VERSION}`));
     const titleId = `${idPrefix}--title`;
     const descriptionId = `${idPrefix}--description`;
 
-    const sheetContext = useMemo(() => ({ titleId, descriptionId }), [titleId, descriptionId]);
+    const sheetContext = useMemo(
+      () => ({
+        titleId,
+        descriptionId,
+        isCloseButtonPresent,
+        setCloseButtonPresent
+      }),
+      [titleId, descriptionId, isCloseButtonPresent]
+    );
 
     useFocusableMount({ targetRef: sheetRef, isMounted: isOpen, focusOnMount, restoreFocus });
 
