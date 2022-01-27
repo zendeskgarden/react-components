@@ -12,6 +12,27 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.48.0 (2022-01-27)
+
+#### :rocket: New Feature
+* `forms`
+  * [#1264](https://github.com/zendeskgarden/react-components/pull/1264) feat(forms): hide semantic Radio, Checkbox, and Toggle inputs more inclusively ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :bug: Bug Fix
+* `.template`, `accordions`, `avatars`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1273](https://github.com/zendeskgarden/react-components/pull/1273) fix: element component + subcomponent type conventions ([@jzempel](https://github.com/jzempel))
+* `chrome`
+  * [#1272](https://github.com/zendeskgarden/react-components/pull/1272) fix(chrome): add padding to sheet header when sheet close button is p… ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `dropdowns`
+  * [#1277](https://github.com/zendeskgarden/react-components/pull/1277) fix(dropdowns): compose onKeyDown handler for multiselect ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* [#1271](https://github.com/zendeskgarden/react-components/pull/1271) chore(deps): bump shelljs from 0.8.4 to 0.8.5 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#1269](https://github.com/zendeskgarden/react-components/pull/1269) chore(deps): bump follow-redirects from 1.9.0 to 1.14.7 in /examples/codesandbox ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#1268](https://github.com/zendeskgarden/react-components/pull/1268) chore(deps): bump follow-redirects from 1.14.3 to 1.14.7 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#1270](https://github.com/zendeskgarden/react-components/pull/1270) chore(deps): bump engine.io from 4.1.1 to 4.1.2 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#1267](https://github.com/zendeskgarden/react-components/pull/1267) chore(deps): bump follow-redirects from 1.14.4 to 1.14.7 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## v8.47.2 (2022-01-13)
 
 #### :memo: Documentation
