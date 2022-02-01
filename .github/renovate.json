@@ -4,11 +4,6 @@
   "ignorePaths": ["**/node_modules/**"],
   "schedule": ["on Monday every 9 weeks of the year starting on the 5th week"],
   "labels": ["PR: Internal :seedling:"],
-  "postUpdateOptions": ["yarnDedupeHighest"],
-  "postUpgradeTasks": {
-    "commands": ["yarn install", "yarn format"],
-    "fileFilters": ["yarn.lock", "**/*.{js,ts,tsx,md,json}"]
-  },
   "packageRules": [
     {
       "matchFiles": ["package.json"],
