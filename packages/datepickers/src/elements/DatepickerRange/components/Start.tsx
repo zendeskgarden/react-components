@@ -62,3 +62,5 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
     onBlur: composeEventHandlers(childElement.props.onBlur, onBlurCallback)
   });
 };
+
+Start.displayName = 'DatepickerRange.Start';

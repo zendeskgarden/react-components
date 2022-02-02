@@ -62,3 +62,5 @@ export const End = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) 
     onBlur: composeEventHandlers(childElement.props.onBlur, onBlurCallback)
   });
 };
+
+End.displayName = 'DatepickerRange.End';
