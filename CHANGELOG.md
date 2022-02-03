@@ -12,6 +12,27 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.48.1 (2022-02-03)
+
+#### :bug: Bug Fix
+* `datepickers`
+  * [#1289](https://github.com/zendeskgarden/react-components/pull/1289) fix(datepickers): add missing DatepickerRange subcomponent display names ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1286](https://github.com/zendeskgarden/react-components/pull/1286) chore(deps): update dependency eslint-plugin-jest to v26 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1285](https://github.com/zendeskgarden/react-components/pull/1285) chore(deps): update dependency commander to v9 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1282](https://github.com/zendeskgarden/react-components/pull/1282) fix(deps): update dependency prop-types to v15.8.1 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1280](https://github.com/zendeskgarden/react-components/pull/1280) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1279](https://github.com/zendeskgarden/react-components/pull/1279) chore(deps): pin dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1278](https://github.com/zendeskgarden/react-components/pull/1278) chore(deps): bump trim-off-newlines from 1.0.1 to 1.0.3 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1275](https://github.com/zendeskgarden/react-components/pull/1275) chore(deps): bump nanoid from 3.1.16 to 3.2.0 in /examples/codesandbox ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1274](https://github.com/zendeskgarden/react-components/pull/1274) chore(deps): bump nanoid from 3.1.23 to 3.2.0 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1288](https://github.com/zendeskgarden/react-components/pull/1288) chore(renovate): remove post updates from config ([@Francois-Esquire](https://github.com/Francois-Esquire))
+  * [#1276](https://github.com/zendeskgarden/react-components/pull/1276) chore(deps): bump nanoid from 3.1.29 to 3.2.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `forms`
+  * [#1281](https://github.com/zendeskgarden/react-components/pull/1281) chore(deps): update dependency react-dropzone to v11.5.3 ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.48.0 (2022-01-27)
 
 #### :rocket: New Feature
