@@ -29,7 +29,8 @@
       "excludedFiles": ["*.spec.*", "packages/*/demo/**/*"],
       "plugins": ["garden-local"],
       "rules": {
-        "garden-local/require-default-theme": "error"
+        "garden-local/require-default-theme": "error",
+        "prefer-object-has-own": "off"
       }
     },
     {
