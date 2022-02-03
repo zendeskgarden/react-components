@@ -57,4 +57,4 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
   );
 });
 
-Calendar.displayName = 'Calendar';
+Calendar.displayName = 'DatepickerRange.Calendar';
