@@ -21,6 +21,7 @@
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-explicit-any": "off",
+        "prefer-object-has-own": "off",
         "react/prop-types": "off"
       }
     },
@@ -29,8 +30,7 @@
       "excludedFiles": ["*.spec.*", "packages/*/demo/**/*"],
       "plugins": ["garden-local"],
       "rules": {
-        "garden-local/require-default-theme": "error",
-        "prefer-object-has-own": "off"
+        "garden-local/require-default-theme": "error"
       }
     },
     {

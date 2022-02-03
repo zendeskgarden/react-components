@@ -77,7 +77,8 @@ export const ToastStory: Story<IArgs> = ({ children, ...args }) => {
           <Dropdown
             onSelect={id => removeToast(id)}
             onStateChange={options =>
-              Object.hasOwn(options, 'isOpen') && setRemoveRotated(options.isOpen)
+              Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
+              setRemoveRotated(options.isOpen)
             }
           >
             <Trigger>

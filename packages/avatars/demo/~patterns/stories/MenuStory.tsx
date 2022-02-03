@@ -33,7 +33,7 @@ export const MenuStory: Story = ({ isCompact }) => {
           <Dropdown
             onStateChange={changes => {
               setHighlightedItem(changes.highlightedIndex);
-              Object.hasOwn(changes, 'isOpen') && setOpen(changes.isOpen);
+              Object.prototype.hasOwnProperty.call(changes, 'isOpen') && setOpen(changes.isOpen);
             }}
           >
             <Trigger>
