@@ -9,19 +9,18 @@ import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import ChevronLeftIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import { StyledIcon, StyledCursor } from '../../../styled';
 
-export const PreviousComponent = forwardRef<
-  HTMLButtonElement,
-  ButtonHTMLAttributes<HTMLButtonElement>
->(({ children, ...other }, ref) => {
-  return (
-    <StyledCursor ref={ref} as="button" {...other}>
-      <StyledIcon type="previous">
-        <ChevronLeftIcon />
-      </StyledIcon>
-      <span>{children}</span>
-    </StyledCursor>
-  );
-});
+const PreviousComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
+  ({ children, ...other }, ref) => {
+    return (
+      <StyledCursor ref={ref} as="button" {...other}>
+        <StyledIcon type="previous">
+          <ChevronLeftIcon />
+        </StyledIcon>
+        <span>{children}</span>
+      </StyledCursor>
+    );
+  }
+);
 
 PreviousComponent.displayName = 'CursorPagination.Previous';
 
