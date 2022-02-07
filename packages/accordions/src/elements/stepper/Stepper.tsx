@@ -24,7 +24,7 @@ const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
     const currentIndexRef = useRef(0);
     const stepperContext = useMemo(
       () => ({
-        isHorizontal: isHorizontal!,
+        isHorizontal: isHorizontal || false,
         activeIndex: activeIndex!,
         currentIndexRef
       }),
@@ -46,8 +46,7 @@ const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
 StepperComponent.displayName = 'Stepper';
 
 StepperComponent.defaultProps = {
-  activeIndex: 0,
-  isHorizontal: false
+  activeIndex: 0
 };
 
 /**
