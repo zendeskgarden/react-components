@@ -57,7 +57,7 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
   ) => {
     const { expandedSections, getHeaderProps, getTriggerProps, getPanelProps } = useAccordion({
       collapsible: isCollapsible,
-      expandable: isExpandable,
+      expandable: isExpandable === undefined ? false : isExpandable,
       onChange,
       defaultExpandedSections,
       expandedSections: controlledExpandedSections
@@ -106,13 +106,8 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
 AccordionComponent.displayName = 'Accordion';
 
 AccordionComponent.defaultProps = {
-  isBare: false,
-  isCompact: false,
   isAnimated: true,
-  isCollapsible: true,
-  isExpandable: false,
-  expandedSections: undefined,
-  onChange: () => undefined
+  isCollapsible: true
 };
 
 /**
