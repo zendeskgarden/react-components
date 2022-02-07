@@ -9,8 +9,8 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, act, renderRtl } from 'garden-test-utils';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-
-import { Tooltip, ITooltipProps } from './Tooltip';
+import { Tooltip } from './Tooltip';
+import { ITooltipProps } from '../utils/types';
 
 jest.useFakeTimers();
 

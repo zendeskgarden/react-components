@@ -42,6 +42,10 @@ export const SIZE = ['small', 'medium', 'large', 'extra-large'] as const;
 
 export const TYPE = ['light', 'dark'] as const;
 
+export type GardenPlacement = typeof PLACEMENT[number];
+
+export type PopperPlacement = typeof POPPER_PLACEMENT[number];
+
 export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
   /** Appends the tooltip to the element provided */
   appendToNode?: Element;
@@ -56,7 +60,7 @@ export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Adjusts the placement of the tooltip
    **/
-  placement?: typeof PLACEMENT[number];
+  placement?: GardenPlacement;
   /** Passes configurations to the [Popper instance](https://popper.js.org/docs/v2/modifiers/) */
   popperModifiers?: Modifiers;
   /** Adjusts the padding and font size */
