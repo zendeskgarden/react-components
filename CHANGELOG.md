@@ -12,6 +12,17 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.48.2 (2022-02-10)
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#1291](https://github.com/zendeskgarden/react-components/pull/1291) fix(accordions): API prop defaults ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1293](https://github.com/zendeskgarden/react-components/pull/1293) chore(stylelint): correct config and simplify css lint cmd ([@Francois-Esquire](https://github.com/Francois-Esquire))
+  * [#1292](https://github.com/zendeskgarden/react-components/pull/1292) chore(chrome/sheet): remove dangling asterisk from type description ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.48.1 (2022-02-03)
 
 #### :bug: Bug Fix
