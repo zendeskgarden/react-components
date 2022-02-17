@@ -25,6 +25,7 @@ export const StyledSwatchButton = styled(StyledButtonPreview).attrs<IStyleButton
   outline: none;
   border: none;
   border-radius: ${props => props.theme.borderRadii.md};
+  cursor: pointer;
   padding: 0;
 
   &[data-garden-focus-visible] {
