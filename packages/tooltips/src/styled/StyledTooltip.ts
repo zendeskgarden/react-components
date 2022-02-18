@@ -20,12 +20,9 @@ import { StyledTitle } from './StyledTitle';
 
 const COMPONENT_ID = 'tooltip.tooltip';
 
-export interface IStyledTooltipProps {
-  hasArrow?: NonNullable<ITooltipProps['hasArrow']>;
-  size?: NonNullable<ITooltipProps['size']>;
+export interface IStyledTooltipProps extends Pick<ITooltipProps, 'hasArrow' | 'size' | 'zIndex'> {
   /** All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements) */
   placement: typeof POPPER_PLACEMENT[number];
-  zIndex?: NonNullable<ITooltipProps['zIndex']>;
   type: NonNullable<ITooltipProps['type']>;
 }
 
