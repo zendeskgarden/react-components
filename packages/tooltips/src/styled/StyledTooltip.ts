@@ -14,19 +14,19 @@ import {
   getLineHeight
 } from '@zendeskgarden/react-theming';
 import { getArrowPosition } from '../utils/gardenPlacements';
-import { ITooltipProps, POPPER_PLACEMENT, SIZE, TYPE } from '../utils/types';
+import { ITooltipProps, POPPER_PLACEMENT } from '../utils/types';
 import { StyledParagraph } from './StyledParagraph';
 import { StyledTitle } from './StyledTitle';
 
 const COMPONENT_ID = 'tooltip.tooltip';
 
 export interface IStyledTooltipProps {
-  hasArrow?: boolean;
-  size?: typeof SIZE[number];
+  hasArrow?: NonNullable<ITooltipProps['hasArrow']>;
+  size?: NonNullable<ITooltipProps['size']>;
   /** All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements) */
   placement: typeof POPPER_PLACEMENT[number];
-  zIndex?: ITooltipProps['zIndex'];
-  type: typeof TYPE[number];
+  zIndex?: NonNullable<ITooltipProps['zIndex']>;
+  type: NonNullable<ITooltipProps['type']>;
 }
 
 const sizeStyles = ({
