@@ -30,6 +30,7 @@ interface IStoryProps {
   isAnimated: boolean;
   isCompact: boolean;
   isDisabled: boolean;
+  appendToNode: 'undefined' | 'body';
 }
 
 export const Default: Story<IStoryProps> = ({
@@ -37,11 +38,12 @@ export const Default: Story<IStoryProps> = ({
   isAnimated,
   isCompact,
   placement,
-  isDisabled
+  isDisabled,
+  appendToNode
 }) => {
   return (
     <Grid>
-      <Row style={{ minHeight: 200 }}>
+      <Row style={{ overflow: 'hidden', height: '70px', position: 'relative' }}>
         <Col textAlign="center">
           {/* eslint-disable-next-line no-alert */}
           <Dropdown onSelect={item => alert(item)}>
@@ -53,6 +55,7 @@ export const Default: Story<IStoryProps> = ({
               isAnimated={isAnimated}
               isCompact={isCompact}
               placement={placement}
+              appendToNode={appendToNode === 'body' ? document.body : undefined}
             >
               <Item disabled={isDisabled} value="option-1">
                 Option 1
@@ -96,10 +99,18 @@ Default.argTypes = {
       ]
     }
   },
-  isDisabled: { name: 'Disabled items', control: 'boolean' }
+  isDisabled: { name: 'Disabled items', control: 'boolean' },
+  appendToNode: {
+    name: 'appendToNode',
+    control: {
+      type: 'select',
+      options: ['undefined', 'body']
+    }
+  }
 };
 
 Default.args = {
   placement: 'bottom-start',
-  isAnimated: true
+  isAnimated: true,
+  appendToNode: 'undefined'
 };
