@@ -43,7 +43,7 @@ export const Default: Story<IStoryProps> = ({
 }) => {
   return (
     <Grid>
-      <Row style={{ overflow: 'hidden', height: '70px', position: 'relative' }}>
+      <Row style={{ minHeight: 200 }}>
         <Col textAlign="center">
           {/* eslint-disable-next-line no-alert */}
           <Dropdown onSelect={item => alert(item)}>
