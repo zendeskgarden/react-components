@@ -93,11 +93,11 @@ const MenuItem = ({ text: children, type, hasIcon, meta, ...props }: IProps) => 
 interface IArgs extends Omit<IMenuProps, 'appendToNode'> {
   items: ITEM[];
   itemProps?: IMenuItemProps;
-  appendToNode?: 'undefined' | 'body';
+  appendToNode?: 'undefined' | 'portal';
 }
 
 export const MenuStory: Story<IArgs> = ({ items, itemProps, appendToNode, ...args }) => (
-  <Menu appendToNode={appendToNode === 'body' ? document.body : undefined} {...args}>
+  <Menu appendToNode={appendToNode === 'portal' ? document.body : undefined} {...args}>
     {items.map((item, index) =>
       item === '---' ? (
         <Separator key={index} />
