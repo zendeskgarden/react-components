@@ -10,6 +10,7 @@ import { addons } from '@storybook/addons';
 import { DEFAULT_THEME } from '../packages/theming/src';
 
 addons.setConfig({
+  panelPosition: 'right',
   theme: create({
     brandTitle: 'Zendesk Garden React Components',
     brandUrl: 'https://github.com/zendeskgarden/react-components',

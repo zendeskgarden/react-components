@@ -7,9 +7,9 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import SplitButton from './SplitButton';
-import Button from './Button';
-import ChevronButton from './ChevronButton';
+import { SplitButton } from './SplitButton';
+import { Button } from './Button';
+import { ChevronButton } from './ChevronButton';
 
 describe('SplitButton', () => {
   it('renders child buttons as expected', () => {

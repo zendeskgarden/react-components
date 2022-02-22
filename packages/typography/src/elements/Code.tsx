@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledCode } from '../styled';
 
@@ -19,9 +19,7 @@ export interface ICodeProps extends HTMLAttributes<HTMLElement> {
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-const Code: React.FunctionComponent<
-  ICodeProps & React.RefAttributes<HTMLElement>
-> = React.forwardRef<HTMLElement, ICodeProps>(({ size, hue, ...other }, ref) => {
+export const Code = forwardRef<HTMLElement, ICodeProps>(({ size, hue, ...other }, ref) => {
   let _size: 'sm' | 'md' | 'lg' | 'inherit';
 
   if (size === 'small') {
@@ -48,5 +46,3 @@ Code.defaultProps = {
   hue: 'grey',
   size: 'inherit'
 };
-
-export default Code;

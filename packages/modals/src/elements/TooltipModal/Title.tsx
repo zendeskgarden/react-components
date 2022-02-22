@@ -5,14 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { useTooltipModalContext } from '../../utils/useTooltipModalContext';
 import { StyledTooltipModalTitle } from '../../styled';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Title = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+const TitleComponent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const { getTitleProps } = useTooltipModalContext();
 
@@ -24,4 +21,9 @@ export const Title = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLD
   }
 );
 
-Title.displayName = 'TooltipModal.Title';
+TitleComponent.displayName = 'TooltipModal.Title';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Title = TitleComponent;

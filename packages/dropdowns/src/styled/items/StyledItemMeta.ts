@@ -22,8 +22,8 @@ export const StyledItemMeta = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledItemMetaProps>`
-  display: ${props => (props.isCompact ? 'none' : 'block')};
-  line-height: ${props => props.theme.space.base * 4}px;
+  display: block;
+  line-height: ${props => props.theme.space.base * (props.isCompact ? 3 : 4)}px;
   color: ${props => getColor('neutralHue', props.isDisabled ? 400 : 600, props.theme)};
   font-size: ${props => props.theme.fontSizes.sm};
 

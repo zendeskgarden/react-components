@@ -23,7 +23,11 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
     builtin: palette.teal[400],
     comment: props.isLight ? palette.lime[600] : palette.mint[400],
     constant: props.isLight ? palette.azure[400] : palette.blue[500],
+    coord: props.isLight ? palette.purple[600] : palette.blue[200],
+    deleted: props.isLight ? palette.red[700] : palette.red[200],
+    diff: props.isLight ? palette.yellow[800] : palette.yellow[200],
     function: props.isLight ? palette.orange['M600' as any] : palette.yellow[300],
+    inserted: props.isLight ? palette.green[700] : palette.green[200],
     keyword: palette.fuschia['M400' as any],
     name: props.isLight ? palette.crimson[400] : palette.blue[300],
     number: props.isLight ? palette.green[600] : palette.green[300],
@@ -81,7 +85,7 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
     }
 
     &.boolean,
-    &.bold,
+    &.bold:not(.diff),
     &.entity,
     &.important,
     &.tag:not(.punctuation):not(.attr-name):not(.attr-value):not(.script):not(.class-name) /* [1] */ {
@@ -110,11 +114,30 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
       color: ${colors.comment};
     }
 
-    /* stylelint-disable-next-line */
-    ${StyledCodeBlock}.language-css &.plain {
+    /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before  */
+    ${StyledCodeBlock}.language-css &&.plain {
       color: ${colors.value};
     }
-    /* stylelint-enable selector-max-specificity, max-line-length */
+
+    ${StyledCodeBlock}.language-diff &&.coord {
+      color: ${colors.coord};
+    }
+
+    ${StyledCodeBlock}.language-diff &&.deleted {
+      color: ${colors.deleted};
+    }
+
+    ${StyledCodeBlock}.language-diff &&.diff {
+      color: ${colors.diff};
+    }
+
+    ${StyledCodeBlock}.language-diff &&.inserted {
+      color: ${colors.inserted};
+    }
+    /* stylelint-enable selector-max-specificity,
+       max-line-length,
+       declaration-block-semicolon-newline-after,
+       rule-empty-line-before */
   `;
 };
 
@@ -128,12 +151,21 @@ export const StyledCodeBlockToken = styled.span.attrs({
 })<IStyledCodeBlockTokenProps>`
   display: inline-block;
 
-  &.bold {
+  &.bold:not(.diff) {
     font-weight: ${props => props.theme.fontWeights.semibold};
+  }
+
+  &.coord {
+    padding-left: 0.75em;
   }
 
   &.italic {
     font-style: italic;
+  }
+
+  &.prefix {
+    width: 2em;
+    text-align: center;
   }
 
   ${props => colorStyles(props)};

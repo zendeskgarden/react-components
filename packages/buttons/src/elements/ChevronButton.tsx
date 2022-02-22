@@ -5,20 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import IconButton, { IIconButtonProps } from './IconButton';
+import React, { forwardRef } from 'react';
+import { IconButton, IIconButtonProps as IChevronButtonProps } from './IconButton';
 import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-const ChevronButton: React.FunctionComponent<
-  IIconButtonProps & React.RefAttributes<HTMLButtonElement>
-> = React.forwardRef<HTMLButtonElement, IIconButtonProps>(({ ...buttonProps }, ref) => (
-  <IconButton ref={ref} {...buttonProps}>
-    <ChevronDownIcon />
-  </IconButton>
-));
+export const ChevronButton = forwardRef<HTMLButtonElement, IChevronButtonProps>(
+  ({ ...buttonProps }, ref) => (
+    <IconButton ref={ref} {...buttonProps}>
+      <ChevronDownIcon />
+    </IconButton>
+  )
+);
 
 ChevronButton.displayName = 'ChevronButton';
 
@@ -29,5 +29,3 @@ ChevronButton.defaultProps = {
   isPill: false,
   size: 'medium'
 };
-
-export default ChevronButton;

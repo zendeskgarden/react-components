@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, LiHTMLAttributes } from 'react';
+import React, { useEffect, useRef, LiHTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import SelectedSvg from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
+import mergeRefs from 'react-merge-refs';
 import { StyledItem, StyledItemIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
@@ -18,18 +18,20 @@ export interface IItemProps extends LiHTMLAttributes<HTMLLIElement> {
   /** Sets the value that is returned upon selection */
   value?: any;
   /**
-   * @ignore
+   * @ignore Sets the wrapping component for the item
    */
   component?: any;
   /** Indicates that the element is not interactive */
   disabled?: boolean;
+  /** Applies danger styling */
+  isDanger?: boolean;
 }
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
-  ({ value, disabled, component = StyledItem, children, ...props }, forwardRef) => {
+  ({ value, disabled, isDanger, component = StyledItem, children, ...props }, forwardRef) => {
     const {
       selectedItems,
       hasMenuRef,
@@ -44,7 +46,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
       }
     } = useDropdownContext();
     const { itemIndexRef, isCompact } = useMenuContext();
-    const itemRef = useCombinedRefs(forwardRef);
+    const itemRef = useRef<HTMLLIElement>();
     const Component = component;
 
     if ((value === undefined || value === null) && !disabled) {
@@ -85,10 +87,19 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
       }
     }, [currentIndex, disabled, isOpen, isSelected, selectedItems, setHighlightedIndex]);
 
+    const contextValue = useMemo(() => ({ isDisabled: disabled }), [disabled]);
+    const ref = mergeRefs([itemRef, forwardRef]);
+
     if (disabled) {
       return (
-        <ItemContext.Provider value={{ isDisabled: disabled }}>
-          <Component ref={itemRef} disabled={disabled} isCompact={isCompact} {...props}>
+        <ItemContext.Provider value={contextValue}>
+          <Component
+            ref={ref}
+            disabled={disabled}
+            isDanger={isDanger}
+            isCompact={isCompact}
+            {...props}
+          >
             {isSelected && (
               <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
                 <SelectedSvg />
@@ -104,15 +115,16 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
     itemIndexRef.current++;
 
     return (
-      <ItemContext.Provider value={{ isDisabled: disabled }}>
+      <ItemContext.Provider value={contextValue}>
         <Component
           data-test-is-focused={isFocused}
           data-test-is-selected={isSelected}
           {...getItemProps({
             item: value,
             isFocused,
-            ref: itemRef,
+            ref,
             isCompact,
+            isDanger,
             ...(hasMenuRef.current && {
               role: 'menuitem',
               'aria-selected': null

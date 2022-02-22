@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, HTMLAttributes } from 'react';
+import React, { Children, forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledAvatar, StyledText } from '../styled';
+import { StyledAvatar } from '../styled';
+import { Text } from './components/Text';
 
-interface IAvatarProps extends HTMLAttributes<HTMLElement> {
+export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   /** Sets the avatar background color */
   backgroundColor?: string;
   /** Sets the color for child SVG or `Avatar.Text` components */
@@ -26,7 +27,7 @@ interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   badge?: string | number;
 }
 
-const Avatar: React.FunctionComponent<IAvatarProps> = React.forwardRef<HTMLElement, IAvatarProps>(
+const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
   (
     {
       isSystem,
@@ -63,9 +64,9 @@ const Avatar: React.FunctionComponent<IAvatarProps> = React.forwardRef<HTMLEleme
   }
 );
 
-Avatar.displayName = 'Avatar';
+AvatarComponent.displayName = 'Avatar';
 
-Avatar.propTypes = {
+AvatarComponent.propTypes = {
   backgroundColor: PropTypes.string,
   foregroundColor: PropTypes.string,
   surfaceColor: PropTypes.string,
@@ -75,17 +76,15 @@ Avatar.propTypes = {
   status: PropTypes.oneOf(['available', 'away'])
 };
 
-Avatar.defaultProps = {
+AvatarComponent.defaultProps = {
   size: 'medium'
 };
-
-(Avatar as any).Text = StyledText;
 
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-export default Avatar as React.FunctionComponent<
-  IAvatarProps & React.RefAttributes<HTMLElement>
-> & {
-  Text: typeof StyledText;
+export const Avatar = AvatarComponent as typeof AvatarComponent & {
+  Text: typeof Text;
 };
+
+Avatar.Text = Text;

@@ -1,0 +1,39 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Timeline } from '@zendeskgarden/react-accordions';
+import { TimelineStory } from './stories/TimelineStory';
+import { TIMELINE_ITEMS as ITEMS } from './stories/data';
+
+<Meta
+  title="Packages/Accordions/Timeline"
+  component={Timeline}
+  subcomponents={{
+    'Timeline.Content': Timeline.Content,
+    'Timeline.Item': Timeline.Item,
+    'Timeline.OppositeContent': Timeline.OppositeContent
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Timeline"
+    args={{ hasIcon: false, hasOppositeContent: false, items: ITEMS }}
+    argTypes={{
+      hasIcon: { name: 'icon', table: { category: 'Timeline.Item' } },
+      surfaceColor: {
+        name: 'surfaceColor',
+        control: { type: 'color' },
+        table: { category: 'Timeline.Item' }
+      },
+      hasOppositeContent: { name: 'Timeline.OppositeContent', table: { category: 'Story' } },
+      items: { name: 'Timeline.Item[]', table: { category: 'Story' } }
+    }}
+  >
+    {args => <TimelineStory {...args} />}
+  </Story>
+</Canvas>

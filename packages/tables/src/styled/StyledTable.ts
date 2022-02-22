@@ -12,8 +12,7 @@ const COMPONENT_ID = 'tables.table';
 
 export type SIZE = 'small' | 'medium' | 'large';
 
-export interface IStyledTableProps {
-  /** Sets the table size */
+interface IStyledTableProps {
   size?: SIZE;
 }
 

@@ -7,8 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-
-import Paragraph from './Paragraph';
+import { Paragraph } from './Paragraph';
 
 describe('Paragraph', () => {
   it('applies custom attributes if provided', () => {

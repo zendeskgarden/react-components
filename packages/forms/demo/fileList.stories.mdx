@@ -1,0 +1,32 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { FileList, File } from '@zendeskgarden/react-forms';
+import { FileListStory } from './stories/FileListStory';
+import { FILELIST_ITEMS as ITEMS } from './stories/data';
+
+<Meta
+  title="Packages/Forms/FileList"
+  component={FileList}
+  subcomponents={{
+    'FileList.Item': FileList.Item,
+    File
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="FileList"
+    args={{ items: ITEMS }}
+    argTypes={{
+      items: { name: 'children' },
+      isCompact: { control: 'boolean', table: { category: 'File' } }
+    }}
+  >
+    {args => <FileListStory {...args} />}
+  </Story>
+</Canvas>

@@ -5,18 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState, useMemo, useCallback, HTMLAttributes } from 'react';
+import React, {
+  useContext,
+  useRef,
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+  HTMLAttributes
+} from 'react';
 import PropTypes from 'prop-types';
-import { DefaultTheme, ThemeProps } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { Reference } from 'react-popper';
 import { useSelection } from '@zendeskgarden/container-selection';
-import {
-  KEY_CODES,
-  composeEventHandlers,
-  useCombinedRefs
-} from '@zendeskgarden/container-utilities';
-import { isRtl, withTheme } from '@zendeskgarden/react-theming';
+import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import mergeRefs from 'react-merge-refs';
 import {
   StyledFauxInput,
   StyledMultiselectInput,
@@ -29,7 +33,7 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 
-interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
+export interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies compact styling */
   isCompact?: boolean;
   /** Removes borders and padding */
@@ -38,8 +42,6 @@ interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Indicates that the element's menu is open */
-  isOpen?: boolean;
   /** Defines text that appears in the element when no items are selected */
   placeholder?: string;
   /** Defines the element's validation state */
@@ -68,15 +70,19 @@ interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
   start?: any;
 }
 
-const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemeProps<DefaultTheme>>(
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
   (
     {
       renderItem,
       placeholder,
       maxItems,
       renderShowMore,
-      inputRef: externalInputRef,
+      inputRef: externalInputRef = null,
       start,
+      onKeyDown,
       ...props
     },
     ref
@@ -95,20 +101,22 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
         inputValue,
         setState: setDownshiftState,
         itemToString
-      }
+      },
+      setDropdownType
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
-    const inputRef = useCombinedRefs<HTMLInputElement>(externalInputRef);
-    const triggerRef = useCombinedRefs<HTMLDivElement>(popperReferenceElementRef, ref);
+    const inputRef = useRef<HTMLInputElement>();
+    const triggerRef = useRef<HTMLDivElement>();
     const blurTimeoutRef = useRef<number | undefined>();
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
     const previousIsFocusedRef = useRef<boolean | undefined>(undefined);
     const [isHovered, setIsHovered] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
     const [focusedItem, setFocusedItem] = useState(undefined);
+    const themeContext = useContext(ThemeContext);
 
     const { getContainerProps, getItemProps } = useSelection({
-      rtl: isRtl(props),
+      rtl: themeContext.rtl,
       focusedItem,
       selectedItem: undefined,
       onFocus: (item: any) => {
@@ -157,25 +165,25 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
     const { type, ...selectProps } = getToggleButtonProps(
       getRootProps({
         tabIndex: props.disabled ? undefined : -1,
-        onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => {
+        onKeyDown: composeEventHandlers(onKeyDown, (e: React.KeyboardEvent<HTMLElement>) => {
           if (isOpen) {
             (e.nativeEvent as any).preventDownshiftDefault = true;
           } else if (!inputValue && e.keyCode === KEY_CODES.HOME) {
             setFocusedItem(selectedItems[0]);
             e.preventDefault();
           }
-        },
+        }),
         onFocus: () => {
           setIsFocused(true);
         },
         onBlur: (e: React.FocusEvent<HTMLElement>) => {
           const currentTarget = e.currentTarget;
 
-          blurTimeoutRef.current = (setTimeout(() => {
+          blurTimeoutRef.current = setTimeout(() => {
             if (!currentTarget.contains(document.activeElement)) {
               setIsFocused(false);
             }
-          }, 0) as unknown) as number;
+          }, 0) as unknown as number;
         },
         onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
         onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
@@ -216,7 +224,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                 e.preventDefault();
               }
 
-              if (isRtl(props)) {
+              if (themeContext.rtl) {
                 if (e.keyCode === KEY_CODES.RIGHT && index === 0) {
                   e.preventDefault();
                 }
@@ -256,7 +264,8 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
         itemToString,
         selectedItems,
         props,
-        inputRef
+        inputRef,
+        themeContext.rtl
       ]
     );
 
@@ -323,6 +332,10 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
     const isContainerHovered = isLabelHovered && !isOpen;
     const isContainerFocused = isOpen || isFocused;
 
+    useEffect(() => {
+      setDropdownType('multiselect');
+    }, [setDropdownType]);
+
     return (
       <Reference>
         {({ ref: popperReference }) => (
@@ -339,12 +352,16 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                 (popperReference as any)(selectRef);
 
                 // Apply Select ref to global Dropdown context
-                (triggerRef as React.MutableRefObject<any>).current = selectRef;
+                mergeRefs([triggerRef, popperReferenceElementRef, ref])(selectRef);
               }
             })}
           >
             {start && (
-              <StyledFauxInput.StartIcon isDisabled={props.disabled}>
+              <StyledFauxInput.StartIcon
+                isHovered={isHovered || (isLabelHovered && !isOpen)}
+                isFocused={isContainerFocused}
+                isDisabled={props.disabled}
+              >
                 {start}
               </StyledFauxInput.StartIcon>
             )}
@@ -364,14 +381,14 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                   onKeyDown: (e: KeyboardEvent) => {
                     if (!inputValue) {
                       if (
-                        isRtl(props) &&
+                        themeContext.rtl &&
                         e.keyCode === KEY_CODES.RIGHT &&
                         selectedItems.length > 0 &&
                         previousIndexRef.current === undefined
                       ) {
                         setFocusedItem(selectedItems[selectedItems.length - 1]);
                       } else if (
-                        !isRtl(props) &&
+                        !themeContext.rtl &&
                         e.keyCode === KEY_CODES.LEFT &&
                         selectedItems.length > 0 &&
                         previousIndexRef.current === undefined
@@ -391,7 +408,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                   isVisible: isFocused || inputValue || selectedItems.length === 0,
                   isCompact: props.isCompact,
                   role: 'combobox',
-                  ref: inputRef,
+                  ref: mergeRefs([inputRef, externalInputRef]),
                   placeholder: selectedItems.length === 0 ? placeholder : undefined
                 }) as any)}
               />
@@ -399,7 +416,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
             {!props.isBare && (
               <StyledFauxInput.EndIcon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
-                isFocused={isOpen}
+                isFocused={isContainerFocused}
                 isDisabled={props.disabled}
                 isRotated={isOpen}
               >
@@ -418,7 +435,6 @@ Multiselect.propTypes = {
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
   focusInset: PropTypes.bool,
-  isOpen: PropTypes.bool,
   renderItem: PropTypes.func.isRequired,
   maxItems: PropTypes.number,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
@@ -428,9 +444,4 @@ Multiselect.defaultProps = {
   maxItems: 4
 };
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export default withTheme(Multiselect) as React.FunctionComponent<
-  IMultiselectProps & React.RefAttributes<HTMLDivElement>
->;
+Multiselect.displayName = 'Multiselect';

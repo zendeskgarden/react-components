@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import OrderedList from './OrderedList';
+import { OrderedList } from './OrderedList';
 
 describe('OrderedList', () => {
   it('applies <ol> rendering if provided', () => {

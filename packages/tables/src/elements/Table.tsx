@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { TableHTMLAttributes } from 'react';
+import React, { TableHTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { StyledTable, IStyledTableProps } from '../styled';
+import { StyledTable, SIZE } from '../styled';
 import { TableContext } from '../utils/useTableContext';
 
-interface ITableProps extends IStyledTableProps, TableHTMLAttributes<HTMLTableElement> {
+export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
+  /** Sets the table size */
+  size?: SIZE;
   /** Removes interactive styling from table rows */
   isReadOnly?: boolean;
 }
@@ -19,7 +21,10 @@ interface ITableProps extends IStyledTableProps, TableHTMLAttributes<HTMLTableEl
  * @extends TableHTMLAttributes<HTMLTableElement>
  */
 export const Table = React.forwardRef<HTMLTableElement, ITableProps>((props, ref) => {
-  const tableContextValue = { size: props.size!, isReadOnly: props.isReadOnly! };
+  const tableContextValue = useMemo(
+    () => ({ size: props.size!, isReadOnly: props.isReadOnly! }),
+    [props.size, props.isReadOnly]
+  );
 
   return (
     <TableContext.Provider value={tableContextValue}>
@@ -35,5 +40,6 @@ Table.defaultProps = {
 };
 
 Table.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  isReadOnly: PropTypes.bool
 };

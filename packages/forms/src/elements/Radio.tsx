@@ -9,17 +9,25 @@ import React, { InputHTMLAttributes } from 'react';
 import useFieldContext from '../utils/useFieldContext';
 import { InputContext } from '../utils/useInputContext';
 import { StyledRadioInput } from '../styled';
+import useFieldsetContext from '../utils/useFieldsetContext';
+
+export interface IRadioProps extends InputHTMLAttributes<HTMLInputElement> {
+  /** Applies compact styling */
+  isCompact?: boolean;
+}
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
-export const Radio = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
+export const Radio = React.forwardRef<HTMLInputElement, IRadioProps>(
   ({ children, ...props }, ref) => {
+    const fieldsetContext = useFieldsetContext();
     const fieldContext = useFieldContext();
 
     let combinedProps = {
       ref,
-      ...props
+      ...props,
+      ...fieldsetContext
     };
 
     if (fieldContext) {

@@ -6,20 +6,17 @@
  */
 
 import React, { useRef, useState, useEffect, useCallback, HTMLAttributes } from 'react';
-import {
-  composeEventHandlers,
-  useCombinedRefs,
-  KEY_CODES
-} from '@zendeskgarden/container-utilities';
+import { composeEventHandlers, KEY_CODES } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
+import mergeRefs from 'react-merge-refs';
 import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
-interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
+export interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies compact styling */
   isCompact?: boolean;
   /** Removes borders and padding */
@@ -28,8 +25,6 @@ interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Indicates that the element's menu is open */
-  isOpen?: boolean;
   /** Defines the element's validation state */
   validation?: VALIDATION;
   /** Defines the icon rendered before the element's content */
@@ -37,8 +32,6 @@ interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
- *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
@@ -58,8 +51,9 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
     const [isHovered, setIsHovered] = useState(false);
-    const hiddenInputRef = useRef<HTMLInputElement>(null);
-    const triggerRef = useCombinedRefs<HTMLDivElement>(ref, popperReferenceElementRef);
+    const [isFocused, setIsFocused] = useState(false);
+    const hiddenInputRef = useRef<HTMLInputElement>();
+    const triggerRef = useRef<HTMLDivElement>();
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
     const [searchString, setSearchString] = useState('');
     const searchTimeoutRef = useRef<number>();
@@ -197,10 +191,13 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
       tabIndex: props.disabled ? undefined : 0,
       onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
       onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
+      onFocus: composeEventHandlers(props.onFocus, () => setIsFocused(true)),
+      onBlur: composeEventHandlers(props.onBlur, () => setIsFocused(false)),
       ...props
     } as any);
 
     const isContainerHovered = isLabelHovered && !isOpen;
+    const isContainerFocused = isFocused || isOpen;
 
     return (
       <Reference>
@@ -210,21 +207,23 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             data-test-is-hovered={isContainerHovered}
             data-test-is-focused={isOpen}
             isHovered={isContainerHovered}
-            isFocused={isOpen}
+            isFocused={isContainerFocused}
             {...selectProps}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
               (popperReference as any)(selectRef);
 
               // Store ref locally to return focus on close
-              (triggerRef.current as any) = selectRef;
-
               // Apply Select ref to global Dropdown context
-              popperReferenceElementRef.current = selectRef;
+              mergeRefs([triggerRef, ref, popperReferenceElementRef])(selectRef);
             }}
           >
             {start && (
-              <StyledFauxInput.StartIcon isDisabled={props.disabled}>
+              <StyledFauxInput.StartIcon
+                isHovered={isHovered || (isLabelHovered && !isOpen)}
+                isFocused={isContainerFocused}
+                isDisabled={props.disabled}
+              >
                 {start}
               </StyledFauxInput.StartIcon>
             )}
@@ -248,7 +247,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
               <StyledFauxInput.EndIcon
                 data-test-id="select-icon"
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
-                isFocused={isOpen}
+                isFocused={isContainerFocused}
                 isDisabled={props.disabled}
                 isRotated={isOpen}
               >
@@ -269,6 +268,5 @@ Select.propTypes = {
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
   focusInset: PropTypes.bool,
-  isOpen: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };

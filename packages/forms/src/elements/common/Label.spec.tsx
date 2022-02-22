@@ -6,8 +6,9 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
-import { Field, Checkbox, Radio, Toggle, Label } from '../..';
+import { render, screen } from 'garden-test-utils';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { Fieldset, Field, Checkbox, Radio, Toggle, Label } from '../..';
 
 describe('Label', () => {
   it('passes ref to underlying DOM element', () => {
@@ -67,5 +68,21 @@ describe('Label', () => {
     );
 
     expect(getByTestId('label')).toHaveAttribute('data-garden-id', 'forms.radio_label');
+  });
+
+  it('renders regular label if within a Fieldset component', () => {
+    render(
+      <Fieldset>
+        <Field>
+          <Radio>
+            <Label>Test</Label>
+          </Radio>
+        </Field>
+      </Fieldset>
+    );
+
+    const label = screen.getByText('Test');
+
+    expect(label).toHaveStyleRule('font-weight', DEFAULT_THEME.fontWeights.regular.toString());
   });
 });

@@ -1,43 +1,34 @@
 {
   "extends": ["config:base"],
   "rebaseStalePrs": true,
-  "ignoreDeps": ["react-docgen-typescript"],
   "ignorePaths": ["**/node_modules/**"],
-  "schedule": ["on Monday every 8 weeks of the year starting on the 5th week"],
+  "schedule": ["on Monday every 9 weeks of the year starting on the 5th week"],
   "labels": ["PR: Internal :seedling:"],
-  "postUpgradeTasks": {
-    "commands": ["yarn install", "yarn format"],
-    "fileFilters": ["yarn.lock", "**/*.{js,ts,tsx,md,json}"]
-  },
   "packageRules": [
     {
-      "paths": ["package.json"],
-      "rangeStrategy": "replace",
-      "minor": {
-        "groupName": "non-major shared dependencies",
-        "groupSlug": "shared-minor-patch"
-      }
+      "matchFiles": ["package.json"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "non-major shared dependencies",
+      "groupSlug": "shared-minor-patch"
     },
     {
-      "paths": ["packages/**"],
-      "minor": {
-        "groupName": "non-major package dependencies",
-        "groupSlug": "packages-minor-patch"
-      }
+      "matchPaths": ["packages/**"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "non-major package dependencies",
+      "groupSlug": "packages-minor-patch"
     },
     {
-      "paths": ["examples/**"],
-      "minor": {
-        "groupName": "non-major example dependencies",
-        "groupSlug": "examples-minor-patch"
-      }
+      "matchPaths": ["examples/**"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "non-major example dependencies",
+      "groupSlug": "examples-minor-patch"
     },
     {
-      "packagePatterns": ["^@zendeskgarden/react"],
+      "matchPackagePatterns": ["^@zendeskgarden/react"],
       "enabled": false
     },
     {
-      "depTypeList": ["peerDependencies"],
+      "matchDepTypes": ["peerDependencies"],
       "enabled": false
     }
   ]

@@ -1,6 +1,0 @@
-plugins:
-  - addAttributesToSVGElement:
-      attributes:
-        - focusable: false
-        - role: "presentation"
-  - removeViewBox: false

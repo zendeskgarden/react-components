@@ -31,7 +31,7 @@ export interface ICollapsibleSubNavItemProps
 }
 
 /**
- * @extends HTMLAttributes<HTMLDivElement>
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsibleSubNavItemProps>(
   ({ header, children, isExpanded: controlledExpanded, onChange, ...other }, ref) => {
@@ -57,7 +57,7 @@ export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsib
       if (expanded && panelRef.current) {
         panelRef.current.style.maxHeight = `${panelRef.current.scrollHeight}px`;
       }
-    }, [expanded]);
+    }, [expanded, children]);
 
     return (
       <div ref={ref}>
@@ -99,3 +99,5 @@ CollapsibleSubNavItem.propTypes = {
   onChange: PropTypes.func,
   children: PropTypes.node
 };
+
+CollapsibleSubNavItem.displayName = 'CollapsibleSubNavItem';

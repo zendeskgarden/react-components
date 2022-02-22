@@ -5,15 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useRef,
-  useEffect,
-  forwardRef,
-  RefAttributes,
-  HTMLAttributes,
-  PropsWithoutRef,
-  ForwardRefExoticComponent
-} from 'react';
+import React, { useRef, useEffect, forwardRef, HTMLAttributes, useMemo } from 'react';
 import { useAccordion } from '@zendeskgarden/container-accordion';
 import { StyledAccordion } from '../../styled';
 import { AccordionContext } from '../../utils';
@@ -22,19 +14,13 @@ import { Header } from '../accordion/components/Header';
 import { Label } from '../accordion/components/Label';
 import { Panel } from '../accordion/components/Panel';
 
-interface IStaticAccordionExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Section: typeof Section;
-  Header: typeof Header;
-  Label: typeof Label;
-  Panel: typeof Panel;
-}
-
-interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** Sets `aria-level` heading rank in the document structure */
   level: number;
   /** Sets the expanded sections in a controlled accordion */
   expandedSections?: number[];
+  /** Sets the default expanded sections in an uncontrolled accordion */
+  defaultExpandedSections?: number[];
   /** Hides section borders */
   isBare?: boolean;
   /** Allows uncontrolled accordion sections to collapse */
@@ -53,10 +39,7 @@ interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange
   onChange?: (index: number) => void;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
+const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
   (
     {
       level,
@@ -66,6 +49,7 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       isAnimated,
       isExpandable,
       isCollapsible,
+      defaultExpandedSections,
       expandedSections: controlledExpandedSections,
       ...props
     },
@@ -73,8 +57,9 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
   ) => {
     const { expandedSections, getHeaderProps, getTriggerProps, getPanelProps } = useAccordion({
       collapsible: isCollapsible,
-      expandable: isExpandable,
+      expandable: isExpandable || false,
       onChange,
+      defaultExpandedSections,
       expandedSections: controlledExpandedSections
     });
     const currentIndexRef = useRef(0);
@@ -83,18 +68,32 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       currentIndexRef.current = 0;
     });
 
-    const value = {
-      level,
-      isBare,
-      isCompact,
-      isAnimated,
-      isCollapsible,
-      getPanelProps,
-      getHeaderProps,
-      getTriggerProps,
-      currentIndexRef,
-      expandedSections
-    };
+    const value = useMemo(
+      () => ({
+        level,
+        isBare,
+        isCompact,
+        isAnimated,
+        isCollapsible,
+        getPanelProps,
+        getHeaderProps,
+        getTriggerProps,
+        currentIndexRef,
+        expandedSections
+      }),
+      [
+        level,
+        isBare,
+        isCompact,
+        isAnimated,
+        isCollapsible,
+        getPanelProps,
+        getHeaderProps,
+        getTriggerProps,
+        currentIndexRef,
+        expandedSections
+      ]
+    );
 
     return (
       <AccordionContext.Provider value={value}>
@@ -102,21 +101,26 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       </AccordionContext.Provider>
     );
   }
-) as IStaticAccordionExport<HTMLDivElement, IAccordionProps>;
+);
 
-Accordion.Section = Section;
+AccordionComponent.displayName = 'Accordion';
+
+AccordionComponent.defaultProps = {
+  isAnimated: true,
+  isCollapsible: true
+};
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Accordion = AccordionComponent as typeof AccordionComponent & {
+  Header: typeof Header;
+  Label: typeof Label;
+  Panel: typeof Panel;
+  Section: typeof Section;
+};
+
 Accordion.Header = Header;
 Accordion.Label = Label;
 Accordion.Panel = Panel;
-
-Accordion.displayName = 'Accordion';
-
-Accordion.defaultProps = {
-  isBare: false,
-  isCompact: false,
-  isAnimated: true,
-  isCollapsible: true,
-  isExpandable: false,
-  expandedSections: undefined,
-  onChange: () => undefined
-};
+Accordion.Section = Section;

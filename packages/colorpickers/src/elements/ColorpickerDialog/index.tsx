@@ -8,6 +8,7 @@
 import React, {
   useState,
   useRef,
+  useEffect,
   Children,
   cloneElement,
   forwardRef,
@@ -28,6 +29,10 @@ import {
   StyledTooltipModal,
   StyledTooltipBody
 } from '../../styled';
+
+export interface IColorpickerDialogChanges {
+  isOpen?: boolean;
+}
 
 export interface IColorpickerDialogProps extends IColorpickerProps {
   /**
@@ -57,18 +62,29 @@ export interface IColorpickerDialogProps extends IColorpickerProps {
    */
   isAnimated?: boolean;
   /**
+   * Opens the dialog in a controlled color picker dialog
+   */
+  isOpen?: boolean;
+  /**
    * Applies inset `box-shadow` styling on focus
    */
   focusInset?: boolean;
+  /**
+   * Passes HTML attributes to the color dialog button element
+   */
+  buttonProps?: HTMLAttributes<HTMLButtonElement>;
+  /**
+   * Handles dialog changes
+   *
+   * @param {Object} changes The changed dialog state
+   */
+  onDialogChange?: (changes: IColorpickerDialogChanges) => void;
 }
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const ColorpickerDialog = forwardRef<
-  HTMLDivElement,
-  IColorpickerDialogProps & Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'onChange'>
->(
+export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogProps>(
   (
     {
       color,
@@ -79,15 +95,21 @@ export const ColorpickerDialog = forwardRef<
       labels,
       hasArrow,
       isAnimated,
+      isOpaque,
+      isOpen,
       popperModifiers,
       zIndex,
       focusInset,
+      disabled,
+      buttonProps,
+      onDialogChange,
       children,
       ...props
     },
     ref
   ) => {
     const isControlled = color !== null && color !== undefined;
+    const isDialogControlled = isOpen !== undefined && isOpen !== null;
     const buttonRef = useRef<HTMLButtonElement>(null);
     const colorPickerRef = useRef<HTMLDivElement>(null);
     const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
@@ -95,13 +117,33 @@ export const ColorpickerDialog = forwardRef<
       defaultColor
     );
 
+    const openDialog = () => {
+      setReferenceElement(buttonRef.current);
+      onDialogChange && onDialogChange({ isOpen: true });
+    };
+
+    const closeDialog = () => {
+      setReferenceElement(null);
+      onDialogChange && onDialogChange({ isOpen: false });
+    };
+
     const onClick = composeEventHandlers(props.onClick, () => {
       if (referenceElement) {
-        setReferenceElement(null);
+        closeDialog();
       } else {
-        setReferenceElement(buttonRef.current);
+        openDialog();
       }
     });
+
+    useEffect(() => {
+      if (isDialogControlled) {
+        if (isOpen) {
+          setReferenceElement(buttonRef.current);
+        } else {
+          setReferenceElement(null);
+        }
+      }
+    }, [isOpen, isDialogControlled]);
 
     return (
       <>
@@ -111,7 +153,13 @@ export const ColorpickerDialog = forwardRef<
             ref: buttonRef
           })
         ) : (
-          <StyledButton focusInset={focusInset} ref={buttonRef} onClick={onClick}>
+          <StyledButton
+            disabled={disabled}
+            focusInset={focusInset}
+            ref={buttonRef}
+            onClick={onClick}
+            {...buttonProps}
+          >
             <StyledButtonPreview backgroundColor={isControlled ? color : uncontrolledColor} />
             {/* eslint-disable-next-line no-eq-null, eqeqeq */}
             <Button.EndIcon isRotated={referenceElement != null}>
@@ -125,11 +173,12 @@ export const ColorpickerDialog = forwardRef<
           popperModifiers={popperModifiers}
           zIndex={zIndex}
           isAnimated={isAnimated}
+          isOpaque={isOpaque}
           focusOnMount={false}
           placement={placement}
           referenceElement={referenceElement}
           onClose={() => {
-            setReferenceElement(null);
+            closeDialog();
             onClose && onClose(isControlled ? (color as IColor) : (uncontrolledColor as IColor));
           }}
           {...props}
@@ -138,6 +187,7 @@ export const ColorpickerDialog = forwardRef<
             <Colorpicker
               autofocus
               color={color}
+              isOpaque={isOpaque}
               labels={labels}
               ref={colorPickerRef}
               defaultColor={uncontrolledColor}
@@ -168,9 +218,12 @@ ColorpickerDialog.propTypes = {
   ]),
   onClose: PropTypes.func,
   onChange: PropTypes.func,
+  onDialogChange: PropTypes.func,
+  disabled: PropTypes.bool,
   labels: PropTypes.object,
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
-  defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string])
+  defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
+  buttonProps: PropTypes.object
 };
 
 ColorpickerDialog.defaultProps = {

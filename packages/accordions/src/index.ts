@@ -6,4 +6,12 @@
  */
 
 export { Stepper } from './elements/stepper/Stepper';
+export type { IStepperProps } from './elements/stepper/Stepper';
+export type { IStepperLabelProps } from './elements/stepper/components/Label';
+
 export { Accordion } from './elements/accordion/Accordion';
+export type { IAccordionProps } from './elements/accordion/Accordion';
+
+export { Timeline } from './elements/timeline/Timeline';
+export type { ITimelineProps } from './elements/timeline/Timeline';
+export type { ITimelineItemProps, IItem } from './elements/timeline/components/Item';

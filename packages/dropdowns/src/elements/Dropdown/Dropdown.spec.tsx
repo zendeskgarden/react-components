@@ -172,7 +172,7 @@ describe('Dropdown', () => {
       );
 
       userEvent.click(getByTestId('trigger'));
-      userEvent.click(getAllByTestId('item')[0]);
+      fireEvent.click(getAllByTestId('item')[0]);
       expect(onSelectSpy.mock.calls[0][0]).toBe('previous-item');
     });
 
@@ -183,7 +183,7 @@ describe('Dropdown', () => {
       );
 
       userEvent.click(getByTestId('trigger'));
-      userEvent.click(getAllByTestId('item')[0]);
+      fireEvent.click(getAllByTestId('item')[0]);
       expect(onSelectSpy.mock.calls[0][0]).toStrictEqual(['item-1', 'item-2', 'previous-item']);
     });
 
@@ -197,7 +197,7 @@ describe('Dropdown', () => {
       );
 
       userEvent.click(getByTestId('trigger'));
-      userEvent.click(getAllByTestId('item')[0]);
+      fireEvent.click(getAllByTestId('item')[0]);
       expect(onSelectSpy.mock.calls[0][0]).toStrictEqual(['item-1', 'item-2']);
     });
 
@@ -241,7 +241,7 @@ describe('Dropdown', () => {
       container.querySelector('input')!.readOnly = false;
       userEvent.type(container.querySelector('input')!, 't');
 
-      expect(onInputValueChangeSpy.mock.calls[1][0]).toBe('t');
+      expect(onInputValueChangeSpy.mock.calls[0][0]).toBe('t');
     });
   });
 });

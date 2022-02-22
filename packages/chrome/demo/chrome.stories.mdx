@@ -1,0 +1,154 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
+import {
+  Chrome,
+  CollapsibleSubNavItem,
+  Body,
+  Content,
+  Footer,
+  FooterItem,
+  Header,
+  HeaderItem,
+  HeaderItemIcon,
+  HeaderItemText,
+  HeaderItemWrapper,
+  Main,
+  Nav,
+  NavItem,
+  NavItemIcon,
+  NavItemText,
+  Sheet,
+  Sidebar,
+  SkipNav,
+  SubNav,
+  SubNavItem,
+  SubNavItemText,
+  PRODUCTS
+} from '@zendeskgarden/react-chrome';
+import { ChromeStory } from './stories/ChromeStory';
+import {
+  CHROME_FOOTER_ITEMS as FOOTER_ITEMS,
+  CHROME_HEADER_ITEMS as HEADER_ITEMS,
+  CHROME_MAIN as MAIN,
+  CHROME_NAV_ITEMS as NAV_ITEMS,
+  CHROME_SIDEBAR as SIDEBAR,
+  CHROME_SKIP_NAV as SKIP_NAV,
+  CHROME_SUB_NAV_ITEMS as SUB_NAV_ITEMS,
+  SHEET_BODY,
+  SHEET_DESCRIPTION,
+  SHEET_TITLE
+} from './stories/data';
+
+<Meta
+  title="Packages/Chrome/Chrome"
+  component={Chrome}
+  subcomponents={{
+    CollapsibleSubNavItem,
+    Body,
+    Content,
+    Footer,
+    FooterItem,
+    Header,
+    HeaderItem,
+    HeaderItemIcon,
+    HeaderItemText,
+    HeaderItemWrapper,
+    Main,
+    Nav,
+    NavItem,
+    NavItemIcon,
+    NavItemText,
+    Sheet,
+    Sidebar,
+    SkipNav,
+    SubNav,
+    SubNavItem,
+    SubNavItemText
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Chrome"
+    args={{
+      isFluid: true,
+      hasNav: true,
+      navItems: NAV_ITEMS,
+      isExpanded: false,
+      isWrapped: false,
+      hasLogo: true,
+      hasBrandmark: true,
+      hasSubNav: false,
+      subNavItems: SUB_NAV_ITEMS,
+      hasHeader: true,
+      headerItems: HEADER_ITEMS,
+      hasSidebar: false,
+      hasFooter: true,
+      footerItems: FOOTER_ITEMS,
+      skipNav: SKIP_NAV,
+      sidebar: SIDEBAR,
+      main: MAIN,
+      isSheetOpen: true,
+      isSheetCompact: false,
+      sheetBody: SHEET_BODY,
+      sheetTitle: SHEET_TITLE,
+      sheetDescription: SHEET_DESCRIPTION
+    }}
+    argTypes={{
+      hue: { control: 'color' },
+      isFluid: { control: 'boolean' },
+      skipNav: { name: 'children', table: { category: 'SkipNav' } },
+      isExpanded: { name: 'Nav isExpanded', table: { category: 'Story' } },
+      isWrapped: { name: 'Nav/SubNav isWrapped', table: { category: 'Story' } },
+      hasNav: { name: 'Nav', table: { category: 'Story' } },
+      navItems: { name: 'NavItem[]', table: { category: 'Story' } },
+      hasLogo: { name: 'Nav hasLogo', table: { category: 'Story' } },
+      hasBrandmark: { name: 'Nav hasBrandmark', table: { category: 'Story' } },
+      hasSubNav: { name: 'SubNav', table: { category: 'Story' } },
+      subNavItems: { name: 'SubNavItem[]', table: { category: 'Story' } },
+      subNavMaxWidth: { name: 'SubNav max-width', control: 'number', table: { category: 'Story' } },
+      hasHeader: { name: 'Header', table: { category: 'Story' } },
+      headerItems: { name: 'HeaderItem[]', table: { category: 'Story' } },
+      hasSidebar: { name: 'Sidebar', table: { category: 'Story' } },
+      hasFooter: { name: 'Footer', table: { category: 'Story' } },
+      footerItems: { name: 'FooterItem[]', table: { category: 'Story' } },
+      product: {
+        name: 'Nav product',
+        control: { type: 'select', options: PRODUCTS },
+        table: { category: 'Story' }
+      },
+      isSheetOpen: { name: 'isOpen', table: { category: 'Sheet' } },
+      isSheetCompact: {
+        name: 'Sheet.Footer isCompact',
+        control: 'boolean',
+        table: { category: 'Sheet' }
+      },
+      sheetBody: { name: 'Sheet.Body', table: { category: 'Sheet' } },
+      sheetTitle: { name: 'Sheet.Title', table: { category: 'Sheet' } },
+      sheetDescription: { name: 'Sheet.Description', table: { category: 'Sheet' } },
+      main: { name: 'children', table: { category: 'Main' } },
+      sidebar: { name: 'children', table: { category: 'Sidebar' } }
+    }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=102%3A126'
+      }
+    }}
+  >
+    {args => {
+      const updateArgs = useArgs()[1];
+      const handleNavClick = ({ hasSubNav, hasSidebar }) =>
+        updateArgs({ hasSubNav: hasSubNav || false, hasSidebar: hasSidebar || false });
+      const handleSheetClick = () => updateArgs({ isSheetOpen: false });
+      return <ChromeStory {...args} onSheetClick={handleSheetClick} onNavClick={handleNavClick} />;
+    }}
+  </Story>
+</Canvas>

@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useRef, useContext, HTMLAttributes } from 'react';
+import React, { useState, useRef, useContext, HTMLAttributes, useMemo, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { useTabs } from '@zendeskgarden/container-tabs';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
-
 import { TabsContext } from '../utils/useTabsContext';
 import { StyledTabs } from '../styled/StyledTabs';
 
@@ -34,12 +34,12 @@ export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const Tabs = React.forwardRef<HTMLDivElement, ITabsProps>(
+export const Tabs = forwardRef<HTMLDivElement, ITabsProps>(
   (
     { isVertical, children, onChange, selectedItem: controlledSelectedItem, ...otherProps },
     ref
   ) => {
-    const theme = useContext(ThemeContext);
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const [internalSelectedItem, setSelectedItem] = useState();
     const tabIndexRef = useRef<number>(0);
     const tabPanelIndexRef = useRef<number>(0);
@@ -59,7 +59,10 @@ const Tabs = React.forwardRef<HTMLDivElement, ITabsProps>(
       }
     });
 
-    const tabsContextValue = { ...tabPropGetters, tabIndexRef, tabPanelIndexRef };
+    const tabsContextValue = useMemo(
+      () => ({ ...tabPropGetters, tabIndexRef, tabPanelIndexRef }),
+      [tabPropGetters]
+    );
 
     return (
       <TabsContext.Provider value={tabsContextValue}>
@@ -81,4 +84,4 @@ Tabs.defaultProps = {
   isVertical: false
 };
 
-export default Tabs;
+Tabs.displayName = 'Tabs';

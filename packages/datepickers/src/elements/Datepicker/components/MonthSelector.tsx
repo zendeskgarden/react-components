@@ -17,7 +17,10 @@ interface IMonthSelectorProps {
   isCompact: boolean;
 }
 
-const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, isCompact }) => {
+export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
+  locale,
+  isCompact
+}) => {
   const { state, dispatch } = useDatepickerContext();
 
   const headerLabelFormatter = useCallback(
@@ -62,5 +65,3 @@ const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, i
     </StyledHeader>
   );
 };
-
-export default MonthSelector;

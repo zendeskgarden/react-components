@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { default as Chrome } from './Chrome';
+import { Chrome } from './Chrome';
 
 describe('Chrome', () => {
   it('passes ref to underlying DOM element', () => {

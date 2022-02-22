@@ -28,11 +28,11 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 
   return css`
     /* stylelint-disable */
-    ${StyledLabel}:not([hidden]) + &,
-    ${StyledHint} + &,
-    ${StyledMessage} + &,
-    & + ${StyledHint},
-    & + ${StyledMessage} {
+    ${StyledLabel}:not([hidden]) + &&,
+    ${StyledHint} + &&,
+    ${StyledMessage} + &&,
+    && + ${StyledHint},
+    && + ${StyledMessage} {
       margin-top: ${topMargin};
     }
     /* stylelint-enable */
@@ -62,26 +62,33 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   `;
 };
 
+/**
+ * 1. Garden <Button> override.
+ */
 const itemStyles = (props: ThemeProps<DefaultTheme>) => {
-  return css`
-    /* stylelint-disable property-no-unknown, property-case */
-    & > * {
-      margin-${props.theme.rtl ? 'right' : 'left'}: -${props.theme.borderWidths.sm};
-    }
+  const horizontal = props.theme.rtl ? 'right' : 'left';
 
-    & > ${StyledTextInput} {
+  return css`
+    /* stylelint-disable
+      declaration-no-important,
+      property-no-unknown,
+      property-case,
+      selector-no-qualifying-type */
+    & > * {
+      margin-${horizontal}: -${props.theme.borderWidths.sm} !important; /* [1] */
       z-index: -1;
     }
 
     & > ${StyledTextInput}:hover,
     & > button:hover,
+    & > ${StyledTextInput}[data-garden-focus-visible],
+    & > button[data-garden-focus-visible],
     & > ${StyledTextInput}:active,
     & > button:active {
       z-index: 1;
     }
 
     & > button:disabled {
-      z-index: -1;
       border-top-width: 0;
       border-bottom-width: 0;
     }
@@ -104,7 +111,10 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
     & > *:not(:first-child):not(:last-child) {
       border-radius: 0;
     }
-    /* stylelint-enable property-no-unknown, property-case */
+    /* stylelint-enable
+      property-no-unknown,
+      property-case,
+      selector-no-qualifying-type */
   `;
 };
 

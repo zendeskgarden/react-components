@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
 
-interface IXXXLProps extends HTMLAttributes<HTMLDivElement> {
+export interface IXXXLProps extends HTMLAttributes<HTMLDivElement> {
   /** Updates the element's HTML tag */
   tag?: any;
   /** Applies bold font style */
@@ -19,9 +19,7 @@ interface IXXXLProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const XXXL: React.FunctionComponent<
-  IXXXLProps & React.RefAttributes<HTMLDivElement>
-> = React.forwardRef<HTMLDivElement, IXXXLProps>(({ tag, ...other }, ref) => (
+export const XXXL = forwardRef<HTMLDivElement, IXXXLProps>(({ tag, ...other }, ref) => (
   <StyledFont as={tag} ref={ref} size="xxxl" {...other} />
 ));
 
@@ -35,5 +33,3 @@ XXXL.propTypes = {
 XXXL.defaultProps = {
   tag: 'div'
 };
-
-export default XXXL;

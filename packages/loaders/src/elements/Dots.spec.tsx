@@ -8,7 +8,7 @@
 import React from 'react';
 import { render, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import Dots from './Dots';
+import { Dots } from './Dots';
 
 jest.useFakeTimers();
 
@@ -55,39 +55,39 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: dMEWJg 1250ms linear infinite;
-          animation: dMEWJg 1250ms linear infinite;
+          -webkit-animation: kVOdef 1250ms linear infinite;
+          animation: kVOdef 1250ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: hiIgQS 1250ms linear infinite;
-          animation: hiIgQS 1250ms linear infinite;
+          -webkit-animation: idDvaf 1250ms linear infinite;
+          animation: idDvaf 1250ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: jfCXbz 1250ms linear infinite;
-          animation: jfCXbz 1250ms linear infinite;
+          -webkit-animation: bDxIcz 1250ms linear infinite;
+          animation: bDxIcz 1250ms linear infinite;
         }
 
         <g
           fill="currentColor"
         >
           <circle
-            class="c0"
+            class=" c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="c1"
+            class=" c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="c2"
+            class=" c2"
             cx="71"
             cy="36"
             r="9"
@@ -106,39 +106,39 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: dMEWJg 1250ms linear infinite;
-          animation: dMEWJg 1250ms linear infinite;
+          -webkit-animation: kVOdef 1250ms linear infinite;
+          animation: kVOdef 1250ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: hiIgQS 1250ms linear infinite;
-          animation: hiIgQS 1250ms linear infinite;
+          -webkit-animation: idDvaf 1250ms linear infinite;
+          animation: idDvaf 1250ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: jfCXbz 1250ms linear infinite;
-          animation: jfCXbz 1250ms linear infinite;
+          -webkit-animation: bDxIcz 1250ms linear infinite;
+          animation: bDxIcz 1250ms linear infinite;
         }
 
         <g
           fill="currentColor"
         >
           <circle
-            class="c0"
+            class=" c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="c1"
+            class=" c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="c2"
+            class=" c2"
             cx="71"
             cy="36"
             r="9"
@@ -154,25 +154,40 @@ describe('Dots', () => {
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
+        .c0 {
+          -webkit-animation: kVOdef 1250ms linear infinite;
+          animation: kVOdef 1250ms linear infinite;
+        }
+
+        .c1 {
+          -webkit-animation: idDvaf 1250ms linear infinite;
+          animation: idDvaf 1250ms linear infinite;
+        }
+
+        .c2 {
+          -webkit-animation: bDxIcz 1250ms linear infinite;
+          animation: bDxIcz 1250ms linear infinite;
+        }
+
         <g
           fill="currentColor"
         >
           <circle
-            class="sc-bdVaJa sc-bwzfXH ASSBy"
+            class=" c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdVaJa sc-htpNat yBsjz"
+            class=" c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdVaJa sc-bxivhb eQgpbI"
+            class=" c2"
             cx="71"
             cy="36"
             r="9"
@@ -191,39 +206,39 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: dMEWJg 1125ms linear infinite;
-          animation: dMEWJg 1125ms linear infinite;
+          -webkit-animation: kVOdef 1125ms linear infinite;
+          animation: kVOdef 1125ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: hiIgQS 1125ms linear infinite;
-          animation: hiIgQS 1125ms linear infinite;
+          -webkit-animation: idDvaf 1125ms linear infinite;
+          animation: idDvaf 1125ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: jfCXbz 1125ms linear infinite;
-          animation: jfCXbz 1125ms linear infinite;
+          -webkit-animation: bDxIcz 1125ms linear infinite;
+          animation: bDxIcz 1125ms linear infinite;
         }
 
         <g
           fill="currentColor"
         >
           <circle
-            class="c0"
+            class=" c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="c1"
+            class=" c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="c2"
+            class=" c2"
             cx="71"
             cy="36"
             r="9"
@@ -239,25 +254,40 @@ describe('Dots', () => {
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
+        .c0 {
+          -webkit-animation: kVOdef 1125ms linear infinite;
+          animation: kVOdef 1125ms linear infinite;
+        }
+
+        .c1 {
+          -webkit-animation: idDvaf 1125ms linear infinite;
+          animation: idDvaf 1125ms linear infinite;
+        }
+
+        .c2 {
+          -webkit-animation: bDxIcz 1125ms linear infinite;
+          animation: bDxIcz 1125ms linear infinite;
+        }
+
         <g
           fill="currentColor"
         >
           <circle
-            class="sc-bdVaJa sc-bwzfXH fLTDGj"
+            class=" c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdVaJa sc-htpNat kPGrdX"
+            class=" c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdVaJa sc-bxivhb hGBsiB"
+            class=" c2"
             cx="71"
             cy="36"
             r="9"
@@ -276,39 +306,39 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: dMEWJg 1375ms linear infinite;
-          animation: dMEWJg 1375ms linear infinite;
+          -webkit-animation: kVOdef 1375ms linear infinite;
+          animation: kVOdef 1375ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: hiIgQS 1375ms linear infinite;
-          animation: hiIgQS 1375ms linear infinite;
+          -webkit-animation: idDvaf 1375ms linear infinite;
+          animation: idDvaf 1375ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: jfCXbz 1375ms linear infinite;
-          animation: jfCXbz 1375ms linear infinite;
+          -webkit-animation: bDxIcz 1375ms linear infinite;
+          animation: bDxIcz 1375ms linear infinite;
         }
 
         <g
           fill="currentColor"
         >
           <circle
-            class="c0"
+            class=" c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="c1"
+            class=" c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="c2"
+            class=" c2"
             cx="71"
             cy="36"
             r="9"
@@ -324,25 +354,40 @@ describe('Dots', () => {
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
+        .c0 {
+          -webkit-animation: kVOdef 1375ms linear infinite;
+          animation: kVOdef 1375ms linear infinite;
+        }
+
+        .c1 {
+          -webkit-animation: idDvaf 1375ms linear infinite;
+          animation: idDvaf 1375ms linear infinite;
+        }
+
+        .c2 {
+          -webkit-animation: bDxIcz 1375ms linear infinite;
+          animation: bDxIcz 1375ms linear infinite;
+        }
+
         <g
           fill="currentColor"
         >
           <circle
-            class="sc-bdVaJa sc-bwzfXH eUUNyX"
+            class=" c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdVaJa sc-htpNat gYiuXr"
+            class=" c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class="sc-bdVaJa sc-bxivhb iRhcNm"
+            class=" c2"
             cx="71"
             cy="36"
             r="9"

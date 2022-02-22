@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { HTMLAttributes, useCallback, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import { useDocument } from '@zendeskgarden/react-theming';
@@ -13,14 +13,14 @@ import { IToast, ToastPlacement } from './reducer';
 import { Toast } from './Toast';
 import { StyledFadeInTransition, StyledTransitionGroup, TRANSITION_CLASS } from './styled';
 
-interface IToastSlotProps {
+interface IToastSlotProps extends HTMLAttributes<HTMLDivElement> {
   toasts: IToast[];
   placement: ToastPlacement;
   limit: number;
   zIndex?: number;
 }
 
-export const ToastSlot: React.FC<IToastSlotProps> = ({ toasts, placement, zIndex, limit }) => {
+export const ToastSlot = ({ toasts, placement, zIndex, limit, ...props }: IToastSlotProps) => {
   const [pauseTimers, setPauseTimers] = useState(false);
   const theme = useContext(ThemeContext);
   const environment = useDocument(theme);
@@ -71,6 +71,7 @@ export const ToastSlot: React.FC<IToastSlotProps> = ({ toasts, placement, zIndex
       $zIndex={zIndex}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      {...props}
     >
       {toasts.map((toast, index) => {
         const transitionRef = React.createRef<HTMLDivElement>();

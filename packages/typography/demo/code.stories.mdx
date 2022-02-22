@@ -1,0 +1,29 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Anchor } from '@zendeskgarden/react-buttons';
+import { Code } from '@zendeskgarden/react-typography';
+
+<Meta title="Packages/Typography/Code" component={Code} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Code"
+    args={{ children: 'Text' }}
+    argTypes={{ isAnchor: { control: 'boolean', table: { category: 'Story' } } }}
+  >
+    {args =>
+      args.isAnchor ? (
+        <Anchor>
+          <Code {...args} />
+        </Anchor>
+      ) : (
+        <Code {...args} />
+      )
+    }
+  </Story>
+</Canvas>

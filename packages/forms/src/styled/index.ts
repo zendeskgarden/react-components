@@ -9,6 +9,8 @@
  * Common styles
  */
 export * from './common/StyledField';
+export * from './common/StyledFieldset';
+export * from './common/StyledLegend';
 export * from './common/StyledHint';
 export * from './common/StyledLabel';
 export * from './common/StyledMessage';
@@ -42,6 +44,16 @@ export * from './checkbox/StyledDashSvg';
  * FileUpload styles
  */
 export * from './file-upload/StyledFileUpload';
+
+/**
+ * FileList styles
+ */
+export * from './file-list/StyledFile';
+export * from './file-list/StyledFileClose';
+export * from './file-list/StyledFileDelete';
+export * from './file-list/StyledFileIcon';
+export * from './file-list/StyledFileList';
+export * from './file-list/StyledFileListItem';
 
 /**
  * Radio styles

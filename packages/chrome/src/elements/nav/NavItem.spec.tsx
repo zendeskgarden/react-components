@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { PALETTE, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import Chrome from '../Chrome';
+import { Chrome } from '../Chrome';
 import { NavItem } from './NavItem';
 import { Nav } from './Nav';
 import { PRODUCT, PRODUCTS } from '../../utils/types';
@@ -154,8 +154,8 @@ describe('NavItem', () => {
       talk: PALETTE.product.talk
     };
 
-    PRODUCTS.forEach(product => {
-      it(`renders correct ${product} color if provided`, () => {
+    it('renders correct product color if provided', () => {
+      PRODUCTS.forEach(product => {
         const { container } = render(<NavItem hasLogo product={product} />);
 
         expect(container.firstChild).toHaveStyleRule('color', VALID_COLOR_MAP[product]);

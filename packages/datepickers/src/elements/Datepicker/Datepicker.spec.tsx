@@ -41,6 +41,12 @@ describe('Datepicker', () => {
   });
 
   describe('Calendar display', () => {
+    it('doesnt render calendar elements when hidden', () => {
+      const { queryByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      expect(queryByTestId('datepicker-menu')).toBeEmptyDOMElement();
+    });
+
     it('displays dates with correct previous styling', () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
@@ -105,7 +111,7 @@ describe('Datepicker', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
       userEvent.click(getByTestId('input'));
-      userEvent.click(getByTestId('previous-month'));
+      fireEvent.click(getByTestId('previous-month'));
 
       expect(getByTestId('month-display')).toHaveTextContent('January 2019');
     });
@@ -114,7 +120,7 @@ describe('Datepicker', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
       userEvent.click(getByTestId('input'));
-      userEvent.click(getByTestId('next-month'));
+      fireEvent.click(getByTestId('next-month'));
 
       expect(getByTestId('month-display')).toHaveTextContent('March 2019');
     });
@@ -135,7 +141,7 @@ describe('Datepicker', () => {
       );
 
       userEvent.click(getByTestId('input'));
-      userEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByTestId('day')[1]);
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
     });
@@ -148,7 +154,7 @@ describe('Datepicker', () => {
       const input = getByTestId('input');
 
       userEvent.click(input);
-      userEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByTestId('day')[1]);
 
       expect(input).toHaveValue('January 28, 2019');
     });
@@ -180,8 +186,8 @@ describe('Datepicker', () => {
       userEvent.click(getByTestId('input'));
       const days = getAllByTestId('day');
 
-      userEvent.click(days[0]);
-      userEvent.click(days[days.length - 1]);
+      fireEvent.click(days[0]);
+      fireEvent.click(days[days.length - 1]);
 
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
@@ -246,6 +252,18 @@ describe('Datepicker', () => {
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
+    it('closes datepicker when not animated', () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example isAnimated={false} value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      userEvent.click(input);
+      userEvent.tab();
+
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
     it('opens datepicker when correct keys are used', () => {
       const { getByTestId, queryByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
@@ -286,7 +304,7 @@ describe('Datepicker', () => {
       const input = getByTestId('input');
 
       userEvent.click(input);
-      userEvent.click(getByTestId('calendar-wrapper'));
+      fireEvent.click(getByTestId('calendar-wrapper'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });

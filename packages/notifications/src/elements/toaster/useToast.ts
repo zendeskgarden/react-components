@@ -6,9 +6,9 @@
  */
 
 import { useCallback, useContext } from 'react';
-import { nanoid } from 'nanoid/non-secure';
+import { uid } from 'react-uid';
 import { IToast, IToastOptions, ToastContent } from './reducer';
-import { ToastContext } from './ToastProvider';
+import { ToastContext } from './ToastContext';
 
 const DEFAULT_TOAST_OPTIONS: IToastOptions = {
   autoDismiss: 5000,
@@ -29,7 +29,7 @@ export const useToast = () => {
       const mergedOptions = { ...DEFAULT_TOAST_OPTIONS, ...options };
 
       const newToast: IToast = {
-        id: mergedOptions.id || nanoid(10),
+        id: mergedOptions.id || uid(content),
         content,
         options: mergedOptions
       };

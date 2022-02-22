@@ -8,7 +8,7 @@
 import React from 'react';
 import { render, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import Spinner from './Spinner';
+import { Spinner } from './Spinner';
 
 jest.useFakeTimers();
 
@@ -75,7 +75,7 @@ describe('Spinner', () => {
 
       expect(container.firstChild!.firstChild).toMatchInlineSnapshot(`
         <circle
-          class="sc-htoDjs bZzhDu"
+          class=""
           cx="40"
           cy="40"
           fill="none"

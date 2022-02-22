@@ -7,8 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-
-import Title from './Title';
+import { Title } from './Title';
 
 describe('Title', () => {
   it('applies custom attributes if provided', () => {

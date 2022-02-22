@@ -5,14 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
+import React, { PropsWithChildren, useContext, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { DefaultTheme, ThemeProps } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import Downshift, { ControllerStateAndHelpers, StateChangeOptions } from 'downshift';
 import { Manager } from 'react-popper';
-import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { DropdownContext } from '../../utils/useDropdownContext';
+import { DropdownContext, DROPDOWN_TYPE } from '../../utils/useDropdownContext';
 
 export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
 
@@ -55,11 +54,10 @@ export interface IDropdownProps {
     stateAndHelpers: ControllerStateAndHelpers<any>
   ) => void;
   /** Passes customization props to the [Downshift](https://www.downshift-js.com/) component */
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  downshiftProps?: object;
+  downshiftProps?: Record<string, any>;
 }
 
-const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme>> = props => {
+export const Dropdown = (props: PropsWithChildren<IDropdownProps>) => {
   const {
     children,
     isOpen,
@@ -79,6 +77,8 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
   const nextItemsHashRef = useRef<Record<string, unknown>>({});
   const containsMultiselectRef = useRef(false);
   const itemSearchRegistry = useRef([]);
+  const [dropdownType, setDropdownType] = useState<DROPDOWN_TYPE>('');
+  const themeContext = useContext(ThemeContext);
 
   // Ref used to determine ARIA attributes for menu dropdowns
   const hasMenuRef = useRef(false);
@@ -126,7 +126,8 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
           }
         } else if (
           (e.keyCode === KEY_CODES.ENTER || e.keyCode === KEY_CODES.SPACE) &&
-          !downshift.isOpen
+          !downshift.isOpen &&
+          dropdownType !== 'combobox'
         ) {
           e.preventDefault();
           e.stopPropagation();
@@ -140,7 +141,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
 
   const transformDownshift = ({ getInputProps, getToggleButtonProps, ...downshift }: any) => {
     return {
-      getInputProps: (p: any) => getInputProps(customGetInputProps(p, downshift, isRtl(props))),
+      getInputProps: (p: any) => getInputProps(customGetInputProps(p, downshift, themeContext.rtl)),
       // The default aria-label provided by Downshift is invalid due to our DOM structure
       getToggleButtonProps: (p: any) => getToggleButtonProps({ 'aria-label': undefined, ...p }),
       ...downshift
@@ -159,12 +160,19 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
           if (onInputValueChange) {
             if (stateAndHelpers.isOpen) {
               onInputValueChange(inputVal, stateAndHelpers);
-            } else {
+            } else if (dropdownType === 'multiselect') {
               onInputValueChange('', stateAndHelpers);
             }
           }
         }}
         onStateChange={(changes, stateAndHelpers) => {
+          if (
+            dropdownType === 'autocomplete' &&
+            changes.isOpen === false &&
+            !changes.selectedItem
+          ) {
+            onSelect && onSelect(selectedItem, stateAndHelpers);
+          }
           if (
             Object.prototype.hasOwnProperty.call(changes, 'selectedItem') &&
             changes.selectedItem !== null
@@ -194,30 +202,25 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               onSelect && onSelect(changes.selectedItem, stateAndHelpers);
             }
 
-            // Reset input value when item is selected
-            stateAndHelpers.setState({ inputValue: '' });
+            // Reset input value when item is selected for multiselect - to clear input for next use
+            if (dropdownType === 'multiselect') {
+              stateAndHelpers.setState({ inputValue: '' });
+            }
           }
 
           onStateChange && onStateChange(changes, stateAndHelpers);
         }}
         stateReducer={(_state, changes) => {
           /**
-           * Set inputValue to an empty string during any event that updates the inputValue
+           * Close the menu when the combobox input is cleared by the user
            */
           switch (changes.type) {
-            case Downshift.stateChangeTypes.controlledPropUpdatedSelectedItem:
-            case Downshift.stateChangeTypes.mouseUp:
-            case Downshift.stateChangeTypes.keyDownSpaceButton:
-            case Downshift.stateChangeTypes.blurButton:
-            case Downshift.stateChangeTypes.blurInput:
-              return {
-                ...changes,
-                inputValue: ''
-              };
-            case Downshift.stateChangeTypes.keyDownEnter:
-            case Downshift.stateChangeTypes.clickItem:
-            case REMOVE_ITEM_STATE_TYPE as any:
-              return { ...changes, inputValue: '', isOpen: false };
+            case Downshift.stateChangeTypes.changeInput:
+              if (changes.inputValue === '' && dropdownType === 'combobox') {
+                return { ...changes, isOpen: false };
+              }
+
+              return changes;
             default:
               return changes;
           }
@@ -226,6 +229,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
       >
         {downshift => (
           <DropdownContext.Provider
+            /* eslint-disable react/jsx-no-constructed-context-values */
             value={{
               hasMenuRef,
               itemIndexRef,
@@ -236,7 +240,8 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               selectedItems,
               downshift: transformDownshift(downshift),
               containsMultiselectRef,
-              itemSearchRegistry
+              itemSearchRegistry,
+              setDropdownType
             }}
           >
             {children}
@@ -257,5 +262,3 @@ Dropdown.propTypes = {
   onStateChange: PropTypes.func,
   downshiftProps: PropTypes.object
 };
-
-export default withTheme(Dropdown) as React.FunctionComponent<IDropdownProps>;

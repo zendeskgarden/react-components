@@ -8,17 +8,19 @@
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import InfoStrokeIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
-import { StyledNotification, IStyledNotificationProps, StyledIcon } from '../styled';
-import { ARRAY_VALIDATION_TYPE } from '../utils/types';
+import { StyledNotification, StyledIcon } from '../styled';
+import { ARRAY_VALIDATION_TYPE, VALIDATION_TYPE } from '../utils/types';
 import { validationIcons, validationHues } from '../utils/icons';
+
+export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies notification type styles */
+  type?: VALIDATION_TYPE;
+}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Notification = React.forwardRef<
-  HTMLDivElement,
-  IStyledNotificationProps & HTMLAttributes<HTMLDivElement>
->((props, ref) => {
+export const Notification = React.forwardRef<HTMLDivElement, INotificationProps>((props, ref) => {
   const Icon = props.type ? validationIcons[props.type] : InfoStrokeIcon;
   const hue = props.type && validationHues[props.type];
 

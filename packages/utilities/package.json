@@ -1,5 +1,6 @@
 {
   "name": "@zendeskgarden/react-utilities",
+  "version": "8.48.2",
   "description": "Components relating to utilities in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -8,7 +9,6 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "8.34.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -16,12 +16,11 @@
   ],
   "scripts": {
     "build": "../../utils/scripts/build.sh",
-    "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
   "sideEffects": false,
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^8.34.0"
+    "@zendeskgarden/react-theming": "^8.48.2"
   },
   "keywords": [
     "components",

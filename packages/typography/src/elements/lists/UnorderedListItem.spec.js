@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import UnorderedList from './UnorderedList';
+import { UnorderedList } from './UnorderedList';
 
 describe('UnorderedListItem', () => {
   it('applies default padding', () => {

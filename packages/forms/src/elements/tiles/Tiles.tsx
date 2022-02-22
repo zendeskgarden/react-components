@@ -10,9 +10,8 @@ import React, {
   ChangeEventHandler,
   useCallback,
   useState,
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  RefAttributes
+  useMemo,
+  forwardRef
 } from 'react';
 import PropTypes from 'prop-types';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
@@ -22,7 +21,7 @@ import { Description } from './components/Description';
 import { Icon } from './components/Icon';
 import { Label } from './components/Label';
 
-interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
+export interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the value of the selected radio button */
   value?: string;
   /** Handles radio selection */
@@ -33,20 +32,8 @@ interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
   isCentered?: boolean;
 }
 
-interface IStaticTilesExport<T, P>
-  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  Tile: typeof Tile;
-  Description: typeof Description;
-  Icon: typeof Icon;
-  Label: typeof Label;
-}
-
-/* eslint-disable react/display-name */
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Tiles = React.forwardRef<HTMLDivElement, ITilesProps>(
-  ({ onChange, value: controlledValue, isCentered, ...props }, ref) => {
+const TilesComponent = forwardRef<HTMLDivElement, ITilesProps>(
+  ({ onChange, value: controlledValue, name, isCentered, ...props }, ref) => {
     const [value, setValue] = useState(controlledValue);
 
     const handleOnChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
@@ -61,7 +48,10 @@ export const Tiles = React.forwardRef<HTMLDivElement, ITilesProps>(
     );
 
     const selectedValue = getControlledValue(controlledValue, value);
-    const tileContext = { onChange: handleOnChange, value: selectedValue, name, isCentered };
+    const tileContext = useMemo(
+      () => ({ onChange: handleOnChange, value: selectedValue, name, isCentered }),
+      [handleOnChange, selectedValue, name, isCentered]
+    );
 
     return (
       <TilesContext.Provider value={tileContext}>
@@ -69,23 +59,32 @@ export const Tiles = React.forwardRef<HTMLDivElement, ITilesProps>(
       </TilesContext.Provider>
     );
   }
-) as IStaticTilesExport<HTMLDivElement, ITilesProps>;
-/* eslint-enable react/display-name */
+);
 
-Tiles.displayName = 'Tiles';
+TilesComponent.displayName = 'Tiles';
 
-Tiles.Tile = Tile;
-Tiles.Icon = Icon;
-Tiles.Label = Label;
-Tiles.Description = Description;
-
-Tiles.propTypes = {
+TilesComponent.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
   isCentered: PropTypes.bool
 };
 
-Tiles.defaultProps = {
+TilesComponent.defaultProps = {
   isCentered: true
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Tiles = TilesComponent as typeof TilesComponent & {
+  Description: typeof Description;
+  Icon: typeof Icon;
+  Label: typeof Label;
+  Tile: typeof Tile;
+};
+
+Tiles.Description = Description;
+Tiles.Icon = Icon;
+Tiles.Label = Label;
+Tiles.Tile = Tile;

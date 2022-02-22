@@ -5,7 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useReducer, useCallback, useState, useContext } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useReducer,
+  useCallback,
+  useState,
+  useContext,
+  useMemo,
+  forwardRef,
+  HTMLAttributes
+} from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
@@ -17,12 +27,15 @@ import {
   GARDEN_PLACEMENT,
   POPPER_PLACEMENT
 } from './utils/garden-placements';
-import Calendar from './components/Calendar';
+import { Calendar } from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
 import { DatepickerContext } from './utils/useDatepickerContext';
 import { StyledMenu, StyledMenuWrapper } from '../../styled';
 
-export interface IDatepickerProps {
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /**
    * Sets the selected date
    */
@@ -90,7 +103,7 @@ export interface IDatepickerProps {
   zIndex?: number;
 }
 
-export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
+export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, calendarRef) => {
   const {
     children,
     placement,
@@ -106,7 +119,8 @@ export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
     minValue,
     maxValue,
     locale,
-    customParseDate
+    customParseDate,
+    ...menuProps
   } = props;
   const theme = useContext(ThemeContext);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -162,7 +176,7 @@ export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 
-  const contextValue = { state, dispatch };
+  const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   return (
     <DatepickerContext.Provider value={contextValue}>
@@ -241,15 +255,18 @@ export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
                 data-test-open={state.isOpen}
                 data-test-rtl={theme.rtl}
               >
-                <StyledMenu>
-                  <Calendar
-                    isCompact={isCompact}
-                    value={value}
-                    minValue={minValue}
-                    maxValue={maxValue}
-                    locale={locale}
-                  />
-                </StyledMenu>
+                {(state.isOpen || isVisible) && (
+                  <StyledMenu {...menuProps}>
+                    <Calendar
+                      ref={calendarRef}
+                      isCompact={isCompact}
+                      value={value}
+                      minValue={minValue}
+                      maxValue={maxValue}
+                      locale={locale}
+                    />
+                  </StyledMenu>
+                )}
               </StyledMenuWrapper>
             );
           }}
@@ -257,7 +274,9 @@ export const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
       </Manager>
     </DatepickerContext.Provider>
   );
-};
+});
+
+Datepicker.displayName = 'Datepicker';
 
 Datepicker.propTypes = {
   value: PropTypes.any,

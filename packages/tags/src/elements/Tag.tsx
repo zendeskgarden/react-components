@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledTag, StyledAvatar } from '../styled';
-import Close from './Close';
+import { StyledTag } from '../styled';
+import { Close } from './Close';
+import { Avatar } from './Avatar';
 
-interface ITagProps extends HTMLAttributes<HTMLDivElement> {
+export interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   /** Adjusts font size and padding */
   size?: 'small' | 'medium' | 'large';
   /**
@@ -27,16 +28,13 @@ interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   isRegular?: boolean;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-const Tag = React.forwardRef<HTMLDivElement, ITagProps>(({ size, hue, ...otherProps }, ref) => (
+const TagComponent = forwardRef<HTMLDivElement, ITagProps>(({ size, hue, ...otherProps }, ref) => (
   <StyledTag ref={ref} size={size} hue={hue} {...otherProps} />
 ));
 
-Tag.displayName = 'Tag';
+TagComponent.displayName = 'Tag';
 
-Tag.propTypes = {
+TagComponent.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   hue: PropTypes.string,
   isPill: PropTypes.bool,
@@ -44,16 +42,17 @@ Tag.propTypes = {
   isRegular: PropTypes.bool
 };
 
-Tag.defaultProps = {
+TagComponent.defaultProps = {
   size: 'medium'
 };
 
-(Tag as any).Avatar = StyledAvatar;
-(Tag as any).Close = Close;
-
-export default Tag as React.ForwardRefExoticComponent<
-  ITagProps & React.RefAttributes<HTMLDivElement>
-> & {
-  Avatar: typeof StyledAvatar;
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Tag = TagComponent as typeof TagComponent & {
+  Avatar: typeof Avatar;
   Close: typeof Close;
 };
+
+Tag.Avatar = Avatar;
+Tag.Close = Close;

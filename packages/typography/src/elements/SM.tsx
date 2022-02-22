@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
 
-interface ISMProps extends HTMLAttributes<HTMLDivElement> {
+export interface ISMProps extends HTMLAttributes<HTMLDivElement> {
   /** Updates the element's HTML tag */
   tag?: any;
   /** Applies bold font style */
@@ -21,9 +21,7 @@ interface ISMProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const SM: React.FunctionComponent<
-  ISMProps & React.RefAttributes<HTMLDivElement>
-> = React.forwardRef<HTMLDivElement, ISMProps>(({ tag, ...other }, ref) => (
+export const SM = forwardRef<HTMLDivElement, ISMProps>(({ tag, ...other }, ref) => (
   <StyledFont as={tag} ref={ref} size="sm" {...other} />
 ));
 
@@ -38,5 +36,3 @@ SM.propTypes = {
 SM.defaultProps = {
   tag: 'div'
 };
-
-export default SM;

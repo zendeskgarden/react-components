@@ -5,7 +5,7 @@ published under the [@zendeskgarden](https://www.npmjs.com/org/zendeskgarden)
 namespace. These packages follow [semantic versioning](https://semver.org/).
 We publish patch versions for bug fixes, minor versions for new features, and
 major versions for any breaking changes. Fixes are released upon approval,
-features every two weeks, and breaking changes once per quarter.
+features weekly, and breaking changes once per quarter.
 
 Garden distributes packages under a
 [fixed](https://github.com/lerna/lerna#fixedlocked-mode-default) (common

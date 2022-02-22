@@ -5,11 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, SVGAttributes } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, SVGAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledButton, StyledIcon } from '../styled';
+import { StyledButton } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
+import { StartIcon } from './components/StartIcon';
+import { EndIcon } from './components/EndIcon';
+
+/**
+ * @deprecated use IButtonStartIconProps or IButtonEndIconProps instead
+ */
+export interface IIconProps extends SVGAttributes<SVGSVGElement> {
+  isRotated?: boolean;
+}
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Applies danger styling */
@@ -18,6 +27,8 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'small' | 'medium' | 'large';
   /** Stretches the button fill to its container width */
   isStretched?: boolean;
+  /** Applies neutral button styling */
+  isNeutral?: boolean;
   /** Applies primary button styling */
   isPrimary?: boolean;
   /** Applies basic button styling */
@@ -32,9 +43,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isSelected?: boolean;
 }
 
-const Button: React.FunctionComponent<
-  IButtonProps & React.RefAttributes<HTMLButtonElement>
-> = React.forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
+const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
   const buttonGroupContext = useButtonGroupContext();
   const splitButtonContext = useSplitButtonContext();
 
@@ -59,7 +68,10 @@ const Button: React.FunctionComponent<
   return <StyledButton ref={ref} {...computedProps} />;
 });
 
-Button.propTypes = {
+ButtonComponent.displayName = 'Button';
+
+ButtonComponent.propTypes = {
+  isNeutral: PropTypes.bool,
   isPrimary: PropTypes.bool,
   isDanger: PropTypes.bool,
   isPill: PropTypes.bool,
@@ -71,27 +83,17 @@ Button.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large'])
 };
 
-Button.defaultProps = {
+ButtonComponent.defaultProps = {
   size: 'medium'
 };
-
-export interface IIconProps extends SVGAttributes<SVGSVGElement> {
-  isRotated?: boolean;
-  children: any;
-}
-
-const StartIcon = (props: IIconProps) => <StyledIcon position="start" {...props} />;
-const EndIcon = (props: IIconProps) => <StyledIcon position="end" {...props} />;
-
-(Button as any).StartIcon = StartIcon;
-(Button as any).EndIcon = EndIcon;
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-export default Button as React.FunctionComponent<
-  IButtonProps & React.RefAttributes<HTMLButtonElement>
-> & {
-  StartIcon: typeof StartIcon;
+export const Button = ButtonComponent as typeof ButtonComponent & {
   EndIcon: typeof EndIcon;
+  StartIcon: typeof StartIcon;
 };
+
+Button.EndIcon = EndIcon;
+Button.StartIcon = StartIcon;

@@ -1,0 +1,26 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { OrderedList } from '@zendeskgarden/react-typography';
+import { OrderedListStory } from './stories/OrderedListStory';
+import { LIST_ITEMS as ITEMS } from './stories/data';
+
+<Meta
+  title="Packages/Typography/Lists/OrderedList"
+  component={OrderedList}
+  subcomponents={{ 'OrderedList.Item': OrderedList.Item }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="OrderedList"
+    args={{ items: ITEMS }}
+    argTypes={{ items: { name: 'OrderedList.Item[]', table: { category: 'Story' } } }}
+  >
+    {args => <OrderedListStory {...args} />}
+  </Story>
+</Canvas>

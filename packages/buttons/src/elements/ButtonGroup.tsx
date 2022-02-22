@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useButtonGroup } from '@zendeskgarden/container-buttongroup';
-
 import { StyledButtonGroup } from '../styled';
 import { ButtonGroupContext } from '../utils/useButtonGroupContext';
 
@@ -26,30 +25,32 @@ export interface IButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const ButtonGroup: React.FunctionComponent<IButtonGroupProps> = ({
-  children,
-  onSelect,
-  selectedItem: controlledSelectedItem,
-  ...otherProps
-}) => {
-  const { selectedItem, getButtonProps, getGroupProps } = useButtonGroup({
-    selectedItem: controlledSelectedItem,
-    defaultSelectedIndex: 0,
-    onSelect
-  });
+export const ButtonGroup = forwardRef<HTMLDivElement, IButtonGroupProps>(
+  ({ children, onSelect, selectedItem: controlledSelectedItem, ...otherProps }, ref) => {
+    const { selectedItem, getButtonProps, getGroupProps } = useButtonGroup({
+      selectedItem: controlledSelectedItem,
+      defaultSelectedIndex: 0,
+      onSelect
+    });
 
-  const contextValue = { selectedItem, getButtonProps };
+    const contextValue = useMemo(
+      () => ({ selectedItem, getButtonProps }),
+      [selectedItem, getButtonProps]
+    );
 
-  return (
-    <ButtonGroupContext.Provider value={contextValue}>
-      <StyledButtonGroup {...(getGroupProps(otherProps) as any)}>{children}</StyledButtonGroup>
-    </ButtonGroupContext.Provider>
-  );
-};
+    return (
+      <ButtonGroupContext.Provider value={contextValue}>
+        <StyledButtonGroup ref={ref} {...(getGroupProps(otherProps) as any)}>
+          {children}
+        </StyledButtonGroup>
+      </ButtonGroupContext.Provider>
+    );
+  }
+);
+
+ButtonGroup.displayName = 'ButtonGroup';
 
 ButtonGroup.propTypes = {
   selectedItem: PropTypes.any,
   onSelect: PropTypes.func
 };
-
-export default ButtonGroup;

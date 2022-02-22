@@ -15,17 +15,11 @@ import { getRowHeight } from './style-utils';
 const COMPONENT_ID = 'tables.row';
 
 export interface IStyledRowProps {
-  /** Applies striped styling */
   isStriped?: boolean;
-  /** Applies focus styling */
   isFocused?: boolean;
-  /** Applies hover styling */
   isHovered?: boolean;
-  /** Applies selected styling */
   isSelected?: boolean;
-  /** Removes interactive styling */
   isReadOnly?: boolean;
-  /** Adjusts vertical padding */
   size: SIZE;
 }
 

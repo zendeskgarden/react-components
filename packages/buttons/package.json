@@ -1,5 +1,6 @@
 {
   "name": "@zendeskgarden/react-buttons",
+  "version": "8.48.2",
   "description": "Components relating to buttons in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -8,7 +9,6 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "8.34.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -33,8 +33,8 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^8.34.0",
-    "@zendeskgarden/svg-icons": "6.28.0"
+    "@zendeskgarden/react-theming": "^8.48.2",
+    "@zendeskgarden/svg-icons": "6.30.2"
   },
   "keywords": [
     "components",

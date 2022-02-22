@@ -5,21 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { useTilesContext } from '../../../utils/useTilesContext';
 import { StyledTileIcon } from '../../../styled';
 
+const IconComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>((props, ref) => {
+  const tileContext = useTilesContext();
+
+  return <StyledTileIcon ref={ref} isCentered={tileContext && tileContext.isCentered} {...props} />;
+});
+
+IconComponent.displayName = 'Tiles.Icon';
+
 /**
- * Accepts all `<span>` attributes
+ * @extends HTMLAttributes<HTMLSpanElement>
  */
-export const Icon = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
-  (props, ref) => {
-    const tileContext = useTilesContext();
-
-    return (
-      <StyledTileIcon ref={ref} isCentered={tileContext && tileContext.isCentered} {...props} />
-    );
-  }
-);
-
-Icon.displayName = 'TileIcon';
+export const Icon = IconComponent;

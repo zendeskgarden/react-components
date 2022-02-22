@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledEllipsis } from '../styled';
 
-interface IEllipsisProps extends HTMLAttributes<HTMLDivElement> {
+export interface IEllipsisProps extends HTMLAttributes<HTMLDivElement> {
   /** Overrides the auto-generated `title` attribute */
   title?: string;
   /** Updates the element's HTML tag */
@@ -19,23 +19,23 @@ interface IEllipsisProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-const Ellipsis: React.FunctionComponent<
-  IEllipsisProps & React.RefAttributes<HTMLDivElement>
-> = React.forwardRef<HTMLDivElement, IEllipsisProps>(({ children, title, tag, ...other }, ref) => {
-  let textContent = undefined;
+export const Ellipsis = forwardRef<HTMLDivElement, IEllipsisProps>(
+  ({ children, title, tag, ...other }, ref) => {
+    let textContent = undefined;
 
-  if (title !== undefined) {
-    textContent = title;
-  } else if (typeof children === 'string') {
-    textContent = children;
+    if (title !== undefined) {
+      textContent = title;
+    } else if (typeof children === 'string') {
+      textContent = children;
+    }
+
+    return (
+      <StyledEllipsis as={tag} ref={ref} title={textContent} {...other}>
+        {children}
+      </StyledEllipsis>
+    );
   }
-
-  return (
-    <StyledEllipsis as={tag} ref={ref} title={textContent} {...other}>
-      {children}
-    </StyledEllipsis>
-  );
-});
+);
 
 Ellipsis.displayName = 'Ellipsis';
 
@@ -47,5 +47,3 @@ Ellipsis.propTypes = {
 Ellipsis.defaultProps = {
   tag: 'div'
 };
-
-export default Ellipsis;

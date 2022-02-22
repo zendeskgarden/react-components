@@ -11,7 +11,7 @@ import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden
 
 const COMPONENT_ID = 'tables.sortable';
 
-type SORT = 'asc' | 'desc';
+export type SORT = 'asc' | 'desc';
 
 const StyledBaseIconWrapper = styled.div`
   display: flex;
@@ -43,10 +43,8 @@ StyledSortableFillIconWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export interface IStyledSortableButtonProps {
-  /** Sets the sort order */
+interface IStyledSortableButtonProps {
   sort?: SORT;
-  /** Sets the width of the cell */
   width?: string | number;
 }
 

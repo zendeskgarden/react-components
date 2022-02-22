@@ -24,6 +24,48 @@ describe('ColorpickerDialog', () => {
     expect(screen.getByTestId('colordialog')).toBe(ref.current);
   });
 
+  it('calls onDialogChange when the dialog state changes', () => {
+    const onDialogChange = jest.fn();
+    const label = 'Choose your favorite color';
+
+    render(
+      <ColorpickerDialog
+        defaultColor="#17494D"
+        onDialogChange={onDialogChange}
+        buttonProps={{ 'aria-label': label }}
+      />
+    );
+
+    const trigger = screen.getByLabelText(label);
+
+    act(() => {
+      userEvent.click(trigger);
+    });
+
+    expect(onDialogChange).toHaveBeenCalledTimes(1);
+    expect(onDialogChange).toHaveBeenCalledWith({ isOpen: true });
+
+    userEvent.keyboard('{esc}');
+
+    expect(onDialogChange).toHaveBeenCalledTimes(2);
+    expect(onDialogChange).toHaveBeenCalledWith({ isOpen: false });
+  });
+
+  it('applies buttonProps to the button element', () => {
+    render(
+      <ColorpickerDialog
+        defaultColor="rgba(23,73,77,1)"
+        buttonProps={{
+          'aria-label': 'Choose your favorite color'
+        }}
+      />
+    );
+
+    const button = screen.getByRole('button');
+
+    expect(button).toBe(screen.getByLabelText('Choose your favorite color'));
+  });
+
   it('focuses on the hex input and trigger when the color dialog is opened and closed', () => {
     const Basic = () => <ColorpickerDialog defaultColor="rgba(23,73,77,1)" />;
 
@@ -69,5 +111,23 @@ describe('ColorpickerDialog', () => {
     expect(screen.queryByLabelText('Hex')).toBeNull();
     expect(screen.queryByLabelText('Hue slider')).toBeNull();
     expect(screen.queryByLabelText('Alpha slider')).toBeNull();
+  });
+
+  it('opens a controlled color dialog', async () => {
+    render(<ColorpickerDialog color="rgba(23,73,77,1)" isOpen />);
+
+    await act(async () => {
+      const dialog = await screen.queryByRole('dialog');
+
+      expect(dialog).toBeInTheDocument();
+    });
+  });
+
+  it('closes a controlled color dialog', () => {
+    render(<ColorpickerDialog color="rgba(23,73,77,1)" isOpen={false} />);
+
+    const dialog = screen.queryByRole('dialog');
+
+    expect(dialog).toBeNull();
   });
 });

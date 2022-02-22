@@ -5,46 +5,48 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import UnorderedListItem from './UnorderedListItem';
+import { Item } from './UnorderedListItem';
 import { UnorderedListContext } from '../../utils/useUnorderedListContext';
 import { StyledUnorderedList } from '../../styled';
 
-interface IUnorderedListProps extends HTMLAttributes<HTMLUListElement> {
+export interface IUnorderedListProps extends HTMLAttributes<HTMLUListElement> {
   /** Adjusts the vertical spacing between list items */
   size?: 'small' | 'medium' | 'large';
   /** Sets the marker style */
   type?: 'circle' | 'disc' | 'square';
 }
 
-const UnorderedList = React.forwardRef<HTMLUListElement, IUnorderedListProps>(
-  ({ size, type, ...other }, ref) => (
-    <UnorderedListContext.Provider value={{ size: size! }}>
-      <StyledUnorderedList ref={ref} listType={type} {...other} />
-    </UnorderedListContext.Provider>
-  )
+const UnorderedListComponent = forwardRef<HTMLUListElement, IUnorderedListProps>(
+  ({ size, type, ...other }, ref) => {
+    const value = useMemo(() => ({ size: size! }), [size]);
+
+    return (
+      <UnorderedListContext.Provider value={value}>
+        <StyledUnorderedList ref={ref} listType={type} {...other} />
+      </UnorderedListContext.Provider>
+    );
+  }
 );
 
-UnorderedList.displayName = 'UnorderedList';
+UnorderedListComponent.displayName = 'UnorderedList';
 
-UnorderedList.propTypes = {
+UnorderedListComponent.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   type: PropTypes.oneOf(['circle', 'disc', 'square'])
 };
 
-UnorderedList.defaultProps = {
+UnorderedListComponent.defaultProps = {
   size: 'medium',
   type: 'disc'
 };
 
-(UnorderedList as any).Item = UnorderedListItem;
-
 /**
  * @extends HTMLAttributes<HTMLUListElement>
  */
-export default (UnorderedList as unknown) as React.FunctionComponent<
-  IUnorderedListProps & React.RefAttributes<HTMLUListElement>
-> & {
-  Item: typeof UnorderedListItem;
+export const UnorderedList = UnorderedListComponent as typeof UnorderedListComponent & {
+  Item: typeof Item;
 };
+
+UnorderedList.Item = Item;

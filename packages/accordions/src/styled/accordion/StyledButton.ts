@@ -41,7 +41,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledButton) => {
 };
 
 /**
- * 1. Remove dotted outline from Firefox on focus.
+ * 1. <button> override.
+ * 2. Remove dotted outline from Firefox on focus.
  */
 export const StyledButton = styled.button.attrs<IStyledButton>({
   'data-garden-id': COMPONENT_ID,
@@ -58,13 +59,14 @@ export const StyledButton = styled.button.attrs<IStyledButton>({
   width: 100%;
   text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
+  font-family: inherit; /* [1] */
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
 
   ${colorStyles}
 
   &::-moz-focus-inner {
-    border: 0; /* [1] */
+    border: 0; /* [2] */
   }
 
   &:hover {

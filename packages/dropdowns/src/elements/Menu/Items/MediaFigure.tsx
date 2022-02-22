@@ -10,9 +10,9 @@ import { StyledMediaFigure } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
 /**
- * @extends HTMLAttributes<any>
+ * @extends HTMLAttributes<Element>
  */
-export const MediaFigure: React.FC<HTMLAttributes<any>> = props => {
+export const MediaFigure = (props: HTMLAttributes<Element>) => {
   const { isCompact } = useMenuContext();
 
   return <StyledMediaFigure isCompact={isCompact} {...props} />;

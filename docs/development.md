@@ -1,4 +1,4 @@
-# Garden Development
+# Garden development
 
 You're here because you want to get into the codebase. That's great. This
 guide will help you dig in. If you haven't already, please see the
@@ -25,7 +25,7 @@ All packages follow this basic structure (.e.g. under `/packages/test`):
 
 <!-- markdownlint-disable -->
 
-- `├── examples/` – visual component examples and generated documentation
+- `├── demo/` – visual component demos
 - `├── src/` – component source code and spec tests<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`├── elements/` – high abstraction components that wrap interaction behavior and visual styling<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`├── styled/` – view-level [styled-components](https://styled-components.com/) that contain theme based CSS<br>
@@ -40,23 +40,12 @@ The Garden React codebase is statically type-checked using
 documentation for in-depth treatment of Garden's Container-View-Element
 architecture, along with rules that apply to each component type.
 
-## Package examples
+## Package demos
 
-Package example documentation is generated via [React
-Styleguidist](https://react-styleguidist.js.org/). Run `yarn start` to build
-and serve package documentation in development mode (with hot reloading). The
-[global configuration](/utils/styleguide/styleguide.base.config.js) is
-extended by a package-local `styleguide.config.js` which determines section
-structure and content for each package page.
-
-In general, an example page includes:
-
-- the package README
-- a "knobs" style example that toggles various visual component states
-- API prop sheets for all public element exports
-
-Include additional example files to demonstrate complex component behaviors
-or common interactions with other Garden components.
+Package demo code is generated via [Storybook](https://storybook.js.org/). Run
+`yarn start` to build and serve package documentation in development mode (with
+hot reloading). See [demo documentation](/docs/demo.md) for development
+information.
 
 ## Package testing
 

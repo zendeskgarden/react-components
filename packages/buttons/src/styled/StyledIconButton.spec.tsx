@@ -55,9 +55,9 @@ describe('StyledIconButton', () => {
 
       expect(container.firstChild).toHaveStyleRule('width', '32px');
       expect(container.firstChild).toHaveStyleRule('width', '16px', {
-        modifier: (css`
+        modifier: css`
           ${StyledIcon}
-        ` as unknown) as string
+        ` as unknown as string
       });
     });
 
@@ -66,9 +66,9 @@ describe('StyledIconButton', () => {
 
       expect(container.firstChild).toHaveStyleRule('width', '40px');
       expect(container.firstChild).toHaveStyleRule('width', '16px', {
-        modifier: (css`
+        modifier: css`
           ${StyledIcon}
-        ` as unknown) as string
+        ` as unknown as string
       });
     });
 
@@ -77,9 +77,9 @@ describe('StyledIconButton', () => {
 
       expect(container.firstChild).toHaveStyleRule('width', '48px');
       expect(container.firstChild).toHaveStyleRule('width', '16px', {
-        modifier: (css`
+        modifier: css`
           ${StyledIcon}
-        ` as unknown) as string
+        ` as unknown as string
       });
     });
   });

@@ -1,0 +1,70 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { ArrowStylesStory } from './stories/ArrowStylesStory';
+import { MenuStylesStory } from './stories/MenuStylesStory';
+import { GetColorStory } from './stories/GetColorStory';
+import { ARROW_POSITIONS, MENU_POSITIONS } from './stories/data';
+
+<Meta title="Packages/Theming" />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+## arrowStyles()
+
+<Canvas>
+  <Story
+    name="arrowStyles()"
+    args={{
+      position: 'bottom',
+      hasBoxShadow: true,
+      hasBorder: true,
+      isAnimated: false,
+      size: 6,
+      inset: 0
+    }}
+    argTypes={{
+      position: { control: { type: 'select', options: ARROW_POSITIONS } },
+      size: { control: { type: 'range', min: 2, max: 10, step: 1 } },
+      inset: { control: { type: 'range', min: -4, max: 4, step: 1 } }
+    }}
+  >
+    {args => <ArrowStylesStory {...args} />}
+  </Story>
+</Canvas>
+
+## getColor()
+
+<Canvas>
+  <Story
+    name="getColor()"
+    args={{
+      hue: 'primaryHue',
+      shade: 600
+    }}
+    argTypes={{
+      transparency: { control: { type: 'range', min: 1 } }
+    }}
+  >
+    {args => <GetColorStory {...args} />}
+  </Story>
+</Canvas>
+
+## menuStyles()
+
+<Canvas>
+  <Story
+    name="menuStyles()"
+    args={{
+      position: 'bottom',
+      isAnimated: true
+    }}
+    argTypes={{
+      position: { control: { type: 'radio', options: MENU_POSITIONS } }
+    }}
+  >
+    {args => <MenuStylesStory {...args} />}
+  </Story>
+</Canvas>

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import UnorderedList from '../elements/lists/UnorderedList';
+import { UnorderedList } from '../elements/lists/UnorderedList';
 import useUnorderedListContext from './useUnorderedListContext';
 
 describe('useUnorderedListContext', () => {

@@ -3,7 +3,10 @@
 The API for Garden components is based on a Container-View-Element
 architecture. This architecture provides a separation of concerns, advancing
 [development](development.md) with an approach that is repeatable,
-consistent, and reliable. The component parts of the architecture are explained in more detail below.
+consistent, and reliable. The component parts of the architecture are explained
+in more detail below. Use the `yarn new`
+[command](development.md#package-creation) to generate starter code that
+satisfies API rules for Garden components.
 
 ## Container components
 
@@ -85,3 +88,147 @@ components are exported as the public interface for Garden.
   steer clear from DOM attribute naming conflicts.
 - Exceptions to boolean naming are props that map directly to HTML attributes
   such as `disabled` or `hidden`.
+- Standard element JSDoc follows a strict set of rules outlined under the
+  [Garden documentation](documentation.md) guidelines
+
+### Structures
+
+The following annotated structures outline the basic code format for simple,
+subcomponent, and complex elements.
+
+#### Simple
+
+The simplest form of a Garden element component is annotated below.
+
+```tsx
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React, { HTMLAttributes, forwardRef } from 'react';
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+/* [1] */ export const SimpleComponent = forwardRef<HTMLAttributes<HTMLElement>>((props, ref) => (
+  <StyledSimpleElement ref={ref} {...props} />
+));
+
+/* [2] */ SimpleComponent.displayName = 'SimpleComponent';
+```
+
+1. Always add the `@extends` JSDoc to the export. The clause is extracted for
+   website API [documentation](documentation.md).
+2. The `displayName` definition should be set to the exported component name and
+   satisfies linter checks for runtime naming
+
+#### Subcomponent
+
+The `SubElement` imported into the [complex example](#complex) below is
+structured here along with annotation that highlights the difference in
+structure.
+
+```tsx
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React, { HTMLAttributes, forwardRef } from 'react';
+import PropTypes from 'prop-types';
+import { StyledSubElement } from '../styled';
+
+/* [1] */ export interface IElementSubElementProps extends HTMLAttributes<HTMLElement> {
+  /** Applies regular (non-bold) font weight */
+  isRegular?: boolean;
+}
+
+/* [2] */ const SubElementComponent = forwardRef<IElementSubElementProps>((props, ref) => (
+  <StyledSubElement ref={ref} {...props} />
+));
+
+/* [3] */ SubElementComponent.displayName = 'Element.SubElement';
+
+/* [4] */ SubElementComponent.propTypes = {
+  isRegular: PropTypes.bool
+};
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+/* [5] */ export const SubElement = SubElementComponent;
+```
+
+1. The exported interface combines the name of the complex parent element
+   together with the `SubElement`
+2. The functional component uses _XxxComponent_ naming. The `const` is not
+   exported due to a `displayName` [issue with
+   Storybook](https://github.com/storybookjs/storybook/issues/12263#issuecomment-1008870685).
+3. Use the `Element.SubElement` string construct for consistent subcomponent
+   `displayName` naming
+4. All API props should be set as `PropTypes` for runtime error checking
+5. The `@extends` clause is always applied to the export. This export
+   hack-around allows subcomponent props to display in Storybook.
+
+#### Complex
+
+The following typed structure represents the layout for complex Garden
+components – those with subcomponents as static properties. The annotations
+listed below document areas of interest.
+
+```tsx
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React, { HTMLAttributes, forwardRef } from 'react';
+import PropTypes from 'prop-types';
+/* [1] */ import { SubElement } from './SubElement';
+import { StyledElement } from '../styled';
+
+export interface IElementProps extends HTMLAttributes<HTMLElement> {
+  /** Applies compact styling */
+  isCompact?: boolean;
+}
+
+/* [2] */ const ElementComponent = forwardRef<HTMLElement, IElementProps>((props, ref) => (
+  <StyledElement ref={ref} {...props} />
+));
+
+/* [3] */ ElementComponent.displayName = 'Element';
+
+/* [4] */ ElementComponent.propTypes = {
+  isCompact: PropTypes.bool
+};
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+/* [5] */ export const Element = ElementComponent as typeof ElementComponent & {
+  SubElement: typeof SubElement;
+};
+
+/* [6] */ Element.SubElement = SubElement;
+```
+
+1. Subcomponents should each reside in separate files. In Garden, one component
+   = one file
+2. The non-exported `const` is a React functional component and uses _XxxComponent_
+   naming style
+3. The `displayName` definition should be set to the exported component name and
+   satisfies linter checks for runtime naming
+4. All API props should be set as `PropTypes` for runtime error checking
+5. The component export provides type assertion that leverages the parent
+   component type and appends subcomponent type information. Always remember to add
+   the `@extends` JSDoc to be extracted for website API
+   [documentation](documentation.md).
+6. After the type has been defined, subcomponents are exposed via static
+   property notation

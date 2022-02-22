@@ -5,17 +5,25 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState, HTMLAttributes, KeyboardEvent } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  HTMLAttributes,
+  KeyboardEvent,
+  forwardRef
+} from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import mergeRefs from 'react-merge-refs';
 import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
-interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
+export interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies compact styling */
   isCompact?: boolean;
   /** Removes borders and padding */
@@ -24,8 +32,6 @@ interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Indicates that the element's menu is open */
-  isOpen?: boolean;
   /** Defines the element's validation state */
   validation?: VALIDATION;
   /** Provides ref access to the underlying input element */
@@ -34,15 +40,19 @@ interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   start?: any;
 }
 
-const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(
   ({ children, inputRef: controlledInputRef, start, ...props }, ref) => {
     const {
       popperReferenceElementRef,
-      downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen }
+      downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen },
+      setDropdownType
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
-    const inputRef = useCombinedRefs<HTMLInputElement>(controlledInputRef);
-    const triggerRef = useCombinedRefs<HTMLDivElement>(ref);
+    const inputRef = useRef<HTMLInputElement>();
+    const triggerRef = useRef<HTMLDivElement>();
     const previousIsOpenRef = useRef<boolean | undefined>(isOpen);
     const [isHovered, setIsHovered] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
@@ -81,6 +91,10 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
     const isContainerHovered = isLabelHovered && !isOpen;
     const isContainerFocused = isOpen || isFocused;
 
+    useEffect(() => {
+      setDropdownType('autocomplete');
+    }, [setDropdownType]);
+
     return (
       <Reference>
         {({ ref: popperReference }) => (
@@ -97,14 +111,18 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
               (popperReference as any)(selectRef);
 
               // Store ref locally to return focus on close
-              (triggerRef as any).current = selectRef;
+              mergeRefs([triggerRef, ref])(selectRef);
 
               // Apply Select ref to global Dropdown context
               popperReferenceElementRef.current = selectRef;
             }}
           >
             {start && (
-              <StyledFauxInput.StartIcon isDisabled={props.disabled}>
+              <StyledFauxInput.StartIcon
+                isHovered={isHovered || (isLabelHovered && !isOpen)}
+                isFocused={isContainerFocused}
+                isDisabled={props.disabled}
+              >
                 {start}
               </StyledFauxInput.StartIcon>
             )}
@@ -125,13 +143,13 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
                   }
                 },
                 role: 'combobox',
-                ref: inputRef
+                ref: mergeRefs([inputRef, controlledInputRef || null])
               } as any)}
             />
             {!props.isBare && (
               <StyledFauxInput.EndIcon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
-                isFocused={isOpen}
+                isFocused={isContainerFocused}
                 isDisabled={props.disabled}
                 isRotated={isOpen}
               >
@@ -149,19 +167,8 @@ Autocomplete.displayName = 'Autocomplete';
 
 Autocomplete.propTypes = {
   isCompact: PropTypes.bool,
-  /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
-  /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  /** Displays select open state */
-  isOpen: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
-
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export default Autocomplete as React.FunctionComponent<
-  IAutocompleteProps & React.RefAttributes<HTMLDivElement>
->;

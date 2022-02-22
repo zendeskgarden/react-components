@@ -180,12 +180,12 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
     }
 
     /* stylelint-disable */
-    ${StyledLabel}:not([hidden]) + &,
-    ${StyledHint} + &,
-    ${StyledMessage} + &,
-    & + ${StyledHint},
-    & + ${StyledMessage} {
-      margin-top: ${math(`${props.theme.space.base} * ${props.isCompact ? '1px' : '2px'}`)};
+    ${StyledLabel}:not([hidden]) + &&,
+    ${StyledHint} + &&,
+    ${StyledMessage} + &&,
+    && + ${StyledHint},
+    && + ${StyledMessage} {
+      margin-top: ${props.theme.space.base * (props.isCompact ? 1 : 2)}px;
     }
     /* stylelint-enable */
   `;
@@ -208,10 +208,11 @@ export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props =
   appearance: none;
   /* prettier-ignore */
   transition:
-    border-color .25s ease-in-out,
-    box-shadow .1s ease-in-out,
-    background-color .25s ease-in-out,
-    color .25s ease-in-out;
+    border-color 0.25s ease-in-out,
+    box-shadow 0.1s ease-in-out,
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out,
+    z-index 0.25s ease-in-out;
   direction: ${props => props.theme.rtl && 'rtl'};
   border: ${props => (props.isBare ? 'none' : props.theme.borders.sm)};
   border-radius: ${props => (props.isBare ? '0' : props.theme.borderRadii.md)};

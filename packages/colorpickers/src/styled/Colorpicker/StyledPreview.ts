@@ -13,28 +13,37 @@ import { IRGBColor } from '../../utils/types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_preview_box';
 
-const background = (props: IRGBColor & ThemeProps<DefaultTheme>) => {
+interface IStyledColorPreviewProps extends IRGBColor {
+  isOpaque?: boolean;
+}
+
+const background = (props: IStyledColorPreviewProps & ThemeProps<DefaultTheme>) => {
   const alpha = props.alpha ? props.alpha / 100 : 0;
   const color = `rgba(${props.red}, ${props.green}, ${props.blue}, ${alpha})`;
+  let retVal = `linear-gradient(${color}, ${color})`;
 
-  return `linear-gradient(${color}, ${color})`;
+  if (!props.isOpaque) {
+    retVal = `${retVal}, ${checkeredBackground(props.theme, 13)}`;
+  }
+
+  return retVal;
 };
 
-export const StyledPreview = styled.div.attrs<IRGBColor>(props => ({
+export const StyledPreview = styled.div.attrs<IStyledColorPreviewProps>(props => ({
   style: {
-    background: `${background(props)}, ${checkeredBackground(props.theme, 13)}`
+    background: background(props)
   },
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'preview-box'
-}))<IRGBColor>`
+}))<IStyledColorPreviewProps>`
   flex-shrink: 0;
   border-radius: ${props => props.theme.borderRadii.md};
   /* stylelint-disable-next-line color-function-notation */
   box-shadow: inset 0 0 0 ${props => props.theme.borderWidths.sm}
     ${props => rgba(props.theme.palette.black as string, 0.19)};
-  width: ${props => props.theme.space.base * 8}px;
-  height: ${props => props.theme.space.base * 8}px;
+  width: ${props => props.theme.space.base * (props.isOpaque ? 6 : 8)}px;
+  height: ${props => props.theme.space.base * (props.isOpaque ? 6 : 8)}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -1,0 +1,46 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { Colorpicker } from '@zendeskgarden/react-colorpickers';
+
+<Meta
+  title="Packages/Colorpickers/Colorpicker"
+  component={Colorpicker}
+  parameters={{
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=2178%3A344'
+    }
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+## Uncontrolled
+
+<Canvas>
+  <Story name="Uncontrolled" argTypes={{ color: { control: false } }}>
+    {args => <Colorpicker {...args} />}
+  </Story>
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story
+    name="Controlled"
+    args={{ color: PALETTE.blue[600] }}
+    argTypes={{ defaultColor: { control: false } }}
+  >
+    {args => {
+      const updateArgs = useArgs()[1];
+      const handleChange = color => updateArgs({ color });
+      return <Colorpicker {...args} onChange={handleChange} />;
+    }}
+  </Story>
+</Canvas>

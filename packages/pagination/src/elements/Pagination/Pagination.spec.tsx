@@ -9,7 +9,7 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import { default as Pagination, IPaginationProps, PAGE_TYPE } from './Pagination';
+import { Pagination, IPaginationProps, PAGE_TYPE } from './Pagination';
 
 describe('Pagination', () => {
   it('passes ref to underlying DOM element', () => {

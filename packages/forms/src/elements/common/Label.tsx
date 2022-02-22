@@ -9,6 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../../utils/useFieldContext';
+import useFieldsetContext from '../../utils/useFieldsetContext';
 import useInputContext from '../../utils/useInputContext';
 import {
   StyledLabel,
@@ -31,6 +32,7 @@ export interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
  */
 export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref) => {
   const fieldContext = useFieldContext();
+  const fieldsetContext = useFieldsetContext();
   const type = useInputContext();
 
   let combinedProps = props;
@@ -60,6 +62,13 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
         })
       };
     }
+  }
+
+  if (fieldsetContext) {
+    combinedProps = {
+      ...combinedProps,
+      isRegular: combinedProps.isRegular === undefined ? true : combinedProps.isRegular
+    };
   }
 
   if (type === 'radio') {

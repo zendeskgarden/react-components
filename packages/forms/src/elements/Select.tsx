@@ -7,10 +7,9 @@
 
 import React, { SelectHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { StyledSelect, StyledSelectWrapper } from '../styled';
-import { FauxInput } from './FauxInput';
+import { FauxInput } from './faux-input/FauxInput';
 import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
 
@@ -29,13 +28,13 @@ export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
  * @extends SelectHTMLAttributes<HTMLSelectElement>
  */
 export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
-  ({ disabled, ...props }, ref) => {
+  ({ disabled, isCompact, ...props }, ref) => {
     const fieldContext = useFieldContext();
-    const selectRef = useCombinedRefs(ref);
 
     let combinedProps = {
       disabled,
-      ref: selectRef,
+      isCompact,
+      ref,
       ...props
     };
 
@@ -44,7 +43,7 @@ export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
     }
 
     return (
-      <StyledSelectWrapper>
+      <StyledSelectWrapper isCompact={isCompact}>
         <StyledSelect {...(combinedProps as any)} />
         {!props.isBare && (
           <FauxInput.EndIcon isDisabled={disabled}>
@@ -62,3 +61,5 @@ Select.propTypes = {
   focusInset: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
+
+Select.displayName = 'Select';

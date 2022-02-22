@@ -5,18 +5,31 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useEffect, useCallback, InputHTMLAttributes, ChangeEvent } from 'react';
-import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  InputHTMLAttributes,
+  ChangeEvent
+} from 'react';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import mergeRefs from 'react-merge-refs';
 import useFieldContext from '../utils/useFieldContext';
 import { StyledRangeInput } from '../styled';
+
+export interface IRangeProps extends InputHTMLAttributes<HTMLInputElement> {
+  /** @ignore */
+  hasLowerTrack?: boolean;
+}
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
-export const Range = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
-  ({ min, max, step, ...props }, ref) => {
+export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
+  ({ hasLowerTrack, min, max, step, ...props }, ref) => {
     const [backgroundSize, setBackgroundSize] = useState('0');
-    const rangeRef = useCombinedRefs(ref);
+    const rangeRef = useRef<HTMLInputElement>();
     const fieldContext = useFieldContext();
 
     const updateBackgroundWidthFromInput = useCallback(
@@ -29,7 +42,7 @@ export const Range = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTML
         }
 
         const percentage =
-          (100 * (((value as unknown) as number) - (min as number))) /
+          (100 * ((value as unknown as number) - (min as number))) /
           (relativeMax - (min as number));
 
         setBackgroundSize(`${percentage}%`);
@@ -42,16 +55,21 @@ export const Range = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTML
       updateBackgroundWidthFromInput(rangeRef.current!);
     }, [rangeRef, updateBackgroundWidthFromInput, props.value]);
 
+    const onChange = hasLowerTrack
+      ? composeEventHandlers(props.onChange, (event: ChangeEvent<HTMLInputElement>) => {
+          updateBackgroundWidthFromInput(event.target);
+        })
+      : props.onChange;
+
     let combinedProps = {
-      ref: rangeRef,
+      ref: mergeRefs([rangeRef, ref]),
+      hasLowerTrack,
       min,
       max,
       step,
       backgroundSize,
       ...props,
-      onChange: composeEventHandlers(props.onChange, (event: ChangeEvent<HTMLInputElement>) => {
-        updateBackgroundWidthFromInput(event.target);
-      })
+      onChange
     };
 
     if (fieldContext) {
@@ -63,7 +81,10 @@ export const Range = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTML
 );
 
 Range.defaultProps = {
+  hasLowerTrack: true,
   min: 0,
   max: 100,
   step: 1
 };
+
+Range.displayName = 'Range';

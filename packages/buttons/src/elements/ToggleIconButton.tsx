@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import IconButton, { IIconButtonProps } from './IconButton';
+import { IconButton, IIconButtonProps } from './IconButton';
 
 export interface IToggleIconButtonProps extends IIconButtonProps {
   /**
@@ -20,9 +20,7 @@ export interface IToggleIconButtonProps extends IIconButtonProps {
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-const ToggleIconButton: React.FunctionComponent<
-  IToggleIconButtonProps & React.RefAttributes<HTMLButtonElement>
-> = React.forwardRef<HTMLButtonElement, IToggleIconButtonProps>(
+export const ToggleIconButton = forwardRef<HTMLButtonElement, IToggleIconButtonProps>(
   ({ isPressed, ...otherProps }, ref) => (
     <IconButton aria-pressed={isPressed} ref={ref} {...otherProps} />
   )
@@ -38,8 +36,5 @@ ToggleIconButton.propTypes = {
 ToggleIconButton.defaultProps = {
   isPill: true,
   isBasic: true,
-  isPressed: false,
   size: 'medium'
 };
-
-export default ToggleIconButton;

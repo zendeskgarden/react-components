@@ -49,10 +49,10 @@ describe('arrowStyles', () => {
   });
 
   describe('position', () => {
-    const POSITION: ARROW_POSITION[] = ['top', 'right', 'bottom', 'left'];
+    it('renders with the expected positions', () => {
+      const POSITION: ARROW_POSITION[] = ['top', 'right', 'bottom', 'left'];
 
-    POSITION.forEach(position => {
-      it(`renders with the expected ${position} positioning`, () => {
+      POSITION.forEach(position => {
         const { container } = render(<StyledDiv arrowPosition={position} />);
         const value = math(`${getArrowSize()} / -2`);
 
@@ -62,10 +62,10 @@ describe('arrowStyles', () => {
   });
 
   describe('size', () => {
-    const SIZE = ['2px', '4px', '6px', '8px', '10px', '1em'];
+    it('renders with sizes', () => {
+      const SIZE = ['2px', '4px', '6px', '8px', '10px', '1em'];
 
-    SIZE.forEach(size => {
-      it(`renders with ${size} size`, () => {
+      SIZE.forEach(size => {
         const { container } = render(<StyledDiv arrowPosition="top" arrowSize={size} />);
         const value = getArrowSize(size);
 
@@ -76,10 +76,10 @@ describe('arrowStyles', () => {
   });
 
   describe('inset', () => {
-    const INSET = ['-1px', '0', '1px', '2px', '4px'];
+    it('renders with inset values', () => {
+      const INSET = ['-1px', '0', '1px', '2px', '4px'];
 
-    INSET.forEach(inset => {
-      it(`renders with ${inset} inset`, () => {
+      INSET.forEach(inset => {
         const { container } = render(<StyledDiv arrowPosition="top" arrowInset={inset} />);
         const value = getArrowInset(inset);
 

@@ -5,13 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, useReducer, useCallback, useEffect, useRef } from 'react';
+import React, {
+  PropsWithChildren,
+  useReducer,
+  useCallback,
+  useEffect,
+  useRef,
+  useMemo
+} from 'react';
 import PropTypes from 'prop-types';
 import { datepickerRangeReducer, retrieveInitialState } from './utils/datepicker-range-reducer';
 import { DatepickerRangeContext } from './utils/useDatepickerRangeContext';
-import Start from './components/Start';
-import End from './components/End';
-import Calendar from './components/Calendar';
+import { Start } from './components/Start';
+import { End } from './components/End';
+import { Calendar } from './components/Calendar';
 
 export interface IDatepickerRangeProps {
   /**
@@ -63,7 +70,7 @@ export interface IDatepickerRangeProps {
   isCompact?: boolean;
 }
 
-export const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
+const DatepickerRangeComponent = (props: PropsWithChildren<IDatepickerRangeProps>) => {
   const {
     startValue,
     locale,
@@ -126,32 +133,41 @@ export const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>)
     previousEndValue.current = endValue;
   }, [props, endValue]);
 
+  const value = useMemo(
+    () => ({
+      state,
+      dispatch,
+      isCompact,
+      locale,
+      minValue,
+      maxValue,
+      startValue,
+      endValue,
+      onChange,
+      startInputRef,
+      endInputRef
+    }),
+    [
+      state,
+      dispatch,
+      isCompact,
+      locale,
+      minValue,
+      maxValue,
+      startValue,
+      endValue,
+      onChange,
+      startInputRef,
+      endInputRef
+    ]
+  );
+
   return (
-    <DatepickerRangeContext.Provider
-      value={{
-        state,
-        dispatch,
-        isCompact,
-        locale,
-        minValue,
-        maxValue,
-        startValue,
-        endValue,
-        onChange,
-        startInputRef,
-        endInputRef
-      }}
-    >
-      {children}
-    </DatepickerRangeContext.Provider>
+    <DatepickerRangeContext.Provider value={value}>{children}</DatepickerRangeContext.Provider>
   );
 };
 
-DatepickerRange.Start = Start;
-DatepickerRange.End = End;
-DatepickerRange.Calendar = Calendar;
-
-DatepickerRange.propTypes = {
+DatepickerRangeComponent.propTypes = {
   locale: PropTypes.string,
   startValue: PropTypes.instanceOf(Date),
   endValue: PropTypes.instanceOf(Date),
@@ -163,7 +179,17 @@ DatepickerRange.propTypes = {
   isCompact: PropTypes.bool
 };
 
-DatepickerRange.defaultProps = {
+DatepickerRangeComponent.defaultProps = {
   locale: 'en-US',
   isCompact: false
 };
+
+export const DatepickerRange = DatepickerRangeComponent as typeof DatepickerRangeComponent & {
+  Calendar: typeof Calendar;
+  End: typeof End;
+  Start: typeof Start;
+};
+
+DatepickerRange.Calendar = Calendar;
+DatepickerRange.End = End;
+DatepickerRange.Start = Start;

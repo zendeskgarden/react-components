@@ -53,7 +53,6 @@ const NotificationExample = () => {
       <button
         onClick={() => {
           updateToast(recentToast, {
-            // eslint-disable-next-line react/display-name
             content: ({ close }) => <Notification close={close}>updated content</Notification>
           });
         }}
@@ -132,7 +131,9 @@ describe('useToast()', () => {
 
       expect(queryByRole('alert')).toBeInTheDocument();
 
-      jest.runOnlyPendingTimers();
+      act(() => {
+        jest.runOnlyPendingTimers();
+      });
 
       expect(queryByRole('alert')).not.toBeInTheDocument();
     });
@@ -146,7 +147,9 @@ describe('useToast()', () => {
 
       expect(queryByRole('alert')).toBeInTheDocument();
 
-      jest.runOnlyPendingTimers();
+      act(() => {
+        jest.runOnlyPendingTimers();
+      });
 
       expect(queryByRole('alert')).toBeInTheDocument();
     });

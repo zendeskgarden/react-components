@@ -53,7 +53,10 @@ const colorStyles = (
   let retVal;
   let hue;
 
-  if (props.disabled) {
+  if (
+    props.disabled ||
+    (props.isNeutral && (props.isPrimary || props.isSelected) && !props.isDanger)
+  ) {
     hue = 'neutralHue';
   } else if (props.isDanger) {
     hue = 'dangerHue';
@@ -80,8 +83,11 @@ const colorStyles = (
       background-color: transparent;
       color: ${baseColor};
 
+      &:focus {
+        color: ${baseColor}; /* [1] */
+      }
+
       &:hover,
-      &:focus, /* [1] */
       &[data-garden-focus-visible] {
         color: ${hoverColor};
       }
@@ -124,18 +130,25 @@ const colorStyles = (
       }
     `;
   } else {
+    const borderColor =
+      props.isNeutral && !props.isDanger ? getColor('neutralHue', 300, props.theme) : baseColor;
+    const foregroundColor = props.isNeutral ? props.theme.colors.foreground : baseColor;
+    const hoverBorderColor = props.isNeutral && !props.isDanger ? baseColor : hoverColor;
+    const hoverForegroundColor = props.isNeutral ? foregroundColor : hoverColor;
+
     retVal = css`
-      border-color: ${!props.isBasic && baseColor};
+      border-color: ${!props.isBasic && borderColor};
       background-color: transparent;
-      color: ${baseColor};
+      color: ${foregroundColor};
 
       &:hover {
-        border-color: ${!props.isBasic && hoverColor};
+        border-color: ${!props.isBasic && hoverBorderColor};
         background-color: ${rgba(baseColor as string, 0.08)};
-        color: ${hoverColor};
+        color: ${hoverForegroundColor};
       }
 
       &[data-garden-focus-visible] {
+        border-color: ${props.isNeutral && baseColor};
         box-shadow: ${boxShadow};
       }
 
@@ -144,12 +157,30 @@ const colorStyles = (
       &[aria-pressed='mixed'] {
         border-color: ${!props.isBasic && activeColor};
         background-color: ${rgba(baseColor as string, 0.2)};
-        color: ${activeColor};
+        color: ${!props.isNeutral && activeColor};
       }
 
       &:disabled {
         border-color: transparent;
         background-color: ${disabledBackgroundColor};
+        color: ${disabledForegroundColor};
+      }
+
+      & ${StyledIcon} {
+        color: ${props.isNeutral && getColor('neutralHue', shade, props.theme)};
+      }
+
+      /* prettier-ignore */
+      &:hover ${StyledIcon},
+      &[data-garden-focus-visible] ${StyledIcon} {
+        color: ${props.isNeutral && getColor('neutralHue', shade + 100, props.theme)};
+      }
+
+      &:active ${StyledIcon} {
+        color: ${props.isNeutral && foregroundColor};
+      }
+
+      &:disabled ${StyledIcon} {
         color: ${disabledForegroundColor};
       }
     `;
@@ -177,6 +208,7 @@ const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
     border-left-color: ${isPrimary && lightBorderColor};
 
     &:hover,
+    &[data-garden-focus-visible],
     &:active {
       z-index: 1;
     }
@@ -275,6 +307,7 @@ export interface IStyledButtonProps {
   isDanger?: boolean;
   focusInset?: boolean;
   isLink?: boolean;
+  isNeutral?: boolean;
   isPrimary?: boolean;
   isPill?: boolean;
   isSelected?: boolean;
@@ -300,7 +333,8 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
     border-color 0.25s ease-in-out,
     box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
-    color 0.25s ease-in-out;
+    color 0.25s ease-in-out,
+    z-index 0.25s ease-in-out;
   margin: 0;
   border: ${props => (props.isLink ? 'none' : `${props.theme.borders.sm} transparent`)};
   border-radius: ${props => getBorderRadius(props)};
@@ -345,7 +379,8 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
     transition:
       border-color 0.1s ease-in-out,
       background-color 0.1s ease-in-out,
-      color 0.1s ease-in-out;
+      color 0.1s ease-in-out,
+      z-index 0.25s ease-in-out;
     text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
   }
 

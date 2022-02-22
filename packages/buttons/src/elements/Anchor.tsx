@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { AnchorHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { StyledAnchor, StyledExternalIcon } from '../styled';
 
@@ -14,7 +14,7 @@ export interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   isDanger?: boolean;
   /**
    * Attaches `target="_blank"` and `rel="noopener noreferrer"` to an anchor that
-   * navigates to an external resource. This ensures ensures that the anchor is a
+   * navigates to an external resource. This ensures that the anchor is a
    * safe [cross-origin destination link](https://web.dev/external-anchors-use-rel-noopener/).
    **/
   isExternal?: boolean;
@@ -23,9 +23,7 @@ export interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 /**
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
-const Anchor: React.FunctionComponent<
-  IAnchorProps & React.RefAttributes<HTMLAnchorElement>
-> = React.forwardRef<HTMLAnchorElement, IAnchorProps>(
+export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
   ({ children, isExternal, ...otherProps }, ref) => {
     let anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = otherProps;
 
@@ -52,5 +50,3 @@ Anchor.propTypes = {
   isExternal: PropTypes.bool,
   isDanger: PropTypes.bool
 };
-
-export default Anchor;

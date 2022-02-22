@@ -5,19 +5,64 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useEffect, useMemo, useRef, useState } from 'react';
+import React, { HTMLAttributes, useMemo, useRef } from 'react';
 import Highlight, { Language, Prism } from 'prism-react-renderer';
-import debounce from 'lodash.debounce';
+import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
 import {
+  DIFF,
+  SIZE,
   StyledCodeBlock,
   StyledCodeBlockContainer,
   StyledCodeBlockLine,
   StyledCodeBlockToken
 } from '../styled';
 
+/* prism-react-renderer Token type replica */
+interface IToken {
+  types: string[];
+  content: string;
+  empty?: boolean;
+}
+
+/* until https://github.com/FormidableLabs/prism-react-renderer/pull/127 is available */
+const LANGUAGES = [
+  'markup',
+  'bash',
+  'clike',
+  'c',
+  'cpp',
+  'css',
+  'javascript',
+  'jsx',
+  'coffeescript',
+  'actionscript',
+  'css-extr',
+  'diff',
+  'git',
+  'go',
+  'graphql',
+  'handlebars',
+  'json',
+  'less',
+  'makefile',
+  'markdown',
+  'objectivec',
+  'ocaml',
+  'python',
+  'reason',
+  'sass',
+  'scss',
+  'sql',
+  'stylus',
+  'tsx',
+  'typescript',
+  'wasm',
+  'yaml'
+] as const;
+
 export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
-  /** Selects the language used by the Prism tokenizer */
-  language?: Language;
+  /** Selects the language used by the [Prism](https://prismjs.com/) tokenizer */
+  language?: typeof LANGUAGES[number];
   /** Specifies the font size */
   size?: 'small' | 'medium' | 'large';
   /** Applies light mode styling */
@@ -38,61 +83,57 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
     { children, containerProps, highlightLines, isLight, isNumbered, language, size, ...other },
     ref
   ) => {
-    const [containerTabIndex, setContainerTabIndex] = useState(-1);
     const containerRef = useRef<HTMLDivElement>(null);
-    const updateContainerTabIndex = useMemo(
-      () =>
-        debounce(() => {
-          if (containerRef.current) {
-            const codeBlock = containerRef.current.children[0];
-            const codeBlockHeight = codeBlock.scrollHeight;
-            const codeBlockWidth = codeBlock.scrollWidth;
-            const containerHeight = containerRef.current.offsetHeight;
-            const containerWidth = containerRef.current.offsetWidth;
-
-            if (codeBlockWidth > containerWidth || codeBlockHeight > containerHeight) {
-              setContainerTabIndex(0);
-            } else {
-              setContainerTabIndex(-1);
-            }
-          }
-        }, 100),
-      [containerRef, setContainerTabIndex]
-    );
     const code = (Array.isArray(children) ? children[0] : children) as string;
-    let _size: 'sm' | 'md' | 'lg';
+    const SIZES: Record<string, SIZE> = {
+      small: 'sm',
+      medium: 'md',
+      large: 'lg'
+    };
+    const dependency = useMemo(() => [size, children], [size, children]);
+    const containerTabIndex = useScrollRegion({ containerRef, dependency });
 
-    if (size === 'small') {
-      _size = 'sm';
-    } else if (size === 'medium') {
-      _size = 'md';
-    } else {
-      _size = 'lg';
-    }
+    const getDiff = (line: IToken[]) => {
+      let retVal: DIFF | undefined;
 
-    useEffect(() => {
-      addEventListener('resize', updateContainerTabIndex);
-      updateContainerTabIndex();
+      if (language === 'diff') {
+        const token = line.find(value => !(value.empty || value.content === ''));
 
-      return () => {
-        removeEventListener('resize', updateContainerTabIndex);
-        updateContainerTabIndex.cancel();
-      };
-    }, [updateContainerTabIndex, isNumbered, size, children]);
+        if (token) {
+          if (token.types.includes('deleted')) {
+            retVal = 'delete';
+          } else if (token.types.includes('inserted')) {
+            retVal = 'add';
+          } else if (token.types.includes('coord')) {
+            retVal = 'hunk';
+          } else if (token.types.includes('diff')) {
+            retVal = 'change';
+          }
+        }
+      }
+
+      return retVal;
+    };
 
     return (
       <StyledCodeBlockContainer {...containerProps} ref={containerRef} tabIndex={containerTabIndex}>
-        <Highlight Prism={Prism} code={code ? code.trim() : ''} language={language || 'tsx'}>
+        <Highlight
+          Prism={Prism}
+          code={code ? code.trim() : ''}
+          language={LANGUAGES.includes(language as Language) ? (language as Language) : 'tsx'}
+        >
           {({ className, tokens, getLineProps, getTokenProps }) => (
             <StyledCodeBlock className={className} ref={ref} isLight={isLight} {...other}>
               {tokens.map((line, index) => (
                 <StyledCodeBlockLine
                   {...getLineProps({ line })}
                   key={index}
+                  language={language}
                   isHighlighted={highlightLines && highlightLines.includes(index + 1)}
                   isLight={isLight}
                   isNumbered={isNumbered}
-                  size={_size}
+                  diff={getDiff(line)}
+                  size={size ? SIZES[size] : undefined}
                 >
                   {line.map((token, tokenKey) => (
                     <StyledCodeBlockToken

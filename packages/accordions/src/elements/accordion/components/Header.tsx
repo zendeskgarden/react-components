@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, FocusEvent, forwardRef, HTMLAttributes } from 'react';
+import React, { useState, FocusEvent, forwardRef, HTMLAttributes, useMemo } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { useAccordionContext, useSectionContext, HeaderContext } from '../../../utils';
 import { StyledHeader, StyledRotateIcon, COMPONENT_ID as buttonGardenId } from '../../../styled';
 
-export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const {
     level: ariaLevel,
     isCompact,
@@ -30,8 +30,12 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
    * `onKeyDown` is plucked out and not passed to the Label (button) element
    * to prevent double invocations of the click event.
    */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { onClick: onTriggerClick, onKeyDown, ...otherTriggerProps } = getTriggerProps({
+  const {
+    onClick: onTriggerClick,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    onKeyDown,
+    ...otherTriggerProps
+  } = getTriggerProps({
     type: 'button',
     index: sectionIndex
   });
@@ -48,10 +52,13 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
     }, 0);
   };
 
-  const value = {
-    isHovered,
-    otherTriggerProps
-  };
+  const value = useMemo(
+    () => ({
+      isHovered,
+      otherTriggerProps
+    }),
+    [isHovered, otherTriggerProps]
+  );
 
   return (
     <HeaderContext.Provider value={value}>
@@ -87,4 +94,9 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
   );
 });
 
-Header.displayName = 'Header';
+HeaderComponent.displayName = 'Accordion.Header';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Header = HeaderComponent;

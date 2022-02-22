@@ -7,18 +7,22 @@
 
 import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import {
-  StyledHeaderItem,
-  StyledLogoHeaderItem,
-  IStyledBaseHeaderItemProps,
-  IStyledLogoHeaderItemProps
-} from '../../styled';
-import { PRODUCTS } from '../../utils/types';
+import { StyledHeaderItem, StyledLogoHeaderItem } from '../../styled';
+import { PRODUCT, PRODUCTS } from '../../utils/types';
 
-interface IHeadItemProps
-  extends IStyledBaseHeaderItemProps,
-    IStyledLogoHeaderItemProps,
-    ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IHeaderItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Maximizes the width of a flex item in the header */
+  maxX?: boolean;
+  /** Maximizes the height of the item (i.e. contains a search input) */
+  maxY?: boolean;
+  /** Rounds the border radius of the item */
+  isRound?: boolean;
+  /**
+   * Applies a
+   * [brand color](/design/color#brand-colors)
+   * to the product logo
+   */
+  product?: PRODUCT;
   /** Applies header logo styles to the item */
   hasLogo?: boolean;
 }
@@ -26,7 +30,7 @@ interface IHeadItemProps
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-export const HeaderItem = React.forwardRef<HTMLButtonElement, IHeadItemProps>(
+export const HeaderItem = React.forwardRef<HTMLButtonElement, IHeaderItemProps>(
   ({ hasLogo, product, ...other }, ref) => {
     if (hasLogo) {
       return <StyledLogoHeaderItem ref={ref} product={product} {...other} />;

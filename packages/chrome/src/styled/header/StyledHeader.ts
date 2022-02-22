@@ -13,7 +13,6 @@ import { getNavItemHeight } from '../nav/StyledBaseNavItem';
 const COMPONENT_ID = 'chrome.header';
 
 export interface IStyledHeaderProps {
-  /** Displays logo for standlone usage  */
   isStandalone?: boolean;
 }
 

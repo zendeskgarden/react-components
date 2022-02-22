@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import OrderedList from './OrderedList';
+import { OrderedList } from './OrderedList';
 
 describe('OrderedListItem', () => {
   it('applies default padding', () => {

@@ -7,12 +7,14 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { rgba } from 'polished';
 
 const COMPONENT_ID = 'dropdowns.item';
 
 export interface IStyledItemProps {
   isFocused?: boolean;
   isCompact?: boolean;
+  isDanger?: boolean;
   disabled?: boolean;
   checked?: boolean;
 }
@@ -26,13 +28,29 @@ export const getItemPaddingVertical = (props: IStyledItemProps & ThemeProps<Defa
 };
 
 const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
+  let foregroundColor;
+  let backgroundColor;
+
+  if (props.disabled) {
+    foregroundColor = getColor('neutralHue', 400, props.theme);
+  } else if (props.isDanger) {
+    foregroundColor = getColor('dangerHue', 600, props.theme);
+    backgroundColor = props.isFocused ? rgba(foregroundColor as string, 0.08) : 'inherit';
+  } else {
+    foregroundColor = props.theme.colors.foreground;
+    backgroundColor = props.isFocused ? getColor('primaryHue', 600, props.theme, 0.08) : 'inherit';
+  }
+
   return css`
-    background-color: ${props.isFocused &&
-    !props.disabled &&
-    getColor('primaryHue', 600, props.theme, 0.08)};
-    color: ${props.disabled
-      ? getColor('neutralHue', 400, props.theme)
-      : props.theme.colors.foreground};
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
+
+    & a,
+    & a:hover,
+    & a:focus,
+    & a:active {
+      color: inherit;
+    }
   `;
 };
 
@@ -67,7 +85,15 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
     outline: none;
   }
 
-  ${props => getColorStyles(props)}
+  /* stylelint-disable no-descending-specificity */
+  & a,
+  & a:hover,
+  & a:focus,
+  & a:active {
+    text-decoration: none;
+  }
+
+  ${props => getColorStyles(props)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

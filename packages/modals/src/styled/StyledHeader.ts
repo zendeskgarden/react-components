@@ -16,9 +16,6 @@ import {
 const COMPONENT_ID = 'modals.header';
 
 export interface IStyledHeaderProps {
-  /**
-   * Applies danger styling
-   */
   isDanger?: boolean;
 }
 

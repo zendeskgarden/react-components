@@ -1,0 +1,25 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
+import { ChevronButton } from '@zendeskgarden/react-buttons';
+
+<Meta title="Packages/Buttons/ChevronButton" component={ChevronButton} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="ChevronButton"
+    args={{ 'aria-label': 'Label' }}
+    argTypes={{ disabled: { control: 'boolean' } }}
+  >
+    {args => {
+      const updateArgs = useArgs()[1];
+      const handleClick = () => updateArgs({ isRotated: args.isRotated ? false : true });
+      return <ChevronButton {...args} onClick={handleClick} />;
+    }}
+  </Story>
+</Canvas>

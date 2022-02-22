@@ -5,17 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledParagraph } from '../styled';
 
 /**
  * @extends HTMLAttributes<HTMLParagraphElement>
  */
-export const Paragraph = React.forwardRef<
-  HTMLParagraphElement,
-  HTMLAttributes<HTMLParagraphElement>
->((props, ref) => <StyledParagraph ref={ref} {...props} />);
+export const Paragraph = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>(
+  (props, ref) => <StyledParagraph ref={ref} {...props} />
+);
 
 Paragraph.displayName = 'Paragraph';
-
-export default Paragraph;

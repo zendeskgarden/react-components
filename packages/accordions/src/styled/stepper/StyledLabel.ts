@@ -26,13 +26,14 @@ export const StyledLabel = styled.div.attrs<IStyledLabelProps>({
 })<IStyledLabelProps>`
   display: ${props => !props.isHorizontal && 'flex'};
   align-items: ${props => !props.isHorizontal && 'center'};
+  transition: color 0.25s ease-in-out, font-weight 0.25s ease-in-out;
   text-align: ${props => props.isHorizontal && 'center'};
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   color: ${props =>
-    props.isActive
-      ? getColor('neutralHue', 800, props.theme)
-      : getColor('neutralHue', 600, props.theme)};
+    props.isActive ? props.theme.colors.foreground : getColor('neutralHue', 600, props.theme)};
+  font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.isActive && 600};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

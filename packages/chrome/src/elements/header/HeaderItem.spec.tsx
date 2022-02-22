@@ -54,8 +54,8 @@ describe('HeaderItem', () => {
       talk: PALETTE.product.talk
     };
 
-    PRODUCTS.forEach(product => {
-      it(`renders correct ${product} color if provided`, () => {
+    it('renders correct product color', () => {
+      PRODUCTS.forEach(product => {
         const { container } = render(<HeaderItem hasLogo product={product} />);
 
         expect(container.firstChild).toHaveStyleRule('color', VALID_COLOR_MAP[product]);

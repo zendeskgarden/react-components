@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import ChevronButton from './ChevronButton';
+import { ChevronButton } from './ChevronButton';
 
 describe('ChevronButton', () => {
   it('renders a chevron SVG icon', () => {

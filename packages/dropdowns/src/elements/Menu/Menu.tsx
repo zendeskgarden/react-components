@@ -5,13 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, HTMLAttributes, useState } from 'react';
+import React, { useRef, useEffect, HTMLAttributes, useState, useContext, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProps, DefaultTheme } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { Popper } from 'react-popper';
 import { Modifiers } from 'popper.js';
-import { withTheme, isRtl } from '@zendeskgarden/react-theming';
-
 import { StyledMenu, StyledMenuWrapper } from '../../styled/index';
 import useDropdownContext from '../../utils/useDropdownContext';
 import {
@@ -22,7 +20,7 @@ import {
 import { MenuContext } from '../../utils/useMenuContext';
 import { createPortal } from 'react-dom';
 
-interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
+export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   /**
    * Passes configuration options to the [Popper instance](https://popper.js.org/docs/v2/modifiers/)
    */
@@ -61,7 +59,10 @@ interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   appendToNode?: HTMLElement;
 }
 
-const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = props => {
+/**
+ * @extends HTMLAttributes<HTMLUListElement>
+ */
+export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) => {
   const {
     placement,
     popperModifiers,
@@ -114,17 +115,20 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
     return () => clearTimeout(timeout);
   }, [isOpen, isAnimated]);
 
+  const themeContext = useContext(ThemeContext);
+
   // Reset Downshift refs on every render
   itemIndexRef.current = 0;
   nextItemsHashRef.current = {};
   previousIndexRef.current = undefined;
   itemSearchRegistry.current = [];
 
-  const popperPlacement = isRtl(props)
+  const popperPlacement = themeContext.rtl
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 
   return (
+    /* eslint-disable react/jsx-no-constructed-context-values */
     <MenuContext.Provider value={{ itemIndexRef, isCompact }}>
       <Popper
         placement={popperPlacement as any}
@@ -139,6 +143,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
 
           // Calculate custom width if ref is provided from Select or Autocomplete
           if (
+            (isOpen || isVisible) &&
             popperReferenceElementRef.current &&
             popperReferenceElementRef.current.getBoundingClientRect
           ) {
@@ -166,6 +171,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
               zIndex={zIndex}
             >
               <StyledMenu
+                ref={menuRef}
                 isCompact={isCompact}
                 maxHeight={maxHeight}
                 style={computedStyle}
@@ -181,7 +187,9 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
       </Popper>
     </MenuContext.Provider>
   );
-};
+});
+
+Menu.displayName = 'Menu';
 
 Menu.propTypes = {
   popperModifiers: PropTypes.any,
@@ -220,8 +228,3 @@ Menu.defaultProps = {
   maxHeight: '400px',
   zIndex: 1000
 };
-
-/**
- * @extends HTMLAttributes<HTMLUListElement>
- */
-export default withTheme(Menu) as React.FunctionComponent<IMenuProps>;

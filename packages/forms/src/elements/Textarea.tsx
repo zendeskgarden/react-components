@@ -15,7 +15,8 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
-import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import mergeRefs from 'react-merge-refs';
 import useFieldContext from '../utils/useFieldContext';
 import { StyledTextarea } from '../styled';
 import { VALIDATION } from '../utils/validation';
@@ -47,7 +48,7 @@ const parseStyleValue = (value: string) => {
 export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
   ({ minRows, maxRows, style, onChange, onSelect, ...props }, ref) => {
     const fieldContext = useFieldContext();
-    const textAreaRef = useCombinedRefs(ref);
+    const textAreaRef = useRef<HTMLTextAreaElement>();
     const shadowTextAreaRef = useRef<HTMLInputElement | null>(null);
     const [state, setState] = useState<{ overflow: boolean; height: number }>({
       overflow: false,
@@ -159,7 +160,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
       : onSelect;
 
     let combinedProps = {
-      ref: textAreaRef,
+      ref: mergeRefs([textAreaRef, ref]),
       rows: minRows,
       onChange: onChangeHandler,
       onSelect: onSelectHandler,
@@ -204,3 +205,5 @@ Textarea.propTypes = {
   maxRows: PropTypes.number,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
+
+Textarea.displayName = 'Textarea';

@@ -1,5 +1,5 @@
 {
-  "version": "8.34.0",
+  "version": "8.48.2",
   "npmClient": "yarn",
   "npmClientArgs": [
     "--frozen-lockfile"
@@ -21,8 +21,7 @@
     "*.spec.ts",
     "*.spec.tsx",
     ".size-snapshot.json",
-    "**/__snapshots__/**",
-    "styleguide.config.js"
+    "**/__snapshots__/**"
   ],
   "command": {
     "publish": {

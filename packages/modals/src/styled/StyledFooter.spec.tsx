@@ -15,7 +15,7 @@ describe('StyledFooter', () => {
     const { container } = render(<StyledFooter />);
 
     expect(container.firstChild).not.toHaveStyleRule('border-top');
-    expect(container.firstChild).not.toHaveStyleRule('padding');
+    expect(container.firstChild).toHaveStyleRule('padding', '20px 40px 32px');
   });
 
   it('renders large styling if provided', () => {

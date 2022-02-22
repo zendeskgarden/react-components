@@ -12,7 +12,7 @@ import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { StyledInput } from '../../styled';
 import useDropdownContext from '../../utils/useDropdownContext';
 
-interface ITriggerProps extends HTMLAttributes<HTMLElement> {
+export interface ITriggerProps extends HTMLAttributes<HTMLElement> {
   /** Passes the ref callback to components with non-standard ref props (i.e. `innerRef`) */
   refKey?: string;
 }
@@ -20,7 +20,7 @@ interface ITriggerProps extends HTMLAttributes<HTMLElement> {
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...triggerProps }) => {
+export const Trigger = ({ children, refKey, ...triggerProps }: ITriggerProps) => {
   const {
     hasMenuRef,
     itemSearchRegistry,
@@ -248,5 +248,3 @@ Trigger.propTypes = {
 Trigger.defaultProps = {
   refKey: 'ref'
 };
-
-export default Trigger;

@@ -48,7 +48,6 @@ export const StyledColorWellThumb = styled.div.attrs<IStyledSaturationPointerPro
       `${props.theme.space.base * 2}px`,
       getColor('neutralHue', 800, props.theme, 0.24)!
     )};
-  cursor: default;
 
   ${props => sizeStyles(props.theme)};
 

@@ -7,7 +7,9 @@
 
 const path = require('path');
 const { readdirSync } = require('fs');
-const storybookBabelConfig = require('@storybook/core/dist/server/common/babel');
+const { getStorybookBabelConfig } = require('@storybook/core-common');
+
+const config = getStorybookBabelConfig();
 
 const PACKAGE_NAMES = readdirSync(path.resolve(__dirname, '../packages')).filter(
   name => name !== '.template'
@@ -15,9 +17,9 @@ const PACKAGE_NAMES = readdirSync(path.resolve(__dirname, '../packages')).filter
 
 module.exports = {
   sourceType: 'unambiguous',
-  presets: [...storybookBabelConfig.presets],
+  presets: [...config.presets],
   plugins: [
-    ...storybookBabelConfig.plugins,
+    ...config.plugins,
     'babel-plugin-styled-components',
     [
       'module-resolver',

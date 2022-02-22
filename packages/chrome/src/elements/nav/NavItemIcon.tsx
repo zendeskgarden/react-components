@@ -5,16 +5,36 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, HTMLAttributes } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  HTMLAttributes,
+  isValidElement,
+  PropsWithChildren,
+  ReactHTMLElement
+} from 'react';
+import { DefaultTheme, ThemeProps } from 'styled-components';
 import { StyledNavItemIcon } from '../../styled';
 
 /**
- * @extends HTMLAttributes<any>
+ * @extends HTMLAttributes<HTMLElement>
  */
-export const NavItemIcon: React.FC<HTMLAttributes<any>> = ({ children, ...props }) => {
-  // The `forwardRef` API is not needed in this element since we are cloning the provided child.
-  const Element: React.FC<unknown> = elementProps =>
-    React.cloneElement(Children.only(children as any), { ...elementProps, ...props });
+export const NavItemIcon = ({
+  children,
+  ...props
+}: PropsWithChildren<HTMLAttributes<HTMLElement>>) => {
+  const element = Children.only(children) as ReactHTMLElement<HTMLElement>;
 
-  return <StyledNavItemIcon as={Element as any} {...props} />;
+  if (isValidElement(element)) {
+    const Icon = ({
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      theme,
+      ...iconProps
+    }: ThemeProps<DefaultTheme> & HTMLAttributes<HTMLElement>) =>
+      cloneElement<HTMLAttributes<HTMLElement>, HTMLElement>(element, { ...props, ...iconProps });
+
+    return <StyledNavItemIcon as={Icon} {...props} />;
+  }
+
+  return null;
 };

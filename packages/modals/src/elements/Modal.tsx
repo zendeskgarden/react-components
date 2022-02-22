@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useMemo, useContext, HTMLAttributes, useRef } from 'react';
+import React, { useEffect, useMemo, useContext, HTMLAttributes, useRef, forwardRef } from 'react';
 import { createPortal } from 'react-dom';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
@@ -18,13 +18,12 @@ import ownerDocument from 'dom-helpers/ownerDocument';
 import ownerWindow from 'dom-helpers/ownerWindow';
 import css from 'dom-helpers/css';
 import getScrollbarSize from 'dom-helpers/scrollbarSize';
-
 import { StyledModal, StyledBackdrop } from '../styled';
 import { ModalsContext } from '../utils/useModalContext';
 
 const isOverflowing = (element: Element) => {
   const doc = ownerDocument(element);
-  const win = ownerWindow((doc as unknown) as Element);
+  const win = ownerWindow(doc as unknown as Element);
 
   const isBody = element && element.tagName.toLowerCase() === 'body';
 
@@ -60,10 +59,6 @@ export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
    */
   isAnimated?: boolean;
   /**
-   * Sets the root ID. A unique ID is created if none is provided.
-   */
-  id?: string;
-  /**
    * Defines the DOM element that the modal will attatch to
    */
   appendToNode?: Element;
@@ -84,7 +79,7 @@ export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
+export const Modal = forwardRef<HTMLDivElement, IModalProps>(
   (
     {
       backdropProps,
@@ -105,19 +100,14 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
     const modalRef = useRef<HTMLDivElement>(null);
     const environment = useDocument(theme);
 
-    const {
-      getBackdropProps,
-      getModalProps,
-      getTitleProps,
-      getContentProps,
-      getCloseProps
-    } = useModal({
-      id,
-      onClose,
-      modalRef,
-      focusOnMount,
-      restoreFocus
-    });
+    const { getBackdropProps, getModalProps, getTitleProps, getContentProps, getCloseProps } =
+      useModal({
+        id,
+        onClose,
+        modalRef,
+        focusOnMount,
+        restoreFocus
+      });
 
     useFocusVisible({ scope: modalRef, relativeDocument: environment });
 
@@ -170,12 +160,15 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
       return undefined;
     }, [appendToNode, environment]);
 
-    const value = {
-      isLarge,
-      getTitleProps,
-      getContentProps,
-      getCloseProps
-    };
+    const value = useMemo(
+      () => ({
+        isLarge,
+        getTitleProps,
+        getContentProps,
+        getCloseProps
+      }),
+      [isLarge, getTitleProps, getContentProps, getCloseProps]
+    );
 
     if (!rootNode) {
       return null;

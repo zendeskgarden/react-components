@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Close from './Close';
+import { Close } from './Close';
 
 describe('Close', () => {
   it('renders a close SVG icon', () => {

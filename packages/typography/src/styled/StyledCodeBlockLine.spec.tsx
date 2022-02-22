@@ -75,4 +75,42 @@ describe('StyledCodeBlockLine', () => {
       expect(container.firstChild).toHaveStyleRule('font-size', '17px');
     });
   });
+
+  describe('diff', () => {
+    it('renders add diff', () => {
+      const { container } = render(<StyledCodeBlockLine diff="add" />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        rgba(PALETTE.lime[400], 0.2)
+      );
+    });
+
+    it('renders delete diff', () => {
+      const { container } = render(<StyledCodeBlockLine diff="delete" />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        rgba(PALETTE.crimson[400], 0.2)
+      );
+    });
+
+    it('renders change diff', () => {
+      const { container } = render(<StyledCodeBlockLine diff="change" />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        rgba(PALETTE.lemon[400], 0.2)
+      );
+    });
+
+    it('renders hunk diff', () => {
+      const { container } = render(<StyledCodeBlockLine diff="hunk" />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        rgba(PALETTE.royal[400], 0.2)
+      );
+    });
+  });
 });

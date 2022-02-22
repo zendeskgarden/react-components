@@ -21,3 +21,10 @@ export * from './accordion/StyledButton';
 export * from './accordion/StyledPanel';
 export * from './accordion/StyledInnerPanel';
 export * from './accordion/StyledRotateIcon';
+
+export * from './timeline/StyledTimeline';
+export * from './timeline/StyledItem';
+export * from './timeline/StyledItemIcon';
+export * from './timeline/StyledContent';
+export * from './timeline/StyledOppositeContent';
+export * from './timeline/StyledSeparator';

@@ -6,12 +6,20 @@
  */
 
 export { Alert } from './elements/Alert';
+export type { IAlertProps } from './elements/Alert';
 export { Notification } from './elements/Notification';
+export type { INotificationProps } from './elements/Notification';
 export { Well } from './elements/Well';
+export type { IWellProps } from './elements/Well';
 export { Close } from './elements/content/Close';
 export { Paragraph } from './elements/content/Paragraph';
 export { Title } from './elements/content/Title';
 export { ToastProvider } from './elements/toaster/ToastProvider';
 export type { IToastProviderProps } from './elements/toaster/ToastProvider';
-export type { IToast, IToastOptions, ToastPlacement } from './elements/toaster/reducer';
+export type {
+  IToast,
+  IToastOptions,
+  ToastContent,
+  ToastPlacement
+} from './elements/toaster/reducer';
 export { useToast } from './elements/toaster/useToast';

@@ -5,15 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, forwardRef, HTMLAttributes } from 'react';
+import React, { useCallback, useRef, forwardRef, HTMLAttributes } from 'react';
 import debounce from 'lodash.debounce';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { useAccordionContext, useSectionContext } from '../../../utils';
+import mergeRefs from 'react-merge-refs';
+import { useAccordionContext, useSectionContext, IAccordionContext } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
 
-export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
+type PanelProps = IAccordionContext | { isExpanded?: boolean };
+
+const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCompact, isBare, isAnimated, getPanelProps, expandedSections } = useAccordionContext();
-  const panelRef = useCombinedRefs<HTMLElement>(ref);
+  const panelRef = useRef<HTMLElement>();
   const index = useSectionContext();
   const isExpanded = expandedSections.includes(index);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,9 +45,9 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props
 
   return (
     <StyledPanel
-      {...getPanelProps({
+      {...getPanelProps<PanelProps>({
         role: null,
-        ref: panelRef,
+        ref: mergeRefs([panelRef, ref]),
         index,
         isBare,
         isCompact,
@@ -61,4 +63,9 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props
   );
 });
 
-Panel.displayName = 'Panel';
+PanelComponent.displayName = 'Accordion.Panel';
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+export const Panel = PanelComponent;

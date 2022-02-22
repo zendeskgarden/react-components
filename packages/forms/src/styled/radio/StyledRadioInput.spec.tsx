@@ -10,6 +10,7 @@ import { render, renderRtl } from 'garden-test-utils';
 import { getColor } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';
+import { StyledMessage } from '../common/StyledMessage';
 
 describe('StyledRadioInput', () => {
   it('renders the expected element', () => {
@@ -19,11 +20,28 @@ describe('StyledRadioInput', () => {
     expect(container.firstChild).toHaveAttribute('type', 'radio');
   });
 
+  it('renders expected inclusive styling', () => {
+    const { container } = render(<StyledRadioInput />);
+
+    expect(container.firstChild).toHaveStyleRule('opacity', '0');
+    expect(container.firstChild).not.toHaveStyleRule('clip');
+    expect(container.firstChild).not.toHaveStyleRule('width', '1px');
+    expect(container.firstChild).not.toHaveStyleRule('height', '1px');
+  });
+
   it('renders expected checked styling', () => {
     const { container } = render(<StyledRadioInput defaultChecked />);
 
     expect(container.firstChild).toHaveStyleRule('background-color', getColor('primaryHue', 600), {
       modifier: `:checked ~ ${StyledRadioLabel}::before`
+    });
+  });
+
+  it('renders compact styling if provided', () => {
+    const { container } = render(<StyledRadioInput isCompact />);
+
+    expect(container.firstChild).toHaveStyleRule('margin-top', '4px', {
+      modifier: `&& ~ ${StyledRadioLabel} ~ ${StyledMessage}`
     });
   });
 
