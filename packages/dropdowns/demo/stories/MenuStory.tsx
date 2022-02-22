@@ -90,13 +90,14 @@ const MenuItem = ({ text: children, type, hasIcon, meta, ...props }: IProps) => 
   }
 };
 
-interface IArgs extends IMenuProps {
+interface IArgs extends Omit<IMenuProps, 'appendToNode'> {
   items: ITEM[];
   itemProps?: IMenuItemProps;
+  appendToNode?: 'undefined' | 'body';
 }
 
-export const MenuStory: Story<IArgs> = ({ items, itemProps, ...args }) => (
-  <Menu {...args}>
+export const MenuStory: Story<IArgs> = ({ items, itemProps, appendToNode, ...args }) => (
+  <Menu appendToNode={appendToNode === 'body' ? document.body : undefined} {...args}>
     {items.map((item, index) =>
       item === '---' ? (
         <Separator key={index} />

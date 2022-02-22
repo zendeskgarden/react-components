@@ -56,7 +56,8 @@ import { MENU_ITEMS as ITEMS } from './stories/data';
       items: ITEMS,
       selectedItems: [ITEMS[5]],
       hasMedia: false,
-      isOpen: false
+      isOpen: false,
+      appendToNode: 'undefined'
     }}
     argTypes={{
       downshiftProps: { control: 'object', table: { category: 'Dropdown' } },
@@ -66,7 +67,11 @@ import { MENU_ITEMS as ITEMS } from './stories/data';
       disabled: { control: 'boolean', table: { category: 'Item' } },
       isDanger: { control: 'boolean', table: { category: 'Item' } },
       hasMedia: { table: { category: 'Story' } },
-      items: { name: 'Item[]', table: { category: 'Story' } }
+      items: { name: 'Item[]', table: { category: 'Story' } },
+      appendToNode: {
+        control: { type: 'select', options: ['undefined', 'body'] },
+        table: { category: 'Story' }
+      }
     }}
     parameters={{
       design: [
