@@ -81,4 +81,23 @@ describe('Menu', () => {
 
     expect(getByTestId('menu').style.width).toBe('100px');
   });
+
+  it('renders menu within appendToNode prop', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Select data-test-id="select">Example</Select>
+        </Field>
+        <Menu data-test-id="menu" placement="top" appendToNode={document.body}>
+          <Item value="item-1" data-test-id="item">
+            Item 1
+          </Item>
+        </Menu>
+      </Dropdown>
+    );
+
+    userEvent.click(getByTestId('select'));
+
+    expect(getByTestId('menu').parentElement!.parentElement!.tagName).toBe('BODY');
+  });
 });
