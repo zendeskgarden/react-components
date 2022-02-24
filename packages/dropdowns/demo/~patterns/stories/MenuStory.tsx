@@ -27,7 +27,7 @@ interface IArgs extends Omit<IMenuProps, 'appendToNode'> {
   appendToNode?: 'undefined' | 'portal';
 }
 
-export const MenuStory: Story<IArgs> = ({ items, appendToNode }) => {
+export const MenuStory: Story<IArgs> = ({ items, appendToNode, ...rest }) => {
   const portalsRef = useRef<HTMLDivElement>(null);
 
   const [isReady, setIsReady] = useState<boolean>(false);
@@ -67,7 +67,7 @@ export const MenuStory: Story<IArgs> = ({ items, appendToNode }) => {
                   appendToNode={
                     appendToNode === 'portal' ? portalsRef.current || undefined : undefined
                   }
-                  placement="bottom-start"
+                  {...rest}
                 >
                   {items.map((item, index) => (
                     <Item key={index} value={item.value}>
