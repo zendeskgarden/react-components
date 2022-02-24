@@ -82,13 +82,17 @@ describe('Menu', () => {
     expect(getByTestId('menu').style.width).toBe('100px');
   });
 
-  it('renders menu within appendToNode prop', () => {
+  it('renders menu within the element supplied by the appendToNode prop', async () => {
+    const portal = document.createElement('DIV');
+
+    document.body.appendChild(portal);
+
     const { getByTestId } = render(
       <Dropdown>
         <Field>
           <Select data-test-id="select">Example</Select>
         </Field>
-        <Menu data-test-id="menu" placement="top" appendToNode={document.body}>
+        <Menu data-test-id="menu" placement="top" appendToNode={portal}>
           <Item value="item-1" data-test-id="item">
             Item 1
           </Item>
@@ -96,8 +100,10 @@ describe('Menu', () => {
       </Dropdown>
     );
 
+    expect(portal.querySelector('[data-testid="menu"]')).toBeNull();
+
     userEvent.click(getByTestId('select'));
 
-    expect(getByTestId('menu').parentElement!.parentElement!.tagName).toBe('BODY');
+    expect(portal.querySelector('[data-test-id="menu"]')).toBeTruthy();
   });
 });
