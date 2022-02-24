@@ -100,7 +100,7 @@ describe('Menu', () => {
       </Dropdown>
     );
 
-    expect(portal.querySelector('[data-testid="menu"]')).toBeNull();
+    expect(portal.querySelector('[data-test-id="menu"]')).toBeNull();
 
     userEvent.click(getByText('Dropdown button'));
 
