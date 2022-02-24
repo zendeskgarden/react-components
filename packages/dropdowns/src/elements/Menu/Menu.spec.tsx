@@ -87,10 +87,10 @@ describe('Menu', () => {
 
     document.body.appendChild(portal);
 
-    const { getByTestId } = render(
+    const { getByText } = render(
       <Dropdown>
         <Field>
-          <Select data-test-id="select">Example</Select>
+          <Select>Dropdown button</Select>
         </Field>
         <Menu data-test-id="menu" placement="top" appendToNode={portal}>
           <Item value="item-1" data-test-id="item">
@@ -102,7 +102,7 @@ describe('Menu', () => {
 
     expect(portal.querySelector('[data-testid="menu"]')).toBeNull();
 
-    userEvent.click(getByTestId('select'));
+    userEvent.click(getByText('Dropdown button'));
 
     expect(portal.querySelector('[data-test-id="menu"]')).toBeTruthy();
   });
