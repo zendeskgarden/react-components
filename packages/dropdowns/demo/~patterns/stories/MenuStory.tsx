@@ -40,13 +40,16 @@ export const MenuStory: Story<IArgs> = ({ items, appendToNode, ...rest }) => {
   }, []);
 
   return (
-    <div>
+    <div
+      // Grant a bit of room, so the menu will fit
+      style={{ minHeight: '300px' }}
+    >
       {isReady && (
         <Grid>
           <Row
             style={{
               position: 'relative',
-              overflow: 'auto',
+              overflow: 'hidden',
               height: '200px'
             }}
           >
