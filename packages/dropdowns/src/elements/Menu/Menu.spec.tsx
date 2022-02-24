@@ -92,18 +92,16 @@ describe('Menu', () => {
         <Field>
           <Select>Dropdown button</Select>
         </Field>
-        <Menu data-test-id="menu" placement="top" appendToNode={portal}>
-          <Item value="item-1" data-test-id="item">
-            Item 1
-          </Item>
+        <Menu placement="top" appendToNode={portal}>
+          <Item value="item-1">Item 1</Item>
         </Menu>
       </Dropdown>
     );
 
-    expect(portal.querySelector('[data-test-id="menu"]')).toBeNull();
+    expect(portal.textContent).toBe('');
 
     userEvent.click(getByText('Dropdown button'));
 
-    expect(portal.querySelector('[data-test-id="menu"]')).toBeTruthy();
+    expect(portal.textContent).toBe('Item 1');
   });
 });
