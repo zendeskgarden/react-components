@@ -17,7 +17,7 @@ You typically will need to set this property if you are using the `Menu` inside
 an element with `overflow: hidden` / `auto` / `scroll` CSS styles.
 
 See in this example, that the menu is currently getting cropped. Change the
- `appendToNode` property to "portal" to see the full menu.
+`appendToNode` property to "portal" to see the full menu.
 
 <Canvas>
   <Story
@@ -41,6 +41,6 @@ See in this example, that the menu is currently getting cropped. Change the
       }
     }}
   >
-    {(args) => <MenuStory {...args} />}
+    {args => <MenuStory {...args} />}
   </Story>
 </Canvas>
