@@ -82,7 +82,7 @@ describe('Menu', () => {
     expect(getByTestId('menu').style.width).toBe('100px');
   });
 
-  it('renders menu within the element supplied by the appendToNode prop', async () => {
+  it('renders menu within the element supplied by the appendToNode prop', () => {
     const portal = document.createElement('DIV');
 
     document.body.appendChild(portal);
