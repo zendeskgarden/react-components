@@ -1,0 +1,76 @@
+import { useEffect } from 'react';
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
+import { useArgs } from '@storybook/client-api';
+import { SplitterStory, makeArray } from './stories/SplitterStory';
+import { VEGGIE_IPSUM, SIMPLE_SPLITTER_PANES } from './stories/data';
+
+<Meta
+  title="Packages/Grid/Splitter"
+  component={PaneProvider}
+  subcomponents={{ Pane, 'Pane.Content': Pane.Content, 'Pane.Splitter': Pane.Splitter }}
+  args={{
+    columnValues: {
+      'column-1': 1,
+      'column-2': 1
+    },
+    rowValues: {
+      'row-1': 1,
+      'row-2': 1
+    },
+    defaultColumnValues: {
+      'column-1': 1,
+      'column-2': 1
+    },
+    defaultRowValues: {
+      'row-1': 1,
+      'row-2': 1
+    },
+    panes: SIMPLE_SPLITTER_PANES
+  }}
+  argTypes={{
+    panes: { name: 'panes', table: { category: 'Story' } }
+  }}
+  parameters={{
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: ''
+    }
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+## Uncontrolled
+
+<Canvas>
+  <Story
+    name="Uncontrolled"
+    args={{ columnValues: undefined, rowValues: undefined }}
+    argTypes={{ columnValues: { control: false }, rowValues: { control: false } }}
+  >
+    {args => <SplitterStory {...args} text={VEGGIE_IPSUM} />}
+  </Story>
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story
+    name="Controlled"
+    args={{ defaultColumnValues: undefined, defaultRowValues: undefined }}
+    argTypes={{ defaultColumnValues: { control: false }, defaultRowValues: { control: false } }}
+  >
+    {args => {
+      const updateArgs = useArgs()[1];
+      const handleValueChange = (rowValues, columnValues) =>
+        updateArgs({ rowValues, columnValues });
+      return <SplitterStory {...args} handleValueChange={handleValueChange} text={VEGGIE_IPSUM} />;
+    }}
+  </Story>
+</Canvas>

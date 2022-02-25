@@ -21,6 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
+    "@zendeskgarden/container-splitter": "^0.2.1",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7"
   },

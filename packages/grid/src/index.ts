@@ -9,6 +9,9 @@ export { Col } from './elements/Col';
 export { Grid } from './elements/Grid';
 export { Row } from './elements/Row';
 
+export { PaneProvider } from './elements/splitter/PaneProvider';
+export { Pane } from './elements/splitter/Pane';
+
 export {
   ALIGN_ITEMS as ARRAY_ALIGN_ITEMS,
   ALIGN_SELF as ARRAY_ALIGN_SELF,
@@ -20,6 +23,10 @@ export {
 } from './types';
 
 export type {
+  IPaneProvider,
+  IPaneProviderReturnProps,
+  ISplitterProps,
+  ISplitterContext,
   IColProps,
   IGridProps,
   IRowProps,
