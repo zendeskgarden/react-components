@@ -88,6 +88,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                       <StyledSwatchButton
                         backgroundColor={value}
                         aria-pressed={ariaSelected}
+                        aria-label={label}
                         {...other}
                       >
                         <StyledIcon color={value} selected={ariaSelected}>
