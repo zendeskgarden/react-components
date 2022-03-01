@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { EventHandler, MouseEventHandler } from 'react';
+import React, { EventHandler, MouseEventHandler, KeyboardEvent, MouseEvent } from 'react';
 import { Story } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
 import {
@@ -23,7 +23,7 @@ import { IFooterItem } from './types';
 interface IArgs extends IModalProps {
   isVisible: boolean;
   onClick: MouseEventHandler<HTMLElement>;
-  onClose: EventHandler<any>;
+  onClose: EventHandler<KeyboardEvent | MouseEvent>;
   hasBody: boolean;
   body: string;
   hasClose: boolean;
