@@ -49,7 +49,7 @@ export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
    *
    * @param {Object} event The DOM event that triggered the close action
    */
-  onClose?: (event: KeyboardEvent | MouseEvent) => void;
+  onClose?: (event: React.KeyboardEvent | React.MouseEvent) => void;
   /**
    * Centers the modal on the backdrop
    */

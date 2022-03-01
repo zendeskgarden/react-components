@@ -36,7 +36,7 @@ export interface IDrawerModalProps extends HTMLAttributes<HTMLDivElement> {
    *
    * @param {Object} event The DOM event that triggered the close action
    */
-  onClose?: (event: KeyboardEvent | MouseEvent) => void;
+  onClose?: (event: React.KeyboardEvent | React.MouseEvent) => void;
   /**
    * Defines the DOM element that the modal will attatch to
    */
