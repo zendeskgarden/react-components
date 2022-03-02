@@ -5,7 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useContext, useMemo, useEffect, useRef, HTMLAttributes } from 'react';
+import React, {
+  useState,
+  useContext,
+  useMemo,
+  useEffect,
+  useRef,
+  HTMLAttributes,
+  KeyboardEvent,
+  MouseEvent
+} from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { usePopper, Modifier } from 'react-popper';

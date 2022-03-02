@@ -5,7 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useRef, useMemo, useContext, forwardRef, HTMLAttributes } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useMemo,
+  useContext,
+  forwardRef,
+  HTMLAttributes,
+  KeyboardEvent,
+  MouseEvent
+} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';

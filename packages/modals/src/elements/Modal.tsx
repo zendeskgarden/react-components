@@ -5,7 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useMemo, useContext, HTMLAttributes, useRef, forwardRef } from 'react';
+import React, {
+  useEffect,
+  useMemo,
+  useContext,
+  HTMLAttributes,
+  useRef,
+  forwardRef,
+  KeyboardEvent,
+  MouseEvent
+} from 'react';
 import { createPortal } from 'react-dom';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';

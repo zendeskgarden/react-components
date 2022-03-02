@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { EventHandler, MouseEventHandler } from 'react';
+import React, { MouseEventHandler } from 'react';
 import { Story } from '@storybook/react';
 import { useTheme } from 'styled-components';
 import Icon from '@zendeskgarden/svg-icons/src/16/arrow-left-stroke.svg';
@@ -15,7 +15,6 @@ import { IFooterItem } from './types';
 
 interface IArgs extends IDrawerModalProps {
   onClick: MouseEventHandler<HTMLElement>;
-  onClose: EventHandler<any>;
   hasBody: boolean;
   body: string;
   hasClose: boolean;
