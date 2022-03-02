@@ -44,5 +44,5 @@
     "utils/test/jest.d.ts"
   ],
   "include": ["packages/*/src/**/*", "packages/*/demo/**/*"],
-  "exclude": ["node_modules", "**/node_modules", "**/dist", "packages/.template/**/*"]
+  "exclude": ["node_modules", "**/node_modules", "**/dist"]
 }
