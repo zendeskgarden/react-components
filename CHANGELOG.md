@@ -12,6 +12,20 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.49.0 (2022-03-03)
+
+#### :rocket: New Feature
+* `dropdowns`
+  * [#1299](https://github.com/zendeskgarden/react-components/pull/1299) feat(dropdowns): Add `appendToElement` property ([@jeremy8883](https://github.com/jeremy8883))
+
+#### :bug: Bug Fix
+* `modals`
+  * [#1304](https://github.com/zendeskgarden/react-components/pull/1304) fix(modals): update container-modal & types ([@hzhu](https://github.com/hzhu))
+* `accordions`
+  * [#1303](https://github.com/zendeskgarden/react-components/pull/1303) fix(stepper): render flash ([@exelarios](https://github.com/exelarios))
+* `colorpickers`
+  * [#1301](https://github.com/zendeskgarden/react-components/pull/1301) Update pointer and aria label for color chips ([@hzhu](https://github.com/hzhu))
+
 ## v8.48.2 (2022-02-10)
 
 #### :bug: Bug Fix
