@@ -47,9 +47,8 @@ const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
   const largeWidth = 800;
 
   return css`
-    width: ${props.isLarge ? `${largeWidth}px` : `${defaultWidth}px`};
-    @media (max-width: ${props.isLarge ? `${largeWidth - 1}px` : props.theme.breakpoints.md}) {
-      ${props.theme.rtl ? 'right' : 'left'}: ${props.theme.space.base * 6}px;
+    @media (min-width: ${props.isLarge ? `${largeWidth - 1}px` : props.theme.breakpoints.sm}) {
+      width: ${props.isLarge ? `${largeWidth}px` : `${defaultWidth}px`};
     }
   `;
 };
