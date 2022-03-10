@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { render, renderRtl, screen } from 'garden-test-utils';
 import { StyledButtonGroup } from './StyledButtonGroup';
 import { StyledButton } from './StyledButton';
 import { StyledIconButton } from './StyledIconButton';
@@ -32,26 +32,26 @@ describe('StyledButtonGroup', () => {
   });
 
   it('renders expected child button styling', () => {
-    const { getByTestId } = render(
+    render(
       <StyledButtonGroup>
-        <StyledButton data-test-id="group-button">test</StyledButton>
+        <StyledButton>test</StyledButton>
       </StyledButtonGroup>
     );
 
-    expect(getByTestId('group-button')).toHaveStyleRule('position', 'relative', {
-      modifier: `${StyledButtonGroup} &`
+    expect(screen.getByText('test')).toHaveStyleRule('position', 'relative', {
+      modifier: `${StyledButtonGroup} &&`
     });
   });
 
   it('renders expected disabled icon button styling', () => {
-    const { getByTestId } = render(
+    render(
       <StyledButtonGroup>
-        <StyledIconButton data-test-id="group-button">test</StyledIconButton>
+        <StyledIconButton>test</StyledIconButton>
       </StyledButtonGroup>
     );
 
-    expect(getByTestId('group-button')).toHaveStyleRule('background-color', PALETTE.grey[200], {
-      modifier: `${StyledButtonGroup} &:disabled`
+    expect(screen.getByText('test')).toHaveStyleRule('background-color', PALETTE.grey[200], {
+      modifier: `${StyledButtonGroup} &&:disabled`
     });
   });
 });
