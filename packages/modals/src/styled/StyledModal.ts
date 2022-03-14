@@ -7,7 +7,12 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  mediaQuery,
+  retrieveComponentStyles,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.modal';
 
@@ -47,7 +52,7 @@ const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
   const largeWidth = 800;
 
   return css`
-    @media (min-width: ${props.isLarge ? `${largeWidth - 1}px` : props.theme.breakpoints.sm}) {
+    ${mediaQuery('up', props.isLarge ? 'md' : 'sm', props.theme)} {
       width: ${props.isLarge ? `${largeWidth}px` : `${defaultWidth}px`};
     }
   `;

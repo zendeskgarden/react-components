@@ -32,10 +32,9 @@ describe('StyledModal', () => {
 
   it('renders large styling if provided', () => {
     const { container } = render(<StyledModal isLarge />);
-    const largeWidth = 800;
 
-    expect(container.firstChild).toHaveStyleRule('width', `${largeWidth}px`, {
-      media: `(min-width: ${largeWidth - 1}px)`
+    expect(container.firstChild).toHaveStyleRule('width', '800px', {
+      media: `(min-width: ${DEFAULT_THEME.breakpoints.md})`
     });
   });
 
