@@ -10,6 +10,7 @@ import React, {
   useRef,
   useMemo,
   useContext,
+  useState,
   forwardRef,
   HTMLAttributes,
   KeyboardEvent,
@@ -69,6 +70,7 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
     const transitionRef = useRef<HTMLDivElement>(null);
     const theme = useContext(ThemeContext);
     const environment = useDocument(theme);
+    const [isCloseButtonPresent, setCloseButtonPresent] = useState<boolean>(false);
 
     useFocusVisible({ scope: modalRef, relativeDocument: modalRef.current });
 
@@ -117,11 +119,13 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
 
     const value = useMemo(
       () => ({
+        isCloseButtonPresent,
         getTitleProps,
         getContentProps,
-        getCloseProps
+        getCloseProps,
+        setCloseButtonPresent
       }),
-      [getTitleProps, getContentProps, getCloseProps]
+      [isCloseButtonPresent, getTitleProps, getContentProps, getCloseProps]
     );
 
     if (!rootNode) {

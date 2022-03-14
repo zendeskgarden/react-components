@@ -9,9 +9,11 @@ import { createContext, useContext, HTMLAttributes } from 'react';
 
 export interface IModalContext {
   isLarge?: boolean;
+  isCloseButtonPresent?: boolean;
   getTitleProps: <T>(options?: T) => T & HTMLAttributes<HTMLDivElement>;
   getContentProps: <T>(options?: T) => T & HTMLAttributes<HTMLDivElement>;
   getCloseProps: <T>(options?: T) => T & HTMLAttributes<HTMLButtonElement>;
+  setCloseButtonPresent: (isPresent: boolean) => void;
 }
 
 export const ModalsContext = createContext<IModalContext | undefined>(undefined);

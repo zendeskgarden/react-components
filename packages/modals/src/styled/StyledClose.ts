@@ -40,6 +40,12 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
+export const baseMultipliers = {
+  top: 2.5,
+  side: 6.5,
+  size: 10
+};
+
 /**
  * 1. Remove dotted outline from Firefox on focus.
  */
@@ -49,8 +55,9 @@ export const StyledClose = styled.button.attrs({
 })`
   display: block;
   position: absolute;
-  top: ${props => props.theme.space.base * 2.5}px;
-  ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base * 6.5}px`};
+  top: ${props => props.theme.space.base * baseMultipliers.top}px;
+  ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
+    `${props.theme.space.base * baseMultipliers.side}px`};
   /* prettier-ignore */
   transition:
     box-shadow 0.1s ease-in-out,
@@ -61,8 +68,8 @@ export const StyledClose = styled.button.attrs({
   background-color: transparent;
   cursor: pointer;
   padding: 0;
-  width: ${props => props.theme.space.base * 10}px;
-  height: ${props => props.theme.space.base * 10}px;
+  width: ${props => props.theme.space.base * baseMultipliers.size}px;
+  height: ${props => props.theme.space.base * baseMultipliers.size}px;
   overflow: hidden;
   text-decoration: none;
   font-size: 0;

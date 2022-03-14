@@ -9,6 +9,8 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { DrawerModal } from './DrawerModal';
 
+import { ModalsContext } from '../../utils/useModalContext';
+
 describe('DrawerModal.Close', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLButtonElement>();
@@ -19,5 +21,35 @@ describe('DrawerModal.Close', () => {
     );
 
     expect(getByRole('button')).toBe(ref.current);
+  });
+
+  describe('functionality', () => {
+    it('sets isCloseButtonPresent when mounting and unmounting', () => {
+      const setCloseButtonPresent = jest.fn();
+      const fn = jest.fn();
+      const context = {
+        getTitleProps: fn,
+        getContentProps: fn,
+        getCloseProps: fn,
+        setCloseButtonPresent
+      };
+
+      const TestComponent = () => {
+        return (
+          <ModalsContext.Provider value={context}>
+            <DrawerModal.Close />
+          </ModalsContext.Provider>
+        );
+      };
+
+      const { unmount } = render(<TestComponent />);
+
+      expect(setCloseButtonPresent).toHaveBeenCalledWith(true);
+
+      unmount();
+
+      expect(setCloseButtonPresent).toHaveBeenCalledWith(false);
+      expect(setCloseButtonPresent).toHaveBeenCalledTimes(2);
+    });
   });
 });
