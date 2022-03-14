@@ -396,7 +396,7 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
     ${props => iconStyles(props)}
   }
 
-  ${StyledButtonGroup} & {
+  ${StyledButtonGroup} && {
     ${props => groupStyles(props)};
   }
   /* stylelint-enable */
