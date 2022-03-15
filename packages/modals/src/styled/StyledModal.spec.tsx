@@ -15,7 +15,7 @@ describe('StyledModal', () => {
     const { container } = render(<StyledModal />);
 
     expect(container.firstChild).not.toHaveStyleRule('width');
-    expect(container.firstChild).toHaveStyleRule('width', '544px', {
+    expect(container.firstChild).toHaveStyleRule('width', DEFAULT_THEME.breakpoints.sm, {
       media: `(min-width: ${DEFAULT_THEME.breakpoints.sm})`
     });
     expect(container.firstChild).toHaveStyleRule('margin', '48px');
@@ -33,7 +33,7 @@ describe('StyledModal', () => {
   it('renders large styling if provided', () => {
     const { container } = render(<StyledModal isLarge />);
 
-    expect(container.firstChild).toHaveStyleRule('width', '800px', {
+    expect(container.firstChild).toHaveStyleRule('width', DEFAULT_THEME.breakpoints.md, {
       media: `(min-width: ${DEFAULT_THEME.breakpoints.md})`
     });
   });

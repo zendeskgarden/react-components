@@ -48,12 +48,9 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
 };
 
 const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
-  const defaultWidth = 544;
-  const largeWidth = 800;
-
   return css`
     ${mediaQuery('up', props.isLarge ? 'md' : 'sm', props.theme)} {
-      width: ${props.isLarge ? `${largeWidth}px` : `${defaultWidth}px`};
+      width: ${props.isLarge ? props.theme.breakpoints.md : props.theme.breakpoints.sm};
     }
   `;
 };
