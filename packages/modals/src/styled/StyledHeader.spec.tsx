@@ -29,7 +29,7 @@ describe('StyledHeader', () => {
 
     expect(screen.getByText('Header')).toHaveStyleRule(
       'padding-right',
-      `${DEFAULT_THEME.space.base * 16.5}px`
+      `${DEFAULT_THEME.space.base * 18.5}px`
     );
   });
 
@@ -38,7 +38,7 @@ describe('StyledHeader', () => {
 
     expect(screen.getByText('Header')).toHaveStyleRule(
       'padding-left',
-      `${DEFAULT_THEME.space.base * 16.5}px`
+      `${DEFAULT_THEME.space.base * 18.5}px`
     );
   });
 });

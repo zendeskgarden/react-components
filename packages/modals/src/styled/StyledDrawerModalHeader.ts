@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledHeader } from './StyledHeader';
-import { baseMultipliers } from './StyledDrawerModalClose';
+import { BASE_MULTIPLIERS } from './StyledDrawerModalClose';
 
 const COMPONENT_ID = 'modals.drawer_modal.header';
 
@@ -20,7 +20,9 @@ export const StyledDrawerModalHeader = styled(StyledHeader).attrs({
   ${props =>
     props.isCloseButtonPresent &&
     `padding-${props.theme.rtl ? 'left' : 'right'}: ${
-      props.theme.space.base * (baseMultipliers.size + baseMultipliers.side)
+      // the padding added to the Header is based on the close button size and spacing,
+      // with additional padding (+ 2) between the Header content and Close button
+      props.theme.space.base * (BASE_MULTIPLIERS.size + BASE_MULTIPLIERS.side + 2)
     }px;`}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

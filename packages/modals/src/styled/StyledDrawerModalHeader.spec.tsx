@@ -29,7 +29,7 @@ describe('StyledDrawerModalHeader', () => {
 
     expect(screen.getByText('Header')).toHaveStyleRule(
       'padding-right',
-      `${DEFAULT_THEME.space.base * 14.5}px`
+      `${DEFAULT_THEME.space.base * 14}px`
     );
   });
 
@@ -38,7 +38,7 @@ describe('StyledDrawerModalHeader', () => {
 
     expect(screen.getByText('Header')).toHaveStyleRule(
       'padding-left',
-      `${DEFAULT_THEME.space.base * 14.5}px`
+      `${DEFAULT_THEME.space.base * 14}px`
     );
   });
 });

@@ -40,7 +40,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const baseMultipliers = {
+export const BASE_MULTIPLIERS = {
   top: 2.5,
   side: 6.5,
   size: 10
@@ -55,9 +55,9 @@ export const StyledClose = styled.button.attrs({
 })`
   display: block;
   position: absolute;
-  top: ${props => props.theme.space.base * baseMultipliers.top}px;
+  top: ${props => props.theme.space.base * BASE_MULTIPLIERS.top}px;
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-    `${props.theme.space.base * baseMultipliers.side}px`};
+    `${props.theme.space.base * BASE_MULTIPLIERS.side}px`};
   /* prettier-ignore */
   transition:
     box-shadow 0.1s ease-in-out,
@@ -68,8 +68,8 @@ export const StyledClose = styled.button.attrs({
   background-color: transparent;
   cursor: pointer;
   padding: 0;
-  width: ${props => props.theme.space.base * baseMultipliers.size}px;
-  height: ${props => props.theme.space.base * baseMultipliers.size}px;
+  width: ${props => props.theme.space.base * BASE_MULTIPLIERS.size}px;
+  height: ${props => props.theme.space.base * BASE_MULTIPLIERS.size}px;
   overflow: hidden;
   text-decoration: none;
   font-size: 0;
