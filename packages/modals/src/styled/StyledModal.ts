@@ -7,7 +7,12 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  mediaQuery,
+  retrieveComponentStyles,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.modal';
 
@@ -43,13 +48,9 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
 };
 
 const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
-  const defaultWidth = 544;
-  const largeWidth = 800;
-
   return css`
-    width: ${props.isLarge ? `${largeWidth}px` : `${defaultWidth}px`};
-    @media (max-width: ${props.isLarge ? `${largeWidth - 1}px` : props.theme.breakpoints.md}) {
-      ${props.theme.rtl ? 'right' : 'left'}: ${props.theme.space.base * 6}px;
+    ${mediaQuery('up', props.isLarge ? 'md' : 'sm', props.theme)} {
+      width: ${props.isLarge ? props.theme.breakpoints.md : props.theme.breakpoints.sm};
     }
   `;
 };

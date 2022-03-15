@@ -8,12 +8,16 @@
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { StyledModal } from './StyledModal';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledModal', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledModal />);
 
-    expect(container.firstChild).toHaveStyleRule('width', '544px');
+    expect(container.firstChild).not.toHaveStyleRule('width');
+    expect(container.firstChild).toHaveStyleRule('width', DEFAULT_THEME.breakpoints.sm, {
+      media: `(min-width: ${DEFAULT_THEME.breakpoints.sm})`
+    });
     expect(container.firstChild).toHaveStyleRule('margin', '48px');
     expect(container.firstChild).not.toHaveStyleRule('direction');
     expect(container.firstChild).not.toHaveStyleRule('animation-duration', '0.3s');
@@ -29,7 +33,9 @@ describe('StyledModal', () => {
   it('renders large styling if provided', () => {
     const { container } = render(<StyledModal isLarge />);
 
-    expect(container.firstChild).toHaveStyleRule('width', '800px');
+    expect(container.firstChild).toHaveStyleRule('width', DEFAULT_THEME.breakpoints.md, {
+      media: `(min-width: ${DEFAULT_THEME.breakpoints.md})`
+    });
   });
 
   it('renders centered styling if provided', () => {
