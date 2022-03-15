@@ -8,7 +8,7 @@
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { baseMultipliers } from './StyledSheetClose';
+import { BASE_MULTIPLIERS } from './StyledSheetClose';
 
 const COMPONENT_ID = 'chrome.sheet_header';
 
@@ -28,7 +28,7 @@ export const StyledSheetHeader = styled.header.attrs({
     // the padding size accounts for 40px (10 base units) size of the button,
     // 8px additional padding and 8px padding for the button position from a given side.
     `padding-${props.theme.rtl ? 'left' : 'right'}: ${
-      props.theme.space.base * (baseMultipliers.size + baseMultipliers.side + 2)
+      props.theme.space.base * (BASE_MULTIPLIERS.size + BASE_MULTIPLIERS.side + 2)
     }px;`}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
