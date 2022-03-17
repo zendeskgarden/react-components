@@ -6,10 +6,11 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, screen } from 'garden-test-utils';
 
 import { Modal } from './Modal';
 import { Header } from './Header';
+import { Close } from './Close';
 
 describe('Header', () => {
   it('passes ref to underlying DOM element', () => {
@@ -24,5 +25,26 @@ describe('Header', () => {
     );
 
     expect(getByTestId('header')).toBe(ref.current);
+  });
+
+  it('has horizontal padding when Close is present', () => {
+    render(
+      <Modal>
+        <Header>Header</Header>
+        <Close />
+      </Modal>
+    );
+
+    expect(screen.getByText('Header')).toHaveStyleRule('padding-right', '74px');
+  });
+
+  it('does not have horizontal padding when Close is absent', () => {
+    render(
+      <Modal>
+        <Header>Header</Header>
+      </Modal>
+    );
+
+    expect(screen.getByText('Header')).not.toHaveStyleRule('padding-right');
   });
 });

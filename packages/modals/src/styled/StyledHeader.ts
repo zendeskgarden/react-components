@@ -22,6 +22,10 @@ export interface IStyledHeaderProps {
   isCloseButtonPresent?: boolean;
 }
 
+/**
+ * 1. the padding added to the Header is based on the close button size and spacing,
+ *    with additional padding (+ 2) between the Header content and Close button
+ */
 export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -34,10 +38,8 @@ export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
   ${props =>
     props.isCloseButtonPresent &&
     `padding-${props.theme.rtl ? 'left' : 'right'}: ${
-      // the padding added to the Header is based on the close button size and spacing,
-      // with additional padding (+ 2) between the Header content and Close button
       props.theme.space.base * (BASE_MULTIPLIERS.size + BASE_MULTIPLIERS.side + 2)
-    }px;`}
+    }px;`} /* [1] */
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
   color: ${props =>
     props.isDanger ? getColor('dangerHue', 600, props.theme) : props.theme.colors.foreground};
