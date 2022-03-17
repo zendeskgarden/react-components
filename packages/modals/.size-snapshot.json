@@ -15,6 +15,21 @@
       },
       "webpack": {
         "code": 31534
+    "bundled": 52127,
+    "minified": 37612,
+    "gzipped": 7989
+  },
+  "index.esm.js": {
+    "bundled": 48355,
+    "minified": 34418,
+    "gzipped": 7747,
+    "treeshaked": {
+      "rollup": {
+        "code": 27389,
+        "import_statements": 744
+      },
+      "webpack": {
+        "code": 30697
       }
     }
   }
