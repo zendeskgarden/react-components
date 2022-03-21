@@ -6,7 +6,9 @@
  */
 
 import React from 'react';
-import { render, screen } from 'garden-test-utils';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { render, renderRtl, screen } from 'garden-test-utils';
+
 import { DrawerModal } from './DrawerModal';
 
 describe('DrawerModal.Header', () => {
@@ -29,7 +31,24 @@ describe('DrawerModal.Header', () => {
       </DrawerModal>
     );
 
-    expect(screen.getByText('Header')).toHaveStyleRule('padding-right', '56px');
+    expect(screen.getByText('Header')).toHaveStyleRule(
+      'padding-right',
+      `${DEFAULT_THEME.space.base * 14}px`
+    );
+  });
+
+  it('renders horizontal padding in rtl mode when DrawerModal.Close is present', () => {
+    renderRtl(
+      <DrawerModal isOpen>
+        <DrawerModal.Header>Header</DrawerModal.Header>
+        <DrawerModal.Close />
+      </DrawerModal>
+    );
+
+    expect(screen.getByText('Header')).toHaveStyleRule(
+      'padding-left',
+      `${DEFAULT_THEME.space.base * 14}px`
+    );
   });
 
   it('does not have horizontal padding when DrawerModal.Close is absent', () => {
