@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyledClose } from '../styled';
 import { useModalContext } from '../utils/useModalContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
@@ -17,7 +17,13 @@ export const Close = React.forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement>
 >((props, ref) => {
-  const { getCloseProps } = useModalContext();
+  const { getCloseProps, setCloseButtonPresent } = useModalContext();
+
+  useEffect(() => {
+    setCloseButtonPresent(true);
+
+    return () => setCloseButtonPresent(false);
+  });
 
   return (
     <StyledClose ref={ref} {...getCloseProps(props)}>

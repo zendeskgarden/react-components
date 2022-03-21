@@ -7,17 +7,22 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledClose } from './StyledClose';
+import { StyledClose, BASE_MULTIPLIERS as styledCloseBaseMultipliers } from './StyledClose';
 
 const COMPONENT_ID = 'modals.drawer_modal.close';
+
+export const BASE_MULTIPLIERS = {
+  top: styledCloseBaseMultipliers.top,
+  side: 2,
+  size: styledCloseBaseMultipliers.size
+};
 
 export const StyledDrawerModalClose = styled(StyledClose).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  top: ${props => props.theme.space.base * 3.5}px;
-  width: ${props => props.theme.space.base * 8}px;
-  height: ${props => props.theme.space.base * 8}px;
+  ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
+    `${props.theme.space.base * BASE_MULTIPLIERS.side}px`};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

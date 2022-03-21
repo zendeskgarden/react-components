@@ -20,10 +20,10 @@ export interface IHeaderProps extends HTMLAttributes<HTMLDivElement> {
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Header = forwardRef<HTMLDivElement, IHeaderProps>((props, ref) => {
-  const { getTitleProps } = useModalContext();
+  const { isCloseButtonPresent, getTitleProps } = useModalContext();
 
   return (
-    <StyledHeader ref={ref} {...getTitleProps(props)}>
+    <StyledHeader ref={ref} {...getTitleProps(props)} isCloseButtonPresent={isCloseButtonPresent}>
       {props.isDanger && <StyledDangerIcon />}
       {props.children}
     </StyledHeader>
