@@ -8,9 +8,13 @@
 import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import isValid from 'date-fns/isValid';
+import isSameDay from 'date-fns/isSameDay';
+import { parseInputValue } from '../utils/datepicker-range-reducer';
 
 export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
-  const { state, dispatch, startInputRef } = useDatepickerRangeContext();
+  const { state, dispatch, onChange, startValue, endValue, startInputRef, customParseDate } =
+    useDatepickerRangeContext();
 
   const onChangeCallback = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,31 +34,49 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
     [dispatch, props.children]
   );
 
+  const handleBlur = useCallback(() => {
+    let parsedDate;
+
+    if (customParseDate) {
+      parsedDate = customParseDate(state.startInputValue);
+    } else {
+      parsedDate = parseInputValue({
+        inputValue: state.startInputValue
+      });
+    }
+
+    dispatch({ type: 'START_BLUR' });
+
+    if (parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, startValue!)) {
+      onChange && onChange({ startValue: parsedDate, endValue });
+    }
+  }, [dispatch, onChange, startValue, endValue, customParseDate, state.startInputValue]);
+
   const onKeyDownCallback = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.keyCode === KEY_CODES.ENTER) {
-        dispatch({ type: 'START_BLUR' });
         e.preventDefault();
+        handleBlur();
       }
 
       (props.children as any).props.onKeyDown && (props.children as any).props.onKeyDown(e);
     },
-    [dispatch, props.children]
+    [handleBlur, props.children]
   );
 
   const onBlurCallback = useCallback(
     (e: React.FocusEvent<HTMLInputElement>) => {
-      dispatch({ type: 'START_BLUR' });
+      handleBlur();
 
       (props.children as any).props.onBlur && (props.children as any).props.onBlur(e);
     },
-    [dispatch, props.children]
+    [handleBlur, props.children]
   );
 
   const childElement = React.Children.only(props.children as React.ReactElement);
 
   return React.cloneElement(childElement, {
-    value: state.startInputValue,
+    value: state.startInputValue || '',
     ref: startInputRef,
     onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
     onFocus: composeEventHandlers(childElement.props.onFocus, onFocusCallback),

@@ -34,6 +34,7 @@ import {
 } from '../../../styled';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
 import { DatepickerRangeAction } from '../utils/datepicker-range-reducer';
+import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 
 interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   locale?: string;
@@ -46,7 +47,6 @@ interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   maxValue?: Date;
   startValue?: Date;
   endValue?: Date;
-  /* eslint-disable-next-line react/no-unused-prop-types */
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   hoverDate?: Date;
 }
@@ -64,10 +64,13 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       maxValue,
       startValue,
       endValue,
-      hoverDate
+      hoverDate,
+      onChange
     },
     ref
   ) => {
+    const { state } = useDatepickerRangeContext();
+
     const headerLabelFormatter = useCallback(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
@@ -231,6 +234,37 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             onClick={() => {
               if (!isDisabled) {
                 dispatch({ type: 'CLICK_DATE', value: date });
+                if (onChange) {
+                  if (state.isStartFocused) {
+                    if (
+                      endValue !== undefined &&
+                      (isBefore(date, endValue) || isSameDay(date, endValue))
+                    ) {
+                      onChange({ startValue: date, endValue });
+                    } else {
+                      onChange({ startValue: date, endValue: undefined });
+                    }
+                  } else if (state.isEndFocused) {
+                    if (
+                      startValue !== undefined &&
+                      (isAfter(date, startValue) || isSameDay(date, startValue))
+                    ) {
+                      onChange({ startValue, endValue: date });
+                    } else {
+                      onChange({ startValue: date, endValue: undefined });
+                    }
+                  } else if (startValue === undefined) {
+                    onChange({ startValue: date, endValue: undefined });
+                  } else if (endValue === undefined) {
+                    if (isBefore(date, startValue)) {
+                      onChange({ startValue: date, endValue: undefined });
+                    } else {
+                      onChange({ startValue, endValue: date });
+                    }
+                  } else {
+                    onChange({ startValue: date, endValue: undefined });
+                  }
+                }
               }
             }}
             onMouseEnter={() => {
