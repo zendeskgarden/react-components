@@ -12,6 +12,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.49.1 (2022-03-24)
+
+#### :bug: Bug Fix
+* `chrome`, `modals`
+  * [#1307](https://github.com/zendeskgarden/react-components/pull/1307) fix(modals): add padding to header when close button is present ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `modals`
+  * [#1306](https://github.com/zendeskgarden/react-components/pull/1306) fix(modals): use auto width for responsive layout ([@hzhu](https://github.com/hzhu))
+* `buttons`
+  * [#1305](https://github.com/zendeskgarden/react-components/pull/1305) fix(buttons): fix precedence boost style bug ([@hzhu](https://github.com/hzhu))
+
 ## v8.49.0 (2022-03-03)
 
 #### :rocket: New Feature
