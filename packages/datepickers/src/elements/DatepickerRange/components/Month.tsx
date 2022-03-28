@@ -47,7 +47,6 @@ interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   maxValue?: Date;
   startValue?: Date;
   endValue?: Date;
-  onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   hoverDate?: Date;
 }
 
@@ -64,12 +63,11 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       maxValue,
       startValue,
       endValue,
-      hoverDate,
-      onChange
+      hoverDate
     },
     ref
   ) => {
-    const { state } = useDatepickerRangeContext();
+    const { state, onChange } = useDatepickerRangeContext();
 
     const headerLabelFormatter = useCallback(
       date => {

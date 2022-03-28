@@ -16,7 +16,7 @@ import { Month } from './Month';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { state, dispatch, locale, isCompact, minValue, maxValue, startValue, endValue, onChange } =
+  const { state, dispatch, locale, isCompact, minValue, maxValue, startValue, endValue } =
     useDatepickerRangeContext();
 
   return (
@@ -37,7 +37,6 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
         maxValue={maxValue}
         startValue={startValue}
         endValue={endValue}
-        onChange={onChange}
         hoverDate={state.hoverDate}
       />
       <Month
@@ -50,7 +49,6 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
         maxValue={maxValue}
         startValue={startValue}
         endValue={endValue}
-        onChange={onChange}
         hoverDate={state.hoverDate}
       />
     </StyledRangeCalendar>
