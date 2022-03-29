@@ -91,7 +91,6 @@ const DatepickerRangeComponent = (props: PropsWithChildren<IDatepickerRangeProps
       locale,
       formatDate,
       endValue,
-      onChange,
       customParseDate
     }),
     [startValue, endValue, locale, formatDate, onChange, customParseDate]
@@ -145,7 +144,8 @@ const DatepickerRangeComponent = (props: PropsWithChildren<IDatepickerRangeProps
       endValue,
       onChange,
       startInputRef,
-      endInputRef
+      endInputRef,
+      customParseDate
     }),
     [
       state,
@@ -158,7 +158,8 @@ const DatepickerRangeComponent = (props: PropsWithChildren<IDatepickerRangeProps
       endValue,
       onChange,
       startInputRef,
-      endInputRef
+      endInputRef,
+      customParseDate
     ]
   );
 

@@ -20,6 +20,7 @@ export interface IDatepickerRangeContext {
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   startInputRef: MutableRefObject<HTMLInputElement | undefined>;
   endInputRef: MutableRefObject<HTMLInputElement | undefined>;
+  customParseDate?: (inputValue?: string) => Date;
 }
 
 export const DatepickerRangeContext = createContext<IDatepickerRangeContext | undefined>(undefined);
