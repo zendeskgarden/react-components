@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.49.2 (2022-03-31)
+
+#### :bug: Bug Fix
+* `datepickers`
+  * [#1309](https://github.com/zendeskgarden/react-components/pull/1309) fix(datepickers): fix React state synchronization bug ([@hzhu](https://github.com/hzhu))
+
 ## v8.49.1 (2022-03-24)
 
 #### :bug: Bug Fix
