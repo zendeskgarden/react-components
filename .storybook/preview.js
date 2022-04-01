@@ -41,7 +41,7 @@ const StyledExampleWrapper = styled.div`
   padding: ${p => p.theme.space.xl};
 `;
 
-const withThemeProvider = (Story, context) => {
+const withThemeProvider = (story, context) => {
   const rtl = context.globals.locale === 'rtl';
 
   if (context.globals.bedrock === 'enabled') {
@@ -61,15 +61,13 @@ const withThemeProvider = (Story, context) => {
       <GlobalPreviewStyling />
       {/* Work-around to get Storybook to play well with CSS transitions that are associated to props.
       See: https://github.com/storybookjs/storybook/issues/12255 */}
-      {/* eslint-disable-next-line new-cap */}
-      <StyledExampleWrapper>{Story()}</StyledExampleWrapper>
+      <StyledExampleWrapper>{story()}</StyledExampleWrapper>
     </ThemeProvider>
   );
 };
 
-const withStrictMode = (Story, context) =>
-  /* eslint-disable-next-line new-cap */
-  context.globals.strictMode === 'enabled' ? <StrictMode>{Story()}</StrictMode> : <>{Story()}</>;
+const withStrictMode = (story, context) =>
+  context.globals.strictMode === 'enabled' ? <StrictMode>{story()}</StrictMode> : <>{story()}</>;
 
 export const decorators = [withThemeProvider, withStrictMode];
 
