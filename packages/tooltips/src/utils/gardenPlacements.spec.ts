@@ -7,7 +7,7 @@
 
 import { ARROW_POSITION } from '@zendeskgarden/react-theming';
 import { getPopperPlacement, getRtlPopperPlacement, getArrowPosition } from './gardenPlacements';
-import { GardenPlacement, PopperPlacement } from './types';
+import { GardenPlacement, PopperPlacement } from '../types';
 
 describe('Garden Placement Utilities', () => {
   describe('getPopperPlacement()', () => {

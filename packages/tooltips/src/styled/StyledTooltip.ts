@@ -14,7 +14,7 @@ import {
   getLineHeight
 } from '@zendeskgarden/react-theming';
 import { getArrowPosition } from '../utils/gardenPlacements';
-import { ITooltipProps, POPPER_PLACEMENT } from '../utils/types';
+import { ITooltipProps, POPPER_PLACEMENT } from '../types';
 import { StyledParagraph } from './StyledParagraph';
 import { StyledTitle } from './StyledTitle';
 

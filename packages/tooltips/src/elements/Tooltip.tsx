@@ -16,7 +16,7 @@ import { Manager, Popper, Reference } from 'react-popper';
 import { Modifiers } from 'popper.js';
 import { getPopperPlacement, getRtlPopperPlacement } from '../utils/gardenPlacements';
 import { StyledTooltipWrapper, StyledTooltip } from '../styled';
-import { ITooltipProps, PLACEMENT, SIZE, TYPE } from '../utils/types';
+import { ITooltipProps, PLACEMENT, SIZE, TYPE } from '../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

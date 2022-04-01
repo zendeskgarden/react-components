@@ -9,4 +9,4 @@ export { Tooltip } from './elements/Tooltip';
 export { Paragraph } from './elements/Paragraph';
 export { Title } from './elements/Title';
 
-export type { ITooltipProps } from './utils/types';
+export type { ITooltipProps } from './types';

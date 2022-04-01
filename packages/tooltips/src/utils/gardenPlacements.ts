@@ -6,7 +6,7 @@
  */
 
 import { ARROW_POSITION } from '@zendeskgarden/react-theming';
-import { GardenPlacement, PopperPlacement } from './types';
+import { GardenPlacement, PopperPlacement } from '../types';
 
 /**
  * Convert Garden RTL aware placement to Popper.JS valid placement
