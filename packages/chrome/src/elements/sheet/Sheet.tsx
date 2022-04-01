@@ -23,15 +23,15 @@ import { FooterItem } from './components/FooterItem';
 import { Close } from './components/Close';
 
 export interface ISheetProps extends HTMLAttributes<HTMLElement> {
-  /** Opens the Sheet **/
+  /** Opens the Sheet */
   isOpen?: boolean;
-  /** Determines whether animation for opening and closing the Sheet is used **/
+  /** Determines whether animation for opening and closing the Sheet is used */
   isAnimated?: boolean;
-  /** Focuses on the Sheet when `isOpen` is true and mounted **/
+  /** Focuses on the Sheet when `isOpen` is true and mounted */
   focusOnMount?: boolean;
-  /** Directs keyboard focus to the Sheet on mount **/
+  /** Directs keyboard focus to the Sheet on mount */
   restoreFocus?: boolean;
-  /** Returns keyboard focus to the element that triggered the Sheet **/
+  /** Returns keyboard focus to the element that triggered the Sheet */
   placement?: 'start' | 'end';
   /** Sets the width in pixels, based on the placement of the Sheet */
   size?: string;

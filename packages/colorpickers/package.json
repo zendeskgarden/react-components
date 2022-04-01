@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-colorpickers",
-  "version": "8.48.1",
+  "version": "8.49.2",
   "description": "Components related to color pickers in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -24,10 +24,10 @@
     "@popperjs/core": "^2.4.4",
     "@zendeskgarden/container-grid": "^0.1.1",
     "@zendeskgarden/container-utilities": "^0.7.0",
-    "@zendeskgarden/react-buttons": "^8.48.1",
-    "@zendeskgarden/react-forms": "^8.48.1",
-    "@zendeskgarden/react-modals": "^8.48.1",
-    "@zendeskgarden/react-tooltips": "^8.48.1",
+    "@zendeskgarden/react-buttons": "^8.49.2",
+    "@zendeskgarden/react-forms": "^8.49.2",
+    "@zendeskgarden/react-modals": "^8.49.2",
+    "@zendeskgarden/react-tooltips": "^8.49.2",
     "lodash.isequal": "^4.5.0",
     "lodash.throttle": "^4.1.1",
     "polished": "^4.0.0",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@types/lodash.isequal": "4.5.5",
     "@types/lodash.throttle": "4.1.6",
-    "@zendeskgarden/react-theming": "^8.48.1",
+    "@zendeskgarden/react-theming": "^8.49.2",
     "@zendeskgarden/svg-icons": "6.30.2"
   },
   "keywords": [

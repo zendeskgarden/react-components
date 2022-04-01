@@ -1,18 +1,15 @@
 {
   "processors": ["stylelint-processor-styled-components"],
-  "extends": [
-    "@zendeskgarden/stylelint-config",
-    "stylelint-config-styled-components"
-  ],
+  "extends": ["@zendeskgarden/stylelint-config", "stylelint-config-styled-components"],
   "rules": {
     "declaration-colon-newline-after": null,
     "declaration-empty-line-before": null,
     "keyframes-name-pattern": null,
-    "value-keyword-case": ["lower", { ignoreKeywords: ['dummyValue'] }],
+    "value-keyword-case": ["lower", { "ignoreKeywords": ["dummyValue"] }],
     "block-no-empty": null,
     "number-leading-zero": null,
     "selector-type-case": null,
     "selector-type-no-unknown": null
   },
-  ignoreFiles: ["packages/**/*.spec.{js,ts,tsx}"]
+  "ignoreFiles": ["packages/**/*.spec.{js,ts,tsx}", "packages/**/dist/**"]
 }

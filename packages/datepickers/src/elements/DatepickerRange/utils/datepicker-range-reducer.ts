@@ -29,7 +29,7 @@ export interface IDatepickerRangeState {
 /**
  * Format date value to a localized string
  */
-function formatValue({
+export function formatValue({
   value,
   locale,
   formatDate
@@ -58,7 +58,7 @@ function formatValue({
 /**
  * Parse string input value using current locale and date formats
  */
-function parseInputValue({ inputValue }: { inputValue?: string }): Date {
+export function parseInputValue({ inputValue }: { inputValue?: string }): Date {
   const MINIMUM_DATE = new Date(1001, 0, 0);
   let tryParseDate = parse(inputValue || '', 'P', new Date());
 
@@ -101,14 +101,12 @@ export const datepickerRangeReducer =
     endValue,
     locale,
     formatDate,
-    onChange,
     customParseDate
   }: {
     startValue?: Date;
     endValue?: Date;
     locale?: string;
     formatDate?: any;
-    onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
     customParseDate?: (inputValue?: string) => Date;
   }) =>
   (state: IDatepickerRangeState, action: DatepickerRangeAction): IDatepickerRangeState => {
@@ -156,10 +154,6 @@ export const datepickerRangeReducer =
           });
         }
 
-        if (onChange && parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, startValue!)) {
-          onChange({ startValue: parsedDate, endValue });
-        }
-
         const startInputValue = formatValue({ value: parsedDate, locale, formatDate });
 
         return {
@@ -178,10 +172,6 @@ export const datepickerRangeReducer =
           parsedDate = parseInputValue({
             inputValue: state.endInputValue
           });
-        }
-
-        if (onChange && parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, endValue!)) {
-          onChange({ startValue, endValue: parsedDate });
         }
 
         const endInputValue =
@@ -241,36 +231,47 @@ export const datepickerRangeReducer =
         };
       }
       case 'CLICK_DATE':
-        if (onChange) {
-          if (state.isStartFocused) {
-            if (
-              endValue !== undefined &&
-              (isBefore(action.value, endValue) || isSameDay(action.value, endValue))
-            ) {
-              onChange({ startValue: action.value, endValue });
-            } else {
-              onChange({ startValue: action.value, endValue: undefined });
-            }
-          } else if (state.isEndFocused) {
-            if (
-              startValue !== undefined &&
-              (isAfter(action.value, startValue) || isSameDay(action.value, startValue))
-            ) {
-              onChange({ startValue, endValue: action.value });
-            } else {
-              onChange({ startValue: action.value, endValue: undefined });
-            }
-          } else if (startValue === undefined) {
-            onChange({ startValue: action.value, endValue: undefined });
-          } else if (endValue === undefined) {
-            if (isBefore(action.value, startValue)) {
-              onChange({ startValue: action.value, endValue: undefined });
-            } else {
-              onChange({ startValue, endValue: action.value });
-            }
-          } else {
-            onChange({ startValue: action.value, endValue: undefined });
+        if (state.isStartFocused) {
+          if (
+            endValue !== undefined &&
+            (isBefore(action.value, endValue) || isSameDay(action.value, endValue))
+          ) {
+            return {
+              ...state,
+              startInputValue: formatValue({ value: action.value })
+            };
           }
+
+          return {
+            ...state,
+            startInputValue: formatValue({ value: action.value }),
+            endInputValue: undefined
+          };
+        } else if (state.isEndFocused) {
+          if (
+            startValue !== undefined &&
+            (isAfter(action.value, startValue) || isSameDay(action.value, startValue))
+          ) {
+            return { ...state, endInputValue: formatValue({ value: action.value }) };
+          }
+
+          return { ...state, startInputValue: formatValue({ value: action.value }) };
+        } else if (startValue === undefined) {
+          return {
+            ...state,
+            startInputValue: formatValue({ value: action.value }),
+            endInputValue: undefined
+          };
+        } else if (endValue === undefined) {
+          if (isBefore(action.value, startValue)) {
+            return {
+              ...state,
+              startInputValue: formatValue({ value: action.value }),
+              endInputValue: undefined
+            };
+          }
+
+          return { ...state, endInputValue: formatValue({ value: action.value }) };
         }
 
         return state;

@@ -10,9 +10,15 @@ import { useModalContext } from '../../utils/useModalContext';
 import { StyledDrawerModalHeader } from '../../styled';
 
 const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { getTitleProps } = useModalContext();
+  const { isCloseButtonPresent, getTitleProps } = useModalContext();
 
-  return <StyledDrawerModalHeader ref={ref} {...getTitleProps(props)} />;
+  return (
+    <StyledDrawerModalHeader
+      ref={ref}
+      {...getTitleProps(props)}
+      isCloseButtonPresent={isCloseButtonPresent}
+    />
+  );
 });
 
 HeaderComponent.displayName = 'DrawerModal.Header';

@@ -81,4 +81,27 @@ describe('Menu', () => {
 
     expect(getByTestId('menu').style.width).toBe('100px');
   });
+
+  it('renders menu within the element supplied by the appendToNode prop', () => {
+    const portal = document.createElement('DIV');
+
+    document.body.appendChild(portal);
+
+    const { getByText } = render(
+      <Dropdown>
+        <Field>
+          <Select>Dropdown button</Select>
+        </Field>
+        <Menu placement="top" appendToNode={portal}>
+          <Item value="item-1">Item 1</Item>
+        </Menu>
+      </Dropdown>
+    );
+
+    expect(portal.textContent).toBe('');
+
+    userEvent.click(getByText('Dropdown button'));
+
+    expect(portal.textContent).toBe('Item 1');
+  });
 });

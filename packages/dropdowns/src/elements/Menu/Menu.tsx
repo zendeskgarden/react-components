@@ -18,6 +18,7 @@ import {
   getRtlPopperPlacement
 } from '../../utils/garden-placements';
 import { MenuContext } from '../../utils/useMenuContext';
+import { createPortal } from 'react-dom';
 
 export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   /**
@@ -52,6 +53,10 @@ export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
    * Sets the `max-height` of the menu
    */
   maxHeight?: string;
+  /**
+   * Appends the menu to the element provided
+   */
+  appendToNode?: HTMLElement;
 }
 
 /**
@@ -68,6 +73,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) =>
     zIndex,
     isCompact,
     children,
+    appendToNode,
     ...otherProps
   } = props;
   const {
@@ -154,7 +160,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) =>
             ...otherProps
           } as any);
 
-          return (
+          const menu = (
             <StyledMenuWrapper
               ref={isOpen ? ref : undefined}
               hasArrow={menuProps.hasArrow}
@@ -175,6 +181,8 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) =>
               </StyledMenu>
             </StyledMenuWrapper>
           );
+
+          return appendToNode ? createPortal(menu, appendToNode) : menu;
         }}
       </Popper>
     </MenuContext.Provider>

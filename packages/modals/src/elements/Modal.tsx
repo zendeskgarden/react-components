@@ -5,7 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useMemo, useContext, HTMLAttributes, useRef, forwardRef } from 'react';
+import React, {
+  useEffect,
+  useMemo,
+  useContext,
+  useRef,
+  useState,
+  forwardRef,
+  HTMLAttributes,
+  KeyboardEvent,
+  MouseEvent
+} from 'react';
 import { createPortal } from 'react-dom';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
@@ -99,6 +109,7 @@ export const Modal = forwardRef<HTMLDivElement, IModalProps>(
     const theme = useContext(ThemeContext);
     const modalRef = useRef<HTMLDivElement>(null);
     const environment = useDocument(theme);
+    const [isCloseButtonPresent, setCloseButtonPresent] = useState<boolean>(false);
 
     const { getBackdropProps, getModalProps, getTitleProps, getContentProps, getCloseProps } =
       useModal({
@@ -163,11 +174,13 @@ export const Modal = forwardRef<HTMLDivElement, IModalProps>(
     const value = useMemo(
       () => ({
         isLarge,
+        isCloseButtonPresent,
         getTitleProps,
         getContentProps,
-        getCloseProps
+        getCloseProps,
+        setCloseButtonPresent
       }),
-      [isLarge, getTitleProps, getContentProps, getCloseProps]
+      [isLarge, isCloseButtonPresent, getTitleProps, getContentProps, getCloseProps]
     );
 
     if (!rootNode) {

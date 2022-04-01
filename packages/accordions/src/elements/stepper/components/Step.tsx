@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, LiHTMLAttributes, useEffect, useMemo, useState } from 'react';
+import React, { forwardRef, LiHTMLAttributes, useLayoutEffect, useMemo, useState } from 'react';
 import { StyledStep, StyledLine } from '../../../styled';
 import { StepContext, useStepperContext } from '../../../utils';
 
@@ -13,7 +13,7 @@ const StepComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>
   const { currentIndexRef, isHorizontal } = useStepperContext();
   const [currentStepIndex, setIndex] = useState(currentIndexRef.current);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIndex(currentIndexRef.current);
     currentIndexRef.current++;
     const currentIndex = currentIndexRef;

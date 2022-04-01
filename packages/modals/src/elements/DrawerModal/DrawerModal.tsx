@@ -5,7 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useRef, useMemo, useContext, forwardRef, HTMLAttributes } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useMemo,
+  useContext,
+  useState,
+  forwardRef,
+  HTMLAttributes,
+  KeyboardEvent,
+  MouseEvent
+} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
@@ -60,6 +70,7 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
     const transitionRef = useRef<HTMLDivElement>(null);
     const theme = useContext(ThemeContext);
     const environment = useDocument(theme);
+    const [isCloseButtonPresent, setCloseButtonPresent] = useState<boolean>(false);
 
     useFocusVisible({ scope: modalRef, relativeDocument: modalRef.current });
 
@@ -108,11 +119,13 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
 
     const value = useMemo(
       () => ({
+        isCloseButtonPresent,
         getTitleProps,
         getContentProps,
-        getCloseProps
+        getCloseProps,
+        setCloseButtonPresent
       }),
-      [getTitleProps, getContentProps, getCloseProps]
+      [isCloseButtonPresent, getTitleProps, getContentProps, getCloseProps]
     );
 
     if (!rootNode) {

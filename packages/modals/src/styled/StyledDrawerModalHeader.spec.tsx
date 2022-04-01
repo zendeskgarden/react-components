@@ -6,20 +6,20 @@
  */
 
 import React from 'react';
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { render } from 'garden-test-utils';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
-import { StyledHeader } from './StyledHeader';
+import { StyledDrawerModalHeader } from './StyledDrawerModalHeader';
 
-describe('StyledHeader', () => {
+describe('StyledDrawerModalHeader', () => {
   it('renders default styling', () => {
-    const { container } = render(<StyledHeader />);
+    const { container } = render(<StyledDrawerModalHeader />);
 
     expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground);
   });
 
   it('renders danger styling if provided', () => {
-    const { container } = render(<StyledHeader isDanger />);
+    const { container } = render(<StyledDrawerModalHeader isDanger />);
 
     expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[600]);
   });
