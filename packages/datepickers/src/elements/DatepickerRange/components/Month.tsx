@@ -33,41 +33,27 @@ import {
   StyledHighlight
 } from '../../../styled';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
-import { DatepickerRangeAction } from '../utils/datepicker-range-reducer';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 
 interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  locale?: string;
   displayDate: Date;
-  isCompact?: boolean;
   isPreviousHidden?: boolean;
   isNextHidden?: boolean;
-  dispatch: React.Dispatch<DatepickerRangeAction>;
-  minValue?: Date;
-  maxValue?: Date;
-  startValue?: Date;
-  endValue?: Date;
-  hoverDate?: Date;
 }
 
 export const Month = forwardRef<HTMLDivElement, IMonthProps>(
-  (
-    {
-      locale,
-      displayDate,
-      isCompact,
-      isPreviousHidden,
-      isNextHidden,
+  ({ displayDate, isPreviousHidden, isNextHidden }, ref) => {
+    const {
+      state,
       dispatch,
+      locale,
+      isCompact,
       minValue,
       maxValue,
       startValue,
       endValue,
-      hoverDate
-    },
-    ref
-  ) => {
-    const { state, onChange } = useDatepickerRangeContext();
+      onChange
+    } = useDatepickerRangeContext();
 
     const headerLabelFormatter = useCallback(
       date => {
@@ -173,10 +159,10 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           (isAfter(date, startValue) || isSameDay(date, startValue)) &&
           (isBefore(date, endValue) || isSameDay(date, endValue)) &&
           !isSameDay(startValue, endValue);
-      } else if (startValue !== undefined && hoverDate !== undefined) {
+      } else if (startValue !== undefined && state.hoverDate !== undefined) {
         isHighlighted =
           (isAfter(date, startValue) || isSameDay(date, startValue)) &&
-          (isBefore(date, hoverDate) || isSameDay(date, hoverDate));
+          (isBefore(date, state.hoverDate) || isSameDay(date, state.hoverDate));
       }
 
       const isHighlightStart =
@@ -184,7 +170,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
       const isHighlightEnd =
         (isHighlighted && endValue && isSameDay(date, endValue)) ||
-        (hoverDate && isSameDay(date, hoverDate) && !isBefore(date, endValue!)) ||
+        (state.hoverDate && isSameDay(date, state.hoverDate) && !isBefore(date, endValue!)) ||
         false;
 
       let isInvalidDateRange =

@@ -16,8 +16,7 @@ import { Month } from './Month';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { state, dispatch, locale, isCompact, minValue, maxValue, startValue, endValue } =
-    useDatepickerRangeContext();
+  const { state } = useDatepickerRangeContext();
 
   return (
     <StyledRangeCalendar
@@ -27,30 +26,8 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
       data-test-id="range-calendar"
       {...props}
     >
-      <Month
-        locale={locale}
-        displayDate={state.previewDate}
-        isCompact={isCompact}
-        isNextHidden
-        dispatch={dispatch}
-        minValue={minValue}
-        maxValue={maxValue}
-        startValue={startValue}
-        endValue={endValue}
-        hoverDate={state.hoverDate}
-      />
-      <Month
-        locale={locale}
-        displayDate={addMonths(state.previewDate, 1)}
-        isCompact={isCompact}
-        isPreviousHidden
-        dispatch={dispatch}
-        minValue={minValue}
-        maxValue={maxValue}
-        startValue={startValue}
-        endValue={endValue}
-        hoverDate={state.hoverDate}
-      />
+      <Month displayDate={state.previewDate} isNextHidden />
+      <Month displayDate={addMonths(state.previewDate, 1)} isPreviousHidden />
     </StyledRangeCalendar>
   );
 });
