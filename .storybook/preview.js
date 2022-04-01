@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { StrictMode } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { create } from '@storybook/theming/create';
 import { ThemeProvider, DEFAULT_THEME } from '../packages/theming/src';
@@ -67,7 +67,11 @@ const withThemeProvider = (Story, context) => {
   );
 };
 
-export const decorators = [withThemeProvider];
+const withStrictMode = (Story, context) =>
+  /* eslint-disable-next-line new-cap */
+  context.globals.strictMode === 'enabled' ? <StrictMode>{Story()}</StrictMode> : <>{Story()}</>;
+
+export const decorators = [withThemeProvider, withStrictMode];
 
 export const globalTypes = {
   locale: {
@@ -103,6 +107,18 @@ export const globalTypes = {
       items: [
         { value: DEFAULT_THEME.colors.primaryHue, title: 'Default primary hue' },
         { value: 'fuschia', title: 'Custom primary hue' }
+      ]
+    }
+  },
+  strictMode: {
+    name: 'strictMode',
+    description: 'Strict mode',
+    defaultValue: 'disabled',
+    toolbar: {
+      icon: 'alert',
+      items: [
+        { value: 'disabled', title: 'Strict mode disabled' },
+        { value: 'enabled', title: 'Strict mode enabled' }
       ]
     }
   }
