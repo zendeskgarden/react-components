@@ -68,6 +68,7 @@ const withThemeProvider = (Story, context) => {
 };
 
 const withStrictMode = (Story, context) =>
+  /* eslint-disable-next-line new-cap */
   context.globals.strictMode === 'enabled' ? <StrictMode>{Story()}</StrictMode> : <>{Story()}</>;
 
 export const decorators = [withThemeProvider, withStrictMode];
