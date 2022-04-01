@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement, useRef, useEffect, useContext, HTMLAttributes } from 'react';
+import React, { cloneElement, useRef, useEffect, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
@@ -14,46 +14,9 @@ import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers, getControlledValue } from '@zendeskgarden/container-utilities';
 import { Manager, Popper, Reference } from 'react-popper';
 import { Modifiers } from 'popper.js';
-
-import {
-  getPopperPlacement,
-  getRtlPopperPlacement,
-  GARDEN_PLACEMENT
-} from '../utils/gardenPlacements';
-import { StyledTooltipWrapper, StyledTooltip, TOOLTIP_SIZE, TOOLTIP_TYPE } from '../styled';
-
-export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
-  /** Appends the tooltip to the element provided */
-  appendToNode?: Element;
-  /** Adds an arrow to the tooltip */
-  hasArrow?: boolean;
-  /** Adds milliseconds of delay to the opening and closing of the tooltip */
-  delayMS?: number;
-  /** Allows the tooltip to reposition during browser resize events */
-  eventsEnabled?: boolean;
-  /** Defines the content of the tooltip */
-  content: React.ReactNode;
-  /**
-   * Adjusts the placement of the tooltip
-   **/
-  placement?: GARDEN_PLACEMENT;
-  /** Passes configurations to the [Popper instance](https://popper.js.org/docs/v2/modifiers/) */
-  popperModifiers?: Modifiers;
-  /** Adjusts the padding and font size */
-  size?: TOOLTIP_SIZE;
-  /** Specifies the tooltip type */
-  type?: TOOLTIP_TYPE;
-  /** Sets the `z-index` of the tooltip */
-  zIndex?: number | string;
-  /** Displays the tooltip on initial render */
-  isInitialVisible?: boolean;
-  /** Displays the tooltip */
-  isVisible?: boolean;
-  /** @ignore ReactNode override */
-  children: React.ReactElement;
-  /** Defines the ref key used to position the tooltip */
-  refKey?: string;
-}
+import { getPopperPlacement, getRtlPopperPlacement } from '../utils/gardenPlacements';
+import { StyledTooltipWrapper, StyledTooltip } from '../styled';
+import { ITooltipProps, PLACEMENT, SIZE, TYPE } from '../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -138,7 +101,7 @@ export const Tooltip = ({
 
           const { onFocus, onBlur, ...otherTooltipProps } = otherProps;
 
-          let computedSize: TOOLTIP_SIZE | undefined = size;
+          let computedSize: ITooltipProps['size'] = size;
 
           if (computedSize === undefined) {
             if (type === 'dark') {
@@ -194,24 +157,10 @@ Tooltip.propTypes = {
   eventsEnabled: PropTypes.bool,
   id: PropTypes.string,
   content: PropTypes.node.isRequired,
-  placement: PropTypes.oneOf([
-    'auto',
-    'top',
-    'top-start',
-    'top-end',
-    'end',
-    'end-top',
-    'end-bottom',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'start',
-    'start-top',
-    'start-bottom'
-  ]),
+  placement: PropTypes.oneOf(PLACEMENT),
   popperModifiers: PropTypes.any,
-  size: PropTypes.oneOf(['small', 'medium', 'large', 'extra-large']),
-  type: PropTypes.oneOf(['light', 'dark']),
+  size: PropTypes.oneOf(SIZE),
+  type: PropTypes.oneOf(TYPE),
   zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   isInitialVisible: PropTypes.bool,
   refKey: PropTypes.string

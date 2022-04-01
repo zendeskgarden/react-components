@@ -6,40 +6,14 @@
  */
 
 import { ARROW_POSITION } from '@zendeskgarden/react-theming';
-
-type SHARED_PLACEMENT =
-  | 'auto'
-  | 'top'
-  | 'top-start'
-  | 'top-end'
-  | 'bottom'
-  | 'bottom-start'
-  | 'bottom-end';
-
-export type GARDEN_PLACEMENT =
-  | SHARED_PLACEMENT
-  | 'end'
-  | 'end-top'
-  | 'end-bottom'
-  | 'start'
-  | 'start-top'
-  | 'start-bottom';
-
-export type POPPER_PLACEMENT =
-  | SHARED_PLACEMENT
-  | 'right'
-  | 'right-start'
-  | 'right-end'
-  | 'left'
-  | 'left-start'
-  | 'left-end';
+import { GardenPlacement, PopperPlacement } from '../types';
 
 /**
  * Convert Garden RTL aware placement to Popper.JS valid placement
  * @param {String} gardenPlacement
  */
-export function getPopperPlacement(gardenPlacement: GARDEN_PLACEMENT) {
-  const gardenToPopperMapping: Record<GARDEN_PLACEMENT, POPPER_PLACEMENT> = {
+export function getPopperPlacement(gardenPlacement: GardenPlacement) {
+  const gardenToPopperMapping: Record<GardenPlacement, PopperPlacement> = {
     auto: 'auto',
     top: 'top',
     'top-start': 'top-start',
@@ -62,8 +36,8 @@ export function getPopperPlacement(gardenPlacement: GARDEN_PLACEMENT) {
  * Convert Garden RTL aware placement to RTL equivalent Popper.JS placement
  * @param {String} gardenPlacement
  */
-export function getRtlPopperPlacement(gardenPlacement: GARDEN_PLACEMENT) {
-  const rtlPlacementMappings: Partial<Record<POPPER_PLACEMENT, POPPER_PLACEMENT>> = {
+export function getRtlPopperPlacement(gardenPlacement: GardenPlacement) {
+  const rtlPlacementMappings: Partial<Record<PopperPlacement, PopperPlacement>> = {
     left: 'right',
     'left-start': 'right-start',
     'left-end': 'right-end',
@@ -85,8 +59,8 @@ export function getRtlPopperPlacement(gardenPlacement: GARDEN_PLACEMENT) {
  * Convert Popper.JS placement to corresponding arrow position
  * @param {String} popperPlacement
  */
-export function getArrowPosition(popperPlacement: POPPER_PLACEMENT) {
-  const arrowPositionMappings: Partial<Record<POPPER_PLACEMENT, ARROW_POSITION>> = {
+export function getArrowPosition(popperPlacement: PopperPlacement) {
+  const arrowPositionMappings: Partial<Record<PopperPlacement, ARROW_POSITION>> = {
     top: 'bottom',
     'top-start': 'bottom-left',
     'top-end': 'bottom-right',

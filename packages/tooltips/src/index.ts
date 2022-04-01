@@ -6,6 +6,7 @@
  */
 
 export { Tooltip } from './elements/Tooltip';
-export type { ITooltipProps } from './elements/Tooltip';
 export { Paragraph } from './elements/Paragraph';
 export { Title } from './elements/Title';
+
+export type { ITooltipProps } from './types';

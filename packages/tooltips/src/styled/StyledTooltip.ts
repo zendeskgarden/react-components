@@ -13,23 +13,17 @@ import {
   DEFAULT_THEME,
   getLineHeight
 } from '@zendeskgarden/react-theming';
-
-import { POPPER_PLACEMENT, getArrowPosition } from '../utils/gardenPlacements';
+import { getArrowPosition } from '../utils/gardenPlacements';
+import { ITooltipProps, POPPER_PLACEMENT } from '../types';
 import { StyledParagraph } from './StyledParagraph';
 import { StyledTitle } from './StyledTitle';
 
 const COMPONENT_ID = 'tooltip.tooltip';
 
-export type TOOLTIP_SIZE = 'small' | 'medium' | 'large' | 'extra-large';
-export type TOOLTIP_TYPE = 'light' | 'dark';
-
-export interface IStyledTooltipProps {
-  hasArrow?: boolean;
-  size?: TOOLTIP_SIZE;
+interface IStyledTooltipProps extends Pick<ITooltipProps, 'hasArrow' | 'size' | 'zIndex'> {
   /** All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements) */
-  placement: POPPER_PLACEMENT;
-  zIndex?: number | string;
-  type: TOOLTIP_TYPE;
+  placement: typeof POPPER_PLACEMENT[number];
+  type: NonNullable<ITooltipProps['type']>;
 }
 
 const sizeStyles = ({

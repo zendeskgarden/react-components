@@ -6,18 +6,13 @@
  */
 
 import { ARROW_POSITION } from '@zendeskgarden/react-theming';
-import {
-  GARDEN_PLACEMENT,
-  POPPER_PLACEMENT,
-  getPopperPlacement,
-  getRtlPopperPlacement,
-  getArrowPosition
-} from './gardenPlacements';
+import { getPopperPlacement, getRtlPopperPlacement, getArrowPosition } from './gardenPlacements';
+import { GardenPlacement, PopperPlacement } from '../types';
 
 describe('Garden Placement Utilities', () => {
   describe('getPopperPlacement()', () => {
     it('provides correct mapping between Garden and Popper.js placements', () => {
-      const GARDEN_PLACEMENTS: Record<GARDEN_PLACEMENT, POPPER_PLACEMENT> = {
+      const GARDEN_PLACEMENTS: Record<GardenPlacement, PopperPlacement> = {
         auto: 'auto',
         top: 'top',
         'top-start': 'top-start',
@@ -33,17 +28,17 @@ describe('Garden Placement Utilities', () => {
         'start-bottom': 'left-end'
       };
 
-      Object.keys(GARDEN_PLACEMENTS).forEach(gardenPlacement => {
-        expect(getPopperPlacement(gardenPlacement as GARDEN_PLACEMENT)).toBe(
-          GARDEN_PLACEMENTS[gardenPlacement as GARDEN_PLACEMENT]
-        );
+      const gardenPlacements = Object.keys(GARDEN_PLACEMENTS) as GardenPlacement[];
+
+      gardenPlacements.forEach(gardenPlacement => {
+        expect(getPopperPlacement(gardenPlacement)).toBe(GARDEN_PLACEMENTS[gardenPlacement]);
       });
     });
   });
 
   describe('getRtlPopperPlacement()', () => {
     it('provides correct mapping between Garden placement and RTL equivalent', () => {
-      const RTL_PLACEMENT_MAPPINGS: Record<GARDEN_PLACEMENT, POPPER_PLACEMENT> = {
+      const RTL_PLACEMENT_MAPPINGS: Record<GardenPlacement, PopperPlacement> = {
         auto: 'auto',
         start: 'right',
         'start-top': 'right-start',
@@ -59,9 +54,11 @@ describe('Garden Placement Utilities', () => {
         'bottom-end': 'bottom-start'
       };
 
-      Object.keys(RTL_PLACEMENT_MAPPINGS).forEach(gardenPlacement => {
-        expect(getRtlPopperPlacement(gardenPlacement as GARDEN_PLACEMENT)).toBe(
-          RTL_PLACEMENT_MAPPINGS[gardenPlacement as GARDEN_PLACEMENT]
+      const gardenPlacements = Object.keys(RTL_PLACEMENT_MAPPINGS) as GardenPlacement[];
+
+      gardenPlacements.forEach(gardenPlacement => {
+        expect(getRtlPopperPlacement(gardenPlacement)).toBe(
+          RTL_PLACEMENT_MAPPINGS[gardenPlacement]
         );
       });
     });
@@ -69,7 +66,7 @@ describe('Garden Placement Utilities', () => {
 
   describe('getArrowPosition()', () => {
     it('provides correct mapping between Popper.JS placement and arrow position', () => {
-      const ARROW_POSITION_MAPPINGS: Record<POPPER_PLACEMENT, ARROW_POSITION> = {
+      const ARROW_POSITION_MAPPINGS: Record<PopperPlacement, ARROW_POSITION> = {
         auto: 'top',
         top: 'bottom',
         'top-start': 'bottom-left',
@@ -85,10 +82,10 @@ describe('Garden Placement Utilities', () => {
         'left-end': 'right-bottom'
       };
 
-      Object.keys(ARROW_POSITION_MAPPINGS).forEach(popperPlacement => {
-        expect(getArrowPosition(popperPlacement as POPPER_PLACEMENT)).toBe(
-          ARROW_POSITION_MAPPINGS[popperPlacement as POPPER_PLACEMENT]
-        );
+      const popperPlacements = Object.keys(ARROW_POSITION_MAPPINGS) as PopperPlacement[];
+
+      popperPlacements.forEach(popperPlacement => {
+        expect(getArrowPosition(popperPlacement)).toBe(ARROW_POSITION_MAPPINGS[popperPlacement]);
       });
     });
   });
