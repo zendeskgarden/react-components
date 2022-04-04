@@ -9,8 +9,8 @@ import React from 'react';
 import { math } from 'polished';
 import { render } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { ARRAY_SPACE, ARRAY_ALIGN_ITEMS, ARRAY_JUSTIFY_CONTENT, ARRAY_WRAP } from '../utils/types';
 import { StyledRow } from './StyledRow';
+import { ALIGN_ITEMS, JUSTIFY_CONTENT, SPACE, WRAP } from '../types';
 
 describe('StyledRow', () => {
   it('renders default styling', () => {
@@ -28,7 +28,7 @@ describe('StyledRow', () => {
 
   describe('Gutters', () => {
     it('renders gutters for each size', () => {
-      ARRAY_SPACE.forEach(size => {
+      SPACE.forEach(size => {
         if (typeof size === 'string') {
           const { container } = render(<StyledRow gutters={size} />);
           const margin = math(`${DEFAULT_THEME.space[size]} / 2`);
@@ -49,7 +49,7 @@ describe('StyledRow', () => {
 
   describe('Align Items', () => {
     it('renders with each flex alignment position', () => {
-      ARRAY_ALIGN_ITEMS.forEach(alignItems => {
+      ALIGN_ITEMS.forEach(alignItems => {
         const { container } = render(<StyledRow alignItems={alignItems} />);
 
         expect(container.firstChild).toHaveStyleRule(
@@ -60,7 +60,7 @@ describe('StyledRow', () => {
     });
 
     it('renders flex alignment responsively', () => {
-      ARRAY_ALIGN_ITEMS.forEach(alignItems => {
+      ALIGN_ITEMS.forEach(alignItems => {
         Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
           const key = `alignItems${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 
@@ -82,7 +82,7 @@ describe('StyledRow', () => {
 
   describe('Justify Content', () => {
     it('renders flex justification for each value', () => {
-      ARRAY_JUSTIFY_CONTENT.forEach(justifyContent => {
+      JUSTIFY_CONTENT.forEach(justifyContent => {
         const { container } = render(<StyledRow justifyContent={justifyContent} />);
 
         expect(container.firstChild).toHaveStyleRule(
@@ -93,7 +93,7 @@ describe('StyledRow', () => {
     });
 
     it('renders flex justification for each value responsively', () => {
-      ARRAY_JUSTIFY_CONTENT.forEach(justifyContent => {
+      JUSTIFY_CONTENT.forEach(justifyContent => {
         Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
           const key = `justifyContent${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 
@@ -116,7 +116,7 @@ describe('StyledRow', () => {
 
 describe('Wrap', () => {
   it('renders flex wrapping', () => {
-    ARRAY_WRAP.forEach(wrap => {
+    WRAP.forEach(wrap => {
       const { container } = render(<StyledRow wrapAll={wrap} />);
 
       expect(container.firstChild).toHaveStyleRule('flex-wrap', wrap);
@@ -124,7 +124,7 @@ describe('Wrap', () => {
   });
 
   it('renders flex wrapping responsively', () => {
-    ARRAY_WRAP.forEach(wrap => {
+    WRAP.forEach(wrap => {
       Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
         const key = `wrap${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 

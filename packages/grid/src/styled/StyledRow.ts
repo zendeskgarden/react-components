@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { ALIGN_ITEMS, JUSTIFY_CONTENT, SPACE, WRAP } from '../utils/types';
+import { AlignItems, IGridProps, IRowProps, JustifyContent, Wrap } from '../types';
 
 const COMPONENT_ID = 'grid.row';
 
@@ -24,7 +24,7 @@ const colorStyles = (props: IStyledRowProps) => {
   `;
 };
 
-const flexStyles = (alignItems?: ALIGN_ITEMS, justifyContent?: JUSTIFY_CONTENT, wrap?: WRAP) => {
+const flexStyles = (alignItems?: AlignItems, justifyContent?: JustifyContent, wrap?: Wrap) => {
   let flexAlignItems;
   let flexJustifyContent;
 
@@ -51,9 +51,9 @@ const flexStyles = (alignItems?: ALIGN_ITEMS, justifyContent?: JUSTIFY_CONTENT, 
 
 const mediaStyles = (
   minWidth: string,
-  alignItems?: ALIGN_ITEMS,
-  justifyContent?: JUSTIFY_CONTENT,
-  wrap?: WRAP
+  alignItems?: AlignItems,
+  justifyContent?: JustifyContent,
+  wrap?: Wrap
 ) => {
   return css`
     @media (min-width: ${minWidth}) {
@@ -71,27 +71,10 @@ const sizeStyles = (props: IStyledRowProps) => {
   `;
 };
 
-export interface IStyledRowProps extends ThemeProps<DefaultTheme> {
-  gutters?: SPACE;
-  alignItems?: ALIGN_ITEMS;
-  alignItemsXs?: ALIGN_ITEMS;
-  alignItemsSm?: ALIGN_ITEMS;
-  alignItemsMd?: ALIGN_ITEMS;
-  alignItemsLg?: ALIGN_ITEMS;
-  alignItemsXl?: ALIGN_ITEMS;
-  justifyContent?: JUSTIFY_CONTENT;
-  justifyContentXs?: JUSTIFY_CONTENT;
-  justifyContentSm?: JUSTIFY_CONTENT;
-  justifyContentMd?: JUSTIFY_CONTENT;
-  justifyContentLg?: JUSTIFY_CONTENT;
-  justifyContentXl?: JUSTIFY_CONTENT;
-  wrapAll?: WRAP;
-  wrapXs?: WRAP;
-  wrapSm?: WRAP;
-  wrapMd?: WRAP;
-  wrapLg?: WRAP;
-  wrapXl?: WRAP;
-  debug?: boolean;
+interface IStyledRowProps extends Omit<IRowProps, 'wrap'>, ThemeProps<DefaultTheme> {
+  gutters?: IGridProps['gutters'];
+  wrapAll?: IRowProps['wrap'];
+  debug?: IGridProps['debug'];
 }
 
 export const StyledRow = styled.div.attrs<IStyledRowProps>({
