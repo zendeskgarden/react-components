@@ -13,8 +13,8 @@ import { ToggleButton } from '@zendeskgarden/react-buttons';
 import {
   menuStyles,
   arrowStyles,
-  MENU_POSITION,
-  ARROW_POSITION
+  MENU_POSITION as MenuPosition,
+  ARROW_POSITION as ArrowPosition
 } from '@zendeskgarden/react-theming';
 
 const TOP: Record<string, string> = {
@@ -34,7 +34,7 @@ const LEFT: Record<string, string> = {
   right: '100%'
 };
 
-const MENU_ARROW_MAPPING: Record<MENU_POSITION, ARROW_POSITION> = {
+const MENU_ARROW_MAPPING: Record<MenuPosition, ArrowPosition> = {
   top: 'bottom',
   right: 'left',
   bottom: 'top',
@@ -42,7 +42,7 @@ const MENU_ARROW_MAPPING: Record<MENU_POSITION, ARROW_POSITION> = {
 };
 
 /* stylelint-disable declaration-no-important */
-const StyledMenu = styled.div<{ position: MENU_POSITION }>`
+const StyledMenu = styled.div<{ position: MenuPosition }>`
   display: flex !important;
   align-items: center;
   justify-content: center;
@@ -55,7 +55,7 @@ const StyledMenu = styled.div<{ position: MENU_POSITION }>`
     })};
 `;
 
-const StyledWrapper = styled.div<{ position: MENU_POSITION; isHidden: boolean }>`
+const StyledWrapper = styled.div<{ position: MenuPosition; isHidden: boolean }>`
   ${props =>
     menuStyles(props.position, {
       theme: props.theme,
@@ -66,7 +66,7 @@ const StyledWrapper = styled.div<{ position: MENU_POSITION; isHidden: boolean }>
 `;
 
 interface IArgs {
-  position: MENU_POSITION;
+  position: MenuPosition;
   isAnimated: boolean;
 }
 
