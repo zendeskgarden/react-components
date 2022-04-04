@@ -23,7 +23,7 @@ export type {
   IColProps,
   IGridProps,
   IRowProps,
-  /* @deprecated */
+  /* @deprecated these types can be dereferenced on the exported interfaces */
   AlignItems as ALIGN_ITEMS,
   AlignSelf as ALIGN_SELF,
   Direction as DIRECTION,
