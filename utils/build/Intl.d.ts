@@ -6,7 +6,6 @@
  */
 
 declare namespace Intl {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   interface DateTimeFormatOptions extends Intl.DateTimeFormatOptions {
     dateStyle?: 'full' | 'long' | 'medium' | 'short';
   }
