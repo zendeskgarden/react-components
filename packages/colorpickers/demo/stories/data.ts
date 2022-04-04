@@ -8,14 +8,14 @@
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ILabeledColor } from '@zendeskgarden/react-colorpickers';
 
-type HUE = 'blue' | 'green' | 'red' | 'yellow';
-type SHADE = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800;
+type Hue = 'blue' | 'green' | 'red' | 'yellow';
 
-const toLabeledValues = (hue: HUE) => {
+const SHADES = [100, 200, 300, 400, 500, 600, 700, 800] as const;
+
+const toLabeledValues = (hue: Hue) => {
   const colors = PALETTE[hue];
-  const shades = Object.keys(colors) as unknown as SHADE[];
 
-  return shades.map(shade => ({ label: `${hue}-${shade}`, value: colors[shade] }));
+  return SHADES.map(shade => ({ label: `${hue}-${shade}`, value: colors[shade] }));
 };
 
 export const COLOR_SWATCH_COLORS: ILabeledColor[][] = [

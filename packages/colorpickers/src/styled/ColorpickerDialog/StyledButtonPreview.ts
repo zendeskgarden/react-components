@@ -9,12 +9,12 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { rgba } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { checkeredBackground } from '../common/checkeredBackground';
-import { IColor } from '../../utils/types';
+import { IColorpickerDialogProps } from '../../types';
 
 const COMPONENT_ID = 'colorpickers.colordialog_preview';
 
 export interface IStyleButtonPreviewProps extends ThemeProps<DefaultTheme> {
-  backgroundColor?: string | IColor;
+  backgroundColor?: IColorpickerDialogProps['color'];
 }
 
 const background = (props: IStyleButtonPreviewProps) => {

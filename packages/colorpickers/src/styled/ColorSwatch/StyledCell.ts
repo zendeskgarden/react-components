@@ -10,14 +10,10 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'colorpickers.swatch_cell';
 
-interface IStyledCell {
-  isCompact?: boolean;
-}
-
 export const StyledCell = styled.td.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledCell>`
+})`
   padding: ${props => props.theme.space.base}px;
   font-size: 0;
 

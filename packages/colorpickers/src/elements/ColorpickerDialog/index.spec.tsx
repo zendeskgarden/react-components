@@ -9,7 +9,7 @@ import React, { useState, createRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent, screen, waitForElementToBeRemoved, act } from 'garden-test-utils';
 import { ColorpickerDialog } from '.';
-import { IColor } from '../../utils/types';
+import { IColor } from '../../types';
 
 describe('ColorpickerDialog', () => {
   it('passes ref to underlying DOM element', async () => {

@@ -8,10 +8,10 @@
 import React, { useRef, useState, useCallback, useContext, useEffect, useMemo } from 'react';
 import throttle from 'lodash.throttle';
 import { ThemeContext } from 'styled-components';
-import { IHSVColor } from '../../utils/types';
 import { hslToHsv } from '../../utils/conversion';
 import { getNextHsv, getThumbPosition } from '../../utils/saturation';
 import { StyledColorWell, StyledColorWellThumb } from '../../styled';
+import { IHSVColor } from '../../types';
 
 interface IColorWellProps {
   hue: number;
