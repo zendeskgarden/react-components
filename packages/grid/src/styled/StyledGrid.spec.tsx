@@ -9,8 +9,8 @@ import React from 'react';
 import { math } from 'polished';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
-import { ARRAY_SPACE } from '../utils/types';
 import { StyledGrid } from './StyledGrid';
+import { SPACE } from '../types';
 
 describe('StyledGrid', () => {
   it('renders default styling', () => {
@@ -36,7 +36,7 @@ describe('StyledGrid', () => {
 
   describe('Gutters', () => {
     it('renders gutters', () => {
-      ARRAY_SPACE.forEach(size => {
+      SPACE.forEach(size => {
         if (typeof size === 'string') {
           const { container } = render(<StyledGrid gutters={size} />);
           const padding = math(`${DEFAULT_THEME.space[size]} / 2`);

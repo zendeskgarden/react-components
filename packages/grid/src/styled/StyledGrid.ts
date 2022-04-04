@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { SPACE } from '../utils/types';
+import { IGridProps } from '../types';
 
 const COMPONENT_ID = 'grid.grid';
 
@@ -33,10 +33,7 @@ const sizeStyles = (props: IStyledGridProps) => {
   `;
 };
 
-export interface IStyledGridProps extends ThemeProps<DefaultTheme> {
-  gutters?: SPACE;
-  debug?: boolean;
-}
+interface IStyledGridProps extends Omit<IGridProps, 'columns'>, ThemeProps<DefaultTheme> {}
 
 export const StyledGrid = styled.div.attrs<IStyledGridProps>({
   'data-garden-id': COMPONENT_ID,
