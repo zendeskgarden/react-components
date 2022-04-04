@@ -8,7 +8,8 @@
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, act } from 'garden-test-utils';
-import { TooltipModal, ITooltipModalProps } from './TooltipModal';
+import { TooltipModal } from './TooltipModal';
+import { ITooltipModalProps } from '../../types';
 
 describe('TooltipModal', () => {
   const TOOLTIP_MODAL_ID = 'TEST_ID';
@@ -73,7 +74,7 @@ describe('TooltipModal', () => {
 
   it('applies backdropProps to Backdrop element', async () => {
     const { getByTestId, getByText } = renderRtl(
-      <Example backdropProps={{ 'data-test-id': 'backdrop' }} />
+      <Example backdropProps={{ 'data-test-id': 'backdrop' } as any} />
     );
 
     await act(async () => {
@@ -116,7 +117,7 @@ describe('TooltipModal', () => {
   describe('onClose()', () => {
     it('is triggered by backdrop click', async () => {
       const { getByTestId, getByText } = render(
-        <Example onClose={onCloseSpy} backdropProps={{ 'data-test-id': 'backdrop' }} />
+        <Example onClose={onCloseSpy} backdropProps={{ 'data-test-id': 'backdrop' } as any} />
       );
 
       await act(async () => {

@@ -6,7 +6,6 @@
  */
 
 export { StyledBackdrop } from './StyledBackdrop';
-export type { IStyledBackdropProps } from './StyledBackdrop';
 export { StyledBody } from './StyledBody';
 export { StyledClose } from './StyledClose';
 export { StyledFooter } from './StyledFooter';
@@ -14,7 +13,6 @@ export { StyledFooterItem } from './StyledFooterItem';
 export { StyledHeader } from './StyledHeader';
 export { StyledDangerIcon } from './StyledDangerIcon';
 export { StyledModal } from './StyledModal';
-export type { IStyledModalProps } from './StyledModal';
 export { StyledTooltipModalBackdrop } from './StyledTooltipModalBackdrop';
 export { StyledTooltipWrapper } from './StyledTooltipWrapper';
 export { StyledTooltipModal } from './StyledTooltipModal';

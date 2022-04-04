@@ -5,17 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useEffect,
-  useRef,
-  useMemo,
-  useContext,
-  useState,
-  forwardRef,
-  HTMLAttributes,
-  KeyboardEvent,
-  MouseEvent
-} from 'react';
+import React, { useEffect, useRef, useMemo, useContext, useState, forwardRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
@@ -26,40 +16,12 @@ import { useDocument } from '@zendeskgarden/react-theming';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { ModalsContext } from '../../utils/useModalContext';
 import { StyledBackdrop, StyledDrawerModal } from '../../styled';
+import { IDrawerModalProps } from '../../types';
 import { Header } from './Header';
 import { Body } from './Body';
 import { Close } from './Close';
 import { Footer } from './Footer';
 import { FooterItem } from './FooterItem';
-
-export interface IDrawerModalProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * Opens the modal
-   */
-  isOpen?: boolean;
-  /**
-   * Passes HTML attributes to the backdrop element
-   */
-  backdropProps?: any;
-  /**
-   * Handles close actions. Can be triggered from the backdrop and from the close icon.
-   *
-   * @param {Object} event The DOM event that triggered the close action
-   */
-  onClose?: (event: KeyboardEvent | MouseEvent) => void;
-  /**
-   * Defines the DOM element that the modal will attatch to
-   */
-  appendToNode?: Element;
-  /**
-   * Directs keyboard focus to the modal on mount
-   */
-  focusOnMount?: boolean;
-  /**
-   * Returns keyboard focus to the element that triggered the modal
-   */
-  restoreFocus?: boolean;
-}
 
 const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
   (

@@ -5,17 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useEffect,
-  useMemo,
-  useContext,
-  useRef,
-  useState,
-  forwardRef,
-  HTMLAttributes,
-  KeyboardEvent,
-  MouseEvent
-} from 'react';
+import React, { useEffect, useMemo, useContext, useRef, useState, forwardRef } from 'react';
 import { createPortal } from 'react-dom';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
@@ -29,6 +19,7 @@ import ownerWindow from 'dom-helpers/ownerWindow';
 import css from 'dom-helpers/css';
 import getScrollbarSize from 'dom-helpers/scrollbarSize';
 import { StyledModal, StyledBackdrop } from '../styled';
+import { IModalProps } from '../types';
 import { ModalsContext } from '../utils/useModalContext';
 
 const isOverflowing = (element: Element) => {
@@ -48,43 +39,6 @@ const isOverflowing = (element: Element) => {
 
   return marginLeft + doc.body.clientWidth + marginRight < win.innerWidth;
 };
-
-export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * Passes HTML attributes to the backdrop element
-   */
-  backdropProps?: HTMLAttributes<HTMLDivElement>;
-  /**
-   * Handles close actions. Can be triggered from the backdrop and from the close icon.
-   *
-   * @param {Object} event The DOM event that triggered the close action
-   */
-  onClose?: (event: KeyboardEvent | MouseEvent) => void;
-  /**
-   * Centers the modal on the backdrop
-   */
-  isCentered?: boolean;
-  /**
-   * Animates the modal
-   */
-  isAnimated?: boolean;
-  /**
-   * Defines the DOM element that the modal will attatch to
-   */
-  appendToNode?: Element;
-  /**
-   * Applies large styling
-   */
-  isLarge?: boolean;
-  /**
-   * Directs keyboard focus to the modal on mount
-   */
-  focusOnMount?: boolean;
-  /**
-   * Returns keyboard focus to the element that triggered the modal
-   */
-  restoreFocus?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
