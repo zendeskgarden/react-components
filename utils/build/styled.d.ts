@@ -9,6 +9,6 @@ import 'styled-components';
 import { IGardenTheme } from '../../packages/theming';
 
 declare module 'styled-components' {
-  // eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-empty-interface
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface DefaultTheme extends IGardenTheme {}
 }
