@@ -6,11 +6,11 @@
  */
 
 import { createContext, useContext } from 'react';
-import { GRID_NUMBER, SPACE } from './types';
+import { GridNumber, Space } from '../types';
 
 interface IGridContext {
-  columns?: GRID_NUMBER;
-  gutters?: SPACE;
+  columns?: GridNumber;
+  gutters?: Space;
   debug?: boolean;
 }
 

@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { ALIGN_SELF, BREAKPOINT, GRID_NUMBER, SPACE, TEXT_ALIGN } from '../utils/types';
+import { AlignSelf, Breakpoint, GridNumber, IColProps, IGridProps, TextAlign } from '../types';
 
 const COMPONENT_ID = 'grid.col';
 
@@ -22,11 +22,11 @@ const colorStyles = (props: IStyledColProps) => {
 };
 
 const flexStyles = (
-  size: BREAKPOINT | undefined,
-  alignSelf: ALIGN_SELF | undefined,
-  textAlign: TEXT_ALIGN | undefined,
-  offset: GRID_NUMBER | undefined,
-  order: GRID_NUMBER | undefined,
+  size: Breakpoint | undefined,
+  alignSelf: AlignSelf | undefined,
+  textAlign: TextAlign | undefined,
+  offset: GridNumber | undefined,
+  order: GridNumber | undefined,
   props: IStyledColProps
 ) => {
   const margin = offset && `${math(`${offset} / ${props.columns} * 100`)}%`;
@@ -87,11 +87,11 @@ const flexStyles = (
 
 const mediaStyles = (
   minWidth: string,
-  size: BREAKPOINT | undefined,
-  alignSelf: ALIGN_SELF | undefined,
-  textAlign: TEXT_ALIGN | undefined,
-  offset: GRID_NUMBER | undefined,
-  order: GRID_NUMBER | undefined,
+  size: Breakpoint | undefined,
+  alignSelf: AlignSelf | undefined,
+  textAlign: TextAlign | undefined,
+  offset: GridNumber | undefined,
+  order: GridNumber | undefined,
   props: IStyledColProps
 ) => {
   return css`
@@ -110,40 +110,11 @@ const sizeStyles = (props: IStyledColProps) => {
   `;
 };
 
-export interface IStyledColProps extends ThemeProps<DefaultTheme> {
-  columns?: GRID_NUMBER;
-  gutters?: SPACE;
-  sizeAll?: GRID_NUMBER;
-  xs?: BREAKPOINT;
-  sm?: BREAKPOINT;
-  md?: BREAKPOINT;
-  lg?: BREAKPOINT;
-  xl?: BREAKPOINT;
-  alignSelf?: ALIGN_SELF;
-  alignSelfXs?: ALIGN_SELF;
-  alignSelfSm?: ALIGN_SELF;
-  alignSelfMd?: ALIGN_SELF;
-  alignSelfLg?: ALIGN_SELF;
-  alignSelfXl?: ALIGN_SELF;
-  textAlign?: TEXT_ALIGN;
-  textAlignXs?: TEXT_ALIGN;
-  textAlignSm?: TEXT_ALIGN;
-  textAlignMd?: TEXT_ALIGN;
-  textAlignLg?: TEXT_ALIGN;
-  textAlignXl?: TEXT_ALIGN;
-  offset?: GRID_NUMBER;
-  offsetXs?: GRID_NUMBER;
-  offsetSm?: GRID_NUMBER;
-  offsetMd?: GRID_NUMBER;
-  offsetLg?: GRID_NUMBER;
-  offsetXl?: GRID_NUMBER;
-  order?: GRID_NUMBER;
-  orderXs?: GRID_NUMBER;
-  orderSm?: GRID_NUMBER;
-  orderMd?: GRID_NUMBER;
-  orderLg?: GRID_NUMBER;
-  orderXl?: GRID_NUMBER;
-  debug?: boolean;
+interface IStyledColProps extends Omit<IColProps, 'size'>, ThemeProps<DefaultTheme> {
+  columns?: IGridProps['columns'];
+  gutters?: IGridProps['gutters'];
+  sizeAll?: IColProps['size'];
+  debug?: IGridProps['debug'];
 }
 
 export const StyledCol = styled.div.attrs<IStyledColProps>({

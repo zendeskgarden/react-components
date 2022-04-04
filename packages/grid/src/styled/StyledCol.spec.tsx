@@ -9,8 +9,8 @@ import React from 'react';
 import { math } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { ARRAY_ALIGN_SELF, ARRAY_SPACE, ARRAY_TEXT_ALIGN } from '../utils/types';
 import { StyledCol } from './StyledCol';
+import { ALIGN_SELF, SPACE, TEXT_ALIGN } from '../types';
 
 describe('StyledCol', () => {
   it('renders default styling', () => {
@@ -43,7 +43,7 @@ describe('StyledCol', () => {
 
   describe('Gutters', () => {
     it('renders gutters', () => {
-      ARRAY_SPACE.forEach(size => {
+      SPACE.forEach(size => {
         if (size) {
           const { container } = render(<StyledCol gutters={size} />);
           const padding = math(`${DEFAULT_THEME.space[size]} / 2`);
@@ -102,7 +102,7 @@ describe('StyledCol', () => {
 
   describe('Align Self', () => {
     it('renders flex alignments', () => {
-      ARRAY_ALIGN_SELF.forEach(alignSelf => {
+      ALIGN_SELF.forEach(alignSelf => {
         const { container } = render(<StyledCol alignSelf={alignSelf} />);
 
         expect(container.firstChild).toHaveStyleRule(
@@ -113,7 +113,7 @@ describe('StyledCol', () => {
     });
 
     it('renders flex alignment responsively', () => {
-      ARRAY_ALIGN_SELF.forEach(alignSelf => {
+      ALIGN_SELF.forEach(alignSelf => {
         Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
           const key = `alignSelf${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 
@@ -142,7 +142,7 @@ describe('StyledCol', () => {
         justify: 'justify'
       };
 
-      ARRAY_TEXT_ALIGN.forEach(textAlign => {
+      TEXT_ALIGN.forEach(textAlign => {
         const { container } = render(<StyledCol textAlign={textAlign} />);
 
         expect(container.firstChild).toHaveStyleRule('text-align', alignments[textAlign]);
@@ -157,7 +157,7 @@ describe('StyledCol', () => {
         justify: 'justify'
       };
 
-      ARRAY_TEXT_ALIGN.forEach(textAlign => {
+      TEXT_ALIGN.forEach(textAlign => {
         Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
           const key = `textAlign${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 
@@ -173,7 +173,7 @@ describe('StyledCol', () => {
     });
 
     it('renders RTL text alignment in RTL direction', () => {
-      ARRAY_TEXT_ALIGN.forEach(textAlign => {
+      TEXT_ALIGN.forEach(textAlign => {
         const { container } = renderRtl(<StyledCol textAlign={textAlign} />);
 
         const alignments = {

@@ -10,26 +10,8 @@ import { Story } from '@storybook/react';
 import { Col, Grid, IGridProps, IRowProps, Row } from '@zendeskgarden/react-grid';
 import { IGridRow } from './types';
 
-interface IArgs extends IGridProps {
+interface IArgs extends IGridProps, IRowProps {
   rows: IGridRow[];
-  alignItems?: IRowProps['alignItems'];
-  alignItemsXs?: IRowProps['alignItemsXs'];
-  alignItemsSm?: IRowProps['alignItemsSm'];
-  alignItemsMd?: IRowProps['alignItemsMd'];
-  alignItemsLg?: IRowProps['alignItemsLg'];
-  alignItemsXl?: IRowProps['alignItemsXl'];
-  justifyContent?: IRowProps['justifyContent'];
-  justifyContentXs?: IRowProps['justifyContentXs'];
-  justifyContentSm?: IRowProps['justifyContentSm'];
-  justifyContentMd?: IRowProps['justifyContentMd'];
-  justifyContentLg?: IRowProps['justifyContentLg'];
-  justifyContentXl?: IRowProps['justifyContentXl'];
-  wrap?: IRowProps['wrap'];
-  wrapXs?: IRowProps['wrapXs'];
-  wrapSm?: IRowProps['wrapSm'];
-  wrapMd?: IRowProps['wrapMd'];
-  wrapLg?: IRowProps['wrapLg'];
-  wrapXl?: IRowProps['wrapXl'];
 }
 
 export const GridStory: Story<IArgs> = ({
