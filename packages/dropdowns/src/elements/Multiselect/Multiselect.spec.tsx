@@ -8,8 +8,16 @@
 import React, { useState, useEffect } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent, renderRtl, act } from 'garden-test-utils';
-import { Dropdown, Multiselect, Field, Menu, Item, Label, PreviousItem } from '../..';
-import { IDropdownProps } from '../Dropdown/Dropdown';
+import {
+  Dropdown,
+  Multiselect,
+  Field,
+  Menu,
+  Item,
+  Label,
+  PreviousItem,
+  IDropdownProps
+} from '../..';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
 jest.useFakeTimers();

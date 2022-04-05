@@ -5,31 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, useEffect, useCallback, HTMLAttributes } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { composeEventHandlers, KEY_CODES } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import mergeRefs from 'react-merge-refs';
+import { ISelectProps } from '../../types';
 import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
-import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
-
-export interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Removes borders and padding */
-  isBare?: boolean;
-  /** Indicates that the element is not interactive */
-  disabled?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Defines the element's validation state */
-  validation?: VALIDATION;
-  /** Defines the icon rendered before the element's content */
-  start?: any;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

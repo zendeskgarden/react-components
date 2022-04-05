@@ -5,35 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, KeyboardEvent, useEffect, useRef } from 'react';
+import React, { forwardRef, KeyboardEvent, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { MediaInput } from '@zendeskgarden/react-forms';
 import mergeRefs from 'react-merge-refs';
-import { VALIDATION } from '../../utils/validation';
+import { IComboboxProps, VALIDATION } from '../../types';
 import useDropdownContext from '../../utils/useDropdownContext';
-
-export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Removes borders and padding */
-  isBare?: boolean;
-  /** Indicates that the element is not interactive */
-  disabled?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Defines text that appears in the element when no items are selected */
-  placeholder?: string;
-  /** Defines the element's validation state */
-  validation?: VALIDATION;
-  /** Provides ref access to the underlying input element */
-  inputRef?: React.Ref<HTMLInputElement>;
-  /** Defines the icon rendered in the start position */
-  start?: any;
-  /** Defines the icon rendered in the end position */
-  end?: any;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -143,5 +122,5 @@ Combobox.propTypes = {
   disabled: PropTypes.bool,
   focusInset: PropTypes.bool,
   placeholder: PropTypes.string,
-  validation: PropTypes.oneOf(['success', 'warning', 'error'])
+  validation: PropTypes.oneOf(VALIDATION)
 };

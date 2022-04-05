@@ -5,36 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ARROW_POSITION, MENU_POSITION } from '@zendeskgarden/react-theming';
 import {
-  GARDEN_PLACEMENT,
-  POPPER_PLACEMENT,
+  ARROW_POSITION as ArrowPosition,
+  MENU_POSITION as MenuPosition
+} from '@zendeskgarden/react-theming';
+import { GardenPlacement, PLACEMENT, PopperPlacement } from '../types';
+import {
   getPopperPlacement,
   getRtlPopperPlacement,
   getArrowPosition,
   getMenuPosition
 } from './garden-placements';
 
-const GARDEN_PLACEMENT_VALUES: GARDEN_PLACEMENT[] = [
-  'auto',
-  'top',
-  'top-start',
-  'top-end',
-  'bottom',
-  'bottom-start',
-  'bottom-end',
-  'end',
-  'end-top',
-  'end-bottom',
-  'start',
-  'start-top',
-  'start-bottom'
-];
-
 describe('Garden Placement Utilities', () => {
   describe('getPopperPlacement()', () => {
     it('provides correct mapping between Garden and Popper.js placements', () => {
-      const GARDEN_POPPER_MAPPINGS: Record<GARDEN_PLACEMENT, POPPER_PLACEMENT> = {
+      const GARDEN_POPPER_MAPPINGS: Record<GardenPlacement, PopperPlacement> = {
         auto: 'auto',
         top: 'top',
         'top-start': 'top-start',
@@ -50,7 +36,7 @@ describe('Garden Placement Utilities', () => {
         'start-bottom': 'left-end'
       };
 
-      GARDEN_PLACEMENT_VALUES.forEach(gardenPlacement => {
+      PLACEMENT.forEach(gardenPlacement => {
         expect(getPopperPlacement(gardenPlacement)).toBe(GARDEN_POPPER_MAPPINGS[gardenPlacement]);
       });
     });
@@ -58,7 +44,7 @@ describe('Garden Placement Utilities', () => {
 
   describe('getRtlPopperPlacement()', () => {
     it('provides correct mapping between Garden placement and RTL equivalent', () => {
-      const RTL_PLACEMENT_MAPPINGS: Record<GARDEN_PLACEMENT, POPPER_PLACEMENT> = {
+      const RTL_PLACEMENT_MAPPINGS: Record<GardenPlacement, PopperPlacement> = {
         auto: 'auto',
         start: 'right',
         'start-top': 'right-start',
@@ -74,7 +60,7 @@ describe('Garden Placement Utilities', () => {
         'bottom-end': 'bottom-start'
       };
 
-      GARDEN_PLACEMENT_VALUES.forEach(gardenPlacement => {
+      PLACEMENT.forEach(gardenPlacement => {
         expect(getRtlPopperPlacement(gardenPlacement)).toBe(
           RTL_PLACEMENT_MAPPINGS[gardenPlacement]
         );
@@ -84,7 +70,7 @@ describe('Garden Placement Utilities', () => {
 
   describe('getArrowPosition()', () => {
     it('provides correct mapping between Popper.JS placement and arrow position', () => {
-      const ARROW_POSITION_MAPPINGS: Record<POPPER_PLACEMENT, ARROW_POSITION> = {
+      const ARROW_POSITION_MAPPINGS: Record<PopperPlacement, ArrowPosition> = {
         auto: 'top',
         top: 'bottom',
         'top-start': 'bottom-left',
@@ -101,8 +87,8 @@ describe('Garden Placement Utilities', () => {
       };
 
       Object.keys(ARROW_POSITION_MAPPINGS).forEach(popperPlacement => {
-        expect(getArrowPosition(popperPlacement as POPPER_PLACEMENT)).toBe(
-          ARROW_POSITION_MAPPINGS[popperPlacement as POPPER_PLACEMENT]
+        expect(getArrowPosition(popperPlacement as PopperPlacement)).toBe(
+          ARROW_POSITION_MAPPINGS[popperPlacement as PopperPlacement]
         );
       });
     });
@@ -110,7 +96,7 @@ describe('Garden Placement Utilities', () => {
 
   describe('getMenuPosition()', () => {
     it('provides correct mapping between Popper.JS placement and menu position', () => {
-      const MENU_POSITION_MAPPINGS: Record<POPPER_PLACEMENT, MENU_POSITION> = {
+      const MENU_POSITION_MAPPINGS: Record<PopperPlacement, MenuPosition> = {
         auto: 'bottom',
         top: 'top',
         'top-start': 'top',
@@ -127,8 +113,8 @@ describe('Garden Placement Utilities', () => {
       };
 
       Object.keys(MENU_POSITION_MAPPINGS).forEach(popperPlacement => {
-        expect(getMenuPosition(popperPlacement as POPPER_PLACEMENT)).toBe(
-          MENU_POSITION_MAPPINGS[popperPlacement as POPPER_PLACEMENT]
+        expect(getMenuPosition(popperPlacement as PopperPlacement)).toBe(
+          MENU_POSITION_MAPPINGS[popperPlacement as PopperPlacement]
         );
       });
     });

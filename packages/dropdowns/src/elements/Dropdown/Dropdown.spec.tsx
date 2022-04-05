@@ -8,8 +8,7 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent } from 'garden-test-utils';
-import { Dropdown, Trigger, Menu, Item, NextItem, PreviousItem } from '../..';
-import { IDropdownProps } from './Dropdown';
+import { Dropdown, Trigger, Menu, Item, NextItem, PreviousItem, IDropdownProps } from '../..';
 
 const ExampleDropdown = (props: IDropdownProps) => (
   <Dropdown {...props}>

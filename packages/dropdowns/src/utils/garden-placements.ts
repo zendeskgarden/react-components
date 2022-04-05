@@ -5,39 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ARROW_POSITION, MENU_POSITION } from '@zendeskgarden/react-theming';
-
-type SHARED_PLACEMENT =
-  | 'auto'
-  | 'top'
-  | 'top-start'
-  | 'top-end'
-  | 'bottom'
-  | 'bottom-start'
-  | 'bottom-end';
-
-export type GARDEN_PLACEMENT =
-  | SHARED_PLACEMENT
-  | 'end'
-  | 'end-top'
-  | 'end-bottom'
-  | 'start'
-  | 'start-top'
-  | 'start-bottom';
-
-export type POPPER_PLACEMENT =
-  | SHARED_PLACEMENT
-  | 'right'
-  | 'right-start'
-  | 'right-end'
-  | 'left'
-  | 'left-start'
-  | 'left-end';
+import {
+  ARROW_POSITION as ArrowPosition,
+  MENU_POSITION as MenuPosition
+} from '@zendeskgarden/react-theming';
+import { GardenPlacement, PopperPlacement } from '../types';
 
 /**
  * Convert Garden RTL aware placement to Popper.JS valid placement
  */
-export function getPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER_PLACEMENT {
+export function getPopperPlacement(gardenPlacement: GardenPlacement): PopperPlacement {
   switch (gardenPlacement) {
     case 'end':
       return 'right';
@@ -60,7 +37,7 @@ export function getPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER_PL
  * Convert Garden RTL aware placement to RTL equivalent Popper.JS placement
  * @param {String} gardenPlacement
  */
-export function getRtlPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER_PLACEMENT {
+export function getRtlPopperPlacement(gardenPlacement: GardenPlacement): PopperPlacement {
   const popperPlacement = getPopperPlacement(gardenPlacement);
 
   switch (popperPlacement) {
@@ -93,8 +70,8 @@ export function getRtlPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER
  * Convert Popper.JS placement to corresponding arrow position
  * @param {String} popperPlacement
  */
-export function getArrowPosition(popperPlacement?: POPPER_PLACEMENT) {
-  const arrowPositionMappings: Record<POPPER_PLACEMENT, ARROW_POSITION> = {
+export function getArrowPosition(popperPlacement?: PopperPlacement) {
+  const arrowPositionMappings: Record<PopperPlacement, ArrowPosition> = {
     auto: 'top',
     top: 'bottom',
     'top-start': 'bottom-left',
@@ -110,17 +87,17 @@ export function getArrowPosition(popperPlacement?: POPPER_PLACEMENT) {
     'left-end': 'right-bottom'
   };
 
-  return (popperPlacement ? arrowPositionMappings[popperPlacement] : 'top') as ARROW_POSITION;
+  return (popperPlacement ? arrowPositionMappings[popperPlacement] : 'top') as ArrowPosition;
 }
 
 /**
  * Convert Popper.JS placement to corresponding menu position
  * @param {String} popperPlacement
  */
-export function getMenuPosition(popperPlacement?: POPPER_PLACEMENT) {
+export function getMenuPosition(popperPlacement?: PopperPlacement) {
   if (popperPlacement === 'auto') {
-    return 'bottom' as MENU_POSITION;
+    return 'bottom' as MenuPosition;
   }
 
-  return (popperPlacement ? popperPlacement.split('-')[0] : 'bottom') as MENU_POSITION;
+  return (popperPlacement ? popperPlacement.split('-')[0] : 'bottom') as MenuPosition;
 }

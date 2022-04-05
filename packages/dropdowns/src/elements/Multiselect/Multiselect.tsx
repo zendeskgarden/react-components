@@ -5,15 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useContext,
-  useRef,
-  useEffect,
-  useState,
-  useMemo,
-  useCallback,
-  HTMLAttributes
-} from 'react';
+import React, { useContext, useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Reference } from 'react-popper';
@@ -21,6 +13,7 @@ import { useSelection } from '@zendeskgarden/container-selection';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import mergeRefs from 'react-merge-refs';
+import { IMultiselectProps } from '../../types';
 import {
   StyledFauxInput,
   StyledMultiselectInput,
@@ -28,47 +21,9 @@ import {
   StyledMultiselectItemWrapper,
   StyledMultiselectMoreAnchor
 } from '../../styled';
-import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
-
-export interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Removes borders and padding */
-  isBare?: boolean;
-  /** Indicates that the element is not interactive */
-  disabled?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Defines text that appears in the element when no items are selected */
-  placeholder?: string;
-  /** Defines the element's validation state */
-  validation?: VALIDATION;
-  /** Determines the maximum number of items displayed while collapsed */
-  maxItems?: number;
-  /**
-   * Overrides the "+ N more" text displayed when the total number of items exceeds `maxItems`
-   *
-   * @param {number} value The number of hidden items
-   * @returns {string} a replacement for the "+ N more" text
-   */
-  renderShowMore?: (value: number) => string;
-  /**
-   * Renders each item element. Designed to be used with [Tag](/components/tags).
-   *
-   * @param {Object} options Rendered item options
-   * @param {any} options.value The item value
-   * @param {Function} options.removeValue Remove item callback
-   * @returns {React.ReactElement} the item element
-   */
-  renderItem: (options: { value: any; removeValue: () => void }) => React.ReactElement;
-  /** Provides DOM access to the underlying input element */
-  inputRef?: React.Ref<HTMLInputElement>;
-  /** Defines the icon rendered before the element's content */
-  start?: any;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

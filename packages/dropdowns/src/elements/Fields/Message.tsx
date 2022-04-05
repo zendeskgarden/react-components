@@ -5,15 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Message as FormMessage } from '@zendeskgarden/react-forms';
-import { VALIDATION } from '../../utils/validation';
-
-export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies styles based on validation state */
-  validation?: VALIDATION;
-}
+import { IMessageProps, Message as FormMessage } from '@zendeskgarden/react-forms';
+import { VALIDATION } from '../../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -25,5 +20,5 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>((props, r
 Message.displayName = 'Message';
 
 Message.propTypes = {
-  validation: PropTypes.oneOf(['success', 'warning', 'error'])
+  validation: PropTypes.oneOf(VALIDATION)
 };
