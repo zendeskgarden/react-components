@@ -5,38 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  TextareaHTMLAttributes,
-  useRef,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useState
-} from 'react';
+import React, { useRef, useCallback, useEffect, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import mergeRefs from 'react-merge-refs';
+import { ITextareaProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
 import { StyledTextarea } from '../styled';
-import { VALIDATION } from '../utils/validation';
-
-export interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Removes borders and padding */
-  isBare?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Enables manual vertical resize */
-  isResizable?: boolean;
-  /** Defines the minimum height in rows */
-  minRows?: number;
-  /** Defines the maximum height in rows */
-  maxRows?: number;
-  /** Applies validation state styling */
-  validation?: VALIDATION;
-}
 
 const parseStyleValue = (value: string) => {
   return parseInt(value, 10) || 0;
@@ -203,7 +179,7 @@ Textarea.propTypes = {
   isResizable: PropTypes.bool,
   minRows: PropTypes.number,
   maxRows: PropTypes.number,
-  validation: PropTypes.oneOf(['success', 'warning', 'error'])
+  validation: PropTypes.oneOf(VALIDATION)
 };
 
 Textarea.displayName = 'Textarea';

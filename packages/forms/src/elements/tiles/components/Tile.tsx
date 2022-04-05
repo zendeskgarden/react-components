@@ -5,17 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import { ITilesTileProps } from '../../../types';
 import { useTilesContext } from '../../../utils/useTilesContext';
 import { StyledTile, StyledTileInput } from '../../../styled';
-
-export interface ITilesTileProps extends HTMLAttributes<HTMLLabelElement> {
-  /** Sets the value of the input */
-  value?: string;
-  /** Indicates that the element is not interactive */
-  disabled?: boolean;
-}
 
 const TileComponent = React.forwardRef<HTMLLabelElement, ITilesTileProps>(
   ({ children, value, disabled, ...props }, ref) => {

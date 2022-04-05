@@ -5,33 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { InputHTMLAttributes, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import mergeRefs from 'react-merge-refs';
+import { IMediaInputProps, VALIDATION } from '../types';
 import { StyledTextMediaInput } from '../styled';
 import { FauxInput } from './faux-input/FauxInput';
 import useFieldContext from '../utils/useFieldContext';
-import { VALIDATION } from '../utils/validation';
-
-export interface IMediaInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Removes borders and padding */
-  isBare?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Accepts a "start" icon to display */
-  start?: any;
-  /** Accepts an "end" icon to display */
-  end?: any;
-  /** Applies validation state styling */
-  validation?: VALIDATION;
-  /** Applies props to the wrapping [FauxInput](#fauxinput) element */
-  wrapperProps?: any;
-  /** Applies a ref to the wrapping [FauxInput](#fauxinput) element */
-  wrapperRef?: any;
-}
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
@@ -151,10 +132,11 @@ MediaInput.propTypes = {
   isCompact: PropTypes.bool,
   isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
+  validation: PropTypes.oneOf(VALIDATION),
   start: PropTypes.node,
   end: PropTypes.node,
-  validation: PropTypes.oneOf(['success', 'warning', 'error']),
-  wrapperProps: PropTypes.object
+  wrapperProps: PropTypes.object,
+  wrapperRef: PropTypes.any
 };
 
 MediaInput.displayName = 'MediaInput';

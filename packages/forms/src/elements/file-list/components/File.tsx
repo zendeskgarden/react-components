@@ -5,30 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, Children, HTMLAttributes, useMemo } from 'react';
+import React, { forwardRef, Children, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { FILE_TYPE, FILE_VALIDATION, IFileProps } from '../../../types';
 import { Close } from './Close';
 import { Delete } from './Delete';
 import { StyledFile, StyledFileIcon } from '../../../styled';
 import { FileContext } from '../../../utils/useFileContext';
-import {
-  FILE_TYPE,
-  ARRAY_FILE_TYPE,
-  VALIDATION_TYPE,
-  fileIconsDefault,
-  fileIconsCompact
-} from '../utils';
-
-export interface IFileProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Determines the icon to display */
-  type?: FILE_TYPE;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Applies validation state styling */
-  validation?: VALIDATION_TYPE;
-}
+import { fileIconsDefault, fileIconsCompact } from '../utils';
 
 const FileComponent = forwardRef<HTMLDivElement, IFileProps>(
   ({ children, type, isCompact, focusInset, validation, ...props }, ref) => {
@@ -63,8 +47,8 @@ FileComponent.displayName = 'File';
 FileComponent.propTypes = {
   focusInset: PropTypes.bool,
   isCompact: PropTypes.bool,
-  type: PropTypes.oneOf(ARRAY_FILE_TYPE),
-  validation: PropTypes.oneOf(['success', 'error'])
+  type: PropTypes.oneOf(FILE_TYPE),
+  validation: PropTypes.oneOf(FILE_VALIDATION)
 };
 
 /**

@@ -24,29 +24,9 @@ import FilePresentationDefault from '@zendeskgarden/svg-icons/src/16/file-presen
 import FileGenericDefault from '@zendeskgarden/svg-icons/src/16/file-generic-stroke.svg';
 import FileSuccessDefault from '@zendeskgarden/svg-icons/src/16/check-circle-stroke.svg';
 import FileErrorDefault from '@zendeskgarden/svg-icons/src/16/file-error-stroke.svg';
+import { FileType, FileValidation } from '../../types';
 
-export enum FileType {
-  pdf = 'pdf',
-  zip = 'zip',
-  image = 'image',
-  document = 'document',
-  spreadsheet = 'spreadsheet',
-  presentation = 'presentation',
-  generic = 'generic'
-}
-
-export enum ValidationType {
-  success = 'success',
-  error = 'error'
-}
-
-export type FILE_TYPE = keyof typeof FileType;
-
-export type VALIDATION_TYPE = keyof typeof ValidationType;
-
-export const ARRAY_FILE_TYPE: FILE_TYPE[] = [...Object.values(FileType)];
-
-export const fileIconsDefault: Record<FILE_TYPE | VALIDATION_TYPE, React.ReactNode> = {
+export const fileIconsDefault: Record<FileType | FileValidation, React.ReactNode> = {
   pdf: <FilePdfDefault />,
   zip: <FileZipDefault />,
   image: <FileImageDefault />,
@@ -58,7 +38,7 @@ export const fileIconsDefault: Record<FILE_TYPE | VALIDATION_TYPE, React.ReactNo
   error: <FileErrorDefault />
 };
 
-export const fileIconsCompact: Record<FILE_TYPE | VALIDATION_TYPE, React.ReactNode> = {
+export const fileIconsCompact: Record<FileType | FileValidation, React.ReactNode> = {
   pdf: <FilePdfCompact />,
   zip: <FileZipCompact />,
   image: <FileImageCompact />,

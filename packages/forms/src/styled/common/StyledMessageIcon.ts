@@ -11,7 +11,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 import AlertError from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 import AlertWarning from '@zendeskgarden/svg-icons/src/16/alert-warning-stroke.svg';
 import CheckCircle from '@zendeskgarden/svg-icons/src/16/check-circle-stroke.svg';
-import { VALIDATION } from '../../utils/validation';
+import { Validation } from '../../types';
 
 const MessageIcon: React.FC<IStyledMessageIconProps> = ({ children, validation, ...props }) => {
   let retVal;
@@ -32,7 +32,7 @@ const MessageIcon: React.FC<IStyledMessageIconProps> = ({ children, validation, 
 const COMPONENT_ID = 'forms.input_message_icon';
 
 interface IStyledMessageIconProps {
-  validation?: VALIDATION;
+  validation?: Validation;
 }
 
 export const StyledMessageIcon = styled(MessageIcon).attrs({

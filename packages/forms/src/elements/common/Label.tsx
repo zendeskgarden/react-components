@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../../utils/useFieldContext';
@@ -21,11 +21,7 @@ import {
   StyledToggleLabel,
   StyledToggleSvg
 } from '../../styled';
-
-export interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
-  /** Applies regular (non-bold) font weight */
-  isRegular?: boolean;
-}
+import { ILabelProps } from '../../types';
 
 /**
  * @extends LabelHTMLAttributes<HTMLLabelElement>
