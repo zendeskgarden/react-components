@@ -42,6 +42,8 @@ export type { IIconProps } from './elements/faux-input/FauxInput';
 export { MediaInput } from './elements/MediaInput';
 
 /** types */
+export { VALIDATION } from './types';
+
 export type {
   IFieldsetProps,
   ILabelProps,

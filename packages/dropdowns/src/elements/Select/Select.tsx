@@ -8,6 +8,7 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { composeEventHandlers, KEY_CODES } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import { VALIDATION } from '@zendeskgarden/react-forms';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import mergeRefs from 'react-merge-refs';
@@ -253,5 +254,6 @@ Select.propTypes = {
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
   focusInset: PropTypes.bool,
-  validation: PropTypes.oneOf(['success', 'warning', 'error'])
+  validation: PropTypes.oneOf(VALIDATION),
+  start: PropTypes.any
 };

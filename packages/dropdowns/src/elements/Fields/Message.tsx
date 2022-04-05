@@ -7,8 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IMessageProps, Message as FormMessage } from '@zendeskgarden/react-forms';
-import { VALIDATION } from '../../types';
+import { IMessageProps, Message as FormMessage, VALIDATION } from '@zendeskgarden/react-forms';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

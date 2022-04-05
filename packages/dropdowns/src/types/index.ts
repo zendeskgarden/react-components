@@ -8,6 +8,7 @@
 import { HTMLAttributes, LiHTMLAttributes } from 'react';
 import { ControllerStateAndHelpers, StateChangeOptions } from 'downshift';
 import { Modifiers } from 'popper.js';
+import { IFauxInputProps } from '@zendeskgarden/react-forms';
 
 const SHARED_PLACEMENT = [
   'auto',
@@ -39,13 +40,9 @@ export const POPPER_PLACEMENT = [
   'left-end'
 ] as const;
 
-export const VALIDATION = ['success', 'warning', 'error'] as const;
-
 export type GardenPlacement = typeof PLACEMENT[number];
 
 export type PopperPlacement = typeof POPPER_PLACEMENT[number];
-
-type Validation = typeof VALIDATION[number];
 
 export interface IDropdownProps {
   /** Opens the dropdown */
@@ -94,17 +91,8 @@ export interface ITriggerProps extends HTMLAttributes<HTMLElement> {
   refKey?: string;
 }
 
-export interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Removes borders and padding */
-  isBare?: boolean;
-  /** Indicates that the element is not interactive */
-  disabled?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Defines the element's validation state */
-  validation?: Validation;
+export interface ISelectProps
+  extends Omit<IFauxInputProps, 'isFocused' | 'isHovered' | 'readOnly'> {
   /** Defines the icon rendered before the element's content */
   start?: any;
 }

@@ -9,9 +9,9 @@ import React, { forwardRef, KeyboardEvent, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import { MediaInput } from '@zendeskgarden/react-forms';
+import { MediaInput, VALIDATION } from '@zendeskgarden/react-forms';
 import mergeRefs from 'react-merge-refs';
-import { IComboboxProps, VALIDATION } from '../../types';
+import { IComboboxProps } from '../../types';
 import useDropdownContext from '../../utils/useDropdownContext';
 
 /**
