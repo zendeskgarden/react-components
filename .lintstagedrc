@@ -1,7 +1,7 @@
 {
   "*.{js,ts,tsx}": [
     "stylelint",
-    "eslint --max-warnings 0 --ignore-pattern !.storybook",
+    "eslint --max-warnings 0",
     "jest --config=utils/test/jest.config.js --bail --findRelatedTests",
     "prettier --write"
   ],
