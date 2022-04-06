@@ -17,13 +17,9 @@ export const SIZE = ['small', 'medium', 'large'] as const;
 
 export const SORT = ['asc', 'desc'];
 
-type Size = typeof SIZE[number];
-
-type Sort = typeof SORT[number];
-
 export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
   /** Sets the table size */
-  size?: Size;
+  size?: typeof SIZE[number];
   /** Removes interactive styling from table rows */
   isReadOnly?: boolean;
 }
@@ -59,7 +55,7 @@ export interface IHeaderCellProps
 
 export interface ISortableCellProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Sets the sort order */
-  sort?: Sort;
+  sort?: typeof SORT[number];
   /** Sets the width of the cell */
   width?: ICellProps['width'];
   /** Passes props to the cell */
