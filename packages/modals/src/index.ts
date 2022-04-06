@@ -17,6 +17,8 @@ export { TooltipModal } from './elements/TooltipModal/TooltipModal';
 
 export { DrawerModal } from './elements/DrawerModal/DrawerModal';
 
+export { PLACEMENT } from './types';
+
 export type {
   IModalProps,
   IDrawerModalProps,

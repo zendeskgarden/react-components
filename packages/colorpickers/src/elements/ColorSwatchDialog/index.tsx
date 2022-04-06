@@ -16,6 +16,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '@zendeskgarden/react-buttons';
+import { PLACEMENT } from '@zendeskgarden/react-modals';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { ColorSwatch } from '../ColorSwatch';
@@ -214,25 +215,17 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
 );
 
 ColorSwatchDialog.propTypes = {
-  placement: PropTypes.oneOf([
-    'auto',
-    'top',
-    'top-start',
-    'top-end',
-    'end',
-    'end-top',
-    'end-bottom',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'start',
-    'start-top',
-    'start-bottom'
-  ]),
-  onChange: PropTypes.func,
+  ...ColorSwatch.propTypes,
+  placement: PropTypes.oneOf(PLACEMENT),
   onDialogChange: PropTypes.func,
   disabled: PropTypes.bool,
-  buttonProps: PropTypes.object
+  buttonProps: PropTypes.object,
+  popperModifiers: PropTypes.any,
+  zIndex: PropTypes.number,
+  hasArrow: PropTypes.bool,
+  isAnimated: PropTypes.bool,
+  focusInset: PropTypes.bool,
+  isOpen: PropTypes.bool
 };
 
 ColorSwatchDialog.defaultProps = {

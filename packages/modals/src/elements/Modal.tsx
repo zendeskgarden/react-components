@@ -174,8 +174,7 @@ Modal.propTypes = {
   focusOnMount: PropTypes.bool,
   restoreFocus: PropTypes.bool,
   onClose: PropTypes.func,
-  appendToNode: PropTypes.any,
-  id: PropTypes.string
+  appendToNode: PropTypes.any
 };
 
 Modal.defaultProps = {

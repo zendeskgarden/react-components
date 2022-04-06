@@ -145,8 +145,7 @@ TooltipModalComponent.propTypes = {
   onClose: PropTypes.func,
   backdropProps: PropTypes.any,
   focusOnMount: PropTypes.bool,
-  restoreFocus: PropTypes.bool,
-  id: PropTypes.string
+  restoreFocus: PropTypes.bool
 };
 
 /**

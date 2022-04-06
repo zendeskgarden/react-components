@@ -16,6 +16,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '@zendeskgarden/react-buttons';
+import { PLACEMENT } from '@zendeskgarden/react-modals';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { Colorpicker } from '../Colorpicker';
@@ -147,29 +148,19 @@ export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogPr
 );
 
 ColorpickerDialog.propTypes = {
-  placement: PropTypes.oneOf([
-    'auto',
-    'top',
-    'top-start',
-    'top-end',
-    'end',
-    'end-top',
-    'end-bottom',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'start',
-    'start-top',
-    'start-bottom'
-  ]),
+  ...Colorpicker.propTypes,
+  placement: PropTypes.oneOf(PLACEMENT),
   onClose: PropTypes.func,
-  onChange: PropTypes.func,
   onDialogChange: PropTypes.func,
   disabled: PropTypes.bool,
   labels: PropTypes.object,
-  color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
-  defaultColor: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
-  buttonProps: PropTypes.object
+  buttonProps: PropTypes.object,
+  popperModifiers: PropTypes.any,
+  zIndex: PropTypes.number,
+  hasArrow: PropTypes.bool,
+  isAnimated: PropTypes.bool,
+  isOpen: PropTypes.bool,
+  focusInset: PropTypes.bool
 };
 
 ColorpickerDialog.defaultProps = {
