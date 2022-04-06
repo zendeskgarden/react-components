@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { SIZE } from './StyledTable';
 import { ThemeProps, DefaultTheme } from 'styled-components';
+import { ITableProps } from '../types';
 
-export const getRowHeight = (props: { size: SIZE } & ThemeProps<DefaultTheme>) => {
+export const getRowHeight = (props: { size?: ITableProps['size'] } & ThemeProps<DefaultTheme>) => {
   if (props.size === 'large') {
     return `${props.theme.space.base * 16}px`;
   } else if (props.size === 'small') {

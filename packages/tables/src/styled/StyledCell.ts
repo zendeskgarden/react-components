@@ -8,17 +8,14 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { SIZE, getLineHeight } from './StyledTable';
+import { ICellProps, ITableProps } from '../types';
+import { getLineHeight } from './StyledTable';
 import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.cell';
 
-export interface IStyledCellProps {
-  isMinimum?: boolean;
-  isTruncated?: boolean;
-  hasOverflow?: boolean;
-  width?: string | number;
-  size: SIZE;
+export interface IStyledCellProps extends ICellProps {
+  size?: ITableProps['size'];
 }
 
 const truncatedStyling = css`

@@ -6,14 +6,9 @@
  */
 
 import React, { useContext } from 'react';
-import { SIZE } from '../styled/StyledTable';
+import { ITableProps } from '../types';
 
-interface ITableContext {
-  size: SIZE;
-  isReadOnly: boolean;
-}
-
-export const TableContext = React.createContext<ITableContext>({
+export const TableContext = React.createContext<ITableProps>({
   size: 'medium',
   isReadOnly: false
 });
