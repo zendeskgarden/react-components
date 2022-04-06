@@ -5,17 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { TableHTMLAttributes, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { StyledTable, SIZE } from '../styled';
+import { ITableProps, SIZE } from '../types';
+import { StyledTable } from '../styled';
 import { TableContext } from '../utils/useTableContext';
-
-export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
-  /** Sets the table size */
-  size?: SIZE;
-  /** Removes interactive styling from table rows */
-  isReadOnly?: boolean;
-}
 
 /**
  * @extends TableHTMLAttributes<HTMLTableElement>
@@ -40,6 +34,6 @@ Table.defaultProps = {
 };
 
 Table.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(SIZE),
   isReadOnly: PropTypes.bool
 };

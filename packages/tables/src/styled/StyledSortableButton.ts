@@ -8,10 +8,9 @@
 import styled from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { ISortableCellProps } from '../types';
 
 const COMPONENT_ID = 'tables.sortable';
-
-export type SORT = 'asc' | 'desc';
 
 const StyledBaseIconWrapper = styled.div`
   display: flex;
@@ -44,8 +43,8 @@ StyledSortableFillIconWrapper.defaultProps = {
 };
 
 interface IStyledSortableButtonProps {
-  sort?: SORT;
-  width?: string | number;
+  sort?: ISortableCellProps['sort'];
+  width?: ISortableCellProps['width'];
 }
 
 /**

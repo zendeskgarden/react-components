@@ -5,22 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, HTMLAttributes, useMemo, forwardRef } from 'react';
+import React, { useState, useMemo, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { IRowProps } from '../types';
 import { StyledRow } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
-
-export interface IRowProps extends HTMLAttributes<HTMLTableRowElement> {
-  /** Applies striped styling */
-  isStriped?: boolean;
-  /** @ignore Applies focus styling */
-  isFocused?: boolean;
-  /** @ignore Applies hover styling */
-  isHovered?: boolean;
-  /** Applies selected styling */
-  isSelected?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLTableRowElement>
