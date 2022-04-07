@@ -5,16 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { InputHTMLAttributes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { IRadioProps } from '../types';
 import useFieldContext from '../utils/useFieldContext';
 import { InputContext } from '../utils/useInputContext';
 import { StyledRadioInput } from '../styled';
 import useFieldsetContext from '../utils/useFieldsetContext';
-
-export interface IRadioProps extends InputHTMLAttributes<HTMLInputElement> {
-  /** Applies compact styling */
-  isCompact?: boolean;
-}
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
@@ -44,3 +41,7 @@ export const Radio = React.forwardRef<HTMLInputElement, IRadioProps>(
 );
 
 Radio.displayName = 'Radio';
+
+Radio.propTypes = {
+  isCompact: PropTypes.bool
+};

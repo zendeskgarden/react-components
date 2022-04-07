@@ -13,14 +13,14 @@ import {
   getLineHeight,
   DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
-import { VALIDATION } from '../../utils/validation';
+import { Validation } from '../../types';
 import { StyledHint } from '../common/StyledHint';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledMessage } from '../common/StyledMessage';
 
 const COMPONENT_ID = 'forms.input';
 
-const isInvalid = (validation?: VALIDATION) => {
+const isInvalid = (validation?: Validation) => {
   return validation === 'warning' || validation === 'error';
 };
 
@@ -197,7 +197,7 @@ export interface IStyledTextInputProps {
   isHovered?: boolean;
   isFocused?: boolean;
   focusInset?: boolean;
-  validation?: VALIDATION;
+  validation?: Validation;
 }
 
 export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props => ({

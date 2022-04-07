@@ -9,7 +9,7 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
 import { Field, MediaInput } from '..';
-import { IMediaInputProps } from './MediaInput';
+import { IMediaInputProps } from '../types';
 
 const Example = (props: IMediaInputProps) => (
   <Field>

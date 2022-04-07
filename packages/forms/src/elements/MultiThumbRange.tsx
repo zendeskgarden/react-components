@@ -10,7 +10,6 @@ import React, {
   useEffect,
   useCallback,
   useRef,
-  HTMLAttributes,
   KeyboardEvent,
   useContext,
   forwardRef
@@ -20,6 +19,7 @@ import { ThemeContext } from 'styled-components';
 import debounce from 'lodash.debounce';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { useDocument } from '@zendeskgarden/react-theming';
+import { IMultiThumbRangeProps } from '../types';
 import {
   StyledSlider,
   StyledSliderTrack,
@@ -27,29 +27,6 @@ import {
   StyledSliderThumb
 } from '../styled';
 import useFieldContext from '../utils/useFieldContext';
-
-export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  /** Sets the minimum permitted value */
-  min?: number;
-  /** Sets the maximum permitted value */
-  max?: number;
-  /** Sets the minimum thumb input value */
-  minValue?: number;
-  /** Sets the maximum thumb input value */
-  maxValue?: number;
-  /** Defines the stepping interval */
-  step?: number;
-  /** Indicates that the element is not interactive */
-  disabled?: boolean;
-  /**
-   * Handles change events
-   *
-   * @param {Object} updatedValues The values that have changed
-   * @param {number} [updatedValues.minValue] The optional minimum value
-   * @param {number} [updatedValues.maxValue] The optional maximum value
-   * */
-  onChange?: (updatedValues: { minValue?: number; maxValue?: number }) => void;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

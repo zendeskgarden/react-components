@@ -5,21 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { SVGAttributes } from 'react';
+import React from 'react';
+import { IFauxInputIconProps } from '../../../types';
 import { StyledTextMediaFigure } from '../../../styled';
 
-export interface IFauxInputStartIconProps extends SVGAttributes<SVGElement> {
-  /** Applies hover styling */
-  isHovered?: boolean;
-  /** Applies focus styling */
-  isFocused?: boolean;
-  /** Applies disabled styling */
-  isDisabled?: boolean;
-  /** Rotates icon 180 degrees */
-  isRotated?: boolean;
-}
-
-const StartIconComponent = (props: IFauxInputStartIconProps) => (
+const StartIconComponent = (props: IFauxInputIconProps) => (
   <StyledTextMediaFigure position="start" {...props} />
 );
 

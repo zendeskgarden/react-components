@@ -5,17 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { LabelHTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { Label as FormLabel } from '@zendeskgarden/react-forms';
+import { ILabelProps, Label as FormLabel } from '@zendeskgarden/react-forms';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
-
-export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
-  /** Applies regular (non-bold) font weight */
-  isRegular?: boolean;
-}
 
 /**
  * @extends LabelHTMLAttributes<HTMLLabelElement>

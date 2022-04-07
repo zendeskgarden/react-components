@@ -5,27 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useRef, LiHTMLAttributes, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import SelectedSvg from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import mergeRefs from 'react-merge-refs';
+import { IItemProps } from '../../../types';
 import { StyledItem, StyledItemIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
 import { ItemContext } from '../../../utils/useItemContext';
-
-export interface IItemProps extends LiHTMLAttributes<HTMLLIElement> {
-  /** Sets the value that is returned upon selection */
-  value?: any;
-  /**
-   * @ignore Sets the wrapping component for the item
-   */
-  component?: any;
-  /** Indicates that the element is not interactive */
-  disabled?: boolean;
-  /** Applies danger styling */
-  isDanger?: boolean;
-}
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>

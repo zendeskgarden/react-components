@@ -7,13 +7,14 @@
 
 import styled from 'styled-components';
 import { DEFAULT_THEME, menuStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { POPPER_PLACEMENT, getMenuPosition } from '../../utils/garden-placements';
+import { PopperPlacement } from '../../types';
+import { getMenuPosition } from '../../utils/garden-placements';
 
 const COMPONENT_ID = 'dropdowns.menu_wrapper';
 
 interface IStyledMenuWrapperProps {
   hasArrow?: boolean;
-  placement?: POPPER_PLACEMENT;
+  placement?: PopperPlacement;
   isHidden?: boolean;
   zIndex?: number;
   isAnimated?: boolean;

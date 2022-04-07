@@ -9,7 +9,7 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledMessageIcon } from './StyledMessageIcon';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-import { VALIDATION } from '../../utils/validation';
+import { VALIDATION } from '../../types';
 
 describe('StyledMessageIcon', () => {
   it('renders the expected element', () => {
@@ -24,7 +24,7 @@ describe('StyledMessageIcon', () => {
 
   describe('Validation', () => {
     it('renders validation styling', () => {
-      (['success', 'warning', 'error'] as VALIDATION[]).forEach(validation => {
+      VALIDATION.forEach(validation => {
         const { container } = render(<StyledMessageIcon validation={validation} />);
 
         expect(container.firstChild!.nodeName).toBe('svg');

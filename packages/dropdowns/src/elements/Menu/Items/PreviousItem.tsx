@@ -8,7 +8,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Item, IItemProps } from './Item';
+import { Item } from './Item';
+import { IItemProps } from '../../../types';
 import { StyledPreviousItem, StyledItemIcon, StyledPreviousIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';

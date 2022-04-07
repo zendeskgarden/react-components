@@ -5,17 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo, forwardRef, FieldsetHTMLAttributes } from 'react';
+import React, { useMemo, forwardRef } from 'react';
+import PropTypes from 'prop-types';
 import { Legend } from './Legend';
+import { IFieldsetProps } from '../../types';
 import { StyledFieldset } from '../../styled';
 import { FieldsetContext } from '../../utils/useFieldsetContext';
-
-export interface IFieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
-  /**
-   * Applies compact styling
-   */
-  isCompact?: boolean;
-}
 
 const FieldsetComponent = forwardRef<HTMLFieldSetElement, IFieldsetProps>((props, ref) => {
   const fieldsetContext = useMemo(
@@ -33,6 +28,10 @@ const FieldsetComponent = forwardRef<HTMLFieldSetElement, IFieldsetProps>((props
 });
 
 FieldsetComponent.displayName = 'Fieldset';
+
+FieldsetComponent.propTypes = {
+  isCompact: PropTypes.bool
+};
 
 /**
  * @extends FieldsetHTMLAttributes<HTMLFieldSetElement>

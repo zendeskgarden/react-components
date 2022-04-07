@@ -5,40 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useRef,
-  useEffect,
-  useState,
-  HTMLAttributes,
-  KeyboardEvent,
-  forwardRef
-} from 'react';
+import React, { useRef, useEffect, useState, KeyboardEvent, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import { VALIDATION } from '@zendeskgarden/react-forms';
 import mergeRefs from 'react-merge-refs';
+import { IAutocompleteProps } from '../../types';
 import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
-import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
-
-export interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Removes borders and padding */
-  isBare?: boolean;
-  /** Indicates that the element is not interactive */
-  disabled?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Defines the element's validation state */
-  validation?: VALIDATION;
-  /** Provides ref access to the underlying input element */
-  inputRef?: React.Ref<HTMLInputElement>;
-  /** Defines the icon rendered in the start position */
-  start?: any;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -170,5 +147,5 @@ Autocomplete.propTypes = {
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
   focusInset: PropTypes.bool,
-  validation: PropTypes.oneOf(['success', 'warning', 'error'])
+  validation: PropTypes.oneOf(VALIDATION)
 };
