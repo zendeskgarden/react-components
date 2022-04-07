@@ -8,19 +8,13 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { em, math, rgba } from 'polished';
 import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { IButtonProps } from '../types';
 import { StyledButtonGroup } from './StyledButtonGroup';
 import { StyledIcon } from './StyledIcon';
-import { HTMLAttributes } from 'react';
 
 const COMPONENT_ID = 'buttons.button';
 
-const SIZE = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large'
-};
-
-const getBorderRadius = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.isLink) {
     return 0;
   } else if (props.isPill) {
@@ -30,14 +24,14 @@ const getBorderRadius = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) =
   return props.theme.borderRadii.md;
 };
 
-const getDisabledBackgroundColor = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const getDisabledBackgroundColor = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   return getColor('neutralHue', 200, props.theme);
 };
 
-export const getHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
-  if (props.size === SIZE.SMALL) {
+export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+  if (props.size === 'small') {
     return `${props.theme.space.base * 8}px`;
-  } else if (props.size === SIZE.LARGE) {
+  } else if (props.size === 'large') {
     return `${props.theme.space.base * 12}px`;
   }
 
@@ -47,9 +41,7 @@ export const getHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
 /**
  * 1. override CSS bedrock
  */
-const colorStyles = (
-  props: IStyledButtonProps & ThemeProps<DefaultTheme> & HTMLAttributes<HTMLButtonElement>
-) => {
+const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
   let hue;
 
@@ -192,7 +184,7 @@ const colorStyles = (
 /**
  * 1. Icon button override.
  */
-const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const isPrimary = props.isPrimary;
   const rtl = props.theme.rtl;
   const lightBorderColor = props.theme.colors.background;
@@ -253,7 +245,7 @@ const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const size = props.size === 'small' ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
 
   return css`
@@ -264,7 +256,7 @@ const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
 
   if (props.isLink) {
@@ -278,13 +270,13 @@ const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
     let padding;
     let fontSize;
 
-    if (props.size === SIZE.SMALL) {
+    if (props.size === 'small') {
       fontSize = props.theme.fontSizes.sm;
       padding = `${props.theme.space.base * 3}px`;
     } else {
       fontSize = props.theme.fontSizes.md;
 
-      if (props.size === SIZE.LARGE) {
+      if (props.size === 'large') {
         padding = `${props.theme.space.base * 5}px`;
       } else {
         padding = `${props.theme.space.base * 4}px`;
@@ -302,29 +294,15 @@ const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   return retVal;
 };
 
-export interface IStyledButtonProps {
-  isBasic?: boolean;
-  isDanger?: boolean;
-  focusInset?: boolean;
-  isLink?: boolean;
-  isNeutral?: boolean;
-  isPrimary?: boolean;
-  isPill?: boolean;
-  isSelected?: boolean;
-  size?: 'small' | 'medium' | 'large';
-  isStretched?: boolean;
-  disabled?: boolean;
-}
-
 /**
  * 1. FF <input type="submit"> fix
  * 2. <a> element reset
  */
-export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
+export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: props.type || 'button'
-}))<IStyledButtonProps>`
+}))<IButtonProps>`
   display: ${props => (props.isLink ? 'inline' : 'inline-flex')};
   align-items: ${props => !props.isLink && 'center'};
   justify-content: ${props => !props.isLink && 'center'};

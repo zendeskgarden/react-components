@@ -7,12 +7,13 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledButton, getHeight, IStyledButtonProps } from './StyledButton';
+import { IButtonProps } from '../types';
+import { StyledButton, getHeight } from './StyledButton';
 import { StyledIcon } from './StyledIcon';
 
 const COMPONENT_ID = 'buttons.icon_button';
 
-const iconColorStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const iconColorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const shade = 600;
   const baseColor = getColor('neutralHue', shade, props.theme);
   const hoverColor = getColor('neutralHue', shade + 100, props.theme);
@@ -33,7 +34,7 @@ const iconColorStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) =
   `;
 };
 
-const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const iconButtonStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const width = getHeight(props);
 
   return css`
@@ -55,7 +56,7 @@ const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
 /**
  * 1. Ease opacity transition between embedded icons (i.e. stroke-fill).
  */
-const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const size = props.theme.iconSizes.md;
 
   return css`
@@ -71,7 +72,7 @@ const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
 export const StyledIconButton = styled(StyledButton as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledButtonProps>`
+})<IButtonProps>`
   ${props => iconButtonStyles(props)};
 
   & ${StyledIcon} {
