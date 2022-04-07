@@ -5,26 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import SortStrokeIcon from '@zendeskgarden/svg-icons/src/12/sort-stroke.svg';
 import SortFillIcon from '@zendeskgarden/svg-icons/src/12/sort-fill.svg';
+import { ISortableCellProps, SORT } from '../types';
 import {
   StyledHeaderCell,
   StyledSortableButton,
   StyledSortableStrokeIconWrapper,
-  StyledSortableFillIconWrapper,
-  SORT
+  StyledSortableFillIconWrapper
 } from '../styled';
-
-export interface ISortableCellProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Sets the sort order */
-  sort?: SORT;
-  /** Sets the width of the cell */
-  width?: string | number;
-  /** Passes props to the cell */
-  cellProps?: any;
-}
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
@@ -60,7 +51,7 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
 SortableCell.displayName = 'SortableCell';
 
 SortableCell.propTypes = {
-  sort: PropTypes.oneOf(['asc', 'desc']),
+  sort: PropTypes.oneOf(SORT),
   cellProps: PropTypes.any,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };

@@ -11,13 +11,12 @@ export { StyledHeaderRow } from './StyledHeaderRow';
 export { StyledHead } from './StyledHead';
 export { StyledCell } from './StyledCell';
 export { StyledGroupRow } from './StyledGroupRow';
-export { StyledTable, SIZE } from './StyledTable';
+export { StyledTable } from './StyledTable';
 export { StyledHeaderCell } from './StyledHeaderCell';
 export {
   StyledSortableButton,
   StyledSortableFillIconWrapper,
-  StyledSortableStrokeIconWrapper,
-  SORT
+  StyledSortableStrokeIconWrapper
 } from './StyledSortableButton';
 export { StyledOverflowButton, StyledOverflowButtonIconWrapper } from './StyledOverflowButton';
 export { StyledRow } from './StyledRow';

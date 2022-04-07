@@ -7,13 +7,12 @@
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { ITableProps } from '../types';
 
 const COMPONENT_ID = 'tables.table';
 
-export type SIZE = 'small' | 'medium' | 'large';
-
 interface IStyledTableProps {
-  size?: SIZE;
+  size?: ITableProps['size'];
 }
 
 export const getLineHeight = (props: ThemeProps<DefaultTheme>) => {

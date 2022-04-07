@@ -7,7 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { SIZE } from './StyledTable';
+import { ITableProps } from '../types';
 import { StyledCell } from './StyledCell';
 import { StyledOverflowButton } from './StyledOverflowButton';
 import { getRowHeight } from './style-utils';
@@ -19,8 +19,8 @@ export interface IStyledRowProps {
   isFocused?: boolean;
   isHovered?: boolean;
   isSelected?: boolean;
-  isReadOnly?: boolean;
-  size: SIZE;
+  isReadOnly?: ITableProps['isReadOnly'];
+  size?: ITableProps['size'];
 }
 
 export const StyledBaseRow = styled.tr<IStyledRowProps>`

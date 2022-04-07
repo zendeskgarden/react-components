@@ -8,7 +8,7 @@
 import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { SIZE } from './StyledTable';
+import { ITableProps } from '../types';
 import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.overflow_button';
@@ -17,7 +17,7 @@ interface IStyledOverflowButtonProps {
   isHovered?: boolean;
   isActive?: boolean;
   isFocused?: boolean;
-  size: SIZE;
+  size?: ITableProps['size'];
 }
 
 const OVERFLOW_BUTTON_SIZE = '2em';

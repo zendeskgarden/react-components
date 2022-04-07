@@ -5,24 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { TdHTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledCell } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
-
-export interface ICellProps extends TdHTMLAttributes<HTMLTableCellElement> {
-  /**
-   * Applies minimum fixed width styling (e.g. for cells that contain
-   * checkboxes or icons)
-   */
-  isMinimum?: boolean;
-  /** Truncates long text with an ellipsis */
-  isTruncated?: boolean;
-  /** Applies styling for a cell that contains an overflow menu */
-  hasOverflow?: boolean;
-  /** Adjusts the [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) of the cell */
-  width?: string | number;
-}
+import { ICellProps } from '../types';
 
 /**
  * @extends TdHTMLAttributes<HTMLTableCellElement>

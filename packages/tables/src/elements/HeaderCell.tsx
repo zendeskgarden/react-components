@@ -5,24 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ThHTMLAttributes, forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { forwardRef } from 'react';
+import { IHeaderCellProps } from '../types';
 import { StyledHeaderCell } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
-
-export interface IHeaderCellProps extends ThHTMLAttributes<HTMLTableCellElement> {
-  /**
-   * Applies minimum fixed width styling (e.g. for cells that contain
-   * checkboxes or icons)
-   */
-  isMinimum?: boolean;
-  /** Truncates long text with an ellipsis */
-  isTruncated?: boolean;
-  /** Applies styling for a cell that contains an overflow menu */
-  hasOverflow?: boolean;
-  /** Adjusts the [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) of the cell */
-  width?: string | number;
-}
+import { Cell } from './Cell';
 
 /**
  * @extends ThHTMLAttributes<HTMLTableCellElement>
@@ -35,9 +22,4 @@ export const HeaderCell = forwardRef<HTMLTableCellElement, IHeaderCellProps>((pr
 
 HeaderCell.displayName = 'HeaderCell';
 
-HeaderCell.propTypes = {
-  isMinimum: PropTypes.bool,
-  isTruncated: PropTypes.bool,
-  hasOverflow: PropTypes.bool,
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+HeaderCell.propTypes = Cell.propTypes;
