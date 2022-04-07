@@ -36,7 +36,7 @@
     "@types/react-beautiful-dnd": "13.1.2",
     "@types/react-window": "1.8.5",
     "@zendeskgarden/react-theming": "^8.49.2",
-    "@zendeskgarden/svg-icons": "6.30.2",
+    "@zendeskgarden/svg-icons": "6.31.1",
     "react-beautiful-dnd": "13.1.0",
     "react-window": "1.8.6"
   },

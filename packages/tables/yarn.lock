@@ -83,14 +83,6 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-utilities@^0.6.0":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.6.3.tgz#169adf59e578111d00c94e7c0e87d18c022fe069"
-  integrity sha512-n+vM3OUsST8EfDyrjoRFhAXROaRvkJFNCZPrWIi3ywoI+IAawh+5uFIK60kAtp3tvIOWyZrUxYJIMQIeQLp8lQ==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@reach/auto-id" "^0.16.0"
-
 "@zendeskgarden/container-utilities@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.7.0.tgz#c9c6952a8724debd9120d646db3676c8bb894f72"
@@ -99,20 +91,20 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/react-theming@^8.47.1":
-  version "8.47.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.47.1.tgz#72978257714946809a689a21a9f4f837135035e7"
-  integrity sha512-u9H6/RGualyIIKlWc3xEfOBFJIsH1xKd/k5TEzyGBC2BfS8RLIhXFWPZW1z+B0IoPned7bS5Akqp1UUSiblvvw==
+"@zendeskgarden/react-theming@^8.49.2":
+  version "8.49.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.49.2.tgz#096585e63eab3c53b5b856a88829876f295706d6"
+  integrity sha512-VE1zgK0d+P/yTUNA43pB314p7yRkh2wtexF1gPgI+yjNdPo32QDJHrs7tBsU0TTArEy/s98GSQjH4KjYa/X4kg==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
-    "@zendeskgarden/container-utilities" "^0.6.0"
+    "@zendeskgarden/container-utilities" "^0.7.0"
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/svg-icons@6.30.2":
-  version "6.30.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.30.2.tgz#4426d76068c6fd8262cfbd0baf721431fff00df4"
-  integrity sha512-Sw0FkrYce8AkROM6gb3oDUDh2CjCA3Fj1/K9GUDEenNDv+w1h6CfSanrbFkTRz2uSHg7CIAgbl/LY873fz8mAg==
+"@zendeskgarden/svg-icons@6.31.1":
+  version "6.31.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.31.1.tgz#38f4d1b82cdfac03aff08a81831dc4e5e13b38dd"
+  integrity sha512-ntA4DL897mmVcVHISyPy93LzdLpdBlUhORx5XRTQOqwGh3mDoYVIAE+d+r/j1pnp+7uRgrxfc7jcYOnVImQHvw==
 
 css-box-model@^1.2.0:
   version "1.2.1"
