@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { IMessageProps, VALIDATION } from '../../types';
 import useFieldContext from '../../utils/useFieldContext';
 import useInputContext from '../../utils/useInputContext';
 import {
@@ -16,12 +17,6 @@ import {
   StyledToggleMessage,
   StyledMessageIcon
 } from '../../styled';
-import { VALIDATION } from '../../utils/validation';
-
-export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies validation state styling */
-  validation?: VALIDATION;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -61,5 +56,5 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
 Message.displayName = 'Message';
 
 Message.propTypes = {
-  validation: PropTypes.oneOf(['success', 'warning', 'error'])
+  validation: PropTypes.oneOf(VALIDATION)
 };

@@ -5,18 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { IFileUploadProps } from '../types';
 import { StyledFileUpload } from '../styled';
-
-export interface IFileUploadProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies drag styling */
-  isDragging?: boolean;
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Indicates that the element is not interactive */
-  disabled?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

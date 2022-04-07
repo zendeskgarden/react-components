@@ -5,14 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { LiHTMLAttributes } from 'react';
+import React from 'react';
+import { IHeaderItemProps } from '../../../types';
 import { StyledHeaderItem } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
-
-export interface IHeaderItemProps extends LiHTMLAttributes<HTMLLIElement> {
-  /** Applies icon styling */
-  hasIcon?: boolean;
-}
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>

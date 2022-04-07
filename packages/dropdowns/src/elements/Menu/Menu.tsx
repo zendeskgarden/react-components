@@ -5,59 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, HTMLAttributes, useState, useContext, forwardRef } from 'react';
+import React, { useRef, useEffect, useState, useContext, forwardRef } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Popper } from 'react-popper';
-import { Modifiers } from 'popper.js';
+import { IMenuProps, PLACEMENT } from '../../types';
 import { StyledMenu, StyledMenuWrapper } from '../../styled/index';
 import useDropdownContext from '../../utils/useDropdownContext';
-import {
-  GARDEN_PLACEMENT,
-  getPopperPlacement,
-  getRtlPopperPlacement
-} from '../../utils/garden-placements';
+import { getPopperPlacement, getRtlPopperPlacement } from '../../utils/garden-placements';
 import { MenuContext } from '../../utils/useMenuContext';
-import { createPortal } from 'react-dom';
-
-export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
-  /**
-   * Passes configuration options to the [Popper instance](https://popper.js.org/docs/v2/modifiers/)
-   */
-  popperModifiers?: Modifiers;
-  /**
-   * Allows the menu to reposition during browser resize events
-   */
-  eventsEnabled?: boolean;
-  /**
-   * Sets the `z-index` of the menu
-   */
-  zIndex?: number;
-  /**
-   * Adjusts the placement of the menu
-   */
-  placement?: GARDEN_PLACEMENT;
-  /**
-   * Animates the menu
-   */
-  isAnimated?: boolean;
-  /**
-   * Applies compact styling
-   */
-  isCompact?: boolean;
-  /**
-   * Attaches an arrow that points towards the menu trigger
-   */
-  hasArrow?: boolean;
-  /**
-   * Sets the `max-height` of the menu
-   */
-  maxHeight?: string;
-  /**
-   * Appends the menu to the element provided
-   */
-  appendToNode?: HTMLElement;
-}
 
 /**
  * @extends HTMLAttributes<HTMLUListElement>
@@ -196,25 +153,7 @@ Menu.propTypes = {
   eventsEnabled: PropTypes.bool,
   zIndex: PropTypes.number,
   style: PropTypes.object,
-  /**
-   * These placements differ from the default naming of Popper.JS placements to help
-   * assist with RTL layouts.
-   **/
-  placement: PropTypes.oneOf([
-    'auto',
-    'top',
-    'top-start',
-    'top-end',
-    'end',
-    'end-top',
-    'end-bottom',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'start',
-    'start-top',
-    'start-bottom'
-  ]),
+  placement: PropTypes.oneOf(PLACEMENT),
   isAnimated: PropTypes.bool,
   isCompact: PropTypes.bool,
   hasArrow: PropTypes.bool,

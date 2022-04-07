@@ -13,6 +13,7 @@ import {
   getColor,
   getLineHeight
 } from '@zendeskgarden/react-theming';
+import { FileValidation } from '../../types';
 import { StyledFileClose } from './StyledFileClose';
 
 const COMPONENT_ID = 'forms.file';
@@ -81,7 +82,7 @@ const sizeStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
 interface IStyledFileProps {
   isCompact?: boolean;
   focusInset?: boolean;
-  validation?: 'success' | 'error';
+  validation?: FileValidation;
 }
 
 export const StyledFile = styled.div.attrs({

@@ -8,54 +8,13 @@
 import React, { PropsWithChildren, useContext, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import Downshift, { ControllerStateAndHelpers, StateChangeOptions } from 'downshift';
+import Downshift, { ControllerStateAndHelpers } from 'downshift';
 import { Manager } from 'react-popper';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { IDropdownProps } from '../../types';
 import { DropdownContext, DROPDOWN_TYPE } from '../../utils/useDropdownContext';
 
 export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
-
-export interface IDropdownProps {
-  /** Opens the dropdown */
-  isOpen?: boolean;
-  /** Identifies the currently selected item */
-  selectedItem?: any;
-  /** Identifies the currently selected items */
-  selectedItems?: any[];
-  /** Highlights an element at a selected index */
-  highlightedIndex?: number;
-  /** Sets the value of the input element*/
-  inputValue?: string;
-  /**
-   * Handles item selection
-   *
-   * @param {any|null} selectedItem The selected item
-   * @param {Object} stateAndHelpers [Downshift state and helpers](https://github.com/downshift-js/downshift#onselect)
-   * */
-  onSelect?: (selectedItem: any | null, stateAndHelpers: ControllerStateAndHelpers<any>) => void;
-  /**
-   * Handles state change
-   *
-   * @param {Object} options [Downshift internal state changes](https://github.com/downshift-js/downshift#onstatechange)
-   * @param {Object} stateAndHelpers [Downshift state and helpers](https://github.com/downshift-js/downshift#onstatechange)
-   * */
-  onStateChange?: (
-    options: StateChangeOptions<any>,
-    stateAndHelpers: ControllerStateAndHelpers<any>
-  ) => void;
-  /**
-   * Handles input value change
-   *
-   * @param {string} inputValue Value of the input element
-   * @param {Object} stateAndHelpers [Downshift state and helpers](https://github.com/downshift-js/downshift#oninputvaluechange)
-   * */
-  onInputValueChange?: (
-    inputValue: string,
-    stateAndHelpers: ControllerStateAndHelpers<any>
-  ) => void;
-  /** Passes customization props to the [Downshift](https://www.downshift-js.com/) component */
-  downshiftProps?: Record<string, any>;
-}
 
 export const Dropdown = (props: PropsWithChildren<IDropdownProps>) => {
   const {

@@ -5,24 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { InputHTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { IInputProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
 import { useInputGroupContext } from '../utils/useInputGroupContext';
 import { StyledTextInput } from '../styled';
-import { VALIDATION } from '../utils/validation';
-
-export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Removes borders and padding */
-  isBare?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Applies validation state styling */
-  validation?: VALIDATION;
-}
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
@@ -64,7 +53,7 @@ Input.propTypes = {
   isCompact: PropTypes.bool,
   isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
-  validation: PropTypes.oneOf(['success', 'warning', 'error'])
+  validation: PropTypes.oneOf(VALIDATION)
 };
 
 Input.displayName = 'Input';

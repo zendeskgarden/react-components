@@ -5,16 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext, createContext, ChangeEventHandler } from 'react';
+import { useContext, createContext } from 'react';
+import { ITilesProps } from '../types';
 
-interface ITilesContext {
-  value?: string;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
-  name: string;
-  isCentered?: boolean;
-}
-
-export const TilesContext = createContext<ITilesContext | undefined>(undefined);
+export const TilesContext = createContext<
+  Pick<ITilesProps, 'value' | 'onChange' | 'name' | 'isCentered'> | undefined
+>(undefined);
 
 export const useTilesContext = () => {
   return useContext(TilesContext);

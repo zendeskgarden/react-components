@@ -5,32 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  HTMLAttributes,
-  ChangeEventHandler,
-  useCallback,
-  useState,
-  useMemo,
-  forwardRef
-} from 'react';
+import React, { ChangeEventHandler, useCallback, useState, useMemo, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
+import { ITilesProps } from '../../types';
 import { TilesContext } from '../../utils/useTilesContext';
 import { Tile } from './components/Tile';
 import { Description } from './components/Description';
 import { Icon } from './components/Icon';
 import { Label } from './components/Label';
-
-export interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
-  /** Sets the value of the selected radio button */
-  value?: string;
-  /** Handles radio selection */
-  onChange?: ChangeEventHandler<HTMLInputElement>;
-  /** Sets the name used to reference the value of the control */
-  name: string;
-  /** Centers tile content */
-  isCentered?: boolean;
-}
 
 const TilesComponent = forwardRef<HTMLDivElement, ITilesProps>(
   ({ onChange, value: controlledValue, name, isCentered, ...props }, ref) => {

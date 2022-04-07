@@ -8,8 +8,8 @@
 import React, { useState, HTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { IFauxInputProps, VALIDATION } from '../../types';
 import { StyledTextFauxInput } from '../../styled';
-import { VALIDATION } from '../../utils/validation';
 import { StartIcon } from './components/StartIcon';
 import { EndIcon } from './components/EndIcon';
 
@@ -22,25 +22,6 @@ export interface IIconProps extends HTMLAttributes<HTMLElement> {
   isDisabled: boolean;
   isRotated: boolean;
   children: any;
-}
-
-export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Removes borders and padding */
-  isBare?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Indicates that the element is not interactive */
-  disabled?: boolean;
-  /** Applies read-only styling */
-  readOnly?: boolean;
-  /** Applies validation state styling */
-  validation?: VALIDATION;
-  /** Applies focus stying */
-  isFocused?: boolean;
-  /** Applies hover stying */
-  isHovered?: boolean;
 }
 
 const FauxInputComponent = forwardRef<HTMLDivElement, IFauxInputProps>(
@@ -79,7 +60,9 @@ FauxInputComponent.propTypes = {
   focusInset: PropTypes.bool,
   disabled: PropTypes.bool,
   readOnly: PropTypes.bool,
-  validation: PropTypes.oneOf(['success', 'warning', 'error'])
+  validation: PropTypes.oneOf(VALIDATION),
+  isFocused: PropTypes.bool,
+  isHovered: PropTypes.bool
 };
 
 /**

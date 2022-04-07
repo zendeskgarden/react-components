@@ -13,12 +13,12 @@ import {
   getColor,
   getLineHeight
 } from '@zendeskgarden/react-theming';
-import { VALIDATION } from '../../utils/validation';
+import { Validation } from '../../types';
 import { StyledMessageIcon } from './StyledMessageIcon';
 import { StyledLabel } from './StyledLabel';
 
 export interface IStyledMessageProps {
-  validation?: VALIDATION;
+  validation?: Validation;
 }
 
 const validationStyles = (props: IStyledMessageProps & ThemeProps<DefaultTheme>) => {

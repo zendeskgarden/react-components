@@ -5,21 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { InputHTMLAttributes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ICheckboxProps } from '../types';
 import useFieldContext from '../utils/useFieldContext';
 import { InputContext } from '../utils/useInputContext';
 import { StyledCheckInput } from '../styled';
 import useFieldsetContext from '../utils/useFieldsetContext';
-
-export interface ICheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
-  /**
-   * Sets the checkbox state to
-   * [indeterminate](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)
-   */
-  indeterminate?: boolean;
-  /** Applies compact styling */
-  isCompact?: boolean;
-}
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
@@ -65,3 +57,8 @@ export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
 );
 
 Checkbox.displayName = 'Checkbox';
+
+Checkbox.propTypes = {
+  isCompact: PropTypes.bool,
+  indeterminate: PropTypes.bool
+};

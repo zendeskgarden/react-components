@@ -7,7 +7,8 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, arrowStyles } from '@zendeskgarden/react-theming';
-import { POPPER_PLACEMENT, getArrowPosition } from '../../utils/garden-placements';
+import { PopperPlacement } from '../../types';
+import { getArrowPosition } from '../../utils/garden-placements';
 
 const COMPONENT_ID = 'dropdowns.menu';
 
@@ -15,7 +16,7 @@ interface IStyledMenuProps {
   isCompact?: boolean;
   isAnimated?: boolean;
   hasArrow?: boolean;
-  placement?: POPPER_PLACEMENT;
+  placement?: PopperPlacement;
   maxHeight?: string;
 }
 

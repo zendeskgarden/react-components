@@ -5,17 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState, useCallback, HTMLAttributes } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { StyledInput } from '../../styled';
 import useDropdownContext from '../../utils/useDropdownContext';
-
-export interface ITriggerProps extends HTMLAttributes<HTMLElement> {
-  /** Passes the ref callback to components with non-standard ref props (i.e. `innerRef`) */
-  refKey?: string;
-}
+import { ITriggerProps } from '../../types';
 
 /**
  * @extends HTMLAttributes<HTMLElement>

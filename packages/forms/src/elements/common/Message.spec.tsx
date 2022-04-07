@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { Field, Checkbox, Radio, Toggle, Message } from '../..';
-import { VALIDATION } from '../../utils/validation';
+import { VALIDATION } from '../../types';
 
 describe('Message', () => {
   it('passes ref to underlying DOM element', () => {
@@ -73,7 +73,7 @@ describe('Message', () => {
 
   describe('Validation', () => {
     it('renders expected component for each validation type', () => {
-      (['success', 'warning', 'error'] as VALIDATION[]).forEach(validation => {
+      VALIDATION.forEach(validation => {
         const text = `This is ${validation} text`;
         const { getByText } = render(
           <Field>

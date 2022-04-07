@@ -8,7 +8,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AddSvg from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
-import { Item, IItemProps } from './Item';
+import { Item } from './Item';
+import { IItemProps } from '../../../types';
 import { StyledAddItem, StyledItemIcon } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
