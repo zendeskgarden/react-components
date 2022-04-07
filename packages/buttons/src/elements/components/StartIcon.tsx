@@ -5,17 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { SVGAttributes } from 'react';
+import React from 'react';
+import { IButtonIconProps } from '../../types';
 import { StyledIcon } from '../../styled';
 
-export interface IButtonStartIconProps extends SVGAttributes<SVGElement> {
-  /** Rotates icon 180 degrees */
-  isRotated?: boolean;
-}
-
-const StartIconComponent = (props: IButtonStartIconProps) => (
-  <StyledIcon position="start" {...props} />
-);
+const StartIconComponent = (props: IButtonIconProps) => <StyledIcon position="start" {...props} />;
 
 StartIconComponent.displayName = 'Button.StartIcon';
 

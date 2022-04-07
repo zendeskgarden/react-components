@@ -7,15 +7,8 @@
 
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { Button, IButtonProps } from './Button';
-
-export interface IToggleButtonProps extends IButtonProps {
-  /**
-   * Determines if the button is pressed. Use "mixed" to indicate that
-   * the toggle controls other elements which do not share the same value.
-   */
-  isPressed?: boolean | 'mixed';
-}
+import { IToggleButtonProps } from '../types';
+import { Button } from './Button';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>

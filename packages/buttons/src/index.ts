@@ -6,21 +6,23 @@
  */
 
 export { Button } from './elements/Button';
-export type { IButtonProps, IIconProps } from './elements/Button';
-export type { IButtonEndIconProps } from './elements/components/EndIcon';
-export type { IButtonStartIconProps } from './elements/components/StartIcon';
+export type { IIconProps } from './elements/Button';
 export { Anchor } from './elements/Anchor';
-export type { IAnchorProps } from './elements/Anchor';
 export { ButtonGroup } from './elements/ButtonGroup';
-export type { IButtonGroupProps } from './elements/ButtonGroup';
 export { ChevronButton } from './elements/ChevronButton';
 export { IconButton } from './elements/IconButton';
-export type {
-  IIconButtonProps,
-  IIconButtonProps as IChevronButtonProps
-} from './elements/IconButton';
 export { SplitButton } from './elements/SplitButton';
 export { ToggleButton } from './elements/ToggleButton';
-export type { IToggleButtonProps } from './elements/ToggleButton';
 export { ToggleIconButton } from './elements/ToggleIconButton';
-export type { IToggleIconButtonProps } from './elements/ToggleIconButton';
+
+export type {
+  IButtonProps,
+  IButtonIconProps as IButtonEndIconProps,
+  IButtonIconProps as IButtonStartIconProps,
+  IAnchorProps,
+  IIconButtonProps,
+  IIconButtonProps as IChevronButtonProps,
+  IToggleButtonProps,
+  IToggleIconButtonProps,
+  IButtonGroupProps
+} from './types';

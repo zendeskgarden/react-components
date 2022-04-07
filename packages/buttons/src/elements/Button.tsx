@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, forwardRef, SVGAttributes } from 'react';
+import React, { forwardRef, SVGAttributes } from 'react';
 import PropTypes from 'prop-types';
+import { IButtonProps, SIZE } from '../types';
 import { StyledButton } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
@@ -18,29 +19,6 @@ import { EndIcon } from './components/EndIcon';
  */
 export interface IIconProps extends SVGAttributes<SVGSVGElement> {
   isRotated?: boolean;
-}
-
-export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Applies danger styling */
-  isDanger?: boolean;
-  /** Specifies the buton size */
-  size?: 'small' | 'medium' | 'large';
-  /** Stretches the button fill to its container width */
-  isStretched?: boolean;
-  /** Applies neutral button styling */
-  isNeutral?: boolean;
-  /** Applies primary button styling */
-  isPrimary?: boolean;
-  /** Applies basic button styling */
-  isBasic?: boolean;
-  /** Applies link (anchor) button styling */
-  isLink?: boolean;
-  /** Applies pill button styling */
-  isPill?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** @ignore prop used by `ButtonGroup` */
-  isSelected?: boolean;
 }
 
 const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
@@ -80,7 +58,7 @@ ButtonComponent.propTypes = {
   isLink: PropTypes.bool,
   isStretched: PropTypes.bool,
   isSelected: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(SIZE)
 };
 
 ButtonComponent.defaultProps = {
