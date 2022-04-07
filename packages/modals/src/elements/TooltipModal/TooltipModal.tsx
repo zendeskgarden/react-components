@@ -5,79 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useState,
-  useContext,
-  useMemo,
-  useEffect,
-  useRef,
-  HTMLAttributes,
-  KeyboardEvent,
-  MouseEvent
-} from 'react';
+import React, { useState, useContext, useMemo, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import { usePopper, Modifier } from 'react-popper';
+import { usePopper } from 'react-popper';
 import { CSSTransition } from 'react-transition-group';
 import { useModal } from '@zendeskgarden/container-modal';
 import mergeRefs from 'react-merge-refs';
-import {
-  GARDEN_PLACEMENT,
-  getRtlPopperPlacement,
-  getPopperPlacement
-} from '../../utils/gardenPlacements';
+import { getRtlPopperPlacement, getPopperPlacement } from '../../utils/gardenPlacements';
 import { TooltipModalContext } from '../../utils/useTooltipModalContext';
 import { StyledTooltipWrapper, StyledTooltipModal, StyledTooltipModalBackdrop } from '../../styled';
+import { ITooltipModalProps } from '../../types';
 import { Title } from './Title';
 import { Body } from './Body';
 import { Close } from './Close';
 import { Footer } from './Footer';
 import { FooterItem } from './FooterItem';
-
-export interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * Positions the modal relative to the provided `HTMLElement`
-   */
-  referenceElement?: HTMLElement | null;
-  /**
-   * Modifies [Popper instance](https://popper.js.org/docs/v2/modifiers/) to customize positioning logic
-   */
-  popperModifiers?: Partial<Modifier<any, any>>[];
-  /**
-   * Adjusts the placement of the tooltip
-   **/
-  placement?: GARDEN_PLACEMENT;
-  /**
-   * Adds an arrow to the tooltop
-   */
-  hasArrow?: boolean;
-  /**
-   * Animates the tooltop
-   */
-  isAnimated?: boolean;
-  /**
-   * Sets the `z-index` of the tooltip
-   */
-  zIndex?: number;
-  /**
-   * Handles close actions. Can be triggered from the backdrop and from the close icon.
-   *
-   * @param {Object} event The DOM event that triggered the close action
-   */
-  onClose?: (event: KeyboardEvent | MouseEvent) => void;
-  /**
-   * Passes HTML attributes to the backdrop element
-   */
-  backdropProps?: any;
-  /**
-   * Directs keyboard focus to the modal on mount
-   */
-  focusOnMount?: boolean;
-  /**
-   * Returns keyboard focus to the element that triggered the modal
-   */
-  restoreFocus?: boolean;
-}
 
 const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProps>(
   (
@@ -202,8 +145,7 @@ TooltipModalComponent.propTypes = {
   onClose: PropTypes.func,
   backdropProps: PropTypes.any,
   focusOnMount: PropTypes.bool,
-  restoreFocus: PropTypes.bool,
-  id: PropTypes.string
+  restoreFocus: PropTypes.bool
 };
 
 /**

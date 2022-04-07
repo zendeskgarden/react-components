@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IHSVColor } from '../utils/types';
+import { IHSVColor } from '../types';
 
 export function limit(value: number, max: number, min = 0) {
   if (value < min) {
@@ -63,19 +63,12 @@ export function getNextHsv(
   };
 }
 
-type GET_THUMB_POSITION = (
+export const getThumbPosition = (
   x: number,
   y: number,
   rtl: boolean,
   container: React.RefObject<HTMLDivElement>
-) => { topFromMouse: number; leftFromMouse: number };
-
-export const getThumbPosition: GET_THUMB_POSITION = (
-  x: number,
-  y: number,
-  rtl: boolean,
-  container: React.RefObject<HTMLDivElement>
-) => {
+): { topFromMouse: number; leftFromMouse: number } => {
   if (container.current) {
     const { saturation, bright } = getSaturationLightness(container.current, x, y, rtl);
     const topFromMouse = (1 - bright) * 100;

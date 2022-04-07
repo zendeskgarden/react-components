@@ -12,53 +12,21 @@ import React, {
   Children,
   cloneElement,
   forwardRef,
-  ReactElement,
-  HTMLAttributes
+  ReactElement
 } from 'react';
 import PropTypes from 'prop-types';
-import { Modifier } from 'react-popper';
 import { Button } from '@zendeskgarden/react-buttons';
-import { GARDEN_PLACEMENT } from '@zendeskgarden/react-modals';
+import { PLACEMENT } from '@zendeskgarden/react-modals';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { ColorSwatch, IColorSwatchProps } from '../ColorSwatch';
+import { ColorSwatch } from '../ColorSwatch';
 import {
   StyledButton,
   StyledButtonPreview,
   StyledTooltipModal,
   StyledTooltipBody
 } from '../../styled';
-
-interface IDialogChanges {
-  isOpen?: boolean;
-}
-
-export interface IColorSwatchDialogProps extends IColorSwatchProps {
-  /** Adjusts the placement of the color dialog */
-  placement?: GARDEN_PLACEMENT;
-  /** Disables the color dialog button */
-  disabled?: boolean;
-  /** Modifies [Popper instance](https://popper.js.org/docs/v2/modifiers/) to customize positioning logic */
-  popperModifiers?: Partial<Modifier<any, any>>[];
-  /** Sets the `z-index` of the color dialog */
-  zIndex?: number;
-  /** Adds an arrow to the color dialog */
-  hasArrow?: boolean;
-  /** Animates the color dialog */
-  isAnimated?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Passes HTML attributes to the color dialog button element */
-  buttonProps?: HTMLAttributes<HTMLButtonElement>;
-  /** Opens the dialog in a controlled color swatch dialog */
-  isOpen?: boolean;
-  /**
-   * Handles dialog changes
-   *
-   * @param {Object} changes The changed dialog state
-   */
-  onDialogChange?: (changes: IDialogChanges) => void;
-}
+import { IColorSwatchDialogProps } from '../../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -247,25 +215,17 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
 );
 
 ColorSwatchDialog.propTypes = {
-  placement: PropTypes.oneOf([
-    'auto',
-    'top',
-    'top-start',
-    'top-end',
-    'end',
-    'end-top',
-    'end-bottom',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'start',
-    'start-top',
-    'start-bottom'
-  ]),
-  onChange: PropTypes.func,
+  ...ColorSwatch.propTypes,
+  placement: PropTypes.oneOf(PLACEMENT),
   onDialogChange: PropTypes.func,
   disabled: PropTypes.bool,
-  buttonProps: PropTypes.object
+  buttonProps: PropTypes.object,
+  popperModifiers: PropTypes.any,
+  zIndex: PropTypes.number,
+  hasArrow: PropTypes.bool,
+  isAnimated: PropTypes.bool,
+  focusInset: PropTypes.bool,
+  isOpen: PropTypes.bool
 };
 
 ColorSwatchDialog.defaultProps = {

@@ -5,16 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { useModalContext } from '../utils/useModalContext';
 import { StyledDangerIcon, StyledHeader } from '../styled';
-
-export interface IHeaderProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * Applies danger styling
-   */
-  isDanger?: boolean;
-}
+import { IHeaderProps } from '../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

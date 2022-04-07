@@ -9,17 +9,15 @@ import styled from 'styled-components';
 import { Placement } from '@popperjs/core';
 import { arrowStyles, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { getArrowPosition } from '../utils/gardenPlacements';
+import { TransitionStatus } from 'react-transition-group';
+import { ITooltipModalProps } from '../types';
 
 const COMPONENT_ID = 'modals.tooltip_modal';
 
-export interface IStyledTooltipModalProps {
-  hasArrow?: boolean;
-  /**
-   * All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements)
-   */
+export interface IStyledTooltipModalProps
+  extends Pick<ITooltipModalProps, 'hasArrow' | 'isAnimated'> {
   placement: Placement;
-  isAnimated?: boolean;
-  transitionState?: string;
+  transitionState?: TransitionStatus;
 }
 
 export const StyledTooltipModal = styled.div.attrs<IStyledTooltipModalProps>(props => ({

@@ -8,10 +8,11 @@
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import menuStyles, { MENU_POSITION } from './menuStyles';
+import menuStyles from './menuStyles';
+import { MenuPosition, MENU_POSITION } from '../types';
 
 interface IStyledMenuProps extends ThemeProps<DefaultTheme> {
-  menuPosition?: MENU_POSITION;
+  menuPosition?: MenuPosition;
   menuHidden?: boolean;
   menuMargin?: string;
   menuZIndex?: number;
@@ -31,7 +32,7 @@ const StyledMenu = styled.div<IStyledMenuProps>`
     })}
 `;
 
-const getMarginProperty = (position: MENU_POSITION) => {
+const getMarginProperty = (position: MenuPosition) => {
   let retVal;
 
   if (position === 'top') {
@@ -75,9 +76,7 @@ describe('menuStyles', () => {
 
   describe('position', () => {
     it('renders with the expected positions', () => {
-      const POSITION: MENU_POSITION[] = ['top', 'right', 'bottom', 'left'];
-
-      POSITION.forEach(position => {
+      MENU_POSITION.forEach(position => {
         const { container } = render(
           <StyledMenu menuPosition={position} menuMargin="0" menuAnimationModifier=".animate" />
         );

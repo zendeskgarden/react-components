@@ -8,12 +8,12 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
-
-import { Modal, IModalProps } from './Modal';
+import { Modal } from './Modal';
 import { Body } from './Body';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { Close } from './Close';
+import { IModalProps } from '../types';
 
 describe('Modal', () => {
   const MODAL_ID = 'TEST_ID';

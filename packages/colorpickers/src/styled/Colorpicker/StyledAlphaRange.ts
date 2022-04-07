@@ -9,7 +9,7 @@ import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { getTrackHeight, getTrackMargin, StyledRange } from '../common/StyledRange';
 import { checkeredBackground } from '../common/checkeredBackground';
-import { IRGBColor } from '../../utils/types';
+import { IRGBColor } from '../../types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
 
