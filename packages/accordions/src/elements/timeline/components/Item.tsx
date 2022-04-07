@@ -5,24 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useMemo,
-  forwardRef,
-  Children,
-  ReactNode,
-  ReactElement,
-  LiHTMLAttributes
-} from 'react';
+import React, { useMemo, forwardRef, Children, ReactElement } from 'react';
 import { OppositeContent } from './OppositeContent';
 import { StyledTimelineItem } from '../../../styled';
 import { TimelineItemContext, useTimelineContext } from '../../../utils';
-
-export interface ITimelineItemProps extends LiHTMLAttributes<HTMLLIElement> {
-  /** Replaces the dot with an icon */
-  icon?: ReactNode;
-  /** Provides surface color for an icon placed on a non-white background */
-  surfaceColor?: string;
-}
+import { ITimelineItemProps } from 'packages/accordions/src/types';
 
 /**
  * @deprecated use ITimelineItemProps instead

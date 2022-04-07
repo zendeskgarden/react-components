@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-export interface IStyledPanel {
+interface IStyledPanel {
   isBare?: boolean;
   isCompact?: boolean;
   isExpanded?: boolean;

@@ -14,7 +14,7 @@ import {
 
 const COMPONENT_ID = 'accordions.step_inner_content';
 
-export interface IStyledInnerContent {
+interface IStyledInnerContent {
   isActive?: boolean;
 }
 

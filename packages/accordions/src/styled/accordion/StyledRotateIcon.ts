@@ -11,7 +11,7 @@ import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden
 
 const COMPONENT_ID = 'accordions.rotate_icon';
 
-export interface IStyledRotateIcon {
+interface IStyledRotateIcon {
   isCompact?: boolean;
 }
 

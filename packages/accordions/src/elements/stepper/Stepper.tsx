@@ -5,19 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, forwardRef, OlHTMLAttributes, useMemo } from 'react';
+import React, { useRef, useEffect, forwardRef, useMemo } from 'react';
+import { IStepperProps } from '../../types';
 import { StyledStepper } from '../../styled';
 import { StepperContext } from '../../utils';
 import { Step } from './components/Step';
 import { Label } from './components/Label';
 import { Content } from './components/Content';
-
-export interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {
-  /** Defines the currently active step, starting at 0 */
-  activeIndex?: number;
-  /** Applies horizontal layout styling */
-  isHorizontal?: boolean;
-}
 
 const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
   ({ isHorizontal, activeIndex, ...props }, ref) => {

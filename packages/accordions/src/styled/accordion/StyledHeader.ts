@@ -10,7 +10,7 @@ import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden
 
 const COMPONENT_ID = 'accordions.header';
 
-export interface IStyledHeader {
+interface IStyledHeader {
   isFocused?: boolean;
   isExpanded?: boolean;
   isCollapsible?: boolean;

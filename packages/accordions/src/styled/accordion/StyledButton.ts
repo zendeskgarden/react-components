@@ -15,7 +15,7 @@ import {
 
 export const COMPONENT_ID = 'accordions.button';
 
-export interface IStyledButton {
+interface IStyledButton {
   isCompact?: boolean;
   isHovered?: boolean;
   isCollapsible?: boolean;

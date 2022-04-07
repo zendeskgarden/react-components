@@ -10,7 +10,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'accordions.stepper';
 
-export interface IStyledStepper {
+interface IStyledStepper {
   isHorizontal?: boolean;
 }
 

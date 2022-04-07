@@ -5,39 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, forwardRef, HTMLAttributes, useMemo } from 'react';
+import React, { useRef, useEffect, forwardRef, useMemo } from 'react';
 import { useAccordion } from '@zendeskgarden/container-accordion';
+import { IAccordionProps } from '../../types';
 import { StyledAccordion } from '../../styled';
 import { AccordionContext } from '../../utils';
 import { Section } from '../accordion/components/Section';
 import { Header } from '../accordion/components/Header';
 import { Label } from '../accordion/components/Label';
 import { Panel } from '../accordion/components/Panel';
-
-export interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  /** Sets `aria-level` heading rank in the document structure */
-  level: number;
-  /** Sets the expanded sections in a controlled accordion */
-  expandedSections?: number[];
-  /** Sets the default expanded sections in an uncontrolled accordion */
-  defaultExpandedSections?: number[];
-  /** Hides section borders */
-  isBare?: boolean;
-  /** Allows uncontrolled accordion sections to collapse */
-  isCollapsible?: boolean;
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Animates section expansion and collapse */
-  isAnimated?: boolean;
-  /** Enables simultaneous expansion of uncontrolled accordion sections */
-  isExpandable?: boolean;
-  /**
-   * Handles accordion expansion changes
-   *
-   * @param {number} index A section index
-   */
-  onChange?: (index: number) => void;
-}
 
 const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
   (

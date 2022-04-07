@@ -12,7 +12,7 @@ import { StyledLine } from './StyledLine';
 
 const COMPONENT_ID = 'accordions.step';
 
-export interface IStyledStep {
+interface IStyledStep {
   isHorizontal?: boolean;
 }
 
