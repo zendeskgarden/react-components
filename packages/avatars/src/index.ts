@@ -6,4 +6,4 @@
  */
 
 export { Avatar } from './elements/Avatar';
-export type { IAvatarProps } from './elements/Avatar';
+export type { IAvatarProps } from './types';

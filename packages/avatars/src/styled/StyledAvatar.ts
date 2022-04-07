@@ -9,6 +9,7 @@ import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-compone
 import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledText } from './StyledText';
+import { IAvatarProps } from '../types';
 
 const COMPONENT_ID = 'avatars.avatar';
 
@@ -218,13 +219,12 @@ const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export interface IStyledAvatarProps {
-  backgroundColor?: string;
-  foregroundColor?: string;
-  surfaceColor?: string;
-  isSystem?: boolean;
-  size?: 'extraextrasmall' | 'extrasmall' | 'small' | 'medium' | 'large';
-  status?: 'available' | 'active' | 'away';
+export interface IStyledAvatarProps
+  extends Pick<
+    IAvatarProps,
+    'backgroundColor' | 'foregroundColor' | 'surfaceColor' | 'isSystem' | 'size'
+  > {
+  status?: IAvatarProps['status'] | 'active';
 }
 
 /**
