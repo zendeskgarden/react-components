@@ -8,7 +8,12 @@
 import React, { useContext } from 'react';
 import { ITableProps } from '../types';
 
-export const TableContext = React.createContext<ITableProps>({
+interface ITableContext {
+  size: NonNullable<ITableProps['size']>;
+  isReadOnly: NonNullable<ITableProps['isReadOnly']>;
+}
+
+export const TableContext = React.createContext<ITableContext>({
   size: 'medium',
   isReadOnly: false
 });

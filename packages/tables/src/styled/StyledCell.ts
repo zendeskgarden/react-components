@@ -14,7 +14,8 @@ import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.cell';
 
-export interface IStyledCellProps extends ICellProps {
+export interface IStyledCellProps
+  extends Pick<ICellProps, 'isMinimum' | 'isTruncated' | 'hasOverflow' | 'width'> {
   size?: ITableProps['size'];
 }
 
