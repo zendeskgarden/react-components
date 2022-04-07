@@ -14,7 +14,7 @@ import {
 
 const COMPONENT_ID = 'accordions.step_inner_panel';
 
-export interface IStyledInnerPanel {
+interface IStyledInnerPanel {
   isExpanded?: boolean;
   isAnimated?: boolean;
 }
