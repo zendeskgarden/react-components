@@ -5,13 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Stepper } from './elements/stepper/Stepper';
-export type { IStepperProps } from './elements/stepper/Stepper';
-export type { IStepperLabelProps } from './elements/stepper/components/Label';
-
 export { Accordion } from './elements/accordion/Accordion';
-export type { IAccordionProps } from './elements/accordion/Accordion';
+export { Stepper } from './elements/stepper/Stepper';
 
 export { Timeline } from './elements/timeline/Timeline';
-export type { ITimelineProps } from './elements/timeline/Timeline';
-export type { ITimelineItemProps, IItem } from './elements/timeline/components/Item';
+/** @deprecated */
+export type { IItem } from './elements/timeline/components/Item';
+
+export type {
+  IAccordionProps,
+  IStepperProps,
+  IStepperLabelProps,
+  ITimelineProps,
+  ITimelineItemProps
+} from './types';

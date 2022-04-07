@@ -5,17 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo, forwardRef, OlHTMLAttributes } from 'react';
+import React, { useMemo, forwardRef } from 'react';
+import { ITimelineProps } from '../../types';
 import { TimelineContext } from '../../utils';
 import { StyledTimeline } from '../../styled';
 import { Item } from '../timeline/components/Item';
 import { Content } from '../timeline/components/Content';
 import { OppositeContent } from '../timeline/components/OppositeContent';
-
-export interface ITimelineProps extends Omit<OlHTMLAttributes<HTMLOListElement>, 'onChange'> {
-  /** Applies alternate styling */
-  isAlternate?: boolean;
-}
 
 const TimelineComponent = forwardRef<HTMLOListElement, ITimelineProps>(
   ({ isAlternate, ...props }, ref) => {

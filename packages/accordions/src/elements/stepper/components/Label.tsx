@@ -5,18 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import CheckCircleStrokeIcon from '@zendeskgarden/svg-icons/src/16/check-sm-stroke.svg';
+import { IStepperLabelProps } from '../../../types';
 import { StyledLabel, StyledLabelText, StyledIcon, StyledIconFlexContainer } from '../../../styled';
 import { useStepContext, useStepperContext } from '../../../utils';
-
-export interface IStepperLabelProps extends HTMLAttributes<HTMLDivElement> {
-  /** Replaces the label number with an icon */
-  icon?: React.ReactNode;
-  /** Hides the label text */
-  isHidden?: boolean;
-}
 
 const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>((props, ref) => {
   const { currentStepIndex } = useStepContext();
