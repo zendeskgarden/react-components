@@ -9,10 +9,11 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import arrowStyles, { ARROW_POSITION, exponentialSymbols } from './arrowStyles';
+import arrowStyles, { exponentialSymbols } from './arrowStyles';
+import { ArrowPosition } from '../types';
 
 interface IStyledDivProps extends ThemeProps<DefaultTheme> {
-  arrowPosition: ARROW_POSITION;
+  arrowPosition: ArrowPosition;
   arrowSize?: string;
   arrowInset?: string;
   arrowAnimationModifier?: string;
@@ -50,7 +51,7 @@ describe('arrowStyles', () => {
 
   describe('position', () => {
     it('renders with the expected positions', () => {
-      const POSITION: ARROW_POSITION[] = ['top', 'right', 'bottom', 'left'];
+      const POSITION: ArrowPosition[] = ['top', 'right', 'bottom', 'left'];
 
       POSITION.forEach(position => {
         const { container } = render(<StyledDiv arrowPosition={position} />);

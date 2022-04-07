@@ -5,15 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useEffect,
-  useCallback,
-  useReducer,
-  forwardRef,
-  HTMLAttributes,
-  useMemo,
-  useRef
-} from 'react';
+import React, { useEffect, useCallback, useReducer, forwardRef, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Field, Label } from '@zendeskgarden/react-forms';
 import { ColorWell } from './ColorWell';
@@ -31,35 +23,7 @@ import {
   StyledColorPicker
 } from '../../styled';
 import { areColorsEqual, convertStringToColor, getInitialState, reducer } from './reducer';
-import { IColor, IHSVColor } from '../../utils/types';
-
-export interface IColorpickerProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'onChange'> {
-  /** Sets the color for an uncontrolled color picker */
-  defaultColor?: string | IColor;
-  /** Sets the color for a controlled color picker */
-  color?: string | IColor;
-  /** Hides alpha transparency fields */
-  isOpaque?: boolean;
-  /**
-   * Handles color picker changes
-   *
-   * @param {Object} color A color picker state
-   */
-  onChange?: (color: IColor) => void;
-  /** Replaces label text within the color picker */
-  labels?: {
-    hueSlider?: string;
-    alphaSlider?: string;
-    hex?: string;
-    red?: string;
-    green?: string;
-    blue?: string;
-    alpha?: string;
-  };
-  /** @ignore */
-  autofocus?: boolean;
-}
+import { IColor, IColorpickerProps, IHSVColor } from '../../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

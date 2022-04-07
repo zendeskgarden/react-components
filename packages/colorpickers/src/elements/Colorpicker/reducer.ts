@@ -7,9 +7,9 @@
 
 import isEqual from 'lodash.isequal';
 import { parseToHsl, parseToRgb, rgb as rgbObjectToHex, hsl as hslObjectToHex } from 'polished';
+import { IColor, IHSVColor, IRGBColor } from '../../types';
 import { hsvToHsl } from '../../utils/conversion';
 import { isValidHex } from '../../utils/validation';
-import { IColor, IRGBColor, IHSVColor } from '../../utils/types';
 
 type ColorPickerActionTypes =
   | { type: 'SATURATION_CHANGE'; payload: IHSVColor }

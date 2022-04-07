@@ -8,10 +8,9 @@
 import { css, DefaultTheme, keyframes } from 'styled-components';
 import getColor from './getColor';
 import DEFAULT_THEME from '../elements/theme';
+import { MenuPosition } from '../types';
 
-export type MENU_POSITION = 'top' | 'right' | 'bottom' | 'left';
-
-export type MENU_OPTIONS = {
+type MenuOptions = {
   theme?: DefaultTheme;
   hidden?: boolean;
   margin?: string;
@@ -20,7 +19,7 @@ export type MENU_OPTIONS = {
   childSelector?: string;
 };
 
-const animationStyles = (position: MENU_POSITION, options: MENU_OPTIONS) => {
+const animationStyles = (position: MenuPosition, options: MenuOptions) => {
   const theme = options.theme || DEFAULT_THEME;
   let translateValue = `${theme.space.base * 5}px`;
   let transformFunction;
@@ -51,7 +50,7 @@ const animationStyles = (position: MENU_POSITION, options: MENU_OPTIONS) => {
   `;
 };
 
-const hiddenStyles = (options: MENU_OPTIONS) => {
+const hiddenStyles = (options: MenuOptions) => {
   const transition = 'opacity 0.2s ease-in-out, 0.2s visibility 0s linear';
 
   return css`
@@ -80,7 +79,7 @@ const hiddenStyles = (options: MENU_OPTIONS) => {
  * @param {string} [options.animationModifier] A CSS class or attribute selector
  *  which, when applied, animates the menu's appearance.
  */
-export default function menuStyles(position: MENU_POSITION, options: MENU_OPTIONS = {}) {
+export default function menuStyles(position: MenuPosition, options: MenuOptions = {}) {
   const theme = options.theme || DEFAULT_THEME;
   let marginProperty;
 

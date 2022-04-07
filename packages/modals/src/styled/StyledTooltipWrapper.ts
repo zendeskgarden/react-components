@@ -9,10 +9,9 @@ import styled from 'styled-components';
 import { DEFAULT_THEME, menuStyles } from '@zendeskgarden/react-theming';
 import { getMenuPosition } from '../utils/gardenPlacements';
 import { Placement } from '@popperjs/core';
+import { ITooltipModalProps } from '../types';
 
-interface IStyledTooltipWrapperProps {
-  isAnimated?: boolean;
-  zIndex?: number;
+interface IStyledTooltipWrapperProps extends Pick<ITooltipModalProps, 'isAnimated' | 'zIndex'> {
   placement?: Placement;
 }
 

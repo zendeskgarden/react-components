@@ -8,7 +8,8 @@
 import React, { useRef, useState, createRef, forwardRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { screen, render, waitFor } from 'garden-test-utils';
-import { DrawerModal, IDrawerModalProps } from './DrawerModal';
+import { DrawerModal } from './DrawerModal';
+import { IDrawerModalProps } from '../../types';
 
 describe('DrawerModal', () => {
   const DRAWER_MODAL_ID = 'TEST_ID';
@@ -67,7 +68,7 @@ describe('DrawerModal', () => {
 
   it('applies backdropProps to Backdrop element', () => {
     const { getByText, getByTestId, queryByTestId } = render(
-      <Example backdropProps={{ 'data-test-id': 'backdrop' }} />
+      <Example backdropProps={{ 'data-test-id': 'backdrop' } as any} />
     );
 
     expect(queryByTestId('backdrop')).not.toBeInTheDocument();
@@ -107,7 +108,7 @@ describe('DrawerModal', () => {
 
   it('closes the drawer modal when user clicks the modal backdrop', async () => {
     const { getByText, queryByRole, getByRole, getByTestId } = render(
-      <Example backdropProps={{ 'data-test-id': 'backdrop' }} />
+      <Example backdropProps={{ 'data-test-id': 'backdrop' } as any} />
     );
 
     userEvent.click(getByText('Open Drawer'));
@@ -121,7 +122,7 @@ describe('DrawerModal', () => {
 
   it('closes the drawer modal when user presses the ESC key', async () => {
     const { getByText, getByRole, queryByRole } = render(
-      <Example backdropProps={{ 'data-test-id': 'backdrop' }} />
+      <Example backdropProps={{ 'data-test-id': 'backdrop' } as any} />
     );
 
     userEvent.click(getByText('Open Drawer'));

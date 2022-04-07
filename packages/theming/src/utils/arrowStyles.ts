@@ -7,22 +7,9 @@
 
 import { css, keyframes } from 'styled-components';
 import { math } from 'polished';
+import { ArrowPosition } from '../types';
 
-export type ARROW_POSITION =
-  | 'top'
-  | 'top-left'
-  | 'top-right'
-  | 'right'
-  | 'right-top'
-  | 'right-bottom'
-  | 'bottom'
-  | 'bottom-left'
-  | 'bottom-right'
-  | 'left'
-  | 'left-top'
-  | 'left-bottom';
-
-export type ARROW_OPTIONS = {
+type ArrowOptions = {
   size?: string;
   inset?: string;
   animationModifier?: string;
@@ -46,7 +33,7 @@ export const exponentialSymbols = {
   }
 };
 
-const animationStyles = (position: ARROW_POSITION, modifier: string) => {
+const animationStyles = (position: ArrowPosition, modifier: string) => {
   const property = position.split('-')[0];
   /**
    * 1. Prevent bleed-through on revised stacking context (i.e. parent transform)
@@ -65,7 +52,7 @@ const animationStyles = (position: ARROW_POSITION, modifier: string) => {
   `;
 };
 
-const positionStyles = (position: ARROW_POSITION, size: string, inset: string) => {
+const positionStyles = (position: ArrowPosition, size: string, inset: string) => {
   const margin = math(`${size} / -2`);
   const placement = math(`${margin} + ${inset}`);
   let clipPath;
@@ -162,7 +149,7 @@ const positionStyles = (position: ARROW_POSITION, size: string, inset: string) =
  *
  * @component
  */
-export default function arrowStyles(position: ARROW_POSITION, options: ARROW_OPTIONS = {}) {
+export default function arrowStyles(position: ArrowPosition, options: ArrowOptions = {}) {
   const size = options.size || '6px';
   const inset = options.inset || '0';
   const squareSize = math(`${size} * 2 / sqrt(2)`, exponentialSymbols);

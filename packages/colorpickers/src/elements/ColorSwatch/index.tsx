@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, useContext } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -13,45 +13,7 @@ import { useGrid } from '@zendeskgarden/container-grid';
 import { useId } from '@zendeskgarden/container-utilities';
 import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
 import { StyledSwatchButton, StyledIcon, StyledCell, StyledColorSwatch } from '../../styled';
-
-export interface ILabeledColor {
-  value: string;
-  label: string;
-}
-
-export interface IColorSwatchProps
-  extends Omit<HTMLAttributes<HTMLTableElement>, 'onChange' | 'onSelect'> {
-  /** Sets the two-dimension array of labeled HEX and RGB/A string colors */
-  colors: ILabeledColor[][];
-  /** Sets the focused row index in a controlled color swatch */
-  rowIndex?: number;
-  /** Sets the focused column index in a controlled color swatch.
-   * Can be set to `-1` to clear the row focus.
-   */
-  colIndex?: number;
-  /** Sets the selected row index in a controlled color swatch.
-   * Can be set to `-1` to clear the column focus.
-   */
-  selectedRowIndex?: number;
-  /** Sets the selected column index in a controlled color swatch.
-   * Can be set to `-1` to clear the row selection.
-   */
-  selectedColIndex?: number;
-  /** Sets the default focused row index in an uncontrolled color swatch.
-   * Can be set to `-1` to clear the column selection.
-   */
-  defaultRowIndex?: number;
-  /** Sets the default focused column index in an uncontrolled color swatch */
-  defaultColIndex?: number;
-  /** Sets the default selected row index in an uncontrolled color swatch */
-  defaultSelectedRowIndex?: number;
-  /** Sets the default selected column index in an uncontrolled color swatch */
-  defaultSelectedColIndex?: number;
-  /** Handles color swatch changes */
-  onChange?: (rowIndex: number, colIndex: number) => void;
-  /** Handles color swatch select event */
-  onSelect?: (rowIndex: number, colIndex: number) => void;
-}
+import { IColorSwatchProps, ILabeledColor } from '../../types';
 
 /**
  * @extends HTMLAttributes<HTMLTableElement>

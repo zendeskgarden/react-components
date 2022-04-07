@@ -6,27 +6,12 @@
  */
 
 import React, { PropsWithChildren, useRef } from 'react';
-import { ThemeProvider as StyledThemeProvider, ThemeProps } from 'styled-components';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
-import DEFAULT_THEME, { IGardenTheme } from './theme';
+import { IThemeProviderProps } from '../types';
+import DEFAULT_THEME from './theme';
 import { useDocument } from '../utils/useDocument';
-
-export interface IThemeProviderProps extends Partial<ThemeProps<IGardenTheme>> {
-  /**
-   * Provides values for component styling. See styled-components
-   * [`ThemeProvider`](https://styled-components.com/docs/api#themeprovider)
-   * for details.
-   */
-  theme?: IGardenTheme;
-  /**
-   * Provides a reference to the DOM node used to scope a `:focus-visible`
-   * polyfill. If left `undefined`, a scoping `<div>` will be rendered.
-   * Assigning `null` (on a nested `ThemeProvider`, for example) prevents the
-   * added polyfill and scoping `<div>`.
-   */
-  focusVisibleRef?: React.RefObject<HTMLElement> | null;
-}
 
 export const ThemeProvider = ({
   theme,

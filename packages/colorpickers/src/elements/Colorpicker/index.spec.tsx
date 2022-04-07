@@ -8,8 +8,8 @@
 import React, { useState, createRef } from 'react';
 import { render, renderRtl, fireEvent, screen } from 'garden-test-utils';
 import { Colorpicker } from './index';
-import { IColor } from '../../utils/types';
 import userEvent from '@testing-library/user-event';
+import { IColor } from '../../types';
 
 describe('Colorpicker', () => {
   it('passes ref to underlying DOM element', () => {

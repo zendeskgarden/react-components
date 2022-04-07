@@ -9,7 +9,7 @@ import { parseToRgb, readableColor } from 'polished';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import React, { Children } from 'react';
-import { IRGBColor } from '../../utils/types';
+import { IRGBColor } from '../../types';
 
 const COMPONENT_ID = 'colorpickers.colorswatch_check';
 
