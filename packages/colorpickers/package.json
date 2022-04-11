@@ -44,7 +44,7 @@
     "@types/lodash.isequal": "4.5.5",
     "@types/lodash.throttle": "4.1.6",
     "@zendeskgarden/react-theming": "^8.49.2",
-    "@zendeskgarden/svg-icons": "6.30.2"
+    "@zendeskgarden/svg-icons": "6.31.1"
   },
   "keywords": [
     "colorpicker",
