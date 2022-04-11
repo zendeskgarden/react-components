@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { SVGAttributes } from 'react';
+import React from 'react';
+import { IButtonIconProps } from '../../types';
 import { StyledIcon } from '../../styled';
 
-export interface IButtonEndIconProps extends SVGAttributes<SVGElement> {
-  /** Rotates icon 180 degrees */
-  isRotated?: boolean;
-}
-
-const EndIconComponent = (props: IButtonEndIconProps) => <StyledIcon position="end" {...props} />;
+const EndIconComponent = (props: IButtonIconProps) => <StyledIcon position="end" {...props} />;
 
 EndIconComponent.displayName = 'Button.EndIcon';
 

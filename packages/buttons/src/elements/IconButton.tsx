@@ -5,29 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { IIconButtonProps, SIZE } from '../types';
 import { StyledIconButton, StyledIcon } from '../styled';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
-
-export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Applies neutral button styling */
-  isNeutral?: boolean;
-  /** Applies primary button styling */
-  isPrimary?: boolean;
-  /** Applies danger button styling */
-  isDanger?: boolean;
-  /** Applies basic button styling */
-  isBasic?: boolean;
-  /** Applies pill button styling */
-  isPill?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
-  focusInset?: boolean;
-  /** Rotates icon 180 degrees */
-  isRotated?: boolean;
-  /** Specifies icon button size */
-  size?: 'small' | 'medium' | 'large';
-}
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
@@ -48,7 +30,7 @@ IconButton.displayName = 'IconButton';
 
 IconButton.propTypes = {
   isDanger: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(SIZE),
   isNeutral: PropTypes.bool,
   isPrimary: PropTypes.bool,
   isBasic: PropTypes.bool,

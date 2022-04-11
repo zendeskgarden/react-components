@@ -7,18 +7,8 @@
 
 import React, { AnchorHTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { IAnchorProps } from '../types';
 import { StyledAnchor, StyledExternalIcon } from '../styled';
-
-export interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  /** Applies danger styling */
-  isDanger?: boolean;
-  /**
-   * Attaches `target="_blank"` and `rel="noopener noreferrer"` to an anchor that
-   * navigates to an external resource. This ensures that the anchor is a
-   * safe [cross-origin destination link](https://web.dev/external-anchors-use-rel-noopener/).
-   **/
-  isExternal?: boolean;
-}
 
 /**
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>

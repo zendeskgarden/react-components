@@ -5,24 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, useMemo } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useButtonGroup } from '@zendeskgarden/container-buttongroup';
+import { IButtonGroupProps } from '../types';
 import { StyledButtonGroup } from '../styled';
 import { ButtonGroupContext } from '../utils/useButtonGroupContext';
 
-export interface IButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
-  /** Defines the currently selected button in the group */
-  selectedItem?: any;
-  /**
-   * Handles button selection
-   *
-   * @param {any} item The selected item
-   */
-  onSelect?: (item: any) => void;
-}
-
 /**
+ * @deprecated this legacy component will be removed in a future release
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const ButtonGroup = forwardRef<HTMLDivElement, IButtonGroupProps>(
