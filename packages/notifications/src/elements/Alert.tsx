@@ -5,17 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { IAlertProps, TYPE } from '../types';
 import { StyledAlert, StyledIcon } from '../styled';
 import { validationIcons, validationHues } from '../utils/icons';
-import { ARRAY_VALIDATION_TYPE, VALIDATION_HUE } from '../utils/types';
-import { NotificationsContext } from '../utils/useNotificationsContext';
-
-export interface IAlertProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies alert type styles */
-  type: 'success' | 'warning' | 'error' | 'info';
-}
+import { Hue, NotificationsContext } from '../utils/useNotificationsContext';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -25,7 +20,7 @@ export const Alert = React.forwardRef<HTMLDivElement, IAlertProps>((props, ref) 
   const Icon = validationIcons[props.type] as any;
 
   return (
-    <NotificationsContext.Provider value={hue as VALIDATION_HUE}>
+    <NotificationsContext.Provider value={hue as Hue}>
       <StyledAlert ref={ref} hue={hue} {...props}>
         <StyledIcon hue={hue}>
           <Icon />
@@ -39,5 +34,5 @@ export const Alert = React.forwardRef<HTMLDivElement, IAlertProps>((props, ref) 
 Alert.displayName = 'Alert';
 
 Alert.propTypes = {
-  type: PropTypes.oneOf(ARRAY_VALIDATION_TYPE).isRequired
+  type: PropTypes.oneOf(TYPE).isRequired
 };

@@ -9,13 +9,13 @@ import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { hideVisually } from 'polished';
 import { TransitionGroup } from 'react-transition-group';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { ToastPlacement } from './reducer';
+import { Placement } from '../../types';
 
 export const TRANSITION_CLASS = 'garden-toast-transition';
 
 const DEFAULT_DURATION = '400ms';
 
-export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement: ToastPlacement }>`
+export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement: Placement }>`
   transition: opacity ${DEFAULT_DURATION} ease-in 300ms;
   opacity: ${p => (p.isHidden ? '0 !important' : 1)};
   margin-bottom: ${p => p.theme.space.base * 2}px;
@@ -73,7 +73,7 @@ StyledFadeInTransition.defaultProps = {
 };
 
 interface IStyledTransitionGroupProps {
-  $placement: ToastPlacement;
+  $placement: Placement;
   $zIndex?: number;
 }
 

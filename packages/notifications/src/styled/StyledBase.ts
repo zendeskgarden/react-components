@@ -7,12 +7,12 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, getLineHeight, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { VALIDATION_TYPE } from '../utils/types';
+import { Type } from '../types';
 
 export interface IStyledBaseProps {
   isFloating?: boolean;
   hue?: string;
-  type?: VALIDATION_TYPE;
+  type?: Type;
 }
 
 const boxShadow = (props: ThemeProps<DefaultTheme>) => {

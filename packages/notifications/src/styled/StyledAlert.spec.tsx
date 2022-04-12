@@ -9,12 +9,12 @@ import React from 'react';
 import { css } from 'styled-components';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { render } from 'garden-test-utils';
-import { VALIDATION_TYPE } from '../utils/types';
 import { StyledAlert, StyledTitle } from '../styled';
+import { Type } from '../types';
 
 describe('StyledAlert', () => {
   it(`should render the styling correctly for a Notification's title`, () => {
-    const validationHues: Record<VALIDATION_TYPE, string> = {
+    const validationHues: Record<Type, string> = {
       success: 'successHue',
       error: 'dangerHue',
       warning: 'warningHue',

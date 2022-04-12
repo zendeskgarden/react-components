@@ -7,12 +7,12 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { VALIDATION_HUE } from '../../utils/types';
+import { Hue } from '../../utils/useNotificationsContext';
 
 const COMPONENT_ID = 'notifications.close';
 
 interface IStyledCloseProps {
-  hue?: VALIDATION_HUE;
+  hue?: Hue;
 }
 
 /**

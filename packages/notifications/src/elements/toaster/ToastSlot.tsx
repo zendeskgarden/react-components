@@ -9,13 +9,14 @@ import React, { HTMLAttributes, useCallback, useContext, useEffect, useState } f
 import { ThemeContext } from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import { useDocument } from '@zendeskgarden/react-theming';
-import { IToast, ToastPlacement } from './reducer';
+import { Placement } from '../../types';
 import { Toast } from './Toast';
 import { StyledFadeInTransition, StyledTransitionGroup, TRANSITION_CLASS } from './styled';
+import { IToast } from './useToast';
 
 interface IToastSlotProps extends HTMLAttributes<HTMLDivElement> {
   toasts: IToast[];
-  placement: ToastPlacement;
+  placement: Placement;
   limit: number;
   zIndex?: number;
 }

@@ -10,12 +10,8 @@ export { StyledParagraph } from './content/StyledParagraph';
 export { StyledTitle } from './content/StyledTitle';
 
 export { StyledAlert } from './StyledAlert';
-export type { IStyledAlertProps } from './StyledAlert';
 export { StyledNotification } from './StyledNotification';
-export type { IStyledNotificationProps } from './StyledNotification';
 export { StyledWell } from './StyledWell';
-export type { IStyledWellProps } from './StyledWell';
 export { StyledIcon } from './StyledIcon';
 
 export { StyledBase } from './StyledBase';
-export type { IStyledBaseProps } from './StyledBase';
