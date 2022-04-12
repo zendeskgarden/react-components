@@ -12,7 +12,7 @@ import { Product } from '../../types';
 
 const COMPONENT_ID = 'chrome.logo_nav_item';
 
-const retrieveProductColor = (product: string | undefined) => {
+const retrieveProductColor = (product?: Product) => {
   switch (product) {
     case 'chat':
       return PALETTE.product.chat;
