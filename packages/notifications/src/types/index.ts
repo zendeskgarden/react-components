@@ -39,6 +39,11 @@ export interface IWellProps extends HTMLAttributes<HTMLDivElement> {
   isFloating?: boolean;
 }
 
+export interface ITitleProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies regular (non-bold) font weight */
+  isRegular?: boolean;
+}
+
 export interface IToastProviderProps {
   /**
    * Limits the number of visible toasts

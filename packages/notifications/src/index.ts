@@ -18,6 +18,7 @@ export type {
   IAlertProps,
   INotificationProps,
   IWellProps,
+  ITitleProps,
   IToastProviderProps,
   /** @deprecated can be dereferenced via IToastOptions['placement'] */
   Placement as ToastPlacement

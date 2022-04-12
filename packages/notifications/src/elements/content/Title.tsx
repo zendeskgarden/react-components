@@ -5,13 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
+import { ITitleProps } from '../../types';
 import { StyledTitle } from '../../styled';
-
-export interface ITitleProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies regular (non-bold) font weight */
-  isRegular?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
