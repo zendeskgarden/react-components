@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useMemo, useState, HTMLAttributes } from 'react';
+import React, { useRef, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useUIDSeed } from 'react-uid';
 import mergeRefs from 'react-merge-refs';
 
+import { ISheetProps, PLACEMENT } from '../../types';
 import { StyledSheet, StyledSheetWrapper } from '../../styled';
 import { SheetContext } from '../../utils/useSheetContext';
 import { useFocusableMount } from '../../utils/useFocusableMount';
@@ -21,21 +22,6 @@ import { Body } from './components/Body';
 import { Footer } from './components/Footer';
 import { FooterItem } from './components/FooterItem';
 import { Close } from './components/Close';
-
-export interface ISheetProps extends HTMLAttributes<HTMLElement> {
-  /** Opens the Sheet */
-  isOpen?: boolean;
-  /** Determines whether animation for opening and closing the Sheet is used */
-  isAnimated?: boolean;
-  /** Focuses on the Sheet when `isOpen` is true and mounted */
-  focusOnMount?: boolean;
-  /** Directs keyboard focus to the Sheet on mount */
-  restoreFocus?: boolean;
-  /** Returns keyboard focus to the element that triggered the Sheet */
-  placement?: 'start' | 'end';
-  /** Sets the width in pixels, based on the placement of the Sheet */
-  size?: string;
-}
 
 const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
   (
@@ -98,7 +84,7 @@ SheetComponent.propTypes = {
   isAnimated: PropTypes.bool,
   focusOnMount: PropTypes.bool,
   restoreFocus: PropTypes.bool,
-  placement: PropTypes.oneOf(['start', 'end']),
+  placement: PropTypes.oneOf(PLACEMENT),
   size: PropTypes.string
 };
 

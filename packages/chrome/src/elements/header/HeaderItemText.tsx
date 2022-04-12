@@ -5,14 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { IHeaderItemTextProps } from '../../types';
 import { StyledHeaderItemText } from '../../styled';
-
-export interface IHeaderItemTextProps extends HTMLAttributes<HTMLElement> {
-  /** Hides item text. Text remains accessible to screen readers. */
-  isClipped?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLSpanElement>

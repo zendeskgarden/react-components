@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
+import { ISheetProps } from '../../../types';
 import { StyledSheetFooter } from '../../../styled';
 
-export interface ISheetFooterProps extends HTMLAttributes<HTMLElement> {
-  /** Sets the footer padding to half the standard and centers the elements */
-  isCompact?: boolean;
-}
-
-const SheetFooter = forwardRef<HTMLElement, ISheetFooterProps>((props, ref) => {
+const SheetFooter = forwardRef<HTMLElement, ISheetProps>((props, ref) => {
   return <StyledSheetFooter ref={ref} {...props} />;
 });
 

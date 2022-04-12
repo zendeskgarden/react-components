@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { ISubNavItemProps } from '../../types';
 import { StyledSubNavItem } from '../../styled';
 import { useChromeContext } from '../../utils/useChromeContext';
-
-export interface ISubNavItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Indicates that the item is current in the subnav */
-  isCurrent?: boolean;
-}
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>

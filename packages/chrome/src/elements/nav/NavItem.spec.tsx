@@ -11,7 +11,7 @@ import { PALETTE, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Chrome } from '../Chrome';
 import { NavItem } from './NavItem';
 import { Nav } from './Nav';
-import { PRODUCT, PRODUCTS } from '../../utils/types';
+import { PRODUCT, Product } from '../../types';
 
 describe('NavItem', () => {
   it('passes ref to underlying DOM element', () => {
@@ -144,7 +144,7 @@ describe('NavItem', () => {
   });
 
   describe('Products', () => {
-    const VALID_COLOR_MAP: Record<PRODUCT, string> = {
+    const VALID_COLOR_MAP: Record<Product, string> = {
       chat: PALETTE.product.chat,
       connect: PALETTE.product.connect,
       explore: PALETTE.product.explore,
@@ -155,7 +155,7 @@ describe('NavItem', () => {
     };
 
     it('renders correct product color if provided', () => {
-      PRODUCTS.forEach(product => {
+      PRODUCT.forEach(product => {
         const { container } = render(<NavItem hasLogo product={product} />);
 
         expect(container.firstChild).toHaveStyleRule('color', VALID_COLOR_MAP[product]);

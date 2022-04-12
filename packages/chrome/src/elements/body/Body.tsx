@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { IBodyProps } from '../../types';
 import { StyledBody } from '../../styled';
 import { BodyContext } from '../../utils/useBodyContext';
-
-export interface IBodyProps extends HTMLAttributes<HTMLDivElement> {
-  /** Adjusts the body content height to allow space for a footer component */
-  hasFooter?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
