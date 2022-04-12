@@ -93,7 +93,7 @@ export interface INavItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export interface INavItemTextProps extends HTMLAttributes<HTMLSpanElement> {
-  /** Wraps overflow item text instead of truncating long strings with an ellipsis **/
+  /** Wraps overflow item text instead of truncating long strings with an ellipsis */
   isWrapped?: boolean;
 }
 
@@ -106,7 +106,7 @@ export interface ISubNavItemTextProps extends HTMLAttributes<HTMLSpanElement> {
   /**
    * Wraps overflow item text instead of truncating long strings with an ellipsis.
    * Use when `max-width` styling is applied to the subnav container.
-   **/
+   */
   isWrapped?: boolean;
 }
 
@@ -140,6 +140,6 @@ export interface ISheetProps extends HTMLAttributes<HTMLElement> {
 }
 
 export interface ISheetFooterProps extends HTMLAttributes<HTMLElement> {
-  /** Sets the footer padding to half the standard and centers the elements */
+  /** Applies compact styling and centers the elements */
   isCompact?: boolean;
 }

@@ -6,10 +6,10 @@
  */
 
 import React, { forwardRef } from 'react';
-import { ISheetProps } from '../../../types';
+import { ISheetFooterProps } from '../../../types';
 import { StyledSheetFooter } from '../../../styled';
 
-const SheetFooter = forwardRef<HTMLElement, ISheetProps>((props, ref) => {
+const SheetFooter = forwardRef<HTMLElement, ISheetFooterProps>((props, ref) => {
   return <StyledSheetFooter ref={ref} {...props} />;
 });
 

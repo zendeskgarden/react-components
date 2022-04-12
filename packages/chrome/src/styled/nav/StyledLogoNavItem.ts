@@ -7,8 +7,8 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { PRODUCT } from '../../utils/types';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
+import { Product } from '../../types';
 
 const COMPONENT_ID = 'chrome.logo_nav_item';
 
@@ -44,7 +44,7 @@ const colorStyles = (props: IStyledLogoNavItemProps) => {
 };
 
 export interface IStyledLogoNavItemProps extends ThemeProps<DefaultTheme> {
-  product?: PRODUCT;
+  product?: Product;
   isDark?: boolean;
   isLight?: boolean;
 }
