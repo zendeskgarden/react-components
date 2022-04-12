@@ -13,20 +13,14 @@ import React, {
   useState,
   useContext,
   useMemo,
-  forwardRef,
-  HTMLAttributes
+  forwardRef
 } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
-import { Modifiers } from 'popper.js';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import {
-  getRtlPopperPlacement,
-  getPopperPlacement,
-  GARDEN_PLACEMENT,
-  POPPER_PLACEMENT
-} from './utils/garden-placements';
+import { IDatepickerProps, PLACEMENT, PopperPlacement } from '../../types';
+import { getRtlPopperPlacement, getPopperPlacement } from './utils/garden-placements';
 import { Calendar } from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
 import { DatepickerContext } from './utils/useDatepickerContext';
@@ -35,74 +29,6 @@ import { StyledMenu, StyledMenuWrapper } from '../../styled';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  /**
-   * Sets the selected date
-   */
-  value?: Date;
-  /**
-   * Handles date change
-   *
-   * @param {Date} date The selected date
-   */
-  onChange?: (date: Date) => void;
-  /**
-   * Customizes the input element's date formatting
-   *
-   *  @param {Date} date The selected date
-   *  @returns {string} a formatted date string
-   */
-  formatDate?: (date: Date) => string;
-  /**
-   * Applies locale-based formatting.
-   * Accepts all valid `Intl` [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
-   */
-  locale?: string;
-  /**
-   * Disables dates before this value on the calendar
-   */
-  minValue?: Date;
-  /**
-   * Disables dates after this value on the calendar
-   */
-  maxValue?: Date;
-  /**
-   * Applies compact styling
-   */
-  isCompact?: boolean;
-  /**
-   * Overrides default date parsing
-   *
-   * @param {string} inputValue A localized input value
-   * @returns {Date} the parsed date
-   */
-  customParseDate?: (inputValue: string) => Date;
-  /**
-   * Defines the ref key used to position the calendar
-   */
-  refKey?: string;
-  /**
-   * Adjusts the position of the calendar
-   **/
-  placement?: GARDEN_PLACEMENT;
-  /**
-   * Passes configuration options to the [Popper instance](https://popper.js.org/docs/v2/modifiers/)
-   */
-  popperModifiers?: Modifiers;
-  /**
-   * Animates the calendar
-   */
-  isAnimated?: boolean;
-  /**
-   * Allows the calendar to reposition during browser resize events
-   */
-  eventsEnabled?: boolean;
-  /**
-   * Sets the `z-index` of the calendar
-   */
-  zIndex?: number;
-}
-
 export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, calendarRef) => {
   const {
     children,
@@ -249,7 +175,7 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
                 style={style}
                 isHidden={!state.isOpen}
                 isAnimated={isAnimated && (state.isOpen || isVisible)}
-                placement={currentPlacement as POPPER_PLACEMENT}
+                placement={currentPlacement as PopperPlacement}
                 zIndex={zIndex}
                 data-test-id="datepicker-menu"
                 data-test-open={state.isOpen}
@@ -288,21 +214,7 @@ Datepicker.propTypes = {
   isCompact: PropTypes.bool,
   customParseDate: PropTypes.any,
   refKey: PropTypes.string,
-  placement: PropTypes.oneOf([
-    'auto',
-    'top',
-    'top-start',
-    'top-end',
-    'end',
-    'end-top',
-    'end-bottom',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'start',
-    'start-top',
-    'start-bottom'
-  ]),
+  placement: PropTypes.oneOf(PLACEMENT),
   popperModifiers: PropTypes.any,
   isAnimated: PropTypes.bool,
   eventsEnabled: PropTypes.bool,

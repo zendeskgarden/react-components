@@ -6,7 +6,11 @@
  */
 
 export { Datepicker } from './elements/Datepicker/Datepicker';
-export type { IDatepickerProps } from './elements/Datepicker/Datepicker';
 export { DatepickerRange } from './elements/DatepickerRange/DatepickerRange';
-export type { IDatepickerRangeProps } from './elements/DatepickerRange/DatepickerRange';
-export type { GARDEN_PLACEMENT } from './elements/Datepicker/utils/garden-placements';
+
+export type {
+  IDatepickerProps,
+  IDatepickerRangeProps,
+  /** @deprecated type can be dereferenced via IDatePickerProps['placement'] */
+  GardenPlacement as GARDEN_PLACEMENT
+} from './types';

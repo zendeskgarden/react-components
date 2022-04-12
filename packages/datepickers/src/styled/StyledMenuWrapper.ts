@@ -7,7 +7,8 @@
 
 import styled from 'styled-components';
 import { DEFAULT_THEME, menuStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { POPPER_PLACEMENT, getMenuPosition } from '../elements/Datepicker/utils/garden-placements';
+import { getMenuPosition } from '../elements/Datepicker/utils/garden-placements';
+import { PopperPlacement } from '../types';
 
 const COMPONENT_ID = 'datepickers.menu_wrapper';
 
@@ -15,7 +16,7 @@ interface IStyledMenuWrapperProps {
   isHidden?: boolean;
   isAnimated?: boolean;
   zIndex?: number;
-  placement?: POPPER_PLACEMENT;
+  placement?: PopperPlacement;
 }
 
 export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({

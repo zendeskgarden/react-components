@@ -6,38 +6,12 @@
  */
 
 import { MENU_POSITION } from '@zendeskgarden/react-theming';
-
-type SHARED_PLACEMENT =
-  | 'auto'
-  | 'top'
-  | 'top-start'
-  | 'top-end'
-  | 'bottom'
-  | 'bottom-start'
-  | 'bottom-end';
-
-export type GARDEN_PLACEMENT =
-  | SHARED_PLACEMENT
-  | 'end'
-  | 'end-top'
-  | 'end-bottom'
-  | 'start'
-  | 'start-top'
-  | 'start-bottom';
-
-export type POPPER_PLACEMENT =
-  | SHARED_PLACEMENT
-  | 'right'
-  | 'right-start'
-  | 'right-end'
-  | 'left'
-  | 'left-start'
-  | 'left-end';
+import { GardenPlacement, PopperPlacement } from '../../../types';
 
 /**
  * Convert Garden RTL aware placement to Popper.JS valid placement
  */
-export function getPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER_PLACEMENT {
+export function getPopperPlacement(gardenPlacement: GardenPlacement): PopperPlacement {
   switch (gardenPlacement) {
     case 'end':
       return 'right';
@@ -60,7 +34,7 @@ export function getPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER_PL
  * Convert Garden RTL aware placement to RTL equivalent Popper.JS placement
  * @param {String} gardenPlacement
  */
-export function getRtlPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER_PLACEMENT {
+export function getRtlPopperPlacement(gardenPlacement: GardenPlacement): PopperPlacement {
   const popperPlacement = getPopperPlacement(gardenPlacement);
 
   switch (popperPlacement) {
@@ -93,6 +67,6 @@ export function getRtlPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER
  * Convert Popper.JS placement to corresponding menu position
  * @param {String} popperPlacement
  */
-export function getMenuPosition(popperPlacement?: POPPER_PLACEMENT) {
+export function getMenuPosition(popperPlacement?: PopperPlacement) {
   return (popperPlacement ? popperPlacement.split('-')[0] : 'bottom') as MENU_POSITION;
 }

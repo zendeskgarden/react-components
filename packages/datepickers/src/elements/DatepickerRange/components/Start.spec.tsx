@@ -9,7 +9,8 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import { DatepickerRange, IDatepickerRangeProps } from '../DatepickerRange';
+import { DatepickerRange } from '../DatepickerRange';
+import { IDatepickerRangeProps } from '../../../types';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
 const DEFAULT_END_VALUE = new Date(2019, 2, 5);

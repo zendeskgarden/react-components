@@ -5,33 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  GARDEN_PLACEMENT,
-  POPPER_PLACEMENT,
-  getPopperPlacement,
-  getRtlPopperPlacement
-} from './garden-placements';
-
-const GARDEN_PLACEMENT_VALUES: GARDEN_PLACEMENT[] = [
-  'auto',
-  'top',
-  'top-start',
-  'top-end',
-  'bottom',
-  'bottom-start',
-  'bottom-end',
-  'end',
-  'end-top',
-  'end-bottom',
-  'start',
-  'start-top',
-  'start-bottom'
-];
+import { getPopperPlacement, getRtlPopperPlacement } from './garden-placements';
+import { GardenPlacement, PopperPlacement, PLACEMENT } from '../../../types';
 
 describe('Garden Placement Utilities', () => {
   describe('getPopperPlacement()', () => {
     it('provides correct mapping between Garden and Popper.js placements', () => {
-      const GARDEN_POPPER_MAPPINGS: Record<GARDEN_PLACEMENT, POPPER_PLACEMENT> = {
+      const GARDEN_POPPER_MAPPINGS: Record<GardenPlacement, PopperPlacement> = {
         auto: 'auto',
         top: 'top',
         'top-start': 'top-start',
@@ -47,7 +27,7 @@ describe('Garden Placement Utilities', () => {
         'start-bottom': 'left-end'
       };
 
-      GARDEN_PLACEMENT_VALUES.forEach(gardenPlacement => {
+      PLACEMENT.forEach(gardenPlacement => {
         expect(getPopperPlacement(gardenPlacement)).toBe(GARDEN_POPPER_MAPPINGS[gardenPlacement]);
       });
     });
@@ -55,7 +35,7 @@ describe('Garden Placement Utilities', () => {
 
   describe('getRtlPopperPlacement()', () => {
     it('provides correct mapping between Garden placement and RTL equivalent', () => {
-      const RTL_PLACEMENT_MAPPINGS: Record<GARDEN_PLACEMENT, POPPER_PLACEMENT> = {
+      const RTL_PLACEMENT_MAPPINGS: Record<GardenPlacement, PopperPlacement> = {
         auto: 'auto',
         start: 'right',
         'start-top': 'right-start',
@@ -71,7 +51,7 @@ describe('Garden Placement Utilities', () => {
         'bottom-end': 'bottom-start'
       };
 
-      GARDEN_PLACEMENT_VALUES.forEach(gardenPlacement => {
+      PLACEMENT.forEach(gardenPlacement => {
         expect(getRtlPopperPlacement(gardenPlacement)).toBe(
           RTL_PLACEMENT_MAPPINGS[gardenPlacement]
         );
