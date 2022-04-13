@@ -5,23 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { IProgressProps, SIZE } from '../types';
 import { StyledProgressBackground, StyledProgressIndicator } from '../styled';
 
 const COMPONENT_ID = 'loaders.progress';
-
-export interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
-  /** Sets the progress as a value between 0 and 100 */
-  value?: number;
-  /**
-   * Sets the foreground bar's fill color.
-   * Defaults to the `successHue` [theme](/components/theme-object#colors) value.
-   */
-  color?: string;
-  /** Adjusts the height */
-  size?: 'small' | 'medium' | 'large';
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -53,7 +42,7 @@ Progress.displayName = 'Progress';
 Progress.propTypes = {
   color: PropTypes.string,
   value: PropTypes.number.isRequired,
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(SIZE)
 };
 
 Progress.defaultProps = {

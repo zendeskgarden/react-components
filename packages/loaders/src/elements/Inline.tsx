@@ -5,16 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, SVGAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { IInlineProps } from '../types';
 import { StyledInlineTypingSVG, StyledCircle } from '../styled';
-
-export interface IInlineProps extends SVGAttributes<SVGSVGElement> {
-  /** Sets the width in pixels and scales the loader proportionally */
-  size?: number;
-  /** Sets the fill color. Inherits the parent's `color` by default. */
-  color?: string;
-}
 
 /**
  * @extends SVGAttributes<SVGSVGElement>

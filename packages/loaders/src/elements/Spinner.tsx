@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, SVGAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { useSchedule } from '@zendeskgarden/container-schedule';
+import { ISpinnerProps } from '../types';
 import {
   STROKE_WIDTH_FRAMES,
   DASHARRAY_FRAMES,
@@ -43,25 +44,6 @@ const computeFrames = (
     return acc;
   }, {});
 };
-
-export interface ISpinnerProps extends SVGAttributes<SVGSVGElement> {
-  /**
-   * Sets the height and width in pixels. Inherits the parent's font size by default.
-   **/
-  size?: string;
-  /**
-   * Sets the length of the animation cycle in milliseconds
-   **/
-  duration?: number;
-  /**
-   * Sets the fill color. Inherits the parent's `color` by default.
-   **/
-  color?: string;
-  /**
-   * Delays displaying the loader to prevent a render flash during normal loading times
-   **/
-  delayMS?: number;
-}
 
 /**
  * @extends SVGAttributes<SVGSVGElement>

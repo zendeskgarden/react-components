@@ -6,12 +6,15 @@
  */
 
 export { Dots } from './elements/Dots';
-export type { IDotsProps } from './elements/Dots';
 export { Progress } from './elements/Progress';
-export type { IProgressProps } from './elements/Progress';
 export { Skeleton } from './elements/Skeleton';
-export type { ISkeletonProps } from './elements/Skeleton';
 export { Spinner } from './elements/Spinner';
-export type { ISpinnerProps } from './elements/Spinner';
 export { Inline } from './elements/Inline';
-export type { IInlineProps } from './elements/Inline';
+
+export type {
+  IDotsProps,
+  IInlineProps,
+  IProgressProps,
+  ISkeletonProps,
+  ISpinnerProps
+} from './types';
