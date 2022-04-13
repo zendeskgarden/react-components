@@ -15,10 +15,11 @@ import {
 } from '@zendeskgarden/react-theming';
 import { StyledAvatar } from './StyledAvatar';
 import { StyledClose } from './StyledClose';
+import { ITagProps } from '../types';
 
 const COMPONENT_ID = 'tags.tag_view';
 
-const colorStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
   let backgroundColor;
   let boxShadowColor;
   let foregroundColor;
@@ -68,7 +69,7 @@ const colorStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
   let borderRadius;
   let padding;
   let height;
@@ -153,18 +154,10 @@ const sizeStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-interface IStyledTagProps {
-  hue?: string;
-  size?: 'small' | 'medium' | 'large';
-  isPill?: boolean;
-  isRound?: boolean;
-  isRegular?: boolean;
-}
-
-export const StyledTag = styled.div.attrs<IStyledTagProps>({
+export const StyledTag = styled.div.attrs<ITagProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledTagProps>`
+})<ITagProps>`
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;

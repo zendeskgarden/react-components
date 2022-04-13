@@ -9,7 +9,8 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import { Pagination, IPaginationProps, PAGE_TYPE } from './Pagination';
+import { Pagination } from './Pagination';
+import { IPaginationProps, PageType } from '../../types';
 
 describe('Pagination', () => {
   it('passes ref to underlying DOM element', () => {
@@ -62,7 +63,7 @@ describe('Pagination', () => {
     it('applies transformed props if transform is supplied', () => {
       const CUSTOM_PROP_VALUE = 'custom-prop';
 
-      transformPageProps = (type: PAGE_TYPE, props: any) => {
+      transformPageProps = (type: PageType, props: any) => {
         props['data-test-id'] = CUSTOM_PROP_VALUE;
 
         return props;
@@ -168,7 +169,7 @@ describe('Pagination', () => {
       expect(onChange).toHaveBeenCalledWith(2);
     });
 
-    const transformPageProps = (pageType: PAGE_TYPE, props: any) => {
+    const transformPageProps = (pageType: PageType, props: any) => {
       props[`data-test-${pageType}`] = true;
 
       return props;
@@ -262,7 +263,7 @@ describe('Pagination', () => {
   });
 
   describe('Padding', () => {
-    const transformPageProps = (pageType: PAGE_TYPE, props: any) => {
+    const transformPageProps = (pageType: PageType, props: any) => {
       props[`data-test-${pageType}`] = true;
 
       return props;
@@ -318,7 +319,7 @@ describe('Pagination', () => {
   });
 
   describe('Gap', () => {
-    const transformPageProps = (pageType: PAGE_TYPE, props: any) => {
+    const transformPageProps = (pageType: PageType, props: any) => {
       props[`data-test-${pageType}`] = true;
 
       return props;
