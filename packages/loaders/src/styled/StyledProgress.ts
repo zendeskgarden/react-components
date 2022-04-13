@@ -7,10 +7,9 @@
 
 import styled, { DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { Size } from '../types';
 
-type SIZE = 'small' | 'medium' | 'large';
-
-const sizeToHeight = (size: SIZE, theme: DefaultTheme) => {
+const sizeToHeight = (size: Size, theme: DefaultTheme) => {
   switch (size) {
     case 'small':
       return theme.space.base / 2;
@@ -21,10 +20,10 @@ const sizeToHeight = (size: SIZE, theme: DefaultTheme) => {
   }
 };
 
-const sizeToBorderRadius = (size: SIZE, theme: DefaultTheme) => sizeToHeight(size, theme) / 2;
+const sizeToBorderRadius = (size: Size, theme: DefaultTheme) => sizeToHeight(size, theme) / 2;
 
 interface IStyledProgressBackgroundProps {
-  size: SIZE;
+  size: Size;
   borderRadius?: number;
   color?: string;
 }
@@ -49,7 +48,7 @@ StyledProgressBackground.defaultProps = {
 };
 
 interface IStyledProgressIndicatorProps {
-  size: SIZE;
+  size: Size;
   borderRadius?: number;
   value: number;
   height?: number;

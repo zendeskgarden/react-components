@@ -9,6 +9,8 @@ import { HTMLAttributes, SVGAttributes } from 'react';
 
 export const SIZE = ['small', 'medium', 'large'] as const;
 
+export type Size = typeof SIZE[number];
+
 export interface IDotsProps extends SVGAttributes<SVGSVGElement> {
   /** Sets the height and width in pixels. Inherits the parent's font size by default. */
   size?: string | number;
@@ -36,7 +38,7 @@ export interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
    */
   color?: string;
   /** Adjusts the height */
-  size?: typeof SIZE[number];
+  size?: Size;
 }
 
 export interface ISkeletonProps extends HTMLAttributes<HTMLDivElement> {
