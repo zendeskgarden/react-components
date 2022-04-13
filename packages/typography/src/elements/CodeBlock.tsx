@@ -8,10 +8,8 @@
 import React, { useMemo, useRef } from 'react';
 import Highlight, { Language, Prism } from 'prism-react-renderer';
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
-import { ICodeBlockProps, LANGUAGES } from '../types';
+import { Diff, ICodeBlockProps, LANGUAGES } from '../types';
 import {
-  DIFF,
-  SIZE,
   StyledCodeBlock,
   StyledCodeBlockContainer,
   StyledCodeBlockLine,
@@ -35,16 +33,11 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
   ) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const code = (Array.isArray(children) ? children[0] : children) as string;
-    const SIZES: Record<string, SIZE> = {
-      small: 'sm',
-      medium: 'md',
-      large: 'lg'
-    };
     const dependency = useMemo(() => [size, children], [size, children]);
     const containerTabIndex = useScrollRegion({ containerRef, dependency });
 
     const getDiff = (line: IToken[]) => {
-      let retVal: DIFF | undefined;
+      let retVal: Diff | undefined;
 
       if (language === 'diff') {
         const token = line.find(value => !(value.empty || value.content === ''));
@@ -83,7 +76,7 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
                   isLight={isLight}
                   isNumbered={isNumbered}
                   diff={getDiff(line)}
-                  size={size ? SIZES[size] : undefined}
+                  size={size}
                 >
                   {line.map((token, tokenKey) => (
                     <StyledCodeBlockToken

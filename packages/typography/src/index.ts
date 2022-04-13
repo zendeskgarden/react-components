@@ -21,12 +21,12 @@ export { UnorderedList } from './elements/lists/UnorderedList';
 export { Span } from './elements/span/Span';
 
 export type {
-  IMonospaceTypographyProps as ISMProps,
-  IMonospaceTypographyProps as IMDProps,
-  IMonospaceTypographyProps as ILGProps,
-  ITypographyProps as IXLProps,
-  ITypographyProps as IXXLProps,
-  ITypographyProps as IXXXLProps,
+  ITypescaleMonospaceProps as ISMProps,
+  ITypescaleMonospaceProps as IMDProps,
+  ITypescaleMonospaceProps as ILGProps,
+  ITypescaleProps as IXLProps,
+  ITypescaleProps as IXXLProps,
+  ITypescaleProps as IXXXLProps,
   IBlockquoteProps,
   ICodeProps,
   ICodeBlockProps,

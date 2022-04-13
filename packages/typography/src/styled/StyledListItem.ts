@@ -10,14 +10,14 @@ import { math } from 'polished';
 import {
   DEFAULT_THEME,
   getLineHeight,
-  isRtl,
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
+import { Size } from '../types';
 import { StyledOrderedList, StyledUnorderedList } from './StyledList';
 import { StyledFont } from './StyledFont';
 
 interface IStyledListItemProps {
-  space?: 'small' | 'medium' | 'large';
+  space?: Size;
 }
 
 const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) => {
@@ -63,9 +63,9 @@ export const StyledOrderedListItem = styled(StyledFont as 'li').attrs({
   as: 'li'
 })<IStyledListItemProps>`
   /* stylelint-disable */
-  margin-${props => (isRtl(props) ? 'right' : 'left')}: ${props =>
+  margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
   math(`${props.theme.space.base} * -1px`)};
-  padding-${props => (isRtl(props) ? 'right' : 'left')}: ${props =>
+  padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
   math(`${props.theme.space.base} * 1px`)};
   /* stylelint-enable */
 

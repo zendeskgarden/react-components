@@ -8,13 +8,13 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
-import { ITypographyProps } from '../types';
+import { ITypescaleProps } from '../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const XXXL = forwardRef<HTMLDivElement, ITypographyProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="xxxl" {...other} />
+export const XXXL = forwardRef<HTMLDivElement, ITypescaleProps>(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="3xlarge" {...other} />
 ));
 
 XXXL.displayName = 'XXXL';

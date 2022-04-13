@@ -8,6 +8,7 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledFont, IStyledFontProps } from './StyledFont';
+import { ICodeProps } from '../types';
 
 const COMPONENT_ID = 'typography.code';
 
@@ -27,9 +28,9 @@ const colorStyles = (props: IStyledCodeProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-interface IStyledCodeProps extends IStyledFontProps {
+interface IStyledCodeProps extends Omit<IStyledFontProps, 'size'> {
   hue?: string;
-  size?: 'sm' | 'md' | 'lg' | 'inherit';
+  size?: ICodeProps['size'];
 }
 
 export const StyledCode = styled(StyledFont as 'code').attrs({

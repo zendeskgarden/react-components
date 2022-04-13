@@ -13,21 +13,9 @@ import { StyledBlockquote } from '../styled';
 /**
  * @extends BlockquoteHTMLAttributes<HTMLElement>
  */
-export const Blockquote = React.forwardRef<HTMLElement, IBlockquoteProps>(
-  ({ size, ...other }, ref) => {
-    let _size: 'sm' | 'md' | 'lg';
-
-    if (size === 'small') {
-      _size = 'sm';
-    } else if (size === 'medium') {
-      _size = 'md';
-    } else {
-      _size = 'lg';
-    }
-
-    return <StyledBlockquote ref={ref} size={_size} {...other} />;
-  }
-);
+export const Blockquote = React.forwardRef<HTMLElement, IBlockquoteProps>((props, ref) => (
+  <StyledBlockquote ref={ref} {...props} />
+));
 
 Blockquote.displayName = 'Blockquote';
 

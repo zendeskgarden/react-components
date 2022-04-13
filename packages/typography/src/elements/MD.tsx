@@ -7,15 +7,15 @@
 
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { IMonospaceTypographyProps } from '../types';
+import { ITypescaleMonospaceProps } from '../types';
 import { StyledFont } from '../styled';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const MD = forwardRef<HTMLDivElement, IMonospaceTypographyProps>(
-  ({ tag, ...other }, ref) => <StyledFont as={tag} ref={ref} size="md" {...other} />
-);
+export const MD = forwardRef<HTMLDivElement, ITypescaleMonospaceProps>(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="medium" {...other} />
+));
 
 MD.displayName = 'MD';
 

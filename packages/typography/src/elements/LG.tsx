@@ -8,14 +8,14 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
-import { IMonospaceTypographyProps } from '../types';
+import { ITypescaleMonospaceProps } from '../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const LG = forwardRef<HTMLDivElement, IMonospaceTypographyProps>(
-  ({ tag, ...other }, ref) => <StyledFont as={tag} ref={ref} size="lg" {...other} />
-);
+export const LG = forwardRef<HTMLDivElement, ITypescaleMonospaceProps>(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="large" {...other} />
+));
 
 LG.displayName = 'LG';
 

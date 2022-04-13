@@ -13,21 +13,9 @@ import { StyledCode } from '../styled';
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-export const Code = forwardRef<HTMLElement, ICodeProps>(({ size, hue, ...other }, ref) => {
-  let _size: 'sm' | 'md' | 'lg' | 'inherit';
-
-  if (size === 'small') {
-    _size = 'sm';
-  } else if (size === 'medium') {
-    _size = 'md';
-  } else if (size === 'large') {
-    _size = 'lg';
-  } else {
-    _size = 'inherit';
-  }
-
-  return <StyledCode ref={ref} size={_size} hue={hue} {...other} />;
-});
+export const Code = forwardRef<HTMLElement, ICodeProps>(({ hue, ...other }, ref) => (
+  <StyledCode ref={ref} hue={hue} {...other} />
+));
 
 Code.displayName = 'Code';
 

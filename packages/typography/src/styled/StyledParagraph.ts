@@ -7,30 +7,27 @@
 
 import styled from 'styled-components';
 import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { IParagraphProps } from '../types';
+import { THEME_SIZES } from './StyledFont';
 
 const COMPONENT_ID = 'typography.paragraph';
-
-interface IStyledParagraphProps {
-  size?: 'sm' | 'md' | 'lg';
-}
 
 export const StyledParagraph = styled.p.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledParagraphProps>`
+})<IParagraphProps>`
   margin: 0;
   padding: 0;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
   blockquote + &,
   & + & {
-    margin-top: ${props => props.theme.lineHeights[props.size!]};
+    margin-top: ${props => props.theme.lineHeights[THEME_SIZES[props.size!]]};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledParagraph.defaultProps = {
-  theme: DEFAULT_THEME,
-  size: 'md'
+  theme: DEFAULT_THEME
 };

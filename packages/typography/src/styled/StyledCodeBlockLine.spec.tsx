@@ -58,19 +58,19 @@ describe('StyledCodeBlockLine', () => {
 
   describe('size', () => {
     it('renders small size', () => {
-      const { container } = render(<StyledCodeBlockLine size="sm" />);
+      const { container } = render(<StyledCodeBlockLine size="small" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', '11px');
     });
 
     it('renders medium size', () => {
-      const { container } = render(<StyledCodeBlockLine size="md" />);
+      const { container } = render(<StyledCodeBlockLine size="medium" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', '13px');
     });
 
     it('renders large size', () => {
-      const { container } = render(<StyledCodeBlockLine size="lg" />);
+      const { container } = render(<StyledCodeBlockLine size="large" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', '17px');
     });
