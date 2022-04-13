@@ -5,14 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { BlockquoteHTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { IBlockquoteProps, SIZE } from '../types';
 import { StyledBlockquote } from '../styled';
-
-export interface IBlockquoteProps extends BlockquoteHTMLAttributes<HTMLElement> {
-  /** Controls the spacing between sibling blockquotes */
-  size?: 'small' | 'medium' | 'large';
-}
 
 /**
  * @extends BlockquoteHTMLAttributes<HTMLElement>
@@ -36,7 +32,7 @@ export const Blockquote = React.forwardRef<HTMLElement, IBlockquoteProps>(
 Blockquote.displayName = 'Blockquote';
 
 Blockquote.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(SIZE)
 };
 
 Blockquote.defaultProps = {

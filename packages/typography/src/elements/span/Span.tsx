@@ -5,26 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { ISpanProps } from '../../types';
 import { StyledFont } from '../../styled';
 import { StartIcon } from './StartIcon';
 import { Icon } from './Icon';
-
-export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
-  /** Updates the element's HTML tag */
-  tag?: any;
-  /** Applies bold font style. Font weight is inherited by default. */
-  isBold?: boolean;
-  /** Renders with monospace font */
-  isMonospace?: boolean;
-  /**
-   * Applies a font color. Use
-   * [PALETTE](/components/palette#palette)
-   * colors when possible. Accepts all hex values.
-   */
-  hue?: string;
-}
 
 const SpanComponent = forwardRef<HTMLSpanElement, ISpanProps>(({ tag, ...other }, ref) => (
   <StyledFont as={tag} ref={ref} size="inherit" {...other} />

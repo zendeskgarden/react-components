@@ -5,21 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { ITypographyProps } from '../types';
 import { StyledFont } from '../styled';
-
-export interface IXXLProps extends HTMLAttributes<HTMLDivElement> {
-  /** Updates the element's HTML tag */
-  tag?: any;
-  /** Applies bold font style */
-  isBold?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const XXL = forwardRef<HTMLDivElement, IXXLProps>(({ tag, ...other }, ref) => (
+export const XXL = forwardRef<HTMLDivElement, ITypographyProps>(({ tag, ...other }, ref) => (
   <StyledFont as={tag} ref={ref} size="xxl" {...other} />
 ));
 

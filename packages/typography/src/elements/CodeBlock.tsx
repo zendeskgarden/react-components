@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useMemo, useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import Highlight, { Language, Prism } from 'prism-react-renderer';
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
+import { ICodeBlockProps, LANGUAGES } from '../types';
 import {
   DIFF,
   SIZE,
@@ -22,57 +23,6 @@ interface IToken {
   types: string[];
   content: string;
   empty?: boolean;
-}
-
-/* until https://github.com/FormidableLabs/prism-react-renderer/pull/127 is available */
-const LANGUAGES = [
-  'markup',
-  'bash',
-  'clike',
-  'c',
-  'cpp',
-  'css',
-  'javascript',
-  'jsx',
-  'coffeescript',
-  'actionscript',
-  'css-extr',
-  'diff',
-  'git',
-  'go',
-  'graphql',
-  'handlebars',
-  'json',
-  'less',
-  'makefile',
-  'markdown',
-  'objectivec',
-  'ocaml',
-  'python',
-  'reason',
-  'sass',
-  'scss',
-  'sql',
-  'stylus',
-  'tsx',
-  'typescript',
-  'wasm',
-  'yaml'
-] as const;
-
-export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
-  /** Selects the language used by the [Prism](https://prismjs.com/) tokenizer */
-  language?: typeof LANGUAGES[number];
-  /** Specifies the font size */
-  size?: 'small' | 'medium' | 'large';
-  /** Applies light mode styling */
-  isLight?: boolean;
-  /** Displays line numbers */
-  isNumbered?: boolean;
-  /** Determines the lines to highlight */
-  highlightLines?: number[];
-  /** Passes props to the code block container */
-  containerProps?: HTMLAttributes<HTMLDivElement>;
 }
 
 /**

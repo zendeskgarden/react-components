@@ -5,14 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { IParagraphProps, SIZE } from '../types';
 import { StyledParagraph } from '../styled';
-
-export interface IParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
-  /** Controls the spacing between sibling paragraphs */
-  size?: 'small' | 'medium' | 'large';
-}
 
 /**
  * @extends HTMLAttributes<HTMLParagraphElement>
@@ -36,7 +32,7 @@ export const Paragraph = forwardRef<HTMLParagraphElement, IParagraphProps>(
 Paragraph.displayName = 'Paragraph';
 
 Paragraph.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(SIZE)
 };
 
 Paragraph.defaultProps = {

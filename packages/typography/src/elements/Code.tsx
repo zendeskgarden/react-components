@@ -5,16 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { HUE, ICodeProps, INHERIT_SIZE } from '../types';
 import { StyledCode } from '../styled';
-
-export interface ICodeProps extends HTMLAttributes<HTMLElement> {
-  /** Applies color to the background and the text */
-  hue?: 'grey' | 'red' | 'green' | 'yellow';
-  /** Adjusts the font size. By default font size is inherited from the surrounding text. */
-  size?: 'small' | 'medium' | 'large' | 'inherit';
-}
 
 /**
  * @extends HTMLAttributes<HTMLElement>
@@ -38,8 +32,8 @@ export const Code = forwardRef<HTMLElement, ICodeProps>(({ size, hue, ...other }
 Code.displayName = 'Code';
 
 Code.propTypes = {
-  hue: PropTypes.oneOf(['grey', 'red', 'green', 'yellow']),
-  size: PropTypes.oneOf(['small', 'medium', 'large', 'inherit'])
+  hue: PropTypes.oneOf(HUE),
+  size: PropTypes.oneOf(INHERIT_SIZE)
 };
 
 Code.defaultProps = {

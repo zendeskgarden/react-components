@@ -5,24 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { OlHTMLAttributes, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Item } from './OrderedListItem';
+import { IOrderedListProps, SIZE, TYPE_ORDERED_LIST } from '../../types';
 import { OrderedListContext } from '../../utils/useOrderedListContext';
 import { StyledOrderedList } from '../../styled';
-
-export interface IOrderedListProps extends Omit<OlHTMLAttributes<HTMLOListElement>, 'type'> {
-  /** Adjusts the vertical spacing between list items */
-  size?: 'small' | 'medium' | 'large';
-  /** Sets the marker style */
-  type?:
-    | 'decimal'
-    | 'decimal-leading-zero'
-    | 'lower-alpha'
-    | 'lower-roman'
-    | 'upper-alpha'
-    | 'upper-roman';
-}
 
 const OrderedListComponent = React.forwardRef<HTMLOListElement, IOrderedListProps>(
   ({ size, type, ...other }, ref) => {
@@ -39,15 +27,8 @@ const OrderedListComponent = React.forwardRef<HTMLOListElement, IOrderedListProp
 OrderedListComponent.displayName = 'OrderedList';
 
 OrderedListComponent.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  type: PropTypes.oneOf([
-    'decimal',
-    'decimal-leading-zero',
-    'lower-alpha',
-    'lower-roman',
-    'upper-alpha',
-    'upper-roman'
-  ])
+  size: PropTypes.oneOf(SIZE),
+  type: PropTypes.oneOf(TYPE_ORDERED_LIST)
 };
 
 OrderedListComponent.defaultProps = {

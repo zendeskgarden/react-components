@@ -5,25 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
-
-export interface ILGProps extends HTMLAttributes<HTMLDivElement> {
-  /** Updates the element's HTML tag */
-  tag?: any;
-  /** Applies bold font style */
-  isBold?: boolean;
-  /** Renders with monospace font */
-  isMonospace?: boolean;
-}
+import { IMonospaceTypographyProps } from '../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const LG = forwardRef<HTMLDivElement, ILGProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="lg" {...other} />
-));
+export const LG = forwardRef<HTMLDivElement, IMonospaceTypographyProps>(
+  ({ tag, ...other }, ref) => <StyledFont as={tag} ref={ref} size="lg" {...other} />
+);
 
 LG.displayName = 'LG';
 

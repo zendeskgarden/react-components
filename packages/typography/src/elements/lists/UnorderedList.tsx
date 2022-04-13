@@ -5,18 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, useMemo } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Item } from './UnorderedListItem';
+import { IUnorderedListProps, SIZE, TYPE_UNORDERED_LIST } from '../../types';
 import { UnorderedListContext } from '../../utils/useUnorderedListContext';
 import { StyledUnorderedList } from '../../styled';
-
-export interface IUnorderedListProps extends HTMLAttributes<HTMLUListElement> {
-  /** Adjusts the vertical spacing between list items */
-  size?: 'small' | 'medium' | 'large';
-  /** Sets the marker style */
-  type?: 'circle' | 'disc' | 'square';
-}
 
 const UnorderedListComponent = forwardRef<HTMLUListElement, IUnorderedListProps>(
   ({ size, type, ...other }, ref) => {
@@ -33,8 +27,8 @@ const UnorderedListComponent = forwardRef<HTMLUListElement, IUnorderedListProps>
 UnorderedListComponent.displayName = 'UnorderedList';
 
 UnorderedListComponent.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  type: PropTypes.oneOf(['circle', 'disc', 'square'])
+  size: PropTypes.oneOf(SIZE),
+  type: PropTypes.oneOf(TYPE_UNORDERED_LIST)
 };
 
 UnorderedListComponent.defaultProps = {
