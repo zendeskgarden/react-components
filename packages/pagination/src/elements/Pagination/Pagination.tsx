@@ -5,53 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useContext, HTMLAttributes, forwardRef } from 'react';
+import React, { useState, useContext, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import ChevronLeftIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import { usePagination } from '@zendeskgarden/container-pagination';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
+import { IPaginationProps, PageType } from '../../types';
 import { StyledPagination, StyledPage, StyledGap, StyledNavigation } from '../../styled';
 
 const PREVIOUS_KEY = 'previous';
 const NEXT_KEY = 'next';
-
-export type PAGE_TYPE = 'next' | 'page' | 'gap' | 'previous';
-
-export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onChange'> {
-  /**
-   * Sets the current page. Pages start at 1.
-   */
-  currentPage: number;
-  /**
-   * Defines the total number of pages
-   */
-  totalPages: number;
-  /**
-   * Sets the number of pages that appear between the current page and a gap indicator
-   */
-  pagePadding?: number;
-  /**
-   * Positions the leading and trailing gap indicator, based on
-   * the current and total pages
-   */
-  pageGap?: number;
-  /**
-   * Handles page change events
-   *
-   * @param {any} currentPage The current page
-   */
-  onChange?: (currentPage: number) => void;
-  /**
-   * Applies localized labels, test attributes, etc. to individual pages
-   *
-   * @param {string} pageType The type of the page accepting the props; one of:
-   * "previous", "gap", "page", "next"
-   * @param {any} props Default page props to transform
-   */
-  transformPageProps?: (pageType: PAGE_TYPE, props: any) => any;
-}
 
 /**
  * @extends HTMLAttributes<HTMLUListElement>
@@ -111,7 +76,7 @@ export const Pagination = forwardRef<HTMLUListElement, IPaginationProps>(
         }
       });
 
-    const getTransformedProps = (pageType: PAGE_TYPE, props: any = {}) => {
+    const getTransformedProps = (pageType: PageType, props: any = {}) => {
       if (transformPageProps) {
         return transformPageProps(pageType, props);
       }

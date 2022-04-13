@@ -6,4 +6,5 @@
  */
 
 export { Tag } from './elements/Tag';
-export type { ITagProps } from './elements/Tag';
+
+export type { ITagProps } from './types';

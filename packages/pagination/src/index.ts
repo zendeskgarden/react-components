@@ -6,5 +6,6 @@
  */
 
 export { Pagination } from './elements/Pagination/Pagination';
-export type { IPaginationProps, PAGE_TYPE } from './elements/Pagination/Pagination';
 export { CursorPagination } from './elements/CursorPagination/CursorPagination';
+
+export type { IPaginationProps, PageType as PAGE_TYPE } from './types';

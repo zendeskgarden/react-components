@@ -5,18 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, HTMLAttributes } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
+import { ITabProps } from '../types';
 import { StyledTab } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
-
-export interface ITabProps extends HTMLAttributes<HTMLDivElement> {
-  /** Indicates that the element is not interactive */
-  disabled?: boolean;
-  /** Defines a unique value to identify the tab. Provided to the `onChange` event in the [Tabs](#tabs) component. */
-  item?: any;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

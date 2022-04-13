@@ -6,9 +6,8 @@
  */
 
 export { Tab } from './elements/Tab';
-export type { ITabProps } from './elements/Tab';
 export { TabList } from './elements/TabList';
 export { TabPanel } from './elements/TabPanel';
-export type { ITabPanelProps } from './elements/TabPanel';
 export { Tabs } from './elements/Tabs';
-export type { ITabsProps } from './elements/Tabs';
+
+export type { ITabProps, ITabPanelProps, ITabsProps } from './types';
