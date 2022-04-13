@@ -20,8 +20,6 @@ import {
 } from '../..';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
-jest.useFakeTimers();
-
 const ExampleWrapper: React.FC<IDropdownProps> = ({ children, ...other }) => (
   <Dropdown {...other}>
     <Field>{children}</Field>
@@ -67,7 +65,7 @@ describe('Multiselect', () => {
     expect(getByTestId('multiselect')).toBe(ref.current);
   });
 
-  it('focuses internal input when opened', () => {
+  it('focuses internal input when opened', async () => {
     const { getByTestId } = render(
       <ExampleWrapper>
         <Multiselect
@@ -84,12 +82,12 @@ describe('Multiselect', () => {
       </ExampleWrapper>
     );
 
-    userEvent.click(getByTestId('multiselect'));
+    await userEvent.click(getByTestId('multiselect'));
 
     expect(document.activeElement!.nodeName).toBe('INPUT');
   });
 
-  it('closes on multiselect blur', () => {
+  it('closes on multiselect blur', async () => {
     const { getByTestId } = render(
       <ExampleWrapper>
         <Multiselect
@@ -109,20 +107,22 @@ describe('Multiselect', () => {
     const multiselect = getByTestId('multiselect');
     const input = multiselect.querySelector('input');
 
-    userEvent.click(input!);
+    await userEvent.click(input!);
 
     expect(multiselect).toHaveAttribute('data-test-is-focused', 'true');
 
-    userEvent.tab();
+    await userEvent.tab();
 
     act(() => {
+      jest.useFakeTimers();
       jest.runOnlyPendingTimers();
     });
 
     expect(multiselect).toHaveAttribute('data-test-is-focused', 'false');
+    jest.useRealTimers();
   });
 
-  it('applies correct styling if open', () => {
+  it('applies correct styling if open', async () => {
     const { getByTestId } = render(
       <ExampleWrapper>
         <Multiselect
@@ -141,13 +141,13 @@ describe('Multiselect', () => {
 
     const multiselect = getByTestId('multiselect');
 
-    userEvent.click(multiselect);
+    await userEvent.click(multiselect);
 
     expect(multiselect).toHaveAttribute('data-test-is-focused', 'true');
     expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
   });
 
-  it('applies correct styling if label is hovered', () => {
+  it('applies correct styling if label is hovered', async () => {
     const { getByTestId } = render(
       <ExampleWrapper>
         <Label data-test-id="label">Label</Label>
@@ -165,7 +165,7 @@ describe('Multiselect', () => {
       </ExampleWrapper>
     );
 
-    userEvent.hover(getByTestId('label'));
+    await userEvent.hover(getByTestId('label'));
 
     expect(getByTestId('multiselect')).toHaveAttribute('data-test-is-hovered', 'true');
   });
@@ -194,7 +194,7 @@ describe('Multiselect', () => {
     expect(icon).toHaveStyleRule('height', '16px');
   });
 
-  it('composes onKeyDown handler', () => {
+  it('composes onKeyDown handler', async () => {
     const onKeyDown = jest.fn();
     const EVERLASTING_WINGED = 'Everlasting winged';
     const options = ['Celosia', 'Dusty miller', EVERLASTING_WINGED];
@@ -251,15 +251,15 @@ describe('Multiselect', () => {
 
     expect(addedOption()).not.toBeInTheDocument();
 
-    userEvent.type(multiselect, EVERLASTING_WINGED);
-    userEvent.type(combobox, '{enter}');
+    await userEvent.type(multiselect, EVERLASTING_WINGED);
+    await userEvent.type(combobox, '{enter}');
 
     expect(addedOption()).toBeInTheDocument();
     expect(onKeyDown).toHaveBeenCalledTimes(EVERLASTING_WINGED.length + 1);
   });
 
   describe('Interaction', () => {
-    it('opens on click', () => {
+    it('opens on click', async () => {
       const { getByTestId } = render(
         <ExampleWrapper>
           <Multiselect
@@ -277,7 +277,7 @@ describe('Multiselect', () => {
       );
       const multiselect = getByTestId('multiselect');
 
-      userEvent.click(multiselect);
+      await userEvent.click(multiselect);
 
       expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
     });
@@ -336,7 +336,7 @@ describe('Multiselect', () => {
       expect(items[items.length - 1]).toHaveAttribute('aria-selected', 'true');
     });
 
-    it('closes on escape key', () => {
+    it('closes on escape key', async () => {
       const { getByTestId } = render(
         <ExampleWrapper>
           <Label data-test-id="label">Label</Label>
@@ -355,14 +355,14 @@ describe('Multiselect', () => {
       );
       const multiselect = getByTestId('multiselect');
 
-      userEvent.click(multiselect);
+      await userEvent.click(multiselect);
       expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
-      userEvent.type(multiselect.querySelector('input')!, '{esc}');
+      await userEvent.type(multiselect.querySelector('input')!, '{esc}');
       expect(multiselect).toHaveAttribute('data-test-is-open', 'false');
     });
 
-    it('closes when clicked with current inputValue', () => {
+    it('closes when clicked with current inputValue', async () => {
       const { getByTestId } = render(
         <ExampleWrapper>
           <Label data-test-id="label">Label</Label>
@@ -382,14 +382,14 @@ describe('Multiselect', () => {
       const multiselect = getByTestId('multiselect');
       const input = multiselect.querySelector('input');
 
-      userEvent.click(multiselect);
-      userEvent.type(input!, 'test');
-      userEvent.click(input!);
+      await userEvent.click(multiselect);
+      await userEvent.type(input!, 'test');
+      await userEvent.click(input!);
 
       expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
     });
 
-    it('closes on tag focus', () => {
+    it('closes on tag focus', async () => {
       const { getByTestId, getAllByTestId } = render(
         <ExampleWrapper selectedItems={['item-1', 'item-2', 'item-3']}>
           <Label data-test-id="label">Label</Label>
@@ -408,14 +408,16 @@ describe('Multiselect', () => {
       );
       const multiselect = getByTestId('multiselect');
 
-      userEvent.click(multiselect);
+      await userEvent.click(multiselect);
       expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
       act(() => {
+        jest.useFakeTimers();
         jest.runOnlyPendingTimers();
+        jest.useRealTimers();
       });
 
-      userEvent.click(getAllByTestId('tag')[0]);
+      await userEvent.click(getAllByTestId('tag')[0]);
       expect(multiselect).toHaveAttribute('data-test-is-open', 'false');
     });
   });
@@ -452,7 +454,7 @@ describe('Multiselect', () => {
       expect(multiselect.textContent).toContain('+ 46 more');
     });
 
-    it('shows all tags when focused', () => {
+    it('shows all tags when focused', async () => {
       const items = [];
 
       for (let x = 0; x < 50; x++) {
@@ -462,7 +464,7 @@ describe('Multiselect', () => {
       const { getAllByTestId, container } = render(<DefaultTagExample selectedItems={items} />);
       const input = container.querySelector('input');
 
-      userEvent.click(input!);
+      await userEvent.click(input!);
       const tags = getAllByTestId('tag');
 
       expect(tags).toHaveLength(50);
@@ -549,18 +551,18 @@ describe('Multiselect', () => {
       expect(tags).toHaveLength(4);
     });
 
-    it('focuses tag on click', () => {
+    it('focuses tag on click', async () => {
       const { getAllByTestId, getByTestId } = render(<DefaultTagExample />);
       const tags = getAllByTestId('tag');
       const multiselect = getByTestId('multiselect');
 
-      userEvent.click(tags[0]);
+      await userEvent.click(tags[0]);
 
       expect(tags[0]).toHaveFocus();
       expect(multiselect).not.toHaveClass('is-open');
     });
 
-    it('removes tag on remove click', () => {
+    it('removes tag on remove click', async () => {
       const onSelectSpy = jest.fn();
       const { container, getAllByTestId } = render(
         <DefaultTagExample onSelect={items => onSelectSpy(items)} />
@@ -569,17 +571,19 @@ describe('Multiselect', () => {
       const input = container.querySelector('input');
       const removes = getAllByTestId('remove');
 
-      userEvent.click(input!);
-      userEvent.click(removes[0]);
+      await userEvent.click(input!);
+      await userEvent.click(removes[0]);
 
       act(() => {
+        jest.useFakeTimers();
         jest.runOnlyPendingTimers();
+        jest.useRealTimers();
       });
 
       expect(onSelectSpy).toHaveBeenCalledWith(['item-2', 'item-3']);
     });
 
-    it('does not remove tag when disabled', () => {
+    it('does not remove tag when disabled', async () => {
       const onSelectSpy = jest.fn();
       const { getByTestId } = render(
         <ExampleWrapper selectedItems={['item-1']} onSelect={onSelectSpy}>
@@ -598,7 +602,7 @@ describe('Multiselect', () => {
         </ExampleWrapper>
       );
 
-      userEvent.click(getByTestId('remove'));
+      await userEvent.click(getByTestId('remove'));
 
       expect(onSelectSpy).not.toHaveBeenCalled();
     });
@@ -614,12 +618,12 @@ describe('Multiselect', () => {
       expect(tags[tags.length - 1]).toHaveFocus();
     });
 
-    it('does not focus last tag on left arrow keydown with input value', () => {
+    it('does not focus last tag on left arrow keydown with input value', async () => {
       const { getAllByTestId, container } = render(<DefaultTagExample inputValue="hello" />);
       const tags = getAllByTestId('tag');
       const input = container.querySelector('input');
 
-      userEvent.click(input!);
+      await userEvent.click(input!);
       fireEvent.keyDown(input!, { key: 'ArrowLeft', keyCode: KEY_CODES.LEFT });
 
       expect(tags[tags.length - 1]).not.toHaveFocus();
@@ -637,7 +641,7 @@ describe('Multiselect', () => {
       expect(tags[0]).toHaveFocus();
     });
 
-    it('does not focus first tag on home keydown with input value', () => {
+    it('does not focus first tag on home keydown with input value', async () => {
       const { getAllByTestId, container } = render(<DefaultTagExample />);
       const tags = getAllByTestId('tag');
       const input = container.querySelector('input');
@@ -646,20 +650,20 @@ describe('Multiselect', () => {
 
       expect(tags[0]).toHaveFocus();
 
-      userEvent.type(input!, 'hello');
+      await userEvent.type(input!, 'hello');
 
       fireEvent.keyDown(input!, { key: 'Home', keyCode: KEY_CODES.HOME });
 
       expect(tags[0]).not.toHaveFocus();
     });
 
-    it('removes last tag on backspace keydown is pressed with no input value', () => {
+    it('removes last tag on backspace keydown is pressed with no input value', async () => {
       const onSelectSpy = jest.fn();
       const { container } = render(<DefaultTagExample onSelect={items => onSelectSpy(items)} />);
       const input = container.querySelector('input');
 
-      userEvent.click(input!);
-      userEvent.type(input!, '{backspace}');
+      await userEvent.click(input!);
+      fireEvent.keyDown(input!, { keyCode: KEY_CODES.BACKSPACE });
 
       expect(onSelectSpy).toHaveBeenCalledWith(['item-1', 'item-2']);
     });
@@ -671,7 +675,7 @@ describe('Multiselect', () => {
       );
       const tags = getAllByTestId('tag');
 
-      userEvent.type(tags[1], '{backspace}');
+      fireEvent.keyDown(tags[1], { keyCode: KEY_CODES.BACKSPACE });
       expect(onSelectSpy).toHaveBeenCalledWith(['item-1', 'item-3']);
     });
 
@@ -682,7 +686,7 @@ describe('Multiselect', () => {
       );
       const tags = getAllByTestId('tag');
 
-      userEvent.type(tags[1], '{del}');
+      fireEvent.keyDown(tags[1], { keyCode: KEY_CODES.DELETE });
       expect(onSelectSpy).toHaveBeenCalledWith(['item-1', 'item-3']);
     });
 
@@ -695,35 +699,37 @@ describe('Multiselect', () => {
       expect(input).toHaveFocus();
     });
 
-    it('remain on first tag on left keydown', () => {
+    it('remain on first tag on left keydown', async () => {
       const { getAllByTestId } = render(<DefaultTagExample />);
       const tags = getAllByTestId('tag');
 
-      userEvent.click(tags[0]);
+      await userEvent.click(tags[0]);
       fireEvent.keyDown(tags[0], { keyCode: KEY_CODES.LEFT });
       expect(tags[0]).toHaveFocus();
     });
 
-    it('focus input on right keydown when last tag is focused', () => {
+    it('focus input on right keydown when last tag is focused', async () => {
       const { getAllByTestId, container } = render(<DefaultTagExample />);
       const input = container.querySelector('input');
 
-      userEvent.click(input!);
+      await userEvent.click(input!);
 
       const tags = getAllByTestId('tag');
       const lastTag = tags[tags.length - 1];
 
-      userEvent.click(lastTag);
+      await userEvent.click(lastTag);
       fireEvent.keyDown(lastTag, { keyCode: KEY_CODES.RIGHT });
 
       act(() => {
+        jest.useFakeTimers();
         jest.runOnlyPendingTimers();
+        jest.useRealTimers();
       });
 
       expect(input).toHaveFocus();
     });
 
-    it('focus remains on input when navigating away from nested menu', () => {
+    it('focus remains on input when navigating away from nested menu', async () => {
       const { container } = render(
         <Dropdown selectedItems={['item-1', 'item-2']}>
           <Field>
@@ -739,14 +745,14 @@ describe('Multiselect', () => {
       );
       const input = container.querySelector('input');
 
-      userEvent.click(input!);
+      await userEvent.click(input!);
       fireEvent.keyDown(input!, { key: 'ArrowLeft', keyCode: KEY_CODES.LEFT });
 
       expect(input!).toHaveFocus();
     });
 
     describe('RTL Layout', () => {
-      it('focus remains on input when navigating away from nested menu in RTL', () => {
+      it('focus remains on input when navigating away from nested menu in RTL', async () => {
         const { container } = renderRtl(
           <Dropdown selectedItems={['item-1', 'item-2']}>
             <Field>
@@ -762,46 +768,48 @@ describe('Multiselect', () => {
         );
         const input = container.querySelector('input');
 
-        userEvent.click(input!);
+        await userEvent.click(input!);
         fireEvent.keyDown(input!, { key: 'ArrowRight', keyCode: KEY_CODES.RIGHT });
 
         expect(input!).toHaveFocus();
       });
 
-      it('focuses last tag on right arrow keydown with no input value', () => {
+      it('focuses last tag on right arrow keydown with no input value', async () => {
         const { getAllByTestId, container } = renderRtl(<DefaultTagExample />);
         const tags = getAllByTestId('tag');
         const input = container.querySelector('input');
 
-        userEvent.click(input!);
+        await userEvent.click(input!);
         fireEvent.keyDown(input!, { key: 'ArrowRight', keyCode: KEY_CODES.RIGHT });
 
         expect(tags[tags.length - 1]).toHaveFocus();
       });
 
-      it('remain on first tag on right keydown', () => {
+      it('remain on first tag on right keydown', async () => {
         const { getAllByTestId } = renderRtl(<DefaultTagExample />);
         const tags = getAllByTestId('tag');
 
-        userEvent.click(tags[0]);
+        await userEvent.click(tags[0]);
         fireEvent.keyDown(tags[0], { keyCode: KEY_CODES.RIGHT });
         expect(tags[0]).toHaveFocus();
       });
 
-      it('focus input on left keydown when last tag is focused', () => {
+      it('focus input on left keydown when last tag is focused', async () => {
         const { getAllByTestId, container } = renderRtl(<DefaultTagExample />);
         const input = container.querySelector('input');
 
-        userEvent.click(input!);
+        await userEvent.click(input!);
 
         const tags = getAllByTestId('tag');
         const lastTag = tags[tags.length - 1];
 
-        userEvent.click(lastTag);
+        await userEvent.click(lastTag);
         fireEvent.keyDown(lastTag, { keyCode: KEY_CODES.LEFT });
 
         act(() => {
+          jest.useFakeTimers();
           jest.runOnlyPendingTimers();
+          jest.useRealTimers();
         });
 
         expect(input).toHaveFocus();

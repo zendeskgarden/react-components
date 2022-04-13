@@ -105,7 +105,7 @@ describe('Colorpicker', () => {
       expect(alphaInput.value).toBe('50');
     });
 
-    it('updates the rgb/a inputs correctly when one is cleared and user types into another', () => {
+    it('updates the rgb/a inputs correctly when one is cleared and user types into another', async () => {
       render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
@@ -123,15 +123,15 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(greenInput);
+      await userEvent.clear(greenInput);
       expect(greenInput.value).toBe('');
-      userEvent.type(redInput, '2');
+      await userEvent.type(redInput, '2');
 
       expect(greenInput.value).toBe('73');
       expect(hexInput.value).toBe('#e8494d');
     });
 
-    it('resets the hex input to the last valid hex string', () => {
+    it('resets the hex input to the last valid hex string', async () => {
       render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
@@ -150,9 +150,9 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(hexInput);
-      userEvent.type(hexInput, 'b4!a55');
-      userEvent.tab();
+      await userEvent.clear(hexInput);
+      await userEvent.type(hexInput, 'b4!a55');
+      await userEvent.tab();
 
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(redInput.value).toBe('23');
@@ -164,7 +164,7 @@ describe('Colorpicker', () => {
       );
     });
 
-    it('updates the color picker when the hex input is changed', () => {
+    it('updates the color picker when the hex input is changed', async () => {
       render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
@@ -182,8 +182,8 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(hexInput);
-      userEvent.type(hexInput, '#b4da55');
+      await userEvent.clear(hexInput);
+      await userEvent.type(hexInput, '#b4da55');
 
       expect(hueSlider.value).toBe('77.14285714285714');
       expect(redInput.value).toBe('180');
@@ -195,7 +195,7 @@ describe('Colorpicker', () => {
       );
     });
 
-    it('updates the color picker when the R input is changed', () => {
+    it('updates the color picker when the R input is changed', async () => {
       render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
@@ -209,14 +209,14 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(redInput);
-      userEvent.type(redInput, '255');
+      await userEvent.clear(redInput);
+      await userEvent.type(redInput, '255');
 
       expect(hueSlider.value).toBe('358.68131868131866');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 71.37254901960785%;');
     });
 
-    it('updates the color picker when the G input is changed', () => {
+    it('updates the color picker when the G input is changed', async () => {
       render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
@@ -230,14 +230,14 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(greenInput);
-      userEvent.type(greenInput, '255');
+      await userEvent.clear(greenInput);
+      await userEvent.type(greenInput, '255');
 
       expect(hueSlider.value).toBe('133.9655172413793');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
 
-    it('updates the color picker when the B input is changed', () => {
+    it('updates the color picker when the B input is changed', async () => {
       render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
@@ -251,14 +251,14 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(blueInput);
-      userEvent.type(blueInput, '255');
+      await userEvent.clear(blueInput);
+      await userEvent.type(blueInput, '255');
 
       expect(hueSlider.value).toBe('227.06896551724137');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
 
-    it('updates with correct alpha when the A input is changed', () => {
+    it('updates with correct alpha when the A input is changed', async () => {
       render(<Colorpicker defaultColor="rgba(23, 73, 77, 1)" />);
 
       const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
@@ -267,14 +267,14 @@ describe('Colorpicker', () => {
       expect(alphaSlider.value).toBe('1');
       expect(alphaInput.value).toBe('100');
 
-      userEvent.clear(alphaInput);
-      userEvent.type(alphaInput, '50');
+      await userEvent.clear(alphaInput);
+      await userEvent.type(alphaInput, '50');
 
       expect(alphaSlider.value).toBe('0.5');
       expect(alphaInput.value).toBe('50');
     });
 
-    it('keeps current color when user changes RGB/A inputs to invalid values', () => {
+    it('keeps current color when user changes RGB/A inputs to invalid values', async () => {
       render(<Colorpicker defaultColor="rgba(23, 73, 77, 50)" />);
 
       const redInput = screen.getByLabelText('R') as HTMLInputElement;
@@ -282,24 +282,24 @@ describe('Colorpicker', () => {
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
       const alphaInput = screen.getByLabelText('A') as HTMLInputElement;
 
-      userEvent.clear(redInput);
-      userEvent.type(redInput, '299');
+      await userEvent.clear(redInput);
+      await userEvent.type(redInput, '299');
       expect(redInput.value).toBe('255');
 
-      userEvent.clear(greenInput);
-      userEvent.type(greenInput, '299');
+      await userEvent.clear(greenInput);
+      await userEvent.type(greenInput, '299');
       expect(greenInput.value).toBe('255');
 
-      userEvent.clear(blueInput);
-      userEvent.type(blueInput, '299');
+      await userEvent.clear(blueInput);
+      await userEvent.type(blueInput, '299');
       expect(blueInput.value).toBe('255');
 
-      userEvent.clear(alphaInput);
-      userEvent.type(alphaInput, '109');
+      await userEvent.clear(alphaInput);
+      await userEvent.type(alphaInput, '109');
       expect(alphaInput.value).toBe('100');
     });
 
-    it('updates the color only if the hex input is a valid hex color', () => {
+    it('updates the color only if the hex input is a valid hex color', async () => {
       render(<Colorpicker defaultColor="#17494d" />);
 
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
@@ -312,12 +312,12 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(hexInput);
-      userEvent.type(hexInput, '#b4'); // invalid hex
+      await userEvent.clear(hexInput);
+      await userEvent.type(hexInput, '#b4'); // invalid hex
 
       expect(hueSlider.value).toBe('184.44444444444443');
 
-      userEvent.type(hexInput, 'da55'); // now valid hex
+      await userEvent.type(hexInput, 'da55'); // now valid hex
 
       expect(hueSlider.value).toBe('77.14285714285714');
       expect(colorWellThumb).toHaveAttribute(
@@ -374,7 +374,7 @@ describe('Colorpicker', () => {
       expect(alphaInput.value).toBe('50');
     });
 
-    it('updates the rgb/a inputs correctly when one is cleared and user types into another', () => {
+    it('updates the rgb/a inputs correctly when one is cleared and user types into another', async () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
@@ -398,15 +398,15 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(greenInput);
+      await userEvent.clear(greenInput);
       expect(greenInput.value).toBe('');
-      userEvent.type(redInput, '2');
+      await userEvent.type(redInput, '2');
 
       expect(greenInput.value).toBe('73');
       expect(hexInput.value).toBe('#e8494d');
     });
 
-    it('resets the hex input to the last valid hex string', () => {
+    it('resets the hex input to the last valid hex string', async () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
@@ -431,9 +431,9 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(hexInput);
-      userEvent.type(hexInput, 'b4a!a55');
-      userEvent.tab();
+      await userEvent.clear(hexInput);
+      await userEvent.type(hexInput, 'b4a!a55');
+      await userEvent.tab();
 
       expect(hueSlider.value).toBe('184.44444444444443');
       expect(redInput.value).toBe('23');
@@ -445,7 +445,7 @@ describe('Colorpicker', () => {
       );
     });
 
-    it('updates the color picker when the hex input is changed', () => {
+    it('updates the color picker when the hex input is changed', async () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
@@ -470,8 +470,8 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(hexInput);
-      userEvent.type(hexInput, '#b4da55');
+      await userEvent.clear(hexInput);
+      await userEvent.type(hexInput, '#b4da55');
 
       expect(hueSlider.value).toBe('77.14285714285714');
       expect(redInput.value).toBe('180');
@@ -483,7 +483,7 @@ describe('Colorpicker', () => {
       );
     });
 
-    it('updates the color picker when the R input is changed', () => {
+    it('updates the color picker when the R input is changed', async () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
@@ -504,14 +504,14 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(redInput);
-      userEvent.type(redInput, '255');
+      await userEvent.clear(redInput);
+      await userEvent.type(redInput, '255');
 
       expect(hueSlider.value).toBe('358.68131868131866');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 71.37254901960785%;');
     });
 
-    it('updates the color picker when the G input is changed', () => {
+    it('updates the color picker when the G input is changed', async () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
@@ -532,14 +532,14 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(greenInput);
-      userEvent.type(greenInput, '255');
+      await userEvent.clear(greenInput);
+      await userEvent.type(greenInput, '255');
 
       expect(hueSlider.value).toBe('133.9655172413793');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
 
-    it('updates the color picker when the B input is changed', () => {
+    it('updates the color picker when the B input is changed', async () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
@@ -560,14 +560,14 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(blueInput);
-      userEvent.type(blueInput, '255');
+      await userEvent.clear(blueInput);
+      await userEvent.type(blueInput, '255');
 
       expect(hueSlider.value).toBe('227.06896551724137');
       expect(colorWellThumb).toHaveAttribute('style', 'top: 0%; left: 90.98039215686275%;');
     });
 
-    it('updates with correct alpha when the A input is changed', () => {
+    it('updates with correct alpha when the A input is changed', async () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgba(23,73,77,1)');
 
@@ -582,14 +582,14 @@ describe('Colorpicker', () => {
       expect(alphaSlider.value).toBe('1');
       expect(alphaInput.value).toBe('100');
 
-      userEvent.clear(alphaInput);
-      userEvent.type(alphaInput, '50');
+      await userEvent.clear(alphaInput);
+      await userEvent.type(alphaInput, '50');
 
       expect(alphaSlider.value).toBe('0.5');
       expect(alphaInput.value).toBe('50');
     });
 
-    it('keeps current color when user changes RGB/A inputs to invalid values', () => {
+    it('keeps current color when user changes RGB/A inputs to invalid values', async () => {
       const Basic = () => {
         const [color, setColor] = useState<IColor>({
           hue: 0,
@@ -612,24 +612,24 @@ describe('Colorpicker', () => {
       const blueInput = screen.getByLabelText('B') as HTMLInputElement;
       const alphaInput = screen.getByLabelText('A') as HTMLInputElement;
 
-      userEvent.clear(redInput);
-      userEvent.type(redInput, '299');
+      await userEvent.clear(redInput);
+      await userEvent.type(redInput, '299');
       expect(redInput.value).toBe('255');
 
-      userEvent.clear(greenInput);
-      userEvent.type(greenInput, '299');
+      await userEvent.clear(greenInput);
+      await userEvent.type(greenInput, '299');
       expect(greenInput.value).toBe('255');
 
-      userEvent.clear(blueInput);
-      userEvent.type(blueInput, '299');
+      await userEvent.clear(blueInput);
+      await userEvent.type(blueInput, '299');
       expect(blueInput.value).toBe('255');
 
-      userEvent.clear(alphaInput);
-      userEvent.type(alphaInput, '109');
+      await userEvent.clear(alphaInput);
+      await userEvent.type(alphaInput, '109');
       expect(alphaInput.value).toBe('100');
     });
 
-    it('updates the color only if the hex input is a valid hex color', () => {
+    it('updates the color only if the hex input is a valid hex color', async () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('#17494d');
 
@@ -648,12 +648,12 @@ describe('Colorpicker', () => {
         'top: 69.80392156862746%; left: 70.12987012987013%;'
       );
 
-      userEvent.clear(hexInput);
-      userEvent.type(hexInput, '#b4'); // invalid hex
+      await userEvent.clear(hexInput);
+      await userEvent.type(hexInput, '#b4'); // invalid hex
 
       expect(hueSlider.value).toBe('184.44444444444443');
 
-      userEvent.type(hexInput, 'da55'); // now valid hex
+      await userEvent.type(hexInput, 'da55'); // now valid hex
 
       expect(hueSlider.value).toBe('77.14285714285714');
       expect(colorWellThumb).toHaveAttribute(
@@ -662,7 +662,7 @@ describe('Colorpicker', () => {
       );
     });
 
-    it('sets color picker text inputs when color prop is manually controlled', () => {
+    it('sets color picker text inputs when color prop is manually controlled', async () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('#17494d');
 
@@ -693,7 +693,7 @@ describe('Colorpicker', () => {
       expect(blueInput.value).toBe('77');
       expect(alphaInput.value).toBe('100');
 
-      userEvent.click(screen.getByText('Change #b4da55'));
+      await userEvent.click(screen.getByText('Change #b4da55'));
 
       expect(hexInput.value).toBe('#b4da55');
       expect(redInput.value).toBe('180');
@@ -701,7 +701,7 @@ describe('Colorpicker', () => {
       expect(blueInput.value).toBe('85');
       expect(alphaInput.value).toBe('100');
 
-      userEvent.click(screen.getByText('Change rgba(0, 0, 0, .50)'));
+      await userEvent.click(screen.getByText('Change rgba(0, 0, 0, .50)'));
 
       expect(hexInput.value).toBe('#000');
       expect(redInput.value).toBe('0');
@@ -709,7 +709,7 @@ describe('Colorpicker', () => {
       expect(blueInput.value).toBe('0');
       expect(alphaInput.value).toBe('50');
 
-      userEvent.click(screen.getByText('Change rgb(85, 211, 218)'));
+      await userEvent.click(screen.getByText('Change rgb(85, 211, 218)'));
 
       expect(hexInput.value).toBe('#55d3da');
       expect(redInput.value).toBe('85');
@@ -717,7 +717,7 @@ describe('Colorpicker', () => {
       expect(blueInput.value).toBe('218');
       expect(alphaInput.value).toBe('100');
 
-      userEvent.click(screen.getByText('Change #b!da5!'));
+      await userEvent.click(screen.getByText('Change #b!da5!'));
 
       expect(hexInput.value).toBe('#55d3da');
       expect(redInput.value).toBe('85');
