@@ -73,7 +73,9 @@ program
       const path = await generate(component, spinner);
 
       await bootstrap(component, spinner);
-      spinner.succeed(`Success.\nThe new package – ${path} – is ready for development.`);
+      spinner.succeed(
+        `Success.\nThe new package – ${path} – is ready for development. Remember to update the "paths" entry in tsconfig.json.`
+      );
     } catch (error) {
       spinner.fail(error.message || error);
       process.exitCode = 1;
