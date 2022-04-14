@@ -12,6 +12,44 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.49.3 (2022-04-14)
+
+#### :bug: Bug Fix
+* `loaders`, `pagination`, `tabs`, `tags`
+  * [#1338](https://github.com/zendeskgarden/react-components/pull/1338) fix(loaders, pagination, tabs, tags): refactor types and interfaces ([@jzempel](https://github.com/jzempel))
+* `notifications`
+  * [#1337](https://github.com/zendeskgarden/react-components/pull/1337) fix(notifications): refactor types and interfaces ([@jzempel](https://github.com/jzempel))
+* `datepickers`
+  * [#1336](https://github.com/zendeskgarden/react-components/pull/1336) fix(datepickers): refactor types and interfaces ([@jzempel](https://github.com/jzempel))
+* `chrome`
+  * [#1335](https://github.com/zendeskgarden/react-components/pull/1335) fix(chrome): refactor types and interfaces ([@jzempel](https://github.com/jzempel))
+* `buttons`
+  * [#1333](https://github.com/zendeskgarden/react-components/pull/1333) fix(buttons): refactor types and interfaces ([@jzempel](https://github.com/jzempel))
+* `tables`
+  * [#1330](https://github.com/zendeskgarden/react-components/pull/1330) fix(tables): refactor types and interfaces ([@jzempel](https://github.com/jzempel))
+* `dropdowns`, `forms`
+  * [#1329](https://github.com/zendeskgarden/react-components/pull/1329) fix(forms, dropdowns): refactor types and interfaces ([@jzempel](https://github.com/jzempel))
+* `colorpickers`, `modals`, `theming`
+  * [#1326](https://github.com/zendeskgarden/react-components/pull/1326) fix(theming, modals, colorpickers): refactor types and interfaces ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1320](https://github.com/zendeskgarden/react-components/pull/1320) fix(grid): refactor types and interfaces ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `typography`
+  * [#1340](https://github.com/zendeskgarden/react-components/pull/1340) chore(typography): refactor types and interfaces ([@jzempel](https://github.com/jzempel))
+* Other
+  * [#1313](https://github.com/zendeskgarden/react-components/pull/1313) chore(scripts): improved local-to-CI linting ([@jzempel](https://github.com/jzempel))
+  * [#1312](https://github.com/zendeskgarden/react-components/pull/1312) chore(demo): add StrictMode decorator ([@jzempel](https://github.com/jzempel))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+* `avatars`
+  * [#1332](https://github.com/zendeskgarden/react-components/pull/1332) chore(avatars): refactor types and interfaces ([@jzempel](https://github.com/jzempel))
+* `accordions`
+  * [#1331](https://github.com/zendeskgarden/react-components/pull/1331) chore(accordions): standardize interfaces ([@jzempel](https://github.com/jzempel))
+* `datepickers`
+  * [#1311](https://github.com/zendeskgarden/react-components/pull/1311) refactor(datepickers): use context rather than prop drilling ([@hzhu](https://github.com/hzhu))
+* `tooltips`
+  * [#1297](https://github.com/zendeskgarden/react-components/pull/1297) chore(tooltips): refactor types and element interface ([@jzempel](https://github.com/jzempel))
+
 ## v8.49.2 (2022-03-31)
 
 #### :bug: Bug Fix
