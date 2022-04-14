@@ -7,19 +7,33 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
-import {
-  DEFAULT_THEME,
-  isRtl,
-  retrieveComponentStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { SIZE } from '../types';
 
 const COMPONENT_ID = 'typography.font';
 
+const TYPOGRAPHY_SIZE = [...SIZE, 'extralarge', '2xlarge', '3xlarge'] as const;
+
+const FONT_SIZE = ['inherit', ...TYPOGRAPHY_SIZE] as const;
+
+type TypographySize = typeof TYPOGRAPHY_SIZE[number];
+
+type ThemeSize = keyof DefaultTheme['lineHeights'];
+
+export const THEME_SIZES: Record<TypographySize, ThemeSize> = {
+  small: 'sm',
+  medium: 'md',
+  large: 'lg',
+  extralarge: 'xl',
+  '2xlarge': 'xxl',
+  '3xlarge': 'xxxl'
+};
+
 const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
-  const monospace = props.isMonospace && ['sm', 'md', 'lg', 'inherit'].indexOf(props.size!) !== -1;
+  const monospace =
+    props.isMonospace && ['inherit', 'small', 'medium', 'large'].indexOf(props.size!) !== -1;
   const fontFamily = monospace && props.theme.fonts.mono;
-  const direction = isRtl(props) ? 'rtl' : 'ltr';
+  const direction = props.theme.rtl ? 'rtl' : 'ltr';
   let fontSize;
   let fontWeight;
   let lineHeight;
@@ -30,12 +44,16 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
       fontSize = 'calc(1em - 1px)';
       lineHeight = 'normal';
     } else {
-      fontSize = math(`${props.theme.fontSizes[props.size!]} - 1px`);
-      lineHeight = math(`${props.theme.lineHeights[props.size!]} - 1px`);
+      const themeSize = THEME_SIZES[props.size!];
+
+      fontSize = math(`${props.theme.fontSizes[themeSize]} - 1px`);
+      lineHeight = math(`${props.theme.lineHeights[themeSize]} - 1px`);
     }
   } else if (props.size !== 'inherit') {
-    fontSize = props.theme.fontSizes[props.size!];
-    lineHeight = props.theme.lineHeights[props.size!];
+    const themeSize = THEME_SIZES[props.size!];
+
+    fontSize = props.theme.fontSizes[themeSize];
+    lineHeight = props.theme.lineHeights[themeSize];
   }
 
   if (props.isBold === true) {
@@ -63,7 +81,7 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
 export interface IStyledFontProps {
   isBold?: boolean;
   isMonospace?: boolean;
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl' | 'inherit';
+  size?: typeof FONT_SIZE[number];
   hue?: string;
 }
 

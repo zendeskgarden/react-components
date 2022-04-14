@@ -44,55 +44,55 @@ describe('StyledFont', () => {
     });
 
     it('renders small size', () => {
-      const { container } = render(<StyledFont size="sm" />);
+      const { container } = render(<StyledFont size="small" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.sm);
     });
 
     it('renders medium size', () => {
-      const { container } = render(<StyledFont size="md" />);
+      const { container } = render(<StyledFont size="medium" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
     });
 
     it('renders large size', () => {
-      const { container } = render(<StyledFont size="lg" />);
+      const { container } = render(<StyledFont size="large" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.lg);
     });
 
     it('renders extra-large size', () => {
-      const { container } = render(<StyledFont size="xl" />);
+      const { container } = render(<StyledFont size="extralarge" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.xl);
     });
 
     it('does not render monospace at extra-large size', () => {
-      const { container } = render(<StyledFont isMonospace size="xl" />);
+      const { container } = render(<StyledFont isMonospace size="extralarge" />);
 
       expect(container.firstChild).not.toHaveStyleRule('font-family', /monospace/u);
     });
 
     it('renders extra extra-large size', () => {
-      const { container } = render(<StyledFont size="xxl" />);
+      const { container } = render(<StyledFont size="2xlarge" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.xxl);
     });
 
     it('does not render monospace at extra extra-large size', () => {
-      const { container } = render(<StyledFont isMonospace size="xxl" />);
+      const { container } = render(<StyledFont isMonospace size="2xlarge" />);
 
       expect(container.firstChild).not.toHaveStyleRule('font-family', /monospace/u);
     });
 
     it('renders extra extra extra-large size', () => {
-      const { container } = render(<StyledFont size="xxxl" />);
+      const { container } = render(<StyledFont size="3xlarge" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.xxxl);
     });
 
     it('does not render monospace at extra extra extra-large size', () => {
-      const { container } = render(<StyledFont isMonospace size="xxxl" />);
+      const { container } = render(<StyledFont isMonospace size="3xlarge" />);
 
       expect(container.firstChild).not.toHaveStyleRule('font-family', /monospace/u);
     });

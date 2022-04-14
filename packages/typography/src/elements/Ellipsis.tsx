@@ -5,16 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { StyledEllipsis } from '../styled';
-
-export interface IEllipsisProps extends HTMLAttributes<HTMLDivElement> {
-  /** Overrides the auto-generated `title` attribute */
-  title?: string;
-  /** Updates the element's HTML tag */
-  tag?: any;
-}
+import { IEllipsisProps } from '../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

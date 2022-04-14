@@ -7,17 +7,15 @@
 
 import styled from 'styled-components';
 import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { IBlockquoteProps } from '../types';
+import { THEME_SIZES } from './StyledFont';
 
 const COMPONENT_ID = 'typography.blockquote';
-
-interface IStyledBlockquoteProps {
-  size?: 'sm' | 'md' | 'lg';
-}
 
 export const StyledBlockquote = styled.blockquote.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledBlockquoteProps>`
+})<IBlockquoteProps>`
   margin: 0;
   /* stylelint-disable property-no-unknown */
   border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
@@ -31,13 +29,12 @@ export const StyledBlockquote = styled.blockquote.attrs({
 
   p + &,
   & + & {
-    margin-top: ${props => props.theme.lineHeights[props.size!]};
+    margin-top: ${props => props.theme.lineHeights[THEME_SIZES[props.size!]]};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledBlockquote.defaultProps = {
-  theme: DEFAULT_THEME,
-  size: 'md'
+  theme: DEFAULT_THEME
 };

@@ -8,7 +8,8 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { Language } from 'prism-react-renderer';
 import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
-import { StyledFont } from './StyledFont';
+import { Diff, Size } from '../types';
+import { StyledFont, THEME_SIZES } from './StyledFont';
 
 const COMPONENT_ID = 'typography.codeblock_code';
 
@@ -54,9 +55,9 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultT
 
   if (props.language && props.language === 'diff') {
     padding = 0;
-  } else if (props.size === 'sm') {
+  } else if (props.size === 'small') {
     padding = props.theme.space.base * 4;
-  } else if (props.size === 'lg') {
+  } else if (props.size === 'large') {
     padding = props.theme.space.base * 7;
   } else {
     padding = props.theme.space.base * 6;
@@ -75,16 +76,13 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultT
   `;
 };
 
-export type DIFF = 'hunk' | 'add' | 'delete' | 'change';
-export type SIZE = 'sm' | 'md' | 'lg';
-
 export interface IStyledCodeBlockLineProps {
   language?: Language;
   isHighlighted?: boolean;
   isLight?: boolean;
   isNumbered?: boolean;
-  diff?: DIFF;
-  size?: SIZE;
+  diff?: Diff;
+  size?: Size;
 }
 
 /**
@@ -98,7 +96,7 @@ export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
   isMonospace: true
 })<IStyledCodeBlockLineProps>`
   display: table-row;
-  height: ${props => props.theme.lineHeights[props.size!]}; /* [1] */
+  height: ${props => props.theme.lineHeights[THEME_SIZES[props.size!]]}; /* [1] */
   direction: ltr;
 
   ${props => colorStyles(props)};
@@ -115,6 +113,5 @@ export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
 `;
 
 StyledCodeBlockLine.defaultProps = {
-  size: 'md',
   theme: DEFAULT_THEME
 };

@@ -20,17 +20,19 @@ export { OrderedList } from './elements/lists/OrderedList';
 export { UnorderedList } from './elements/lists/UnorderedList';
 export { Span } from './elements/span/Span';
 
-export type { ISMProps } from './elements/SM';
-export type { IMDProps } from './elements/MD';
-export type { ILGProps } from './elements/LG';
-export type { IXLProps } from './elements/XL';
-export type { IXXLProps } from './elements/XXL';
-export type { IXXXLProps } from './elements/XXXL';
-export type { IBlockquoteProps } from './elements/Blockquote';
-export type { ICodeProps } from './elements/Code';
-export type { ICodeBlockProps } from './elements/CodeBlock';
-export type { IEllipsisProps } from './elements/Ellipsis';
-export type { IParagraphProps } from './elements/Paragraph';
-export type { IOrderedListProps } from './elements/lists/OrderedList';
-export type { IUnorderedListProps } from './elements/lists/UnorderedList';
-export type { ISpanProps } from './elements/span/Span';
+export type {
+  ITypescaleMonospaceProps as ISMProps,
+  ITypescaleMonospaceProps as IMDProps,
+  ITypescaleMonospaceProps as ILGProps,
+  ITypescaleProps as IXLProps,
+  ITypescaleProps as IXXLProps,
+  ITypescaleProps as IXXXLProps,
+  IBlockquoteProps,
+  ICodeProps,
+  ICodeBlockProps,
+  IEllipsisProps,
+  IParagraphProps,
+  IOrderedListProps,
+  IUnorderedListProps,
+  ISpanProps
+} from './types';

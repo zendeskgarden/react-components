@@ -6,9 +6,10 @@
  */
 
 import { createContext, useContext } from 'react';
+import { Size } from '../types';
 
 interface IUnorderedListContext {
-  size: 'small' | 'medium' | 'large';
+  size: Size;
 }
 
 export const UnorderedListContext = createContext<IUnorderedListContext | undefined>(undefined);

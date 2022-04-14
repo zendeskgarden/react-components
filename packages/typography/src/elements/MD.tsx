@@ -5,24 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { ITypescaleMonospaceProps } from '../types';
 import { StyledFont } from '../styled';
-
-export interface IMDProps extends HTMLAttributes<HTMLDivElement> {
-  /** Updates the element's HTML tag */
-  tag?: any;
-  /** Applies bold font style */
-  isBold?: boolean;
-  /** Renders with monospace font */
-  isMonospace?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const MD = forwardRef<HTMLDivElement, IMDProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="md" {...other} />
+export const MD = forwardRef<HTMLDivElement, ITypescaleMonospaceProps>(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="medium" {...other} />
 ));
 
 MD.displayName = 'MD';

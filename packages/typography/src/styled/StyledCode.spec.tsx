@@ -41,19 +41,19 @@ describe('StyledCode', () => {
     });
 
     it('renders small size', () => {
-      const { container } = render(<StyledCode size="sm" />);
+      const { container } = render(<StyledCode size="small" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', '11px');
     });
 
     it('renders medium size', () => {
-      const { container } = render(<StyledCode size="md" />);
+      const { container } = render(<StyledCode size="medium" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', '13px');
     });
 
     it('renders large size', () => {
-      const { container } = render(<StyledCode size="lg" />);
+      const { container } = render(<StyledCode size="large" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', '17px');
     });

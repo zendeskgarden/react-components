@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.ellipsis';
 
@@ -17,7 +17,7 @@ export const StyledEllipsis = styled.div.attrs({
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
+  direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

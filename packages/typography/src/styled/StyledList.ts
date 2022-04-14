@@ -6,10 +6,11 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { IOrderedListProps, IUnorderedListProps } from '../types';
 
 const listStyles = (props: { listType?: string } & ThemeProps<DefaultTheme>) => {
-  const rtl = isRtl(props);
+  const rtl = props.theme.rtl;
 
   return css`
     direction: ${rtl ? 'rtl' : 'ltr'};
@@ -25,13 +26,7 @@ const listStyles = (props: { listType?: string } & ThemeProps<DefaultTheme>) => 
 const ORDERED_ID = 'typography.ordered_list';
 
 interface IStyledListProps {
-  listType?:
-    | 'decimal'
-    | 'decimal-leading-zero'
-    | 'lower-alpha'
-    | 'lower-roman'
-    | 'upper-alpha'
-    | 'upper-roman';
+  listType?: IOrderedListProps['type'];
 }
 
 export const StyledOrderedList = styled.ol.attrs({
@@ -49,7 +44,7 @@ StyledOrderedList.defaultProps = {
 const UNORDERED_ID = 'typography.unordered_list';
 
 interface IStyledUnorderedListProps {
-  listType?: 'circle' | 'disc' | 'square';
+  listType?: IUnorderedListProps['type'];
 }
 
 export const StyledUnorderedList = styled.ul.attrs({
