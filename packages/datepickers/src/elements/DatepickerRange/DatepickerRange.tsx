@@ -14,61 +14,12 @@ import React, {
   useMemo
 } from 'react';
 import PropTypes from 'prop-types';
+import { IDatepickerRangeProps } from '../../types';
 import { datepickerRangeReducer, retrieveInitialState } from './utils/datepicker-range-reducer';
 import { DatepickerRangeContext } from './utils/useDatepickerRangeContext';
 import { Start } from './components/Start';
 import { End } from './components/End';
 import { Calendar } from './components/Calendar';
-
-export interface IDatepickerRangeProps {
-  /**
-   * Applies locale-based formatting.
-   * Accepts all valid `Intl` [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
-   */
-  locale?: string;
-  /**
-   * Sets the start date
-   */
-  startValue?: Date;
-  /**
-   * Sets the end date
-   */
-  endValue?: Date;
-  /**
-   * Disables dates before this value on the calendar
-   */
-  minValue?: Date;
-  /**
-   * Disables dates after this value on the calendar
-   */
-  maxValue?: Date;
-  /**
-   * Handles start and end date changes
-   *
-   * @param {Object} values The selected dates
-   * @param {Date} [values.startValue] Optional start date
-   * @param {Date} [values.endValue] Optional end date
-   */
-  onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
-  /**
-   * Adjusts the input element's date formatting
-   *
-   *  @param {Date} date The selected date
-   *  @returns {string} a formatted date string
-   */
-  formatDate?: (date: Date) => string;
-  /**
-   * Overrides the default date parsing
-   *
-   * @param {string} inputValue A date string
-   * @returns {Date} the parsed date
-   */
-  customParseDate?: (inputValue?: string) => Date;
-  /**
-   * Applies compact styling
-   */
-  isCompact?: boolean;
-}
 
 const DatepickerRangeComponent = (props: PropsWithChildren<IDatepickerRangeProps>) => {
   const {

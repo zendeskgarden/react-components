@@ -11,7 +11,8 @@ import { render, renderRtl, fireEvent, act } from 'garden-test-utils';
 import { addDays, subDays } from 'date-fns';
 import mockDate from 'mockdate';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import { Datepicker, IDatepickerProps } from './Datepicker';
+import { Datepicker } from './Datepicker';
+import { IDatepickerProps } from '../../types';
 
 const DEFAULT_DATE = new Date(2019, 1, 5);
 

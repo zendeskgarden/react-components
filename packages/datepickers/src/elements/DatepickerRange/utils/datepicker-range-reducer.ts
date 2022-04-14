@@ -15,7 +15,7 @@ import parse from 'date-fns/parse';
 import startOfMonth from 'date-fns/startOfMonth';
 import compareAsc from 'date-fns/compareAsc';
 import isAfter from 'date-fns/isAfter';
-import { IDatepickerRangeProps } from '../DatepickerRange';
+import { IDatepickerRangeProps } from '../../../types';
 
 export interface IDatepickerRangeState {
   previewDate: Date;
