@@ -40,7 +40,7 @@ the standard rules for Garden element component documentation:
     - See the [Dropdown
       API](https://garden.zendesk.com/components/select#dropdown) for an
       external linking example
-  - Only add prop JSDoc to TypeScript prop interfaces
+  - Only add prop JSDoc to [TypeScript prop interfaces](typescript.md)
     - Refrain from documenting React `defaultProps`
     - Refrain from documenting styled components props
   - Use `@ignore` to prevent a prop from being added to generated documentation.
