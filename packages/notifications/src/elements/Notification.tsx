@@ -5,17 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import InfoStrokeIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
+import { INotificationProps, TYPE } from '../types';
 import { StyledNotification, StyledIcon } from '../styled';
-import { ARRAY_VALIDATION_TYPE, VALIDATION_TYPE } from '../utils/types';
 import { validationIcons, validationHues } from '../utils/icons';
-
-export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies notification type styles */
-  type?: VALIDATION_TYPE;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -40,5 +35,5 @@ export const Notification = React.forwardRef<HTMLDivElement, INotificationProps>
 Notification.displayName = 'Notification';
 
 Notification.propTypes = {
-  type: PropTypes.oneOf(ARRAY_VALIDATION_TYPE)
+  type: PropTypes.oneOf(TYPE)
 };

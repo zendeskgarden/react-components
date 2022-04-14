@@ -5,26 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useReducer, useCallback, useMemo, HTMLAttributes, PropsWithChildren } from 'react';
+import React, { useReducer, useCallback, useMemo, PropsWithChildren } from 'react';
 import PropTypes from 'prop-types';
-import { toasterReducer, getInitialState, ToastPlacement } from './reducer';
+import { IToastProviderProps, Placement } from '../../types';
+import { toasterReducer, getInitialState } from './reducer';
 import { ToastContext } from './ToastContext';
 import { ToastSlot } from './ToastSlot';
-
-export interface IToastProviderProps {
-  /**
-   * Limits the number of visible toasts
-   */
-  limit?: number;
-  /**
-   * Passes placement-based customization props to the toast's parent element
-   */
-  placementProps?: Partial<Record<ToastPlacement, HTMLAttributes<HTMLDivElement>>>;
-  /**
-   * Sets the `z-index` of the toast
-   */
-  zIndex?: number;
-}
 
 export const ToastProvider = ({
   limit,
@@ -37,7 +23,7 @@ export const ToastProvider = ({
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   const toastsByPlacement = useCallback(
-    (placement: ToastPlacement) => {
+    (placement: Placement) => {
       let matchingToasts = state.toasts.filter(toast => toast.options.placement === placement);
 
       if (placement === 'bottom' || placement === 'bottom-start' || placement === 'bottom-end') {

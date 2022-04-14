@@ -7,15 +7,18 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { ToastProvider, IToastProviderProps } from '@zendeskgarden/react-notifications';
-import { TOAST_PLACEMENT } from './types';
+import {
+  ToastProvider,
+  IToastProviderProps,
+  IToastOptions
+} from '@zendeskgarden/react-notifications';
 import { ToastStory } from './ToastStory';
 
 interface IArgs extends IToastProviderProps {
   children: string;
   autoDismiss: boolean;
   milliseconds: number;
-  placement?: TOAST_PLACEMENT;
+  placement?: IToastOptions['placement'];
 }
 
 export const ToastProviderStory: Story<IArgs> = ({

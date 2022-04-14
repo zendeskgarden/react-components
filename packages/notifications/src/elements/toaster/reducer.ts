@@ -5,30 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ReactElement } from 'react';
-
-export type ToastPlacement =
-  | 'top-start'
-  | 'top'
-  | 'top-end'
-  | 'bottom-start'
-  | 'bottom'
-  | 'bottom-end';
-
-export type ToastContent = ({ close }: { close: () => void }) => ReactElement;
-
-export interface IToastOptions<T = any> {
-  id?: string;
-  autoDismiss: boolean | number;
-  placement: ToastPlacement;
-  data?: T;
-}
-
-export interface IToast {
-  id: string;
-  content: ToastContent;
-  options: IToastOptions;
-}
+import { Content, IToast, IToastOptions } from './useToast';
 
 export interface IToasterState {
   toasts: IToast[];
@@ -42,7 +19,7 @@ export type ToasterReducerAction =
   | { type: 'REMOVE_TOAST'; payload: string }
   | {
       type: 'UPDATE_TOAST';
-      payload: { id: string; options: { content?: ToastContent } & Partial<IToastOptions> };
+      payload: { id: string; options: { content?: Content } & Partial<IToastOptions> };
     }
   | { type: 'REMOVE_ALL_TOASTS' };
 

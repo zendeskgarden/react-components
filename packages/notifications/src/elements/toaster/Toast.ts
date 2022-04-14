@@ -6,8 +6,7 @@
  */
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { IToast } from './reducer';
-import { useToast } from './useToast';
+import { IToast, useToast } from './useToast';
 
 interface IToastProps {
   toast: IToast;

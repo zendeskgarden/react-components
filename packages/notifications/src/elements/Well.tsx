@@ -5,16 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { IWellProps } from '../types';
 import { StyledWell } from '../styled';
-
-export interface IWellProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies a background color */
-  isRecessed?: boolean;
-  /** Applies a drop shadow */
-  isFloating?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
