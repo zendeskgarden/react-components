@@ -10,11 +10,17 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'loaders.loading_placeholder';
 
+interface IStyledLoadingPlaceholderProps {
+  fontSize: string | number;
+  width?: string;
+  height?: string;
+}
+
 export const StyledLoadingPlaceholder = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   role: 'progressbar'
-})<{ fontSize: string | number; width?: string; height?: string }>`
+})<IStyledLoadingPlaceholderProps>`
   display: inline-block;
   width: ${props => props.width || '1em'};
   height: ${props => props.height || '0.9em'};

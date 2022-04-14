@@ -5,17 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { ITabPanelProps } from '../types';
 import { StyledTabPanel } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
-
-export interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * Defines a value used to match a tab panel with its associated tab
-   */
-  item?: any;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

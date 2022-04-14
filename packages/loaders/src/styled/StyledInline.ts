@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
@@ -31,18 +30,18 @@ StyledCircle.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-interface IStyledTypingSvgProps extends React.HTMLAttributes<SVGSVGElement> {
+interface IStyledInlineProps {
   size: number;
   color: string;
 }
 
-export const StyledInlineTypingSVG = styled.svg.attrs<IStyledTypingSvgProps>(props => ({
+export const StyledInline = styled.svg.attrs<IStyledInlineProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   viewBox: '0 0 16 4',
   width: props.size,
   height: props.size * 0.25
-}))<IStyledTypingSvgProps>`
+}))<IStyledInlineProps>`
   color: ${props => props.color};
 
   ${StyledCircle} {
@@ -67,6 +66,6 @@ export const StyledInlineTypingSVG = styled.svg.attrs<IStyledTypingSvgProps>(pro
   ${props => retrieveComponentStyles(COMPONENT_ID, props)}
 `;
 
-StyledInlineTypingSVG.defaultProps = {
+StyledInline.defaultProps = {
   theme: DEFAULT_THEME
 };

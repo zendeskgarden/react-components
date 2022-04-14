@@ -5,31 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useRef, useContext, HTMLAttributes, useMemo, forwardRef } from 'react';
+import React, { useState, useRef, useContext, useMemo, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { useTabs } from '@zendeskgarden/container-tabs';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
+import { ITabsProps } from '../types';
 import { TabsContext } from '../utils/useTabsContext';
 import { StyledTabs } from '../styled/StyledTabs';
-
-export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * Arranges the tabs vertically
-   */
-  isVertical?: boolean;
-  /**
-   * Specifies the currently selected tab
-   */
-  selectedItem?: any;
-  /**
-   * Handles tab selection
-   *
-   * @param {String} updatedSelectedItem The selected tab's `item` value
-   */
-  onChange?: (updatedSelectedItem: any) => void;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

@@ -5,28 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { ITagProps, SIZE } from '../types';
 import { StyledTag } from '../styled';
 import { Close } from './Close';
 import { Avatar } from './Avatar';
-
-export interface ITagProps extends HTMLAttributes<HTMLDivElement> {
-  /** Adjusts font size and padding */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Sets the color of the tag. Refer to
-   * [PALETTE](/components/palette#palette)
-   * for available colors. Accepts any hex value.
-   */
-  hue?: string;
-  /** Applies pill styling */
-  isPill?: boolean;
-  /** Applies styles to round the tag */
-  isRound?: boolean;
-  /** Applies regular (non-bold) font weight */
-  isRegular?: boolean;
-}
 
 const TagComponent = forwardRef<HTMLDivElement, ITagProps>(({ size, hue, ...otherProps }, ref) => (
   <StyledTag ref={ref} size={size} hue={hue} {...otherProps} />
@@ -35,7 +19,7 @@ const TagComponent = forwardRef<HTMLDivElement, ITagProps>(({ size, hue, ...othe
 TagComponent.displayName = 'Tag';
 
 TagComponent.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(SIZE),
   hue: PropTypes.string,
   isPill: PropTypes.bool,
   isRound: PropTypes.bool,
