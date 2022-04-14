@@ -7,13 +7,14 @@
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { ISheetProps } from '../../types';
 
 const COMPONENT_ID = 'chrome.sheet_wrapper';
 
 interface IStyledSheetWrapperProps {
   isOpen?: boolean;
   isAnimated?: boolean;
-  placement?: 'start' | 'end';
+  placement?: ISheetProps['placement'];
   size?: string;
 }
 

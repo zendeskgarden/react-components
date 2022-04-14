@@ -5,23 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { INavItemProps, PRODUCT } from '../../types';
 import { StyledNavItem, StyledLogoNavItem, StyledBrandmarkNavItem } from '../../styled';
-import { PRODUCT, PRODUCTS } from '../../utils/types';
 import { useNavContext } from '../../utils/useNavContext';
 import { useChromeContext } from '../../utils/useChromeContext';
-
-export interface INavItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Applies a product-specific color palette */
-  product?: PRODUCT;
-  /** Indicates that the item is current in the nav */
-  isCurrent?: boolean;
-  /** Indicates that the item contains a product logo */
-  hasLogo?: boolean;
-  /** Indicates that the item contains the company brandmark */
-  hasBrandmark?: boolean;
-}
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
@@ -64,7 +53,7 @@ export const NavItem = React.forwardRef<HTMLButtonElement, INavItemProps>(
 NavItem.displayName = 'NavItem';
 
 NavItem.propTypes = {
-  product: PropTypes.oneOf(PRODUCTS),
+  product: PropTypes.oneOf(PRODUCT),
   hasLogo: PropTypes.bool,
   hasBrandmark: PropTypes.bool,
   isCurrent: PropTypes.bool

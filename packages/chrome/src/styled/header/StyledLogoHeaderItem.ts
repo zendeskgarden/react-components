@@ -12,7 +12,7 @@ import {
   PALETTE,
   DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
-import { PRODUCT } from '../../utils/types';
+import { Product } from '../../types';
 import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
 import { StyledBaseHeaderItem } from './StyledBaseHeaderItem';
 import { StyledHeaderItemText, clippedStyling } from './StyledHeaderItemText';
@@ -21,7 +21,7 @@ import { getNavWidth } from '../nav/StyledNav';
 const COMPONENT_ID = 'chrome.header_item';
 
 export interface IStyledLogoHeaderItemProps {
-  product?: PRODUCT;
+  product?: Product;
 }
 
 const retrieveProductColor = (props: IStyledLogoHeaderItemProps) => {

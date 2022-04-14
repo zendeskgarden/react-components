@@ -5,16 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { AnchorHTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { ISkipNavProps } from '../types';
 import { StyledSkipNav, StyledSkipNavIcon } from '../styled';
-
-export interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  /** Sets the ID of the element to navigate to */
-  targetId: string;
-  /** Sets the `z-index` of the element */
-  zIndex?: number;
-}
 
 /**
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>

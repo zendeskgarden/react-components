@@ -5,20 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useMemo, useEffect, useContext } from 'react';
+import React, { useMemo, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { readableColor } from 'polished';
 import { getColor, useDocument } from '@zendeskgarden/react-theming';
+import { IChromeProps } from '../types';
 import { ChromeContext } from '../utils/useChromeContext';
 import { StyledChrome } from '../styled';
-
-export interface IChromeProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies a custom hue to the chrome navigation */
-  hue?: string;
-  /** Prevents fixed positioning from being applied to the `<html>` element */
-  isFluid?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

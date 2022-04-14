@@ -9,7 +9,8 @@ import React, { useState, forwardRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from 'garden-test-utils';
 
-import { Sheet, ISheetProps } from './Sheet';
+import { Sheet } from './Sheet';
+import { ISheetProps } from '../../types';
 
 describe('Sheet', () => {
   const Example = forwardRef<HTMLElement, ISheetProps>((props: ISheetProps, ref) => {

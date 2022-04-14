@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { INavItemTextProps } from '../../types';
 import { StyledNavItemText } from '../../styled';
 import { useNavContext } from '../../utils/useNavContext';
-
-export interface INavItemTextProps extends HTMLAttributes<HTMLSpanElement> {
-  /** Wraps overflow item text instead of truncating long strings with an ellipsis **/
-  isWrapped?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLSpanElement>

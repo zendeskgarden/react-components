@@ -5,14 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { IHeaderProps } from '../../types';
 import { StyledHeader } from '../../styled';
-
-export interface IHeaderProps extends HTMLAttributes<HTMLElement> {
-  /** Displays logo for standlone usage  */
-  isStandalone?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLElement>

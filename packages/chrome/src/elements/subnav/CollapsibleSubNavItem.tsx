@@ -5,30 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useRef, useState, ButtonHTMLAttributes } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useAccordion } from '@zendeskgarden/container-accordion';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
+import { ICollapsibleSubNavItemProps } from '../../types';
 import {
   StyledSubNavItemHeader,
   StyledSubNavPanel,
   StyledSubNavItemIconWrapper,
   StyledSubNavItemIcon
 } from '../../styled';
-
-export interface ICollapsibleSubNavItemProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
-  /** Sets the item's section header */
-  header?: React.ReactNode;
-  /** Reveals the item's section */
-  isExpanded?: boolean;
-  /**
-   * Handles changes in the item's expansion state
-   *
-   * @param {boolean} isExpanded An item's expansion state
-   */
-  onChange?: (isExpanded: boolean) => void;
-}
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>

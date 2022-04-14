@@ -5,16 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { INavProps } from '../../types';
 import { useChromeContext } from '../../utils/useChromeContext';
 import { NavContext } from '../../utils/useNavContext';
 import { StyledNav } from '../../styled';
-
-export interface INavProps extends HTMLAttributes<HTMLElement> {
-  /** Expands the nav area to display the item text */
-  isExpanded?: boolean;
-}
 
 /**
  * @extends HTMLAttributes<HTMLElement>
