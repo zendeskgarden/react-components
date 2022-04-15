@@ -23,7 +23,7 @@ export type TextAlign = typeof TEXT_ALIGN[number];
 export type GridNumber = number | string;
 export type Breakpoint = number | string | boolean;
 export type Space = typeof SPACE[number];
-export type Wrap = 'nowrap' | 'wrap' | 'wrap-reverse';
+export type Wrap = typeof WRAP[number];
 
 export interface IColProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the total number of grid `columns` that the column spans on all screen sizes */
