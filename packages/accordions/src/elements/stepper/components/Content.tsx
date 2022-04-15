@@ -45,7 +45,9 @@ const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElemen
 
     return isHorizontal === false ? (
       <StyledContent ref={mergeRefs([contentRef, ref])} isActive={isActive} {...props}>
-        <StyledInnerContent isActive={isActive}>{props.children}</StyledInnerContent>
+        <StyledInnerContent isActive={isActive} aria-hidden={!isActive}>
+          {props.children}
+        </StyledInnerContent>
       </StyledContent>
     ) : null;
   }
