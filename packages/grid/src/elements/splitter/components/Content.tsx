@@ -6,11 +6,11 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { StyledPaneItem } from '../../../styled/splitter/StyledPaneItem';
+import { StyledPaneContent } from '../../../styled';
 
 const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
-    return <StyledPaneItem ref={ref} {...props} />;
+    return <StyledPaneContent ref={ref} {...props} />;
   }
 );
 

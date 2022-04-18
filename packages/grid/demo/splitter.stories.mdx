@@ -3,7 +3,7 @@ import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import { useArgs } from '@storybook/client-api';
 import { SplitterStory, makeArray } from './stories/SplitterStory';
-import { VEGGIE_IPSUM, SIMPLE_SPLITTER_PANES } from './stories/data';
+import { PANES } from './stories/data';
 
 <Meta
   title="Packages/Grid/Splitter"
@@ -11,22 +11,22 @@ import { VEGGIE_IPSUM, SIMPLE_SPLITTER_PANES } from './stories/data';
   subcomponents={{ Pane, 'Pane.Content': Pane.Content, 'Pane.Splitter': Pane.Splitter }}
   args={{
     columnValues: {
-      'column-1': 1,
-      'column-2': 1
+      'column-a': 1,
+      'column-b': 1
     },
     rowValues: {
       'row-1': 1,
       'row-2': 1
     },
     defaultColumnValues: {
-      'column-1': 1,
-      'column-2': 1
+      'column-a': 1,
+      'column-b': 1
     },
     defaultRowValues: {
       'row-1': 1,
       'row-2': 1
     },
-    panes: SIMPLE_SPLITTER_PANES
+    panes: PANES
   }}
   argTypes={{
     panes: { name: 'panes', table: { category: 'Story' } }
@@ -54,7 +54,7 @@ import { VEGGIE_IPSUM, SIMPLE_SPLITTER_PANES } from './stories/data';
     args={{ columnValues: undefined, rowValues: undefined }}
     argTypes={{ columnValues: { control: false }, rowValues: { control: false } }}
   >
-    {args => <SplitterStory {...args} text={VEGGIE_IPSUM} />}
+    {args => <SplitterStory {...args} />}
   </Story>
 </Canvas>
 
@@ -70,7 +70,7 @@ import { VEGGIE_IPSUM, SIMPLE_SPLITTER_PANES } from './stories/data';
       const updateArgs = useArgs()[1];
       const handleValueChange = (rowValues, columnValues) =>
         updateArgs({ rowValues, columnValues });
-      return <SplitterStory {...args} handleValueChange={handleValueChange} text={VEGGIE_IPSUM} />;
+      return <SplitterStory {...args} handleValueChange={handleValueChange} />;
     }}
   </Story>
 </Canvas>

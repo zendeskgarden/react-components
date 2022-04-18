@@ -8,19 +8,18 @@
 import styled from 'styled-components';
 import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'pane';
+const COMPONENT_ID = 'pane.content';
 
-export const StyledPane = styled.div.attrs({
+export const StyledPaneContent = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  position: relative;
-  min-width: 0;
-  min-height: 0;
+  height: 100%;
+  overflow: auto;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledPane.defaultProps = {
+StyledPaneContent.defaultProps = {
   theme: DEFAULT_THEME
 };

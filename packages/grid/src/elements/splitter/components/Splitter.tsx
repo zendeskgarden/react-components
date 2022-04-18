@@ -17,8 +17,7 @@ import {
 import useSplitterContext from '../../../utils/useSplitterContext';
 import usePaneContext from '../../../utils/usePaneContext';
 import { ARRAY_ORIENTATION, DIMENSIONS, ISplitterProps } from '../../../types';
-
-import { StyledPaneItem, StyledSeparatorContainer, StyledSeparator } from '../../../styled';
+import { StyledPaneSplitter } from '../../../styled';
 
 const orientationToPosition = {
   start: SplitterPosition.TRAILS,
@@ -99,18 +98,12 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       }
     }, [paneContext, getPrimaryPaneProps]);
 
-    const isHorizontal = paneToSplitterOrientation[orientation!] === SplitterOrientation.HORIZONTAL;
-
     const separatorProps = getSeparatorProps({
       'aria-controls': paneContext.id
     });
 
     return (
-      <StyledPaneItem data-test-id="splitter-pane-item" ref={ref} paneOrientation={orientation}>
-        <StyledSeparatorContainer isHorizontal={isHorizontal} {...separatorProps} {...props}>
-          <StyledSeparator isHorizontal={isHorizontal} />
-        </StyledSeparatorContainer>
-      </StyledPaneItem>
+      <StyledPaneSplitter orientation={orientation} ref={ref} {...separatorProps} {...props} />
     );
   }
 );

@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 import useResizeObserver from 'use-resize-observer';
 import { Story } from '@storybook/react';
-import { ThemeContext } from 'styled-components';
 import {
   PaneProvider,
   IPaneProvider,
@@ -17,10 +17,16 @@ import {
 } from '@zendeskgarden/react-grid';
 import { ISplitterPane } from './types';
 
+const StyledPanes = styled.div`
+  display: grid;
+  direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
+  width: 100%;
+  height: calc(100vh - 80px);
+`;
+
 interface IArgs extends IPaneProvider {
   handleValueChange?: IPaneProvider['onChange'];
-  text: string[];
-  panes: [ISplitterPane];
+  panes: ISplitterPane[];
 }
 
 export const SplitterStory: Story<IArgs> = ({
@@ -31,11 +37,9 @@ export const SplitterStory: Story<IArgs> = ({
   defaultColumnValues,
   defaultRowValues,
   handleValueChange,
-  panes,
-  text
+  panes
 }) => {
   const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
-  const themeContext = useContext(ThemeContext);
 
   return (
     <PaneProvider
@@ -49,35 +53,22 @@ export const SplitterStory: Story<IArgs> = ({
     >
       {({ getGridTemplateColumns, getGridTemplateRows }: IPaneProviderReturnProps) => {
         return (
-          <div
+          <StyledPanes
             ref={ref}
             style={{
-              direction: themeContext.rtl ? 'rtl' : 'ltr',
-              display: 'grid',
-              width: '100%',
-              height: '90vh',
               gridTemplateRows: getGridTemplateRows(),
               gridTemplateColumns: getGridTemplateColumns()
             }}
           >
             {panes.map((pane, index) => (
-              <Pane key={pane.name}>
-                <Pane.Content
-                  style={{
-                    overflow: 'auto'
-                  }}
-                >
-                  <div style={{ height: '0px' }}>
-                    <p>{pane.name}</p>
-                    <p>{text[index]}</p>
-                  </div>
-                </Pane.Content>
+              <Pane key={index}>
+                <Pane.Content>{pane.content}</Pane.Content>
                 {pane.splitters.map(splitter => (
                   <Pane.Splitter key={splitter.layoutKey} {...splitter} />
                 ))}
               </Pane>
             ))}
-          </div>
+          </StyledPanes>
         );
       }}
     </PaneProvider>
