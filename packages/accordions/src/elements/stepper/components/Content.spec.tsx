@@ -46,4 +46,20 @@ describe('Content', () => {
 
     expect(queryByText('Some content')).not.toBeNull();
   });
+
+  it('hides step content from assistive devices when the step is inactive', () => {
+    const { queryByText } = render(
+      <Stepper activeIndex={0}>
+        <Stepper.Step>
+          <Stepper.Content>Blueberry</Stepper.Content>
+        </Stepper.Step>
+        <Stepper.Step>
+          <Stepper.Content>Strawberry</Stepper.Content>
+        </Stepper.Step>
+      </Stepper>
+    );
+
+    expect(queryByText('Blueberry')).toHaveAttribute('aria-hidden', 'false');
+    expect(queryByText('Strawberry')).toHaveAttribute('aria-hidden', 'true');
+  });
 });
