@@ -44,12 +44,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 
 const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
   const size = math(`${props.theme.shadowWidths.md} * 2`);
-  const margin = `-${props.theme.shadowWidths.md}`;
+  const offset = math(`-${size} / 2`);
   let cursor;
-  let marginTop = '0';
-  let marginRight = '0';
-  let marginLeft = '0';
-  let marginBottom = '0';
   let top;
   let right;
   let left;
@@ -62,8 +58,7 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
   switch (props.orientation) {
     case 'top':
       cursor = 'row-resize';
-      marginTop = margin;
-      top = 0;
+      top = offset;
       width = '100%';
       height = size;
       separatorWidth = width;
@@ -80,19 +75,16 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
       separatorHeight = height;
 
       if (props.theme.rtl) {
-        left = 0;
-        marginLeft = margin;
+        left = offset;
       } else {
-        right = 0;
-        marginRight = margin;
+        right = offset;
       }
 
       break;
 
     case 'bottom':
       cursor = 'row-resize';
-      marginBottom = margin;
-      bottom = 0;
+      bottom = offset;
       width = '100%';
       height = size;
       separatorWidth = width;
@@ -109,11 +101,9 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
       separatorHeight = height;
 
       if (props.theme.rtl) {
-        right = 0;
-        marginRight = margin;
+        right = offset;
       } else {
-        left = 0;
-        marginLeft = margin;
+        left = offset;
       }
 
       break;
@@ -125,12 +115,17 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
     right: ${right};
     bottom: ${bottom};
     left: ${left};
-    margin: ${marginTop} ${marginRight} ${marginBottom} ${marginLeft};
     cursor: ${cursor};
     width: ${width};
     height: ${height};
 
     &::before {
+      /* prettier-ignore */
+      transition:
+        box-shadow 0.1s ease-in-out,
+        background-color 0.25s ease-in-out,
+        width 0.25s ease-in-out,
+        height 0.25s ease-in-out;
       margin: auto;
       width: ${separatorWidth};
       height: ${separatorHeight};
@@ -153,12 +148,13 @@ export const StyledPaneSplitter = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledPaneSplitterProps>`
   position: absolute;
+  z-index: 1;
 
   ${sizeStyles};
 
   &:hover,
   &[data-garden-focus-visible] {
-    z-index: 1;
+    z-index: 2;
   }
 
   &:focus {
