@@ -45,6 +45,7 @@ LabelComponent.displayName = 'Stepper.Label';
 
 LabelComponent.propTypes = {
   icon: PropTypes.node,
+  iconProps: PropTypes.object,
   isHidden: PropTypes.bool
 };
 

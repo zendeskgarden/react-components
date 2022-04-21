@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { SVGAttributes } from 'react';
 import { Story } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/12/clipboard-list-stroke.svg';
 import { Stepper, IStepperProps } from '@zendeskgarden/react-accordions';
@@ -15,6 +15,7 @@ interface IArgs extends IStepperProps {
   hasIcon: boolean;
   isLabelHidden: boolean;
   steps: IStepperStep[];
+  iconProps: SVGAttributes<SVGElement>;
 }
 
 export const StepperStory: Story<IArgs> = ({ steps, ...args }) => (
@@ -24,11 +25,7 @@ export const StepperStory: Story<IArgs> = ({ steps, ...args }) => (
         <Stepper.Label
           icon={args.hasIcon && <Icon />}
           isHidden={args.isLabelHidden}
-          iconProps={{
-            role: 'img',
-            'aria-label': 'checked',
-            'aria-hidden': undefined
-          }}
+          iconProps={args.iconProps}
         >
           {step.label}
         </Stepper.Label>
