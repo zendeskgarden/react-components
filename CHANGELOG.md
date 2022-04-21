@@ -12,6 +12,24 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.49.4 (2022-04-21)
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#1344](https://github.com/zendeskgarden/react-components/pull/1344) fix(accordions): hide inactive content from screen readers ([@hzhu](https://github.com/hzhu))
+
+#### :memo: Documentation
+* `.template`, `grid`
+  * [#1341](https://github.com/zendeskgarden/react-components/pull/1341) chore: refactor template interface and add TypeScript documentation ([@jzempel](https://github.com/jzempel))
+* `buttons`, `chrome`, `colorpickers`, `forms`, `modals`, `typography`
+  * [#1342](https://github.com/zendeskgarden/react-components/pull/1342) chore(demo): add design links ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `breadcrumbs`, `colorpickers`
+  * [#1325](https://github.com/zendeskgarden/react-components/pull/1325) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1343](https://github.com/zendeskgarden/react-components/pull/1343) chore(deps): bump async from 2.6.3 to 2.6.4 in /examples/codesandbox ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## v8.49.3 (2022-04-14)
 
 #### :bug: Bug Fix
