@@ -5,7 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, LiHTMLAttributes, OlHTMLAttributes, ReactNode } from 'react';
+import {
+  ReactNode,
+  SVGAttributes,
+  HTMLAttributes,
+  LiHTMLAttributes,
+  OlHTMLAttributes
+} from 'react';
 
 export interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** Sets `aria-level` heading rank in the document structure */
@@ -41,7 +47,9 @@ export interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {
 
 export interface IStepperLabelProps extends HTMLAttributes<HTMLDivElement> {
   /** Replaces the label number with an icon */
-  icon?: React.ReactNode;
+  icon?: ReactNode;
+  /** Passes props to the default check icon */
+  iconProps?: SVGAttributes<SVGElement>;
   /** Hides the label text */
   isHidden?: boolean;
 }

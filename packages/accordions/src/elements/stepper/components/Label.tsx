@@ -12,33 +12,40 @@ import { IStepperLabelProps } from '../../../types';
 import { StyledLabel, StyledLabelText, StyledIcon, StyledIconFlexContainer } from '../../../styled';
 import { useStepContext, useStepperContext } from '../../../utils';
 
-const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>((props, ref) => {
-  const { currentStepIndex } = useStepContext();
-  const { activeIndex, isHorizontal } = useStepperContext();
-  const numericStep = currentStepIndex + 1;
-  const stepIcon = props.icon || numericStep;
-  const isActive = activeIndex === currentStepIndex;
-  const isCompleted = activeIndex > currentStepIndex;
-  const styledIcon = (
-    <StyledIcon isActive={isActive} isHorizontal={isHorizontal}>
-      {isCompleted ? <CheckCircleStrokeIcon /> : stepIcon}
-    </StyledIcon>
-  );
+const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>(
+  ({ icon, iconProps, isHidden, children, ...other }, ref) => {
+    const { currentStepIndex } = useStepContext();
+    const { activeIndex, isHorizontal } = useStepperContext();
+    const numericStep = currentStepIndex + 1;
+    const stepIcon = icon || numericStep;
+    const isActive = activeIndex === currentStepIndex;
+    const isCompleted = activeIndex > currentStepIndex;
+    const styledIcon = (
+      <StyledIcon isActive={isActive} isHorizontal={isHorizontal}>
+        {isCompleted ? <CheckCircleStrokeIcon {...iconProps} /> : stepIcon}
+      </StyledIcon>
+    );
 
-  return (
-    <StyledLabel ref={ref} isActive={isActive} isHorizontal={isHorizontal} {...props}>
-      {isHorizontal ? <StyledIconFlexContainer>{styledIcon}</StyledIconFlexContainer> : styledIcon}
-      <StyledLabelText isHidden={props.isHidden} isHorizontal={isHorizontal}>
-        {props.children}
-      </StyledLabelText>
-    </StyledLabel>
-  );
-});
+    return (
+      <StyledLabel ref={ref} isActive={isActive} isHorizontal={isHorizontal} {...other}>
+        {isHorizontal ? (
+          <StyledIconFlexContainer>{styledIcon}</StyledIconFlexContainer>
+        ) : (
+          styledIcon
+        )}
+        <StyledLabelText isHidden={isHidden} isHorizontal={isHorizontal}>
+          {children}
+        </StyledLabelText>
+      </StyledLabel>
+    );
+  }
+);
 
 LabelComponent.displayName = 'Stepper.Label';
 
 LabelComponent.propTypes = {
   icon: PropTypes.node,
+  iconProps: PropTypes.object,
   isHidden: PropTypes.bool
 };
 
