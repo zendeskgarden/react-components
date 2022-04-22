@@ -94,7 +94,7 @@
     "husky": "7.0.4",
     "identity-obj-proxy": "3.0.0",
     "inquirer": "8.2.2",
-    "inquirer-autocomplete-prompt": "1.4.0",
+    "inquirer-autocomplete-prompt": "2.0.0",
     "jest": "26.6.3",
     "jest-styled-components": "7.0.8",
     "lerna": "4.0.0",
