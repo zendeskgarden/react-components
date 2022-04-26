@@ -14,7 +14,7 @@ that will be immediately familiar to users of Bootstrap.
 ## Splitter
 
 The `Pane.Splitter` component enables resizable-layouts between one or
-more panes. With Garden, `PaneProvider` and `Pane`
+more panes. `PaneProvider` and `Pane`
 coordinate multiple `Pane.Splitter` components in a
 [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) or
 [CSS Flex](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout)

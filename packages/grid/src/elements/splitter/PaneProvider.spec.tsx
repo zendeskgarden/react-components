@@ -78,22 +78,13 @@ const UncontrolledTestSplitter = () => {
         >
           <Pane>
             <Content>Pane 1</Content>
-            <Splitter
-              data-test-id="pane-1-end"
-              isTrailing
-              layoutKey="a"
-              min={0}
-              max={2}
-              orientation="end"
-              environment={windowObjectMock}
-            />
+            <Splitter data-test-id="pane-1-end" layoutKey="a" min={0} max={2} orientation="end" />
             <Splitter
               data-test-id="pane-1-bottom"
               layoutKey="c"
               min={0}
               max={2}
               orientation="bottom"
-              environment={windowObjectMock}
             />
           </Pane>
           <Pane>
@@ -104,8 +95,6 @@ const UncontrolledTestSplitter = () => {
               min={0}
               max={2}
               orientation="start"
-              isLeading
-              environment={windowObjectMock}
             />
             <Splitter
               data-test-id="pane-2-bottom"
@@ -113,27 +102,12 @@ const UncontrolledTestSplitter = () => {
               min={0}
               max={2}
               orientation="bottom"
-              environment={windowObjectMock}
             />
           </Pane>
           <Pane>
             <Content>Pane 3</Content>
-            <Splitter
-              data-test-id="pane-3-end"
-              layoutKey="a"
-              min={0}
-              max={2}
-              orientation="end"
-              environment={windowObjectMock}
-            />
-            <Splitter
-              data-test-id="pane-3-top"
-              layoutKey="d"
-              min={0}
-              max={2}
-              orientation="top"
-              environment={windowObjectMock}
-            />
+            <Splitter data-test-id="pane-3-end" layoutKey="a" min={0} max={2} orientation="end" />
+            <Splitter data-test-id="pane-3-top" layoutKey="d" min={0} max={2} orientation="top" />
           </Pane>
           <Pane>
             <Content>Pane 4</Content>
@@ -143,17 +117,8 @@ const UncontrolledTestSplitter = () => {
               min={0}
               max={2}
               orientation="start"
-              isLeading
-              environment={windowObjectMock}
             />
-            <Splitter
-              data-test-id="pane-4-top"
-              layoutKey="d"
-              min={0}
-              max={2}
-              orientation="top"
-              environment={windowObjectMock}
-            />
+            <Splitter data-test-id="pane-4-top" layoutKey="d" min={0} max={2} orientation="top" />
           </Pane>
         </div>
       )}
@@ -187,22 +152,13 @@ const ControlledTestSplitter = ({
         >
           <Pane>
             <Content>Pane 1</Content>
-            <Splitter
-              data-test-id="pane-1-end"
-              isTrailing
-              layoutKey="a"
-              min={0}
-              max={2}
-              orientation="end"
-              environment={windowObjectMock}
-            />
+            <Splitter data-test-id="pane-1-end" layoutKey="a" min={0} max={2} orientation="end" />
             <Splitter
               data-test-id="pane-1-bottom"
               layoutKey="c"
               min={0}
               max={2}
               orientation="bottom"
-              environment={windowObjectMock}
             />
           </Pane>
           <Pane>
@@ -213,8 +169,6 @@ const ControlledTestSplitter = ({
               min={0}
               max={2}
               orientation="start"
-              isLeading
-              environment={windowObjectMock}
             />
             <Splitter
               data-test-id="pane-2-bottom"
@@ -222,27 +176,12 @@ const ControlledTestSplitter = ({
               min={0}
               max={2}
               orientation="bottom"
-              environment={windowObjectMock}
             />
           </Pane>
           <Pane>
             <Content>Pane 3</Content>
-            <Splitter
-              data-test-id="pane-3-end"
-              layoutKey="a"
-              min={0}
-              max={2}
-              orientation="end"
-              environment={windowObjectMock}
-            />
-            <Splitter
-              data-test-id="pane-3-top"
-              layoutKey="d"
-              min={0}
-              max={2}
-              orientation="top"
-              environment={windowObjectMock}
-            />
+            <Splitter data-test-id="pane-3-end" layoutKey="a" min={0} max={2} orientation="end" />
+            <Splitter data-test-id="pane-3-top" layoutKey="d" min={0} max={2} orientation="top" />
           </Pane>
           <Pane>
             <Content>Pane 4</Content>
@@ -252,17 +191,8 @@ const ControlledTestSplitter = ({
               min={0}
               max={2}
               orientation="start"
-              isLeading
-              environment={windowObjectMock}
             />
-            <Splitter
-              data-test-id="pane-4-top"
-              layoutKey="d"
-              min={0}
-              max={2}
-              orientation="top"
-              environment={windowObjectMock}
-            />
+            <Splitter data-test-id="pane-4-top" layoutKey="d" min={0} max={2} orientation="top" />
           </Pane>
         </div>
       )}
@@ -731,65 +661,6 @@ describe('PaneProvider', () => {
           "b": 1,
         }
       `);
-    });
-  });
-
-  describe('Splitter', () => {
-    it('should move in fixed mode', () => {
-      const { getByRole } = render(
-        <PaneProvider
-          totalPanesWidth={1000}
-          totalPanesHeight={500}
-          defaultColumnValues={{ a: 1, b: 1 }}
-          defaultRowValues={{}}
-        >
-          {({ getGridTemplateColumns }) => (
-            <div
-              style={{
-                direction: 'ltr',
-                display: 'grid',
-                width: '1000px',
-                height: '500px',
-                gridTemplateColumns: getGridTemplateColumns()
-              }}
-            >
-              <Pane>
-                <Content>Pane 1</Content>
-                <Splitter
-                  data-test-id="pane-1-end"
-                  isFixed
-                  layoutKey="a"
-                  min={0}
-                  max={2}
-                  orientation="end"
-                />
-              </Pane>
-              <Pane>
-                <Content>Pane 2</Content>
-              </Pane>
-            </div>
-          )}
-        </PaneProvider>
-      );
-
-      const separator = getByRole('separator');
-
-      separator.getBoundingClientRect = () => ({
-        bottom: 0,
-        height: 0,
-        left: 500,
-        right: windowObjectMock.document.body.clientWidth - 500,
-        top: 0,
-        width: 0,
-        x: 0,
-        y: 0,
-        toJSON: () => undefined
-      });
-
-      fireEvent.mouseDown(separator);
-      fireEvent.mouseUp(document);
-
-      expect(separator).toHaveAttribute('aria-valuenow', '1000');
     });
   });
 });

@@ -6,7 +6,17 @@
  */
 
 import { createContext, useContext } from 'react';
-import { ISplitterContext } from '../types';
+import { DIMENSIONS, UNITS } from '../types';
+interface ISplitterContext {
+  rowState: Record<string, number>;
+  columnState: Record<string, number>;
+  setRowValue: (isTop: boolean, id: string, value: number) => void;
+  setColumnValue: (isStart: boolean, id: string, value: number) => void;
+  getLayoutValue: (dimension: DIMENSIONS, id: string, units?: UNITS) => number;
+  totalPanesHeight: number;
+  totalPanesWidth: number;
+  pixelsPerFr: { rows: number; columns: number };
+}
 
 export const SplitterContext = createContext<ISplitterContext>({
   setRowValue: () => undefined,

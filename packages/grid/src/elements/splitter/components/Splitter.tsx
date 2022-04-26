@@ -16,7 +16,7 @@ import {
 } from '@zendeskgarden/container-splitter';
 import useSplitterContext from '../../../utils/useSplitterContext';
 import usePaneContext from '../../../utils/usePaneContext';
-import { ARRAY_ORIENTATION, DIMENSIONS, ISplitterProps } from '../../../types';
+import { DIMENSIONS, ISplitterProps, ORIENTATION } from '../../../types';
 import { StyledPaneSplitter } from '../../../styled';
 
 const orientationToPosition = {
@@ -41,22 +41,11 @@ const orientationToDimension = {
 };
 
 const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
-  (
-    { layoutKey, min, max, orientation, isFixed, isLeading, isTrailing, environment, ...props },
-    ref
-  ) => {
+  ({ layoutKey, min, max, orientation, ...props }, ref) => {
     const splitterContext = useSplitterContext();
     const paneContext = usePaneContext();
     const themeContext = useContext(ThemeContext);
-    let position;
-
-    if (isLeading === true) {
-      position = SplitterPosition.LEADS;
-    } else if (isTrailing === true) {
-      position = SplitterPosition.TRAILS;
-    } else {
-      position = orientationToPosition[orientation!];
-    }
+    const position = orientationToPosition[orientation!];
 
     const splitterOrientation = paneToSplitterOrientation[orientation!];
 
@@ -64,13 +53,13 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       splitterContext.pixelsPerFr[orientationToDimension[orientation!] as DIMENSIONS];
 
     const { getSeparatorProps, getPrimaryPaneProps } = useSplitter({
-      type: isFixed ? SplitterType.FIXED : SplitterType.VARIABLE,
+      type: SplitterType.VARIABLE,
       orientation: splitterOrientation,
       position,
       min: min * pixelsPerFr,
       max: max * pixelsPerFr,
       rtl: themeContext.rtl,
-      environment: environment!,
+      environment: window,
       onChange: valueNow => {
         switch (orientationToDimension[orientation!]) {
           case 'rows':
@@ -114,17 +103,11 @@ SplitterComponent.propTypes = {
   layoutKey: PropTypes.string.isRequired,
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
-  orientation: PropTypes.oneOf(ARRAY_ORIENTATION),
-  isLeading: PropTypes.bool,
-  isTrailing: PropTypes.bool,
-  environment: PropTypes.any,
-  isFixed: PropTypes.bool
+  orientation: PropTypes.oneOf(ORIENTATION)
 };
 
 SplitterComponent.defaultProps = {
-  orientation: 'end',
-  isFixed: false,
-  environment: window
+  orientation: 'end'
 };
 
 /**

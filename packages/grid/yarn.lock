@@ -54,10 +54,10 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/react-theming@^8.48.2":
-  version "8.49.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.49.0.tgz#9579fc7649df7f951f15b8125bd9f8901eb2a5b8"
-  integrity sha512-Z3IzYobZrYyzkhcS787DPcxYgagrvoryoIGh8iauS/1cm3cw6Z2sh9ADUuiWLaRC7diuLaWAm82fIj940oxoMw==
+"@zendeskgarden/react-theming@^8.49.4":
+  version "8.49.4"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.49.4.tgz#d8b24cd803f925d799129305c55f71dff5f596ac"
+  integrity sha512-bfm3DMVhTdFdyHv47pjkNIwUUzzJ5buQKxO4ionYPTXZblUqJE4Zzd4QPUt2niNun8ENEgH9RLovle5Y+zHYJA==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.7.0"
@@ -129,7 +129,7 @@ tslib@^2.3.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
 
-use-resize-observer@^8.0.0:
+use-resize-observer@8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/use-resize-observer/-/use-resize-observer-8.0.0.tgz#69bd80c1ddd94f3758563fe107efb25fed85067a"
   integrity sha512-n0iKSeiQpJCyaFh5JA0qsVLBIovsF4EIIR1G6XiBwKJN66ZrD4Oj62bjcuTAATPKiSp6an/2UZZxCf/67fk3sQ==

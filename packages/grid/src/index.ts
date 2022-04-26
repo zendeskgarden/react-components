@@ -26,7 +26,6 @@ export type {
   IPaneProvider,
   IPaneProviderReturnProps,
   ISplitterProps,
-  ISplitterContext,
   IColProps,
   IGridProps,
   IRowProps,

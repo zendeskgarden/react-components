@@ -8,12 +8,12 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { math, rgba } from 'polished';
 import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { ORIENTATION } from '../../types';
+import { Orientation } from '../../types';
 
 const COMPONENT_ID = 'pane.splitter';
 
 interface IStyledPaneSplitterProps {
-  orientation: ORIENTATION;
+  orientation: Orientation;
 }
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {

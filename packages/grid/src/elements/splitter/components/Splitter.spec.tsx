@@ -34,6 +34,7 @@ describe('Splitter', () => {
 
     expect(getByRole('separator').nodeName).toBe('DIV');
   });
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
 
