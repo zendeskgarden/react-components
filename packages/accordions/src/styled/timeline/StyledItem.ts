@@ -6,7 +6,11 @@
  */
 
 import styled, { css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getLineHeight,
+  retrieveComponentStyles,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 import { StyledSeparator } from './StyledSeparator';
 import { StyledTimelineContent } from './StyledContent';
 import { StyledOppositeContent } from './StyledOppositeContent';
@@ -25,6 +29,9 @@ export const StyledTimelineItem = styled.li.attrs({
 })<IStyledTimelineItem>`
   display: flex;
   position: relative;
+  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
+  color: ${props => props.theme.colors.foreground};
+  font-size: ${props => props.theme.fontSizes.md};
 
   &:last-of-type ${StyledSeparator}::after {
     display: none;
