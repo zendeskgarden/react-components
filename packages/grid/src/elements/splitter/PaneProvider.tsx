@@ -115,13 +115,20 @@ const PaneProviderComponent = ({
   const setRowValue = useCallback(
     (isTop: boolean, id: string, value: number) => {
       const { rows, rowArray } = layoutIndices;
-      const indexTraversal = isTop ? -1 : 1;
+      const stealFromTraversal = isTop ? -1 : 1;
+      const addToTraversal = 0;
 
       setRowsTrack(state => {
         const oldValue = rowsTrack[id];
-        const stealFromIndex = rows[id] + indexTraversal;
+        const stealFromIndex = rows[id] + stealFromTraversal;
+        const addToIndex = rows[id] + addToTraversal;
+
+        if (stealFromIndex < 0 || stealFromIndex > rowArray.length - 1) {
+          return state;
+        }
 
         const stealFromKey = rowArray[stealFromIndex];
+        const addToKey = rowArray[addToIndex];
 
         const difference = oldValue - value;
 
@@ -129,7 +136,7 @@ const PaneProviderComponent = ({
           ...state
         } as Record<string, number>;
 
-        nextState[id] = value;
+        nextState[addToKey] = rowsTrack[addToKey] - difference;
         nextState[stealFromKey] = rowsTrack[stealFromKey] + difference;
 
         return nextState;
@@ -141,13 +148,20 @@ const PaneProviderComponent = ({
   const setColumnValue = useCallback(
     (isStart: boolean, id: string, value: number) => {
       const { columns, columnArray } = layoutIndices;
-      const indexTraversal = isStart ? -1 : 1;
+      const stealFromTraversal = isStart ? 0 : 1;
+      const addToTraversal = isStart ? -1 : 0;
 
       setColumnsTrack(state => {
+        const stealFromIndex = columns[id] + stealFromTraversal;
+        const addToIndex = columns[id] + addToTraversal;
         const oldValue = columnsTrack[id];
-        const stealFromIndex = columns[id] + indexTraversal;
+
+        if (stealFromIndex < 0 || stealFromIndex > columnArray.length - 1) {
+          return state;
+        }
 
         const stealFromKey = columnArray[stealFromIndex];
+        const addToKey = columnArray[addToIndex];
 
         const difference = oldValue - value;
 
@@ -155,7 +169,7 @@ const PaneProviderComponent = ({
           ...state
         } as Record<string, number>;
 
-        nextState[id] = value;
+        nextState[addToKey] = columnsTrack[addToKey] - difference;
         nextState[stealFromKey] = columnsTrack[stealFromKey] + difference;
 
         return nextState;
