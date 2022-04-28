@@ -16,7 +16,7 @@ import {
 } from '@zendeskgarden/container-splitter';
 import useSplitterContext from '../../../utils/useSplitterContext';
 import usePaneContext from '../../../utils/usePaneContext';
-import { DIMENSIONS, ISplitterProps, ORIENTATION } from '../../../types';
+import { ISplitterProps, ORIENTATION } from '../../../types';
 import { StyledPaneSplitter } from '../../../styled';
 
 const orientationToPosition = {
@@ -33,24 +33,27 @@ const paneToSplitterOrientation = {
   bottom: SplitterOrientation.HORIZONTAL
 };
 
-const orientationToDimension = {
+const orientationToDimension: Record<string, 'columns' | 'rows'> = {
   start: 'columns',
   end: 'columns',
   top: 'rows',
   bottom: 'rows'
 };
 
-const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Splitter = forwardRef<HTMLDivElement, ISplitterProps>(
   ({ layoutKey, min, max, orientation, ...props }, ref) => {
     const splitterContext = useSplitterContext();
     const paneContext = usePaneContext();
     const themeContext = useContext(ThemeContext);
     const position = orientationToPosition[orientation!];
+    const isRow = orientationToDimension[orientation!] === 'rows';
 
     const splitterOrientation = paneToSplitterOrientation[orientation!];
 
-    const pixelsPerFr =
-      splitterContext.pixelsPerFr[orientationToDimension[orientation!] as DIMENSIONS];
+    const pixelsPerFr = splitterContext.pixelsPerFr[orientationToDimension[orientation!]];
 
     const { getSeparatorProps, getPrimaryPaneProps } = useSplitter({
       type: SplitterType.VARIABLE,
@@ -61,24 +64,21 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       rtl: themeContext.rtl,
       environment: window,
       onChange: valueNow => {
-        switch (orientationToDimension[orientation!]) {
-          case 'rows':
-            splitterContext.setRowValue(orientation === 'top', layoutKey, valueNow / pixelsPerFr);
-            break;
-          case 'columns':
-            splitterContext.setColumnValue(
-              orientation === 'start',
-              layoutKey,
-              valueNow / pixelsPerFr
-            );
-            break;
+        if (isRow) {
+          return splitterContext.setRowValue(
+            orientation === 'top',
+            layoutKey,
+            valueNow / pixelsPerFr
+          );
         }
+
+        return splitterContext.setColumnValue(
+          orientation === 'start',
+          layoutKey,
+          valueNow / pixelsPerFr
+        );
       },
-      valueNow: splitterContext.getLayoutValue(
-        orientationToDimension[orientation!] as DIMENSIONS,
-        layoutKey,
-        'px'
-      )
+      valueNow: splitterContext.getLayoutValue(layoutKey, isRow, true)
     });
 
     useEffect(() => {
@@ -97,20 +97,15 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
   }
 );
 
-SplitterComponent.displayName = 'Pane.Splitter';
+Splitter.displayName = 'Pane.Splitter';
 
-SplitterComponent.propTypes = {
+Splitter.propTypes = {
   layoutKey: PropTypes.string.isRequired,
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
   orientation: PropTypes.oneOf(ORIENTATION)
 };
 
-SplitterComponent.defaultProps = {
+Splitter.defaultProps = {
   orientation: 'end'
 };
-
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Splitter = SplitterComponent;

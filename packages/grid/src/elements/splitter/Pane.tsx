@@ -12,7 +12,7 @@ import { StyledPane } from '../../styled';
 import { PaneContext } from '../../utils/usePaneContext';
 
 const PaneComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ children }, ref) => {
+  ({ children, ...props }, ref) => {
     const [paneId, setPaneId] = useState<string>();
 
     const paneContext = useMemo(
@@ -25,7 +25,7 @@ const PaneComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
 
     return (
       <PaneContext.Provider value={paneContext}>
-        <StyledPane id={paneId} ref={ref}>
+        <StyledPane id={paneId} ref={ref} {...props}>
           {children}
         </StyledPane>
       </PaneContext.Provider>

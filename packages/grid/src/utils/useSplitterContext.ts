@@ -6,13 +6,12 @@
  */
 
 import { createContext, useContext } from 'react';
-import { DIMENSIONS, UNITS } from '../types';
 interface ISplitterContext {
   rowState: Record<string, number>;
   columnState: Record<string, number>;
   setRowValue: (isTop: boolean, id: string, value: number) => void;
   setColumnValue: (isStart: boolean, id: string, value: number) => void;
-  getLayoutValue: (dimension: DIMENSIONS, id: string, units?: UNITS) => number;
+  getLayoutValue: (splitterKey: string, isRow: boolean, isPixels?: boolean) => number;
   totalPanesHeight: number;
   totalPanesWidth: number;
   pixelsPerFr: { rows: number; columns: number };

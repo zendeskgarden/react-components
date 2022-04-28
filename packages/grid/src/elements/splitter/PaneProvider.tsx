@@ -8,7 +8,7 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { SplitterContext } from '../../utils/useSplitterContext';
-import { DIMENSIONS, UNITS, IPaneProvider } from '../../types';
+import { IPaneProvider } from '../../types';
 
 const getPixelsPerFr = (totalFrs: number, totalDimension: number) => {
   return totalDimension / totalFrs;
@@ -22,7 +22,7 @@ const convertToPixels = (values: Record<string, number>, pixelsPerFr: number) =>
   }, {} as Record<string, number>);
 };
 
-const PaneProviderComponent = ({
+export const PaneProvider = ({
   totalPanesWidth,
   totalPanesHeight,
   defaultRowValues,
@@ -179,44 +179,40 @@ const PaneProviderComponent = ({
   );
 
   const getLayoutValue = useCallback(
-    (dimension: DIMENSIONS, key: string, units?: UNITS) => {
-      switch (units) {
-        case 'px':
-          return layoutStateInPixels[dimension][key];
-        case 'fr':
-        default:
-          return dimension === 'rows' ? rowsTrack[key] : columnsTrack[key];
+    (splitterKey: string, isRow: boolean, isPixels?: boolean) => {
+      const dimension = isRow ? 'rows' : 'columns';
+
+      if (isPixels) {
+        return layoutStateInPixels[dimension][splitterKey];
       }
+
+      return dimension === 'rows' ? rowsTrack[splitterKey] : columnsTrack[splitterKey];
     },
     [columnsTrack, rowsTrack, layoutStateInPixels]
   );
 
   const getGridTemplateColumns = useCallback(
-    (units?: UNITS) => {
+    (isPixels?: boolean) => {
       const { columnArray } = layoutIndices;
 
-      switch (units) {
-        case 'px':
-          return columnArray.map(col => `${layoutStateInPixels.columns[col]}px`).join(' ');
-        case 'fr':
-        default:
-          return columnArray.map(col => `${columnsTrack[col]}fr`).join(' ');
+      if (isPixels) {
+        return columnArray.map(col => `${layoutStateInPixels.columns[col]}px`).join(' ');
       }
+
+      return columnArray.map(col => `${columnsTrack[col]}fr`).join(' ');
     },
     [layoutIndices, columnsTrack, layoutStateInPixels]
   );
 
   const getGridTemplateRows = useCallback(
-    (units?: UNITS) => {
+    (isPixels?: boolean) => {
       const { rowArray } = layoutIndices;
 
-      switch (units) {
-        case 'px':
-          return rowArray.map(row => `${layoutStateInPixels.rows[row]}px`).join(' ');
-        case 'fr':
-        default:
-          return rowArray.map(row => `${rowsTrack[row]}fr`).join(' ');
+      if (isPixels) {
+        return rowArray.map(row => `${layoutStateInPixels.rows[row]}px`).join(' ');
       }
+
+      return rowArray.map(row => `${rowsTrack[row]}fr`).join(' ');
     },
     [layoutIndices, rowsTrack, layoutStateInPixels]
   );
@@ -255,9 +251,9 @@ const PaneProviderComponent = ({
   );
 };
 
-PaneProviderComponent.displayName = 'PaneProvider';
+PaneProvider.displayName = 'PaneProvider';
 
-PaneProviderComponent.propTypes = {
+PaneProvider.propTypes = {
   totalPanesWidth: PropTypes.number.isRequired,
   totalPanesHeight: PropTypes.number.isRequired,
   defaultRowValues: PropTypes.object,
@@ -267,8 +263,3 @@ PaneProviderComponent.propTypes = {
   onChange: PropTypes.func,
   children: PropTypes.func
 };
-
-/**
- * @extends IPaneProvider
- */
-export const PaneProvider = PaneProviderComponent;

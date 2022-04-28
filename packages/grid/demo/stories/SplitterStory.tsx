@@ -7,21 +7,13 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import useResizeObserver from 'use-resize-observer';
 import { Story } from '@storybook/react';
-import {
-  PaneProvider,
-  IPaneProvider,
-  Pane,
-  IPaneProviderReturnProps
-} from '@zendeskgarden/react-grid';
+import { PaneProvider, IPaneProvider, Pane } from '@zendeskgarden/react-grid';
 import { ISplitterPane } from './types';
 
 const StyledPanes = styled.div`
   display: grid;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
-  width: 100%;
-  height: calc(100vh - 80px);
 `;
 
 interface IArgs extends IPaneProvider {
@@ -39,23 +31,22 @@ export const SplitterStory: Story<IArgs> = ({
   handleValueChange,
   panes
 }) => {
-  const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
-
   return (
     <PaneProvider
-      totalPanesWidth={totalPanesWidth ? totalPanesWidth : width}
-      totalPanesHeight={totalPanesWidth ? totalPanesHeight : height}
+      totalPanesWidth={totalPanesWidth}
+      totalPanesHeight={totalPanesHeight}
       columnValues={columnValues}
       rowValues={rowValues}
       defaultColumnValues={defaultColumnValues}
       defaultRowValues={defaultRowValues}
       onChange={handleValueChange}
     >
-      {({ getGridTemplateColumns, getGridTemplateRows }: IPaneProviderReturnProps) => {
+      {({ getGridTemplateColumns, getGridTemplateRows }) => {
         return (
           <StyledPanes
-            ref={ref}
             style={{
+              width: totalPanesWidth,
+              height: totalPanesHeight,
               gridTemplateRows: getGridTemplateRows(),
               gridTemplateColumns: getGridTemplateColumns()
             }}

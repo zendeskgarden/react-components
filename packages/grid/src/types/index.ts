@@ -160,44 +160,19 @@ export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
 
 export const ORIENTATION = ['top', 'bottom', 'start', 'end'] as const;
 export type Orientation = typeof ORIENTATION[number];
-export type DIMENSIONS = 'rows' | 'columns';
-export type UNITS = 'px' | 'fr';
-
-export interface IPaneProviderReturnProps {
-  /** Gets layout value by dimension and key. Accepts optional units.
-   *
-   * @param {DIMENSIONS} "row" or "column" dimension
-   * @param {string} Sets the splitter key to get a layout value for
-   * @param {UNITS} [units] Specifies the dimension unit for the return value
-   *
-   */
-  getLayoutValue: (dimension: DIMENSIONS, key: string, units?: UNITS) => number;
-  /** Gets grid template rows track. Accepts optional units.
-   *
-   * @param {UNITS} [units] Specifies the dimension unit for the return value
-   *
-   */
-  getGridTemplateRows: (units?: UNITS) => string;
-  /** Gets grid template columns track. Accepts optional units.
-   *
-   * @param {UNITS} [units] Specifies the dimension unit for the return value
-   *
-   */
-  getGridTemplateColumns: (units?: UNITS) => string;
-}
 
 export interface IPaneProvider {
-  /** Provides the total width, in px units, of all panes in the layout */
+  /** Provides the total width, in `px` units, of all panes in the layout */
   totalPanesWidth: number;
-  /** Provides the total height, in px units, of all panes in the layout */
+  /** Provides the total height, in `px` units, of all panes in the layout */
   totalPanesHeight: number;
-  /** Defines default row values, in fr units, for an uncontrolled layout. The values are keyed by splitter. */
+  /** Defines default row values, in `fr` units, for an uncontrolled layout. The values are keyed by splitter. */
   defaultRowValues?: Record<string, number>;
-  /** Defines default column values, in fr units, for an uncontrolled layout. The values are keyed by splitter. */
+  /** Defines default column values, in `fr` units, for an uncontrolled layout. The values are keyed by splitter. */
   defaultColumnValues?: Record<string, number>;
-  /** Defines row values, in fr units, for a controlled layout. The values are keyed by splitter. */
+  /** Defines row values, in `fr` units, for a controlled layout. The values are keyed by splitter. */
   rowValues?: Record<string, number>;
-  /** Defines column values, in fr units, for a controlled layout. The values are keyed by splitter. */
+  /** Defines column values, in `fr` units, for a controlled layout. The values are keyed by splitter. */
   columnValues?: Record<string, number>;
   /**
    * Handles splitter position changes
@@ -206,19 +181,44 @@ export interface IPaneProvider {
    * @param columnValues The updated column values
    */
   onChange?: (rowValues: Record<string, number>, columnValues: Record<string, number>) => void;
+  /* Surfaces render prop functions for applying splitter state to the supporting layout */
   children?: ({
     getLayoutValue,
-    getGridTemplateColumns,
-    getGridTemplateRows
-  }: IPaneProviderReturnProps) => any;
+    getGridTemplateRows,
+    getGridTemplateColumns
+  }: {
+    /**
+     * Gets layout value by key.
+     *
+     * @param {string} splitterKey The splitter key to get a layout value for
+     * @param {boolean} isRow Determines whether to return the row value,
+     *        otherwise returns the column value by default
+     * @param {boolean} isPixels Determines whether to return a `px` value,
+     *        otherwise returns a `fr` unit by default
+     */
+    getLayoutValue: (splitterKey: string, isRow: boolean, isPixels?: boolean) => number;
+    /** Gets grid template rows track. Accepts optional units.
+     *
+     * @param {boolean} isPixels Determines whether to return a `px` value,
+     *        otherwise returns a `fr` unit by default
+     *
+     */
+    getGridTemplateRows: (isPixels?: boolean) => string;
+    /** Gets grid template columns track. Accepts optional units.
+     *
+     * @param {boolean} isPixels Determines whether to return a `px` value,
+     *        otherwise returns a `fr` unit by default
+     */
+    getGridTemplateColumns: (isPixels?: boolean) => string;
+  }) => any;
 }
 
 export interface ISplitterProps extends HTMLAttributes<HTMLDivElement> {
   /** Specifies the splitter key */
   layoutKey: string;
-  /** Sets a minimum, in fr units, for splitter position */
+  /** Sets a minimum, in `fr` units, for splitter position */
   min: number;
-  /** Sets a maximum, in fr units, for splitter position */
+  /** Sets a maximum, in `fr` units, for splitter position */
   max: number;
   /** Determines splitter orientation within a pane */
   orientation?: Orientation;

@@ -11,7 +11,7 @@ import { Splitter } from './components/Splitter';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
 import { Content } from './components/Content';
-import { IPaneProvider, IPaneProviderReturnProps } from '../../types';
+import { IPaneProvider } from '../../types';
 
 interface IExtendedMouseEvent extends MouseEventInit {
   offsetX?: number;
@@ -228,7 +228,7 @@ describe('PaneProvider', () => {
 
   describe('getLayoutValue', () => {
     it('returns column px value', () => {
-      let _getLayoutValue: IPaneProviderReturnProps['getLayoutValue'] = () => 0;
+      let _getLayoutValue: any;
 
       render(
         <PaneProvider
@@ -246,7 +246,7 @@ describe('PaneProvider', () => {
       expect(_getLayoutValue('columns', 'a', 'px')).toBe(250);
     });
     it('returns row px value', () => {
-      let _getLayoutValue: IPaneProviderReturnProps['getLayoutValue'] = () => 0;
+      let _getLayoutValue: any;
 
       render(
         <PaneProvider
@@ -264,7 +264,7 @@ describe('PaneProvider', () => {
       expect(_getLayoutValue('rows', 'c', 'px')).toBe(250);
     });
     it('returns columns fr value', () => {
-      let _getLayoutValue: IPaneProviderReturnProps['getLayoutValue'] = () => 0;
+      let _getLayoutValue: any;
 
       render(
         <PaneProvider
@@ -282,7 +282,7 @@ describe('PaneProvider', () => {
       expect(_getLayoutValue('columns', 'a', 'fr')).toBe(1);
     });
     it('returns rows fr value', () => {
-      let _getLayoutValue: IPaneProviderReturnProps['getLayoutValue'] = () => 0;
+      let _getLayoutValue: any;
 
       render(
         <PaneProvider
@@ -303,7 +303,7 @@ describe('PaneProvider', () => {
 
   describe('getGridTemplateRows', () => {
     it('returns px value', () => {
-      let _getGridTemplateRows: IPaneProviderReturnProps['getGridTemplateRows'] = () => '';
+      let _getGridTemplateRows: any;
 
       render(
         <PaneProvider
@@ -321,7 +321,7 @@ describe('PaneProvider', () => {
       expect(_getGridTemplateRows('px')).toBe('214.28571428571428px 285.7142857142857px');
     });
     it('returns fr value', () => {
-      let _getGridTemplateRows: IPaneProviderReturnProps['getGridTemplateRows'] = () => '';
+      let _getGridTemplateRows: any;
 
       render(
         <PaneProvider
@@ -342,7 +342,7 @@ describe('PaneProvider', () => {
 
   describe('getGridTemplateColumns', () => {
     it('returns px value', () => {
-      let _getGridTemplateColumns: IPaneProviderReturnProps['getGridTemplateColumns'] = () => '';
+      let _getGridTemplateColumns: any;
 
       render(
         <PaneProvider
@@ -360,7 +360,7 @@ describe('PaneProvider', () => {
       expect(_getGridTemplateColumns('px')).toBe('166.66666666666666px 333.3333333333333px');
     });
     it('returns fr value', () => {
-      let _getGridTemplateColumns: IPaneProviderReturnProps['getGridTemplateColumns'] = () => '';
+      let _getGridTemplateColumns: any;
 
       render(
         <PaneProvider

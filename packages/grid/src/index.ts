@@ -24,7 +24,6 @@ export {
 
 export type {
   IPaneProvider,
-  IPaneProviderReturnProps,
   ISplitterProps,
   IColProps,
   IGridProps,
