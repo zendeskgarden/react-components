@@ -181,7 +181,7 @@ export interface IPaneProvider {
    * @param columnValues The updated column values
    */
   onChange?: (rowValues: Record<string, number>, columnValues: Record<string, number>) => void;
-  /* Surfaces render prop functions for applying splitter state to the supporting layout */
+  /** Surfaces render prop functions for applying splitter state to the supporting layout */
   children?: ({
     getLayoutValue,
     getGridTemplateRows,
