@@ -41,22 +41,6 @@ class ExtendedMouseEvent extends MouseEvent implements MouseEventInit {
   }
 }
 
-// JSDom does not support clientWidth or clientHeight and we must mock it to test the inverted position calculation for position leads mode
-const windowObjectMock = {
-  scrollX: window.scrollX,
-  scrollY: window.scrollY,
-  document: {
-    addEventListener: document.addEventListener.bind(document),
-    removeEventListener: document.removeEventListener.bind(document),
-    body: {
-      addEventListener: document.body.addEventListener.bind(document.body),
-      removeEventListener: document.body.removeEventListener.bind(document.body),
-      clientWidth: 1000,
-      clientHeight: 500
-    }
-  }
-};
-
 const UncontrolledTestSplitter = () => {
   return (
     <PaneProvider
@@ -201,6 +185,16 @@ const ControlledTestSplitter = ({
 };
 
 describe('PaneProvider', () => {
+  beforeAll(() => {
+    Object.defineProperty(document.body, 'clientWidth', {
+      writable: true,
+      value: 1000
+    });
+    Object.defineProperty(document.body, 'clientHeight', {
+      writable: true,
+      value: 500
+    });
+  });
   it('returns render prop function', () => {
     const renderProp = jest.fn();
 
@@ -243,7 +237,7 @@ describe('PaneProvider', () => {
         </PaneProvider>
       );
 
-      expect(_getLayoutValue('columns', 'a', 'px')).toBe(250);
+      expect(_getLayoutValue('a', false, true)).toBe(250);
     });
     it('returns row px value', () => {
       let _getLayoutValue: any;
@@ -261,7 +255,7 @@ describe('PaneProvider', () => {
         </PaneProvider>
       );
 
-      expect(_getLayoutValue('rows', 'c', 'px')).toBe(250);
+      expect(_getLayoutValue('c', true, true)).toBe(250);
     });
     it('returns columns fr value', () => {
       let _getLayoutValue: any;
@@ -279,7 +273,7 @@ describe('PaneProvider', () => {
         </PaneProvider>
       );
 
-      expect(_getLayoutValue('columns', 'a', 'fr')).toBe(1);
+      expect(_getLayoutValue('a', false)).toBe(1);
     });
     it('returns rows fr value', () => {
       let _getLayoutValue: any;
@@ -297,7 +291,7 @@ describe('PaneProvider', () => {
         </PaneProvider>
       );
 
-      expect(_getLayoutValue('rows', 'c', 'fr')).toBe(1);
+      expect(_getLayoutValue('c', true)).toBe(1);
     });
   });
 
@@ -318,7 +312,7 @@ describe('PaneProvider', () => {
         </PaneProvider>
       );
 
-      expect(_getGridTemplateRows('px')).toBe('214.28571428571428px 285.7142857142857px');
+      expect(_getGridTemplateRows(true)).toBe('214.28571428571428px 285.7142857142857px');
     });
     it('returns fr value', () => {
       let _getGridTemplateRows: any;
@@ -336,7 +330,7 @@ describe('PaneProvider', () => {
         </PaneProvider>
       );
 
-      expect(_getGridTemplateRows('fr')).toBe('3fr 4fr');
+      expect(_getGridTemplateRows()).toBe('3fr 4fr');
     });
   });
 
@@ -357,7 +351,7 @@ describe('PaneProvider', () => {
         </PaneProvider>
       );
 
-      expect(_getGridTemplateColumns('px')).toBe('166.66666666666666px 333.3333333333333px');
+      expect(_getGridTemplateColumns(true)).toBe('166.66666666666666px 333.3333333333333px');
     });
     it('returns fr value', () => {
       let _getGridTemplateColumns: any;
@@ -375,7 +369,7 @@ describe('PaneProvider', () => {
         </PaneProvider>
       );
 
-      expect(_getGridTemplateColumns('fr')).toBe('1fr 2fr');
+      expect(_getGridTemplateColumns()).toBe('1fr 2fr');
     });
   });
 
@@ -403,7 +397,7 @@ describe('PaneProvider', () => {
         bottom: 0,
         height: 0,
         left: 500,
-        right: windowObjectMock.document.body.clientWidth - 500,
+        right: window.document.body.clientWidth - 500,
         top: 0,
         width: 0,
         x: 0,
@@ -414,7 +408,7 @@ describe('PaneProvider', () => {
         bottom: 0,
         height: 0,
         left: 500,
-        right: windowObjectMock.document.body.clientWidth - 500,
+        right: window.document.body.clientWidth - 500,
         top: 0,
         width: 0,
         x: 0,
@@ -437,7 +431,7 @@ describe('PaneProvider', () => {
       const separatorComplement = getByTestId('pane-3-top');
 
       separator.getBoundingClientRect = () => ({
-        bottom: windowObjectMock.document.body.clientHeight - 250,
+        bottom: window.document.body.clientHeight - 250,
         height: 0,
         left: 0,
         right: 0,
@@ -448,7 +442,7 @@ describe('PaneProvider', () => {
         toJSON: () => undefined
       });
       separatorComplement.getBoundingClientRect = () => ({
-        bottom: windowObjectMock.document.body.clientHeight - 250,
+        bottom: window.document.body.clientHeight - 250,
         height: 0,
         left: 0,
         right: 0,
@@ -463,7 +457,7 @@ describe('PaneProvider', () => {
       fireEvent(document, new ExtendedMouseEvent('mousemove', { pageY: 50 }));
       fireEvent.mouseUp(document);
 
-      expect(separator).toHaveAttribute('aria-valuenow', '50');
+      expect(separator).toHaveAttribute('aria-valuenow', '49.999999999999986');
       expect(separatorComplement).toHaveAttribute('aria-valuenow', '450');
     });
     it('moves column start based splitter', () => {
@@ -476,7 +470,7 @@ describe('PaneProvider', () => {
         bottom: 0,
         height: 0,
         left: 500,
-        right: windowObjectMock.document.body.clientWidth - 500,
+        right: window.document.body.clientWidth - 500,
         top: 0,
         width: 0,
         x: 0,
@@ -487,7 +481,7 @@ describe('PaneProvider', () => {
         bottom: 0,
         height: 0,
         left: 500,
-        right: windowObjectMock.document.body.clientWidth - 500,
+        right: window.document.body.clientWidth - 500,
         top: 0,
         width: 0,
         x: 0,
@@ -509,7 +503,7 @@ describe('PaneProvider', () => {
       const separatorComplement = getByTestId('pane-1-bottom');
 
       separator.getBoundingClientRect = () => ({
-        bottom: windowObjectMock.document.body.clientHeight - 250,
+        bottom: window.document.body.clientHeight - 250,
         top: 250,
         height: 0,
         left: 0,
@@ -520,7 +514,7 @@ describe('PaneProvider', () => {
         toJSON: () => undefined
       });
       separatorComplement.getBoundingClientRect = () => ({
-        bottom: windowObjectMock.document.body.clientHeight - 250,
+        bottom: window.document.body.clientHeight - 250,
         top: 250,
         left: 0,
         right: 0,
@@ -576,7 +570,7 @@ describe('PaneProvider', () => {
         bottom: 0,
         height: 0,
         left: 500,
-        right: windowObjectMock.document.body.clientWidth - 500,
+        right: window.document.body.clientWidth - 500,
         top: 0,
         width: 0,
         x: 0,
@@ -634,7 +628,7 @@ describe('PaneProvider', () => {
       const separator = getByTestId('pane-1-bottom');
 
       separator.getBoundingClientRect = () => ({
-        bottom: windowObjectMock.document.body.clientHeight - 250,
+        bottom: window.document.body.clientHeight - 250,
         height: 0,
         left: 0,
         right: 0,
@@ -651,7 +645,7 @@ describe('PaneProvider', () => {
 
       expect(_rowValues).toMatchInlineSnapshot(`
         Object {
-          "c": 0.2,
+          "c": 0.19999999999999996,
           "d": 1.8,
         }
       `);

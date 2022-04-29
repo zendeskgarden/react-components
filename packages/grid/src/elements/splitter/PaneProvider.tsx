@@ -123,10 +123,6 @@ export const PaneProvider = ({
         const stealFromIndex = rows[id] + stealFromTraversal;
         const addToIndex = rows[id] + addToTraversal;
 
-        if (stealFromIndex < 0 || stealFromIndex > rowArray.length - 1) {
-          return state;
-        }
-
         const stealFromKey = rowArray[stealFromIndex];
         const addToKey = rowArray[addToIndex];
 
@@ -155,10 +151,6 @@ export const PaneProvider = ({
         const stealFromIndex = columns[id] + stealFromTraversal;
         const addToIndex = columns[id] + addToTraversal;
         const oldValue = columnsTrack[id];
-
-        if (stealFromIndex < 0 || stealFromIndex > columnArray.length - 1) {
-          return state;
-        }
 
         const stealFromKey = columnArray[stealFromIndex];
         const addToKey = columnArray[addToIndex];
