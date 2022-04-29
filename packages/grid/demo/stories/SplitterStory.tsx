@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Story } from '@storybook/react';
-import { PaneProvider, IPaneProvider, Pane } from '@zendeskgarden/react-grid';
+import { PaneProvider, IPaneProviderProps, Pane } from '@zendeskgarden/react-grid';
 import { ISplitterPane } from './types';
 
 const StyledPanes = styled.div`
@@ -16,8 +16,8 @@ const StyledPanes = styled.div`
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 `;
 
-interface IArgs extends IPaneProvider {
-  handleValueChange?: IPaneProvider['onChange'];
+interface IArgs extends IPaneProviderProps {
+  handleValueChange?: IPaneProviderProps['onChange'];
   panes: ISplitterPane[];
 }
 

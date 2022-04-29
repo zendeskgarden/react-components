@@ -23,7 +23,7 @@ export {
 } from './types';
 
 export type {
-  IPaneProvider,
+  IPaneProviderProps,
   ISplitterProps,
   IColProps,
   IGridProps,

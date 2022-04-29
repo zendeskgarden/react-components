@@ -11,7 +11,7 @@ import { Splitter } from './components/Splitter';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
 import { Content } from './components/Content';
-import { IPaneProvider } from '../../types';
+import { IPaneProviderProps } from '../../types';
 
 interface IExtendedMouseEvent extends MouseEventInit {
   offsetX?: number;
@@ -114,7 +114,7 @@ const ControlledTestSplitter = ({
   columnValues,
   rowValues,
   onChange
-}: Pick<IPaneProvider, 'columnValues' | 'rowValues' | 'onChange'>) => {
+}: Pick<IPaneProviderProps, 'columnValues' | 'rowValues' | 'onChange'>) => {
   return (
     <PaneProvider
       totalPanesWidth={1000}

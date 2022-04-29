@@ -161,7 +161,7 @@ export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
 export const ORIENTATION = ['top', 'bottom', 'start', 'end'] as const;
 export type Orientation = typeof ORIENTATION[number];
 
-export interface IPaneProvider {
+export interface IPaneProviderProps {
   /** Provides the total width, in `px` units, of all panes in the layout */
   totalPanesWidth: number;
   /** Provides the total height, in `px` units, of all panes in the layout */

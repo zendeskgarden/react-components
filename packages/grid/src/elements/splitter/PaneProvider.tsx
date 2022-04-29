@@ -8,7 +8,7 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { SplitterContext } from '../../utils/useSplitterContext';
-import { IPaneProvider } from '../../types';
+import { IPaneProviderProps } from '../../types';
 
 const getPixelsPerFr = (totalFrs: number, totalDimension: number) => {
   return totalDimension / totalFrs;
@@ -31,7 +31,7 @@ export const PaneProvider = ({
   columnValues,
   onChange,
   children
-}: IPaneProvider) => {
+}: IPaneProviderProps) => {
   const isControlled =
     rowValues !== undefined &&
     rowValues !== null &&
