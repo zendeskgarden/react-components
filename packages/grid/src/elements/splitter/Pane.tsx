@@ -20,7 +20,7 @@ const PaneComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
         id: paneId,
         setId: (id: string) => setPaneId(id)
       }),
-      [paneId, setPaneId]
+      [paneId]
     );
 
     return (

@@ -21,7 +21,7 @@ const UncontrolledTestSplitter = ({ splitterRef }: { splitterRef?: RefObject<HTM
     >
       {() => (
         <Pane>
-          <Splitter ref={splitterRef} layoutKey="a" min={0} max={1} />
+          <Splitter ref={splitterRef} layoutKey="a" min={0} max={1} orientation="end" />
         </Pane>
       )}
     </PaneProvider>
@@ -38,8 +38,8 @@ describe('Splitter', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
 
-    const { queryByTestId } = render(<UncontrolledTestSplitter splitterRef={ref} />);
+    render(<UncontrolledTestSplitter splitterRef={ref} />);
 
-    expect(queryByTestId('splitter-pane-item')).toBe(ref.current);
+    expect(ref.current?.getAttribute('role')).toBe('separator');
   });
 });

@@ -30,38 +30,36 @@ export const SplitterStory: Story<IArgs> = ({
   defaultRowValues,
   handleValueChange,
   panes
-}) => {
-  return (
-    <PaneProvider
-      totalPanesWidth={totalPanesWidth}
-      totalPanesHeight={totalPanesHeight}
-      columnValues={columnValues}
-      rowValues={rowValues}
-      defaultColumnValues={defaultColumnValues}
-      defaultRowValues={defaultRowValues}
-      onChange={handleValueChange}
-    >
-      {({ getGridTemplateColumns, getGridTemplateRows }) => {
-        return (
-          <StyledPanes
-            style={{
-              width: totalPanesWidth,
-              height: totalPanesHeight,
-              gridTemplateRows: getGridTemplateRows(),
-              gridTemplateColumns: getGridTemplateColumns()
-            }}
-          >
-            {panes.map((pane, index) => (
-              <Pane key={index}>
-                <Pane.Content>{pane.content}</Pane.Content>
-                {pane.splitters.map(splitter => (
-                  <Pane.Splitter key={splitter.layoutKey} {...splitter} />
-                ))}
-              </Pane>
-            ))}
-          </StyledPanes>
-        );
-      }}
-    </PaneProvider>
-  );
-};
+}) => (
+  <PaneProvider
+    totalPanesWidth={totalPanesWidth}
+    totalPanesHeight={totalPanesHeight}
+    columnValues={columnValues}
+    rowValues={rowValues}
+    defaultColumnValues={defaultColumnValues}
+    defaultRowValues={defaultRowValues}
+    onChange={handleValueChange}
+  >
+    {({ getGridTemplateColumns, getGridTemplateRows }) => {
+      return (
+        <StyledPanes
+          style={{
+            width: totalPanesWidth,
+            height: totalPanesHeight,
+            gridTemplateRows: getGridTemplateRows(),
+            gridTemplateColumns: getGridTemplateColumns()
+          }}
+        >
+          {panes.map((pane, index) => (
+            <Pane key={index}>
+              <Pane.Content>{pane.content}</Pane.Content>
+              {pane.splitters.map(splitter => (
+                <Pane.Splitter key={splitter.layoutKey} {...splitter} />
+              ))}
+            </Pane>
+          ))}
+        </StyledPanes>
+      );
+    }}
+  </PaneProvider>
+);

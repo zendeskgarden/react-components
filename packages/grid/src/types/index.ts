@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes } from 'react';
+import { ReactNode, HTMLAttributes } from 'react';
 export const ALIGN_ITEMS = ['start', 'end', 'center', 'baseline', 'stretch'] as const;
 export const ALIGN_SELF = ['auto', ...ALIGN_ITEMS] as const;
 export const DIRECTION = ['row', 'row-reverse', 'column', 'column-reverse'] as const;
@@ -181,36 +181,25 @@ export interface IPaneProviderProps {
    * @param columnValues The updated column values
    */
   onChange?: (rowValues: Record<string, number>, columnValues: Record<string, number>) => void;
-  /** Surfaces render prop functions for applying splitter state to the supporting layout */
+  /**
+   * Surfaces render prop functions for applying splitter state to the supporting layout
+   *
+   * @param getColumnValue Gets column value by key
+   * @param getRowValue Gets row value by key
+   * @param getGridTemplateRows Gets grid template rows track
+   * @param getGridTemplateColumns Gets grid template columns track
+   */
   children?: ({
-    getLayoutValue,
+    getColumnValue,
+    getRowValue,
     getGridTemplateRows,
     getGridTemplateColumns
   }: {
-    /**
-     * Gets layout value by key.
-     *
-     * @param {string} splitterKey The splitter key to get a layout value for
-     * @param {boolean} isRow Determines whether to return the row value,
-     *        otherwise returns the column value by default
-     * @param {boolean} isPixels Determines whether to return a `px` value,
-     *        otherwise returns a `fr` unit by default
-     */
-    getLayoutValue: (splitterKey: string, isRow: boolean, isPixels?: boolean) => number;
-    /** Gets grid template rows track. Accepts optional units.
-     *
-     * @param {boolean} isPixels Determines whether to return a `px` value,
-     *        otherwise returns a `fr` unit by default
-     *
-     */
+    getColumnValue: (splitterKey: string, isPixels?: boolean) => number;
+    getRowValue: (splitterKey: string, isPixels?: boolean) => number;
     getGridTemplateRows: (isPixels?: boolean) => string;
-    /** Gets grid template columns track. Accepts optional units.
-     *
-     * @param {boolean} isPixels Determines whether to return a `px` value,
-     *        otherwise returns a `fr` unit by default
-     */
     getGridTemplateColumns: (isPixels?: boolean) => string;
-  }) => any;
+  }) => ReactNode;
 }
 
 export interface ISplitterProps extends HTMLAttributes<HTMLDivElement> {

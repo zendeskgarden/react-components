@@ -170,17 +170,26 @@ export const PaneProvider = ({
     [layoutIndices, columnsTrack, setColumnsTrack]
   );
 
-  const getLayoutValue = useCallback(
-    (splitterKey: string, isRow: boolean, isPixels?: boolean) => {
-      const dimension = isRow ? 'rows' : 'columns';
-
+  const getColumnValue = useCallback(
+    (splitterKey: string, isPixels?: boolean) => {
       if (isPixels) {
-        return layoutStateInPixels[dimension][splitterKey];
+        return layoutStateInPixels.columns[splitterKey];
       }
 
-      return dimension === 'rows' ? rowsTrack[splitterKey] : columnsTrack[splitterKey];
+      return columnsTrack[splitterKey];
     },
-    [columnsTrack, rowsTrack, layoutStateInPixels]
+    [columnsTrack, layoutStateInPixels]
+  );
+
+  const getRowValue = useCallback(
+    (splitterKey: string, isPixels?: boolean) => {
+      if (isPixels) {
+        return layoutStateInPixels.rows[splitterKey];
+      }
+
+      return rowsTrack[splitterKey];
+    },
+    [rowsTrack, layoutStateInPixels]
   );
 
   const getGridTemplateColumns = useCallback(
@@ -215,7 +224,8 @@ export const PaneProvider = ({
       rowState,
       setRowValue,
       setColumnValue,
-      getLayoutValue,
+      getRowValue,
+      getColumnValue,
       totalPanesHeight,
       totalPanesWidth,
       pixelsPerFr
@@ -225,7 +235,8 @@ export const PaneProvider = ({
       columnState,
       setRowValue,
       setColumnValue,
-      getLayoutValue,
+      getRowValue,
+      getColumnValue,
       totalPanesHeight,
       totalPanesWidth,
       pixelsPerFr
@@ -235,7 +246,8 @@ export const PaneProvider = ({
   return (
     <SplitterContext.Provider value={splitterContext}>
       {children?.({
-        getLayoutValue,
+        getRowValue,
+        getColumnValue,
         getGridTemplateColumns,
         getGridTemplateRows
       })}

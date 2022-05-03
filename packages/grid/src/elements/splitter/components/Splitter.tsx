@@ -6,6 +6,7 @@
  */
 
 import React, { useContext, useEffect, forwardRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import {
@@ -40,10 +41,7 @@ const orientationToDimension: Record<string, 'columns' | 'rows'> = {
   bottom: 'rows'
 };
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Splitter = forwardRef<HTMLDivElement, ISplitterProps>(
+const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
   ({ layoutKey, min, max, orientation, ...props }, ref) => {
     const splitterContext = useSplitterContext();
     const paneContext = usePaneContext();
@@ -78,7 +76,9 @@ export const Splitter = forwardRef<HTMLDivElement, ISplitterProps>(
           valueNow / pixelsPerFr
         );
       },
-      valueNow: splitterContext.getLayoutValue(layoutKey, isRow, true)
+      valueNow: isRow
+        ? splitterContext.getRowValue(layoutKey, true)
+        : splitterContext.getColumnValue(layoutKey, true)
     });
 
     useEffect(() => {
@@ -92,20 +92,30 @@ export const Splitter = forwardRef<HTMLDivElement, ISplitterProps>(
     });
 
     return (
-      <StyledPaneSplitter orientation={orientation} ref={ref} {...separatorProps} {...props} />
+      <StyledPaneSplitter
+        orientation={orientation}
+        {...separatorProps}
+        {...props}
+        ref={mergeRefs([separatorProps.ref, ref])}
+      />
     );
   }
 );
 
-Splitter.displayName = 'Pane.Splitter';
+SplitterComponent.displayName = 'Pane.Splitter';
 
-Splitter.propTypes = {
+SplitterComponent.propTypes = {
   layoutKey: PropTypes.string.isRequired,
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
   orientation: PropTypes.oneOf(ORIENTATION)
 };
 
-Splitter.defaultProps = {
+SplitterComponent.defaultProps = {
   orientation: 'end'
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Splitter = SplitterComponent;

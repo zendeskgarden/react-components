@@ -11,7 +11,8 @@ interface ISplitterContext {
   columnState: Record<string, number>;
   setRowValue: (isTop: boolean, id: string, value: number) => void;
   setColumnValue: (isStart: boolean, id: string, value: number) => void;
-  getLayoutValue: (splitterKey: string, isRow: boolean, isPixels?: boolean) => number;
+  getColumnValue: (splitterKey: string, isPixels?: boolean) => number;
+  getRowValue: (splitterKey: string, isPixels?: boolean) => number;
   totalPanesHeight: number;
   totalPanesWidth: number;
   pixelsPerFr: { rows: number; columns: number };
@@ -20,7 +21,8 @@ interface ISplitterContext {
 export const SplitterContext = createContext<ISplitterContext>({
   setRowValue: () => undefined,
   setColumnValue: () => undefined,
-  getLayoutValue: () => 0,
+  getColumnValue: () => 0,
+  getRowValue: () => 0,
   rowState: {},
   columnState: {},
   totalPanesHeight: 1,

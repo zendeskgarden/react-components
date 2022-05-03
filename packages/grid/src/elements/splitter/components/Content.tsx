@@ -8,11 +8,15 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledPaneContent } from '../../../styled';
 
+const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    return <StyledPaneContent ref={ref} {...props} />;
+  }
+);
+
+ContentComponent.displayName = 'Pane.Content';
+
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  return <StyledPaneContent ref={ref} {...props} />;
-});
-
-Content.displayName = 'Pane.Content';
+export const Content = ContentComponent;

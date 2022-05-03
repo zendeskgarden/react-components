@@ -23,6 +23,7 @@ describe('usePaneContext', () => {
 
     expect(splitterContext.setColumnValue()).toBeUndefined();
     expect(splitterContext.setRowValue()).toBeUndefined();
-    expect(splitterContext.getLayoutValue()).toBe(0);
+    expect(splitterContext.getRowValue()).toBe(0);
+    expect(splitterContext.getColumnValue()).toBe(0);
   });
 });

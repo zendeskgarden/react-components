@@ -212,9 +212,10 @@ describe('PaneProvider', () => {
     expect(renderProp.mock.calls[0]).toMatchInlineSnapshot(`
       Array [
         Object {
+          "getColumnValue": [Function],
           "getGridTemplateColumns": [Function],
           "getGridTemplateRows": [Function],
-          "getLayoutValue": [Function],
+          "getRowValue": [Function],
         },
       ]
     `);
@@ -222,7 +223,7 @@ describe('PaneProvider', () => {
 
   describe('getLayoutValue', () => {
     it('returns column px value', () => {
-      let _getLayoutValue: any;
+      let _getColumnValue: any;
 
       render(
         <PaneProvider
@@ -231,16 +232,18 @@ describe('PaneProvider', () => {
           defaultColumnValues={{ a: 1, b: 1 }}
           defaultRowValues={{ c: 1, d: 1 }}
         >
-          {({ getLayoutValue }) => {
-            _getLayoutValue = getLayoutValue;
+          {({ getColumnValue }) => {
+            _getColumnValue = getColumnValue;
+
+            return null;
           }}
         </PaneProvider>
       );
 
-      expect(_getLayoutValue('a', false, true)).toBe(250);
+      expect(_getColumnValue('a', true)).toBe(250);
     });
     it('returns row px value', () => {
-      let _getLayoutValue: any;
+      let _getRowValue: any;
 
       render(
         <PaneProvider
@@ -249,16 +252,18 @@ describe('PaneProvider', () => {
           defaultColumnValues={{ a: 1, b: 1 }}
           defaultRowValues={{ c: 1, d: 1 }}
         >
-          {({ getLayoutValue }) => {
-            _getLayoutValue = getLayoutValue;
+          {({ getRowValue }) => {
+            _getRowValue = getRowValue;
+
+            return null;
           }}
         </PaneProvider>
       );
 
-      expect(_getLayoutValue('c', true, true)).toBe(250);
+      expect(_getRowValue('c', true)).toBe(250);
     });
     it('returns columns fr value', () => {
-      let _getLayoutValue: any;
+      let _getColumnValue: any;
 
       render(
         <PaneProvider
@@ -267,16 +272,18 @@ describe('PaneProvider', () => {
           defaultColumnValues={{ a: 1, b: 1 }}
           defaultRowValues={{ c: 1, d: 1 }}
         >
-          {({ getLayoutValue }) => {
-            _getLayoutValue = getLayoutValue;
+          {({ getColumnValue }) => {
+            _getColumnValue = getColumnValue;
+
+            return null;
           }}
         </PaneProvider>
       );
 
-      expect(_getLayoutValue('a', false)).toBe(1);
+      expect(_getColumnValue('a', false)).toBe(1);
     });
     it('returns rows fr value', () => {
-      let _getLayoutValue: any;
+      let _getRowValue: any;
 
       render(
         <PaneProvider
@@ -285,13 +292,15 @@ describe('PaneProvider', () => {
           defaultColumnValues={{ a: 1, b: 1 }}
           defaultRowValues={{ c: 1, d: 1 }}
         >
-          {({ getLayoutValue }) => {
-            _getLayoutValue = getLayoutValue;
+          {({ getRowValue }) => {
+            _getRowValue = getRowValue;
+
+            return null;
           }}
         </PaneProvider>
       );
 
-      expect(_getLayoutValue('c', true)).toBe(1);
+      expect(_getRowValue('c', false)).toBe(1);
     });
   });
 
@@ -308,6 +317,8 @@ describe('PaneProvider', () => {
         >
           {({ getGridTemplateRows }) => {
             _getGridTemplateRows = getGridTemplateRows;
+
+            return null;
           }}
         </PaneProvider>
       );
@@ -326,6 +337,8 @@ describe('PaneProvider', () => {
         >
           {({ getGridTemplateRows }) => {
             _getGridTemplateRows = getGridTemplateRows;
+
+            return null;
           }}
         </PaneProvider>
       );
@@ -347,6 +360,8 @@ describe('PaneProvider', () => {
         >
           {({ getGridTemplateColumns }) => {
             _getGridTemplateColumns = getGridTemplateColumns;
+
+            return null;
           }}
         </PaneProvider>
       );
@@ -365,6 +380,8 @@ describe('PaneProvider', () => {
         >
           {({ getGridTemplateColumns }) => {
             _getGridTemplateColumns = getGridTemplateColumns;
+
+            return null;
           }}
         </PaneProvider>
       );
