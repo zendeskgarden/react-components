@@ -12,6 +12,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.50.0 (2022-05-05)
+
+#### :rocket: New Feature
+* `accordions`
+  * [#1346](https://github.com/zendeskgarden/react-components/pull/1346) feat(accordions): pass icon props to default check icon ([@hzhu](https://github.com/hzhu))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1348](https://github.com/zendeskgarden/react-components/pull/1348) fix(dropdowns): compose keydown for autocomplete ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `accordions`
+  * [#1347](https://github.com/zendeskgarden/react-components/pull/1347) fix(accordions): add missing `Timeline` text styling ([@jzempel](https://github.com/jzempel))
+
 ## v8.49.4 (2022-04-21)
 
 #### :bug: Bug Fix
