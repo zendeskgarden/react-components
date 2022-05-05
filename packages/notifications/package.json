@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-notifications",
-  "version": "8.49.4",
+  "version": "8.50.0",
   "description": "Notification and Well components within the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/react-transition-group": "4.4.4",
-    "@zendeskgarden/react-theming": "^8.49.4",
+    "@zendeskgarden/react-theming": "^8.50.0",
     "@zendeskgarden/svg-icons": "6.31.1"
   },
   "keywords": [
