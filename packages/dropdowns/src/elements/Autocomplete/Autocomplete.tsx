@@ -49,11 +49,11 @@ export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(
     /* eslint-disable @typescript-eslint/no-unused-vars */
     const { type, ...selectProps } = getToggleButtonProps(
       getRootProps({
-        onKeyDown: (e: KeyboardEvent<HTMLDivElement>) => {
+        onKeyDown: composeEventHandlers(props.onKeyDown, (e: KeyboardEvent<HTMLDivElement>) => {
           if (isOpen) {
             (e.nativeEvent as any).preventDownshiftDefault = true;
           }
-        },
+        }),
         onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
         onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
         /**
