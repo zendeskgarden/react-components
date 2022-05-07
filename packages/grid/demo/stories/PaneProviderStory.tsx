@@ -17,7 +17,6 @@ const StyledPanes = styled.div`
 `;
 
 interface IArgs extends IPaneProviderProps {
-  handleValueChange?: IPaneProviderProps['onChange'];
   panes: ISplitterPane[];
 }
 
@@ -28,7 +27,7 @@ export const PaneProviderStory: Story<IArgs> = ({
   rowValues,
   defaultColumnValues,
   defaultRowValues,
-  handleValueChange,
+  onChange,
   panes
 }) => (
   <PaneProvider
@@ -38,7 +37,7 @@ export const PaneProviderStory: Story<IArgs> = ({
     rowValues={rowValues}
     defaultColumnValues={defaultColumnValues}
     defaultRowValues={defaultRowValues}
-    onChange={handleValueChange}
+    onChange={onChange}
   >
     {({ getGridTemplateColumns, getGridTemplateRows }) => {
       return (
