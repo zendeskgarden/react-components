@@ -216,6 +216,7 @@ describe('PaneProvider', () => {
           "getGridTemplateColumns": [Function],
           "getGridTemplateRows": [Function],
           "getRowValue": [Function],
+          "id": undefined,
         },
       ]
     `);
