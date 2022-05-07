@@ -49,10 +49,10 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/react-theming@^8.49.4":
-  version "8.49.4"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.49.4.tgz#d8b24cd803f925d799129305c55f71dff5f596ac"
-  integrity sha512-bfm3DMVhTdFdyHv47pjkNIwUUzzJ5buQKxO4ionYPTXZblUqJE4Zzd4QPUt2niNun8ENEgH9RLovle5Y+zHYJA==
+"@zendeskgarden/react-theming@^8.50.0":
+  version "8.50.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.50.0.tgz#2f798a624b5d16d86cad6576963b653015fa4084"
+  integrity sha512-Hvmm/IvxUTUbunF/p2aCEm4S6U3eyUlSwhmOIqU0QvFShmixECNgD9W7DEGNoqvGgFGI7nt4SCOsmdKRdq6Dew==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.7.0"
