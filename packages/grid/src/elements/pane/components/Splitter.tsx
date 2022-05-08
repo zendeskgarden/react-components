@@ -15,7 +15,7 @@ import {
   SplitterType,
   SplitterPosition
 } from '@zendeskgarden/container-splitter';
-import usePaneProviderContext from '../../../utils/usePaneProviderContext';
+import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext';
 import usePaneContext from '../../../utils/usePaneContext';
 import { ISplitterProps, ORIENTATION } from '../../../types';
 import { StyledPaneSplitter } from '../../../styled';
@@ -43,7 +43,7 @@ const orientationToDimension: Record<string, 'columns' | 'rows'> = {
 
 const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
   ({ providerId, layoutKey, min, max, orientation, ...props }, ref) => {
-    const paneProviderContext = usePaneProviderContext(providerId);
+    const paneProviderContext = usePaneProviderContextData(providerId);
     const paneContext = usePaneContext();
     const themeContext = useContext(ThemeContext);
     const position = orientationToPosition[orientation!];

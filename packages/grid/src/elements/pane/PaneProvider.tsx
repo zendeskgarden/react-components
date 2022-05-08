@@ -231,8 +231,8 @@ export const PaneProvider = ({
       providerId
         ? {
             providerId,
-            ...parentPaneProviderContext,
             contextData: {
+              ...parentPaneProviderContext.contextData,
               [providerId]: {
                 columnState,
                 rowState,

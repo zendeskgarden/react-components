@@ -26,11 +26,15 @@ interface IPaneProviderContext {
 
 export const PaneProviderContext = createContext<IPaneProviderContext>({});
 
-const usePaneProviderContext = (providerId?: string): IPaneProviderContextData | undefined => {
+export const usePaneProviderContextData = (
+  providerId?: string
+): IPaneProviderContextData | undefined => {
   const context = useContext(PaneProviderContext);
   const id = providerId || context.providerId;
 
   return id && context.contextData ? context.contextData[id] : undefined;
 };
+
+const usePaneProviderContext = (): IPaneProviderContext => useContext(PaneProviderContext);
 
 export default usePaneProviderContext;
