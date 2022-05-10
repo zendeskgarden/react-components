@@ -15,6 +15,7 @@ interface IFieldContext extends IUseFieldPropGetters {
   setIsLabelHovered: (isLabelHovered: boolean) => void;
   setIsLabelActive: (isLabelActive: boolean) => void;
   multiThumbRangeRef: MutableRefObject<HTMLDivElement | null>;
+  setHint: (hintPresent: boolean) => void;
 }
 
 export const FieldContext = createContext<IFieldContext | undefined>(undefined);

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useEffect } from 'react';
 import useFieldContext from '../../utils/useFieldContext';
 import useInputContext from '../../utils/useInputContext';
 import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '../../styled';
@@ -17,6 +17,21 @@ export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
   (props, ref) => {
     const fieldContext = useFieldContext();
     const type = useInputContext();
+
+    useEffect(() => {
+      if (fieldContext) {
+        fieldContext.setHint(true);
+      }
+
+      return () => {
+        if (fieldContext) {
+          fieldContext.setHint(false);
+        }
+      };
+      // since we only want to run this once, if context exists,
+      // we use an empty dependency array
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     let HintComponent;
 

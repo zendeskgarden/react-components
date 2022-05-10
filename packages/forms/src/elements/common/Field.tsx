@@ -23,11 +23,12 @@ export interface IFieldProps extends HTMLAttributes<HTMLDivElement> {
  */
 export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
+    const [hasHint, setHasHint] = useState(false);
     const [isLabelActive, setIsLabelActive] = useState(false);
     const [isLabelHovered, setIsLabelHovered] = useState(false);
     const multiThumbRangeRef = useRef<HTMLDivElement>(null);
     const getMessageProps = (messageProps: any) => ({ role: 'alert', ...messageProps });
-    const propGetters = useField(props.id);
+    const { getInputProps, ...propGetters } = useField(props.id);
     const fieldProps = useMemo(
       () => ({
         ...propGetters,
@@ -36,9 +37,18 @@ export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
         setIsLabelActive,
         isLabelHovered,
         setIsLabelHovered,
-        multiThumbRangeRef
+        multiThumbRangeRef,
+        getInputProps: (...args: any[]) => {
+          const { 'aria-describedby': describedBy, ...inputProps } = getInputProps(...args);
+          const newProps = inputProps;
+
+          if (hasHint) newProps['aria-describedby'] = describedBy;
+
+          return newProps;
+        },
+        setHint: (hintPresent: boolean) => setHasHint(hintPresent || false)
       }),
-      [propGetters, isLabelActive, isLabelHovered]
+      [propGetters, isLabelActive, isLabelHovered, hasHint, getInputProps]
     );
 
     return (
