@@ -40,11 +40,10 @@ export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
         multiThumbRangeRef,
         getInputProps: (...args: any[]) => {
           const { 'aria-describedby': describedBy, ...inputProps } = getInputProps(...args);
-          const newProps = inputProps;
 
-          if (hasHint) newProps['aria-describedby'] = describedBy;
+          if (hasHint) inputProps['aria-describedby'] = describedBy;
 
-          return newProps;
+          return inputProps;
         },
         setHint: (hintPresent: boolean) => setHasHint(hintPresent || false)
       }),
