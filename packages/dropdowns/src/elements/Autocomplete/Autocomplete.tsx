@@ -49,19 +49,19 @@ export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(
     /* eslint-disable @typescript-eslint/no-unused-vars */
     const { type, ...selectProps } = getToggleButtonProps(
       getRootProps({
+        /**
+         * Ensure that [role="combobox"] is applied directly to the input
+         * for Safari screenreader support
+         */
+        role: null,
+        ...props,
         onKeyDown: composeEventHandlers(props.onKeyDown, (e: KeyboardEvent<HTMLDivElement>) => {
           if (isOpen) {
             (e.nativeEvent as any).preventDownshiftDefault = true;
           }
         }),
         onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
-        onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
-        /**
-         * Ensure that [role="combobox"] is applied directly to the input
-         * for Safari screenreader support
-         */
-        role: null,
-        ...props
+        onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false))
       } as any)
     );
 
