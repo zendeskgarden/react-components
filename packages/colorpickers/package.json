@@ -32,6 +32,7 @@
     "lodash.throttle": "^4.1.1",
     "polished": "^4.0.0",
     "prop-types": "^15.7.2",
+    "react-merge-refs": "^1.1.0",
     "react-popper": "^2.2.3"
   },
   "peerDependencies": {

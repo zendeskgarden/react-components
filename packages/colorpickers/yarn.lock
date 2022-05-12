@@ -148,20 +148,20 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/react-buttons@^8.49.2":
-  version "8.49.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.49.2.tgz#dc26a0af47ca70eef592fbeae56a898efce0e9ca"
-  integrity sha512-9iT33MIkyILYwZQK4w1SZ0APxrIUjT4NABXnNKmE05Bc32zTOmLx+opC/3z0CF6QnfolegGs1L4doopWoodJ+w==
+"@zendeskgarden/react-buttons@^8.50.0":
+  version "8.50.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.50.0.tgz#40a12e9d1435a6d2e150812526f737e7f98b7e76"
+  integrity sha512-FF0jjO0YRIcHUY3JMlJKmOccoINWMnpt3v/QaBFSdtoS/g3Xv3EHgMoflga3X6GtZDqBYQ59//f5VL3x98N6JQ==
   dependencies:
     "@zendeskgarden/container-buttongroup" "^0.3.8"
     "@zendeskgarden/container-keyboardfocus" "^0.4.7"
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/react-forms@^8.49.2":
-  version "8.49.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.49.2.tgz#1e243fa0413a58766fe6d426b8d76959de14baae"
-  integrity sha512-lWNSTsB5BuVANrnblX/+zERt9rXzu//oHtjsljTkqg5C3yL6e8+N8qWah4bfzv3Z1RXAIN2O7H6lwA05tKBZwQ==
+"@zendeskgarden/react-forms@^8.50.0":
+  version "8.50.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.50.0.tgz#86c44338a7967dcebc619d04ea37c2b2474f425f"
+  integrity sha512-5NTQ+8FvqFAfDZU085HoBRMpPX3ZWEl/TT1uJb7a7m/ls4WYeDsVv8T1gS5nz+vYC7qkq2V/b+pM/qvrRcNNHA==
   dependencies:
     "@zendeskgarden/container-field" "^1.3.6"
     "@zendeskgarden/container-utilities" "^0.7.0"
@@ -170,10 +170,10 @@
     prop-types "^15.5.7"
     react-merge-refs "^1.1.0"
 
-"@zendeskgarden/react-modals@^8.49.2":
-  version "8.49.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-modals/-/react-modals-8.49.2.tgz#9315899d40f6e7aa7145e09618c3d7f529f6a16c"
-  integrity sha512-zJuEzYdj4EHLDPg+o6aC6fu4TiQHvWStvYoXoXn/KwtFD18yTrEDgJiM9/bqjFyfpgM80kSQuPcWsiF0deNFSA==
+"@zendeskgarden/react-modals@^8.50.0":
+  version "8.50.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-modals/-/react-modals-8.50.0.tgz#0f215c90beaa99c42e4e9fe6642a3d25123f8367"
+  integrity sha512-DQZftBvAfnH4TgljegvMymth85uUyZQmKuOL8t10jJyKrzEGsWgvS7mFZv5zlAe/thoyCWjFPKDrYJK5aa0l4w==
   dependencies:
     "@popperjs/core" "^2.4.4"
     "@zendeskgarden/container-focusvisible" "^0.4.6"
@@ -185,20 +185,20 @@
     react-popper "^2.2.3"
     react-transition-group "^4.4.2"
 
-"@zendeskgarden/react-theming@^8.49.2":
-  version "8.49.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.49.2.tgz#096585e63eab3c53b5b856a88829876f295706d6"
-  integrity sha512-VE1zgK0d+P/yTUNA43pB314p7yRkh2wtexF1gPgI+yjNdPo32QDJHrs7tBsU0TTArEy/s98GSQjH4KjYa/X4kg==
+"@zendeskgarden/react-theming@^8.50.0":
+  version "8.50.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.50.0.tgz#2f798a624b5d16d86cad6576963b653015fa4084"
+  integrity sha512-Hvmm/IvxUTUbunF/p2aCEm4S6U3eyUlSwhmOIqU0QvFShmixECNgD9W7DEGNoqvGgFGI7nt4SCOsmdKRdq6Dew==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.7.0"
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/react-tooltips@^8.49.2":
-  version "8.49.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tooltips/-/react-tooltips-8.49.2.tgz#e71aede3e47c66eb9fd79839e022039fd9658cd1"
-  integrity sha512-U21s6VHyGkxl42qA6+qok/QLNCkrhK9rLt0Xm2AoUrDcNc3/m8aEAcKJ8/W3G+hks7tPYPOJlbirbhsGwTMx2A==
+"@zendeskgarden/react-tooltips@^8.50.0":
+  version "8.50.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tooltips/-/react-tooltips-8.50.0.tgz#54ccb1677a6162d1299acb1d048ff152c66315d8"
+  integrity sha512-Qp5LaV5mV++mu1/jsl/9TLiqCme/8On4pgncrgKm6Jzaf0bS+3yA/6lFQKc+7WrDInEkcDUCR9mN/IZshLoZ9g==
   dependencies:
     "@zendeskgarden/container-tooltip" "^0.5.12"
     "@zendeskgarden/container-utilities" "^0.7.0"
