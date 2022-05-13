@@ -6,7 +6,7 @@ import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
 <Meta
   title="Packages/Colorpickers/ColorSwatch"
   component={ColorSwatch}
-  args={{ colors: COLORS }}
+  args={{ colors: COLORS, name: 'name' }}
   parameters={{
     design: {
       allowFullscreen: true,
@@ -41,7 +41,7 @@ import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
 <Canvas>
   <Story
     name="Controlled"
-    args={{ selectedRowIndex: null, selectedColIndex: null }}
+    args={{ selectedRowIndex: 0, selectedColIndex: 5 }}
     argTypes={{
       defaultSelectedColIndex: { control: false },
       defaultSelectedRowIndex: { control: false }
