@@ -25,13 +25,13 @@ describe('ColorSwatch', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = createRef<HTMLTableElement>();
 
-    render(<ColorSwatch colors={colors} ref={ref} />);
+    render(<ColorSwatch colors={colors} name="test" ref={ref} />);
 
     expect(ref.current).toBe(screen.getByRole('grid'));
   });
 
   it('renders checkmark svg when a color is selected', () => {
-    render(<ColorSwatch colors={colors} />);
+    render(<ColorSwatch colors={colors} name="test" />);
 
     userEvent.tab();
     expect(screen.getByTestId('#0b3b29').firstChild).toHaveStyleRule('opacity', '0');

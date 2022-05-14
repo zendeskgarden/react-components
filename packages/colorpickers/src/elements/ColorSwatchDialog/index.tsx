@@ -34,17 +34,13 @@ import { IColorSwatchDialogProps } from '../../types';
 export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogProps>(
   (
     {
+      name,
       colors,
-      rowIndex,
-      colIndex,
       selectedRowIndex,
       selectedColIndex,
-      defaultRowIndex,
-      defaultColIndex,
       defaultSelectedRowIndex,
       defaultSelectedColIndex,
       placement,
-      onChange,
       onSelect,
       hasArrow,
       isAnimated,
@@ -60,14 +56,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
     },
     ref
   ) => {
-    const controlledFocus =
-      rowIndex !== null && colIndex !== null && rowIndex !== undefined && colIndex !== undefined;
-    const controlledSelect =
-      selectedRowIndex !== null &&
-      selectedColIndex !== null &&
-      selectedRowIndex !== undefined &&
-      selectedColIndex !== undefined;
-    const isControlled = controlledFocus || controlledSelect;
+    const isControlled = selectedRowIndex !== undefined && selectedColIndex !== undefined;
     const isDialogControlled = isOpen !== undefined && isOpen !== null;
     const buttonRef = useRef<HTMLButtonElement>(null);
     const colorSwatchRef = useRef<HTMLTableElement>(null);
@@ -78,8 +67,6 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
     const [uncontrolledSelectedColIndex, setUncontrolledSelectedColIndex] = useState(
       defaultSelectedColIndex || 0
     );
-    const [uncontrolledRowIndex, setUncontrolledRowIndex] = useState(defaultRowIndex || 0);
-    const [uncontrolledColIndex, setUncontrolledColIndex] = useState(defaultColIndex || 0);
 
     useEffect(() => {
       if (isDialogControlled) {
@@ -182,23 +169,13 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
         >
           <StyledTooltipBody>
             <ColorSwatch
+              name={name}
               colors={colors}
               ref={colorSwatchRef}
-              rowIndex={rowIndex}
-              colIndex={colIndex}
               selectedRowIndex={selectedRowIndex}
               selectedColIndex={selectedColIndex}
-              defaultRowIndex={uncontrolledRowIndex}
-              defaultColIndex={uncontrolledColIndex}
               defaultSelectedRowIndex={uncontrolledSelectedRowIndex}
               defaultSelectedColIndex={uncontrolledSelectedColIndex}
-              onChange={(rowIdx, colIdx) => {
-                if (isControlled === false) {
-                  setUncontrolledRowIndex(rowIdx);
-                  setUncontrolledColIndex(colIdx);
-                }
-                onChange && onChange(rowIdx, colIdx);
-              }}
               onSelect={(rowIdx, colIdx) => {
                 if (isControlled === false) {
                   setUncontrolledSelectedRowIndex(rowIdx);

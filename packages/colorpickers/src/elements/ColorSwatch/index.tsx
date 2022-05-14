@@ -7,6 +7,7 @@
 
 import React, {
   ChangeEventHandler,
+  FocusEvent,
   FocusEventHandler,
   forwardRef,
   useContext,
@@ -16,12 +17,18 @@ import React, {
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { useGrid } from '@zendeskgarden/container-grid';
-import { useId } from '@zendeskgarden/container-utilities';
-import { StyledCell, StyledColorSwatch } from '../../styled';
-import { IColorSwatchProps, ILabeledColor } from '../../types';
+import { composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
 import { useDocument } from '@zendeskgarden/react-theming';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
+import {
+  StyledCell,
+  StyledColorSwatch,
+  StyledColorSwatchInput,
+  StyledColorSwatchLabel,
+  StyledIcon
+} from '../../styled';
+import { IColorSwatchProps, ILabeledColor } from '../../types';
 
 /**
  * @extends HTMLAttributes<HTMLTableElement>
@@ -74,7 +81,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
             <tr key={row[0].value}>
               {row.map((color: ILabeledColor, colIdx: number) => {
                 const { label, value } = color;
-                const { role, ...gridCellProps } = getGridCellProps({
+                const { role, onFocus, ...gridCellProps } = getGridCellProps({
                   colIdx,
                   rowIdx
                 });
@@ -108,6 +115,8 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                 };
 
                 const handleBlur: FocusEventHandler<HTMLInputElement> = event => {
+                  event.target.parentElement?.removeAttribute('data-garden-focus-visible');
+
                   if (!(isCheckboxGroup || gridRef.current?.contains(event.relatedTarget))) {
                     /*
                      * When the ColorSwatch loses focus, reset the roving tab
@@ -130,30 +139,29 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                   }
                 };
 
+                const handleFocus = composeEventHandlers(onFocus, (event: FocusEvent) =>
+                  event.target.parentElement?.setAttribute('data-garden-focus-visible', 'true')
+                );
+
                 return (
                   <StyledCell key={value} role={role}>
-                    <label>
+                    <StyledColorSwatchLabel backgroundColor={value}>
                       <Tooltip content={label}>
-                        <input
+                        <StyledColorSwatchInput
                           aria-label={label}
                           name={name}
                           type={isCheckboxGroup ? 'checkbox' : 'radio'}
                           value={value}
                           defaultChecked={defaultChecked}
                           checked={checked}
+                          onFocus={handleFocus}
                           onBlur={handleBlur}
                           onChange={handleChange}
                           {...gridCellProps}
                         />
                       </Tooltip>
-                    </label>
-                    {/* <Tooltip content={label}>
-                      <StyledSwatchButton backgroundColor={value} aria-label={label} {...other}>
-                        <StyledIcon color={value} selected={checked || defaultChecked}>
-                          <CheckIcon />
-                        </StyledIcon>
-                      </StyledSwatchButton>
-                    </Tooltip> */}
+                      <StyledIcon />
+                    </StyledColorSwatchLabel>
                   </StyledCell>
                 );
               })}
