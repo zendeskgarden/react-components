@@ -93,15 +93,15 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                   : defaultSelectedRowIndex === rowIdx && defaultSelectedColIndex === colIdx;
 
                 const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
-                  if (isControlled) {
-                    if (onSelect) {
-                      if (event.target.checked) {
-                        onSelect(rowIdx, colIdx);
-                      } else {
-                        onSelect(null, null);
-                      }
+                  if (onSelect) {
+                    if (event.target.checked) {
+                      onSelect(rowIdx, colIdx);
+                    } else {
+                      onSelect(null, null);
                     }
-                  } else if (isCheckboxGroup && event.target.checked) {
+                  }
+
+                  if (isCheckboxGroup && event.target.checked) {
                     const inputs = document.getElementsByName(
                       event.target.name
                     ) as NodeListOf<HTMLInputElement>;
