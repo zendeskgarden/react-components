@@ -61,7 +61,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
     const isDialogControlled = isOpen !== undefined && isOpen !== null;
     const buttonRef = useRef<HTMLButtonElement>(null);
     const colorSwatchRef = useRef<HTMLTableElement>(null);
-    const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
+    const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>(null);
     const [rowIndex, setRowIndex] = useState<number | undefined>(defaultSelectedRowIndex);
     const [colIndex, setColIndex] = useState<number | undefined>(defaultSelectedColIndex);
     let backgroundColor;
@@ -104,10 +104,9 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
 
     useEffect(() => {
       if (referenceElement && colorSwatchRef.current) {
-        const focusableButton =
-          colorSwatchRef.current.querySelector<HTMLInputElement>('[tabindex="0"]');
+        const input = colorSwatchRef.current.querySelector<HTMLInputElement>('[tabindex="0"]');
 
-        focusableButton?.focus();
+        input?.focus();
       }
     }, [referenceElement]);
 
@@ -141,8 +140,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
             {...buttonProps}
           >
             <StyledButtonPreview backgroundColor={backgroundColor} />
-            {/* eslint-disable-next-line no-eq-null, eqeqeq */}
-            <Button.EndIcon isRotated={referenceElement != null}>
+            <Button.EndIcon isRotated={referenceElement !== null}>
               <Chevron />
             </Button.EndIcon>
           </StyledButton>

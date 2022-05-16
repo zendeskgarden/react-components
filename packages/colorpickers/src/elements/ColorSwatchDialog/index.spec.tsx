@@ -25,7 +25,7 @@ describe('ColorSwatchDialog', () => {
   it('passes ref to underlying DOM element', async () => {
     const ref = createRef<HTMLDivElement>();
 
-    render(<ColorSwatchDialog colors={colors} ref={ref} />);
+    render(<ColorSwatchDialog name="test" colors={colors} ref={ref} />);
 
     act(() => {
       userEvent.click(screen.getByRole('button'));
@@ -39,6 +39,7 @@ describe('ColorSwatchDialog', () => {
   it('applies buttonProps to the button element', () => {
     render(
       <ColorSwatchDialog
+        name="test"
         colors={colors}
         buttonProps={{
           'aria-label': 'Choose your favorite color'
@@ -57,6 +58,7 @@ describe('ColorSwatchDialog', () => {
 
     render(
       <ColorSwatchDialog
+        name="test"
         colors={colors}
         onDialogChange={onDialogChange}
         buttonProps={{ 'aria-label': label }}
@@ -82,11 +84,10 @@ describe('ColorSwatchDialog', () => {
     it('renders the color swatch dialog with no color selection', async () => {
       render(
         <ColorSwatchDialog
+          name="test"
           colors={colors}
-          defaultRowIndex={-1}
-          defaultColIndex={-1}
-          defaultSelectedRowIndex={-1}
-          defaultSelectedColIndex={-1}
+          defaultSelectedRowIndex={undefined}
+          defaultSelectedColIndex={undefined}
         />
       );
 
@@ -104,7 +105,7 @@ describe('ColorSwatchDialog', () => {
     });
 
     it('focuses on the first swatch button when the color dialog is opened', async () => {
-      render(<ColorSwatchDialog colors={colors} />);
+      render(<ColorSwatchDialog name="test" colors={colors} />);
 
       const trigger = screen.getByRole('button');
 
@@ -126,6 +127,7 @@ describe('ColorSwatchDialog', () => {
     it('focuses on the selected swatch button when the color dialog is opened', async () => {
       render(
         <ColorSwatchDialog
+          name="test"
           colors={colors}
           defaultSelectedRowIndex={1}
           defaultSelectedColIndex={1}
@@ -152,11 +154,10 @@ describe('ColorSwatchDialog', () => {
     it('focuses on the selected swatch button when the color dialog is opened with no color selection', async () => {
       render(
         <ColorSwatchDialog
+          name="test"
           colors={colors}
-          rowIndex={-1}
-          colIndex={-1}
-          defaultSelectedRowIndex={-1}
-          defaultSelectedColIndex={-1}
+          defaultSelectedRowIndex={undefined}
+          defaultSelectedColIndex={undefined}
         />
       );
 
@@ -174,7 +175,7 @@ describe('ColorSwatchDialog', () => {
     });
 
     it('retains previously selected indices when dialog is opened again', async () => {
-      render(<ColorSwatchDialog colors={colors} />);
+      render(<ColorSwatchDialog name="test" colors={colors} />);
 
       const trigger = screen.getByRole('button');
 
@@ -206,7 +207,7 @@ describe('ColorSwatchDialog', () => {
     });
 
     it('moves focus correctly after dialog is opened with a selected color and a different focused color', async () => {
-      render(<ColorSwatchDialog colors={colors} />);
+      render(<ColorSwatchDialog name="test" colors={colors} />);
 
       const trigger = screen.getByRole('button');
 
@@ -242,11 +243,10 @@ describe('ColorSwatchDialog', () => {
     it('renders the color swatch dialog with no color selection', async () => {
       render(
         <ColorSwatchDialog
+          name="test"
           colors={colors}
-          rowIndex={-1}
-          colIndex={-1}
-          selectedRowIndex={-1}
-          selectedColIndex={-1}
+          selectedRowIndex={null}
+          selectedColIndex={null}
         />
       );
 
@@ -266,11 +266,10 @@ describe('ColorSwatchDialog', () => {
     it('focuses on the selected swatch button when the color dialog is opened with no color selection', async () => {
       render(
         <ColorSwatchDialog
+          name="test"
           colors={colors}
-          rowIndex={-1}
-          colIndex={-1}
-          selectedRowIndex={-1}
-          selectedColIndex={-1}
+          selectedRowIndex={null}
+          selectedColIndex={null}
         />
       );
 
@@ -288,7 +287,9 @@ describe('ColorSwatchDialog', () => {
     });
 
     it('focuses on the selected swatch button when the color dialog is opened', async () => {
-      render(<ColorSwatchDialog colors={colors} selectedRowIndex={1} selectedColIndex={1} />);
+      render(
+        <ColorSwatchDialog name="test" colors={colors} selectedRowIndex={1} selectedColIndex={1} />
+      );
 
       const trigger = screen.getByRole('button');
 
@@ -310,11 +311,10 @@ describe('ColorSwatchDialog', () => {
     it('opens a controlled color dialog', async () => {
       render(
         <ColorSwatchDialog
+          name="test"
           colors={colors}
-          rowIndex={-1}
-          colIndex={-1}
-          selectedRowIndex={-1}
-          selectedColIndex={-1}
+          selectedRowIndex={null}
+          selectedColIndex={null}
           isOpen
         />
       );
@@ -329,11 +329,10 @@ describe('ColorSwatchDialog', () => {
     it('closes a controlled color dialog', () => {
       render(
         <ColorSwatchDialog
+          name="test"
           colors={colors}
-          rowIndex={-1}
-          colIndex={-1}
-          selectedRowIndex={-1}
-          selectedColIndex={-1}
+          selectedRowIndex={null}
+          selectedColIndex={null}
           isOpen={false}
         />
       );
