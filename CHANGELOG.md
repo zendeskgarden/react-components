@@ -11,6 +11,11 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.50.1 (2022-05-16)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1351](https://github.com/zendeskgarden/react-components/pull/1351) fix(dropdowns): stop overwriting of autocomplete keydown event ([@Francois-Esquire](https://github.com/Francois-Esquire))
 
 ## v8.50.0 (2022-05-05)
 
