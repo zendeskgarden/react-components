@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createRef } from 'react';
+import React, { createRef, useState } from 'react';
 import { render, screen } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
 import { ColorSwatch } from './index';
+import { IColorSwatchProps } from '../../types';
 
 const colors = [
   [
@@ -30,13 +31,188 @@ describe('ColorSwatch', () => {
     expect(ref.current).toBe(screen.getByRole('grid'));
   });
 
-  it('renders checkmark svg when a color is selected', () => {
-    render(<ColorSwatch colors={colors} name="test" />);
+  describe('Uncontrolled', () => {
+    it('sets selection as expected', () => {
+      const { container } = render(<ColorSwatch colors={colors} name="test" />);
+      const selector = 'input[name="test"]:checked';
 
-    userEvent.tab();
-    expect(screen.getByTestId('#0b3b29').firstChild).toHaveStyleRule('opacity', '0');
+      expect(container.querySelector<HTMLInputElement>(selector)).toBeNull();
 
-    userEvent.type(document.activeElement as HTMLElement, '{enter}');
-    expect(screen.getByTestId('#0b3b29').firstChild).toHaveStyleRule('opacity', '1');
+      userEvent.tab();
+      userEvent.type(document.activeElement as HTMLElement, '{space}');
+
+      expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
+
+      userEvent.click(screen.getByLabelText('Green-600'));
+
+      expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#038153');
+    });
+
+    it('prevents radio deselection', () => {
+      const { container } = render(
+        <ColorSwatch
+          colors={colors}
+          name="test"
+          defaultSelectedRowIndex={0}
+          defaultSelectedColIndex={0}
+        />
+      );
+      const selector = 'input[name="test"]:checked';
+
+      expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
+
+      userEvent.click(screen.getByLabelText('Green-800'));
+
+      expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
+    });
+
+    it('allows checkbox deselection', () => {
+      const { container } = render(
+        <ColorSwatch
+          colors={colors}
+          name="test"
+          isCheckboxGroup
+          defaultSelectedRowIndex={0}
+          defaultSelectedColIndex={0}
+        />
+      );
+      const selector = 'input[name="test"]:checked';
+
+      expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
+
+      userEvent.click(screen.getByLabelText('Green-800'));
+
+      expect(container.querySelector<HTMLInputElement>(selector)).toBeNull();
+    });
+  });
+
+  describe('Controlled', () => {
+    const ControlledColorSwatch = ({
+      selectedRowIndex = null,
+      selectedColIndex = null,
+      ...props
+    }: IColorSwatchProps) => {
+      const [rowIndex, setRowIndex] = useState<number | null>(selectedRowIndex);
+      const [colIndex, setColIndex] = useState<number | null>(selectedColIndex);
+      const handleSelect = (row: number | null, col: number | null) => {
+        setRowIndex(row);
+        setColIndex(col);
+      };
+
+      return (
+        <ColorSwatch
+          selectedRowIndex={rowIndex}
+          selectedColIndex={colIndex}
+          onSelect={handleSelect}
+          {...props}
+        />
+      );
+    };
+
+    it('sets selection as expected', () => {
+      const { container } = render(<ControlledColorSwatch colors={colors} name="test" />);
+      const selector = 'input[name="test"]:checked';
+
+      expect(container.querySelector<HTMLInputElement>(selector)).toBeNull();
+
+      userEvent.tab();
+      userEvent.type(document.activeElement as HTMLElement, '{space}');
+
+      expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
+
+      userEvent.click(screen.getByLabelText('Green-600'));
+
+      expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#038153');
+    });
+
+    it('prevents radio deselection', () => {
+      const { container } = render(
+        <ControlledColorSwatch
+          colors={colors}
+          name="test"
+          selectedRowIndex={0}
+          selectedColIndex={0}
+        />
+      );
+      const selector = 'input[name="test"]:checked';
+
+      expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
+
+      userEvent.click(screen.getByLabelText('Green-800'));
+
+      expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
+    });
+
+    it('allows checkbox deselection', () => {
+      const { container } = render(
+        <ControlledColorSwatch
+          colors={colors}
+          name="test"
+          isCheckboxGroup
+          selectedRowIndex={0}
+          selectedColIndex={0}
+        />
+      );
+      const selector = 'input[name="test"]:checked';
+
+      expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
+
+      userEvent.click(screen.getByLabelText('Green-800'));
+
+      expect(container.querySelector<HTMLInputElement>(selector)).toBeNull();
+    });
+  });
+
+  describe('onFocus', () => {
+    it('adjusts radio group tab index to selection on blur', () => {
+      render(
+        <ColorSwatch
+          colors={colors}
+          name="test"
+          defaultSelectedRowIndex={1}
+          defaultSelectedColIndex={1}
+        />
+      );
+
+      userEvent.tab(); // focus
+
+      expect((document.activeElement as HTMLInputElement).value).toBe('#228f67');
+
+      userEvent.keyboard('{arrowup}');
+      userEvent.keyboard('{arrowleft}');
+
+      expect((document.activeElement as HTMLInputElement).value).toBe('#0b3b29');
+
+      userEvent.tab(); // blur
+      userEvent.tab({ shift: true }); // re-focus
+
+      expect((document.activeElement as HTMLInputElement).value).toBe('#228f67');
+    });
+
+    it('does not adjust checkbox group tab index to selection on blur', () => {
+      render(
+        <ColorSwatch
+          colors={colors}
+          name="test"
+          isCheckboxGroup
+          defaultSelectedRowIndex={1}
+          defaultSelectedColIndex={1}
+        />
+      );
+
+      userEvent.tab(); // focus
+
+      expect((document.activeElement as HTMLInputElement).value).toBe('#228f67');
+
+      userEvent.keyboard('{arrowup}');
+      userEvent.keyboard('{arrowleft}');
+
+      expect((document.activeElement as HTMLInputElement).value).toBe('#0b3b29');
+
+      userEvent.tab(); // blur
+      userEvent.tab({ shift: true }); // re-focus
+
+      expect((document.activeElement as HTMLInputElement).value).toBe('#0b3b29');
+    });
   });
 });

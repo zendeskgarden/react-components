@@ -51,7 +51,9 @@ import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
     args={{ isOpen: false, selectedRowIndex: 0, selectedColIndex: 5 }}
     argTypes={{
       defaultSelectedColIndex: { control: false },
-      defaultSelectedRowIndex: { control: false }
+      defaultSelectedRowIndex: { control: false },
+      selectedColIndex: { control: { type: 'number' } },
+      selectedRowIndex: { control: { type: 'number' } }
     }}
   >
     {args => {

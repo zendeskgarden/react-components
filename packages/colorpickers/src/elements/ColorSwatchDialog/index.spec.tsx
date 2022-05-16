@@ -100,26 +100,10 @@ describe('ColorSwatchDialog', () => {
       });
 
       await waitFor(() => {
-        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
-      });
-    });
-
-    it('focuses on the first swatch button when the color dialog is opened', async () => {
-      render(<ColorSwatchDialog name="test" colors={colors} />);
-
-      const trigger = screen.getByRole('button');
-
-      expect(document.body).toHaveFocus();
-
-      act(() => {
-        userEvent.click(trigger);
+        expect(screen.getByLabelText('Green-200')).toHaveFocus();
       });
 
-      await waitFor(() => {
-        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
-      });
-
-      userEvent.type(screen.getByTestId('#d1e8df'), '{esc}');
+      userEvent.type(screen.getByLabelText('Green-200'), '{esc}');
 
       expect(trigger).toHaveFocus();
     });
@@ -143,35 +127,12 @@ describe('ColorSwatchDialog', () => {
       });
 
       await waitFor(() => {
-        expect(screen.getByTestId('#228f67')).toHaveFocus();
+        expect(screen.getByLabelText('Green-500')).toHaveFocus();
       });
 
-      userEvent.type(screen.getByTestId('#228f67'), '{esc}');
+      userEvent.type(screen.getByLabelText('Green-500'), '{esc}');
 
       expect(trigger).toHaveFocus();
-    });
-
-    it('focuses on the selected swatch button when the color dialog is opened with no color selection', async () => {
-      render(
-        <ColorSwatchDialog
-          name="test"
-          colors={colors}
-          defaultSelectedRowIndex={undefined}
-          defaultSelectedColIndex={undefined}
-        />
-      );
-
-      const trigger = screen.getByRole('button');
-
-      expect(document.body).toHaveFocus();
-
-      act(() => {
-        userEvent.click(trigger);
-      });
-
-      await waitFor(() => {
-        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
-      });
     });
 
     it('retains previously selected indices when dialog is opened again', async () => {
@@ -181,14 +142,13 @@ describe('ColorSwatchDialog', () => {
 
       userEvent.click(trigger);
 
-      expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+      expect(screen.getByLabelText('Green-200')).toHaveFocus();
 
       userEvent.keyboard('{arrowright}');
 
-      expect(screen.getByTestId('#aecfc2')).toHaveFocus();
+      expect(screen.getByLabelText('Green-300')).toHaveFocus();
 
-      userEvent.keyboard('{enter}');
-
+      userEvent.keyboard('{space}');
       userEvent.keyboard('{esc}');
 
       expect(trigger).toHaveFocus();
@@ -197,44 +157,12 @@ describe('ColorSwatchDialog', () => {
 
       userEvent.click(trigger);
 
-      expect(screen.getByTestId('#aecfc2')).toHaveFocus();
+      expect(screen.getByLabelText('Green-300')).toHaveFocus();
 
       userEvent.keyboard('{arrowleft}');
 
       await waitFor(() => {
-        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
-      });
-    });
-
-    it('moves focus correctly after dialog is opened with a selected color and a different focused color', async () => {
-      render(<ColorSwatchDialog name="test" colors={colors} />);
-
-      const trigger = screen.getByRole('button');
-
-      userEvent.click(trigger);
-
-      expect(screen.getByTestId('#d1e8df')).toHaveFocus();
-
-      userEvent.keyboard('{arrowright}');
-
-      expect(screen.getByTestId('#aecfc2')).toHaveFocus();
-
-      userEvent.keyboard('{enter}');
-
-      userEvent.keyboard('{arrowdown}');
-
-      expect(screen.getByTestId('#228f67')).toHaveFocus();
-
-      userEvent.keyboard('{esc}');
-
-      await waitForElementToBeRemoved(screen.getByRole('dialog'));
-
-      userEvent.keyboard('{enter}');
-
-      userEvent.keyboard('{arrowleft}');
-
-      await waitFor(() => {
-        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+        expect(screen.getByLabelText('Green-200')).toHaveFocus();
       });
     });
   });
@@ -259,30 +187,7 @@ describe('ColorSwatchDialog', () => {
       });
 
       await waitFor(() => {
-        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
-      });
-    });
-
-    it('focuses on the selected swatch button when the color dialog is opened with no color selection', async () => {
-      render(
-        <ColorSwatchDialog
-          name="test"
-          colors={colors}
-          selectedRowIndex={null}
-          selectedColIndex={null}
-        />
-      );
-
-      const trigger = screen.getByRole('button');
-
-      expect(document.body).toHaveFocus();
-
-      act(() => {
-        userEvent.click(trigger);
-      });
-
-      await waitFor(() => {
-        expect(screen.getByTestId('#d1e8df')).toHaveFocus();
+        expect(screen.getByLabelText('Green-200')).toHaveFocus();
       });
     });
 
@@ -300,10 +205,10 @@ describe('ColorSwatchDialog', () => {
       });
 
       await waitFor(() => {
-        expect(screen.getByTestId('#228f67')).toHaveFocus();
+        expect(screen.getByLabelText('Green-500')).toHaveFocus();
       });
 
-      userEvent.type(screen.getByTestId('#228f67'), '{esc}');
+      userEvent.type(screen.getByLabelText('Green-500'), '{esc}');
 
       expect(trigger).toHaveFocus();
     });
