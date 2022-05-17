@@ -5,26 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useEffect } from 'react';
+import React, { HTMLAttributes } from 'react';
 import { Hint as FormHint } from '@zendeskgarden/react-forms';
-
-import useDropdownContext from '../../utils/useDropdownContext';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    const { setHint } = useDropdownContext();
-
-    useEffect(() => {
-      setHint(true);
-
-      return () => setHint(false);
-    }, [setHint]);
-
-    return <FormHint ref={ref} {...props} />;
-  }
+  (props, ref) => <FormHint ref={ref} {...props} />
 );
 
 Hint.displayName = 'Hint';

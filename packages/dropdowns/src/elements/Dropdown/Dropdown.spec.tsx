@@ -7,20 +7,8 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, renderRtl, fireEvent, act } from 'garden-test-utils';
-import {
-  Dropdown,
-  Trigger,
-  Menu,
-  Item,
-  NextItem,
-  PreviousItem,
-  IDropdownProps,
-  Field,
-  Hint,
-  Label,
-  Combobox
-} from '../..';
+import { render, renderRtl, fireEvent } from 'garden-test-utils';
+import { Dropdown, Trigger, Menu, Item, NextItem, PreviousItem, IDropdownProps } from '../..';
 
 const ExampleDropdown = (props: IDropdownProps) => (
   <Dropdown {...props}>
@@ -253,34 +241,6 @@ describe('Dropdown', () => {
       userEvent.type(container.querySelector('input')!, 't');
 
       expect(onInputValueChangeSpy.mock.calls[0][0]).toBe('t');
-    });
-
-    it('renders correct aria attributes for inputs when Hint component is present', () => {
-      const ExampleDropdownWithInput = ({ showHint = false }) => (
-        <Dropdown>
-          <Field>
-            <Label>Label</Label>
-            {showHint ? <Hint>Hint</Hint> : null}
-            <Combobox />
-          </Field>
-        </Dropdown>
-      );
-
-      const { container, rerender } = render(<ExampleDropdownWithInput showHint />);
-
-      expect(container.querySelector('input')).toHaveAttribute(
-        'aria-describedby',
-        expect.any(String)
-      );
-
-      act(() => {
-        rerender(<ExampleDropdownWithInput showHint={false} />);
-      });
-
-      expect(container.querySelector('input')).not.toHaveAttribute(
-        'aria-describedby',
-        expect.any(String)
-      );
     });
   });
 });
