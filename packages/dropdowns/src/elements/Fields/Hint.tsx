@@ -15,19 +15,13 @@ import useDropdownContext from '../../utils/useDropdownContext';
  */
 export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
-    const dropdownContext = useDropdownContext();
+    const { setHint } = useDropdownContext();
 
     useEffect(() => {
-      if (dropdownContext && !dropdownContext.hasHint) {
-        dropdownContext.setHint(true);
-      }
+      setHint(true);
 
-      return () => {
-        if (dropdownContext && dropdownContext.hasHint) {
-          dropdownContext.setHint(false);
-        }
-      };
-    }, [dropdownContext]);
+      return () => setHint(false);
+    }, [setHint]);
 
     return <FormHint ref={ref} {...props} />;
   }
