@@ -19,19 +19,16 @@ export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
     const type = useInputContext();
 
     useEffect(() => {
-      if (fieldContext) {
+      if (fieldContext && !fieldContext.hasHint) {
         fieldContext.setHint(true);
       }
 
       return () => {
-        if (fieldContext) {
+        if (fieldContext && fieldContext.hasHint) {
           fieldContext.setHint(false);
         }
       };
-      // since we only want to run this once, if context exists,
-      // we use an empty dependency array
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [fieldContext]);
 
     let HintComponent;
 

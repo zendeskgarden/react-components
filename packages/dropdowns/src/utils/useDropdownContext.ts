@@ -22,6 +22,8 @@ export interface IDropdownContext {
   hasMenuRef: React.MutableRefObject<boolean>;
   itemSearchRegistry: React.MutableRefObject<string[]>;
   setDropdownType: React.Dispatch<React.SetStateAction<DROPDOWN_TYPE>>;
+  setHint: (hintPresent: boolean) => void;
+  hasHint: boolean;
 }
 
 export const DropdownContext = React.createContext<IDropdownContext | undefined>(undefined);

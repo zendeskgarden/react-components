@@ -41,6 +41,8 @@ export const Dropdown = (props: PropsWithChildren<IDropdownProps>) => {
 
   // Ref used to determine ARIA attributes for menu dropdowns
   const hasMenuRef = useRef(false);
+  // Boolean to determine if aria-describedby is overridden
+  const [hasHint, setHint] = useState(false);
 
   // Used to inform Menu (Popper) that a full-width menu is needed
   const popperReferenceElementRef = useRef<any>(null);
@@ -100,10 +102,14 @@ export const Dropdown = (props: PropsWithChildren<IDropdownProps>) => {
 
   const transformDownshift = ({ getInputProps, getToggleButtonProps, ...downshift }: any) => {
     return {
-      getInputProps: (p: any) => getInputProps(customGetInputProps(p, downshift, themeContext.rtl)),
+      ...downshift,
+      getInputProps: (p: any) =>
+        getInputProps({
+          ...customGetInputProps(p, downshift, themeContext.rtl),
+          ...(hasHint ? {} : { 'aria-describedby': null })
+        }),
       // The default aria-label provided by Downshift is invalid due to our DOM structure
-      getToggleButtonProps: (p: any) => getToggleButtonProps({ 'aria-label': undefined, ...p }),
-      ...downshift
+      getToggleButtonProps: (p: any) => getToggleButtonProps({ 'aria-label': undefined, ...p })
     };
   };
 
@@ -200,7 +206,9 @@ export const Dropdown = (props: PropsWithChildren<IDropdownProps>) => {
               downshift: transformDownshift(downshift),
               containsMultiselectRef,
               itemSearchRegistry,
-              setDropdownType
+              setDropdownType,
+              setHint,
+              hasHint
             }}
           >
             {children}

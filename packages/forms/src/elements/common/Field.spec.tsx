@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, act } from 'garden-test-utils';
 import { Field, Label, Input, Hint } from '../..';
 
 describe('Field', () => {
@@ -48,5 +48,25 @@ describe('Field', () => {
     expect(labelId).toBe(inputLabeledBy);
     expect(labelFor).toBe(inputId);
     expect(inputId!.startsWith(fieldId as string)).toBe(true);
+  });
+
+  it('renders correct aria attributes when Hint component is present', () => {
+    const ExampleField = ({ showHint = false }) => (
+      <Field>
+        <Label>Label</Label>
+        {showHint ? <Hint>Hint</Hint> : null}
+        <Input data-test-id="input" />
+      </Field>
+    );
+
+    const { getByTestId, rerender } = render(<ExampleField showHint />);
+
+    expect(getByTestId('input')).toHaveAttribute('aria-describedby', expect.any(String));
+
+    act(() => {
+      rerender(<ExampleField showHint={false} />);
+    });
+
+    expect(getByTestId('input')).not.toHaveAttribute('aria-describedby', expect.any(String));
   });
 });

@@ -38,14 +38,10 @@ export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
         isLabelHovered,
         setIsLabelHovered,
         multiThumbRangeRef,
-        getInputProps: (...args: any[]) => {
-          const { 'aria-describedby': describedBy, ...inputProps } = getInputProps(...args);
-
-          if (hasHint) inputProps['aria-describedby'] = describedBy;
-
-          return inputProps;
-        },
-        setHint: (hintPresent: boolean) => setHasHint(hintPresent || false)
+        getInputProps: (options: any, describeOptions: any) =>
+          getInputProps(options, { ...describeOptions, isDescribed: hasHint }),
+        setHint: (hintPresent: boolean) => setHasHint(hintPresent),
+        hasHint
       }),
       [propGetters, isLabelActive, isLabelHovered, hasHint, getInputProps]
     );
