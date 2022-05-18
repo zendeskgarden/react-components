@@ -8,3 +8,7 @@
 export * from './StyledCol';
 export * from './StyledGrid';
 export * from './StyledRow';
+
+export * from './pane/StyledPane';
+export * from './pane/StyledPaneContent';
+export * from './pane/StyledPaneSplitter';
