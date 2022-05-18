@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import { useArgs } from '@storybook/client-api';
-import { PaneProviderStory, makeArray } from './stories/PaneProviderStory';
+import { PaneProviderStory } from './stories/PaneProviderStory';
 import { PANES } from './stories/data';
 
 <Meta
@@ -66,7 +66,7 @@ import { PANES } from './stories/data';
     {args => {
       const updateArgs = useArgs()[1];
       const handleChange = (rowValues, columnValues) => updateArgs({ rowValues, columnValues });
-      return <SplitterStory {...args} onChange={handleChange} />;
+      return <PaneProviderStory {...args} onChange={handleChange} />;
     }}
   </Story>
 </Canvas>
