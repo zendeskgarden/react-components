@@ -102,11 +102,9 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                   }
 
                   if (isCheckboxGroup && event.target.checked) {
-                    const inputs = document.getElementsByName(
-                      event.target.name
-                    ) as NodeListOf<HTMLInputElement>;
+                    const inputs = gridRef.current?.querySelectorAll<HTMLInputElement>('input');
 
-                    inputs.forEach(input => {
+                    inputs?.forEach(input => {
                       if (input !== event.target) {
                         input.checked = false;
                       }
@@ -123,16 +121,14 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                      * index to the selected color. Otherwise, keyboard access
                      * to the native radio group is lost.
                      */
-                    const selectedInput = document.querySelector(
+                    const selectedInput = gridRef.current?.querySelector(
                       `input[name='${event.target.name}']:checked`
                     );
 
                     if (selectedInput !== null) {
-                      const inputs = document.getElementsByName(
-                        event.target.name
-                      ) as NodeListOf<HTMLInputElement>;
+                      const inputs = gridRef.current?.querySelectorAll<HTMLInputElement>('input');
 
-                      inputs.forEach(input =>
+                      inputs?.forEach(input =>
                         input.setAttribute('tabIndex', input.checked ? '0' : '-1')
                       );
                     }
