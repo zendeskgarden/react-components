@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import { useArgs } from '@storybook/client-api';
-import { SplitterStory, makeArray } from './stories/SplitterStory';
+import { PaneProviderStory, makeArray } from './stories/PaneProviderStory';
 import { PANES } from './stories/data';
 
 <Meta
-  title="Packages/Grid/Splitter"
+  title="Packages/Grid/PaneProvider"
   component={PaneProvider}
   subcomponents={{ Pane, 'Pane.Content': Pane.Content, 'Pane.Splitter': Pane.Splitter }}
   args={{
@@ -49,7 +49,7 @@ import { PANES } from './stories/data';
     args={{ columnValues: undefined, rowValues: undefined }}
     argTypes={{ columnValues: { control: false }, rowValues: { control: false } }}
   >
-    {args => <SplitterStory {...args} />}
+    {args => <PaneProviderStory {...args} />}
   </Story>
 </Canvas>
 
@@ -65,7 +65,7 @@ import { PANES } from './stories/data';
       const updateArgs = useArgs()[1];
       const handleValueChange = (rowValues, columnValues) =>
         updateArgs({ rowValues, columnValues });
-      return <SplitterStory {...args} handleValueChange={handleValueChange} />;
+      return <PaneProviderStory {...args} handleValueChange={handleValueChange} />;
     }}
   </Story>
 </Canvas>

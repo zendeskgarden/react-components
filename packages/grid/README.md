@@ -11,7 +11,7 @@ the features are dynamic (based on props) – including the number of grid
 columns and gutter width. The result is an incredibly powerful grid system
 that will be immediately familiar to users of Bootstrap.
 
-## Splitter
+## Pane
 
 The `Pane.Splitter` component enables resizable-layouts between one or
 more panes. `PaneProvider` and `Pane`

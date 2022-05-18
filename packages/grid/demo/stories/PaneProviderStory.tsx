@@ -21,7 +21,7 @@ interface IArgs extends IPaneProviderProps {
   panes: ISplitterPane[];
 }
 
-export const SplitterStory: Story<IArgs> = ({
+export const PaneProviderStory: Story<IArgs> = ({
   totalPanesWidth,
   totalPanesHeight,
   columnValues,

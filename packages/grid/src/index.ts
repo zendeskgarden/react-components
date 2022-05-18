@@ -9,8 +9,8 @@ export { Col } from './elements/Col';
 export { Grid } from './elements/Grid';
 export { Row } from './elements/Row';
 
-export { PaneProvider } from './elements/splitter/PaneProvider';
-export { Pane } from './elements/splitter/Pane';
+export { PaneProvider } from './elements/pane/PaneProvider';
+export { Pane } from './elements/pane/Pane';
 
 export {
   ALIGN_ITEMS as ARRAY_ALIGN_ITEMS,

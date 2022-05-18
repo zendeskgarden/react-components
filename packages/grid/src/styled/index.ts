@@ -9,6 +9,6 @@ export * from './StyledCol';
 export * from './StyledGrid';
 export * from './StyledRow';
 
-export * from './splitter/StyledPane';
-export * from './splitter/StyledPaneContent';
-export * from './splitter/StyledPaneSplitter';
+export * from './pane/StyledPane';
+export * from './pane/StyledPaneContent';
+export * from './pane/StyledPaneSplitter';
