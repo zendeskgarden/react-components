@@ -11,6 +11,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v8.51.0 (2022-05-19)
+
+#### :rocket: New Feature
+* `grid`
+  * [#1339](https://github.com/zendeskgarden/react-components/pull/1339) feat(splitter): add splitter component ([@mtomcal](https://github.com/mtomcal))
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1349](https://github.com/zendeskgarden/react-components/pull/1349) fix(forms): conditionally render aria-describedby when field has hint ([@Francois-Esquire](https://github.com/Francois-Esquire))
 ## v8.50.1 (2022-05-16)
 
 #### :bug: Bug Fix
