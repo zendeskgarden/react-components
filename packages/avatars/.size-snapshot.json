@@ -2,12 +2,12 @@
   "index.cjs.js": {
     "bundled": 12104,
     "minified": 8133,
-    "gzipped": 2447
+    "gzipped": 2446
   },
   "index.esm.js": {
     "bundled": 11268,
     "minified": 7428,
-    "gzipped": 2330,
+    "gzipped": 2329,
     "treeshaked": {
       "rollup": {
         "code": 6589,
