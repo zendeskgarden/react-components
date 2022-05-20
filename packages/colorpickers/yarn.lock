@@ -90,10 +90,10 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-grid@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-grid/-/container-grid-0.1.1.tgz#63bd5a5a3b5c542562aecc380dbacab5ee81fa4a"
-  integrity sha512-tq5Ar+KGd4jkBsZin25O7Yy8VwR5agspJfaZrGFN+/81F36lxly+cH/Tq5B5oRpiQGRZTFuQALkvOn7PlEX0zg==
+"@zendeskgarden/container-grid@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-grid/-/container-grid-1.0.0.tgz#c250ea2b26464c53fd9d528a033ad72d6caf93b6"
+  integrity sha512-D5fMQ40YsY8a9Hs9JUZyQwMC4nU3AucLrfKrzY1Ntwoc3yBpoUL+1K3bl8GOKhb0kpHam2LrBgpyB9l8PZvJqA==
   dependencies:
     "@babel/runtime" "^7.8.4"
 
