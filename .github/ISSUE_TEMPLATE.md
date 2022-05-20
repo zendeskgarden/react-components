@@ -18,7 +18,7 @@
 
 <!--
   BONUS POINTS: spin up and share an example via
-  https://codesandbox.io/s/github/zendeskgarden/react-components/tree/main/examples/codesandbox or https://codesandbox.io/s/new.
+  https://codesandbox.io/s/garden-template-tm4e3n or https://codesandbox.io/s/new.
 -->
 
 ### Fine Print
