@@ -5,8 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes } from 'react';
-
+import { ReactNode, HTMLAttributes } from 'react';
 export const ALIGN_ITEMS = ['start', 'end', 'center', 'baseline', 'stretch'] as const;
 export const ALIGN_SELF = ['auto', ...ALIGN_ITEMS] as const;
 export const DIRECTION = ['row', 'row-reverse', 'column', 'column-reverse'] as const;
@@ -157,4 +156,59 @@ export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
   wrapLg?: Wrap;
   /** Applies the `flex-wrap` container property to the row on extra-large screens */
   wrapXl?: Wrap;
+}
+
+export const ORIENTATION = ['top', 'bottom', 'start', 'end'] as const;
+export type Orientation = typeof ORIENTATION[number];
+
+export interface IPaneProviderProps {
+  /** Provides the total width, in `px` units, of all panes in the layout */
+  totalPanesWidth: number;
+  /** Provides the total height, in `px` units, of all panes in the layout */
+  totalPanesHeight: number;
+  /** Defines default row values, in `fr` units, for an uncontrolled layout. The values are keyed by splitter. */
+  defaultRowValues?: Record<string, number>;
+  /** Defines default column values, in `fr` units, for an uncontrolled layout. The values are keyed by splitter. */
+  defaultColumnValues?: Record<string, number>;
+  /** Defines row values, in `fr` units, for a controlled layout. The values are keyed by splitter. */
+  rowValues?: Record<string, number>;
+  /** Defines column values, in `fr` units, for a controlled layout. The values are keyed by splitter. */
+  columnValues?: Record<string, number>;
+  /**
+   * Handles splitter position changes
+   *
+   * @param rowValues The updated row values
+   * @param columnValues The updated column values
+   */
+  onChange?: (rowValues: Record<string, number>, columnValues: Record<string, number>) => void;
+  /**
+   * Surfaces render prop functions for applying splitter state to the supporting layout
+   *
+   * @param getColumnValue Gets column value by key
+   * @param getRowValue Gets row value by key
+   * @param getGridTemplateRows Gets grid template rows track
+   * @param getGridTemplateColumns Gets grid template columns track
+   */
+  children?: ({
+    getColumnValue,
+    getRowValue,
+    getGridTemplateRows,
+    getGridTemplateColumns
+  }: {
+    getColumnValue: (splitterKey: string, isPixels?: boolean) => number;
+    getRowValue: (splitterKey: string, isPixels?: boolean) => number;
+    getGridTemplateRows: (isPixels?: boolean) => string;
+    getGridTemplateColumns: (isPixels?: boolean) => string;
+  }) => ReactNode;
+}
+
+export interface ISplitterProps extends HTMLAttributes<HTMLDivElement> {
+  /** Specifies the splitter key */
+  layoutKey: string;
+  /** Sets a minimum, in `fr` units, for splitter position */
+  min: number;
+  /** Sets a maximum, in `fr` units, for splitter position */
+  max: number;
+  /** Determines splitter orientation within a pane */
+  orientation?: Orientation;
 }
