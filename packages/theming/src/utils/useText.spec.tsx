@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { getText } from './getText';
+import { renderHook } from '@testing-library/react-hooks';
+import { useText } from './useText';
 
 describe('useText()', () => {
   const Component = () => <div />;
@@ -14,7 +15,11 @@ describe('useText()', () => {
   Component.displayName = 'Component';
 
   it('sets default text if prop is not defined', () => {
-    const text = getText(Component, {}, 'test', 'value');
+    let text;
+
+    renderHook(() => {
+      text = useText(Component, {}, 'test', 'value');
+    });
 
     expect(text).toBe('value');
   });
@@ -36,7 +41,7 @@ describe('useText()', () => {
     it('logs a warning if text prop is not defined', () => {
       const spy = jest.spyOn(console, 'warn');
 
-      getText(Component, {}, 'test', 'value');
+      renderHook(() => useText(Component, {}, 'test', 'value'));
 
       expect(spy).toHaveBeenCalled();
       expect(spy.mock.calls[0][0]).toStrictEqual(expect.stringContaining('<Component>'));
@@ -46,7 +51,7 @@ describe('useText()', () => {
       const spy = jest.spyOn(console, 'warn');
 
       process.env.NODE_ENV = 'production';
-      getText(Component, {}, 'test', 'value');
+      renderHook(() => useText(Component, {}, 'test', 'value'));
 
       expect(spy).not.toHaveBeenCalled();
     });
@@ -64,15 +69,15 @@ describe('useText()', () => {
     });
 
     it('throws an error when applied to `children`', () => {
-      expect(() => getText(Component, {}, 'children', 'value')).toThrow();
+      expect(() => useText(Component, {}, 'children', 'value')).toThrow();
     });
 
     it('throws an error when a text prop is unset', () => {
-      expect(() => getText(Component, { test: null }, 'test', 'value')).toThrow();
+      expect(() => useText(Component, { test: null }, 'test', 'value')).toThrow();
     });
 
     it('throws an error when a text prop is empty', () => {
-      expect(() => getText(Component, { test: '' }, 'test', 'value')).toThrow();
+      expect(() => useText(Component, { test: '' }, 'test', 'value')).toThrow();
     });
   });
 });
