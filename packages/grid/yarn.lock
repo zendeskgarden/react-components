@@ -9,6 +9,11 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@juggle/resize-observer@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.1.tgz#b50a781709c81e10701004214340f25475a171a0"
+  integrity sha512-zMM9Ds+SawiUkakS7y94Ymqx+S0ORzpG3frZirN3l+UlXUmSUR7hF4wxCVqW+ei94JzV5kt0uXBcoOEAuiydrw==
+
 "@reach/auto-id@^0.16.0":
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.16.0.tgz#dfabc3227844e8c04f8e6e45203a8e14a8edbaed"
@@ -49,10 +54,10 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/react-theming@^8.50.0":
-  version "8.50.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.50.0.tgz#2f798a624b5d16d86cad6576963b653015fa4084"
-  integrity sha512-Hvmm/IvxUTUbunF/p2aCEm4S6U3eyUlSwhmOIqU0QvFShmixECNgD9W7DEGNoqvGgFGI7nt4SCOsmdKRdq6Dew==
+"@zendeskgarden/react-theming@^8.51.0":
+  version "8.51.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.51.0.tgz#c442913f14f63c3b1e4e95b926fe5e69bbd442e5"
+  integrity sha512-0bUzc6SYYhdj3mMatMhB0C4AT0a7kz4Y6KFrTDBzK1d+AkXUO0mTDmA+/cXJ0IuMIaN66AbGMNyOfI1i6Jt+Jg==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.7.0"
@@ -128,3 +133,10 @@ tslib@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
+
+use-resize-observer@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/use-resize-observer/-/use-resize-observer-9.0.0.tgz#9708c6fa432f35979b1d6e732b6f4cffde3d11e5"
+  integrity sha512-13r/1XeyfPkeegiVZYLDoQbkwbVMzj1XghqNz9HFqiRevtXCWDQTsqzVjQ4WNM4rJ8P3sFYc+3TgX0J2Jsuxfw==
+  dependencies:
+    "@juggle/resize-observer" "^3.3.1"
