@@ -6,8 +6,7 @@
  */
 
 import React from 'react';
-import { renderHook } from '@testing-library/react-hooks';
-import { useText } from './useText';
+import { getText } from './getText';
 
 describe('useText()', () => {
   const Component = () => <div />;
@@ -15,11 +14,9 @@ describe('useText()', () => {
   Component.displayName = 'Component';
 
   it('sets default text if prop is not defined', () => {
-    const props = {};
+    const text = getText(Component, {}, 'test', 'value');
 
-    renderHook(() => useText(Component, props, 'test', 'value'));
-
-    expect(props).toStrictEqual({ test: 'value' });
+    expect(text).toBe('value');
   });
 
   describe('Warnings', () => {
@@ -39,7 +36,7 @@ describe('useText()', () => {
     it('logs a warning if text prop is not defined', () => {
       const spy = jest.spyOn(console, 'warn');
 
-      renderHook(() => useText(Component, {}, 'test', 'value'));
+      getText(Component, {}, 'test', 'value');
 
       expect(spy).toHaveBeenCalled();
       expect(spy.mock.calls[0][0]).toStrictEqual(expect.stringContaining('<Component>'));
@@ -49,7 +46,7 @@ describe('useText()', () => {
       const spy = jest.spyOn(console, 'warn');
 
       process.env.NODE_ENV = 'production';
-      renderHook(() => useText(Component, {}, 'test', 'value'));
+      getText(Component, {}, 'test', 'value');
 
       expect(spy).not.toHaveBeenCalled();
     });
@@ -67,21 +64,15 @@ describe('useText()', () => {
     });
 
     it('throws an error when applied to `children`', () => {
-      const { result } = renderHook(() => useText(Component, {}, 'children', 'value'));
-
-      expect(result.error?.message).toBeDefined();
+      expect(() => getText(Component, {}, 'children', 'value')).toThrow();
     });
 
-    it('throws an error when a text prop is explicitly unset', () => {
-      const { result } = renderHook(() => useText(Component, { test: null }, 'test', 'value'));
-
-      expect(result.error?.message).toBeDefined();
+    it('throws an error when a text prop is unset', () => {
+      expect(() => getText(Component, { test: null }, 'test', 'value')).toThrow();
     });
 
-    it('throws an error when a text prop is explicitly empty', () => {
-      const { result } = renderHook(() => useText(Component, { test: '' }, 'test', 'value'));
-
-      expect(result.error?.message).toBeDefined();
+    it('throws an error when a text prop is empty', () => {
+      expect(() => getText(Component, { test: '' }, 'test', 'value')).toThrow();
     });
   });
 });

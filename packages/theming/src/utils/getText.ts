@@ -27,23 +27,23 @@ export const getText = (
 
   if (name === 'children') {
     // Prevent Garden from providing text as a child content default.
-    throw new Error('Error: `children` is not a valid `useText` prop.');
+    throw new Error('Error: `children` is not a valid `getText` prop.');
   } else if (retVal === null || retVal === '') {
     // Prevent consumer from removing a critical text attribute.
-    const message = component.displayName
-      ? `Error: you must provide a valid \`${name}\` text value for <${component.displayName}>.`
-      : `Error: you must provide a valid \`${name}\` text value.`;
-
-    throw new Error(message);
+    throw new Error(
+      component.displayName
+        ? `Error: you must provide a valid \`${name}\` text value for <${component.displayName}>.`
+        : `Error: you must provide a valid \`${name}\` text value.`
+    );
   } else if (retVal === undefined) {
     // Warn consumer when Garden's default text is rendered.
     if (process.env.NODE_ENV === 'development') {
-      const message = component.displayName
-        ? `Warning: you did not provide a customized/translated \`${name}\` text value for <${component.displayName}>. Zendesk Garden is rendering <${component.displayName} ${name}="${text}"> by default.`
-        : `Warning: you did not provide a customized/translated \`${name}\` text value. Zendesk Garden is rendering ${name}="${text}" by default.`;
-
       // eslint-disable-next-line no-console
-      console.warn(message);
+      console.warn(
+        component.displayName
+          ? `Warning: you did not provide a customized/translated \`${name}\` text value for <${component.displayName}>. Zendesk Garden is rendering <${component.displayName} ${name}="${text}"> by default.`
+          : `Warning: you did not provide a customized/translated \`${name}\` text value. Zendesk Garden is rendering ${name}="${text}" by default.`
+      );
     }
 
     retVal = text;
