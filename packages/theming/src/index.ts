@@ -21,6 +21,7 @@ export { default as getLineHeight } from './utils/getLineHeight';
 export { default as mediaQuery } from './utils/mediaQuery';
 export { default as arrowStyles } from './utils/arrowStyles';
 export { useDocument } from './utils/useDocument';
+export { getText } from './utils/getText';
 export { default as menuStyles } from './utils/menuStyles';
 
 export {
