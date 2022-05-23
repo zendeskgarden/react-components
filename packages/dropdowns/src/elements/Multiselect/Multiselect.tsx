@@ -11,6 +11,7 @@ import { ThemeContext } from 'styled-components';
 import { Reference } from 'react-popper';
 import { useSelection } from '@zendeskgarden/container-selection';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { useDocument } from '@zendeskgarden/react-theming';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import mergeRefs from 'react-merge-refs';
 import { IMultiselectProps } from '../../types';
@@ -69,6 +70,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
     const [isFocused, setIsFocused] = useState(false);
     const [focusedItem, setFocusedItem] = useState(undefined);
     const themeContext = useContext(ThemeContext);
+    const environment = useDocument(themeContext);
 
     const { getContainerProps, getItemProps } = useSelection({
       rtl: themeContext.rtl,
@@ -135,7 +137,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
           const currentTarget = e.currentTarget;
 
           blurTimeoutRef.current = setTimeout(() => {
-            if (!currentTarget.contains(document.activeElement)) {
+            if (environment && !currentTarget.contains(environment.activeElement)) {
               setIsFocused(false);
             }
           }, 0) as unknown as number;
