@@ -14,8 +14,8 @@ import { FC, useEffect } from 'react';
  *
  * @param component The React component to which the `props` belong
  * @param props The component props to check for `name`
- * @param name The name of the component prop to apply default text to, if none currently exists
- * @param text The default text to apply
+ * @param name The name of the component prop to set default text on
+ * @param text The default text to apply if the value of `props[name]` is undefined
  */
 export const useText = (
   component: Pick<FC, 'displayName'>,
