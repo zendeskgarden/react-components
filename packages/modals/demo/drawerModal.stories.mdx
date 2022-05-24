@@ -32,7 +32,8 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
       hasFooter: true,
       hasHeader: true,
       header: 'Header',
-      footerItems: FOOTER_ITEMS
+      footerItems: FOOTER_ITEMS,
+      'aria-label': 'Close'
     }}
     argTypes={{
       appendToNode: { control: false },
@@ -42,7 +43,8 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
       hasHeader: { name: 'DrawerModal.Header', table: { category: 'Story' } },
       footerItems: { name: 'DrawerModal.FooterItem[]', table: { category: 'Story' } },
       body: { name: 'children', table: { category: 'DrawerModal.Body' } },
-      header: { name: 'children', table: { category: 'DrawerModal.Header' } }
+      header: { name: 'children', table: { category: 'DrawerModal.Header' } },
+      'aria-label': { table: { category: 'DrawerModal.Close' } }
     }}
     parameters={{
       design: {

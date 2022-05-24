@@ -7,6 +7,7 @@
 
 import React, { useEffect, forwardRef } from 'react';
 import { StyledDrawerModalClose } from '../../styled';
+import { useText } from '@zendeskgarden/react-theming';
 import { useModalContext } from '../../utils/useModalContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
@@ -20,8 +21,10 @@ const CloseComponent = forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<
       return () => setCloseButtonPresent(false);
     });
 
+    const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Close drawer');
+
     return (
-      <StyledDrawerModalClose ref={ref} {...getCloseProps(props)}>
+      <StyledDrawerModalClose ref={ref} {...getCloseProps({ ...props, 'aria-label': ariaLabel })}>
         <XStrokeIcon />
       </StyledDrawerModalClose>
     );

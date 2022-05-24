@@ -7,6 +7,7 @@
 
 import React, { useEffect } from 'react';
 import { StyledClose } from '../styled';
+import { useText } from '@zendeskgarden/react-theming';
 import { useModalContext } from '../utils/useModalContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
@@ -25,8 +26,10 @@ export const Close = React.forwardRef<
     return () => setCloseButtonPresent(false);
   });
 
+  const ariaLabel = useText(Close, props, 'aria-label', 'Close modal');
+
   return (
-    <StyledClose ref={ref} {...getCloseProps(props)}>
+    <StyledClose ref={ref} {...getCloseProps({ ...props, 'aria-label': ariaLabel })}>
       <XStrokeIcon />
     </StyledClose>
   );
