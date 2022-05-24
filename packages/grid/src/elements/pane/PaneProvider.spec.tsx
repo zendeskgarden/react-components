@@ -184,6 +184,97 @@ const ControlledTestSplitter = ({
   );
 };
 
+const NestedTestSplitter = ({
+  parent,
+  child
+}: {
+  parent: Pick<IPaneProviderProps, 'columnValues' | 'rowValues' | 'onChange'>;
+  child: Pick<IPaneProviderProps, 'columnValues' | 'rowValues' | 'onChange'>;
+}) => {
+  const parentHandleOnChange = parent.onChange;
+  const childHandleOnChange = child.onChange;
+
+  return (
+    <PaneProvider
+      id="column-layout"
+      totalPanesWidth={1000}
+      totalPanesHeight={500}
+      columnValues={parent.columnValues}
+      rowValues={parent.rowValues}
+      onChange={parentHandleOnChange}
+    >
+      {({
+        getGridTemplateColumns: getParentGridTemplateColumns,
+        getGridTemplateRows: getParentGridTemplateRows
+      }) => (
+        <div
+          style={{
+            direction: 'ltr',
+            display: 'grid',
+            width: '1000px',
+            height: '500px',
+            gridTemplateRows: getParentGridTemplateRows(),
+            gridTemplateColumns: getParentGridTemplateColumns()
+          }}
+        >
+          <Pane>
+            <Content>
+              <PaneProvider
+                totalPanesWidth={500}
+                totalPanesHeight={500}
+                columnValues={child.columnValues}
+                rowValues={child.rowValues}
+                onChange={childHandleOnChange}
+              >
+                {({
+                  getGridTemplateColumns: getChildGridTemplateColumns,
+                  getGridTemplateRows: getChildGridTemplateRows
+                }) => (
+                  <div
+                    style={{
+                      direction: 'ltr',
+                      display: 'grid',
+                      width: '100%',
+                      height: '500px',
+                      gridTemplateRows: getChildGridTemplateRows(),
+                      gridTemplateColumns: getChildGridTemplateColumns()
+                    }}
+                  >
+                    <Pane>
+                      <Content>Nested Pane 1</Content>
+                      <Splitter
+                        data-test-id="nested-pane-1-bottom"
+                        layoutKey="nested-a"
+                        min={0}
+                        max={2}
+                        orientation="bottom"
+                      />
+                      <Splitter
+                        data-test-id="nested-pane-1-end"
+                        providerId="column-layout"
+                        layoutKey="nested-b"
+                        min={0}
+                        max={2}
+                        orientation="end"
+                      />
+                    </Pane>
+                    <Pane>
+                      <Content>Nested Pane 2</Content>
+                    </Pane>
+                  </div>
+                )}
+              </PaneProvider>
+            </Content>
+          </Pane>
+          <Pane>
+            <Content>Pane 2</Content>
+          </Pane>
+        </div>
+      )}
+    </PaneProvider>
+  );
+};
+
 describe('PaneProvider', () => {
   beforeAll(() => {
     Object.defineProperty(document.body, 'clientWidth', {
@@ -200,6 +291,7 @@ describe('PaneProvider', () => {
 
     render(
       <PaneProvider
+        id="named-layout"
         totalPanesWidth={500}
         totalPanesHeight={500}
         defaultColumnValues={{ a: 1, b: 1 }}
@@ -216,7 +308,7 @@ describe('PaneProvider', () => {
           "getGridTemplateColumns": [Function],
           "getGridTemplateRows": [Function],
           "getRowValue": [Function],
-          "id": undefined,
+          "id": "named-layout",
         },
       ]
     `);
@@ -671,6 +763,104 @@ describe('PaneProvider', () => {
         Object {
           "a": 1,
           "b": 1,
+        }
+      `);
+    });
+  });
+  describe('nested splitter', () => {
+    it('should resize the parent layout from inside a child layout', () => {
+      let _parentColumnValues: any;
+      let _childRowValues: any;
+
+      const element = React.createElement(() => {
+        const [parentColumnValues, setParentColumnValues] = useState<Record<string, number>>({
+          'nested-b': 1,
+          a: 1
+        });
+        const [childRowValues, setChildRowValues] = useState<Record<string, number>>({
+          'nested-a': 1,
+          b: 1
+        });
+
+        const onParentChange = useCallback(
+          (rows: Record<string, number>, cols: Record<string, number>) => {
+            setParentColumnValues(cols);
+          },
+          [setParentColumnValues]
+        );
+        const onChildChange = useCallback(
+          (rows: Record<string, number>) => {
+            setChildRowValues(rows);
+          },
+          [setChildRowValues]
+        );
+
+        _parentColumnValues = parentColumnValues;
+        _childRowValues = childRowValues;
+
+        return (
+          <NestedTestSplitter
+            parent={{
+              rowValues: {},
+              columnValues: parentColumnValues,
+              onChange: onParentChange
+            }}
+            child={{
+              rowValues: childRowValues,
+              columnValues: {},
+              onChange: onChildChange
+            }}
+          />
+        );
+      });
+
+      const { getByTestId } = render(element);
+
+      const childSeparator = getByTestId('nested-pane-1-bottom');
+      const parentSeparator = getByTestId('nested-pane-1-end');
+
+      childSeparator.getBoundingClientRect = () => ({
+        bottom: window.document.body.clientHeight - 250,
+        height: 0,
+        left: 0,
+        right: 0,
+        top: 250,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.mouseDown(childSeparator);
+      fireEvent(document, new ExtendedMouseEvent('mousemove', { pageY: 150 }));
+      fireEvent.mouseUp(document);
+
+      parentSeparator.getBoundingClientRect = () => ({
+        bottom: 0,
+        height: 0,
+        left: 500,
+        right: window.document.body.clientWidth - 500,
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.mouseDown(parentSeparator);
+      fireEvent(document, new ExtendedMouseEvent('mousemove', { pageX: 600 }));
+      fireEvent.mouseUp(document);
+
+      expect(_childRowValues).toMatchInlineSnapshot(`
+        Object {
+          "b": 1.4,
+          "nested-a": 0.6,
+        }
+      `);
+      expect(_parentColumnValues).toMatchInlineSnapshot(`
+        Object {
+          "a": 0.8,
+          "nested-b": 1.2,
         }
       `);
     });

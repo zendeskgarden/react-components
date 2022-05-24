@@ -16,11 +16,12 @@ import { IColumns } from './types';
 const Row = ({ panes }: { panes: IColumns['panes'] }) => {
   const themeContext = useContext(ThemeContext);
   const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
+  const gap = themeContext.space.base * 3;
 
   return (
     <PaneProvider
       totalPanesWidth={width}
-      totalPanesHeight={height - 20}
+      totalPanesHeight={height - gap * 2}
       defaultColumnValues={{}}
       defaultRowValues={{
         'row-1': 1,
@@ -37,7 +38,7 @@ const Row = ({ panes }: { panes: IColumns['panes'] }) => {
               width: '100%',
               height: '100%',
               display: 'grid',
-              gap: '10px',
+              gap: `${gap}px`,
               gridTemplateRows: getGridTemplateRows(),
               gridTemplateColumns: getGridTemplateColumns()
             }}
@@ -45,7 +46,7 @@ const Row = ({ panes }: { panes: IColumns['panes'] }) => {
             {panes.map(pane => (
               <Pane key={pane.name}>
                 <Pane.Content>
-                  <div style={{ padding: '8px' }}>
+                  <div style={{ padding: themeContext.space.base * 2 }}>
                     <LG tag="h2">{pane.name}</LG>
                     <MD>{pane.content}</MD>
                   </div>
@@ -69,13 +70,12 @@ const Row = ({ panes }: { panes: IColumns['panes'] }) => {
 export const CardStory: Story<{ columns: IColumns[] }> = ({ columns }) => {
   const themeContext = useContext(ThemeContext);
   const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
+  const gap = themeContext.space.base * 3;
 
-  // remove 20px from the totalPanesWidth to account for gap size x 2
-  // otherwise there will be a difference between cursor and splitter position
   return (
     <PaneProvider
       id="column-layout"
-      totalPanesWidth={width - 20}
+      totalPanesWidth={width - gap * 2}
       totalPanesHeight={height}
       defaultColumnValues={{
         'column-1': 1,
@@ -92,9 +92,9 @@ export const CardStory: Story<{ columns: IColumns[] }> = ({ columns }) => {
               direction: themeContext.rtl ? 'rtl' : 'ltr',
               display: 'grid',
               width: '100%',
-              // remove the height of the storybook top bar
+              // remove the height of the storybook padding
               height: 'calc(100vh - 80px)',
-              gap: '10px',
+              gap: `${gap}px`,
               gridTemplateRows: getGridTemplateRows(),
               gridTemplateColumns: getGridTemplateColumns()
             }}

@@ -149,6 +149,7 @@ export const StyledPaneSplitter = styled.div.attrs({
 })<IStyledPaneSplitterProps>`
   position: absolute;
   z-index: 1;
+  user-select: none;
 
   ${sizeStyles};
 
