@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import { useArgs } from '@storybook/client-api';
-import { PaneProviderStory, makeArray } from './stories/PaneProviderStory';
+import { PaneProviderStory } from './stories/PaneProviderStory';
 import { PANES } from './stories/data';
 
 <Meta
@@ -10,25 +10,9 @@ import { PANES } from './stories/data';
   component={PaneProvider}
   subcomponents={{ Pane, 'Pane.Content': Pane.Content, 'Pane.Splitter': Pane.Splitter }}
   args={{
-    columnValues: {
-      'column-a': 1,
-      'column-b': 1
-    },
-    rowValues: {
-      'row-1': 1,
-      'row-2': 1
-    },
-    defaultColumnValues: {
-      'column-a': 1,
-      'column-b': 1
-    },
-    defaultRowValues: {
-      'row-1': 1,
-      'row-2': 1
-    },
     panes: PANES,
-    totalPanesWidth: 1000,
-    totalPanesHeight: 1000
+    totalPanesWidth: 600,
+    totalPanesHeight: 600
   }}
   argTypes={{
     panes: { name: 'panes', table: { category: 'Story' } }
@@ -46,7 +30,16 @@ import { PANES } from './stories/data';
 <Canvas>
   <Story
     name="Uncontrolled"
-    args={{ columnValues: undefined, rowValues: undefined }}
+    args={{
+      defaultColumnValues: {
+        'column-a': 1,
+        'column-b': 1
+      },
+      defaultRowValues: {
+        'row-1': 1,
+        'row-2': 1
+      }
+    }}
     argTypes={{ columnValues: { control: false }, rowValues: { control: false } }}
   >
     {args => <PaneProviderStory {...args} />}
@@ -58,14 +51,22 @@ import { PANES } from './stories/data';
 <Canvas>
   <Story
     name="Controlled"
-    args={{ defaultColumnValues: undefined, defaultRowValues: undefined }}
+    args={{
+      columnValues: {
+        'column-a': 1,
+        'column-b': 1
+      },
+      rowValues: {
+        'row-1': 1,
+        'row-2': 1
+      }
+    }}
     argTypes={{ defaultColumnValues: { control: false }, defaultRowValues: { control: false } }}
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleValueChange = (rowValues, columnValues) =>
-        updateArgs({ rowValues, columnValues });
-      return <PaneProviderStory {...args} handleValueChange={handleValueChange} />;
+      const handleChange = (rowValues, columnValues) => updateArgs({ rowValues, columnValues });
+      return <PaneProviderStory {...args} onChange={handleChange} />;
     }}
   </Story>
 </Canvas>

@@ -6,7 +6,8 @@
  */
 
 import { createContext, useContext } from 'react';
-interface ISplitterContext {
+
+interface IPaneProviderContextData {
   rowState: Record<string, number>;
   columnState: Record<string, number>;
   setRowValue: (isTop: boolean, id: string, value: number) => void;
@@ -18,23 +19,22 @@ interface ISplitterContext {
   pixelsPerFr: { rows: number; columns: number };
 }
 
-export const SplitterContext = createContext<ISplitterContext>({
-  setRowValue: () => undefined,
-  setColumnValue: () => undefined,
-  getColumnValue: () => 0,
-  getRowValue: () => 0,
-  rowState: {},
-  columnState: {},
-  totalPanesHeight: 1,
-  totalPanesWidth: 1,
-  pixelsPerFr: { rows: 0, columns: 0 }
-});
+interface IPaneProviderContext {
+  providerId?: string;
+  contextData?: Record<string, IPaneProviderContextData>;
+}
 
-/**
- * Retrieve Splitter component context
- */
-const useSplitterContext = () => {
-  return useContext(SplitterContext);
+export const PaneProviderContext = createContext<IPaneProviderContext>({});
+
+export const usePaneProviderContextData = (
+  providerId?: string
+): IPaneProviderContextData | undefined => {
+  const context = useContext(PaneProviderContext);
+  const id = providerId || context.providerId;
+
+  return id && context.contextData ? context.contextData[id] : undefined;
 };
 
-export default useSplitterContext;
+const usePaneProviderContext = (): IPaneProviderContext => useContext(PaneProviderContext);
+
+export default usePaneProviderContext;

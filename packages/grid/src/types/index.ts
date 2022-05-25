@@ -162,6 +162,8 @@ export const ORIENTATION = ['top', 'bottom', 'start', 'end'] as const;
 export type Orientation = typeof ORIENTATION[number];
 
 export interface IPaneProviderProps {
+  /** Identifies the pane provider */
+  id?: string;
   /** Provides the total width, in `px` units, of all panes in the layout */
   totalPanesWidth: number;
   /** Provides the total height, in `px` units, of all panes in the layout */
@@ -182,19 +184,22 @@ export interface IPaneProviderProps {
    */
   onChange?: (rowValues: Record<string, number>, columnValues: Record<string, number>) => void;
   /**
-   * Surfaces render prop functions for applying splitter state to the supporting layout
+   * Surfaces render props for applying splitter state to the supporting layout
    *
+   * @param id Provides the `id` prop, if specified; otherwise, a generated ID.
    * @param getColumnValue Gets column value by key
    * @param getRowValue Gets row value by key
    * @param getGridTemplateRows Gets grid template rows track
    * @param getGridTemplateColumns Gets grid template columns track
    */
   children?: ({
+    id,
     getColumnValue,
     getRowValue,
     getGridTemplateRows,
     getGridTemplateColumns
   }: {
+    id: string;
     getColumnValue: (splitterKey: string, isPixels?: boolean) => number;
     getRowValue: (splitterKey: string, isPixels?: boolean) => number;
     getGridTemplateRows: (isPixels?: boolean) => string;
@@ -203,6 +208,8 @@ export interface IPaneProviderProps {
 }
 
 export interface ISplitterProps extends HTMLAttributes<HTMLDivElement> {
+  /** Identifies the associated `PaneProvider`. Assumes the closest parent provider, by default. */
+  providerId?: string;
   /** Specifies the splitter key */
   layoutKey: string;
   /** Sets a minimum, in `fr` units, for splitter position */
