@@ -12,6 +12,21 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.52.0 (2022-05-26)
+
+#### :rocket: New Feature
+* `breadcrumbs`, `modals`, `theming`
+  * [#1357](https://github.com/zendeskgarden/react-components/pull/1357) feat(theming,breadcrumbs,modals): add and apply `useText` utility ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1356](https://github.com/zendeskgarden/react-components/pull/1356) feat(pane): add providerId ([@mtomcal](https://github.com/mtomcal))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1355](https://github.com/zendeskgarden/react-components/pull/1355) fix(multiselect): add useDocument ([@mtomcal](https://github.com/mtomcal))
+
+#### :seedling: Internal
+* [#1354](https://github.com/zendeskgarden/react-components/pull/1354) chore(examples): remove ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.51.0 (2022-05-19)
 
 #### :rocket: New Feature
