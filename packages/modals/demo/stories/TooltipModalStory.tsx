@@ -35,6 +35,7 @@ export const TooltipModalStory: Story<IArgs> = ({
   hasFooter,
   hasTitle,
   title,
+  'aria-label': ariaLabel,
   ...args
 }) => {
   const refs = useRef<(HTMLElement | null | undefined)[]>([]);
@@ -71,7 +72,7 @@ export const TooltipModalStory: Story<IArgs> = ({
             )}
           </TooltipModal.Footer>
         )}
-        {hasClose && <TooltipModal.Close />}
+        {hasClose && <TooltipModal.Close aria-label={ariaLabel} />}
       </TooltipModal>
       <Grid>
         <Row style={{ height: 'calc(100vh - 80px)' }}>

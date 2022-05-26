@@ -34,6 +34,7 @@ export const DrawerModalStory: Story<IArgs> = ({
   footerItems,
   hasHeader,
   header,
+  'aria-label': ariaLabel,
   ...args
 }) => {
   const theme = useTheme();
@@ -60,7 +61,7 @@ export const DrawerModalStory: Story<IArgs> = ({
             ))}
           </DrawerModal.Footer>
         )}
-        {hasClose && <DrawerModal.Close />}
+        {hasClose && <DrawerModal.Close aria-label={ariaLabel} />}
       </DrawerModal>
     </>
   );

@@ -45,6 +45,7 @@ export const ModalStory: Story<IArgs> = ({
   hasHeader,
   header,
   isDanger,
+  'aria-label': ariaLabel,
   ...args
 }) => (
   <>
@@ -74,7 +75,7 @@ export const ModalStory: Story<IArgs> = ({
             ))}
           </Footer>
         )}
-        {hasClose && <Close />}
+        {hasClose && <Close aria-label={ariaLabel} />}
       </Modal>
     )}
   </>

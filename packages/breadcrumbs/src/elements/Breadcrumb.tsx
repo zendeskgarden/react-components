@@ -7,6 +7,7 @@
 
 import React, { Children, cloneElement, HTMLAttributes } from 'react';
 import { useBreadcrumb } from '@zendeskgarden/container-breadcrumb';
+import { useText } from '@zendeskgarden/react-theming';
 import {
   StyledBreadcrumb,
   StyledBreadcrumbItem,
@@ -44,8 +45,10 @@ export const Breadcrumb = React.forwardRef<HTMLElement, HTMLAttributes<HTMLEleme
       );
     });
 
+    const ariaLabel = useText(Breadcrumb, props, 'aria-label', 'Breadcrumb navigation');
+
     return (
-      <nav {...getContainerProps({ ...props, ref, role: null } as any)}>
+      <nav {...getContainerProps({ ...props, ref, role: null, 'aria-label': ariaLabel } as any)}>
         <StyledBreadcrumb>{mappedChildren}</StyledBreadcrumb>
       </nav>
     );

@@ -101,7 +101,7 @@ describe('DrawerModal', () => {
 
     expect(getByRole('dialog')).toBeInTheDocument();
 
-    userEvent.click(screen.getByRole('button', { name: /Close modal/iu }));
+    userEvent.click(screen.getByRole('button', { name: /Close drawer/iu }));
 
     await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
   });

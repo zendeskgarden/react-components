@@ -35,7 +35,8 @@ import { TOOLTIP_MODAL_BODY as BODY } from './stories/data';
       hasClose: true,
       hasFooter: true,
       hasTitle: true,
-      title: 'Title'
+      title: 'Title',
+      'aria-label': 'Close'
     }}
     argTypes={{
       referenceElement: { control: false },
@@ -44,7 +45,8 @@ import { TOOLTIP_MODAL_BODY as BODY } from './stories/data';
       hasFooter: { name: 'TooltipModal.Footer', table: { category: 'Story' } },
       hasTitle: { name: 'TooltipModal.Title', table: { category: 'Story' } },
       body: { name: 'children', table: { category: 'TooltipModal.Body' } },
-      title: { name: 'children', table: { category: 'TooltipModal.Title' } }
+      title: { name: 'children', table: { category: 'TooltipModal.Title' } },
+      'aria-label': { table: { category: 'TooltipModal.Close' } }
     }}
     parameters={{
       design: {
