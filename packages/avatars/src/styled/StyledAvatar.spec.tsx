@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { render } from 'garden-test-utils';
 import { StyledAvatar } from './StyledAvatar';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledAvatar', () => {
   it('renders the expected element', () => {
@@ -79,100 +79,5 @@ describe('StyledAvatar', () => {
 
       expect(container.firstChild).toHaveStyleRule('width', '48px !important');
     });
-  });
-
-  describe('status', () => {
-    it('renders away', () => {
-      const { container } = render(<StyledAvatar status="away" />);
-      const color = getColor('yellow', 400);
-
-      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm(color!));
-    });
-
-    describe('active', () => {
-      it('renders active style', () => {
-        const { container } = render(<StyledAvatar status="active" />);
-        const color = getColor('crimson', 400);
-
-        expect(container.firstChild).toHaveStyleRule(
-          'box-shadow',
-          DEFAULT_THEME.shadows.sm(color!)
-        );
-      });
-
-      it('renders small badge size', () => {
-        const { container } = render(<StyledAvatar status="active" size="small" />);
-
-        expect(container.firstChild).toHaveStyleRule('height', '16px', {
-          modifier: '&::after'
-        });
-      });
-
-      it('renders extrasmall badge size', () => {
-        const { container } = render(<StyledAvatar status="active" size="extrasmall" />);
-
-        expect(container.firstChild).toHaveStyleRule('height', '8px', {
-          modifier: '&::after'
-        });
-      });
-
-      it('renders extraextrasmall badge size', () => {
-        const { container } = render(<StyledAvatar status="active" size="extraextrasmall" />);
-
-        expect(container.firstChild).toHaveStyleRule('height', '5px', {
-          modifier: '&::after'
-        });
-      });
-    });
-
-    describe('available', () => {
-      it('renders available style', () => {
-        const { container } = render(<StyledAvatar status="available" />);
-        const color = getColor('mint', 400);
-
-        expect(container.firstChild).toHaveStyleRule(
-          'box-shadow',
-          DEFAULT_THEME.shadows.sm(color!)
-        );
-      });
-
-      it('renders large badge size', () => {
-        const { container } = render(<StyledAvatar status="available" size="large" />);
-
-        expect(container.firstChild).toHaveStyleRule('height', '14px', {
-          modifier: '&::after'
-        });
-      });
-
-      it('renders small badge size', () => {
-        const { container } = render(<StyledAvatar status="available" size="small" />);
-
-        expect(container.firstChild).toHaveStyleRule('height', '10px', {
-          modifier: '&::after'
-        });
-      });
-
-      it('renders extrasmall badge size', () => {
-        const { container } = render(<StyledAvatar status="available" size="extrasmall" />);
-
-        expect(container.firstChild).toHaveStyleRule('height', '8px', {
-          modifier: '&::after'
-        });
-      });
-
-      it('renders extraextrasmall badge size', () => {
-        const { container } = render(<StyledAvatar status="available" size="extraextrasmall" />);
-
-        expect(container.firstChild).toHaveStyleRule('height', '5px', {
-          modifier: '&::after'
-        });
-      });
-    });
-  });
-
-  it('renders RTL styling if provided', () => {
-    const { container } = renderRtl(<StyledAvatar />);
-
-    expect(container.firstChild).toHaveStyleRule('left', '2px', { modifier: '::after' });
   });
 });

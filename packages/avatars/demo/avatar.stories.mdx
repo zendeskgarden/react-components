@@ -1,7 +1,7 @@
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { AvatarStory } from './stories/AvatarStory';
-import { AVATAR_TYPE as TYPE } from './stories/data';
+import { AVATAR_TYPE as TYPE, BADGE_TYPE, STATUS_TYPE } from './stories/data';
 
 <Meta
   title="Packages/Avatars/Avatar"
@@ -24,6 +24,17 @@ import { AVATAR_TYPE as TYPE } from './stories/data';
       badge: { control: 'number' },
       foregroundColor: { control: 'color' },
       children: { control: 'text', table: { category: 'Avatar.Text' } },
+      status: {
+        options: STATUS_TYPE,
+        control: { type: 'select' }
+      },
+      badgeType: {
+        options: BADGE_TYPE,
+        control: { type: 'select' },
+        name: 'badge type',
+        table: { category: 'Story' }
+      },
+      badgeChildren: { name: 'badge children', control: 'text', table: { category: 'Story' } },
       type: {
         control: 'radio',
         options: TYPE,
@@ -31,6 +42,7 @@ import { AVATAR_TYPE as TYPE } from './stories/data';
       }
     }}
     parameters={{
+      layout: 'centered',
       design: {
         allowFullscreen: true,
         type: 'figma',

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledText } from './StyledText';
@@ -13,106 +13,9 @@ import { IAvatarProps } from '../types';
 
 const COMPONENT_ID = 'avatars.avatar';
 
-const TRANSITION_DURATION = 0.25;
+export const TRANSITION_DURATION = 0.25;
 
-const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
-  let content = `''`;
-  let position = '0';
-  let padding = '0';
-  let minWidth = '0';
-  let height = '0';
-  let fontSize = '0';
-  let borderWidth = props.theme.shadowWidths.sm;
-
-  if (props.status === 'active') {
-    position = `${props.theme.space.base * -1}px`;
-
-    if (props.size === 'small') {
-      fontSize = props.theme.fontSizes.xs;
-      height = `${props.theme.space.base * 4}px`;
-      minWidth = fontSize;
-      padding = `${props.theme.space.base - 1}px`;
-      content = 'attr(data-badge)';
-    } else if (props.size === 'extrasmall') {
-      height = `${props.theme.space.base * 2}px`;
-      minWidth = height;
-    } else if (props.size === 'extraextrasmall') {
-      position = math(`${position} + 1`);
-      height = `${props.theme.space.base + 1}px`;
-      minWidth = height;
-      borderWidth = math(`${borderWidth} - 1`);
-    } else {
-      fontSize = props.theme.fontSizes.xs;
-      height = `${props.theme.space.base * 5}px`;
-      minWidth = fontSize;
-      padding = `${props.theme.space.base + 1}px`;
-      content = 'attr(data-badge)';
-    }
-  } else if (props.status === 'available') {
-    position = `${props.theme.space.base * -1}px`;
-
-    if (props.size === 'large') {
-      height = `${props.theme.space.base * 3.5}px`;
-    } else if (props.size === 'small') {
-      height = `${props.theme.space.base * 2.5}px`;
-    } else if (props.size === 'extrasmall') {
-      height = `${props.theme.space.base * 2}px`;
-    } else if (props.size === 'extraextrasmall') {
-      position = math(`${position} + 1`);
-      height = `${props.theme.space.base + 1}px`;
-      borderWidth = math(`${borderWidth} - 1`);
-    } else {
-      height = `${props.theme.space.base * 3}px`;
-    }
-
-    minWidth = height;
-  } else if (props.size === 'large') {
-    position = math(`${props.theme.shadowWidths.sm} + 1`);
-  } else if (props.size === 'small') {
-    position = math(`${props.theme.shadowWidths.sm} - 1`);
-  } else if (props.size === 'medium') {
-    position = props.theme.shadowWidths.sm;
-  }
-
-  const animation = keyframes`
-    0% {
-      transform: scale(.1);
-    }
-  `;
-  const opacity = props.status === 'active' || props.status === 'available' ? 1 : 0;
-  const border = `${borderWidth} ${props.theme.borderStyles.solid}`;
-
-  return css`
-    display: inline-block;
-    position: absolute;
-    ${props.theme.rtl ? 'left' : 'right'}: ${position};
-    bottom: ${position};
-    transition: all ${TRANSITION_DURATION}s ease-in-out, color 0s;
-    opacity: ${opacity};
-    border: ${border};
-    border-radius: 100px;
-    padding: 0 ${padding};
-    min-width: ${minWidth};
-    max-width: 2em;
-    height: ${height};
-    box-sizing: content-box !important; /* stylelint-disable-line */
-    overflow: hidden;
-    text-align: center;
-    text-overflow: ellipsis;
-    line-height: ${height === '0' ? '1px' : height}; /* improve animation easing */
-    white-space: nowrap;
-    font-size: ${fontSize};
-    font-weight: ${props.theme.fontWeights.semibold};
-    content: ${content};
-
-    ${props.status === 'active' &&
-    css`
-      animation: ${animation} ${TRANSITION_DURATION * 1.5}s ease-in-out;
-    `}
-  `;
-};
-
-const colorStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
+export const colorStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   let statusColor = 'transparent';
   const backgroundColor = props.backgroundColor || 'transparent';
   const foregroundColor = props.foregroundColor || props.theme.palette.white;
@@ -271,10 +174,6 @@ export const StyledAvatar = styled.figure.attrs({
   && > svg {
     width: 1em;
     height: 1em;
-  }
-
-  &::after {
-    ${props => badgeStyles(props)};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

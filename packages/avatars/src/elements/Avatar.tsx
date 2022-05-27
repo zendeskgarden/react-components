@@ -5,11 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, forwardRef } from 'react';
+import React, { Children, forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
+
 import { IAvatarProps, SIZE, STATUS } from '../types';
+import { AvatarContext } from '../utils';
 import { StyledAvatar } from '../styled';
+
 import { Text } from './components/Text';
+import { Badge } from './components/Badge';
+import { StatusIndicator } from './components/StatusIndicator';
 
 const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
   (
@@ -26,7 +31,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
     },
     ref
   ) => {
-    const computedStatus = badge === undefined ? status : 'active';
+    const computedStatus = ['string', 'number'].includes(typeof badge) ? 'active' : status;
 
     return (
       <StyledAvatar
@@ -34,7 +39,6 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         isSystem={isSystem}
         size={size}
         status={computedStatus}
-        data-badge={badge}
         surfaceColor={surfaceColor}
         backgroundColor={backgroundColor}
         foregroundColor={foregroundColor}
@@ -42,7 +46,28 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         aria-live="polite"
         {...other}
       >
-        {Children.only(children)}
+        <AvatarContext.Provider
+          value={
+            // use of memo hook directly as value
+            useMemo(
+              () => ({
+                size,
+                status: computedStatus,
+                surfaceColor,
+                backgroundColor,
+                foregroundColor
+              }),
+              [surfaceColor, backgroundColor, foregroundColor, size, computedStatus]
+            )
+          }
+        >
+          {Children.only(children)}
+          {badge !== undefined && badge !== null && (
+            <Badge>
+              <StatusIndicator>{badge}</StatusIndicator>
+            </Badge>
+          )}
+        </AvatarContext.Provider>
       </StyledAvatar>
     );
   }
@@ -55,7 +80,12 @@ AvatarComponent.propTypes = {
   foregroundColor: PropTypes.string,
   surfaceColor: PropTypes.string,
   isSystem: PropTypes.bool,
-  badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  badge: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.element
+  ]),
   size: PropTypes.oneOf(SIZE),
   status: PropTypes.oneOf(STATUS)
 };

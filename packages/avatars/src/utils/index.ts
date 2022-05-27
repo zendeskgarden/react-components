@@ -5,7 +5,5 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export * from './StyledAvatar';
-export * from './StyledBadge';
-export * from './StyledStatusIndicator';
-export * from './StyledText';
+export { AvatarContext, useAvatarContext } from './useAvatarContext';
+export type { IAvatarContext } from './useAvatarContext';

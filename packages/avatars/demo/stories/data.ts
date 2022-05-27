@@ -6,3 +6,5 @@
  */
 
 export const AVATAR_TYPE = ['icon', 'image', 'text'] as const;
+export const BADGE_TYPE = ['icon', 'arrow', 'children', 'none'] as const;
+export const STATUS_TYPE = ['', 'available', 'away', 'active'] as const;

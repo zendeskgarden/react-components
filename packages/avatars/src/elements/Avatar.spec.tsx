@@ -6,13 +6,15 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, cleanup } from 'garden-test-utils';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Avatar } from './Avatar';
 
 const activeBoxShadow = DEFAULT_THEME.shadows.sm(getColor('crimson', 400)!);
 
 describe('Avatar', () => {
+  afterEach(cleanup);
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLElement>();
     const { container } = render(
@@ -25,13 +27,14 @@ describe('Avatar', () => {
   });
 
   it('renders badge if provided', () => {
-    const { container } = render(
-      <Avatar badge="2">
+    const badge = '2';
+    const { getByText } = render(
+      <Avatar badge={badge}>
         <img alt="" />
       </Avatar>
     );
 
-    expect(container.firstChild).toHaveAttribute('data-badge', '2');
+    expect(getByText(badge)).not.toBeEmptyDOMElement();
   });
 
   it('applies active styling to available status if provided with badge', () => {

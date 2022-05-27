@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 
 export const SIZE = ['extraextrasmall', 'extrasmall', 'small', 'medium', 'large'] as const;
 
@@ -24,6 +24,14 @@ export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   size?: typeof SIZE[number];
   /** Applies status styling */
   status?: typeof STATUS[number];
-  /** Sets the badge text and applies active styling */
-  badge?: string | number;
+  /** Sets the badge and applies active styling if it is a string or number */
+  badge?: string | number | boolean | ReactNode;
+}
+
+export interface IBadgeProps extends Omit<IAvatarProps, 'badge' | 'isSystem' | 'status'> {
+  status?: IAvatarProps['status'] | 'active';
+}
+
+export interface IStatusIndicatorProps extends Omit<IAvatarProps, 'badge' | 'isSystem' | 'status'> {
+  status?: IAvatarProps['status'] | 'active';
 }
