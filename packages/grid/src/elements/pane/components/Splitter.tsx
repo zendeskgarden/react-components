@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext, useEffect, forwardRef } from 'react';
+import React, { useContext, useEffect, forwardRef, useMemo } from 'react';
 import mergeRefs from 'react-merge-refs';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
@@ -19,6 +19,7 @@ import { usePaneProviderContextData } from '../../../utils/usePaneProviderContex
 import usePaneContext from '../../../utils/usePaneContext';
 import { ISplitterProps, ORIENTATION } from '../../../types';
 import { StyledPaneSplitter } from '../../../styled';
+import { PaneSplitterContext } from '../../../utils/usePaneSplitterContext';
 
 const orientationToPosition = {
   start: SplitterPosition.TRAILS,
@@ -100,12 +101,14 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
     });
 
     return (
-      <StyledPaneSplitter
-        orientation={orientation}
-        {...separatorProps}
-        {...props}
-        ref={mergeRefs([separatorProps.ref, ref])}
-      />
+      <PaneSplitterContext.Provider value={useMemo(() => ({ orientation }), [orientation])}>
+        <StyledPaneSplitter
+          orientation={orientation}
+          {...separatorProps}
+          {...props}
+          ref={mergeRefs([separatorProps.ref, ref])}
+        />
+      </PaneSplitterContext.Provider>
     );
   }
 );

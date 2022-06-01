@@ -53,7 +53,9 @@ export const PaneProviderStory: Story<IArgs> = ({
             <Pane key={index}>
               <Pane.Content>{pane.content}</Pane.Content>
               {pane.splitters.map(splitter => (
-                <Pane.Splitter key={splitter.layoutKey} {...splitter} />
+                <Pane.Splitter key={splitter.layoutKey} {...splitter}>
+                  <Pane.SplitterButton label="expand or collapse" placement="start" />
+                </Pane.Splitter>
               ))}
             </Pane>
           ))}

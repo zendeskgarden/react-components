@@ -34,7 +34,9 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
+    "@zendeskgarden/react-buttons": "^8.52.0",
     "@zendeskgarden/react-theming": "^8.52.0",
+    "@zendeskgarden/svg-icons": "6.32.0",
     "use-resize-observer": "^9.0.0"
   },
   "keywords": [

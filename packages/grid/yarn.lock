@@ -30,12 +30,36 @@
     tiny-warning "^1.0.3"
     tslib "^2.3.0"
 
+"@zendeskgarden/container-buttongroup@^0.3.8":
+  version "0.3.18"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-buttongroup/-/container-buttongroup-0.3.18.tgz#0aec221ae1e0525d5cefede0819c3f9c5b35d464"
+  integrity sha512-jofuNjIhHAZHLmF5eX8ZyZMXKXOkLatxub/+sLfxqfSz2SvZaold3GfJBxNmSAtF282asAE9sF8dEa53o5YyNw==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    "@zendeskgarden/container-selection" "^1.3.18"
+
 "@zendeskgarden/container-focusvisible@^0.4.6":
   version "0.4.8"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.8.tgz#97026300d1766bf7b30c218eb614b87900b26ebd"
   integrity sha512-oCd7ippef7YupfHaKOvyBwiCShFKYfJZRGFei1iLOhfWDtr7znrjgiLHwIw7TBlbGz/uSqaF0mPkwkvVjAebAQ==
   dependencies:
     "@babel/runtime" "^7.8.4"
+
+"@zendeskgarden/container-keyboardfocus@^0.4.7":
+  version "0.4.16"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-keyboardfocus/-/container-keyboardfocus-0.4.16.tgz#8097ef35ce881248b7d3c266dbd81bf688bc88ac"
+  integrity sha512-uKbXJ5Xn+SPtx5EDIIKWvLRuQQk3uo6MYYKFVauyq0gVDU/RfKv5LnUj3k2ZzyD7nLk6+tRGoq0jJ6LTH993dA==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    "@zendeskgarden/container-utilities" "^0.7.1"
+
+"@zendeskgarden/container-selection@^1.3.18":
+  version "1.3.18"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.18.tgz#de2ac533c8dad2d3eee6b472802013b9e0b04920"
+  integrity sha512-FyDSaoUDKJ4WdmkHzPfFmhLYI0Yk+mqIywmLBpXwzD6AYmDMdtqhFg1N4a5zNmrqVKscyAwNnBsJ+M/3mGdgvw==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    "@zendeskgarden/container-utilities" "^0.7.1"
 
 "@zendeskgarden/container-splitter@^0.2.3":
   version "0.2.3"
@@ -54,15 +78,30 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/react-theming@^8.51.0":
-  version "8.51.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.51.0.tgz#c442913f14f63c3b1e4e95b926fe5e69bbd442e5"
-  integrity sha512-0bUzc6SYYhdj3mMatMhB0C4AT0a7kz4Y6KFrTDBzK1d+AkXUO0mTDmA+/cXJ0IuMIaN66AbGMNyOfI1i6Jt+Jg==
+"@zendeskgarden/react-buttons@^8.52.0":
+  version "8.52.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.52.0.tgz#f1b075e24aa39ba0d3cd775de9c5e60d195b9be1"
+  integrity sha512-l6qovADcKs7Ev1C9oZ6zYrsbFLjnmNEJVQrQtOUB4t6DcDCUp02A2W1V6coZE+T8MfqZ+o5gMixeFbz1/2O0Ww==
+  dependencies:
+    "@zendeskgarden/container-buttongroup" "^0.3.8"
+    "@zendeskgarden/container-keyboardfocus" "^0.4.7"
+    polished "^4.0.0"
+    prop-types "^15.5.7"
+
+"@zendeskgarden/react-theming@^8.52.0":
+  version "8.52.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.52.0.tgz#88d6f8c24515828ebfe313cae76deaa9407bb513"
+  integrity sha512-LMQr71DPL3hhNR6mRY61JMerXjqLpJp7TZHLe0f+FXeNeA2RI9IXQYUPkTHWDW0Pvc1dWCPd0P9L9AnvYRjyig==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.7.0"
     polished "^4.0.0"
     prop-types "^15.5.7"
+
+"@zendeskgarden/svg-icons@6.32.0":
+  version "6.32.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.32.0.tgz#90d79698d5a3039018002e4a3f5967532c2289a0"
+  integrity sha512-xerMoPCa/H5fzK/01yEnONLheziu8at4nX7v4FboG5MO56VED5v02COALTWgQfCVOkI91+Ge/Ofz7xGhVuTK1Q==
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
