@@ -25,6 +25,7 @@ export {
 export type {
   IPaneProviderProps,
   ISplitterProps,
+  ISplitterButtonProps,
   IColProps,
   IGridProps,
   IRowProps,

@@ -14,7 +14,7 @@ export const JUSTIFY_CONTENT = ['start', 'end', 'center', 'between', 'around'] a
 export const TEXT_ALIGN = ['start', 'end', 'center', 'justify'] as const;
 export const SPACE = [false, 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 export const WRAP = ['nowrap', 'wrap', 'wrap-reverse'] as const;
-export const PLACEMENT = ['end', 'start', 'middle'] as const;
+export const PLACEMENT = ['end', 'start', 'center'] as const;
 
 export type AlignItems = typeof ALIGN_ITEMS[number];
 export type AlignSelf = typeof ALIGN_SELF[number];
