@@ -93,6 +93,11 @@ const sizeStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>
     right: ${right};
     bottom: ${bottom};
     left: ${left};
+    /* prettier-ignore */
+    transition:
+      box-shadow 0.1s ease-in-out,
+      background-color 0.25s ease-in-out,
+      opacity 0.25s ease-in-out;
     width: ${buttonDimension}px;
     min-width: ${buttonDimension}px;
     height: ${buttonDimension}px;
