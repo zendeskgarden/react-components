@@ -8,6 +8,7 @@
 import React, { forwardRef, ReactNode, useCallback, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { StyledPaneSplitterButton } from '../../../styled';
 import { ISplitterButtonProps, Orientation } from '../../../types';
 import usePaneSplitterContext from '../../../utils/usePaneSplitterContext';
@@ -78,13 +79,13 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
       [isRow, isTop, isStart, layoutKey, paneProviderContext]
     );
 
-    const onClick = useCallback(() => {
+    const onClick = composeEventHandlers(props.onClick, () => {
       if (isMin) {
         setValue(max);
       } else {
         setValue(min);
       }
-    }, [isMin, min, max, setValue]);
+    });
 
     return (
       <Tooltip content={label}>
