@@ -22,7 +22,7 @@ import { StyledPaneSplitter } from '../../../styled';
 import { PaneSplitterContext } from '../../../utils/usePaneSplitterContext';
 
 const orientationToPosition = {
-  start: SplitterPosition.TRAILS,
+  start: SplitterPosition.LEADS,
   end: SplitterPosition.TRAILS,
   top: SplitterPosition.LEADS,
   bottom: SplitterPosition.TRAILS
@@ -59,6 +59,10 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
     const value = isRow
       ? paneProviderContext && paneProviderContext.getRowValue(layoutKey, true)
       : paneProviderContext && paneProviderContext.getColumnValue(layoutKey, true);
+
+    const valueInFr = isRow
+      ? paneProviderContext && paneProviderContext.getRowValue(layoutKey)
+      : paneProviderContext && paneProviderContext.getColumnValue(layoutKey);
 
     const { getSeparatorProps, getPrimaryPaneProps } = useSplitter({
       type: SplitterType.VARIABLE,
@@ -105,8 +109,8 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
     return (
       <PaneSplitterContext.Provider
         value={useMemo(
-          () => ({ orientation, layoutKey, min, max, valueNow: value, isRow }),
-          [orientation, layoutKey, min, max, value, isRow]
+          () => ({ orientation, layoutKey, min, max, valueNow: valueInFr, isRow }),
+          [orientation, layoutKey, min, max, valueInFr, isRow]
         )}
       >
         <StyledPaneSplitter

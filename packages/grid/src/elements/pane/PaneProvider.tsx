@@ -146,8 +146,8 @@ export const PaneProvider = ({
   const setColumnValue = useCallback(
     (isStart: boolean, splitterId: string, value: number) => {
       const { columns, columnArray } = layoutIndices;
-      const stealFromTraversal = isStart ? 0 : 1;
-      const addToTraversal = isStart ? -1 : 0;
+      const stealFromTraversal = isStart ? -1 : 1;
+      const addToTraversal = 0;
 
       setColumnsTrack(state => {
         const stealFromIndex = columns[splitterId] + stealFromTraversal;

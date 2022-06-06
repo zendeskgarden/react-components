@@ -80,27 +80,18 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
 
     const onClick = useCallback(() => {
       if (isMin) {
-        if (isStart || !isTop) {
-          setValue(min);
-        } else {
-          setValue(max);
-        }
-
-        return;
-      }
-      if (isStart || isTop) {
         setValue(max);
       } else {
         setValue(min);
       }
-    }, [isMin, isStart, isTop, min, max, setValue]);
+    }, [isMin, min, max, setValue]);
 
     return (
       <Tooltip content={label}>
         <StyledPaneSplitterButton
+          aria-label={label}
           {...props}
           isBasic
-          aria-label={label}
           orientation={orientation}
           ref={ref}
           onClick={onClick}
