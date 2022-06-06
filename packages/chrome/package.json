@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/react-theming": "^8.52.0",
-    "@zendeskgarden/svg-icons": "6.31.1"
+    "@zendeskgarden/svg-icons": "6.32.0"
   },
   "keywords": [
     "components",

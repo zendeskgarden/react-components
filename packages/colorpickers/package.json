@@ -41,10 +41,10 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
-    "@types/lodash.isequal": "4.5.5",
-    "@types/lodash.throttle": "4.1.6",
+    "@types/lodash.isequal": "4.5.6",
+    "@types/lodash.throttle": "4.1.7",
     "@zendeskgarden/react-theming": "^8.52.0",
-    "@zendeskgarden/svg-icons": "6.31.1"
+    "@zendeskgarden/svg-icons": "6.32.0"
   },
   "keywords": [
     "colorpicker",
