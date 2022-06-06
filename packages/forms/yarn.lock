@@ -25,10 +25,10 @@
     tiny-warning "^1.0.3"
     tslib "^2.3.0"
 
-"@types/lodash.debounce@4.0.6":
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/@types/lodash.debounce/-/lodash.debounce-4.0.6.tgz#c5a2326cd3efc46566c47e4c0aa248dc0ee57d60"
-  integrity sha512-4WTmnnhCfDvvuLMaF3KV4Qfki93KebocUF45msxhYyjMttZDQYzHkO639ohhk8+oco2cluAFL3t5+Jn4mleylQ==
+"@types/lodash.debounce@4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@types/lodash.debounce/-/lodash.debounce-4.0.7.tgz#0285879defb7cdb156ae633cecd62d5680eded9f"
+  integrity sha512-X1T4wMZ+gT000M2/91SYj0d/7JfeNZ9PeeOldSNoE/lunLeQXKvkmIumI29IaKMotU/ln/McOIvgzZcQ/3TrSA==
   dependencies:
     "@types/lodash" "*"
 
@@ -60,20 +60,20 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/react-theming@^8.49.2":
-  version "8.49.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.49.2.tgz#096585e63eab3c53b5b856a88829876f295706d6"
-  integrity sha512-VE1zgK0d+P/yTUNA43pB314p7yRkh2wtexF1gPgI+yjNdPo32QDJHrs7tBsU0TTArEy/s98GSQjH4KjYa/X4kg==
+"@zendeskgarden/react-theming@^8.52.0":
+  version "8.52.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.52.0.tgz#88d6f8c24515828ebfe313cae76deaa9407bb513"
+  integrity sha512-LMQr71DPL3hhNR6mRY61JMerXjqLpJp7TZHLe0f+FXeNeA2RI9IXQYUPkTHWDW0Pvc1dWCPd0P9L9AnvYRjyig==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.7.0"
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/svg-icons@6.31.1":
-  version "6.31.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.31.1.tgz#38f4d1b82cdfac03aff08a81831dc4e5e13b38dd"
-  integrity sha512-ntA4DL897mmVcVHISyPy93LzdLpdBlUhORx5XRTQOqwGh3mDoYVIAE+d+r/j1pnp+7uRgrxfc7jcYOnVImQHvw==
+"@zendeskgarden/svg-icons@6.32.0":
+  version "6.32.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.32.0.tgz#90d79698d5a3039018002e4a3f5967532c2289a0"
+  integrity sha512-xerMoPCa/H5fzK/01yEnONLheziu8at4nX7v4FboG5MO56VED5v02COALTWgQfCVOkI91+Ge/Ofz7xGhVuTK1Q==
 
 attr-accept@^2.2.2:
   version "2.2.2"
