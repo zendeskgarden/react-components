@@ -11,6 +11,7 @@ import IconUser from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 import IconSystem from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
+
 import { TYPE } from './types';
 
 interface IArgs extends IAvatarProps {

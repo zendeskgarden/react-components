@@ -48,31 +48,51 @@ describe('StyledStatusIndicator', () => {
     it('renders extraextrasmall', () => {
       const { container } = render(<StyledStatusIndicator size="extraextrasmall" />);
 
-      expect(container.firstChild).toHaveStyleRule('height', '5px');
+      expect(container.firstChild).toHaveStyleRule('height', '3px');
+      expect(container.firstChild).toHaveStyleRule(
+        'border',
+        `1px ${DEFAULT_THEME.borderStyles.solid}`
+      );
     });
 
     it('renders extrasmall', () => {
       const { container } = render(<StyledStatusIndicator size="extrasmall" />);
 
-      expect(container.firstChild).toHaveStyleRule('height', '8px');
+      expect(container.firstChild).toHaveStyleRule('height', '4px');
+      expect(container.firstChild).toHaveStyleRule(
+        'border',
+        `2px ${DEFAULT_THEME.borderStyles.solid}`
+      );
     });
 
     it('renders small', () => {
       const { container } = render(<StyledStatusIndicator size="small" />);
 
       expect(container.firstChild).toHaveStyleRule('height', '8px');
+      expect(container.firstChild).toHaveStyleRule(
+        'border',
+        `2px ${DEFAULT_THEME.borderStyles.solid}`
+      );
     });
 
     it('renders medium', () => {
       const { container } = render(<StyledStatusIndicator size="medium" />);
 
       expect(container.firstChild).toHaveStyleRule('height', '12px');
+      expect(container.firstChild).toHaveStyleRule(
+        'border',
+        `2px ${DEFAULT_THEME.borderStyles.solid}`
+      );
     });
 
     it('renders large', () => {
       const { container } = render(<StyledStatusIndicator size="large" />);
 
       expect(container.firstChild).toHaveStyleRule('height', '12px');
+      expect(container.firstChild).toHaveStyleRule(
+        'border',
+        `2px ${DEFAULT_THEME.borderStyles.solid}`
+      );
     });
   });
 

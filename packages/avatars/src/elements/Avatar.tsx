@@ -77,12 +77,7 @@ AvatarComponent.propTypes = {
   foregroundColor: PropTypes.string,
   surfaceColor: PropTypes.string,
   isSystem: PropTypes.bool,
-  badge: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.bool,
-    PropTypes.element
-  ]),
+  badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   size: PropTypes.oneOf(SIZE),
   status: PropTypes.oneOf(STATUS)
 };

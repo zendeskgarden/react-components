@@ -23,28 +23,26 @@ const [xxs, xs, s, m, l] = SIZE;
 const [active, available, away, transfers, offline] = ['active', ...STATUS];
 
 const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
-  let borderWidth = '0';
-  let padding = '0';
-  let height = '0';
   let visible = true;
+  let height = '0';
+  let borderWidth = props.theme.shadowWidths.sm;
 
   switch (props.size) {
     case xxs:
       visible = false;
-      height = `${props.theme.space.base + 1}px`;
+      borderWidth = math(`${borderWidth} - 1`);
+      height = math(`${props.theme.space.base}px - ${borderWidth}`);
       break;
     case xs:
       visible = false;
-      height = `${props.theme.space.base * 2}px`;
+      height = math(`${props.theme.space.base * 2}px - (${borderWidth} * 2)`);
       break;
     case s:
     case m:
     case l:
-      borderWidth = props.theme.shadowWidths.sm;
       if (props.size === s && props.status !== 'active') {
         height = math(`${props.theme.space.base * 3}px - (${borderWidth} * 2)`);
       } else {
-        padding = math(`${props.theme.space.base + 1}px - (${borderWidth})`);
         height = math(`${props.theme.space.base * 4}px - (${borderWidth} * 2)`);
       }
       break;
@@ -66,7 +64,7 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     font-weight: ${props.theme.fontWeights.semibold};
 
     & > span {
-      padding: 0 ${padding};
+      padding: 0 ${math(`${props.theme.space.base + 1}px - (${borderWidth})`)};
     }
 
     & > svg {
