@@ -5,16 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, forwardRef, useMemo } from 'react';
+import React, { Children, forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import ClockIcon from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
+import ArrowLeftIcon from '@zendeskgarden/svg-icons/src/12/arrow-left-stroke.svg';
 
 import { IAvatarProps, SIZE, STATUS } from '../types';
-import { AvatarContext } from '../utils';
-import { StyledAvatar } from '../styled';
+import { StyledAvatar, StyledStatusIndicator } from '../styled';
 
 import { Text } from './components/Text';
-import { Badge } from './components/Badge';
-import { StatusIndicator } from './components/StatusIndicator';
 
 const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
   (
@@ -31,7 +30,8 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
     },
     ref
   ) => {
-    const computedStatus = ['string', 'number'].includes(typeof badge) ? 'active' : status;
+    const computedBadge = ['string', 'number'].includes(typeof badge) ? `${badge}` : null;
+    const computedStatus = computedBadge ? 'active' : status;
 
     return (
       <StyledAvatar
@@ -46,28 +46,25 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         aria-live="polite"
         {...other}
       >
-        <AvatarContext.Provider
-          value={
-            // use of memo hook directly as value
-            useMemo(
-              () => ({
-                size,
-                status: computedStatus,
-                surfaceColor,
-                backgroundColor,
-                foregroundColor
-              }),
-              [surfaceColor, backgroundColor, foregroundColor, size, computedStatus]
-            )
-          }
-        >
-          {Children.only(children)}
-          {badge !== undefined && badge !== null && (
-            <Badge>
-              <StatusIndicator>{badge}</StatusIndicator>
-            </Badge>
-          )}
-        </AvatarContext.Provider>
+        {Children.only(children)}
+        {(badge || status) && (
+          <StyledStatusIndicator
+            size={size}
+            status={computedStatus}
+            backgroundColor={backgroundColor}
+            foregroundColor={foregroundColor}
+            surfaceColor={surfaceColor}
+          >
+            {typeof computedBadge === 'string' ? (
+              <span>{computedBadge}</span>
+            ) : (
+              <>
+                {computedStatus === 'away' ? <ClockIcon /> : null}
+                {computedStatus === 'transfers' ? <ArrowLeftIcon /> : null}
+              </>
+            )}
+          </StyledStatusIndicator>
+        )}
       </StyledAvatar>
     );
   }

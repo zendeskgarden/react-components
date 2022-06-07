@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes } from 'react';
 
 export const SIZE = ['extraextrasmall', 'extrasmall', 'small', 'medium', 'large'] as const;
 
-export const STATUS = ['available', 'away'] as const;
+export const STATUS = ['available', 'away', 'transfers', 'offline'] as const;
 
 export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   /** Sets the avatar background color */
@@ -25,13 +25,5 @@ export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   /** Applies status styling */
   status?: typeof STATUS[number];
   /** Sets the badge and applies active styling if it is a string or number */
-  badge?: string | number | boolean | ReactNode;
-}
-
-export interface IBadgeProps extends Omit<IAvatarProps, 'badge' | 'isSystem' | 'status'> {
-  status?: IAvatarProps['status'] | 'active';
-}
-
-export interface IStatusIndicatorProps extends Omit<IAvatarProps, 'badge' | 'isSystem' | 'status'> {
-  status?: IAvatarProps['status'] | 'active';
+  badge?: string | number;
 }

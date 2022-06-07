@@ -5,31 +5,58 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css, ThemeProps, keyframes, DefaultTheme } from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+
+import { IAvatarProps, SIZE } from '../types';
 import { StyledText } from './StyledText';
-import { IAvatarProps } from '../types';
+import { StyledStatusIndicator } from './StyledStatusIndicator';
+import { getStatusColor } from './utility';
 
 const COMPONENT_ID = 'avatars.avatar';
 
-export const TRANSITION_DURATION = 0.25;
+const TRANSITION_DURATION = 0.25;
 
-export const colorStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
-  let statusColor = 'transparent';
+const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
+  const [xxs, xs, s, m, l] = SIZE;
+
+  let position = `${props.theme.space.base * -1}px`;
+
+  switch (props.size) {
+    case s:
+    case m:
+      position = math(`${position}  + 2`);
+      break;
+    case xxs:
+    case xs:
+    case l:
+      position = math(`${position}  + 3`);
+      break;
+  }
+
+  const animation = keyframes`
+      0% {
+        transform: scale(.1);
+      }
+    `;
+
+  return css`
+    position: absolute;
+    ${props.theme.rtl ? 'left' : 'right'}: ${position};
+    bottom: ${position};
+    transition: all ${TRANSITION_DURATION}s ease-in-out;
+    animation: ${animation} ${TRANSITION_DURATION * 1.5}s ease-in-out;
+  `;
+};
+
+const colorStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
+  const statusColor = getStatusColor(props.status, props.theme);
   const backgroundColor = props.backgroundColor || 'transparent';
   const foregroundColor = props.foregroundColor || props.theme.palette.white;
   const surfaceColor = props.status
     ? props.surfaceColor || props.theme.colors.background
     : 'transparent';
-
-  if (props.status === 'available') {
-    statusColor = getColor('mint', 400, props.theme)!;
-  } else if (props.status === 'active') {
-    statusColor = getColor('crimson', 400, props.theme)!;
-  } else if (props.status === 'away') {
-    statusColor = getColor('yellow', 400, props.theme)!;
-  }
 
   return css`
     box-shadow: ${props.theme.shadows.sm(statusColor)};
@@ -40,20 +67,6 @@ export const colorStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>
     & ${StyledText} {
       color: ${foregroundColor};
     }
-
-    &::after {
-      background-color: ${statusColor};
-      /* set text color without altering border */
-      -webkit-text-fill-color: ${props.theme.palette.white};
-    }
-
-    /* stylelint-disable selector-type-no-unknown, selector-no-vendor-prefix */
-    _:-ms-input-placeholder,
-    &::after {
-      /* fallback for IE11 (which will set border) */
-      color: ${props.theme.palette.white};
-    }
-    /* stylelint-enable selector-type-no-unknown, selector-no-vendor-prefix */
   `;
 };
 
@@ -174,6 +187,10 @@ export const StyledAvatar = styled.figure.attrs({
   && > svg {
     width: 1em;
     height: 1em;
+  }
+
+  & > ${StyledStatusIndicator} {
+    ${badgeStyles};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

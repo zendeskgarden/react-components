@@ -6,6 +6,5 @@
  */
 
 export * from './StyledAvatar';
-export * from './StyledBadge';
 export * from './StyledStatusIndicator';
 export * from './StyledText';

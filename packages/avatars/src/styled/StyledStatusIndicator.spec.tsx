@@ -7,8 +7,9 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
+import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+
 import { StyledStatusIndicator } from './StyledStatusIndicator';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 describe('StyledStatusIndicator', () => {
   it('renders the expected element', () => {
@@ -20,14 +21,14 @@ describe('StyledStatusIndicator', () => {
   it('renders avatar styling by default', () => {
     const { container } = render(<StyledStatusIndicator />);
 
-    expect(container.firstChild).toHaveStyleRule('border-radius', '100px');
+    expect(container.firstChild).toHaveStyleRule('border-radius', '12px');
   });
 
   describe('color', () => {
     it('renders surface color as expected', () => {
-      const { container } = render(<StyledStatusIndicator status="away" surfaceColor="red" />);
+      const { container } = render(<StyledStatusIndicator surfaceColor="red" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', 'red');
+      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm('red'));
     });
 
     it('renders background color as expected', () => {
@@ -59,36 +60,42 @@ describe('StyledStatusIndicator', () => {
     it('renders small', () => {
       const { container } = render(<StyledStatusIndicator size="small" />);
 
-      expect(container.firstChild).toHaveStyleRule('height', '16px');
+      expect(container.firstChild).toHaveStyleRule('height', '8px');
     });
 
     it('renders medium', () => {
       const { container } = render(<StyledStatusIndicator size="medium" />);
 
-      expect(container.firstChild).toHaveStyleRule('height', '20px');
+      expect(container.firstChild).toHaveStyleRule('height', '12px');
     });
 
     it('renders large', () => {
       const { container } = render(<StyledStatusIndicator size="large" />);
 
-      expect(container.firstChild).toHaveStyleRule('height', '20px');
+      expect(container.firstChild).toHaveStyleRule('height', '12px');
     });
   });
 
   describe('status', () => {
     it('renders default', () => {
       const { container } = render(<StyledStatusIndicator />);
-      const color = getColor('grey', 400);
 
-      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm(color!), {
-        modifier: '&::before'
-      });
+      expect(container.firstChild).toHaveStyleRule('background-color', 'transparent');
     });
 
     describe('away', () => {
       it('renders away style', () => {
         const { container } = render(<StyledStatusIndicator status="away" />);
-        const color = getColor('yellow', 400);
+        const color = getColor('orange', 400);
+
+        expect(container.firstChild).toHaveStyleRule('background-color', color);
+      });
+    });
+
+    describe('transfers', () => {
+      it('renders transfers style', () => {
+        const { container } = render(<StyledStatusIndicator status="transfers" />);
+        const color = getColor('azure', 400);
 
         expect(container.firstChild).toHaveStyleRule('background-color', color);
       });
@@ -109,6 +116,15 @@ describe('StyledStatusIndicator', () => {
         const color = getColor('mint', 400);
 
         expect(container.firstChild).toHaveStyleRule('background-color', color);
+      });
+    });
+
+    describe('offline', () => {
+      it('renders offline style', () => {
+        const { container } = render(<StyledStatusIndicator status="offline" />);
+        const color = getColor('grey', 500);
+
+        expect(container.firstChild).toHaveStyleRule('border-color', color);
       });
     });
   });
