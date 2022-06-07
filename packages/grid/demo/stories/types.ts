@@ -19,6 +19,6 @@ export interface IGridRow extends IRowProps {
 export interface ISplitterPane {
   content: string;
   splitters: (ISplitterProps & {
-    button: ISplitterButtonProps;
+    button?: ISplitterButtonProps;
   })[];
 }

@@ -54,10 +54,12 @@ export const PaneProviderStory: Story<IArgs> = ({
               <Pane.Content>{pane.content}</Pane.Content>
               {pane.splitters.map(splitter => (
                 <Pane.Splitter key={splitter.layoutKey} {...splitter}>
-                  <Pane.SplitterButton
-                    label={`toggle ${splitter.button.label}`}
-                    placement={splitter.button.placement}
-                  />
+                  {splitter.button && (
+                    <Pane.SplitterButton
+                      label={`toggle ${splitter.button.label}`}
+                      placement={splitter.button.placement}
+                    />
+                  )}
                 </Pane.Splitter>
               ))}
             </Pane>
