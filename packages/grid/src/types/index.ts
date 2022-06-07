@@ -227,8 +227,8 @@ export interface ISplitterButtonProps
     IIconButtonProps,
     'isRotated' | 'isPrimary' | 'isDanger' | 'isBasic' | 'focusInset' | 'isNeutral' | 'size'
   > {
-  /** Adjusts the placement of the splitter button */
-  placement: typeof PLACEMENT[number];
+  /** Adjusts the placement of the splitter button. Assumes start when vertical and center when horizontal, by default. */
+  placement?: typeof PLACEMENT[number];
   /** Renders the provided label text inside a tooltip */
   label: string;
 }

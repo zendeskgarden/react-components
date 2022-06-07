@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { rgba } from 'polished';
-import { ISplitterButtonProps, Orientation } from '../../types';
+import { ISplitterButtonProps, Orientation, PLACEMENT } from '../../types';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { StyledPaneSplitter } from './StyledPaneSplitter';
 
@@ -16,6 +16,7 @@ const COMPONENT_ID = 'pane.splitter_button';
 
 interface IStyledSplitterButtonProps extends ISplitterButtonProps {
   orientation: Orientation;
+  placement: typeof PLACEMENT[number];
 }
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {

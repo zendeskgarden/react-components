@@ -11,6 +11,7 @@ import { Splitter } from './components/Splitter';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
 import { Content } from './components/Content';
+import { SplitterButton } from './components/SplitterButton';
 import { IPaneProviderProps } from '../../types';
 
 interface IExtendedMouseEvent extends MouseEventInit {
@@ -62,46 +63,48 @@ const UncontrolledTestSplitter = () => {
         >
           <Pane>
             <Content>Pane 1</Content>
-            <Splitter data-test-id="pane-1-end" layoutKey="a" min={0} max={2} orientation="end" />
+            <Splitter data-test-id="pane-1-end" layoutKey="a" min={0} max={2} orientation="end">
+              <SplitterButton label="toggle pane-1-end-a" />
+            </Splitter>
             <Splitter
               data-test-id="pane-1-bottom"
               layoutKey="c"
               min={0}
               max={2}
               orientation="bottom"
-            />
+            >
+              <SplitterButton label="toggle pane-1-bottom-c" />
+            </Splitter>
           </Pane>
           <Pane>
             <Content>Pane 2</Content>
-            <Splitter
-              data-test-id="pane-2-start"
-              layoutKey="b"
-              min={0}
-              max={2}
-              orientation="start"
-            />
+            <Splitter data-test-id="pane-2-start" layoutKey="b" min={0} max={2} orientation="start">
+              <SplitterButton label="toggle pane-2-start-b" placement="end" />
+            </Splitter>
             <Splitter
               data-test-id="pane-2-bottom"
               layoutKey="c"
               min={0}
               max={2}
               orientation="bottom"
-            />
+            >
+              <SplitterButton label="toggle pane-2-bottom-c" placement="start" />
+            </Splitter>
           </Pane>
           <Pane>
             <Content>Pane 3</Content>
-            <Splitter data-test-id="pane-3-end" layoutKey="a" min={0} max={2} orientation="end" />
-            <Splitter data-test-id="pane-3-top" layoutKey="d" min={0} max={2} orientation="top" />
+            <Splitter data-test-id="pane-3-end" layoutKey="a" min={0} max={2} orientation="end">
+              <SplitterButton label="toggle pane-3-end-a" placement="end" />
+            </Splitter>
+            <Splitter data-test-id="pane-3-top" layoutKey="d" min={0} max={2} orientation="top">
+              <SplitterButton label="toggle pane-3-top-d" placement="end" />
+            </Splitter>
           </Pane>
           <Pane>
             <Content>Pane 4</Content>
-            <Splitter
-              data-test-id="pane-4-start"
-              layoutKey="b"
-              min={0}
-              max={2}
-              orientation="start"
-            />
+            <Splitter data-test-id="pane-4-start" layoutKey="b" min={0} max={2} orientation="start">
+              <SplitterButton label="toggle pane-4-start-b" placement="center" />
+            </Splitter>
             <Splitter data-test-id="pane-4-top" layoutKey="d" min={0} max={2} orientation="top" />
           </Pane>
         </div>
@@ -863,6 +866,98 @@ describe('PaneProvider', () => {
           "nested-b": 1.2,
         }
       `);
+    });
+  });
+  describe('splitter button', () => {
+    it('collapses column based splitter', () => {
+      const { getByTestId, getByLabelText } = render(<UncontrolledTestSplitter />);
+
+      const separator = getByTestId('pane-1-end');
+      const button = getByLabelText('toggle pane-1-end-a');
+
+      separator.getBoundingClientRect = () => ({
+        bottom: 0,
+        height: 0,
+        left: 500,
+        right: window.document.body.clientWidth - 500,
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.click(button);
+
+      expect(separator).toHaveAttribute('aria-valuenow', '0');
+    });
+    it('expands column based splitter', () => {
+      const { getByTestId, getByLabelText } = render(<UncontrolledTestSplitter />);
+
+      const separator = getByTestId('pane-1-end');
+      const button = getByLabelText('toggle pane-1-end-a');
+
+      separator.getBoundingClientRect = () => ({
+        bottom: 0,
+        height: 0,
+        left: 500,
+        right: window.document.body.clientWidth - 500,
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.click(button);
+      fireEvent.click(button);
+
+      expect(separator).toHaveAttribute('aria-valuenow', '1000');
+    });
+    it('collapses row based splitter', () => {
+      const { getByTestId, getByLabelText } = render(<UncontrolledTestSplitter />);
+
+      const separator = getByTestId('pane-1-bottom');
+      const button = getByLabelText('toggle pane-1-bottom-c');
+
+      separator.getBoundingClientRect = () => ({
+        bottom: 0,
+        height: 0,
+        left: 500,
+        right: window.document.body.clientWidth - 500,
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.click(button);
+
+      expect(separator).toHaveAttribute('aria-valuenow', '0');
+    });
+    it('expands row based splitter', () => {
+      const { getByTestId, getByLabelText } = render(<UncontrolledTestSplitter />);
+
+      const separator = getByTestId('pane-1-bottom');
+      const button = getByLabelText('toggle pane-1-bottom-c');
+
+      separator.getBoundingClientRect = () => ({
+        bottom: 0,
+        height: 0,
+        left: 500,
+        right: window.document.body.clientWidth - 500,
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.click(button);
+      fireEvent.click(button);
+
+      expect(separator).toHaveAttribute('aria-valuenow', '500');
     });
   });
 });

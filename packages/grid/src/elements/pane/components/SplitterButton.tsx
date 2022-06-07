@@ -51,21 +51,23 @@ const reverseIcons: Record<string, Record<Orientation, ReactNode>> = {
 
 const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonProps>(
   (props, ref) => {
-    const { label } = props;
-    const {
-      orientation = 'start',
-      layoutKey,
-      min,
-      max,
-      isRow,
-      valueNow = 0,
-      providerId
-    } = usePaneSplitterContext();
+    const { label, placement: defaultPlacement } = props;
+    const { orientation, layoutKey, min, max, isRow, valueNow, providerId } =
+      usePaneSplitterContext();
     const paneProviderContext = usePaneProviderContextData(providerId);
     const { rtl } = useContext(ThemeContext);
     const isTop = orientation === 'top';
     const isStart = orientation === 'start';
     const isMin = valueNow === min;
+    let placement = defaultPlacement;
+
+    if (!defaultPlacement) {
+      if (isRow) {
+        placement = 'center';
+      } else {
+        placement = 'start';
+      }
+    }
 
     const setValue = useCallback(
       value => {
@@ -92,14 +94,15 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
         <StyledPaneSplitterButton
           aria-label={label}
           {...props}
+          placement={placement!}
           isBasic
-          orientation={orientation}
+          orientation={orientation!}
           ref={ref}
           onClick={onClick}
         >
           {isMin
-            ? reverseIcons[rtl ? 'rtl' : 'ltr'][orientation]
-            : icons[rtl ? 'rtl' : 'ltr'][orientation]}
+            ? reverseIcons[rtl ? 'rtl' : 'ltr'][orientation!]
+            : icons[rtl ? 'rtl' : 'ltr'][orientation!]}
         </StyledPaneSplitterButton>
       </Tooltip>
     );
