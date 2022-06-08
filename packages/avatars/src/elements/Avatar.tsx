@@ -30,8 +30,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
     },
     ref
   ) => {
-    const computedBadge = ['string', 'number'].includes(typeof badge) ? `${badge}` : null;
-    const computedStatus = computedBadge ? 'active' : status;
+    const computedStatus = badge === undefined ? status : 'active';
 
     return (
       <StyledAvatar
@@ -47,7 +46,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         {...other}
       >
         {Children.only(children)}
-        {(badge || status) && (
+        {computedStatus && (
           <StyledStatusIndicator
             size={size}
             status={computedStatus}
@@ -55,8 +54,8 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             foregroundColor={foregroundColor}
             surfaceColor={surfaceColor}
           >
-            {typeof computedBadge === 'string' ? (
-              <span>{computedBadge}</span>
+            {computedStatus === 'active' ? (
+              <span>{badge}</span>
             ) : (
               <>
                 {computedStatus === 'away' ? <ClockIcon /> : null}

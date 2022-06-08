@@ -41,6 +41,8 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     case m:
     case l:
       if (props.size === s && props.status !== 'active') {
+        // when the status is active, the size of the status remains consistent across the three sizes
+        // however when not active, the small size is smaller than the other two sizes
         height = math(`${props.theme.space.base * 3}px - (${borderWidth} * 2)`);
       } else {
         height = math(`${props.theme.space.base * 4}px - (${borderWidth} * 2)`);
@@ -52,7 +54,7 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     border: ${borderWidth} ${props.theme.borderStyles.solid};
     border-radius: ${height};
     min-width: ${height};
-    max-width: 2.48em;
+    max-width: 2.5em;
     height: ${height};
     box-sizing: content-box;
     overflow: hidden;
@@ -68,8 +70,8 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     }
 
     & > svg {
-      width: 100%;
-      height: 100%;
+      width: ${height};
+      height: ${height};
 
       & circle {
         display: none;
@@ -94,7 +96,7 @@ const colorStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) =>
   let borderColor = props.borderColor || backgroundColor;
   let boxShadow = props.theme.shadows.sm(surfaceColor);
 
-  if (xxs === props.size) {
+  if (props.size === xxs) {
     boxShadow = boxShadow.replace(props.theme.shadowWidths.sm, '1px');
   }
 
@@ -108,7 +110,7 @@ const colorStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) =>
       break;
     case offline:
       borderColor = getStatusColor(props.status, props.theme);
-      backgroundColor = surfaceColor;
+      backgroundColor = props.theme.palette.white as string;
       break;
   }
 

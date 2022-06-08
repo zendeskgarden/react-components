@@ -24,6 +24,6 @@ export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   size?: typeof SIZE[number];
   /** Applies status styling */
   status?: typeof STATUS[number];
-  /** Sets the badge and applies active styling if it is a string or number */
+  /** Sets the badge text and applies active styling */
   badge?: string | number;
 }
