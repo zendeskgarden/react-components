@@ -68,9 +68,9 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
               <span>{badge}</span>
             ) : (
               <>
-                {computedStatus === 'away' ? <ClockIcon className="status-away" /> : null}
+                {computedStatus === 'away' ? <ClockIcon data-icon-status={computedStatus} /> : null}
                 {computedStatus === 'transfers' ? (
-                  <ArrowLeftIcon className="status-transfers" />
+                  <ArrowLeftIcon data-icon-status={computedStatus} />
                 ) : null}
               </>
             )}

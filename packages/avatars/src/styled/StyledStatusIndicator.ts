@@ -51,9 +51,10 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
   }
 
   /**
-   * 1. The use of class names here was to target the status icons
-   * 2. because we are using the stroke icon instead of fill, we need
-   *    to upscale to the correct size and remove the circle
+   * 1. adding a fixed height and width due to the icon overly sized when left to natural dimensions.
+   *    The solution is temporary until we have a transfers-only icon to use
+   * 2. because we are using the stroke icon instead of fill due to artifacts in visual appearance,
+   *    we need to remove the circle
    */
   return css`
     border: ${borderWidth} ${props.theme.borderStyles.solid};
@@ -75,23 +76,23 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     }
 
     & > svg {
+      position: absolute;
+      top: -${borderWidth};
+      left: -${borderWidth};
       transform-origin: 50% 50%;
-      width: ${height};
-      height: ${height};
 
-      /* [1] */
-      &.status-transfers {
+      /* stylelint-disable-next-line selector-no-qualifying-type */
+      &[data-icon-status='transfers'] {
+        top: 0; /* [1] */
+        left: 0; /* [1] */
         transform: scale(${props.theme.rtl ? -1 : 1}, 1);
+        width: ${height}; /* [1] */
+        height: ${height}; /* [1] */
       }
 
-      /* [1] */
-      &.status-away {
-        transform: scale(1.375, 1.375); /* [2] */
-      }
-
-      /* [2] */
-      & circle {
-        display: none;
+      /* stylelint-disable-next-line selector-no-qualifying-type */
+      &[data-icon-status='away'] circle {
+        display: none; /* [2] */
       }
     }
 
