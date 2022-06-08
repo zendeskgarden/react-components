@@ -42,7 +42,7 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     case l:
       if (props.size === s && props.status !== 'active') {
         // when the status is active, the size of the status remains consistent across the three sizes
-        // however when not active, the small size is smaller than the other two sizes
+        // however when not active, the "small" size is smaller than the other two sizes
         height = math(`${props.theme.space.base * 3}px - (${borderWidth} * 2)`);
       } else {
         height = math(`${props.theme.space.base * 4}px - (${borderWidth} * 2)`);
@@ -50,6 +50,11 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
       break;
   }
 
+  /**
+   * 1. The use of class names here was to target the status icons
+   * 2. because we are using the stroke icon instead of fill, we need
+   *    to upscale to the correct size and remove the circle
+   */
   return css`
     border: ${borderWidth} ${props.theme.borderStyles.solid};
     border-radius: ${height};
@@ -70,9 +75,21 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     }
 
     & > svg {
+      transform-origin: 50% 50%;
       width: ${height};
       height: ${height};
 
+      /* [1] */
+      &.status-transfers {
+        transform: scale(${props.theme.rtl ? -1 : 1}, 1);
+      }
+
+      /* [1] */
+      &.status-away {
+        transform: scale(1.375, 1.375); /* [2] */
+      }
+
+      /* [2] */
       & circle {
         display: none;
       }

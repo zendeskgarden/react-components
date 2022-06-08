@@ -7,8 +7,10 @@
 
 import React, { Children, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import ClockIcon from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
-import ArrowLeftIcon from '@zendeskgarden/svg-icons/src/12/arrow-left-stroke.svg';
+import ClockIcon12 from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
+import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-stroke.svg';
+import ClockIcon16 from '@zendeskgarden/svg-icons/src/16/clock-stroke.svg';
+import ArrowLeftIcon16 from '@zendeskgarden/svg-icons/src/16/arrow-left-stroke.svg';
 
 import { IAvatarProps, SIZE, STATUS } from '../types';
 import { StyledAvatar, StyledStatusIndicator } from '../styled';
@@ -31,6 +33,14 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
     ref
   ) => {
     const computedStatus = badge === undefined ? status : 'active';
+
+    let ClockIcon = ClockIcon12;
+    let ArrowLeftIcon = ArrowLeftIcon12;
+
+    if (['large', 'medium'].includes(size as string)) {
+      ClockIcon = ClockIcon16;
+      ArrowLeftIcon = ArrowLeftIcon16;
+    }
 
     return (
       <StyledAvatar
@@ -58,8 +68,10 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
               <span>{badge}</span>
             ) : (
               <>
-                {computedStatus === 'away' ? <ClockIcon /> : null}
-                {computedStatus === 'transfers' ? <ArrowLeftIcon /> : null}
+                {computedStatus === 'away' ? <ClockIcon className="status-away" /> : null}
+                {computedStatus === 'transfers' ? (
+                  <ArrowLeftIcon className="status-transfers" />
+                ) : null}
               </>
             )}
           </StyledStatusIndicator>
