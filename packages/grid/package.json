@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/react-theming": "^8.52.0",
-    "use-resize-observer": "^9.0.0"
+    "use-resize-observer": "9.0.0"
   },
   "keywords": [
     "components",
