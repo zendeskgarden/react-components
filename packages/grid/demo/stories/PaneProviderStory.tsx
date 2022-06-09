@@ -56,7 +56,7 @@ export const PaneProviderStory: Story<IArgs> = ({
                 <Pane.Splitter key={splitter.layoutKey} {...splitter}>
                   {splitter.button && (
                     <Pane.SplitterButton
-                      label={`toggle ${splitter.button.label}`}
+                      label={splitter.button.label}
                       placement={splitter.button.placement}
                     />
                   )}

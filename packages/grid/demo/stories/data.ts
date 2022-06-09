@@ -62,7 +62,7 @@ export const PANES: ISplitterPane[] = [
         min: 0,
         max: 2,
         button: {
-          label: 'column-a'
+          label: 'toggle column-a'
         }
       }
     ]
@@ -77,7 +77,7 @@ export const PANES: ISplitterPane[] = [
         min: 0,
         max: 2,
         button: {
-          label: 'row-1'
+          label: 'toggle row-1'
         }
       }
     ]
@@ -92,7 +92,7 @@ export const PANES: ISplitterPane[] = [
         min: 0,
         max: 2,
         button: {
-          label: 'row-2'
+          label: 'toggle row-2'
         }
       }
     ]
@@ -107,7 +107,7 @@ export const PANES: ISplitterPane[] = [
         min: 0,
         max: 2,
         button: {
-          label: 'column-b',
+          label: 'toggle column-b',
           placement: 'end'
         }
       }
