@@ -110,7 +110,6 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
   }
 
   return css`
-    display: flex;
     top: ${top};
     right: ${right};
     bottom: ${bottom};
@@ -120,13 +119,6 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
     height: ${height};
 
     &::before {
-      /* prettier-ignore */
-      transition:
-        box-shadow 0.1s ease-in-out,
-        background-color 0.25s ease-in-out,
-        width 0.25s ease-in-out,
-        height 0.25s ease-in-out;
-      margin: auto;
       width: ${separatorWidth};
       height: ${separatorHeight};
     }
@@ -143,27 +135,34 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
   `;
 };
 
+/**
+ * 1. Elevated initial context to pickup full-width hover
+ * 2. Stack below splitter button.
+ */
 export const StyledPaneSplitter = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledPaneSplitterProps>`
+  display: flex;
   position: absolute;
-  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* [1] */
   user-select: none;
 
   ${sizeStyles};
-
-  &:hover,
-  &[data-garden-focus-visible] {
-    z-index: 2;
-  }
 
   &:focus {
     outline: none;
   }
 
   &::before {
-    display: block;
+    position: absolute;
+    /* prettier-ignore */
+    transition:
+      box-shadow 0.1s ease-in-out,
+      background-color 0.25s ease-in-out;
+    z-index: -1; /* [2] */
     content: '';
   }
 

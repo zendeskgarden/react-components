@@ -5,49 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, ReactNode, useCallback, useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React, { forwardRef, useCallback } from 'react';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { StyledPaneSplitterButton } from '../../../styled';
-import { ISplitterButtonProps, Orientation } from '../../../types';
+import { ISplitterButtonProps } from '../../../types';
 import usePaneSplitterContext from '../../../utils/usePaneSplitterContext';
 import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext';
-
-import UpChevronIcon from '@zendeskgarden/svg-icons/src/12/chevron-up-stroke.svg';
-import DownChevronIcon from '@zendeskgarden/svg-icons/src/12/chevron-down-stroke.svg';
-import LeftChevronIcon from '@zendeskgarden/svg-icons/src/12/chevron-left-stroke.svg';
-import RightChevronIcon from '@zendeskgarden/svg-icons/src/12/chevron-right-stroke.svg';
-
-const icons: Record<string, Record<Orientation, ReactNode>> = {
-  ltr: {
-    start: <RightChevronIcon />,
-    end: <LeftChevronIcon />,
-    top: <DownChevronIcon />,
-    bottom: <UpChevronIcon />
-  },
-  rtl: {
-    start: <LeftChevronIcon />,
-    end: <RightChevronIcon />,
-    top: <DownChevronIcon />,
-    bottom: <UpChevronIcon />
-  }
-};
-
-const reverseIcons: Record<string, Record<Orientation, ReactNode>> = {
-  ltr: {
-    start: <LeftChevronIcon />,
-    end: <RightChevronIcon />,
-    top: <UpChevronIcon />,
-    bottom: <DownChevronIcon />
-  },
-  rtl: {
-    start: <RightChevronIcon />,
-    end: <LeftChevronIcon />,
-    top: <UpChevronIcon />,
-    bottom: <DownChevronIcon />
-  }
-};
 
 const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonProps>(
   (props, ref) => {
@@ -55,7 +19,6 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
     const { orientation, layoutKey, min, max, isRow, valueNow, providerId } =
       usePaneSplitterContext();
     const paneProviderContext = usePaneProviderContextData(providerId);
-    const { rtl } = useContext(ThemeContext);
     const isTop = orientation === 'top';
     const isStart = orientation === 'start';
     const isMin = valueNow === min;
@@ -89,21 +52,23 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
       }
     });
 
+    const onKeyDown = composeEventHandlers(
+      props.onKeyDown,
+      (event: KeyboardEvent) => event.stopPropagation() // prevent splitter movement with cursor keys
+    );
+
     return (
       <Tooltip content={label}>
         <StyledPaneSplitterButton
           aria-label={label}
           {...props}
           placement={placement!}
-          isBasic
           orientation={orientation!}
+          isRotated={isMin}
           ref={ref}
           onClick={onClick}
-        >
-          {isMin
-            ? reverseIcons[rtl ? 'rtl' : 'ltr'][orientation!]
-            : icons[rtl ? 'rtl' : 'ltr'][orientation!]}
-        </StyledPaneSplitterButton>
+          onKeyDown={onKeyDown}
+        />
       </Tooltip>
     );
   }
