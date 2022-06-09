@@ -117,7 +117,7 @@
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/react-theming@^8.1.0":
+"@zendeskgarden/react-theming@^8.52.0":
   version "8.52.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.52.0.tgz#88d6f8c24515828ebfe313cae76deaa9407bb513"
   integrity sha512-LMQr71DPL3hhNR6mRY61JMerXjqLpJp7TZHLe0f+FXeNeA2RI9IXQYUPkTHWDW0Pvc1dWCPd0P9L9AnvYRjyig==
@@ -138,11 +138,6 @@
     prop-types "^15.5.7"
     react-merge-refs "^1.1.0"
     react-popper "^1.3.4"
-
-"@zendeskgarden/svg-icons@6.32.0":
-  version "6.32.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.32.0.tgz#90d79698d5a3039018002e4a3f5967532c2289a0"
-  integrity sha512-xerMoPCa/H5fzK/01yEnONLheziu8at4nX7v4FboG5MO56VED5v02COALTWgQfCVOkI91+Ge/Ofz7xGhVuTK1Q==
 
 call-bind@^1.0.2:
   version "1.0.2"

@@ -77,6 +77,6 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
 SplitterButtonComponent.displayName = 'Pane.SplitterButton';
 
 /**
- * @extends HTMLAttributes<HTMLButtonElement>
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const SplitterButton = SplitterButtonComponent;

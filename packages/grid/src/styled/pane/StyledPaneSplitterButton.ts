@@ -93,7 +93,7 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   transition:
     box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
-    opacity 0.25s ease-in-out;
+    opacity 0.25s ease-in-out 0.1s;
   opacity: 0;
 
   /* stylelint-disable selector-no-qualifying-type */

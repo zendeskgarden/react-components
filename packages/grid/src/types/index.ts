@@ -5,8 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IIconButtonProps } from '@zendeskgarden/react-buttons';
-import { ReactNode, HTMLAttributes } from 'react';
+import { ReactNode, HTMLAttributes, ButtonHTMLAttributes } from 'react';
 export const ALIGN_ITEMS = ['start', 'end', 'center', 'baseline', 'stretch'] as const;
 export const ALIGN_SELF = ['auto', ...ALIGN_ITEMS] as const;
 export const DIRECTION = ['row', 'row-reverse', 'column', 'column-reverse'] as const;
@@ -222,11 +221,7 @@ export interface ISplitterProps extends HTMLAttributes<HTMLDivElement> {
   orientation?: Orientation;
 }
 
-export interface ISplitterButtonProps
-  extends Omit<
-    IIconButtonProps,
-    'isRotated' | 'isPrimary' | 'isDanger' | 'isBasic' | 'focusInset' | 'isNeutral' | 'size'
-  > {
+export interface ISplitterButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Adjusts the placement of the splitter button. Assumes start when vertical and center when horizontal, by default. */
   placement?: typeof PLACEMENT[number];
   /** Renders the provided label text inside a tooltip */
