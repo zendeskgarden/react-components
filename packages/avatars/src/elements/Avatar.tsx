@@ -8,9 +8,9 @@
 import React, { Children, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import ClockIcon12 from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
-import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-stroke.svg';
 import ClockIcon16 from '@zendeskgarden/svg-icons/src/16/clock-stroke.svg';
-import ArrowLeftIcon16 from '@zendeskgarden/svg-icons/src/16/arrow-left-stroke.svg';
+import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-sm-stroke.svg';
+import ArrowLeftIcon16 from '@zendeskgarden/svg-icons/src/16/arrow-left-sm-stroke.svg';
 
 import { IAvatarProps, SIZE, STATUS } from '../types';
 import { StyledAvatar, StyledStatusIndicator } from '../styled';

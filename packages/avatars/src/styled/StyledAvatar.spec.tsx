@@ -6,9 +6,11 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
-import { StyledAvatar } from './StyledAvatar';
+import { render, renderRtl } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+
+import { StyledAvatar } from './StyledAvatar';
+import { StyledStatusIndicator } from './StyledStatusIndicator';
 
 describe('StyledAvatar', () => {
   it('renders the expected element', () => {
@@ -78,6 +80,48 @@ describe('StyledAvatar', () => {
       const { container } = render(<StyledAvatar size="large" />);
 
       expect(container.firstChild).toHaveStyleRule('width', '48px !important');
+    });
+  });
+
+  describe('badge', () => {
+    const styleRuleOptions = {
+      modifier: `& > ${StyledStatusIndicator}`
+    };
+
+    it('renders the status indicator correctly', () => {
+      const { container } = render(
+        <StyledAvatar>
+          <StyledStatusIndicator />
+        </StyledAvatar>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('position', 'absolute', styleRuleOptions);
+      expect(container.firstChild).toHaveStyleRule('bottom', '-2px', styleRuleOptions);
+      expect(container.firstChild).toHaveStyleRule('right', '-2px', styleRuleOptions);
+    });
+
+    it('renders the status indicator correctly with alternate size', () => {
+      const { container } = render(
+        <StyledAvatar size="large">
+          <StyledStatusIndicator />
+        </StyledAvatar>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('position', 'absolute', styleRuleOptions);
+      expect(container.firstChild).toHaveStyleRule('bottom', '-1px', styleRuleOptions);
+      expect(container.firstChild).toHaveStyleRule('right', '-1px', styleRuleOptions);
+    });
+
+    it('renders the status indicator correctly from RTL', () => {
+      const { container } = renderRtl(
+        <StyledAvatar>
+          <StyledStatusIndicator />
+        </StyledAvatar>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('position', 'absolute', styleRuleOptions);
+      expect(container.firstChild).toHaveStyleRule('bottom', '-2px', styleRuleOptions);
+      expect(container.firstChild).toHaveStyleRule('left', '-2px', styleRuleOptions);
     });
   });
 });
