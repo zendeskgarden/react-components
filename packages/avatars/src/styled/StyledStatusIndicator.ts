@@ -17,36 +17,37 @@ export interface IStatusIndicatorProps extends Omit<IAvatarProps, 'badge' | 'isS
   borderColor?: string;
 }
 
-const COMPONENT_ID = 'avatars.status-indicator';
+const COMPONENT_ID = 'avatars.status_indicator';
 
 const [xxs, xs, s, m, l] = SIZE;
 const [active, available, away, transfers, offline] = ['active', ...STATUS];
 
 const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
-  let visible = true;
+  const isActive = props.status === 'active';
+
+  let isVisible = true;
   let height = '0';
+  let padding = '0';
   let borderWidth = props.theme.shadowWidths.sm;
 
   switch (props.size) {
     case xxs:
-      visible = false;
+      isVisible = false;
       borderWidth = math(`${borderWidth} - 1`);
       height = math(`${props.theme.space.base}px - ${borderWidth}`);
       break;
     case xs:
-      visible = false;
+      isVisible = false;
       height = math(`${props.theme.space.base * 2}px - (${borderWidth} * 2)`);
       break;
     case s:
+      height = math(`${props.theme.space.base * 3}px ${isActive ? '' : `- (${borderWidth} * 2)`}`);
+      padding = math(`${props.theme.space.base + 1}px - (${borderWidth} * 2)`);
+      break;
     case m:
     case l:
-      if (props.size === s && props.status !== 'active') {
-        // when the status is active, the size of the status remains consistent across the three sizes
-        // however when not active, the "small" size is smaller than the other two sizes
-        height = math(`${props.theme.space.base * 3}px - (${borderWidth} * 2)`);
-      } else {
-        height = math(`${props.theme.space.base * 4}px - (${borderWidth} * 2)`);
-      }
+      height = math(`${props.theme.space.base * 4}px ${isActive ? '' : `- (${borderWidth} * 2)`}`);
+      padding = math(`${props.theme.space.base + 3}px - (${borderWidth} * 2)`);
       break;
   }
 
@@ -58,7 +59,7 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     border: ${borderWidth} ${props.theme.borderStyles.solid};
     border-radius: ${height};
     min-width: ${height};
-    max-width: 2.5em;
+    max-width: calc(2em + (${borderWidth} * 3));
     height: ${height};
     box-sizing: content-box;
     overflow: hidden;
@@ -70,10 +71,17 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     font-weight: ${props.theme.fontWeights.semibold};
 
     & > span {
-      padding: 0 ${math(`${props.theme.space.base + 1}px - (${borderWidth})`)};
+      display: ${isVisible ? 'inline-block' : 'none'};
+      padding: 0 ${padding};
+      max-width: 2em;
+      overflow: inherit;
+      text-align: inherit;
+      text-overflow: inherit;
+      white-space: inherit;
     }
 
     & > svg {
+      ${!isVisible && 'display: none;'}
       position: absolute;
       top: -${borderWidth};
       left: -${borderWidth};
@@ -89,13 +97,6 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
         display: none; /* [1] */
       }
     }
-
-    ${!visible &&
-    css`
-      & > * {
-        display: none;
-      }
-    `}
   `;
 };
 
@@ -141,11 +142,7 @@ export const StyledStatusIndicator = styled.div.attrs({
   ${sizeStyles}
   ${colorStyles}
 
-  &,
-  & svg,
-  & span {
-    transition: inherit;
-  }
+  transition: inherit;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
