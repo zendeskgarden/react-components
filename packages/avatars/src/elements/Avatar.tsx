@@ -7,8 +7,14 @@
 
 import React, { Children, forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import ClockIcon12 from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
+import ClockIcon16 from '@zendeskgarden/svg-icons/src/16/clock-stroke.svg';
+import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-sm-stroke.svg';
+import ArrowLeftIcon16 from '@zendeskgarden/svg-icons/src/16/arrow-left-sm-stroke.svg';
+
 import { IAvatarProps, SIZE, STATUS } from '../types';
-import { StyledAvatar } from '../styled';
+import { StyledAvatar, StyledStatusIndicator } from '../styled';
+
 import { Text } from './components/Text';
 
 const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
@@ -28,13 +34,20 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
   ) => {
     const computedStatus = badge === undefined ? status : 'active';
 
+    let ClockIcon = ClockIcon12;
+    let ArrowLeftIcon = ArrowLeftIcon12;
+
+    if (['large', 'medium'].includes(size as string)) {
+      ClockIcon = ClockIcon16;
+      ArrowLeftIcon = ArrowLeftIcon16;
+    }
+
     return (
       <StyledAvatar
         ref={ref}
         isSystem={isSystem}
         size={size}
         status={computedStatus}
-        data-badge={badge}
         surfaceColor={surfaceColor}
         backgroundColor={backgroundColor}
         foregroundColor={foregroundColor}
@@ -43,6 +56,26 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         {...other}
       >
         {Children.only(children)}
+        {computedStatus && (
+          <StyledStatusIndicator
+            size={size}
+            status={computedStatus}
+            backgroundColor={backgroundColor}
+            foregroundColor={foregroundColor}
+            surfaceColor={surfaceColor}
+          >
+            {computedStatus === 'active' ? (
+              <span>{badge}</span>
+            ) : (
+              <>
+                {computedStatus === 'away' ? <ClockIcon data-icon-status={computedStatus} /> : null}
+                {computedStatus === 'transfers' ? (
+                  <ArrowLeftIcon data-icon-status={computedStatus} />
+                ) : null}
+              </>
+            )}
+          </StyledStatusIndicator>
+        )}
       </StyledAvatar>
     );
   }

@@ -9,7 +9,7 @@ import { HTMLAttributes } from 'react';
 
 export const SIZE = ['extraextrasmall', 'extrasmall', 'small', 'medium', 'large'] as const;
 
-export const STATUS = ['available', 'away'] as const;
+export const STATUS = ['available', 'away', 'transfers', 'offline'] as const;
 
 export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   /** Sets the avatar background color */
