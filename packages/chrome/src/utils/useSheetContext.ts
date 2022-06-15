@@ -11,12 +11,12 @@ export interface ISheetContext {
   titleId?: string;
   descriptionId?: string;
   isCloseButtonPresent?: boolean;
-  setCloseButtonPresent: (isPresent: boolean) => void;
+  setIsCloseButtonPresent: (isPresent: boolean) => void;
 }
 
 export const SheetContext = createContext<ISheetContext>({
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setCloseButtonPresent() {}
+  setIsCloseButtonPresent() {}
 });
 
 export const useSheetContext = () => {

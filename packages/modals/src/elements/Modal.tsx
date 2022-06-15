@@ -63,7 +63,7 @@ export const Modal = forwardRef<HTMLDivElement, IModalProps>(
     const theme = useContext(ThemeContext);
     const modalRef = useRef<HTMLDivElement>(null);
     const environment = useDocument(theme);
-    const [isCloseButtonPresent, setCloseButtonPresent] = useState<boolean>(false);
+    const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
 
     const { getBackdropProps, getModalProps, getTitleProps, getContentProps, getCloseProps } =
       useModal({
@@ -132,7 +132,7 @@ export const Modal = forwardRef<HTMLDivElement, IModalProps>(
         getTitleProps,
         getContentProps,
         getCloseProps,
-        setCloseButtonPresent
+        setIsCloseButtonPresent
       }),
       [isLarge, isCloseButtonPresent, getTitleProps, getContentProps, getCloseProps]
     );

@@ -24,7 +24,7 @@ export const Tabs = forwardRef<HTMLDivElement, ITabsProps>(
     ref
   ) => {
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
-    const [internalSelectedItem, setSelectedItem] = useState();
+    const [internalSelectedItem, setInternalSelectedItem] = useState();
     const tabIndexRef = useRef<number>(0);
     const tabPanelIndexRef = useRef<number>(0);
     const selectedItem = getControlledValue(controlledSelectedItem, internalSelectedItem);
@@ -38,7 +38,7 @@ export const Tabs = forwardRef<HTMLDivElement, ITabsProps>(
         if (onChange) {
           onChange(item);
         } else {
-          setSelectedItem(item);
+          setInternalSelectedItem(item);
         }
       }
     });

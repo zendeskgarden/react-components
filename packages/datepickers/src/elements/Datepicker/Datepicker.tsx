@@ -70,18 +70,18 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
     }
   });
 
-  const [isVisible, setVisible] = useState(state.isOpen);
+  const [isVisible, setIsVisible] = useState(state.isOpen);
 
   useEffect(() => {
     let timeout: any;
 
     if (state.isOpen) {
-      setVisible(true);
+      setIsVisible(true);
     } else if (isAnimated) {
       // Match the duration of the menu fade out transition.
-      timeout = setTimeout(() => setVisible(false), 200);
+      timeout = setTimeout(() => setIsVisible(false), 200);
     } else {
-      setVisible(false);
+      setIsVisible(false);
     }
 
     return () => clearTimeout(timeout);

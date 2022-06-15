@@ -13,11 +13,11 @@ import { Close } from './Close';
 import { useSheetContext } from '../../../utils/useSheetContext';
 
 jest.mock('../../../utils/useSheetContext', () => {
-  const setCloseButtonPresent = jest.fn();
+  const setIsCloseButtonPresent = jest.fn();
 
   return {
     useSheetContext: () => ({
-      setCloseButtonPresent
+      setIsCloseButtonPresent
     })
   };
 });
@@ -38,16 +38,16 @@ describe('Sheet.Close', () => {
   });
 
   describe('functionality', () => {
-    it('calls setCloseButtonPresent when mounting and unmounting', () => {
+    it('calls setIsCloseButtonPresent when mounting and unmounting', () => {
       const { unmount } = render(<Close />);
-      const { setCloseButtonPresent } = useSheetContext();
+      const { setIsCloseButtonPresent } = useSheetContext();
 
-      expect(setCloseButtonPresent).toHaveBeenCalledWith(true);
+      expect(setIsCloseButtonPresent).toHaveBeenCalledWith(true);
 
       unmount();
 
-      expect(setCloseButtonPresent).toHaveBeenCalledWith(false);
-      expect(setCloseButtonPresent).toHaveBeenCalledTimes(2);
+      expect(setIsCloseButtonPresent).toHaveBeenCalledWith(false);
+      expect(setIsCloseButtonPresent).toHaveBeenCalledTimes(2);
     });
   });
 });

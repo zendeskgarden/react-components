@@ -24,7 +24,7 @@ import { Avatar } from '@zendeskgarden/react-avatars';
 
 export const MenuStory: Story = ({ isCompact }) => {
   const [highlightedItem, setHighlightedItem] = useState<number | null>();
-  const [isOpen, setOpen] = useState<boolean | undefined>();
+  const [isOpen, setIsOpen] = useState<boolean | undefined>();
 
   return (
     <Grid>
@@ -33,7 +33,7 @@ export const MenuStory: Story = ({ isCompact }) => {
           <Dropdown
             onStateChange={changes => {
               setHighlightedItem(changes.highlightedIndex);
-              Object.prototype.hasOwnProperty.call(changes, 'isOpen') && setOpen(changes.isOpen);
+              Object.prototype.hasOwnProperty.call(changes, 'isOpen') && setIsOpen(changes.isOpen);
             }}
           >
             <Trigger>

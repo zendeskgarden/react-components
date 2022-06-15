@@ -55,18 +55,18 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) =>
     }
   });
 
-  const [isVisible, setVisible] = useState(isOpen);
+  const [isVisible, setIsVisible] = useState(isOpen);
 
   useEffect(() => {
     let timeout: any;
 
     if (isOpen) {
-      setVisible(true);
+      setIsVisible(true);
     } else if (isAnimated) {
       // Match the duration of the menu fade out transition.
-      timeout = setTimeout(() => setVisible(false), 200);
+      timeout = setTimeout(() => setIsVisible(false), 200);
     } else {
-      setVisible(false);
+      setIsVisible(false);
     }
 
     return () => clearTimeout(timeout);

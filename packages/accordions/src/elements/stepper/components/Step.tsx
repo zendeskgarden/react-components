@@ -11,10 +11,10 @@ import { StepContext, useStepperContext } from '../../../utils';
 
 const StepComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
   const { currentIndexRef, isHorizontal } = useStepperContext();
-  const [currentStepIndex, setIndex] = useState(currentIndexRef.current);
+  const [currentStepIndex, setCurrentStepIndex] = useState<number>(currentIndexRef.current);
 
   useLayoutEffect(() => {
-    setIndex(currentIndexRef.current);
+    setCurrentStepIndex(currentIndexRef.current);
     currentIndexRef.current++;
     const currentIndex = currentIndexRef;
 
