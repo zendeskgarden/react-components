@@ -57,12 +57,12 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       : 0;
 
     const value = isRow
-      ? paneProviderContext && paneProviderContext.getRowValue(layoutKey, true)
-      : paneProviderContext && paneProviderContext.getColumnValue(layoutKey, true);
+      ? paneProviderContext?.getRowValue(layoutKey, true)
+      : paneProviderContext?.getColumnValue(layoutKey, true);
 
     const valueInFr = isRow
-      ? paneProviderContext && paneProviderContext.getRowValue(layoutKey)
-      : paneProviderContext && paneProviderContext.getColumnValue(layoutKey);
+      ? paneProviderContext?.getRowValue(layoutKey)
+      : paneProviderContext?.getColumnValue(layoutKey);
 
     const { getSeparatorProps, getPrimaryPaneProps } = useSplitter({
       type: SplitterType.VARIABLE,
@@ -74,23 +74,17 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       environment: window,
       onChange: valueNow => {
         if (isRow) {
-          return (
-            paneProviderContext &&
-            paneProviderContext.setRowValue(
-              orientation === 'top',
-              layoutKey,
-              valueNow / pixelsPerFr
-            )
+          return paneProviderContext?.setRowValue(
+            orientation === 'top',
+            layoutKey,
+            valueNow / pixelsPerFr
           );
         }
 
-        return (
-          paneProviderContext &&
-          paneProviderContext.setColumnValue(
-            orientation === 'start',
-            layoutKey,
-            valueNow / pixelsPerFr
-          )
+        return paneProviderContext?.setColumnValue(
+          orientation === 'start',
+          layoutKey,
+          valueNow / pixelsPerFr
         );
       },
       valueNow: value
