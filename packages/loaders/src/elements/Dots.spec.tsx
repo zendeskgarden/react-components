@@ -10,7 +10,7 @@ import { render, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import { Dots } from './Dots';
 
-jest.useFakeTimers();
+jest.useFakeTimers({ legacyFakeTimers: true });
 
 const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 

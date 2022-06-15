@@ -10,19 +10,17 @@ import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent, createEvent } from 'garden-test-utils';
 import { getColor } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
+
 import { MultiThumbRange } from './MultiThumbRange';
 import { Label } from './common/Label';
 import { Field } from './common/Field';
 
-jest.mock('lodash.debounce');
-import debounce from 'lodash.debounce';
+jest.mock('lodash.debounce', () => ({ default: (fn: any) => fn, __esModule: true }));
 
 describe('MultiThumbRange', () => {
   let originalGetBoundingClientRect: any;
 
   beforeEach(() => {
-    (debounce as jest.Mock).mockImplementation((fn: any) => fn);
-
     originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
     Element.prototype.getBoundingClientRect = jest.fn(() => {
       return {

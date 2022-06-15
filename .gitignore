@@ -5,11 +5,7 @@ node_modules
 .vscode
 .netlify
 .env
+.cache
 
 # Package specific
 packages/**/dist
-package-lock.json
-
-# Demo specific
-demo/**/*
-utils/storybook/coverage
