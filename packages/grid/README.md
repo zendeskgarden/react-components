@@ -84,11 +84,15 @@ import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
         </Pane>
         <Pane>
           <Pane.Content>Pane 2</Pane.Content>
-          <Pane.Splitter layoutKey="row-1" min={0} max={2} orientation="bottom" />
+          <Pane.Splitter layoutKey="row-1" min={0} max={2} orientation="bottom">
+            <Pane.SplitterButton label="toggle row-1" />
+          </Pane.Splitter>
         </Pane>
         <Pane>
           <Pane.Content>Pane 3</Pane.Content>
-          <Pane.Splitter layoutKey="row-2" min={0} max={2} orientation="top" />
+          <Pane.Splitter layoutKey="row-2" min={0} max={2} orientation="top">
+            <Pane.SplitterButton label="toggle row-2" placement="end" />
+          </Pane.Splitter>
         </Pane>
         <Pane>
           <Pane.Content>Pane 4</Pane.Content>

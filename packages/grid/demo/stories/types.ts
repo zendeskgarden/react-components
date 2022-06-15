@@ -5,7 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IColProps, IRowProps, ISplitterProps } from '@zendeskgarden/react-grid';
+import {
+  IColProps,
+  IRowProps,
+  ISplitterProps,
+  ISplitterButtonProps
+} from '@zendeskgarden/react-grid';
 
 export interface IGridRow extends IRowProps {
   cols: IColProps[];
@@ -13,5 +18,7 @@ export interface IGridRow extends IRowProps {
 
 export interface ISplitterPane {
   content: string;
-  splitters: ISplitterProps[];
+  splitters: (ISplitterProps & {
+    button?: ISplitterButtonProps;
+  })[];
 }

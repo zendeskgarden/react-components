@@ -8,6 +8,7 @@
 import React, { useState, useMemo, HTMLAttributes, forwardRef } from 'react';
 import { Splitter } from './components/Splitter';
 import { Content } from './components/Content';
+import { SplitterButton } from './components/SplitterButton';
 import { StyledPane } from '../../styled';
 import { PaneContext } from '../../utils/usePaneContext';
 
@@ -41,7 +42,9 @@ PaneComponent.displayName = 'Pane';
 export const Pane = PaneComponent as typeof PaneComponent & {
   Content: typeof Content;
   Splitter: typeof Splitter;
+  SplitterButton: typeof SplitterButton;
 };
 
 Pane.Content = Content;
 Pane.Splitter = Splitter;
+Pane.SplitterButton = SplitterButton;

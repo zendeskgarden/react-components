@@ -23,6 +23,8 @@
   "dependencies": {
     "@zendeskgarden/container-splitter": "^0.2.3",
     "@zendeskgarden/container-utilities": "^0.7.1",
+    "@zendeskgarden/react-buttons": "^8.52.0",
+    "@zendeskgarden/react-tooltips": "^8.52.0",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^1.1.0"

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ReactNode, HTMLAttributes } from 'react';
+import { ReactNode, HTMLAttributes, ButtonHTMLAttributes } from 'react';
 export const ALIGN_ITEMS = ['start', 'end', 'center', 'baseline', 'stretch'] as const;
 export const ALIGN_SELF = ['auto', ...ALIGN_ITEMS] as const;
 export const DIRECTION = ['row', 'row-reverse', 'column', 'column-reverse'] as const;
@@ -13,6 +13,7 @@ export const JUSTIFY_CONTENT = ['start', 'end', 'center', 'between', 'around'] a
 export const TEXT_ALIGN = ['start', 'end', 'center', 'justify'] as const;
 export const SPACE = [false, 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 export const WRAP = ['nowrap', 'wrap', 'wrap-reverse'] as const;
+export const PLACEMENT = ['end', 'start', 'center'] as const;
 
 export type AlignItems = typeof ALIGN_ITEMS[number];
 export type AlignSelf = typeof ALIGN_SELF[number];
@@ -218,4 +219,11 @@ export interface ISplitterProps extends HTMLAttributes<HTMLDivElement> {
   max: number;
   /** Determines splitter orientation within a pane */
   orientation?: Orientation;
+}
+
+export interface ISplitterButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Adjusts the placement of the splitter button. Assumes start when vertical and center when horizontal, by default. */
+  placement?: typeof PLACEMENT[number];
+  /** Renders the provided label text inside a tooltip */
+  label: string;
 }

@@ -56,7 +56,14 @@ const Row = ({ panes }: { panes: IColumns['panes'] }) => {
                     providerId={providerId}
                     key={`${pane.name}-${splitter.layoutKey}-${splitterIndex}`}
                     {...splitter}
-                  />
+                  >
+                    {splitter.button && (
+                      <Pane.SplitterButton
+                        label={splitter.button.label}
+                        placement={splitter.button.placement}
+                      />
+                    )}
+                  </Pane.Splitter>
                 ))}
               </Pane>
             ))}

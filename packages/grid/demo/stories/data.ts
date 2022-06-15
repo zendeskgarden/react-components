@@ -60,7 +60,10 @@ export const PANES: ISplitterPane[] = [
         layoutKey: 'column-a',
         orientation: 'end',
         min: 0,
-        max: 2
+        max: 2,
+        button: {
+          label: 'toggle column-a'
+        }
       }
     ]
   },
@@ -72,7 +75,10 @@ export const PANES: ISplitterPane[] = [
         layoutKey: 'row-1',
         orientation: 'bottom',
         min: 0,
-        max: 2
+        max: 2,
+        button: {
+          label: 'toggle row-1'
+        }
       }
     ]
   },
@@ -84,7 +90,10 @@ export const PANES: ISplitterPane[] = [
         layoutKey: 'row-2',
         orientation: 'top',
         min: 0,
-        max: 2
+        max: 2,
+        button: {
+          label: 'toggle row-2'
+        }
       }
     ]
   },
@@ -96,7 +105,11 @@ export const PANES: ISplitterPane[] = [
         layoutKey: 'column-b',
         orientation: 'start',
         min: 0,
-        max: 2
+        max: 2,
+        button: {
+          label: 'toggle column-b',
+          placement: 'end'
+        }
       }
     ]
   }

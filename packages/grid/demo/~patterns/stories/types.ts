@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ISplitterProps } from '@zendeskgarden/react-grid';
+import { ISplitterButtonProps, ISplitterProps } from '@zendeskgarden/react-grid';
 
 interface IPanes {
   name: string;
   content: string;
-  splitters: ISplitterProps[];
+  splitters: (ISplitterProps & {
+    button?: ISplitterButtonProps;
+  })[];
 }
 
 export interface IColumns {

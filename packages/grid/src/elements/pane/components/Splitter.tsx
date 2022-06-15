@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext, useEffect, forwardRef } from 'react';
+import React, { useContext, useEffect, forwardRef, useMemo } from 'react';
 import mergeRefs from 'react-merge-refs';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
@@ -19,9 +19,10 @@ import { usePaneProviderContextData } from '../../../utils/usePaneProviderContex
 import usePaneContext from '../../../utils/usePaneContext';
 import { ISplitterProps, ORIENTATION } from '../../../types';
 import { StyledPaneSplitter } from '../../../styled';
+import { PaneSplitterContext } from '../../../utils/usePaneSplitterContext';
 
 const orientationToPosition = {
-  start: SplitterPosition.TRAILS,
+  start: SplitterPosition.LEADS,
   end: SplitterPosition.TRAILS,
   top: SplitterPosition.LEADS,
   bottom: SplitterPosition.TRAILS
@@ -55,6 +56,14 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       ? paneProviderContext.pixelsPerFr[orientationToDimension[orientation!]]
       : 0;
 
+    const value = isRow
+      ? paneProviderContext?.getRowValue(layoutKey, true)
+      : paneProviderContext?.getColumnValue(layoutKey, true);
+
+    const valueInFr = isRow
+      ? paneProviderContext?.getRowValue(layoutKey)
+      : paneProviderContext?.getColumnValue(layoutKey);
+
     const { getSeparatorProps, getPrimaryPaneProps } = useSplitter({
       type: SplitterType.VARIABLE,
       orientation: splitterOrientation,
@@ -65,28 +74,20 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       environment: window,
       onChange: valueNow => {
         if (isRow) {
-          return (
-            paneProviderContext &&
-            paneProviderContext.setRowValue(
-              orientation === 'top',
-              layoutKey,
-              valueNow / pixelsPerFr
-            )
+          return paneProviderContext?.setRowValue(
+            orientation === 'top',
+            layoutKey,
+            valueNow / pixelsPerFr
           );
         }
 
-        return (
-          paneProviderContext &&
-          paneProviderContext.setColumnValue(
-            orientation === 'start',
-            layoutKey,
-            valueNow / pixelsPerFr
-          )
+        return paneProviderContext?.setColumnValue(
+          orientation === 'start',
+          layoutKey,
+          valueNow / pixelsPerFr
         );
       },
-      valueNow: isRow
-        ? paneProviderContext && paneProviderContext.getRowValue(layoutKey, true)
-        : paneProviderContext && paneProviderContext.getColumnValue(layoutKey, true)
+      valueNow: value
     });
 
     useEffect(() => {
@@ -100,12 +101,19 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
     });
 
     return (
-      <StyledPaneSplitter
-        orientation={orientation}
-        {...separatorProps}
-        {...props}
-        ref={mergeRefs([separatorProps.ref, ref])}
-      />
+      <PaneSplitterContext.Provider
+        value={useMemo(
+          () => ({ orientation, layoutKey, min, max, valueNow: valueInFr, isRow }),
+          [orientation, layoutKey, min, max, valueInFr, isRow]
+        )}
+      >
+        <StyledPaneSplitter
+          orientation={orientation}
+          {...separatorProps}
+          {...props}
+          ref={mergeRefs([separatorProps.ref, ref])}
+        />
+      </PaneSplitterContext.Provider>
     );
   }
 );
