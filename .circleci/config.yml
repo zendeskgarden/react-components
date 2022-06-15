@@ -36,7 +36,7 @@ jobs:
     steps:
       - *attach_workspace
       - run: yarn test:ci --runInBand
-      - run: '[ $COVERALLS_REPO_TOKEN ] && yarn coveralls < utils/storybook/coverage/lcov.info || true'
+      - run: '[ $COVERALLS_REPO_TOKEN ] && yarn coveralls < .cache/coverage/lcov.info || true'
       - *persist_to_workspace
 
   deploy:

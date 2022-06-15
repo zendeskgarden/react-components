@@ -45,13 +45,13 @@ describe('Combobox', () => {
   });
 
   it('focuses input on label click', () => {
-    const { getByTestId } = render(<ExampleCombobox />);
+    const { getByTestId, getByRole } = render(<ExampleCombobox />);
     const label = getByTestId('label');
-    const combobox = getByTestId('combobox');
+    const combobox = getByRole('combobox');
 
     userEvent.click(label);
 
-    expect(combobox).toHaveAttribute('data-test-is-focused', 'true');
+    expect(combobox).toHaveFocus();
   });
 
   it('renders icons if provided', () => {
