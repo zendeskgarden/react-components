@@ -15,6 +15,7 @@ import { useTableContext } from '../utils/useTableContext';
 /**
  * @extends HTMLAttributes<HTMLTableRowElement>
  */
+
 export const Row = forwardRef<HTMLTableRowElement, IRowProps>(
   ({ onFocus, onBlur, isFocused: focused, ...otherProps }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -31,15 +32,26 @@ export const Row = forwardRef<HTMLTableRowElement, IRowProps>(
 
       return isFocused;
     }, [focused, isFocused, isReadOnly]);
+    const onFocusCallback = useMemo(
+      () =>
+        composeEventHandlers(onFocus, () => {
+          setIsFocused(true);
+        }),
+      [onFocus, setIsFocused]
+    );
+
+    const onBlurCallback = useMemo(
+      () =>
+        composeEventHandlers(onBlur, () => {
+          setIsFocused(false);
+        }),
+      [onBlur, setIsFocused]
+    );
 
     return (
       <StyledRow
-        onFocus={composeEventHandlers(onFocus, () => {
-          setIsFocused(true);
-        })}
-        onBlur={composeEventHandlers(onBlur, () => {
-          setIsFocused(false);
-        })}
+        onFocus={onFocusCallback}
+        onBlur={onBlurCallback}
         size={size}
         isReadOnly={isReadOnly}
         isFocused={computedFocused}
