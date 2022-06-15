@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
-    "target": "ESNext",
+    "target": "ES2019",
     "jsx": "react",
     "noEmit": false
   }
