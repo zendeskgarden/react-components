@@ -13,12 +13,12 @@ import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 const CloseComponent = forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
-    const { getCloseProps, setCloseButtonPresent } = useModalContext();
+    const { getCloseProps, setIsCloseButtonPresent } = useModalContext();
 
     useEffect(() => {
-      setCloseButtonPresent(true);
+      setIsCloseButtonPresent(true);
 
-      return () => setCloseButtonPresent(false);
+      return () => setIsCloseButtonPresent(false);
     });
 
     const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Close drawer');

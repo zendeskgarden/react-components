@@ -32,7 +32,7 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
     const transitionRef = useRef<HTMLDivElement>(null);
     const theme = useContext(ThemeContext);
     const environment = useDocument(theme);
-    const [isCloseButtonPresent, setCloseButtonPresent] = useState<boolean>(false);
+    const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
 
     useFocusVisible({ scope: modalRef, relativeDocument: modalRef.current });
 
@@ -85,7 +85,7 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
         getTitleProps,
         getContentProps,
         getCloseProps,
-        setCloseButtonPresent
+        setIsCloseButtonPresent
       }),
       [isCloseButtonPresent, getTitleProps, getContentProps, getCloseProps]
     );

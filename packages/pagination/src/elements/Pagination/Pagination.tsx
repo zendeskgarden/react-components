@@ -35,7 +35,7 @@ export const Pagination = forwardRef<HTMLUListElement, IPaginationProps>(
     ref
   ) => {
     const [focusedItem, setFocusedItem] = useState<number | string>();
-    const [internalCurrentPage, setCurrentPage] = useState(1);
+    const [internalCurrentPage, setInternalCurrentPage] = useState(1);
     const currentPage = getControlledValue(controlledCurrentPage, internalCurrentPage)!;
     const theme = useContext(ThemeContext);
 
@@ -72,7 +72,7 @@ export const Pagination = forwardRef<HTMLUListElement, IPaginationProps>(
           }
 
           setFocusedItem(updatedFocusedKey);
-          setCurrentPage(updatedCurrentPage as number);
+          setInternalCurrentPage(updatedCurrentPage as number);
         }
       });
 

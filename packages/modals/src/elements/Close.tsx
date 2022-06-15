@@ -18,12 +18,12 @@ export const Close = React.forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement>
 >((props, ref) => {
-  const { getCloseProps, setCloseButtonPresent } = useModalContext();
+  const { getCloseProps, setIsCloseButtonPresent } = useModalContext();
 
   useEffect(() => {
-    setCloseButtonPresent(true);
+    setIsCloseButtonPresent(true);
 
-    return () => setCloseButtonPresent(false);
+    return () => setIsCloseButtonPresent(false);
   });
 
   const ariaLabel = useText(Close, props, 'aria-label', 'Close modal');

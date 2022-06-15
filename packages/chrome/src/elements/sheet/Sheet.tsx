@@ -31,8 +31,8 @@ const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
     const sheetRef = useRef<HTMLElement>(null);
 
     const seed = useUIDSeed();
-    const [isCloseButtonPresent, setCloseButtonPresent] = useState<boolean>(false);
-    const [idPrefix] = useState<string>(id || seed(`sheet_${PACKAGE_VERSION}`));
+    const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
+    const idPrefix = useMemo<string>(() => id || seed(`sheet_${PACKAGE_VERSION}`), [id, seed]);
     const titleId = `${idPrefix}--title`;
     const descriptionId = `${idPrefix}--description`;
 
@@ -41,7 +41,7 @@ const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
         titleId,
         descriptionId,
         isCloseButtonPresent,
-        setCloseButtonPresent
+        setIsCloseButtonPresent
       }),
       [titleId, descriptionId, isCloseButtonPresent]
     );
