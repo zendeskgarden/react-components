@@ -12,6 +12,24 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.53.0 (2022-06-16)
+
+#### :rocket: New Feature
+* `grid`
+  * [#1371](https://github.com/zendeskgarden/react-components/pull/1371) feat(grid): add pane splitter button ([@mtomcal](https://github.com/mtomcal))
+* `avatars`
+  * [#1358](https://github.com/zendeskgarden/react-components/pull/1358) feat(avatars): extend status prop ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :bug: Bug Fix
+* `tables`
+  * [#1373](https://github.com/zendeskgarden/react-components/pull/1373) fix(tables): remove redundant rendering of row component ([@pudewan-zd](https://github.com/pudewan-zd))
+
+#### :seedling: Internal
+* `colorpickers`
+  * [#1374](https://github.com/zendeskgarden/react-components/pull/1374) chore(colorpickers): remove popper.js direct dependency ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* Other
+  * [#1375](https://github.com/zendeskgarden/react-components/pull/1375) chore(git): add demo to gitignore ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.52.0 (2022-05-26)
 
 #### :rocket: New Feature
