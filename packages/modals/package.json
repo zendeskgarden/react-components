@@ -22,9 +22,9 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@popperjs/core": "^2.4.4",
-    "@zendeskgarden/container-focusvisible": "^0.4.6",
-    "@zendeskgarden/container-modal": "^0.8.7",
-    "@zendeskgarden/container-utilities": "^0.7.0",
+    "@zendeskgarden/container-focusvisible": "^1.0.0",
+    "@zendeskgarden/container-modal": "^1.0.0",
+    "@zendeskgarden/container-utilities": "^1.0.0",
     "dom-helpers": "^5.1.0",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^1.1.0",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "@types/react-transition-group": "4.4.4",
     "@zendeskgarden/react-theming": "^8.53.0",
-    "@zendeskgarden/svg-icons": "6.32.0"
+    "@zendeskgarden/svg-icons": "6.33.0"
   },
   "keywords": [
     "components",

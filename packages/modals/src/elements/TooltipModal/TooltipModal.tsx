@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useContext, useMemo, useEffect, useRef } from 'react';
+import React, { HTMLAttributes, useState, useContext, useMemo, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { usePopper } from 'react-popper';
@@ -32,7 +32,6 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
       hasArrow,
       isAnimated,
       zIndex,
-      style,
       backdropProps,
       focusOnMount,
       restoreFocus,
@@ -48,7 +47,7 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
     const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
       useModal({
-        id,
+        idPrefix: id,
         onClose,
         modalRef,
         focusOnMount,
@@ -83,15 +82,6 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
       getCloseProps
     };
 
-    const modalProps = getModalProps({
-      ref: mergeRefs([modalRef, ref]),
-      placement: state ? state.placement : 'top',
-      hasArrow,
-      isAnimated,
-      style,
-      ...props
-    }) as any;
-
     return (
       <CSSTransition
         unmountOnExit
@@ -104,7 +94,9 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
           return (
             <TooltipModalContext.Provider value={value}>
               <StyledTooltipModalBackdrop
-                {...(getBackdropProps({ ref: transitionRef, ...backdropProps }) as any)}
+                {...(getBackdropProps() as HTMLAttributes<HTMLDivElement>)}
+                {...backdropProps}
+                ref={transitionRef}
               >
                 <StyledTooltipWrapper
                   ref={setPopperElement}
@@ -114,7 +106,15 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
                   isAnimated={isAnimated}
                   {...attributes.popper}
                 >
-                  <StyledTooltipModal transitionState={transitionState} {...modalProps} />
+                  <StyledTooltipModal
+                    transitionState={transitionState}
+                    placement={state ? state.placement : 'top'}
+                    hasArrow={hasArrow}
+                    isAnimated={isAnimated}
+                    {...(getModalProps() as HTMLAttributes<HTMLDivElement>)}
+                    {...props}
+                    ref={mergeRefs([modalRef, ref])}
+                  />
                 </StyledTooltipWrapper>
               </StyledTooltipModalBackdrop>
             </TooltipModalContext.Provider>

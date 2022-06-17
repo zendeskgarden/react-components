@@ -88,13 +88,13 @@ describe('Modal', () => {
   it('applies title props to Header element', () => {
     const { getByTestId } = render(<BasicExample />);
 
-    expect(getByTestId('header')).toHaveAttribute('id', `${MODAL_ID}--title`);
+    expect(getByTestId('header')).toHaveAttribute('id', `${MODAL_ID}__title`);
   });
 
   it('applies content props to Body element', () => {
     const { getByTestId } = render(<BasicExample />);
 
-    expect(getByTestId('body')).toHaveAttribute('id', `${MODAL_ID}--content`);
+    expect(getByTestId('body')).toHaveAttribute('id', `${MODAL_ID}__content`);
   });
 
   it('applies close props to Close element', () => {

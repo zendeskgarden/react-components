@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect } from 'react';
+import React, { ButtonHTMLAttributes, useEffect } from 'react';
 import { StyledClose } from '../styled';
 import { useText } from '@zendeskgarden/react-theming';
 import { useModalContext } from '../utils/useModalContext';
@@ -14,25 +14,30 @@ import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-export const Close = React.forwardRef<
-  HTMLButtonElement,
-  React.ButtonHTMLAttributes<HTMLButtonElement>
->((props, ref) => {
-  const { getCloseProps, setIsCloseButtonPresent } = useModalContext();
+export const Close = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
+  (props, ref) => {
+    const { getCloseProps, setIsCloseButtonPresent } = useModalContext();
 
-  useEffect(() => {
-    setIsCloseButtonPresent(true);
+    useEffect(() => {
+      setIsCloseButtonPresent(true);
 
-    return () => setIsCloseButtonPresent(false);
-  });
+      return () => setIsCloseButtonPresent(false);
+    });
 
-  const ariaLabel = useText(Close, props, 'aria-label', 'Close modal');
+    const ariaLabel = useText(Close, props, 'aria-label', 'Close modal');
 
-  return (
-    <StyledClose ref={ref} {...getCloseProps({ ...props, 'aria-label': ariaLabel })}>
-      <XStrokeIcon />
-    </StyledClose>
-  );
-});
+    return (
+      <StyledClose
+        {...(getCloseProps({
+          ...props,
+          'aria-label': ariaLabel
+        }) as ButtonHTMLAttributes<HTMLButtonElement>)}
+        ref={ref}
+      >
+        <XStrokeIcon />
+      </StyledClose>
+    );
+  }
+);
 
 Close.displayName = 'Close';

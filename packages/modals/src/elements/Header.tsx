@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import { useModalContext } from '../utils/useModalContext';
 import { StyledDangerIcon, StyledHeader } from '../styled';
 import { IHeaderProps } from '../types';
@@ -17,7 +17,11 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>((props, ref) => {
   const { isCloseButtonPresent, getTitleProps } = useModalContext();
 
   return (
-    <StyledHeader ref={ref} {...getTitleProps(props)} isCloseButtonPresent={isCloseButtonPresent}>
+    <StyledHeader
+      {...(getTitleProps(props) as HTMLAttributes<HTMLDivElement>)}
+      isCloseButtonPresent={isCloseButtonPresent}
+      ref={ref}
+    >
       {props.isDanger && <StyledDangerIcon />}
       {props.children}
     </StyledHeader>

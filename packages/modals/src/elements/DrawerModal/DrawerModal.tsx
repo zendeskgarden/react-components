@@ -5,7 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useRef, useMemo, useContext, useState, forwardRef } from 'react';
+import React, {
+  HTMLAttributes,
+  useEffect,
+  useRef,
+  useMemo,
+  useContext,
+  useState,
+  forwardRef
+} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
@@ -38,7 +46,7 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
 
     const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
       useModal({
-        id,
+        idPrefix: id,
         modalRef,
         focusOnMount,
         restoreFocus,
@@ -94,10 +102,6 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
       return null;
     }
 
-    const modalProps = isOpen
-      ? getModalProps({ ref: mergeRefs([ref, modalRef, transitionRef]), ...props } as any)
-      : { ref: mergeRefs([ref, modalRef, transitionRef]), ...props };
-
     return ReactDOM.createPortal(
       <ModalsContext.Provider value={value}>
         <CSSTransition
@@ -107,8 +111,15 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
           classNames="garden-drawer-transition"
           nodeRef={transitionRef}
         >
-          <StyledBackdrop {...(getBackdropProps({ isAnimated: true, ...backdropProps }) as any)}>
-            <StyledDrawerModal {...modalProps} />
+          <StyledBackdrop
+            isAnimated
+            {...(getBackdropProps(backdropProps) as HTMLAttributes<HTMLDivElement>)}
+          >
+            <StyledDrawerModal
+              {...(getModalProps() as HTMLAttributes<HTMLDivElement>)}
+              {...props}
+              ref={mergeRefs([ref, modalRef, transitionRef])}
+            />
           </StyledBackdrop>
         </CSSTransition>
       </ModalsContext.Provider>,

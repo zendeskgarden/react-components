@@ -5,7 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useMemo, useContext, useRef, useState, forwardRef } from 'react';
+import React, {
+  HTMLAttributes,
+  useEffect,
+  useMemo,
+  useContext,
+  useRef,
+  useState,
+  forwardRef
+} from 'react';
 import { createPortal } from 'react-dom';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
@@ -67,7 +75,7 @@ export const Modal = forwardRef<HTMLDivElement, IModalProps>(
 
     const { getBackdropProps, getModalProps, getTitleProps, getContentProps, getCloseProps } =
       useModal({
-        id,
+        idPrefix: id,
         onClose,
         modalRef,
         focusOnMount,
@@ -144,16 +152,17 @@ export const Modal = forwardRef<HTMLDivElement, IModalProps>(
     return createPortal(
       <ModalsContext.Provider value={value}>
         <StyledBackdrop
-          {...(getBackdropProps({ isCentered, isAnimated, ...backdropProps }) as any)}
+          isCentered={isCentered}
+          isAnimated={isAnimated}
+          {...(getBackdropProps(backdropProps) as HTMLAttributes<HTMLDivElement>)}
         >
           <StyledModal
-            {...(getModalProps({
-              isCentered,
-              isAnimated,
-              isLarge,
-              ref: mergeRefs([ref, modalRef]),
-              ...modalProps
-            }) as any)}
+            isCentered={isCentered}
+            isAnimated={isAnimated}
+            isLarge={isLarge}
+            {...(getModalProps() as HTMLAttributes<HTMLDivElement>)}
+            {...modalProps}
+            ref={mergeRefs([ref, modalRef])}
           >
             {children}
           </StyledModal>
