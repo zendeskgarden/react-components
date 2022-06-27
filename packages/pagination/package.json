@@ -21,8 +21,8 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-pagination": "^0.3.8",
-    "@zendeskgarden/container-utilities": "^0.7.0",
+    "@zendeskgarden/container-pagination": "^1.0.0",
+    "@zendeskgarden/container-utilities": "^1.0.0",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7"
   },
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/react-theming": "^8.53.0",
-    "@zendeskgarden/svg-icons": "6.32.0"
+    "@zendeskgarden/svg-icons": "6.33.0"
   },
   "keywords": [
     "components",
