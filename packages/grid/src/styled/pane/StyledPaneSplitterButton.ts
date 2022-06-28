@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { ISplitterButtonProps, Orientation, PLACEMENT } from '../../types';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
 import { StyledPaneSplitter } from './StyledPaneSplitter';
@@ -37,6 +37,23 @@ const transformStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultT
   return css`
     & > svg {
       transform: rotate(${degrees}deg);
+    }
+  `;
+};
+
+const colorStyles = ({ theme }: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>) => {
+  const boxShadow = theme.shadows.lg(
+    `${theme.space.base}px`,
+    `${theme.space.base * 2}px`,
+    getColor('chromeHue', 600, theme, 0.15)!
+  );
+  const focusBoxShadow = theme.shadows.md(getColor('primaryHue', 600, theme, 0.35)!);
+
+  return css`
+    box-shadow: ${boxShadow};
+
+    &[data-garden-focus-visible] {
+      box-shadow: ${focusBoxShadow}, ${boxShadow};
     }
   `;
 };
@@ -91,7 +108,6 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   position: absolute;
   /* prettier-ignore */
   transition:
-    box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
     opacity 0.25s ease-in-out 0.1s;
   opacity: 0;
@@ -105,6 +121,7 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
 
   ${sizeStyles};
   ${transformStyles};
+  ${colorStyles};
 
   /* [1] */
   &::before {
