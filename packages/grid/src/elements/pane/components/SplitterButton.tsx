@@ -57,8 +57,13 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
       (event: KeyboardEvent) => event.stopPropagation() // prevent splitter movement with cursor keys
     );
 
+    const onMouseDown = composeEventHandlers(
+      props.onMouseDown,
+      (event: MouseEvent) => event.stopPropagation() // prevent splitter movement on button drag
+    );
+
     return (
-      <Tooltip content={label}>
+      <Tooltip content={label} style={{ cursor: 'default' }} onMouseDown={e => e.stopPropagation()}>
         <StyledPaneSplitterButton
           aria-label={label}
           {...props}
@@ -68,6 +73,7 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
           ref={ref}
           onClick={onClick}
           onKeyDown={onKeyDown}
+          onMouseDown={onMouseDown}
         />
       </Tooltip>
     );

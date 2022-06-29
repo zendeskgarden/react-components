@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext, useEffect, forwardRef, useMemo } from 'react';
+import React, { useContext, useEffect, forwardRef, useMemo, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import {
   useSplitter,
   SplitterOrientation,
@@ -47,6 +48,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
     const paneProviderContext = usePaneProviderContextData(providerId);
     const paneContext = usePaneContext();
     const themeContext = useContext(ThemeContext);
+    const [isHovered, setIsHovered] = useState(false);
     const position = orientationToPosition[orientation!];
     const isRow = orientationToDimension[orientation!] === 'rows';
 
@@ -100,6 +102,10 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       'aria-controls': paneContext.id
     });
 
+    const onMouseOver = composeEventHandlers(props.onMouseOver, (event: MouseEvent) =>
+      setIsHovered(event.target === separatorProps.ref.current)
+    );
+
     return (
       <PaneSplitterContext.Provider
         value={useMemo(
@@ -108,9 +114,11 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
         )}
       >
         <StyledPaneSplitter
+          isHovered={isHovered}
           orientation={orientation}
           {...separatorProps}
           {...props}
+          onMouseOver={onMouseOver}
           ref={mergeRefs([separatorProps.ref, ref])}
         />
       </PaneSplitterContext.Provider>
