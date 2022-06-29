@@ -14,6 +14,7 @@ interface IPaneSplitterContext {
   max: ISplitterProps['max'];
   layoutKey: ISplitterProps['layoutKey'];
   valueNow?: number;
+  size?: number;
   isRow: boolean;
   providerId?: ISplitterProps['providerId'];
 }
@@ -24,6 +25,7 @@ export const PaneSplitterContext = createContext<IPaneSplitterContext>({
   max: 0,
   layoutKey: '',
   valueNow: 0,
+  size: 0,
   isRow: false
 });
 

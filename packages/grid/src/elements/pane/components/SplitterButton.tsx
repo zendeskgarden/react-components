@@ -16,7 +16,7 @@ import { usePaneProviderContextData } from '../../../utils/usePaneProviderContex
 const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonProps>(
   (props, ref) => {
     const { label, placement: defaultPlacement } = props;
-    const { orientation, layoutKey, min, max, isRow, valueNow, providerId } =
+    const { orientation, layoutKey, min, max, isRow, valueNow, size, providerId } =
       usePaneSplitterContext();
     const paneProviderContext = usePaneProviderContextData(providerId);
     const isTop = orientation === 'top';
@@ -36,10 +36,9 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
       value => {
         if (isRow) {
           paneProviderContext!.setRowValue(isTop, layoutKey, value);
-
-          return;
+        } else {
+          paneProviderContext!.setColumnValue(isStart, layoutKey, value);
         }
-        paneProviderContext!.setColumnValue(isStart, layoutKey, value);
       },
       [isRow, isTop, isStart, layoutKey, paneProviderContext]
     );
@@ -70,6 +69,7 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
           placement={placement!}
           orientation={orientation!}
           isRotated={isMin}
+          splitterSize={size || 0}
           ref={ref}
           onClick={onClick}
           onKeyDown={onKeyDown}

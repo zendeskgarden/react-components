@@ -6,6 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import { math, stripUnit } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { ISplitterButtonProps, Orientation, PLACEMENT } from '../../types';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
@@ -17,6 +18,7 @@ interface IStyledSplitterButtonProps extends ISplitterButtonProps {
   orientation: Orientation;
   placement: typeof PLACEMENT[number];
   isRotated: boolean;
+  splitterSize: number;
 }
 
 const transformStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>) => {
@@ -60,31 +62,36 @@ const colorStyles = ({ theme }: IStyledSplitterButtonProps & ThemeProps<DefaultT
 
 const sizeStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>) => {
   const size = `${props.theme.space.base * 6}px`;
+  const display =
+    props.splitterSize <= stripUnit(math(`${props.theme.shadowWidths.md} * 2 + ${size}`)) && 'none';
   const isVertical = props.orientation === 'start' || props.orientation === 'end';
   let top;
   let left;
   let right;
   let bottom;
 
-  if (props.placement === 'start') {
-    if (isVertical) {
-      top = size;
-    } else if (props.theme.rtl) {
-      right = size;
-    } else {
-      left = size;
-    }
-  } else if (props.placement === 'end') {
-    if (isVertical) {
-      bottom = size;
-    } else if (props.theme.rtl) {
-      left = size;
-    } else {
-      right = size;
+  if (props.splitterSize >= stripUnit(math(`${size} * 3`))) {
+    if (props.placement === 'start') {
+      if (isVertical) {
+        top = size;
+      } else if (props.theme.rtl) {
+        right = size;
+      } else {
+        left = size;
+      }
+    } else if (props.placement === 'end') {
+      if (isVertical) {
+        bottom = size;
+      } else if (props.theme.rtl) {
+        left = size;
+      } else {
+        right = size;
+      }
     }
   }
 
   return css`
+    display: ${display};
     top: ${top};
     right: ${right};
     bottom: ${bottom};

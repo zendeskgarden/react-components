@@ -102,6 +102,10 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       'aria-controls': paneContext.id
     });
 
+    const size = isRow
+      ? separatorProps.ref.current?.clientWidth
+      : separatorProps.ref.current?.clientHeight;
+
     const onMouseOver = composeEventHandlers(props.onMouseOver, (event: MouseEvent) =>
       setIsHovered(event.target === separatorProps.ref.current)
     );
@@ -109,8 +113,8 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
     return (
       <PaneSplitterContext.Provider
         value={useMemo(
-          () => ({ orientation, layoutKey, min, max, valueNow: valueInFr, isRow }),
-          [orientation, layoutKey, min, max, valueInFr, isRow]
+          () => ({ orientation, layoutKey, min, max, valueNow: valueInFr, size, isRow }),
+          [orientation, layoutKey, min, max, valueInFr, size, isRow]
         )}
       >
         <StyledPaneSplitter
