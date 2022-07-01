@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, useEffect } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, useEffect } from 'react';
 import { StyledClose } from '../styled';
 import { useText } from '@zendeskgarden/react-theming';
 import { useModalContext } from '../utils/useModalContext';
@@ -14,7 +14,7 @@ import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-export const Close = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
+export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const { getCloseProps, setIsCloseButtonPresent } = useModalContext();
 
