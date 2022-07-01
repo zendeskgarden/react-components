@@ -13,10 +13,11 @@ import { Orientation } from '../../types';
 const COMPONENT_ID = 'pane.splitter';
 
 interface IStyledPaneSplitterProps {
+  isHovered: boolean;
   orientation: Orientation;
 }
 
-const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
   const color = getColor('neutralHue', 300, props.theme);
   const hoverColor = getColor('primaryHue', 600, props.theme);
   const activeColor = getColor('primaryHue', 800, props.theme);
@@ -27,23 +28,24 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       background-color: ${color};
     }
 
-    &:hover::before,
-    &[data-garden-focus-visible]::before {
-      background-color: ${hoverColor};
+    &:hover::before {
+      background-color: ${props.isHovered && hoverColor};
     }
 
     &[data-garden-focus-visible]::before {
       box-shadow: ${boxShadow};
+      background-color: ${hoverColor};
     }
 
     &:active::before {
-      background-color: ${activeColor};
+      background-color: ${props.isHovered && activeColor};
     }
   `;
 };
 
 const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
   const size = math(`${props.theme.shadowWidths.md} * 2`);
+  const separatorSize = math(`${props.theme.borderWidths.sm} * 2`);
   const offset = math(`-${size} / 2`);
   let cursor;
   let top;
@@ -109,6 +111,8 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
       break;
   }
 
+  const dimensionProperty = width === '100%' ? 'height' : 'width';
+
   return css`
     top: ${top};
     right: ${right};
@@ -123,10 +127,13 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
       height: ${separatorHeight};
     }
 
-    &:hover::before,
+    &:hover::before {
+      ${dimensionProperty}: ${props.isHovered && separatorSize};
+    }
+
     &[data-garden-focus-visible]::before,
     &:focus::before {
-      ${width === '100%' ? 'height' : 'width'}: ${math(`${props.theme.borderWidths.sm} * 2`)};
+      ${dimensionProperty}: ${separatorSize};
     }
 
     &[data-garden-focus-visible]::before {

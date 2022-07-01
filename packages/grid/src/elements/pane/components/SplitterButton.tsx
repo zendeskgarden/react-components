@@ -16,7 +16,7 @@ import { usePaneProviderContextData } from '../../../utils/usePaneProviderContex
 const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonProps>(
   (props, ref) => {
     const { label, placement: defaultPlacement } = props;
-    const { orientation, layoutKey, min, max, isRow, valueNow, providerId } =
+    const { orientation, layoutKey, min, max, isRow, valueNow, size, providerId } =
       usePaneSplitterContext();
     const paneProviderContext = usePaneProviderContextData(providerId);
     const isTop = orientation === 'top';
@@ -36,10 +36,9 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
       value => {
         if (isRow) {
           paneProviderContext!.setRowValue(isTop, layoutKey, value);
-
-          return;
+        } else {
+          paneProviderContext!.setColumnValue(isStart, layoutKey, value);
         }
-        paneProviderContext!.setColumnValue(isStart, layoutKey, value);
       },
       [isRow, isTop, isStart, layoutKey, paneProviderContext]
     );
@@ -57,17 +56,24 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
       (event: KeyboardEvent) => event.stopPropagation() // prevent splitter movement with cursor keys
     );
 
+    const onMouseDown = composeEventHandlers(
+      props.onMouseDown,
+      (event: MouseEvent) => event.stopPropagation() // prevent splitter movement on button drag
+    );
+
     return (
-      <Tooltip content={label}>
+      <Tooltip content={label} style={{ cursor: 'default' }} onMouseDown={e => e.stopPropagation()}>
         <StyledPaneSplitterButton
           aria-label={label}
           {...props}
           placement={placement!}
           orientation={orientation!}
           isRotated={isMin}
+          splitterSize={size || 0}
           ref={ref}
           onClick={onClick}
           onKeyDown={onKeyDown}
+          onMouseDown={onMouseDown}
         />
       </Tooltip>
     );

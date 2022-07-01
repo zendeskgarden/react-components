@@ -6,7 +6,8 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { math, stripUnit } from 'polished';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { ISplitterButtonProps, Orientation, PLACEMENT } from '../../types';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
 import { StyledPaneSplitter } from './StyledPaneSplitter';
@@ -17,6 +18,7 @@ interface IStyledSplitterButtonProps extends ISplitterButtonProps {
   orientation: Orientation;
   placement: typeof PLACEMENT[number];
   isRotated: boolean;
+  splitterSize: number;
 }
 
 const transformStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>) => {
@@ -41,33 +43,55 @@ const transformStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultT
   `;
 };
 
+const colorStyles = ({ theme }: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>) => {
+  const boxShadow = theme.shadows.lg(
+    `${theme.space.base}px`,
+    `${theme.space.base * 2}px`,
+    getColor('chromeHue', 600, theme, 0.15)!
+  );
+  const focusBoxShadow = theme.shadows.md(getColor('primaryHue', 600, theme, 0.35)!);
+
+  return css`
+    box-shadow: ${boxShadow};
+
+    &[data-garden-focus-visible] {
+      box-shadow: ${focusBoxShadow}, ${boxShadow};
+    }
+  `;
+};
+
 const sizeStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>) => {
   const size = `${props.theme.space.base * 6}px`;
+  const display =
+    props.splitterSize <= stripUnit(math(`${props.theme.shadowWidths.md} * 2 + ${size}`)) && 'none';
   const isVertical = props.orientation === 'start' || props.orientation === 'end';
   let top;
   let left;
   let right;
   let bottom;
 
-  if (props.placement === 'start') {
-    if (isVertical) {
-      top = size;
-    } else if (props.theme.rtl) {
-      right = size;
-    } else {
-      left = size;
-    }
-  } else if (props.placement === 'end') {
-    if (isVertical) {
-      bottom = size;
-    } else if (props.theme.rtl) {
-      left = size;
-    } else {
-      right = size;
+  if (props.splitterSize >= stripUnit(math(`${size} * 3`))) {
+    if (props.placement === 'start') {
+      if (isVertical) {
+        top = size;
+      } else if (props.theme.rtl) {
+        right = size;
+      } else {
+        left = size;
+      }
+    } else if (props.placement === 'end') {
+      if (isVertical) {
+        bottom = size;
+      } else if (props.theme.rtl) {
+        left = size;
+      } else {
+        right = size;
+      }
     }
   }
 
   return css`
+    display: ${display};
     top: ${top};
     right: ${right};
     bottom: ${bottom};
@@ -91,7 +115,6 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   position: absolute;
   /* prettier-ignore */
   transition:
-    box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
     opacity 0.25s ease-in-out 0.1s;
   opacity: 0;
@@ -105,6 +128,7 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
 
   ${sizeStyles};
   ${transformStyles};
+  ${colorStyles};
 
   /* [1] */
   &::before {
