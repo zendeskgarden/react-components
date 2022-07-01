@@ -106,8 +106,12 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       ? separatorProps.ref.current?.clientWidth
       : separatorProps.ref.current?.clientHeight;
 
-    const onMouseOver = composeEventHandlers(props.onMouseOver, (event: MouseEvent) =>
-      setIsHovered(event.target === separatorProps.ref.current)
+    const onMouseOver = useMemo(
+      () =>
+        composeEventHandlers(props.onMouseOver, (event: MouseEvent) =>
+          setIsHovered(event.target === separatorProps.ref.current)
+        ),
+      [props.onMouseOver, separatorProps.ref]
     );
 
     return (
