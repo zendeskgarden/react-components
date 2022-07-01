@@ -88,7 +88,7 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
         timeout={isAnimated ? 200 : 0}
         in={Boolean(referenceElement)}
         classNames={isAnimated ? 'garden-tooltip-modal-transition' : ''}
-        nodRef={transitionRef}
+        nodeRef={transitionRef}
       >
         {transitionState => {
           return (

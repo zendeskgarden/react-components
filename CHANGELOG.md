@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.53.1 (2022-06-28)
+
+#### :bug: Bug Fix
+* `modals`
+  * [#1377](https://github.com/zendeskgarden/react-components/pull/1377) fix(modals): typo in nodeRef ([@JamesSingleton](https://github.com/JamesSingleton))
+
 ## v8.53.0 (2022-06-16)
 
 #### :rocket: New Feature
