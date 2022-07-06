@@ -18,7 +18,13 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
     const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Close tooltip');
 
     return (
-      <StyledTooltipModalClose ref={ref} {...getCloseProps({ ...props, 'aria-label': ariaLabel })}>
+      <StyledTooltipModalClose
+        {...(getCloseProps({
+          ...props,
+          'aria-label': ariaLabel
+        }) as ButtonHTMLAttributes<HTMLButtonElement>)}
+        ref={ref}
+      >
         <XStrokeIcon />
       </StyledTooltipModalClose>
     );

@@ -5,7 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext, useRef, useEffect, useState, useMemo, useCallback } from 'react';
+import React, {
+  useContext,
+  useRef,
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+  HTMLAttributes
+} from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Reference } from 'react-popper';
@@ -164,7 +172,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
         };
 
         const renderedItem = renderItem({ value: item, removeValue });
-        const focusRef = React.createRef();
+        const focusRef = React.createRef<Element>();
 
         const clonedChild = React.cloneElement(renderedItem, {
           ...getItemProps({
@@ -300,7 +308,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
             data-test-is-open={isOpen}
             data-test-is-hovered={isContainerHovered}
             data-test-is-focused={isContainerFocused}
-            {...getContainerProps({
+            {...(getContainerProps({
               ...selectProps,
               isHovered: isContainerHovered,
               isFocused: isContainerFocused,
@@ -311,7 +319,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
                 // Apply Select ref to global Dropdown context
                 mergeRefs([triggerRef, popperReferenceElementRef, ref])(selectRef);
               }
-            })}
+            }) as HTMLAttributes<HTMLDivElement>)}
           >
             {start && (
               <StyledFauxInput.StartIcon

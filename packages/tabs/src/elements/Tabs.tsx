@@ -31,7 +31,7 @@ export const Tabs = forwardRef<HTMLDivElement, ITabsProps>(
 
     const tabPropGetters = useTabs({
       rtl: theme!.rtl,
-      vertical: isVertical,
+      orientation: isVertical ? 'vertical' : 'horizontal',
       selectedItem,
       defaultSelectedIndex: 0,
       onSelect: item => {

@@ -20,7 +20,10 @@ export const TabList = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
       return <StyledTabList ref={ref} {...props} />;
     }
 
-    return <StyledTabList {...(tabsPropGetters.getTabListProps({ ref, ...props }) as any)} />;
+    const tabListProps =
+      tabsPropGetters.getTabListProps<HTMLDivElement>() as HTMLAttributes<HTMLDivElement>;
+
+    return <StyledTabList {...tabListProps} {...props} ref={ref} />;
   }
 );
 

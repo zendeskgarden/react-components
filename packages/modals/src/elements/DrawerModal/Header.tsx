@@ -14,9 +14,9 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
 
   return (
     <StyledDrawerModalHeader
-      ref={ref}
-      {...getTitleProps(props)}
+      {...(getTitleProps(props) as HTMLAttributes<HTMLDivElement>)}
       isCloseButtonPresent={isCloseButtonPresent}
+      ref={ref}
     />
   );
 });

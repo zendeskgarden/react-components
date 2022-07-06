@@ -124,25 +124,6 @@ describe('Tabs', () => {
   });
 
   describe('TabPanel', () => {
-    it('throws if no item is provided to TabPanel', () => {
-      const originalError = console.error;
-
-      console.error = jest.fn();
-
-      expect(() => {
-        render(
-          <Tabs>
-            <TabList>
-              <Tab>Invalid panel</Tab>
-            </TabList>
-            <TabPanel>Invalid panel</TabPanel>
-          </Tabs>
-        );
-      }).toThrow('Accessibility Error: You must provide an "item" option to "getTabProps()"');
-
-      console.error = originalError;
-    });
-
     it('does not throw if a item is provided to TabPanel', () => {
       expect(() => {
         render(

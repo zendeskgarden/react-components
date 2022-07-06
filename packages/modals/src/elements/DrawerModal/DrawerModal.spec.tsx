@@ -83,7 +83,7 @@ describe('DrawerModal', () => {
 
     userEvent.click(getByText('Open Drawer'));
 
-    expect(getByText('title')).toHaveAttribute('id', `${DRAWER_MODAL_ID}--title`);
+    expect(getByText('title')).toHaveAttribute('id', `${DRAWER_MODAL_ID}__title`);
   });
 
   it('applies content a11y attributes to Body element', () => {
@@ -91,7 +91,7 @@ describe('DrawerModal', () => {
 
     userEvent.click(getByText('Open Drawer'));
 
-    expect(getByText('body')).toHaveAttribute('id', `${DRAWER_MODAL_ID}--content`);
+    expect(getByText('body')).toHaveAttribute('id', `${DRAWER_MODAL_ID}__content`);
   });
 
   it('closes the drawer modal when user clicks the close modal button', async () => {

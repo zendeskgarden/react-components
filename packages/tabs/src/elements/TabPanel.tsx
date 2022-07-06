@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { ITabPanelProps } from '../types';
 import { StyledTabPanel } from '../styled';
@@ -22,15 +22,17 @@ export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
       return <StyledTabPanel ref={ref} {...otherProps} />;
     }
 
+    const tabPanelProps = tabsPropGetters.getTabPanelProps<HTMLDivElement>({
+      item,
+      index: tabsPropGetters.tabPanelIndexRef.current++
+    }) as HTMLAttributes<HTMLDivElement>;
+
     return (
       <StyledTabPanel
-        {...tabsPropGetters.getTabPanelProps({
-          item,
-          ref,
-          index: tabsPropGetters.tabPanelIndexRef.current++,
-          'aria-hidden': tabsPropGetters.selectedItem !== item,
-          ...otherProps
-        })}
+        aria-hidden={tabsPropGetters.selectedItem !== item}
+        {...tabPanelProps}
+        {...otherProps}
+        ref={ref}
       />
     );
   }

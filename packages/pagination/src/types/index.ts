@@ -32,7 +32,7 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
   /**
    * Handles page change events
    *
-   * @param {any} currentPage The current page
+   * @param {number} currentPage The current page
    */
   onChange?: (currentPage: number) => void;
   /**
@@ -40,6 +40,7 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
    *
    * @param {string} pageType The type of the page accepting the props
    * @param {any} props Default page props to transform
+   * @param {number} pageNumber The page number
    */
-  transformPageProps?: (pageType: PageType, props: any) => any;
+  transformPageProps?: (pageType: PageType, props: any, pageNumber?: number) => any;
 }

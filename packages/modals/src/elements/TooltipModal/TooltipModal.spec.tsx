@@ -91,7 +91,7 @@ describe('TooltipModal', () => {
       await userEvent.click(getByText('open'));
     });
 
-    expect(getByText('title')).toHaveAttribute('id', `${TOOLTIP_MODAL_ID}--title`);
+    expect(getByText('title')).toHaveAttribute('id', `${TOOLTIP_MODAL_ID}__title`);
   });
 
   it('applies content a11y attributes to Body element', async () => {
@@ -101,7 +101,7 @@ describe('TooltipModal', () => {
       await userEvent.click(getByText('open'));
     });
 
-    expect(getByText('body')).toHaveAttribute('id', `${TOOLTIP_MODAL_ID}--content`);
+    expect(getByText('body')).toHaveAttribute('id', `${TOOLTIP_MODAL_ID}__content`);
   });
 
   it('applies close a11y attributes to Close element', async () => {
