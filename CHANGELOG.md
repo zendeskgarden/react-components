@@ -12,6 +12,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.53.2 (2022-07-07)
+
+#### :bug: Bug Fix
+* `breadcrumbs`, `dropdowns`, `modals`, `pagination`, `tabs`
+  * [#1378](https://github.com/zendeskgarden/react-components/pull/1378) fix(breadcrumbs,dropdowns,modals,pagination,tabs): improved a11y with upgraded react-containers ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1380](https://github.com/zendeskgarden/react-components/pull/1380) fix(grid): address splitter button design and interaction issues ([@jzempel](https://github.com/jzempel))
+
 ## v8.53.1 (2022-06-28)
 
 #### :bug: Bug Fix
