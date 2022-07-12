@@ -7,6 +7,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useText } from '@zendeskgarden/react-theming';
+
 import { IMessageProps, VALIDATION } from '../../types';
 import useFieldContext from '../../utils/useFieldContext';
 import useInputContext from '../../utils/useInputContext';
@@ -22,7 +24,7 @@ import {
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
-  ({ validation, children, ...props }, ref) => {
+  ({ validation, validationLabel, children, ...props }, ref) => {
     const fieldContext = useFieldContext();
     const type = useInputContext();
 
@@ -38,15 +40,17 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
       MessageComponent = StyledMessage;
     }
 
-    let combinedProps = { validation, ...props };
+    let combinedProps = { validation, validationLabel, ...props };
 
     if (fieldContext) {
       combinedProps = fieldContext.getMessageProps(combinedProps);
     }
 
+    const ariaLabel = useText(Message, combinedProps, 'validationLabel', validation as string);
+
     return (
       <MessageComponent ref={ref} {...combinedProps}>
-        {validation && <StyledMessageIcon validation={validation} />}
+        {validation && <StyledMessageIcon validation={validation} aria-label={ariaLabel} />}
         {children}
       </MessageComponent>
     );
@@ -56,5 +60,6 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
 Message.displayName = 'Message';
 
 Message.propTypes = {
-  validation: PropTypes.oneOf(VALIDATION)
+  validation: PropTypes.oneOf(VALIDATION),
+  validationLabel: PropTypes.string
 };

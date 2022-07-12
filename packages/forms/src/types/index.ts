@@ -54,6 +54,7 @@ export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
 export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies validation state styling */
   validation?: Validation;
+  validationLabel?: string;
 }
 
 export interface IRadioProps extends InputHTMLAttributes<HTMLInputElement> {
