@@ -14,7 +14,7 @@ const COMPONENT_ID = 'pane.splitter';
 
 interface IStyledPaneSplitterProps {
   isHovered: boolean;
-  orientation: Orientation;
+  orientation?: Orientation;
 }
 
 const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
@@ -68,22 +68,6 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
 
       break;
 
-    case 'end':
-      cursor = 'col-resize';
-      top = 0;
-      width = size;
-      height = '100%';
-      separatorWidth = props.theme.borderWidths.sm;
-      separatorHeight = height;
-
-      if (props.theme.rtl) {
-        left = offset;
-      } else {
-        right = offset;
-      }
-
-      break;
-
     case 'bottom':
       cursor = 'row-resize';
       bottom = offset;
@@ -106,6 +90,23 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
         right = offset;
       } else {
         left = offset;
+      }
+
+      break;
+
+    case 'end':
+    default:
+      cursor = 'col-resize';
+      top = 0;
+      width = size;
+      height = '100%';
+      separatorWidth = props.theme.borderWidths.sm;
+      separatorHeight = height;
+
+      if (props.theme.rtl) {
+        left = offset;
+      } else {
+        right = offset;
       }
 
       break;
