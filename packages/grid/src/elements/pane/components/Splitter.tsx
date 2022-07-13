@@ -65,7 +65,6 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       : paneProviderContext?.getColumnValue(layoutKey);
 
     const { getSeparatorProps, getPrimaryPaneProps } = useSplitter({
-      idPrefix: props.id,
       orientation: splitterOrientation,
       isLeading: orientation === 'start' || orientation === 'top',
       min: min * pixelsPerFr,
