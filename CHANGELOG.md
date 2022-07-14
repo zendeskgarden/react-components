@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.53.3 (2022-07-14)
+
+#### :bug: Bug Fix
+* `grid`
+  * [#1382](https://github.com/zendeskgarden/react-components/pull/1382) fix(grid): upgrade `Pane.Splitter` with default aria-label and offscreen drag support ([@jzempel](https://github.com/jzempel))
+
 ## v8.53.2 (2022-07-07)
 
 #### :bug: Bug Fix
