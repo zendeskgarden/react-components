@@ -5,35 +5,32 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext, useEffect, forwardRef, useMemo, useState } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  forwardRef,
+  useMemo,
+  useState,
+  useRef,
+  HTMLAttributes
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import {
-  useSplitter,
-  SplitterOrientation,
-  SplitterType,
-  SplitterPosition
-} from '@zendeskgarden/container-splitter';
+import { useSplitter } from '@zendeskgarden/container-splitter';
 import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext';
 import usePaneContext from '../../../utils/usePaneContext';
 import { ISplitterProps, ORIENTATION } from '../../../types';
 import { StyledPaneSplitter } from '../../../styled';
 import { PaneSplitterContext } from '../../../utils/usePaneSplitterContext';
+import { useDocument, useText } from '@zendeskgarden/react-theming';
 
-const orientationToPosition = {
-  start: SplitterPosition.LEADS,
-  end: SplitterPosition.TRAILS,
-  top: SplitterPosition.LEADS,
-  bottom: SplitterPosition.TRAILS
-};
-
-const paneToSplitterOrientation = {
-  start: SplitterOrientation.VERTICAL,
-  end: SplitterOrientation.VERTICAL,
-  top: SplitterOrientation.HORIZONTAL,
-  bottom: SplitterOrientation.HORIZONTAL
+const paneToSplitterOrientation: Record<string, 'vertical' | 'horizontal'> = {
+  start: 'vertical',
+  end: 'vertical',
+  top: 'horizontal',
+  bottom: 'horizontal'
 };
 
 const orientationToDimension: Record<string, 'columns' | 'rows'> = {
@@ -48,11 +45,12 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
     const paneProviderContext = usePaneProviderContextData(providerId);
     const paneContext = usePaneContext();
     const themeContext = useContext(ThemeContext);
+    const environment = useDocument(themeContext);
     const [isHovered, setIsHovered] = useState(false);
-    const position = orientationToPosition[orientation!];
     const isRow = orientationToDimension[orientation!] === 'rows';
+    const separatorRef = useRef<HTMLDivElement>(null);
 
-    const splitterOrientation = paneToSplitterOrientation[orientation!];
+    const splitterOrientation = paneToSplitterOrientation[orientation || 'end'];
 
     const pixelsPerFr = paneProviderContext
       ? paneProviderContext.pixelsPerFr[orientationToDimension[orientation!]]
@@ -67,13 +65,12 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       : paneProviderContext?.getColumnValue(layoutKey);
 
     const { getSeparatorProps, getPrimaryPaneProps } = useSplitter({
-      type: SplitterType.VARIABLE,
       orientation: splitterOrientation,
-      position,
+      isLeading: orientation === 'start' || orientation === 'top',
       min: min * pixelsPerFr,
       max: max * pixelsPerFr,
       rtl: themeContext.rtl,
-      environment: window,
+      environment,
       onChange: valueNow => {
         if (isRow) {
           return paneProviderContext?.setRowValue(
@@ -89,29 +86,36 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
           valueNow / pixelsPerFr
         );
       },
-      valueNow: value
+      valueNow: value,
+      separatorRef
     });
 
     useEffect(() => {
       if (!paneContext.id) {
-        paneContext.setId(getPrimaryPaneProps().id);
+        paneContext.setId(getPrimaryPaneProps().id!);
       }
     }, [paneContext, getPrimaryPaneProps]);
 
-    const separatorProps = getSeparatorProps({
-      'aria-controls': paneContext.id
-    });
+    const ariaLabel = useText(
+      SplitterComponent,
+      props,
+      'aria-label',
+      `${splitterOrientation} splitter`
+    );
 
-    const size = isRow
-      ? separatorProps.ref.current?.clientWidth
-      : separatorProps.ref.current?.clientHeight;
+    const separatorProps = getSeparatorProps({
+      'aria-controls': paneContext.id,
+      'aria-label': ariaLabel
+    }) as HTMLAttributes<HTMLDivElement>;
+
+    const size = isRow ? separatorRef.current?.clientWidth : separatorRef.current?.clientHeight;
 
     const onMouseOver = useMemo(
       () =>
         composeEventHandlers(props.onMouseOver, (event: MouseEvent) =>
-          setIsHovered(event.target === separatorProps.ref.current)
+          setIsHovered(event.target === separatorRef.current)
         ),
-      [props.onMouseOver, separatorProps.ref]
+      [props.onMouseOver, separatorRef]
     );
 
     return (
@@ -127,7 +131,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
           {...separatorProps}
           {...props}
           onMouseOver={onMouseOver}
-          ref={mergeRefs([separatorProps.ref, ref])}
+          ref={mergeRefs([separatorRef, ref])}
         />
       </PaneSplitterContext.Provider>
     );
