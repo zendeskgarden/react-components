@@ -42,6 +42,7 @@ export const FauxInputStory: Story<IArgs> = ({
     hasMessage={hasMessage}
     message={message}
     validation={args.validation}
+    validationLabel={args.validationLabel}
   >
     <FauxInput {...args}>
       {hasStartIcon && (

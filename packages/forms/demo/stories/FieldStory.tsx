@@ -7,21 +7,12 @@
 
 import React, { HTMLAttributes } from 'react';
 import { Story } from '@storybook/react';
-import { Field, Hint, IMessageProps, Label, Message } from '@zendeskgarden/react-forms';
+import { Field } from '@zendeskgarden/react-forms';
+import { ICommonArgs, renderHint, renderLabel, renderMessage } from './common';
 
-export interface IFieldArgs {
-  hasLabel?: boolean;
-  label?: string;
-  isLabelRegular?: boolean;
-  isLabelHidden?: boolean;
-  hasHint?: boolean;
-  hint?: string;
-  hasMessage?: boolean;
-  message?: string;
-  validation?: IMessageProps['validation'];
-}
+export type { ICommonArgs as IFieldArgs } from './common';
 
-interface IArgs extends HTMLAttributes<HTMLDivElement>, IFieldArgs {}
+interface IArgs extends HTMLAttributes<HTMLDivElement>, ICommonArgs {}
 
 export const FieldStory: Story<IArgs> = ({
   hasLabel = true,
@@ -30,21 +21,14 @@ export const FieldStory: Story<IArgs> = ({
   isLabelHidden,
   hasHint = true,
   hint = 'Hint',
-  hasMessage = true,
-  message = 'Message',
-  validation,
   children,
   ...args
 }) => (
   <Field {...args}>
-    {hasLabel && (
-      <Label hidden={isLabelHidden} isRegular={isLabelRegular}>
-        {label}
-      </Label>
-    )}
-    {hasHint && hasLabel && !isLabelHidden && <Hint>{hint}</Hint>}
+    {renderLabel({ hasLabel, label, isLabelHidden, isLabelRegular })}
+    {renderHint({ hasHint: hasHint && hasLabel && !isLabelHidden, hint })}
     {children}
-    {hasHint && (!hasLabel || isLabelHidden) && <Hint>{hint}</Hint>}
-    {hasMessage && <Message validation={validation}>{message}</Message>}
+    {renderHint({ hasHint: hasHint && (!hasLabel || isLabelHidden), hint })}
+    {renderMessage(args)}
   </Field>
 );

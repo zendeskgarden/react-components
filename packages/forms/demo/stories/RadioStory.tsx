@@ -7,29 +7,19 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Hint, IRadioProps, Label, Message, Radio } from '@zendeskgarden/react-forms';
+import { IRadioProps, Radio } from '@zendeskgarden/react-forms';
+
 import { FieldStory, IFieldArgs } from './FieldStory';
+import { renderHint, renderLabel, renderMessage } from './common';
 
 interface IArgs extends IRadioProps, IFieldArgs {}
 
-export const RadioStory: Story<IArgs> = ({
-  label,
-  isLabelRegular,
-  isLabelHidden,
-  hasHint,
-  hint,
-  hasMessage,
-  message,
-  validation,
-  ...args
-}) => (
+export const RadioStory: Story<IArgs> = ({ hasLabel = true, ...args }) => (
   <FieldStory hasLabel={false} hasHint={false} hasMessage={false}>
     <Radio {...args}>
-      <Label hidden={isLabelHidden} isRegular={isLabelRegular}>
-        {label}
-      </Label>
-      {hasHint && <Hint>{hint}</Hint>}
-      {hasMessage && <Message validation={validation}>{message}</Message>}
+      {renderLabel({ hasLabel, ...args })}
+      {renderHint(args)}
+      {renderMessage(args)}
     </Radio>
   </FieldStory>
 );
