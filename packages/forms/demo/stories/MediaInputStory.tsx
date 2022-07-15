@@ -24,6 +24,7 @@ export const MediaInputStory: Story<IArgs> = ({
   hint,
   hasMessage,
   message,
+  validationLabel,
   ...args
 }) => (
   <FieldStory
@@ -34,6 +35,7 @@ export const MediaInputStory: Story<IArgs> = ({
     hint={hint}
     hasMessage={hasMessage}
     message={message}
+    validationLabel={validationLabel}
     validation={args.validation}
   >
     <MediaInput {...args} start={start && <StartIcon />} end={end && <EndIcon />} />

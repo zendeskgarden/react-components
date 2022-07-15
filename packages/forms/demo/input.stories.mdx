@@ -12,9 +12,10 @@ import { commonArgs, commonArgTypes } from './stories/common';
     ...commonArgs
   }}
   argTypes={{
+    /* ensures the `validation` story arg for the `Input` component is not overriden */
+    ...{ ...commonArgTypes, validation: {} },
     disabled: { control: 'boolean' },
     readOnly: { control: 'boolean' },
-    ...commonArgTypes,
     placeholder: { control: 'text' },
     type: {
       control: {
@@ -55,7 +56,10 @@ import { commonArgs, commonArgTypes } from './stories/common';
 
 <Canvas>
   <Story name="Uncontrolled" args={{ placeholder: 'Placeholder' }}>
-    {args => <InputStory {...args} />}
+    {args => {
+      console.log(args);
+      return <InputStory {...args} />;
+    }}
   </Story>
 </Canvas>
 

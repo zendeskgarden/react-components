@@ -14,11 +14,12 @@ import { commonArgs, commonArgTypes } from './stories/common';
     ...commonArgs
   }}
   argTypes={{
+    /* ensures the `validation` story arg for the `MediaInput` component is not overriden */
+    ...{ ...commonArgTypes, validation: {} },
     disabled: { control: 'boolean' },
     readOnly: { control: 'boolean' },
     start: { control: 'boolean' },
     end: { control: 'boolean' },
-    ...commonArgTypes,
     placeholder: { control: 'text' },
     type: {
       control: {

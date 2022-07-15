@@ -14,9 +14,10 @@ import { commonArgs, commonArgTypes } from './stories/common';
     ...commonArgs
   }}
   argTypes={{
+    /* ensures the `validation` story arg for the `Select` component is not overriden */
+    ...{ ...commonArgTypes, validation: {} },
     options: { name: 'children' },
-    disabled: { control: 'boolean' },
-    ...commonArgTypes
+    disabled: { control: 'boolean' }
   }}
 />
 

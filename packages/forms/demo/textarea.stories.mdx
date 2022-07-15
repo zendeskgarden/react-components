@@ -12,10 +12,11 @@ import { commonArgs, commonArgTypes } from './stories/common';
     ...commonArgs
   }}
   argTypes={{
+    /* ensures the `validation` story arg for the `Textarea` component is not overriden */
+    ...{ ...commonArgTypes, validation: {} },
     disabled: { control: 'boolean' },
     readOnly: { control: 'boolean' },
-    placeholder: { control: 'text' },
-    ...commonArgTypes
+    placeholder: { control: 'text' }
   }}
   parameters={{
     design: {

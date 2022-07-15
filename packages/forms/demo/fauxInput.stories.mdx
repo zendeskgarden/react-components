@@ -32,6 +32,8 @@ import { commonArgs, commonArgTypes } from './stories/common';
       ...commonArgs
     }}
     argTypes={{
+      /* ensures the `validation` story arg for the `FauxInput` component is not overriden */
+      ...{ ...commonArgTypes, validation: {} },
       isEndIconRotated: {
         name: 'isRotated',
         control: 'boolean',
@@ -44,7 +46,6 @@ import { commonArgs, commonArgTypes } from './stories/common';
       },
       hasStartIcon: { name: 'FauxInput.StartIcon', table: { category: 'Story' } },
       hasEndIcon: { name: 'FauxInput.EndIcon', table: { category: 'Story' } },
-      ...commonArgTypes,
       placeholder: { control: 'text' }
     }}
     parameters={{
