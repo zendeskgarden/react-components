@@ -56,10 +56,7 @@ import { commonArgs, commonArgTypes } from './stories/common';
 
 <Canvas>
   <Story name="Uncontrolled" args={{ placeholder: 'Placeholder' }}>
-    {args => {
-      console.log(args);
-      return <InputStory {...args} />;
-    }}
+    {args => <InputStory {...args} />}
   </Story>
 </Canvas>
 
