@@ -50,6 +50,10 @@ import { COMBOBOX_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stor
       isLabelHidden: { name: 'hidden', table: { category: 'Label' } },
       hint: { name: 'children', table: { category: 'Hint' } },
       message: { name: 'children', table: { category: 'Message' } },
+      validationLabel: {
+        control: { type: 'text' },
+        table: { category: 'Message' }
+      },
       hasHint: { name: 'Hint', table: { category: 'Story' } },
       hasMessage: { name: 'Message', table: { category: 'Story' } },
       items: { name: 'Item[]', table: { category: 'Story' } },

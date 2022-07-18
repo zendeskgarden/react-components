@@ -2,6 +2,7 @@ import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
 import { Fieldset, Field } from '@zendeskgarden/react-forms';
 import { FieldsetStory } from './stories/FieldsetStory';
 import { FIELDSET_FIELDS as FIELDS } from './stories/data';
+import { hintArgs, hintArgTypes, messageArgs, messageArgTypes } from './stories/common';
 
 <Meta
   title="Packages/Forms/Fieldset"
@@ -10,22 +11,14 @@ import { FIELDSET_FIELDS as FIELDS } from './stories/data';
   args={{
     legend: 'Legend',
     fields: FIELDS,
-    hasHint: true,
-    hint: 'Hint',
-    hasMessage: true,
-    message: 'Message'
+    ...hintArgs,
+    ...messageArgs
   }}
   argTypes={{
     fields: { name: 'children' },
     legend: { name: 'children', table: { category: 'Legend' } },
-    hint: { name: 'children', table: { category: 'Hint' } },
-    message: { name: 'children', table: { category: 'Message' } },
-    validation: {
-      control: { type: 'radio', options: ['success', 'warning', 'error'] },
-      table: { category: 'Message' }
-    },
-    hasHint: { name: 'Hint', table: { category: 'Story' } },
-    hasMessage: { name: 'Message', table: { category: 'Story' } }
+    ...hintArgTypes,
+    ...messageArgTypes
   }}
   parameters={{
     design: {

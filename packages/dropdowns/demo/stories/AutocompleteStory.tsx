@@ -15,22 +15,15 @@ import {
   IMenuProps
 } from '@zendeskgarden/react-dropdowns';
 import { DropdownFieldStory } from './DropdownFieldStory';
-import { IMenuItem } from './types';
+import { ICommonArgs, IMenuItem } from './types';
 
-interface IArgs extends IAutocompleteProps {
+interface IArgs extends IAutocompleteProps, ICommonArgs {
   downshiftProps?: IDropdownProps['downshiftProps'];
   selectedItem: IDropdownProps['selectedItem'];
   inputValue: IDropdownProps['inputValue'];
   onInputValueChange: IDropdownProps['onInputValueChange'];
   onStateChange: IDropdownProps['onStateChange'];
   isOpen?: IDropdownProps['isOpen'];
-  label?: string;
-  isLabelRegular?: boolean;
-  isLabelHidden?: boolean;
-  hasHint?: boolean;
-  hint?: string;
-  hasMessage?: boolean;
-  message?: string;
   hasIcon: boolean;
   items: IMenuItem[];
   placement: IMenuProps['placement'];
@@ -82,6 +75,7 @@ export const AutocompleteStory: Story<IArgs> = ({
       hasMessage={hasMessage}
       message={message}
       validation={args.validation}
+      validationLabel={args.validationLabel}
       menuProps={{ isCompact: args.isCompact, placement }}
       items={
         filteredItems.length === 0

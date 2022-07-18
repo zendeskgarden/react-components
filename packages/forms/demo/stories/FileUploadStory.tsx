@@ -21,6 +21,7 @@ export const FileUploadStory: Story<IArgs> = ({
   hasMessage,
   message,
   validation,
+  validationLabel,
   ...args
 }) => (
   <FieldStory
@@ -32,6 +33,7 @@ export const FileUploadStory: Story<IArgs> = ({
     hasMessage={hasMessage}
     message={message}
     validation={validation}
+    validationLabel={validationLabel}
   >
     <FileUpload {...args} />
   </FieldStory>

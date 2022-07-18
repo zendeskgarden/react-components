@@ -7,29 +7,19 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Checkbox, Hint, ICheckboxProps, Label, Message } from '@zendeskgarden/react-forms';
+import { Checkbox, ICheckboxProps } from '@zendeskgarden/react-forms';
+
 import { FieldStory, IFieldArgs } from './FieldStory';
+import { renderHint, renderLabel, renderMessage } from './common';
 
 interface IArgs extends ICheckboxProps, IFieldArgs {}
 
-export const CheckboxStory: Story<IArgs> = ({
-  label,
-  isLabelRegular,
-  isLabelHidden,
-  hasHint,
-  hint,
-  hasMessage,
-  message,
-  validation,
-  ...args
-}) => (
+export const CheckboxStory: Story<IArgs> = ({ hasLabel = true, ...args }) => (
   <FieldStory hasLabel={false} hasHint={false} hasMessage={false}>
     <Checkbox {...args}>
-      <Label hidden={isLabelHidden} isRegular={isLabelRegular}>
-        {label}
-      </Label>
-      {hasHint && <Hint>{hint}</Hint>}
-      {hasMessage && <Message validation={validation}>{message}</Message>}
+      {renderLabel({ hasLabel, ...args })}
+      {renderHint(args)}
+      {renderMessage(args)}
     </Checkbox>
   </FieldStory>
 );

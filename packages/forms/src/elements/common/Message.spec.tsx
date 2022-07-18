@@ -82,7 +82,24 @@ describe('Message', () => {
         );
 
         expect(getByText(text).firstChild!.nodeName).toBe('svg');
+        expect(getByText(text).firstChild).toHaveAttribute('aria-label', validation);
       });
+    });
+
+    it('renders SVG child element with a validation label', () => {
+      const validation = VALIDATION[0];
+      const validationLabel = `great ${validation}`;
+      const text = `This is ${validation} text`;
+      const { getByText } = render(
+        <Field>
+          <Message validation={validation} validationLabel={validationLabel}>
+            {text}
+          </Message>
+        </Field>
+      );
+
+      expect(getByText(text).firstChild!.nodeName).toBe('svg');
+      expect(getByText(text).firstChild).toHaveAttribute('aria-label', validationLabel);
     });
   });
 });

@@ -35,6 +35,7 @@ export const FieldsetStory: Story<IArgs> = ({
   hasMessage,
   message,
   validation,
+  validationLabel,
   ...args
 }) => (
   <Fieldset {...args}>
@@ -48,6 +49,7 @@ export const FieldsetStory: Story<IArgs> = ({
         hasMessage={hasMessage && index === fields.length - 1}
         message={message}
         validation={validation}
+        validationLabel={validationLabel}
       >
         {
           {

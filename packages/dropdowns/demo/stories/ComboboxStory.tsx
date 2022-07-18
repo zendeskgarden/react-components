@@ -16,21 +16,14 @@ import {
   IMenuProps
 } from '@zendeskgarden/react-dropdowns';
 import { DropdownFieldStory } from './DropdownFieldStory';
-import { IMenuItem } from './types';
+import { IMenuItem, ICommonArgs } from './types';
 
-interface IArgs extends IComboboxProps {
+interface IArgs extends IComboboxProps, ICommonArgs {
   downshiftProps?: IDropdownProps['downshiftProps'];
   inputValue: IDropdownProps['inputValue'];
   onInputValueChange: IDropdownProps['onInputValueChange'];
   onStateChange: IDropdownProps['onStateChange'];
   isOpen?: IDropdownProps['isOpen'];
-  label?: string;
-  isLabelRegular?: boolean;
-  isLabelHidden?: boolean;
-  hasHint?: boolean;
-  hint?: string;
-  hasMessage?: boolean;
-  message?: string;
   hasStartIcon: boolean;
   hasEndIcon: boolean;
   items: IMenuItem[];

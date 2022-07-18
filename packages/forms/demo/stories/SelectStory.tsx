@@ -23,6 +23,7 @@ export const SelectStory: Story<IArgs> = ({
   hint,
   hasMessage,
   message,
+  validationLabel,
   ...args
 }) => (
   <FieldStory
@@ -34,6 +35,7 @@ export const SelectStory: Story<IArgs> = ({
     hasMessage={hasMessage}
     message={message}
     validation={args.validation}
+    validationLabel={validationLabel}
   >
     <Select {...args}>
       {options.map((option, index) => (
