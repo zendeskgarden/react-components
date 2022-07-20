@@ -7,7 +7,6 @@
 
 const webpack = require('webpack');
 const svgoConfig = require('../.svgo.config.js');
-const ESLintPlugin = require('eslint-webpack-plugin');
 const docs = process.env.BROWSER ? process.env.BROWSER.toUpperCase() !== 'IE11' : true;
 
 module.exports = {
@@ -39,8 +38,7 @@ module.exports = {
     config.plugins.push(
       new webpack.DefinePlugin({
         PACKAGE_VERSION: JSON.stringify('storybook')
-      }),
-      new ESLintPlugin({ emitWarning: true, extensions: '.tsx' })
+      })
     );
 
     return config;
