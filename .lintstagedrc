@@ -2,7 +2,7 @@
   "*.{js,ts,tsx}": [
     "stylelint",
     "eslint --max-warnings 0",
-    "jest --config=utils/test/jest.config.js --bail --findRelatedTests",
+    "jest --config=utils/test/jest.config.js --bail --findRelatedTests --passWithNoTests",
     "prettier --write"
   ],
   "!(*CHANGELOG).{md,mdx}": [
