@@ -48,7 +48,11 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
         onClick: (event: MouseEvent) => {
           (event as any).nativeEvent.preventDownshiftDefault = true;
         },
-        ...props
+        ...props,
+        // prevents onSelect from firing twice
+        onKeyDown: (event: KeyboardEvent<HTMLElement>) => {
+          (event.nativeEvent as any).preventDownshiftDefault = true;
+        }
       } as any)
     );
     const inputProps = getInputProps({

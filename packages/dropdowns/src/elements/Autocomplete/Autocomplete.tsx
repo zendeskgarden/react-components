@@ -47,7 +47,7 @@ export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(
      * is not spread onto the MultiSelect Dropdown `div`.
      */
     /* eslint-disable @typescript-eslint/no-unused-vars */
-    const { type, ...selectProps } = getToggleButtonProps(
+    const { type, onKeyDown, ...selectProps } = getToggleButtonProps(
       getRootProps({
         /**
          * Ensure that [role="combobox"] is applied directly to the input
@@ -55,15 +55,17 @@ export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(
          */
         role: null,
         ...props,
-        onKeyDown: composeEventHandlers(props.onKeyDown, (e: KeyboardEvent<HTMLDivElement>) => {
+        onKeyDown: (e: KeyboardEvent<HTMLDivElement>) => {
           if (isOpen) {
             (e.nativeEvent as any).preventDownshiftDefault = true;
           }
-        }),
+        },
         onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
         onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false))
       } as any)
     );
+
+    const onSelectKeyDown = composeEventHandlers(props.onKeyDown, onKeyDown);
 
     const isContainerHovered = isLabelHovered && !isOpen;
     const isContainerFocused = isOpen || isFocused;
@@ -82,6 +84,7 @@ export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(
             isHovered={isContainerHovered}
             isFocused={isContainerFocused}
             tabIndex={null}
+            onKeyDown={onSelectKeyDown}
             {...selectProps}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
