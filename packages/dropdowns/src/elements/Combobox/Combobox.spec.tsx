@@ -190,4 +190,34 @@ describe('Combobox', () => {
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
   });
+
+  describe('Functionality', () => {
+    it('calls "onSelect" once when enter key is pressed', () => {
+      const onSelectSpy = jest.fn();
+      const { getByTestId } = render(
+        <Dropdown isOpen onSelect={onSelectSpy}>
+          <Field>
+            <Combobox data-test-id="combobox" />
+          </Field>
+          <Menu>
+            <Item value="item-1" data-test-id="item">
+              Item 1
+            </Item>
+            <Item value="item-2" data-test-id="item">
+              Item 2
+            </Item>
+            <Item value="item-3" data-test-id="item">
+              Item 3
+            </Item>
+          </Menu>
+        </Dropdown>
+      );
+      const combobox = getByTestId('combobox');
+
+      userEvent.type(combobox, '{arrowup}');
+      userEvent.type(combobox, '{enter}');
+
+      expect(onSelectSpy).toHaveBeenCalledTimes(1);
+    });
+  });
 });
