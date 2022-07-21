@@ -12,6 +12,20 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.54.0 (2022-07-21)
+
+#### :rocket: New Feature
+* `dropdowns`, `forms`
+  * [#1381](https://github.com/zendeskgarden/react-components/pull/1381) feat(forms): add validation label to message component ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1386](https://github.com/zendeskgarden/react-components/pull/1386) fix(dropdowns): prevent enter key from firing callbacks twice ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* [#1387](https://github.com/zendeskgarden/react-components/pull/1387) chore(storybook): remove eslint from webpack config ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* [#1388](https://github.com/zendeskgarden/react-components/pull/1388) chore(lint-staged): update jest to pass with no tests ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.53.3 (2022-07-14)
 
 #### :bug: Bug Fix
