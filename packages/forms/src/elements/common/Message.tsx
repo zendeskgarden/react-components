@@ -29,16 +29,15 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
     const type = useInputContext();
 
     useEffect(() => {
-      if (fieldContext && !fieldContext.hasMessage) {
-        fieldContext.setHasMessage(true);
-      }
+      fieldContext?.setHasMessage(true);
 
       return () => {
-        if (fieldContext && fieldContext.hasMessage) {
-          fieldContext.setHasMessage(false);
-        }
+        fieldContext?.setHasMessage(false);
       };
-    }, [fieldContext]);
+      // fieldContext was removed due to maximum update depth
+      // causing the component to re-render uncontrollably
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     let MessageComponent;
 
