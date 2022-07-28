@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, act } from 'garden-test-utils';
-import { Field, Label, Input, Hint } from '../..';
+import { Field, Label, Input, Hint, Message } from '../..';
 
 describe('Field', () => {
   it('passes ref to underlying DOM element', () => {
@@ -65,6 +65,26 @@ describe('Field', () => {
 
     act(() => {
       rerender(<ExampleField showHint={false} />);
+    });
+
+    expect(getByTestId('input')).not.toHaveAttribute('aria-describedby', expect.any(String));
+  });
+
+  it('renders correct aria attributes when Message component is present', () => {
+    const ExampleField = ({ showMessage = false }) => (
+      <Field>
+        <Label>Label</Label>
+        {showMessage ? <Message>Message</Message> : null}
+        <Input data-test-id="input" />
+      </Field>
+    );
+
+    const { getByTestId, rerender } = render(<ExampleField showMessage />);
+
+    expect(getByTestId('input')).toHaveAttribute('aria-describedby', expect.any(String));
+
+    act(() => {
+      rerender(<ExampleField showMessage={false} />);
     });
 
     expect(getByTestId('input')).not.toHaveAttribute('aria-describedby', expect.any(String));

@@ -42,7 +42,7 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
     }
 
     if (fieldContext) {
-      combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+      combinedProps = fieldContext.getInputProps(combinedProps);
     }
 
     return <StyledTextInput {...(combinedProps as any)} />;

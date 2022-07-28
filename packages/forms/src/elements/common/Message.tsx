@@ -25,19 +25,20 @@ import {
  */
 export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
   ({ validation, validationLabel, children, ...props }, ref) => {
-    const fieldContext = useFieldContext();
+    const { hasMessage, setHasMessage, getMessageProps } = useFieldContext() || {};
     const type = useInputContext();
 
     useEffect(() => {
-      fieldContext?.setHasMessage(true);
+      if (!hasMessage) {
+        setHasMessage!(true);
+      }
 
       return () => {
-        fieldContext?.setHasMessage(false);
+        if (hasMessage) {
+          setHasMessage!(false);
+        }
       };
-      // fieldContext was removed due to maximum update depth
-      // causing the component to re-render uncontrollably
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [hasMessage, setHasMessage]);
 
     let MessageComponent;
 
@@ -53,8 +54,8 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
 
     let combinedProps = { validation, validationLabel, ...props };
 
-    if (fieldContext) {
-      combinedProps = fieldContext.getMessageProps(combinedProps);
+    if (getMessageProps) {
+      combinedProps = getMessageProps!(combinedProps);
     }
 
     const ariaLabel = useText(Message, combinedProps, 'validationLabel', validation as string);

@@ -32,7 +32,7 @@ export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
     const fieldProps = useMemo(
       () => ({
         ...propGetters,
-        getInputProps: (options: any, describeOptions: any) =>
+        getInputProps: (options: any, describeOptions: any = {}) =>
           getInputProps(options, { ...describeOptions, isDescribed: hasHint, hasMessage }),
         getMessageProps: (options: any) => getMessageProps({ role: 'alert', ...options }),
         isLabelActive,
