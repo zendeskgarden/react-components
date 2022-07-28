@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useText } from '@zendeskgarden/react-theming';
 
@@ -27,6 +27,18 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
   ({ validation, validationLabel, children, ...props }, ref) => {
     const fieldContext = useFieldContext();
     const type = useInputContext();
+
+    useEffect(() => {
+      if (fieldContext && !fieldContext.hasMessage) {
+        fieldContext.setHasMessage(true);
+      }
+
+      return () => {
+        if (fieldContext && fieldContext.hasMessage) {
+          fieldContext.setHasMessage(false);
+        }
+      };
+    }, [fieldContext]);
 
     let MessageComponent;
 

@@ -20,12 +20,12 @@ export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
 
     useEffect(() => {
       if (fieldContext && !fieldContext.hasHint) {
-        fieldContext.setHint(true);
+        fieldContext.setHasHint(true);
       }
 
       return () => {
         if (fieldContext && fieldContext.hasHint) {
-          fieldContext.setHint(false);
+          fieldContext.setHasHint(false);
         }
       };
     }, [fieldContext]);
