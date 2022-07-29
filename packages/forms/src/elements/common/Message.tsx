@@ -54,7 +54,7 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
 
     let combinedProps = { validation, validationLabel, ...props };
 
-    if (getMessageProps) {
+    if (typeof getMessageProps === 'function') {
       combinedProps = getMessageProps!(combinedProps);
     }
 

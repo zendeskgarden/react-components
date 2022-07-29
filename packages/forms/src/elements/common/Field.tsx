@@ -47,12 +47,12 @@ export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
       }),
       [
         propGetters,
+        getInputProps,
+        getMessageProps,
         isLabelActive,
         isLabelHovered,
         hasHint,
-        hasMessage,
-        getInputProps,
-        getMessageProps
+        hasMessage
       ]
     );
 
