@@ -54,8 +54,8 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
 
     let combinedProps = { validation, validationLabel, ...props };
 
-    if (typeof getMessageProps === 'function') {
-      combinedProps = getMessageProps!(combinedProps);
+    if (getMessageProps) {
+      combinedProps = getMessageProps(combinedProps);
     }
 
     const ariaLabel = useText(Message, combinedProps, 'validationLabel', validation as string);

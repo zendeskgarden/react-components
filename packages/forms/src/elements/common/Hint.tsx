@@ -44,8 +44,8 @@ export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
 
     let combinedProps = props;
 
-    if (typeof getHintProps === 'function') {
-      combinedProps = getHintProps!(combinedProps);
+    if (getHintProps) {
+      combinedProps = getHintProps(combinedProps);
     }
 
     return <HintComponent ref={ref} {...(combinedProps as any)} />;
