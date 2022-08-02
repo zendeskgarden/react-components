@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useText } from '@zendeskgarden/react-theming';
 
@@ -25,8 +25,20 @@ import {
  */
 export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
   ({ validation, validationLabel, children, ...props }, ref) => {
-    const fieldContext = useFieldContext();
+    const { hasMessage, setHasMessage, getMessageProps } = useFieldContext() || {};
     const type = useInputContext();
+
+    useEffect(() => {
+      if (!hasMessage) {
+        setHasMessage!(true);
+      }
+
+      return () => {
+        if (hasMessage) {
+          setHasMessage!(false);
+        }
+      };
+    }, [hasMessage, setHasMessage]);
 
     let MessageComponent;
 
@@ -42,8 +54,8 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
 
     let combinedProps = { validation, validationLabel, ...props };
 
-    if (fieldContext) {
-      combinedProps = fieldContext.getMessageProps(combinedProps);
+    if (getMessageProps) {
+      combinedProps = getMessageProps(combinedProps);
     }
 
     const ariaLabel = useText(Message, combinedProps, 'validationLabel', validation as string);
