@@ -23,9 +23,10 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
 
     const onSelectHandler = props.readOnly
       ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLInputElement>) => {
-          event.currentTarget.select();
-        })
+        event.currentTarget.select();
+      })
       : onSelect;
+
 
     let combinedProps = {
       ref,

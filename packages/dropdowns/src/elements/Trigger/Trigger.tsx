@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
@@ -210,25 +210,27 @@ export const Trigger = ({ children, refKey, ...triggerProps }: ITriggerProps) =>
     });
   };
 
+  const inputProps = useMemo(() => getInputProps({
+    readOnly: true,
+    isHidden: true,
+    tabIndex: -1,
+    ref: hiddenInputRef,
+    value: '',
+    onClick: (e: any) => {
+      if (isOpen) {
+        (e.nativeEvent as any).preventDownshiftDefault = true;
+      }
+    },
+    onKeyDown: onInputKeyDown
+  } as any), [hiddenInputRef, isOpen, onInputKeyDown, getInputProps]);
+
   return (
     <Reference>
       {({ ref: popperReference }) => (
         <>
           {renderChildren(popperReference)}
           <StyledInput
-            {...getInputProps({
-              readOnly: true,
-              isHidden: true,
-              tabIndex: -1,
-              ref: hiddenInputRef,
-              value: '',
-              onClick: (e: any) => {
-                if (isOpen) {
-                  (e.nativeEvent as any).preventDownshiftDefault = true;
-                }
-              },
-              onKeyDown: onInputKeyDown
-            } as any)}
+            {...inputProps}
           />
         </>
       )}
