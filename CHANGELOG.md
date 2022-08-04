@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.54.1 (2022-08-04)
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1389](https://github.com/zendeskgarden/react-components/pull/1389) fix(forms): add message id to input aria-describedby attribute ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.54.0 (2022-07-21)
 
 #### :rocket: New Feature
