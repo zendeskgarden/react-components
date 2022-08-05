@@ -21,4 +21,10 @@ describe('Tab', () => {
 
     expect(container.firstChild).toBe(ref.current);
   });
+
+  it('contains a role when disabled', () => {
+    const { container } = render(<Tab disabled />);
+
+    expect(container.firstChild).toHaveAttribute('role', 'tab');
+  });
 });
