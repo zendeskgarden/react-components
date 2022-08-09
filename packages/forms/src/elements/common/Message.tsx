@@ -29,13 +29,13 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
     const type = useInputContext();
 
     useEffect(() => {
-      if (!hasMessage) {
-        setHasMessage!(true);
+      if (!hasMessage && setHasMessage) {
+        setHasMessage(true);
       }
 
       return () => {
-        if (hasMessage) {
-          setHasMessage!(false);
+        if (hasMessage && setHasMessage) {
+          setHasMessage(false);
         }
       };
     }, [hasMessage, setHasMessage]);

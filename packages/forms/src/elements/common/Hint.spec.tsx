@@ -68,4 +68,14 @@ describe('Hint', () => {
 
     expect(getByTestId('hint')).toHaveAttribute('data-garden-id', 'forms.radio_hint');
   });
+
+  it('renders radio hint if within a Radio component without Field component', () => {
+    const { getByTestId } = render(
+      <Radio>
+        <Hint data-test-id="hint">Test</Hint>
+      </Radio>
+    );
+
+    expect(getByTestId('hint')).toHaveAttribute('data-garden-id', 'forms.radio_hint');
+  });
 });
