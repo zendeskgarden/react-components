@@ -71,6 +71,16 @@ describe('Message', () => {
     expect(getByTestId('message')).toHaveAttribute('data-garden-id', 'forms.radio_message');
   });
 
+  it('renders radio message if within a Radio component without Field component', () => {
+    const { getByTestId } = render(
+      <Radio>
+        <Message data-test-id="message">Test</Message>
+      </Radio>
+    );
+
+    expect(getByTestId('message')).toHaveAttribute('data-garden-id', 'forms.radio_message');
+  });
+
   describe('Validation', () => {
     it('renders expected component for each validation type', () => {
       VALIDATION.forEach(validation => {

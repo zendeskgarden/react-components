@@ -19,13 +19,13 @@ export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
     const type = useInputContext();
 
     useEffect(() => {
-      if (!hasHint) {
-        setHasHint!(true);
+      if (!hasHint && setHasHint) {
+        setHasHint(true);
       }
 
       return () => {
-        if (hasHint) {
-          setHasHint!(false);
+        if (hasHint && setHasHint) {
+          setHasHint(false);
         }
       };
     }, [hasHint, setHasHint]);
