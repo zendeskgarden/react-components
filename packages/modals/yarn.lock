@@ -58,10 +58,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
-"@types/react-transition-group@4.4.4":
-  version "4.4.4"
-  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.4.tgz#acd4cceaa2be6b757db61ed7b432e103242d163e"
-  integrity sha512-7gAPz7anVK5xzbeQW9wFBDg7G++aPLAFY0QaSMOou9rJZpbuI58WAuJrgu+qR92l61grlnCUe7AFX8KGahAgug==
+"@types/react-transition-group@4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.5.tgz#aae20dcf773c5aa275d5b9f7cdbca638abc5e416"
+  integrity sha512-juKD/eiSM3/xZYzjuzH6ZwpP+/lejltmiS3QEzV/vmb/Q8+HfDmxu+Baga8UEMGBqV88Nbg4l2hY/K2DkyaLLA==
   dependencies:
     "@types/react" "*"
 
@@ -128,10 +128,10 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.17.0"
 
-"@zendeskgarden/react-theming@^8.53.1":
-  version "8.53.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.53.1.tgz#648716a842f92a805de9a6db8bd842c8f737e23e"
-  integrity sha512-NxtesuH08/hbqPpa995ORlvjfS5Z/iNQFqf2kidA8i6DpPminoUgYdbW3CgpSamvZYLbPZTFgprEhD/ys14Www==
+"@zendeskgarden/react-theming@^8.54.1":
+  version "8.54.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.54.1.tgz#c4a4056cb53a3850ef6fa8624969b89e4e9f14aa"
+  integrity sha512-OJGusfhN1r/PUi1aYOagwXknN+VcvBr6Pc3MSo9Dmn5gcnE82TC5TtJEL0UO+PnsHG3cuV23MRVofWy3Ydr32A==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.7.0"
