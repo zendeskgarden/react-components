@@ -10,6 +10,20 @@ import { render } from 'garden-test-utils';
 import { Inline } from './Inline';
 
 describe('Inline', () => {
+  it('renders correctly', () => {
+    const { container } = render(<Inline />);
+
+    expect(container.firstChild).toHaveAttribute('role', 'img');
+    expect(container.firstChild).toHaveAttribute('aria-label', 'loading');
+  });
+
+  it('applies aria-label correctly', () => {
+    const { container } = render(<Inline aria-label="inline loader" />);
+
+    expect(container.firstChild).toHaveAttribute('role', 'img');
+    expect(container.firstChild).toHaveAttribute('aria-label', 'inline loader');
+  });
+
   it('applies size correctly', () => {
     const { container } = render(<Inline size={25} />);
 

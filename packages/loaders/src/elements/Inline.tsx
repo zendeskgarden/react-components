@@ -7,19 +7,32 @@
 
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { useText } from '@zendeskgarden/react-theming';
+
 import { IInlineProps } from '../types';
 import { StyledInline, StyledCircle } from '../styled';
 
 /**
  * @extends SVGAttributes<SVGSVGElement>
  */
-export const Inline = forwardRef<SVGSVGElement, IInlineProps>(({ size, color, ...other }, ref) => (
-  <StyledInline ref={ref} size={size!} color={color!} {...other}>
-    <StyledCircle cx="14" />
-    <StyledCircle cx="8" />
-    <StyledCircle cx="2" />
-  </StyledInline>
-));
+export const Inline = forwardRef<SVGSVGElement, IInlineProps>(({ size, color, ...other }, ref) => {
+  const ariaLabel = useText(Inline, other, 'aria-label', 'loading');
+
+  return (
+    <StyledInline
+      ref={ref}
+      size={size!}
+      color={color!}
+      aria-label={ariaLabel}
+      role="img"
+      {...other}
+    >
+      <StyledCircle cx="14" />
+      <StyledCircle cx="8" />
+      <StyledCircle cx="2" />
+    </StyledInline>
+  );
+});
 
 Inline.displayName = 'Inline';
 
