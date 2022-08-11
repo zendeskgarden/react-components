@@ -12,6 +12,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.54.2 (2022-08-11)
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1399](https://github.com/zendeskgarden/react-components/pull/1399) fix(forms): prevent message and hint component from throwing outside of field component ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `tabs`
+  * [#1391](https://github.com/zendeskgarden/react-components/pull/1391) fix(tabs): add role when tab is disabled ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+
 ## v8.54.1 (2022-08-04)
 
 #### :bug: Bug Fix
