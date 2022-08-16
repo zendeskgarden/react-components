@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, forwardRef } from 'react';
+import React, { Children, forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { useText } from '@zendeskgarden/react-theming';
 import ClockIcon12 from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
 import ClockIcon16 from '@zendeskgarden/svg-icons/src/16/clock-stroke.svg';
 import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-sm-stroke.svg';
@@ -28,7 +29,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
       surfaceColor,
       backgroundColor,
       foregroundColor,
-      ...other
+      ...props
     },
     ref
   ) => {
@@ -42,6 +43,21 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
       ArrowLeftIcon = ArrowLeftIcon16;
     }
 
+    const defaultStatusLabel = useMemo(() => {
+      if (computedStatus === 'active') {
+        const count = typeof badge === 'string' ? parseInt(badge, 10) : (badge as number);
+
+        return count > 0 ? `${count} active notification(s)` : 'no active notifications';
+      }
+
+      return `status: ${computedStatus}`;
+    }, [computedStatus, badge]);
+
+    const label = useText(AvatarComponent, props, 'statusLabel', defaultStatusLabel);
+    // when the default label is used, we should specify that this is using the English
+    // language in case the component is rendered in a different language setting
+    const lang = 'statusLabel' in props ? props.lang : 'en';
+
     return (
       <StyledAvatar
         ref={ref}
@@ -53,7 +69,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         foregroundColor={foregroundColor}
         aria-atomic="true"
         aria-live="polite"
-        {...other}
+        {...props}
       >
         {Children.only(children)}
         {computedStatus && (
@@ -63,6 +79,8 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             backgroundColor={backgroundColor}
             foregroundColor={foregroundColor}
             surfaceColor={surfaceColor}
+            aria-label={label}
+            lang={lang}
           >
             {computedStatus === 'active' ? (
               <span>{badge}</span>

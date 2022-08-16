@@ -67,6 +67,47 @@ describe('Avatar', () => {
     expect(getByText('AG')).toBeDefined();
   });
 
+  describe('Accessibility', () => {
+    it('renders with badge with default status label', () => {
+      const { getByGardenId } = render(
+        <Avatar badge="2">
+          <img alt="" />
+        </Avatar>
+      );
+
+      const statusIndicatorElement = getByGardenId('avatars.status_indicator');
+
+      expect(statusIndicatorElement).toHaveAttribute('aria-label', '2 active notification(s)');
+      expect(statusIndicatorElement).toHaveAttribute('lang', 'en');
+    });
+
+    it('renders with badge and with a provided status label', () => {
+      const { getByGardenId } = render(
+        <Avatar badge="2" statusLabel="two notifications">
+          <img alt="" />
+        </Avatar>
+      );
+
+      const statusIndicatorElement = getByGardenId('avatars.status_indicator');
+
+      expect(statusIndicatorElement).toHaveAttribute('aria-label', 'two notifications');
+      expect(statusIndicatorElement).not.toHaveAttribute('lang');
+    });
+
+    it('renders with status and applies default aria-label for available status', () => {
+      const { getByGardenId } = render(
+        <Avatar status="available">
+          <img alt="" />
+        </Avatar>
+      );
+
+      const statusIndicatorElement = getByGardenId('avatars.status_indicator');
+
+      expect(statusIndicatorElement).toHaveAttribute('aria-label', 'status: available');
+      expect(statusIndicatorElement).toHaveAttribute('lang', 'en');
+    });
+  });
+
   describe('Invalid', () => {
     const consoleError = console.error;
 
