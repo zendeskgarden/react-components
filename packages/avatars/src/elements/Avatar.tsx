@@ -14,7 +14,7 @@ import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-sm-strok
 import ArrowLeftIcon16 from '@zendeskgarden/svg-icons/src/16/arrow-left-sm-stroke.svg';
 
 import { IAvatarProps, SIZE, STATUS } from '../types';
-import { StyledAvatar, StyledStatusIndicator } from '../styled';
+import { StyledAvatar, StyledSRSpan, StyledStatusIndicator } from '../styled';
 
 import { Text } from './components/Text';
 
@@ -44,19 +44,20 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
     }
 
     const defaultStatusLabel = useMemo(() => {
+      let statusMessage = computedStatus;
+
       if (computedStatus === 'active') {
         const count = typeof badge === 'string' ? parseInt(badge, 10) : (badge as number);
 
-        return count > 0 ? `${count} active notification(s)` : 'no active notifications';
+        statusMessage = `active. ${
+          count > 0 ? `${count} notification${count > 1 ? 's' : ''}` : 'no notifications'
+        }`;
       }
 
-      return `status: ${computedStatus}`;
+      return `status: ${statusMessage}`;
     }, [computedStatus, badge]);
 
     const label = useText(AvatarComponent, props, 'statusLabel', defaultStatusLabel);
-    // when the default label is used, we should specify that this is using the English
-    // language in case the component is rendered in a different language setting
-    const lang = 'statusLabel' in props ? props.lang : 'en';
 
     return (
       <StyledAvatar
@@ -79,11 +80,11 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             backgroundColor={backgroundColor}
             foregroundColor={foregroundColor}
             surfaceColor={surfaceColor}
-            aria-label={label}
-            lang={lang}
           >
+            <StyledSRSpan>{label}</StyledSRSpan>
+
             {computedStatus === 'active' ? (
-              <span>{badge}</span>
+              <span aria-hidden="true">{badge}</span>
             ) : (
               <>
                 {computedStatus === 'away' ? <ClockIcon data-icon-status={computedStatus} /> : null}

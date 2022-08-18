@@ -75,10 +75,9 @@ describe('Avatar', () => {
         </Avatar>
       );
 
-      const statusIndicatorElement = getByGardenId('avatars.status_indicator');
+      const statusIndicatorSRElement = getByGardenId('avatars.sr_element');
 
-      expect(statusIndicatorElement).toHaveAttribute('aria-label', '2 active notification(s)');
-      expect(statusIndicatorElement).toHaveAttribute('lang', 'en');
+      expect(statusIndicatorSRElement).toHaveTextContent('status: active. 2 notifications');
     });
 
     it('renders with badge and with a provided status label', () => {
@@ -88,10 +87,9 @@ describe('Avatar', () => {
         </Avatar>
       );
 
-      const statusIndicatorElement = getByGardenId('avatars.status_indicator');
+      const statusIndicatorSRElement = getByGardenId('avatars.sr_element');
 
-      expect(statusIndicatorElement).toHaveAttribute('aria-label', 'two notifications');
-      expect(statusIndicatorElement).not.toHaveAttribute('lang');
+      expect(statusIndicatorSRElement).toHaveTextContent('two notifications');
     });
 
     it('renders with status and applies default aria-label for available status', () => {
@@ -101,10 +99,9 @@ describe('Avatar', () => {
         </Avatar>
       );
 
-      const statusIndicatorElement = getByGardenId('avatars.status_indicator');
+      const statusIndicatorSRElement = getByGardenId('avatars.sr_element');
 
-      expect(statusIndicatorElement).toHaveAttribute('aria-label', 'status: available');
-      expect(statusIndicatorElement).toHaveAttribute('lang', 'en');
+      expect(statusIndicatorSRElement).toHaveTextContent('status: available');
     });
   });
 
