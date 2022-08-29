@@ -24,6 +24,40 @@ describe('useText()', () => {
     expect(text).toBe('value');
   });
 
+  it('sets default text if prop is not defined and re-renders when updated', () => {
+    let text;
+    let defaultValue = 'value';
+
+    const { rerender } = renderHook(() => {
+      text = useText(Component, {}, 'test', defaultValue);
+    });
+
+    expect(text).toBe('value');
+
+    defaultValue = 'another value';
+
+    rerender();
+
+    expect(text).toBe('another value');
+  });
+
+  it('sets the text from the props and name passed as arguments to the hook', () => {
+    let text;
+    let label = 'labeled';
+
+    const { rerender } = renderHook(() => {
+      text = useText(Component, { label }, 'label', 'value');
+    });
+
+    expect(text).toBe('labeled');
+
+    label = 'labeled-alternative';
+
+    rerender();
+
+    expect(text).toBe('labeled-alternative');
+  });
+
   describe('Warnings', () => {
     const environment = process.env.NODE_ENV;
     const consoleWarning = console.warn;
