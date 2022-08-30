@@ -69,39 +69,55 @@ describe('Avatar', () => {
 
   describe('Accessibility', () => {
     it('renders with badge with default status label', () => {
-      const { getByGardenId } = render(
+      const { getByText } = render(
         <Avatar badge="2">
           <img alt="" />
         </Avatar>
       );
 
-      const statusIndicatorSRElement = getByGardenId('avatars.sr_element');
+      const statusIndicatorElement = getByText('2')?.parentElement;
 
-      expect(statusIndicatorSRElement).toHaveTextContent('status: active. 2 notifications');
+      expect(statusIndicatorElement).toHaveAttribute(
+        'aria-label',
+        'status: active. 2 notifications'
+      );
     });
 
     it('renders with badge and with a provided status label', () => {
-      const { getByGardenId } = render(
+      const { getByText } = render(
         <Avatar badge="2" statusLabel="two notifications">
           <img alt="" />
         </Avatar>
       );
 
-      const statusIndicatorSRElement = getByGardenId('avatars.sr_element');
+      const statusIndicatorElement = getByText('2')?.parentElement;
 
-      expect(statusIndicatorSRElement).toHaveTextContent('two notifications');
+      expect(statusIndicatorElement).toHaveAttribute('aria-label', 'two notifications');
     });
 
     it('renders with status and applies default aria-label for available status', () => {
-      const { getByGardenId } = render(
+      const { getByLabelText } = render(
         <Avatar status="available">
           <img alt="" />
         </Avatar>
       );
 
-      const statusIndicatorSRElement = getByGardenId('avatars.sr_element');
+      const statusIndicatorElement = getByLabelText('status: available');
 
-      expect(statusIndicatorSRElement).toHaveTextContent('status: available');
+      expect(statusIndicatorElement).toBeEmptyDOMElement();
+    });
+
+    it('renders with status and applies default aria-label for away status', () => {
+      const { getByLabelText, container } = render(
+        <Avatar status="away">
+          <img alt="" />
+        </Avatar>
+      );
+
+      const statusIndicatorElement = getByLabelText('status: away');
+      const statusIndicatorSVG = container.querySelector('svg');
+
+      expect(statusIndicatorElement).toContainElement(statusIndicatorSVG);
     });
   });
 

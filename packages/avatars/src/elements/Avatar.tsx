@@ -14,7 +14,7 @@ import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-sm-strok
 import ArrowLeftIcon16 from '@zendeskgarden/svg-icons/src/16/arrow-left-sm-stroke.svg';
 
 import { IAvatarProps, SIZE, STATUS } from '../types';
-import { StyledAvatar, StyledSRSpan, StyledStatusIndicator } from '../styled';
+import { StyledAvatar, StyledStatusIndicator } from '../styled';
 
 import { Text } from './components/Text';
 
@@ -57,7 +57,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
       return `status: ${statusMessage}`;
     }, [computedStatus, badge]);
 
-    const label = useText(AvatarComponent, props, 'statusLabel', defaultStatusLabel);
+    const statusLabel = useText(AvatarComponent, props, 'statusLabel', defaultStatusLabel);
 
     return (
       <StyledAvatar
@@ -80,9 +80,8 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             backgroundColor={backgroundColor}
             foregroundColor={foregroundColor}
             surfaceColor={surfaceColor}
+            aria-label={statusLabel}
           >
-            <StyledSRSpan>{label}</StyledSRSpan>
-
             {computedStatus === 'active' ? (
               <span aria-hidden="true">{badge}</span>
             ) : (

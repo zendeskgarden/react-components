@@ -37,23 +37,10 @@ RtlProvider.propTypes = {
   children: PropTypes.node
 };
 
-const customRender = (ui: React.ReactElement, options?: any) => {
-  const results = render(ui, options);
-
-  return {
-    ...results,
-    getByGardenId: (id: string, container?: HTMLElement) => {
-      return (container || results.container).querySelector(`[data-garden-id="${id}"]`);
-    },
-    getAllByGardenId: (id: string, container?: HTMLElement) => {
-      return (container || results.container).querySelectorAll(`[data-garden-id="${id}"]`);
-    }
-  };
-};
 const customLtrRender = (ui: React.ReactElement, options?: any) =>
-  customRender(ui, { wrapper: LtrProvider, ...options });
+  render(ui, { wrapper: LtrProvider, ...options });
 const customRtlRender = (ui: React.ReactElement, options?: any) =>
-  customRender(ui, { wrapper: RtlProvider, ...options });
+  render(ui, { wrapper: RtlProvider, ...options });
 
 export * from '@testing-library/react';
 export { customLtrRender as render };
