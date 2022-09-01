@@ -81,6 +81,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             foregroundColor={foregroundColor}
             surfaceColor={surfaceColor}
             aria-label={statusLabel}
+            role="img"
           >
             {computedStatus === 'active' ? (
               <span aria-hidden="true">{badge}</span>
