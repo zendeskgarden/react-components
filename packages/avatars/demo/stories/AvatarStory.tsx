@@ -22,8 +22,6 @@ export const AvatarStory: Story<IArgs> = ({ children, type, ...args }) => (
   <Avatar
     {...args}
     backgroundColor={args.backgroundColor || (type === 'image' ? undefined : PALETTE.kale[800])}
-    // for useText - avoids throwing when first inputting text arg passed as an empty string
-    statusLabel={args.statusLabel || args.status}
   >
     {
       {
