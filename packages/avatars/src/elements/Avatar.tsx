@@ -108,7 +108,8 @@ AvatarComponent.propTypes = {
   isSystem: PropTypes.bool,
   badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   size: PropTypes.oneOf(SIZE),
-  status: PropTypes.oneOf(STATUS)
+  status: PropTypes.oneOf(STATUS),
+  statusLabel: PropTypes.string
 };
 
 AvatarComponent.defaultProps = {
