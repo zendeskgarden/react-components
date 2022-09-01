@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, forwardRef } from 'react';
+import React, { Children, forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { useText } from '@zendeskgarden/react-theming';
 import ClockIcon12 from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
 import ClockIcon16 from '@zendeskgarden/svg-icons/src/16/clock-stroke.svg';
 import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-sm-stroke.svg';
@@ -28,7 +29,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
       surfaceColor,
       backgroundColor,
       foregroundColor,
-      ...other
+      ...props
     },
     ref
   ) => {
@@ -42,6 +43,22 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
       ArrowLeftIcon = ArrowLeftIcon16;
     }
 
+    const defaultStatusLabel = useMemo(() => {
+      let statusMessage = computedStatus;
+
+      if (computedStatus === 'active') {
+        const count = typeof badge === 'string' ? parseInt(badge, 10) : (badge as number);
+
+        statusMessage = `active. ${
+          count > 0 ? `${count} notification${count > 1 ? 's' : ''}` : 'no notifications'
+        }`;
+      }
+
+      return ['status'].concat(statusMessage || []).join(': ');
+    }, [computedStatus, badge]);
+
+    const statusLabel = useText(AvatarComponent, props, 'statusLabel', defaultStatusLabel);
+
     return (
       <StyledAvatar
         ref={ref}
@@ -53,7 +70,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         foregroundColor={foregroundColor}
         aria-atomic="true"
         aria-live="polite"
-        {...other}
+        {...props}
       >
         {Children.only(children)}
         {computedStatus && (
@@ -63,9 +80,11 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             backgroundColor={backgroundColor}
             foregroundColor={foregroundColor}
             surfaceColor={surfaceColor}
+            aria-label={statusLabel}
+            role="img"
           >
             {computedStatus === 'active' ? (
-              <span>{badge}</span>
+              <span aria-hidden="true">{badge}</span>
             ) : (
               <>
                 {computedStatus === 'away' ? <ClockIcon data-icon-status={computedStatus} /> : null}
@@ -90,7 +109,8 @@ AvatarComponent.propTypes = {
   isSystem: PropTypes.bool,
   badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   size: PropTypes.oneOf(SIZE),
-  status: PropTypes.oneOf(STATUS)
+  status: PropTypes.oneOf(STATUS),
+  statusLabel: PropTypes.string
 };
 
 AvatarComponent.defaultProps = {

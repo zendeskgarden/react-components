@@ -26,7 +26,7 @@ export const AvatarStory: Story<IArgs> = ({ children, type, ...args }) => (
     {
       {
         icon: args.isSystem ? <IconSystem /> : <IconUser />,
-        image: <img alt="" src={`images/avatars/${args.isSystem ? 'system' : 'user'}.png`} />,
+        image: <img alt="user" src={`images/avatars/${args.isSystem ? 'system' : 'user'}.png`} />,
         text: <Avatar.Text>{children || (args.isSystem ? 'ZD' : 'G')}</Avatar.Text>
       }[type || 'image']
     }

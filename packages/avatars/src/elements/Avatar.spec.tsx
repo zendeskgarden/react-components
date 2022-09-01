@@ -67,6 +67,60 @@ describe('Avatar', () => {
     expect(getByText('AG')).toBeDefined();
   });
 
+  describe('Accessibility', () => {
+    it('renders with badge with default status label', () => {
+      const { getByText } = render(
+        <Avatar badge="2">
+          <img alt="" />
+        </Avatar>
+      );
+
+      const statusIndicatorElement = getByText('2')?.parentElement;
+
+      expect(statusIndicatorElement).toHaveAttribute(
+        'aria-label',
+        'status: active. 2 notifications'
+      );
+    });
+
+    it('renders with badge and with a provided status label', () => {
+      const { getByText } = render(
+        <Avatar badge="2" statusLabel="two notifications">
+          <img alt="" />
+        </Avatar>
+      );
+
+      const statusIndicatorElement = getByText('2')?.parentElement;
+
+      expect(statusIndicatorElement).toHaveAttribute('aria-label', 'two notifications');
+    });
+
+    it('renders with status and applies default aria-label for available status', () => {
+      const { getByLabelText } = render(
+        <Avatar status="available">
+          <img alt="" />
+        </Avatar>
+      );
+
+      const statusIndicatorElement = getByLabelText('status: available');
+
+      expect(statusIndicatorElement).toBeEmptyDOMElement();
+    });
+
+    it('renders with status and applies default aria-label for away status', () => {
+      const { getByLabelText, container } = render(
+        <Avatar status="away">
+          <img alt="" />
+        </Avatar>
+      );
+
+      const statusIndicatorElement = getByLabelText('status: away');
+      const statusIndicatorSVG = container.querySelector('svg');
+
+      expect(statusIndicatorElement).toContainElement(statusIndicatorSVG);
+    });
+  });
+
   describe('Invalid', () => {
     const consoleError = console.error;
 
