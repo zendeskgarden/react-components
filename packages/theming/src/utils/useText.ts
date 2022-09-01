@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { FC, useEffect, useState } from 'react';
+import { FC, useMemo } from 'react';
 
 /**
  * Provides default text for a11y (i.e. aria-label) or other critical attribute
@@ -23,9 +23,9 @@ export const useText = (
   name: string,
   text: string
 ): string => {
-  const [value, setValue] = useState(props[name]);
+  const value = props[name];
 
-  useEffect(() => {
+  return useMemo(() => {
     if (name === 'children') {
       // Prevent Garden from providing text as a child content default.
       throw new Error('Error: `children` is not a valid `getText` prop.');
@@ -47,9 +47,9 @@ export const useText = (
         );
       }
 
-      setValue(text);
+      return text;
     }
-  }, [name, value, component.displayName, text]);
 
-  return value;
+    return value;
+  }, [component.displayName, value, name, text]);
 };

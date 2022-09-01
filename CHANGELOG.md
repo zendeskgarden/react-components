@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.54.3 (2022-08-18)
+
+#### :bug: Bug Fix
+* `loaders`
+  * [#1400](https://github.com/zendeskgarden/react-components/pull/1400) fix(loaders): use text for inline loader label ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.54.2 (2022-08-11)
 
 #### :bug: Bug Fix

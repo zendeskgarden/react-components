@@ -54,6 +54,8 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
   /**
    * 1. because we are using the stroke icon instead of fill due to artifacts in visual appearance,
    *    we need to remove the circle
+   * 2. when @zendeskgarden/css-bedrock is present, max-height needs to be unset due to icon being
+   *    resized incorrectly
    */
   return css`
     border: ${borderWidth} ${props.theme.borderStyles.solid};
@@ -86,6 +88,7 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
       top: -${borderWidth};
       left: -${borderWidth};
       transform-origin: 50% 50%;
+      max-height: unset; /* [2] */
 
       /* stylelint-disable-next-line selector-no-qualifying-type */
       &[data-icon-status='transfers'] {
