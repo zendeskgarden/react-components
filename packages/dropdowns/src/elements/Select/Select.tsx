@@ -195,6 +195,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             isHovered={isContainerHovered}
             isFocused={isContainerFocused}
             {...selectProps}
+            role="none"
             ref={selectRef => {
               // Pass ref to popperJS for positioning
               (popperReference as any)(selectRef);
