@@ -12,6 +12,20 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.55.0 (2022-09-06)
+
+#### :rocket: New Feature
+* `avatars`
+  * [#1403](https://github.com/zendeskgarden/react-components/pull/1403) feat(avatars): add status label ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1405](https://github.com/zendeskgarden/react-components/pull/1405) fix(dropdowns): remove nested controls violation from select ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `avatars`
+  * [#1404](https://github.com/zendeskgarden/react-components/pull/1404) fix(avatars): correct status icon sizing with css bedrock ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `theming`
+  * [#1402](https://github.com/zendeskgarden/react-components/pull/1402) fix(theming): allow use text to be dynamic when updated ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.54.3 (2022-08-18)
 
 #### :bug: Bug Fix
