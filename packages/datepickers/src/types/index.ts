@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes } from 'react';
 import { Modifiers } from 'popper.js';
+import { HTMLAttributes } from 'react';
+import { DateFnsIndex } from '../utils/calendar-utils';
 
 const SHARED_PLACEMENT = [
   'auto',
@@ -66,6 +67,10 @@ export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    */
   locale?: string;
   /**
+   * Overrides the locale default start day of week
+   */
+  weekStartsOn?: DateFnsIndex;
+  /**
    * Disables dates before this value on the calendar
    */
   minValue?: Date;
@@ -111,7 +116,10 @@ export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
 }
 
 export interface IDatepickerRangeProps
-  extends Pick<IDatepickerProps, 'locale' | 'minValue' | 'maxValue' | 'formatDate' | 'isCompact'> {
+  extends Pick<
+    IDatepickerProps,
+    'locale' | 'weekStartsOn' | 'minValue' | 'maxValue' | 'formatDate' | 'isCompact'
+  > {
   /**
    * Sets the start date
    */

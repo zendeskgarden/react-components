@@ -45,6 +45,7 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
     minValue,
     maxValue,
     locale,
+    weekStartsOn,
     customParseDate,
     ...menuProps
   } = props;
@@ -190,6 +191,7 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
                       minValue={minValue}
                       maxValue={maxValue}
                       locale={locale}
+                      weekStartsOn={weekStartsOn}
                     />
                   </StyledMenu>
                 )}
@@ -209,6 +211,7 @@ Datepicker.propTypes = {
   onChange: PropTypes.any,
   formatDate: PropTypes.func,
   locale: PropTypes.any,
+  weekStartsOn: PropTypes.number,
   minValue: PropTypes.any,
   maxValue: PropTypes.any,
   isCompact: PropTypes.bool,

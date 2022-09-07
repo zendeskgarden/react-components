@@ -25,6 +25,7 @@ const DatepickerRangeComponent = (props: PropsWithChildren<IDatepickerRangeProps
   const {
     startValue,
     locale,
+    weekStartsOn,
     formatDate,
     endValue,
     onChange,
@@ -89,6 +90,7 @@ const DatepickerRangeComponent = (props: PropsWithChildren<IDatepickerRangeProps
       dispatch,
       isCompact,
       locale,
+      weekStartsOn,
       minValue,
       maxValue,
       startValue,
@@ -103,6 +105,7 @@ const DatepickerRangeComponent = (props: PropsWithChildren<IDatepickerRangeProps
       dispatch,
       isCompact,
       locale,
+      weekStartsOn,
       minValue,
       maxValue,
       startValue,
@@ -121,6 +124,7 @@ const DatepickerRangeComponent = (props: PropsWithChildren<IDatepickerRangeProps
 
 DatepickerRangeComponent.propTypes = {
   locale: PropTypes.string,
+  weekStartsOn: PropTypes.number,
   startValue: PropTypes.instanceOf(Date),
   endValue: PropTypes.instanceOf(Date),
   minValue: PropTypes.instanceOf(Date),
