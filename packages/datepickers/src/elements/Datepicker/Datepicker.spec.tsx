@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import { addDays, subDays } from 'date-fns';
-import { act, fireEvent, render, renderRtl } from 'garden-test-utils';
-import mockDate from 'mockdate';
 import React from 'react';
-import { IDatepickerProps } from '../../types';
+import userEvent from '@testing-library/user-event';
+import { render, renderRtl, fireEvent, act } from 'garden-test-utils';
+import { addDays, subDays } from 'date-fns';
+import mockDate from 'mockdate';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { Datepicker } from './Datepicker';
+import { IDatepickerProps } from '../../types';
 
 const DEFAULT_DATE = new Date(2019, 1, 5);
 

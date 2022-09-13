@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Modifiers } from 'popper.js';
 import { HTMLAttributes } from 'react';
+import { Modifiers } from 'popper.js';
 import { DateFnsIndex } from '../utils/calendar-utils';
 
 const SHARED_PLACEMENT = [
