@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, renderRtl, fireEvent, act } from 'garden-test-utils';
-import { addDays, subDays } from 'date-fns';
-import mockDate from 'mockdate';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import { Datepicker } from './Datepicker';
+import { addDays, subDays } from 'date-fns';
+import { act, fireEvent, render, renderRtl } from 'garden-test-utils';
+import mockDate from 'mockdate';
+import React from 'react';
 import { IDatepickerProps } from '../../types';
+import { Datepicker } from './Datepicker';
 
 const DEFAULT_DATE = new Date(2019, 1, 5);
 
@@ -73,6 +73,37 @@ describe('Datepicker', () => {
 
       expect(days[9]).toHaveAttribute('data-test-selected', 'true');
       expect(days[9]).toHaveAttribute('data-test-today', 'true');
+    });
+
+    it('displays "Sun" as default first day of week', () => {
+      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      userEvent.click(getByTestId('input'));
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Sun');
+    });
+
+    it('display locale based first day of week', () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} locale="en-GB" />
+      );
+
+      userEvent.click(getByTestId('input'));
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Mon');
+    });
+
+    it('display custom first day of week', () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} locale="en-GB" weekStartsOn={3} />
+      );
+
+      userEvent.click(getByTestId('input'));
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Wed');
     });
 
     it('displays disabled styling for minimum and maximum values', () => {

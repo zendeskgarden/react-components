@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, getAllByTestId as globalGetAllByTestId, renderRtl } from 'garden-test-utils';
-import { addDays, subDays, addMonths, subMonths } from 'date-fns';
+import { addDays, addMonths, subDays, subMonths } from 'date-fns';
+import { getAllByTestId as globalGetAllByTestId, render, renderRtl } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import { DatepickerRange } from './DatepickerRange';
+import React from 'react';
 import { IDatepickerRangeProps } from '../../types';
+import { DatepickerRange } from './DatepickerRange';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
 const DEFAULT_END_VALUE = new Date(2019, 2, 5);
@@ -86,6 +86,30 @@ describe('DatepickerRange', () => {
       const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
 
       expect(secondMonthDays[9]).toHaveAttribute('data-test-selected', 'true');
+    });
+
+    it('displays "Sun" as default first day of week', () => {
+      const { getAllByTestId } = render(<Example />);
+
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Sun');
+    });
+
+    it('display locale based first day of week', () => {
+      const { getAllByTestId } = render(<Example locale="en-GB" />);
+
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Mon');
+    });
+
+    it('display custom first day of week', () => {
+      const { getAllByTestId } = render(<Example locale="en-GB" weekStartsOn={3} />);
+
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Wed');
     });
 
     it('displays highlighted days correctly if both values are provided', () => {
