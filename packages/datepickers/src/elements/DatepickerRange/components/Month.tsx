@@ -90,14 +90,14 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       [locale]
     );
 
-    const prefferedWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
+    const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
     const monthStartDate = startOfMonth(displayDate);
     const monthEndDate = endOfMonth(monthStartDate);
     const startDate = startOfWeek(monthStartDate, {
-      weekStartsOn: prefferedWeekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
     const endDate = endOfWeek(monthEndDate, {
-      weekStartsOn: prefferedWeekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
 
     const dayLabels = eachDayOfInterval({ start: startDate, end: addDays(startDate, 6) }).map(

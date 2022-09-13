@@ -42,14 +42,14 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
   ({ value, minValue, maxValue, isCompact, locale, weekStartsOn }, ref) => {
     const { state, dispatch } = useDatepickerContext();
 
-    const prefferedWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
+    const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
     const monthStartDate = startOfMonth(state.previewDate);
     const monthEndDate = endOfMonth(monthStartDate);
     const startDate = startOfWeek(monthStartDate, {
-      weekStartsOn: prefferedWeekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
     const endDate = endOfWeek(monthEndDate, {
-      weekStartsOn: prefferedWeekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
 
     const dayLabelFormatter = useCallback(
