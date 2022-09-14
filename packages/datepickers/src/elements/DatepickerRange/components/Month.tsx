@@ -47,6 +47,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       state,
       dispatch,
       locale,
+      weekStartsOn,
       isCompact,
       minValue,
       maxValue,
@@ -89,14 +90,14 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       [locale]
     );
 
-    const weekStartsOn = getStartOfWeek(locale);
+    const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
     const monthStartDate = startOfMonth(displayDate);
     const monthEndDate = endOfMonth(monthStartDate);
     const startDate = startOfWeek(monthStartDate, {
-      weekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
     const endDate = endOfWeek(monthEndDate, {
-      weekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
 
     const dayLabels = eachDayOfInterval({ start: startDate, end: addDays(startDate, 6) }).map(
@@ -105,7 +106,9 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
         return (
           <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isCompact={isCompact}>
-            <StyledDayLabel isCompact={isCompact!}>{formattedDayLabel}</StyledDayLabel>
+            <StyledDayLabel isCompact={isCompact!} data-test-id="day-label">
+              {formattedDayLabel}
+            </StyledDayLabel>
           </StyledCalendarItem>
         );
       }

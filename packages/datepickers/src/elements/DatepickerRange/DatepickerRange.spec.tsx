@@ -88,6 +88,30 @@ describe('DatepickerRange', () => {
       expect(secondMonthDays[9]).toHaveAttribute('data-test-selected', 'true');
     });
 
+    it('displays "Sun" as default first day of week', () => {
+      const { getAllByTestId } = render(<Example />);
+
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Sun');
+    });
+
+    it('display locale based first day of week', () => {
+      const { getAllByTestId } = render(<Example locale="en-GB" />);
+
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Mon');
+    });
+
+    it('display custom first day of week', () => {
+      const { getAllByTestId } = render(<Example locale="en-GB" weekStartsOn={3} />);
+
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Wed');
+    });
+
     it('displays highlighted days correctly if both values are provided', () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />

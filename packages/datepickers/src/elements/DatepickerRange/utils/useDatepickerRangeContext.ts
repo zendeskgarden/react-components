@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { DateFnsIndex } from 'packages/datepickers/src/utils/calendar-utils';
 import { useContext, createContext, MutableRefObject } from 'react';
 import { IDatepickerRangeState, DatepickerRangeAction } from './datepicker-range-reducer';
 
@@ -12,6 +13,7 @@ export interface IDatepickerRangeContext {
   state: IDatepickerRangeState;
   dispatch: React.Dispatch<DatepickerRangeAction>;
   locale?: string;
+  weekStartsOn?: DateFnsIndex;
   isCompact?: boolean;
   minValue?: Date;
   maxValue?: Date;

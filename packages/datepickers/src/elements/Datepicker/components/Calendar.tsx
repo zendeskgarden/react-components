@@ -26,7 +26,7 @@ import {
   StyledDay
 } from '../../../styled';
 import useDatepickerContext from '../utils/useDatepickerContext';
-import { getStartOfWeek } from '../../../utils/calendar-utils';
+import { DateFnsIndex, getStartOfWeek } from '../../../utils/calendar-utils';
 import { MonthSelector } from './MonthSelector';
 
 interface ICalendarProps extends HTMLAttributes<HTMLDivElement> {
@@ -35,20 +35,21 @@ interface ICalendarProps extends HTMLAttributes<HTMLDivElement> {
   maxValue?: Date;
   isCompact?: boolean;
   locale?: string;
+  weekStartsOn?: DateFnsIndex;
 }
 
 export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
-  ({ value, minValue, maxValue, isCompact, locale }, ref) => {
+  ({ value, minValue, maxValue, isCompact, locale, weekStartsOn }, ref) => {
     const { state, dispatch } = useDatepickerContext();
 
-    const weekStartsOn = getStartOfWeek(locale);
+    const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
     const monthStartDate = startOfMonth(state.previewDate);
     const monthEndDate = endOfMonth(monthStartDate);
     const startDate = startOfWeek(monthStartDate, {
-      weekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
     const endDate = endOfWeek(monthEndDate, {
-      weekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
 
     const dayLabelFormatter = useCallback(
@@ -68,7 +69,9 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
 
         return (
           <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isCompact={isCompact}>
-            <StyledDayLabel isCompact={isCompact!}>{formattedDayLabel}</StyledDayLabel>
+            <StyledDayLabel isCompact={isCompact!} data-test-id="day-label">
+              {formattedDayLabel}
+            </StyledDayLabel>
           </StyledCalendarItem>
         );
       }
