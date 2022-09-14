@@ -8,8 +8,6 @@
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { TRANSITION_DURATION } from './utility';
-
 const COMPONENT_ID = 'avatars.status-indicator';
 
 export const StyledStandaloneStatus = styled.figure.attrs({
@@ -20,7 +18,6 @@ export const StyledStandaloneStatus = styled.figure.attrs({
   display: inline-flex;
   flex-flow: row wrap;
   align-items: center;
-  transition: all ${TRANSITION_DURATION}s ease-in-out;
   margin: 0;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

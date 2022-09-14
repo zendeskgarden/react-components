@@ -5,16 +5,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme, keyframes } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IStatusIndicatorProps, STATUS } from '../types';
-import { getStatusColor } from './utility';
+import { getStatusColor, TRANSITION_DURATION } from './utility';
 
 const COMPONENT_ID = 'avatars.status-indicator.indicator';
 
 const [available, away, transfers, offline] = STATUS;
+
+const iconFadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;
 
 const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
   const borderWidth = props.theme.shadowWidths.sm;
@@ -95,10 +105,14 @@ export const StyledStandaloneStatusIndicator = styled.span.attrs({
 })<IStatusIndicatorProps & ThemeProps<DefaultTheme>>`
   display: inline-block;
   position: relative;
-  transition: inherit;
+  transition: all ${TRANSITION_DURATION}s ease-in-out;
 
   ${sizeStyles}
   ${colorStyles}
+
+  & > svg {
+    animation: ${iconFadeIn} ${TRANSITION_DURATION};
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
