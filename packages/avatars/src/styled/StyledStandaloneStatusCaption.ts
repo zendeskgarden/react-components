@@ -15,7 +15,11 @@ export const StyledStandaloneStatusCaption = styled.figcaption.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
   display: inline-block;
-  margin: ${props => props.theme.space.base}px;
+  box-sizing: inherit;
+  padding: 0 ${props => props.theme.space.base}px;
+  line-height: ${props => props.theme.space.base * 5}px;
+  font-size: ${props => props.theme.fontSizes.md};
+  font-weight: ${props => props.theme.fontWeights.regular};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

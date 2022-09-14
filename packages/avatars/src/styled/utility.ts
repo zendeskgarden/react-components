@@ -9,6 +9,8 @@ import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { STATUS } from '../types';
 
+export const TRANSITION_DURATION = 0.25;
+
 const [active, available, away, transfers, offline] = ['active', ...STATUS];
 
 export function getStatusColor(

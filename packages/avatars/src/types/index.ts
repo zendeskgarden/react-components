@@ -31,7 +31,7 @@ export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
 }
 
 export interface IStatusIndicatorProps extends HTMLAttributes<HTMLElement> {
-  /** Applies status type for styling and aria-label */
+  /** Applies status type for styling and default aria-label */
   type: typeof STATUS[number];
   /** Applies compact styling */
   isCompact?: boolean;

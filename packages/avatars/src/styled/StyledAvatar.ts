@@ -12,11 +12,9 @@ import { math } from 'polished';
 import { IAvatarProps, SIZE } from '../types';
 import { StyledText } from './StyledText';
 import { StyledStatusIndicator } from './StyledStatusIndicator';
-import { getStatusColor } from './utility';
+import { getStatusColor, TRANSITION_DURATION } from './utility';
 
 const COMPONENT_ID = 'avatars.avatar';
-
-const TRANSITION_DURATION = 0.25;
 
 const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   const [xxs, xs, s, m, l] = SIZE;

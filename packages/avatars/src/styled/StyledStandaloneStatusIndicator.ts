@@ -34,6 +34,7 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
    *    resized incorrectly
    */
   return css`
+    margin: 0 ${props.theme.space.base}px;
     border: ${borderWidth} ${props.theme.borderStyles.solid};
     border-radius: ${height};
     width: ${height};
@@ -41,11 +42,8 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     max-width: calc(2em + (${borderWidth} * 3));
     height: ${height};
     min-height: ${height};
-    box-sizing: content-box;
+    box-sizing: inherit;
     overflow: hidden;
-    text-align: center;
-    font-size: ${props.theme.fontSizes.xs};
-    font-weight: ${props.theme.fontWeights.semibold};
 
     & > svg {
       position: absolute;
@@ -70,17 +68,13 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
 const colorStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
   let backgroundColor = 'transparent';
   let borderColor = backgroundColor;
-  let boxShadow = props.theme.shadows.sm(props.theme.colors.background);
-
-  if (props.isCompact) {
-    boxShadow = boxShadow.replace(props.theme.shadowWidths.sm, '1px');
-  }
 
   switch (props.type) {
     case available:
     case away:
     case transfers:
       backgroundColor = getStatusColor(props.type, props.theme);
+      borderColor = backgroundColor;
       break;
     case offline:
       borderColor = getStatusColor(props.type, props.theme);
@@ -90,7 +84,6 @@ const colorStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) =>
 
   return css`
     border-color: ${borderColor};
-    box-shadow: ${boxShadow};
     background-color: ${backgroundColor};
     color: ${props.theme.palette.white};
   `;
@@ -102,7 +95,7 @@ export const StyledStandaloneStatusIndicator = styled.span.attrs({
 })<IStatusIndicatorProps & ThemeProps<DefaultTheme>>`
   display: inline-block;
   position: relative;
-  margin: ${props => props.theme.space.base}px;
+  transition: inherit;
 
   ${sizeStyles}
   ${colorStyles}
