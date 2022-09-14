@@ -16,13 +16,13 @@ describe('StatusIndicator', () => {
 
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLElement>();
-    const { container } = render(<StatusIndicator ref={ref} />);
+    const { container } = render(<StatusIndicator type="available" ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
   });
 
   it('has the correct roles', () => {
-    const { getByRole, container } = render(<StatusIndicator />);
+    const { getByRole, container } = render(<StatusIndicator type="available" />);
 
     expect(getByRole('status')).toBe(container.firstChild);
     expect(getByRole('img')).toBe(container.firstChild?.firstChild);
@@ -30,13 +30,13 @@ describe('StatusIndicator', () => {
 
   it('renders with a caption', () => {
     const text = 'caption';
-    const { getByText } = render(<StatusIndicator>{text}</StatusIndicator>);
+    const { getByText } = render(<StatusIndicator type="available">{text}</StatusIndicator>);
 
     expect(getByText(text).nodeName).toBe('FIGCAPTION');
   });
 
   it('renders in compact mode', () => {
-    const { getByRole } = render(<StatusIndicator isCompact />);
+    const { getByRole } = render(<StatusIndicator type="available" isCompact />);
 
     expect(getByRole('img')).toHaveStyleRule('height', '8px');
   });
