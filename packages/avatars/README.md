@@ -16,7 +16,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Avatar } from '@zendeskgarden/react-avatars';
+import { Avatar, StatusIndicator } from '@zendeskgarden/react-avatars';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
@@ -25,5 +25,9 @@ import { Avatar } from '@zendeskgarden/react-avatars';
   <Avatar>
     <img src="images/user.png" alt="Example Avatar" />
   </Avatar>
+
+  <StatusIndicator type="available" aria-label="status: online">
+    Available
+  </StatusIndicator>
 </ThemeProvider>;
 ```

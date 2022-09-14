@@ -126,6 +126,15 @@ describe('StyledStatusIndicator', () => {
         const { container } = render(<StyledStatusIndicator status="active" />);
         const color = getColor('crimson', 400);
 
+        expect(container.firstChild).toHaveStyleRule('height', '16px');
+        expect(container.firstChild).toHaveStyleRule('background-color', color);
+      });
+
+      it('renders active style with small size', () => {
+        const { container } = render(<StyledStatusIndicator status="active" size="small" />);
+        const color = getColor('crimson', 400);
+
+        expect(container.firstChild).toHaveStyleRule('height', '12px');
         expect(container.firstChild).toHaveStyleRule('background-color', color);
       });
     });
