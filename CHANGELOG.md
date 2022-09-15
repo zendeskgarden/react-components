@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.56.0 (2022-09-15)
+
+#### :rocket: New Feature
+* `datepickers`
+  * [#1409](https://github.com/zendeskgarden/react-components/pull/1409) feat(datepickers): add weekStartsOn prop on calendars ([@Axel-Duval](https://github.com/Axel-Duval))
+
 ## v8.55.0 (2022-09-06)
 
 #### :rocket: New Feature
