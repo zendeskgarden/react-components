@@ -23,7 +23,6 @@
      strikethrough any item text that does not apply to this PR. -->
 
 - [ ] :ok_hand: design updates will be Garden Designer approved (add the designer as a reviewer)
-- [ ] :detective: component quality will be Garden Product approved (add the PM as a reviewer)
 - [ ] :globe_with_meridians: demo is up-to-date (`yarn start`)
 - [ ] :arrow_left: renders as expected with reversed (RTL) direction
 - [ ] :metal: renders as expected with Bedrock CSS (`?bedrock`)
