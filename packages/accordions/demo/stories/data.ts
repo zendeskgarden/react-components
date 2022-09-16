@@ -145,19 +145,19 @@ export const STEPPER_STEPS: IStepperStep[] = [
 
 export const TIMELINE_ITEMS: ITimelineItem[] = [
   {
-    title: 'Issue with order',
-    description: 'Today 9:00 AM'
+    title: 'Plant seed',
+    description: 'Today, 9:00 AM'
   },
   {
-    title: 'Ordered 3 items',
+    title: 'Purchased seed',
     description: 'Feb 08, 9:05 AM'
   },
   {
-    title: 'Added 3 items to cart',
+    title: 'Arranged layout of garden',
     description: 'Jan 21, 9:13 AM'
   },
   {
-    title: 'Viewed product page',
+    title: 'Chose a gardening location',
     description: 'Jan 21, 9:21 AM'
   }
 ];
