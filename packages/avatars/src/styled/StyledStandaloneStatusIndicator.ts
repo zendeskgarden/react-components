@@ -111,7 +111,7 @@ export const StyledStandaloneStatusIndicator = styled.span.attrs({
   ${colorStyles}
 
   & > svg {
-    animation: ${iconFadeIn} ${TRANSITION_DURATION};
+    animation: ${iconFadeIn} ${TRANSITION_DURATION}s;
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

@@ -20,7 +20,7 @@ export const StatusMenuStory: Story = ({ isCompact }) => {
         <Col textAlign="center" alignSelf="center">
           <Dropdown selectedItem={selectedType} onSelect={value => setSelectedType(value)}>
             <Trigger>
-              <Avatar status={selectedType}>
+              <Avatar status={selectedType} size={isCompact ? 'small' : 'large'}>
                 <img alt="Example User" src="images/avatars/chrome.png" />
               </Avatar>
             </Trigger>

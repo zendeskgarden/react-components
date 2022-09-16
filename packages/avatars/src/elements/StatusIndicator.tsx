@@ -33,7 +33,7 @@ const StatusIndicatorComponent = forwardRef<HTMLElement, IStatusIndicatorProps>(
       ArrowLeftIcon = ArrowLeftIcon12;
     }
 
-    const defaultLabel = useMemo(() => ['status'].concat(type).join(': '), [type]);
+    const defaultLabel = useMemo(() => ['status'].concat(type || []).join(': '), [type]);
     const ariaLabel = useText(StatusIndicatorComponent, props, 'aria-label', defaultLabel);
 
     return (
@@ -58,11 +58,12 @@ const StatusIndicatorComponent = forwardRef<HTMLElement, IStatusIndicatorProps>(
 StatusIndicatorComponent.displayName = 'StatusIndicator';
 
 StatusIndicatorComponent.propTypes = {
-  type: PropTypes.oneOf(STATUS).isRequired,
+  type: PropTypes.oneOf(STATUS),
   isCompact: PropTypes.bool
 };
 
 StatusIndicatorComponent.defaultProps = {
+  type: 'offline',
   isCompact: false
 };
 

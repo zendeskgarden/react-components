@@ -15,23 +15,10 @@ import { StatusIndicatorStory } from './stories/StatusIndicatorStory';
   <Story
     name="StatusIndicator"
     argTypes={{
-      caption: { name: 'caption', control: 'text', table: { category: 'Story' } },
-      show: {
-        name: 'show',
-        control: 'radio',
-        options: ['default caption', 'set caption', 'no caption'],
-        table: { category: 'Story' }
-      }
+      children: { control: 'text' }
     }}
     args={{
-      show: 'default caption'
-    }}
-    parameters={{
-      design: {
-        allowFullscreen: true,
-        type: 'figma',
-        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=102%3A110'
-      }
+      'aria-label': 'Label'
     }}
   >
     {args => <StatusIndicatorStory {...args} />}

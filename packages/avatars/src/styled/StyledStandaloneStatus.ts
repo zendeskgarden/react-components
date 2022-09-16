@@ -8,7 +8,7 @@
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'avatars.status-indicator';
+const COMPONENT_ID = 'avatars.status-indicator.status';
 
 export const StyledStandaloneStatus = styled.figure.attrs({
   'data-garden-id': COMPONENT_ID,

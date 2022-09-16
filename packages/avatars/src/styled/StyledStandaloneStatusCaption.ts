@@ -23,9 +23,6 @@ export const StyledStandaloneStatusCaption = styled.figcaption.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
-  display: inline-block;
-  box-sizing: inherit;
-
   ${sizeStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
