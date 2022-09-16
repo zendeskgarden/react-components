@@ -10,7 +10,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 import { math } from 'polished';
 
 import { IAvatarProps, SIZE, STATUS } from '../types';
-import { getStatusColor } from './utility';
+import { getStatusColor, statusIconStyles } from './utility';
 
 export interface IStatusIndicatorProps extends Omit<IAvatarProps, 'badge' | 'isSystem' | 'status'> {
   readonly status?: IAvatarProps['status'] | 'active';
@@ -51,12 +51,6 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
       break;
   }
 
-  /**
-   * 1. because we are using the stroke icon instead of fill due to artifacts in visual appearance,
-   *    we need to remove the circle
-   * 2. when @zendeskgarden/css-bedrock is present, max-height needs to be unset due to icon being
-   *    resized incorrectly
-   */
   return css`
     border: ${borderWidth} ${props.theme.borderStyles.solid};
     border-radius: ${height};
@@ -84,21 +78,7 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
 
     & > svg {
       ${!isVisible && 'display: none;'}
-      position: absolute;
-      top: -${borderWidth};
-      left: -${borderWidth};
-      transform-origin: 50% 50%;
-      max-height: unset; /* [2] */
-
-      /* stylelint-disable-next-line selector-no-qualifying-type */
-      &[data-icon-status='transfers'] {
-        transform: scale(${props.theme.rtl ? -1 : 1}, 1);
-      }
-
-      /* stylelint-disable-next-line selector-no-qualifying-type */
-      &[data-icon-status='away'] circle {
-        display: none; /* [1] */
-      }
+      ${statusIconStyles({ ...props, offset: borderWidth })}
     }
   `;
 };

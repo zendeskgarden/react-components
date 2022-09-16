@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { STATUS } from '../types';
@@ -32,3 +33,43 @@ export function getStatusColor(
       return 'transparent';
   }
 }
+
+const iconFadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;
+
+export const statusIconStyles = ({
+  offset,
+  theme
+}: ThemeProps<DefaultTheme> & { offset: string }) => {
+  /**
+   * 1. because we are using the stroke icon instead of fill due to artifacts in visual appearance,
+   *    we need to remove the circle
+   * 2. when @zendeskgarden/css-bedrock is present, max-height needs to be unset due to icon being
+   *    resized incorrectly
+   */
+  return css`
+    position: absolute;
+    top: -${offset};
+    left: -${offset};
+    transform-origin: 50% 50%;
+    animation: ${iconFadeIn} ${TRANSITION_DURATION}s;
+    max-height: unset; /* [2] */
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    &[data-icon-status='transfers'] {
+      transform: scale(${theme.rtl ? -1 : 1}, 1);
+    }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    &[data-icon-status='away'] circle {
+      display: none; /* [1] */
+    }
+  `;
+};

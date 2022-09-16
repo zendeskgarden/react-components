@@ -5,26 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme, keyframes } from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IStatusIndicatorProps, STATUS } from '../types';
-import { getStatusColor, TRANSITION_DURATION } from './utility';
+import { getStatusColor, statusIconStyles, TRANSITION_DURATION } from './utility';
 
 const COMPONENT_ID = 'avatars.status-indicator.indicator';
 
 const [available, away, transfers, offline] = STATUS;
-
-const iconFadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-`;
 
 const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
   const borderWidth = props.theme.shadowWidths.sm;
@@ -37,12 +27,6 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     height = math(`${props.theme.space.base * 4}px - (${borderWidth} * 2)`);
   }
 
-  /**
-   * 1. because we are using the stroke icon instead of fill due to artifacts in visual appearance,
-   *    we need to remove the circle
-   * 2. when @zendeskgarden/css-bedrock is present, max-height needs to be unset due to icon being
-   *    resized incorrectly
-   */
   return css`
     margin: ${props.theme.space.base}px;
     border: ${borderWidth} ${props.theme.borderStyles.solid};
@@ -56,21 +40,7 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
     overflow: hidden;
 
     & > svg {
-      position: absolute;
-      top: -${borderWidth};
-      left: -${borderWidth};
-      transform-origin: 50% 50%;
-      max-height: unset; /* [2] */
-
-      /* stylelint-disable-next-line selector-no-qualifying-type */
-      &[data-icon-status='transfers'] {
-        transform: scale(${props.theme.rtl ? -1 : 1}, 1);
-      }
-
-      /* stylelint-disable-next-line selector-no-qualifying-type */
-      &[data-icon-status='away'] circle {
-        display: none; /* [1] */
-      }
+      ${statusIconStyles({ ...props, offset: borderWidth })}
     }
   `;
 };
@@ -109,15 +79,11 @@ export const StyledStandaloneStatusIndicator = styled.span.attrs({
   ${sizeStyles}
   ${colorStyles}
 
-  & > svg {
-    animation: ${iconFadeIn} ${TRANSITION_DURATION}s;
-  }
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledStandaloneStatusIndicator.defaultProps = {
-  type: 'available',
+  type: 'offline',
   isCompact: false,
   theme: DEFAULT_THEME
 };
