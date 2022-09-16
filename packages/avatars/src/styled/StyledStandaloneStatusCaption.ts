@@ -13,7 +13,7 @@ const COMPONENT_ID = 'avatars.status-indicator.caption';
 function sizeStyles(props: ThemeProps<DefaultTheme>) {
   return css`
     padding: 0 ${props.theme.space.base}px;
-    line-height: ${props.theme.space.base * 5}px;
+    line-height: ${props.theme.space.base * 6}px;
     font-size: ${props.theme.fontSizes.md};
     font-weight: ${props.theme.fontWeights.regular};
   `;

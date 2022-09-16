@@ -14,10 +14,8 @@ export const StyledStandaloneStatus = styled.figure.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
-  box-sizing: content-box;
   display: inline-flex;
-  flex-flow: row wrap;
-  align-items: center;
+  flex-flow: row nowrap;
   margin: 0;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

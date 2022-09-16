@@ -44,7 +44,7 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
    *    resized incorrectly
    */
   return css`
-    margin: 0 ${props.theme.space.base}px;
+    margin: ${props.theme.space.base}px;
     border: ${borderWidth} ${props.theme.borderStyles.solid};
     border-radius: ${height};
     width: ${height};
@@ -103,7 +103,6 @@ export const StyledStandaloneStatusIndicator = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStatusIndicatorProps & ThemeProps<DefaultTheme>>`
-  display: inline-block;
   position: relative;
   transition: all ${TRANSITION_DURATION}s ease-in-out;
 
