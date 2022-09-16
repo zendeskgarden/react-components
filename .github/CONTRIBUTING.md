@@ -65,7 +65,12 @@ commands are available:
   template.
 
 See Garden's [development documentation](/docs/development.md) for package
-implementation requirements.
+implementation requirements. In general, your code will be expected to follow
+documented standards and prevailing conventions. If you feel the need to
+introduce a new or novel pattern, please start a new
+[discussion](https://github.com/zendeskgarden/react-components/discussions) or
+open an [issue](https://github.com/zendeskgarden/react-components/issues) for
+consideration by the core team.
 
 ## Pull Request Workflow
 
