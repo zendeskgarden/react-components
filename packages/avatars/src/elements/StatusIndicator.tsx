@@ -68,8 +68,7 @@ StatusIndicatorComponent.propTypes = {
 };
 
 StatusIndicatorComponent.defaultProps = {
-  type: 'offline',
-  isCompact: false
+  type: 'offline'
 };
 
 export const StatusIndicator = StatusIndicatorComponent;
