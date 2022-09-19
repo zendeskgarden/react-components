@@ -17,7 +17,7 @@ export interface IStatusIndicatorProps extends Omit<IAvatarProps, 'badge' | 'isS
   borderColor?: string;
 }
 
-const COMPONENT_ID = 'avatars.status-indicator';
+const COMPONENT_ID = 'avatars.status_indicator';
 
 const [xxs, xs, s, m, l] = SIZE;
 const [active, available, away, transfers, offline] = ['active', ...STATUS];
