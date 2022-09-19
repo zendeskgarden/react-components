@@ -24,7 +24,7 @@ import {
  * @extends HTMLAttributes<HTMLElement>
  */
 const StatusIndicatorComponent = forwardRef<HTMLElement, IStatusIndicatorProps>(
-  ({ children, type, isCompact, ...props }, ref) => {
+  ({ children, type, isCompact, 'aria-label': label, ...props }, ref) => {
     let ClockIcon = ClockIcon16;
     let ArrowLeftIcon = ArrowLeftIcon16;
 
@@ -34,7 +34,12 @@ const StatusIndicatorComponent = forwardRef<HTMLElement, IStatusIndicatorProps>(
     }
 
     const defaultLabel = useMemo(() => ['status'].concat(type || []).join(': '), [type]);
-    const ariaLabel = useText(StatusIndicatorComponent, props, 'aria-label', defaultLabel);
+    const ariaLabel = useText(
+      StatusIndicatorComponent,
+      { 'aria-label': label },
+      'aria-label',
+      defaultLabel
+    );
 
     return (
       <StyledStandaloneStatus role="status" ref={ref} {...props}>

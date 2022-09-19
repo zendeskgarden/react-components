@@ -18,29 +18,19 @@ const [available, away, transfers, offline] = STATUS;
 
 const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
   const borderWidth = props.theme.shadowWidths.sm;
-
-  let size = '0';
-  let marginTop = props.theme.space.base;
-
-  if (props.isCompact) {
-    marginTop = props.theme.space.base * 1.5;
-    size = math(`${props.theme.space.base * 3}px - (${borderWidth} * 2)`);
-  } else {
-    size = math(`${props.theme.space.base * 4}px - (${borderWidth} * 2)`);
-  }
+  const marginRight = props.theme.space.base * 2;
+  const marginVertical = props.theme.space.base / (props.isCompact ? 1 : 2);
+  const size = math(
+    `${props.theme.space.base * (props.isCompact ? 3 : 4)}px - (${borderWidth} * 2)`
+  );
 
   return css`
-    margin: ${props.theme.space.base}px;
-    margin-top: ${marginTop}px;
+    margin: ${marginVertical}px ${marginRight}px;
+    margin-left: 0;
     border: ${borderWidth} ${props.theme.borderStyles.solid};
     border-radius: ${size};
     width: ${size};
-    min-width: ${size};
-    max-width: calc(2em + (${borderWidth} * 3));
     height: ${size};
-    min-height: ${size};
-    box-sizing: inherit;
-    overflow: hidden;
 
     & > svg {
       ${statusIconStyles({ ...props, offset: borderWidth })}

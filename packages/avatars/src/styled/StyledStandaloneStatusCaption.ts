@@ -6,16 +6,18 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getLineHeight
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'avatars.status-indicator.caption';
 
 function sizeStyles(props: ThemeProps<DefaultTheme>) {
   return css`
-    padding: 0 ${props.theme.space.base}px;
-    line-height: ${props.theme.space.base * 6}px;
+    line-height: ${getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
     font-size: ${props.theme.fontSizes.md};
-    font-weight: ${props.theme.fontWeights.regular};
   `;
 }
 
