@@ -19,23 +19,26 @@ const [available, away, transfers, offline] = STATUS;
 const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
   const borderWidth = props.theme.shadowWidths.sm;
 
-  let height = '0';
+  let size = '0';
+  let marginTop = props.theme.space.base;
 
   if (props.isCompact) {
-    height = math(`${props.theme.space.base * 3}px - (${borderWidth} * 2)`);
+    marginTop = props.theme.space.base * 1.5;
+    size = math(`${props.theme.space.base * 3}px - (${borderWidth} * 2)`);
   } else {
-    height = math(`${props.theme.space.base * 4}px - (${borderWidth} * 2)`);
+    size = math(`${props.theme.space.base * 4}px - (${borderWidth} * 2)`);
   }
 
   return css`
     margin: ${props.theme.space.base}px;
+    margin-top: ${marginTop}px;
     border: ${borderWidth} ${props.theme.borderStyles.solid};
-    border-radius: ${height};
-    width: ${height};
-    min-width: ${height};
+    border-radius: ${size};
+    width: ${size};
+    min-width: ${size};
     max-width: calc(2em + (${borderWidth} * 3));
-    height: ${height};
-    min-height: ${height};
+    height: ${size};
+    min-height: ${size};
     box-sizing: inherit;
     overflow: hidden;
 
@@ -69,7 +72,7 @@ const colorStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) =>
   `;
 };
 
-export const StyledStandaloneStatusIndicator = styled.span.attrs({
+export const StyledStandaloneStatusIndicator = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStatusIndicatorProps & ThemeProps<DefaultTheme>>`
