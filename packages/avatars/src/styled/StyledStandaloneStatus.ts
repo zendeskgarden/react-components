@@ -17,6 +17,7 @@ export const StyledStandaloneStatus = styled.figure.attrs({
   display: inline-flex;
   flex-flow: row nowrap;
   margin: 0;
+  box-sizing: content-box;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
