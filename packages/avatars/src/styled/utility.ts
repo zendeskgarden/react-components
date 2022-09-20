@@ -5,20 +5,27 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { ThemeProps, DefaultTheme } from 'styled-components';
+import { math } from 'polished';
 
-import { STATUS } from '../types';
+import { STATUS, SIZE, IAvatarProps } from '../types';
 
 export const TRANSITION_DURATION = 0.25;
 
+const [xxs, xs, s, m, l] = SIZE;
 const [active, available, away, transfers, offline] = ['active', ...STATUS];
 
+export interface IStyledStatusIndicatorProps extends ThemeProps<DefaultTheme> {
+  readonly size?: typeof SIZE[number];
+  readonly type?: typeof STATUS[number] | 'active';
+}
+
 export function getStatusColor(
-  status: typeof STATUS[number] | 'active' | undefined,
+  type?: typeof STATUS[number] | 'active',
   theme = DEFAULT_THEME
 ): string {
-  switch (status) {
+  switch (type) {
     case active:
       return getColor('crimson', 400, theme)!;
     case available:
@@ -34,42 +41,32 @@ export function getStatusColor(
   }
 }
 
-const iconFadeIn = keyframes`
-  0% {
-    opacity: 0;
+export function getStatusSize(props: IStyledStatusIndicatorProps, offset: string): string {
+  const isActive = props.type === active;
+
+  switch (props.size) {
+    case xxs:
+      return math(`${props.theme.space.base}px - ${offset}`);
+    case xs:
+      return math(`${props.theme.space.base * 2}px - (${offset} * 2)`);
+    case s:
+      return math(`${props.theme.space.base * 3}px ${isActive ? '' : `- (${offset} * 2)`}`);
+    case m:
+    case l:
+      return math(`${props.theme.space.base * 4}px ${isActive ? '' : `- (${offset} * 2)`}`);
+    default:
+      return '0';
   }
+}
 
-  100% {
-    opacity: 1;
-  }
-`;
+export function getStatusBorderOffset(
+  props: Pick<IAvatarProps, 'size'> & ThemeProps<DefaultTheme>
+): string {
+  return props.size === xxs
+    ? math(`${props.theme.shadowWidths.sm} - 1`)
+    : props.theme.shadowWidths.sm;
+}
 
-export const statusIconStyles = ({
-  offset,
-  theme
-}: ThemeProps<DefaultTheme> & { offset: string }) => {
-  /**
-   * 1. because we are using the stroke icon instead of fill due to artifacts in visual appearance,
-   *    we need to remove the circle
-   * 2. when @zendeskgarden/css-bedrock is present, max-height needs to be unset due to icon being
-   *    resized incorrectly
-   */
-  return css`
-    position: absolute;
-    top: -${offset};
-    left: -${offset};
-    transform-origin: 50% 50%;
-    animation: ${iconFadeIn} ${TRANSITION_DURATION}s;
-    max-height: unset; /* [2] */
-
-    /* stylelint-disable-next-line selector-no-qualifying-type */
-    &[data-icon-status='transfers'] {
-      transform: scale(${theme.rtl ? -1 : 1}, 1);
-    }
-
-    /* stylelint-disable-next-line selector-no-qualifying-type */
-    &[data-icon-status='away'] circle {
-      display: none; /* [1] */
-    }
-  `;
-};
+export function includes<T extends U, U>(array: readonly T[], element: U): element is T {
+  return array.includes(element as T);
+}

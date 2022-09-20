@@ -46,7 +46,7 @@ const StatusIndicatorComponent = forwardRef<HTMLElement, IStatusIndicatorProps>(
         <StyledStandaloneStatusIndicator
           role="img"
           type={type}
-          isCompact={isCompact}
+          size={isCompact ? 'small' : 'medium'}
           aria-label={ariaLabel}
         >
           {type === 'away' ? <ClockIcon data-icon-status={type} aria-hidden="true" /> : null}

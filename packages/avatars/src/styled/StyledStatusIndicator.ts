@@ -9,59 +9,37 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
-import { IAvatarProps, SIZE, STATUS } from '../types';
-import { getStatusColor, statusIconStyles } from './utility';
+import { IAvatarProps, SIZE } from '../types';
+import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';
+import { getStatusBorderOffset, includes } from './utility';
 
 export interface IStatusIndicatorProps extends Omit<IAvatarProps, 'badge' | 'isSystem' | 'status'> {
-  readonly status?: IAvatarProps['status'] | 'active';
+  readonly type?: IAvatarProps['status'] | 'active';
   borderColor?: string;
 }
 
 const COMPONENT_ID = 'avatars.status_indicator';
 
 const [xxs, xs, s, m, l] = SIZE;
-const [active, available, away, transfers, offline] = ['active', ...STATUS];
 
 const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
-  const isActive = props.status === 'active';
+  const isVisible = !includes([xxs, xs], props.size);
+  const borderWidth = getStatusBorderOffset(props);
 
-  let isVisible = true;
-  let height = '0';
   let padding = '0';
-  let borderWidth = props.theme.shadowWidths.sm;
 
-  switch (props.size) {
-    case xxs:
-      isVisible = false;
-      borderWidth = math(`${borderWidth} - 1`);
-      height = math(`${props.theme.space.base}px - ${borderWidth}`);
-      break;
-    case xs:
-      isVisible = false;
-      height = math(`${props.theme.space.base * 2}px - (${borderWidth} * 2)`);
-      break;
-    case s:
-      height = math(`${props.theme.space.base * 3}px ${isActive ? '' : `- (${borderWidth} * 2)`}`);
-      padding = math(`${props.theme.space.base + 1}px - (${borderWidth} * 2)`);
-      break;
-    case m:
-    case l:
-      height = math(`${props.theme.space.base * 4}px ${isActive ? '' : `- (${borderWidth} * 2)`}`);
-      padding = math(`${props.theme.space.base + 3}px - (${borderWidth} * 2)`);
-      break;
+  if (props.size === s) {
+    padding = math(`${props.theme.space.base + 1}px - (${borderWidth} * 2)`);
+  } else if (includes([m, l], props.size)) {
+    padding = math(`${props.theme.space.base + 3}px - (${borderWidth} * 2)`);
   }
 
   return css`
-    border: ${borderWidth} ${props.theme.borderStyles.solid};
-    border-radius: ${height};
-    min-width: ${height};
     max-width: calc(2em + (${borderWidth} * 3));
-    height: ${height};
     box-sizing: content-box;
     overflow: hidden;
     text-align: center;
     text-overflow: ellipsis;
-    line-height: ${height};
     white-space: nowrap;
     font-size: ${props.theme.fontSizes.xs};
     font-weight: ${props.theme.fontWeights.semibold};
@@ -78,36 +56,19 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
 
     & > svg {
       ${!isVisible && 'display: none;'}
-      ${statusIconStyles({ ...props, offset: borderWidth })}
     }
   `;
 };
 
 const colorStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
-  const foregroundColor = props.foregroundColor || props.theme.palette.white;
-  const surfaceColor =
-    props.surfaceColor ||
-    (props.status ? props.theme.colors.background : (props.theme.palette.white as string));
-  let backgroundColor = props.backgroundColor || 'transparent';
-  let borderColor = props.borderColor || backgroundColor;
-  let boxShadow = props.theme.shadows.sm(surfaceColor);
+  const { theme, type, size, foregroundColor, backgroundColor, borderColor, surfaceColor } = props;
 
-  if (props.size === xxs) {
-    boxShadow = boxShadow.replace(props.theme.shadowWidths.sm, '1px');
-  }
+  let boxShadow = theme.shadows.sm(
+    surfaceColor || (type ? theme.colors.background : (theme.palette.white as string))
+  );
 
-  switch (props.status) {
-    case available:
-    case active:
-    case away:
-    case transfers:
-      backgroundColor = getStatusColor(props.status, props.theme);
-      borderColor = backgroundColor;
-      break;
-    case offline:
-      borderColor = getStatusColor(props.status, props.theme);
-      backgroundColor = props.theme.palette.white as string;
-      break;
+  if (size === xxs) {
+    boxShadow = boxShadow.replace(theme.shadowWidths.sm, '1px');
   }
 
   return css`
@@ -118,14 +79,12 @@ const colorStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) =>
   `;
 };
 
-export const StyledStatusIndicator = styled.div.attrs({
+export const StyledStatusIndicator = styled(StyledStatusIndicatorBase).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStatusIndicatorProps>`
   ${sizeStyles}
   ${colorStyles}
-
-  transition: inherit;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

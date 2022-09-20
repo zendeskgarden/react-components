@@ -76,7 +76,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         {computedStatus && (
           <StyledStatusIndicator
             size={size}
-            status={computedStatus}
+            type={computedStatus}
             backgroundColor={backgroundColor}
             foregroundColor={foregroundColor}
             surfaceColor={surfaceColor}

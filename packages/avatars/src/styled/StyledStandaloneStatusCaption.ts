@@ -15,7 +15,12 @@ import {
 const COMPONENT_ID = 'avatars.status-indicator.caption';
 
 function sizeStyles(props: ThemeProps<DefaultTheme>) {
+  const marginRule = `margin-${props.theme.rtl ? 'right' : 'left'}: ${
+    props.theme.space.base * 2
+  }px;`;
+
   return css`
+    ${marginRule}
     line-height: ${getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
     font-size: ${props.theme.fontSizes.md};
   `;
