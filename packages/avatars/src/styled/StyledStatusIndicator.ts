@@ -11,10 +11,10 @@ import { math } from 'polished';
 
 import { IAvatarProps, SIZE } from '../types';
 import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';
-import { getStatusBorderOffset, includes } from './utility';
+import { getStatusBorderOffset, includes, IStyledStatusIndicatorProps } from './utility';
 
 export interface IStatusIndicatorProps extends Omit<IAvatarProps, 'badge' | 'isSystem' | 'status'> {
-  readonly type?: IAvatarProps['status'] | 'active';
+  readonly type?: IStyledStatusIndicatorProps['type'];
   borderColor?: string;
 }
 

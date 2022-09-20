@@ -9,7 +9,7 @@ import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 
-import { STATUS, SIZE, IAvatarProps } from '../types';
+import { STATUS, SIZE } from '../types';
 
 export const TRANSITION_DURATION = 0.25;
 
@@ -22,8 +22,8 @@ export interface IStyledStatusIndicatorProps extends ThemeProps<DefaultTheme> {
 }
 
 export function getStatusColor(
-  type?: typeof STATUS[number] | 'active',
-  theme = DEFAULT_THEME
+  type?: IStyledStatusIndicatorProps['type'],
+  theme?: typeof DEFAULT_THEME
 ): string {
   switch (type) {
     case active:
@@ -59,9 +59,7 @@ export function getStatusSize(props: IStyledStatusIndicatorProps, offset: string
   }
 }
 
-export function getStatusBorderOffset(
-  props: Pick<IAvatarProps, 'size'> & ThemeProps<DefaultTheme>
-): string {
+export function getStatusBorderOffset(props: IStyledStatusIndicatorProps): string {
   return props.size === xxs
     ? math(`${props.theme.shadowWidths.sm} - 1`)
     : props.theme.shadowWidths.sm;
