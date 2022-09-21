@@ -5,36 +5,35 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 
-import { STATUS, SIZE } from '../types';
+import { SIZE, IAvatarProps } from '../types';
+
+const [xxs, xs, s, m, l] = SIZE;
 
 export const TRANSITION_DURATION = 0.25;
 
-const [xxs, xs, s, m, l] = SIZE;
-const [active, available, away, transfers, offline] = ['active', ...STATUS];
-
 export interface IStyledStatusIndicatorProps extends ThemeProps<DefaultTheme> {
-  readonly size?: typeof SIZE[number];
-  readonly type?: typeof STATUS[number] | 'active';
+  readonly size?: IAvatarProps['size'];
+  readonly type?: IAvatarProps['status'] | 'active';
 }
 
 export function getStatusColor(
   type?: IStyledStatusIndicatorProps['type'],
-  theme?: typeof DEFAULT_THEME
+  theme?: IStyledStatusIndicatorProps['theme']
 ): string {
   switch (type) {
-    case active:
+    case 'active':
       return getColor('crimson', 400, theme)!;
-    case available:
+    case 'available':
       return getColor('mint', 400, theme)!;
-    case away:
+    case 'away':
       return getColor('orange', 400, theme)!;
-    case transfers:
+    case 'transfers':
       return getColor('azure', 400, theme)!;
-    case offline:
+    case 'offline':
       return getColor('grey', 500, theme)!;
     default:
       return 'transparent';
@@ -42,7 +41,7 @@ export function getStatusColor(
 }
 
 export function getStatusSize(props: IStyledStatusIndicatorProps, offset: string): string {
-  const isActive = props.type === active;
+  const isActive = props.type === 'active';
 
   switch (props.size) {
     case xxs:

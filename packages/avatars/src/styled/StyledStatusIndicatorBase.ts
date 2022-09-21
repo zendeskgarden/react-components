@@ -8,7 +8,6 @@
 import styled, { css, keyframes } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { STATUS } from '../types';
 import {
   TRANSITION_DURATION,
   getStatusColor,
@@ -18,8 +17,6 @@ import {
 } from './utility';
 
 const COMPONENT_ID = 'avatars.status-indicator.base';
-
-const [offline] = [...STATUS].reverse();
 
 const iconFadeIn = keyframes`
   0% {
@@ -74,7 +71,7 @@ const colorStyles = (props: IStyledStatusIndicatorProps) => {
   let backgroundColor = getStatusColor(props.type, props.theme);
   let borderColor = backgroundColor;
 
-  if (props.type === offline) {
+  if (props.type === 'offline') {
     borderColor = getStatusColor(props.type, props.theme);
     backgroundColor = props.theme.palette.white as string;
   }
