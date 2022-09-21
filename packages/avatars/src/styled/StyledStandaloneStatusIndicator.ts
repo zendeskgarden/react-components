@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { IStyledStatusIndicatorProps } from './utility';
+import { getStatusSize, IStyledStatusIndicatorProps } from './utility';
 import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';
 
 const COMPONENT_ID = 'avatars.status-indicator.indicator';
@@ -18,7 +18,8 @@ export const StyledStandaloneStatusIndicator = styled(StyledStatusIndicatorBase)
   'data-garden-version': PACKAGE_VERSION
 })<IStyledStatusIndicatorProps>`
   position: relative;
-  margin-top: ${props => `${props.theme.space.base / (props.size === 'small' ? 1 : 2)}px`};
+  margin-top: ${props =>
+    `calc((${props.theme.lineHeights.md} - ${getStatusSize(props, '0')}) / 2)`};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

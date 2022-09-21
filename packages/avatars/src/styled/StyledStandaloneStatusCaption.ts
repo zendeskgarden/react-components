@@ -7,9 +7,9 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
-  retrieveComponentStyles,
   DEFAULT_THEME,
-  getLineHeight
+  getLineHeight,
+  retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'avatars.status-indicator.caption';
@@ -21,7 +21,7 @@ function sizeStyles(props: ThemeProps<DefaultTheme>) {
 
   return css`
     ${marginRule}
-    line-height: ${getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
+    line-height: ${getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
     font-size: ${props.theme.fontSizes.md};
   `;
 }

@@ -40,6 +40,12 @@ export function getStatusColor(
   }
 }
 
+export function getStatusBorderOffset(props: IStyledStatusIndicatorProps): string {
+  return props.size === xxs
+    ? math(`${props.theme.shadowWidths.sm} - 1`)
+    : props.theme.shadowWidths.sm;
+}
+
 export function getStatusSize(props: IStyledStatusIndicatorProps, offset: string): string {
   const isActive = props.type === 'active';
 
@@ -56,12 +62,6 @@ export function getStatusSize(props: IStyledStatusIndicatorProps, offset: string
     default:
       return '0';
   }
-}
-
-export function getStatusBorderOffset(props: IStyledStatusIndicatorProps): string {
-  return props.size === xxs
-    ? math(`${props.theme.shadowWidths.sm} - 1`)
-    : props.theme.shadowWidths.sm;
 }
 
 export function includes<T extends U, U>(array: readonly T[], element: U): element is T {
