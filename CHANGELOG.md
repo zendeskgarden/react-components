@@ -12,6 +12,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.57.0 (2022-09-22)
+
+#### :rocket: New Feature
+* `avatars`
+  * [#1410](https://github.com/zendeskgarden/react-components/pull/1410) feat(avatars): add status indicator component ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :memo: Documentation
+* [#1411](https://github.com/zendeskgarden/react-components/pull/1411) docs: update contributing documentation and PR template ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `accordions`
+  * [#1412](https://github.com/zendeskgarden/react-components/pull/1412) demo(accordions): add Figma designs for Timeline component ([@jzempel](https://github.com/jzempel))
+
 ## v8.56.0 (2022-09-15)
 
 #### :rocket: New Feature
