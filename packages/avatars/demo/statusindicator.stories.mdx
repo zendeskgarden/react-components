@@ -1,0 +1,34 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { StatusIndicator } from '@zendeskgarden/react-avatars';
+
+import { StatusIndicatorStory } from './stories/StatusIndicatorStory';
+
+<Meta title="Packages/Avatars/StatusIndicator" component={StatusIndicator} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="StatusIndicator"
+    argTypes={{
+      children: { control: 'text' }
+    }}
+    args={{
+      'aria-label': 'Label',
+      children: 'Status'
+    }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=10927%3A45275'
+      }
+    }}
+  >
+    {args => <StatusIndicatorStory {...args} />}
+  </Story>
+</Canvas>

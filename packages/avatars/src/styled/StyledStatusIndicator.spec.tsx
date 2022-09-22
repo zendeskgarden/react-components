@@ -96,7 +96,7 @@ describe('StyledStatusIndicator', () => {
     });
   });
 
-  describe('status', () => {
+  describe('type', () => {
     it('renders default', () => {
       const { container } = render(<StyledStatusIndicator />);
 
@@ -105,7 +105,7 @@ describe('StyledStatusIndicator', () => {
 
     describe('away', () => {
       it('renders away style', () => {
-        const { container } = render(<StyledStatusIndicator status="away" />);
+        const { container } = render(<StyledStatusIndicator type="away" />);
         const color = getColor('orange', 400);
 
         expect(container.firstChild).toHaveStyleRule('background-color', color);
@@ -114,7 +114,7 @@ describe('StyledStatusIndicator', () => {
 
     describe('transfers', () => {
       it('renders transfers style', () => {
-        const { container } = render(<StyledStatusIndicator status="transfers" />);
+        const { container } = render(<StyledStatusIndicator type="transfers" />);
         const color = getColor('azure', 400);
 
         expect(container.firstChild).toHaveStyleRule('background-color', color);
@@ -123,16 +123,25 @@ describe('StyledStatusIndicator', () => {
 
     describe('active', () => {
       it('renders active style', () => {
-        const { container } = render(<StyledStatusIndicator status="active" />);
+        const { container } = render(<StyledStatusIndicator type="active" />);
         const color = getColor('crimson', 400);
 
+        expect(container.firstChild).toHaveStyleRule('height', '16px');
+        expect(container.firstChild).toHaveStyleRule('background-color', color);
+      });
+
+      it('renders active style with small size', () => {
+        const { container } = render(<StyledStatusIndicator type="active" size="small" />);
+        const color = getColor('crimson', 400);
+
+        expect(container.firstChild).toHaveStyleRule('height', '12px');
         expect(container.firstChild).toHaveStyleRule('background-color', color);
       });
     });
 
     describe('available', () => {
       it('renders available style', () => {
-        const { container } = render(<StyledStatusIndicator status="available" />);
+        const { container } = render(<StyledStatusIndicator type="available" />);
         const color = getColor('mint', 400);
 
         expect(container.firstChild).toHaveStyleRule('background-color', color);
@@ -141,10 +150,10 @@ describe('StyledStatusIndicator', () => {
 
     describe('offline', () => {
       it('renders offline style', () => {
-        const { container } = render(<StyledStatusIndicator status="offline" />);
+        const { container } = render(<StyledStatusIndicator type="offline" />);
         const color = getColor('grey', 500);
 
-        expect(container.firstChild).toHaveStyleRule('border-color', color);
+        expect(container.firstChild).toHaveStyleRule('border-color', `${color}`);
       });
     });
   });

@@ -6,5 +6,8 @@
  */
 
 export * from './StyledAvatar';
+export * from './StyledStandaloneStatus';
+export * from './StyledStandaloneStatusCaption';
+export * from './StyledStandaloneStatusIndicator';
 export * from './StyledStatusIndicator';
 export * from './StyledText';
