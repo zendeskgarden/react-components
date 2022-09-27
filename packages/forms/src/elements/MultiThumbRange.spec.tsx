@@ -140,6 +140,16 @@ describe('MultiThumbRange', () => {
   });
 
   describe('Track', () => {
+    it('handles uncontrolled default values', () => {
+      const { getAllByTestId } = render(
+        <MultiThumbRange defaultMinValue={25} defaultMaxValue={75} />
+      );
+      const thumbs = getAllByTestId('thumb');
+
+      expect(thumbs[0]).toHaveStyle('left: 25px');
+      expect(thumbs[1]).toHaveStyle('left: 75px');
+    });
+
     it('positioning style is applied correctly', () => {
       const { getByTestId } = render(
         <div style={{ width: 500 }}>
@@ -289,6 +299,24 @@ describe('MultiThumbRange', () => {
 
         fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 20, maxValue: 75 });
+      });
+
+      it('jumps minValue up on PAGE_UP key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.PAGE_UP });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 25, maxValue: 75 });
+      });
+
+      it('jumps minValue down on PAGE_DOWN key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.PAGE_DOWN });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 5, maxValue: 75 });
       });
 
       it('sets minValue to min on HOME key', () => {
@@ -500,6 +528,24 @@ describe('MultiThumbRange', () => {
 
         fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
+      });
+
+      it('jumps maxValue up on PAGE_UP key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[1], { keyCode: KEY_CODES.PAGE_UP });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 85 });
+      });
+
+      it('jumps maxValue down on PAGE_DOWN key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[1], { keyCode: KEY_CODES.PAGE_DOWN });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 65 });
       });
 
       it('sets maxValue to minValue on HOME key', () => {
