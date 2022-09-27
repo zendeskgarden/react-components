@@ -8,6 +8,22 @@ import { commonArgs, commonArgTypes } from './stories/common';
   title="Packages/Forms/MultiThumbRange"
   component={MultiThumbRange}
   subcomponents={{ Field, Label, Hint, Message }}
+  args={{
+    ...commonArgs,
+    min: 0,
+    max: 100,
+    step: 1
+  }}
+  argTypes={{
+    ...commonArgTypes
+  }}
+  parameters={{
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A20263'
+    }
+  }}
 />
 
 # API
@@ -16,25 +32,24 @@ import { commonArgs, commonArgTypes } from './stories/common';
 
 # Demo
 
+## Uncontrolled
+
 <Canvas>
   <Story
-    name="MultiThumbRange"
-    args={{
-      ...commonArgs,
-      min: 0,
-      max: 100,
-      step: 1
-    }}
-    argTypes={{
-      ...commonArgTypes
-    }}
-    parameters={{
-      design: {
-        allowFullscreen: true,
-        type: 'figma',
-        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A20263'
-      }
-    }}
+    name="Uncontrolled"
+    argTypes={{ minValue: { control: false }, maxValue: { control: false } }}
+  >
+    {args => <MultiThumbRangeStory {...args} />}
+  </Story>
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story
+    name="Controlled"
+    args={{ minValue: 25, maxValue: 75 }}
+    argTypes={{ defaultMinValue: { control: false }, defaultMaxValue: { control: false } }}
   >
     {args => {
       const updateArgs = useArgs()[1];

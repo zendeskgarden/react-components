@@ -27,7 +27,20 @@ const MAX = 100;
  */
 export const MultiThumbRange = forwardRef<HTMLDivElement, IMultiThumbRangeProps>(
   (
-    { min = MIN, max = MAX, minValue, maxValue, disabled, step, onChange, onMouseDown, ...props },
+    {
+      min = MIN,
+      max = MAX,
+      minValue,
+      maxValue,
+      defaultMinValue,
+      defaultMaxValue,
+      disabled,
+      step,
+      jump,
+      onChange,
+      onMouseDown,
+      ...props
+    },
     ref
   ) => {
     const theme = useContext(ThemeContext);
@@ -50,8 +63,11 @@ export const MultiThumbRange = forwardRef<HTMLDivElement, IMultiThumbRangeProps>
       max,
       minValue,
       maxValue,
+      defaultMinValue,
+      defaultMaxValue,
       onChange,
       step,
+      jump,
       disabled,
       rtl: theme.rtl,
       environment
@@ -86,7 +102,7 @@ export const MultiThumbRange = forwardRef<HTMLDivElement, IMultiThumbRangeProps>
             <StyledSliderThumb
               data-test-id="thumb"
               {...(getMinThumbProps({
-                'aria-label': minValue as unknown as string
+                'aria-label': updatedMinValue as unknown as string
               }) as HTMLAttributes<HTMLDivElement>)}
               isDisabled={disabled}
               position={minPosition}
@@ -97,7 +113,7 @@ export const MultiThumbRange = forwardRef<HTMLDivElement, IMultiThumbRangeProps>
             <StyledSliderThumb
               data-test-id="thumb"
               {...(getMaxThumbProps({
-                'aria-label': maxValue as unknown as string
+                'aria-label': updatedMaxValue as unknown as string
               }) as HTMLAttributes<HTMLDivElement>)}
               isDisabled={disabled}
               position={maxPosition}
@@ -117,7 +133,10 @@ MultiThumbRange.propTypes = {
   max: PropTypes.number,
   minValue: PropTypes.number,
   maxValue: PropTypes.number,
+  defaultMinValue: PropTypes.number,
+  defaultMaxValue: PropTypes.number,
   step: PropTypes.number,
+  jump: PropTypes.number,
   disabled: PropTypes.bool,
   onChange: PropTypes.func
 };
