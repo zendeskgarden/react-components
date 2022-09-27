@@ -20,7 +20,10 @@ import { commonArgs, commonArgTypes } from './stories/common';
   <Story
     name="MultiThumbRange"
     args={{
-      ...commonArgs
+      ...commonArgs,
+      min: 0,
+      max: 100,
+      step: 1
     }}
     argTypes={{
       ...commonArgTypes

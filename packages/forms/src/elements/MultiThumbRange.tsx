@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useCallback, useRef, useContext, forwardRef } from 'react';
+import React, { useEffect, useRef, useContext, forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { useSlider } from '@zendeskgarden/container-slider';
@@ -78,10 +78,16 @@ export const MultiThumbRange = forwardRef<HTMLDivElement, IMultiThumbRangeProps>
           data-test-id="track"
           isDisabled={disabled}
         >
-          <StyledSliderTrackRail data-test-id="rail" {...trackProps} ref={trackRailRef}>
+          <StyledSliderTrackRail
+            data-test-id="rail"
+            {...(trackProps as HTMLAttributes<HTMLDivElement>)}
+            ref={trackRailRef}
+          >
             <StyledSliderThumb
               data-test-id="thumb"
-              {...getMinThumbProps({ 'aria-label': minValue as unknown as string })}
+              {...(getMinThumbProps({
+                'aria-label': minValue as unknown as string
+              }) as HTMLAttributes<HTMLDivElement>)}
               isDisabled={disabled}
               position={minPosition}
               ref={minThumbRef}
@@ -90,7 +96,9 @@ export const MultiThumbRange = forwardRef<HTMLDivElement, IMultiThumbRangeProps>
             />
             <StyledSliderThumb
               data-test-id="thumb"
-              {...getMaxThumbProps({ 'aria-label': maxValue as unknown as string })}
+              {...(getMaxThumbProps({
+                'aria-label': maxValue as unknown as string
+              }) as HTMLAttributes<HTMLDivElement>)}
               isDisabled={disabled}
               position={maxPosition}
               ref={maxThumbRef}
