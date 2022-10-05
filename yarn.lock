@@ -6946,10 +6946,10 @@
     react-docgen-typescript "2.1.1"
     typescript "4.4.4"
 
-"@zendeskgarden/stylelint-config@16.0.1":
-  version "16.0.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-16.0.1.tgz#bd3c246b2aad8f09cf57a2b2f64ce37533b5db49"
-  integrity sha512-k86PpH9WrZF5ju4yJfPg9ELyCa9rfdwcC733J3sHmhnVWgUDtmlrHAnZg/A0Dxo1lJBcNaqkheuEGU0HkIOHXA==
+"@zendeskgarden/stylelint-config@19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-19.0.0.tgz#7ff946acb4aa4d6d258325f78c7700be11a93c37"
+  integrity sha512-fCcAi4zoeFH0gcOK85HHSZk0Bne3WNePMAb/61hoaJoP4YIJD+GzVV+BSoZFPJP+/7InB0nOyn+dzj0+iOUBag==
 
 "@zendeskgarden/svg-icons@6.33.0":
   version "6.33.0"
