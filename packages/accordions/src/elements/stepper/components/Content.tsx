@@ -5,9 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useRef, useCallback, useEffect, HTMLAttributes } from 'react';
+import React, { forwardRef, useRef, useEffect, useContext, HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import debounce from 'lodash.debounce';
+import { ThemeContext } from 'styled-components';
+import { useDocument } from '@zendeskgarden/react-theming';
+
 import { StyledContent, StyledInnerContent } from '../../../styled';
 import { useStepContext, useStepperContext } from '../../../utils';
 
@@ -18,30 +21,32 @@ const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElemen
     const { currentStepIndex } = useStepContext();
     const isActive = currentStepIndex === activeIndex;
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const updateMaxHeight = useCallback(
-      debounce(() => {
-        if (contentRef.current) {
-          const child = contentRef.current.children[0] as any;
-
-          child.style.maxHeight = `${child.scrollHeight}px`;
-        }
-      }, 100),
-      [contentRef]
-    );
+    const theme = useContext(ThemeContext);
+    const environment = useDocument(theme);
 
     useEffect(() => {
-      if (isActive && isHorizontal === false) {
-        addEventListener('resize', updateMaxHeight);
+      if (environment && isActive && isHorizontal === false) {
+        const win = environment.defaultView! || window;
+
+        const updateMaxHeight = debounce(() => {
+          if (contentRef.current) {
+            const child = contentRef.current.children[0] as any;
+
+            child.style.maxHeight = `${child.scrollHeight}px`;
+          }
+        }, 100);
+
+        win.addEventListener('resize', updateMaxHeight);
         updateMaxHeight();
 
         return () => {
-          removeEventListener('resize', updateMaxHeight);
+          updateMaxHeight.cancel();
+          win.removeEventListener('resize', updateMaxHeight);
         };
       }
 
       return undefined;
-    }, [isActive, isHorizontal, props.children, updateMaxHeight]);
+    }, [isActive, isHorizontal, contentRef, environment]);
 
     return isHorizontal === false ? (
       <StyledContent ref={mergeRefs([contentRef, ref])} isActive={isActive} {...props}>

@@ -5,9 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useRef, forwardRef, HTMLAttributes } from 'react';
+import React, { useEffect, useRef, useContext, forwardRef, HTMLAttributes } from 'react';
 import debounce from 'lodash.debounce';
 import mergeRefs from 'react-merge-refs';
+import { ThemeContext } from 'styled-components';
+import { useDocument } from '@zendeskgarden/react-theming';
+
 import { useAccordionContext, useSectionContext, IAccordionContext } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
 
@@ -18,30 +21,37 @@ const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((pro
   const panelRef = useRef<HTMLElement>();
   const index = useSectionContext();
   const isExpanded = expandedSections.includes(index);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const updateMaxHeight = useCallback(
-    debounce(() => {
-      if (panelRef.current) {
-        const child = panelRef.current.children[0] as any;
 
-        child.style.maxHeight = `${child.scrollHeight}px`;
-      }
-    }, 100),
-    [panelRef]
-  );
+  const theme = useContext(ThemeContext);
+  const environment = useDocument(theme);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isAnimated) {
       return undefined;
     }
 
-    addEventListener('resize', updateMaxHeight);
-    updateMaxHeight();
+    if (environment) {
+      const updateMaxHeight = debounce(() => {
+        if (panelRef.current) {
+          const child = panelRef.current.children[0] as any;
 
-    return () => {
-      removeEventListener('resize', updateMaxHeight);
-    };
-  }, [isAnimated, isExpanded, updateMaxHeight, props.children]);
+          child.style.maxHeight = `${child.scrollHeight}px`;
+        }
+      }, 100);
+
+      const win = environment.defaultView! || window;
+
+      win.addEventListener('resize', updateMaxHeight);
+      updateMaxHeight();
+
+      return () => {
+        updateMaxHeight.cancel();
+        win.removeEventListener('resize', updateMaxHeight);
+      };
+    }
+
+    return undefined;
+  }, [isAnimated, panelRef, environment, props.children]);
 
   return (
     <StyledPanel
