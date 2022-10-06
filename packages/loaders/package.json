@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-loaders",
-  "version": "8.57.0",
+  "version": "8.57.1",
   "description": "Components relating to loaders in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -32,7 +32,7 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^8.57.0"
+    "@zendeskgarden/react-theming": "^8.57.1"
   },
   "keywords": [
     "components",
