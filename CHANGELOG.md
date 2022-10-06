@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.57.1 (2022-10-06)
+
+#### :bug: Bug Fix
+* `avatars`
+  * [#1413](https://github.com/zendeskgarden/react-components/pull/1413) fix(avatars): `StatusIndicator` code structure ([@jzempel](https://github.com/jzempel))
+
 ## v8.57.0 (2022-09-22)
 
 #### :rocket: New Feature
