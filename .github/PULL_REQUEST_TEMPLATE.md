@@ -4,6 +4,7 @@
      version bump if this PR is merged. -->
 
                                                                                                                       <!-- 🎗add a PR label 🎗-->
+- [ ] **BREAKING CHANGE?** <!-- if so, indicate why under description -->
 
 ## Description
 
@@ -22,10 +23,10 @@
 <!-- check the items below that will be completed prior to merge.
      strikethrough any item text that does not apply to this PR. -->
 
-- [ ] :ok_hand: design updates will be Garden Designer approved (add the designer as a reviewer)
+- [ ] :ok_hand: design updates are Garden Designer approved (add the designer as a reviewer)
 - [ ] :globe_with_meridians: demo is up-to-date (`yarn start`)
 - [ ] :arrow_left: renders as expected with reversed (RTL) direction
 - [ ] :metal: renders as expected with Bedrock CSS (`?bedrock`)
-- [ ] :guardsman: includes new unit tests
-- [ ] :wheelchair: tested for [WCAG 2.1](https://www.w3.org/TR/WCAG21) AA compliance
+- [ ] :guardsman: includes new unit tests. Maintain [existing coverage](https://coveralls.io/github/zendeskgarden/react-components?branch=main) (always >= 94%)
+- [ ] :wheelchair: tested for [WCAG 2.1 AA](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize&levels=aaa) Accessibility compliance
 - [ ] :memo: tested in Chrome, Firefox, Safari, and Edge
