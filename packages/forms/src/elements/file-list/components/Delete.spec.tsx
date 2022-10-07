@@ -11,6 +11,8 @@ import { render } from 'garden-test-utils';
 import { File } from './File';
 
 describe('File.Delete', () => {
+  const user = userEvent.setup();
+
   it('renders the expected HTML element', () => {
     const { container } = render(<File.Delete />);
 
@@ -24,11 +26,11 @@ describe('File.Delete', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
-  it('composes mousedown event handler', () => {
+  it('composes mousedown event handler', async () => {
     const mouseDown = jest.fn();
     const { getByTestId } = render(<File.Delete data-test-id="delete" onMouseDown={mouseDown} />);
 
-    userEvent.click(getByTestId('delete'));
+    await user.click(getByTestId('delete'));
 
     expect(mouseDown).toHaveBeenCalledTimes(1);
   });

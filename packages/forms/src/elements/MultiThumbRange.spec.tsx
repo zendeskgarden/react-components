@@ -18,6 +18,8 @@ import { Field } from './common/Field';
 jest.mock('lodash.debounce', () => ({ default: (fn: any) => fn, __esModule: true }));
 
 describe('MultiThumbRange', () => {
+  const user = userEvent.setup();
+
   let originalGetBoundingClientRect: any;
 
   beforeEach(() => {
@@ -60,7 +62,7 @@ describe('MultiThumbRange', () => {
   });
 
   describe('MultiThumbRange label', () => {
-    it('clicking the label focuses the min thumb', () => {
+    it('clicking the label focuses the min thumb', async () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
@@ -71,11 +73,11 @@ describe('MultiThumbRange', () => {
       const minThumb = getAllByRole('slider')[0];
 
       expect(minThumb).not.toHaveFocus();
-      userEvent.click(label);
+      await user.click(label);
       expect(minThumb).toHaveFocus();
     });
 
-    it('focus leaves the min thumb when user blurs out of min thumb', () => {
+    it('focus leaves the min thumb when user blurs out of min thumb', async () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
@@ -86,14 +88,14 @@ describe('MultiThumbRange', () => {
       const minThumb = getAllByRole('slider')[0];
 
       expect(minThumb).not.toHaveFocus();
-      userEvent.click(label);
+      await user.click(label);
       expect(minThumb).toHaveFocus();
 
-      userEvent.tab();
+      await user.tab();
       expect(minThumb).not.toHaveFocus();
     });
 
-    it('hovering over the label visually identifies the min thumb', () => {
+    it('hovering over the label visually identifies the min thumb', async () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
@@ -106,7 +108,7 @@ describe('MultiThumbRange', () => {
       expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600));
       expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 600));
 
-      userEvent.hover(label);
+      await user.hover(label);
 
       ['border-color', 'background-color'].forEach(color => {
         expect(minThumb).toHaveStyleRule(color, getColor('blue', 700), {
@@ -115,7 +117,7 @@ describe('MultiThumbRange', () => {
       });
     });
 
-    it('pressing on the label visually identifies the activated min thumb', () => {
+    it('pressing on the label visually identifies the activated min thumb', async () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
@@ -128,7 +130,7 @@ describe('MultiThumbRange', () => {
       expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600));
       expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 600));
 
-      userEvent.click(label);
+      await user.click(label);
 
       expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600), {
         modifier: ':active'
@@ -398,13 +400,13 @@ describe('MultiThumbRange', () => {
           expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 75, maxValue: 75 });
         });
 
-        it('does not update minValue when disabled', () => {
+        it('does not update minValue when disabled', async () => {
           const { container, getAllByTestId } = renderRtl(
             <MultiThumbRange disabled minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
           const thumb = getAllByTestId('thumb')[0];
 
-          userEvent.click(thumb);
+          await user.click(thumb);
 
           const mouseEvent = new MouseEvent('mousemove');
 
@@ -631,13 +633,13 @@ describe('MultiThumbRange', () => {
           expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 90 });
         });
 
-        it('does not update maxValue when disabled', () => {
+        it('does not update maxValue when disabled', async () => {
           const { container, getAllByTestId } = renderRtl(
             <MultiThumbRange disabled minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
           const thumb = getAllByTestId('thumb')[1];
 
-          userEvent.click(thumb);
+          await user.click(thumb);
 
           const mouseEvent = new MouseEvent('mousemove');
 

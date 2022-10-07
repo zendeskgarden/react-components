@@ -28,6 +28,8 @@ const Example = (props: IDatepickerRangeProps) => (
 );
 
 describe('DatepickerRange', () => {
+  const user = userEvent.setup();
+
   let onChangeSpy: (values: { startValue?: Date; endValue?: Date }) => void;
 
   beforeEach(() => {
@@ -58,7 +60,7 @@ describe('DatepickerRange', () => {
       expect(getByTestId('end')).toHaveValue('');
     });
 
-    it('calls onChange with provided date if manually added in short format', () => {
+    it('calls onChange with provided date if manually added in short format', async () => {
       const { getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -68,9 +70,9 @@ describe('DatepickerRange', () => {
       );
       const endInput = getByTestId('end');
 
-      userEvent.clear(endInput);
-      userEvent.type(endInput, '3/4/2019');
-      userEvent.tab();
+      await user.clear(endInput);
+      await user.type(endInput, '3/4/2019');
+      await user.tab();
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: DEFAULT_START_VALUE,
@@ -78,7 +80,7 @@ describe('DatepickerRange', () => {
       });
     });
 
-    it('calls onChange with provided date if manually added in medium format', () => {
+    it('calls onChange with provided date if manually added in medium format', async () => {
       const { getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -88,9 +90,9 @@ describe('DatepickerRange', () => {
       );
       const endInput = getByTestId('end');
 
-      userEvent.clear(endInput);
-      userEvent.type(endInput, 'March 4, 2019');
-      userEvent.tab();
+      await user.clear(endInput);
+      await user.type(endInput, 'March 4, 2019');
+      await user.tab();
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: DEFAULT_START_VALUE,
@@ -98,7 +100,7 @@ describe('DatepickerRange', () => {
       });
     });
 
-    it('calls onChange with provided date if manually added in long format', () => {
+    it('calls onChange with provided date if manually added in long format', async () => {
       const { getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -108,9 +110,9 @@ describe('DatepickerRange', () => {
       );
       const endInput = getByTestId('end');
 
-      userEvent.clear(endInput);
-      userEvent.type(endInput, 'March 4th, 2019');
-      userEvent.tab();
+      await user.clear(endInput);
+      await user.type(endInput, 'March 4th, 2019');
+      await user.tab();
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: DEFAULT_START_VALUE,
@@ -118,7 +120,7 @@ describe('DatepickerRange', () => {
       });
     });
 
-    it('calls onChange with provided date if ENTER key is used', () => {
+    it('calls onChange with provided date if ENTER key is used', async () => {
       const { getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -128,9 +130,9 @@ describe('DatepickerRange', () => {
       );
       const endInput = getByTestId('end');
 
-      userEvent.clear(endInput);
-      userEvent.type(endInput, 'January 4th, 2019');
-      userEvent.type(endInput, '{enter}');
+      await user.clear(endInput);
+      await user.type(endInput, 'January 4th, 2019');
+      await user.type(endInput, '{enter}');
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: DEFAULT_START_VALUE,
@@ -138,7 +140,7 @@ describe('DatepickerRange', () => {
       });
     });
 
-    it('does not call onChange with provided date if invalid', () => {
+    it('does not call onChange with provided date if invalid', async () => {
       const { getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -148,14 +150,14 @@ describe('DatepickerRange', () => {
       );
       const endInput = getByTestId('end');
 
-      userEvent.clear(endInput);
-      userEvent.type(endInput, 'invalid date');
-      userEvent.tab();
+      await user.clear(endInput);
+      await user.type(endInput, 'invalid date');
+      await user.tab();
 
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
 
-    it('calls onChange prop if provided', () => {
+    it('calls onChange prop if provided', async () => {
       const onInputChangeSpy = jest.fn();
 
       const { getByTestId } = render(
@@ -170,12 +172,12 @@ describe('DatepickerRange', () => {
         </DatepickerRange>
       );
 
-      userEvent.type(getByTestId('end'), 'hello');
+      await user.type(getByTestId('end'), 'hello');
 
       expect(onInputChangeSpy).toHaveBeenCalled();
     });
 
-    it('calls onBlur prop if provided', () => {
+    it('calls onBlur prop if provided', async () => {
       const onBlurSpy = jest.fn();
 
       const { getByTestId } = render(
@@ -190,13 +192,13 @@ describe('DatepickerRange', () => {
         </DatepickerRange>
       );
 
-      userEvent.click(getByTestId('end'));
-      userEvent.tab();
+      await user.click(getByTestId('end'));
+      await user.tab();
 
       expect(onBlurSpy).toHaveBeenCalled();
     });
 
-    it('calls onFocus prop if provided', () => {
+    it('calls onFocus prop if provided', async () => {
       const onFocusSpy = jest.fn();
 
       const { getByTestId } = render(
@@ -211,12 +213,12 @@ describe('DatepickerRange', () => {
         </DatepickerRange>
       );
 
-      userEvent.click(getByTestId('end'));
+      await user.click(getByTestId('end'));
 
       expect(onFocusSpy).toHaveBeenCalled();
     });
 
-    it('calls onKeyDown prop if provided', () => {
+    it('calls onKeyDown prop if provided', async () => {
       const onKeyDownSpy = jest.fn();
 
       const { getByTestId } = render(
@@ -231,7 +233,7 @@ describe('DatepickerRange', () => {
         </DatepickerRange>
       );
 
-      userEvent.type(getByTestId('end'), 'hello');
+      await user.type(getByTestId('end'), 'hello');
 
       expect(onKeyDownSpy).toHaveBeenCalled();
     });

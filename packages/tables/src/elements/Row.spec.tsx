@@ -17,6 +17,8 @@ import { Row } from './Row';
 import { StyledCell } from '../styled';
 
 describe('Row', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLTableRowElement>();
     const { getByTestId } = render(
@@ -42,7 +44,7 @@ describe('Row', () => {
     expect(getByTestId('row')).toHaveAttribute('tabindex', '-1');
   });
 
-  it('applies focus styling', () => {
+  it('applies focus styling', async () => {
     const { getByTestId } = render(
       <Table>
         <Body>
@@ -52,7 +54,7 @@ describe('Row', () => {
     );
     const row = getByTestId('row');
 
-    userEvent.click(row);
+    await user.click(row);
 
     expect(row).toHaveStyleRule(
       'box-shadow',
@@ -66,7 +68,7 @@ describe('Row', () => {
     );
   });
 
-  it('does not apply focus styling when table is readonly', () => {
+  it('does not apply focus styling when table is readonly', async () => {
     const { getByTestId } = render(
       <Table isReadOnly>
         <Body>
@@ -76,7 +78,7 @@ describe('Row', () => {
     );
     const row = getByTestId('row');
 
-    userEvent.click(row);
+    await user.click(row);
 
     expect(row).not.toHaveStyleRule(
       'box-shadow',
@@ -90,7 +92,7 @@ describe('Row', () => {
     );
   });
 
-  it('removes focus styling when blurred', () => {
+  it('removes focus styling when blurred', async () => {
     const { getByTestId } = render(
       <Table>
         <Body>
@@ -100,7 +102,7 @@ describe('Row', () => {
     );
     const row = getByTestId('row');
 
-    userEvent.click(row);
+    await user.click(row);
     row.blur();
 
     expect(row).not.toHaveStyleRule(
