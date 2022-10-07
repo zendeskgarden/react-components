@@ -15,7 +15,8 @@ import { ITooltipProps } from '../types';
 jest.useFakeTimers();
 
 describe('Tooltip', () => {
-  const user = userEvent.setup();
+  const user = userEvent.setup({ delay: null });
+
   const BasicExample = ({ placement, size, type, ...other }: Partial<ITooltipProps>) => (
     <Tooltip
       placement={placement}

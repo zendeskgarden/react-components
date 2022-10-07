@@ -40,7 +40,7 @@ const ExampleWrapper: React.FC<IDropdownProps> = ({ children, ...other }) => (
 );
 
 describe('Multiselect', () => {
-  const user = userEvent.setup();
+  const user = userEvent.setup({ delay: null });
 
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
@@ -360,7 +360,7 @@ describe('Multiselect', () => {
       await user.click(multiselect);
       expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
-      await user.type(multiselect.querySelector('input')!, '{esc}');
+      await user.type(multiselect.querySelector('input')!, '{Esc}');
       expect(multiselect).toHaveAttribute('data-test-is-open', 'false');
     });
 

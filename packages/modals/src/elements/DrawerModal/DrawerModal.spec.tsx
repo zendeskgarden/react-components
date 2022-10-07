@@ -62,7 +62,7 @@ describe('DrawerModal', () => {
     expect(getByRole('dialog')).toBeInTheDocument();
     expect(htmlElement).toHaveAttribute('style', 'overflow: hidden;');
 
-    await user.type(getByRole('dialog'), '{esc}');
+    await user.type(getByRole('dialog'), '{Esc}');
 
     await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
     expect(htmlElement).not.toHaveAttribute('style', 'overflow: hidden;');
@@ -131,7 +131,7 @@ describe('DrawerModal', () => {
 
     expect(getByRole('dialog')).toBeInTheDocument();
 
-    await user.type(getByRole('dialog'), '{esc}');
+    await user.type(getByRole('dialog'), '{Esc}');
 
     await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
   });

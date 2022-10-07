@@ -85,7 +85,7 @@ const ToastExample = () => (
 );
 
 describe('useToast()', () => {
-  const user = userEvent.setup();
+  const user = userEvent.setup({ delay: null });
 
   it('throws if not rendered within a ToastProvider', () => {
     const originalError = console.error;

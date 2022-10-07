@@ -100,7 +100,7 @@ describe('Trigger', () => {
       await user.click(trigger);
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
 
-      await user.type(trigger, '{esc}');
+      await user.type(trigger, '{Esc}');
       expect(trigger).toHaveAttribute('aria-expanded', 'false');
     });
   });

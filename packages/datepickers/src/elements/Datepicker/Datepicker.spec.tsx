@@ -30,7 +30,8 @@ const Example = (props: IDatepickerProps) => (
 jest.useFakeTimers();
 
 describe('Datepicker', () => {
-  const user = userEvent.setup();
+  const user = userEvent.setup({ delay: null });
+
   let onChangeSpy: (date: Date) => void;
 
   beforeEach(() => {
