@@ -163,10 +163,6 @@ export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElemen
   minValue?: number;
   /** Sets the maximum thumb value for a controlled range */
   maxValue?: number;
-  /** Sets the starting minimum thumb value for an uncontrolled range */
-  defaultMinValue?: number;
-  /** Sets the starting maximum thumb value for an uncontrolled range */
-  defaultMaxValue?: number;
   /** Defines the stepping interval */
   step?: number;
   /** Defines the jumping interval for keyboard page up/down navigation. Defaults to `step`. */

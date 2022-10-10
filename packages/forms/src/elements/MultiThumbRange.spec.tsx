@@ -140,16 +140,6 @@ describe('MultiThumbRange', () => {
   });
 
   describe('Track', () => {
-    it('handles uncontrolled default values', () => {
-      const { getAllByTestId } = render(
-        <MultiThumbRange defaultMinValue={25} defaultMaxValue={75} />
-      );
-      const thumbs = getAllByTestId('thumb');
-
-      expect(thumbs[0]).toHaveStyle('left: 25px');
-      expect(thumbs[1]).toHaveStyle('left: 75px');
-    });
-
     it('positioning style is applied correctly', () => {
       const { getByTestId } = render(
         <div style={{ width: 500 }}>
