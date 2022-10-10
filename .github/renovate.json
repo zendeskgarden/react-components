@@ -18,12 +18,6 @@
       "groupSlug": "packages-minor-patch"
     },
     {
-      "matchPaths": ["examples/**"],
-      "matchUpdateTypes": ["patch", "minor"],
-      "groupName": "non-major example dependencies",
-      "groupSlug": "examples-minor-patch"
-    },
-    {
       "matchPackagePatterns": ["^@zendeskgarden/react"],
       "enabled": false
     },
