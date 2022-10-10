@@ -47,7 +47,7 @@ describe('ColorpickerDialog', () => {
     expect(onDialogChange).toHaveBeenCalledTimes(1);
     expect(onDialogChange).toHaveBeenCalledWith({ isOpen: true });
 
-    await user.keyboard('{Esc}');
+    await user.keyboard('{escape}');
 
     expect(onDialogChange).toHaveBeenCalledTimes(2);
     expect(onDialogChange).toHaveBeenCalledWith({ isOpen: false });
@@ -82,7 +82,7 @@ describe('ColorpickerDialog', () => {
 
     expect(hexInput).toHaveFocus();
 
-    await user.type(hexInput, '{Esc}');
+    await user.type(hexInput, '{escape}');
     expect(trigger).toHaveFocus();
   });
 
@@ -106,7 +106,7 @@ describe('ColorpickerDialog', () => {
 
     fireEvent.change(hueSlider, { target: { value: '349' } });
     fireEvent.change(alphaSlider, { target: { value: '.5' } });
-    await user.type(hexInput, '{Esc}');
+    await user.type(hexInput, '{escape}');
 
     await waitForElementToBeRemoved(dialog);
 

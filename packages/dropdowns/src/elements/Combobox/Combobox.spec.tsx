@@ -8,7 +8,9 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { render } from 'garden-test-utils';
+import { fireEvent, render } from 'garden-test-utils';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
+
 import { Dropdown, Field, Menu, Item, Label, Combobox } from '../..';
 
 const ref = React.createRef<HTMLDivElement>();
@@ -79,14 +81,15 @@ describe('Combobox', () => {
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
 
-    it('remains closed on arrow', async () => {
+    it('remains closed on arrow', () => {
       const { getByTestId } = render(<ExampleCombobox />);
       const combobox = getByTestId('combobox');
+      const input = combobox.querySelector('input')!;
 
-      await user.type(combobox.querySelector('input')!, '{arrowdown}');
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.DOWN });
       expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
-      await user.type(combobox.querySelector('input')!, '{arrowup}');
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.UP });
       expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
@@ -171,7 +174,8 @@ describe('Combobox', () => {
       const combobox = getByTestId('combobox');
       const input = combobox.querySelector('input')!;
 
-      await user.type(input, '{space}');
+      // use of literal space since "{space}" does not seem to be working as expected
+      await user.type(input, ' ');
       expect(combobox).toHaveAttribute('aria-expanded', 'true');
       expect(combobox).toHaveAttribute('aria-owns');
       await user.type(input, '{backspace}');
@@ -215,9 +219,10 @@ describe('Combobox', () => {
         </Dropdown>
       );
       const combobox = getByTestId('combobox');
+      const input = combobox.querySelector('input')!;
 
-      await user.type(combobox, '{arrowup}');
-      await user.type(combobox, '{enter}');
+      await user.type(input, '{arrowup}');
+      await user.type(input, '{enter}');
 
       expect(onSelectSpy).toHaveBeenCalledTimes(1);
     });

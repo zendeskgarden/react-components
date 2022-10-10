@@ -159,7 +159,7 @@ describe('Autocomplete', () => {
       await user.click(autocomplete);
       expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
 
-      await user.type(autocomplete.querySelector('input')!, '{Escape}');
+      await user.type(autocomplete.querySelector('input')!, '{escape}');
       expect(autocomplete).not.toHaveClass('is-open');
     });
   });

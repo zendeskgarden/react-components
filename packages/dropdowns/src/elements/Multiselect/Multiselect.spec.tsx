@@ -18,7 +18,7 @@ import {
   PreviousItem,
   IDropdownProps
 } from '../..';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEY_CODES, KEYS } from '@zendeskgarden/container-utilities';
 
 jest.useFakeTimers();
 
@@ -330,7 +330,7 @@ describe('Multiselect', () => {
       );
       const multiselect = getByTestId('multiselect');
 
-      fireEvent.keyDown(multiselect, { key: 'ArrowUp', keyCode: 38 });
+      fireEvent.keyDown(multiselect, { key: KEYS.UP, keyCode: KEY_CODES.UP });
       expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
       const items = getAllByTestId('item');
@@ -360,7 +360,7 @@ describe('Multiselect', () => {
       await user.click(multiselect);
       expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
-      await user.type(multiselect.querySelector('input')!, '{Esc}');
+      await user.type(multiselect.querySelector('input')!, '{escape}');
       expect(multiselect).toHaveAttribute('data-test-is-open', 'false');
     });
 
@@ -611,7 +611,7 @@ describe('Multiselect', () => {
       const input = container.querySelector('input');
 
       fireEvent.focus(input!);
-      fireEvent.keyDown(input!, { key: 'ArrowLeft', keyCode: KEY_CODES.LEFT });
+      fireEvent.keyDown(input!, { key: KEYS.LEFT, keyCode: KEY_CODES.LEFT });
 
       expect(tags[tags.length - 1]).toHaveFocus();
     });
@@ -622,7 +622,7 @@ describe('Multiselect', () => {
       const input = container.querySelector('input');
 
       await user.click(input!);
-      fireEvent.keyDown(input!, { key: 'ArrowLeft', keyCode: KEY_CODES.LEFT });
+      fireEvent.keyDown(input!, { key: KEYS.LEFT, keyCode: KEY_CODES.LEFT });
 
       expect(tags[tags.length - 1]).not.toHaveFocus();
     });
@@ -655,36 +655,37 @@ describe('Multiselect', () => {
       expect(tags[0]).not.toHaveFocus();
     });
 
-    it('removes last tag on backspace keydown is pressed with no input value', async () => {
+    it('removes last tag on backspace keydown is pressed with no input value', () => {
       const onSelectSpy = jest.fn();
       const { container } = render(<DefaultTagExample onSelect={items => onSelectSpy(items)} />);
       const input = container.querySelector('input');
 
-      await user.click(input!);
-      await user.type(input!, '{backspace}');
+      fireEvent.keyDown(input!, { keyCode: KEY_CODES.BACKSPACE });
 
       expect(onSelectSpy).toHaveBeenCalledWith(['item-1', 'item-2']);
     });
 
-    it('deletes current tag on backspace keydown', async () => {
+    it('deletes current tag on backspace keydown', () => {
       const onSelectSpy = jest.fn();
       const { getAllByTestId } = render(
         <DefaultTagExample onSelect={items => onSelectSpy(items)} />
       );
       const tags = getAllByTestId('tag');
 
-      await user.type(tags[1], '{backspace}');
+      fireEvent.keyDown(tags[1], { keyCode: KEY_CODES.BACKSPACE });
+
       expect(onSelectSpy).toHaveBeenCalledWith(['item-1', 'item-3']);
     });
 
-    it('deletes current tag on delete keydown', async () => {
+    it('deletes current tag on delete keydown', () => {
       const onSelectSpy = jest.fn();
       const { getAllByTestId } = render(
         <DefaultTagExample onSelect={items => onSelectSpy(items)} />
       );
       const tags = getAllByTestId('tag');
 
-      await user.type(tags[1], '{del}');
+      fireEvent.keyDown(tags[1], { keyCode: KEY_CODES.DELETE });
+
       expect(onSelectSpy).toHaveBeenCalledWith(['item-1', 'item-3']);
     });
 
@@ -694,6 +695,7 @@ describe('Multiselect', () => {
       const tags = getAllByTestId('tag');
 
       fireEvent.keyDown(tags[1], { keyCode: KEY_CODES.END });
+
       expect(input).toHaveFocus();
     });
 
@@ -702,7 +704,7 @@ describe('Multiselect', () => {
       const tags = getAllByTestId('tag');
 
       await user.click(tags[0]);
-      fireEvent.keyDown(tags[0], { keyCode: KEY_CODES.LEFT });
+      fireEvent.keyDown(tags[0], { key: KEYS.LEFT, keyCode: KEY_CODES.LEFT });
       expect(tags[0]).toHaveFocus();
     });
 
@@ -716,7 +718,7 @@ describe('Multiselect', () => {
       const lastTag = tags[tags.length - 1];
 
       await user.click(lastTag);
-      fireEvent.keyDown(lastTag, { keyCode: KEY_CODES.RIGHT });
+      fireEvent.keyDown(lastTag, { key: KEYS.RIGHT, keyCode: KEY_CODES.RIGHT });
 
       act(() => {
         jest.runOnlyPendingTimers();
@@ -742,7 +744,7 @@ describe('Multiselect', () => {
       const input = container.querySelector('input');
 
       await user.click(input!);
-      fireEvent.keyDown(input!, { key: 'ArrowLeft', keyCode: KEY_CODES.LEFT });
+      fireEvent.keyDown(input!, { key: KEYS.LEFT, keyCode: KEY_CODES.LEFT });
 
       expect(input!).toHaveFocus();
     });
@@ -765,7 +767,7 @@ describe('Multiselect', () => {
         const input = container.querySelector('input');
 
         await user.click(input!);
-        fireEvent.keyDown(input!, { key: 'ArrowRight', keyCode: KEY_CODES.RIGHT });
+        fireEvent.keyDown(input!, { key: KEYS.RIGHT, keyCode: KEY_CODES.RIGHT });
 
         expect(input!).toHaveFocus();
       });
@@ -776,7 +778,7 @@ describe('Multiselect', () => {
         const input = container.querySelector('input');
 
         await user.click(input!);
-        fireEvent.keyDown(input!, { key: 'ArrowRight', keyCode: KEY_CODES.RIGHT });
+        fireEvent.keyDown(input!, { key: KEYS.RIGHT, keyCode: KEY_CODES.RIGHT });
 
         expect(tags[tags.length - 1]).toHaveFocus();
       });
@@ -786,7 +788,7 @@ describe('Multiselect', () => {
         const tags = getAllByTestId('tag');
 
         await user.click(tags[0]);
-        fireEvent.keyDown(tags[0], { keyCode: KEY_CODES.RIGHT });
+        fireEvent.keyDown(tags[0], { key: KEYS.RIGHT, keyCode: KEY_CODES.RIGHT });
         expect(tags[0]).toHaveFocus();
       });
 
@@ -800,7 +802,7 @@ describe('Multiselect', () => {
         const lastTag = tags[tags.length - 1];
 
         await user.click(lastTag);
-        fireEvent.keyDown(lastTag, { keyCode: KEY_CODES.LEFT });
+        fireEvent.keyDown(lastTag, { key: KEYS.LEFT, keyCode: KEY_CODES.LEFT });
 
         act(() => {
           jest.runOnlyPendingTimers();

@@ -8,6 +8,8 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent } from 'garden-test-utils';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
+
 import { Dropdown, Trigger, Menu, Item, NextItem, PreviousItem, IDropdownProps } from '../..';
 
 const ExampleDropdown = (props: IDropdownProps) => (
@@ -132,25 +134,25 @@ describe('Dropdown', () => {
       expect(onSelectSpy.mock.calls[0][0]).toStrictEqual({ value: 'next-item-1' });
     });
 
-    it('opens dropdown on SPACE key', async () => {
+    it('opens dropdown on SPACE key', () => {
       const onSelectSpy = jest.fn();
       const { container, getByTestId } = render(<ExampleDropdown onSelect={onSelectSpy} />);
 
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      await user.type(input!, '{space}');
+      fireEvent.keyDown(input!, { keyCode: KEY_CODES.SPACE });
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
 
-    it('opens dropdown on ENTER key', async () => {
+    it('opens dropdown on ENTER key', () => {
       const onSelectSpy = jest.fn();
       const { container, getByTestId } = render(<ExampleDropdown onSelect={onSelectSpy} />);
 
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      await user.type(input!, '{enter}');
+      fireEvent.keyDown(input!, { keyCode: KEY_CODES.ENTER });
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
   });

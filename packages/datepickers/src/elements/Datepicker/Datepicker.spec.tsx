@@ -329,7 +329,8 @@ describe('Datepicker', () => {
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
 
       await user.click(input);
-      await user.type(input, '{enter}');
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.ENTER });
+
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 

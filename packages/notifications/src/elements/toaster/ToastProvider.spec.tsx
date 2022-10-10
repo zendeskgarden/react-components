@@ -61,7 +61,11 @@ describe('ToastProvider', () => {
   it('renders visible toasts up to provided limit', async () => {
     const { getByRole, getAllByText } = render(<ToastExample />);
 
-    await Promise.all(new Array(10).fill(null).map(() => user.click(getByRole('button'))));
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for (const _ of new Array(10).fill(null)) {
+      // eslint-disable-next-line no-await-in-loop
+      await user.click(getByRole('button'));
+    }
 
     const notificationElements = getAllByText('notification');
 

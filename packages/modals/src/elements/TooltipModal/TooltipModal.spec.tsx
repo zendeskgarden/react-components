@@ -146,7 +146,7 @@ describe('TooltipModal', () => {
 
       await act(async () => {
         await user.click(getByText('open'));
-        await user.type(getByRole('dialog'), '{Esc}');
+        await user.type(getByRole('dialog'), '{escape}');
       });
 
       expect(onCloseSpy).toHaveBeenCalled();

@@ -35,7 +35,11 @@ describe('ToastSlot', () => {
   it('pauses toast timers when placement is hovered', async () => {
     const { getByRole, getAllByText } = render(<ToastExample />);
 
-    await Promise.all(new Array(5).fill(null).map(() => user.click(getByRole('button'))));
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for (const _ of new Array(5).fill(null)) {
+      // eslint-disable-next-line no-await-in-loop
+      await user.click(getByRole('button'));
+    }
 
     expect(getAllByText('notification')).toHaveLength(5);
 
@@ -51,7 +55,11 @@ describe('ToastSlot', () => {
   it('resumes toast timers when placement is unhovered', async () => {
     const { getByRole, getAllByText, queryByText } = render(<ToastExample />);
 
-    await Promise.all(new Array(5).fill(null).map(() => user.click(getByRole('button'))));
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for (const _ of new Array(5).fill(null)) {
+      // eslint-disable-next-line no-await-in-loop
+      await user.click(getByRole('button'));
+    }
 
     expect(getAllByText('notification')).toHaveLength(5);
 

@@ -74,7 +74,7 @@ describe('ColorSwatchDialog', () => {
     expect(onDialogChange).toHaveBeenCalledTimes(1);
     expect(onDialogChange).toHaveBeenCalledWith({ isOpen: true });
 
-    await user.keyboard('{Esc}');
+    await user.keyboard('{escape}');
 
     expect(onDialogChange).toHaveBeenCalledTimes(2);
     expect(onDialogChange).toHaveBeenCalledWith({ isOpen: false });
@@ -120,7 +120,7 @@ describe('ColorSwatchDialog', () => {
         expect(screen.getByTestId('#d1e8df')).toHaveFocus();
       });
 
-      await user.type(screen.getByTestId('#d1e8df'), '{Esc}');
+      await user.type(screen.getByTestId('#d1e8df'), '{escape}');
 
       expect(trigger).toHaveFocus();
     });
@@ -146,7 +146,7 @@ describe('ColorSwatchDialog', () => {
         expect(screen.getByTestId('#228f67')).toHaveFocus();
       });
 
-      await user.type(screen.getByTestId('#228f67'), '{Esc}');
+      await user.type(screen.getByTestId('#228f67'), '{escape}');
 
       expect(trigger).toHaveFocus();
     });
@@ -190,7 +190,7 @@ describe('ColorSwatchDialog', () => {
 
       await user.keyboard('{enter}');
 
-      await user.keyboard('{Esc}');
+      await user.keyboard('{escape}');
 
       expect(trigger).toHaveFocus();
 
@@ -226,7 +226,7 @@ describe('ColorSwatchDialog', () => {
 
       expect(screen.getByTestId('#228f67')).toHaveFocus();
 
-      await user.keyboard('{Esc}');
+      await user.keyboard('{escape}');
 
       await waitForElementToBeRemoved(screen.getByRole('dialog'));
 
@@ -304,7 +304,7 @@ describe('ColorSwatchDialog', () => {
         expect(screen.getByTestId('#228f67')).toHaveFocus();
       });
 
-      await user.type(screen.getByTestId('#228f67'), '{Esc}');
+      await user.type(screen.getByTestId('#228f67'), '{escape}');
 
       expect(trigger).toHaveFocus();
     });

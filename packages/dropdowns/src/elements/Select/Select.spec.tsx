@@ -182,7 +182,7 @@ describe('Select', () => {
       await user.click(select);
       expect(select).toHaveAttribute('data-test-is-open', 'true');
 
-      await user.type(select, '{Esc}');
+      await user.type(select, '{escape}');
       expect(select).not.toHaveClass('is-open');
     });
   });

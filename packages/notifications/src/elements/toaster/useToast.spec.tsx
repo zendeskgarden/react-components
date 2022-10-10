@@ -201,11 +201,11 @@ describe('useToast()', () => {
     it('removes all toasts when called', async () => {
       const { getByRole, queryAllByRole } = render(<ToastExample />);
 
-      await act(async () => {
-        await Promise.all(
-          new Array(5).fill(null).map(() => user.click(getByRole('button', { name: 'Add toast' })))
-        );
-      });
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      for (const _ of new Array(5).fill(null)) {
+        // eslint-disable-next-line no-await-in-loop
+        await user.click(getByRole('button', { name: 'Add toast' }));
+      }
 
       expect(queryAllByRole('alert')).toHaveLength(5);
 

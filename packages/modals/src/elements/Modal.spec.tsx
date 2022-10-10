@@ -123,7 +123,7 @@ describe('Modal', () => {
     it('is triggered by ESC keydown', async () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
-      await user.type(getByTestId('modal'), '{Esc}');
+      await user.type(getByTestId('modal'), '{escape}');
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });
