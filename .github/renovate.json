@@ -25,5 +25,9 @@
       "matchDepTypes": ["peerDependencies"],
       "enabled": false
     }
-  ]
+  ],
+  "postUpgradeTasks": {
+    "commands": ["yarn build --since HEAD --exclude-dependents"],
+    "fileFilters": ["packages/**/.size-snapshot.json"]
+  }
 }
