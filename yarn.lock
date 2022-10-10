@@ -11800,10 +11800,10 @@ eslint-plugin-es@^3.0.0:
 "eslint-plugin-garden-local@file:./utils/eslint":
   version "1.0.0"
 
-eslint-plugin-jest@26.9.0:
-  version "26.9.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-26.9.0.tgz#7931c31000b1c19e57dbfb71bbf71b817d1bf949"
-  integrity sha512-TWJxWGp1J628gxh2KhaH1H1paEdgE2J61BBF1I59c6xWeL5+D1BzMxGDN/nXAfX+aSkR5u80K+XhskK6Gwq9ng==
+eslint-plugin-jest@27.1.1:
+  version "27.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-27.1.1.tgz#60f68dee15d4ffd9cdff65158d7fa46a65dbaaf5"
+  integrity sha512-vuSuXGKHHi/UAffIM46QKm4g0tQP+6n52nRxUpMq6x6x9rhnv5WM7ktSu3h9cTnXE4b0Y0ODQTgRlCm9rdRLvg==
   dependencies:
     "@typescript-eslint/utils" "^5.10.0"
 
