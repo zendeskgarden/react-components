@@ -159,9 +159,9 @@ export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElemen
   min?: number;
   /** Sets the maximum permitted value */
   max?: number;
-  /** Sets the minimum thumb value for a controlled range */
+  /** Sets the minimum thumb value */
   minValue?: number;
-  /** Sets the maximum thumb value for a controlled range */
+  /** Sets the maximum thumb value */
   maxValue?: number;
   /** Defines the stepping interval */
   step?: number;
@@ -170,7 +170,7 @@ export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElemen
   /** Indicates that the element is not interactive */
   disabled?: IRangeProps['disabled'];
   /**
-   * Handles change events for a controlled range
+   * Handles change events
    *
    * @param {Object} updatedValues The values that have changed
    * @param {number} [updatedValues.minValue] The optional minimum value
