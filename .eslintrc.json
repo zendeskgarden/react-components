@@ -22,6 +22,7 @@
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/no-explicit-any": "off",
+        "logical-assignment-operators": "off",
         "prefer-object-has-own": "off",
         "react/prop-types": "off"
       }
