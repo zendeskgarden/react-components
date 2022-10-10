@@ -52,6 +52,14 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
+"@zendeskgarden/container-slider@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-slider/-/container-slider-0.1.0.tgz#a357183bb2342dfbc4924f28d568bbc12b7907ca"
+  integrity sha512-JKBSOg7gF0k0xgITf+yWFTCb91ZHpAwxFnXmTGIjlVS9+lVRFpsP9zeqptayzFThWETpe7yrs6pFhGDPLjC8BQ==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    lodash.debounce "^4.0.8"
+
 "@zendeskgarden/container-utilities@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.7.0.tgz#c9c6952a8724debd9120d646db3676c8bb894f72"
@@ -60,10 +68,10 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/react-theming@^8.54.1":
-  version "8.54.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.54.1.tgz#c4a4056cb53a3850ef6fa8624969b89e4e9f14aa"
-  integrity sha512-OJGusfhN1r/PUi1aYOagwXknN+VcvBr6Pc3MSo9Dmn5gcnE82TC5TtJEL0UO+PnsHG3cuV23MRVofWy3Ydr32A==
+"@zendeskgarden/react-theming@^8.57.0":
+  version "8.57.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.57.1.tgz#b3f70884c3a620701133eee258cf0c161fc97f35"
+  integrity sha512-ZFZgVeX340yNhEJQdxbmaC39AmPN95pKYrJagoloB9k0Z7MBNiKujsaaI9AJzLSgP8/dQ2v70OaIydh9SgdDFg==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.7.0"
