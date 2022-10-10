@@ -16,7 +16,7 @@ The `FileUpload` component is shown here working together with the
   <Story
     name="File upload"
     args={{
-      accept: ['image/jpeg', 'image/png', 'image/gif'],
+      accept: { 'image/jpeg': [], 'image/png': [], 'image/gif': [] },
       multiple: true,
       type: 'image'
     }}
