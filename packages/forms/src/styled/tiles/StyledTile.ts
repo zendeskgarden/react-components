@@ -153,6 +153,8 @@ export const StyledTile = styled.label.attrs<IStyledTileProps>(props => ({
   cursor: ${props => !props.isDisabled && 'pointer'};
   padding: ${props => props.theme.space.base * 5}px;
   direction: ${props => props.theme.rtl && 'rtl'};
+  min-width: 132px;
+  word-break: break-word;
 
   ${props => colorStyles(props)};
 
