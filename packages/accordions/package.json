@@ -21,7 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-accordion": "^1.0.3",
+    "@zendeskgarden/container-accordion": "^2.0.0",
     "@zendeskgarden/container-utilities": "^0.7.0",
     "lodash.debounce": "^4.0.8",
     "polished": "^4.0.0",
