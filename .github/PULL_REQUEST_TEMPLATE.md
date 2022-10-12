@@ -26,6 +26,6 @@
 - [ ] :globe_with_meridians: demo is up-to-date (`yarn start`)
 - [ ] :arrow_left: renders as expected with reversed (RTL) direction
 - [ ] :metal: renders as expected with Bedrock CSS (`?bedrock`)
-- [ ] :guardsman: includes new unit tests
-- [ ] :wheelchair: tested for [WCAG 2.1](https://www.w3.org/TR/WCAG21) AA compliance
+- [ ] :guardsman: includes new unit tests. Maintain [existing coverage](https://coveralls.io/github/zendeskgarden/react-components?branch=main) (always >= 96%)
+- [ ] :wheelchair: tested for [WCAG 2.1 AA](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize&levels=aaa) accessibility compliance
 - [ ] :memo: tested in Chrome, Firefox, Safari, and Edge
