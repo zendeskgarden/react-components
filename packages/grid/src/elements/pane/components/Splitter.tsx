@@ -41,7 +41,21 @@ const orientationToDimension: Record<string, 'columns' | 'rows'> = {
 };
 
 const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
-  ({ providerId, layoutKey, min, max, orientation, ...props }, ref) => {
+  (
+    {
+      providerId,
+      layoutKey,
+      min,
+      max,
+      orientation,
+      onMouseDown,
+      onTouchStart,
+      onKeyDown,
+      onClick,
+      ...props
+    },
+    ref
+  ) => {
     const paneProviderContext = usePaneProviderContextData(providerId);
     const paneContext = usePaneContext();
     const themeContext = useContext(ThemeContext);
@@ -105,7 +119,12 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
 
     const separatorProps = getSeparatorProps({
       'aria-controls': paneContext.id,
-      'aria-label': ariaLabel
+      'aria-label': ariaLabel,
+      /* allow following handlers to be composed */
+      onMouseDown,
+      onTouchStart,
+      onKeyDown,
+      onClick
     }) as HTMLAttributes<HTMLDivElement>;
 
     const size = isRow ? separatorRef.current?.clientWidth : separatorRef.current?.clientHeight;
