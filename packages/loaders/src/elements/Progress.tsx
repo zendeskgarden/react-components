@@ -7,6 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useText } from '@zendeskgarden/react-theming';
 import { IProgressProps, SIZE } from '../types';
 import { StyledProgressBackground, StyledProgressIndicator } from '../styled';
 
@@ -16,8 +17,10 @@ const COMPONENT_ID = 'loaders.progress';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
-  ({ value, size, ...other }, ref) => {
+  ({ value, size, 'aria-label': label, ...other }, ref) => {
     const percentage = Math.max(0, Math.min(100, value!));
+
+    const ariaLabel = useText(Progress, { 'aria-label': label }, 'aria-label', 'Progress');
 
     return (
       <StyledProgressBackground
@@ -29,6 +32,7 @@ export const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
         role="progressbar"
         size={size!}
         ref={ref}
+        aria-label={ariaLabel}
         {...other}
       >
         <StyledProgressIndicator value={percentage} size={size!} />
