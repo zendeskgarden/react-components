@@ -39,7 +39,6 @@ export const StyledRadioLabel = styled(StyledLabel).attrs({
   display: inline-block; /* [1] */
   position: relative;
   cursor: pointer;
-  user-select: none;
 
   ${props => sizeStyles(props)};
 
