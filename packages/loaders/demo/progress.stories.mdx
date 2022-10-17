@@ -12,10 +12,13 @@ import { Progress } from '@zendeskgarden/react-loaders';
 <Canvas>
   <Story
     name="Progress"
-    args={{ value: 0 }}
     argTypes={{
       color: { control: 'color' },
       value: { control: { type: 'range', min: 0, max: 100 } }
+    }}
+    args={{
+      'aria-label': 'Label',
+      value: 0
     }}
     parameters={{
       design: {
