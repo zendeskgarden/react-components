@@ -22,6 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-field": "^2.1.0",
+    "@zendeskgarden/container-slider": "^0.1.1",
     "@zendeskgarden/container-utilities": "^0.7.0",
     "lodash.debounce": "^4.0.8",
     "polished": "^4.0.0",

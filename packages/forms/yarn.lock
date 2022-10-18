@@ -52,6 +52,14 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
+"@zendeskgarden/container-slider@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-slider/-/container-slider-0.1.1.tgz#142f50db771d1f50472a877aef58c06e3f64b5c3"
+  integrity sha512-2soo7KnjzBRHXfhznxKVKH4gUi6mleG1+fRzzs8pL0XqPZf9Lm880m+ywTkHpOPXW+lbc/1Rj/EBVrO7Jktmcg==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    lodash.debounce "^4.0.8"
+
 "@zendeskgarden/container-utilities@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.7.0.tgz#c9c6952a8724debd9120d646db3676c8bb894f72"

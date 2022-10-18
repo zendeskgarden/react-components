@@ -203,14 +203,14 @@ describe('MultiThumbRange', () => {
       expect(thumb).toHaveAttribute('aria-valuemin', '0');
       expect(thumb).toHaveAttribute('aria-valuemax', '75');
       expect(thumb).toHaveAttribute('aria-valuenow', '15');
-      expect(thumb).toHaveAttribute('aria-valuetext', '15');
+      expect(thumb).toHaveAttribute('aria-label', '15');
     });
 
     it('removes thumb from tab order when disabled', () => {
       const { getAllByTestId } = render(<MultiThumbRange disabled minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[0];
 
-      expect(thumb).not.toHaveAttribute('tabIndex');
+      expect(thumb).toHaveAttribute('tabIndex', '-1');
     });
 
     it('applies correct style', () => {
@@ -289,6 +289,24 @@ describe('MultiThumbRange', () => {
 
         fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 20, maxValue: 75 });
+      });
+
+      it('jumps minValue up on PAGE_UP key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.PAGE_UP });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 25, maxValue: 75 });
+      });
+
+      it('jumps minValue down on PAGE_DOWN key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.PAGE_DOWN });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 5, maxValue: 75 });
       });
 
       it('sets minValue to min on HOME key', () => {
@@ -410,14 +428,14 @@ describe('MultiThumbRange', () => {
       expect(thumb).toHaveAttribute('aria-valuemin', '15');
       expect(thumb).toHaveAttribute('aria-valuemax', '100');
       expect(thumb).toHaveAttribute('aria-valuenow', '75');
-      expect(thumb).toHaveAttribute('aria-valuetext', '75');
+      expect(thumb).toHaveAttribute('aria-label', '75');
     });
 
     it('removes thumb from tab order when disabled', () => {
       const { getAllByTestId } = render(<MultiThumbRange disabled minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[1];
 
-      expect(thumb).not.toHaveAttribute('tabindex');
+      expect(thumb).toHaveAttribute('tabindex', '-1');
     });
 
     it('applies correct style', () => {
@@ -438,7 +456,7 @@ describe('MultiThumbRange', () => {
       const { getAllByTestId } = render(<MultiThumbRange minValue={50} maxValue={40} />);
       const thumb = getAllByTestId('thumb')[1];
 
-      expect(thumb).toHaveStyle('left: 50px');
+      expect(thumb).toHaveStyle('left: 40px');
     });
 
     it('applies correct style if maxValue is less than min', () => {
@@ -500,6 +518,24 @@ describe('MultiThumbRange', () => {
 
         fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
+      });
+
+      it('jumps maxValue up on PAGE_UP key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[1], { keyCode: KEY_CODES.PAGE_UP });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 85 });
+      });
+
+      it('jumps maxValue down on PAGE_DOWN key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[1], { keyCode: KEY_CODES.PAGE_DOWN });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 65 });
       });
 
       it('sets maxValue to minValue on HOME key', () => {
