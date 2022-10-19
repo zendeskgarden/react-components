@@ -30,18 +30,6 @@ describe('StyledStatusIndicator', () => {
 
       expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm('red'));
     });
-
-    it('renders background color as expected', () => {
-      const { container } = render(<StyledStatusIndicator backgroundColor="red" />);
-
-      expect(container.firstChild).toHaveStyleRule('background-color', 'red');
-    });
-
-    it('renders foreground color as expected', () => {
-      const { container } = render(<StyledStatusIndicator foregroundColor="red" />);
-
-      expect(container.firstChild).toHaveStyleRule('color', 'red');
-    });
   });
 
   describe('size', () => {

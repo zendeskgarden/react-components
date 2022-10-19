@@ -12,7 +12,7 @@ import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { Avatar, IStatusIndicatorProps, StatusIndicator } from '@zendeskgarden/react-avatars';
 
 export const StatusMenuStory: Story = ({ isCompact }) => {
-  const [selectedType, setSelectedType] = useState<IStatusIndicatorProps['type']>('available');
+  const [selectedType, setSelectedType] = useState<IStatusIndicatorProps['type']>();
 
   return (
     <Grid>
@@ -25,27 +25,24 @@ export const StatusMenuStory: Story = ({ isCompact }) => {
               </Avatar>
             </Trigger>
             <Menu isCompact={isCompact}>
+              <Item value="offline">
+                <StatusIndicator isCompact={isCompact} type="offline">
+                  Offline
+                </StatusIndicator>
+              </Item>
               <Item value="available">
                 <StatusIndicator isCompact={isCompact} type="available">
                   Online
                 </StatusIndicator>
               </Item>
-
               <Item value="transfers">
                 <StatusIndicator isCompact={isCompact} type="transfers">
                   Transfers only
                 </StatusIndicator>
               </Item>
-
               <Item value="away">
                 <StatusIndicator isCompact={isCompact} type="away">
                   Away
-                </StatusIndicator>
-              </Item>
-
-              <Item value="offline">
-                <StatusIndicator isCompact={isCompact} type="offline">
-                  Offline
                 </StatusIndicator>
               </Item>
             </Menu>

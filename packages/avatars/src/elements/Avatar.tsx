@@ -77,8 +77,6 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
           <StyledStatusIndicator
             size={size}
             type={computedStatus}
-            backgroundColor={backgroundColor}
-            foregroundColor={foregroundColor}
             surfaceColor={surfaceColor}
             aria-label={statusLabel}
             role="img"

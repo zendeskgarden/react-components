@@ -61,7 +61,7 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
 };
 
 const colorStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
-  const { theme, type, size, foregroundColor, backgroundColor, borderColor, surfaceColor } = props;
+  const { theme, type, size, borderColor, surfaceColor } = props;
 
   let boxShadow = theme.shadows.sm(
     surfaceColor || (type ? theme.colors.background : (theme.palette.white as string))
@@ -74,8 +74,6 @@ const colorStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) =>
   return css`
     border-color: ${borderColor};
     box-shadow: ${boxShadow};
-    background-color: ${backgroundColor};
-    color: ${foregroundColor};
   `;
 };
 
