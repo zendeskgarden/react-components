@@ -68,6 +68,10 @@ export interface IHeaderProps extends HTMLAttributes<HTMLDivElement> {
    * Applies danger styling
    */
   isDanger?: boolean;
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
 }
 
 export interface IDrawerModalProps
