@@ -9,9 +9,8 @@ import React, { HTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { useTooltipModalContext } from '../../utils/useTooltipModalContext';
 import { StyledTooltipModalTitle } from '../../styled';
-import { ITitleProps } from '../../types';
 
-const TitleComponent = forwardRef<HTMLDivElement, ITitleProps>(
+const TitleComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement> & { tag: any }>(
   ({ children, tag, ...other }, ref) => {
     const { getTitleProps } = useTooltipModalContext();
 

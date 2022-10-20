@@ -105,10 +105,3 @@ export interface ITooltipModalProps
    */
   zIndex?: number;
 }
-
-export interface ITitleProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * Updates the element's HTML tag
-   */
-  tag?: any;
-}
