@@ -57,6 +57,8 @@ const UncontrolledTestSplitter = ({
 };
 
 describe('Splitter', () => {
+  const user = userEvent.setup();
+
   it('is rendered as a div', () => {
     const { getByRole } = render(<UncontrolledTestSplitter />);
 
@@ -72,7 +74,7 @@ describe('Splitter', () => {
   });
 
   describe('composed events', () => {
-    it('handles click prop', () => {
+    it('handles click prop', async () => {
       let value = false;
       const { getByRole } = render(
         <UncontrolledTestSplitter
@@ -83,7 +85,7 @@ describe('Splitter', () => {
       );
       const splitter = getByRole('separator');
 
-      userEvent.click(splitter);
+      await user.click(splitter);
 
       expect(value).toBe(true);
     });
