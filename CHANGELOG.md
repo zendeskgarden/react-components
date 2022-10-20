@@ -12,6 +12,28 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.58.0 (2022-10-20)
+
+#### :rocket: New Feature
+* `forms`
+  * [#1431](https://github.com/zendeskgarden/react-components/pull/1431) feat(forms): back `MultiThumbSlider` with new `useSlider` hook ([@jzempel](https://github.com/jzempel))
+* `loaders`
+  * [#1443](https://github.com/zendeskgarden/react-components/pull/1443) feat(progress): add useText helper with default value for ARIA label ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :bug: Bug Fix
+* `avatars`
+  * [#1445](https://github.com/zendeskgarden/react-components/pull/1445) fix(avatars): prevent background/foreground prop colors from affecting the status indicator ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1444](https://github.com/zendeskgarden/react-components/pull/1444) fix(grid): properly compose Pane.Splitter events ([@jzempel](https://github.com/jzempel))
+* `forms`
+  * [#1442](https://github.com/zendeskgarden/react-components/pull/1442) fix(forms): remove user-select: none from radio and checkbox labels ([@colinkey](https://github.com/colinkey))
+  * [#1415](https://github.com/zendeskgarden/react-components/pull/1415) fix(forms): add min-width to tile ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* Other
+  * [#1418](https://github.com/zendeskgarden/react-components/pull/1418) chore: update PULL_REQUEST_TEMPLATE.md ([@zendesk-rickschmoo](https://github.com/zendesk-rickschmoo))
+  * [#1440](https://github.com/zendeskgarden/react-components/pull/1440) fix: revert renovate configuration ([@jzempel](https://github.com/jzempel))
+
 ## v8.57.1 (2022-10-06)
 
 #### :bug: Bug Fix
