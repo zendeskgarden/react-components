@@ -9,8 +9,9 @@ import React, { HTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { useModalContext } from '../../utils/useModalContext';
 import { StyledDrawerModalHeader } from '../../styled';
+import { IDrawerModalHeaderProps } from '../../types';
 
-const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement> & { tag: any }>(
+const HeaderComponent = forwardRef<HTMLDivElement, IDrawerModalHeaderProps>(
   ({ tag, ...other }, ref) => {
     const { isCloseButtonPresent, getTitleProps } = useModalContext();
 

@@ -82,6 +82,13 @@ export interface IDrawerModalProps
   isOpen?: boolean;
 }
 
+export interface IDrawerModalHeaderProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
+}
+
 export interface ITooltipModalProps
   extends Omit<IModalProps, 'appendToNode' | 'isCentered' | 'isLarge'> {
   /**
@@ -104,4 +111,11 @@ export interface ITooltipModalProps
    * Sets the `z-index` of the tooltip
    */
   zIndex?: number;
+}
+
+export interface ITooltipModalTitleProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
 }
