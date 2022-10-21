@@ -13,6 +13,8 @@ import { Pagination } from './Pagination';
 import { IPaginationProps, PageType } from '../../types';
 
 describe('Pagination', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLUListElement>();
     const { container } = render(<Pagination totalPages={0} currentPage={0} ref={ref} />);
@@ -92,10 +94,10 @@ describe('Pagination', () => {
       expect(container.firstElementChild!.children[0]).not.toHaveAttribute('hidden');
     });
 
-    it('decrements currentPage when selected', () => {
+    it('decrements currentPage when selected', async () => {
       const { container } = render(<BasicExample currentPage={3} />);
 
-      userEvent.click(container.firstElementChild!.children[0]);
+      await user.click(container.firstElementChild!.children[0]);
       expect(onChange).toHaveBeenCalledWith(2);
     });
 
@@ -128,43 +130,43 @@ describe('Pagination', () => {
       ).not.toHaveAttribute('hidden');
     });
 
-    it('decrements currentPage when selected', () => {
+    it('decrements currentPage when selected', async () => {
       const { container } = render(<BasicExample currentPage={3} totalPages={5} />);
 
-      userEvent.click(
+      await user.click(
         container.firstElementChild!.children[container.firstElementChild!.children.length - 1]
       );
 
       expect(onChange).toHaveBeenCalledWith(4);
     });
 
-    it('focuses last page when visibility is lost', () => {
+    it('focuses last page when visibility is lost', async () => {
       const { container } = render(
         <Pagination totalPages={5} currentPage={4} onChange={onChange} />
       );
       const paginationWrapper = container.firstElementChild!;
       const nextPage = paginationWrapper.children[paginationWrapper.children.length - 1];
 
-      userEvent.click(nextPage);
-      userEvent.type(nextPage, '{enter}');
+      await user.click(nextPage);
+      await user.type(nextPage, '{enter}');
 
       expect(onChange).toHaveBeenCalledWith(5);
     });
   });
 
   describe('Pages', () => {
-    it('updates onStateChange with currentPage when selected', () => {
+    it('updates onStateChange with currentPage when selected', async () => {
       const { getByText } = render(<BasicExample currentPage={1} totalPages={5} />);
 
-      userEvent.click(getByText('2'));
+      await user.click(getByText('2'));
 
       expect(onChange).toHaveBeenCalledWith(2);
     });
 
-    it('updates onChange with currentPage when selected', () => {
+    it('updates onChange with currentPage when selected', async () => {
       const { getByText } = render(<BasicExample currentPage={1} totalPages={5} />);
 
-      userEvent.click(getByText('2'));
+      await user.click(getByText('2'));
 
       expect(onChange).toHaveBeenCalledWith(2);
     });

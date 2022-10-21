@@ -34,6 +34,8 @@ const ExampleAutocomplete = ({
 );
 
 describe('Autocomplete', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
 
@@ -50,26 +52,26 @@ describe('Autocomplete', () => {
     expect(getByTestId('autocomplete')).toBe(ref.current);
   });
 
-  it('focuses internal input when opened', () => {
+  it('focuses internal input when opened', async () => {
     const { getByTestId } = render(<ExampleAutocomplete />);
 
-    userEvent.click(getByTestId('autocomplete'));
+    await user.click(getByTestId('autocomplete'));
 
     expect(document.activeElement!.nodeName).toBe('INPUT');
   });
 
-  it('closes on input blur', () => {
+  it('closes on input blur', async () => {
     const { getByTestId } = render(<ExampleAutocomplete />);
 
     const autocomplete = getByTestId('autocomplete');
 
-    userEvent.tab();
+    await user.tab();
     expect(autocomplete).toHaveAttribute('data-test-is-focused', 'true');
-    userEvent.tab();
+    await user.tab();
     expect(autocomplete).toHaveAttribute('data-test-is-focused', 'false');
   });
 
-  it('applies correct styling if open', () => {
+  it('applies correct styling if open', async () => {
     const { getByTestId } = render(
       <Dropdown>
         <Field>
@@ -80,13 +82,13 @@ describe('Autocomplete', () => {
 
     const autocomplete = getByTestId('autocomplete');
 
-    userEvent.click(autocomplete);
+    await user.click(autocomplete);
 
     expect(autocomplete).toHaveAttribute('data-test-is-focused', 'true');
     expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
   });
 
-  it('applies correct styling if label is hovered', () => {
+  it('applies correct styling if label is hovered', async () => {
     const { getByTestId } = render(
       <Dropdown>
         <Field>
@@ -96,7 +98,7 @@ describe('Autocomplete', () => {
       </Dropdown>
     );
 
-    userEvent.hover(getByTestId('label'));
+    await user.hover(getByTestId('label'));
 
     expect(getByTestId('autocomplete')).toHaveAttribute('data-test-is-hovered', 'true');
   });
@@ -117,11 +119,11 @@ describe('Autocomplete', () => {
   });
 
   describe('Interaction', () => {
-    it('opens on click', () => {
+    it('opens on click', async () => {
       const { getByTestId } = render(<ExampleAutocomplete />);
       const autocomplete = getByTestId('autocomplete');
 
-      userEvent.click(autocomplete);
+      await user.click(autocomplete);
 
       expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
     });
@@ -150,20 +152,20 @@ describe('Autocomplete', () => {
       expect(items[items.length - 1]).toHaveAttribute('aria-selected', 'true');
     });
 
-    it('closes on escape key', () => {
+    it('closes on escape key', async () => {
       const { getByTestId } = render(<ExampleAutocomplete />);
       const autocomplete = getByTestId('autocomplete');
 
-      userEvent.click(autocomplete);
+      await user.click(autocomplete);
       expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
 
-      userEvent.type(autocomplete.querySelector('input')!, '{escape}');
+      await user.type(autocomplete.querySelector('input')!, '{escape}');
       expect(autocomplete).not.toHaveClass('is-open');
     });
   });
 
   describe('Functionality', () => {
-    it('calls onStateChange once for "__autocomplete_keydown_enter__" when enter key is pressed', () => {
+    it('calls onStateChange once for "__autocomplete_keydown_enter__" when enter key is pressed', async () => {
       const onStateChange = jest.fn();
       const { getByTestId, getAllByTestId, getByRole } = render(
         <ExampleAutocomplete onStateChange={onStateChange} />
@@ -171,17 +173,17 @@ describe('Autocomplete', () => {
       const input = getByRole('combobox');
       const autocomplete = getByTestId('autocomplete');
 
-      userEvent.type(input, '{enter}');
+      await user.type(input, '{enter}');
 
       expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
 
-      userEvent.type(input, '{arrowdown}');
+      await user.type(input, '{arrowdown}');
 
       const items = getAllByTestId('item');
 
       expect(items[0]).toHaveAttribute('aria-selected', 'true');
 
-      userEvent.type(input, '{enter}');
+      await user.type(input, '{enter}');
 
       const stateChangeTypes = onStateChange.mock.calls.map(([change]) => change.type);
 

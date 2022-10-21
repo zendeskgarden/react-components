@@ -85,6 +85,8 @@ const ToastExample = () => (
 );
 
 describe('useToast()', () => {
+  const user = userEvent.setup({ delay: null });
+
   it('throws if not rendered within a ToastProvider', () => {
     const originalError = console.error;
 
@@ -98,35 +100,35 @@ describe('useToast()', () => {
   });
 
   describe('addToast()', () => {
-    it('renders toast content when called', () => {
+    it('renders toast content when called', async () => {
       const { getByRole } = render(<ToastExample />);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Add toast' }));
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'Add toast' }));
       });
 
       expect(getByRole('alert')).toBeInTheDocument();
     });
 
-    it('allows toast to be removed by internal content', () => {
+    it('allows toast to be removed by internal content', async () => {
       const { getByRole, queryByRole } = render(<ToastExample />);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Add toast' }));
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'Add toast' }));
       });
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Close' }));
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'Close' }));
       });
 
       expect(queryByRole('alert')).not.toBeInTheDocument();
     });
 
-    it('removes toast when autoDismissal is provided', () => {
+    it('removes toast when autoDismissal is provided', async () => {
       const { getByRole, queryByRole } = render(<ToastExample />);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Add toast' }));
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'Add toast' }));
       });
 
       expect(queryByRole('alert')).toBeInTheDocument();
@@ -138,11 +140,11 @@ describe('useToast()', () => {
       expect(queryByRole('alert')).not.toBeInTheDocument();
     });
 
-    it('does not remove toast when autoDismissal is not provided', () => {
+    it('does not remove toast when autoDismissal is not provided', async () => {
       const { getByRole, queryByRole } = render(<ToastExample />);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Add persistent toast' }));
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'Add persistent toast' }));
       });
 
       expect(queryByRole('alert')).toBeInTheDocument();
@@ -156,15 +158,15 @@ describe('useToast()', () => {
   });
 
   describe('removeToast()', () => {
-    it('removes toast when called', () => {
+    it('removes toast when called', async () => {
       const { getByRole, queryByRole } = render(<ToastExample />);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Add toast' }));
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'Add toast' }));
       });
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Remove toast' }));
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'Remove toast' }));
       });
 
       expect(queryByRole('alert')).not.toBeInTheDocument();
@@ -172,20 +174,20 @@ describe('useToast()', () => {
   });
 
   describe('updateToast()', () => {
-    it('updates toast when called', () => {
+    it('updates toast when called', async () => {
       const { getByRole, getAllByRole } = render(<ToastExample />);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Add toast' }));
-        userEvent.click(getByRole('button', { name: 'Add toast' }));
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'Add toast' }));
+        await user.click(getByRole('button', { name: 'Add toast' }));
       });
 
       for (const alert of getAllByRole('alert')) {
         expect(alert).toHaveTextContent('added toast');
       }
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Update toast' }));
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'Update toast' }));
       });
 
       const alerts = getAllByRole('alert');
@@ -196,19 +198,19 @@ describe('useToast()', () => {
   });
 
   describe('removeAllToasts()', () => {
-    it('removes all toasts when called', () => {
+    it('removes all toasts when called', async () => {
       const { getByRole, queryAllByRole } = render(<ToastExample />);
 
-      act(() => {
-        for (let x = 0; x < 5; x++) {
-          userEvent.click(getByRole('button', { name: 'Add toast' }));
-        }
-      });
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      for (const _ of new Array(5).fill(null)) {
+        // eslint-disable-next-line no-await-in-loop
+        await user.click(getByRole('button', { name: 'Add toast' }));
+      }
 
       expect(queryAllByRole('alert')).toHaveLength(5);
 
-      act(() => {
-        userEvent.click(getByRole('button', { name: 'Remove all toasts' }));
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'Remove all toasts' }));
       });
 
       expect(queryAllByRole('alert')).toHaveLength(0);

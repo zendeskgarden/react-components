@@ -22,6 +22,8 @@ const colors = [
 ];
 
 describe('ColorSwatch', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', () => {
     const ref = createRef<HTMLTableElement>();
 
@@ -30,13 +32,13 @@ describe('ColorSwatch', () => {
     expect(ref.current).toBe(screen.getByRole('grid'));
   });
 
-  it('renders checkmark svg when a color is selected', () => {
+  it('renders checkmark svg when a color is selected', async () => {
     render(<ColorSwatch colors={colors} />);
 
-    userEvent.tab();
+    await user.tab();
     expect(screen.getByTestId('#0b3b29').firstChild).toHaveStyleRule('opacity', '0');
 
-    userEvent.type(document.activeElement as HTMLElement, '{enter}');
+    await user.type(document.activeElement as HTMLElement, '{enter}');
     expect(screen.getByTestId('#0b3b29').firstChild).toHaveStyleRule('opacity', '1');
   });
 });

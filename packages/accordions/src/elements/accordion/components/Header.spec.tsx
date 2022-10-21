@@ -11,6 +11,8 @@ import { render, fireEvent } from 'garden-test-utils';
 import { Accordion } from '../Accordion';
 
 describe('Header', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
 
@@ -27,7 +29,7 @@ describe('Header', () => {
     expect(getByRole('heading')).toBe(ref.current);
   });
 
-  it('composes event handlers', () => {
+  it('composes event handlers', async () => {
     const onClick = jest.fn();
     const onFocus = jest.fn();
     const onBlur = jest.fn();
@@ -52,8 +54,8 @@ describe('Header', () => {
 
     const header = getByRole('heading');
 
-    userEvent.click(header);
-    userEvent.unhover(header);
+    await user.click(header);
+    await user.unhover(header);
     fireEvent.focus(header);
     fireEvent.blur(header);
 

@@ -8,7 +8,9 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { render } from 'garden-test-utils';
+import { fireEvent, render } from 'garden-test-utils';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
+
 import { Dropdown, Field, Menu, Item, Label, Combobox } from '../..';
 
 const ref = React.createRef<HTMLDivElement>();
@@ -28,28 +30,30 @@ const ExampleCombobox = () => (
 );
 
 describe('Combobox', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', () => {
     const { getByTestId } = render(<ExampleCombobox />);
 
     expect(getByTestId('combobox')).toBe(ref.current);
   });
 
-  it('applies correct styling on label hover', () => {
+  it('applies correct styling on label hover', async () => {
     const { getByTestId } = render(<ExampleCombobox />);
     const label = getByTestId('label');
     const combobox = getByTestId('combobox');
 
-    userEvent.hover(label);
+    await user.hover(label);
 
     expect(combobox).toHaveStyleRule('border-color', PALETTE.blue[600], { modifier: ':hover' });
   });
 
-  it('focuses input on label click', () => {
+  it('focuses input on label click', async () => {
     const { getByTestId, getByRole } = render(<ExampleCombobox />);
     const label = getByTestId('label');
     const combobox = getByRole('combobox');
 
-    userEvent.click(label);
+    await user.click(label);
 
     expect(combobox).toHaveFocus();
   });
@@ -67,11 +71,11 @@ describe('Combobox', () => {
   });
 
   describe('Interaction', () => {
-    it('remains closed on click', () => {
+    it('remains closed on click', async () => {
       const { getByTestId } = render(<ExampleCombobox />);
       const combobox = getByTestId('combobox');
 
-      userEvent.click(combobox);
+      await user.click(combobox);
 
       expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
@@ -80,37 +84,38 @@ describe('Combobox', () => {
     it('remains closed on arrow', () => {
       const { getByTestId } = render(<ExampleCombobox />);
       const combobox = getByTestId('combobox');
+      const input = combobox.querySelector('input')!;
 
-      userEvent.type(combobox.querySelector('input')!, '{arrowdown}');
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.DOWN });
       expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
-      userEvent.type(combobox.querySelector('input')!, '{arrowup}');
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.UP });
       expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
 
-    it('remains closed on enter', () => {
+    it('remains closed on enter', async () => {
       const { getByTestId } = render(<ExampleCombobox />);
       const combobox = getByTestId('combobox');
       const input = combobox.querySelector('input')!;
 
-      userEvent.type(input, '{enter}');
+      await user.type(input, '{enter}');
 
       expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
 
-    it('opens on text entry', () => {
+    it('opens on text entry', async () => {
       const { getByTestId } = render(<ExampleCombobox />);
       const combobox = getByTestId('combobox');
       const input = combobox.querySelector('input')!;
 
-      userEvent.type(input, 'test');
+      await user.type(input, 'test');
       expect(combobox).toHaveAttribute('aria-expanded', 'true');
       expect(combobox).toHaveAttribute('aria-owns');
     });
 
-    it('selects first item on down arrow', () => {
+    it('selects first item on down arrow', async () => {
       const { getByTestId, getAllByTestId } = render(
         <Dropdown isOpen>
           <Field>
@@ -132,12 +137,12 @@ describe('Combobox', () => {
       const combobox = getByTestId('combobox');
       const items = getAllByTestId('item');
 
-      userEvent.type(combobox, '{arrowdown}');
+      await user.type(combobox, '{arrowdown}');
 
       expect(items[0]).toHaveAttribute('aria-selected', 'true');
     });
 
-    it('selects last item on up arrow', () => {
+    it('selects last item on up arrow', async () => {
       const { getByTestId, getAllByTestId } = render(
         <Dropdown isOpen>
           <Field>
@@ -159,40 +164,41 @@ describe('Combobox', () => {
       const combobox = getByTestId('combobox');
       const items = getAllByTestId('item');
 
-      userEvent.type(combobox, '{arrowup}');
+      await user.type(combobox, '{arrowup}');
 
       expect(items[items.length - 1]).toHaveAttribute('aria-selected', 'true');
     });
 
-    it('closes on text removal', () => {
+    it('closes on text removal', async () => {
       const { getByTestId } = render(<ExampleCombobox />);
       const combobox = getByTestId('combobox');
       const input = combobox.querySelector('input')!;
 
-      userEvent.type(input, '{space}');
+      // use of literal space since "{space}" does not seem to be working as expected
+      await user.type(input, ' ');
       expect(combobox).toHaveAttribute('aria-expanded', 'true');
       expect(combobox).toHaveAttribute('aria-owns');
-      userEvent.type(input, '{backspace}');
+      await user.type(input, '{backspace}');
       expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
 
-    it('closes on escape', () => {
+    it('closes on escape', async () => {
       const { getByTestId } = render(<ExampleCombobox />);
       const combobox = getByTestId('combobox');
       const input = combobox.querySelector('input')!;
 
-      userEvent.type(input, 'test');
+      await user.type(input, 'test');
       expect(combobox).toHaveAttribute('aria-expanded', 'true');
       expect(combobox).toHaveAttribute('aria-owns');
-      userEvent.type(input, '{escape}');
+      await user.type(input, '{escape}');
       expect(combobox).toHaveAttribute('aria-expanded', 'false');
       expect(combobox).not.toHaveAttribute('aria-owns');
     });
   });
 
   describe('Functionality', () => {
-    it('calls "onSelect" once when enter key is pressed', () => {
+    it('calls "onSelect" once when enter key is pressed', async () => {
       const onSelectSpy = jest.fn();
       const { getByTestId } = render(
         <Dropdown isOpen onSelect={onSelectSpy}>
@@ -213,9 +219,10 @@ describe('Combobox', () => {
         </Dropdown>
       );
       const combobox = getByTestId('combobox');
+      const input = combobox.querySelector('input')!;
 
-      userEvent.type(combobox, '{arrowup}');
-      userEvent.type(combobox, '{enter}');
+      await user.type(input, '{arrowup}');
+      await user.type(input, '{enter}');
 
       expect(onSelectSpy).toHaveBeenCalledTimes(1);
     });
