@@ -32,7 +32,7 @@ export const ButtonGroup = forwardRef<HTMLDivElement, IButtonGroupProps>(
 
     return (
       <ButtonGroupContext.Provider value={contextValue}>
-        <StyledButtonGroup ref={ref} {...(getGroupProps(otherProps) as any)}>
+        <StyledButtonGroup ref={ref} {...(getGroupProps(otherProps as any) as any)}>
           {children}
         </StyledButtonGroup>
       </ButtonGroupContext.Provider>
