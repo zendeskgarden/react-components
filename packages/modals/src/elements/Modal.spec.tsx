@@ -16,6 +16,8 @@ import { Close } from './Close';
 import { IModalProps } from '../types';
 
 describe('Modal', () => {
+  const user = userEvent.setup();
+
   const MODAL_ID = 'TEST_ID';
   let onCloseSpy: jest.Mock;
 
@@ -104,24 +106,24 @@ describe('Modal', () => {
   });
 
   describe('onClose()', () => {
-    it('is triggered by backdrop click', () => {
+    it('is triggered by backdrop click', async () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
-      userEvent.click(getByTestId('backdrop'));
+      await user.click(getByTestId('backdrop'));
       expect(onCloseSpy).toHaveBeenCalled();
     });
 
-    it('is triggered by Close element click', () => {
+    it('is triggered by Close element click', async () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
-      userEvent.click(getByTestId('close'));
+      await user.click(getByTestId('close'));
       expect(onCloseSpy).toHaveBeenCalled();
     });
 
-    it('is triggered by ESC keydown', () => {
+    it('is triggered by ESC keydown', async () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
-      userEvent.type(getByTestId('modal'), '{esc}');
+      await user.type(getByTestId('modal'), '{escape}');
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });

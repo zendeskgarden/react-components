@@ -22,6 +22,8 @@ const Example = (props: IMediaInputProps) => (
 );
 
 describe('MediaInput', () => {
+  const user = userEvent.setup();
+
   it('is rendered as an input', () => {
     const { getByTestId } = render(
       <Field>
@@ -43,16 +45,16 @@ describe('MediaInput', () => {
     expect(getByTestId('input')).toBe(ref.current);
   });
 
-  it('focuses internal input when FauxInput wrapper is clicked', () => {
+  it('focuses internal input when FauxInput wrapper is clicked', async () => {
     const { container } = render(<Example />);
     const input = container.querySelector('input');
 
-    userEvent.click(input!);
+    await user.click(input!);
 
     expect(input).toHaveFocus();
   });
 
-  it('selects readonly text', () => {
+  it('selects readonly text', async () => {
     const value = 'testing';
     const { getByTestId } = render(
       <Field>
@@ -61,7 +63,7 @@ describe('MediaInput', () => {
     );
     const input = getByTestId('input') as HTMLInputElement;
 
-    userEvent.click(input);
+    await user.click(input);
 
     expect(input.selectionStart).toBe(0);
     expect(input.selectionEnd).toBe(value.length);

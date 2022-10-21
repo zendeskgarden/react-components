@@ -22,13 +22,15 @@ const colors = [
 ];
 
 describe('ColorSwatchDialog', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', async () => {
     const ref = createRef<HTMLDivElement>();
 
     render(<ColorSwatchDialog colors={colors} ref={ref} />);
 
-    act(() => {
-      userEvent.click(screen.getByRole('button'));
+    await act(async () => {
+      await user.click(screen.getByRole('button'));
     });
 
     await waitFor(() => {
@@ -51,7 +53,7 @@ describe('ColorSwatchDialog', () => {
     expect(button).toBe(screen.getByLabelText('Choose your favorite color'));
   });
 
-  it('calls onDialogChange when the dialog state changes', () => {
+  it('calls onDialogChange when the dialog state changes', async () => {
     const onDialogChange = jest.fn();
     const label = 'Choose your favorite color';
 
@@ -65,14 +67,14 @@ describe('ColorSwatchDialog', () => {
 
     const trigger = screen.getByLabelText(label);
 
-    act(() => {
-      userEvent.click(trigger);
+    await act(async () => {
+      await user.click(trigger);
     });
 
     expect(onDialogChange).toHaveBeenCalledTimes(1);
     expect(onDialogChange).toHaveBeenCalledWith({ isOpen: true });
 
-    userEvent.keyboard('{esc}');
+    await user.keyboard('{escape}');
 
     expect(onDialogChange).toHaveBeenCalledTimes(2);
     expect(onDialogChange).toHaveBeenCalledWith({ isOpen: false });
@@ -94,8 +96,8 @@ describe('ColorSwatchDialog', () => {
 
       expect(document.body).toHaveFocus();
 
-      act(() => {
-        userEvent.click(trigger);
+      await act(async () => {
+        await user.click(trigger);
       });
 
       await waitFor(() => {
@@ -110,15 +112,15 @@ describe('ColorSwatchDialog', () => {
 
       expect(document.body).toHaveFocus();
 
-      act(() => {
-        userEvent.click(trigger);
+      await act(async () => {
+        await user.click(trigger);
       });
 
       await waitFor(() => {
         expect(screen.getByTestId('#d1e8df')).toHaveFocus();
       });
 
-      userEvent.type(screen.getByTestId('#d1e8df'), '{esc}');
+      await user.type(screen.getByTestId('#d1e8df'), '{escape}');
 
       expect(trigger).toHaveFocus();
     });
@@ -136,15 +138,15 @@ describe('ColorSwatchDialog', () => {
 
       expect(document.body).toHaveFocus();
 
-      act(() => {
-        userEvent.click(trigger);
+      await act(async () => {
+        await user.click(trigger);
       });
 
       await waitFor(() => {
         expect(screen.getByTestId('#228f67')).toHaveFocus();
       });
 
-      userEvent.type(screen.getByTestId('#228f67'), '{esc}');
+      await user.type(screen.getByTestId('#228f67'), '{escape}');
 
       expect(trigger).toHaveFocus();
     });
@@ -164,8 +166,8 @@ describe('ColorSwatchDialog', () => {
 
       expect(document.body).toHaveFocus();
 
-      act(() => {
-        userEvent.click(trigger);
+      await act(async () => {
+        await user.click(trigger);
       });
 
       await waitFor(() => {
@@ -178,27 +180,27 @@ describe('ColorSwatchDialog', () => {
 
       const trigger = screen.getByRole('button');
 
-      userEvent.click(trigger);
+      await user.click(trigger);
 
       expect(screen.getByTestId('#d1e8df')).toHaveFocus();
 
-      userEvent.keyboard('{arrowright}');
+      await user.keyboard('{arrowright}');
 
       expect(screen.getByTestId('#aecfc2')).toHaveFocus();
 
-      userEvent.keyboard('{enter}');
+      await user.keyboard('{enter}');
 
-      userEvent.keyboard('{esc}');
+      await user.keyboard('{escape}');
 
       expect(trigger).toHaveFocus();
 
       await waitForElementToBeRemoved(screen.getByRole('dialog'));
 
-      userEvent.click(trigger);
+      await user.click(trigger);
 
       expect(screen.getByTestId('#aecfc2')).toHaveFocus();
 
-      userEvent.keyboard('{arrowleft}');
+      await user.keyboard('{arrowleft}');
 
       await waitFor(() => {
         expect(screen.getByTestId('#d1e8df')).toHaveFocus();
@@ -210,27 +212,27 @@ describe('ColorSwatchDialog', () => {
 
       const trigger = screen.getByRole('button');
 
-      userEvent.click(trigger);
+      await user.click(trigger);
 
       expect(screen.getByTestId('#d1e8df')).toHaveFocus();
 
-      userEvent.keyboard('{arrowright}');
+      await user.keyboard('{arrowright}');
 
       expect(screen.getByTestId('#aecfc2')).toHaveFocus();
 
-      userEvent.keyboard('{enter}');
+      await user.keyboard('{enter}');
 
-      userEvent.keyboard('{arrowdown}');
+      await user.keyboard('{arrowdown}');
 
       expect(screen.getByTestId('#228f67')).toHaveFocus();
 
-      userEvent.keyboard('{esc}');
+      await user.keyboard('{escape}');
 
       await waitForElementToBeRemoved(screen.getByRole('dialog'));
 
-      userEvent.keyboard('{enter}');
+      await user.keyboard('{enter}');
 
-      userEvent.keyboard('{arrowleft}');
+      await user.keyboard('{arrowleft}');
 
       await waitFor(() => {
         expect(screen.getByTestId('#d1e8df')).toHaveFocus();
@@ -254,8 +256,8 @@ describe('ColorSwatchDialog', () => {
 
       expect(document.body).toHaveFocus();
 
-      act(() => {
-        userEvent.click(trigger);
+      await act(async () => {
+        await user.click(trigger);
       });
 
       await waitFor(() => {
@@ -278,8 +280,8 @@ describe('ColorSwatchDialog', () => {
 
       expect(document.body).toHaveFocus();
 
-      act(() => {
-        userEvent.click(trigger);
+      await act(async () => {
+        await user.click(trigger);
       });
 
       await waitFor(() => {
@@ -294,15 +296,15 @@ describe('ColorSwatchDialog', () => {
 
       expect(document.body).toHaveFocus();
 
-      act(() => {
-        userEvent.click(trigger);
+      await act(async () => {
+        await user.click(trigger);
       });
 
       await waitFor(() => {
         expect(screen.getByTestId('#228f67')).toHaveFocus();
       });
 
-      userEvent.type(screen.getByTestId('#228f67'), '{esc}');
+      await user.type(screen.getByTestId('#228f67'), '{escape}');
 
       expect(trigger).toHaveFocus();
     });

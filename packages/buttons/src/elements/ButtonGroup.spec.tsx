@@ -12,6 +12,8 @@ import { ButtonGroup } from './ButtonGroup';
 import { Button } from './Button';
 
 describe('ButtonGroup', () => {
+  const user = userEvent.setup();
+
   const BasicExample = () => (
     <ButtonGroup data-test-id="group">
       <Button value="button-1" data-test-id="button">
@@ -39,20 +41,20 @@ describe('ButtonGroup', () => {
     console.error = originalError;
   });
 
-  it('applies selected styling to currently selected tab', () => {
+  it('applies selected styling to currently selected tab', async () => {
     const { getAllByTestId } = render(<BasicExample />);
     const lastButton = getAllByTestId('button')[1];
 
-    userEvent.click(lastButton);
+    await user.click(lastButton);
 
     expect(lastButton).toHaveAttribute('aria-pressed', 'true');
   });
 
-  it('applies focused attributes to currently focused tab', () => {
+  it('applies focused attributes to currently focused tab', async () => {
     const { getAllByTestId } = render(<BasicExample />);
     const [, button] = getAllByTestId('button');
 
-    userEvent.click(button);
+    await user.click(button);
 
     expect(button).toHaveAttribute('tabIndex', '0');
   });
@@ -78,7 +80,7 @@ describe('ButtonGroup', () => {
     expect(getAllByTestId('button')[0]).toHaveAttribute('aria-pressed', 'true');
   });
 
-  it('does not apply props to any component other than Button', () => {
+  it('does not apply props to any component other than Button', async () => {
     const { getByTestId } = render(
       <ButtonGroup>
         <span>Non button test</span>
@@ -90,7 +92,7 @@ describe('ButtonGroup', () => {
 
     const button = getByTestId('button');
 
-    userEvent.click(button);
+    await user.click(button);
 
     expect(button).toHaveFocus();
   });

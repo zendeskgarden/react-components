@@ -11,6 +11,8 @@ import { render } from 'garden-test-utils';
 import { Dropdown, Menu, Item, Field, Label, Select } from '../..';
 
 describe('Label', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLLabelElement>();
 
@@ -27,7 +29,7 @@ describe('Label', () => {
     expect(getByTestId('label')).toBe(ref.current);
   });
 
-  it('applies hover styling through context with onMouseEnter', () => {
+  it('applies hover styling through context with onMouseEnter', async () => {
     const { getByTestId } = render(
       <Dropdown>
         <Field>
@@ -40,12 +42,12 @@ describe('Label', () => {
       </Dropdown>
     );
 
-    userEvent.hover(getByTestId('label'));
+    await user.hover(getByTestId('label'));
 
     expect(getByTestId('select')).toHaveAttribute('data-test-is-hovered', 'true');
   });
 
-  it('remove hover styling through context with onMouseLeave', () => {
+  it('remove hover styling through context with onMouseLeave', async () => {
     const { getByTestId } = render(
       <Dropdown>
         <Field>
@@ -60,13 +62,13 @@ describe('Label', () => {
 
     const label = getByTestId('label');
 
-    userEvent.hover(label);
-    userEvent.unhover(label);
+    await user.hover(label);
+    await user.unhover(label);
 
     expect(getByTestId('select')).not.toHaveClass('is-hovered');
   });
 
-  it('opens dropdown with onClick', () => {
+  it('opens dropdown with onClick', async () => {
     const { getByTestId } = render(
       <Dropdown>
         <Field>
@@ -79,7 +81,7 @@ describe('Label', () => {
       </Dropdown>
     );
 
-    userEvent.click(getByTestId('label'));
+    await user.click(getByTestId('label'));
     expect(getByTestId('select')).toHaveAttribute('data-test-is-open', 'true');
   });
 });
