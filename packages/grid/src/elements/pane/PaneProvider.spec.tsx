@@ -305,8 +305,8 @@ describe('PaneProvider', () => {
     );
 
     expect(renderProp.mock.calls[0]).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "getColumnValue": [Function],
           "getGridTemplateColumns": [Function],
           "getGridTemplateRows": [Function],
@@ -696,13 +696,13 @@ describe('PaneProvider', () => {
       fireEvent.mouseUp(document);
 
       expect(_rowValues).toMatchInlineSnapshot(`
-        Object {
+        {
           "c": 1,
           "d": 1,
         }
       `);
       expect(_columnValues).toMatchInlineSnapshot(`
-        Object {
+        {
           "a": 0.5,
           "b": 1.5,
         }
@@ -757,13 +757,13 @@ describe('PaneProvider', () => {
       fireEvent.mouseUp(document);
 
       expect(_rowValues).toMatchInlineSnapshot(`
-        Object {
+        {
           "c": 0.19999999999999996,
           "d": 1.8,
         }
       `);
       expect(_columnValues).toMatchInlineSnapshot(`
-        Object {
+        {
           "a": 1,
           "b": 1,
         }
@@ -855,13 +855,13 @@ describe('PaneProvider', () => {
       fireEvent.mouseUp(document);
 
       expect(_childRowValues).toMatchInlineSnapshot(`
-        Object {
+        {
           "b": 1.4,
           "nested-a": 0.6,
         }
       `);
       expect(_parentColumnValues).toMatchInlineSnapshot(`
-        Object {
+        {
           "a": 0.8,
           "nested-b": 1.2,
         }
