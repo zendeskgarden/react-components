@@ -21,7 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-buttongroup": "^0.3.8",
+    "@zendeskgarden/container-buttongroup": "^1.0.0",
     "@zendeskgarden/container-keyboardfocus": "^0.4.7",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7"
