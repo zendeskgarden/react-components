@@ -13,6 +13,8 @@ import { render } from 'garden-test-utils';
 import { Tabs, ITabsProps, TabList, TabPanel, Tab } from '../';
 
 describe('Tabs', () => {
+  const user = userEvent.setup();
+
   const BasicExample = (props: ITabsProps) => (
     <Tabs data-test-id="container" {...props}>
       <TabList>
@@ -44,12 +46,12 @@ describe('Tabs', () => {
     expect(getByTestId('container')).toHaveStyleRule('display', 'table');
   });
 
-  it('calls onChange with correct item on selection', () => {
+  it('calls onChange with correct item on selection', async () => {
     const onChangeSpy = jest.fn();
 
     const { getAllByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-    userEvent.click(getAllByTestId('tab')[1]);
+    await user.click(getAllByTestId('tab')[1]);
     expect(onChangeSpy).toHaveBeenCalledWith('tab-2');
   });
 
@@ -74,11 +76,11 @@ describe('Tabs', () => {
   });
 
   describe('Tab', () => {
-    it('applies selected styling to currently selected tab', () => {
+    it('applies selected styling to currently selected tab', async () => {
       const { getAllByTestId } = render(<BasicExample />);
       const tab = getAllByTestId('tab')[1];
 
-      userEvent.click(tab);
+      await user.click(tab);
 
       expect(tab).toHaveAttribute('aria-selected', 'true');
     });

@@ -30,22 +30,24 @@ const ExampleMenu = () => (
 );
 
 describe('Trigger', () => {
-  it('focuses internal input when opened', () => {
+  const user = userEvent.setup();
+
+  it('focuses internal input when opened', async () => {
     const { getByTestId } = render(<ExampleMenu />);
 
-    userEvent.click(getByTestId('trigger'));
+    await user.click(getByTestId('trigger'));
 
     expect(document.activeElement!.nodeName).toBe('INPUT');
   });
 
-  it('focuses trigger when closed', () => {
+  it('focuses trigger when closed', async () => {
     const { getByTestId } = render(<ExampleMenu />);
     const trigger = getByTestId('trigger');
 
     // Open dropdown
-    userEvent.click(trigger);
+    await user.click(trigger);
     // Close dropdown
-    userEvent.click(trigger);
+    await user.click(trigger);
 
     expect(document.activeElement).toStrictEqual(trigger);
   });
@@ -58,11 +60,11 @@ describe('Trigger', () => {
   });
 
   describe('Interaction', () => {
-    it('opens on click', () => {
+    it('opens on click', async () => {
       const { getByTestId } = render(<ExampleMenu />);
       const trigger = getByTestId('trigger');
 
-      userEvent.click(trigger);
+      await user.click(trigger);
 
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
@@ -91,14 +93,14 @@ describe('Trigger', () => {
       expect(items[items.length - 1]).toHaveAttribute('data-test-is-focused', 'true');
     });
 
-    it('closes on escape key', () => {
+    it('closes on escape key', async () => {
       const { getByTestId } = render(<ExampleMenu />);
       const trigger = getByTestId('trigger');
 
-      userEvent.click(trigger);
+      await user.click(trigger);
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
 
-      userEvent.type(trigger, '{esc}');
+      await user.type(trigger, '{escape}');
       expect(trigger).toHaveAttribute('aria-expanded', 'false');
     });
   });

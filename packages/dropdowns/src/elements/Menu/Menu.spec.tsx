@@ -33,21 +33,23 @@ const ExampleMenu = () => (
 );
 
 describe('Menu', () => {
+  const user = userEvent.setup();
+
   it('applies hidden styling if closed', () => {
     const { getByTestId } = render(<ExampleMenu />);
 
     expect(getByTestId('menu').parentElement).toHaveStyleRule('visibility', 'hidden');
   });
 
-  it('removes hidden styling if open', () => {
+  it('removes hidden styling if open', async () => {
     const { getByTestId } = render(<ExampleMenu />);
 
-    userEvent.click(getByTestId('trigger'));
+    await user.click(getByTestId('trigger'));
 
     expect(getByTestId('menu').parentElement).not.toHaveStyleRule('visibility', 'hidden');
   });
 
-  it('applies custom width if full-width element is included in Dropdown', () => {
+  it('applies custom width if full-width element is included in Dropdown', async () => {
     Element.prototype.getBoundingClientRect = jest.fn(() => {
       return {
         width: 100,
@@ -77,12 +79,12 @@ describe('Menu', () => {
       </Dropdown>
     );
 
-    userEvent.click(getByTestId('select'));
+    await user.click(getByTestId('select'));
 
     expect(getByTestId('menu').style.width).toBe('100px');
   });
 
-  it('renders menu within the element supplied by the appendToNode prop', () => {
+  it('renders menu within the element supplied by the appendToNode prop', async () => {
     const portal = document.createElement('DIV');
 
     document.body.appendChild(portal);
@@ -100,7 +102,7 @@ describe('Menu', () => {
 
     expect(portal.textContent).toBe('');
 
-    userEvent.click(getByText('Dropdown button'));
+    await user.click(getByText('Dropdown button'));
 
     expect(portal.textContent).toBe('Item 1');
   });

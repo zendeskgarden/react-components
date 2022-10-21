@@ -12,6 +12,8 @@ import { Input } from './Input';
 import { Field } from './common/Field';
 
 describe('Input', () => {
+  const user = userEvent.setup();
+
   it('is rendered as an input', () => {
     const { getByTestId } = render(
       <Field>
@@ -33,7 +35,7 @@ describe('Input', () => {
     expect(getByTestId('input')).toBe(ref.current);
   });
 
-  it('selects readonly text', () => {
+  it('selects readonly text', async () => {
     const value = 'testing';
     const { getByTestId } = render(
       <Field>
@@ -42,7 +44,7 @@ describe('Input', () => {
     );
     const input = getByTestId('input') as HTMLInputElement;
 
-    userEvent.click(input);
+    await user.click(input);
 
     expect(input.selectionStart).toBe(0);
     expect(input.selectionEnd).toBe(value.length);

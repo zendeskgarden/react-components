@@ -13,6 +13,8 @@ import { Tiles } from './Tiles';
 jest.useFakeTimers();
 
 describe('Tiles', () => {
+  const user = userEvent.setup({ delay: null });
+
   it('applies ref to the wrapping element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(<Tiles name="example" ref={ref} />);
@@ -26,7 +28,7 @@ describe('Tiles', () => {
     expect(container.firstChild).toHaveAttribute('role', 'radiogroup');
   });
 
-  it('calls onChange with correct value', () => {
+  it('calls onChange with correct value', async () => {
     const onChangeSpy = jest.fn();
 
     const { getByText } = render(
@@ -40,7 +42,7 @@ describe('Tiles', () => {
       </Tiles>
     );
 
-    userEvent.click(getByText('Item 2'));
+    await user.click(getByText('Item 2'));
 
     expect(onChangeSpy).toHaveBeenCalledWith('item-2');
   });
@@ -82,7 +84,7 @@ describe('Tiles', () => {
       expect(getByLabelText('label')).toBeChecked();
     });
 
-    it('checks input when tile is uncontrolled', () => {
+    it('checks input when tile is uncontrolled', async () => {
       const { getByLabelText, getByText } = render(
         <Tiles name="example">
           <Tiles.Tile value="item-1">
@@ -91,12 +93,12 @@ describe('Tiles', () => {
         </Tiles>
       );
 
-      userEvent.click(getByText('label'));
+      await user.click(getByText('label'));
 
       expect(getByLabelText('label')).toBeChecked();
     });
 
-    it('attempts to apply focus-visible styling on focus', () => {
+    it('attempts to apply focus-visible styling on focus', async () => {
       const { getByTestId, getByLabelText } = render(
         <Tiles name="example" value="item-1">
           <Tiles.Tile data-test-id="tile" disabled value="item-1">
@@ -105,7 +107,7 @@ describe('Tiles', () => {
         </Tiles>
       );
 
-      userEvent.click(getByLabelText('label'));
+      await user.click(getByLabelText('label'));
       jest.runOnlyPendingTimers();
 
       expect(getByTestId('tile')).toHaveAttribute('data-test-is-focused', 'false');

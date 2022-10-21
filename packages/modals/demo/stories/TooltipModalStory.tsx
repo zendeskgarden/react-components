@@ -24,6 +24,7 @@ interface IArgs extends ITooltipModalProps {
   hasFooter: boolean;
   hasTitle: boolean;
   title: string;
+  tag: string;
 }
 
 export const TooltipModalStory: Story<IArgs> = ({
@@ -35,6 +36,7 @@ export const TooltipModalStory: Story<IArgs> = ({
   hasFooter,
   hasTitle,
   title,
+  tag,
   'aria-label': ariaLabel,
   ...args
 }) => {
@@ -44,7 +46,7 @@ export const TooltipModalStory: Story<IArgs> = ({
   return (
     <>
       <TooltipModal {...args} placement={args.placement || PLACEMENT[current]}>
-        {hasTitle && <TooltipModal.Title>{title}</TooltipModal.Title>}
+        {hasTitle && <TooltipModal.Title tag={tag}>{title}</TooltipModal.Title>}
         {hasBody && <TooltipModal.Body>{body}</TooltipModal.Body>}
         {hasFooter && (
           <TooltipModal.Footer>

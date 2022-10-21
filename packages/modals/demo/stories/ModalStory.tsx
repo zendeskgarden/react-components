@@ -30,6 +30,7 @@ interface IArgs extends IModalProps {
   footerItems: IFooterItem[];
   hasHeader: boolean;
   isDanger: boolean;
+  tag: string;
   header: string;
 }
 
@@ -45,6 +46,7 @@ export const ModalStory: Story<IArgs> = ({
   hasHeader,
   header,
   isDanger,
+  tag,
   'aria-label': ariaLabel,
   ...args
 }) => (
@@ -57,7 +59,11 @@ export const ModalStory: Story<IArgs> = ({
     </Button>
     {isVisible && (
       <Modal {...args} onClose={onClose}>
-        {hasHeader && <Header isDanger={isDanger}>{header}</Header>}
+        {hasHeader && (
+          <Header isDanger={isDanger} tag={tag}>
+            {header}
+          </Header>
+        )}
         {hasBody ? <Body>{body}</Body> : body}
         {hasFooter && (
           <Footer>

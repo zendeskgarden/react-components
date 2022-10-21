@@ -11,6 +11,8 @@ import { render } from 'garden-test-utils';
 import { OverflowButton } from './OverflowButton';
 
 describe('OverflowButton', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLButtonElement>();
     const { container } = render(<OverflowButton ref={ref} />);
@@ -31,20 +33,20 @@ describe('OverflowButton', () => {
   });
 
   describe('onFocus', () => {
-    it('applies focused state', () => {
+    it('applies focused state', async () => {
       const { container } = render(<OverflowButton />);
 
-      userEvent.click(container.firstElementChild!);
+      await user.click(container.firstElementChild!);
       expect(container.firstElementChild).toHaveStyleRule('box-shadow');
     });
   });
 
   describe('onBlur', () => {
-    it('removes focused state', () => {
+    it('removes focused state', async () => {
       const { container } = render(<OverflowButton />);
 
-      userEvent.click(container.firstElementChild!);
-      userEvent.tab();
+      await user.click(container.firstElementChild!);
+      await user.tab();
       expect(container.firstElementChild).not.toHaveStyleRule('box-shadow');
     });
   });

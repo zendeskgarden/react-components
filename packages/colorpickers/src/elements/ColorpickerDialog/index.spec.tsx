@@ -12,19 +12,21 @@ import { ColorpickerDialog } from '.';
 import { IColor } from '../../types';
 
 describe('ColorpickerDialog', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', async () => {
     const ref = createRef<HTMLDivElement>();
 
     render(<ColorpickerDialog defaultColor="#17494D" ref={ref} data-test-id="colordialog" />);
 
     await act(async () => {
-      await userEvent.click(screen.getByRole('button'));
+      await user.click(screen.getByRole('button'));
     });
 
     expect(screen.getByTestId('colordialog')).toBe(ref.current);
   });
 
-  it('calls onDialogChange when the dialog state changes', () => {
+  it('calls onDialogChange when the dialog state changes', async () => {
     const onDialogChange = jest.fn();
     const label = 'Choose your favorite color';
 
@@ -38,14 +40,14 @@ describe('ColorpickerDialog', () => {
 
     const trigger = screen.getByLabelText(label);
 
-    act(() => {
-      userEvent.click(trigger);
+    await act(async () => {
+      await user.click(trigger);
     });
 
     expect(onDialogChange).toHaveBeenCalledTimes(1);
     expect(onDialogChange).toHaveBeenCalledWith({ isOpen: true });
 
-    userEvent.keyboard('{esc}');
+    await user.keyboard('{escape}');
 
     expect(onDialogChange).toHaveBeenCalledTimes(2);
     expect(onDialogChange).toHaveBeenCalledWith({ isOpen: false });
@@ -66,7 +68,7 @@ describe('ColorpickerDialog', () => {
     expect(button).toBe(screen.getByLabelText('Choose your favorite color'));
   });
 
-  it('focuses on the hex input and trigger when the color dialog is opened and closed', () => {
+  it('focuses on the hex input and trigger when the color dialog is opened and closed', async () => {
     const Basic = () => <ColorpickerDialog defaultColor="rgba(23,73,77,1)" />;
 
     render(<Basic />);
@@ -75,12 +77,12 @@ describe('ColorpickerDialog', () => {
 
     expect(document.body).toHaveFocus();
 
-    userEvent.click(trigger);
+    await user.click(trigger);
     const hexInput = screen.getByLabelText('Hex');
 
     expect(hexInput).toHaveFocus();
 
-    userEvent.type(hexInput, '{esc}');
+    await user.type(hexInput, '{escape}');
     expect(trigger).toHaveFocus();
   });
 
@@ -95,7 +97,7 @@ describe('ColorpickerDialog', () => {
 
     const trigger = screen.getByRole('button');
 
-    userEvent.click(trigger);
+    await user.click(trigger);
 
     const dialog = screen.getByRole('dialog');
     const hueSlider = screen.getByLabelText('Hue slider');
@@ -104,7 +106,7 @@ describe('ColorpickerDialog', () => {
 
     fireEvent.change(hueSlider, { target: { value: '349' } });
     fireEvent.change(alphaSlider, { target: { value: '.5' } });
-    userEvent.type(hexInput, '{esc}');
+    await user.type(hexInput, '{escape}');
 
     await waitForElementToBeRemoved(dialog);
 

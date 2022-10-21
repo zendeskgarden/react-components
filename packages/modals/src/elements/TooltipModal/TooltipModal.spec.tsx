@@ -12,6 +12,8 @@ import { TooltipModal } from './TooltipModal';
 import { ITooltipModalProps } from '../../types';
 
 describe('TooltipModal', () => {
+  const user = userEvent.setup();
+
   const TOOLTIP_MODAL_ID = 'TEST_ID';
   let onCloseSpy: jest.Mock;
 
@@ -55,7 +57,7 @@ describe('TooltipModal', () => {
       const { getByRole, getByText } = render(<Example placement="start" />);
 
       await act(async () => {
-        await userEvent.click(getByText('open'));
+        await user.click(getByText('open'));
       });
 
       expect(getByRole('dialog').parentElement).toHaveAttribute('data-popper-placement', 'left');
@@ -65,7 +67,7 @@ describe('TooltipModal', () => {
       const { getByRole, getByText } = renderRtl(<Example placement="start" />);
 
       await act(async () => {
-        await userEvent.click(getByText('open'));
+        await user.click(getByText('open'));
       });
 
       expect(getByRole('dialog').parentElement).toHaveAttribute('data-popper-placement', 'right');
@@ -78,7 +80,7 @@ describe('TooltipModal', () => {
     );
 
     await act(async () => {
-      await userEvent.click(getByText('open'));
+      await user.click(getByText('open'));
     });
 
     expect(getByTestId('backdrop')).not.toBeNull();
@@ -88,7 +90,7 @@ describe('TooltipModal', () => {
     const { getByText } = renderRtl(<Example id={TOOLTIP_MODAL_ID} />);
 
     await act(async () => {
-      await userEvent.click(getByText('open'));
+      await user.click(getByText('open'));
     });
 
     expect(getByText('title')).toHaveAttribute('id', `${TOOLTIP_MODAL_ID}__title`);
@@ -98,7 +100,7 @@ describe('TooltipModal', () => {
     const { getByText } = renderRtl(<Example id={TOOLTIP_MODAL_ID} />);
 
     await act(async () => {
-      await userEvent.click(getByText('open'));
+      await user.click(getByText('open'));
     });
 
     expect(getByText('body')).toHaveAttribute('id', `${TOOLTIP_MODAL_ID}__content`);
@@ -108,7 +110,7 @@ describe('TooltipModal', () => {
     const { getAllByRole, getByText } = renderRtl(<Example id={TOOLTIP_MODAL_ID} />);
 
     await act(async () => {
-      await userEvent.click(getByText('open'));
+      await user.click(getByText('open'));
     });
 
     expect(getAllByRole('button')[1]).toHaveAttribute('aria-label', 'Close');
@@ -121,8 +123,8 @@ describe('TooltipModal', () => {
       );
 
       await act(async () => {
-        await userEvent.click(getByText('open'));
-        await userEvent.click(getByTestId('backdrop'));
+        await user.click(getByText('open'));
+        await user.click(getByTestId('backdrop'));
       });
 
       expect(onCloseSpy).toHaveBeenCalled();
@@ -132,8 +134,8 @@ describe('TooltipModal', () => {
       const { getAllByRole, getByText } = render(<Example onClose={onCloseSpy} />);
 
       await act(async () => {
-        await userEvent.click(getByText('open'));
-        await userEvent.click(getAllByRole('button')[1]);
+        await user.click(getByText('open'));
+        await user.click(getAllByRole('button')[1]);
       });
 
       expect(onCloseSpy).toHaveBeenCalled();
@@ -143,8 +145,8 @@ describe('TooltipModal', () => {
       const { getByRole, getByText } = render(<Example onClose={onCloseSpy} />);
 
       await act(async () => {
-        await userEvent.click(getByText('open'));
-        await userEvent.type(getByRole('dialog'), '{esc}');
+        await user.click(getByText('open'));
+        await user.type(getByRole('dialog'), '{escape}');
       });
 
       expect(onCloseSpy).toHaveBeenCalled();

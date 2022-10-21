@@ -11,7 +11,9 @@ import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, AddItem } from '../../..';
 
 describe('AddItem', () => {
-  it('behaves as Item', () => {
+  const user = userEvent.setup();
+
+  it('behaves as Item', async () => {
     const onSelectSpy = jest.fn();
 
     const { getByTestId } = render(
@@ -27,7 +29,7 @@ describe('AddItem', () => {
       </Dropdown>
     );
 
-    userEvent.click(getByTestId('trigger'));
+    await user.click(getByTestId('trigger'));
     fireEvent.click(getByTestId('add-item'));
 
     expect(onSelectSpy.mock.calls[0][0]).toBe('add-item');
