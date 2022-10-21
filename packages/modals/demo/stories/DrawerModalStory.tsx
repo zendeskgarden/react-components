@@ -22,6 +22,7 @@ interface IArgs extends IDrawerModalProps {
   footerItems: IFooterItem[];
   hasHeader: boolean;
   header: string;
+  tag: string;
 }
 
 export const DrawerModalStory: Story<IArgs> = ({
@@ -34,6 +35,7 @@ export const DrawerModalStory: Story<IArgs> = ({
   footerItems,
   hasHeader,
   header,
+  tag,
   'aria-label': ariaLabel,
   ...args
 }) => {
@@ -48,7 +50,7 @@ export const DrawerModalStory: Story<IArgs> = ({
         </Button.EndIcon>
       </Button>
       <DrawerModal {...args} onClose={onClose}>
-        {hasHeader && <DrawerModal.Header>{header}</DrawerModal.Header>}
+        {hasHeader && <DrawerModal.Header tag={tag}>{header}</DrawerModal.Header>}
         {hasBody ? <DrawerModal.Body>{body}</DrawerModal.Body> : body}
         {hasFooter && (
           <DrawerModal.Footer>

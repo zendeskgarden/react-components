@@ -68,6 +68,10 @@ export interface IHeaderProps extends HTMLAttributes<HTMLDivElement> {
    * Applies danger styling
    */
   isDanger?: boolean;
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
 }
 
 export interface IDrawerModalProps
@@ -76,6 +80,13 @@ export interface IDrawerModalProps
    * Opens the modal
    */
   isOpen?: boolean;
+}
+
+export interface IDrawerModalHeaderProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
 }
 
 export interface ITooltipModalProps
@@ -100,4 +111,11 @@ export interface ITooltipModalProps
    * Sets the `z-index` of the tooltip
    */
   zIndex?: number;
+}
+
+export interface ITooltipModalTitleProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
 }

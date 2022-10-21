@@ -60,4 +60,24 @@ describe('DrawerModal.Header', () => {
 
     expect(screen.getByText('Header')).not.toHaveStyleRule('padding-right');
   });
+
+  it('renders as a <div> by default', () => {
+    render(
+      <DrawerModal isOpen>
+        <DrawerModal.Header>Header</DrawerModal.Header>
+      </DrawerModal>
+    );
+
+    expect(screen.getByText('Header').tagName).toBe('DIV');
+  });
+
+  it('renders as a custom element, when passed a tag', () => {
+    render(
+      <DrawerModal isOpen>
+        <DrawerModal.Header tag="h1">Header</DrawerModal.Header>
+      </DrawerModal>
+    );
+
+    expect(screen.getByText('Header').tagName).not.toBe('DIV');
+  });
 });

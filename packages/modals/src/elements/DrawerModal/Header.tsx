@@ -6,22 +6,35 @@
  */
 
 import React, { HTMLAttributes, forwardRef } from 'react';
+import PropTypes from 'prop-types';
 import { useModalContext } from '../../utils/useModalContext';
 import { StyledDrawerModalHeader } from '../../styled';
+import { IDrawerModalHeaderProps } from '../../types';
 
-const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { isCloseButtonPresent, getTitleProps } = useModalContext();
+const HeaderComponent = forwardRef<HTMLDivElement, IDrawerModalHeaderProps>(
+  ({ tag, ...other }, ref) => {
+    const { isCloseButtonPresent, getTitleProps } = useModalContext();
 
-  return (
-    <StyledDrawerModalHeader
-      {...(getTitleProps(props) as HTMLAttributes<HTMLDivElement>)}
-      isCloseButtonPresent={isCloseButtonPresent}
-      ref={ref}
-    />
-  );
-});
+    return (
+      <StyledDrawerModalHeader
+        {...(getTitleProps(other) as HTMLAttributes<HTMLDivElement>)}
+        as={tag}
+        isCloseButtonPresent={isCloseButtonPresent}
+        ref={ref}
+      />
+    );
+  }
+);
 
 HeaderComponent.displayName = 'DrawerModal.Header';
+
+HeaderComponent.propTypes = {
+  tag: PropTypes.any
+};
+
+HeaderComponent.defaultProps = {
+  tag: 'div'
+};
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

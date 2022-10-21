@@ -24,4 +24,32 @@ describe('TooltipModal.Title', () => {
 
     expect(getByText('title')).toBe(ref.current);
   });
+
+  it('renders as a <div> by default', async () => {
+    const { container, getByText, rerender } = render(<div />);
+
+    await act(async () => {
+      await rerender(
+        <TooltipModal referenceElement={container as HTMLElement}>
+          <TooltipModal.Title>title</TooltipModal.Title>
+        </TooltipModal>
+      );
+    });
+
+    expect(getByText('title').tagName).toBe('DIV');
+  });
+
+  it('renders as a custom element, when passed a tag', async () => {
+    const { container, getByText, rerender } = render(<div />);
+
+    await act(async () => {
+      await rerender(
+        <TooltipModal referenceElement={container as HTMLElement}>
+          <TooltipModal.Title tag="h1">title</TooltipModal.Title>
+        </TooltipModal>
+      );
+    });
+
+    expect(getByText('title').tagName).not.toBe('DIV');
+  });
 });
