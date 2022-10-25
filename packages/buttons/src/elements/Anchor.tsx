@@ -14,7 +14,7 @@ import { StyledAnchor, StyledExternalIcon } from '../styled';
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
-  ({ children, isExternal, ...otherProps }, ref) => {
+  ({ children, isExternal, iconAriaLabel, ...otherProps }, ref) => {
     let anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = otherProps;
 
     if (isExternal) {
@@ -28,7 +28,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
     return (
       <StyledAnchor ref={ref} {...(anchorProps as any)}>
         {children}
-        {isExternal && <StyledExternalIcon />}
+        {isExternal && <StyledExternalIcon aria-label={iconAriaLabel} />}
       </StyledAnchor>
     );
   }
