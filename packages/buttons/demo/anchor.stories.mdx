@@ -11,7 +11,14 @@ import { Anchor } from '@zendeskgarden/react-buttons';
 
 <Canvas>
   <Story
-    args={{ children: 'Text' }}
+    args={{ children: 'Text', href: '#' }}
+    argTypes={{
+      href: {
+        table: {
+          disable: true
+        }
+      }
+    }}
     name="Anchor"
     parameters={{
       design: {
