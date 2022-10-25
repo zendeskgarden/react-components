@@ -16,7 +16,9 @@ const COMPONENT_ID = 'buttons.external_icon';
  */
 export const StyledExternalIcon = styled(NewWindowIcon).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  role: 'img',
+  'aria-hidden': undefined
 })`
   transform: ${props => props.theme.rtl && 'scaleX(-1)'};
   margin-bottom: -0.085em;
@@ -27,6 +29,8 @@ export const StyledExternalIcon = styled(NewWindowIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledExternalIcon.displayName = 'StyledExternalIcon';
 
 StyledExternalIcon.defaultProps = {
   theme: DEFAULT_THEME
