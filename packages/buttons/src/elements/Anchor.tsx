@@ -7,7 +7,6 @@
 
 import React, { AnchorHTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { useText } from '@zendeskgarden/react-theming';
 import { IAnchorProps } from '../types';
 import { StyledAnchor, StyledExternalIcon } from '../styled';
 
@@ -15,7 +14,7 @@ import { StyledAnchor, StyledExternalIcon } from '../styled';
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
-  ({ children, isExternal, foobar, ...otherProps }, ref) => {
+  ({ children, isExternal, ...otherProps }, ref) => {
     let anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = otherProps;
 
     if (isExternal) {
@@ -26,18 +25,10 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
       };
     }
 
-    // Defined outside of the isExternal conditon block to satisfy ESLint rule react-hooks/rules-of-hooks
-    const iconLabel = useText(
-      StyledExternalIcon,
-      { 'aria-label': foobar },
-      'aria-label',
-      '(opens in a new tab)'
-    );
-
     return (
       <StyledAnchor ref={ref} {...(anchorProps as any)}>
         {children}
-        {isExternal && <StyledExternalIcon aria-label={iconLabel} />}
+        {isExternal && <StyledExternalIcon />}
       </StyledAnchor>
     );
   }

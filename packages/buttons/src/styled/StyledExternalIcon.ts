@@ -7,19 +7,25 @@
 
 import styled from 'styled-components';
 import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles, useText } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'buttons.external_icon';
 
 /**
  * Accepts all `<svg>` props
  */
-export const StyledExternalIcon = styled(NewWindowIcon).attrs({
+export const StyledExternalIcon: any = styled(NewWindowIcon).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   role: 'img',
-  'aria-hidden': undefined
-})`
+  'aria-hidden': undefined,
+  'aria-label': useText(
+    StyledExternalIcon,
+    { 'aria-label': props['aria-label'] },
+    'aria-label',
+    '(opens in a new tab)'
+  )
+}))`
   transform: ${props => props.theme.rtl && 'scaleX(-1)'};
   margin-bottom: -0.085em;
   padding-left: 0.25em;
