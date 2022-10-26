@@ -12,7 +12,6 @@ import { stripUnit } from 'polished';
 const COMPONENT_ID = 'tabs.tab';
 
 interface IStyledTabProps {
-  // disabled?: boolean;
   isSelected?: boolean;
 }
 
