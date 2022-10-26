@@ -21,4 +21,12 @@ describe('StyledExternalIcon', () => {
 
     expect(container.firstChild).toHaveStyleRule('transform', 'scaleX(-1)');
   });
+
+  it('renders with default alternative text', () => {
+    const { getByTestId } = render(<StyledExternalIcon data-test-id="icon" />);
+
+    const icon = getByTestId('icon');
+
+    expect(icon).toHaveAttribute('aria-label', '(opens in a new tab)');
+  });
 });

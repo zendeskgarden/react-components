@@ -66,7 +66,7 @@ export interface IAnchorProps
    * Allows a customized/translated text label to be passed to the external link icon,
    * making that icon accessible to assistive technology
    **/
-  iconAriaLabel?: string;
+  externalIconTextLabel?: string;
 }
 
 export interface IButtonGroupProps extends HTMLAttributes<HTMLDivElement> {

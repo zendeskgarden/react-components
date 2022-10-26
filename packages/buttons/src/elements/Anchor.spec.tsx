@@ -10,31 +10,45 @@ import { render } from 'garden-test-utils';
 import { Anchor } from './Anchor';
 
 describe('Anchor', () => {
-  it('renders external SVG if provided', () => {
-    const { container } = render(<Anchor isExternal />);
+  describe('External', () => {
+    it('renders an SVG icon', () => {
+      const { container } = render(<Anchor isExternal />);
 
-    expect(container.querySelector('svg')).not.toBeNull();
-  });
+      expect(container.querySelector('svg')).not.toBeNull();
+    });
 
-  it('renders link security attributes while external', () => {
-    const { getByText } = render(<Anchor isExternal>link</Anchor>);
+    it('renders an SVG icon with custom/translated alt text, when custom/translated alt text is provided', () => {
+      const { getByText } = render(
+        <Anchor isExternal externalIconTextLabel="label">
+          link
+        </Anchor>
+      );
 
-    const anchor = getByText('link');
+      const anchor = getByText('link');
 
-    expect(anchor).toHaveAttribute('target', '_blank');
-    expect(anchor).toHaveAttribute('rel', 'noopener noreferrer');
-  });
+      expect(anchor.querySelector('svg')).toHaveAttribute('aria-label', 'label');
+    });
 
-  it('renders custom link attributes if provided while external', () => {
-    const { getByText } = render(
-      <Anchor isExternal rel="bookmark" target="_parent">
-        link
-      </Anchor>
-    );
+    it('renders link security attributes', () => {
+      const { getByText } = render(<Anchor isExternal>link</Anchor>);
 
-    const anchor = getByText('link');
+      const anchor = getByText('link');
 
-    expect(anchor).toHaveAttribute('target', '_parent');
-    expect(anchor).toHaveAttribute('rel', 'bookmark');
+      expect(anchor).toHaveAttribute('target', '_blank');
+      expect(anchor).toHaveAttribute('rel', 'noopener noreferrer');
+    });
+
+    it('renders custom link attributes if provided', () => {
+      const { getByText } = render(
+        <Anchor isExternal rel="bookmark" target="_parent">
+          link
+        </Anchor>
+      );
+
+      const anchor = getByText('link');
+
+      expect(anchor).toHaveAttribute('target', '_parent');
+      expect(anchor).toHaveAttribute('rel', 'bookmark');
+    });
   });
 });
