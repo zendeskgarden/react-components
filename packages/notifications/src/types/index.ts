@@ -5,7 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import { IAnchorProps, IButtonProps } from '@zendeskgarden/react-buttons';
 
 export const PLACEMENT = [
   'top-start',
@@ -57,4 +58,26 @@ export interface IToastProviderProps {
    * Sets the `z-index` of the toast
    */
   zIndex?: number;
+}
+
+export interface IGlobalAlertProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Applies global alert type styles
+   */
+  type: Type;
+}
+
+export interface IGlobalAlertAnchorProps
+  extends AnchorHTMLAttributes<HTMLAnchorElement>,
+    Pick<IAnchorProps, 'isExternal'> {}
+
+export interface IGlobalAlertButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    Pick<IButtonProps, 'isBasic'> {}
+
+export interface IGlobalAlertTitleProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Applies regular (non-bold) font weight
+   */
+  isRegular?: boolean;
 }

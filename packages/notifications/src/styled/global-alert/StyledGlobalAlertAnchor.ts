@@ -1,0 +1,100 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { Anchor } from '@zendeskgarden/react-buttons';
+
+import { TYPE, IGlobalAlertAnchorProps, Type } from '../../types';
+
+type StyledGlobalAlertAnchorProps = IGlobalAlertAnchorProps &
+  ThemeProps<DefaultTheme> & {
+    kind: Type;
+  };
+
+const COMPONENT_ID = 'notifications.global-alert.anchor';
+
+const [success, warning, error, info] = TYPE;
+
+export function colorStyles(props: StyledGlobalAlertAnchorProps) {
+  let color = null;
+  let hoverColor = null;
+  let activeColor = null;
+  let shadowColor = null;
+
+  switch (props.kind) {
+    case success:
+      color = getColor(props.theme.colors.successHue, 100, props.theme);
+      hoverColor = getColor(props.theme.colors.successHue, 200, props.theme);
+      activeColor = getColor(props.theme.colors.successHue, 300, props.theme);
+      shadowColor = getColor(props.theme.colors.successHue, 200, props.theme, 0.35);
+      break;
+    case warning:
+      color = getColor(props.theme.colors.warningHue, 800, props.theme);
+      hoverColor = getColor(props.theme.colors.warningHue, 900, props.theme);
+      activeColor = getColor(props.theme.colors.warningHue, 1000, props.theme);
+      shadowColor = getColor(props.theme.colors.warningHue, 800, props.theme, 0.35);
+      break;
+    case error:
+      color = getColor(props.theme.colors.dangerHue, 100, props.theme);
+      hoverColor = getColor(props.theme.colors.dangerHue, 200, props.theme);
+      activeColor = getColor(props.theme.colors.dangerHue, 300, props.theme);
+      shadowColor = getColor(props.theme.colors.dangerHue, 200, props.theme, 0.35);
+      break;
+    case info:
+      color = getColor(props.theme.colors.primaryHue, 700, props.theme);
+      hoverColor = getColor(props.theme.colors.primaryHue, 800, props.theme);
+      activeColor = getColor(props.theme.colors.primaryHue, 900, props.theme);
+      shadowColor = getColor(props.theme.colors.primaryHue, 600, props.theme, 0.35);
+      break;
+  }
+
+  return css`
+    color: ${color};
+
+    &:hover {
+      color: ${hoverColor};
+    }
+
+    &:active,
+    &:focus {
+      box-shadow: ${props.theme.shadows.sm(shadowColor as string)};
+      color: ${activeColor};
+    }
+
+    &[data-garden-focus-visible],
+    &:focus-visible {
+      outline: none;
+    }
+  `;
+}
+
+function sizeStyles(props: StyledGlobalAlertAnchorProps) {
+  return css`
+    margin: 0 ${props.theme.space.base}px;
+    border-radius: ${props.theme.space.base / 2}px;
+    padding: 0 ${props.theme.space.base}px;
+    font-size: ${props.theme.fontSizes.md};
+  `;
+}
+
+export const StyledGlobalAlertAnchor = styled(Anchor).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<StyledGlobalAlertAnchorProps>`
+  text-decoration: underline;
+  white-space: nowrap;
+
+  ${colorStyles}
+  ${sizeStyles}
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+`;
+
+StyledGlobalAlertAnchor.defaultProps = {
+  theme: DEFAULT_THEME
+};

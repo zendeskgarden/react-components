@@ -15,3 +15,5 @@ export { StyledWell } from './StyledWell';
 export { StyledIcon } from './StyledIcon';
 
 export { StyledBase } from './StyledBase';
+
+export * from './global-alert';
