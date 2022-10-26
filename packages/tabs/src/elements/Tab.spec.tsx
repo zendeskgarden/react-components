@@ -22,7 +22,7 @@ describe('Tab', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
-  it('contains all the correct attributes when disabled', () => {
+  it('contains all of the necessary attributes when disabled', () => {
     const { getByTestId } = render(<Tab disabled data-test-id="tab" />);
 
     const tab = getByTestId('tab');
