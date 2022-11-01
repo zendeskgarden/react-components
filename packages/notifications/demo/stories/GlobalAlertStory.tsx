@@ -14,7 +14,7 @@ interface IArgs extends IGlobalAlertProps {
   isExternal?: boolean;
   button?: string;
   isBasic?: boolean;
-  'aria-label'?: string;
+  ariaLabel?: string;
   content?: string;
   title?: string;
   isRegular?: boolean;
@@ -22,26 +22,8 @@ interface IArgs extends IGlobalAlertProps {
   hasButton?: boolean;
   hasClose?: boolean;
   hasTitle?: boolean;
+  buttons?: any[];
 }
-
-const globalAlertText = {
-  success: {
-    title: 'Success',
-    content: 'Your first tomato has been planted.'
-  },
-  warning: {
-    title: 'Warning',
-    content: 'The soil has too much water.'
-  },
-  error: {
-    title: 'Error',
-    content: 'There are bugs in the garden.'
-  },
-  info: {
-    title: 'Info',
-    content: 'Another day in the garden.'
-  }
-};
 
 export const GlobalAlertStory: Story<IArgs> = ({
   type,
@@ -49,28 +31,31 @@ export const GlobalAlertStory: Story<IArgs> = ({
   isExternal,
   button,
   isBasic,
-  'aria-label': ariaLabel,
+  ariaLabel,
   content,
   title,
   isRegular,
   hasAnchor = true,
   hasButton = true,
   hasClose = true,
-  hasTitle = true
+  hasTitle = true,
+  buttons = []
 }) => (
   <GlobalAlert type={type}>
-    {hasTitle && (
-      <GlobalAlert.Title isRegular={isRegular}>
-        {title || globalAlertText[type].title}
-      </GlobalAlert.Title>
-    )}
-    <GlobalAlert.Content>{content || globalAlertText[type].content}</GlobalAlert.Content>
+    {hasTitle && <GlobalAlert.Title isRegular={isRegular}>{title}</GlobalAlert.Title>}
+    <GlobalAlert.Content>{content}</GlobalAlert.Content>
     {hasAnchor && (
       <GlobalAlert.Anchor href="#" isExternal={isExternal}>
-        {anchor || 'Find out more'}
+        {anchor}
       </GlobalAlert.Anchor>
     )}
-    {hasButton && <GlobalAlert.Button isBasic={isBasic}>{button || 'Primary'}</GlobalAlert.Button>}
+    {hasButton && (
+      <>
+        <GlobalAlert.Button isBasic={isBasic}>{button}</GlobalAlert.Button>
+        {buttons?.length &&
+          buttons.map((props, index) => <GlobalAlert.Button key={index} {...props} />)}
+      </>
+    )}
     {hasClose && <GlobalAlert.Close aria-label={ariaLabel} />}
   </GlobalAlert>
 );

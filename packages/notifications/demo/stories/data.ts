@@ -13,3 +13,10 @@ export const TOAST_PLACEMENT_OPTIONS = [
   'top-end',
   'top-start'
 ] as const;
+
+export const GLOBAL_ALERT_BUTTONS = [
+  {
+    children: 'Secondary',
+    isBasic: true
+  }
+];

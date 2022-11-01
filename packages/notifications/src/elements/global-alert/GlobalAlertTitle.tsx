@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 
 import { IGlobalAlertTitleProps } from '../../types';
 import { StyledGlobalAlertTitle } from '../../styled';
@@ -15,3 +16,7 @@ export const GlobalAlertTitle = forwardRef<HTMLDivElement, IGlobalAlertTitleProp
 });
 
 GlobalAlertTitle.displayName = 'GlobalAlert.Title';
+
+GlobalAlertTitle.propTypes = {
+  isRegular: PropTypes.bool
+};

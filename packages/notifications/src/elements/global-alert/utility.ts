@@ -7,10 +7,10 @@
 
 import { createContext, useContext } from 'react';
 
-import { TYPE, IGlobalAlertProps } from '../../types';
+import { IGlobalAlertProps } from '../../types';
 
 export type GlobalAlertContextProps = Pick<IGlobalAlertProps, 'type'>;
 
-export const GlobalAlertContext = createContext<GlobalAlertContextProps>({ type: TYPE[3] });
+export const GlobalAlertContext = createContext<GlobalAlertContextProps>({ type: 'info' });
 
 export const useGlobalAlertContext = () => useContext(GlobalAlertContext);

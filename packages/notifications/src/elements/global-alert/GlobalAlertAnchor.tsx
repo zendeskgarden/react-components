@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 
 import { IGlobalAlertAnchorProps } from '../../types';
 import { StyledGlobalAlertAnchor } from '../../styled';
@@ -20,3 +21,7 @@ export const GlobalAlertAnchor = forwardRef<HTMLAnchorElement, IGlobalAlertAncho
 );
 
 GlobalAlertAnchor.displayName = 'GlobalAlert.Anchor';
+
+GlobalAlertAnchor.propTypes = {
+  isExternal: PropTypes.bool
+};

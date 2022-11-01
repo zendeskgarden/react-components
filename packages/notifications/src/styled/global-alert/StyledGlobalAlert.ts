@@ -24,16 +24,16 @@ function colorStyles(props: StyledGlobalAlertProps) {
 
   switch (props.type) {
     case success:
-      borderColor = getColor(props.theme.colors.successHue, 800, props.theme);
+      borderColor = getColor(props.theme.colors.successHue, 700, props.theme);
       backgroundColor = getColor(props.theme.colors.successHue, 600, props.theme);
       break;
     case error:
-      borderColor = getColor(props.theme.colors.dangerHue, 800, props.theme);
+      borderColor = getColor(props.theme.colors.dangerHue, 700, props.theme);
       backgroundColor = getColor(props.theme.colors.dangerHue, 600, props.theme);
       break;
     case warning:
-      borderColor = getColor(props.theme.colors.warningHue, 600, props.theme);
-      backgroundColor = getColor(props.theme.colors.warningHue, 400, props.theme);
+      borderColor = getColor(props.theme.colors.warningHue, 400, props.theme);
+      backgroundColor = getColor(props.theme.colors.warningHue, 300, props.theme);
       color = getColor(props.theme.colors.warningHue, 800, props.theme) as string;
       break;
     case info:

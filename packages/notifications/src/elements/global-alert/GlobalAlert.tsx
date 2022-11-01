@@ -20,7 +20,6 @@ import { GlobalAlertClose } from './GlobalAlertClose';
 import { GlobalAlertContent } from './GlobalAlertContent';
 import { GlobalAlertTitle } from './GlobalAlertTitle';
 
-// eslint-disable-next-line react/display-name
 const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>((props, ref) => (
   <GlobalAlertContext.Provider value={useMemo(() => ({ type: props.type }), [props.type])}>
     <StyledGlobalAlert ref={ref} role="status" {...props}>
@@ -30,6 +29,8 @@ const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>((prop
   </GlobalAlertContext.Provider>
 ));
 
+GlobalAlertComponent.displayName = 'GlobalAlert';
+
 export const GlobalAlert = GlobalAlertComponent as typeof GlobalAlertComponent & {
   Anchor: typeof GlobalAlertAnchor;
   Button: typeof GlobalAlertButton;
@@ -38,8 +39,6 @@ export const GlobalAlert = GlobalAlertComponent as typeof GlobalAlertComponent &
   Title: typeof GlobalAlertTitle;
 };
 
-GlobalAlert.displayName = 'GlobalAlert';
-
 GlobalAlert.Anchor = GlobalAlertAnchor;
 GlobalAlert.Button = GlobalAlertButton;
 GlobalAlert.Close = GlobalAlertClose;
@@ -47,6 +46,5 @@ GlobalAlert.Content = GlobalAlertContent;
 GlobalAlert.Title = GlobalAlertTitle;
 
 GlobalAlert.propTypes = {
-  type: PropTypes.oneOf(TYPE).isRequired,
-  children: PropTypes.any
+  type: PropTypes.oneOf(TYPE).isRequired
 };

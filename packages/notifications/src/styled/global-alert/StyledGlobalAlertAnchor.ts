@@ -22,33 +22,29 @@ const [success, warning, error, info] = TYPE;
 
 export function colorStyles(props: StyledGlobalAlertAnchorProps) {
   let color = null;
-  let hoverColor = null;
-  let activeColor = null;
+  let hoverColor = props.theme.palette.white;
+  let activeColor = props.theme.palette.white;
   let shadowColor = null;
 
   switch (props.kind) {
     case success:
       color = getColor(props.theme.colors.successHue, 100, props.theme);
-      hoverColor = getColor(props.theme.colors.successHue, 200, props.theme);
-      activeColor = getColor(props.theme.colors.successHue, 300, props.theme);
       shadowColor = getColor(props.theme.colors.successHue, 200, props.theme, 0.35);
       break;
     case warning:
       color = getColor(props.theme.colors.warningHue, 800, props.theme);
-      hoverColor = getColor(props.theme.colors.warningHue, 900, props.theme);
-      activeColor = getColor(props.theme.colors.warningHue, 1000, props.theme);
+      hoverColor = getColor(props.theme.colors.warningHue, 900, props.theme) as string;
+      activeColor = getColor(props.theme.colors.warningHue, 1000, props.theme) as string;
       shadowColor = getColor(props.theme.colors.warningHue, 800, props.theme, 0.35);
       break;
     case error:
       color = getColor(props.theme.colors.dangerHue, 100, props.theme);
-      hoverColor = getColor(props.theme.colors.dangerHue, 200, props.theme);
-      activeColor = getColor(props.theme.colors.dangerHue, 300, props.theme);
       shadowColor = getColor(props.theme.colors.dangerHue, 200, props.theme, 0.35);
       break;
     case info:
       color = getColor(props.theme.colors.primaryHue, 700, props.theme);
-      hoverColor = getColor(props.theme.colors.primaryHue, 800, props.theme);
-      activeColor = getColor(props.theme.colors.primaryHue, 900, props.theme);
+      hoverColor = getColor(props.theme.colors.primaryHue, 800, props.theme) as string;
+      activeColor = getColor(props.theme.colors.primaryHue, 900, props.theme) as string;
       shadowColor = getColor(props.theme.colors.primaryHue, 600, props.theme, 0.35);
       break;
   }

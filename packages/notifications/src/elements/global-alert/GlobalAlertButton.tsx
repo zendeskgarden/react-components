@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 
 import { IGlobalAlertButtonProps } from '../../types';
 import { StyledGlobalAlertButton } from '../../styled';
@@ -28,3 +29,7 @@ export const GlobalAlertButton = forwardRef<HTMLButtonElement, IGlobalAlertButto
 );
 
 GlobalAlertButton.displayName = 'GlobalAlert.Button';
+
+GlobalAlertButton.propTypes = {
+  isBasic: PropTypes.bool
+};
