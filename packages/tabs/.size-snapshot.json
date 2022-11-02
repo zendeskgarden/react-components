@@ -5,15 +5,9 @@
     "gzipped": 2269
   },
   "index.esm.js": {
-<<<<<<< HEAD
-    "bundled": 9218,
-    "minified": 6516,
-    "gzipped": 2145,
-=======
     "bundled": 9179,
     "minified": 6491,
-    "gzipped": 2127,
->>>>>>> fix(tabs): updated styled Tab component so it doesn't render disabled attr
+    "gzipped": 2128,
     "treeshaked": {
       "rollup": {
         "code": 5485,
