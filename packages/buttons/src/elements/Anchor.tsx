@@ -9,6 +9,7 @@ import React, { AnchorHTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { IAnchorProps } from '../types';
 import { StyledAnchor, StyledExternalIcon } from '../styled';
+import { useText } from '@zendeskgarden/react-theming';
 
 /**
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
@@ -25,10 +26,19 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
       };
     }
 
+    const iconAriaLabel = useText(
+      StyledExternalIcon,
+      { 'aria-label': externalIconLabel },
+      'aria-label',
+      '(opens in a new tab)'
+    );
+
     return (
       <StyledAnchor ref={ref} {...(anchorProps as any)}>
         {children}
-        {isExternal && <StyledExternalIcon aria-label={externalIconLabel} />}
+        {isExternal && (
+          <StyledExternalIcon role="img" aria-label={iconAriaLabel} aria-hidden={undefined} />
+        )}
       </StyledAnchor>
     );
   }

@@ -11,22 +11,27 @@ import { Anchor } from './Anchor';
 
 describe('Anchor', () => {
   describe('External', () => {
-    it('renders an SVG icon', () => {
-      const { container } = render(<Anchor isExternal />);
+    it('renders an SVG icon with default alt text', () => {
+      const { getByTestId } = render(<Anchor isExternal data-test-id="external-link" />);
 
-      expect(container.querySelector('svg')).not.toBeNull();
+      const anchor = getByTestId('external-link');
+      const icon = anchor.querySelector('svg');
+
+      expect(icon).not.toBeNull();
+      expect(icon).toHaveAttribute('aria-label', '(opens in a new tab)');
     });
 
     it('renders an SVG icon with custom/translated alt text, when custom/translated alt text is provided', () => {
-      const { getByText } = render(
-        <Anchor isExternal externalIconLabel="label">
+      const { getByTestId } = render(
+        <Anchor isExternal externalIconLabel="label" data-test-id="external-link">
           link
         </Anchor>
       );
 
-      const anchor = getByText('link');
+      const anchor = getByTestId('external-link');
+      const icon = anchor.querySelector('svg');
 
-      expect(anchor.querySelector('svg')).toHaveAttribute('aria-label', 'label');
+      expect(icon).toHaveAttribute('aria-label', 'label');
     });
 
     it('renders link security attributes', () => {
