@@ -19,7 +19,7 @@ describe('Anchor', () => {
 
     it('renders an SVG icon with custom/translated alt text, when custom/translated alt text is provided', () => {
       const { getByText } = render(
-        <Anchor isExternal externalIconTextLabel="label">
+        <Anchor isExternal externalIconLabel="label">
           link
         </Anchor>
       );
