@@ -43,6 +43,7 @@ jobs:
     <<: *executor
     environment:
       NODE_DEBUG: gh-pages
+      NODE_OPTIONS: --max-old-space-size=4096
     steps:
       - *attach_workspace
       - run: yarn build:demo
