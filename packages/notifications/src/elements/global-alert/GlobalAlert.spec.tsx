@@ -8,8 +8,8 @@
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 
+import { Type } from '../../types';
 import { GlobalAlert } from './GlobalAlert';
-import { TYPE, Type } from '../../types';
 
 describe('GlobalAlert', () => {
   it('passes ref to underlying DOM element', () => {
@@ -37,20 +37,29 @@ describe('GlobalAlert', () => {
     expect(container.firstChild).not.toHaveAttribute('role');
   });
 
-  describe('subcomponents', () => {
+  describe('with subcomponents', () => {
     const TestComponent = ({ type = 'info', href = '#' }: { type: Type; href?: string }) => (
       <GlobalAlert type={type}>
         <GlobalAlert.Title>title</GlobalAlert.Title>
-        <GlobalAlert.Content>content</GlobalAlert.Content>
-        <GlobalAlert.Anchor href={href}>anchor</GlobalAlert.Anchor>
+        <GlobalAlert.Content>
+          content
+          <GlobalAlert.Anchor href={href}>anchor</GlobalAlert.Anchor>
+        </GlobalAlert.Content>
         <GlobalAlert.Button>button</GlobalAlert.Button>
         <GlobalAlert.Close />
       </GlobalAlert>
     );
 
-    it.each(TYPE)('renders "%s" type', type => {
-      expect(() => render(<TestComponent type={type} />)).not.toThrow();
-      expect(() => renderRtl(<TestComponent type={type} />)).not.toThrow();
+    it('renders in RTL mode', () => {
+      const { getByText, getByRole } = renderRtl(<TestComponent type="info" />);
+
+      expect(getByText('title')).toHaveStyleRule('padding-right', '8px');
+      expect(getByText('content')).toHaveStyleRule('margin-right', '8px', {
+        modifier: '& a'
+      });
+      expect(getByRole('status')).toHaveStyleRule('margin-right', 'auto', {
+        modifier: '& > button:first-of-type'
+      });
     });
   });
 });

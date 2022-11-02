@@ -9,7 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
 
-import { TYPE, IGlobalAlertAnchorProps, Type } from '../../types';
+import { IGlobalAlertAnchorProps, Type } from '../../types';
 
 type StyledGlobalAlertAnchorProps = IGlobalAlertAnchorProps &
   ThemeProps<DefaultTheme> & {
@@ -18,8 +18,6 @@ type StyledGlobalAlertAnchorProps = IGlobalAlertAnchorProps &
 
 const COMPONENT_ID = 'notifications.global-alert.anchor';
 
-const [success, warning, error, info] = TYPE;
-
 export function colorStyles(props: StyledGlobalAlertAnchorProps) {
   let color = null;
   let hoverColor = props.theme.palette.white;
@@ -27,21 +25,21 @@ export function colorStyles(props: StyledGlobalAlertAnchorProps) {
   let shadowColor = null;
 
   switch (props.kind) {
-    case success:
+    case 'success':
       color = getColor(props.theme.colors.successHue, 100, props.theme);
       shadowColor = getColor(props.theme.colors.successHue, 200, props.theme, 0.35);
       break;
-    case warning:
+    case 'warning':
       color = getColor(props.theme.colors.warningHue, 800, props.theme);
       hoverColor = getColor(props.theme.colors.warningHue, 900, props.theme) as string;
       activeColor = getColor(props.theme.colors.warningHue, 1000, props.theme) as string;
       shadowColor = getColor(props.theme.colors.warningHue, 800, props.theme, 0.35);
       break;
-    case error:
+    case 'error':
       color = getColor(props.theme.colors.dangerHue, 100, props.theme);
       shadowColor = getColor(props.theme.colors.dangerHue, 200, props.theme, 0.35);
       break;
-    case info:
+    case 'info':
       color = getColor(props.theme.colors.primaryHue, 700, props.theme);
       hoverColor = getColor(props.theme.colors.primaryHue, 800, props.theme) as string;
       activeColor = getColor(props.theme.colors.primaryHue, 900, props.theme) as string;
@@ -58,22 +56,20 @@ export function colorStyles(props: StyledGlobalAlertAnchorProps) {
 
     &:active,
     &:focus {
-      box-shadow: ${props.theme.shadows.sm(shadowColor as string)};
       color: ${activeColor};
     }
 
-    &[data-garden-focus-visible],
-    &:focus-visible {
-      outline: none;
+    &:active,
+    &:focus-visible,
+    &[data-garden-focus-visible] {
+      box-shadow: ${props.theme.shadows.sm(shadowColor as string)};
     }
   `;
 }
 
 function sizeStyles(props: StyledGlobalAlertAnchorProps) {
   return css`
-    margin: 0 ${props.theme.space.base}px;
     border-radius: ${props.theme.space.base / 2}px;
-    padding: 0 ${props.theme.space.base}px;
     font-size: ${props.theme.fontSizes.md};
   `;
 }

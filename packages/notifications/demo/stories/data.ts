@@ -18,5 +18,9 @@ export const GLOBAL_ALERT_BUTTONS = [
   {
     children: 'Secondary',
     isBasic: true
+  },
+  {
+    children: 'Primary',
+    isBasic: false
   }
 ];

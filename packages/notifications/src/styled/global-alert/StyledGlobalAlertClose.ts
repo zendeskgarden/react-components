@@ -8,29 +8,27 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
-import { TYPE, Type } from '../../types';
+import { Type } from '../../types';
 
 type StyledGlobalAlertCloseProps = ThemeProps<DefaultTheme> & { kind: Type };
 
 const COMPONENT_ID = 'notifications.global-alert.close';
 
-const [success, warning, error, info] = TYPE;
-
 export const colorStyles = (props: StyledGlobalAlertCloseProps) => {
   const { color, shade } = {
-    [success]: {
+    success: {
       color: props.theme.colors.successHue,
       shade: 200
     },
-    [warning]: {
+    warning: {
       color: props.theme.colors.warningHue,
       shade: 800
     },
-    [error]: {
+    error: {
       color: props.theme.colors.dangerHue,
       shade: 200
     },
-    [info]: {
+    info: {
       color: props.theme.colors.primaryHue,
       shade: 600
     }

@@ -27,26 +27,24 @@ import { GLOBAL_ALERT_BUTTONS } from './stories/data';
     args={{
       type: 'info',
       anchor: 'Find out more',
-      button: 'Primary',
+      buttons: GLOBAL_ALERT_BUTTONS,
       ariaLabel: 'Close',
       content: 'Content',
-      title: 'Title',
-      buttons: GLOBAL_ALERT_BUTTONS
+      title: 'Title'
     }}
     argTypes={{
       anchor: { name: 'children', type: 'string', table: { category: 'Anchor' } },
       isExternal: { type: 'boolean', table: { category: 'Anchor' } },
-      button: { name: 'children', type: 'string', table: { category: 'Button' } },
-      isBasic: { type: 'boolean', table: { category: 'Button' } },
+      buttons: { name: 'Buttons', table: { category: 'Button' } },
       ariaLabel: { name: 'aria-label', type: 'string', table: { category: 'Close' } },
       content: { name: 'children', type: 'string', table: { category: 'Content' } },
       title: { name: 'children', type: 'string', table: { category: 'Title' } },
       isRegular: { type: 'boolean', table: { category: 'Title' } },
-      buttons: { name: 'Additional buttons', table: { category: 'Story' } },
-      hasAnchor: { name: 'Anchor', type: 'boolean', table: { category: 'Story' } },
-      hasButton: { name: 'Button', type: 'boolean', table: { category: 'Story' } },
-      hasClose: { name: 'Close', type: 'boolean', table: { category: 'Story' } },
-      hasTitle: { name: 'Title', type: 'boolean', table: { category: 'Story' } }
+      hasAnchor: { name: 'GlobalAlert.Anchor', type: 'boolean', table: { category: 'Story' } },
+      hasButton: { name: 'GlobalAlert.Button', type: 'boolean', table: { category: 'Story' } },
+      hasClose: { name: 'GlobalAlert.Close', type: 'boolean', table: { category: 'Story' } },
+      hasContent: { name: 'GlobalAlert.Content', type: 'boolean', table: { category: 'Story' } },
+      hasTitle: { name: 'GlobalAlert.Title', type: 'boolean', table: { category: 'Story' } }
     }}
   >
     {args => <GlobalAlertStory {...args} />}

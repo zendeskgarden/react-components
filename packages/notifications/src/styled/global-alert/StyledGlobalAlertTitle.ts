@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import PropTypes from 'prop-types';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   DEFAULT_THEME,
@@ -20,10 +21,10 @@ type StyledGlobalAlertTitleProps = IGlobalAlertTitleProps & ThemeProps<DefaultTh
 const COMPONENT_ID = 'notifications.global-alert.title';
 
 function sizeStyles(props: StyledGlobalAlertTitleProps) {
-  const marginStart = getStartingDirection(props, 'margin', `${props.theme.space.base * 2}px`);
+  const paddingStart = getStartingDirection(props, 'padding', `${props.theme.space.base * 2}px`);
 
   return css`
-    ${marginStart};
+    ${paddingStart};
     line-height: ${getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
     font-size: ${props.theme.fontSizes.md};
     font-weight: ${props.isRegular
@@ -40,6 +41,10 @@ export const StyledGlobalAlertTitle = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledGlobalAlertTitle.propTypes = {
+  isRegular: PropTypes.bool
+};
 
 StyledGlobalAlertTitle.defaultProps = {
   theme: DEFAULT_THEME

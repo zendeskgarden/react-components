@@ -19,12 +19,14 @@ type StyledGlobalAlertContentProps = ThemeProps<DefaultTheme>;
 const COMPONENT_ID = 'notifications.global-alert.content';
 
 function sizeStyles(props: StyledGlobalAlertContentProps) {
-  const marginStart = getStartingDirection(props, 'margin', `${props.theme.space.base * 2}px`);
-
   return css`
-    ${marginStart};
+    padding: 0 ${props.theme.space.base * 2}px;
     line-height: ${getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
     font-size: ${props.theme.fontSizes.md};
+
+    & a {
+      ${getStartingDirection(props, 'margin', `${props.theme.space.base * 2}px`)}
+    }
   `;
 }
 

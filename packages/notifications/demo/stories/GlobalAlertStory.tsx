@@ -7,13 +7,15 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { GlobalAlert, IGlobalAlertProps } from '@zendeskgarden/react-notifications';
+import {
+  GlobalAlert,
+  IGlobalAlertProps,
+  IGlobalAlertButtonProps
+} from '@zendeskgarden/react-notifications';
 
 interface IArgs extends IGlobalAlertProps {
   anchor?: string;
   isExternal?: boolean;
-  button?: string;
-  isBasic?: boolean;
   ariaLabel?: string;
   content?: string;
   title?: string;
@@ -21,16 +23,15 @@ interface IArgs extends IGlobalAlertProps {
   hasAnchor?: boolean;
   hasButton?: boolean;
   hasClose?: boolean;
+  hasContent?: boolean;
   hasTitle?: boolean;
-  buttons?: any[];
+  buttons?: IGlobalAlertButtonProps[];
 }
 
 export const GlobalAlertStory: Story<IArgs> = ({
   type,
   anchor,
   isExternal,
-  button,
-  isBasic,
   ariaLabel,
   content,
   title,
@@ -38,24 +39,25 @@ export const GlobalAlertStory: Story<IArgs> = ({
   hasAnchor = true,
   hasButton = true,
   hasClose = true,
+  hasContent = true,
   hasTitle = true,
   buttons = []
 }) => (
   <GlobalAlert type={type}>
     {hasTitle && <GlobalAlert.Title isRegular={isRegular}>{title}</GlobalAlert.Title>}
-    <GlobalAlert.Content>{content}</GlobalAlert.Content>
-    {hasAnchor && (
-      <GlobalAlert.Anchor href="#" isExternal={isExternal}>
-        {anchor}
-      </GlobalAlert.Anchor>
+    {hasContent && (
+      <GlobalAlert.Content>
+        {content}
+        {hasAnchor && (
+          <GlobalAlert.Anchor href="#" isExternal={isExternal}>
+            {anchor}
+          </GlobalAlert.Anchor>
+        )}
+      </GlobalAlert.Content>
     )}
-    {hasButton && (
-      <>
-        <GlobalAlert.Button isBasic={isBasic}>{button}</GlobalAlert.Button>
-        {buttons?.length &&
-          buttons.map((props, index) => <GlobalAlert.Button key={index} {...props} />)}
-      </>
-    )}
+    {hasButton &&
+      buttons?.length &&
+      buttons.map((props, index) => <GlobalAlert.Button key={index} {...props} />)}
     {hasClose && <GlobalAlert.Close aria-label={ariaLabel} />}
   </GlobalAlert>
 );
