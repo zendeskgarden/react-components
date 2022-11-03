@@ -219,6 +219,8 @@ export interface ISplitterProps extends HTMLAttributes<HTMLDivElement> {
   max: number;
   /** Determines splitter orientation within a pane */
   orientation?: Orientation;
+  /** Determines if the splitter only toggles between `min` and `max` */
+  isFixed?: boolean;
 }
 
 export interface ISplitterButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
