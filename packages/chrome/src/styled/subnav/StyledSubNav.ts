@@ -43,6 +43,7 @@ export const StyledSubNav = styled.nav.attrs({
   order: 0;
   padding: ${props => `${props.theme.space.base * 6}px ${props.theme.space.base * 5}px`};
   min-width: 220px;
+  overflow: auto;
   font-size: ${props => props.theme.fontSizes.md};
 
   ${props => colorStyles(props)};
