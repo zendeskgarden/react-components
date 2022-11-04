@@ -14,7 +14,7 @@ const COMPONENT_ID = 'buttons.external_icon';
 /**
  * Accepts all `<svg>` props
  */
-export const StyledExternalIcon: any = styled(NewWindowIcon).attrs({
+export const StyledExternalIcon = styled(NewWindowIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
