@@ -12,6 +12,17 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.59.1 (2022-11-04)
+
+#### :bug: Bug Fix
+* `loaders`
+  * [#1451](https://github.com/zendeskgarden/react-components/pull/1451) fix(loaders): changed Dots and Spinner roles from progressbar to img ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+* `tabs`
+  * [#1449](https://github.com/zendeskgarden/react-components/pull/1449) fix(tabs): remove duplicate disabled attribute from StyledTab component ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :seedling: Internal
+* [#1452](https://github.com/zendeskgarden/react-components/pull/1452) chore: upgrade storybook ([@jzempel](https://github.com/jzempel))
+
 ## v8.59.0 (2022-10-26)
 
 #### :rocket: New Feature

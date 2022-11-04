@@ -12,7 +12,6 @@ import { stripUnit } from 'polished';
 const COMPONENT_ID = 'tabs.tab';
 
 interface IStyledTabProps {
-  disabled?: boolean;
   isSelected?: boolean;
 }
 
@@ -68,11 +67,10 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
  * 2. Overflow compensation.
  * 3. Override default anchor styling
  */
-export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
+export const StyledTab = styled.div.attrs<IStyledTabProps>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'aria-disabled': props.disabled
-}))<IStyledTabProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledTabProps>`
   display: inline-block;
   position: relative;
   transition: color 0.25s ease-in-out;

@@ -22,7 +22,12 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
 
     if (disabled || !tabsPropGetters) {
       return (
-        <StyledTab role="tab" disabled={disabled} ref={mergeRefs([tabRef, ref])} {...otherProps} />
+        <StyledTab
+          role="tab"
+          aria-disabled={disabled}
+          ref={mergeRefs([tabRef, ref])}
+          {...otherProps}
+        />
       );
     }
 
