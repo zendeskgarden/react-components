@@ -89,4 +89,16 @@ describe('Spinner', () => {
       `);
     });
   });
+
+  it('applies correct accessibility values', () => {
+    const { getByTestId } = render(<Spinner data-test-id="spinner" />);
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    const spinner = getByTestId('spinner');
+
+    expect(spinner).toHaveAttribute('role', 'img');
+  });
 });
