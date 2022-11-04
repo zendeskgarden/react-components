@@ -28,8 +28,6 @@ export const StyledExternalIcon = styled(NewWindowIcon).attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledExternalIcon.displayName = 'StyledExternalIcon';
-
 StyledExternalIcon.defaultProps = {
   theme: DEFAULT_THEME
 };
