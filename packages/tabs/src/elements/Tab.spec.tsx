@@ -22,9 +22,13 @@ describe('Tab', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
-  it('contains a role when disabled', () => {
-    const { container } = render(<Tab disabled />);
+  it('contains all of the necessary attributes when disabled', () => {
+    const { getByTestId } = render(<Tab disabled data-test-id="tab" />);
 
-    expect(container.firstChild).toHaveAttribute('role', 'tab');
+    const tab = getByTestId('tab');
+
+    expect(tab).toHaveAttribute('role', 'tab');
+    expect(tab).toHaveAttribute('aria-disabled', 'true');
+    expect(tab).not.toHaveAttribute('disabled');
   });
 });
