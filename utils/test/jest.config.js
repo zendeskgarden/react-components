@@ -6,10 +6,9 @@
  */
 
 const path = require('path');
-const fs = require('fs');
 
 module.exports = {
-  rootDir: '../../',
+  rootDir: path.resolve(__dirname, '..', '..'),
   roots: ['<rootDir>', path.resolve(__dirname, 'rootDir')],
   cacheDirectory: '<rootDir>/.cache/jest',
   coverageDirectory: '<rootDir>/.cache/coverage',
@@ -28,13 +27,15 @@ module.exports = {
   modulePathIgnorePatterns: ['./node_modules'],
   transformIgnorePatterns: ['\\/node_modules\\/(?!@zendeskgarden)'],
   transform: {
-    '^.+\\.(j|t)sx?$': [
-      'esbuild-jest',
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
       {
-        sourcemap: true,
-        tsconfigRaw: fs.readFileSync(path.resolve(__dirname, 'tsconfig.test.json')),
-        loaders: {
-          '.spec.js': 'tsx'
+        jsc: {
+          parser: {
+            syntax: 'typescript',
+            tsx: true,
+            preserveAllComments: true
+          }
         }
       }
     ]
