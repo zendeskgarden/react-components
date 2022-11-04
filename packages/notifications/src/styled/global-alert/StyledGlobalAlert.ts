@@ -9,7 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 import { IGlobalAlertProps } from '../../types';
-import { GLOBAL_ALERT_MIN_WIDTH, getStartingDirection } from './utility';
+import { getStartingDirection } from './utility';
 
 type StyledGlobalAlertProps = IGlobalAlertProps & ThemeProps<DefaultTheme>;
 
@@ -58,17 +58,30 @@ function sizeStyles(props: StyledGlobalAlertProps) {
     border-bottom: 1px solid;
     padding: ${padding}px;
     width: 100%;
-    min-width: ${GLOBAL_ALERT_MIN_WIDTH}px;
     min-height: ${height}px;
     ${getStartingDirection(props, 'padding', `${paddingStart}px`)};
 
     & > svg {
+      flex-shrink: 0;
       margin-top: ${props.theme.space.base * 2.5}px;
     }
 
     & > div {
       margin-top: ${props.theme.space.base * 2}px;
       margin-bottom: ${props.theme.space.base * 2}px;
+    }
+
+    & > button {
+      flex-shrink: 0;
+      margin-top: ${props.theme.space.base / 2}px;
+    }
+
+    & > button + button {
+      ${getStartingDirection(props, 'margin', '0')};
+    }
+
+    & > button:first-of-type {
+      ${getStartingDirection(props, 'margin', 'auto')};
     }
   `;
 }
@@ -85,19 +98,6 @@ export const StyledGlobalAlert = styled.div.attrs({
 
   ${sizeStyles}
   ${colorStyles}
-
-  & svg,
-  & button {
-    flex-shrink: 0;
-  }
-
-  & > button + button {
-    ${props => getStartingDirection(props, 'margin', '0')}
-  }
-
-  & > button:first-of-type {
-    ${props => getStartingDirection(props, 'margin', 'auto')}
-  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

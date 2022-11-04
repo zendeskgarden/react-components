@@ -7,8 +7,6 @@
 
 import { ThemeProps, DefaultTheme } from 'styled-components';
 
-export const GLOBAL_ALERT_MIN_WIDTH = 360;
-
 export function getStartingDirection(
   props: ThemeProps<DefaultTheme>,
   prefix?: string,

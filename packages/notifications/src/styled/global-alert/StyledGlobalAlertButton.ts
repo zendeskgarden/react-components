@@ -77,7 +77,7 @@ function colorStyles(props: StyledGlobalAlertButtonProps) {
 
 function sizeStyles(props: StyledGlobalAlertButtonProps) {
   return css`
-    margin: ${props.theme.space.base / 2}px ${props.theme.space.base * 2}px;
+    margin: 0 ${props.theme.space.base * 2}px;
   `;
 }
 
