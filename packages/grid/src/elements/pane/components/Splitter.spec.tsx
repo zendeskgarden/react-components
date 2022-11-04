@@ -22,13 +22,15 @@ const UncontrolledTestSplitter = ({
   splitterOnMouseDown,
   splitterOnTouchStart,
   splitterOnKeyDown,
-  splitterClick
+  splitterClick,
+  isFixed
 }: {
   splitterRef?: RefObject<HTMLDivElement>;
   splitterOnMouseDown?: MouseEventHandler<HTMLDivElement>;
   splitterOnTouchStart?: TouchEventHandler<HTMLDivElement>;
   splitterOnKeyDown?: KeyboardEventHandler<HTMLDivElement>;
   splitterClick?: MouseEventHandler<HTMLDivElement>;
+  isFixed?: boolean;
 }) => {
   return (
     <PaneProvider
@@ -49,6 +51,7 @@ const UncontrolledTestSplitter = ({
             onTouchStart={splitterOnTouchStart}
             onKeyDown={splitterOnKeyDown}
             onClick={splitterClick}
+            isFixed={isFixed}
           />
         </Pane>
       )}
@@ -71,6 +74,15 @@ describe('Splitter', () => {
     render(<UncontrolledTestSplitter splitterRef={ref} />);
 
     expect(ref.current?.getAttribute('role')).toBe('separator');
+  });
+
+  it('behaves as expected in fixed mode', async () => {
+    const { getByRole } = render(<UncontrolledTestSplitter isFixed />);
+    const splitter = getByRole('separator');
+
+    await user.click(splitter);
+
+    expect(splitter).toHaveAttribute('aria-valuenow', '0');
   });
 
   describe('composed events', () => {
