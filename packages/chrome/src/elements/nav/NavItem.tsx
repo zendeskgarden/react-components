@@ -19,7 +19,7 @@ export const NavItem = React.forwardRef<HTMLButtonElement, INavItemProps>(
   ({ hasLogo, hasBrandmark, product, ...other }, ref) => {
     const { hue, isLight, isDark } = useChromeContext();
     const { isExpanded } = useNavContext();
-    const ariaCurrent = other.isCurrent ? 'page' : undefined;
+    const ariaCurrent = other.isCurrent || undefined;
 
     if (hasLogo) {
       return (
@@ -58,6 +58,5 @@ NavItem.displayName = 'NavItem';
 NavItem.propTypes = {
   product: PropTypes.oneOf(PRODUCT),
   hasLogo: PropTypes.bool,
-  hasBrandmark: PropTypes.bool,
-  isCurrent: PropTypes.bool
+  hasBrandmark: PropTypes.bool
 };

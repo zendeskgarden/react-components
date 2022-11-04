@@ -40,7 +40,7 @@ describe('NavItem', () => {
 
       const currentNavItem = getByTestId('current-nav-item');
 
-      expect(currentNavItem).toHaveAttribute('aria-current', 'page');
+      expect(currentNavItem).toHaveAttribute('aria-current', 'true');
     });
 
     it('does not render state attribute when not current', () => {
