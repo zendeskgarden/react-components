@@ -75,12 +75,10 @@ export const PANES: ISplitterPane[] = [
       {
         layoutKey: 'row-1',
         orientation: 'bottom',
+        isFixed: true,
         min: 0,
         max: 2,
-        'aria-label': 'row-1 splitter',
-        button: {
-          label: 'toggle row-1'
-        }
+        'aria-label': 'row-1 splitter'
       }
     ]
   },
@@ -107,13 +105,10 @@ export const PANES: ISplitterPane[] = [
       {
         layoutKey: 'column-b',
         orientation: 'start',
+        isFixed: true,
         min: 0,
         max: 2,
-        'aria-label': 'column-b splitter',
-        button: {
-          label: 'toggle column-b',
-          placement: 'end'
-        }
+        'aria-label': 'column-b splitter'
       }
     ]
   }
