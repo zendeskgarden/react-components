@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import PropTypes from 'prop-types';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { Button, IButtonProps } from '@zendeskgarden/react-buttons';
@@ -76,8 +75,13 @@ function colorStyles(props: StyledGlobalAlertButtonProps) {
 }
 
 function sizeStyles(props: StyledGlobalAlertButtonProps) {
+  // Vertically center 32px button while retaining line height
+  const marginVertical = `-${props.theme.space.base * 1.5}px`;
+  const marginStart = `${props.theme.space.base * 2}px`;
+
   return css`
-    margin: 0 ${props.theme.space.base * 2}px;
+    margin: ${marginVertical} ${props.theme.rtl ? marginStart : 0} ${marginVertical}
+      ${props.theme.rtl ? 0 : marginStart};
   `;
 }
 
@@ -92,15 +96,12 @@ export const StyledGlobalAlertButton = styled(Button).attrs({
   isStretched: false,
   size: 'small'
 })<StyledGlobalAlertButtonProps>`
-  ${colorStyles}
+  flex-shrink: 0;
+
   ${sizeStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledGlobalAlertButton.propTypes = {
-  isBasic: PropTypes.bool
-};
 
 StyledGlobalAlertButton.defaultProps = {
   theme: DEFAULT_THEME

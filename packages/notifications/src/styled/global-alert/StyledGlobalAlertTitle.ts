@@ -5,46 +5,52 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import PropTypes from 'prop-types';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  DEFAULT_THEME,
-  getLineHeight,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
-
-import { IGlobalAlertTitleProps } from '../../types';
-import { getStartingDirection } from './utility';
-
-type StyledGlobalAlertTitleProps = IGlobalAlertTitleProps & ThemeProps<DefaultTheme>;
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { IGlobalAlertProps, IGlobalAlertTitleProps } from '../../types';
 
 const COMPONENT_ID = 'notifications.global-alert.title';
 
-function sizeStyles(props: StyledGlobalAlertTitleProps) {
-  const paddingStart = getStartingDirection(props, 'padding', `${props.theme.space.base * 2}px`);
+interface IStyledGlobalAlertTitleProps {
+  type: IGlobalAlertProps['type'];
+  isRegular?: IGlobalAlertTitleProps['isRegular'];
+}
+
+const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertTitleProps) => {
+  let color;
+
+  switch (props.type) {
+    case 'success':
+    case 'error':
+      color = props.theme.palette.white;
+      break;
+
+    case 'warning':
+      color = getColor('warningHue', 900, props.theme);
+      break;
+
+    case 'info':
+      color = getColor('primaryHue', 800, props.theme);
+      break;
+  }
 
   return css`
-    ${paddingStart};
-    line-height: ${getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-    font-size: ${props.theme.fontSizes.md};
-    font-weight: ${props.isRegular
-      ? props.theme.fontWeights.regular
-      : props.theme.fontWeights.semibold};
+    color: ${color};
   `;
-}
+};
 
 export const StyledGlobalAlertTitle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<StyledGlobalAlertTitleProps>`
-  ${sizeStyles}
+})<IStyledGlobalAlertTitleProps>`
+  margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.base * 2}px;
+  font-weight: ${props =>
+    props.isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledGlobalAlertTitle.propTypes = {
-  isRegular: PropTypes.bool
-};
 
 StyledGlobalAlertTitle.defaultProps = {
   theme: DEFAULT_THEME

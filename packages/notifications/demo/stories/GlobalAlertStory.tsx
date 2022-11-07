@@ -12,6 +12,7 @@ import {
   IGlobalAlertProps,
   IGlobalAlertButtonProps
 } from '@zendeskgarden/react-notifications';
+import { Anchor } from '@zendeskgarden/react-buttons';
 
 interface IArgs extends IGlobalAlertProps {
   anchor?: string;
@@ -20,11 +21,7 @@ interface IArgs extends IGlobalAlertProps {
   content?: string;
   title?: string;
   isRegular?: boolean;
-  hasAnchor?: boolean;
-  hasButton?: boolean;
   hasClose?: boolean;
-  hasContent?: boolean;
-  hasTitle?: boolean;
   buttons?: IGlobalAlertButtonProps[];
 }
 
@@ -36,28 +33,23 @@ export const GlobalAlertStory: Story<IArgs> = ({
   content,
   title,
   isRegular,
-  hasAnchor = true,
-  hasButton = true,
-  hasClose = true,
-  hasContent = true,
-  hasTitle = true,
-  buttons = []
+  buttons = [],
+  hasClose
 }) => (
   <GlobalAlert type={type}>
-    {hasTitle && <GlobalAlert.Title isRegular={isRegular}>{title}</GlobalAlert.Title>}
-    {hasContent && (
-      <GlobalAlert.Content>
-        {content}
-        {hasAnchor && (
-          <GlobalAlert.Anchor href="#" isExternal={isExternal}>
+    {title && <GlobalAlert.Title isRegular={isRegular}>{title}</GlobalAlert.Title>}
+    <GlobalAlert.Content>
+      {content}
+      {anchor && (
+        <>
+          {' '}
+          <Anchor href="#" isExternal={isExternal}>
             {anchor}
-          </GlobalAlert.Anchor>
-        )}
-      </GlobalAlert.Content>
-    )}
-    {hasButton &&
-      buttons?.length &&
-      buttons.map((props, index) => <GlobalAlert.Button key={index} {...props} />)}
+          </Anchor>
+        </>
+      )}
+    </GlobalAlert.Content>
+    {buttons && buttons.map((props, index) => <GlobalAlert.Button key={index} {...props} />)}
     {hasClose && <GlobalAlert.Close aria-label={ariaLabel} />}
   </GlobalAlert>
 );

@@ -8,7 +8,6 @@
 import React, { forwardRef, ButtonHTMLAttributes } from 'react';
 import { useText } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
-
 import { StyledGlobalAlertClose } from '../../styled';
 import { useGlobalAlertContext } from './utility';
 

@@ -6,8 +6,8 @@
  */
 
 export { StyledGlobalAlert } from './StyledGlobalAlert';
-export { StyledGlobalAlertAnchor } from './StyledGlobalAlertAnchor';
 export { StyledGlobalAlertButton } from './StyledGlobalAlertButton';
 export { StyledGlobalAlertClose } from './StyledGlobalAlertClose';
 export { StyledGlobalAlertContent } from './StyledGlobalAlertContent';
+export { StyledGlobalAlertIcon } from './StyledGlobalAlertIcon';
 export { StyledGlobalAlertTitle } from './StyledGlobalAlertTitle';

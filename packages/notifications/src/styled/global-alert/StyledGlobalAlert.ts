@@ -6,95 +6,128 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-
+import {
+  getColor,
+  DEFAULT_THEME,
+  retrieveComponentStyles,
+  getLineHeight
+} from '@zendeskgarden/react-theming';
 import { IGlobalAlertProps } from '../../types';
-import { getStartingDirection } from './utility';
-
-type StyledGlobalAlertProps = IGlobalAlertProps & ThemeProps<DefaultTheme>;
 
 const COMPONENT_ID = 'notifications.global-alert';
 
-function colorStyles(props: StyledGlobalAlertProps) {
-  let borderColor = null;
-  let backgroundColor = null;
-  let color = props.theme.palette.white;
+interface IStyledGlobalAlertProps {
+  type: IGlobalAlertProps['type'];
+}
+
+const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) => {
+  let borderColor;
+  let backgroundColor;
+  let foregroundColor;
+  let anchorHoverColor;
+  let anchorActiveColor;
+  let anchorBoxShadowColor;
 
   switch (props.type) {
     case 'success':
-      borderColor = getColor(props.theme.colors.successHue, 700, props.theme);
-      backgroundColor = getColor(props.theme.colors.successHue, 600, props.theme);
+      borderColor = getColor('successHue', 700, props.theme);
+      backgroundColor = getColor('successHue', 600, props.theme);
+      foregroundColor = getColor('successHue', 100, props.theme);
+      anchorHoverColor = props.theme.palette.white;
+      anchorActiveColor = props.theme.palette.white;
+      anchorBoxShadowColor = getColor('successHue', 200, props.theme, 0.35);
       break;
+
     case 'error':
-      borderColor = getColor(props.theme.colors.dangerHue, 700, props.theme);
-      backgroundColor = getColor(props.theme.colors.dangerHue, 600, props.theme);
+      borderColor = getColor('dangerHue', 700, props.theme);
+      backgroundColor = getColor('dangerHue', 600, props.theme);
+      foregroundColor = getColor('dangerHue', 100, props.theme);
+      anchorHoverColor = props.theme.palette.white;
+      anchorActiveColor = props.theme.palette.white;
+      anchorBoxShadowColor = getColor('dangerHue', 200, props.theme, 0.35);
       break;
+
     case 'warning':
-      borderColor = getColor(props.theme.colors.warningHue, 400, props.theme);
-      backgroundColor = getColor(props.theme.colors.warningHue, 300, props.theme);
-      color = getColor(props.theme.colors.warningHue, 800, props.theme) as string;
+      borderColor = getColor('warningHue', 400, props.theme);
+      backgroundColor = getColor('warningHue', 300, props.theme);
+      foregroundColor = getColor('warningHue', 800, props.theme);
+      anchorHoverColor = getColor('warningHue', 900, props.theme);
+      anchorActiveColor = getColor('warningHue', 1000, props.theme);
+      anchorBoxShadowColor = getColor('warningHue', 800, props.theme, 0.35);
       break;
+
     case 'info':
-    default:
-      borderColor = getColor(props.theme.colors.primaryHue, 300, props.theme);
-      backgroundColor = getColor(props.theme.colors.primaryHue, 200, props.theme);
-      color = getColor(props.theme.colors.primaryHue, 800, props.theme) as string;
+      borderColor = getColor('primaryHue', 300, props.theme);
+      backgroundColor = getColor('primaryHue', 200, props.theme);
+      foregroundColor = getColor('primaryHue', 700, props.theme);
+      anchorHoverColor = getColor('primaryHue', 800, props.theme);
+      anchorActiveColor = getColor('primaryHue', 900, props.theme);
+      anchorBoxShadowColor = getColor('primaryHue', 600, props.theme, 0.35);
       break;
   }
 
+  // Apply a border without affecting the element's size
+  const boxShadow =
+    borderColor && `0 ${props.theme.borderWidths.sm} ${props.theme.borderWidths.sm} ${borderColor}`;
+
   return css`
-    border-color: ${borderColor};
+    box-shadow: ${boxShadow};
     background-color: ${backgroundColor};
-    color: ${color};
-  `;
-}
+    color: ${foregroundColor};
 
-function sizeStyles(props: StyledGlobalAlertProps) {
-  const height = props.theme.space.base * 13;
-  const padding = props.theme.space.base * 2;
-  const paddingStart = props.theme.space.base * 4;
+    & a {
+      color: inherit;
+
+      &:focus {
+        color: inherit;
+      }
+
+      &:hover,
+      &[data-garden-focus-visible] {
+        color: ${anchorHoverColor};
+      }
+
+      &[data-garden-focus-visible] {
+        box-shadow: ${props.theme.shadows.sm(anchorBoxShadowColor!)};
+      }
+
+      &:active {
+        color: ${anchorActiveColor};
+      }
+    }
+  `;
+};
+
+const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+  const minHeight = props.theme.space.base * 13;
+  const padding = props.theme.space.base * 4;
+  const lineHeight = getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md);
 
   return css`
-    border-bottom: 1px solid;
     padding: ${padding}px;
-    width: 100%;
-    min-height: ${height}px;
-    ${getStartingDirection(props, 'padding', `${paddingStart}px`)};
-
-    & > svg {
-      flex-shrink: 0;
-      margin-top: ${props.theme.space.base * 2.5}px;
-    }
-
-    & > div {
-      margin-top: ${props.theme.space.base * 2}px;
-      margin-bottom: ${props.theme.space.base * 2}px;
-    }
-
-    & > button {
-      flex-shrink: 0;
-      margin-top: ${props.theme.space.base / 2}px;
-    }
-
-    & > button + button {
-      ${getStartingDirection(props, 'margin', '0')};
-    }
-
-    & > button:first-of-type {
-      ${getStartingDirection(props, 'margin', 'auto')};
-    }
+    min-height: ${minHeight}px;
+    line-height: ${lineHeight};
+    font-size: ${props.theme.fontSizes.md};
   `;
-}
+};
 
 export const StyledGlobalAlert = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<StyledGlobalAlertProps>`
+})`
   display: flex;
-  position: relative;
-  flex-flow: row nowrap;
-  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
   box-sizing: border-box;
+
+  & a {
+    border-radius: ${props => props.theme.borderRadii.sm};
+    text-decoration: underline;
+
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 
   ${sizeStyles}
   ${colorStyles}

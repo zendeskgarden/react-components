@@ -7,14 +7,13 @@
 
 import React, { forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
-
+import InfoIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
+import ErrorIcon from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
+import WarningIcon from '@zendeskgarden/svg-icons/src/16/alert-warning-stroke.svg';
+import SuccessIcon from '@zendeskgarden/svg-icons/src/16/check-circle-stroke.svg';
 import { TYPE, IGlobalAlertProps } from '../../types';
-import { StyledGlobalAlert } from '../../styled';
-
+import { StyledGlobalAlert, StyledGlobalAlertIcon } from '../../styled';
 import { GlobalAlertContext } from './utility';
-import { GlobalAlertIcon } from './GlobalAlertIcon';
-
-import { GlobalAlertAnchor } from './GlobalAlertAnchor';
 import { GlobalAlertButton } from './GlobalAlertButton';
 import { GlobalAlertClose } from './GlobalAlertClose';
 import { GlobalAlertContent } from './GlobalAlertContent';
@@ -23,7 +22,30 @@ import { GlobalAlertTitle } from './GlobalAlertTitle';
 const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>((props, ref) => (
   <GlobalAlertContext.Provider value={useMemo(() => ({ type: props.type }), [props.type])}>
     <StyledGlobalAlert ref={ref} role="status" {...props}>
-      <GlobalAlertIcon type={props.type} />
+      {
+        {
+          success: (
+            <StyledGlobalAlertIcon>
+              <SuccessIcon />
+            </StyledGlobalAlertIcon>
+          ),
+          error: (
+            <StyledGlobalAlertIcon>
+              <ErrorIcon />
+            </StyledGlobalAlertIcon>
+          ),
+          warning: (
+            <StyledGlobalAlertIcon>
+              <WarningIcon />
+            </StyledGlobalAlertIcon>
+          ),
+          info: (
+            <StyledGlobalAlertIcon>
+              <InfoIcon />
+            </StyledGlobalAlertIcon>
+          )
+        }[props.type]
+      }
       {props.children}
     </StyledGlobalAlert>
   </GlobalAlertContext.Provider>
@@ -32,14 +54,12 @@ const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>((prop
 GlobalAlertComponent.displayName = 'GlobalAlert';
 
 export const GlobalAlert = GlobalAlertComponent as typeof GlobalAlertComponent & {
-  Anchor: typeof GlobalAlertAnchor;
   Button: typeof GlobalAlertButton;
   Close: typeof GlobalAlertClose;
   Content: typeof GlobalAlertContent;
   Title: typeof GlobalAlertTitle;
 };
 
-GlobalAlert.Anchor = GlobalAlertAnchor;
 GlobalAlert.Button = GlobalAlertButton;
 GlobalAlert.Close = GlobalAlertClose;
 GlobalAlert.Content = GlobalAlertContent;
