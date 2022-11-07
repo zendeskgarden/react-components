@@ -7,7 +7,6 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { IGlobalAlertProps, IGlobalAlertTitleProps } from '../../types';
 
 const COMPONENT_ID = 'notifications.global-alert.title';
 

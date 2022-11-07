@@ -7,74 +7,71 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { Button, IButtonProps } from '@zendeskgarden/react-buttons';
-
-import { IGlobalAlertButtonProps, Type } from '../../types';
-
-import { colorStyles as closeColorStyles } from './StyledGlobalAlertClose';
-
-type StyledGlobalAlertButtonProps = IGlobalAlertButtonProps &
-  ThemeProps<DefaultTheme> &
-  Pick<IButtonProps, 'isPrimary'> & {
-    kind: Type;
-  };
+import { Button } from '@zendeskgarden/react-buttons';
+import { IGlobalAlertProps } from '../../types';
+import { colorStyles as basicColorStyles } from './StyledGlobalAlertClose';
 
 const COMPONENT_ID = 'notifications.global-alert.button';
 
-function colorStyles(props: StyledGlobalAlertButtonProps) {
+interface IStyledGlobalAlertButtonProps {
+  kind: IGlobalAlertProps['type'];
+  isBasic?: boolean;
+}
+
+function colorStyles(props: ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonProps) {
   if (props.isBasic) {
-    return closeColorStyles(props);
+    return basicColorStyles(props);
   }
 
-  const color = props.theme.palette.white;
-  let backgroundColor = null;
-  let hoverBackgroundColor = null;
-  let activeBackgroundColor = null;
-  let shadowColor = null;
+  let backgroundColor;
+  let hoverBackgroundColor;
+  let activeBackgroundColor;
+  let boxShadowColor;
 
   switch (props.kind) {
     case 'success':
-      backgroundColor = getColor(props.theme.colors.successHue, 800, props.theme);
-      hoverBackgroundColor = getColor(props.theme.colors.successHue, 900, props.theme);
-      activeBackgroundColor = getColor(props.theme.colors.successHue, 1000, props.theme);
-      shadowColor = getColor(props.theme.colors.successHue, 200, props.theme, 0.35);
+      backgroundColor = getColor('successHue', 800, props.theme);
+      hoverBackgroundColor = getColor('successHue', 900, props.theme);
+      activeBackgroundColor = getColor('successHue', 1000, props.theme);
+      boxShadowColor = getColor('successHue', 200, props.theme, 0.35);
       break;
-    case 'warning':
-      backgroundColor = getColor(props.theme.colors.warningHue, 800, props.theme);
-      hoverBackgroundColor = getColor(props.theme.colors.warningHue, 900, props.theme);
-      activeBackgroundColor = getColor(props.theme.colors.warningHue, 1000, props.theme);
-      shadowColor = getColor(props.theme.colors.warningHue, 800, props.theme, 0.35);
-      break;
+
     case 'error':
-      backgroundColor = getColor(props.theme.colors.dangerHue, 800, props.theme);
-      hoverBackgroundColor = getColor(props.theme.colors.dangerHue, 900, props.theme);
-      activeBackgroundColor = getColor(props.theme.colors.dangerHue, 1000, props.theme);
-      shadowColor = getColor(props.theme.colors.dangerHue, 200, props.theme, 0.35);
+      backgroundColor = getColor('dangerHue', 800, props.theme);
+      hoverBackgroundColor = getColor('dangerHue', 900, props.theme);
+      activeBackgroundColor = getColor('dangerHue', 1000, props.theme);
+      boxShadowColor = getColor('dangerHue', 100, props.theme, 0.35);
       break;
+
+    case 'warning':
+      backgroundColor = getColor('warningHue', 800, props.theme);
+      hoverBackgroundColor = getColor('warningHue', 900, props.theme);
+      activeBackgroundColor = getColor('warningHue', 1000, props.theme);
+      boxShadowColor = getColor('warningHue', 800, props.theme, 0.35);
+      break;
+
     case 'info':
       break;
   }
 
   return css`
     background-color: ${backgroundColor};
-    color: ${color};
 
     &:hover {
       background-color: ${hoverBackgroundColor};
     }
 
-    &:active {
-      background-color: ${activeBackgroundColor};
+    &[data-garden-focus-visible] {
+      box-shadow: ${boxShadowColor && props.theme.shadows.md(boxShadowColor)};
     }
 
-    &[data-garden-focus-visible],
-    &:focus-visible {
-      box-shadow: ${props.theme.shadows.md(shadowColor as string)};
+    &:active {
+      background-color: ${activeBackgroundColor};
     }
   `;
 }
 
-function sizeStyles(props: StyledGlobalAlertButtonProps) {
+function sizeStyles(props: ThemeProps<DefaultTheme>) {
   // Vertically center 32px button while retaining line height
   const marginVertical = `-${props.theme.space.base * 1.5}px`;
   const marginStart = `${props.theme.space.base * 2}px`;
@@ -95,10 +92,11 @@ export const StyledGlobalAlertButton = styled(Button).attrs({
   isPill: false,
   isStretched: false,
   size: 'small'
-})<StyledGlobalAlertButtonProps>`
+})`
   flex-shrink: 0;
 
-  ${sizeStyles}
+  ${sizeStyles};
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

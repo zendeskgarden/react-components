@@ -44,7 +44,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
       foregroundColor = getColor('dangerHue', 100, props.theme);
       anchorHoverColor = props.theme.palette.white;
       anchorActiveColor = props.theme.palette.white;
-      anchorBoxShadowColor = getColor('dangerHue', 200, props.theme, 0.35);
+      anchorBoxShadowColor = getColor('dangerHue', 100, props.theme, 0.35);
       break;
 
     case 'warning':
@@ -62,7 +62,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
       foregroundColor = getColor('primaryHue', 700, props.theme);
       anchorHoverColor = getColor('primaryHue', 800, props.theme);
       anchorActiveColor = getColor('primaryHue', 900, props.theme);
-      anchorBoxShadowColor = getColor('primaryHue', 600, props.theme, 0.35);
+      anchorBoxShadowColor = getColor('primaryHue', 700, props.theme, 0.35);
       break;
   }
 
