@@ -26,10 +26,12 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
       };
     }
 
+    // Only show label warnings for the external icon when the Anchor is external
+    const checkProps = isExternal ? { externalIconLabel } : { noIconLabel: 'true' };
     const iconAriaLabel = useText(
-      StyledExternalIcon,
-      { 'aria-label': externalIconLabel },
-      'aria-label',
+      Anchor,
+      checkProps,
+      isExternal ? 'externalIconLabel' : 'noIconLabel',
       '(opens in a new tab)'
     );
 
