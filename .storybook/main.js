@@ -7,15 +7,48 @@
 
 const webpack = require('webpack');
 const svgoConfig = require('../.svgo.config.js');
-const docs = process.env.BROWSER ? process.env.BROWSER.toUpperCase() !== 'IE11' : true;
+const isCI = process.env.CI !== undefined;
 
 module.exports = {
   stories: ['../packages/*/demo/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   staticDirs: ['./static'],
   addons: [
-    { name: '@storybook/addon-essentials', options: { docs } },
+    '@storybook/addon-essentials',
     '@storybook/addon-a11y',
-    'storybook-addon-designs'
+    'storybook-addon-designs',
+    {
+      name: 'storybook-addon-swc',
+      options: {
+        enable: true,
+        enableSwcLoader: isCI,
+        enableSwcMinify: false,
+        swcLoaderOptions: {
+          parseMap: true,
+          sourceMaps: true,
+          jsc: {
+            parser: {
+              syntax: 'typescript',
+              tsx: true
+            },
+            transform: {
+              react: {
+                runtime: 'automatic'
+              }
+            },
+            experimental: {
+              plugins: [
+                [
+                  '@swc/plugin-styled-components',
+                  {
+                    displayName: true
+                  }
+                ]
+              ]
+            }
+          }
+        }
+      }
+    }
   ],
   core: {
     builder: 'webpack5'

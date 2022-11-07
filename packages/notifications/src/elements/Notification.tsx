@@ -20,7 +20,13 @@ export const Notification = React.forwardRef<HTMLDivElement, INotificationProps>
   const hue = props.type && validationHues[props.type];
 
   return (
-    <StyledNotification ref={ref} type={props.type} isFloating {...props}>
+    <StyledNotification
+      ref={ref}
+      type={props.type}
+      role={props.role === undefined ? 'status' : props.role}
+      isFloating
+      {...props}
+    >
       {props.type && (
         <StyledIcon hue={hue}>
           <Icon />
