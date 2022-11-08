@@ -12,21 +12,29 @@ import { StyledGlobalAlertTitle } from './StyledGlobalAlertTitle';
 
 describe('StyledGlobalAlertTitle', () => {
   it('renders default styles', () => {
-    const { getByText } = render(<StyledGlobalAlertTitle>title</StyledGlobalAlertTitle>);
+    const { getByText } = render(
+      <StyledGlobalAlertTitle type="info">title</StyledGlobalAlertTitle>
+    );
 
     expect(getByText('title')).toHaveStyleRule('font-weight', '600');
     expect(getByText('title')).toHaveStyleRule('margin-right', '8px');
   });
 
   it('renders in RTL mode', () => {
-    const { getByText } = renderRtl(<StyledGlobalAlertTitle>title</StyledGlobalAlertTitle>);
+    const { getByText } = renderRtl(
+      <StyledGlobalAlertTitle type="info">title</StyledGlobalAlertTitle>
+    );
 
     expect(getByText('title')).toHaveStyleRule('font-weight', '600');
     expect(getByText('title')).toHaveStyleRule('margin-left', '8px');
   });
 
   it('renders "isRegular" styles', () => {
-    const { getByText } = render(<StyledGlobalAlertTitle isRegular>title</StyledGlobalAlertTitle>);
+    const { getByText } = render(
+      <StyledGlobalAlertTitle isRegular type="info">
+        title
+      </StyledGlobalAlertTitle>
+    );
 
     expect(getByText('title')).toHaveStyleRule('font-weight', '400');
   });
