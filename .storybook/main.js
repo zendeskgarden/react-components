@@ -7,7 +7,6 @@
 
 const webpack = require('webpack');
 const svgoConfig = require('../.svgo.config.js');
-const isCI = process.env.CI !== undefined;
 
 module.exports = {
   stories: ['../packages/*/demo/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
@@ -20,33 +19,8 @@ module.exports = {
       name: 'storybook-addon-swc',
       options: {
         enable: true,
-        enableSwcLoader: isCI,
-        enableSwcMinify: false,
-        swcLoaderOptions: {
-          parseMap: true,
-          sourceMaps: true,
-          jsc: {
-            parser: {
-              syntax: 'typescript',
-              tsx: true
-            },
-            transform: {
-              react: {
-                runtime: 'automatic'
-              }
-            },
-            experimental: {
-              plugins: [
-                [
-                  '@swc/plugin-styled-components',
-                  {
-                    displayName: true
-                  }
-                ]
-              ]
-            }
-          }
-        }
+        enableSwcLoader: false,
+        enableSwcMinify: true
       }
     }
   ],
