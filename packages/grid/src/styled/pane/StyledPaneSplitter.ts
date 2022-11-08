@@ -15,6 +15,7 @@ const COMPONENT_ID = 'pane.splitter';
 interface IStyledPaneSplitterProps {
   isHovered: boolean;
   orientation?: Orientation;
+  isFixed?: boolean;
 }
 
 const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
@@ -119,7 +120,7 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
     right: ${right};
     bottom: ${bottom};
     left: ${left};
-    cursor: ${cursor};
+    cursor: ${props.isFixed ? 'pointer' : cursor};
     width: ${width};
     height: ${height};
 
