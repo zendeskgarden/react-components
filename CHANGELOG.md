@@ -12,6 +12,35 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.59.1 (2022-11-04)
+
+#### :bug: Bug Fix
+* `loaders`
+  * [#1451](https://github.com/zendeskgarden/react-components/pull/1451) fix(loaders): changed Dots and Spinner roles from progressbar to img ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+* `tabs`
+  * [#1449](https://github.com/zendeskgarden/react-components/pull/1449) fix(tabs): remove duplicate disabled attribute from StyledTab component ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :seedling: Internal
+* [#1452](https://github.com/zendeskgarden/react-components/pull/1452) chore: upgrade storybook ([@jzempel](https://github.com/jzempel))
+
+## v8.59.0 (2022-10-26)
+
+#### :rocket: New Feature
+* `modals`
+  * [#1446](https://github.com/zendeskgarden/react-components/pull/1446) feat(modals): add tag prop to Modal, Drawer, and Tooltip Modal components ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1447](https://github.com/zendeskgarden/react-components/pull/1447) fix(forms): field renders rtl and ltr ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* `buttons`
+  * [#1439](https://github.com/zendeskgarden/react-components/pull/1439) fix(deps): update dependency @zendeskgarden/container-buttongroup to v1 ([@renovate[bot]](https://github.com/apps/renovate))
+* `grid`, `theming`
+  * [#1434](https://github.com/zendeskgarden/react-components/pull/1434) chore(deps): update jest monorepo to v29 (major) ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tooltips`
+  * [#1419](https://github.com/zendeskgarden/react-components/pull/1419) chore(deps): update testing library user events to v14 ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.58.0 (2022-10-20)
 
 #### :rocket: New Feature

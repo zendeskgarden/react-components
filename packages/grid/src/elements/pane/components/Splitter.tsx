@@ -48,6 +48,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       min,
       max,
       orientation,
+      isFixed,
       onMouseDown,
       onTouchStart,
       onKeyDown,
@@ -84,6 +85,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       min: min * pixelsPerFr,
       max: max * pixelsPerFr,
       rtl: themeContext.rtl,
+      isFixed,
       environment,
       onChange: valueNow => {
         if (isRow) {
@@ -146,6 +148,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       >
         <StyledPaneSplitter
           isHovered={isHovered}
+          isFixed={isFixed}
           orientation={orientation}
           {...separatorProps}
           {...props}
@@ -163,7 +166,8 @@ SplitterComponent.propTypes = {
   layoutKey: PropTypes.string.isRequired,
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
-  orientation: PropTypes.oneOf(ORIENTATION)
+  orientation: PropTypes.oneOf(ORIENTATION),
+  isFixed: PropTypes.bool
 };
 
 SplitterComponent.defaultProps = {

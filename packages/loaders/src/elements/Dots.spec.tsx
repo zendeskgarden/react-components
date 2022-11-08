@@ -397,4 +397,16 @@ describe('Dots', () => {
       `);
     });
   });
+
+  it('applies correct accessibility values', () => {
+    const { getByTestId } = render(<Dots data-test-id="dots" />);
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    const dots = getByTestId('dots');
+
+    expect(dots).toHaveAttribute('role', 'img');
+  });
 });
