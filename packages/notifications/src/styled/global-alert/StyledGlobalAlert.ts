@@ -78,20 +78,20 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
     & a {
       color: inherit;
 
-      &:focus {
+      :focus {
         color: inherit;
       }
 
-      &:hover,
-      &[data-garden-focus-visible] {
+      :hover,
+      [data-garden-focus-visible] {
         color: ${anchorHoverColor};
       }
 
-      &[data-garden-focus-visible] {
+      [data-garden-focus-visible] {
         box-shadow: ${props.theme.shadows.sm(anchorBoxShadowColor!)};
       }
 
-      &:active {
+      :active {
         color: ${anchorActiveColor};
       }
     }
@@ -116,8 +116,8 @@ export const StyledGlobalAlert = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   display: flex;
-  flex-direction: row;
   flex-wrap: nowrap;
+  overflow: auto;
   box-sizing: border-box;
 
   & a {

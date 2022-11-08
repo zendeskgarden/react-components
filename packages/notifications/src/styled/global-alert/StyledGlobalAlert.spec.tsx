@@ -6,19 +6,13 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { render } from 'garden-test-utils';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 import { TYPE } from '../../types';
 import { StyledGlobalAlert } from './StyledGlobalAlert';
 
 describe('StyledGlobalAlert', () => {
-  it('renders in RTL mode', () => {
-    const { container } = renderRtl(<StyledGlobalAlert type="info" />);
-
-    expect(container.firstChild).toHaveStyleRule('padding-right', '16px');
-  });
-
   it.each(TYPE)('renders "%s" type', type => {
     const { container } = render(<StyledGlobalAlert type={type} />);
 

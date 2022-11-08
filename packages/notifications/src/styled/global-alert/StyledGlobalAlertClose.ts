@@ -25,11 +25,11 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
 
   switch (props.kind) {
     case 'success':
-      hoverBackgroundColor = getColor('successHue', 200, props.theme, 0.08);
+      hoverBackgroundColor = getColor('successHue', 100, props.theme, 0.08);
       hoverForegroundColor = props.theme.palette.white;
-      activeBackgroundColor = getColor('successHue', 200, props.theme, 0.2);
+      activeBackgroundColor = getColor('successHue', 100, props.theme, 0.2);
       activeForegroundColor = props.theme.palette.white;
-      boxShadowColor = getColor('successHue', 200, props.theme, 0.35);
+      boxShadowColor = getColor('successHue', 100, props.theme, 0.35);
       break;
 
     case 'error':

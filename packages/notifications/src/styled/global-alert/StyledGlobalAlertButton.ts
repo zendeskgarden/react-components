@@ -51,6 +51,7 @@ function colorStyles(props: ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonP
       break;
 
     case 'info':
+      boxShadowColor = getColor('primaryHue', 700, props.theme, 0.35);
       break;
   }
 

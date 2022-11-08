@@ -15,14 +15,14 @@ describe('StyledGlobalAlertTitle', () => {
     const { getByText } = render(<StyledGlobalAlertTitle>title</StyledGlobalAlertTitle>);
 
     expect(getByText('title')).toHaveStyleRule('font-weight', '600');
-    expect(getByText('title')).toHaveStyleRule('padding-left', '8px');
+    expect(getByText('title')).toHaveStyleRule('margin-right', '8px');
   });
 
   it('renders in RTL mode', () => {
     const { getByText } = renderRtl(<StyledGlobalAlertTitle>title</StyledGlobalAlertTitle>);
 
     expect(getByText('title')).toHaveStyleRule('font-weight', '600');
-    expect(getByText('title')).toHaveStyleRule('padding-right', '8px');
+    expect(getByText('title')).toHaveStyleRule('margin-left', '8px');
   });
 
   it('renders "isRegular" styles', () => {
