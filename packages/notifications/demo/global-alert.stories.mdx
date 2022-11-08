@@ -7,7 +7,6 @@ import { GLOBAL_ALERT_BUTTONS } from './stories/data';
   title="Packages/Notifications/GlobalAlert"
   component={GlobalAlert}
   subcomponents={{
-    'GlobalAlert.Anchor': GlobalAlert.Anchor,
     'GlobalAlert.Button': GlobalAlert.Button,
     'GlobalAlert.Close': GlobalAlert.Close,
     'GlobalAlert.Content': GlobalAlert.Content,
@@ -26,25 +25,26 @@ import { GLOBAL_ALERT_BUTTONS } from './stories/data';
     name="GlobalAlert"
     args={{
       type: 'info',
-      anchor: 'Find out more',
+      anchor: 'Anchor',
       buttons: GLOBAL_ALERT_BUTTONS,
-      ariaLabel: 'Close',
+      ariaLabel: 'Label',
       content: 'Content',
-      title: 'Title'
+      title: 'Title',
+      hasClose: true
     }}
     argTypes={{
-      anchor: { name: 'children', type: 'string', table: { category: 'Anchor' } },
-      isExternal: { type: 'boolean', table: { category: 'Anchor' } },
-      buttons: { name: 'Buttons', table: { category: 'Button' } },
-      ariaLabel: { name: 'aria-label', type: 'string', table: { category: 'Close' } },
-      content: { name: 'children', type: 'string', table: { category: 'Content' } },
-      title: { name: 'children', type: 'string', table: { category: 'Title' } },
-      isRegular: { type: 'boolean', table: { category: 'Title' } },
-      hasAnchor: { name: 'GlobalAlert.Anchor', type: 'boolean', table: { category: 'Story' } },
-      hasButton: { name: 'GlobalAlert.Button', type: 'boolean', table: { category: 'Story' } },
+      buttons: { name: 'GlobalAlert.Button[]', table: { category: 'Story' } },
       hasClose: { name: 'GlobalAlert.Close', type: 'boolean', table: { category: 'Story' } },
-      hasContent: { name: 'GlobalAlert.Content', type: 'boolean', table: { category: 'Story' } },
-      hasTitle: { name: 'GlobalAlert.Title', type: 'boolean', table: { category: 'Story' } }
+      ariaLabel: { name: 'aria-label', type: 'string', table: { category: 'GlobalAlert.Close' } },
+      content: { name: 'text', type: 'string', table: { category: 'GlobalAlert.Content' } },
+      anchor: { name: 'Anchor', type: 'string', table: { category: 'GlobalAlert.Content' } },
+      isExternal: {
+        name: 'Anchor isExternal',
+        type: 'boolean',
+        table: { category: 'GlobalAlert.Content' }
+      },
+      title: { name: 'children', type: 'string', table: { category: 'GlobalAlert.Title' } },
+      isRegular: { type: 'boolean', table: { category: 'GlobalAlert.Title' } }
     }}
   >
     {args => <GlobalAlertStory {...args} />}
