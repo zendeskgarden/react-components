@@ -7,6 +7,9 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+
+import { TYPE } from '../../types';
 
 import { StyledGlobalAlertTitle } from './StyledGlobalAlertTitle';
 
@@ -37,5 +40,21 @@ describe('StyledGlobalAlertTitle', () => {
     );
 
     expect(getByText('title')).toHaveStyleRule('font-weight', '400');
+  });
+
+  it.each(TYPE)('renders "%s" type', type => {
+    const { getByText } = render(
+      <StyledGlobalAlertTitle type={type}>title</StyledGlobalAlertTitle>
+    );
+
+    expect(getByText('title')).toHaveStyleRule(
+      'color',
+      {
+        success: DEFAULT_THEME.palette.white as string,
+        warning: getColor('warningHue', 900, DEFAULT_THEME),
+        error: DEFAULT_THEME.palette.white as string,
+        info: getColor('primaryHue', 800, DEFAULT_THEME)
+      }[type]
+    );
   });
 });

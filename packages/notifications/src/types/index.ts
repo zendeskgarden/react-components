@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-import { IAnchorProps, IButtonProps } from '@zendeskgarden/react-buttons';
+import { HTMLAttributes, ButtonHTMLAttributes } from 'react';
+import { IButtonProps } from '@zendeskgarden/react-buttons';
 
 export const PLACEMENT = [
   'top-start',
@@ -66,10 +66,6 @@ export interface IGlobalAlertProps extends HTMLAttributes<HTMLDivElement> {
    */
   type: Type;
 }
-
-export interface IGlobalAlertAnchorProps
-  extends AnchorHTMLAttributes<HTMLAnchorElement>,
-    Pick<IAnchorProps, 'isExternal'> {}
 
 export interface IGlobalAlertButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,

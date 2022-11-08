@@ -11,18 +11,27 @@ import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 import { TYPE } from '../../types';
 import { StyledGlobalAlertButton } from './StyledGlobalAlertButton';
+import { colorStyles } from './StyledGlobalAlertClose';
+
+jest.mock('./StyledGlobalAlertClose');
 
 describe('StyledGlobalAlertButton', () => {
+  it('uses basic styles', () => {
+    render(<StyledGlobalAlertButton isBasic kind="info" />);
+
+    expect(colorStyles).toHaveBeenCalledTimes(1);
+  });
+
   it.each(TYPE)('renders "%s" type', type => {
     const { getByRole } = render(<StyledGlobalAlertButton isPrimary kind={type} />);
 
     expect(getByRole('button')).toHaveStyleRule(
       'background-color',
       {
-        success: getColor(DEFAULT_THEME.colors.successHue, 800, DEFAULT_THEME),
-        warning: getColor(DEFAULT_THEME.colors.warningHue, 800, DEFAULT_THEME),
-        error: getColor(DEFAULT_THEME.colors.dangerHue, 800, DEFAULT_THEME),
-        info: getColor(DEFAULT_THEME.colors.primaryHue, 600, DEFAULT_THEME)
+        success: getColor('successHue', 800, DEFAULT_THEME),
+        warning: getColor('warningHue', 800, DEFAULT_THEME),
+        error: getColor('dangerHue', 800, DEFAULT_THEME),
+        info: getColor('primaryHue', 600, DEFAULT_THEME)
       }[type]
     );
   });
