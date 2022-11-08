@@ -22,7 +22,6 @@ export type {
   ITitleProps,
   IToastProviderProps,
   IGlobalAlertProps,
-  IGlobalAlertAnchorProps,
   IGlobalAlertButtonProps,
   IGlobalAlertTitleProps,
   /** @deprecated can be dereferenced via IToastOptions['placement'] */
