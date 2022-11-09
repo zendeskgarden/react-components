@@ -26,15 +26,16 @@ import { GLOBAL_ALERT_BUTTONS } from './stories/data';
     args={{
       type: 'info',
       anchor: 'Anchor',
-      buttons: GLOBAL_ALERT_BUTTONS,
+      button: 'Button',
       ariaLabel: 'Label',
       content: 'Content',
       title: 'Title',
       hasClose: true
     }}
     argTypes={{
-      buttons: { name: 'GlobalAlert.Button[]', table: { category: 'Story' } },
       hasClose: { name: 'GlobalAlert.Close', type: 'boolean', table: { category: 'Story' } },
+      button: { name: 'children', type: 'string', table: { category: 'GlobalAlert.Button' } },
+      isBasic: { type: 'boolean', table: { category: 'GlobalAlert.Button' } },
       ariaLabel: { name: 'aria-label', type: 'string', table: { category: 'GlobalAlert.Close' } },
       content: { name: 'text', type: 'string', table: { category: 'GlobalAlert.Content' } },
       anchor: { name: 'Anchor', type: 'string', table: { category: 'GlobalAlert.Content' } },

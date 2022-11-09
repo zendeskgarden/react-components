@@ -7,11 +7,7 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import {
-  GlobalAlert,
-  IGlobalAlertProps,
-  IGlobalAlertButtonProps
-} from '@zendeskgarden/react-notifications';
+import { GlobalAlert, IGlobalAlertProps } from '@zendeskgarden/react-notifications';
 import { Anchor } from '@zendeskgarden/react-buttons';
 
 interface IArgs extends IGlobalAlertProps {
@@ -22,7 +18,8 @@ interface IArgs extends IGlobalAlertProps {
   title?: string;
   isRegular?: boolean;
   hasClose?: boolean;
-  buttons?: IGlobalAlertButtonProps[];
+  button?: string;
+  isBasic?: boolean;
 }
 
 export const GlobalAlertStory: Story<IArgs> = ({
@@ -33,7 +30,8 @@ export const GlobalAlertStory: Story<IArgs> = ({
   content,
   title,
   isRegular,
-  buttons = [],
+  button,
+  isBasic,
   hasClose
 }) => (
   <GlobalAlert type={type}>
@@ -49,7 +47,7 @@ export const GlobalAlertStory: Story<IArgs> = ({
         </>
       )}
     </GlobalAlert.Content>
-    {buttons && buttons.map((props, index) => <GlobalAlert.Button key={index} {...props} />)}
+    {button && <GlobalAlert.Button isBasic={isBasic}>{button}</GlobalAlert.Button>}
     {hasClose && <GlobalAlert.Close aria-label={ariaLabel} />}
   </GlobalAlert>
 );

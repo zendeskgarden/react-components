@@ -70,28 +70,29 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
   // Apply a border without affecting the element's size
   const boxShadow = `0 ${props.theme.borderWidths.sm} ${props.theme.borderWidths.sm} ${borderColor}`;
 
+  /* stylelint-disable selector-no-qualifying-type */
   return css`
     box-shadow: ${boxShadow};
     background-color: ${backgroundColor};
     color: ${foregroundColor};
 
-    && a {
+    & a {
       color: inherit;
 
-      :focus {
+      &:focus {
         color: inherit;
       }
 
-      :hover,
+      &:hover,
       [data-garden-focus-visible] {
         color: ${anchorHoverColor};
       }
 
-      [data-garden-focus-visible] {
+      &[data-garden-focus-visible] {
         box-shadow: ${props.theme.shadows.sm(anchorBoxShadowColor!)};
       }
 
-      :active {
+      &:active {
         color: ${anchorActiveColor};
       }
     }
