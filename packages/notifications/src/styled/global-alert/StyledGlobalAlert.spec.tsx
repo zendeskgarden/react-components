@@ -14,7 +14,7 @@ import { StyledGlobalAlert } from './StyledGlobalAlert';
 
 describe('StyledGlobalAlert', () => {
   it.each(TYPE)('renders "%s" type', type => {
-    const { container } = render(<StyledGlobalAlert type={type} />);
+    const { container } = render(<StyledGlobalAlert $type={type} />);
 
     expect(container.firstChild).toHaveStyleRule(
       'background-color',

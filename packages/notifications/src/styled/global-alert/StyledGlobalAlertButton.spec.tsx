@@ -17,13 +17,13 @@ jest.mock('./StyledGlobalAlertClose');
 
 describe('StyledGlobalAlertButton', () => {
   it('uses basic styles', () => {
-    render(<StyledGlobalAlertButton isBasic kind="info" />);
+    render(<StyledGlobalAlertButton isBasic $type="info" />);
 
     expect(colorStyles).toHaveBeenCalledTimes(1);
   });
 
   it.each(TYPE)('renders "%s" type', type => {
-    const { getByRole } = render(<StyledGlobalAlertButton isPrimary kind={type} />);
+    const { getByRole } = render(<StyledGlobalAlertButton isPrimary $type={type} />);
 
     expect(getByRole('button')).toHaveStyleRule(
       'background-color',

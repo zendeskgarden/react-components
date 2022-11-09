@@ -12,12 +12,13 @@ import {
   retrieveComponentStyles,
   getLineHeight
 } from '@zendeskgarden/react-theming';
+
 import { IGlobalAlertProps } from '../../types';
 
 const COMPONENT_ID = 'notifications.global-alert';
 
 interface IStyledGlobalAlertProps {
-  type: IGlobalAlertProps['type'];
+  $type: IGlobalAlertProps['type'];
 }
 
 const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) => {
@@ -28,7 +29,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
   let anchorActiveColor;
   let anchorBoxShadowColor;
 
-  switch (props.type) {
+  switch (props.$type) {
     case 'success':
       borderColor = getColor('successHue', 700, props.theme);
       backgroundColor = getColor('successHue', 600, props.theme);
@@ -67,15 +68,14 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
   }
 
   // Apply a border without affecting the element's size
-  const boxShadow =
-    borderColor && `0 ${props.theme.borderWidths.sm} ${props.theme.borderWidths.sm} ${borderColor}`;
+  const boxShadow = `0 ${props.theme.borderWidths.sm} ${props.theme.borderWidths.sm} ${borderColor}`;
 
   return css`
     box-shadow: ${boxShadow};
     background-color: ${backgroundColor};
     color: ${foregroundColor};
 
-    & a {
+    && a {
       color: inherit;
 
       :focus {
@@ -120,7 +120,7 @@ export const StyledGlobalAlert = styled.div.attrs({
   overflow: auto;
   box-sizing: border-box;
 
-  & a {
+  && a {
     border-radius: ${props => props.theme.borderRadii.sm};
     text-decoration: underline;
 

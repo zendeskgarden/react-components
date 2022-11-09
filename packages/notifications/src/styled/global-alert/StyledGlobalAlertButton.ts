@@ -8,13 +8,14 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
+
 import { IGlobalAlertProps } from '../../types';
 import { colorStyles as basicColorStyles } from './StyledGlobalAlertClose';
 
 const COMPONENT_ID = 'notifications.global-alert.button';
 
 interface IStyledGlobalAlertButtonProps {
-  kind: IGlobalAlertProps['type'];
+  $type: IGlobalAlertProps['type'];
   isBasic?: boolean;
 }
 
@@ -28,7 +29,7 @@ function colorStyles(props: ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonP
   let activeBackgroundColor;
   let boxShadowColor;
 
-  switch (props.kind) {
+  switch (props.$type) {
     case 'success':
       backgroundColor = getColor('successHue', 800, props.theme);
       hoverBackgroundColor = getColor('successHue', 900, props.theme);

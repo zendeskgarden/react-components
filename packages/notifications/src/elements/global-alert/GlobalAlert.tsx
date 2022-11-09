@@ -11,6 +11,7 @@ import InfoIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import ErrorIcon from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 import WarningIcon from '@zendeskgarden/svg-icons/src/16/alert-warning-stroke.svg';
 import SuccessIcon from '@zendeskgarden/svg-icons/src/16/check-circle-stroke.svg';
+
 import { TYPE, IGlobalAlertProps } from '../../types';
 import { StyledGlobalAlert, StyledGlobalAlertIcon } from '../../styled';
 import { GlobalAlertContext } from './utility';
@@ -19,40 +20,45 @@ import { GlobalAlertClose } from './GlobalAlertClose';
 import { GlobalAlertContent } from './GlobalAlertContent';
 import { GlobalAlertTitle } from './GlobalAlertTitle';
 
-const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>((props, ref) => (
-  <GlobalAlertContext.Provider value={useMemo(() => ({ type: props.type }), [props.type])}>
-    <StyledGlobalAlert ref={ref} role="status" {...props}>
-      {
+const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>(
+  ({ type, ...props }, ref) => (
+    <GlobalAlertContext.Provider value={useMemo(() => ({ type }), [type])}>
+      <StyledGlobalAlert ref={ref} role="status" $type={type} {...props}>
         {
-          success: (
-            <StyledGlobalAlertIcon>
-              <SuccessIcon />
-            </StyledGlobalAlertIcon>
-          ),
-          error: (
-            <StyledGlobalAlertIcon>
-              <ErrorIcon />
-            </StyledGlobalAlertIcon>
-          ),
-          warning: (
-            <StyledGlobalAlertIcon>
-              <WarningIcon />
-            </StyledGlobalAlertIcon>
-          ),
-          info: (
-            <StyledGlobalAlertIcon>
-              <InfoIcon />
-            </StyledGlobalAlertIcon>
-          )
-        }[props.type]
-      }
-      {props.children}
-    </StyledGlobalAlert>
-  </GlobalAlertContext.Provider>
-));
+          {
+            success: (
+              <StyledGlobalAlertIcon>
+                <SuccessIcon />
+              </StyledGlobalAlertIcon>
+            ),
+            error: (
+              <StyledGlobalAlertIcon>
+                <ErrorIcon />
+              </StyledGlobalAlertIcon>
+            ),
+            warning: (
+              <StyledGlobalAlertIcon>
+                <WarningIcon />
+              </StyledGlobalAlertIcon>
+            ),
+            info: (
+              <StyledGlobalAlertIcon>
+                <InfoIcon />
+              </StyledGlobalAlertIcon>
+            )
+          }[type]
+        }
+        {props.children}
+      </StyledGlobalAlert>
+    </GlobalAlertContext.Provider>
+  )
+);
 
 GlobalAlertComponent.displayName = 'GlobalAlert';
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const GlobalAlert = GlobalAlertComponent as typeof GlobalAlertComponent & {
   Button: typeof GlobalAlertButton;
   Close: typeof GlobalAlertClose;

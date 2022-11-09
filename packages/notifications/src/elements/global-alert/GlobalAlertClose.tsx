@@ -8,9 +8,13 @@
 import React, { forwardRef, ButtonHTMLAttributes } from 'react';
 import { useText } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+
 import { StyledGlobalAlertClose } from '../../styled';
 import { useGlobalAlertContext } from './utility';
 
+/**
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
 export const GlobalAlertClose = forwardRef<
   HTMLButtonElement,
   ButtonHTMLAttributes<HTMLButtonElement>
@@ -19,7 +23,7 @@ export const GlobalAlertClose = forwardRef<
   const label = useText(GlobalAlertClose, props, 'aria-label', 'Close');
 
   return (
-    <StyledGlobalAlertClose ref={ref} kind={type} {...props}>
+    <StyledGlobalAlertClose ref={ref} $type={type} {...props}>
       <XStrokeIcon role="img" aria-label={label} />
     </StyledGlobalAlertClose>
   );

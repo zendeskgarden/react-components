@@ -12,6 +12,9 @@ import { IGlobalAlertButtonProps } from '../../types';
 import { StyledGlobalAlertButton } from '../../styled';
 import { useGlobalAlertContext } from './utility';
 
+/**
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
 export const GlobalAlertButton = forwardRef<HTMLButtonElement, IGlobalAlertButtonProps>(
   ({ isBasic, ...props }, ref) => {
     const { type } = useGlobalAlertContext();
@@ -19,7 +22,7 @@ export const GlobalAlertButton = forwardRef<HTMLButtonElement, IGlobalAlertButto
     return (
       <StyledGlobalAlertButton
         ref={ref}
-        kind={type}
+        $type={type}
         {...props}
         isPrimary={!isBasic}
         isBasic={isBasic}

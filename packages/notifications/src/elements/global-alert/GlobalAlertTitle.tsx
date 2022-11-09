@@ -7,14 +7,18 @@
 
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { useGlobalAlertContext } from './utility';
+
 import { IGlobalAlertTitleProps } from '../../types';
 import { StyledGlobalAlertTitle } from '../../styled';
+import { useGlobalAlertContext } from './utility';
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const GlobalAlertTitle = forwardRef<HTMLDivElement, IGlobalAlertTitleProps>((props, ref) => {
   const { type } = useGlobalAlertContext();
 
-  return <StyledGlobalAlertTitle type={type} ref={ref} {...props} />;
+  return <StyledGlobalAlertTitle $type={type} ref={ref} {...props} />;
 });
 
 GlobalAlertTitle.displayName = 'GlobalAlert.Title';

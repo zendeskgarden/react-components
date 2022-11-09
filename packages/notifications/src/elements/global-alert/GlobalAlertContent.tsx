@@ -9,6 +9,9 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 
 import { StyledGlobalAlertContent } from '../../styled';
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const GlobalAlertContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     return <StyledGlobalAlertContent ref={ref} {...props} />;

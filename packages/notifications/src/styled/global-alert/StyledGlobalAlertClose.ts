@@ -8,12 +8,13 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
+
 import { IGlobalAlertProps } from '../../types';
 
 const COMPONENT_ID = 'notifications.global-alert.close';
 
 interface IStyledGlobalAlertCloseProps {
-  kind: IGlobalAlertProps['type'];
+  $type: IGlobalAlertProps['type'];
 }
 
 export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertCloseProps) => {
@@ -23,7 +24,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
   let activeForegroundColor;
   let boxShadowColor;
 
-  switch (props.kind) {
+  switch (props.$type) {
     case 'success':
       hoverBackgroundColor = getColor('successHue', 100, props.theme, 0.08);
       hoverForegroundColor = props.theme.palette.white;

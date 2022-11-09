@@ -16,7 +16,7 @@ import { StyledGlobalAlertClose } from './StyledGlobalAlertClose';
 describe('StyledGlobalAlertClose', () => {
   it.each(TYPE)('renders "%s" type', type => {
     const { getByRole } = render(
-      <StyledGlobalAlertClose kind={type}>
+      <StyledGlobalAlertClose $type={type}>
         <XStrokeIcon />
       </StyledGlobalAlertClose>
     );
