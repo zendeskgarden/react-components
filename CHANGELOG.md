@@ -12,6 +12,28 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.60.0 (2022-11-10)
+
+#### :rocket: New Feature
+* `notifications`
+  * [#1450](https://github.com/zendeskgarden/react-components/pull/1450) feat(notifications): global alert component ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `grid`
+  * [#1455](https://github.com/zendeskgarden/react-components/pull/1455) feat(grid): add `isFixed` prop along with a11y fixes ([@jzempel](https://github.com/jzempel))
+* `buttons`
+  * [#1448](https://github.com/zendeskgarden/react-components/pull/1448) feat(anchor): add default alternative text to external anchor icon ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+* `chrome`
+  * [#1453](https://github.com/zendeskgarden/react-components/pull/1453) feat(chrome): add aria-current attribute to NavItem component, when it's current ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :bug: Bug Fix
+* `accordions`, `forms`
+  * [#1417](https://github.com/zendeskgarden/react-components/pull/1417) fix(accordions, forms): use document for resizing ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `chrome`
+  * [#1454](https://github.com/zendeskgarden/react-components/pull/1454) fix(chrome): scroll on subnav overflow ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* `forms`
+  * [#1456](https://github.com/zendeskgarden/react-components/pull/1456) chore(jest): use swc as transformer ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.59.1 (2022-11-04)
 
 #### :bug: Bug Fix
