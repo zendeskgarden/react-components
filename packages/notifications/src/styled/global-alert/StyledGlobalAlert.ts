@@ -100,15 +100,13 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
 };
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const { fontSizes, space, rtl } = props.theme;
+  const { fontSizes, space } = props.theme;
   const minHeight = space.base * 13;
   const padding = space.base * 4;
-  const paddingEnd = space.base * 2;
   const lineHeight = getLineHeight(space.base * 5, fontSizes.md);
 
   return css`
-    padding: ${padding}px ${rtl ? padding : paddingEnd}px ${padding}px
-      ${rtl ? paddingEnd : padding}px;
+    padding: ${padding}px;
     min-height: ${minHeight}px;
     line-height: ${lineHeight};
     font-size: ${fontSizes.md};
@@ -122,6 +120,7 @@ export const StyledGlobalAlert = styled.div.attrs({
   display: flex;
   flex-wrap: nowrap;
   overflow: auto;
+  overflow-x: hidden;
   box-sizing: border-box;
 
   && a {
