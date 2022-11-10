@@ -100,15 +100,18 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
 };
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const minHeight = props.theme.space.base * 13;
-  const padding = props.theme.space.base * 4;
-  const lineHeight = getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md);
+  const { fontSizes, space, rtl } = props.theme;
+  const minHeight = space.base * 13;
+  const padding = space.base * 4;
+  const paddingEnd = space.base * 2;
+  const lineHeight = getLineHeight(space.base * 5, fontSizes.md);
 
   return css`
-    padding: ${padding}px;
+    padding: ${padding}px ${rtl ? padding : paddingEnd}px ${padding}px
+      ${rtl ? paddingEnd : padding}px;
     min-height: ${minHeight}px;
     line-height: ${lineHeight};
-    font-size: ${props.theme.fontSizes.md};
+    font-size: ${fontSizes.md};
   `;
 };
 

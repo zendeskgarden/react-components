@@ -81,12 +81,10 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   // Vertically center 32px icon button while retaining line height
   const marginVertical = `-${props.theme.space.base * 1.5}px`;
   const marginStart = `${props.theme.space.base * 2}px`;
-  // Negative margin into container padding
-  const marginEnd = `-${props.theme.space.base * 2}px`;
 
   return css`
-    margin: ${marginVertical} ${props.theme.rtl ? marginStart : marginEnd} ${marginVertical}
-      ${props.theme.rtl ? marginEnd : marginStart};
+    margin: ${marginVertical} ${props.theme.rtl ? marginStart : 0} ${marginVertical}
+      ${props.theme.rtl ? 0 : marginStart};
   `;
 };
 

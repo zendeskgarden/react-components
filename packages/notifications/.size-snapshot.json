@@ -1,5 +1,6 @@
 {
   "index.cjs.js": {
+<<<<<<< HEAD
     "bundled": 44578,
     "minified": 30137,
     "gzipped": 6498
@@ -15,6 +16,23 @@
       },
       "webpack": {
         "code": 25186
+=======
+    "bundled": 44613,
+    "minified": 30097,
+    "gzipped": 6528
+  },
+  "index.esm.js": {
+    "bundled": 40808,
+    "minified": 26742,
+    "gzipped": 6234,
+    "treeshaked": {
+      "rollup": {
+        "code": 18393,
+        "import_statements": 524
+      },
+      "webpack": {
+        "code": 25146
+>>>>>>> 921797cc7f (fix: remove scroll bar on safari)
       }
     }
   }
