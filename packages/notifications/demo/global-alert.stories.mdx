@@ -1,0 +1,53 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { GlobalAlert, Close, Paragraph, Title } from '@zendeskgarden/react-notifications';
+import { GlobalAlertStory } from './stories/GlobalAlertStory';
+import { GLOBAL_ALERT_BUTTONS } from './stories/data';
+
+<Meta
+  title="Packages/Notifications/GlobalAlert"
+  component={GlobalAlert}
+  subcomponents={{
+    'GlobalAlert.Button': GlobalAlert.Button,
+    'GlobalAlert.Close': GlobalAlert.Close,
+    'GlobalAlert.Content': GlobalAlert.Content,
+    'GlobalAlert.Title': GlobalAlert.Title
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="GlobalAlert"
+    args={{
+      type: 'info',
+      anchor: 'Anchor',
+      button: 'Button',
+      ariaLabel: 'Label',
+      content: 'Content',
+      title: 'Title',
+      hasClose: true
+    }}
+    argTypes={{
+      hasClose: { name: 'GlobalAlert.Close', type: 'boolean', table: { category: 'Story' } },
+      button: { name: 'children', type: 'string', table: { category: 'GlobalAlert.Button' } },
+      isBasic: { type: 'boolean', table: { category: 'GlobalAlert.Button' } },
+      ariaLabel: { name: 'aria-label', type: 'string', table: { category: 'GlobalAlert.Close' } },
+      content: { name: 'text', type: 'string', table: { category: 'GlobalAlert.Content' } },
+      anchor: { name: 'Anchor', type: 'string', table: { category: 'GlobalAlert.Content' } },
+      isExternal: {
+        name: 'Anchor isExternal',
+        type: 'boolean',
+        table: { category: 'GlobalAlert.Content' }
+      },
+      title: { name: 'children', type: 'string', table: { category: 'GlobalAlert.Title' } },
+      isRegular: { type: 'boolean', table: { category: 'GlobalAlert.Title' } }
+    }}
+  >
+    {args => <GlobalAlertStory {...args} />}
+  </Story>
+</Canvas>

@@ -21,6 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
+    "@zendeskgarden/react-buttons": "^8.58.0",
     "polished": "^4.1.1",
     "prop-types": "^15.5.7",
     "react-transition-group": "^4.4.2",
