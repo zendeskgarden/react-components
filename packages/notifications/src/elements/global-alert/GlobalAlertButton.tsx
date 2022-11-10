@@ -22,7 +22,7 @@ export const GlobalAlertButton = forwardRef<HTMLButtonElement, IGlobalAlertButto
     return (
       <StyledGlobalAlertButton
         ref={ref}
-        $type={type}
+        alertType={type}
         {...props}
         isPrimary={!isBasic}
         isBasic={isBasic}

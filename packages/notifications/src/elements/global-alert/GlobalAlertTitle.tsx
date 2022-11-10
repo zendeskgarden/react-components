@@ -18,7 +18,7 @@ import { useGlobalAlertContext } from './utility';
 export const GlobalAlertTitle = forwardRef<HTMLDivElement, IGlobalAlertTitleProps>((props, ref) => {
   const { type } = useGlobalAlertContext();
 
-  return <StyledGlobalAlertTitle $type={type} ref={ref} {...props} />;
+  return <StyledGlobalAlertTitle alertType={type} ref={ref} {...props} />;
 });
 
 GlobalAlertTitle.displayName = 'GlobalAlert.Title';

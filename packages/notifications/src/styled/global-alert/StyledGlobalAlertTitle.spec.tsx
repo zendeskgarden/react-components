@@ -16,7 +16,7 @@ import { StyledGlobalAlertTitle } from './StyledGlobalAlertTitle';
 describe('StyledGlobalAlertTitle', () => {
   it('renders default styles', () => {
     const { getByText } = render(
-      <StyledGlobalAlertTitle $type="info">title</StyledGlobalAlertTitle>
+      <StyledGlobalAlertTitle alertType="info">title</StyledGlobalAlertTitle>
     );
 
     expect(getByText('title')).toHaveStyleRule('font-weight', '600');
@@ -25,7 +25,7 @@ describe('StyledGlobalAlertTitle', () => {
 
   it('renders in RTL mode', () => {
     const { getByText } = renderRtl(
-      <StyledGlobalAlertTitle $type="info">title</StyledGlobalAlertTitle>
+      <StyledGlobalAlertTitle alertType="info">title</StyledGlobalAlertTitle>
     );
 
     expect(getByText('title')).toHaveStyleRule('font-weight', '600');
@@ -34,7 +34,7 @@ describe('StyledGlobalAlertTitle', () => {
 
   it('renders "isRegular" styles', () => {
     const { getByText } = render(
-      <StyledGlobalAlertTitle isRegular $type="info">
+      <StyledGlobalAlertTitle isRegular alertType="info">
         title
       </StyledGlobalAlertTitle>
     );
@@ -44,7 +44,7 @@ describe('StyledGlobalAlertTitle', () => {
 
   it.each(TYPE)('renders "%s" type', type => {
     const { getByText } = render(
-      <StyledGlobalAlertTitle $type={type}>title</StyledGlobalAlertTitle>
+      <StyledGlobalAlertTitle alertType={type}>title</StyledGlobalAlertTitle>
     );
 
     expect(getByText('title')).toHaveStyleRule(

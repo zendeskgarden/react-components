@@ -18,7 +18,7 @@ import { IGlobalAlertProps } from '../../types';
 const COMPONENT_ID = 'notifications.global-alert';
 
 interface IStyledGlobalAlertProps {
-  $type: IGlobalAlertProps['type'];
+  alertType: IGlobalAlertProps['type'];
 }
 
 const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) => {
@@ -29,7 +29,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
   let anchorActiveColor;
   let anchorBoxShadowColor;
 
-  switch (props.$type) {
+  switch (props.alertType) {
     case 'success':
       borderColor = getColor('successHue', 700, props.theme);
       backgroundColor = getColor('successHue', 600, props.theme);

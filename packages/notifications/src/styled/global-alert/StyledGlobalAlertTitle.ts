@@ -12,14 +12,14 @@ import { IGlobalAlertProps, IGlobalAlertTitleProps } from '../../types';
 const COMPONENT_ID = 'notifications.global-alert.title';
 
 interface IStyledGlobalAlertTitleProps {
-  $type: IGlobalAlertProps['type'];
+  alertType: IGlobalAlertProps['type'];
   isRegular?: IGlobalAlertTitleProps['isRegular'];
 }
 
 const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertTitleProps) => {
   let color;
 
-  switch (props.$type) {
+  switch (props.alertType) {
     case 'success':
     case 'error':
       color = props.theme.palette.white;

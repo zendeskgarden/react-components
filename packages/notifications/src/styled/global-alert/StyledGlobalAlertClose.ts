@@ -14,7 +14,7 @@ import { IGlobalAlertProps } from '../../types';
 const COMPONENT_ID = 'notifications.global-alert.close';
 
 interface IStyledGlobalAlertCloseProps {
-  $type: IGlobalAlertProps['type'];
+  alertType: IGlobalAlertProps['type'];
 }
 
 export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertCloseProps) => {
@@ -24,7 +24,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
   let activeForegroundColor;
   let boxShadowColor;
 
-  switch (props.$type) {
+  switch (props.alertType) {
     case 'success':
       hoverBackgroundColor = getColor('successHue', 100, props.theme, 0.08);
       hoverForegroundColor = props.theme.palette.white;

@@ -15,7 +15,7 @@ import { colorStyles as basicColorStyles } from './StyledGlobalAlertClose';
 const COMPONENT_ID = 'notifications.global-alert.button';
 
 interface IStyledGlobalAlertButtonProps {
-  $type: IGlobalAlertProps['type'];
+  alertType: IGlobalAlertProps['type'];
   isBasic?: boolean;
 }
 
@@ -29,7 +29,7 @@ function colorStyles(props: ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonP
   let activeBackgroundColor;
   let boxShadowColor;
 
-  switch (props.$type) {
+  switch (props.alertType) {
     case 'success':
       backgroundColor = getColor('successHue', 800, props.theme);
       hoverBackgroundColor = getColor('successHue', 900, props.theme);

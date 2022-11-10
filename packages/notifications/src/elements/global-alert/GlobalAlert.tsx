@@ -23,7 +23,7 @@ import { GlobalAlertTitle } from './GlobalAlertTitle';
 const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>(
   ({ type, ...props }, ref) => (
     <GlobalAlertContext.Provider value={useMemo(() => ({ type }), [type])}>
-      <StyledGlobalAlert ref={ref} role="status" $type={type} {...props}>
+      <StyledGlobalAlert ref={ref} role="status" alertType={type} {...props}>
         {
           {
             success: (

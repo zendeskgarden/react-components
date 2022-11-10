@@ -23,7 +23,7 @@ export const GlobalAlertClose = forwardRef<
   const label = useText(GlobalAlertClose, props, 'aria-label', 'Close');
 
   return (
-    <StyledGlobalAlertClose ref={ref} $type={type} {...props}>
+    <StyledGlobalAlertClose ref={ref} alertType={type} {...props}>
       <XStrokeIcon role="img" aria-label={label} />
     </StyledGlobalAlertClose>
   );
