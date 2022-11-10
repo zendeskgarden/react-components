@@ -35,8 +35,8 @@ export const GlobalAlertStory: Story<IArgs> = ({
   hasClose
 }) => (
   <GlobalAlert type={type}>
-    {title && <GlobalAlert.Title isRegular={isRegular}>{title}</GlobalAlert.Title>}
     <GlobalAlert.Content>
+      {title && <GlobalAlert.Title isRegular={isRegular}>{title}</GlobalAlert.Title>}
       {content}
       {anchor && (
         <>
