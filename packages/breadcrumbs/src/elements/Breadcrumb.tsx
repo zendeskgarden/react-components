@@ -44,7 +44,7 @@ export const Breadcrumb = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
     );
   });
 
-  const ariaLabel = useText(Breadcrumb, props, 'aria-label', 'Breadcrumb navigation');
+  const ariaLabel = useText(Breadcrumb, props, 'aria-label', 'Breadcrumbs');
 
   return (
     <nav {...getContainerProps({ ...props, ref, role: null, 'aria-label': ariaLabel })}>
