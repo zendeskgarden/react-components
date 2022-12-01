@@ -12,6 +12,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.61.0 (2022-12-01)
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#1463](https://github.com/zendeskgarden/react-components/pull/1463) fix(accordions): relative type interface import ([@jzempel](https://github.com/jzempel))
+* `breadcrumbs`
+  * [#1461](https://github.com/zendeskgarden/react-components/pull/1461) fix(breadcrumbs): remove redundant word "navigation" from default ARIA label ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :seedling: Internal
+* [#1460](https://github.com/zendeskgarden/react-components/pull/1460) chore(deps): bump loader-utils from 1.4.1 to 1.4.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#1459](https://github.com/zendeskgarden/react-components/pull/1459) chore(demo): prevent strict mode tool in production Storybook ([@jzempel](https://github.com/jzempel))
+
 ## v8.60.0 (2022-11-10)
 
 #### :rocket: New Feature
