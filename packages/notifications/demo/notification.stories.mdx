@@ -17,12 +17,19 @@ import { NotificationStory } from './stories/NotificationStory';
 <Canvas>
   <Story
     name="Notification"
-    args={{ children: 'Text', title: 'Title', hasClose: true, hasParagraph: false }}
+    args={{
+      children: 'Text',
+      title: 'Title',
+      hasClose: true,
+      hasParagraph: false,
+      'aria-label': 'Close'
+    }}
     argTypes={{
       title: { name: 'children', table: { category: 'Title' } },
       isRegular: { control: { type: 'boolean' }, table: { category: 'Title' } },
       hasClose: { name: 'Close', table: { category: 'Story' } },
-      hasParagraph: { name: 'Paragraph', table: { category: 'Story' } }
+      hasParagraph: { name: 'Paragraph', table: { category: 'Story' } },
+      'aria-label': { table: { category: 'Close' } }
     }}
     parameters={{
       design: {

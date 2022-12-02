@@ -8,6 +8,7 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import { StyledClose } from '../../styled';
 import { useNotificationsContext } from '../../utils/useNotificationsContext';
+import { useText } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 
 /**
@@ -15,10 +16,11 @@ import XStrokeIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
  */
 export const Close = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
+    const ariaLabel = useText(Close, props, 'aria-label', 'Close');
     const hue = useNotificationsContext();
 
     return (
-      <StyledClose ref={ref} hue={hue} {...props}>
+      <StyledClose ref={ref} hue={hue} aria-label={ariaLabel} {...props}>
         <XStrokeIcon />
       </StyledClose>
     );
