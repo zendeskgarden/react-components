@@ -133,30 +133,30 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.17.0"
 
-"@zendeskgarden/react-buttons@^8.59.1":
-  version "8.59.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.59.1.tgz#c1aca42fc8e4501e52cfcafb56fb54294e043145"
-  integrity sha512-5zcTjHTefTfDBAhXub7PUUdc9EmswXPI8GLcelCsyg1aA5C0cpK/7VKvLNNb+Bb4pc0Tm6lzuQ2P8hs/aGTXsA==
+"@zendeskgarden/react-buttons@^8.61.0":
+  version "8.61.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.61.0.tgz#a24fe2cc2bea5445b2a9c4e3803fcf9a6f1c644c"
+  integrity sha512-mOUnA/WkIxJhy3BQnwBkrDo2sD/ijXF0Sg6cjQ5x9K8FTQI7F0FqNfNPXHlETkPdyr87t2+p0Rz45wQsoTUbXg==
   dependencies:
     "@zendeskgarden/container-buttongroup" "^1.0.0"
     "@zendeskgarden/container-keyboardfocus" "^0.4.7"
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/react-theming@^8.59.1":
-  version "8.59.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.59.1.tgz#fa7e9bedc3424d9b77d6ee5b0c7ea33088c5042b"
-  integrity sha512-t5h60v5+wmy2KdvF1cBqFoQtFUv4FCJTlDF4xHuYlm1GeXALVv44eOXXhkWtAMiDgDYsV/u5c06OTwma8LGaKQ==
+"@zendeskgarden/react-theming@^8.61.0":
+  version "8.61.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.61.0.tgz#696f001649d10605b67d7f2443e34f92c152926d"
+  integrity sha512-2evI0OTLMtltO8XWQbMUNxr0zxV4oJJ6W226F/ILgGW0ojF/8k9BYGrsR5i3qDcbMXDZFHiJyv+/r5quvLl1hw==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.7.0"
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/react-tooltips@^8.59.1":
-  version "8.59.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tooltips/-/react-tooltips-8.59.1.tgz#1eede675a43948709df1da936856f5d2f4769026"
-  integrity sha512-iaZ2g3dcPegRUaM6ygwC1g8fTYUmlDiCZyjMZ+HQIJG29usn+JbSCsic7oOcQXOKhN6bXLO4fAyRoT3NXMRj9A==
+"@zendeskgarden/react-tooltips@^8.61.0":
+  version "8.61.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tooltips/-/react-tooltips-8.61.0.tgz#b2bbf99ba913ffe28583689051cecd3a5951c63a"
+  integrity sha512-de3HqxTSExf/C7T4HCJSQAldamXBEhn8u3JQ2nvSQGR40tGfipTmkOncIKDac+VhLZ+KSp1Epp3BUE9p7p1gJw==
   dependencies:
     "@zendeskgarden/container-tooltip" "^0.5.12"
     "@zendeskgarden/container-utilities" "^0.7.0"
@@ -390,10 +390,10 @@ typed-styles@^0.0.7:
   resolved "https://registry.yarnpkg.com/typed-styles/-/typed-styles-0.0.7.tgz#93392a008794c4595119ff62dde6809dbc40a3d9"
   integrity sha512-pzP0PWoZUhsECYjABgCGQlRGL1n7tOHsgwYv3oIiEpJwGhFTuty/YNeduxQYzXXa3Ge5BdT6sHYIQYpl4uJ+5Q==
 
-use-resize-observer@9.0.2:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/use-resize-observer/-/use-resize-observer-9.0.2.tgz#25830221933d9b6e931850023305eb9d24379a6b"
-  integrity sha512-JOzsmF3/IDmtjG7OE5qXOP69LEpBpwhpLSiT1XgSr+uFRX0ftJHQnDaP7Xq+uhbljLYkJt67sqsbnyXBjiY8ig==
+use-resize-observer@9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/use-resize-observer/-/use-resize-observer-9.1.0.tgz#14735235cf3268569c1ea468f8a90c5789fc5c6c"
+  integrity sha512-R25VqO9Wb3asSD4eqtcxk8sJalvIOYBqS8MNZlpDSQ4l4xMQxC/J7Id9HoTqPq8FwULIn0PVW+OAqF2dyYbjow==
   dependencies:
     "@juggle/resize-observer" "^3.3.1"
 
