@@ -32,28 +32,28 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-schedule@^1.3.7":
-  version "1.3.9"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-schedule/-/container-schedule-1.3.9.tgz#835f07dc025cfc484ccb0e12cabd0cf0ab6a2577"
-  integrity sha512-WT54v29llDFjbhv6N8qIkKwrojWOyseh6JUmTIlodc9S5WhsiyVPkiVoMkPqS3KLBgX+8GByxnheIS6lFuO00A==
+"@zendeskgarden/container-schedule@^2.0.0":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-schedule/-/container-schedule-2.0.1.tgz#7ba181f44d43d8dc65c823f72166a877282eeeb1"
+  integrity sha512-p3mUOj9orOVg+DVh38qhrVOIZ0Yjc3s7hiwlCHuHxpOPm+jix/pqYZwZkaPyMaQvicNsoAZv49Yy8vfFLKkHQg==
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-utilities@^0.6.0":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.6.2.tgz#c427459cf7881f3653040d35876717c8a96c3d62"
-  integrity sha512-f3whXEzdi3PC0oLxl1fHSn3jn5yCrWArx9+XZqpQhYwWHMrEj5p9u0oiJ+cRgTtDI6SgGPfARYdeGx/lcFPdgg==
+"@zendeskgarden/container-utilities@^0.7.0":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.7.1.tgz#de9d02b82e9e29dfa209aac1bfad83ff868aeb9e"
+  integrity sha512-L+OOI2FfqlNb1LVDtGFrnxNEwxaM+LrL1dy1r3wKakUZ2ww1FbrcHWjnF07WLHa56l7ufNjLvqahZdpHNHEE6Q==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/react-theming@^8.44.1":
-  version "8.44.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.44.1.tgz#298f0b10cee40fcc5b5183eda5cfbce50b90667b"
-  integrity sha512-CtwywAN3nxDKLXPnQqPMI6BstoLz3FYriZY7BVQ6QR26LHrcmtX3q+UIDA7f40aavxNmoBRzjz5ZYqbLm4/q9A==
+"@zendeskgarden/react-theming@^8.61.0":
+  version "8.61.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.61.0.tgz#696f001649d10605b67d7f2443e34f92c152926d"
+  integrity sha512-2evI0OTLMtltO8XWQbMUNxr0zxV4oJJ6W226F/ILgGW0ojF/8k9BYGrsR5i3qDcbMXDZFHiJyv+/r5quvLl1hw==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
-    "@zendeskgarden/container-utilities" "^0.6.0"
+    "@zendeskgarden/container-utilities" "^0.7.0"
     polished "^4.0.0"
     prop-types "^15.5.7"
 
