@@ -22,7 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-buttongroup": "^1.0.0",
-    "@zendeskgarden/container-keyboardfocus": "^0.4.7",
+    "@zendeskgarden/container-keyboardfocus": "^1.0.0",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7"
   },
