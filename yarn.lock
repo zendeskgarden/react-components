@@ -2508,6 +2508,21 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@brodybits/rollup-plugin-size-snapshot@^0.13.2", "rollup-plugin-size-snapshot@npm:@brodybits/rollup-plugin-size-snapshot@latest":
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/@brodybits/rollup-plugin-size-snapshot/-/rollup-plugin-size-snapshot-0.13.2.tgz#122261a14050b878c4fd7399bfb45fb0f382a212"
+  integrity sha512-8uWESS1SuoXhJz4iulQeyjf10aXRHGHJuZ/TiZTBJs+cyzTgsYDHGuiDLlYXfyXE3y9YqIwCW0o1n/TOmNDdNg==
+  dependencies:
+    "@rollup/plugin-replace" "^3.0.1"
+    acorn "^8.7.0"
+    bytes "^3.1.1"
+    chalk "^4.1.2"
+    gzip-size "^5.1.1"
+    jest-diff "^26.6.2"
+    memory-fs "^0.5.0"
+    terser "^4.8.0"
+    webpack "^5.65.0"
+
 "@bugsnag/browser@^7.11.0":
   version "7.11.0"
   resolved "https://registry.yarnpkg.com/@bugsnag/browser/-/browser-7.11.0.tgz#21866da8a4699ec87a2c908e228af938a3a3c312"
@@ -20730,21 +20745,6 @@ rollup-plugin-node-polyfills@^0.2.1:
   integrity sha512-4kCrKPTJ6sK4/gLL/U5QzVT8cxJcofO0OU74tnB19F40cmuAKSzH5/siithxlofFEjwvw1YAhPmbvGNA6jEroA==
   dependencies:
     rollup-plugin-inject "^3.0.0"
-
-"rollup-plugin-size-snapshot@npm:@brodybits/rollup-plugin-size-snapshot@latest":
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/@brodybits/rollup-plugin-size-snapshot/-/rollup-plugin-size-snapshot-0.13.2.tgz#122261a14050b878c4fd7399bfb45fb0f382a212"
-  integrity sha512-8uWESS1SuoXhJz4iulQeyjf10aXRHGHJuZ/TiZTBJs+cyzTgsYDHGuiDLlYXfyXE3y9YqIwCW0o1n/TOmNDdNg==
-  dependencies:
-    "@rollup/plugin-replace" "^3.0.1"
-    acorn "^8.7.0"
-    bytes "^3.1.1"
-    chalk "^4.1.2"
-    gzip-size "^5.1.1"
-    jest-diff "^26.6.2"
-    memory-fs "^0.5.0"
-    terser "^4.8.0"
-    webpack "^5.65.0"
 
 rollup-plugin-terser@^7.0.2:
   version "7.0.2"
