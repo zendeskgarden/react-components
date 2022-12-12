@@ -25,10 +25,10 @@
     tiny-warning "^1.0.3"
     tslib "^2.3.0"
 
-"@zendeskgarden/container-focusvisible@^0.4.6":
-  version "0.4.9"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.9.tgz#a728806bd0854a6cdcb501fe80810f1324ad0c11"
-  integrity sha512-d5FeaKt0FjwIr2jW23j5og4slnr5ZQ9ICSSJkM8aHkR6tOriFR00beAP8XQQVX26HJkOQy+NkXfD5B65EnumOg==
+"@zendeskgarden/container-focusvisible@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-1.0.1.tgz#41d5799414982630851ec861f2f32d6aed77d9a4"
+  integrity sha512-oc0BKacovBZSb3djdFfilbmHgPW6Gmj7ImAoK6Z8qnKXAYkt4nq92Z8AjKzsWn8VDCKBYcL/WkK5BFcIL9nb3g==
   dependencies:
     "@babel/runtime" "^7.8.4"
 
