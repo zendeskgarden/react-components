@@ -56,13 +56,13 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-keyboardfocus@^0.4.7":
-  version "0.4.11"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-keyboardfocus/-/container-keyboardfocus-0.4.11.tgz#01674dbea95b539badfd658c051bc825318b9c96"
-  integrity sha512-oE9LpPMpjSxDmCAQoKBM0oNU8TNrgTpAKajbJKLpajeuotwS+BgZCv+yQ8zvn1gSKilZKTMBuJ/nRslhokg9Gw==
+"@zendeskgarden/container-keyboardfocus@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-keyboardfocus/-/container-keyboardfocus-1.0.1.tgz#6d9ec69608ed264f8305c30f28b8f5269e36ae5f"
+  integrity sha512-kTFgJup2xtCgeEEb+PzbnJRTWR94LW54WaH1eGlm5n8Jbwb0Q/4i9D+XdC5TyaqxvKMG8x2owS7jd+OwNqWoGw==
   dependencies:
     "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-utilities" "^0.6.1"
+    "@zendeskgarden/container-utilities" "^1.0.1"
 
 "@zendeskgarden/container-selection@^2.0.1":
   version "2.0.1"
@@ -71,14 +71,6 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-utilities" "^1.0.1"
-
-"@zendeskgarden/container-utilities@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.6.1.tgz#a786189a6b1f328ab3f608d89a12a17a5457a7af"
-  integrity sha512-eoTlYIJQ7NmAQT2Q5qXrPEZULzS3y/2AyQDImYvA3aep7sMrEid59+RFsLHM0CBnygND4rJi54LPOP8bWvxetQ==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@reach/auto-id" "^0.16.0"
 
 "@zendeskgarden/container-utilities@^0.7.0":
   version "0.7.1"
@@ -96,10 +88,10 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.17.0"
 
-"@zendeskgarden/react-theming@^8.58.0":
-  version "8.58.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.58.0.tgz#76769183650e98e1d6b25fb7e48a29fcd4d148e7"
-  integrity sha512-RyhO9mdK6siRKSuef2MdLQNf9fBMDsIxhEUANbLJdrfjamMQ34cQQUrPPtdLIpy6dmz2Mhwyy2nYLCJVqZLRtQ==
+"@zendeskgarden/react-theming@^8.61.0":
+  version "8.61.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.61.0.tgz#696f001649d10605b67d7f2443e34f92c152926d"
+  integrity sha512-2evI0OTLMtltO8XWQbMUNxr0zxV4oJJ6W226F/ILgGW0ojF/8k9BYGrsR5i3qDcbMXDZFHiJyv+/r5quvLl1hw==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.6"
     "@zendeskgarden/container-utilities" "^0.7.0"
