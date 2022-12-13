@@ -21,7 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-focusvisible": "^0.4.6",
+    "@zendeskgarden/container-focusvisible": "^1.0.0",
     "@zendeskgarden/container-utilities": "^0.7.0",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7"
