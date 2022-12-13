@@ -25,6 +25,8 @@ module.exports = {
 
     fileLoaderRule.exclude = /@zendeskgarden\/svg-icons/u;
 
+    config.output.hashFunction = 'xxhash64';
+
     config.module.rules.push({
       test: /\.svg$/u,
       use: [
