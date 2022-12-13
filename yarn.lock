@@ -20746,10 +20746,10 @@ rollup-plugin-inject@^3.0.0:
     magic-string "^0.25.3"
     rollup-pluginutils "^2.8.1"
 
-rollup-plugin-license@2.8.1:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-license/-/rollup-plugin-license-2.8.1.tgz#3709ef8b59675e0162a27ea7bba10ee523f8289e"
-  integrity sha512-VYd9pzaNL7NN6xQp93XiiCV2UoduXgSmTcz6rl9bHPdiifT6yH3Zw/omEr73Rq8TIyN4nqJACBbKIT/2eE66wg==
+rollup-plugin-license@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-license/-/rollup-plugin-license-3.0.1.tgz#e54d9464971dc2c5282b74c00cee09091b329054"
+  integrity sha512-/lec6Y94Y3wMfTDeYTO/jSXII0GQ/XkDZCiqkMKxyU5D5nGPaxr/2JNYvAgYsoCYuOLGOanKDPjCCQiTT96p7A==
   dependencies:
     commenting "~1.1.0"
     glob "~7.2.0"
