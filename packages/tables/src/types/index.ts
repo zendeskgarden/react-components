@@ -24,6 +24,10 @@ export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
   isReadOnly?: boolean;
 }
 
+export interface IHeadProps extends HTMLAttributes<HTMLTableSectionElement> {
+  isSticky?: boolean;
+}
+
 export interface IRowProps extends HTMLAttributes<HTMLTableRowElement> {
   /** Applies striped styling */
   isStriped?: boolean;
