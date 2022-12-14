@@ -40,8 +40,9 @@ describe('GlobalAlert', () => {
   describe('with subcomponents', () => {
     const TestComponent = ({ type = 'info' }: { type: Type }) => (
       <GlobalAlert type={type}>
-        <GlobalAlert.Title>title</GlobalAlert.Title>
-        <GlobalAlert.Content>content</GlobalAlert.Content>
+        <GlobalAlert.Content>
+          <GlobalAlert.Title>title</GlobalAlert.Title> content
+        </GlobalAlert.Content>
         <GlobalAlert.Button>button</GlobalAlert.Button>
         <GlobalAlert.Close />
       </GlobalAlert>
