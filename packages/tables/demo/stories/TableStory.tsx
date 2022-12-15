@@ -21,6 +21,7 @@ import {
   Row,
   SortableCell,
   ITableProps,
+  IHeadProps,
   ISortableCellProps,
   IRowProps
 } from '@zendeskgarden/react-tables';
@@ -36,6 +37,7 @@ interface IArgs extends ITableProps {
   isSortable: boolean;
   isSelected?: IRowProps['isSelected'];
   isStriped?: IRowProps['isStriped'];
+  isSticky?: IHeadProps['isSticky'];
   isTruncated?: boolean;
 }
 
@@ -49,6 +51,7 @@ export const TableStory: Story<IArgs> = ({
   isSortable,
   isSelected,
   isStriped,
+  isSticky,
   isTruncated,
   ...args
 }) => {
@@ -71,7 +74,7 @@ export const TableStory: Story<IArgs> = ({
   return (
     <Table {...args}>
       <Caption>{caption}</Caption>
-      <Head>
+      <Head isSticky={isSticky}>
         <HeaderRow>
           {hasSelection && (
             <HeaderCell isMinimum>
