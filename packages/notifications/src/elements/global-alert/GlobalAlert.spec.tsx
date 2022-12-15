@@ -40,16 +40,18 @@ describe('GlobalAlert', () => {
   describe('with subcomponents', () => {
     const TestComponent = ({ type = 'info' }: { type: Type }) => (
       <GlobalAlert type={type}>
-        <GlobalAlert.Title>title</GlobalAlert.Title>
-        <GlobalAlert.Content>content</GlobalAlert.Content>
+        <GlobalAlert.Content>
+          <GlobalAlert.Title>title</GlobalAlert.Title> content
+        </GlobalAlert.Content>
         <GlobalAlert.Button>button</GlobalAlert.Button>
         <GlobalAlert.Close />
       </GlobalAlert>
     );
 
     it('renders in RTL mode', () => {
-      const { getByText } = renderRtl(<TestComponent type="info" />);
+      const { getByText, container } = renderRtl(<TestComponent type="info" />);
 
+      expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
       expect(getByText('title')).toHaveStyleRule('margin-left', '8px');
       expect(getByText('button')).toHaveStyleRule('margin', '-6px 8px -6px 0');
     });

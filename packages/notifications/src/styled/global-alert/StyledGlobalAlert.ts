@@ -122,6 +122,7 @@ export const StyledGlobalAlert = styled.div.attrs({
   overflow: auto;
   overflow-x: hidden;
   box-sizing: border-box;
+  direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
   && a {
     border-radius: ${props => props.theme.borderRadii.sm};
