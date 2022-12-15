@@ -25,6 +25,7 @@ export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
 }
 
 export interface IHeadProps extends HTMLAttributes<HTMLTableSectionElement> {
+  /** Applies sticky header styling */
   isSticky?: boolean;
 }
 
