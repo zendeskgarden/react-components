@@ -49,8 +49,9 @@ describe('GlobalAlert', () => {
     );
 
     it('renders in RTL mode', () => {
-      const { getByText } = renderRtl(<TestComponent type="info" />);
+      const { getByText, container } = renderRtl(<TestComponent type="info" />);
 
+      expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
       expect(getByText('title')).toHaveStyleRule('margin-left', '8px');
       expect(getByText('button')).toHaveStyleRule('margin', '-6px 8px -6px 0');
     });
