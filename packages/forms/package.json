@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-forms",
-  "version": "8.61.0",
+  "version": "8.62.0",
   "description": "Components relating to form elements in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@types/lodash.debounce": "4.0.7",
-    "@zendeskgarden/react-theming": "^8.61.0",
+    "@zendeskgarden/react-theming": "^8.62.0",
     "@zendeskgarden/svg-icons": "6.33.0",
     "react-dropzone": "14.2.3"
   },
