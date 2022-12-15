@@ -12,6 +12,17 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.62.0 (2022-12-15)
+
+#### :rocket: New Feature
+* `tables`
+  * [#1482](https://github.com/zendeskgarden/react-components/pull/1482) feat(tables): add isSticky prop to Head component ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :bug: Bug Fix
+* `notifications`
+  * [#1481](https://github.com/zendeskgarden/react-components/pull/1481) fix(notifications): lets GlobalAlert.Title flow correctly in RTL documents ([@geotrev](https://github.com/geotrev))
+  * [#1465](https://github.com/zendeskgarden/react-components/pull/1465) fix(notifications): adds useText utility to encourage aria-label on Close component ([@geotrev](https://github.com/geotrev))
+
 ## v8.61.0 (2022-12-01)
 
 #### :bug: Bug Fix
