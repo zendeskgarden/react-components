@@ -25,6 +25,8 @@ interface IArgs extends ITooltipModalProps {
   hasTitle: boolean;
   title: string;
   tag: string;
+  closeAriaLabel?: string;
+  titleAriaLabel?: string;
 }
 
 export const TooltipModalStory: Story<IArgs> = ({
@@ -37,7 +39,8 @@ export const TooltipModalStory: Story<IArgs> = ({
   hasTitle,
   title,
   tag,
-  'aria-label': ariaLabel,
+  closeAriaLabel,
+  titleAriaLabel,
   ...args
 }) => {
   const refs = useRef<(HTMLElement | null | undefined)[]>([]);
@@ -45,7 +48,11 @@ export const TooltipModalStory: Story<IArgs> = ({
 
   return (
     <>
-      <TooltipModal {...args} placement={args.placement || PLACEMENT[current]}>
+      <TooltipModal
+        {...args}
+        placement={args.placement || PLACEMENT[current]}
+        aria-label={hasTitle ? undefined : titleAriaLabel}
+      >
         {hasTitle && <TooltipModal.Title tag={tag}>{title}</TooltipModal.Title>}
         {hasBody && <TooltipModal.Body>{body}</TooltipModal.Body>}
         {hasFooter && (
@@ -74,7 +81,7 @@ export const TooltipModalStory: Story<IArgs> = ({
             )}
           </TooltipModal.Footer>
         )}
-        {hasClose && <TooltipModal.Close aria-label={ariaLabel} />}
+        {hasClose && <TooltipModal.Close aria-label={closeAriaLabel} />}
       </TooltipModal>
       <Grid>
         <Row style={{ height: 'calc(100vh - 80px)' }}>

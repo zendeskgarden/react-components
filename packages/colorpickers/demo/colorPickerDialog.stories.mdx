@@ -7,7 +7,11 @@ import { ColorpickerDialogStory } from './stories/ColorpickerDialogStory';
 <Meta
   title="Packages/Colorpickers/ColorpickerDialog"
   component={ColorpickerDialog}
-  args={{ buttonProps: { 'aria-label': 'Label' }, isAnimated: true }}
+  args={{
+    buttonProps: { 'aria-label': 'Label' },
+    'aria-label': 'Storybook color picker',
+    isAnimated: true
+  }}
   argTypes={{
     focusInset: { control: 'boolean' },
     hasArrow: { control: 'boolean' },

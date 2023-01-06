@@ -17,6 +17,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { Button } from '@zendeskgarden/react-buttons';
 import { PLACEMENT } from '@zendeskgarden/react-modals';
+import { useText } from '@zendeskgarden/react-theming';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { ColorSwatch } from '../ColorSwatch';
@@ -56,6 +57,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
       buttonProps,
       onDialogChange,
       children,
+      'aria-label': ariaLabel,
       ...props
     },
     ref
@@ -80,6 +82,12 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
     );
     const [uncontrolledRowIndex, setUncontrolledRowIndex] = useState(defaultRowIndex || 0);
     const [uncontrolledColIndex, setUncontrolledColIndex] = useState(defaultColIndex || 0);
+    const ariaLabelText = useText(
+      ColorSwatchDialog,
+      { 'aria-label': ariaLabel },
+      'aria-label',
+      'Color swatch'
+    );
 
     useEffect(() => {
       if (isDialogControlled) {
@@ -178,6 +186,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
           popperModifiers={popperModifiers}
           referenceElement={referenceElement}
           onClose={closeDialog}
+          aria-label={ariaLabelText}
           {...props}
         >
           <StyledTooltipBody>
