@@ -2,6 +2,7 @@
   "version": "8.62.0",
   "npmClient": "yarn",
   "npmClientArgs": ["--frozen-lockfile"],
+  "useNx": false,
   "changelog": {
     "repo": "zendeskgarden/react-components",
     "cacheDir": ".changelog",
