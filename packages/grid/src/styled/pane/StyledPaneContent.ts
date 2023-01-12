@@ -17,6 +17,10 @@ export const StyledPaneContent = styled.div.attrs({
   height: 100%;
   overflow: auto;
 
+  &[hidden] {
+    display: none;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

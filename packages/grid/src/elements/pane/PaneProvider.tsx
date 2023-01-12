@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useId } from '@zendeskgarden/container-utilities';
 import { IPaneProviderProps } from '../../types';
@@ -222,6 +222,47 @@ export const PaneProvider = ({
 
   const providerId = useId(id);
 
+  const panes = useRef<Record<string, number>>({});
+
+  const registerPane = useCallback(
+    paneId => {
+      if (paneId in panes.current === false) {
+        panes.current[paneId] = Object.keys(panes.current).length;
+      }
+
+      return panes.current[paneId];
+    },
+    [panes]
+  );
+
+  const getPaneCoordinates = useCallback(
+    paneId => {
+      const columnsCount = Object.keys(columnsTrack).length;
+      const rowsCount = Object.keys(rowsTrack).length;
+      const panesIndex = panes.current[paneId];
+
+      const paneColumn = columnsCount > 0 ? panesIndex % columnsCount : 0;
+      const paneRow = columnsCount > 0 ? Math.floor(panesIndex / rowsCount) : panesIndex;
+
+      return [paneColumn, paneRow];
+    },
+    [panes, columnsTrack, rowsTrack]
+  );
+
+  const getPaneVisibility = useCallback(
+    paneId => {
+      const coords = getPaneCoordinates(paneId);
+      const { rowArray, columnArray } = layoutIndices;
+      const colId = columnArray[coords[0]];
+      const rowId = rowArray[coords[1]];
+      const colValue = columnsTrack[colId];
+      const rowValue = rowsTrack[rowId];
+
+      return ![colValue, rowValue].includes(0);
+    },
+    [layoutIndices, columnsTrack, rowsTrack, getPaneCoordinates]
+  );
+
   /* Combine with parent PaneProviderContext, allowing `Splitter` to selectively
    * affect ancestor DOM layouts */
   const parentPaneProviderContext = usePaneProviderContext();
@@ -242,7 +283,9 @@ export const PaneProvider = ({
                 getColumnValue,
                 totalPanesHeight,
                 totalPanesWidth,
-                pixelsPerFr
+                pixelsPerFr,
+                registerPane,
+                getPaneVisibility
               }
             }
           }
@@ -258,7 +301,9 @@ export const PaneProvider = ({
       getColumnValue,
       totalPanesHeight,
       totalPanesWidth,
-      pixelsPerFr
+      pixelsPerFr,
+      registerPane,
+      getPaneVisibility
     ]
   );
 

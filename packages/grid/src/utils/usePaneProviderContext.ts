@@ -17,6 +17,8 @@ interface IPaneProviderContextData {
   totalPanesHeight: number;
   totalPanesWidth: number;
   pixelsPerFr: { rows: number; columns: number };
+  registerPane: (paneId: string) => number;
+  getPaneVisibility: (paneId: string) => boolean;
 }
 
 interface IPaneProviderContext {
