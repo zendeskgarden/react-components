@@ -46,13 +46,17 @@ export const TooltipModalStory: Story<IArgs> = ({
   const refs = useRef<(HTMLElement | null | undefined)[]>([]);
   const current = refs.current.indexOf(args.referenceElement);
 
+  // Using `aria-label={undefined}` when `hasTitle` is `true` appears to
+  // void the fallback value in Storybook, resulting in no rendered attribute
+  const ariaProp: Record<string, any> = hasTitle
+    ? {}
+    : {
+        'aria-label': titleAriaLabel
+      };
+
   return (
     <>
-      <TooltipModal
-        {...args}
-        placement={args.placement || PLACEMENT[current]}
-        aria-label={hasTitle ? undefined : titleAriaLabel}
-      >
+      <TooltipModal {...args} placement={args.placement || PLACEMENT[current]} {...ariaProp}>
         {hasTitle && <TooltipModal.Title tag={tag}>{title}</TooltipModal.Title>}
         {hasBody && <TooltipModal.Body>{body}</TooltipModal.Body>}
         {hasFooter && (
