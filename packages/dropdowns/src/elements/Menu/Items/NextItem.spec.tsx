@@ -6,10 +6,13 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, NextItem } from '../../..';
 
 describe('NextItem', () => {
+  const user = userEvent.setup();
+
   it('applies disabled properties correctly', () => {
     const { getByTestId } = render(
       <Dropdown isOpen>
@@ -64,5 +67,25 @@ describe('NextItem', () => {
     );
 
     expect(getByTestId('next-item')).toBe(ref.current);
+  });
+
+  it('does not contain a select icon when selected', async () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu>
+          <NextItem value="item-1" data-test-id="next-item">
+            Item 1
+          </NextItem>
+        </Menu>
+      </Dropdown>
+    );
+
+    await user.click(getByTestId('trigger'));
+    fireEvent.click(getByTestId('next-item'));
+
+    expect(() => getByTestId('item-icon')).toThrow();
   });
 });
