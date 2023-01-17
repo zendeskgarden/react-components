@@ -46,7 +46,7 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
     const modalRef = useRef<HTMLDivElement>(null);
     const transitionRef = useRef<HTMLDivElement>(null);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
-    const [isTitlePresent, setIsTitlePresent] = useState<boolean>(false);
+    const [hasTitle, setHasTitle] = useState<boolean>(false);
     const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
       useModal({
         idPrefix: id,
@@ -81,13 +81,13 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
     // If <TooltipModal.Title /> isn't used, remove aria-labelledby
     const modalProps = getModalProps({
       'aria-describedby': undefined,
-      ...(isTitlePresent ? {} : { 'aria-labelledby': undefined })
+      ...(hasTitle ? {} : { 'aria-labelledby': undefined })
     }) as HTMLAttributes<HTMLDivElement>;
 
     // Derive aria attributes from props
-    const attribute = isTitlePresent ? 'aria-labelledby' : 'aria-label';
-    const defaultValue = isTitlePresent ? props['aria-labelledby'] : 'Modal dialog';
-    const labelValue = isTitlePresent ? modalProps['aria-labelledby'] : props['aria-label'];
+    const attribute = hasTitle ? 'aria-labelledby' : 'aria-label';
+    const defaultValue = hasTitle ? props['aria-labelledby'] : 'Modal dialog';
+    const labelValue = hasTitle ? modalProps['aria-labelledby'] : props['aria-label'];
 
     const ariaProps = {
       [attribute]: useText(
@@ -99,8 +99,8 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
     };
 
     const value = {
-      isTitlePresent,
-      setIsTitlePresent,
+      hasTitle,
+      setHasTitle,
       getTitleProps,
       getContentProps,
       getCloseProps

@@ -9,8 +9,8 @@ import { IUseModalReturnValue } from '@zendeskgarden/container-modal';
 import { createContext, useContext } from 'react';
 
 export interface IModalContext {
-  isTitlePresent: boolean;
-  setIsTitlePresent: (isPresent: boolean) => void;
+  hasTitle: boolean;
+  setHasTitle: (isPresent: boolean) => void;
   getTitleProps: IUseModalReturnValue['getTitleProps'];
   getContentProps: IUseModalReturnValue['getContentProps'];
   getCloseProps: IUseModalReturnValue['getCloseProps'];

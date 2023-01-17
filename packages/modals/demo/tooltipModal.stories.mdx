@@ -37,7 +37,7 @@ import { TOOLTIP_MODAL_BODY as BODY } from './stories/data';
       hasTitle: true,
       title: 'Title',
       closeAriaLabel: 'Close',
-      titleAriaLabel: 'Storybook tooltip dialog'
+      titleAriaLabel: 'Title'
     }}
     argTypes={{
       referenceElement: { control: false },
@@ -50,14 +50,9 @@ import { TOOLTIP_MODAL_BODY as BODY } from './stories/data';
       tag: { control: 'text', table: { category: 'TooltipModal.Title' } },
       closeAriaLabel: {
         name: 'aria-label',
-        type: { required: false, name: 'string' },
         table: { category: 'TooltipModal.Close' }
       },
-      titleAriaLabel: {
-        name: 'aria-label',
-        type: { required: false, name: 'string' },
-        table: { category: 'TooltipModal.Title' }
-      }
+      titleAriaLabel: { name: 'aria-label' }
     }}
     parameters={{
       design: {

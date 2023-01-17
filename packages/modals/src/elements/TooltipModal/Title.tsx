@@ -13,19 +13,19 @@ import { ITooltipModalTitleProps } from '../../types';
 
 const TitleComponent = forwardRef<HTMLDivElement, ITooltipModalTitleProps>(
   ({ children, tag, ...other }, ref) => {
-    const { getTitleProps, isTitlePresent, setIsTitlePresent } = useTooltipModalContext();
+    const { getTitleProps, hasTitle, setHasTitle } = useTooltipModalContext();
 
     useEffect(() => {
-      if (!isTitlePresent && setIsTitlePresent) {
-        setIsTitlePresent(true);
+      if (!hasTitle && setHasTitle) {
+        setHasTitle(true);
       }
 
       return () => {
-        if (isTitlePresent && setIsTitlePresent) {
-          setIsTitlePresent(false);
+        if (hasTitle && setHasTitle) {
+          setHasTitle(false);
         }
       };
-    }, [isTitlePresent, setIsTitlePresent]);
+    }, [hasTitle, setHasTitle]);
 
     return (
       <StyledTooltipModalTitle
