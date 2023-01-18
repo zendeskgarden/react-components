@@ -55,9 +55,12 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
       }
     });
 
-    // eg of a composite component: AddItem, NextItme, PreviousItem, which is passed through the `component` prop.
+    // eg of a composite component: AddItem, NextItem, PreviousItem, which is passed through the `component` prop.
     // this is used to hide the selected SVG icon when Item is in a selected state for composite components
-    const isNotCompositeComponent = !!Component.displayName;
+    const isNotCompositeComponent =
+      ['AddItemComponent', 'NextItemComponent', 'PreviousItemComponent'].includes(
+        Component.displayName
+      ) === false;
 
     // Calculate selection if provided value is an `object`
     if (value && isNotCompositeComponent) {
