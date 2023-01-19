@@ -13,6 +13,7 @@ import { IItemProps } from '../../../types';
 import { StyledAddItem, StyledItemIcon } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
+// eslint-disable-next-line react/display-name
 const AddItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
   ({ children, disabled, ...props }, ref) => {
     const { isCompact } = useMenuContext();
@@ -27,8 +28,6 @@ const AddItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
     );
   }
 );
-
-AddItemComponent.displayName = 'AddItemComponent';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
