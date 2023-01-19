@@ -35,7 +35,7 @@ const PreviousItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
  */
 export const PreviousItem = React.forwardRef<
   HTMLLIElement,
-  Omit<IItemProps, 'component' | 'shouldHideIcon'>
+  Omit<IItemProps, 'component' | 'hasIcon'>
 >(({ value, disabled, ...props }, ref) => {
   const { previousIndexRef } = useDropdownContext();
   const { itemIndexRef } = useMenuContext();
@@ -52,7 +52,7 @@ export const PreviousItem = React.forwardRef<
       disabled={disabled}
       {...props}
       ref={ref}
-      shouldHideIcon
+      hasIcon
     />
   );
 });

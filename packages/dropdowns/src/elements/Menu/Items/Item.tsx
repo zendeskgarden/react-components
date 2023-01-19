@@ -20,7 +20,7 @@ import { ItemContext } from '../../../utils/useItemContext';
  */
 export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
   (
-    { value, disabled, isDanger, component = StyledItem, shouldHideIcon, children, ...props },
+    { value, disabled, isDanger, component = StyledItem, hasIcon, children, ...props },
     forwardRef
   ) => {
     const {
@@ -91,7 +91,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
             isCompact={isCompact}
             {...props}
           >
-            {isSelected && !shouldHideIcon && (
+            {isSelected && !hasIcon && (
               <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
                 <SelectedSvg />
               </StyledItemIcon>

@@ -33,33 +33,32 @@ const NextItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
-export const NextItem = React.forwardRef<
-  HTMLLIElement,
-  Omit<IItemProps, 'component' | 'shouldHideIcon'>
->(({ value, disabled, ...props }, ref) => {
-  const {
-    nextItemsHashRef,
-    downshift: { itemToString }
-  } = useDropdownContext();
-  const { itemIndexRef } = useMenuContext();
+export const NextItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component' | 'hasIcon'>>(
+  ({ value, disabled, ...props }, ref) => {
+    const {
+      nextItemsHashRef,
+      downshift: { itemToString }
+    } = useDropdownContext();
+    const { itemIndexRef } = useMenuContext();
 
-  if (!disabled) {
-    // Include current index in global Dropdown context
-    (nextItemsHashRef.current as any)[itemToString(value)] = itemIndexRef.current;
+    if (!disabled) {
+      // Include current index in global Dropdown context
+      (nextItemsHashRef.current as any)[itemToString(value)] = itemIndexRef.current;
+    }
+
+    return (
+      <Item
+        component={NextItemComponent}
+        aria-expanded
+        disabled={disabled}
+        value={value}
+        ref={ref}
+        {...props}
+        hasIcon
+      />
+    );
   }
-
-  return (
-    <Item
-      component={NextItemComponent}
-      aria-expanded
-      disabled={disabled}
-      value={value}
-      ref={ref}
-      {...props}
-      shouldHideIcon
-    />
-  );
-});
+);
 
 NextItem.displayName = 'NextItem';
 
