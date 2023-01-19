@@ -21,6 +21,7 @@ import { Body } from './Body';
 import { Close } from './Close';
 import { Footer } from './Footer';
 import { FooterItem } from './FooterItem';
+import { useText } from '@zendeskgarden/react-theming';
 
 const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProps>(
   (
@@ -45,6 +46,7 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
     const modalRef = useRef<HTMLDivElement>(null);
     const transitionRef = useRef<HTMLDivElement>(null);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
+    const [hasTitle, setHasTitle] = useState<boolean>(false);
     const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
       useModal({
         idPrefix: id,
@@ -76,7 +78,29 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
       ]
     });
 
+    // If <TooltipModal.Title /> isn't used, remove aria-labelledby
+    const modalProps = getModalProps({
+      'aria-describedby': undefined,
+      ...(hasTitle ? {} : { 'aria-labelledby': undefined })
+    }) as HTMLAttributes<HTMLDivElement>;
+
+    // Derive aria attributes from props
+    const attribute = hasTitle ? 'aria-labelledby' : 'aria-label';
+    const defaultValue = hasTitle ? props['aria-labelledby'] : 'Modal dialog';
+    const labelValue = hasTitle ? modalProps['aria-labelledby'] : props['aria-label'];
+
+    const ariaProps = {
+      [attribute]: useText(
+        TooltipModalComponent,
+        { [attribute]: labelValue },
+        attribute,
+        defaultValue!
+      )
+    };
+
     const value = {
+      hasTitle,
+      setHasTitle,
       getTitleProps,
       getContentProps,
       getCloseProps
@@ -111,7 +135,8 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
                     placement={state ? state.placement : 'top'}
                     hasArrow={hasArrow}
                     isAnimated={isAnimated}
-                    {...(getModalProps() as HTMLAttributes<HTMLDivElement>)}
+                    {...modalProps}
+                    {...ariaProps}
                     {...props}
                     ref={mergeRefs([modalRef, ref])}
                   />

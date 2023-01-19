@@ -14,6 +14,10 @@ import { ITooltipModalProps } from '../../types';
 describe('TooltipModal', () => {
   const user = userEvent.setup();
 
+  type FixtureProps = {
+    noTitle?: boolean;
+  };
+
   const TOOLTIP_MODAL_ID = 'TEST_ID';
   let onCloseSpy: jest.Mock;
 
@@ -21,8 +25,8 @@ describe('TooltipModal', () => {
     onCloseSpy = jest.fn();
   });
 
-  const Example = React.forwardRef<HTMLDivElement, ITooltipModalProps>(
-    ({ onClose, ...props }, ref) => {
+  const Example = React.forwardRef<HTMLDivElement, ITooltipModalProps & FixtureProps>(
+    ({ onClose, noTitle, ...props }, ref) => {
       const [isOpen, setIsOpen] = useState(false);
       const buttonRef = React.useRef<HTMLButtonElement>(null);
 
@@ -40,7 +44,7 @@ describe('TooltipModal', () => {
             referenceElement={isOpen && buttonRef.current ? buttonRef.current : undefined}
             {...props}
           >
-            <TooltipModal.Title>title</TooltipModal.Title>
+            {!noTitle && <TooltipModal.Title>title</TooltipModal.Title>}
             <TooltipModal.Body>body</TooltipModal.Body>
             <TooltipModal.Footer>footer</TooltipModal.Footer>
             <TooltipModal.Close aria-label="Close" />
@@ -84,6 +88,51 @@ describe('TooltipModal', () => {
     });
 
     expect(getByTestId('backdrop')).not.toBeNull();
+  });
+
+  it('applies aria-labelledby to dialog when Title is present', async () => {
+    const { getByText, getByRole } = render(<Example />);
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    const labelId = getByRole('dialog').getAttribute('aria-labelledby');
+    const titleId = getByText('title').getAttribute('id');
+
+    expect(labelId).toStrictEqual(titleId);
+  });
+
+  it("doesn't show aria-labelledby to dialog when Title isn't present", async () => {
+    const { getByRole, getByText } = render(<Example noTitle />);
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    expect(getByRole('dialog').hasAttribute('aria-labelledby')).toBe(false);
+  });
+
+  it("applies default aria-label to dialog when Title isn't present", async () => {
+    const { getByRole, getByText } = render(<Example noTitle />);
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    const ariaLabel = getByRole('dialog').getAttribute('aria-label');
+
+    expect(ariaLabel).toBe('Modal dialog');
+  });
+
+  it("applies aria-label to dialog prop when Title isn't present", async () => {
+    const { getByRole, getByText } = render(<Example noTitle aria-label="Fun dialog" />);
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    expect(getByRole('dialog').getAttribute('aria-label')).toBe('Fun dialog');
   });
 
   it('applies title a11y attributes to Title element', async () => {
