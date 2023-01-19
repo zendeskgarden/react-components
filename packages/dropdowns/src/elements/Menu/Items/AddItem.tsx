@@ -32,9 +32,10 @@ const AddItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
-export const AddItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
-  (props, ref) => <Item component={AddItemComponent} ref={ref} {...props} shouldHideIcon />
-);
+export const AddItem = React.forwardRef<
+  HTMLLIElement,
+  Omit<IItemProps, 'component' | 'shouldHideIcon'>
+>((props, ref) => <Item component={AddItemComponent} ref={ref} {...props} shouldHideIcon />);
 
 AddItem.displayName = 'AddItem';
 

@@ -14,9 +14,10 @@ import { StyledMediaItem } from '../../../styled';
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
-export const MediaItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
-  (props, ref) => <Item component={StyledMediaItem} ref={ref} {...props} />
-);
+export const MediaItem = React.forwardRef<
+  HTMLLIElement,
+  Omit<IItemProps, 'component' | 'shouldHideIcon'>
+>((props, ref) => <Item component={StyledMediaItem} ref={ref} {...props} />);
 
 MediaItem.displayName = 'MediaItem';
 
