@@ -86,7 +86,7 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
 
     // Derive aria attributes from props
     const attribute = hasTitle ? 'aria-labelledby' : 'aria-label';
-    const defaultValue = hasTitle ? props['aria-labelledby'] : 'Modal dialog';
+    const defaultValue = hasTitle ? modalProps['aria-labelledby'] : 'Modal dialog';
     const labelValue = hasTitle ? modalProps['aria-labelledby'] : props['aria-label'];
 
     const ariaProps = {

@@ -32,6 +32,8 @@ interface IArgs extends IModalProps {
   isDanger: boolean;
   tag: string;
   header: string;
+  closeAriaLabel: string;
+  dialogAriaLabel: string;
 }
 
 export const ModalStory: Story<IArgs> = ({
@@ -47,7 +49,8 @@ export const ModalStory: Story<IArgs> = ({
   header,
   isDanger,
   tag,
-  'aria-label': ariaLabel,
+  closeAriaLabel,
+  dialogAriaLabel,
   ...args
 }) => (
   <>
@@ -58,7 +61,7 @@ export const ModalStory: Story<IArgs> = ({
       </Button.EndIcon>
     </Button>
     {isVisible && (
-      <Modal {...args} onClose={onClose}>
+      <Modal {...args} onClose={onClose} aria-label={hasHeader ? undefined : dialogAriaLabel}>
         {hasHeader && (
           <Header isDanger={isDanger} tag={tag}>
             {header}
@@ -81,7 +84,7 @@ export const ModalStory: Story<IArgs> = ({
             ))}
           </Footer>
         )}
-        {hasClose && <Close aria-label={ariaLabel} />}
+        {hasClose && <Close aria-label={closeAriaLabel} />}
       </Modal>
     )}
   </>

@@ -37,7 +37,7 @@ import { TOOLTIP_MODAL_BODY as BODY } from './stories/data';
       hasTitle: true,
       title: 'Title',
       closeAriaLabel: 'Close',
-      titleAriaLabel: 'Title'
+      dialogAriaLabel: 'Title'
     }}
     argTypes={{
       referenceElement: { control: false },
@@ -48,11 +48,8 @@ import { TOOLTIP_MODAL_BODY as BODY } from './stories/data';
       body: { name: 'children', table: { category: 'TooltipModal.Body' } },
       title: { name: 'children', table: { category: 'TooltipModal.Title' } },
       tag: { control: 'text', table: { category: 'TooltipModal.Title' } },
-      closeAriaLabel: {
-        name: 'aria-label',
-        table: { category: 'TooltipModal.Close' }
-      },
-      titleAriaLabel: { name: 'aria-label' }
+      closeAriaLabel: { name: 'aria-label', table: { category: 'TooltipModal.Close' } },
+      dialogAriaLabel: { name: 'aria-label' }
     }}
     parameters={{
       design: {
