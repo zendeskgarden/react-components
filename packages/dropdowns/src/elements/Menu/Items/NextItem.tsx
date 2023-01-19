@@ -54,6 +54,7 @@ export const NextItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'compon
         value={value}
         ref={ref}
         {...props}
+        shouldHideIcon
       />
     );
   }

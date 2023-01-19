@@ -19,7 +19,10 @@ import { ItemContext } from '../../../utils/useItemContext';
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
-  ({ value, disabled, isDanger, component = StyledItem, children, ...props }, forwardRef) => {
+  (
+    { value, disabled, isDanger, component = StyledItem, shouldHideIcon, children, ...props },
+    forwardRef
+  ) => {
     const {
       selectedItems,
       hasMenuRef,
@@ -55,12 +58,8 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
       }
     });
 
-    // eg of a composite component: AddItem, NextItem, PreviousItem, which is passed through the `component` prop.
-    // this is used to hide the selected SVG icon when Item is in a selected state for composite components
-    const isNotCompositeComponent = !!Component.displayName;
-
     // Calculate selection if provided value is an `object`
-    if (value && isNotCompositeComponent) {
+    if (value) {
       if (selectedItems) {
         isSelected = selectedItems.some(item => {
           return itemToString(item) === itemToString(value);
@@ -92,7 +91,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
             isCompact={isCompact}
             {...props}
           >
-            {isSelected && (
+            {isSelected && !shouldHideIcon && (
               <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
                 <SelectedSvg />
               </StyledItemIcon>

@@ -182,6 +182,10 @@ export interface IItemProps extends LiHTMLAttributes<HTMLLIElement> {
    * @ignore Sets the wrapping component for the item
    */
   component?: any;
+  /**
+   * @ignore Hides the select icon for the item
+   */
+  shouldHideIcon: boolean;
 }
 
 export interface IHeaderItemProps extends LiHTMLAttributes<HTMLLIElement> {

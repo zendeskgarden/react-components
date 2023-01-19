@@ -50,6 +50,7 @@ export const PreviousItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'co
         disabled={disabled}
         {...props}
         ref={ref}
+        shouldHideIcon
       />
     );
   }
