@@ -12,6 +12,21 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.62.1 (2023-01-19)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1489](https://github.com/zendeskgarden/react-components/pull/1489) fix(dropdowns): remove selected icon from next, previous and add item… ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `colorpickers`, `modals`
+  * [#1488](https://github.com/zendeskgarden/react-components/pull/1488) fix: enables accessible label in TooltipModal, ColorpickerDialog, and ColorSwatchDialog ([@geotrev](https://github.com/geotrev))
+* `modals`
+  * [#1487](https://github.com/zendeskgarden/react-components/pull/1487) fix(modals): restore `Header` danger styling ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1486](https://github.com/zendeskgarden/react-components/pull/1486) chore(renovate): add postUpdateOptions to config ([@Francois-Esquire](https://github.com/Francois-Esquire))
+  * [#1484](https://github.com/zendeskgarden/react-components/pull/1484) chore: turn off Nx with lerna ([@geotrev](https://github.com/geotrev))
+
 ## v8.62.0 (2022-12-15)
 
 #### :rocket: New Feature
