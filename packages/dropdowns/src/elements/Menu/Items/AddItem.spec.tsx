@@ -53,4 +53,24 @@ describe('AddItem', () => {
 
     expect(getByTestId('add-item')).toBe(ref.current);
   });
+
+  it('does not contain a select icon when selected', async () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu>
+          <AddItem value="add-item" data-test-id="add-item">
+            Add Item
+          </AddItem>
+        </Menu>
+      </Dropdown>
+    );
+
+    await user.click(getByTestId('trigger'));
+    fireEvent.click(getByTestId('add-item'));
+
+    expect(() => getByTestId('item-icon')).toThrow();
+  });
 });

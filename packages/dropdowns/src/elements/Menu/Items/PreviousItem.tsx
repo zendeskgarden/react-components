@@ -33,27 +33,29 @@ const PreviousItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
-export const PreviousItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
-  ({ value, disabled, ...props }, ref) => {
-    const { previousIndexRef } = useDropdownContext();
-    const { itemIndexRef } = useMenuContext();
+export const PreviousItem = React.forwardRef<
+  HTMLLIElement,
+  Omit<IItemProps, 'component' | 'hasIcon'>
+>(({ value, disabled, ...props }, ref) => {
+  const { previousIndexRef } = useDropdownContext();
+  const { itemIndexRef } = useMenuContext();
 
-    if (!disabled) {
-      previousIndexRef.current = itemIndexRef.current;
-    }
-
-    return (
-      <Item
-        component={PreviousItemComponent}
-        aria-expanded
-        value={value}
-        disabled={disabled}
-        {...props}
-        ref={ref}
-      />
-    );
+  if (!disabled) {
+    previousIndexRef.current = itemIndexRef.current;
   }
-);
+
+  return (
+    <Item
+      component={PreviousItemComponent}
+      aria-expanded
+      value={value}
+      disabled={disabled}
+      {...props}
+      ref={ref}
+      hasIcon
+    />
+  );
+});
 
 PreviousItem.displayName = 'PreviousItem';
 
