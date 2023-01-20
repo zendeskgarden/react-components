@@ -11,6 +11,8 @@ import { createContext, useContext } from 'react';
 export interface IModalContext {
   isLarge?: boolean;
   isCloseButtonPresent?: boolean;
+  hasHeader?: boolean;
+  setHasHeader?: (hasHeader: boolean) => void;
   getTitleProps: IUseModalReturnValue['getTitleProps'];
   getContentProps: IUseModalReturnValue['getContentProps'];
   getCloseProps: IUseModalReturnValue['getCloseProps'];

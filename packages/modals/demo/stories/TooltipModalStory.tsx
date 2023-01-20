@@ -25,8 +25,8 @@ interface IArgs extends ITooltipModalProps {
   hasTitle: boolean;
   title: string;
   tag: string;
-  closeAriaLabel?: string;
-  titleAriaLabel?: string;
+  closeAriaLabel: string;
+  dialogAriaLabel: string;
 }
 
 export const TooltipModalStory: Story<IArgs> = ({
@@ -40,7 +40,7 @@ export const TooltipModalStory: Story<IArgs> = ({
   title,
   tag,
   closeAriaLabel,
-  titleAriaLabel,
+  dialogAriaLabel,
   ...args
 }) => {
   const refs = useRef<(HTMLElement | null | undefined)[]>([]);
@@ -51,7 +51,7 @@ export const TooltipModalStory: Story<IArgs> = ({
   const ariaProp: Record<string, any> = hasTitle
     ? {}
     : {
-        'aria-label': titleAriaLabel
+        'aria-label': dialogAriaLabel
       };
 
   return (

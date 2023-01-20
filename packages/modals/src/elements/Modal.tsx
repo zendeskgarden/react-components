@@ -17,7 +17,7 @@ import React, {
 import { createPortal } from 'react-dom';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
-import { useDocument } from '@zendeskgarden/react-theming';
+import { useDocument, useText } from '@zendeskgarden/react-theming';
 import { useModal } from '@zendeskgarden/container-modal';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import mergeRefs from 'react-merge-refs';
@@ -72,6 +72,7 @@ export const Modal = forwardRef<HTMLDivElement, IModalProps>(
     const modalRef = useRef<HTMLDivElement>(null);
     const environment = useDocument(theme);
     const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
+    const [hasHeader, setHasHeader] = useState<boolean>(false);
 
     const { getBackdropProps, getModalProps, getTitleProps, getContentProps, getCloseProps } =
       useModal({
@@ -137,13 +138,31 @@ export const Modal = forwardRef<HTMLDivElement, IModalProps>(
       () => ({
         isLarge,
         isCloseButtonPresent,
+        hasHeader,
+        setHasHeader,
         getTitleProps,
         getContentProps,
         getCloseProps,
         setIsCloseButtonPresent
       }),
-      [isLarge, isCloseButtonPresent, getTitleProps, getContentProps, getCloseProps]
+      [isLarge, hasHeader, isCloseButtonPresent, getTitleProps, getContentProps, getCloseProps]
     );
+
+    const modalContainerProps = getModalProps({
+      'aria-describedby': undefined,
+      ...(hasHeader ? {} : { 'aria-labelledby': undefined })
+    }) as HTMLAttributes<HTMLDivElement>;
+
+    // Derive aria attributes from props
+    const attribute = hasHeader ? 'aria-labelledby' : 'aria-label';
+    const defaultValue = hasHeader ? modalContainerProps['aria-labelledby'] : 'Modal dialog';
+    const labelValue = hasHeader
+      ? modalContainerProps['aria-labelledby']
+      : modalProps['aria-label'];
+
+    const ariaProps = {
+      [attribute]: useText(Modal, { [attribute]: labelValue }, attribute, defaultValue!)
+    };
 
     if (!rootNode) {
       return null;
@@ -160,7 +179,8 @@ export const Modal = forwardRef<HTMLDivElement, IModalProps>(
             isCentered={isCentered}
             isAnimated={isAnimated}
             isLarge={isLarge}
-            {...(getModalProps() as HTMLAttributes<HTMLDivElement>)}
+            {...modalContainerProps}
+            {...ariaProps}
             {...modalProps}
             ref={mergeRefs([ref, modalRef])}
           >
