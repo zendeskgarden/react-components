@@ -123,7 +123,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
             ...props
           } as any)}
         >
-          {isSelected && (
+          {isSelected && !hasIcon && (
             <StyledItemIcon isCompact={isCompact} isVisible={isSelected} data-test-id="item-icon">
               <SelectedSvg />
             </StyledItemIcon>

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, fireEvent } from 'garden-test-utils';
+import { render } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, PreviousItem } from '../../..';
 
 describe('PreviousItem', () => {
@@ -70,22 +70,19 @@ describe('PreviousItem', () => {
   });
 
   it('does not contain a select icon when selected', async () => {
-    const { getByTestId } = render(
-      <Dropdown>
+    const { getByTestId, container } = render(
+      <Dropdown selectedItem="previous-item">
         <Trigger>
           <button data-test-id="trigger">Test</button>
         </Trigger>
         <Menu>
-          <PreviousItem value="item-1" data-test-id="previous-item">
-            Item 1
-          </PreviousItem>
+          <PreviousItem value="previous-item">Previous Item</PreviousItem>
         </Menu>
       </Dropdown>
     );
 
     await user.click(getByTestId('trigger'));
-    fireEvent.click(getByTestId('previous-item'));
 
-    expect(() => getByTestId('item-icon')).toThrow();
+    expect(container.querySelectorAll('svg')).toHaveLength(1);
   });
 });
