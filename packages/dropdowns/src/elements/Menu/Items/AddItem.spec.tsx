@@ -55,8 +55,8 @@ describe('AddItem', () => {
   });
 
   it('does not contain a select icon when selected', async () => {
-    const { getByTestId } = render(
-      <Dropdown>
+    const { getByTestId, container } = render(
+      <Dropdown selectedItem="add-item">
         <Trigger>
           <button data-test-id="trigger">Test</button>
         </Trigger>
@@ -69,8 +69,7 @@ describe('AddItem', () => {
     );
 
     await user.click(getByTestId('trigger'));
-    fireEvent.click(getByTestId('add-item'));
 
-    expect(() => getByTestId('item-icon')).toThrow();
+    expect(container.querySelectorAll('svg')).toHaveLength(1);
   });
 });
