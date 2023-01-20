@@ -1,5 +1,6 @@
 {
   "index.cjs.js": {
+<<<<<<< HEAD
     "bundled": 37286,
     "minified": 23297,
     "gzipped": 5794
@@ -8,13 +9,23 @@
     "bundled": 33846,
     "minified": 19954,
     "gzipped": 5654,
+=======
+    "bundled": 38878,
+    "minified": 23887,
+    "gzipped": 6024
+  },
+  "index.esm.js": {
+    "bundled": 34904,
+    "minified": 20426,
+    "gzipped": 5846,
+>>>>>>> 9f6f98404b (refactor(pane): count panes on render to support dynamic rendering)
     "treeshaked": {
       "rollup": {
-        "code": 13829,
-        "import_statements": 720
+        "code": 13794,
+        "import_statements": 709
       },
       "webpack": {
-        "code": 18010
+        "code": 17787
       }
     }
   }

@@ -5,36 +5,34 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useMemo, HTMLAttributes, forwardRef, useEffect } from 'react';
-import { useId } from '@zendeskgarden/container-utilities';
+import React, { useState, useMemo, HTMLAttributes, forwardRef } from 'react';
 import { Splitter } from './components/Splitter';
 import { Content } from './components/Content';
 import { SplitterButton } from './components/SplitterButton';
 import { StyledPane } from '../../styled';
 import { PaneContext } from '../../utils/usePaneContext';
-import usePaneProviderContext from '../../utils/usePaneProviderContext';
+import { usePaneProviderContextData } from '../../utils/usePaneProviderContext';
 
 const PaneComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ children, ...props }, ref) => {
-    const paneInternalId = useId();
-    const providerContext = usePaneProviderContext();
-    const { registerPane, getPaneVisibility } =
-      (providerContext.contextData || {})![providerContext.providerId!] || {};
+    const { panesRef, panesInfo } = usePaneProviderContextData() || {};
     const [paneId, setPaneId] = useState<string>();
 
-    useEffect(() => {
-      if (registerPane) registerPane(paneInternalId!);
-    }, [registerPane, paneInternalId]);
+    let paneIndex = 0;
+    let paneInfo = { visible: true };
 
-    const isVisible = getPaneVisibility ? getPaneVisibility(paneInternalId!) : true;
+    if (panesRef) {
+      paneIndex = panesRef.current++;
+      paneInfo = panesInfo![paneIndex] || paneInfo;
+    }
 
     const paneContext = useMemo(
       () => ({
-        isVisible,
+        isVisible: paneInfo.visible,
         id: paneId,
         setId: (id: string) => setPaneId(id)
       }),
-      [paneId, isVisible]
+      [paneId, paneInfo.visible]
     );
 
     return (

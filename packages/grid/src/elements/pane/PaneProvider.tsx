@@ -5,11 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useMemo, useCallback, useRef } from 'react';
+import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useId } from '@zendeskgarden/container-utilities';
 import { IPaneProviderProps } from '../../types';
-import usePaneProviderContext, { PaneProviderContext } from '../../utils/usePaneProviderContext';
+import usePaneProviderContext, {
+  PaneProviderContext,
+  IPaneProviderContextData
+} from '../../utils/usePaneProviderContext';
 
 const getPixelsPerFr = (totalFrs: number, totalDimension: number) => {
   return totalDimension / totalFrs;
@@ -220,48 +223,33 @@ export const PaneProvider = ({
     [layoutIndices, rowsTrack, layoutStateInPixels]
   );
 
+  const panesRef = useRef<number>(0);
+
+  useEffect(() => {
+    panesRef.current = 0;
+  });
+
+  const panesInfo = useMemo(() => {
+    const { rowArray, columnArray } = layoutIndices;
+
+    const infoArray: IPaneProviderContextData['panesInfo'] = [];
+
+    columnArray.forEach(columnKey => {
+      rowArray.forEach(rowKey => {
+        const colValue = columnsTrack[columnKey];
+        const rowValue = rowsTrack[rowKey];
+
+        infoArray.push({
+          coordinates: [rowKey, columnKey],
+          visible: ![colValue, rowValue].includes(0)
+        });
+      });
+    });
+
+    return infoArray;
+  }, [layoutIndices, columnsTrack, rowsTrack]);
+
   const providerId = useId(id);
-
-  const panes = useRef<Record<string, number>>({});
-
-  const registerPane = useCallback(
-    paneId => {
-      if (paneId in panes.current === false) {
-        panes.current[paneId] = Object.keys(panes.current).length;
-      }
-
-      return panes.current[paneId];
-    },
-    [panes]
-  );
-
-  const getPaneCoordinates = useCallback(
-    paneId => {
-      const columnsCount = Object.keys(columnsTrack).length;
-      const rowsCount = Object.keys(rowsTrack).length;
-      const panesIndex = panes.current[paneId];
-
-      const paneColumn = columnsCount > 0 ? panesIndex % columnsCount : 0;
-      const paneRow = columnsCount > 0 ? Math.floor(panesIndex / rowsCount) : panesIndex;
-
-      return [paneColumn, paneRow];
-    },
-    [panes, columnsTrack, rowsTrack]
-  );
-
-  const getPaneVisibility = useCallback(
-    paneId => {
-      const coords = getPaneCoordinates(paneId);
-      const { rowArray, columnArray } = layoutIndices;
-      const colId = columnArray[coords[0]];
-      const rowId = rowArray[coords[1]];
-      const colValue = columnsTrack[colId];
-      const rowValue = rowsTrack[rowId];
-
-      return ![colValue, rowValue].includes(0);
-    },
-    [layoutIndices, columnsTrack, rowsTrack, getPaneCoordinates]
-  );
 
   /* Combine with parent PaneProviderContext, allowing `Splitter` to selectively
    * affect ancestor DOM layouts */
@@ -284,8 +272,8 @@ export const PaneProvider = ({
                 totalPanesHeight,
                 totalPanesWidth,
                 pixelsPerFr,
-                registerPane,
-                getPaneVisibility
+                panesRef,
+                panesInfo
               }
             }
           }
@@ -302,8 +290,8 @@ export const PaneProvider = ({
       totalPanesHeight,
       totalPanesWidth,
       pixelsPerFr,
-      registerPane,
-      getPaneVisibility
+      panesRef,
+      panesInfo
     ]
   );
 
