@@ -44,7 +44,7 @@ export const DrawerModalStory: Story<IArgs> = ({
 }) => {
   const theme = useTheme();
 
-  // Using `aria-label={undefined}` when `hasTitle` is `true` appears to
+  // Using `aria-label={undefined}` when `hasHeader` is `true` appears to
   // void the fallback value in Storybook, resulting in no rendered attribute
   const ariaProp: Record<string, any> = hasHeader
     ? {}
