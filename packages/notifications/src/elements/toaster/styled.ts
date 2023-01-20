@@ -7,7 +7,6 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { hideVisually } from 'polished';
-import { TransitionGroup } from 'react-transition-group';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Placement } from '../../types';
 
@@ -72,12 +71,12 @@ StyledFadeInTransition.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-interface IStyledTransitionGroupProps {
-  $placement: Placement;
-  $zIndex?: number;
+interface IStyledTransitionContainerProps {
+  toastPlacement: Placement;
+  toastZIndex?: number;
 }
 
-const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionGroupProps) => {
+const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionContainerProps) => {
   const verticalDistance = `${props.theme.space.base * 16}px`;
   const horizontalDistance = `${props.theme.space.base * 3}px`;
 
@@ -113,7 +112,7 @@ const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionGrou
     bottom: ${verticalDistance};
   `;
 
-  switch (props.$placement) {
+  switch (props.toastPlacement) {
     case 'top-start':
       if (props.theme.rtl) {
         return topRightStyles;
@@ -148,13 +147,13 @@ const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionGrou
   }
 };
 
-export const StyledTransitionGroup = styled(TransitionGroup)<IStyledTransitionGroupProps>`
+export const StyledTransitionContainer = styled.div<IStyledTransitionContainerProps>`
   position: fixed;
-  z-index: ${props => props.$zIndex};
+  z-index: ${props => props.toastZIndex};
 
   ${placementStyles};
 `;
 
-StyledTransitionGroup.defaultProps = {
+StyledTransitionContainer.defaultProps = {
   theme: DEFAULT_THEME
 };
