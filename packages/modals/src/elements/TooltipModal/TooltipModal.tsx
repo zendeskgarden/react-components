@@ -154,7 +154,6 @@ TooltipModalComponent.displayName = 'TooltipModal';
 
 TooltipModalComponent.defaultProps = {
   placement: 'auto',
-  isAnimated: true,
   hasArrow: true,
   focusOnMount: true,
   restoreFocus: true
