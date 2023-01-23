@@ -43,8 +43,14 @@ describe('ToastProvider', () => {
     const notificationElement = getByText('notification');
 
     expect(notificationElement).toBeInTheDocument();
-    expect(notificationElement.parentElement?.parentElement).toHaveStyleRule('bottom', '64px');
-    expect(notificationElement.parentElement?.parentElement).toHaveStyleRule('left', '12px');
+    expect(notificationElement.parentElement?.parentElement?.parentElement).toHaveStyleRule(
+      'bottom',
+      '64px'
+    );
+    expect(notificationElement.parentElement?.parentElement?.parentElement).toHaveStyleRule(
+      'left',
+      '12px'
+    );
   });
 
   it('renders toasts in alternative placement when in RTL mode', async () => {
@@ -54,8 +60,14 @@ describe('ToastProvider', () => {
     const notificationElement = getByText('notification');
 
     expect(notificationElement).toBeInTheDocument();
-    expect(notificationElement.parentElement?.parentElement).toHaveStyleRule('bottom', '64px');
-    expect(notificationElement.parentElement?.parentElement).toHaveStyleRule('right', '12px');
+    expect(notificationElement.parentElement?.parentElement?.parentElement).toHaveStyleRule(
+      'bottom',
+      '64px'
+    );
+    expect(notificationElement.parentElement?.parentElement?.parentElement).toHaveStyleRule(
+      'right',
+      '12px'
+    );
   });
 
   it('renders visible toasts up to provided limit', async () => {
@@ -85,7 +97,10 @@ describe('ToastProvider', () => {
     const notificationElement = getByText('notification');
 
     expect(notificationElement).toBeInTheDocument();
-    expect(notificationElement.parentElement?.parentElement).toHaveStyleRule('z-index', '100');
+    expect(notificationElement.parentElement?.parentElement?.parentElement).toHaveStyleRule(
+      'z-index',
+      '100'
+    );
   });
 
   it('applies placementProps when provided', () => {
