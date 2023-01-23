@@ -20,7 +20,7 @@ import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import { ThemeContext } from 'styled-components';
 import { useModal } from '@zendeskgarden/container-modal';
-import { useDocument } from '@zendeskgarden/react-theming';
+import { useDocument, useText } from '@zendeskgarden/react-theming';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { ModalsContext } from '../../utils/useModalContext';
 import { StyledBackdrop, StyledDrawerModal } from '../../styled';
@@ -41,6 +41,7 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
     const theme = useContext(ThemeContext);
     const environment = useDocument(theme);
     const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
+    const [hasHeader, setHasHeader] = useState<boolean>(false);
 
     useFocusVisible({ scope: modalRef, relativeDocument: modalRef.current });
 
@@ -90,13 +91,34 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
     const value = useMemo(
       () => ({
         isCloseButtonPresent,
+        hasHeader,
+        setHasHeader,
         getTitleProps,
         getContentProps,
         getCloseProps,
         setIsCloseButtonPresent
       }),
-      [isCloseButtonPresent, getTitleProps, getContentProps, getCloseProps]
+      [isCloseButtonPresent, hasHeader, getTitleProps, getContentProps, getCloseProps]
     );
+
+    const modalProps = getModalProps({
+      'aria-describedby': undefined,
+      ...(hasHeader ? {} : { 'aria-labelledby': undefined })
+    }) as HTMLAttributes<HTMLDivElement>;
+
+    // Derive aria attributes from props
+    const attribute = hasHeader ? 'aria-labelledby' : 'aria-label';
+    const defaultValue = hasHeader ? modalProps['aria-labelledby'] : 'Modal dialog';
+    const labelValue = hasHeader ? modalProps['aria-labelledby'] : props['aria-label'];
+
+    const ariaProps = {
+      [attribute]: useText(
+        DrawerModalComponent,
+        { [attribute]: labelValue },
+        attribute,
+        defaultValue!
+      )
+    };
 
     if (!rootNode) {
       return null;
@@ -116,7 +138,8 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
             {...(getBackdropProps(backdropProps) as HTMLAttributes<HTMLDivElement>)}
           >
             <StyledDrawerModal
-              {...(getModalProps() as HTMLAttributes<HTMLDivElement>)}
+              {...modalProps}
+              {...ariaProps}
               {...props}
               ref={mergeRefs([ref, modalRef, transitionRef])}
             />

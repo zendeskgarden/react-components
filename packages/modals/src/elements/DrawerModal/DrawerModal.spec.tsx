@@ -16,7 +16,11 @@ describe('DrawerModal', () => {
 
   const DRAWER_MODAL_ID = 'TEST_ID';
 
-  const Example = forwardRef<HTMLDivElement, IDrawerModalProps>((props, ref) => {
+  type FixtureProps = {
+    noHeader?: boolean;
+  } & IDrawerModalProps;
+
+  const Example = forwardRef<HTMLDivElement, FixtureProps>(({ noHeader, ...props }, ref) => {
     const [isOpen, setIsOpen] = useState(false);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -26,7 +30,7 @@ describe('DrawerModal', () => {
           Open Drawer
         </button>
         <DrawerModal ref={ref} isOpen={isOpen} onClose={() => setIsOpen(false)} {...props}>
-          <DrawerModal.Header>title</DrawerModal.Header>
+          {!noHeader && <DrawerModal.Header>title</DrawerModal.Header>}
           <DrawerModal.Close />
           <DrawerModal.Body>body</DrawerModal.Body>
           <DrawerModal.Footer>
@@ -78,6 +82,43 @@ describe('DrawerModal', () => {
     await user.click(getByText('Open Drawer'));
 
     expect(getByTestId('backdrop')).toBeInTheDocument();
+  });
+
+  it('applies aria-labelledby to dialog when Title is present', async () => {
+    const { getByText, getByRole } = render(<Example />);
+
+    await user.click(getByText('Open Drawer'));
+
+    const labelId = getByRole('dialog').getAttribute('aria-labelledby');
+    const titleId = getByText('title').getAttribute('id');
+
+    expect(labelId).toStrictEqual(titleId);
+  });
+
+  it("doesn't show aria-labelledby to dialog when Title isn't present", async () => {
+    const { getByRole, getByText } = render(<Example noHeader />);
+
+    await user.click(getByText('Open Drawer'));
+
+    expect(getByRole('dialog').hasAttribute('aria-labelledby')).toBe(false);
+  });
+
+  it("applies default aria-label to dialog when Title isn't present", async () => {
+    const { getByRole, getByText } = render(<Example noHeader />);
+
+    await user.click(getByText('Open Drawer'));
+
+    const ariaLabel = getByRole('dialog').getAttribute('aria-label');
+
+    expect(ariaLabel).toBe('Modal dialog');
+  });
+
+  it("applies aria-label to dialog prop when Title isn't present", async () => {
+    const { getByRole, getByText } = render(<Example noHeader aria-label="Fun dialog" />);
+
+    await user.click(getByText('Open Drawer'));
+
+    expect(getByRole('dialog').getAttribute('aria-label')).toBe('Fun dialog');
   });
 
   it('applies title a11y attributes to Title element', async () => {

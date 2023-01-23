@@ -33,7 +33,8 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
       hasHeader: true,
       header: 'Header',
       footerItems: FOOTER_ITEMS,
-      'aria-label': 'Close'
+      dialogAriaLabel: 'Header',
+      closeAriaLabel: 'Close'
     }}
     argTypes={{
       appendToNode: { control: false },
@@ -45,7 +46,8 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
       body: { name: 'children', table: { category: 'DrawerModal.Body' } },
       header: { name: 'children', table: { category: 'DrawerModal.Header' } },
       tag: { control: 'text', table: { category: 'DrawerModal.Header' } },
-      'aria-label': { table: { category: 'DrawerModal.Close' } }
+      closeAriaLabel: { name: 'aria-label', table: { category: 'DrawerModal.Close' } },
+      dialogAriaLabel: { name: 'aria-label' }
     }}
     parameters={{
       design: {
