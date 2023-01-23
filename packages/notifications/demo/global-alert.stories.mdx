@@ -47,6 +47,13 @@ import { GLOBAL_ALERT_BUTTONS } from './stories/data';
       title: { name: 'children', type: 'string', table: { category: 'GlobalAlert.Title' } },
       isRegular: { type: 'boolean', table: { category: 'GlobalAlert.Title' } }
     }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=12311%3A50200'
+      }
+    }}
   >
     {args => <GlobalAlertStory {...args} />}
   </Story>
