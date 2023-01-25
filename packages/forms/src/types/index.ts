@@ -29,11 +29,11 @@ export const FILE_TYPE = [
   'generic'
 ] as const;
 
-export type Validation = typeof VALIDATION[number];
+export type Validation = (typeof VALIDATION)[number];
 
-export type FileValidation = typeof FILE_VALIDATION[number];
+export type FileValidation = (typeof FILE_VALIDATION)[number];
 
-export type FileType = typeof FILE_TYPE[number];
+export type FileType = (typeof FILE_TYPE)[number];
 
 export interface IFieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
   /** Applies compact styling */

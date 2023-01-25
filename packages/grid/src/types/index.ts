@@ -15,15 +15,15 @@ export const SPACE = [false, 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as cons
 export const WRAP = ['nowrap', 'wrap', 'wrap-reverse'] as const;
 export const PLACEMENT = ['end', 'start', 'center'] as const;
 
-export type AlignItems = typeof ALIGN_ITEMS[number];
-export type AlignSelf = typeof ALIGN_SELF[number];
-export type Direction = typeof DIRECTION[number];
-export type JustifyContent = typeof JUSTIFY_CONTENT[number];
-export type TextAlign = typeof TEXT_ALIGN[number];
+export type AlignItems = (typeof ALIGN_ITEMS)[number];
+export type AlignSelf = (typeof ALIGN_SELF)[number];
+export type Direction = (typeof DIRECTION)[number];
+export type JustifyContent = (typeof JUSTIFY_CONTENT)[number];
+export type TextAlign = (typeof TEXT_ALIGN)[number];
 export type GridNumber = number | string;
 export type Breakpoint = number | string | boolean;
-export type Space = typeof SPACE[number];
-export type Wrap = typeof WRAP[number];
+export type Space = (typeof SPACE)[number];
+export type Wrap = (typeof WRAP)[number];
 
 export interface IColProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the total number of grid `columns` that the column spans on all screen sizes */
@@ -160,7 +160,7 @@ export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ORIENTATION = ['top', 'bottom', 'start', 'end'] as const;
-export type Orientation = typeof ORIENTATION[number];
+export type Orientation = (typeof ORIENTATION)[number];
 
 export interface IPaneProviderProps {
   /** Identifies the pane provider */
@@ -225,7 +225,7 @@ export interface ISplitterProps extends HTMLAttributes<HTMLDivElement> {
 
 export interface ISplitterButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Adjusts the placement of the splitter button. Assumes start when vertical and center when horizontal, by default. */
-  placement?: typeof PLACEMENT[number];
+  placement?: (typeof PLACEMENT)[number];
   /** Renders the provided label text inside a tooltip */
   label: string;
 }

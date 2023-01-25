@@ -9,8 +9,8 @@ import { ARRAY_ARROW_POSITION, ARRAY_MENU_POSITION } from '@zendeskgarden/react-
 import { Placement } from '@popperjs/core';
 import { Placement as GardenPlacement } from '../types';
 
-type ArrowPosition = typeof ARRAY_ARROW_POSITION[number];
-type MenuPosition = typeof ARRAY_MENU_POSITION[number];
+type ArrowPosition = (typeof ARRAY_ARROW_POSITION)[number];
+type MenuPosition = (typeof ARRAY_MENU_POSITION)[number];
 
 /**
  * Convert Garden RTL aware placement to Popper.JS valid placement
