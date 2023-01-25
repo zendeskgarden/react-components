@@ -100,7 +100,7 @@ export default [
       !!process.env.ANALYZE_BUNDLE && analyze({ summaryOnly: true })
     ],
     output: [
-      { file: pkg.main, format: 'cjs' },
+      { file: pkg.main, format: 'cjs', interop: 'auto' },
       { file: pkg.module, format: 'es' }
     ]
   }
