@@ -15,7 +15,7 @@ import { StyledFileUpload } from '../styled';
  */
 export const FileUpload = React.forwardRef<HTMLDivElement, IFileUploadProps>(
   ({ disabled, ...props }, ref) => {
-    return <StyledFileUpload ref={ref} aria-disabled={disabled} {...props} />;
+    return <StyledFileUpload ref={ref} aria-disabled={disabled} {...props} role="button" />;
   }
 );
 
