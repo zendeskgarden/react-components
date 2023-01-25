@@ -13,10 +13,7 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": [
-        "@zendeskgarden/eslint-config/plugins/typescript",
-        "prettier"
-      ],
+      "extends": ["@zendeskgarden/eslint-config/plugins/typescript", "prettier"],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -24,6 +21,7 @@
         "@typescript-eslint/no-explicit-any": "off",
         "logical-assignment-operators": "off",
         "prefer-object-has-own": "off",
+        "react/destructuring-assignment": "off",
         "react/prop-types": "off"
       }
     },
