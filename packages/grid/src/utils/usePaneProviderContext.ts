@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { MutableRefObject, createContext, useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 export interface IPaneProviderContextData {
   rowState: Record<string, number>;
@@ -17,8 +17,6 @@ export interface IPaneProviderContextData {
   totalPanesHeight: number;
   totalPanesWidth: number;
   pixelsPerFr: { rows: number; columns: number };
-  panesRef: MutableRefObject<number>;
-  panesInfo: { coordinates: string[]; visible: boolean }[];
 }
 
 interface IPaneProviderContext {

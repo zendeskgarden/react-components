@@ -5,14 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useId } from '@zendeskgarden/container-utilities';
 import { IPaneProviderProps } from '../../types';
-import usePaneProviderContext, {
-  PaneProviderContext,
-  IPaneProviderContextData
-} from '../../utils/usePaneProviderContext';
+import usePaneProviderContext, { PaneProviderContext } from '../../utils/usePaneProviderContext';
 
 const getPixelsPerFr = (totalFrs: number, totalDimension: number) => {
   return totalDimension / totalFrs;
@@ -223,32 +220,6 @@ export const PaneProvider = ({
     [layoutIndices, rowsTrack, layoutStateInPixels]
   );
 
-  const panesRef = useRef<number>(0);
-
-  useEffect(() => {
-    panesRef.current = 0;
-  });
-
-  const panesInfo = useMemo(() => {
-    const { rowArray, columnArray } = layoutIndices;
-
-    const infoArray: IPaneProviderContextData['panesInfo'] = [];
-
-    columnArray.forEach(columnKey => {
-      rowArray.forEach(rowKey => {
-        const colValue = columnsTrack[columnKey];
-        const rowValue = rowsTrack[rowKey];
-
-        infoArray.push({
-          coordinates: [rowKey, columnKey],
-          visible: ![colValue, rowValue].includes(0)
-        });
-      });
-    });
-
-    return infoArray;
-  }, [layoutIndices, columnsTrack, rowsTrack]);
-
   const providerId = useId(id);
 
   /* Combine with parent PaneProviderContext, allowing `Splitter` to selectively
@@ -271,9 +242,7 @@ export const PaneProvider = ({
                 getColumnValue,
                 totalPanesHeight,
                 totalPanesWidth,
-                pixelsPerFr,
-                panesRef,
-                panesInfo
+                pixelsPerFr
               }
             }
           }
@@ -289,9 +258,7 @@ export const PaneProvider = ({
       getColumnValue,
       totalPanesHeight,
       totalPanesWidth,
-      pixelsPerFr,
-      panesRef,
-      panesInfo
+      pixelsPerFr
     ]
   );
 
