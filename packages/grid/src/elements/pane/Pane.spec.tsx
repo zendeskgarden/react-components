@@ -19,7 +19,7 @@ jest.mock('@juggle/resize-observer', () => ({
   ResizeObserver: function ResizeObserver(cb: () => void) {
     const o = jest.requireActual('@juggle/resize-observer');
 
-    // @ts-expect-error resize observer callback is an artificial method added for testing
+    // @ts-expect-error resize observer callback is an non-standard method added for testing
     return new o.ResizeObserver((window.resizeObserverCallback = jest.fn(cb)));
   }
 }));
@@ -71,7 +71,7 @@ describe('Pane', () => {
     const { getByText } = render(<UncontrolledTestSplitter />);
 
     act(() => {
-      // @ts-expect-error resize observer callback is an artificial method added for testing
+      // @ts-expect-error resize observer callback is an non-standard method added for testing
       window.resizeObserverCallback([
         {
           contentBoxSize: {
@@ -86,7 +86,7 @@ describe('Pane', () => {
 
     // collapse the height (vertical dimension)
     act(() => {
-      // @ts-expect-error resize observer callback is an artificial method added for testing
+      // @ts-expect-error resize observer callback is an non-standard method added for testing
       window.resizeObserverCallback([
         {
           contentBoxSize: {
@@ -104,7 +104,7 @@ describe('Pane', () => {
 
     // collapse the width (horizontal dimension)
     act(() => {
-      // @ts-expect-error resize observer callback is an artificial method added for testing
+      // @ts-expect-error resize observer callback is an non-standard method added for testing
       window.resizeObserverCallback([
         {
           contentBoxSize: {
