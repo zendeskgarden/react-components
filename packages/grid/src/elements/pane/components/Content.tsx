@@ -7,10 +7,13 @@
 
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledPaneContent } from '../../../styled';
+import usePaneContext from '../../../utils/usePaneContext';
 
 const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
-    return <StyledPaneContent ref={ref} {...props} />;
+    const { isVisible } = usePaneContext();
+
+    return <StyledPaneContent hidden={!isVisible} ref={ref} {...props} />;
   }
 );
 

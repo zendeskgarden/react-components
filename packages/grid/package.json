@@ -27,7 +27,8 @@
     "@zendeskgarden/react-tooltips": "^8.62.1",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7",
-    "react-merge-refs": "^1.1.0"
+    "react-merge-refs": "^1.1.0",
+    "use-resize-observer": "^9.1.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",
@@ -36,8 +37,7 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^8.62.1",
-    "use-resize-observer": "9.1.0"
+    "@zendeskgarden/react-theming": "^8.62.0"
   },
   "keywords": [
     "components",

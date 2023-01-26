@@ -44,7 +44,8 @@ module.exports = {
     '\\.(css)$': 'identity-obj-proxy',
     '@zendeskgarden/css(?!-variables)': 'identity-obj-proxy',
     'garden-test-utils': '<rootDir>/utils/test/garden-test-utils.tsx',
-    '\\.(svg)$': '<rootDir>/utils/test/svg-mock.tsx'
+    '\\.(svg)$': '<rootDir>/utils/test/svg-mock.tsx',
+    'use-resize-observer': 'use-resize-observer/polyfilled'
   },
   globals: {
     PACKAGE_VERSION: 'version'
