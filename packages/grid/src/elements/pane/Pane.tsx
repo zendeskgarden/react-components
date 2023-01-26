@@ -21,17 +21,10 @@ const PaneComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
     const observerRef = useRef<HTMLDivElement>(null);
     const { width = 0, height = 0 } = useResizeObserver<HTMLDivElement>({ ref: observerRef });
 
-    const isVisible = useMemo(() => {
-      if (observerRef.current) {
-        if (width < 1) {
-          return false;
-        } else if (height < 1) {
-          return false;
-        }
-      }
-
-      return true;
-    }, [width, height]);
+    const isVisible = useMemo(
+      () => (observerRef.current ? width > 0 && height > 0 : true),
+      [width, height]
+    );
 
     const paneContext = useMemo(
       () => ({
