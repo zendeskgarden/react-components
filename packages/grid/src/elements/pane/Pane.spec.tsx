@@ -90,7 +90,7 @@ describe('Pane', () => {
       window.resizeObserverCallback([
         {
           contentBoxSize: {
-            blockSize: 1,
+            blockSize: 0,
             inlineSize: 10
           }
         }
@@ -109,7 +109,7 @@ describe('Pane', () => {
         {
           contentBoxSize: {
             blockSize: 10,
-            inlineSize: 1
+            inlineSize: 0
           }
         }
       ]);

@@ -28,7 +28,7 @@
     "polished": "^4.0.0",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^1.1.0",
-    "use-resize-observer": "9.1.0"
+    "use-resize-observer": "^9.1.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",

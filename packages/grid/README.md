@@ -103,3 +103,8 @@ import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
   </PaneProvider>
 </ThemeProvider>;
 ```
+
+> the `Pane` component uses [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API)
+> which is not available in node.js or other server side environments (if testing with Jest) - please
+> make sure to polyfill as needed. Since the ref used internally is not created when server side rendering,
+> the ResizeObserver API will not be invoked and should not pose an issue when doing so.

@@ -19,13 +19,13 @@ const PaneComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
     const [paneId, setPaneId] = useState<string>();
 
     const observerRef = useRef<HTMLDivElement>(null);
-    const { width = 1, height = 1 } = useResizeObserver<HTMLDivElement>({ ref: observerRef });
+    const { width = 0, height = 0 } = useResizeObserver<HTMLDivElement>({ ref: observerRef });
 
     const isVisible = useMemo(() => {
       if (observerRef.current) {
-        if (width <= 1) {
+        if (width < 1) {
           return false;
-        } else if (height <= 1) {
+        } else if (height < 1) {
           return false;
         }
       }
