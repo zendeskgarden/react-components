@@ -44,7 +44,6 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
     );
 
     const onClick = composeEventHandlers(props.onClick, () => {
-      // console.log(paneProviderContext);
       if (isMin) {
         setValue(max);
       } else {
