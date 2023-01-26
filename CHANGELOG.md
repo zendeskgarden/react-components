@@ -12,6 +12,26 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.62.2 (2023-01-26)
+
+#### :bug: Bug Fix
+* `grid`
+  * [#1497](https://github.com/zendeskgarden/react-components/pull/1497) fix(grid): hide pane content when not visible ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `forms`
+  * [#1498](https://github.com/zendeskgarden/react-components/pull/1498) fix(forms): force FileUpload's container to role='button' ([@geotrev](https://github.com/geotrev))
+* `modals`
+  * [#1495](https://github.com/zendeskgarden/react-components/pull/1495) fix(modals): reset tooltip modal isAnimated prop to false ([@Francois-Esquire](https://github.com/Francois-Esquire))
+  * [#1492](https://github.com/zendeskgarden/react-components/pull/1492) fix(modals): enables accessible label in DrawerModal when no Header is given ([@geotrev](https://github.com/geotrev))
+  * [#1491](https://github.com/zendeskgarden/react-components/pull/1491) fix(modals): enables accessible label on Modal when no Header is given ([@geotrev](https://github.com/geotrev))
+* `notifications`
+  * [#1496](https://github.com/zendeskgarden/react-components/pull/1496) fix(notifications): remove invalid attributes and transient props from toast ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `dropdowns`
+  * [#1493](https://github.com/zendeskgarden/react-components/pull/1493) fix(dropdowns): hide selected check from menu action items when not disabled ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* `grid`, `notifications`
+  * [#1494](https://github.com/zendeskgarden/react-components/pull/1494) chore(storybook): add figma design for pane and global alert ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.62.1 (2023-01-19)
 
 #### :bug: Bug Fix
