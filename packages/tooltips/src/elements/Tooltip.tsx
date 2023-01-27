@@ -39,7 +39,7 @@ export const Tooltip = ({
   isVisible: externalIsVisible,
   ...otherProps
 }: ITooltipProps) => {
-  const theme = useContext(ThemeContext);
+  const { rtl } = useContext(ThemeContext);
   const scheduleUpdateRef = useRef<() => void>();
   const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({
     id,
@@ -58,9 +58,7 @@ export const Tooltip = ({
     }
   }, [controlledIsVisible, content]);
 
-  const popperPlacement = theme.rtl
-    ? getRtlPopperPlacement(placement!)
-    : getPopperPlacement(placement!);
+  const popperPlacement = rtl ? getRtlPopperPlacement(placement!) : getPopperPlacement(placement!);
 
   const singleChild = React.Children.only<
     React.ReactElement & React.RefAttributes<HTMLButtonElement>
