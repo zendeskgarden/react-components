@@ -9,7 +9,7 @@ import { HTMLAttributes, SVGAttributes } from 'react';
 
 export const SIZE = ['small', 'medium', 'large'] as const;
 
-export type Size = typeof SIZE[number];
+export type Size = (typeof SIZE)[number];
 
 export interface IDotsProps extends SVGAttributes<SVGSVGElement> {
   /** Sets the height and width in pixels. Inherits the parent's font size by default. */

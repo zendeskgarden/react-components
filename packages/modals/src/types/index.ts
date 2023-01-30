@@ -24,7 +24,7 @@ export const PLACEMENT = [
   'start-bottom'
 ] as const;
 
-export type Placement = typeof PLACEMENT[number];
+export type Placement = (typeof PLACEMENT)[number];
 
 export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
   /**

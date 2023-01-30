@@ -14,9 +14,12 @@ import { MD, LG } from '@zendeskgarden/react-typography';
 import { IColumns } from './types';
 
 const Row = ({ panes }: { panes: IColumns['panes'] }) => {
-  const themeContext = useContext(ThemeContext);
+  const {
+    rtl,
+    space: { base }
+  } = useContext(ThemeContext);
   const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
-  const gap = themeContext.space.base * 3;
+  const gap = base * 3;
 
   return (
     <PaneProvider
@@ -34,7 +37,7 @@ const Row = ({ panes }: { panes: IColumns['panes'] }) => {
           <div
             ref={ref}
             style={{
-              direction: themeContext.rtl ? 'rtl' : 'ltr',
+              direction: rtl ? 'rtl' : 'ltr',
               width: '100%',
               height: '100%',
               display: 'grid',
@@ -46,7 +49,7 @@ const Row = ({ panes }: { panes: IColumns['panes'] }) => {
             {panes.map(pane => (
               <Pane key={pane.name}>
                 <Pane.Content>
-                  <div style={{ padding: themeContext.space.base * 2 }}>
+                  <div style={{ padding: base * 2 }}>
                     <LG tag="h2">{pane.name}</LG>
                     <MD>{pane.content}</MD>
                   </div>
@@ -75,9 +78,12 @@ const Row = ({ panes }: { panes: IColumns['panes'] }) => {
 };
 
 export const CardStory: Story<{ columns: IColumns[] }> = ({ columns }) => {
-  const themeContext = useContext(ThemeContext);
+  const {
+    rtl,
+    space: { base }
+  } = useContext(ThemeContext);
   const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
-  const gap = themeContext.space.base * 3;
+  const gap = base * 3;
 
   return (
     <PaneProvider
@@ -96,7 +102,7 @@ export const CardStory: Story<{ columns: IColumns[] }> = ({ columns }) => {
           <div
             ref={ref}
             style={{
-              direction: themeContext.rtl ? 'rtl' : 'ltr',
+              direction: rtl ? 'rtl' : 'ltr',
               display: 'grid',
               width: '100%',
               // remove the height of the storybook padding

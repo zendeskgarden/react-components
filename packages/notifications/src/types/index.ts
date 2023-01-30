@@ -19,9 +19,9 @@ export const PLACEMENT = [
 
 export const TYPE = ['success', 'warning', 'error', 'info'] as const;
 
-export type Placement = typeof PLACEMENT[number];
+export type Placement = (typeof PLACEMENT)[number];
 
-export type Type = typeof TYPE[number];
+export type Type = (typeof TYPE)[number];
 
 export interface IAlertProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies alert type styles */

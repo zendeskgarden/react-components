@@ -13,7 +13,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Applies danger styling */
   isDanger?: boolean;
   /** Specifies the button size */
-  size?: typeof SIZE[number];
+  size?: (typeof SIZE)[number];
   /** Stretches the button fill to its container width */
   isStretched?: boolean;
   /** Applies neutral button styling */

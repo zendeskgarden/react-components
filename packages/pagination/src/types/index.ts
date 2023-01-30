@@ -9,7 +9,7 @@ import { HTMLAttributes } from 'react';
 
 export const PAGE_TYPE = ['next', 'page', 'gap', 'previous'] as const;
 
-export type PageType = typeof PAGE_TYPE[number];
+export type PageType = (typeof PAGE_TYPE)[number];
 
 export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onChange'> {
   /**

@@ -22,11 +22,11 @@ export const ARROW_POSITION = [
   'left-bottom'
 ] as const;
 
-export type ArrowPosition = typeof ARROW_POSITION[number];
+export type ArrowPosition = (typeof ARROW_POSITION)[number];
 
 export const MENU_POSITION = ['top', 'right', 'bottom', 'left'] as const;
 
-export type MenuPosition = typeof MENU_POSITION[number];
+export type MenuPosition = (typeof MENU_POSITION)[number];
 
 type Hue = Record<number | string, string> | string;
 

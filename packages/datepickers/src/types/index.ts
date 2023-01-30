@@ -39,9 +39,9 @@ export const POPPER_PLACEMENT = [
   'left-end'
 ] as const;
 
-export type GardenPlacement = typeof PLACEMENT[number];
+export type GardenPlacement = (typeof PLACEMENT)[number];
 
-export type PopperPlacement = typeof POPPER_PLACEMENT[number];
+export type PopperPlacement = (typeof POPPER_PLACEMENT)[number];
 
 export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /**

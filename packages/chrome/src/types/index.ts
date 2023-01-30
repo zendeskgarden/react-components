@@ -19,7 +19,7 @@ export const PRODUCT = [
   'talk'
 ] as const;
 
-export type Product = typeof PRODUCT[number];
+export type Product = (typeof PRODUCT)[number];
 
 export interface IChromeProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies a custom hue to the chrome navigation */
@@ -134,7 +134,7 @@ export interface ISheetProps extends HTMLAttributes<HTMLElement> {
   /** Returns keyboard focus to the element that triggered the sheet */
   restoreFocus?: boolean;
   /** Adjusts the placement of the sheet */
-  placement?: typeof PLACEMENT[number];
+  placement?: (typeof PLACEMENT)[number];
   /** Sets the size of the open sheet */
   size?: string;
 }

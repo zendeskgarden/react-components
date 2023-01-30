@@ -21,9 +21,9 @@ export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   /** Applies system styling for representing objects, brands, or products */
   isSystem?: boolean;
   /** Specifies the avatar size */
-  size?: typeof SIZE[number];
+  size?: (typeof SIZE)[number];
   /** Applies status styling */
-  status?: typeof STATUS[number];
+  status?: (typeof STATUS)[number];
   /** Specifies the status label */
   statusLabel?: string;
   /** Sets the badge text and applies active styling */
@@ -32,7 +32,7 @@ export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
 
 export interface IStatusIndicatorProps extends HTMLAttributes<HTMLElement> {
   /** Applies status type for styling and default aria-label */
-  type?: typeof STATUS[number];
+  type?: (typeof STATUS)[number];
   /** Applies compact styling */
   isCompact?: boolean;
 }

@@ -16,7 +16,7 @@ const COMPONENT_ID = 'pane.splitter_button';
 
 interface IStyledSplitterButtonProps extends ISplitterButtonProps {
   orientation: Orientation;
-  placement: typeof PLACEMENT[number];
+  placement: (typeof PLACEMENT)[number];
   isRotated: boolean;
   splitterSize: number;
 }
