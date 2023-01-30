@@ -21,7 +21,12 @@ const CloseComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
     );
 
     return (
-      <StyledFileClose ref={ref} {...props} onMouseDown={onMouseDown}>
+      <StyledFileClose
+        ref={ref}
+        aria-label="Press delete to remove"
+        {...props}
+        onMouseDown={onMouseDown}
+      >
         {fileContext && fileContext.isCompact ? <XIconCompact /> : <XIconDefault />}
       </StyledFileClose>
     );

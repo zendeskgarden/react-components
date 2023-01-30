@@ -21,7 +21,12 @@ const DeleteComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivE
     );
 
     return (
-      <StyledFileDelete ref={ref} {...props} onMouseDown={onMouseDown}>
+      <StyledFileDelete
+        ref={ref}
+        aria-label="Press delete to remove"
+        {...props}
+        onMouseDown={onMouseDown}
+      >
         {fileContext && fileContext.isCompact ? <TrashIconCompact /> : <TrashIconDefault />}
       </StyledFileDelete>
     );
