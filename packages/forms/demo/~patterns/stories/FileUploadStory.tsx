@@ -47,8 +47,19 @@ const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children
     };
   }, []);
 
+  const handleCloseKeydown = (e: React.KeyboardEvent<any>) => {
+    const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER];
+
+    if (KEYS.includes(e.keyCode)) {
+      e.preventDefault();
+      onRemove();
+    }
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<any>) => {
-    if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+    const KEYS = [KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+
+    if (KEYS.includes(e.keyCode)) {
       e.preventDefault();
       onRemove();
     }
@@ -63,6 +74,7 @@ const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children
       hasClose={!disabled && uploadProgress < 100}
       hasDelete={!disabled && uploadProgress === 100}
       onKeyDown={handleKeyDown}
+      onCloseKeydown={handleCloseKeydown}
       onClick={onRemove}
     >
       {children}
@@ -106,7 +118,7 @@ export const FileUploadStory: Story<IArgs> = ({
 
   const handleRemove = useCallback(
     fileIndex => {
-      setFiles(files.filter((file, i) => i !== fileIndex));
+      setFiles(files.filter((_, i) => i !== fileIndex));
     },
     [files]
   );

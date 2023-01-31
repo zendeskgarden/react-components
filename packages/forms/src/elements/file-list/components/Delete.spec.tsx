@@ -16,11 +16,17 @@ describe('File.Delete', () => {
   it('renders the expected HTML element', () => {
     const { container } = render(<File.Delete />);
 
-    expect(container.firstChild!.nodeName).toBe('DIV');
+    expect(container.firstChild!.nodeName).toBe('BUTTON');
+  });
+
+  it('renders with aria-label', () => {
+    const { container } = render(<File.Delete />);
+
+    expect(container.firstChild).toHaveAttribute('aria-label', 'Press delete to remove');
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.createRef<HTMLButtonElement>();
     const { container } = render(<File.Delete ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);

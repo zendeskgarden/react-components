@@ -10,10 +10,12 @@ import { Story } from '@storybook/react';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { File, IFileProps } from '@zendeskgarden/react-forms';
 
-interface IArgs extends IFileProps {
+interface IArgs extends Omit<IFileProps, 'onClick'> {
   hasClose?: boolean;
   hasDelete?: boolean;
   value?: number;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onCloseKeydown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
 }
 
 export const FileStory: Story<IArgs> = ({
@@ -22,12 +24,13 @@ export const FileStory: Story<IArgs> = ({
   hasDelete,
   value,
   onClick,
+  onCloseKeydown,
   ...args
 }) => (
   <File {...args}>
     {children}
-    {hasClose && <File.Close onClick={onClick} />}
-    {hasDelete && <File.Delete onClick={onClick} />}
+    {hasClose && <File.Close onClick={onClick} onKeyDown={onCloseKeydown} />}
+    {hasDelete && <File.Delete onClick={onClick} onKeyDown={onCloseKeydown} />}
     {typeof value !== 'undefined' && (
       <Progress value={value} size={args.isCompact ? 'small' : 'medium'} aria-label="progress" />
     )}
