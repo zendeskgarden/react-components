@@ -15,7 +15,7 @@ interface IArgs extends Omit<IFileProps, 'onClick'> {
   hasDelete?: boolean;
   value?: number;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onCloseKeydown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+  onCloseKeydown?: ButtonHTMLAttributes<HTMLButtonElement>['onKeyDown'];
 }
 
 export const FileStory: Story<IArgs> = ({
