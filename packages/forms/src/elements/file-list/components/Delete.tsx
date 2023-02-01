@@ -11,6 +11,7 @@ import TrashIconCompact from '@zendeskgarden/svg-icons/src/12/trash-stroke.svg';
 import TrashIconDefault from '@zendeskgarden/svg-icons/src/16/trash-stroke.svg';
 import useFileContext from '../../../utils/useFileContext';
 import { StyledFileDelete } from '../../../styled';
+import { useText } from '@zendeskgarden/react-theming';
 
 const DeleteComponent = React.forwardRef<
   HTMLButtonElement,
@@ -21,11 +22,12 @@ const DeleteComponent = React.forwardRef<
     props.onMouseDown,
     (event: MouseEvent) => event.preventDefault() // prevent parent File focus
   );
+  const ariaLabel = useText(DeleteComponent, props, 'aria-label', 'Press delete to remove');
 
   return (
     <StyledFileDelete
       ref={ref}
-      aria-label="Press delete to remove"
+      aria-label={ariaLabel}
       {...props}
       type="button"
       tabIndex={-1}

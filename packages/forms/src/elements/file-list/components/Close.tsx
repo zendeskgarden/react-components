@@ -11,6 +11,7 @@ import XIconCompact from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 import XIconDefault from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import useFileContext from '../../../utils/useFileContext';
 import { StyledFileClose } from '../../../styled';
+import { useText } from '@zendeskgarden/react-theming';
 
 const CloseComponent = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
@@ -19,11 +20,12 @@ const CloseComponent = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<
       props.onMouseDown,
       (event: MouseEvent) => event.preventDefault() // prevent parent File focus
     );
+    const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Press delete to remove');
 
     return (
       <StyledFileClose
         ref={ref}
-        aria-label="Press delete to remove"
+        aria-label={ariaLabel}
         {...props}
         type="button"
         tabIndex={-1}
