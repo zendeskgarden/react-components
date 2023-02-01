@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { Story } from '@storybook/react';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { File, IFileProps } from '@zendeskgarden/react-forms';
@@ -14,7 +14,7 @@ interface IArgs extends Omit<IFileProps, 'onClick'> {
   hasClose?: boolean;
   hasDelete?: boolean;
   value?: number;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
   onCloseKeydown?: ButtonHTMLAttributes<HTMLButtonElement>['onKeyDown'];
 }
 
