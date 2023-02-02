@@ -16,6 +16,8 @@ interface IArgs extends Omit<IFileProps, 'onClick'> {
   value?: number;
   onClick?: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
   onCloseKeydown?: ButtonHTMLAttributes<HTMLButtonElement>['onKeyDown'];
+  closeAriaLabel: string;
+  deleteAriaLabel: string;
 }
 
 export const FileStory: Story<IArgs> = ({
@@ -25,12 +27,18 @@ export const FileStory: Story<IArgs> = ({
   value,
   onClick,
   onCloseKeydown,
+  closeAriaLabel,
+  deleteAriaLabel,
   ...args
 }) => (
   <File {...args}>
     {children}
-    {hasClose && <File.Close onClick={onClick} onKeyDown={onCloseKeydown} />}
-    {hasDelete && <File.Delete onClick={onClick} onKeyDown={onCloseKeydown} />}
+    {hasClose && (
+      <File.Close onClick={onClick} onKeyDown={onCloseKeydown} aria-label={closeAriaLabel} />
+    )}
+    {hasDelete && (
+      <File.Delete onClick={onClick} onKeyDown={onCloseKeydown} aria-label={deleteAriaLabel} />
+    )}
     {typeof value !== 'undefined' && (
       <Progress value={value} size={args.isCompact ? 'small' : 'medium'} aria-label="progress" />
     )}

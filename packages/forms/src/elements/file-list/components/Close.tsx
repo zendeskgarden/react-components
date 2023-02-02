@@ -20,7 +20,7 @@ const CloseComponent = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<
       props.onMouseDown,
       (event: MouseEvent) => event.preventDefault() // prevent parent File focus
     );
-    const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Press delete to remove');
+    const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Close');
 
     return (
       <StyledFileClose

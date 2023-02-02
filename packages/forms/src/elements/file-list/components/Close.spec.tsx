@@ -22,7 +22,7 @@ describe('File.Close', () => {
   it('renders with aria-label', () => {
     const { container } = render(<File.Close />);
 
-    expect(container.firstChild).toHaveAttribute('aria-label', 'Press delete to remove');
+    expect(container.firstChild).toHaveAttribute('aria-label', 'Close');
   });
 
   it('passes ref to underlying DOM element', () => {

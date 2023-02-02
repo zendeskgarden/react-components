@@ -22,7 +22,7 @@ const DeleteComponent = React.forwardRef<
     props.onMouseDown,
     (event: MouseEvent) => event.preventDefault() // prevent parent File focus
   );
-  const ariaLabel = useText(DeleteComponent, props, 'aria-label', 'Press delete to remove');
+  const ariaLabel = useText(DeleteComponent, props, 'aria-label', 'Delete');
 
   return (
     <StyledFileDelete

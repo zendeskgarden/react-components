@@ -14,9 +14,17 @@ import { FileStory } from './FileStory';
 interface IArgs extends HTMLAttributes<HTMLUListElement> {
   items: IFileListItem[];
   isCompact: boolean;
+  closeAriaLabel: string;
+  deleteAriaLabel: string;
 }
 
-export const FileListStory: Story<IArgs> = ({ items, isCompact, ...args }) => (
+export const FileListStory: Story<IArgs> = ({
+  items,
+  isCompact,
+  closeAriaLabel,
+  deleteAriaLabel,
+  ...args
+}) => (
   <FileList {...args}>
     {items.map((item, index) => (
       <FileList.Item key={index}>
@@ -27,6 +35,8 @@ export const FileListStory: Story<IArgs> = ({ items, isCompact, ...args }) => (
           hasDelete={item.remove === 'delete'}
           tabIndex={item.remove ? 0 : undefined}
           value={item.value}
+          closeAriaLabel={closeAriaLabel}
+          deleteAriaLabel={deleteAriaLabel}
         >
           {item.text}
         </FileStory>
