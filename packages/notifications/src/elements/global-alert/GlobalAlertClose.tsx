@@ -13,6 +13,11 @@ import { StyledGlobalAlertClose } from '../../styled';
 import { useGlobalAlertContext } from './utility';
 
 /**
+ * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.
+ *    https://dequeuniversity.com/rules/axe/4.2/svg-img-alt
+ */
+
+/**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const GlobalAlertClose = forwardRef<
@@ -24,6 +29,8 @@ export const GlobalAlertClose = forwardRef<
 
   return (
     <StyledGlobalAlertClose ref={ref} alertType={type} {...props}>
+      {/* [1] */}
+      {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
       <XStrokeIcon role="img" aria-label={label} />
     </StyledGlobalAlertClose>
   );

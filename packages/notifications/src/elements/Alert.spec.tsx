@@ -24,6 +24,7 @@ describe('Alert', () => {
   });
 
   it('can have its role attribute modified', () => {
+    // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
     const { container } = render(<Alert type="info" role="status" />);
 
     expect(container.firstChild).toHaveAttribute('role', 'status');

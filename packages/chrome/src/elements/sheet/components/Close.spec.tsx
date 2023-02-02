@@ -12,7 +12,13 @@ import { Close } from './Close';
 
 import { useSheetContext } from '../../../utils/useSheetContext';
 
-jest.mock('../../../utils/useSheetContext', () => {
+type ContextReturnValue = {
+  useSheetContext: () => {
+    setIsCloseButtonPresent: jest.Mock;
+  };
+};
+
+jest.mock<ContextReturnValue>('../../../utils/useSheetContext', () => {
   const setIsCloseButtonPresent = jest.fn();
 
   return {

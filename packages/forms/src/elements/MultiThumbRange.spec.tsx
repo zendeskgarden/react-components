@@ -15,7 +15,9 @@ import { MultiThumbRange } from './MultiThumbRange';
 import { Label } from './common/Label';
 import { Field } from './common/Field';
 
-jest.mock('lodash.debounce', () => {
+type DebounceReturnValue = { default: (fn: any) => any; __esModule: true };
+
+jest.mock<DebounceReturnValue>('lodash.debounce', () => {
   const wrapWithCancel = (fn: any) => {
     fn.cancel = jest.fn();
 

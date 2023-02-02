@@ -13,12 +13,19 @@ import { IInlineProps } from '../types';
 import { StyledInline, StyledCircle } from '../styled';
 
 /**
+ * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.
+ *    https://dequeuniversity.com/rules/axe/4.2/svg-img-alt
+ */
+
+/**
  * @extends SVGAttributes<SVGSVGElement>
  */
 export const Inline = forwardRef<SVGSVGElement, IInlineProps>(({ size, color, ...other }, ref) => {
   const ariaLabel = useText(Inline, other, 'aria-label', 'loading');
 
   return (
+    // [1]
+    // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
     <StyledInline
       ref={ref}
       size={size!}
