@@ -50,10 +50,10 @@
     "@zendeskgarden/container-utilities" "^1.0.1"
     react-uid "^2.2.0"
 
-"@zendeskgarden/container-focusvisible@^0.4.6":
-  version "0.4.9"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.9.tgz#a728806bd0854a6cdcb501fe80810f1324ad0c11"
-  integrity sha512-d5FeaKt0FjwIr2jW23j5og4slnr5ZQ9ICSSJkM8aHkR6tOriFR00beAP8XQQVX26HJkOQy+NkXfD5B65EnumOg==
+"@zendeskgarden/container-focusvisible@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-1.0.1.tgz#41d5799414982630851ec861f2f32d6aed77d9a4"
+  integrity sha512-oc0BKacovBZSb3djdFfilbmHgPW6Gmj7ImAoK6Z8qnKXAYkt4nq92Z8AjKzsWn8VDCKBYcL/WkK5BFcIL9nb3g==
   dependencies:
     "@babel/runtime" "^7.8.4"
 
@@ -65,7 +65,7 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/container-utilities@^1.0.1":
+"@zendeskgarden/container-utilities@^1.0.0", "@zendeskgarden/container-utilities@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-1.0.1.tgz#54f1ee1d86850d2484609a097526a91fe6444211"
   integrity sha512-eEIgOqdbeRx+MYbjrgUTtJ80/O3DQegY/rvHafCb0Ar7xSxpWYRQ3L3QfGm7mWJWD1Vj5Q5zZWdmq+94Ur/yPA==
@@ -73,12 +73,12 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.17.0"
 
-"@zendeskgarden/react-theming@^8.57.1":
-  version "8.57.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.57.1.tgz#b3f70884c3a620701133eee258cf0c161fc97f35"
-  integrity sha512-ZFZgVeX340yNhEJQdxbmaC39AmPN95pKYrJagoloB9k0Z7MBNiKujsaaI9AJzLSgP8/dQ2v70OaIydh9SgdDFg==
+"@zendeskgarden/react-theming@^8.62.2":
+  version "8.62.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.62.2.tgz#e61df3c88a4fc906a3d4919182de93da4f15cfa0"
+  integrity sha512-xWVwg26zT6NiYo7ZhXbiapLBLcUuaMhSlizpX/3lGG8Z3E//i7gHkiBOyo9dTH1lgKhKFU4h8L6eb8D2QtZGbQ==
   dependencies:
-    "@zendeskgarden/container-focusvisible" "^0.4.6"
+    "@zendeskgarden/container-focusvisible" "^1.0.0"
     "@zendeskgarden/container-utilities" "^0.7.0"
     polished "^4.0.0"
     prop-types "^15.5.7"

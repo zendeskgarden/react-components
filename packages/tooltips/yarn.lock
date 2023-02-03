@@ -73,7 +73,7 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
 
-"@zendeskgarden/container-utilities@^1.0.1":
+"@zendeskgarden/container-utilities@^1.0.0", "@zendeskgarden/container-utilities@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-1.0.1.tgz#54f1ee1d86850d2484609a097526a91fe6444211"
   integrity sha512-eEIgOqdbeRx+MYbjrgUTtJ80/O3DQegY/rvHafCb0Ar7xSxpWYRQ3L3QfGm7mWJWD1Vj5Q5zZWdmq+94Ur/yPA==
@@ -81,10 +81,10 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.17.0"
 
-"@zendeskgarden/react-theming@^8.62.0":
-  version "8.62.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.62.0.tgz#2abc3e0421e92b8492db995c8cf0227f33d6c01e"
-  integrity sha512-2In6ZWpvmI2zBmv9b8LdvjtctJIS1SZQI8V1m7jPjRg48WbCyFE+AZctaMolc5pIi6mhUBg9YoslIW2FpeK8oQ==
+"@zendeskgarden/react-theming@^8.62.2":
+  version "8.62.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.62.2.tgz#e61df3c88a4fc906a3d4919182de93da4f15cfa0"
+  integrity sha512-xWVwg26zT6NiYo7ZhXbiapLBLcUuaMhSlizpX/3lGG8Z3E//i7gHkiBOyo9dTH1lgKhKFU4h8L6eb8D2QtZGbQ==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^1.0.0"
     "@zendeskgarden/container-utilities" "^0.7.0"
