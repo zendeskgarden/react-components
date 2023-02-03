@@ -18,9 +18,7 @@ The `FileUpload` component is shown here working together with the
     args={{
       accept: { 'image/jpeg': [], 'image/png': [], 'image/gif': [] },
       multiple: true,
-      type: 'image',
-      closeAriaLabel: 'Close',
-      deleteAriaLabel: 'Delete'
+      type: 'image'
     }}
     argTypes={{
       isDragging: { table: { disable: true } },
@@ -32,9 +30,7 @@ The `FileUpload` component is shown here working together with the
       type: {
         control: { type: 'select', options: FILE_TYPES },
         table: { category: 'File' }
-      },
-      closeAriaLabel: { name: 'aria-label', table: { category: 'File.Close' } },
-      deleteAriaLabel: { name: 'aria-label', table: { category: 'File.Delete' } }
+      }
     }}
   >
     {args => <FileUploadStory {...args} />}

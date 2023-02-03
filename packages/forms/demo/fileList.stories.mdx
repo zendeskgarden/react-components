@@ -21,16 +21,10 @@ import { FILELIST_ITEMS as ITEMS } from './stories/data';
 <Canvas>
   <Story
     name="FileList"
-    args={{
-      items: ITEMS,
-      closeAriaLabel: 'Close',
-      deleteAriaLabel: 'Delete'
-    }}
+    args={{ items: ITEMS }}
     argTypes={{
       items: { name: 'children' },
-      isCompact: { control: 'boolean', table: { category: 'File' } },
-      closeAriaLabel: { name: 'aria-label', table: { category: 'File.Close' } },
-      deleteAriaLabel: { name: 'aria-label', table: { category: 'File.Delete' } }
+      isCompact: { control: 'boolean', table: { category: 'File' } }
     }}
     parameters={{
       design: {

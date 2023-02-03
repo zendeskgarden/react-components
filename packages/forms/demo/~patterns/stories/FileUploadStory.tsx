@@ -27,66 +27,66 @@ interface IFileItemProps extends IFileProps {
   deleteAriaLabel: string;
 }
 
-const FileItem: FC<IFileItemProps> = memo(
-  ({ type, disabled, isCompact, children, onRemove, closeAriaLabel, deleteAriaLabel }) => {
-    const [uploadProgress, setUploadProgress] = React.useState(0);
+const ARIA_LABEL = 'Press backspace to delete';
 
-    useEffect(() => {
-      /* simulate file upload progress */
-      const interval = setInterval(() => {
-        setUploadProgress(value => {
-          if (value >= 100) {
-            clearInterval(interval);
+const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children, onRemove }) => {
+  const [uploadProgress, setUploadProgress] = React.useState(0);
 
-            return 100;
-          }
+  useEffect(() => {
+    /* simulate file upload progress */
+    const interval = setInterval(() => {
+      setUploadProgress(value => {
+        if (value >= 100) {
+          clearInterval(interval);
 
-          return value + 20;
-        });
-      }, Math.random() * 300 + 100);
+          return 100;
+        }
 
-      return () => {
-        clearInterval(interval);
-      };
-    }, []);
+        return value + 20;
+      });
+    }, Math.random() * 300 + 100);
 
-    const handleCloseKeydown = (e: React.KeyboardEvent<any>) => {
-      const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER];
-
-      if (KEYS.includes(e.keyCode)) {
-        e.preventDefault();
-        onRemove();
-      }
+    return () => {
+      clearInterval(interval);
     };
+  }, []);
 
-    const handleKeyDown = (e: React.KeyboardEvent<any>) => {
-      const KEYS = [KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+  const handleCloseKeydown = (e: React.KeyboardEvent<any>) => {
+    const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER];
 
-      if (KEYS.includes(e.keyCode)) {
-        e.preventDefault();
-        onRemove();
-      }
-    };
+    if (KEYS.includes(e.keyCode)) {
+      e.preventDefault();
+      onRemove();
+    }
+  };
 
-    return (
-      <FileStory
-        type={type}
-        isCompact={isCompact}
-        value={uploadProgress}
-        tabIndex={disabled ? undefined : 0}
-        hasClose={!disabled && uploadProgress < 100}
-        hasDelete={!disabled && uploadProgress === 100}
-        onKeyDown={handleKeyDown}
-        onCloseKeydown={handleCloseKeydown}
-        onClick={onRemove}
-        closeAriaLabel={closeAriaLabel}
-        deleteAriaLabel={deleteAriaLabel}
-      >
-        {children}
-      </FileStory>
-    );
-  }
-);
+  const handleKeyDown = (e: React.KeyboardEvent<any>) => {
+    const KEYS = [KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+
+    if (KEYS.includes(e.keyCode)) {
+      e.preventDefault();
+      onRemove();
+    }
+  };
+
+  return (
+    <FileStory
+      type={type}
+      isCompact={isCompact}
+      value={uploadProgress}
+      tabIndex={disabled ? undefined : 0}
+      hasClose={!disabled && uploadProgress < 100}
+      hasDelete={!disabled && uploadProgress === 100}
+      onKeyDown={handleKeyDown}
+      onCloseKeydown={handleCloseKeydown}
+      onClick={onRemove}
+      closeAriaLabel={ARIA_LABEL}
+      deleteAriaLabel={ARIA_LABEL}
+    >
+      {children}
+    </FileStory>
+  );
+});
 
 FileItem.displayName = 'FileItem';
 
@@ -109,8 +109,6 @@ export const FileUploadStory: Story<IArgs> = ({
   minSize,
   multiple,
   type,
-  closeAriaLabel,
-  deleteAriaLabel,
   ...args
 }) => {
   const [files, setFiles] = useState<string[]>([]);
@@ -167,8 +165,8 @@ export const FileUploadStory: Story<IArgs> = ({
                 disabled={disabled}
                 isCompact={args.isCompact}
                 type={type}
-                closeAriaLabel={closeAriaLabel}
-                deleteAriaLabel={deleteAriaLabel}
+                closeAriaLabel={ARIA_LABEL}
+                deleteAriaLabel={ARIA_LABEL}
               >
                 {file}
               </FileItem>

@@ -18,13 +18,9 @@ interface IArgs extends HTMLAttributes<HTMLUListElement> {
   deleteAriaLabel: string;
 }
 
-export const FileListStory: Story<IArgs> = ({
-  items,
-  isCompact,
-  closeAriaLabel,
-  deleteAriaLabel,
-  ...args
-}) => (
+const ARIA_LABEL = 'Press backspace to delete';
+
+export const FileListStory: Story<IArgs> = ({ items, isCompact, ...args }) => (
   <FileList {...args}>
     {items.map((item, index) => (
       <FileList.Item key={index}>
@@ -35,8 +31,8 @@ export const FileListStory: Story<IArgs> = ({
           hasDelete={item.remove === 'delete'}
           tabIndex={item.remove ? 0 : undefined}
           value={item.value}
-          closeAriaLabel={closeAriaLabel}
-          deleteAriaLabel={deleteAriaLabel}
+          closeAriaLabel={ARIA_LABEL}
+          deleteAriaLabel={ARIA_LABEL}
         >
           {item.text}
         </FileStory>
