@@ -23,7 +23,11 @@ import { FileStory } from '../../stories/FileStory';
 interface IFileItemProps extends IFileProps {
   disabled?: boolean;
   onRemove: () => void;
+  closeAriaLabel: string;
+  deleteAriaLabel: string;
 }
+
+const ARIA_LABEL = 'Press backspace to delete';
 
 const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children, onRemove }) => {
   const [uploadProgress, setUploadProgress] = React.useState(0);
@@ -47,8 +51,19 @@ const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children
     };
   }, []);
 
+  const handleCloseKeydown = (e: React.KeyboardEvent<any>) => {
+    const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER];
+
+    if (KEYS.includes(e.keyCode)) {
+      e.preventDefault();
+      onRemove();
+    }
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<any>) => {
-    if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+    const KEYS = [KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+
+    if (KEYS.includes(e.keyCode)) {
       e.preventDefault();
       onRemove();
     }
@@ -63,7 +78,10 @@ const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children
       hasClose={!disabled && uploadProgress < 100}
       hasDelete={!disabled && uploadProgress === 100}
       onKeyDown={handleKeyDown}
+      onCloseKeydown={handleCloseKeydown}
       onClick={onRemove}
+      closeAriaLabel={ARIA_LABEL}
+      deleteAriaLabel={ARIA_LABEL}
     >
       {children}
     </FileStory>
@@ -79,6 +97,8 @@ interface IArgs extends IFileUploadProps {
   minSize?: DropzoneProps['minSize'];
   multiple?: DropzoneProps['multiple'];
   type?: IFileProps['type'];
+  closeAriaLabel: string;
+  deleteAriaLabel: string;
 }
 
 export const FileUploadStory: Story<IArgs> = ({
@@ -106,7 +126,7 @@ export const FileUploadStory: Story<IArgs> = ({
 
   const handleRemove = useCallback(
     fileIndex => {
-      setFiles(files.filter((file, i) => i !== fileIndex));
+      setFiles(files.filter((_, i) => i !== fileIndex));
     },
     [files]
   );
@@ -145,6 +165,8 @@ export const FileUploadStory: Story<IArgs> = ({
                 disabled={disabled}
                 isCompact={args.isCompact}
                 type={type}
+                closeAriaLabel={ARIA_LABEL}
+                deleteAriaLabel={ARIA_LABEL}
               >
                 {file}
               </FileItem>

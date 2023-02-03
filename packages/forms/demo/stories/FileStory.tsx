@@ -5,15 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { Story } from '@storybook/react';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { File, IFileProps } from '@zendeskgarden/react-forms';
 
-interface IArgs extends IFileProps {
+interface IArgs extends Omit<IFileProps, 'onClick'> {
   hasClose?: boolean;
   hasDelete?: boolean;
   value?: number;
+  onClick?: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
+  onCloseKeydown?: ButtonHTMLAttributes<HTMLButtonElement>['onKeyDown'];
+  closeAriaLabel: string;
+  deleteAriaLabel: string;
 }
 
 export const FileStory: Story<IArgs> = ({
@@ -22,12 +26,19 @@ export const FileStory: Story<IArgs> = ({
   hasDelete,
   value,
   onClick,
+  onCloseKeydown,
+  closeAriaLabel,
+  deleteAriaLabel,
   ...args
 }) => (
   <File {...args}>
     {children}
-    {hasClose && <File.Close onClick={onClick} />}
-    {hasDelete && <File.Delete onClick={onClick} />}
+    {hasClose && (
+      <File.Close onClick={onClick} onKeyDown={onCloseKeydown} aria-label={closeAriaLabel} />
+    )}
+    {hasDelete && (
+      <File.Delete onClick={onClick} onKeyDown={onCloseKeydown} aria-label={deleteAriaLabel} />
+    )}
     {typeof value !== 'undefined' && (
       <Progress value={value} size={args.isCompact ? 'small' : 'medium'} aria-label="progress" />
     )}

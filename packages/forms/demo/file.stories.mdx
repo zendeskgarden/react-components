@@ -22,12 +22,18 @@ import { FileStory } from './stories/FileStory';
 <Canvas>
   <Story
     name="File"
-    args={{ children: 'file.txt' }}
+    args={{
+      children: 'file.txt',
+      closeAriaLabel: 'Close',
+      deleteAriaLabel: 'Delete'
+    }}
     argTypes={{
       tabIndex: { control: 'number' },
       hasClose: { name: 'File.Close', control: 'boolean', table: { category: 'Story' } },
       hasDelete: { name: 'File.Delete', control: 'boolean', table: { category: 'Story' } },
-      value: { control: { type: 'range', min: 0, max: 100 }, table: { category: 'Progress' } }
+      value: { control: { type: 'range', min: 0, max: 100 }, table: { category: 'Progress' } },
+      closeAriaLabel: { name: 'aria-label', table: { category: 'File.Close' } },
+      deleteAriaLabel: { name: 'aria-label', table: { category: 'File.Delete' } }
     }}
   >
     {args => <FileStory {...args} />}
