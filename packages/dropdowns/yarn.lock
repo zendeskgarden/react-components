@@ -69,10 +69,10 @@
     "@babel/runtime" "^7.8.4"
     react-uid "^2.2.0"
 
-"@zendeskgarden/container-focusvisible@^0.4.6":
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.8.tgz#97026300d1766bf7b30c218eb614b87900b26ebd"
-  integrity sha512-oCd7ippef7YupfHaKOvyBwiCShFKYfJZRGFei1iLOhfWDtr7znrjgiLHwIw7TBlbGz/uSqaF0mPkwkvVjAebAQ==
+"@zendeskgarden/container-focusvisible@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-1.0.1.tgz#41d5799414982630851ec861f2f32d6aed77d9a4"
+  integrity sha512-oc0BKacovBZSb3djdFfilbmHgPW6Gmj7ImAoK6Z8qnKXAYkt4nq92Z8AjKzsWn8VDCKBYcL/WkK5BFcIL9nb3g==
   dependencies:
     "@babel/runtime" "^7.8.4"
 
@@ -83,6 +83,14 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-utilities" "^1.0.0"
+
+"@zendeskgarden/container-slider@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-slider/-/container-slider-0.1.1.tgz#142f50db771d1f50472a877aef58c06e3f64b5c3"
+  integrity sha512-2soo7KnjzBRHXfhznxKVKH4gUi6mleG1+fRzzs8pL0XqPZf9Lm880m+ywTkHpOPXW+lbc/1Rj/EBVrO7Jktmcg==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    lodash.debounce "^4.0.8"
 
 "@zendeskgarden/container-utilities@^0.7.0":
   version "0.7.0"
@@ -100,24 +108,25 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.17.0"
 
-"@zendeskgarden/react-forms@^8.54.1":
-  version "8.54.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.54.1.tgz#ef2b1151b34f48ba8fc01bab159d9afb0b1e442e"
-  integrity sha512-ntDbMKDWd0XYGd2rXo9rVHcQkfILh0kNxMYkCGtjHt8b20mpS9bqHddNd+JFo+4h5KmXWBTYAUa2cmmVxf2lHw==
+"@zendeskgarden/react-forms@^8.62.2":
+  version "8.62.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.62.2.tgz#a651374b20f108f647702d66d0c0a809cabddaea"
+  integrity sha512-ag0IZy6GM+QJ7Z77o9fc/GBzSb0VUJlg9jvH8Mgxiwtd/d1d3srtcfWWYkMaY5ekM+yFhixfULMz9wuPVeFvKA==
   dependencies:
     "@zendeskgarden/container-field" "^2.1.0"
+    "@zendeskgarden/container-slider" "^0.1.1"
     "@zendeskgarden/container-utilities" "^0.7.0"
     lodash.debounce "^4.0.8"
     polished "^4.0.0"
     prop-types "^15.5.7"
     react-merge-refs "^1.1.0"
 
-"@zendeskgarden/react-theming@^8.54.1":
-  version "8.54.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.54.1.tgz#c4a4056cb53a3850ef6fa8624969b89e4e9f14aa"
-  integrity sha512-OJGusfhN1r/PUi1aYOagwXknN+VcvBr6Pc3MSo9Dmn5gcnE82TC5TtJEL0UO+PnsHG3cuV23MRVofWy3Ydr32A==
+"@zendeskgarden/react-theming@^8.62.2":
+  version "8.62.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.62.2.tgz#e61df3c88a4fc906a3d4919182de93da4f15cfa0"
+  integrity sha512-xWVwg26zT6NiYo7ZhXbiapLBLcUuaMhSlizpX/3lGG8Z3E//i7gHkiBOyo9dTH1lgKhKFU4h8L6eb8D2QtZGbQ==
   dependencies:
-    "@zendeskgarden/container-focusvisible" "^0.4.6"
+    "@zendeskgarden/container-focusvisible" "^1.0.0"
     "@zendeskgarden/container-utilities" "^0.7.0"
     polished "^4.0.0"
     prop-types "^15.5.7"
@@ -135,10 +144,10 @@ call-bind@^1.0.2:
     function-bind "^1.1.1"
     get-intrinsic "^1.0.2"
 
-compute-scroll-into-view@^1.0.17:
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/compute-scroll-into-view/-/compute-scroll-into-view-1.0.17.tgz#6a88f18acd9d42e9cf4baa6bec7e0522607ab7ab"
-  integrity sha512-j4dx+Fb0URmzbwwMUrhqWM2BEWHdFGx+qZ9qqASHRPqvTYdqvWnHg0H1hIbcyLnvgnoNAVMlwkepyqM3DaIFUg==
+compute-scroll-into-view@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/compute-scroll-into-view/-/compute-scroll-into-view-2.0.4.tgz#2b444b2b9e4724819d2531efacb7ac094155fdf6"
+  integrity sha512-y/ZA3BGnxoM/QHHQ2Uy49CLtnWPbt4tTPpEEZiEmmiWBFKjej7nEyH8Ryz54jH0MLXflUYA3Er2zUxPSJu5R+g==
 
 deep-equal@^1.1.1:
   version "1.1.1"
@@ -159,13 +168,13 @@ define-properties@^1.1.3:
   dependencies:
     object-keys "^1.0.12"
 
-downshift@^6.0.0:
-  version "6.1.7"
-  resolved "https://registry.yarnpkg.com/downshift/-/downshift-6.1.7.tgz#fdb4c4e4f1d11587985cd76e21e8b4b3fa72e44c"
-  integrity sha512-cVprZg/9Lvj/uhYRxELzlu1aezRcgPWBjTvspiGTVEU64gF5pRdSRKFVLcxqsZC637cLAGMbL40JavEfWnqgNg==
+downshift@^7.0.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-7.2.0.tgz#f2a2777253a8ca26ca56c38caa8e75f76a6ab346"
+  integrity sha512-dEn1Sshe7iTelUhmdbmiJhtIiwIBxBV8p15PuvEBh0qZcHXZnEt0geuCIIkCL4+ooaKRuLE0Wc+Fz9SwWuBIyg==
   dependencies:
     "@babel/runtime" "^7.14.8"
-    compute-scroll-into-view "^1.0.17"
+    compute-scroll-into-view "^2.0.4"
     prop-types "^15.7.2"
     react-is "^17.0.2"
     tslib "^2.3.0"
