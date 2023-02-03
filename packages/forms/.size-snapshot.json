@@ -1,24 +1,13 @@
 {
   "index.cjs.js": {
-<<<<<<< HEAD
-    "bundled": 134388,
+    "bundled": 134408,
     "minified": 96313,
     "gzipped": 16830
   },
   "index.esm.js": {
-    "bundled": 125934,
+    "bundled": 125954,
     "minified": 88131,
     "gzipped": 16433,
-=======
-    "bundled": 134042,
-    "minified": 96051,
-    "gzipped": 16768
-  },
-  "index.esm.js": {
-    "bundled": 125614,
-    "minified": 87895,
-    "gzipped": 16376,
->>>>>>> 5e06201f34 (chore(lint): fix lint errors)
     "treeshaked": {
       "rollup": {
         "code": 71178,
