@@ -13,7 +13,7 @@ describe('StyledClose', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledClose />);
 
-    expect(container.firstChild!.nodeName).toBe('DIV');
+    expect(container.firstChild!.nodeName).toBe('BUTTON');
   });
 
   it('renders default styling', () => {
