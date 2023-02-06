@@ -12,7 +12,7 @@ import { useText } from '@zendeskgarden/react-theming';
 
 const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
-    const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Delete');
+    const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Close');
 
     return (
       <StyledClose ref={ref} aria-label={ariaLabel} {...props} type="button" tabIndex={-1}>
