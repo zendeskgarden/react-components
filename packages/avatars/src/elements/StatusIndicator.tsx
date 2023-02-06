@@ -21,6 +21,13 @@ import {
 } from '../styled';
 
 /**
+ * 1. role='status' on `div` is valid WAI-ARIA usage in this context.
+ *    https://www.w3.org/TR/wai-aria-1.1/#status
+ * 2. role='img' on `svg` is valid WAI-ARIA usage in this context.
+ *    https://dequeuniversity.com/rules/axe/4.2/svg-img-alt
+ */
+
+/**
  * @extends HTMLAttributes<HTMLElement>
  */
 export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
@@ -37,7 +44,11 @@ export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
     const ariaLabel = useText(StatusIndicator, { 'aria-label': label }, 'aria-label', defaultLabel);
 
     return (
+      // [1]
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       <StyledStandaloneStatus role="status" ref={ref} {...props}>
+        {/* [2] */}
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <StyledStandaloneStatusIndicator
           role="img"
           type={type}

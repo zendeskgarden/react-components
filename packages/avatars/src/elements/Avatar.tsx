@@ -79,7 +79,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             type={computedStatus}
             surfaceColor={surfaceColor}
             aria-label={statusLabel}
-            role="img"
+            as="figcaption"
           >
             {computedStatus === 'active' ? (
               <span aria-hidden="true">{badge}</span>

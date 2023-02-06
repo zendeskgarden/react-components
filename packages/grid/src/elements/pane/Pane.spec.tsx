@@ -12,10 +12,14 @@ import { Splitter } from './components/Splitter';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
 
+type IMockResizeObserverPolyfillReturnValue = {
+  ResizeObserver: (cb: () => void) => any;
+};
+
 // '@juggle/resize-observer' is the polyfill used by 'use-resize-observer'
 // we tap into the polyfilled ResizeObserver to trigger the useResizeObserver hook
 // this way we can test when the Pane is collapsed and ensure the Pane.Content is hidden
-jest.mock('@juggle/resize-observer', () => ({
+jest.mock<IMockResizeObserverPolyfillReturnValue>('@juggle/resize-observer', () => ({
   ResizeObserver: function ResizeObserver(cb: () => void) {
     const o = jest.requireActual('@juggle/resize-observer');
 

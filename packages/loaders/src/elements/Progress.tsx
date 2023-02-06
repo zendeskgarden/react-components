@@ -14,6 +14,12 @@ import { StyledProgressBackground, StyledProgressIndicator } from '../styled';
 const COMPONENT_ID = 'loaders.progress';
 
 /**
+ * 1. Garden progress bar is quite custom, and while using a native
+ *    `progress` element would be ideal, its inclusion of a shadow
+ *    root in Safari prevents straightforward restyling/functional overrides.
+ */
+
+/**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
@@ -23,6 +29,8 @@ export const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
     const ariaLabel = useText(Progress, { 'aria-label': label }, 'aria-label', 'Progress');
 
     return (
+      /* [1] */
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       <StyledProgressBackground
         data-garden-id={COMPONENT_ID}
         data-garden-version={PACKAGE_VERSION}

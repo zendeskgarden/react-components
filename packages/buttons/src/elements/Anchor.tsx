@@ -12,6 +12,11 @@ import { StyledAnchor, StyledExternalIcon } from '../styled';
 import { useText } from '@zendeskgarden/react-theming';
 
 /**
+ * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.
+ *    https://dequeuniversity.com/rules/axe/4.2/svg-img-alt
+ */
+
+/**
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
@@ -39,6 +44,8 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
       <StyledAnchor ref={ref} {...(anchorProps as any)}>
         {children}
         {isExternal && (
+          /* [1] */
+          // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
           <StyledExternalIcon role="img" aria-label={iconAriaLabel} aria-hidden={undefined} />
         )}
       </StyledAnchor>

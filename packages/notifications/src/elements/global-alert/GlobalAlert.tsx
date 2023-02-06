@@ -20,9 +20,16 @@ import { GlobalAlertClose } from './GlobalAlertClose';
 import { GlobalAlertContent } from './GlobalAlertContent';
 import { GlobalAlertTitle } from './GlobalAlertTitle';
 
+/**
+ * 1. role='status' on `div` is valid WAI-ARIA usage in this context.
+ *    https://www.w3.org/TR/wai-aria-1.1/#status
+ */
+
 const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>(
   ({ type, ...props }, ref) => (
     <GlobalAlertContext.Provider value={useMemo(() => ({ type }), [type])}>
+      {/* [1] */}
+      {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
       <StyledGlobalAlert ref={ref} role="status" alertType={type} {...props}>
         {
           {
