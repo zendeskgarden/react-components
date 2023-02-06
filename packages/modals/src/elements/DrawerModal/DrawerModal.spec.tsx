@@ -176,4 +176,20 @@ describe('DrawerModal', () => {
 
     await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
   });
+
+  it('correctly focuses on the Drawer when open and restores focus to the trigger button after close', async () => {
+    const { getByText, getByRole, queryByRole } = render(
+      <Example backdropProps={{ 'data-test-id': 'backdrop' } as any} />
+    );
+
+    await user.click(getByText('Open Drawer'));
+
+    expect(getByRole('dialog')).toStrictEqual(document.activeElement);
+
+    await user.type(getByRole('dialog'), '{escape}');
+
+    await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
+
+    expect(getByText('Open Drawer')).toStrictEqual(document.activeElement);
+  });
 });

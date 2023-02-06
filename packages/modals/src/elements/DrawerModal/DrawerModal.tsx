@@ -22,6 +22,7 @@ import { ThemeContext } from 'styled-components';
 import { useModal } from '@zendeskgarden/container-modal';
 import { useDocument, useText } from '@zendeskgarden/react-theming';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
+import activeElement from 'dom-helpers/activeElement';
 import { ModalsContext } from '../../utils/useModalContext';
 import { StyledBackdrop, StyledDrawerModal } from '../../styled';
 import { IDrawerModalProps } from '../../types';
@@ -38,6 +39,7 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
   ) => {
     const modalRef = useRef<HTMLDivElement | null>(null);
     const transitionRef = useRef<HTMLDivElement>(null);
+    const triggerRef = useRef<HTMLElement | null>(null);
     const theme = useContext(ThemeContext);
     const environment = useDocument(theme);
     const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
@@ -49,11 +51,31 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
       useModal({
         idPrefix: id,
         modalRef,
-        focusOnMount,
-        restoreFocus,
+        // opt out of @zendeskgarden/focus-jail managing the focus
+        focusOnMount: false,
+        restoreFocus: false,
         environment,
         onClose
       });
+
+    useEffect(() => {
+      if (environment) {
+        if (modalRef.current && isOpen) {
+          if (restoreFocus === undefined ? true : restoreFocus) {
+            triggerRef.current = activeElement(environment) as HTMLElement;
+          }
+
+          if (focusOnMount === undefined ? true : focusOnMount) {
+            modalRef.current.focus();
+          }
+        }
+
+        if (triggerRef.current && !isOpen) {
+          triggerRef.current.focus();
+          triggerRef.current = null;
+        }
+      }
+    }, [environment, modalRef, triggerRef, restoreFocus, focusOnMount, isOpen]);
 
     useEffect(() => {
       if (!environment) {
