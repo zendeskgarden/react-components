@@ -19,13 +19,13 @@ describe('Close', () => {
   it('renders with default aria-label', () => {
     const { container } = render(<Close />);
 
-    expect(container.firstChild).toHaveAttribute('aria-label', 'Delete');
+    expect(container.firstChild).toHaveAttribute('aria-label', 'Remove');
   });
 
   it('renders with custom aria-label', () => {
-    const { container } = render(<Close aria-label="Press delete to remove" />);
+    const { container } = render(<Close aria-label="Delete" />);
 
-    expect(container.firstChild).toHaveAttribute('aria-label', 'Press delete to remove');
+    expect(container.firstChild).toHaveAttribute('aria-label', 'Delete');
   });
 
   it('passes ref to underlying DOM element', () => {
