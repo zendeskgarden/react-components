@@ -32,6 +32,13 @@ import { Close } from './Close';
 import { Footer } from './Footer';
 import { FooterItem } from './FooterItem';
 
+/**
+ * [1] implementation of focus management for Drawer usage to support focus edge cases
+ *     - (1:a) a ref used to return focus on the last focused element
+ *     - (1:b) opt out of `@zendeskgarden/focus-jail` managing the focus
+ *     - (1:c) implementation of the focus management effect inside the component
+ */
+
 const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
   (
     { id, isOpen, onClose, backdropProps, appendToNode, focusOnMount, restoreFocus, ...props },
@@ -39,7 +46,7 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
   ) => {
     const modalRef = useRef<HTMLDivElement | null>(null);
     const transitionRef = useRef<HTMLDivElement>(null);
-    const triggerRef = useRef<HTMLElement | null>(null);
+    const triggerRef = useRef<HTMLElement | null>(null); /* [1:a] */
     const theme = useContext(ThemeContext);
     const environment = useDocument(theme);
     const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
@@ -51,13 +58,13 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
       useModal({
         idPrefix: id,
         modalRef,
-        // opt out of @zendeskgarden/focus-jail managing the focus
-        focusOnMount: false,
-        restoreFocus: false,
+        focusOnMount: false /* [1:b] */,
+        restoreFocus: false /* [1:b] */,
         environment,
         onClose
       });
 
+    /* [1:c] */
     useEffect(() => {
       if (environment) {
         if (modalRef.current && isOpen) {
