@@ -39,6 +39,7 @@ interface IArgs extends ITableProps {
   isStriped?: IRowProps['isStriped'];
   isSticky?: IHeadProps['isSticky'];
   isTruncated?: boolean;
+  isHidden?: boolean;
 }
 
 export const TableStory: Story<IArgs> = ({
@@ -53,6 +54,7 @@ export const TableStory: Story<IArgs> = ({
   isStriped,
   isSticky,
   isTruncated,
+  isHidden,
   ...args
 }) => {
   const headerCells = data.reduce((previous, current) => {
@@ -147,7 +149,11 @@ export const TableStory: Story<IArgs> = ({
                   </Cell>
                 )}
                 {Object.keys(row).map((column, columnIndex) => (
-                  <Cell key={`${rowIndex}${columnIndex}`} isTruncated={isTruncated}>
+                  <Cell
+                    key={`${rowIndex}${columnIndex}`}
+                    isTruncated={isTruncated}
+                    hidden={isHidden}
+                  >
                     {row[column]}
                   </Cell>
                 ))}
