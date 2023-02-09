@@ -37,6 +37,7 @@ import { FooterItem } from './FooterItem';
  *     - (1:a) a ref used to return focus on the last focused element
  *     - (1:b) opt out of `@zendeskgarden/focus-jail` managing the focus
  *     - (1:c) implementation of the focus management effect inside the component
+ *     - (1:d) set default props to match useFocusJail behavior
  */
 
 const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
@@ -197,8 +198,8 @@ DrawerModalComponent.propTypes = {
 };
 
 DrawerModalComponent.defaultProps = {
-  focusOnMount: true,
-  restoreFocus: true
+  focusOnMount: true /* [1:d] */,
+  restoreFocus: true /* [1:d] */
 };
 
 /**
