@@ -183,7 +183,7 @@ describe('DrawerModal', () => {
 
       await user.click(getByText('Open Drawer'));
 
-      expect(getByRole('dialog')).toStrictEqual(document.activeElement);
+      expect(getByRole('dialog')).toBe(document.activeElement);
     });
 
     it('restores focus to the trigger button after close', async () => {
@@ -191,13 +191,13 @@ describe('DrawerModal', () => {
 
       await user.click(getByText('Open Drawer'));
 
-      expect(getByRole('dialog')).toStrictEqual(document.activeElement);
+      expect(getByRole('dialog')).toBe(document.activeElement);
 
       await user.type(getByRole('dialog'), '{escape}');
 
       await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
 
-      expect(getByText('Open Drawer')).toStrictEqual(document.activeElement);
+      expect(getByText('Open Drawer')).toBe(document.activeElement);
     });
   });
 });
