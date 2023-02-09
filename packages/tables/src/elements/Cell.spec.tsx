@@ -96,4 +96,18 @@ describe('Cell', () => {
       padding: 0 0 0 4px;
     `);
   });
+
+  it('applies visually hidden styling', () => {
+    const { getByText } = render(
+      <Table>
+        <Body>
+          <Row>
+            <Cell hidden>Foo</Cell>
+          </Row>
+        </Body>
+      </Table>
+    );
+
+    expect(getByText('Foo')).toHaveStyle(`clip: rect(0 0 0 0);`);
+  });
 });
