@@ -176,4 +176,28 @@ describe('DrawerModal', () => {
 
     await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
   });
+
+  describe('focus management', () => {
+    it('correctly focuses on the Drawer when open', async () => {
+      const { getByText, getByRole } = render(<Example />);
+
+      await user.click(getByText('Open Drawer'));
+
+      expect(getByRole('dialog')).toBe(document.activeElement);
+    });
+
+    it('restores focus to the trigger button after close', async () => {
+      const { getByText, getByRole, queryByRole } = render(<Example />);
+
+      await user.click(getByText('Open Drawer'));
+
+      expect(getByRole('dialog')).toBe(document.activeElement);
+
+      await user.type(getByRole('dialog'), '{escape}');
+
+      await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
+
+      expect(getByText('Open Drawer')).toBe(document.activeElement);
+    });
+  });
 });

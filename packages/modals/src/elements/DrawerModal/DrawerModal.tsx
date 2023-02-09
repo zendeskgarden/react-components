@@ -22,6 +22,7 @@ import { ThemeContext } from 'styled-components';
 import { useModal } from '@zendeskgarden/container-modal';
 import { useDocument, useText } from '@zendeskgarden/react-theming';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
+import activeElement from 'dom-helpers/activeElement';
 import { ModalsContext } from '../../utils/useModalContext';
 import { StyledBackdrop, StyledDrawerModal } from '../../styled';
 import { IDrawerModalProps } from '../../types';
@@ -31,6 +32,14 @@ import { Close } from './Close';
 import { Footer } from './Footer';
 import { FooterItem } from './FooterItem';
 
+/**
+ * [1] implementation of focus management for Drawer usage to support focus edge cases
+ *     - (1:a) a ref used to return focus on the last focused element
+ *     - (1:b) opt out of `@zendeskgarden/focus-jail` managing the focus
+ *     - (1:c) implementation of the focus management effect inside the component
+ *     - (1:d) set default props to match useFocusJail behavior
+ */
+
 const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
   (
     { id, isOpen, onClose, backdropProps, appendToNode, focusOnMount, restoreFocus, ...props },
@@ -38,6 +47,7 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
   ) => {
     const modalRef = useRef<HTMLDivElement | null>(null);
     const transitionRef = useRef<HTMLDivElement>(null);
+    const triggerRef = useRef<HTMLElement | null>(null); /* [1:a] */
     const theme = useContext(ThemeContext);
     const environment = useDocument(theme);
     const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
@@ -49,11 +59,36 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
       useModal({
         idPrefix: id,
         modalRef,
-        focusOnMount,
-        restoreFocus,
+        focusOnMount: false /* [1:b] */,
+        restoreFocus: false /* [1:b] */,
         environment,
         onClose
       });
+
+    /* [1:c] */
+    useEffect(() => {
+      if (environment) {
+        if (isOpen && modalRef.current) {
+          if (restoreFocus) {
+            triggerRef.current = activeElement(environment) as HTMLElement;
+          }
+
+          if (focusOnMount) {
+            modalRef.current.focus();
+          }
+        }
+
+        if (!isOpen && triggerRef.current) {
+          triggerRef.current.focus();
+        }
+      }
+
+      return () => {
+        if (!(restoreFocus && isOpen)) {
+          triggerRef.current = null;
+        }
+      };
+    }, [environment, restoreFocus, focusOnMount, isOpen]);
 
     useEffect(() => {
       if (!environment) {
@@ -160,6 +195,11 @@ DrawerModalComponent.propTypes = {
   onClose: PropTypes.func,
   appendToNode: PropTypes.any,
   isOpen: PropTypes.bool
+};
+
+DrawerModalComponent.defaultProps = {
+  focusOnMount: true /* [1:d] */,
+  restoreFocus: true /* [1:d] */
 };
 
 /**
