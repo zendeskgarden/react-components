@@ -12,6 +12,22 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.63.0 (2023-02-09)
+
+#### :bug: Bug Fix
+* `modals`
+  * [#1512](https://github.com/zendeskgarden/react-components/pull/1512) fix(modals/drawer): correctly set focus on trigger element when focus is restored ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `tables`
+  * [#1514](https://github.com/zendeskgarden/react-components/pull/1514) feat(tables): add [hidden] prop support to Cell ([@geotrev](https://github.com/geotrev))
+* `tags`
+  * [#1511](https://github.com/zendeskgarden/react-components/pull/1511) fix: improves accessibility of Tag close button ([@geotrev](https://github.com/geotrev))
+* `forms`
+  * [#1509](https://github.com/zendeskgarden/react-components/pull/1509) fix(forms): File accessibility improvements ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* `avatars`, `buttons`, `chrome`, `forms`, `grid`, `loaders`, `notifications`
+  * [#1510](https://github.com/zendeskgarden/react-components/pull/1510) chore(deps): config-eslint updates  ([@geotrev](https://github.com/geotrev))
+
 ## v8.62.2 (2023-01-26)
 
 #### :bug: Bug Fix
