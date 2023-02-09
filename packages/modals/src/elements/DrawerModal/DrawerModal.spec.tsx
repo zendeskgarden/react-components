@@ -177,19 +177,43 @@ describe('DrawerModal', () => {
     await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
   });
 
-  it('correctly focuses on the Drawer when open and restores focus to the trigger button after close', async () => {
-    const { getByText, getByRole, queryByRole } = render(
-      <Example backdropProps={{ 'data-test-id': 'backdrop' } as any} />
-    );
+  describe('focus management', () => {
+    it('correctly focuses on the Drawer when open', async () => {
+      const { getByText, getByRole } = render(<Example />);
 
-    await user.click(getByText('Open Drawer'));
+      await user.click(getByText('Open Drawer'));
 
-    expect(getByRole('dialog')).toStrictEqual(document.activeElement);
+      expect(getByRole('dialog')).toStrictEqual(document.activeElement);
+    });
 
-    await user.type(getByRole('dialog'), '{escape}');
+    it('restores focus to the trigger button after close', async () => {
+      const { getByText, getByRole, queryByRole } = render(<Example />);
 
-    await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
+      await user.click(getByText('Open Drawer'));
 
-    expect(getByText('Open Drawer')).toStrictEqual(document.activeElement);
+      expect(getByRole('dialog')).toStrictEqual(document.activeElement);
+
+      await user.type(getByRole('dialog'), '{escape}');
+
+      await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
+
+      expect(getByText('Open Drawer')).toStrictEqual(document.activeElement);
+    });
+
+    it('handles restoreFocus prop change and releases the trigger from being refocused after close', async () => {
+      const { getByText, getByRole, queryByRole, rerender } = render(<Example />);
+
+      await user.click(getByText('Open Drawer'));
+
+      expect(getByRole('dialog')).toStrictEqual(document.activeElement);
+
+      rerender(<Example restoreFocus={false} />);
+
+      await user.type(getByRole('dialog'), '{escape}');
+
+      await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
+
+      expect(getByText('Open Drawer')).not.toStrictEqual(document.activeElement);
+    });
   });
 });

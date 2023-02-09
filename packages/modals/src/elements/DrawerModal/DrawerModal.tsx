@@ -67,22 +67,27 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
     /* [1:c] */
     useEffect(() => {
       if (environment) {
-        if (modalRef.current && isOpen) {
-          if (restoreFocus === undefined ? true : restoreFocus) {
+        if (isOpen && modalRef.current) {
+          if (restoreFocus) {
             triggerRef.current = activeElement(environment) as HTMLElement;
           }
 
-          if (focusOnMount === undefined ? true : focusOnMount) {
+          if (focusOnMount) {
             modalRef.current.focus();
           }
         }
 
-        if (triggerRef.current && !isOpen) {
+        if (!isOpen && triggerRef.current) {
           triggerRef.current.focus();
-          triggerRef.current = null;
         }
       }
-    }, [environment, modalRef, triggerRef, restoreFocus, focusOnMount, isOpen]);
+
+      return () => {
+        if (!(restoreFocus && isOpen)) {
+          triggerRef.current = null;
+        }
+      };
+    }, [environment, restoreFocus, focusOnMount, isOpen]);
 
     useEffect(() => {
       if (!environment) {
@@ -189,6 +194,11 @@ DrawerModalComponent.propTypes = {
   onClose: PropTypes.func,
   appendToNode: PropTypes.any,
   isOpen: PropTypes.bool
+};
+
+DrawerModalComponent.defaultProps = {
+  focusOnMount: true,
+  restoreFocus: true
 };
 
 /**
