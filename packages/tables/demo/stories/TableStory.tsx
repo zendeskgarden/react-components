@@ -103,7 +103,6 @@ export const TableStory: Story<IArgs> = ({
                 }}
                 sort={sort[headerCell]}
                 width={widths ? widths[index] : undefined}
-                hidden={isHidden}
               >
                 {headerCell}
               </SortableCell>
@@ -112,7 +111,6 @@ export const TableStory: Story<IArgs> = ({
                 key={index}
                 isTruncated={isTruncated}
                 width={widths ? widths[index] : undefined}
-                hidden={isHidden}
               >
                 {headerCell}
               </HeaderCell>
@@ -154,7 +152,7 @@ export const TableStory: Story<IArgs> = ({
                   <Cell
                     key={`${rowIndex}${columnIndex}`}
                     isTruncated={isTruncated}
-                    hidden={isHidden && rowIndex === 2 && columnIndex === 0}
+                    hidden={isHidden}
                   >
                     {row[column]}
                   </Cell>
