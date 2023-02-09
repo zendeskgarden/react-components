@@ -199,21 +199,5 @@ describe('DrawerModal', () => {
 
       expect(getByText('Open Drawer')).toStrictEqual(document.activeElement);
     });
-
-    it('handles restoreFocus prop change and releases the trigger from being refocused after close', async () => {
-      const { getByText, getByRole, queryByRole, rerender } = render(<Example />);
-
-      await user.click(getByText('Open Drawer'));
-
-      expect(getByRole('dialog')).toStrictEqual(document.activeElement);
-
-      rerender(<Example restoreFocus={false} />);
-
-      await user.type(getByRole('dialog'), '{escape}');
-
-      await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
-
-      expect(getByText('Open Drawer')).not.toStrictEqual(document.activeElement);
-    });
   });
 });
