@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math, hideVisually } from 'polished';
+import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ICellProps, ITableProps } from '../types';
 import { getLineHeight } from './StyledTable';
@@ -58,6 +58,17 @@ const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
+/**
+ * 1. We can't use traditional "visually hidden" styles for table cells
+ *    because position, padding, and width change table layout/spacing if the
+ *    cell is a heading. Instead, indent text off screen and hide overflow.
+ *    100% width + padding is better than a static value (e.g. -9999px) for
+ *    performance reasons.
+ *    https://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+ * 2. `text-indent` at 100% only includes inner box width; include padding
+ *     to push text fully outside of cell.
+ */
+
 export const StyledCell = styled.td.attrs<IStyledCellProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -68,8 +79,11 @@ export const StyledCell = styled.td.attrs<IStyledCellProps>({
   ${props => sizeStyling(props)};
   ${props => props.isTruncated && truncatedStyling};
 
+  /* [1] */
   &[hidden] {
-    ${hideVisually()}
+    overflow: hidden;
+    text-indent: calc(100% + ${props => props.theme.space.base * 3}px); /* [2] */
+    white-space: nowrap;
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

@@ -98,16 +98,18 @@ describe('Cell', () => {
   });
 
   it('applies visually hidden styling', () => {
-    const { getByText } = render(
+    const { getByTestId } = render(
       <Table>
         <Body>
           <Row>
-            <Cell hidden>Foo</Cell>
+            <Cell hidden data-test-id="cell">
+              <span>Foo</span>
+            </Cell>
           </Row>
         </Body>
       </Table>
     );
 
-    expect(getByText('Foo')).toHaveStyle(`clip: rect(0 0 0 0);`);
+    expect(getByTestId('cell')).not.toBeVisible();
   });
 });
