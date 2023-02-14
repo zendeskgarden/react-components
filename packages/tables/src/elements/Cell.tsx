@@ -7,6 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { hideVisually } from 'polished';
 import { StyledCell } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 import { ICellProps } from '../types';
@@ -14,11 +15,17 @@ import { ICellProps } from '../types';
 /**
  * @extends TdHTMLAttributes<HTMLTableCellElement>
  */
-export const Cell = React.forwardRef<HTMLTableCellElement, ICellProps>((props, ref) => {
-  const { size } = useTableContext();
+export const Cell = React.forwardRef<HTMLTableCellElement, ICellProps>(
+  ({ hidden, ...props }, ref) => {
+    const { size } = useTableContext();
 
-  return <StyledCell ref={ref} size={size} {...props} />;
-});
+    return (
+      <StyledCell ref={ref} size={size} {...props}>
+        {hidden ? <div style={hideVisually()}>{props.children}</div> : props.children}
+      </StyledCell>
+    );
+  }
+);
 
 Cell.displayName = 'Cell';
 

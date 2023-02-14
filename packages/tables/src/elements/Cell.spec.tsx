@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { hideVisually } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
 
 import { Table } from './Table';
@@ -102,14 +103,14 @@ describe('Cell', () => {
       <Table>
         <Body>
           <Row>
-            <Cell hidden data-test-id="cell">
-              <span>Foo</span>
+            <Cell hidden>
+              <span data-test-id="cellContent">Foo</span>
             </Cell>
           </Row>
         </Body>
       </Table>
     );
 
-    expect(getByTestId('cell')).not.toBeVisible();
+    expect(getByTestId('cellContent').parentElement).toHaveStyle(hideVisually());
   });
 });

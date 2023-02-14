@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { hideVisually } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
 
 import { Table } from './Table';
@@ -69,5 +70,21 @@ describe('HeaderCell', () => {
     );
 
     expect(getByTestId('headerCell')).toHaveStyleRule('text-overflow', 'ellipsis');
+  });
+
+  it('applies visually hidden styling', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <HeaderCell hidden>
+              <span data-test-id="headerCellContent">Foo</span>
+            </HeaderCell>
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
+
+    expect(getByTestId('headerCellContent').parentElement).toHaveStyle(hideVisually());
   });
 });
