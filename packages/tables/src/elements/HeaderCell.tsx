@@ -6,9 +6,8 @@
  */
 
 import React, { forwardRef } from 'react';
-import { hideVisually } from 'polished';
 import { IHeaderCellProps } from '../types';
-import { StyledHeaderCell } from '../styled';
+import { StyledHeaderCell, StyledHiddenCell } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 import { Cell } from './Cell';
 
@@ -21,7 +20,11 @@ export const HeaderCell = forwardRef<HTMLTableCellElement, IHeaderCellProps>(
 
     return (
       <StyledHeaderCell ref={ref} size={size} {...props}>
-        {hidden ? <div style={hideVisually()}>{props.children}</div> : props.children}
+        {hidden && props.children ? (
+          <StyledHiddenCell>{props.children}</StyledHiddenCell>
+        ) : (
+          props.children
+        )}
       </StyledHeaderCell>
     );
   }

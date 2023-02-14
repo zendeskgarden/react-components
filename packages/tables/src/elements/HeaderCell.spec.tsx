@@ -77,14 +77,14 @@ describe('HeaderCell', () => {
       <Table>
         <Head>
           <HeaderRow>
-            <HeaderCell hidden>
-              <span data-test-id="headerCellContent">Foo</span>
+            <HeaderCell data-test-id="headerCell" hidden>
+              Foo
             </HeaderCell>
           </HeaderRow>
         </Head>
       </Table>
     );
 
-    expect(getByTestId('headerCellContent').parentElement).toHaveStyle(hideVisually());
+    expect(getByTestId('headerCell').firstChild).toHaveStyle(hideVisually());
   });
 });

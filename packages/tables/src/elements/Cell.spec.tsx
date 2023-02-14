@@ -103,14 +103,14 @@ describe('Cell', () => {
       <Table>
         <Body>
           <Row>
-            <Cell hidden>
-              <span data-test-id="cellContent">Foo</span>
+            <Cell data-test-id="cell" hidden>
+              Foo
             </Cell>
           </Row>
         </Body>
       </Table>
     );
 
-    expect(getByTestId('cellContent').parentElement).toHaveStyle(hideVisually());
+    expect(getByTestId('cell').firstChild).toHaveStyle(hideVisually());
   });
 });
