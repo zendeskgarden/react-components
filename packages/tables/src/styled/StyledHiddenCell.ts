@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { hideVisually } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tables.cell';
+const COMPONENT_ID = 'tables.hidden_cell';
 
 export const StyledHiddenCell = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
