@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { hideVisually } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
 
 import { Table } from './Table';
@@ -98,16 +99,18 @@ describe('Cell', () => {
   });
 
   it('applies visually hidden styling', () => {
-    const { getByText } = render(
+    const { getByTestId } = render(
       <Table>
         <Body>
           <Row>
-            <Cell hidden>Foo</Cell>
+            <Cell data-test-id="cell" hidden>
+              Foo
+            </Cell>
           </Row>
         </Body>
       </Table>
     );
 
-    expect(getByText('Foo')).toHaveStyle(`clip: rect(0 0 0 0);`);
+    expect(getByTestId('cell').firstChild).toHaveStyle(hideVisually());
   });
 });

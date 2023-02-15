@@ -79,7 +79,7 @@ export const TableStory: Story<IArgs> = ({
       <Head isSticky={isSticky}>
         <HeaderRow>
           {hasSelection && (
-            <HeaderCell isMinimum>
+            <HeaderCell isMinimum hidden={isHidden}>
               <Field>
                 <Checkbox>
                   <Label hidden>Select all</Label>

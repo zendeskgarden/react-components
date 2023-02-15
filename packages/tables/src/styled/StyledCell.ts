@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math, hideVisually } from 'polished';
+import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ICellProps, ITableProps } from '../types';
 import { getLineHeight } from './StyledTable';
@@ -67,10 +67,6 @@ export const StyledCell = styled.td.attrs<IStyledCellProps>({
 
   ${props => sizeStyling(props)};
   ${props => props.isTruncated && truncatedStyling};
-
-  &[hidden] {
-    ${hideVisually()}
-  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
