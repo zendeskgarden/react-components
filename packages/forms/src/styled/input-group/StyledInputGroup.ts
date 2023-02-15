@@ -64,6 +64,7 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 
 /**
  * 1. Garden <Button> override.
+ * 2. Reset <Input> margin if first child
  */
 const itemStyles = (props: ThemeProps<DefaultTheme>) => {
   const horizontal = props.theme.rtl ? 'right' : 'left';
@@ -77,6 +78,10 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
     & > * {
       margin-${horizontal}: -${props.theme.borderWidths.sm} !important; /* [1] */
       z-index: -1;
+    }
+
+    & > ${StyledTextInput}:first-child {
+      margin-${horizontal}: 0 !important; /* [2] */
     }
 
     & > ${StyledTextInput}:hover,
