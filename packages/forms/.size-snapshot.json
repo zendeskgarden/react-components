@@ -1,15 +1,5 @@
 {
   "index.cjs.js": {
-<<<<<<< HEAD
-    "bundled": 134408,
-    "minified": 96313,
-    "gzipped": 16830
-  },
-  "index.esm.js": {
-    "bundled": 125954,
-    "minified": 88131,
-    "gzipped": 16433,
-=======
     "bundled": 133980,
     "minified": 95963,
     "gzipped": 16786
@@ -17,8 +7,7 @@
   "index.esm.js": {
     "bundled": 125526,
     "minified": 87781,
-    "gzipped": 16387,
->>>>>>> 47c7f40d61 (fix: address feedback)
+    "gzipped": 16388,
     "treeshaked": {
       "rollup": {
         "code": 70854,
