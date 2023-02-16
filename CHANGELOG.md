@@ -12,6 +12,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.63.1 (2023-02-16)
+
+#### :bug: Bug Fix
+* `tables`
+  * [#1516](https://github.com/zendeskgarden/react-components/pull/1516) fix(tables): hide content of Table cell without breaking table layout ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* [#1513](https://github.com/zendeskgarden/react-components/pull/1513) chore(readme): removes daviddm dependency badges from README ([@geotrev](https://github.com/geotrev))
+
 ## v8.63.0 (2023-02-09)
 
 #### :bug: Bug Fix
