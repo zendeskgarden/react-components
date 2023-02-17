@@ -58,8 +58,8 @@ describe('InputGroup', () => {
 
       const inputGroupElement = getByText('A').parentElement!;
 
-      expect(inputGroupElement).toHaveStyleRule('margin-left', '-1px !important', {
-        modifier: '& > *'
+      expect(inputGroupElement).toHaveStyleRule('margin-left', '-1px', {
+        modifier: '& > *:not(:first-child)'
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-right-radius', '0', {
@@ -91,8 +91,8 @@ describe('InputGroup', () => {
 
       const inputGroupElement = getByText('A').parentElement!;
 
-      expect(inputGroupElement).toHaveStyleRule('margin-right', '-1px !important', {
-        modifier: '& > *'
+      expect(inputGroupElement).toHaveStyleRule('margin-right', '-1px', {
+        modifier: '& > *:not(:first-child)'
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-left-radius', '0', {
