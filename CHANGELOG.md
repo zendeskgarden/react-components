@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.63.2 (2023-02-23)
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1517](https://github.com/zendeskgarden/react-components/pull/1517) fix(forms): reset margin start for text input in input group ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.63.1 (2023-02-16)
 
 #### :bug: Bug Fix
