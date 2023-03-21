@@ -21,6 +21,8 @@ export interface IDraggableProps extends HTMLAttributes<HTMLDivElement> {
   isPlaceholder?: boolean;
   /** Applies alternative HTML tag to element */
   tag?: string;
+  /** Applies drag styling */
+  isDragging?: boolean;
 }
 
 export interface IDraggableListProps extends HTMLAttributes<HTMLUListElement> {

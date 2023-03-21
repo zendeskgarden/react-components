@@ -22,13 +22,11 @@ import { DraggableStory } from './stories/DraggableStory';
     name="Draggable"
     args={{
       label: 'Label',
-      caption: 'Caption',
-      hasAction: false
+      caption: 'Caption'
     }}
     argTypes={{
-      label: { control: { type: 'string' }, table: { category: 'Story' } },
-      caption: { control: { type: 'string' }, table: { category: 'Story' } },
-      hasAction: { control: { type: 'boolean' }, table: { category: 'Story' } },
+      label: { control: { type: 'text' }, table: { category: 'Story' } },
+      caption: { control: { type: 'text' }, table: { category: 'Story' } },
       isFocusable: { control: { type: 'boolean' }, table: { category: 'Story' } }
     }}
   >
