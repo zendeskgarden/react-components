@@ -12,7 +12,7 @@ import { StyledDraggable } from '../../styled';
 import { IDraggableProps } from '../../types';
 
 const DraggableComponent = forwardRef<HTMLDivElement, PropsWithChildren<IDraggableProps>>(
-  ({ tag, ...props }, ref) => <StyledDraggable as={tag} {...props} ref={ref} />
+  ({ tag = 'div', ...props }, ref) => <StyledDraggable as={tag} {...props} ref={ref} />
 );
 
 DraggableComponent.displayName = 'Draggable';

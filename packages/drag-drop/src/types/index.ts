@@ -20,7 +20,7 @@ export interface IDraggableProps extends HTMLAttributes<HTMLDivElement> {
   /** Hides content and applies placeholder background styling */
   isPlaceholder?: boolean;
   /** Applies alternative HTML tag to element */
-  tag?: string;
+  tag?: any;
   /** Applies drag styling */
   isDragging?: boolean;
 }

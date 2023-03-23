@@ -39,12 +39,15 @@ function getSiblingMarginStyles(props: IStyledDraggableListDropIndicatorProps) {
 }
 
 function getBeforePseudoElementStyles(props: IStyledDraggableListDropIndicatorProps) {
-  const { isHorizontal } = props;
+  const {
+    isHorizontal,
+    theme: { rtl }
+  } = props;
 
   if (isHorizontal) {
     return {
       top: 0,
-      transform: 'translate(-50%, -75%)'
+      transform: rtl ? 'translate(50%, -75%)' : 'translate(-50%, -75%)'
     };
   }
 
@@ -55,12 +58,15 @@ function getBeforePseudoElementStyles(props: IStyledDraggableListDropIndicatorPr
 }
 
 function getAfterPseudoElementStyles(props: IStyledDraggableListDropIndicatorProps) {
-  const { isHorizontal } = props;
+  const {
+    isHorizontal,
+    theme: { rtl }
+  } = props;
 
   if (isHorizontal) {
     return {
       bottom: 0,
-      transform: 'translate(-50%, 75%)'
+      transform: rtl ? 'translate(50%, 75%)' : 'translate(-50%, 75%)'
     };
   }
 
