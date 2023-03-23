@@ -25,11 +25,17 @@ import { Draggable, Dropzone } from '@zendeskgarden/react-drag-drop';
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
+  <DraggableList>
+    <DraggableList.Item>
+      <Draggable>
+        <Draggable.Grip />
+        <Draggable.Content>Petunia</Draggable.Content>
+      </Draggable>
+    </DraggableList.Item>
+  </DraggableList>
+
   <Dropzone>
-    <Draggable>
-      <Draggable.Grip />
-      <Draggable.Content>Petunia</Draggable.Text>
-    </Draggable>
+    <Dropzone.Message>Drag items here</Dropzone.Message>
   </Dropzone>
 </ThemeProvider>;
 ```

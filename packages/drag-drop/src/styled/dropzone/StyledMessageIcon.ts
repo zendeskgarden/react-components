@@ -8,23 +8,26 @@
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'draggable.grip';
+const COMPONENT_ID = 'dropzone.message_icon';
 
-function getMarginStyles(props: ThemeProps<DefaultTheme>) {
+function getMarginStyles({ theme }: ThemeProps<DefaultTheme>) {
   return {
-    [props.theme.rtl ? 'marginLeft' : 'marginRight']: props.theme.space.xs
+    [theme.rtl ? 'marginLeft' : 'marginRight']: theme.space.xs
   };
 }
 
-export const StyledDraggableGrip = styled.div.attrs({
+export const StyledMessageIcon = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  width: 12px;
+  height: 12px;
+
   ${getMarginStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledDraggableGrip.defaultProps = {
+StyledMessageIcon.defaultProps = {
   theme: DEFAULT_THEME
 };

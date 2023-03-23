@@ -10,19 +10,19 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'draggable_list.item';
 
-export interface IStyledDraggableListItemProps extends ThemeProps<DefaultTheme> {
+export interface IStyledItemProps extends ThemeProps<DefaultTheme> {
   isHorizontal?: boolean;
 }
 
-export const StyledDraggableListItem = styled.li.attrs({
+export const StyledItem = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledDraggableListItemProps>`
+})<IStyledItemProps>`
   display: flex;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledDraggableListItem.defaultProps = {
+StyledItem.defaultProps = {
   theme: DEFAULT_THEME
 };

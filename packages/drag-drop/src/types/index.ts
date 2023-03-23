@@ -19,10 +19,10 @@ export interface IDraggableProps extends HTMLAttributes<HTMLDivElement> {
   isActive?: boolean;
   /** Hides content and applies placeholder background styling */
   isPlaceholder?: boolean;
-  /** Applies alternative HTML tag to element */
-  tag?: any;
   /** Applies drag styling */
   isDragging?: boolean;
+  /** Applies alternative HTML tag to element */
+  tag?: any;
 }
 
 export interface IDraggableListProps extends HTMLAttributes<HTMLUListElement> {
@@ -33,6 +33,12 @@ export interface IDraggableListProps extends HTMLAttributes<HTMLUListElement> {
 export interface IDropzoneProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies danger styling */
   isDanger?: boolean;
+  /** Applies highlighted styling to indicate draggable element is hovering */
+  isActive?: boolean;
+  /** Applies highlighted styling to indicate dropping is possible */
+  isHovered?: boolean;
+  /** APplies disabled styling */
+  isDisabled?: boolean;
   /** Applies alternative HTML tag to element */
-  tag?: string;
+  tag?: any;
 }

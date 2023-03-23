@@ -25,10 +25,10 @@ import { DraggableStory } from './stories/DraggableStory';
       caption: 'Caption'
     }}
     argTypes={{
-      label: { control: { type: 'text' }, table: { category: 'Story' } },
-      caption: { control: { type: 'text' }, table: { category: 'Story' } },
       tag: { control: { type: 'text' } },
-      isFocusable: { control: { type: 'boolean' }, table: { category: 'Story' } }
+      isFocusable: { control: { type: 'boolean' }, table: { category: 'Story' } },
+      label: { control: { type: 'text' }, table: { category: 'Draggable.Content' } },
+      caption: { control: { type: 'text' }, table: { category: 'Draggable.Content' } }
     }}
   >
     {args => <DraggableStory {...args} />}

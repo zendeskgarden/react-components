@@ -21,7 +21,7 @@ export interface IStyledDraggableProps extends ThemeProps<DefaultTheme> {
   isDragging?: boolean;
 }
 
-function getDragShadow(props: IStyledDraggableProps) {
+function getShadow(props: IStyledDraggableProps) {
   const { theme } = props;
   const { space, shadows } = theme;
   const offsetY = `${space.base * 5}px`;
@@ -61,9 +61,6 @@ function getColorStyles(props: IStyledDraggableProps) {
     }
   `;
 
-  /**
-   * Disabled state
-   */
   if (props.isDisabled) {
     return css`
       background-color: ${p => getColor('neutralHue', 200, p.theme)};
@@ -74,9 +71,6 @@ function getColorStyles(props: IStyledDraggableProps) {
     `;
   }
 
-  /**
-   * Placeholder state
-   */
   if (props.isPlaceholder) {
     return css`
       background-color: ${p => getColor('neutralHue', 200, p.theme)};
@@ -88,8 +82,6 @@ function getColorStyles(props: IStyledDraggableProps) {
   }
 
   /**
-   * Active state
-   *
    * 1. Subtract 1px from padding for the additional border-width.
    * 2. Drag shadow overrides focus shadow.
    */
@@ -101,6 +93,7 @@ function getColorStyles(props: IStyledDraggableProps) {
       /* prettier-ignore */
       padding: calc(${p =>
         props.isCompact ? p.theme.space.base * 1.25 : p.theme.space.base * 2.25}px - 1px); /* [1] */
+
       ${pseudoClassStyles}
     `;
   }
@@ -109,7 +102,7 @@ function getColorStyles(props: IStyledDraggableProps) {
     border-color: ${p => (isBare ? 'transparent' : getColor('neutralHue', 300, p.theme))};
     background-color: ${p => p.theme.colors.background};
 
-    ${() => (props.isDragging ? getDragShadow : pseudoClassStyles)}/* [2] */
+    ${props.isDragging ? getShadow : pseudoClassStyles}/* [2] */
   `;
 }
 

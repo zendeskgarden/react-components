@@ -10,20 +10,17 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'dropzone.message';
 
-/**
- * 1. <ul> reset.
- */
-export const StyledDropzoneMessage = styled.p.attrs({
+export const StyledMessage = styled.p.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  margin: 0; /* [1] */
-  padding: 0; /* [1] */
-  list-style: none; /* [1] */
+  display: flex;
+  color: inherit;
+  font-size: ${props => props.theme.fontSizes.md};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledDropzoneMessage.defaultProps = {
+StyledMessage.defaultProps = {
   theme: DEFAULT_THEME
 };

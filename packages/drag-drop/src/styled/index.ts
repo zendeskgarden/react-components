@@ -6,12 +6,13 @@
  */
 
 export { StyledDraggable } from './draggable/StyledDraggable';
-export { StyledDraggableContent } from './draggable/StyledDraggableContent';
-export { StyledDraggableGrip } from './draggable/StyledDraggableGrip';
+export { StyledContent } from './draggable/StyledContent';
+export { StyledGrip } from './draggable/StyledGrip';
 
 export { StyledDraggableList } from './draggable-list/StyledDraggableList';
-export { StyledDraggableListDropIndicator } from './draggable-list/StyledDraggableListDropIndicator';
-export { StyledDraggableListItem } from './draggable-list/StyledDraggableListItem';
+export { StyledDropIndicator } from './draggable-list/StyledDropIndicator';
+export { StyledItem } from './draggable-list/StyledItem';
 
 export { StyledDropzone } from './dropzone/StyledDropzone';
-export { StyledDropzoneMessage } from './dropzone/StyledDropzoneMessage';
+export { StyledMessage } from './dropzone/StyledMessage';
+export { StyledMessageIcon } from './dropzone/StyledMessageIcon';

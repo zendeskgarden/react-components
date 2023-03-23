@@ -5,20 +5,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'draggable.content';
+const COMPONENT_ID = 'draggable.grip';
 
-export const StyledDraggableContent = styled.div.attrs({
+function getMarginStyles({ theme }: ThemeProps<DefaultTheme>) {
+  return {
+    [theme.rtl ? 'marginLeft' : 'marginRight']: theme.space.xs
+  };
+}
+
+export const StyledGrip = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  flex: 1;
+  ${getMarginStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledDraggableContent.defaultProps = {
+StyledGrip.defaultProps = {
   theme: DEFAULT_THEME
 };

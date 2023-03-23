@@ -6,16 +6,16 @@
  */
 
 import React, { forwardRef, HTMLAttributes, PropsWithChildren } from 'react';
-import { StyledDraggableContent } from '../../../styled';
+import { StyledContent } from '../../../styled';
 
-const DraggableContentComponent = forwardRef<
+const ContentComponent = forwardRef<
   HTMLDivElement,
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>
->((props, ref) => <StyledDraggableContent {...props} ref={ref} />);
+>((props, ref) => <StyledContent {...props} ref={ref} />);
 
-DraggableContentComponent.displayName = 'Draggable.Content';
+ContentComponent.displayName = 'Draggable.Content';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const DraggableContent = DraggableContentComponent;
+export const Content = ContentComponent;

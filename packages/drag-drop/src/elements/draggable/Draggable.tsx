@@ -6,8 +6,8 @@
  */
 
 import React, { forwardRef, PropsWithChildren } from 'react';
-import { DraggableContent } from './components/DraggableContent';
-import { DraggableGrip } from './components/DraggableGrip';
+import { Content } from './components/Content';
+import { Grip } from './components/Grip';
 import { StyledDraggable } from '../../styled';
 import { IDraggableProps } from '../../types';
 
@@ -21,9 +21,9 @@ DraggableComponent.displayName = 'Draggable';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Draggable = DraggableComponent as typeof DraggableComponent & {
-  Grip: typeof DraggableGrip;
-  Content: typeof DraggableContent;
+  Grip: typeof Grip;
+  Content: typeof Content;
 };
 
-Draggable.Grip = DraggableGrip;
-Draggable.Content = DraggableContent;
+Draggable.Grip = Grip;
+Draggable.Content = Content;

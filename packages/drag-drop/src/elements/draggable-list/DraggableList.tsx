@@ -6,8 +6,8 @@
  */
 
 import React, { forwardRef, PropsWithChildren, useMemo } from 'react';
-import { DraggableListDropIndicator } from './components/DraggableListDropIndicator';
-import { DraggableListItem } from './components/DraggableListItem';
+import { DropIndicator } from './components/DropIndicator';
+import { Item } from './components/Item';
 import { StyledDraggableList } from '../../styled';
 import { IDraggableListProps } from '../../types';
 import { DraggableListContext } from '../../utils/useDraggableListContext';
@@ -30,9 +30,9 @@ DraggableListComponent.displayName = 'DraggableList';
  * @extends HTMLAttributes<HTMLUListElement>
  */
 export const DraggableList = DraggableListComponent as typeof DraggableListComponent & {
-  Item: typeof DraggableListItem;
-  DropIndicator: typeof DraggableListDropIndicator;
+  Item: typeof Item;
+  DropIndicator: typeof DropIndicator;
 };
 
-DraggableList.Item = DraggableListItem;
-DraggableList.DropIndicator = DraggableListDropIndicator;
+DraggableList.Item = Item;
+DraggableList.DropIndicator = DropIndicator;
