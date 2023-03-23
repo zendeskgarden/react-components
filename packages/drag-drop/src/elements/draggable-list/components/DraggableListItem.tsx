@@ -7,11 +7,16 @@
 
 import React, { forwardRef, LiHTMLAttributes, PropsWithChildren } from 'react';
 import { StyledDraggableListItem } from '../../../styled';
+import { useDraggableListContext } from '../../../utils/useDraggableListContext';
 
 const DraggableListItemComponent = forwardRef<
   HTMLLIElement,
   PropsWithChildren<LiHTMLAttributes<HTMLLIElement>>
->((props, ref) => <StyledDraggableListItem {...props} ref={ref} />);
+>((props, ref) => {
+  const { isHorizontal } = useDraggableListContext();
+
+  return <StyledDraggableListItem {...props} isHorizontal={isHorizontal} ref={ref} />;
+});
 
 DraggableListItemComponent.displayName = 'DraggableList.Item';
 

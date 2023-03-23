@@ -1,0 +1,32 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { DraggableList } from '@zendeskgarden/react-drag-drop';
+import { DraggableListStory } from './stories/DraggableListStory';
+import { LIST_ITEMS as items } from './stories/data';
+
+<Meta
+  title="Packages/Drag-Drop/DraggableList"
+  component={DraggableList}
+  subcomponents={{
+    'DraggableList.DropIndicator': DraggableList.DropIndicator,
+    'DraggableList.Item': DraggableList.Item
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="DraggableList"
+    args={{ items }}
+    argTypes={{
+      items: { name: 'DraggableList.Item[]', table: { category: 'Story' } },
+      dropIndicatorIndex: { control: { type: 'number' }, table: { category: 'Story' } }
+    }}
+  >
+    {args => <DraggableListStory {...args} />}
+  </Story>
+</Canvas>

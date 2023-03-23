@@ -11,30 +11,30 @@ import { StyledDraggableListItem } from './StyledDraggableListItem';
 
 const COMPONENT_ID = 'draggable_list.drop_indicator';
 
-const INDICATOR_SIZE = 2;
+export const INDICATOR_LINE_SIZE = 2;
+const INDICATOR_END_SIZE = 8;
 
-export interface IStyledDraggableListDropIndicatorProps {
+export interface IStyledDraggableListDropIndicatorProps extends ThemeProps<DefaultTheme> {
   isHorizontal?: boolean;
 }
 
-function getDirectionStyles(
-  props: IStyledDraggableListDropIndicatorProps & ThemeProps<DefaultTheme>
-) {
-  const {
-    isHorizontal,
-    theme: { rtl, space }
-  } = props;
+function getSiblingMarginStyles(props: IStyledDraggableListDropIndicatorProps) {
+  const value = `${props.theme.space.base - INDICATOR_LINE_SIZE / 2}px`;
 
-  if (isHorizontal) {
+  if (props.isHorizontal) {
+    if (props.theme.rtl) {
+      return {
+        marginRight: `${value} !important`
+      };
+    }
+
     return {
-      width: `${INDICATOR_SIZE}px`,
-      [rtl ? 'marginRight' : 'marginLeft']: `${space.base - INDICATOR_SIZE}px`
+      marginLeft: `${value} !important`
     };
   }
 
   return {
-    height: `${INDICATOR_SIZE}px`,
-    marginTop: `${space.base - INDICATOR_SIZE}px`
+    marginTop: `${value} !important`
   };
 }
 
@@ -43,16 +43,14 @@ function getBeforePseudoElementStyles(props: IStyledDraggableListDropIndicatorPr
 
   if (isHorizontal) {
     return {
-      left: `-${INDICATOR_SIZE / 2}px`,
       top: 0,
-      transform: 'translateY(-50%)'
+      transform: 'translate(-50%, -75%)'
     };
   }
 
   return {
     left: 0,
-    top: `-${INDICATOR_SIZE / 2}px`,
-    transform: 'translateX(-50%)'
+    transform: 'translate(-75%, -50%)'
   };
 }
 
@@ -61,14 +59,14 @@ function getAfterPseudoElementStyles(props: IStyledDraggableListDropIndicatorPro
 
   if (isHorizontal) {
     return {
-      right: `-${INDICATOR_SIZE / 2}px`,
-      bottom: '-50%'
+      bottom: 0,
+      transform: 'translate(-50%, 75%)'
     };
   }
 
   return {
-    right: '-50%',
-    bottom: `-${INDICATOR_SIZE / 2}px`
+    right: 0,
+    transform: 'translate(75%, -50%)'
   };
 }
 
@@ -79,17 +77,17 @@ function getAfterPseudoElementStyles(props: IStyledDraggableListDropIndicatorPro
 export const StyledDraggableListDropIndicator = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledDraggableListDropIndicatorProps & ThemeProps<DefaultTheme>>`
+})<IStyledDraggableListDropIndicatorProps>`
   position: relative;
-  background-color: ${p => getColor('primaryHue', 600, p.theme)};
-
-  ${getDirectionStyles}
+  border: ${p => p.theme.borders.sm} ${p => getColor('primaryHue', 600, p.theme)};
 
   &::before,
   &::after {
     position: absolute;
-    width: ${p => p.theme.space.xxs};
-    height: ${p => p.theme.space.xxs};
+    border-radius: 50%;
+    background-color: ${p => getColor('primaryHue', 600, p.theme)};
+    width: ${INDICATOR_END_SIZE}px;
+    height: ${INDICATOR_END_SIZE}px;
     content: '';
   }
 
@@ -102,7 +100,7 @@ export const StyledDraggableListDropIndicator = styled.li.attrs({
   }
 
   + ${StyledDraggableListItem} {
-    margin-top: ${p => p.theme.space.xxs};
+    ${getSiblingMarginStyles}
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

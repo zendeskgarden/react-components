@@ -118,6 +118,7 @@ export const StyledDraggable = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledDraggableProps>`
   display: flex;
+  flex: 1;
   align-items: center;
   /* prettier-ignore */
   transition:
