@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, PropsWithChildren, useMemo, useState } from 'react';
+import React, { forwardRef, useMemo, useState } from 'react';
 import { Message } from './components/Message';
+import { Icon } from './components/Icon';
 import { StyledDropzone } from '../../styled';
 import { IDropzoneProps } from '../../types';
 import { DropzoneContext } from '../../utils/useDropzoneContext';
 
-const DropzoneComponent = forwardRef<HTMLDivElement, PropsWithChildren<IDropzoneProps>>(
+const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
   ({ tag = 'div', ...props }, ref) => {
     const { isDanger } = props;
     const [hasMessage, setHasMessage] = useState(false);
@@ -37,7 +38,9 @@ DropzoneComponent.displayName = 'Dropzone';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Dropzone = DropzoneComponent as typeof DropzoneComponent & {
+  Icon: typeof Icon;
   Message: typeof Message;
 };
 
 Dropzone.Message = Message;
+Dropzone.Icon = Icon;

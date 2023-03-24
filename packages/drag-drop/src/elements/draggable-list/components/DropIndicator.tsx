@@ -5,18 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, LiHTMLAttributes, PropsWithChildren } from 'react';
+import React, { forwardRef, LiHTMLAttributes } from 'react';
 import { useDraggableListContext } from '../../../utils/useDraggableListContext';
 import { StyledDropIndicator } from '../../../styled';
 
-const DropIndicatorComponent = forwardRef<
-  HTMLLIElement,
-  PropsWithChildren<LiHTMLAttributes<HTMLLIElement>>
->((props, ref) => {
-  const { isHorizontal } = useDraggableListContext();
+const DropIndicatorComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
+  (props, ref) => {
+    const { isHorizontal } = useDraggableListContext();
 
-  return <StyledDropIndicator {...props} isHorizontal={isHorizontal} ref={ref} />;
-});
+    return <StyledDropIndicator {...props} isHorizontal={isHorizontal} ref={ref} />;
+  }
+);
 
 DropIndicatorComponent.displayName = 'DraggableList.DropIndicator';
 

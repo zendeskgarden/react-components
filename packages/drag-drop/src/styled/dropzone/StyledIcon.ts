@@ -8,7 +8,7 @@
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropzone.message_icon';
+const COMPONENT_ID = 'dropzone.icon';
 
 function getMarginStyles({ theme }: ThemeProps<DefaultTheme>) {
   return {
@@ -16,7 +16,7 @@ function getMarginStyles({ theme }: ThemeProps<DefaultTheme>) {
   };
 }
 
-export const StyledMessageIcon = styled.div.attrs({
+export const StyledIcon = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -28,6 +28,6 @@ export const StyledMessageIcon = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledMessageIcon.defaultProps = {
+StyledIcon.defaultProps = {
   theme: DEFAULT_THEME
 };

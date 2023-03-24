@@ -5,13 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, PropsWithChildren } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledContent } from '../../../styled';
 
-const ContentComponent = forwardRef<
-  HTMLDivElement,
-  PropsWithChildren<HTMLAttributes<HTMLDivElement>>
->((props, ref) => <StyledContent {...props} ref={ref} />);
+const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => <StyledContent {...props} ref={ref} />
+);
 
 ContentComponent.displayName = 'Draggable.Content';
 

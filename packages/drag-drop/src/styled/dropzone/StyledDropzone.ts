@@ -7,6 +7,12 @@
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  dropzoneStateStyles,
+  PRIMARY_HUE,
+  DANGER_HUE,
+  NEUTRAL_HUE
+} from '../../utils/dropzoneStateStyles';
 
 const COMPONENT_ID = 'dropzone';
 
@@ -19,77 +25,30 @@ export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
 }
 
 /**
- * 2. Remove 1px padding, add 1px to border to prevent layout shifting from hover.
+ * 1. Remove 1px padding, add 1px to border to prevent layout shifting from hover.
  */
 function getStateStyles(props: IStyledDropzoneProps) {
-  const { isDanger, isDisabled, isActive, isHovered, theme } = props;
-  const hoverPadding = `${theme.space.base * 3 - 1}px`;
+  const { isDanger, isDisabled, theme } = props;
 
   if (isDisabled) {
     return {
-      backgroundColor: getColor('neutralHue', 200, theme),
-      borderColor: getColor('neutralHue', 300, theme),
-      color: getColor('neutralHue', 400, theme)
+      backgroundColor: getColor(NEUTRAL_HUE, 200, theme),
+      borderColor: getColor(NEUTRAL_HUE, 300, theme),
+      color: getColor(NEUTRAL_HUE, 400, theme)
     };
   }
 
   /**
-   * Danger state
+   * isDanger
    */
   if (isDanger) {
-    if (isHovered) {
-      return {
-        padding: hoverPadding /* [2] */,
-        borderWidth: theme.borderRadii.sm /* [2] */,
-        borderColor: getColor('dangerHue', 700, theme),
-        borderStyle: 'solid',
-        backgroundColor: getColor('dangerHue', 600, theme, 0.08),
-        color: getColor('dangerHue', 800, theme)
-      };
-    }
-
-    if (isActive) {
-      return {
-        borderColor: getColor('dangerHue', 600, theme),
-        backgroundColor: getColor('dangerHue', 600, theme, 0.08),
-        color: getColor('dangerHue', 600, theme)
-      };
-    }
-
-    return {
-      borderColor: getColor('dangerHue', 600, theme),
-      backgroundColor: theme.colors.background,
-      color: getColor('dangerHue', 600, theme)
-    };
+    return dropzoneStateStyles(DANGER_HUE, props);
   }
 
   /**
-   * Default states
+   * Default
    */
-  if (isHovered) {
-    return {
-      padding: hoverPadding /* [2] */,
-      borderWidth: theme.borderRadii.sm /* [2] */,
-      borderColor: getColor('primaryHue', 600, theme),
-      borderStyle: 'solid',
-      backgroundColor: getColor('primaryHue', 600, theme, 0.08),
-      color: getColor('primaryHue', 800, theme)
-    };
-  }
-
-  if (isActive) {
-    return {
-      borderColor: getColor('primaryHue', 600, theme),
-      backgroundColor: getColor('primaryHue', 600, theme, 0.08),
-      color: getColor('primaryHue', 600, theme)
-    };
-  }
-
-  return {
-    borderColor: getColor('neutralHue', 600, theme),
-    background: theme.colors.background,
-    color: getColor('neutralHue', 600, theme)
-  };
+  return dropzoneStateStyles(PRIMARY_HUE, props);
 }
 
 /**
@@ -102,6 +61,12 @@ export const StyledDropzone = styled.div.attrs({
   display: ${p => p.hasMessage && 'flex'};
   align-items: ${p => p.hasMessage && 'center'};
   justify-content: ${p => p.hasMessage && 'center'};
+  /* prettier-ignore */
+  transition:
+    border-color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out,
+    z-index 0.25s ease-in-out;
   border-width: 1px;
   border-style: dashed;
   border-radius: ${p => p.theme.borderRadii.md};

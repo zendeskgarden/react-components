@@ -15,4 +15,4 @@ export { StyledItem } from './draggable-list/StyledItem';
 
 export { StyledDropzone } from './dropzone/StyledDropzone';
 export { StyledMessage } from './dropzone/StyledMessage';
-export { StyledMessageIcon } from './dropzone/StyledMessageIcon';
+export { StyledIcon } from './dropzone/StyledIcon';

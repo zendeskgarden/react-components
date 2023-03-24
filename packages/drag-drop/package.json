@@ -37,7 +37,9 @@
   "keywords": [
     "components",
     "drag",
+    "draggable",
     "drop",
+    "dropzone",
     "garden",
     "react",
     "zendesk"

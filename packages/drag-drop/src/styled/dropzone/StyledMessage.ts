@@ -15,6 +15,7 @@ export const StyledMessage = styled.p.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   display: flex;
+  margin: 0;
   color: inherit;
   font-size: ${props => props.theme.fontSizes.md};
 

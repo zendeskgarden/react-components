@@ -5,17 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, LiHTMLAttributes, PropsWithChildren } from 'react';
+import React, { forwardRef, LiHTMLAttributes } from 'react';
 import { StyledItem } from '../../../styled';
 import { useDraggableListContext } from '../../../utils/useDraggableListContext';
 
-const ItemComponent = forwardRef<HTMLLIElement, PropsWithChildren<LiHTMLAttributes<HTMLLIElement>>>(
-  (props, ref) => {
-    const { isHorizontal } = useDraggableListContext();
+const ItemComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
+  const { isHorizontal } = useDraggableListContext();
 
-    return <StyledItem {...props} isHorizontal={isHorizontal} ref={ref} />;
-  }
-);
+  return <StyledItem {...props} isHorizontal={isHorizontal} ref={ref} />;
+});
 
 ItemComponent.displayName = 'DraggableList.Item';
 
