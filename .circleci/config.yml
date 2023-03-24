@@ -27,6 +27,7 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
           override-ci-command: yarn --frozen-lockfile --ignore-scripts
+          cache-version: '{{ .Environment.CACHE_VERSION }}'
       - run: yarn lerna bootstrap
       - run: yarn lerna run build --concurrency=2 # prevent out-of-memory
       - *persist_to_workspace
