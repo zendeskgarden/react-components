@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Combobox } from '@zendeskgarden/react-dropdowns.next';
+
+<Meta title="Packages/Dropdowns.Next/Combobox" component={Combobox} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Combobox"
+    args={{ children: 'Text' }}
+    argTypes={{ isFocusable: { control: { type: 'boolean' }, table: { category: 'Story' } } }}
+  >
+    {({ children, ...args }) => (
+      <Combobox {...args} tabIndex={args.isFocusable ? 0 : -1}>
+        {children}
+      </Combobox>
+    )}
+  </Story>
+</Canvas>
