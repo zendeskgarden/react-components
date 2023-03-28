@@ -16,7 +16,7 @@ function getMarginStyles({ theme }: ThemeProps<DefaultTheme>) {
   };
 }
 
-export const StyledIcon = styled.div.attrs({
+export const StyledIcon = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

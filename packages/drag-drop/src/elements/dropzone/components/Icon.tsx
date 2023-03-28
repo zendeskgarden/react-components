@@ -8,13 +8,13 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledIcon } from '../../../styled';
 
-const IconComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
+const IconComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>((props, ref) => (
   <StyledIcon aria-hidden="true" {...props} ref={ref} />
 ));
 
 IconComponent.displayName = 'Dropzone.Icon';
 
 /**
- * @extends HTMLAttributes<HTMLDivElement>
+ * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const Icon = IconComponent;

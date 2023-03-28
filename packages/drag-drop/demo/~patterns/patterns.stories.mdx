@@ -1,0 +1,25 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Dropzone } from '@zendeskgarden/react-tags';
+import { DropzoneCustomIconStory } from './stories/DropzoneCustomIconStory';
+
+<Meta title="Packages/Drag-Drop/[patterns]" component={Dropzone} />
+
+# Patterns
+
+## Dropzone Custom Icon
+
+A `Dropzone.Icon` sub-component can be used to indicate actions visually. This example uses `arrow-retweet-stroke.svg`
+to indicate a replace action when `isHovered` is set.
+
+<Canvas>
+  <Story
+    name="DropzoneCustomIcon"
+    args={{ isHovered: false, messageLabel: 'Message' }}
+    argTypes={{
+      messageLabel: { name: 'children', control: { type: 'text' }, table: { category: 'Story' } },
+      isHovered: { control: { type: 'boolean' }, table: { category: 'Story' } }
+    }}
+  >
+    {args => <DropzoneCustomIconStory {...args} />}
+  </Story>
+</Canvas>

@@ -29,13 +29,13 @@ function getBeforePseudoElementStyles(props: IStyledDropIndicatorProps) {
   if (isHorizontal) {
     return {
       top: 0,
-      transform: rtl ? 'translate(50%, -75%)' : 'translate(-50%, -75%)'
+      transform: rtl ? 'translate(50%, -100%)' : 'translate(-50%, -100%)'
     };
   }
 
   return {
     left: 0,
-    transform: 'translate(-75%, -50%)'
+    transform: 'translate(-100%, -50%)'
   };
 }
 
@@ -51,13 +51,13 @@ function getAfterPseudoElementStyles(props: IStyledDropIndicatorProps) {
   if (isHorizontal) {
     return {
       bottom: 0,
-      transform: rtl ? 'translate(50%, 75%)' : 'translate(-50%, 75%)'
+      transform: rtl ? 'translate(50%, 100%)' : 'translate(-50%, 100%)'
     };
   }
 
   return {
     right: 0,
-    transform: 'translate(75%, -50%)'
+    transform: 'translate(100%, -50%)'
   };
 }
 
