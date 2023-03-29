@@ -32,15 +32,15 @@ uses `arrow-retweet-stroke.svg` to indicate a replace action when `isHighlighted
 
 ## Sortable List
 
-Use `Draggable` and `Dropzone` with your third party library of choice (`dnd-kit`
-in this case).
+Use `DraggableList` and `Draggable` with your third party library of choice (e.g., `dnd-kit`)
+to create a sortable list.
 
 <Canvas>
   <Story
     name="SortableList"
-    args={{ columns }}
+    args={{ items: columns[0].items }}
     argTypes={{
-      columns: {
+      items: {
         control: { type: 'object' },
         table: { category: 'Story' }
       }

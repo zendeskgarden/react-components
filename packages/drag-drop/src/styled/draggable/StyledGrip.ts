@@ -20,6 +20,7 @@ export const StyledGrip = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  box-sizing: border-box;
   ${getMarginStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

@@ -69,6 +69,7 @@ export const StyledDropzone = styled.div.attrs({
   font-family: ${props => props.theme.fonts.system};
   font-size: ${props => props.theme.fontSizes.md};
   direction: ${props => props.theme.rtl && 'rtl'};
+  box-sizing: border-box;
 
   ${getStateStyles}
 

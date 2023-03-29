@@ -5,28 +5,30 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Story } from '@storybook/react';
+
 import {
   closestCorners,
   DndContext,
   DragOverlay,
-  DragStartEvent,
   KeyboardSensor,
   PointerSensor,
-  useDroppable,
   useSensor,
   useSensors
 } from '@dnd-kit/core';
+import type { DragEndEvent, DragStartEvent } from '@dnd-kit/core';
+
 import {
   sortableKeyboardCoordinates,
   SortableContext,
   verticalListSortingStrategy,
-  useSortable
+  useSortable,
+  arrayMove
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
-import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-drop';
+import { Draggable, DraggableList } from '@zendeskgarden/react-drag-drop';
 import { MD, SM } from '@zendeskgarden/react-typography';
 import type { IDraggableProps } from '@zendeskgarden/react-drag-drop';
 
@@ -39,63 +41,43 @@ interface ISortableItem extends IDraggableProps {
   id: string;
 }
 
-interface IColumn {
-  items: ISortableItem[];
-  id: string;
-}
-
 type ISortableItemProps = {
   data: ISortableItem;
   isOverlay?: boolean;
 };
 
-type IColumnProps = {
-  data: IColumn;
-};
-
-type IActiveDrag = {
-  item: ISortableItem | null;
-  column: IColumn | null;
-};
-
 interface IArgs {
-  columns: IColumn[];
+  items: ISortableItem[];
 }
 
 const StyledSortablesContainer = styled.div`
-  display: flex;
-  gap: 16px;
-  max-width: 600px;
+  max-width: 250px;
 `;
 
 /**
  * Given an id and column state, return the active column and item being dragged.
  */
-const getDragData = (id: string | number, columns: IColumn[]): IActiveDrag => {
+const getDragData = (id: string | number, items: ISortableItem[]): ISortableItem | null => {
   let item = null;
-  let column = null;
 
-  for (const col of columns) {
-    for (const it of col.items) {
-      if (it.id === id) {
-        item = it;
-        column = col;
-        break;
-      }
+  for (const itm of items) {
+    if (itm.id === id) {
+      item = itm;
+      break;
     }
   }
 
-  return { column, item };
+  return item;
 };
 
-export const SortableListStory: Story<IArgs> = ({ columns }: IArgs) => {
-  const [sortableState, setSortableState] = useState<IColumn[]>(columns);
+export const SortableListStory: Story<IArgs> = ({ items }: IArgs) => {
+  const [sortableItems, setSortableItems] = useState<ISortableItem[]>(items);
 
   // state fallback for cancelled drag
-  const [snapshot, setSnapshot] = useState<IColumn[] | null>(null);
+  const [snapshot, setSnapshot] = useState<ISortableItem[] | null>(null);
 
   // active drag item pointer - item & column
-  const [activeDrag, setActiveDrag] = useState<IActiveDrag | null>(null);
+  const [activeItem, setActiveItem] = useState<ISortableItem | null>(null);
 
   // DndKit interaction sensors
   const sensors = useSensors(
@@ -107,43 +89,45 @@ export const SortableListStory: Story<IArgs> = ({ columns }: IArgs) => {
 
   // DndKit event handlers
   const onDragStart = ({ active }: DragStartEvent) => {
-    const data = getDragData(active.id, sortableState);
+    const item = getDragData(active.id, sortableItems);
 
-    setActiveDrag({ ...data });
-    setSnapshot(sortableState);
+    setActiveItem(item);
+    setSnapshot(sortableItems);
   };
 
-  const onDragOver = () => {
-    // placeholder
-  };
+  const onDragEnd = ({ active, over }: DragEndEvent) => {
+    if (over && active.id !== over?.id) {
+      const activeIndex = sortableItems.findIndex(({ id }) => id === active.id);
+      const overIndex = sortableItems.findIndex(({ id }) => id === over.id);
 
-  const onDragEnd = () => {
+      setSortableItems(arrayMove(sortableItems, activeIndex, overIndex));
+    }
+
     setSnapshot(null);
-    setActiveDrag(null);
+    setActiveItem(null);
   };
 
   const onDragCancel = () => {
-    setSortableState(snapshot!);
+    setSortableItems(snapshot!);
     setSnapshot(null);
-    setActiveDrag(null);
+    setActiveItem(null);
   };
 
   const SortableItem = ({ data, isOverlay }: ISortableItemProps) => {
     const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
       id: data.id
     });
-    const style = { transform: CSS.Transform.toString(transform), transition };
-    const isDragging = isOverlay && activeDrag?.item?.id === data.id;
-    const isPlaceholder = !isOverlay && activeDrag?.item?.id === data.id;
+    const isDragging = isOverlay && activeItem?.id === data.id;
+    const isDropPosition = !isOverlay && activeItem?.id === data.id;
+    const style = {
+      transform: CSS.Transform.toString(transform),
+      transition,
+      opacity: isDropPosition ? 0 : 1
+    };
 
     return (
       <DraggableList.Item style={style} ref={setNodeRef}>
-        <Draggable
-          {...attributes}
-          {...listeners}
-          isDragging={isDragging}
-          isPlaceholder={isPlaceholder}
-        >
+        <Draggable {...attributes} {...listeners} isDragging={isDragging}>
           <Draggable.Grip />
           <Draggable.Content>
             <MD isBold>{data.label}</MD>
@@ -154,40 +138,17 @@ export const SortableListStory: Story<IArgs> = ({ columns }: IArgs) => {
     );
   };
 
-  const Column = ({ data: { id, items: columnItems } }: IColumnProps) => {
-    const { setNodeRef } = useDroppable({ id });
-    const isOriginatingColumn = activeDrag?.column?.id === id;
-    const isActive = !isOriginatingColumn && !!activeDrag?.item;
-    const isHighlighted = !isOriginatingColumn && activeDrag?.column?.id === id;
-
-    return (
-      <SortableContext id={id} items={columnItems} strategy={verticalListSortingStrategy}>
-        <Dropzone ref={setNodeRef} isActive={isActive} isHighlighted={isHighlighted}>
-          {columnItems.length > 0 && (
-            <DraggableList>
-              {columnItems.map(item => (
-                <SortableItem data={item} key={item.id} />
-              ))}
-            </DraggableList>
-          )}
-
-          {columnItems.length === 0 && !!activeDrag && (
-            <Dropzone.Message>Drop item here</Dropzone.Message>
-          )}
-        </Dropzone>
-      </SortableContext>
-    );
-  };
-
   // prefer position over index in announcements
-  const getPosition = (id: string | number) => {
-    const { column } = getDragData(id, sortableState);
-    const itemIndex = column!.items.findIndex(item => item.id === id);
+  const getPosition = useCallback(
+    (id: string | number) => {
+      const idx = sortableItems.findIndex(item => item.id === id);
 
-    return itemIndex + 1;
-  };
+      return idx + 1;
+    },
+    [sortableItems]
+  );
 
-  const activeItemsCount = activeDrag?.column?.items.length;
+  const activeItemsCount = sortableItems.length;
 
   return (
     <DndContext
@@ -195,18 +156,23 @@ export const SortableListStory: Story<IArgs> = ({ columns }: IArgs) => {
       sensors={sensors}
       collisionDetection={closestCorners}
       onDragStart={onDragStart}
-      onDragOver={onDragOver}
       onDragEnd={onDragEnd}
       onDragCancel={onDragCancel}
     >
       <StyledSortablesContainer>
-        {sortableState.map(column => (
-          <Column data={column} key={column.id} />
-        ))}
+        <SortableContext
+          id="sortable-list"
+          items={sortableItems}
+          strategy={verticalListSortingStrategy}
+        >
+          <DraggableList>
+            {sortableItems.map(item => (
+              <SortableItem data={item} key={item.id} />
+            ))}
+          </DraggableList>
+        </SortableContext>
       </StyledSortablesContainer>
-      <DragOverlay>
-        {!!activeDrag?.item && <SortableItem data={activeDrag.item} isOverlay />}
-      </DragOverlay>
+      <DragOverlay>{!!activeItem && <SortableItem data={activeItem} isOverlay />}</DragOverlay>
     </DndContext>
   );
 };

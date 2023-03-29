@@ -126,6 +126,7 @@ export const StyledDraggable = styled.div.attrs({
   border-color: transparent;
   padding: ${p => (p.isCompact ? p.theme.space.base * 1.25 : p.theme.space.base * 2.25)}px;
   color: ${p => p.theme.colors.foreground};
+  box-sizing: border-box;
 
   ${getColorStyles}
 

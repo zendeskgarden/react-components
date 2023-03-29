@@ -70,6 +70,7 @@ export const StyledDraggableList = styled.ul.attrs({
   margin: 0; /* [1] */
   padding: 0; /* [1] */
   list-style: none; /* [1] */
+  box-sizing: border-box;
 
   ${StyledItem} {
     flex: 1;
