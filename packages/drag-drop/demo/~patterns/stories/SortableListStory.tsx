@@ -6,7 +6,11 @@
  */
 
 import React, { useCallback, useState } from 'react';
-import { Story } from '@storybook/react';
+import styled from 'styled-components';
+
+import type { Story } from '@storybook/react';
+import type { DragEndEvent, DragStartEvent } from '@dnd-kit/core';
+import type { ISortableItem, ISortableItemProps } from './types';
 
 import {
   closestCorners,
@@ -14,10 +18,11 @@ import {
   DragOverlay,
   KeyboardSensor,
   PointerSensor,
+  TouchSensor,
+  UniqueIdentifier,
   useSensor,
   useSensors
 } from '@dnd-kit/core';
-import type { DragEndEvent, DragStartEvent } from '@dnd-kit/core';
 
 import {
   sortableKeyboardCoordinates,
@@ -30,21 +35,8 @@ import { CSS } from '@dnd-kit/utilities';
 
 import { Draggable, DraggableList } from '@zendeskgarden/react-drag-drop';
 import { MD, SM } from '@zendeskgarden/react-typography';
-import type { IDraggableProps } from '@zendeskgarden/react-drag-drop';
 
-import styled from 'styled-components';
 import { getAnnouncements } from './data';
-
-interface ISortableItem extends IDraggableProps {
-  label: string;
-  caption: string;
-  id: string;
-}
-
-type ISortableItemProps = {
-  data: ISortableItem;
-  isOverlay?: boolean;
-};
 
 interface IArgs {
   items: ISortableItem[];
@@ -53,22 +45,6 @@ interface IArgs {
 const StyledSortablesContainer = styled.div`
   max-width: 250px;
 `;
-
-/**
- * Given an id and column state, return the active column and item being dragged.
- */
-const getDragData = (id: string | number, items: ISortableItem[]): ISortableItem | null => {
-  let item = null;
-
-  for (const itm of items) {
-    if (itm.id === id) {
-      item = itm;
-      break;
-    }
-  }
-
-  return item;
-};
 
 export const SortableListStory: Story<IArgs> = ({ items }: IArgs) => {
   const [sortableItems, setSortableItems] = useState<ISortableItem[]>(items);
@@ -82,6 +58,7 @@ export const SortableListStory: Story<IArgs> = ({ items }: IArgs) => {
   // DndKit interaction sensors
   const sensors = useSensors(
     useSensor(PointerSensor),
+    useSensor(TouchSensor),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates
     })
@@ -89,14 +66,14 @@ export const SortableListStory: Story<IArgs> = ({ items }: IArgs) => {
 
   // DndKit event handlers
   const onDragStart = ({ active }: DragStartEvent) => {
-    const item = getDragData(active.id, sortableItems);
+    const draggingItem = items.find(item => item.id === active.id);
 
-    setActiveItem(item);
+    setActiveItem(draggingItem!);
     setSnapshot(sortableItems);
   };
 
   const onDragEnd = ({ active, over }: DragEndEvent) => {
-    if (over && active.id !== over?.id) {
+    if (over && active.id !== over.id) {
       const activeIndex = sortableItems.findIndex(({ id }) => id === active.id);
       const overIndex = sortableItems.findIndex(({ id }) => id === over.id);
 
@@ -140,7 +117,7 @@ export const SortableListStory: Story<IArgs> = ({ items }: IArgs) => {
 
   // prefer position over index in announcements
   const getPosition = useCallback(
-    (id: string | number) => {
+    (id: UniqueIdentifier | undefined) => {
       const idx = sortableItems.findIndex(item => item.id === id);
 
       return idx + 1;
@@ -172,7 +149,9 @@ export const SortableListStory: Story<IArgs> = ({ items }: IArgs) => {
           </DraggableList>
         </SortableContext>
       </StyledSortablesContainer>
-      <DragOverlay>{!!activeItem && <SortableItem data={activeItem} isOverlay />}</DragOverlay>
+      <DragOverlay wrapperElement={DraggableList as unknown as 'ul'}>
+        {activeItem ? <SortableItem data={activeItem} isOverlay /> : null}
+      </DragOverlay>
     </DndContext>
   );
 };

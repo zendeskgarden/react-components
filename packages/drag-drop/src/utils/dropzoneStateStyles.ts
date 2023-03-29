@@ -44,7 +44,7 @@ export function dropzoneStateStyles(
 
   if (isHighlighted) {
     return {
-      padding: `${theme.space.base * 3 - widthOffset}px` /* [1] */,
+      padding: `${theme.space.base * 4 - widthOffset}px` /* [1] */,
       borderWidth: `2px` /* [1] */,
       borderColor: hoverBorderColor,
       borderStyle: 'solid',

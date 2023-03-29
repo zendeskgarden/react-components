@@ -64,7 +64,7 @@ export const StyledDropzone = styled.div.attrs({
   border-width: 1px;
   border-style: dashed;
   border-radius: ${p => p.theme.borderRadii.md};
-  padding: ${p => p.theme.space.sm};
+  padding: ${p => p.theme.space.base * 4}px;
   width: 100%;
   font-family: ${props => props.theme.fonts.system};
   font-size: ${props => props.theme.fontSizes.md};

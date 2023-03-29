@@ -26,10 +26,10 @@ function getShadow(props: IStyledDraggableProps) {
   const { space, shadows } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColor('neutralHue', 800, theme, 0.35);
+  const color = getColor('neutralHue', 500, theme, 0.35) as string;
 
   return css`
-    box-shadow: ${shadows.lg(offsetY, blurRadius, color as string)};
+    box-shadow: ${shadows.lg(offsetY, blurRadius, color)};
 
     &:focus {
       outline: none;
@@ -106,6 +106,18 @@ function getColorStyles(props: IStyledDraggableProps) {
   `;
 }
 
+function getCursorStyles(props: IStyledDraggableProps) {
+  if (props.isDisabled || props.isPlaceholder) {
+    return css`
+      cursor: not-allowed;
+    `;
+  }
+
+  return css`
+    cursor: ${props.isDragging ? 'grabbing' : 'grab'};
+  `;
+}
+
 export const StyledDraggable = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -128,6 +140,7 @@ export const StyledDraggable = styled.div.attrs({
   color: ${p => p.theme.colors.foreground};
   box-sizing: border-box;
 
+  ${getCursorStyles}
   ${getColorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

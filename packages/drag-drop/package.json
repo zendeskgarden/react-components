@@ -34,8 +34,10 @@
     "@dnd-kit/core": "^6.0.8",
     "@dnd-kit/sortable": "^7.0.2",
     "@dnd-kit/utilities": "^3.2.1",
+    "@types/lodash.debounce": "^4.0.7",
     "@zendeskgarden/react-theming": "^8.0.0",
-    "@zendeskgarden/react-typography": "^8.0.0"
+    "@zendeskgarden/react-typography": "^8.0.0",
+    "lodash.debounce": "^4.0.8"
   },
   "keywords": [
     "components",

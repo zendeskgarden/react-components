@@ -5,41 +5,35 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import type { Announcements } from '@dnd-kit/core';
+import type { Announcements, UniqueIdentifier } from '@dnd-kit/core';
 
-export const COLUMNS = [
-  {
-    id: 'column-1',
-    items: [
-      { label: 'Turnip', caption: 'Green yarrow', id: 'item-1' },
-      { label: 'Corn', caption: 'Amaranth salsify', id: 'item-2' },
-      { label: 'Celery', caption: 'Quandong swiss', id: 'item-3' },
-      { label: 'Grape', caption: 'Silver beet', id: 'item-4' }
-    ]
-  },
-  {
-    id: 'column-2',
-    items: []
-  }
-];
+export const COLUMNS = {
+  'column-1': [
+    { label: 'Turnip', caption: 'Green yarrow', id: 'item-1' },
+    { label: 'Corn', caption: 'Amaranth salsify', id: 'item-2' },
+    { label: 'Celery', caption: 'Quandong swiss', id: 'item-3' },
+    { label: 'Grape', caption: 'Silver beet', id: 'item-4' }
+  ],
+  'column-2': []
+};
 
 export const getAnnouncements = (
-  getPosition: (id: string) => number,
+  getPosition: (id: UniqueIdentifier | undefined) => number,
   count: number | undefined
 ): Announcements => ({
   onDragStart({ active }) {
     return `Picked up sortable item ${active.id}. Sortable item ${
       active.id
-    } is in position ${getPosition(active.id as string)} of ${count}`;
+    } is in position ${getPosition(active.id as UniqueIdentifier)} of ${count}`;
   },
   onDragOver({ active, over }) {
     return `Sortable item ${active.id} was moved into position ${getPosition(
-      over!.id as string
+      over?.id
     )} of ${count}`;
   },
   onDragEnd({ active, over }) {
     return `Sortable item ${active.id} was dropped at position ${getPosition(
-      over!.id as string
+      over?.id
     )} of ${count}`;
   },
   onDragCancel({ active }) {
