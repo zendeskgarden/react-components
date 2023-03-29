@@ -20,13 +20,10 @@ export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
   hasMessage?: boolean;
   isDanger?: boolean;
   isDisabled?: boolean;
-  isHovered?: boolean;
+  isHighlighted?: boolean;
   isActive?: boolean;
 }
 
-/**
- * 1. Remove 1px padding, add 1px to border to prevent layout shifting from hover.
- */
 function getStateStyles(props: IStyledDropzoneProps) {
   const { isDanger, isDisabled, theme } = props;
 
@@ -51,9 +48,6 @@ function getStateStyles(props: IStyledDropzoneProps) {
   return dropzoneStateStyles(PRIMARY_HUE, props);
 }
 
-/**
- * 1. Offsets inner spacing from hover state.
- */
 export const StyledDropzone = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -70,7 +64,8 @@ export const StyledDropzone = styled.div.attrs({
   border-width: 1px;
   border-style: dashed;
   border-radius: ${p => p.theme.borderRadii.md};
-  padding: ${p => p.theme.space.sm}; /* [1] */
+  padding: ${p => p.theme.space.sm};
+  width: 100%;
   font-family: ${props => props.theme.fonts.system};
   font-size: ${props => props.theme.fontSizes.md};
   direction: ${props => props.theme.rtl && 'rtl'};

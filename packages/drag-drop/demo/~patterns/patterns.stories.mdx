@@ -1,6 +1,8 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import { Dropzone } from '@zendeskgarden/react-tags';
 import { DropzoneCustomIconStory } from './stories/DropzoneCustomIconStory';
+import { SortableListStory } from './stories/SortableListStory';
+import { COLUMNS as columns } from './stories/data';
 
 <Meta title="Packages/Drag-Drop/[patterns]" component={Dropzone} />
 
@@ -8,18 +10,42 @@ import { DropzoneCustomIconStory } from './stories/DropzoneCustomIconStory';
 
 ## Dropzone Custom Icon
 
-A `Dropzone.Icon` sub-component can be used to indicate actions visually. This example uses `arrow-retweet-stroke.svg`
-to indicate a replace action when `isHovered` is set.
+A `Dropzone.Icon` sub-component can be used to indicate actions visually. This example
+uses `arrow-retweet-stroke.svg` to indicate a replace action when `isHighlighted` is set.
 
 <Canvas>
   <Story
     name="DropzoneCustomIcon"
-    args={{ isHovered: false, messageLabel: 'Message' }}
+    args={{ isHighlighted: false, messageLabel: 'Message' }}
     argTypes={{
-      messageLabel: { name: 'children', control: { type: 'text' }, table: { category: 'Story' } },
-      isHovered: { control: { type: 'boolean' }, table: { category: 'Story' } }
+      messageLabel: {
+        name: 'children',
+        control: { type: 'text' },
+        table: { category: 'Story' }
+      },
+      isHighlighted: { control: { type: 'boolean' }, table: { category: 'Story' } }
     }}
   >
     {args => <DropzoneCustomIconStory {...args} />}
+  </Story>
+</Canvas>
+
+## Sortable List
+
+Use `Draggable` and `Dropzone` with your third party library of choice (`dnd-kit`
+in this case).
+
+<Canvas>
+  <Story
+    name="SortableList"
+    args={{ columns }}
+    argTypes={{
+      columns: {
+        control: { type: 'object' },
+        table: { category: 'Story' }
+      }
+    }}
+  >
+    {args => <SortableListStory {...args} />}
   </Story>
 </Canvas>

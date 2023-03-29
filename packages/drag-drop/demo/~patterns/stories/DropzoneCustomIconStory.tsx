@@ -11,14 +11,14 @@ import ReplaceIcon from '@zendeskgarden/svg-icons/src/16/arrow-retweet-stroke.sv
 import { Dropzone, IDropzoneProps } from '@zendeskgarden/react-drag-drop';
 
 interface IArgs extends IDropzoneProps {
-  isActive: boolean;
+  isHighlighted: boolean;
   messageLabel: string;
 }
 
-export const DropzoneCustomIconStory: Story<IArgs> = ({ isHovered, messageLabel, ...args }) => (
-  <Dropzone {...args} isActive isHovered={isHovered}>
+export const DropzoneCustomIconStory: Story<IArgs> = ({ isHighlighted, messageLabel, ...args }) => (
+  <Dropzone {...args} isActive isHighlighted={isHighlighted}>
     <Dropzone.Message>
-      {isHovered && (
+      {isHighlighted && (
         <Dropzone.Icon>
           <ReplaceIcon />
         </Dropzone.Icon>

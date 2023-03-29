@@ -16,9 +16,11 @@ export const DraggableListContext = createContext<IDraggableListContext | undefi
 export const useDraggableListContext = () => {
   const context = useContext(DraggableListContext);
 
-  if (context === undefined) {
-    throw new Error('This component must be rendered within a DraggableList component');
-  }
+  /**
+   * Garden deliberately doesn't throw an error if DraggableListContext
+   * is undefined, because a third party library DnD library may be using
+   * DraggableList.Item item as part of an intermittent overlay element
+   */
 
   return context;
 };

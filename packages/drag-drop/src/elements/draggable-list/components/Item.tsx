@@ -10,7 +10,8 @@ import { StyledItem } from '../../../styled';
 import { useDraggableListContext } from '../../../utils/useDraggableListContext';
 
 const ItemComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
-  const { isHorizontal } = useDraggableListContext();
+  const draggableListContext = useDraggableListContext();
+  const isHorizontal = draggableListContext?.isHorizontal || false;
 
   return <StyledItem {...props} isHorizontal={isHorizontal} ref={ref} />;
 });

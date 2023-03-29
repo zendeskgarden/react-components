@@ -14,18 +14,18 @@ export const DANGER_HUE = 'dangerHue';
 export const NEUTRAL_HUE = 'neutralHue';
 
 /**
- * 1. Remove 1px padding, add 1px to border to prevent layout shifting from hover.
+ * 1. Remove 1px padding, add 1px to border to prevent layout shifting from highlight.
  */
 
 /**
- * Generates a palette including default, hover, and active states for Dropzone.
+ * Generates a palette including default, highlight, and active states for Dropzone.
  *
  * The system uses a base hue with predefined shades:
  *
  * States:
  * - Default: border: hue-600 / background: transparent / color: hue-600
  * - Active: border: hue-600 / background: hue-600 (alpha: 8%) / color: hue-600
- * - Hover: border: hue-700 / background: hue-600 (alpha: 8%) / color: hue-800
+ * - Highlight: border: hue-600 / background: hue-600 (alpha: 8%) / color: hue-800
  *
  * If `primaryHue` is used, `color` and `border-color` are neutral-600.
  */
@@ -33,7 +33,7 @@ export function dropzoneStateStyles(
   baseHue: 'primaryHue' | 'dangerHue',
   props: IStyledDropzoneProps
 ) {
-  const { theme, isHovered, isActive } = props;
+  const { theme, isHighlighted, isActive } = props;
   const widthOffset = 1;
 
   const neutralColor = getColor(NEUTRAL_HUE, 600, theme);
@@ -42,7 +42,7 @@ export function dropzoneStateStyles(
   const hoverBorderColor = getColor(baseHue, 600, theme);
   const hoverColor = getColor(baseHue, 800, theme);
 
-  if (isHovered) {
+  if (isHighlighted) {
     return {
       padding: `${theme.space.base * 3 - widthOffset}px` /* [1] */,
       borderWidth: `2px` /* [1] */,

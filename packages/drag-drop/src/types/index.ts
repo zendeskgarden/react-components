@@ -36,7 +36,7 @@ export interface IDropzoneProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies highlighted styling to indicate draggable element is hovering */
   isActive?: boolean;
   /** Applies highlighted styling to indicate dropping is possible */
-  isHovered?: boolean;
+  isHighlighted?: boolean;
   /** APplies disabled styling */
   isDisabled?: boolean;
   /** Applies alternative HTML tag to element */
