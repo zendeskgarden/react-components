@@ -32,9 +32,11 @@ import {
   arrayMove
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+
 import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-drop';
 import { MD, SM } from '@zendeskgarden/react-typography';
-import { getAnnouncements } from './data';
+
+import { getAnnouncements } from './utilities';
 
 interface IColumnProps {
   id: UniqueIdentifier;
@@ -131,7 +133,9 @@ export const MultipleListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
           let newIndex: number;
 
           if (overId in nextColumns) {
-            newIndex = overItems.length + 1;
+            const length = overItems.length;
+
+            newIndex = length > 0 ? length + 1 : length;
           } else {
             const isBelowLastItem =
               over &&
@@ -204,24 +208,28 @@ export const MultipleListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
     const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
       id: data.id
     });
-    const isPlaceholder = !isOverlay && activeId === data.id;
-    const isDragging = isOverlay && activeId === data.id;
+    const isGrabbed = isOverlay && activeId === data.id;
+    const isDropPosition = !isOverlay && activeId === data.id;
     const style = {
       transform: CSS.Transform.toString(transform),
       transition,
-      opacity: isPlaceholder ? 0 : 1
+      opacity: isDropPosition ? 0 : 1
     };
 
     return (
-      <DraggableList.Item style={style} ref={setNodeRef}>
-        <Draggable {...attributes} {...listeners} isDragging={isDragging}>
-          <Draggable.Grip />
-          <Draggable.Content>
-            <MD isBold>{data.label}</MD>
-            <SM>{data.caption}</SM>
-          </Draggable.Content>
-        </Draggable>
-      </DraggableList.Item>
+      <Draggable
+        {...attributes}
+        {...listeners}
+        style={style}
+        ref={setNodeRef}
+        isGrabbed={isGrabbed}
+      >
+        <Draggable.Grip />
+        <Draggable.Content>
+          <MD isBold>{data.label}</MD>
+          <SM>{data.caption}</SM>
+        </Draggable.Content>
+      </Draggable>
     );
   };
 
@@ -232,11 +240,17 @@ export const MultipleListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
 
     return (
       <SortableContext id={id as string} items={items} strategy={verticalListSortingStrategy}>
-        <Dropzone ref={setNodeRef} isActive={isActive} isHighlighted={isHighlighted}>
+        <Dropzone
+          ref={items.length === 0 ? setNodeRef : undefined}
+          isActive={isActive}
+          isHighlighted={isHighlighted}
+        >
           {items.length > 0 && (
             <DraggableList>
               {items.map(item => (
-                <SortableItem data={item} key={item.id} />
+                <DraggableList.Item key={item.id}>
+                  <SortableItem data={item} />
+                </DraggableList.Item>
               ))}
             </DraggableList>
           )}

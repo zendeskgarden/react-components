@@ -23,7 +23,6 @@ import {
   useSensor,
   useSensors
 } from '@dnd-kit/core';
-
 import {
   sortableKeyboardCoordinates,
   SortableContext,
@@ -36,17 +35,18 @@ import { CSS } from '@dnd-kit/utilities';
 import { Draggable, DraggableList } from '@zendeskgarden/react-drag-drop';
 import { MD, SM } from '@zendeskgarden/react-typography';
 
-import { getAnnouncements } from './data';
+import { getAnnouncements } from './utilities';
 
 interface IArgs {
   items: ISortableItem[];
+  isPlaceholder?: boolean;
 }
 
 const StyledSortablesContainer = styled.div`
   max-width: 250px;
 `;
 
-export const SortableListStory: Story<IArgs> = ({ items }: IArgs) => {
+export const SortableListStory: Story<IArgs> = ({ items, isPlaceholder = false }: IArgs) => {
   const [sortableItems, setSortableItems] = useState<ISortableItem[]>(items);
 
   // state fallback for cancelled drag
@@ -94,24 +94,31 @@ export const SortableListStory: Story<IArgs> = ({ items }: IArgs) => {
     const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
       id: data.id
     });
-    const isDragging = isOverlay && activeItem?.id === data.id;
+    const isGrabbed = isOverlay && activeItem?.id === data.id;
     const isDropPosition = !isOverlay && activeItem?.id === data.id;
+    const placeholder = isPlaceholder && isDropPosition;
+
     const style = {
       transform: CSS.Transform.toString(transform),
       transition,
-      opacity: isDropPosition ? 0 : 1
+      opacity: !placeholder && isDropPosition ? 0 : 1
     };
 
     return (
-      <DraggableList.Item style={style} ref={setNodeRef}>
-        <Draggable {...attributes} {...listeners} isDragging={isDragging}>
-          <Draggable.Grip />
-          <Draggable.Content>
-            <MD isBold>{data.label}</MD>
-            <SM>{data.caption}</SM>
-          </Draggable.Content>
-        </Draggable>
-      </DraggableList.Item>
+      <Draggable
+        {...attributes}
+        {...listeners}
+        style={style}
+        ref={setNodeRef}
+        isGrabbed={isGrabbed}
+        isPlaceholder={placeholder}
+      >
+        <Draggable.Grip />
+        <Draggable.Content>
+          <MD isBold>{data.label}</MD>
+          <SM>{data.caption}</SM>
+        </Draggable.Content>
+      </Draggable>
     );
   };
 
@@ -144,7 +151,9 @@ export const SortableListStory: Story<IArgs> = ({ items }: IArgs) => {
         >
           <DraggableList>
             {sortableItems.map(item => (
-              <SortableItem data={item} key={item.id} />
+              <DraggableList.Item key={item.id}>
+                <SortableItem data={item} key={item.id} />
+              </DraggableList.Item>
             ))}
           </DraggableList>
         </SortableContext>

@@ -15,12 +15,10 @@ export interface IDraggableProps extends HTMLAttributes<HTMLDivElement> {
   isBare?: boolean;
   /** Applies disabled styling */
   isDisabled?: boolean;
-  /** Applies styling indicating Draggable is active via non-mouse interaction (e.g., keyboard) */
-  isActive?: boolean;
   /** Hides content and applies placeholder background styling */
   isPlaceholder?: boolean;
-  /** Applies drag styling */
-  isDragging?: boolean;
+  /** Applies grab styling */
+  isGrabbed?: boolean;
   /** Applies alternative HTML tag to element */
   tag?: any;
 }

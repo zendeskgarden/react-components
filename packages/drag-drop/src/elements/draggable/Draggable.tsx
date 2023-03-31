@@ -8,11 +8,16 @@
 import React, { forwardRef } from 'react';
 import { Content } from './components/Content';
 import { Grip } from './components/Grip';
+import { useGlobalKeyboardListener } from '../../utils/useGlobalKeyboardListener';
 import { StyledDraggable } from '../../styled';
 import { IDraggableProps } from '../../types';
 
 const DraggableComponent = forwardRef<HTMLDivElement, IDraggableProps>(
-  ({ tag = 'div', ...props }, ref) => <StyledDraggable as={tag} {...props} ref={ref} />
+  ({ tag = 'div', ...props }, ref) => {
+    const isUsingKeyboard = useGlobalKeyboardListener();
+
+    return <StyledDraggable as={tag} {...props} isUsingKeyboard={isUsingKeyboard} ref={ref} />;
+  }
 );
 
 DraggableComponent.displayName = 'Draggable';

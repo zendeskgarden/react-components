@@ -12,54 +12,44 @@ import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden
 const COMPONENT_ID = 'draggable';
 
 export interface IStyledDraggableProps extends ThemeProps<DefaultTheme> {
+  focusInset?: boolean;
+  isUsingKeyboard?: boolean;
   isCompact?: boolean;
   isBare?: boolean;
   isDisabled?: boolean;
   isPlaceholder?: boolean;
-  focusInset?: boolean;
-  isActive?: boolean;
-  isDragging?: boolean;
+  isGrabbed?: boolean;
 }
 
-function getShadow(props: IStyledDraggableProps) {
+function getDragShadow(props: IStyledDraggableProps) {
   const { theme } = props;
   const { space, shadows } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColor('neutralHue', 500, theme, 0.35) as string;
+  const color = getColor('neutralHue', 600, theme, 0.35) as string;
 
-  return css`
-    box-shadow: ${shadows.lg(offsetY, blurRadius, color)};
-
-    &:focus {
-      outline: none;
-    }
-  `;
+  return shadows.lg(offsetY, blurRadius, color);
 }
 
 function getColorStyles(props: IStyledDraggableProps) {
-  const { isBare } = props;
+  const { isBare, isGrabbed, isUsingKeyboard } = props;
 
   const shade = 600;
   const baseColor = getColor('primaryHue', shade, props.theme);
-  const boxShadowColor = props.focusInset && props.isActive ? props.theme.palette.white : baseColor;
-  const boxShadow = `
+  const focusBoxShadow = `
     ${props.focusInset ? 'inset' : ''}
-    ${props.theme.shadows.md(rgba(boxShadowColor as string, 0.35))}`;
+    ${props.theme.shadows.md(rgba(baseColor as string, 0.35))}`;
+  const dragShadow = getDragShadow(props);
 
-  const pseudoClassStyles = css`
-    &:focus {
-      outline: none;
+  const getBoxShadow = () => {
+    const shadows = [focusBoxShadow];
+
+    if (isGrabbed) {
+      shadows.push(dragShadow);
     }
 
-    &:hover {
-      background-color: ${p => getColor('primaryHue', shade, p.theme, 0.08)};
-    }
-
-    &[data-garden-focus-visible] {
-      box-shadow: ${boxShadow};
-    }
-  `;
+    return shadows.length > 1 ? shadows.join(', ') : shadows[0];
+  };
 
   if (props.isDisabled) {
     return css`
@@ -81,28 +71,32 @@ function getColorStyles(props: IStyledDraggableProps) {
     `;
   }
 
-  /**
-   * 1. Subtract 1px from padding for the additional border-width.
-   * 2. Drag shadow overrides focus shadow.
-   */
-  if (props.isActive) {
-    return css`
-      border-width: 2px;
-      border-color: ${p => (isBare ? 'transparent' : getColor('primaryHue', shade, p.theme))};
-      background-color: ${p => p.theme.colors.background};
-      /* prettier-ignore */
-      padding: calc(${p =>
-        props.isCompact ? p.theme.space.base * 1.25 : p.theme.space.base * 2.25}px - 1px); /* [1] */
-
-      ${pseudoClassStyles}
-    `;
-  }
-
   return css`
     border-color: ${p => (isBare ? 'transparent' : getColor('neutralHue', 300, p.theme))};
     background-color: ${p => p.theme.colors.background};
 
-    ${props.isDragging ? getShadow : pseudoClassStyles}/* [2] */
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: ${p => !isGrabbed && getColor('primaryHue', shade, p.theme, 0.08)};
+    }
+
+    &[data-garden-focus-visible] {
+      box-shadow: ${getBoxShadow};
+    }
+
+    ${isGrabbed &&
+    css`
+      box-shadow: ${dragShadow};
+    `}
+
+    ${isGrabbed &&
+    isUsingKeyboard &&
+    css`
+      box-shadow: ${getBoxShadow};
+    `}
   `;
 }
 
@@ -114,7 +108,7 @@ function getCursorStyles(props: IStyledDraggableProps) {
   }
 
   return css`
-    cursor: ${props.isDragging ? 'grabbing' : 'grab'};
+    cursor: ${props.isGrabbed ? 'grabbing' : 'grab'};
   `;
 }
 
