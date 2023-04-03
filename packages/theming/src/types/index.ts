@@ -105,10 +105,12 @@ export interface IGardenTheme {
     xxxl: string;
   };
   shadowWidths: {
+    xs: string;
     sm: string;
     md: string;
   };
   shadows: {
+    xs: (color: string) => string;
     sm: (color: string) => string;
     md: (color: string) => string;
     lg: (offsetY: string, blurRadius: string, color: string) => string;
