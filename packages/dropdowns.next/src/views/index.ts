@@ -6,3 +6,7 @@
  */
 
 export * from './StyledCombobox';
+export * from './StyledContainer';
+export * from './StyledInput';
+export * from './StyledInputGroup';
+export * from './StyledTrigger';

@@ -10,15 +10,7 @@ import { Combobox } from '@zendeskgarden/react-dropdowns.next';
 # Demo
 
 <Canvas>
-  <Story
-    name="Combobox"
-    args={{ children: 'Text' }}
-    argTypes={{ isFocusable: { control: { type: 'boolean' }, table: { category: 'Story' } } }}
-  >
-    {({ children, ...args }) => (
-      <Combobox {...args} tabIndex={args.isFocusable ? 0 : -1}>
-        {children}
-      </Combobox>
-    )}
+  <Story name="Combobox" args={{ isAutocomplete: true, isEditable: true }}>
+    {args => <Combobox {...args} />}
   </Story>
 </Canvas>

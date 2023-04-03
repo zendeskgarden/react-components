@@ -6,19 +6,13 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { render } from 'garden-test-utils';
 import { StyledCombobox } from './StyledCombobox';
 
 describe('StyledCombobox', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledCombobox />);
 
-    expect(container.firstChild).toHaveStyleRule('display', 'flex');
-  });
-
-  it('renders RTL styling if provided', () => {
-    const { container } = renderRtl(<StyledCombobox />);
-
-    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
+    expect(container.firstChild).toHaveStyleRule('min-width', '144px');
   });
 });
