@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useState } from 'react';
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import type { Story } from '@storybook/react';
@@ -39,14 +39,14 @@ import { getAnnouncements } from './utilities';
 
 interface IArgs {
   items: ISortableItem[];
-  isPlaceholder?: boolean;
+  placeholder?: boolean;
 }
 
 const StyledSortablesContainer = styled.div`
   max-width: 250px;
 `;
 
-export const SortableListStory: Story<IArgs> = ({ items, isPlaceholder = false }: IArgs) => {
+export const SortableListStory: Story<IArgs> = ({ items, placeholder = false }: IArgs) => {
   const [sortableItems, setSortableItems] = useState<ISortableItem[]>(items);
 
   // state fallback for cancelled drag
@@ -54,6 +54,9 @@ export const SortableListStory: Story<IArgs> = ({ items, isPlaceholder = false }
 
   // active drag item pointer - item & column
   const [activeItem, setActiveItem] = useState<ISortableItem | null>(null);
+
+  // Overlay ref to move focus when dragging
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   // DndKit interaction sensors
   const sensors = useSensors(
@@ -90,35 +93,51 @@ export const SortableListStory: Story<IArgs> = ({ items, isPlaceholder = false }
     setActiveItem(null);
   };
 
-  const SortableItem = ({ data, isOverlay }: ISortableItemProps) => {
-    const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
-      id: data.id
-    });
-    const isGrabbed = isOverlay && activeItem?.id === data.id;
-    const isDropPosition = !isOverlay && activeItem?.id === data.id;
-    const placeholder = isPlaceholder && isDropPosition;
+  const Item = forwardRef<HTMLDivElement, ISortableItemProps>((props, ref) => {
+    const { isOverlay, data, tabIndex } = props;
 
-    const style = {
-      transform: CSS.Transform.toString(transform),
-      transition,
-      opacity: !placeholder && isDropPosition ? 0 : 1
-    };
+    useEffect(() => {
+      if (isOverlay && ref && ref.current) {
+        ref.current.focus();
+      }
+    });
 
     return (
-      <Draggable
-        {...attributes}
-        {...listeners}
-        style={style}
-        ref={setNodeRef}
-        isGrabbed={isGrabbed}
-        isPlaceholder={placeholder}
-      >
+      <Draggable {...props} tabIndex={isOverlay ? -1 : tabIndex} ref={ref}>
         <Draggable.Grip />
         <Draggable.Content>
           <MD isBold>{data.label}</MD>
           <SM>{data.caption}</SM>
         </Draggable.Content>
       </Draggable>
+    );
+  });
+
+  Item.displayName = 'Item';
+
+  const DraggableItem = ({ data }: ISortableItemProps) => {
+    const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition } =
+      useSortable({
+        id: data.id
+      });
+    const isActive = activeItem?.id === data.id;
+
+    const style = {
+      transform: CSS.Transform.toString(transform),
+      transition,
+      opacity: !placeholder && isActive ? 0 : 1
+    };
+
+    return (
+      <DraggableList.Item style={style} ref={setNodeRef}>
+        <Item
+          data={data}
+          {...attributes}
+          {...listeners}
+          isPlaceholder={placeholder && isActive}
+          ref={setActivatorNodeRef}
+        />
+      </DraggableList.Item>
     );
   };
 
@@ -151,15 +170,13 @@ export const SortableListStory: Story<IArgs> = ({ items, isPlaceholder = false }
         >
           <DraggableList>
             {sortableItems.map(item => (
-              <DraggableList.Item key={item.id}>
-                <SortableItem data={item} key={item.id} />
-              </DraggableList.Item>
+              <DraggableItem data={item} key={item.id} />
             ))}
           </DraggableList>
         </SortableContext>
       </StyledSortablesContainer>
-      <DragOverlay wrapperElement={DraggableList as unknown as 'ul'}>
-        {activeItem ? <SortableItem data={activeItem} isOverlay /> : null}
+      <DragOverlay>
+        {activeItem ? <Item data={activeItem} isOverlay isGrabbed ref={overlayRef} /> : null}
       </DragOverlay>
     </DndContext>
   );

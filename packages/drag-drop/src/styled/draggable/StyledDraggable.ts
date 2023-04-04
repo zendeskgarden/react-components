@@ -13,7 +13,6 @@ const COMPONENT_ID = 'draggable';
 
 export interface IStyledDraggableProps extends ThemeProps<DefaultTheme> {
   focusInset?: boolean;
-  isUsingKeyboard?: boolean;
   isCompact?: boolean;
   isBare?: boolean;
   isDisabled?: boolean;
@@ -32,26 +31,16 @@ function getDragShadow(props: IStyledDraggableProps) {
 }
 
 function getColorStyles(props: IStyledDraggableProps) {
-  const { isBare, isGrabbed, isUsingKeyboard } = props;
+  const { isBare, isGrabbed, isDisabled, isPlaceholder, focusInset, theme } = props;
 
   const shade = 600;
-  const baseColor = getColor('primaryHue', shade, props.theme);
-  const focusBoxShadow = `
-    ${props.focusInset ? 'inset' : ''}
-    ${props.theme.shadows.md(rgba(baseColor as string, 0.35))}`;
+  const baseColor = getColor('primaryHue', shade, theme);
+  const focusShadow = `
+    ${focusInset ? 'inset' : ''}
+    ${theme.shadows.md(rgba(baseColor as string, 0.35))}`;
   const dragShadow = getDragShadow(props);
 
-  const getBoxShadow = () => {
-    const shadows = [focusBoxShadow];
-
-    if (isGrabbed) {
-      shadows.push(dragShadow);
-    }
-
-    return shadows.length > 1 ? shadows.join(', ') : shadows[0];
-  };
-
-  if (props.isDisabled) {
+  if (isDisabled) {
     return css`
       background-color: ${p => getColor('neutralHue', 200, p.theme)};
 
@@ -61,7 +50,7 @@ function getColorStyles(props: IStyledDraggableProps) {
     `;
   }
 
-  if (props.isPlaceholder) {
+  if (isPlaceholder) {
     return css`
       background-color: ${p => getColor('neutralHue', 200, p.theme)};
 
@@ -75,28 +64,23 @@ function getColorStyles(props: IStyledDraggableProps) {
     border-color: ${p => (isBare ? 'transparent' : getColor('neutralHue', 300, p.theme))};
     background-color: ${p => p.theme.colors.background};
 
-    &:focus {
-      outline: none;
-    }
-
-    &:hover {
-      background-color: ${p => !isGrabbed && getColor('primaryHue', shade, p.theme, 0.08)};
-    }
-
-    &[data-garden-focus-visible] {
-      box-shadow: ${getBoxShadow};
-    }
-
     ${isGrabbed &&
     css`
       box-shadow: ${dragShadow};
     `}
 
-    ${isGrabbed &&
-    isUsingKeyboard &&
-    css`
-      box-shadow: ${getBoxShadow};
-    `}
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: ${p =>
+        isGrabbed ? p.theme.colors.background : getColor('primaryHue', shade, p.theme, 0.08)};
+    }
+
+    &[data-garden-focus-visible] {
+      box-shadow: ${isGrabbed ? `${focusShadow}, ${dragShadow}` : focusShadow};
+    }
   `;
 }
 

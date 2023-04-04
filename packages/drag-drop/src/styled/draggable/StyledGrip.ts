@@ -16,7 +16,7 @@ function getMarginStyles({ theme }: ThemeProps<DefaultTheme>) {
   };
 }
 
-export const StyledGrip = styled.div.attrs({
+export const StyledGrip = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

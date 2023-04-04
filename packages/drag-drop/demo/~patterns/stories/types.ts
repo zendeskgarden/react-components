@@ -16,4 +16,7 @@ export interface ISortableItem {
 export interface ISortableItemProps {
   data: ISortableItem;
   isOverlay?: boolean;
+  isGrabbed?: boolean;
+  isPlaceholder?: boolean;
+  tabIndex?: number;
 }

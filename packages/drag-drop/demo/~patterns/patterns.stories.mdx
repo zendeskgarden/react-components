@@ -58,13 +58,13 @@ Combine `Dropzone`, `DraggableList`, and `Draggable` to create multiple sortable
 <Canvas>
   <Story
     name="SortableList"
-    args={{ items: columns['column-1'], isPlaceholder: false }}
+    args={{ items: columns['column-1'], placeholder: false }}
     argTypes={{
       items: {
         control: { type: 'object' },
         table: { category: 'Story' }
       },
-      isPlaceholder: { control: { type: 'boolean' }, table: { category: 'Draggable' } }
+      placeholder: { control: { type: 'boolean' }, table: { category: 'Story' } }
     }}
   >
     {args => <SortableListStory {...args} />}
