@@ -7,21 +7,25 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { rgba } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  IGardenTheme
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'draggable';
 
 export interface IStyledDraggableProps extends ThemeProps<DefaultTheme> {
   focusInset?: boolean;
-  isCompact?: boolean;
   isBare?: boolean;
+  isCompact?: boolean;
   isDisabled?: boolean;
-  isPlaceholder?: boolean;
   isGrabbed?: boolean;
+  isPlaceholder?: boolean;
 }
 
-function getDragShadow(props: IStyledDraggableProps) {
-  const { theme } = props;
+export function getDragShadow(theme: IGardenTheme) {
   const { space, shadows } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
@@ -30,19 +34,26 @@ function getDragShadow(props: IStyledDraggableProps) {
   return shadows.lg(offsetY, blurRadius, color);
 }
 
+export function getFocusShadow(
+  focusInset: IStyledDraggableProps['focusInset'],
+  baseColor: string,
+  theme: IGardenTheme
+) {
+  return `${focusInset ? 'inset ' : ''}${theme.shadows.md(rgba(baseColor as string, 0.35))}`;
+}
+
 function getColorStyles(props: IStyledDraggableProps) {
   const { isBare, isGrabbed, isDisabled, isPlaceholder, focusInset, theme } = props;
 
   const shade = 600;
   const baseColor = getColor('primaryHue', shade, theme);
-  const focusShadow = `
-    ${focusInset ? 'inset' : ''}
-    ${theme.shadows.md(rgba(baseColor as string, 0.35))}`;
-  const dragShadow = getDragShadow(props);
+  const focusShadow = getFocusShadow(focusInset, baseColor!, theme);
+  const dragShadow = getDragShadow(theme);
+  const neutralBackground = getColor('neutralHue', 200, theme);
 
   if (isDisabled) {
     return css`
-      background-color: ${p => getColor('neutralHue', 200, p.theme)};
+      background-color: ${neutralBackground};
 
       > * {
         color: ${p => getColor('neutralHue', 400, p.theme)};
@@ -52,7 +63,7 @@ function getColorStyles(props: IStyledDraggableProps) {
 
   if (isPlaceholder) {
     return css`
-      background-color: ${p => getColor('neutralHue', 200, p.theme)};
+      background-color: ${neutralBackground};
 
       > * {
         visibility: hidden;
@@ -75,7 +86,7 @@ function getColorStyles(props: IStyledDraggableProps) {
 
     &:hover {
       background-color: ${p =>
-        isGrabbed ? p.theme.colors.background : getColor('primaryHue', shade, p.theme, 0.08)};
+        isGrabbed ? p.theme.colors.background : rgba(baseColor as string, 0.08)};
     }
 
     &[data-garden-focus-visible] {
@@ -85,9 +96,15 @@ function getColorStyles(props: IStyledDraggableProps) {
 }
 
 function getCursorStyles(props: IStyledDraggableProps) {
-  if (props.isDisabled || props.isPlaceholder) {
+  if (props.isDisabled) {
     return css`
       cursor: not-allowed;
+    `;
+  }
+
+  if (props.isPlaceholder) {
+    return css`
+      cursor: default;
     `;
   }
 
