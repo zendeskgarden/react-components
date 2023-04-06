@@ -58,7 +58,7 @@ function getPositionStyles(props: IStyledDraggableListProps, isStart = true) {
 /**
  * 1. <ul> reset.
  * 2. Pushes the drop indicator away from the list bounding box when at the start or end of the list.
- * 3. Prevents layout shifting when drop indicator is at the start of the list.
+ * 3. Prevents layout shifting when drop indicator is between list items.
  */
 export const StyledDraggableList = styled.ul.attrs({
   'data-garden-id': COMPONENT_ID,
@@ -80,7 +80,7 @@ export const StyledDraggableList = styled.ul.attrs({
     }
 
     + ${StyledDropIndicator} {
-      ${p => getOffsetMarginStyles(p, p.theme.space.base - INDICATOR_LINE_SIZE / 2)}
+      ${p => getOffsetMarginStyles(p, p.theme.space.base - INDICATOR_LINE_SIZE / 2)}/* [3] */
     }
 
     + ${StyledDropIndicator}:last-child {
@@ -93,7 +93,7 @@ export const StyledDraggableList = styled.ul.attrs({
   ${StyledDropIndicator} {
     /* stylelint-disable-next-line selector-max-specificity */
     &:not(:first-child) + ${StyledItem} {
-      ${p => getOffsetMarginStyles(p, p.theme.space.base - INDICATOR_LINE_SIZE / 2)}
+      ${p => getOffsetMarginStyles(p, p.theme.space.base - INDICATOR_LINE_SIZE / 2)}/* [3] */
     }
 
     &:first-child {
