@@ -39,14 +39,13 @@ export function dropzoneStateStyles(
   const neutralColor = getColor(NEUTRAL_HUE, 600, theme);
   const baseColor = getColor(baseHue, 600, theme);
   const backgroundColor = rgba(baseColor as string, 0.08);
-  const hoverBorderColor = getColor(baseHue, 600, theme);
   const hoverColor = getColor(baseHue, 800, theme);
 
   if (isHighlighted) {
     return {
       padding: `${theme.space.base * 4 - widthOffset}px` /* [1] */,
       borderWidth: `2px` /* [1] */,
-      borderColor: hoverBorderColor,
+      borderColor: baseColor,
       borderStyle: 'solid',
       backgroundColor,
       color: hoverColor
