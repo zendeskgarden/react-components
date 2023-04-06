@@ -7,8 +7,12 @@
 
 export * from './StyledCombobox';
 export * from './StyledContainer';
-export * from './StyledIcon';
+export * from './StyledFloating';
 export * from './StyledInput';
 export * from './StyledInputGroup';
+export * from './StyledInputIcon';
+export * from './StyledListbox';
+export * from './StyledOption';
+export * from './StyledSelectedIcon';
 export * from './StyledTrigger';
 export * from './StyledValue';

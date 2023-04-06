@@ -5,20 +5,28 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useRef, useState } from 'react';
+import React, { forwardRef, useContext, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import { autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import SelectedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { IComboboxProps, VALIDATION } from '../types';
 import {
   StyledCombobox,
   StyledContainer,
-  StyledIcon,
+  StyledFloating,
+  StyledInputIcon,
   StyledInput,
   StyledInputGroup,
+  StyledListbox,
+  StyledOption,
   StyledTrigger,
-  StyledValue
+  StyledValue,
+  StyledSelectedIcon
 } from '../views';
+import { ThemeContext } from 'styled-components';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -35,9 +43,23 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
     validation,
     ...comboboxProps
   } = props;
+  const theme = useContext(ThemeContext) || DEFAULT_THEME;
   const [isInputHidden, setIsInputHidden] = useState(true);
   const [value, setValue] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const { reference, floating, placement, x, y } = useFloating({
+    placement: 'bottom-start',
+    whileElementsMounted: autoUpdate,
+    middleware: [
+      offset(theme.space.base),
+      flip(),
+      size({
+        apply: ({ elements, rects }) => {
+          elements.floating.style.width = `${rects.reference.width}px`;
+        }
+      })
+    ]
+  });
 
   return (
     <StyledCombobox isCompact={props.isCompact} {...comboboxProps} ref={ref}>
@@ -48,15 +70,16 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
         isEditable={isEditable}
         focusInset={focusInset}
         validation={validation}
+        ref={reference}
         /* remove following props with useCombobox hook */
         aria-disabled={isDisabled}
         onClick={() => inputRef.current?.focus()}
         tabIndex={isEditable ? -1 : 0}
       >
         <StyledContainer>
-          <StyledIcon isCompact={isCompact}>
+          <StyledInputIcon isCompact={isCompact}>
             <StartIcon />
-          </StyledIcon>
+          </StyledInputIcon>
           <StyledInputGroup>
             {isInputHidden && (
               <StyledValue isCompact={isCompact} isPlaceholder={!value}>
@@ -79,11 +102,33 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
               ref={inputRef}
             />
           </StyledInputGroup>
-          <StyledIcon isCompact={isCompact} isEnd>
+          <StyledInputIcon isCompact={isCompact} isEnd isRotated={!isInputHidden}>
             <EndIcon />
-          </StyledIcon>
+          </StyledInputIcon>
         </StyledContainer>
       </StyledTrigger>
+      <StyledFloating
+        data-garden-animate={!isInputHidden}
+        isHidden={isInputHidden}
+        position={placement === 'bottom-start' ? 'bottom' : 'top'}
+        style={{ top: y ?? 0, left: x ?? 0 }}
+        ref={floating}
+      >
+        <StyledListbox>
+          <StyledOption isCompact={isCompact}>
+            <StyledSelectedIcon isCompact={isCompact}>
+              <SelectedIcon />
+            </StyledSelectedIcon>
+            option
+          </StyledOption>
+          <StyledOption aria-disabled isCompact={isCompact}>
+            disabled
+          </StyledOption>
+          <StyledOption isDanger isCompact={isCompact}>
+            danger
+          </StyledOption>
+        </StyledListbox>
+      </StyledFloating>
     </StyledCombobox>
   );
 });
