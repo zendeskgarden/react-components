@@ -21,6 +21,7 @@ export const StyledGrip = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   box-sizing: border-box;
+
   ${getMarginStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
