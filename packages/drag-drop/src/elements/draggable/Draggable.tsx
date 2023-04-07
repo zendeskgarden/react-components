@@ -11,11 +11,19 @@ import { Grip } from './components/Grip';
 import { StyledDraggable } from '../../styled';
 import { IDraggableProps } from '../../types';
 
-const DraggableComponent = forwardRef<HTMLDivElement, IDraggableProps>(
-  ({ tag = 'div', ...props }, ref) => {
-    return <StyledDraggable as={tag} aria-disabled={props.isDisabled} {...props} ref={ref} />;
-  }
-);
+const DraggableComponent = forwardRef<HTMLDivElement, IDraggableProps>(({ tag, ...props }, ref) => {
+  const isDisabled = props.isDisabled;
+
+  return (
+    <StyledDraggable
+      as={tag}
+      aria-disabled={isDisabled}
+      tabIndex={isDisabled ? undefined : 0}
+      {...props}
+      ref={ref}
+    />
+  );
+});
 
 DraggableComponent.displayName = 'Draggable';
 

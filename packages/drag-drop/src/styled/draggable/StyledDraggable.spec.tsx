@@ -36,10 +36,10 @@ describe('StyledDraggable', () => {
       expect(container.firstChild).toHaveStyle('cursor: grabbing');
     });
 
-    it('applies not-allowed cursor when disabled', () => {
+    it('applies default cursor when disabled', () => {
       const { container } = render(<StyledDraggable isDisabled />);
 
-      expect(container.firstChild).toHaveStyle('cursor: not-allowed');
+      expect(container.firstChild).toHaveStyle('cursor: default');
     });
 
     it('applies default cursor when placeholder', () => {
@@ -123,8 +123,7 @@ describe('StyledDraggable', () => {
       );
       expect(container.firstChild).toHaveStyleRule(
         'color',
-        getColor('neutralHue', 400, DEFAULT_THEME),
-        { modifier: '> *' }
+        getColor('neutralHue', 400, DEFAULT_THEME)
       );
     });
 

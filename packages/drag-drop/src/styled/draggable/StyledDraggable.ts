@@ -11,7 +11,8 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getColor,
-  IGardenTheme
+  IGardenTheme,
+  getLineHeight
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'draggable';
@@ -42,77 +43,83 @@ export function getFocusShadow(
   return `${focusInset ? 'inset ' : ''}${theme.shadows.md(rgba(baseColor as string, 0.35))}`;
 }
 
-function getColorStyles(props: IStyledDraggableProps) {
+const colorStyles = (props: IStyledDraggableProps) => {
   const { isBare, isGrabbed, isDisabled, isPlaceholder, focusInset, theme } = props;
 
-  const shade = 600;
-  const baseColor = getColor('primaryHue', shade, theme);
-  const focusShadow = getFocusShadow(focusInset, baseColor!, theme);
+  const baseColor = getColor('primaryHue', 600, theme);
   const dragShadow = getDragShadow(theme);
-  const disabledBackground = getColor('neutralHue', 200, theme);
-  const placeholderBackground = getColor('neutralHue', 800, theme, 0.1);
+  const focusShadow = getFocusShadow(focusInset, baseColor!, theme);
+  const baseBgColor = theme.colors.background;
+
+  let color;
+  let hoverBackgroundColor;
+  let boxShadow;
+  let focusBoxShadow;
+  let borderColor = 'transparent';
+  let backgroundColor = baseBgColor;
 
   if (isDisabled) {
-    return css`
-      background-color: ${disabledBackground};
-
-      > * {
-        color: ${p => getColor('neutralHue', 400, p.theme)};
-      }
-    `;
-  }
-
-  if (isPlaceholder) {
-    return css`
-      background-color: ${placeholderBackground};
-
-      > * {
-        visibility: hidden;
-      }
-    `;
+    backgroundColor = getColor('neutralHue', 200, theme)!;
+    color = getColor('neutralHue', 400, theme);
+  } else if (isPlaceholder) {
+    backgroundColor = getColor('neutralHue', 800, theme, 0.1)!;
+  } else {
+    color = theme.colors.foreground;
+    borderColor = isBare ? 'transparent' : (getColor('neutralHue', 300, theme) as string);
+    hoverBackgroundColor = isGrabbed ? baseBgColor : rgba(baseColor as string, 0.08);
+    focusBoxShadow = isGrabbed ? `${focusShadow}, ${dragShadow}` : focusShadow;
+    boxShadow = dragShadow;
   }
 
   return css`
-    border-color: ${p => (isBare ? 'transparent' : getColor('neutralHue', 300, p.theme))};
-    background-color: ${p => p.theme.colors.background};
+    border-color: ${borderColor};
+    background-color: ${backgroundColor};
+    color: ${color};
 
     ${isGrabbed &&
     css`
-      box-shadow: ${dragShadow};
+      box-shadow: ${boxShadow};
     `}
 
-    &:focus {
-      outline: none;
-    }
-
     &:hover {
-      background-color: ${p =>
-        isGrabbed ? p.theme.colors.background : rgba(baseColor as string, 0.08)};
+      background-color: ${hoverBackgroundColor};
     }
 
     &[data-garden-focus-visible] {
-      box-shadow: ${isGrabbed ? `${focusShadow}, ${dragShadow}` : focusShadow};
+      box-shadow: ${focusBoxShadow};
     }
   `;
-}
+};
 
-function getCursorStyles(props: IStyledDraggableProps) {
-  if (props.isDisabled) {
-    return css`
-      cursor: not-allowed;
-    `;
-  }
+const cursorStyles = (props: IStyledDraggableProps) => {
+  let cursor = props.isGrabbed ? 'grabbing' : 'grab';
 
-  if (props.isPlaceholder) {
-    return css`
-      cursor: default;
-    `;
+  if (props.isDisabled || props.isPlaceholder) {
+    cursor = 'default';
   }
 
   return css`
-    cursor: ${props.isGrabbed ? 'grabbing' : 'grab'};
+    cursor: ${cursor};
   `;
-}
+};
+
+const sizeStyles = (props: IStyledDraggableProps) => {
+  const { isCompact, theme } = props;
+
+  /**
+   * 1. Reset margin, e.g. when custom tag includes native margin
+   */
+  return css`
+    margin: 0; /* [1] */
+    border-width: ${theme.borderWidths.sm};
+    border-style: ${theme.borderStyles.solid};
+    border-radius: ${theme.borderRadii.md};
+    padding: ${isCompact ? theme.space.base * 1.25 : theme.space.base * 2.25}px;
+    line-height: ${getLineHeight(theme.space.base * 5, theme.fontSizes.md)};
+    font-size: ${theme.fontSizes.md};
+    font-style: ${theme.fontWeights.regular};
+  `;
+};
 
 export const StyledDraggable = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
@@ -128,16 +135,20 @@ export const StyledDraggable = styled.div.attrs({
     background-color 0.25s ease-in-out,
     color 0.25s ease-in-out,
     z-index 0.25s ease-in-out;
-  border-width: ${p => p.theme.borderWidths.sm};
-  border-style: ${p => p.theme.borderStyles.solid};
-  border-radius: ${p => p.theme.borderRadii.md};
-  border-color: transparent;
-  padding: ${p => (p.isCompact ? p.theme.space.base * 1.25 : p.theme.space.base * 2.25)}px;
-  color: ${p => p.theme.colors.foreground};
   box-sizing: border-box;
 
-  ${getCursorStyles}
-  ${getColorStyles}
+  ${sizeStyles}
+
+  &:focus {
+    outline: none;
+  }
+
+  ${cursorStyles}
+  ${colorStyles}
+
+  > * {
+    visibility: ${p => p.isPlaceholder && !p.isDisabled && 'hidden'};
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

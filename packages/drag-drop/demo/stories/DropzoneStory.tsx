@@ -8,13 +8,22 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { Dropzone, IDropzoneProps } from '@zendeskgarden/react-drag-drop';
+import ReplaceIcon from '@zendeskgarden/svg-icons/src/16/arrow-retweet-stroke.svg';
 
 interface IArgs extends IDropzoneProps {
   messageLabel: string;
+  hasCustomIcon?: boolean;
 }
 
-export const DropzoneStory: Story<IArgs> = ({ messageLabel, ...args }) => (
-  <Dropzone {...args}>
-    <Dropzone.Message>{messageLabel}</Dropzone.Message>
+export const DropzoneStory: Story<IArgs> = ({ messageLabel, hasCustomIcon, isDanger, ...args }) => (
+  <Dropzone {...args} isDanger={isDanger}>
+    <Dropzone.Message>
+      {hasCustomIcon && !isDanger && (
+        <Dropzone.Icon>
+          <ReplaceIcon />
+        </Dropzone.Icon>
+      )}{' '}
+      {messageLabel}
+    </Dropzone.Message>
   </Dropzone>
 );

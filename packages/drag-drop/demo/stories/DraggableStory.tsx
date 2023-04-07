@@ -8,21 +8,16 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { Draggable, IDraggableProps } from '@zendeskgarden/react-drag-drop';
-import { MD, SM } from '@zendeskgarden/react-typography';
 
 interface IArgs extends IDraggableProps {
   label: string;
   caption?: string;
   hasAction?: boolean;
-  isFocusable?: boolean;
 }
 
-export const DraggableStory: Story<IArgs> = ({ label, caption, isFocusable, ...args }) => (
-  <Draggable {...args} tabIndex={isFocusable && !args.isDisabled ? 0 : undefined}>
+export const DraggableStory: Story<IArgs> = ({ children, ...args }) => (
+  <Draggable {...args}>
     <Draggable.Grip />
-    <Draggable.Content>
-      <MD isBold>{label}</MD>
-      {caption && <SM>{caption}</SM>}
-    </Draggable.Content>
+    <Draggable.Content>{children}</Draggable.Content>
   </Draggable>
 );

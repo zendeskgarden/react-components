@@ -272,7 +272,7 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
 
   DraggableItem.displayName = 'DraggableItem';
 
-  const SortableItem = ({ data }: ISortableItemProps) => {
+  const ListItem = ({ data }: ISortableItemProps) => {
     const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition } =
       useSortable({
         id: data.id
@@ -307,7 +307,7 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
           {items.length > 0 && (
             <DraggableList>
               {items.map(item => (
-                <SortableItem data={item} activeItem={activeItem} key={item.id} />
+                <ListItem data={item} activeItem={activeItem} key={item.id} />
               ))}
             </DraggableList>
           )}

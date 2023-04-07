@@ -8,10 +8,9 @@
 import React, { Fragment } from 'react';
 import { Story } from '@storybook/react';
 import { Draggable, IDraggableListProps, DraggableList } from '@zendeskgarden/react-drag-drop';
-import { MD, SM } from '@zendeskgarden/react-typography';
 
 interface IArgs extends IDraggableListProps {
-  items: Record<string, string>[];
+  items: string[];
   dropIndicatorIndex?: number;
 }
 
@@ -24,7 +23,7 @@ export const DraggableListStory: Story<IArgs> = ({ items, dropIndicatorIndex, ..
       const endIdx = items.length - 1;
 
       return (
-        <Fragment key={item.label}>
+        <Fragment key={item}>
           {typeof dropIndicatorIndex === 'number' &&
             dropIndicatorIndex >= innerStartIdx &&
             dropIndicatorIndex <= endIdx &&
@@ -32,10 +31,7 @@ export const DraggableListStory: Story<IArgs> = ({ items, dropIndicatorIndex, ..
           <DraggableList.Item>
             <Draggable tabIndex={0}>
               <Draggable.Grip />
-              <Draggable.Content>
-                <MD isBold>{item.label}</MD>
-                <SM>{item.caption}</SM>
-              </Draggable.Content>
+              <Draggable.Content>{item}</Draggable.Content>
             </Draggable>
           </DraggableList.Item>
         </Fragment>

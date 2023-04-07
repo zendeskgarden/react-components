@@ -20,11 +20,10 @@ import { DropzoneStory } from './stories/DropzoneStory';
 <Canvas>
   <Story
     name="Dropzone"
-    args={{
-      messageLabel: 'Message'
-    }}
+    args={{ messageLabel: 'Message' }}
     argTypes={{
       tag: { control: { type: 'text' } },
+      hasCustomIcon: { control: { type: 'boolean' }, table: { category: 'Story' } },
       messageLabel: {
         name: 'children',
         control: { type: 'text' },
