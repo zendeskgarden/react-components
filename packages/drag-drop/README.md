@@ -19,7 +19,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Draggable, Dropzone } from '@zendeskgarden/react-drag-drop';
+import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-drop';
 
 /**
  * Place a `ThemeProvider` at the root of your React application

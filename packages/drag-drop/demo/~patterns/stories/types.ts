@@ -15,6 +15,7 @@ export interface ISortableItem {
 
 export interface ISortableItemProps {
   data: ISortableItem;
+  activeItem: ISortableItem | null | undefined;
   isOverlay?: boolean;
   isGrabbed?: boolean;
   isPlaceholder?: boolean;

@@ -31,10 +31,29 @@ uses `arrow-retweet-stroke.svg` to indicate a "replace" action when `isHighlight
   </Story>
 </Canvas>
 
+## Sortable List
+
+Combine `DraggableList` and `Draggable` to create a sortable list.
+
+<Canvas>
+  <Story
+    name="SortableList"
+    args={{ items: columns['column-1'], hasPlaceholder: false }}
+    argTypes={{
+      items: {
+        control: { type: 'object' },
+        table: { category: 'Story' }
+      },
+      hasPlaceholder: { control: { type: 'boolean' }, table: { category: 'Story' } }
+    }}
+  >
+    {args => <SortableListStory {...args} />}
+  </Story>
+</Canvas>
+
 ## Multiple Lists
 
-Use `DraggableList`, `Dropzone`, and `Draggable` with your third party library of choice (e.g., `dnd-kit`)
-to create multiple sortable lists.
+Use `DraggableList`, `Dropzone`, and `Draggable` to create multiple sortable lists.
 
 <Canvas>
   <Story
@@ -48,25 +67,5 @@ to create multiple sortable lists.
     }}
   >
     {args => <MultipleListsStory {...args} />}
-  </Story>
-</Canvas>
-
-## Sortable List
-
-Combine `Dropzone`, `DraggableList`, and `Draggable` to create multiple sortable lists.
-
-<Canvas>
-  <Story
-    name="SortableList"
-    args={{ items: columns['column-1'], placeholder: false }}
-    argTypes={{
-      items: {
-        control: { type: 'object' },
-        table: { category: 'Story' }
-      },
-      placeholder: { control: { type: 'boolean' }, table: { category: 'Story' } }
-    }}
-  >
-    {args => <SortableListStory {...args} />}
   </Story>
 </Canvas>

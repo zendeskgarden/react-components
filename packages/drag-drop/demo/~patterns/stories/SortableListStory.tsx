@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, RefObject, useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import type { Story } from '@storybook/react';
 import type { DragEndEvent, DragStartEvent } from '@dnd-kit/core';
-import type { ISortableItem, ISortableItemProps } from './types';
+import type { ISortableItem } from './types';
 
 import {
   closestCorners,
@@ -27,26 +27,25 @@ import {
   sortableKeyboardCoordinates,
   SortableContext,
   verticalListSortingStrategy,
-  useSortable,
   arrayMove
 } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
 
-import { Draggable, DraggableList } from '@zendeskgarden/react-drag-drop';
-import { MD, SM } from '@zendeskgarden/react-typography';
+import { DraggableList } from '@zendeskgarden/react-drag-drop';
 
 import { getAnnouncements } from './utilities';
+import { Item } from './components/Item';
+import { SortableItem } from './components/SortableItem';
 
 interface IArgs {
   items: ISortableItem[];
-  placeholder?: boolean;
+  hasPlaceholder?: boolean;
 }
 
 const StyledSortablesContainer = styled.div`
   max-width: 250px;
 `;
 
-export const SortableListStory: Story<IArgs> = ({ items, placeholder = false }: IArgs) => {
+export const SortableListStory: Story<IArgs> = ({ items, hasPlaceholder = false }: IArgs) => {
   const [sortableItems, setSortableItems] = useState<ISortableItem[]>(items);
 
   // state fallback for cancelled drag
@@ -58,7 +57,6 @@ export const SortableListStory: Story<IArgs> = ({ items, placeholder = false }: 
   // Overlay ref to move focus when dragging
   const overlayRef = useRef(null);
 
-  // DndKit interaction sensors
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(TouchSensor),
@@ -67,7 +65,6 @@ export const SortableListStory: Story<IArgs> = ({ items, placeholder = false }: 
     })
   );
 
-  // DndKit event handlers
   const onDragStart = ({ active }: DragStartEvent) => {
     const draggingItem = items.find(item => item.id === active.id);
 
@@ -91,56 +88,6 @@ export const SortableListStory: Story<IArgs> = ({ items, placeholder = false }: 
     setSortableItems(snapshot!);
     setSnapshot(null);
     setActiveItem(null);
-  };
-
-  const Item = forwardRef<HTMLDivElement, ISortableItemProps>((props, ref) => {
-    const { isOverlay, data, tabIndex } = props;
-
-    useEffect(() => {
-      const draggableRef = ref as RefObject<HTMLDivElement>;
-
-      if (isOverlay && draggableRef?.current) {
-        draggableRef.current?.focus();
-      }
-    });
-
-    return (
-      <Draggable {...props} tabIndex={isOverlay ? -1 : tabIndex} ref={ref}>
-        <Draggable.Grip />
-        <Draggable.Content>
-          <MD isBold>{data.label}</MD>
-          <SM>{data.caption}</SM>
-        </Draggable.Content>
-      </Draggable>
-    );
-  });
-
-  Item.displayName = 'Item';
-
-  const DraggableItem = ({ data }: ISortableItemProps) => {
-    const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition } =
-      useSortable({
-        id: data.id
-      });
-    const isActive = activeItem?.id === data.id;
-
-    const style = {
-      transform: CSS.Transform.toString(transform),
-      transition,
-      opacity: !placeholder && isActive ? 0 : 1
-    };
-
-    return (
-      <DraggableList.Item style={style} ref={setNodeRef}>
-        <Item
-          data={data}
-          {...attributes}
-          {...listeners}
-          isPlaceholder={placeholder && isActive}
-          ref={setActivatorNodeRef}
-        />
-      </DraggableList.Item>
-    );
   };
 
   // prefer position over index in announcements
@@ -172,7 +119,12 @@ export const SortableListStory: Story<IArgs> = ({ items, placeholder = false }: 
         >
           <DraggableList>
             {sortableItems.map(item => (
-              <DraggableItem data={item} key={item.id} />
+              <SortableItem
+                data={item}
+                activeItem={activeItem}
+                isPlaceholder={hasPlaceholder}
+                key={item.id}
+              />
             ))}
           </DraggableList>
         </SortableContext>

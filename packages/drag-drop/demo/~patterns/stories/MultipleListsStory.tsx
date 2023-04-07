@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { RefObject, forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import debounce from 'lodash.debounce';
 import styled from 'styled-components';
 
 import type { Story } from '@storybook/react';
 import type { DragEndEvent, DragOverEvent, DragStartEvent, UniqueIdentifier } from '@dnd-kit/core';
-import type { ISortableItem, ISortableItemProps } from './types';
+import type { ISortableItem } from './types';
 
 import {
   closestCorners,
@@ -28,15 +28,14 @@ import {
   sortableKeyboardCoordinates,
   SortableContext,
   verticalListSortingStrategy,
-  useSortable,
   arrayMove
 } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
 
-import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-drop';
-import { MD, SM } from '@zendeskgarden/react-typography';
+import { DraggableList, Dropzone } from '@zendeskgarden/react-drag-drop';
 
 import { getAnnouncements } from './utilities';
+import { Item } from './components/Item';
+import { SortableItem } from './components/SortableItem';
 
 interface IColumnProps {
   id: UniqueIdentifier;
@@ -207,50 +206,6 @@ export const MultipleListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
     setActiveColumnId(null);
   };
 
-  const Item = forwardRef<HTMLDivElement, ISortableItemProps>((props, ref) => {
-    const { isOverlay, data, tabIndex } = props;
-
-    useEffect(() => {
-      const draggableRef = ref as RefObject<HTMLDivElement>;
-
-      if (isOverlay && draggableRef?.current) {
-        draggableRef.current?.focus();
-      }
-    });
-
-    return (
-      <Draggable {...props} tabIndex={isOverlay ? -1 : tabIndex} ref={ref}>
-        <Draggable.Grip />
-        <Draggable.Content>
-          <MD isBold>{data.label}</MD>
-          <SM>{data.caption}</SM>
-        </Draggable.Content>
-      </Draggable>
-    );
-  });
-
-  Item.displayName = 'Item';
-
-  const DraggableItem = ({ data }: ISortableItemProps) => {
-    const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition } =
-      useSortable({
-        id: data.id
-      });
-    const isActive = activeItem?.id === data.id;
-
-    const style = {
-      transform: CSS.Transform.toString(transform),
-      transition,
-      opacity: isActive ? 0 : 1
-    };
-
-    return (
-      <DraggableList.Item style={style} ref={setNodeRef}>
-        <Item data={data} {...attributes} {...listeners} ref={setActivatorNodeRef} />
-      </DraggableList.Item>
-    );
-  };
-
   const Column = ({ items, id }: IColumnProps) => {
     const { setNodeRef } = useDroppable({ id });
     const isActive = !!activeId;
@@ -266,7 +221,7 @@ export const MultipleListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
           {items.length > 0 && (
             <DraggableList>
               {items.map(item => (
-                <DraggableItem data={item} key={item.id} />
+                <SortableItem data={item} activeItem={activeItem} key={item.id} />
               ))}
             </DraggableList>
           )}
