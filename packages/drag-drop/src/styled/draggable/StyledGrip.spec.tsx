@@ -14,7 +14,7 @@ describe('StyledGrip', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledGrip />);
 
-    expect(container.firstChild!.nodeName).toBe('SPAN');
+    expect(container.firstChild!.nodeName).toBe('DIV');
   });
 
   it('renders RTL styling correctly', () => {

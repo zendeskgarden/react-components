@@ -11,7 +11,7 @@ import { Grip } from './Grip';
 
 describe('Grip', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLSpanElement>();
+    const ref = React.createRef<HTMLDivElement>();
     const { container } = render(<Grip ref={ref} />);
 
     expect(container.firstChild!).toBe(ref.current);
@@ -20,7 +20,7 @@ describe('Grip', () => {
   it('renders the expected element', () => {
     const { container } = render(<Grip />);
 
-    expect(container.firstChild!.nodeName).toBe('SPAN');
+    expect(container.firstChild!.nodeName).toBe('DIV');
   });
 
   it('renders with icon', () => {
