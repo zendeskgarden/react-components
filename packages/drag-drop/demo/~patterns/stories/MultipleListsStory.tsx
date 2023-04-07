@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import React, { RefObject, forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import debounce from 'lodash.debounce';
 import styled from 'styled-components';
 
@@ -211,8 +211,10 @@ export const MultipleListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
     const { isOverlay, data, tabIndex } = props;
 
     useEffect(() => {
-      if (isOverlay && ref && ref.current) {
-        ref.current.focus();
+      const draggableRef = ref as RefObject<HTMLDivElement>;
+
+      if (isOverlay && draggableRef?.current) {
+        draggableRef.current?.focus();
       }
     });
 

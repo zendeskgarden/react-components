@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import type { Story } from '@storybook/react';
@@ -56,7 +56,7 @@ export const SortableListStory: Story<IArgs> = ({ items, placeholder = false }: 
   const [activeItem, setActiveItem] = useState<ISortableItem | null>(null);
 
   // Overlay ref to move focus when dragging
-  const overlayRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef(null);
 
   // DndKit interaction sensors
   const sensors = useSensors(
@@ -97,8 +97,10 @@ export const SortableListStory: Story<IArgs> = ({ items, placeholder = false }: 
     const { isOverlay, data, tabIndex } = props;
 
     useEffect(() => {
-      if (isOverlay && ref && ref.current) {
-        ref.current.focus();
+      const draggableRef = ref as RefObject<HTMLDivElement>;
+
+      if (isOverlay && draggableRef?.current) {
+        draggableRef.current?.focus();
       }
     });
 
