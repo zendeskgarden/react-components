@@ -52,9 +52,6 @@ export const StyledDropzone = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledDropzoneProps>`
-  display: ${p => p.hasMessage && 'flex'};
-  align-items: ${p => p.hasMessage && 'center'};
-  justify-content: ${p => p.hasMessage && 'center'};
   /* prettier-ignore */
   transition:
     border-color 0.25s ease-in-out,
@@ -66,6 +63,7 @@ export const StyledDropzone = styled.div.attrs({
   border-radius: ${p => p.theme.borderRadii.md};
   padding: ${p => p.theme.space.base * 4}px;
   width: 100%;
+  text-align: ${p => p.hasMessage && 'center'};
   font-family: ${props => props.theme.fonts.system};
   font-size: ${props => props.theme.fontSizes.md};
   direction: ${props => props.theme.rtl && 'rtl'};

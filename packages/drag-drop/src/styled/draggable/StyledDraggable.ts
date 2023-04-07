@@ -117,7 +117,7 @@ const sizeStyles = (props: IStyledDraggableProps) => {
     padding: ${isCompact ? theme.space.base * 1.25 : theme.space.base * 2.25}px;
     line-height: ${getLineHeight(theme.space.base * 5, theme.fontSizes.md)};
     font-size: ${theme.fontSizes.md};
-    font-style: ${theme.fontWeights.regular};
+    font-weight: ${theme.fontWeights.regular};
   `;
 };
 
@@ -135,6 +135,8 @@ export const StyledDraggable = styled.div.attrs({
     background-color 0.25s ease-in-out,
     color 0.25s ease-in-out,
     z-index 0.25s ease-in-out;
+  font-family: ${props => props.theme.fonts.system};
+  direction: ${props => props.theme.rtl && 'rtl'};
   box-sizing: border-box;
 
   ${sizeStyles}

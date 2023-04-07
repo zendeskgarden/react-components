@@ -10,20 +10,25 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'dropzone.icon';
 
-function getMarginStyles({ theme }: ThemeProps<DefaultTheme>) {
+function getSpaceStyles({ theme }: ThemeProps<DefaultTheme>) {
   return {
     [theme.rtl ? 'marginLeft' : 'marginRight']: theme.space.xs
   };
 }
 
+/**
+ * 1. Corrects the vertical text alignment of the icon within a dropzone message..
+ */
 export const StyledIcon = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  width: 12px;
-  height: 12px;
+  display: inline-block;
+  width: ${props => props.theme.iconSizes.md};
+  height: ${props => props.theme.iconSizes.md};
+  vertical-align: text-bottom; /* [1] */
 
-  ${getMarginStyles}
+  ${getSpaceStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

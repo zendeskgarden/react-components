@@ -22,7 +22,7 @@ export const DropzoneStory: Story<IArgs> = ({ messageLabel, hasCustomIcon, isDan
         <Dropzone.Icon>
           <ReplaceIcon />
         </Dropzone.Icon>
-      )}{' '}
+      )}
       {messageLabel}
     </Dropzone.Message>
   </Dropzone>
