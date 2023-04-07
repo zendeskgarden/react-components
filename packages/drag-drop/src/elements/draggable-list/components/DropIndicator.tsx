@@ -9,7 +9,10 @@ import React, { forwardRef, LiHTMLAttributes } from 'react';
 import { useDraggableListContext } from '../../../utils/useDraggableListContext';
 import { StyledDropIndicator } from '../../../styled';
 
-const DropIndicatorComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
+/**
+ * @extends LiHTMLAttributes<HTMLLIElement>
+ */
+export const DropIndicator = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
   (props, ref) => {
     const { isHorizontal } = useDraggableListContext();
 
@@ -17,9 +20,4 @@ const DropIndicatorComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLI
   }
 );
 
-DropIndicatorComponent.displayName = 'DraggableList.DropIndicator';
-
-/**
- * @extends LiHTMLAttributes<HTMLLIElement>
- */
-export const DropIndicator = DropIndicatorComponent;
+DropIndicator.displayName = 'DraggableList.DropIndicator';

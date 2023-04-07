@@ -28,4 +28,10 @@ describe('Draggable', () => {
 
     expect(container.firstChild!.nodeName).toBe('SECTION');
   });
+
+  it('renders aria-disabled="true" if disabled', () => {
+    const { container } = render(<Draggable isDisabled />);
+
+    expect(container.firstChild).toHaveAttribute('aria-disabled', 'true');
+  });
 });

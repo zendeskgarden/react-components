@@ -132,7 +132,7 @@ describe('StyledDraggable', () => {
       const { container } = render(<StyledDraggable isPlaceholder />);
 
       expect(container.firstChild).toHaveStyle(
-        `background-color: ${getColor('neutralHue', 200, DEFAULT_THEME)}`
+        `background-color: ${getColor('neutralHue', 800, DEFAULT_THEME, 0.1)}`
       );
       expect(container.firstChild).toHaveStyleRule('visibility', 'hidden', { modifier: '> *' });
     });

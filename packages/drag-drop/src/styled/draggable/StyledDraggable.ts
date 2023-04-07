@@ -49,11 +49,12 @@ function getColorStyles(props: IStyledDraggableProps) {
   const baseColor = getColor('primaryHue', shade, theme);
   const focusShadow = getFocusShadow(focusInset, baseColor!, theme);
   const dragShadow = getDragShadow(theme);
-  const neutralBackground = getColor('neutralHue', 200, theme);
+  const disabledBackground = getColor('neutralHue', 200, theme);
+  const placeholderBackground = getColor('neutralHue', 800, theme, 0.1);
 
   if (isDisabled) {
     return css`
-      background-color: ${neutralBackground};
+      background-color: ${disabledBackground};
 
       > * {
         color: ${p => getColor('neutralHue', 400, p.theme)};
@@ -63,7 +64,7 @@ function getColorStyles(props: IStyledDraggableProps) {
 
   if (isPlaceholder) {
     return css`
-      background-color: ${neutralBackground};
+      background-color: ${placeholderBackground};
 
       > * {
         visibility: hidden;

@@ -9,15 +9,13 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import GripIcon from '@zendeskgarden/svg-icons/src/12/grip.svg';
 import { StyledGrip } from '../../../styled';
 
-const GripComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Grip = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
   <StyledGrip {...props} ref={ref}>
     <GripIcon />
   </StyledGrip>
 ));
 
-GripComponent.displayName = 'Draggable.Grip';
-
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Grip = GripComponent;
+Grip.displayName = 'Draggable.Grip';

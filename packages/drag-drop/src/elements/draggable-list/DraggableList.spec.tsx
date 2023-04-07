@@ -11,10 +11,6 @@ import { DraggableList } from './DraggableList';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { INDICATOR_LINE_SIZE } from '../../styled/draggable-list/StyledDropIndicator';
 
-const RTL = 'rtl' as const;
-const LTR = 'ltr' as const;
-const DIRECTIONS = [LTR, RTL] as const;
-
 describe('DraggableList', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLUListElement>();
@@ -146,9 +142,9 @@ describe('DraggableList', () => {
     });
   });
 
-  describe.each(DIRECTIONS)('horizontal list in %s', dir => {
-    const renderFn = dir === RTL ? renderRtl : render;
-    const inlineMarginProp = dir === RTL ? 'margin-right' : 'margin-left';
+  describe.each(['ltr', 'rtl'])('horizontal list in %s', dir => {
+    const renderFn = dir === 'rtl' ? renderRtl : render;
+    const inlineMarginProp = dir === 'rtl' ? 'margin-right' : 'margin-left';
 
     it(`renders expected ${dir} spacing between list items`, () => {
       const { queryAllByText } = renderFn(
@@ -198,7 +194,7 @@ describe('DraggableList', () => {
 
       expect(indicator).toHaveStyle(`
         position: absolute;
-        ${dir === RTL ? 'right' : 'left'}: -${DEFAULT_THEME.space.base + 1}px;
+        ${dir === 'rtl' ? 'right' : 'left'}: -${DEFAULT_THEME.space.base + 1}px;
       `);
     });
 
@@ -214,7 +210,7 @@ describe('DraggableList', () => {
 
       expect(indicator).toHaveStyle(`
         position: absolute;
-        ${dir === RTL ? 'left' : 'right'}: -${DEFAULT_THEME.space.base + 1}px;
+        ${dir === 'rtl' ? 'left' : 'right'}: -${DEFAULT_THEME.space.base + 1}px;
       `);
     });
   });

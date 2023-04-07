@@ -13,7 +13,7 @@ import { IDraggableProps } from '../../types';
 
 const DraggableComponent = forwardRef<HTMLDivElement, IDraggableProps>(
   ({ tag = 'div', ...props }, ref) => {
-    return <StyledDraggable as={tag} {...props} ref={ref} />;
+    return <StyledDraggable as={tag} aria-disabled={props.isDisabled} {...props} ref={ref} />;
   }
 );
 

@@ -31,7 +31,7 @@ describe('Dropzone', () => {
     expect(container.firstChild!.nodeName).toBe('SECTION');
   });
 
-  it('sets aria-disabled if disabled', () => {
+  it('renders aria-disabled="true" if disabled', () => {
     const { container } = render(<Dropzone isDisabled />);
 
     expect(container.firstChild).toHaveAttribute('aria-disabled', 'true');

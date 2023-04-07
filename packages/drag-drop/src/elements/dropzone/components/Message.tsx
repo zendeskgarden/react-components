@@ -11,7 +11,10 @@ import { Icon } from './Icon';
 import { StyledMessage } from '../../../styled';
 import { useDropzoneContext } from '../../../utils/useDropzoneContext';
 
-const MessageComponent = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>(
+/**
+ * @extends HTMLAttributes<HTMLParagraphElement>
+ */
+export const Message = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>(
   ({ children, ...props }, ref) => {
     const { setHasMessage, hasMessage, isDanger } = useDropzoneContext();
 
@@ -40,9 +43,4 @@ const MessageComponent = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLPar
   }
 );
 
-MessageComponent.displayName = 'Dropzone.Message';
-
-/**
- * @extends HTMLAttributes<HTMLParagraphElement>
- */
-export const Message = MessageComponent;
+Message.displayName = 'Dropzone.Message';

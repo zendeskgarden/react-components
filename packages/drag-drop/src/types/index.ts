@@ -8,35 +8,36 @@
 import { HTMLAttributes } from 'react';
 
 export interface IDraggableProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
+  /** Applies bare styling */
+  isBare?: boolean;
   /** Applies compact styling */
   isCompact?: boolean;
-  /** Appliesbare styling */
-  isBare?: boolean;
-  /** Applies disabled styling */
+  /** Disables the draggable */
   isDisabled?: boolean;
-  /** Hides content and applies placeholder background styling */
-  isPlaceholder?: boolean;
   /** Applies grab styling */
   isGrabbed?: boolean;
-  /** Applies alternative HTML tag to element */
+  /** Hides content and applies placeholder background styling */
+  isPlaceholder?: boolean;
+  /** Updates the element's HTML tag */
   tag?: any;
 }
 
 export interface IDraggableListProps extends HTMLAttributes<HTMLUListElement> {
-  /** Applies styling to flow list items in a row */
+  /** Flow list items inline */
   isHorizontal?: boolean;
 }
 
 export interface IDropzoneProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies danger styling */
   isDanger?: boolean;
-  /** Applies highlighted styling to indicate draggable element is hovering */
+  /** Visually indicates a drop is possible during a drag */
   isActive?: boolean;
-  /** Applies highlighted styling to indicate dropping is possible */
+  /** Visually indicates a draggable is overlapping on a droppable area */
   isHighlighted?: boolean;
-  /** APplies disabled styling */
+  /** Applies disabled styling */
   isDisabled?: boolean;
-  /** Applies alternative HTML tag to element */
+  /** Updates the element's HTML tag */
   tag?: any;
 }

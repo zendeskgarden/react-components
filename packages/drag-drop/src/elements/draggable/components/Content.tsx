@@ -8,13 +8,11 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledContent } from '../../../styled';
 
-const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => <StyledContent {...props} ref={ref} />
-);
-
-ContentComponent.displayName = 'Draggable.Content';
-
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Content = ContentComponent;
+export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
+  <StyledContent {...props} ref={ref} />
+));
+
+Content.displayName = 'Draggable.Content';
