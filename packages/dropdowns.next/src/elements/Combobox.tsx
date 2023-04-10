@@ -5,13 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useContext, useRef, useState } from 'react';
+import React, { forwardRef, useContext, useMemo, useRef, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import { autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import SelectedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
+import OptionIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { IComboboxProps, VALIDATION } from '../types';
+import { ComboboxContext } from '../context/useComboboxContext';
 import {
   StyledCombobox,
   StyledContainer,
@@ -20,13 +23,10 @@ import {
   StyledInput,
   StyledInputGroup,
   StyledListbox,
-  StyledOption,
   StyledTrigger,
-  StyledValue,
-  StyledSelectedIcon
+  StyledValue
 } from '../views';
-import { ThemeContext } from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { Option } from './Option';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -43,6 +43,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
     validation,
     ...comboboxProps
   } = props;
+  const contextValue = useMemo(() => ({ isCompact }), [isCompact]);
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   const [isInputHidden, setIsInputHidden] = useState(true);
   const [value, setValue] = useState('');
@@ -62,74 +63,75 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
   });
 
   return (
-    <StyledCombobox isCompact={props.isCompact} {...comboboxProps} ref={ref}>
-      <StyledTrigger
-        isAutocomplete={isAutocomplete}
-        isBare={isBare}
-        isCompact={isCompact}
-        isEditable={isEditable}
-        focusInset={focusInset}
-        validation={validation}
-        ref={reference}
-        /* remove following props with useCombobox hook */
-        aria-disabled={isDisabled}
-        onClick={() => inputRef.current?.focus()}
-        tabIndex={isEditable ? -1 : 0}
-      >
-        <StyledContainer>
-          <StyledInputIcon isCompact={isCompact}>
-            <StartIcon />
-          </StyledInputIcon>
-          <StyledInputGroup>
-            {isInputHidden && (
-              <StyledValue isCompact={isCompact} isPlaceholder={!value}>
-                {value || placeholder}
-              </StyledValue>
-            )}
-            <StyledInput
-              aria-invalid={validation === 'error' || validation === 'warning'}
-              hidden={isInputHidden}
-              isCompact={isCompact}
-              onFocus={() => setIsInputHidden(false)}
-              onBlur={() => setIsInputHidden(true)}
-              placeholder={placeholder}
-              /* remove following props with useCombobox hook */
-              disabled={isDisabled}
-              onChange={event => setValue(event.target.value)}
-              readOnly={!isEditable}
-              tabIndex={isEditable ? undefined : -1}
-              value={value}
-              ref={inputRef}
-            />
-          </StyledInputGroup>
-          <StyledInputIcon isCompact={isCompact} isEnd isRotated={!isInputHidden}>
-            <EndIcon />
-          </StyledInputIcon>
-        </StyledContainer>
-      </StyledTrigger>
-      <StyledFloating
-        data-garden-animate={!isInputHidden}
-        isHidden={isInputHidden}
-        position={placement === 'bottom-start' ? 'bottom' : 'top'}
-        style={{ top: y ?? 0, left: x ?? 0 }}
-        ref={floating}
-      >
-        <StyledListbox>
-          <StyledOption isCompact={isCompact}>
-            <StyledSelectedIcon isCompact={isCompact}>
-              <SelectedIcon />
-            </StyledSelectedIcon>
-            option
-          </StyledOption>
-          <StyledOption aria-disabled isCompact={isCompact}>
-            disabled
-          </StyledOption>
-          <StyledOption isDanger isCompact={isCompact}>
-            danger
-          </StyledOption>
-        </StyledListbox>
-      </StyledFloating>
-    </StyledCombobox>
+    <ComboboxContext.Provider value={contextValue}>
+      <StyledCombobox isCompact={props.isCompact} {...comboboxProps} ref={ref}>
+        <StyledTrigger
+          isAutocomplete={isAutocomplete}
+          isBare={isBare}
+          isCompact={isCompact}
+          isEditable={isEditable}
+          focusInset={focusInset}
+          validation={validation}
+          ref={reference}
+          /* remove following props with useCombobox hook */
+          aria-disabled={isDisabled}
+          onClick={() => inputRef.current?.focus()}
+          tabIndex={isEditable ? -1 : 0}
+        >
+          <StyledContainer>
+            <StyledInputIcon isCompact={isCompact}>
+              <StartIcon />
+            </StyledInputIcon>
+            <StyledInputGroup>
+              {isInputHidden && (
+                <StyledValue isCompact={isCompact} isPlaceholder={!value}>
+                  {value || placeholder}
+                </StyledValue>
+              )}
+              <StyledInput
+                aria-invalid={validation === 'error' || validation === 'warning'}
+                hidden={isInputHidden}
+                isCompact={isCompact}
+                onFocus={() => setIsInputHidden(false)}
+                onBlur={() => setIsInputHidden(true)}
+                placeholder={placeholder}
+                /* remove following props with useCombobox hook */
+                disabled={isDisabled}
+                onChange={event => setValue(event.target.value)}
+                readOnly={!isEditable}
+                tabIndex={isEditable ? undefined : -1}
+                value={value}
+                ref={inputRef}
+              />
+            </StyledInputGroup>
+            <StyledInputIcon isCompact={isCompact} isEnd isRotated={!isInputHidden}>
+              <EndIcon />
+            </StyledInputIcon>
+          </StyledContainer>
+        </StyledTrigger>
+        <StyledFloating
+          data-garden-animate={!isInputHidden}
+          isHidden={false}
+          position={placement === 'bottom-start' ? 'bottom' : 'top'}
+          style={{ top: y ?? 0, left: x ?? 0 }}
+          ref={floating}
+        >
+          <StyledListbox>
+            <Option icon={<OptionIcon />} isDanger={validation === 'error'} isDisabled={isDisabled}>
+              One
+              <Option.Meta>Meta</Option.Meta>
+            </Option>
+            <Option isDanger={validation === 'error'} isDisabled={isDisabled}>
+              Two
+              <Option.Meta>Meta</Option.Meta>
+            </Option>
+            <Option isDanger={validation === 'error'} isDisabled={isDisabled}>
+              Three
+            </Option>
+          </StyledListbox>
+        </StyledFloating>
+      </StyledCombobox>
+    </ComboboxContext.Provider>
   );
 });
 

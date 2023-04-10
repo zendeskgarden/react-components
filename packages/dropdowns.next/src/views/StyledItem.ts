@@ -6,17 +6,18 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.combobox.option';
+const COMPONENT_ID = 'dropdowns.item';
 
-interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
+interface IStyledItemProps extends ThemeProps<DefaultTheme> {
   isActive?: boolean;
   isCompact?: boolean;
   isDanger?: boolean;
 }
 
-const colorStyles = (props: IStyledOptionProps) => {
+const colorStyles = (props: IStyledItemProps) => {
   const backgroundColor = props.theme.colors.background;
   const foregroundColor = props.isDanger
     ? getColor('dangerHue', 600, props.theme)
@@ -44,29 +45,33 @@ const colorStyles = (props: IStyledOptionProps) => {
   `;
 };
 
-export const getMinHeight = (props: IStyledOptionProps) =>
+export const getMinHeight = (props: IStyledItemProps) =>
   props.theme.space.base * (props.isCompact ? 7 : 9);
 
 /*
  * 1. Use px vs. unitless to prevent browser sizing shifts.
  */
-const sizeStyles = (props: IStyledOptionProps) => {
-  const lineHeight = props.theme.space.base * 5;
+const sizeStyles = (props: IStyledItemProps) => {
+  const lineHeight = props.theme.lineHeights.md;
+  const minHeight = getMinHeight(props);
   const paddingHorizontal = `${props.theme.space.base * 9}px`;
-  const paddingVertical = `${(getMinHeight(props) - lineHeight) / 2}px`;
+  const paddingVertical = math(`(${minHeight} - ${lineHeight}) / 2`);
 
   return css`
+    box-sizing: border-box;
     padding: ${paddingVertical} ${paddingHorizontal};
-    line-height: ${lineHeight}px; /* [1] */
+    min-height: ${minHeight}px;
+    line-height: ${lineHeight}; /* [1] */
   `;
 };
 
-export const StyledOption = styled.li.attrs({
+export const StyledItem = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledOptionProps>`
-  display: block;
+})<IStyledItemProps>`
+  display: flex;
   position: relative;
+  transition: color 0.25s ease-in-out;
   cursor: pointer;
   word-wrap: break-word;
   user-select: none;
@@ -86,6 +91,6 @@ export const StyledOption = styled.li.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledOption.defaultProps = {
+StyledItem.defaultProps = {
   theme: DEFAULT_THEME
 };

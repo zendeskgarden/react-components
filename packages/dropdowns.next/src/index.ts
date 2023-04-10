@@ -7,4 +7,4 @@
 
 export { Combobox } from './elements/Combobox';
 
-export type { IComboboxProps } from './types';
+export type { IComboboxProps, IOptionProps } from './types';

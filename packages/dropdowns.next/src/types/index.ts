@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, LiHTMLAttributes, ReactElement } from 'react';
 
 export const VALIDATION = ['success', 'warning', 'error'] as const;
 
-export type Validation = (typeof VALIDATION)[number];
+export type Validation = typeof VALIDATION[number];
 
 export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   /** Accepts an "end" icon to display */
-  endIcon?: any;
+  endIcon?: ReactElement;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
   /** Indicates that the combobox provides autocompletion  */
@@ -29,7 +29,16 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   /** Defines text that appears in the element when no items are selected */
   placeholder?: string;
   /** Accepts a "start" icon to display */
-  startIcon?: any;
+  startIcon?: ReactElement;
   /** Applies validation state styling */
   validation?: Validation;
+}
+
+export interface IOptionProps extends LiHTMLAttributes<HTMLLIElement> {
+  /** Accepts an icon to display */
+  icon?: ReactElement;
+  /** Applies danger styling */
+  isDanger?: boolean;
+  /** Indicates that the option is not interactive */
+  isDisabled?: boolean;
 }

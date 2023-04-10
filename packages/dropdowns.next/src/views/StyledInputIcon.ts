@@ -76,7 +76,7 @@ export const StyledInputIcon = styled(
     isRotated,
     theme,
     ...props
-  }) => cloneElement(Children.only(children), props)
+  }) => cloneElement<SVGElement>(Children.only(children), props)
 ).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
