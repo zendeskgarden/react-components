@@ -10,9 +10,9 @@ import { HTMLAttributes } from 'react';
 export interface IDraggableProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Applies bare styling */
+  /** Removes borders */
   isBare?: boolean;
-  /** Applies compact styling */
+  /** Applies compact spacing */
   isCompact?: boolean;
   /** Disables the draggable */
   isDisabled?: boolean;
