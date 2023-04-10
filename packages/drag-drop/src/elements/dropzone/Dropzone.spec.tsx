@@ -72,45 +72,45 @@ describe('Dropzone', () => {
   const StateMap: Record<string, any> = {
     disabled: {
       base: `
-        backgroundColor: ${getColor('neutralHue', 200, DEFAULT_THEME)};
-        borderColor: ${getColor('neutralHue', 300, DEFAULT_THEME)};
+        background-color: ${getColor('neutralHue', 200, DEFAULT_THEME)};
         color: ${getColor('neutralHue', 400, DEFAULT_THEME)};
+        border-color: ${getColor('neutralHue', 300, DEFAULT_THEME)};
       `
     },
     default: {
       base: `
-        backgroundColor: transparent;
-        borderColor: ${neutralColor};
+        background-color: transparent;
         color: ${neutralColor};
+        border-color: ${neutralColor};
       `,
       active: `
-        backgroundColor: ${primaryBgColor};
-        borderColor: ${primaryColor};
+        background-color: ${primaryBgColor};
         color: ${primaryColor};
+        border-color: ${primaryColor};
       `,
       highlight: `
-        backgroundColor: ${primaryBgColor};
-        borderColor: ${primaryColor};
+        background-color: ${primaryBgColor};
         color: ${primaryDarkColor};
+        border-color: ${primaryColor};
         border-width: 2px;
         border-style: solid;
       `
     },
     danger: {
       base: `
-        backgroundColor: transparent;
-        borderColor: ${dangerColor};
+        background-color: transparent;
         color: ${dangerColor};
+        border-color: ${dangerColor};
       `,
       active: `
-        backgroundColor: ${dangerBgColor};
-        borderColor: ${dangerColor};
+        background-color: ${dangerBgColor};
         color: ${dangerColor};
+        border-color: ${dangerColor};
       `,
       highlight: `
-        backgroundColor: ${dangerBgColor};
-        borderColor: ${dangerColor};
+        background-color: ${dangerBgColor};
         color: ${dangerDarkColor};
+        border-color: ${dangerColor};
         border-width: 2px;
         border-style: solid;
       `

@@ -38,7 +38,12 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
-import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-drop';
+import {
+  Draggable,
+  DraggableList,
+  Dropzone,
+  IDraggableProps
+} from '@zendeskgarden/react-drag-drop';
 
 interface IColumnProps {
   id: UniqueIdentifier;
@@ -51,8 +56,9 @@ interface ISortableItem {
   id: UniqueIdentifier;
 }
 
-interface ISortableItemProps {
+interface ISortableItemProps extends IDraggableProps {
   data: ISortableItem;
+  showDropmessage?: boolean;
   activeItem?: ISortableItem | null;
   isOverlay?: boolean;
   isGrabbed?: boolean;
@@ -249,7 +255,7 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
 
   const DraggableItem = forwardRef<HTMLDivElement, Omit<ISortableItemProps, 'activeItem'>>(
     (props, ref) => {
-      const { isOverlay, data, tabIndex } = props;
+      const { isOverlay, data, tabIndex, ...restProps } = props;
 
       useEffect(() => {
         // This is a safe assumptions given a ref is always provided
@@ -262,7 +268,7 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
       });
 
       return (
-        <Draggable {...props} tabIndex={isOverlay ? -1 : tabIndex} ref={ref}>
+        <Draggable {...restProps} tabIndex={isOverlay ? -1 : tabIndex} ref={ref}>
           <Draggable.Grip />
           <Draggable.Content>{data.label}</Draggable.Content>
         </Draggable>
@@ -272,7 +278,7 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
 
   DraggableItem.displayName = 'DraggableItem';
 
-  const ListItem = ({ data }: ISortableItemProps) => {
+  const ListItem = ({ data, showDropmessage }: ISortableItemProps) => {
     const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition } =
       useSortable({
         id: data.id
@@ -287,7 +293,13 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
 
     return (
       <DraggableList.Item style={style} ref={setNodeRef}>
-        <DraggableItem data={data} {...attributes} {...listeners} ref={setActivatorNodeRef} />
+        <DraggableItem
+          data={data}
+          {...attributes}
+          {...listeners}
+          style={{ display: showDropmessage ? 'none' : 'flex' }}
+          ref={setActivatorNodeRef}
+        />
       </DraggableList.Item>
     );
   };
@@ -296,22 +308,27 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
     const { setNodeRef } = useDroppable({ id });
     const isActive = !!activeId;
     const isHighlighted = activeColumnId === id;
+    const showDropmessage = items.length === 1 && isHighlighted;
 
     return (
       <SortableContext id={id as string} items={items} strategy={verticalListSortingStrategy}>
         <Dropzone
-          ref={items.length === 0 ? setNodeRef : undefined}
+          ref={items.length <= 1 ? setNodeRef : undefined}
           isActive={isActive}
           isHighlighted={isHighlighted}
         >
-          {items.length > 0 && (
-            <DraggableList>
-              {items.map(item => (
-                <ListItem data={item} activeItem={activeItem} key={item.id} />
-              ))}
-            </DraggableList>
-          )}
-          {items.length === 0 && <Dropzone.Message>Drag items here</Dropzone.Message>}
+          <DraggableList>
+            {items.map(item => (
+              <ListItem
+                data={item}
+                activeItem={activeItem}
+                key={item.id}
+                showDropmessage={showDropmessage}
+              />
+            ))}
+          </DraggableList>
+          {items.length === 0 && <Dropzone.Message>Drag to add</Dropzone.Message>}
+          {showDropmessage && <Dropzone.Message>Drop item here</Dropzone.Message>}
         </Dropzone>
       </SortableContext>
     );
@@ -344,7 +361,7 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
           <Column items={columns[columnId]} id={columnId} key={columnId} />
         ))}
       </StyledSortablesContainer>
-      <DragOverlay wrapperElement={DraggableList as unknown as 'ul'}>
+      <DragOverlay>
         {activeItem ? (
           <DraggableItem data={activeItem} isOverlay isGrabbed ref={overlayRef} />
         ) : null}

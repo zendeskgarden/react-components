@@ -24,32 +24,23 @@ const colorStyles = (props: IStyledDropzoneProps) => {
 
   const hue = isDanger ? 'dangerHue' : 'primaryHue';
   const baseColor = getColor(hue, 600, theme);
+  const neutralColor = getColor('neutralHue', 600, theme);
 
   let backgroundColor = 'transparent';
-  let borderColor = baseColor;
-  let color = baseColor;
+  let borderColor = neutralColor;
+  let color = neutralColor;
 
   if (isDisabled) {
     backgroundColor = getColor('neutralHue', 200, theme) as string;
     borderColor = getColor('neutralHue', 300, theme);
     color = getColor('neutralHue', 400, theme);
   } else if (isActive || isHighlighted) {
-    const activeBgColor = rgba(baseColor as string, 0.08);
-
-    if (isHighlighted) {
-      backgroundColor = activeBgColor;
-      color = getColor(hue, 800, theme);
-    }
-
-    if (isActive) {
-      backgroundColor = activeBgColor;
-      color = baseColor;
-    }
-  } else if (hue === 'primaryHue') {
-    const neutralColor = getColor('neutralHue', 600, theme);
-
-    borderColor = neutralColor;
-    color = neutralColor;
+    color = isHighlighted ? getColor(hue, 800, theme) : baseColor;
+    backgroundColor = rgba(baseColor as string, 0.08);
+    borderColor = baseColor;
+  } else if (isDanger) {
+    borderColor = baseColor;
+    color = baseColor;
   }
 
   return css`

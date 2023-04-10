@@ -105,16 +105,18 @@ const cursorStyles = (props: IStyledDraggableProps) => {
 
 const sizeStyles = (props: IStyledDraggableProps) => {
   const { isCompact, theme } = props;
+  const paddingDefault = theme.space.base * 2.25;
+  const paddingCompact = theme.space.base * 1.25;
 
   /**
-   * 1. Reset margin, e.g. when custom tag includes native margin
+   * 1. Reset margin, e.g. when alternative tag includes native margin
    */
   return css`
     margin: 0; /* [1] */
     border-width: ${theme.borderWidths.sm};
     border-style: ${theme.borderStyles.solid};
     border-radius: ${theme.borderRadii.md};
-    padding: ${isCompact ? theme.space.base * 1.25 : theme.space.base * 2.25}px;
+    padding: ${isCompact ? `${paddingCompact}px ${paddingDefault}px` : `${paddingDefault}px`};
     line-height: ${getLineHeight(theme.space.base * 5, theme.fontSizes.md)};
     font-size: ${theme.fontSizes.md};
     font-weight: ${theme.fontWeights.regular};
