@@ -5,14 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import { rgba } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import {
-  dropzoneStateStyles,
-  PRIMARY_HUE,
-  DANGER_HUE,
-  NEUTRAL_HUE
-} from '../../utils/dropzoneStateStyles';
 
 const COMPONENT_ID = 'dropzone';
 
@@ -24,29 +19,59 @@ export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
   isActive?: boolean;
 }
 
-function getStateStyles(props: IStyledDropzoneProps) {
-  const { isDanger, isDisabled, theme } = props;
+const colorStyles = (props: IStyledDropzoneProps) => {
+  const { isDanger, isDisabled, isActive, isHighlighted, theme } = props;
+
+  const hue = isDanger ? 'dangerHue' : 'primaryHue';
+  const baseColor = getColor(hue, 600, theme);
+
+  let backgroundColor = 'transparent';
+  let borderColor = baseColor;
+  let color = baseColor;
 
   if (isDisabled) {
-    return {
-      backgroundColor: getColor(NEUTRAL_HUE, 200, theme),
-      borderColor: getColor(NEUTRAL_HUE, 300, theme),
-      color: getColor(NEUTRAL_HUE, 400, theme)
-    };
+    backgroundColor = getColor('neutralHue', 200, theme) as string;
+    borderColor = getColor('neutralHue', 300, theme);
+    color = getColor('neutralHue', 400, theme);
+  } else if (isActive || isHighlighted) {
+    const activeBgColor = rgba(baseColor as string, 0.08);
+
+    if (isHighlighted) {
+      backgroundColor = activeBgColor;
+      color = getColor(hue, 800, theme);
+    }
+
+    if (isActive) {
+      backgroundColor = activeBgColor;
+      color = baseColor;
+    }
+  } else if (hue === 'primaryHue') {
+    const neutralColor = getColor('neutralHue', 600, theme);
+
+    borderColor = neutralColor;
+    color = neutralColor;
   }
 
-  /**
-   * isDanger
-   */
-  if (isDanger) {
-    return dropzoneStateStyles(DANGER_HUE, props);
-  }
+  return css`
+    border-color: ${borderColor};
+    background-color: ${backgroundColor};
+    color: ${color};
+  `;
+};
 
-  /**
-   * Default
-   */
-  return dropzoneStateStyles(PRIMARY_HUE, props);
-}
+const sizeStyles = (props: IStyledDropzoneProps) => {
+  const { theme, isHighlighted } = props;
+
+  return css`
+    border-width: ${isHighlighted ? '2px' : '1px'};
+    border-style: ${isHighlighted ? 'solid' : 'dashed'};
+    border-radius: ${theme.borderRadii.md};
+    padding: ${isHighlighted ? theme.space.base * 4 - 1 : theme.space.base * 4}px;
+    width: 100%;
+    font-family: ${theme.fonts.system};
+    font-size: ${theme.fontSizes.md};
+  `;
+};
 
 export const StyledDropzone = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
@@ -58,18 +83,12 @@ export const StyledDropzone = styled.div.attrs({
     background-color 0.25s ease-in-out,
     color 0.25s ease-in-out,
     z-index 0.25s ease-in-out;
-  border-width: 1px;
-  border-style: dashed;
-  border-radius: ${p => p.theme.borderRadii.md};
-  padding: ${p => p.theme.space.base * 4}px;
-  width: 100%;
   text-align: ${p => p.hasMessage && 'center'};
-  font-family: ${props => props.theme.fonts.system};
-  font-size: ${props => props.theme.fontSizes.md};
   direction: ${props => props.theme.rtl && 'rtl'};
   box-sizing: border-box;
 
-  ${getStateStyles}
+  ${sizeStyles}
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
