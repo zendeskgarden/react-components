@@ -24,7 +24,7 @@ export const Message = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParag
       }
 
       return () => {
-        if (hasMessage && setHasMessage) {
+        if (setHasMessage && hasMessage) {
           setHasMessage(false);
         }
       };

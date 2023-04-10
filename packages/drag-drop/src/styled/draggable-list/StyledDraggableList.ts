@@ -16,43 +16,42 @@ export interface IStyledDraggableListProps extends ThemeProps<DefaultTheme> {
   isHorizontal?: boolean;
 }
 
-function getOffsetMarginStyles(props: IStyledDraggableListProps, value: number) {
+function offsetMarginStyles(props: IStyledDraggableListProps, value: number) {
+  const style: Record<string, string> = {};
+
   if (props.isHorizontal) {
-    return {
-      [props.theme.rtl ? 'marginRight' : 'marginLeft']: `${value}px`
-    };
+    style[props.theme.rtl ? 'marginRight' : 'marginLeft'] = `${value}px`;
+  } else {
+    style.marginTop = `${value}px`;
   }
 
-  return {
-    marginTop: `${value}px`
-  };
+  return style;
 }
 
 /**
- * Positions the drop indicator absolutely when at the start or end of the list to prevent layout shifting.
+ * Positions the drop indicator absolutely when at the start or end of the list
+ * to prevent layout shifting.
  */
-function getPositionStyles(props: IStyledDraggableListProps, isStart = true) {
+function positionStyles(props: IStyledDraggableListProps, isStart = true) {
   const { isHorizontal, theme } = props;
   const offsetValue = `-${theme.space.base + 1}px`;
 
+  const style: Record<string, string> = {};
+
   if (isHorizontal) {
-    const style: Record<string, string> = {
-      height: `calc(100% - ${INDICATOR_LINE_SIZE}px)`
-    };
+    style.height = `calc(100% - ${INDICATOR_LINE_SIZE}px)`;
 
     if (isStart) {
       style[theme.rtl ? 'right' : 'left'] = offsetValue;
     } else {
       style[theme.rtl ? 'left' : 'right'] = offsetValue;
     }
-
-    return style;
+  } else {
+    style.width = `calc(100% - ${INDICATOR_LINE_SIZE}px)`;
+    style[isStart ? 'top' : 'bottom'] = offsetValue;
   }
 
-  return {
-    width: `calc(100% - ${INDICATOR_LINE_SIZE}px)`,
-    [isStart ? 'top' : 'bottom']: offsetValue
-  };
+  return style;
 }
 
 /**
@@ -73,39 +72,39 @@ export const StyledDraggableList = styled.ul.attrs({
   box-sizing: border-box;
   direction: ${props => props.theme.rtl && 'rtl'};
 
-  ${StyledItem} {
+  > ${StyledItem} {
     flex: 1;
 
     &:not(:first-child) {
-      ${p => getOffsetMarginStyles(p, p.theme.space.base * 2)}
+      ${p => offsetMarginStyles(p, p.theme.space.base * 2)};
     }
 
     + ${StyledDropIndicator} {
-      ${p => getOffsetMarginStyles(p, p.theme.space.base - INDICATOR_LINE_SIZE / 2)}/* [3] */
+      ${p => offsetMarginStyles(p, p.theme.space.base - INDICATOR_LINE_SIZE / 2)}; /* [3] */
     }
 
     + ${StyledDropIndicator}:last-child {
       position: absolute;
 
-      ${p => getPositionStyles(p, false)}/* [2] */
+      ${p => positionStyles(p, false)}; /* [2] */
     }
   }
 
-  ${StyledDropIndicator} {
+  > ${StyledDropIndicator} {
     /* stylelint-disable-next-line selector-max-specificity */
     &:not(:first-child) + ${StyledItem} {
-      ${p => getOffsetMarginStyles(p, p.theme.space.base - INDICATOR_LINE_SIZE / 2)}/* [3] */
+      ${p => offsetMarginStyles(p, p.theme.space.base - INDICATOR_LINE_SIZE / 2)}/* [3] */
     }
 
     &:first-child {
       position: absolute;
 
-      ${p => getPositionStyles(p)}/* [2] */
+      ${p => positionStyles(p)}/* [2] */
     }
 
     /* stylelint-disable-next-line selector-max-specificity */
     &:first-child + ${StyledItem} {
-      ${p => getOffsetMarginStyles(p, 0)}/* [3] */
+      ${p => offsetMarginStyles(p, 0)}/* [3] */
     }
   }
 

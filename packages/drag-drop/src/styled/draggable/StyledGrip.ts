@@ -10,7 +10,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'draggable.grip';
 
-function getMarginStyles({ theme }: ThemeProps<DefaultTheme>) {
+function marginStyles({ theme }: ThemeProps<DefaultTheme>) {
   return {
     [theme.rtl ? 'marginLeft' : 'marginRight']: theme.space.xs
   };
@@ -22,7 +22,7 @@ export const StyledGrip = styled.div.attrs({
 })`
   box-sizing: border-box;
 
-  ${getMarginStyles}
+  ${marginStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

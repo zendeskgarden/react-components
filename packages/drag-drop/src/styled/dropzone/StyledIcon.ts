@@ -10,10 +10,8 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'dropzone.icon';
 
-function getSpaceStyles({ theme }: ThemeProps<DefaultTheme>) {
-  return {
-    [theme.rtl ? 'marginLeft' : 'marginRight']: theme.space.xs
-  };
+function marginStyles({ theme }: ThemeProps<DefaultTheme>) {
+  return { [theme.rtl ? 'marginLeft' : 'marginRight']: theme.space.xs };
 }
 
 /**
@@ -28,7 +26,7 @@ export const StyledIcon = styled.span.attrs({
   height: ${props => props.theme.iconSizes.md};
   vertical-align: text-bottom; /* [1] */
 
-  ${getSpaceStyles}
+  ${marginStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
