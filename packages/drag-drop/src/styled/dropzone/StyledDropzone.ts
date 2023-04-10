@@ -77,6 +77,8 @@ export const StyledDropzone = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledDropzoneProps>`
+  display: ${p => p.hasMessage && 'flex'};
+  align-items: ${p => p.hasMessage && 'center'};
   /* prettier-ignore */
   transition:
     border-color 0.25s ease-in-out,

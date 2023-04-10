@@ -12,25 +12,23 @@ import { StyledDropzone } from '../../styled';
 import { IDropzoneProps } from '../../types';
 import { DropzoneContext } from '../../utils/useDropzoneContext';
 
-const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
-  ({ tag = 'div', ...props }, ref) => {
-    const { isDanger } = props;
-    const [hasMessage, setHasMessage] = useState(false);
-    const value = useMemo(() => ({ hasMessage, setHasMessage, isDanger }), [hasMessage, isDanger]);
+const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(({ tag, ...props }, ref) => {
+  const { isDanger } = props;
+  const [hasMessage, setHasMessage] = useState(false);
+  const value = useMemo(() => ({ hasMessage, setHasMessage, isDanger }), [hasMessage, isDanger]);
 
-    return (
-      <DropzoneContext.Provider value={value}>
-        <StyledDropzone
-          as={tag}
-          aria-disabled={props.isDisabled}
-          {...props}
-          hasMessage={hasMessage}
-          ref={ref}
-        />
-      </DropzoneContext.Provider>
-    );
-  }
-);
+  return (
+    <DropzoneContext.Provider value={value}>
+      <StyledDropzone
+        as={tag}
+        aria-disabled={props.isDisabled}
+        {...props}
+        hasMessage={hasMessage}
+        ref={ref}
+      />
+    </DropzoneContext.Provider>
+  );
+});
 
 DropzoneComponent.displayName = 'Dropzone';
 

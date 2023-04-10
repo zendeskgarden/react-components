@@ -19,6 +19,7 @@ export const StyledMessage = styled.p.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   margin: 0;
+  width: 100%;
   line-height: ${p => getLineHeight(p.theme.space.base * 5, p.theme.fontSizes.md)};
   color: inherit;
   font-size: ${p => p.theme.fontSizes.md};
