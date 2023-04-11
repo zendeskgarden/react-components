@@ -5,8 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { RefObject, forwardRef, useEffect, useMemo, useRef, useState } from 'react';
-import debounce from 'lodash.debounce';
+import React, { RefObject, forwardRef, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import type { Story } from '@storybook/react';
@@ -19,6 +18,7 @@ import type {
 } from '@dnd-kit/core';
 
 import {
+  MeasuringStrategy,
   closestCorners,
   DragOverlay,
   DndContext,
@@ -152,66 +152,62 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
     setSnapshot(columns);
   };
 
-  const onDragOver = useMemo(
-    () =>
-      debounce(({ active, over }: DragOverEvent) => {
-        const overId = over?.id;
+  const onDragOver = ({ active, over }: DragOverEvent) => {
+    const overId = over?.id;
 
-        if (!overId || active.id in columns) return;
+    if (!overId || active.id in columns) return;
 
-        // Find column ids
-        const overColId = findColumn(overId, columns);
-        const activeColId = findColumn(active.id, columns);
+    // Find column ids
+    const overColId = findColumn(overId, columns);
+    const activeColId = findColumn(active.id, columns);
 
-        if (!overColId || !activeColId) return;
+    if (!overColId || !activeColId) return;
 
-        if (activeColumnId !== overColId) {
-          setActiveColumnId(overColId);
-        }
+    if (activeColumnId !== overColId) {
+      setActiveColumnId(overColId);
+    }
 
-        if (activeColId === overColId) return;
+    if (activeColId === overColId) return;
 
-        setColumns(prevColumns => {
-          const nextColumns = { ...prevColumns };
-          const activeItems = nextColumns[activeColId];
-          const overItems = nextColumns[overColId];
+    setColumns(prevColumns => {
+      const nextColumns = { ...prevColumns };
+      const activeItems = nextColumns[activeColId];
+      const overItems = nextColumns[overColId];
 
-          // Find the indices for items
-          const activeIndex = activeItems.findIndex(item => item.id === active.id);
-          const overIndex = overItems.findIndex(item => item.id === overId);
-          let newIndex: number;
+      // Find the indices for items
+      const activeIndex = activeItems.findIndex(item => item.id === active.id);
+      const overIndex = overItems.findIndex(item => item.id === overId);
+      let newIndex: number;
 
-          if (overId in nextColumns) {
-            const length = overItems.length;
+      if (overId in nextColumns) {
+        const length = overItems.length;
 
-            newIndex = length > 0 ? length + 1 : length;
-          } else {
-            const isBelowLastItem =
-              over &&
-              overIndex === overItems.length - 1 &&
-              active.rect?.current?.translated?.top &&
-              active.rect.current.translated.top > over.rect.top + over.rect.height;
+        newIndex = length > 0 ? length + 1 : length;
+      } else {
+        const isBelowLastItem =
+          over &&
+          overIndex === overItems.length - 1 &&
+          active.rect?.current?.translated?.top &&
+          active.rect.current.translated.top > over.rect.top + over.rect.height;
 
-            const modifier = isBelowLastItem ? 1 : 0;
+        const modifier = isBelowLastItem ? 1 : 0;
 
-            newIndex = overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
-          }
+        newIndex = overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
+      }
 
-          // Remove moved item
-          nextColumns[activeColId] = nextColumns[activeColId].filter(item => item.id !== active.id);
+      // Remove moved item
+      nextColumns[activeColId] = nextColumns[activeColId].filter(item => item.id !== active.id);
 
-          // Add moved item
-          nextColumns[overColId] = [
-            ...nextColumns[overColId].slice(0, newIndex),
-            prevColumns[activeColId][activeIndex],
-            ...nextColumns[overColId].slice(newIndex, nextColumns[overColId].length)
-          ];
+      // Add moved item
+      nextColumns[overColId] = [
+        ...nextColumns[overColId].slice(0, newIndex),
+        prevColumns[activeColId][activeIndex],
+        ...nextColumns[overColId].slice(newIndex, nextColumns[overColId].length)
+      ];
 
-          return nextColumns;
-        });
-      }, 100),
-    [activeColumnId, columns]
-  );
+      return nextColumns;
+    });
+  };
 
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     const activeColId = findColumn(active.id, columns);
@@ -231,7 +227,11 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
     const activeIndex = columns[activeColId].findIndex(item => item.id === active.id);
     const overIndex = columns[overColId].findIndex(item => item.id === overId);
 
-    if (activeIndex !== overIndex) {
+    // If a droppable area isn't active, we can't drop/set the items
+    // revert to snapshot
+    if (overIndex === -1) {
+      setColumns(snapshot!);
+    } else if (activeIndex !== overIndex) {
       setColumns(prevColumns => {
         const nextColumns = { ...prevColumns };
 
@@ -355,6 +355,7 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
       onDragOver={onDragOver}
       onDragEnd={onDragEnd}
       onDragCancel={onDragCancel}
+      measuring={{ droppable: { strategy: MeasuringStrategy.Always } }}
     >
       <StyledSortablesContainer>
         {Object.keys(columns).map(columnId => (
