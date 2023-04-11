@@ -8,18 +8,19 @@
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.item.content';
+const COMPONENT_ID = 'dropdowns.option.content';
 
-export const StyledItemContent = styled.div.attrs({
+export const StyledOptionContent = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledItemContent.defaultProps = {
+StyledOptionContent.defaultProps = {
   theme: DEFAULT_THEME
 };

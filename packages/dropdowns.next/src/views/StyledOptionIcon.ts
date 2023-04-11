@@ -10,7 +10,7 @@ import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Children, cloneElement } from 'react';
 
-const COMPONENT_ID = 'dropdowns.item.icon';
+const COMPONENT_ID = 'dropdowns.option.icon';
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const size = props.theme.iconSizes.md;
@@ -26,7 +26,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledItemIcon = styled(
+export const StyledOptionIcon = styled(
   ({
     children,
     /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -44,6 +44,6 @@ export const StyledItemIcon = styled(
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledItemIcon.defaultProps = {
+StyledOptionIcon.defaultProps = {
   theme: DEFAULT_THEME
 };

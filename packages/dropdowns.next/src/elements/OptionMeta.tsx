@@ -7,13 +7,13 @@
 
 import React, { HTMLAttributes, forwardRef } from 'react';
 import useOptionContext from '../context/useOptionContext';
-import { StyledItemMeta } from '../views';
+import { StyledOptionMeta } from '../views';
 
 const OptionMetaComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const { isDisabled } = useOptionContext();
 
-    return <StyledItemMeta isDisabled={isDisabled} {...props} ref={ref} />;
+    return <StyledOptionMeta isDisabled={isDisabled} {...props} ref={ref} />;
   }
 );
 

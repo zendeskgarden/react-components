@@ -14,7 +14,12 @@ import SelectedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { IOptionProps, OPTION_TYPE, OptionType } from '../types';
 import useComboboxContext from '../context/useComboboxContext';
 import { OptionContext } from '../context/useOptionContext';
-import { StyledItem, StyledItemContent, StyledItemIcon, StyledItemActionIcon } from '../views';
+import {
+  StyledOption,
+  StyledOptionContent,
+  StyledOptionIcon,
+  StyledOptionTypeIcon
+} from '../views';
 import { OptionMeta } from './OptionMeta';
 
 const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
@@ -40,22 +45,22 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
 
     return (
       <OptionContext.Provider value={contextValue}>
-        <StyledItem
+        <StyledOption
           isCompact={isCompact}
-          type={type}
+          $type={type}
           {...props}
           ref={ref}
           /* remove following props with useCombobox hook */
           aria-disabled={isDisabled}
-          aria-selected={isSelected}
+          aria-selected={isSelected ? 'true' : undefined}
           onClick={() => setIsSelected(!isSelected)}
         >
-          <StyledItemActionIcon isCompact={isCompact} type={type}>
+          <StyledOptionTypeIcon isCompact={isCompact} type={type}>
             {renderActionIcon(type)}
-          </StyledItemActionIcon>
-          {icon && <StyledItemIcon>{icon}</StyledItemIcon>}
-          <StyledItemContent>{children}</StyledItemContent>
-        </StyledItem>
+          </StyledOptionTypeIcon>
+          {icon && <StyledOptionIcon>{icon}</StyledOptionIcon>}
+          <StyledOptionContent>{children}</StyledOptionContent>
+        </StyledOption>
       </OptionContext.Provider>
     );
   }

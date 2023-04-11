@@ -27,6 +27,7 @@ import {
   StyledValue
 } from '../views';
 import { Option } from './Option';
+import { OptGroup } from './OptGroup';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -117,6 +118,9 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
           ref={floating}
         >
           <StyledListbox>
+            <OptGroup icon={<OptionIcon />} aria-label="group" label="Header">
+              <Option isDisabled={isDisabled}>Zero</Option>
+            </OptGroup>
             <Option icon={<OptionIcon />} isDisabled={isDisabled}>
               One
               <Option.Meta>Meta</Option.Meta>

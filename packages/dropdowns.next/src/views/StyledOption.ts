@@ -10,18 +10,18 @@ import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { OptionType } from '../types';
 
-const COMPONENT_ID = 'dropdowns.item';
+const COMPONENT_ID = 'dropdowns.option';
 
-interface IStyledItemProps extends ThemeProps<DefaultTheme> {
+interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
   isActive?: boolean;
   isCompact?: boolean;
-  type?: OptionType;
+  $type?: OptionType | 'header';
 }
 
-const colorStyles = (props: IStyledItemProps) => {
+const colorStyles = (props: IStyledOptionProps) => {
   const backgroundColor = props.theme.colors.background;
   const activeBackgroundColor = getColor(
-    props.type === 'danger' ? 'dangerHue' : 'primaryHue',
+    props.$type === 'danger' ? 'dangerHue' : 'primaryHue',
     600,
     props.theme,
     0.08
@@ -29,18 +29,20 @@ const colorStyles = (props: IStyledItemProps) => {
   const disabledForegroundColor = getColor('neutralHue', 400, props.theme);
   let foregroundColor = props.theme.colors.foreground;
 
-  if (props.type === 'add') {
+  if (props.$type === 'add') {
     foregroundColor = getColor('primaryHue', 600, props.theme)!;
-  } else if (props.type === 'danger') {
+  } else if (props.$type === 'danger') {
     foregroundColor = getColor('dangerHue', 600, props.theme)!;
   }
 
   return css`
-    background-color: ${props.isActive ? activeBackgroundColor : backgroundColor};
+    background-color: ${props.isActive && props.$type !== 'header'
+      ? activeBackgroundColor
+      : backgroundColor};
     color: ${foregroundColor};
 
     &:hover {
-      background-color: ${activeBackgroundColor};
+      background-color: ${props.$type !== 'header' && activeBackgroundColor};
     }
 
     &[aria-disabled='true'] {
@@ -50,13 +52,13 @@ const colorStyles = (props: IStyledItemProps) => {
   `;
 };
 
-export const getMinHeight = (props: IStyledItemProps) =>
+export const getMinHeight = (props: IStyledOptionProps) =>
   props.theme.space.base * (props.isCompact ? 7 : 9);
 
 /*
  * 1. Use px vs. unitless to prevent browser sizing shifts.
  */
-const sizeStyles = (props: IStyledItemProps) => {
+const sizeStyles = (props: IStyledOptionProps) => {
   const lineHeight = props.theme.lineHeights.md;
   const minHeight = getMinHeight(props);
   const paddingHorizontal = `${props.theme.space.base * 9}px`;
@@ -70,16 +72,19 @@ const sizeStyles = (props: IStyledItemProps) => {
   `;
 };
 
-export const StyledItem = styled.li.attrs({
+export const StyledOption = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledItemProps>`
+})<IStyledOptionProps>`
   display: flex;
   position: relative;
   transition: color 0.25s ease-in-out;
-  cursor: pointer;
+  cursor: ${props => props.$type !== 'header' && 'pointer'};
   word-wrap: break-word;
-  font-weight: ${props => props.type === 'previous' && props.theme.fontWeights.semibold};
+  font-weight: ${props =>
+    props.$type === 'header' || props.$type === 'previous'
+      ? props.theme.fontWeights.semibold
+      : props.theme.fontWeights.regular};
   user-select: none;
 
   &:focus {
@@ -97,6 +102,6 @@ export const StyledItem = styled.li.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledItem.defaultProps = {
+StyledOption.defaultProps = {
   theme: DEFAULT_THEME
 };

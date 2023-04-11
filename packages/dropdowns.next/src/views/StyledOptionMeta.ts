@@ -8,13 +8,13 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.item.meta';
+const COMPONENT_ID = 'dropdowns.option.meta';
 
-interface IStyledItemMetaProps extends ThemeProps<DefaultTheme> {
+interface IStyledOptionMetaProps extends ThemeProps<DefaultTheme> {
   isDisabled?: boolean;
 }
 
-const colorStyles = (props: IStyledItemMetaProps) => {
+const colorStyles = (props: IStyledOptionMetaProps) => {
   const color = getColor('neutralHue', props.isDisabled ? 400 : 600, props.theme);
 
   return css`
@@ -22,7 +22,7 @@ const colorStyles = (props: IStyledItemMetaProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledItemMetaProps) => {
+const sizeStyles = (props: IStyledOptionMetaProps) => {
   const lineHeight = props.theme.lineHeights.sm;
   const fontSize = props.theme.fontSizes.sm;
 
@@ -32,10 +32,10 @@ const sizeStyles = (props: IStyledItemMetaProps) => {
   `;
 };
 
-export const StyledItemMeta = styled.div.attrs({
+export const StyledOptionMeta = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledItemMetaProps>`
+})<IStyledOptionMetaProps>`
   transition: color 0.25s ease-in-out;
   font-weight: ${props => props.theme.fontWeights.regular};
 
@@ -46,6 +46,6 @@ export const StyledItemMeta = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledItemMeta.defaultProps = {
+StyledOptionMeta.defaultProps = {
   theme: DEFAULT_THEME
 };

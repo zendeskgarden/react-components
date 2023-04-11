@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, LiHTMLAttributes, ReactElement } from 'react';
+import { HTMLAttributes, LiHTMLAttributes, ReactElement, ReactNode } from 'react';
 
 export const OPTION_TYPE = ['add', 'danger', 'next', 'previous'] as const;
 
@@ -45,4 +45,11 @@ export interface IOptionProps extends LiHTMLAttributes<HTMLLIElement> {
   isDisabled?: boolean;
   /** Determines the option type */
   type?: OptionType;
+}
+
+export interface IOptGroupProps extends LiHTMLAttributes<HTMLLIElement> {
+  /** Accepts an icon to display */
+  icon?: ReactElement;
+  /** Renders a label for the option group */
+  label?: ReactNode;
 }

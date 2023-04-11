@@ -9,23 +9,23 @@ import { Children, cloneElement } from 'react';
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledItem, getMinHeight as getItemMinHeight } from './StyledItem';
+import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
 import { OptionType } from '../types';
 
-const COMPONENT_ID = 'dropdowns.item.action_icon';
+const COMPONENT_ID = 'dropdowns.option.type_icon';
 
-interface IStyledItemActionIconProps extends ThemeProps<DefaultTheme> {
+interface IStyledOptionTypeIconProps extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;
-  type?: OptionType;
+  type?: OptionType | 'header';
 }
 
-const colorStyles = (props: IStyledItemActionIconProps) => {
+const colorStyles = (props: IStyledOptionTypeIconProps) => {
   const opacity = props.type && props.type !== 'danger' ? 1 : 0;
   let color;
 
   if (props.type === 'add' || props.type === 'danger') {
     color = 'inherit';
-  } else if (props.type === 'next' || props.type === 'previous') {
+  } else if (props.type === 'header' || props.type === 'next' || props.type === 'previous') {
     color = getColor('neutralHue', 600, props.theme);
   } else {
     color = getColor('primaryHue', 600, props.theme);
@@ -36,21 +36,21 @@ const colorStyles = (props: IStyledItemActionIconProps) => {
     color: ${color};
 
     /* stylelint-disable-next-line */
-    ${StyledItem}[aria-selected='true'] > & {
+    ${StyledOption}[aria-selected='true'] > & {
       opacity: 1;
     }
 
     /* stylelint-disable-next-line */
-    ${StyledItem}[aria-disabled='true'] > & {
+    ${StyledOption}[aria-disabled='true'] > & {
       color: inherit;
     }
   `;
 };
 
-const sizeStyles = (props: IStyledItemActionIconProps) => {
+const sizeStyles = (props: IStyledOptionTypeIconProps) => {
   const size = props.theme.iconSizes.md;
   const position = `${props.theme.space.base * 3}px`;
-  const top = math(`(${getItemMinHeight(props)} - ${size}) / 2`);
+  const top = math(`(${getOptionMinHeight(props)} - ${size}) / 2`);
   let side;
 
   if (props.type === 'next') {
@@ -67,7 +67,7 @@ const sizeStyles = (props: IStyledItemActionIconProps) => {
   `;
 };
 
-export const StyledItemActionIcon = styled(
+export const StyledOptionTypeIcon = styled(
   ({
     children,
     /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -79,7 +79,7 @@ export const StyledItemActionIcon = styled(
 ).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledItemActionIconProps>`
+})<IStyledOptionTypeIconProps>`
   position: absolute;
   transform: ${props =>
     props.theme.rtl && (props.type === 'next' || props.type === 'previous') && 'rotate(180deg)'};
@@ -92,6 +92,6 @@ export const StyledItemActionIcon = styled(
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledItemActionIcon.defaultProps = {
+StyledOptionTypeIcon.defaultProps = {
   theme: DEFAULT_THEME
 };
