@@ -23,7 +23,7 @@ import {
   DragOverlay,
   DndContext,
   KeyboardSensor,
-  PointerSensor,
+  MouseSensor,
   TouchSensor,
   useDroppable,
   useSensor,
@@ -34,7 +34,9 @@ import {
   SortableContext,
   verticalListSortingStrategy,
   arrayMove,
-  useSortable
+  useSortable,
+  AnimateLayoutChanges,
+  defaultAnimateLayoutChanges
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
@@ -48,6 +50,12 @@ import {
 interface IColumnProps {
   id: UniqueIdentifier;
   items: ISortableItem[];
+}
+
+interface IDropzoneColumnProps extends IColumnProps {
+  activeId: UniqueIdentifier | null;
+  activeColumnId: UniqueIdentifier | null;
+  activeItem?: ISortableItem | null;
 }
 
 interface ISortableItem {
@@ -76,6 +84,9 @@ const StyledSortablesContainer = styled.div`
   gap: 16px;
   max-width: 600px;
 `;
+
+const animateLayoutChanges: AnimateLayoutChanges = args =>
+  defaultAnimateLayoutChanges({ ...args, wasDragging: true });
 
 export const getAnnouncements = (
   getPosition: (id: UniqueIdentifier | undefined) => number,
@@ -116,6 +127,98 @@ function findColumn(
   });
 }
 
+const DraggableItem = forwardRef<HTMLDivElement, Omit<ISortableItemProps, 'activeItem'>>(
+  (props, ref) => {
+    const { isOverlay, data, tabIndex, ...restProps } = props;
+
+    useEffect(() => {
+      // This is a safe assumptions given a ref is always provided
+      const draggableRef = ref as RefObject<HTMLDivElement>;
+
+      // Maintain focus when the DraggableItem is part of a drag overlay
+      if (isOverlay && draggableRef?.current?.focus) {
+        draggableRef.current.focus();
+      }
+    });
+
+    return (
+      <Draggable {...restProps} tabIndex={isOverlay ? -1 : tabIndex} ref={ref}>
+        <Draggable.Grip />
+        <Draggable.Content>{data.label}</Draggable.Content>
+      </Draggable>
+    );
+  }
+);
+
+DraggableItem.displayName = 'DraggableItem';
+
+const ListItem = ({ data, showDropmessage, activeItem }: ISortableItemProps) => {
+  const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition } =
+    useSortable({
+      animateLayoutChanges,
+      id: data.id,
+      transition: {
+        duration: 200,
+        easing: 'ease-in-out'
+      }
+    });
+  const isActive = activeItem?.id === data.id;
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isActive ? 0 : 1
+  };
+
+  return (
+    <DraggableList.Item ref={setNodeRef} style={style}>
+      <DraggableItem
+        data={data}
+        {...attributes}
+        {...listeners}
+        style={{ display: showDropmessage ? 'none' : 'flex' }}
+        ref={setActivatorNodeRef}
+      />
+    </DraggableList.Item>
+  );
+};
+
+const DropzoneColumn = ({
+  items,
+  id,
+  activeId,
+  activeColumnId,
+  activeItem
+}: IDropzoneColumnProps) => {
+  const { setNodeRef } = useDroppable({ id });
+  const isActive = !!activeId;
+  const isHighlighted = activeColumnId === id;
+  const showDropmessage = items.length === 1 && isHighlighted;
+
+  return (
+    <Dropzone
+      ref={items.length === 0 ? setNodeRef : undefined}
+      isActive={isActive}
+      isHighlighted={isHighlighted}
+    >
+      <SortableContext id={id as string} items={items} strategy={verticalListSortingStrategy}>
+        <DraggableList>
+          {items.map(item => (
+            <ListItem
+              data={item}
+              activeItem={activeItem}
+              key={item.id}
+              showDropmessage={showDropmessage}
+            />
+          ))}
+        </DraggableList>
+        {items.length === 0 && <Dropzone.Message>Drag to add</Dropzone.Message>}
+        {showDropmessage && <Dropzone.Message>Drop item here</Dropzone.Message>}
+      </SortableContext>
+    </Dropzone>
+  );
+};
+
 export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IArgs) => {
   const [columns, setColumns] = useState<IColumns>(defaultColumns);
 
@@ -137,7 +240,7 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
 
   // DndKit interaction sensors
   const sensors = useSensors(
-    useSensor(PointerSensor),
+    useSensor(MouseSensor),
     useSensor(TouchSensor),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates
@@ -229,9 +332,7 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
 
     // If a droppable area isn't active, we can't drop/set the items
     // revert to snapshot
-    if (overIndex === -1) {
-      setColumns(snapshot!);
-    } else if (activeIndex !== overIndex) {
+    if (activeIndex !== overIndex) {
       setColumns(prevColumns => {
         const nextColumns = { ...prevColumns };
 
@@ -251,87 +352,6 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
     setSnapshot(null);
     setActiveId(null);
     setActiveColumnId(null);
-  };
-
-  const DraggableItem = forwardRef<HTMLDivElement, Omit<ISortableItemProps, 'activeItem'>>(
-    (props, ref) => {
-      const { isOverlay, data, tabIndex, ...restProps } = props;
-
-      useEffect(() => {
-        // This is a safe assumptions given a ref is always provided
-        const draggableRef = ref as RefObject<HTMLDivElement>;
-
-        // Maintain focus when the DraggableItem is part of a drag overlay
-        if (isOverlay && draggableRef?.current?.focus) {
-          draggableRef.current.focus();
-        }
-      });
-
-      return (
-        <Draggable {...restProps} tabIndex={isOverlay ? -1 : tabIndex} ref={ref}>
-          <Draggable.Grip />
-          <Draggable.Content>{data.label}</Draggable.Content>
-        </Draggable>
-      );
-    }
-  );
-
-  DraggableItem.displayName = 'DraggableItem';
-
-  const ListItem = ({ data, showDropmessage }: ISortableItemProps) => {
-    const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition } =
-      useSortable({
-        id: data.id
-      });
-    const isActive = activeItem?.id === data.id;
-
-    const style = {
-      transform: CSS.Transform.toString(transform),
-      transition,
-      opacity: isActive ? 0 : 1
-    };
-
-    return (
-      <DraggableList.Item style={style} ref={setNodeRef}>
-        <DraggableItem
-          data={data}
-          {...attributes}
-          {...listeners}
-          style={{ display: showDropmessage ? 'none' : 'flex' }}
-          ref={setActivatorNodeRef}
-        />
-      </DraggableList.Item>
-    );
-  };
-
-  const Column = ({ items, id }: IColumnProps) => {
-    const { setNodeRef } = useDroppable({ id });
-    const isActive = !!activeId;
-    const isHighlighted = activeColumnId === id;
-    const showDropmessage = items.length === 1 && isHighlighted;
-
-    return (
-      <SortableContext id={id as string} items={items} strategy={verticalListSortingStrategy}>
-        <Dropzone
-          ref={items.length <= 1 ? setNodeRef : undefined}
-          isActive={isActive}
-          isHighlighted={isHighlighted}
-        >
-          <DraggableList>
-            {items.map(item => (
-              <ListItem
-                data={item}
-                activeItem={activeItem}
-                key={item.id}
-                showDropmessage={showDropmessage}
-              />
-            ))}
-          </DraggableList>
-          {items.length === 0 && <Dropzone.Message>Drag to add</Dropzone.Message>}
-          {showDropmessage && <Dropzone.Message>Drop item here</Dropzone.Message>}
-        </Dropzone>
-      </SortableContext>
-    );
   };
 
   // prefer position over index in announcements
@@ -359,7 +379,14 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
     >
       <StyledSortablesContainer>
         {Object.keys(columns).map(columnId => (
-          <Column items={columns[columnId]} id={columnId} key={columnId} />
+          <DropzoneColumn
+            items={columns[columnId]}
+            id={columnId}
+            key={columnId}
+            activeId={activeId}
+            activeColumnId={activeColumnId}
+            activeItem={activeItem}
+          />
         ))}
       </StyledSortablesContainer>
       <DragOverlay>
