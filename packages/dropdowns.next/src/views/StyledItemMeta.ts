@@ -37,6 +37,7 @@ export const StyledItemMeta = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledItemMetaProps>`
   transition: color 0.25s ease-in-out;
+  font-weight: ${props => props.theme.fontWeights.regular};
 
   ${sizeStyles};
 

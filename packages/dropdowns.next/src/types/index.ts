@@ -7,7 +7,11 @@
 
 import { HTMLAttributes, LiHTMLAttributes, ReactElement } from 'react';
 
+export const OPTION_TYPE = ['add', 'danger', 'next', 'previous'] as const;
+
 export const VALIDATION = ['success', 'warning', 'error'] as const;
+
+export type OptionType = typeof OPTION_TYPE[number];
 
 export type Validation = typeof VALIDATION[number];
 
@@ -37,8 +41,8 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
 export interface IOptionProps extends LiHTMLAttributes<HTMLLIElement> {
   /** Accepts an icon to display */
   icon?: ReactElement;
-  /** Applies danger styling */
-  isDanger?: boolean;
   /** Indicates that the option is not interactive */
   isDisabled?: boolean;
+  /** Determines the option type */
+  type?: OptionType;
 }

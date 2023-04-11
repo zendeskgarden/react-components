@@ -8,27 +8,32 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { OptionType } from '../types';
 
 const COMPONENT_ID = 'dropdowns.item';
 
 interface IStyledItemProps extends ThemeProps<DefaultTheme> {
   isActive?: boolean;
   isCompact?: boolean;
-  isDanger?: boolean;
+  type?: OptionType;
 }
 
 const colorStyles = (props: IStyledItemProps) => {
   const backgroundColor = props.theme.colors.background;
-  const foregroundColor = props.isDanger
-    ? getColor('dangerHue', 600, props.theme)
-    : props.theme.colors.foreground;
   const activeBackgroundColor = getColor(
-    props.isDanger ? 'dangerHue' : 'primaryHue',
+    props.type === 'danger' ? 'dangerHue' : 'primaryHue',
     600,
     props.theme,
     0.08
   );
   const disabledForegroundColor = getColor('neutralHue', 400, props.theme);
+  let foregroundColor = props.theme.colors.foreground;
+
+  if (props.type === 'add') {
+    foregroundColor = getColor('primaryHue', 600, props.theme)!;
+  } else if (props.type === 'danger') {
+    foregroundColor = getColor('dangerHue', 600, props.theme)!;
+  }
 
   return css`
     background-color: ${props.isActive ? activeBackgroundColor : backgroundColor};
@@ -74,6 +79,7 @@ export const StyledItem = styled.li.attrs({
   transition: color 0.25s ease-in-out;
   cursor: pointer;
   word-wrap: break-word;
+  font-weight: ${props => props.type === 'previous' && props.theme.fontWeights.semibold};
   user-select: none;
 
   &:focus {

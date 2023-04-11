@@ -117,17 +117,15 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
           ref={floating}
         >
           <StyledListbox>
-            <Option icon={<OptionIcon />} isDanger={validation === 'error'} isDisabled={isDisabled}>
+            <Option icon={<OptionIcon />} isDisabled={isDisabled}>
               One
               <Option.Meta>Meta</Option.Meta>
             </Option>
-            <Option isDanger={validation === 'error'} isDisabled={isDisabled}>
+            <Option isDisabled={isDisabled}>
               Two
               <Option.Meta>Meta</Option.Meta>
             </Option>
-            <Option isDanger={validation === 'error'} isDisabled={isDisabled}>
-              Three
-            </Option>
+            <Option isDisabled={isDisabled}>Three</Option>
           </StyledListbox>
         </StyledFloating>
       </StyledCombobox>

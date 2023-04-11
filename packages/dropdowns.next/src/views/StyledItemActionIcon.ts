@@ -5,23 +5,40 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { Children, cloneElement } from 'react';
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledItem, getMinHeight as getItemMinHeight } from './StyledItem';
-import { Children, cloneElement } from 'react';
+import { OptionType } from '../types';
 
-const COMPONENT_ID = 'dropdowns.item.selected_icon';
+const COMPONENT_ID = 'dropdowns.item.action_icon';
 
-interface IStyledSelectedIconProps extends ThemeProps<DefaultTheme> {
+interface IStyledItemActionIconProps extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;
+  type?: OptionType;
 }
 
-const colorStyles = (props: IStyledSelectedIconProps) => {
-  const color = getColor('primaryHue', 600, props.theme);
+const colorStyles = (props: IStyledItemActionIconProps) => {
+  const opacity = props.type && props.type !== 'danger' ? 1 : 0;
+  let color;
+
+  if (props.type === 'add' || props.type === 'danger') {
+    color = 'inherit';
+  } else if (props.type === 'next' || props.type === 'previous') {
+    color = getColor('neutralHue', 600, props.theme);
+  } else {
+    color = getColor('primaryHue', 600, props.theme);
+  }
 
   return css`
+    opacity: ${opacity};
     color: ${color};
+
+    /* stylelint-disable-next-line */
+    ${StyledItem}[aria-selected='true'] > & {
+      opacity: 1;
+    }
 
     /* stylelint-disable-next-line */
     ${StyledItem}[aria-disabled='true'] > & {
@@ -30,46 +47,51 @@ const colorStyles = (props: IStyledSelectedIconProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledSelectedIconProps) => {
+const sizeStyles = (props: IStyledItemActionIconProps) => {
   const size = props.theme.iconSizes.md;
   const position = `${props.theme.space.base * 3}px`;
   const top = math(`(${getItemMinHeight(props)} - ${size}) / 2`);
+  let side;
+
+  if (props.type === 'next') {
+    side = props.theme.rtl ? 'left' : 'right';
+  } else {
+    side = props.theme.rtl ? 'right' : 'left';
+  }
 
   return css`
     top: ${top};
-    ${props.theme.rtl ? 'right' : 'left'}: ${position};
+    ${side}: ${position};
     width: ${size};
     height: ${size};
   `;
 };
 
-export const StyledSelectedIcon = styled(
+export const StyledItemActionIcon = styled(
   ({
     children,
     /* eslint-disable @typescript-eslint/no-unused-vars */
+    isCompact,
     theme,
+    type,
     ...props
   }) => cloneElement<SVGElement>(Children.only(children), props)
 ).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledSelectedIconProps>`
+})<IStyledItemActionIconProps>`
   position: absolute;
+  transform: ${props =>
+    props.theme.rtl && (props.type === 'next' || props.type === 'previous') && 'rotate(180deg)'};
   transition: opacity 0.1s ease-in-out;
-  opacity: 0;
 
   ${sizeStyles};
 
   ${colorStyles};
 
-  /* stylelint-disable-next-line */
-  ${StyledItem}[aria-selected='true'] > & {
-    opacity: 1;
-  }
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledSelectedIcon.defaultProps = {
+StyledItemActionIcon.defaultProps = {
   theme: DEFAULT_THEME
 };
