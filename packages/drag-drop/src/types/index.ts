@@ -30,14 +30,14 @@ export interface IDraggableListProps extends HTMLAttributes<HTMLUListElement> {
 }
 
 export interface IDropzoneProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies danger styling */
-  isDanger?: boolean;
   /** Visually indicates a drop is possible during a drag */
   isActive?: boolean;
-  /** Visually indicates a draggable is overlapping on a droppable area */
-  isHighlighted?: boolean;
-  /** Applies disabled styling */
+  /** Applies danger styling */
+  isDanger?: boolean;
+  /** Disables the dropzone */
   isDisabled?: boolean;
+  /** Visually indicates a draggable is on a droppable area */
+  isHighlighted?: boolean;
   /** Updates the element's HTML tag */
   tag?: any;
 }
