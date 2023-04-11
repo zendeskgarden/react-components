@@ -83,6 +83,7 @@ const StyledSortablesContainer = styled.div`
   display: flex;
   gap: 16px;
   max-width: 600px;
+  height: 250px;
 `;
 
 const animateLayoutChanges: AnimateLayoutChanges = args =>
@@ -354,7 +355,7 @@ export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IA
     setActiveColumnId(null);
   };
 
-  // prefer position over index in announcements
+  // prefer ordinal (position) over index in announcements
   const getPosition = (id: UniqueIdentifier | undefined) => {
     if (!id) return 1;
 
