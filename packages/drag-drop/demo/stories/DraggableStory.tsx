@@ -9,13 +9,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import { Draggable, IDraggableProps } from '@zendeskgarden/react-drag-drop';
 
-interface IArgs extends IDraggableProps {
-  label: string;
-  caption?: string;
-  hasAction?: boolean;
-}
-
-export const DraggableStory: Story<IArgs> = ({ children, ...args }) => (
+export const DraggableStory: Story<IDraggableProps> = ({ children, ...args }) => (
   <Draggable {...args}>
     <Draggable.Grip />
     <Draggable.Content>{children}</Draggable.Content>

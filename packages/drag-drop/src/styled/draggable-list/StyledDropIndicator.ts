@@ -73,10 +73,6 @@ const pseudoElementStyles = (props: IStyledDropIndicatorProps) => css`
   }
 `;
 
-/**
- * 1. Offset list item spacing to fit indicator without shifting layout.
- *    Spacing minus height.
- */
 export const StyledDropIndicator = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
