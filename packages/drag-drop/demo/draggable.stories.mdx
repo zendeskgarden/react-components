@@ -21,11 +21,13 @@ import { DraggableStory } from './stories/DraggableStory';
   <Story
     name="Draggable"
     args={{
-      children: 'Label'
+      content: 'Label',
+      hasGrip: true
     }}
     argTypes={{
-      tag: { control: { type: 'text' } },
-      children: { control: { type: 'text' }, table: { category: 'Draggable.Content' } }
+      content: { name: 'Draggable.Content', table: { category: 'Story' } },
+      hasGrip: { name: 'Draggable.Grip', table: { category: 'Story' } },
+      tag: { control: { type: 'text' } }
     }}
   >
     {args => <DraggableStory {...args} />}

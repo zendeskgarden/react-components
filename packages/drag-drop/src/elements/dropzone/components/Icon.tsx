@@ -5,14 +5,29 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes, useEffect } from 'react';
 import { StyledIcon } from '../../../styled';
+import { useDropzoneContext } from '../../../utils/useDropzoneContext';
 
 /**
- * @extends HTMLAttributes<HTMLSpanElement>
+ * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Icon = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>((props, ref) => (
-  <StyledIcon aria-hidden="true" {...props} ref={ref} />
-));
+export const Icon = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { hasIcon, setHasIcon, isCentered, isDanger } = useDropzoneContext();
+
+  useEffect(() => {
+    if (isDanger && setHasIcon && !hasIcon) {
+      setHasIcon(true);
+    }
+
+    return () => {
+      if (setHasIcon && hasIcon) {
+        setHasIcon(false);
+      }
+    };
+  }, [setHasIcon, hasIcon, isDanger]);
+
+  return <StyledIcon aria-hidden="true" {...props} isCentered={isCentered} ref={ref} />;
+});
 
 Icon.displayName = 'Dropzone.Icon';

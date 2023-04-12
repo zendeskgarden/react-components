@@ -11,19 +11,17 @@ import { Dropzone, IDropzoneProps } from '@zendeskgarden/react-drag-drop';
 import ReplaceIcon from '@zendeskgarden/svg-icons/src/16/arrow-retweet-stroke.svg';
 
 interface IArgs extends IDropzoneProps {
-  messageLabel: string;
-  hasCustomIcon?: boolean;
+  message: string;
+  hasIcon?: boolean;
 }
 
-export const DropzoneStory: Story<IArgs> = ({ messageLabel, hasCustomIcon, isDanger, ...args }) => (
-  <Dropzone {...args} isDanger={isDanger}>
-    <Dropzone.Message>
-      {hasCustomIcon && !isDanger && (
-        <Dropzone.Icon>
-          <ReplaceIcon />
-        </Dropzone.Icon>
-      )}
-      {messageLabel}
-    </Dropzone.Message>
+export const DropzoneStory: Story<IArgs> = ({ message, hasIcon, ...args }) => (
+  <Dropzone {...args}>
+    {hasIcon && (
+      <Dropzone.Icon>
+        <ReplaceIcon />
+      </Dropzone.Icon>
+    )}
+    <Dropzone.Message>{message}</Dropzone.Message>
   </Dropzone>
 );

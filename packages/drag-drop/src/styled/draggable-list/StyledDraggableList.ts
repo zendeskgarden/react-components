@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, CSSObject } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledItem } from './StyledItem';
-import { INDICATOR_LINE_SIZE, StyledDropIndicator } from './StyledDropIndicator';
+import { StyledDropIndicator } from './StyledDropIndicator';
 
 const COMPONENT_ID = 'draggable_list';
 
@@ -16,13 +16,13 @@ export interface IStyledDraggableListProps extends ThemeProps<DefaultTheme> {
   isHorizontal?: boolean;
 }
 
-function offsetMarginStyles(props: IStyledDraggableListProps, value: number) {
-  const style: Record<string, string> = {};
+function offsetMarginStyles(props: IStyledDraggableListProps, value: string) {
+  const style: CSSObject = {};
 
   if (props.isHorizontal) {
-    style[props.theme.rtl ? 'marginRight' : 'marginLeft'] = `${value}px`;
+    style[props.theme.rtl ? 'marginRight' : 'marginLeft'] = value;
   } else {
-    style.marginTop = `${value}px`;
+    style.marginTop = value;
   }
 
   return style;
@@ -34,12 +34,12 @@ function offsetMarginStyles(props: IStyledDraggableListProps, value: number) {
  */
 function positionStyles(props: IStyledDraggableListProps, isStart = true) {
   const { isHorizontal, theme } = props;
-  const offsetValue = `-${theme.space.base + 1}px`;
+  const offsetValue = `calc(-${theme.space.xxs} - ${theme.borderWidths.sm})`;
 
   const style: Record<string, string> = {};
 
   if (isHorizontal) {
-    style.height = `calc(100% - ${INDICATOR_LINE_SIZE}px)`;
+    style.height = `calc(100% - ${theme.space.base / 2}px)`;
 
     if (isStart) {
       style[theme.rtl ? 'right' : 'left'] = offsetValue;
@@ -47,7 +47,7 @@ function positionStyles(props: IStyledDraggableListProps, isStart = true) {
       style[theme.rtl ? 'left' : 'right'] = offsetValue;
     }
   } else {
-    style.width = `calc(100% - ${INDICATOR_LINE_SIZE}px)`;
+    style.width = `calc(100% - ${theme.space.base / 2}px)`;
     style[isStart ? 'top' : 'bottom'] = offsetValue;
   }
 
@@ -76,11 +76,15 @@ export const StyledDraggableList = styled.ul.attrs({
     flex: 1;
 
     &:not(:first-child) {
-      ${p => offsetMarginStyles(p, p.theme.space.base * 2)};
+      ${p => offsetMarginStyles(p, `${p.theme.space.base * 2}px`)};
     }
 
     + ${StyledDropIndicator} {
-      ${p => offsetMarginStyles(p, p.theme.space.base - INDICATOR_LINE_SIZE / 2)}; /* [3] */
+      ${p =>
+        offsetMarginStyles(
+          p,
+          `calc(${p.theme.space.base / 2}px + ${p.theme.borderWidths.sm})`
+        )}; /* [3] */
     }
 
     + ${StyledDropIndicator}:last-child {
@@ -93,18 +97,22 @@ export const StyledDraggableList = styled.ul.attrs({
   > ${StyledDropIndicator} {
     /* stylelint-disable-next-line selector-max-specificity */
     &:not(:first-child) + ${StyledItem} {
-      ${p => offsetMarginStyles(p, p.theme.space.base - INDICATOR_LINE_SIZE / 2)}/* [3] */
+      ${p =>
+        offsetMarginStyles(
+          p,
+          `calc(${p.theme.space.base / 2}px + ${p.theme.borderWidths.sm})`
+        )}; /* [3] */
     }
 
     &:first-child {
       position: absolute;
 
-      ${p => positionStyles(p)}/* [2] */
+      ${p => positionStyles(p)}; /* [2] */
     }
 
     /* stylelint-disable-next-line selector-max-specificity */
     &:first-child + ${StyledItem} {
-      ${p => offsetMarginStyles(p, 0)}/* [3] */
+      ${p => offsetMarginStyles(p, '0')}; /* [3] */
     }
   }
 

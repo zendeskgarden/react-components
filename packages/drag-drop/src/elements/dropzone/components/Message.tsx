@@ -6,8 +6,6 @@
  */
 
 import React, { forwardRef, HTMLAttributes, useEffect } from 'react';
-import TrashIcon from '@zendeskgarden/svg-icons/src/16/trash-stroke.svg';
-import { Icon } from './Icon';
 import { StyledMessage } from '../../../styled';
 import { useDropzoneContext } from '../../../utils/useDropzoneContext';
 
@@ -15,8 +13,8 @@ import { useDropzoneContext } from '../../../utils/useDropzoneContext';
  * @extends HTMLAttributes<HTMLParagraphElement>
  */
 export const Message = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>(
-  ({ children, ...props }, ref) => {
-    const { setHasMessage, hasMessage, isDanger } = useDropzoneContext();
+  (props, ref) => {
+    const { setHasMessage, hasMessage } = useDropzoneContext();
 
     useEffect(() => {
       if (setHasMessage && !hasMessage) {
@@ -30,16 +28,7 @@ export const Message = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParag
       };
     }, [setHasMessage, hasMessage]);
 
-    return (
-      <StyledMessage {...props} ref={ref}>
-        {isDanger && (
-          <Icon>
-            <TrashIcon />
-          </Icon>
-        )}
-        {children}
-      </StyledMessage>
-    );
+    return <StyledMessage {...props} ref={ref} />;
   }
 );
 

@@ -66,7 +66,7 @@ interface ISortableItem {
 
 interface ISortableItemProps extends IDraggableProps {
   data: ISortableItem;
-  showDropmessage?: boolean;
+  showDropMessage?: boolean;
   activeItem?: ISortableItem | null;
   isOverlay?: boolean;
   isGrabbed?: boolean;
@@ -83,7 +83,7 @@ const StyledSortablesContainer = styled.div`
   display: flex;
   gap: 16px;
   max-width: 600px;
-  height: 250px;
+  min-height: 250px;
 `;
 
 const animateLayoutChanges: AnimateLayoutChanges = args =>
@@ -153,7 +153,7 @@ const DraggableItem = forwardRef<HTMLDivElement, Omit<ISortableItemProps, 'activ
 
 DraggableItem.displayName = 'DraggableItem';
 
-const ListItem = ({ data, showDropmessage, activeItem }: ISortableItemProps) => {
+const ListItem = ({ data, showDropMessage, activeItem }: ISortableItemProps) => {
   const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition } =
     useSortable({
       animateLayoutChanges,
@@ -165,7 +165,7 @@ const ListItem = ({ data, showDropmessage, activeItem }: ISortableItemProps) => 
     });
   const isActive = activeItem?.id === data.id;
 
-  const style = {
+  const style: React.CSSProperties = {
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isActive ? 0 : 1
@@ -177,7 +177,7 @@ const ListItem = ({ data, showDropmessage, activeItem }: ISortableItemProps) => 
         data={data}
         {...attributes}
         {...listeners}
-        style={{ display: showDropmessage ? 'none' : 'flex' }}
+        style={{ display: showDropMessage ? 'none' : 'flex' }}
         ref={setActivatorNodeRef}
       />
     </DraggableList.Item>
@@ -194,7 +194,7 @@ const DropzoneColumn = ({
   const { setNodeRef } = useDroppable({ id });
   const isActive = !!activeId;
   const isHighlighted = activeColumnId === id;
-  const showDropmessage = items.length === 1 && isHighlighted;
+  const showDropMessage = items.length === 1 && isHighlighted;
 
   return (
     <Dropzone
@@ -209,18 +209,18 @@ const DropzoneColumn = ({
               data={item}
               activeItem={activeItem}
               key={item.id}
-              showDropmessage={showDropmessage}
+              showDropMessage={showDropMessage}
             />
           ))}
         </DraggableList>
         {items.length === 0 && <Dropzone.Message>Drag to add</Dropzone.Message>}
-        {showDropmessage && <Dropzone.Message>Drop item here</Dropzone.Message>}
+        {showDropMessage && <Dropzone.Message>Drop item here</Dropzone.Message>}
       </SortableContext>
     </Dropzone>
   );
 };
 
-export const SortableListsStory: Story<IArgs> = ({ columns: defaultColumns }: IArgs) => {
+export const DragAndDropStory: Story<IArgs> = ({ columns: defaultColumns }: IArgs) => {
   const [columns, setColumns] = useState<IColumns>(defaultColumns);
 
   // state fallback for cancelled drag

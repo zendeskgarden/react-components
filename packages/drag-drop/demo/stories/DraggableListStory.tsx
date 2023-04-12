@@ -29,7 +29,7 @@ export const DraggableListStory: Story<IArgs> = ({ items, dropIndicatorIndex, ..
             dropIndicatorIndex <= endIdx &&
             dropIndicatorIndex === idx && <DraggableList.DropIndicator />}
           <DraggableList.Item>
-            <Draggable tabIndex={0}>
+            <Draggable>
               <Draggable.Grip />
               <Draggable.Content>{item}</Draggable.Content>
             </Draggable>

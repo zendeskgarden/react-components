@@ -24,7 +24,11 @@ import { LIST_ITEMS as items } from './stories/data';
     args={{ items }}
     argTypes={{
       items: { name: 'DraggableList.Item[]', table: { category: 'Story' } },
-      dropIndicatorIndex: { control: { type: 'number' }, table: { category: 'Story' } }
+      dropIndicatorIndex: {
+        name: 'DraggableList.DropIndicator',
+        control: { type: 'number' },
+        table: { category: 'Story' }
+      }
     }}
   >
     {args => <DraggableListStory {...args} />}

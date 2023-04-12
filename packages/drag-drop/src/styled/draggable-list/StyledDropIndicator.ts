@@ -5,13 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css, CSSObject } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'draggable_list.drop_indicator';
-
-export const INDICATOR_LINE_SIZE = 2;
-const PSEUDO_ELEMENT_SIZE = 8;
 
 export interface IStyledDropIndicatorProps extends ThemeProps<DefaultTheme> {
   isHorizontal?: boolean;
@@ -23,7 +20,7 @@ function beforePseudoElementStyles(props: IStyledDropIndicatorProps) {
     theme: { rtl }
   } = props;
 
-  const style = {
+  const style: CSSObject = {
     [isHorizontal ? 'top' : 'left']: 0,
     transform: 'translate(-100%, -50%)'
   };
@@ -41,7 +38,7 @@ function afterPseudoElementStyles(props: IStyledDropIndicatorProps) {
     theme: { rtl }
   } = props;
 
-  const style = {
+  const style: CSSObject = {
     [isHorizontal ? 'bottom' : 'right']: 0,
     transform: 'translate(100%, -50%)'
   };
@@ -59,8 +56,8 @@ const pseudoElementStyles = (props: IStyledDropIndicatorProps) => css`
     position: absolute;
     border-radius: 50%;
     background-color: ${p => getColor('primaryHue', 600, p.theme)};
-    width: ${PSEUDO_ELEMENT_SIZE}px;
-    height: ${PSEUDO_ELEMENT_SIZE}px;
+    width: ${p => p.theme.space.xs};
+    height: ${p => p.theme.space.xs};
     content: '';
   }
 
@@ -73,13 +70,25 @@ const pseudoElementStyles = (props: IStyledDropIndicatorProps) => css`
   }
 `;
 
+const colorStyles = (props: IStyledDropIndicatorProps) => {
+  const { theme } = props;
+
+  return css`
+    border: ${theme.borders.sm} ${getColor('primaryHue', 600, theme)};
+
+    &:focus {
+      outline: none;
+    }
+  `;
+};
+
 export const StyledDropIndicator = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledDropIndicatorProps>`
   position: relative;
-  border: ${p => p.theme.borders.sm} ${p => getColor('primaryHue', 600, p.theme)};
 
+  ${colorStyles}
   ${pseudoElementStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

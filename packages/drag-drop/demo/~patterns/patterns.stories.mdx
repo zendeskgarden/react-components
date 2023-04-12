@@ -1,26 +1,25 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { SortableListsStory } from './stories/SortableListsStory';
+import { DragAndDropStory } from './stories/DragAndDropStory';
 import { COLUMNS as columns } from './stories/data';
 
 <Meta title="Packages/Drag-Drop/[patterns]" />
 
 # Patterns
 
-## Sortable Lists
+## Drag and Drop
 
-Use `DraggableList`, `Dropzone`, and `Draggable` to create sortable lists.
+Use `DraggableList`, `Dropzone`, and `Draggable` to create a drag and drop experience.
 
 <Canvas>
   <Story
-    name="Sortable Lists"
+    name="Drag and Drop"
     args={{ columns }}
     argTypes={{
       columns: {
-        control: { type: 'object' },
         table: { category: 'Story' }
       }
     }}
   >
-    {args => <SortableListsStory {...args} />}
+    {args => <DragAndDropStory {...args} />}
   </Story>
 </Canvas>

@@ -9,7 +9,6 @@ import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { DraggableList } from './DraggableList';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { INDICATOR_LINE_SIZE } from '../../styled/draggable-list/StyledDropIndicator';
 
 describe('DraggableList', () => {
   it('passes ref to underlying DOM element', () => {
@@ -99,13 +98,10 @@ describe('DraggableList', () => {
 
       const item = queryByTestId('item2');
       const indicator = queryByTestId('indicator');
+      const value = `calc(${DEFAULT_THEME.space.base / 2}px + ${DEFAULT_THEME.borderWidths.sm})`;
 
-      expect(item).toHaveStyle(
-        `margin-top: ${DEFAULT_THEME.space.base - INDICATOR_LINE_SIZE / 2}px`
-      );
-      expect(indicator).toHaveStyle(
-        `margin-top: ${DEFAULT_THEME.space.base - INDICATOR_LINE_SIZE / 2}px`
-      );
+      expect(item).toHaveStyle(`margin-top: ${DEFAULT_THEME.space.xs}`);
+      expect(indicator).toHaveStyle(`margin-top: ${value}`);
     });
 
     it('renders expected spacing when drop indicator is at start of list', () => {
@@ -118,10 +114,11 @@ describe('DraggableList', () => {
       );
 
       const indicator = queryByTestId('indicator');
+      const value = `calc(-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm})`;
 
       expect(indicator).toHaveStyle(`
         position: absolute;
-        top: -${DEFAULT_THEME.space.base + 1}px;
+        top: ${value};
       `);
     });
 
@@ -134,10 +131,11 @@ describe('DraggableList', () => {
       );
 
       const indicator = queryByTestId('indicator');
+      const value = `calc(-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm})`;
 
       expect(indicator).toHaveStyle(`
         position: absolute;
-        bottom: -${DEFAULT_THEME.space.base + 1}px;
+        bottom: ${value};
       `);
     });
   });
@@ -173,13 +171,10 @@ describe('DraggableList', () => {
 
       const item = queryByTestId('item2');
       const indicator = queryByTestId('indicator');
+      const value = `calc(${DEFAULT_THEME.space.base / 2}px + ${DEFAULT_THEME.borderWidths.sm})`;
 
-      expect(item).toHaveStyle(
-        `${inlineMarginProp}: ${DEFAULT_THEME.space.base - INDICATOR_LINE_SIZE / 2}px`
-      );
-      expect(indicator).toHaveStyle(
-        `${inlineMarginProp}: ${DEFAULT_THEME.space.base - INDICATOR_LINE_SIZE / 2}px`
-      );
+      expect(item).toHaveStyle(`${inlineMarginProp}: ${DEFAULT_THEME.space.xs}`);
+      expect(indicator).toHaveStyle(`${inlineMarginProp}: ${value}`);
     });
 
     it(`renders expected ${dir} spacing when drop indicator is at start of list`, () => {
@@ -191,10 +186,11 @@ describe('DraggableList', () => {
       );
 
       const indicator = queryByTestId('indicator');
+      const value = `calc(-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm})`;
 
       expect(indicator).toHaveStyle(`
         position: absolute;
-        ${dir === 'rtl' ? 'right' : 'left'}: -${DEFAULT_THEME.space.base + 1}px;
+        ${dir === 'rtl' ? 'right' : 'left'}: ${value};
       `);
     });
 
@@ -207,11 +203,11 @@ describe('DraggableList', () => {
       );
 
       const indicator = queryByTestId('indicator');
+      const value = `calc(-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm})`;
 
       expect(indicator).toHaveStyle(`
         position: absolute;
-        ${dir === 'rtl' ? 'left' : 'right'}: -${DEFAULT_THEME.space.base + 1}px;
-      `);
+        ${dir === 'rtl' ? 'left' : 'right'}: ${value}`);
     });
   });
 });

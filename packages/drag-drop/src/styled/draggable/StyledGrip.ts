@@ -10,7 +10,7 @@ import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden
 
 const COMPONENT_ID = 'draggable.grip';
 
-function marginStyles({ theme }: ThemeProps<DefaultTheme>) {
+function sizeStyles({ theme }: ThemeProps<DefaultTheme>) {
   return {
     [theme.rtl ? 'marginLeft' : 'marginRight']: theme.space.xs
   };
@@ -22,11 +22,11 @@ export const StyledGrip = styled.div.attrs({
 })`
   display: flex;
   /* prettier-ignore */
-  transition: color 0.25s ease-in-out;
+  transition: color 0.1s ease-in-out;
   box-sizing: border-box;
   color: ${p => getColor('neutralHue', 600, p.theme)};
 
-  ${marginStyles}
+  ${sizeStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

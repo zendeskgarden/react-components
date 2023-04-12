@@ -6,17 +6,18 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { rgba } from 'polished';
+import { rgba, math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropzone';
 
 export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
-  hasMessage?: boolean;
+  isActive?: boolean;
+  isCentered?: boolean;
   isDanger?: boolean;
   isDisabled?: boolean;
   isHighlighted?: boolean;
-  isActive?: boolean;
+  hasMessage?: boolean;
 }
 
 const colorStyles = (props: IStyledDropzoneProps) => {
@@ -52,10 +53,11 @@ const colorStyles = (props: IStyledDropzoneProps) => {
 
 const sizeStyles = (props: IStyledDropzoneProps) => {
   const { theme, isHighlighted } = props;
+  const borderWidth = isHighlighted ? math(`${theme.borderWidths.sm} * 2`) : theme.borderWidths.sm;
 
   return css`
-    border-width: ${isHighlighted ? '2px' : '1px'};
-    border-style: ${isHighlighted ? 'solid' : 'dashed'};
+    border-width: ${borderWidth};
+    border-style: ${isHighlighted ? theme.borderStyles.solid : 'dashed'};
     border-radius: ${theme.borderRadii.md};
     padding: ${isHighlighted ? theme.space.base * 4 - 1 : theme.space.base * 4}px;
     width: 100%;
@@ -64,18 +66,24 @@ const sizeStyles = (props: IStyledDropzoneProps) => {
   `;
 };
 
+/**
+ * 1. Reset margin, e.g. when alternative tag includes native margin
+ */
 export const StyledDropzone = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledDropzoneProps>`
   display: ${p => p.hasMessage && 'flex'};
+  flex-direction: ${p => p.hasMessage && p.isCentered && 'column'};
   align-items: ${p => p.hasMessage && 'center'};
+  justify-content: ${p => p.hasMessage && 'center'};
   /* prettier-ignore */
   transition:
     border-color 0.25s ease-in-out,
     background-color 0.25s ease-in-out,
     color 0.25s ease-in-out,
     z-index 0.25s ease-in-out;
+  margin: 0; /* [1] */
   text-align: ${p => p.hasMessage && 'center'};
   direction: ${props => props.theme.rtl && 'rtl'};
   box-sizing: border-box;

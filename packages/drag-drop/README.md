@@ -39,8 +39,3 @@ import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-dr
   </Dropzone>
 </ThemeProvider>;
 ```
-
-<!--
-TODO:
-- Add figma link to stories
--->

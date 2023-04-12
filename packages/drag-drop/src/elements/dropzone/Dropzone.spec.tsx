@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { rgba } from 'polished';
-import { render } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
 import { Dropzone } from './Dropzone';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
@@ -35,6 +35,101 @@ describe('Dropzone', () => {
     const { container } = render(<Dropzone isDisabled />);
 
     expect(container.firstChild).toHaveAttribute('aria-disabled', 'true');
+  });
+
+  describe('Dropzone.Icon', () => {
+    it('passes ref to underlying DOM element', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { queryByTestId } = render(
+        <Dropzone>
+          <Dropzone.Icon data-test-id="icon" ref={ref} />
+        </Dropzone>
+      );
+
+      expect(queryByTestId('icon')).toBe(ref.current);
+    });
+
+    it('renders the expected element', () => {
+      const { queryByTestId } = render(
+        <Dropzone>
+          <Dropzone.Icon data-test-id="icon" />
+        </Dropzone>
+      );
+
+      expect(queryByTestId('icon')!.nodeName).toBe('DIV');
+    });
+
+    it('renders as aria-hidden', () => {
+      const { queryByTestId } = render(
+        <Dropzone>
+          <Dropzone.Icon data-test-id="icon" />
+        </Dropzone>
+      );
+
+      expect(queryByTestId('icon')).toHaveAttribute('aria-hidden', 'true');
+    });
+
+    it('renders danger icon', () => {
+      const { container } = render(
+        <Dropzone isDanger>
+          <Dropzone.Message>Danger</Dropzone.Message>
+        </Dropzone>
+      );
+
+      expect(container.querySelector('svg')).not.toBeNull();
+    });
+
+    it('does not render danger icon if custom icon is provided', () => {
+      const { container } = render(
+        <Dropzone isDanger>
+          <Dropzone.Icon>
+            <svg />
+          </Dropzone.Icon>
+          <Dropzone.Message>Danger</Dropzone.Message>
+        </Dropzone>
+      );
+
+      expect([...container.querySelectorAll('svg')]).toHaveLength(1);
+    });
+
+    it('renders correct icon margin', () => {
+      const { queryByTestId } = render(
+        <Dropzone>
+          <Dropzone.Icon data-test-id="icon">
+            <svg />
+          </Dropzone.Icon>
+          <Dropzone.Message>Message</Dropzone.Message>
+        </Dropzone>
+      );
+
+      expect(queryByTestId('icon')).toHaveStyle(`margin-right: ${DEFAULT_THEME.space.xs}`);
+    });
+
+    it('renders correct icon margin in RTL', () => {
+      const { queryByTestId } = renderRtl(
+        <Dropzone>
+          <Dropzone.Icon data-test-id="icon">
+            <svg />
+          </Dropzone.Icon>
+          <Dropzone.Message>Message</Dropzone.Message>
+        </Dropzone>
+      );
+
+      expect(queryByTestId('icon')).toHaveStyle(`margin-left: ${DEFAULT_THEME.space.xs}`);
+    });
+
+    it('renders correct icon margin when centered', () => {
+      const { queryByTestId } = render(
+        <Dropzone isCentered>
+          <Dropzone.Icon data-test-id="icon">
+            <svg />
+          </Dropzone.Icon>
+          <Dropzone.Message>Message</Dropzone.Message>
+        </Dropzone>
+      );
+
+      expect(queryByTestId('icon')).toHaveStyle(`margin-bottom: ${DEFAULT_THEME.space.xs}`);
+    });
   });
 
   describe('Dropzone.Message', () => {

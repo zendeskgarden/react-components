@@ -5,28 +5,39 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { CSSObject, DefaultTheme, ThemeProps } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropzone.icon';
 
-function marginStyles({ theme }: ThemeProps<DefaultTheme>) {
-  return { [theme.rtl ? 'marginLeft' : 'marginRight']: theme.space.xs };
+interface IStyledIconProps extends ThemeProps<DefaultTheme> {
+  isCentered?: boolean;
+}
+
+function sizeStyles({ theme, isCentered }: IStyledIconProps) {
+  const style: CSSObject = {};
+
+  if (isCentered) {
+    style.marginBottom = theme.space.xs;
+  } else {
+    style[theme.rtl ? 'marginLeft' : 'marginRight'] = theme.space.xs;
+  }
+
+  return style;
 }
 
 /**
- * 1. Corrects the vertical text alignment of the icon within a dropzone message..
+ * 1. Corrects the vertical text alignment of the icon within a dropzone message.
  */
-export const StyledIcon = styled.span.attrs({
+export const StyledIcon = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
-  display: inline-block;
+})<IStyledIconProps>`
+  display: flex;
   width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};
-  vertical-align: text-bottom; /* [1] */
 
-  ${marginStyles}
+  ${sizeStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

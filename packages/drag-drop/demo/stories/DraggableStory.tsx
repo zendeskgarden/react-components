@@ -9,9 +9,14 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import { Draggable, IDraggableProps } from '@zendeskgarden/react-drag-drop';
 
-export const DraggableStory: Story<IDraggableProps> = ({ children, ...args }) => (
+interface IArgs extends IDraggableProps {
+  hasGrip?: boolean;
+  content?: string;
+}
+
+export const DraggableStory: Story<IArgs> = ({ hasGrip, content, ...args }) => (
   <Draggable {...args}>
-    <Draggable.Grip />
-    <Draggable.Content>{children}</Draggable.Content>
+    {hasGrip && <Draggable.Grip />}
+    {content && <Draggable.Content>{content}</Draggable.Content>}
   </Draggable>
 );

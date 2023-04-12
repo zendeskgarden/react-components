@@ -25,18 +25,20 @@ export interface IDraggableProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface IDraggableListProps extends HTMLAttributes<HTMLUListElement> {
-  /** Flow list items inline */
+  /** Flows list items inline */
   isHorizontal?: boolean;
 }
 
 export interface IDropzoneProps extends HTMLAttributes<HTMLDivElement> {
-  /** Visually indicates a drop is possible during a drag */
+  /** Indicates a drop is possible during a drag */
   isActive?: boolean;
+  /** Centers dropzone message content */
+  isCentered?: boolean;
   /** Applies danger styling */
   isDanger?: boolean;
   /** Disables the dropzone */
   isDisabled?: boolean;
-  /** Visually indicates a draggable is on a droppable area */
+  /** Indicates a draggable is on a droppable area */
   isHighlighted?: boolean;
   /** Updates the element's HTML tag */
   tag?: any;

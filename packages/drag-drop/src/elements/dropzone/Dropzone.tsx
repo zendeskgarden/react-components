@@ -6,29 +6,48 @@
  */
 
 import React, { forwardRef, useMemo, useState } from 'react';
+import TrashIcon from '@zendeskgarden/svg-icons/src/16/trash-stroke.svg';
 import { Message } from './components/Message';
 import { Icon } from './components/Icon';
-import { StyledDropzone } from '../../styled';
+import { StyledDropzone, StyledIcon } from '../../styled';
 import { IDropzoneProps } from '../../types';
 import { DropzoneContext } from '../../utils/useDropzoneContext';
 
-const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(({ tag, ...props }, ref) => {
-  const { isDanger } = props;
-  const [hasMessage, setHasMessage] = useState(false);
-  const value = useMemo(() => ({ hasMessage, setHasMessage, isDanger }), [hasMessage, isDanger]);
+const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
+  ({ tag, isCentered, children, ...props }, ref) => {
+    const { isDanger } = props;
+    const [hasMessage, setHasMessage] = useState(false);
+    const [hasIcon, setHasIcon] = useState(false);
+    const value = useMemo(
+      () => ({ isCentered, hasMessage, setHasMessage, hasIcon, setHasIcon, isDanger }),
+      [hasMessage, hasIcon, isDanger, isCentered]
+    );
 
-  return (
-    <DropzoneContext.Provider value={value}>
-      <StyledDropzone
-        as={tag}
-        aria-disabled={props.isDisabled}
-        {...props}
-        hasMessage={hasMessage}
-        ref={ref}
-      />
-    </DropzoneContext.Provider>
-  );
-});
+    /**
+     * 1. `Icon` isn't used directly because rendering it will call `setHasIcon(true)`
+     */
+    return (
+      <DropzoneContext.Provider value={value}>
+        <StyledDropzone
+          as={tag}
+          aria-disabled={props.isDisabled}
+          {...props}
+          hasMessage={hasMessage}
+          isCentered={isCentered}
+          ref={ref}
+        >
+          {/* [1] */}
+          {hasMessage && isDanger && !hasIcon && (
+            <StyledIcon aria-hidden="true" isCentered={isCentered}>
+              <TrashIcon />
+            </StyledIcon>
+          )}
+          {children}
+        </StyledDropzone>
+      </DropzoneContext.Provider>
+    );
+  }
+);
 
 DropzoneComponent.displayName = 'Dropzone';
 

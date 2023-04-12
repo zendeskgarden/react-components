@@ -51,6 +51,7 @@ const colorStyles = (props: IStyledDraggableProps) => {
   const dragShadow = getDragShadow(theme);
   const focusShadow = getFocusShadow(focusInset, baseColor!, theme);
   const baseBgColor = theme.colors.background;
+  const disabledColor = getColor('neutralHue', 400, theme);
 
   let color;
   let hoverBackgroundColor;
@@ -61,7 +62,7 @@ const colorStyles = (props: IStyledDraggableProps) => {
 
   if (isDisabled) {
     backgroundColor = getColor('neutralHue', 200, theme)!;
-    color = getColor('neutralHue', 400, theme);
+    color = disabledColor;
   } else if (isPlaceholder) {
     backgroundColor = getColor('neutralHue', 800, theme, 0.1)!;
   } else {
@@ -74,13 +75,9 @@ const colorStyles = (props: IStyledDraggableProps) => {
 
   return css`
     border-color: ${borderColor};
+    box-shadow: ${isGrabbed && boxShadow};
     background-color: ${backgroundColor};
     color: ${color};
-
-    ${isGrabbed &&
-    css`
-      box-shadow: ${boxShadow};
-    `}
 
     &:hover {
       background-color: ${hoverBackgroundColor};
@@ -88,6 +85,10 @@ const colorStyles = (props: IStyledDraggableProps) => {
 
     &[data-garden-focus-visible] {
       box-shadow: ${focusBoxShadow};
+    }
+
+    > ${StyledGrip} {
+      color: ${isDisabled && disabledColor};
     }
   `;
 };
@@ -114,8 +115,7 @@ const sizeStyles = (props: IStyledDraggableProps) => {
    */
   return css`
     margin: 0; /* [1] */
-    border-width: ${theme.borderWidths.sm};
-    border-style: ${theme.borderStyles.solid};
+    border: ${theme.borders.sm};
     border-radius: ${theme.borderRadii.md};
     padding: ${isCompact ? `${paddingCompact}px ${paddingDefault}px` : `${paddingDefault}px`};
     line-height: ${getLineHeight(theme.space.base * 5, theme.fontSizes.md)};
@@ -153,10 +153,6 @@ export const StyledDraggable = styled.div.attrs({
 
   > * {
     visibility: ${p => p.isPlaceholder && !p.isDisabled && 'hidden'};
-  }
-
-  > ${StyledGrip} {
-    color: ${p => p.isDisabled && getColor('neutralHue', 400, p.theme)};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

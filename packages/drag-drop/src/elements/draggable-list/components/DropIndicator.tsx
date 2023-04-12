@@ -16,7 +16,9 @@ export const DropIndicator = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIEl
   (props, ref) => {
     const { isHorizontal } = useDraggableListContext();
 
-    return <StyledDropIndicator {...props} isHorizontal={isHorizontal} ref={ref} />;
+    return (
+      <StyledDropIndicator aria-hidden="true" {...props} isHorizontal={isHorizontal} ref={ref} />
+    );
   }
 );
 

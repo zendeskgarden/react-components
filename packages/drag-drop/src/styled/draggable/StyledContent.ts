@@ -15,6 +15,8 @@ export const StyledContent = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
