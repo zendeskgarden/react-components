@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'draggable.grip';
 
@@ -20,7 +20,11 @@ export const StyledGrip = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  display: flex;
+  /* prettier-ignore */
+  transition: color 0.25s ease-in-out;
   box-sizing: border-box;
+  color: ${p => getColor('neutralHue', 600, p.theme)};
 
   ${marginStyles}
 

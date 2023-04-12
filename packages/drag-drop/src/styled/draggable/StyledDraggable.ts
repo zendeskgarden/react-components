@@ -14,6 +14,7 @@ import {
   IGardenTheme,
   getLineHeight
 } from '@zendeskgarden/react-theming';
+import { StyledGrip } from './StyledGrip';
 
 const COMPONENT_ID = 'draggable';
 
@@ -152,6 +153,10 @@ export const StyledDraggable = styled.div.attrs({
 
   > * {
     visibility: ${p => p.isPlaceholder && !p.isDisabled && 'hidden'};
+  }
+
+  > ${StyledGrip} {
+    color: ${p => p.isDisabled && getColor('neutralHue', 400, p.theme)};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
