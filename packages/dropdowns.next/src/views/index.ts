@@ -13,7 +13,6 @@ export * from './StyledInputGroup';
 export * from './StyledInputIcon';
 export * from './StyledListbox';
 export * from './StyledOptGroup';
-export * from './StyledOptGroupLabel';
 export * from './StyledOption';
 export * from './StyledOptionContent';
 export * from './StyledOptionIcon';

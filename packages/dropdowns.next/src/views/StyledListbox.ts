@@ -15,6 +15,7 @@ export const StyledListbox = styled.ul.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   overflow-y: scroll;
+  list-style-type: none;
 
   &&& {
     display: block;

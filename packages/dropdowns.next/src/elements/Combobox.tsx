@@ -118,7 +118,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
           ref={floating}
         >
           <StyledListbox>
-            <OptGroup icon={<OptionIcon />} aria-label="group" label="Header">
+            <OptGroup icon={<OptionIcon />} label="Header">
               <Option isDisabled={isDisabled}>Zero</Option>
             </OptGroup>
             <Option icon={<OptionIcon />} isDisabled={isDisabled}>

@@ -15,17 +15,22 @@ const COMPONENT_ID = 'dropdowns.option';
 interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
   isActive?: boolean;
   isCompact?: boolean;
-  $type?: OptionType | 'header';
+  $type?: OptionType | 'header' | 'group';
 }
 
 const colorStyles = (props: IStyledOptionProps) => {
-  const backgroundColor = props.theme.colors.background;
   const activeBackgroundColor = getColor(
     props.$type === 'danger' ? 'dangerHue' : 'primaryHue',
     600,
     props.theme,
     0.08
   );
+  const backgroundColor =
+    props.isActive && props.$type !== 'group' && props.$type !== 'header'
+      ? activeBackgroundColor
+      : props.theme.colors.background;
+  const hoverBackgroundColor =
+    props.$type !== 'group' && props.$type !== 'header' ? activeBackgroundColor : undefined;
   const disabledForegroundColor = getColor('neutralHue', 400, props.theme);
   let foregroundColor = props.theme.colors.foreground;
 
@@ -36,13 +41,11 @@ const colorStyles = (props: IStyledOptionProps) => {
   }
 
   return css`
-    background-color: ${props.isActive && props.$type !== 'header'
-      ? activeBackgroundColor
-      : backgroundColor};
+    background-color: ${backgroundColor};
     color: ${foregroundColor};
 
     &:hover {
-      background-color: ${props.$type !== 'header' && activeBackgroundColor};
+      background-color: ${hoverBackgroundColor};
     }
 
     &[aria-disabled='true'] {
@@ -61,8 +64,8 @@ export const getMinHeight = (props: IStyledOptionProps) =>
 const sizeStyles = (props: IStyledOptionProps) => {
   const lineHeight = props.theme.lineHeights.md;
   const minHeight = getMinHeight(props);
-  const paddingHorizontal = `${props.theme.space.base * 9}px`;
-  const paddingVertical = math(`(${minHeight} - ${lineHeight}) / 2`);
+  const paddingHorizontal = props.$type === 'group' ? 0 : `${props.theme.space.base * 9}px`;
+  const paddingVertical = props.$type === 'group' ? 0 : math(`(${minHeight} - ${lineHeight}) / 2`);
 
   return css`
     box-sizing: border-box;

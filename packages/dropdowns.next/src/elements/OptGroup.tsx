@@ -12,7 +12,6 @@ import { IOptGroupProps } from '../types';
 import useComboboxContext from '../context/useComboboxContext';
 import {
   StyledOptGroup,
-  StyledOptGroupLabel,
   StyledOption,
   StyledOptionContent,
   StyledOptionTypeIcon,
@@ -36,14 +35,18 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
     );
 
     return (
-      <StyledOption isCompact={isCompact} $type="header" role="none" {...props} ref={ref}>
-        {label && icon && (
-          <StyledOptionTypeIcon isCompact={isCompact} type="header">
-            {icon}
-          </StyledOptionTypeIcon>
-        )}
+      <StyledOption isCompact={isCompact} $type="group" role="none" {...props} ref={ref}>
         <StyledOptionContent>
-          {label && <StyledOptGroupLabel isCompact={isCompact}>{label}</StyledOptGroupLabel>}
+          {label && (
+            <StyledOption as="div" isCompact={isCompact} $type="header">
+              {icon && (
+                <StyledOptionTypeIcon isCompact={isCompact} type="header">
+                  {icon}
+                </StyledOptionTypeIcon>
+              )}
+              {label}
+            </StyledOption>
+          )}
           <StyledOptGroup aria-label={groupAriaLabel} isCompact={isCompact}>
             <StyledSeparator role="none" />
             {children}
