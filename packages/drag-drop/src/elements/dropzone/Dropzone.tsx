@@ -14,13 +14,13 @@ import { IDropzoneProps } from '../../types';
 import { DropzoneContext } from '../../utils/useDropzoneContext';
 
 const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
-  ({ tag, isCentered, children, ...props }, ref) => {
+  ({ tag, isVertical, children, ...props }, ref) => {
     const { isDanger } = props;
     const [hasMessage, setHasMessage] = useState(false);
     const [hasIcon, setHasIcon] = useState(false);
     const value = useMemo(
-      () => ({ isCentered, hasMessage, setHasMessage, hasIcon, setHasIcon, isDanger }),
-      [hasMessage, hasIcon, isDanger, isCentered]
+      () => ({ isVertical, hasMessage, setHasMessage, hasIcon, setHasIcon, isDanger }),
+      [hasMessage, hasIcon, isDanger, isVertical]
     );
 
     /**
@@ -33,12 +33,12 @@ const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
           aria-disabled={props.isDisabled}
           {...props}
           hasMessage={hasMessage}
-          isCentered={isCentered}
+          isVertical={isVertical}
           ref={ref}
         >
           {/* [1] */}
           {hasMessage && isDanger && !hasIcon && (
-            <StyledIcon aria-hidden="true" isCentered={isCentered}>
+            <StyledIcon aria-hidden="true" isVertical={isVertical}>
               <TrashIcon />
             </StyledIcon>
           )}

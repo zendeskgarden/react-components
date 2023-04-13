@@ -32,8 +32,8 @@ export interface IDraggableListProps extends HTMLAttributes<HTMLUListElement> {
 export interface IDropzoneProps extends HTMLAttributes<HTMLDivElement> {
   /** Indicates a drop is possible during a drag */
   isActive?: boolean;
-  /** Centers dropzone message content */
-  isCentered?: boolean;
+  /** Aligns dropzone message content vertically */
+  isVertical?: boolean;
   /** Applies danger styling */
   isDanger?: boolean;
   /** Disables the dropzone */

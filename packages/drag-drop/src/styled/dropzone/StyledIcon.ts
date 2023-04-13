@@ -11,13 +11,13 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'dropzone.icon';
 
 interface IStyledIconProps extends ThemeProps<DefaultTheme> {
-  isCentered?: boolean;
+  isVertical?: boolean;
 }
 
-function sizeStyles({ theme, isCentered }: IStyledIconProps) {
+function sizeStyles({ theme, isVertical }: IStyledIconProps) {
   const style: CSSObject = {};
 
-  if (isCentered) {
+  if (isVertical) {
     style.marginBottom = theme.space.xs;
   } else {
     style[theme.rtl ? 'marginLeft' : 'marginRight'] = theme.space.xs;

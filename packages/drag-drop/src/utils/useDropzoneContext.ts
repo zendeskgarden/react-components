@@ -8,7 +8,7 @@
 import { createContext, useContext } from 'react';
 
 export interface IDropzoneContext {
-  isCentered?: boolean;
+  isVertical?: boolean;
   isDanger?: boolean;
   hasIcon?: boolean;
   setHasIcon?: (hasIcon: boolean) => void;

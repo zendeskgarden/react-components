@@ -118,9 +118,9 @@ describe('Dropzone', () => {
       expect(queryByTestId('icon')).toHaveStyle(`margin-left: ${DEFAULT_THEME.space.xs}`);
     });
 
-    it('renders correct icon margin when centered', () => {
+    it('renders correct icon margin when vertical', () => {
       const { queryByTestId } = render(
-        <Dropzone isCentered>
+        <Dropzone isVertical>
           <Dropzone.Icon data-test-id="icon">
             <svg />
           </Dropzone.Icon>

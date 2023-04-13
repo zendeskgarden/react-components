@@ -13,7 +13,7 @@ const COMPONENT_ID = 'dropzone';
 
 export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
   isActive?: boolean;
-  isCentered?: boolean;
+  isVertical?: boolean;
   isDanger?: boolean;
   isDisabled?: boolean;
   isHighlighted?: boolean;
@@ -74,7 +74,7 @@ export const StyledDropzone = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledDropzoneProps>`
   display: ${p => p.hasMessage && 'flex'};
-  flex-direction: ${p => p.hasMessage && p.isCentered && 'column'};
+  flex-direction: ${p => p.hasMessage && p.isVertical && 'column'};
   align-items: ${p => p.hasMessage && 'center'};
   justify-content: ${p => p.hasMessage && 'center'};
   /* prettier-ignore */
