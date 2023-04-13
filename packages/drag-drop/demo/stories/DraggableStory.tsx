@@ -11,12 +11,11 @@ import { Draggable, IDraggableProps } from '@zendeskgarden/react-drag-drop';
 
 interface IArgs extends IDraggableProps {
   hasGrip?: boolean;
-  content?: string;
 }
 
-export const DraggableStory: Story<IArgs> = ({ hasGrip, content, ...args }) => (
+export const DraggableStory: Story<IArgs> = ({ hasGrip, children, ...args }) => (
   <Draggable {...args}>
     {hasGrip && <Draggable.Grip />}
-    {content && <Draggable.Content>{content}</Draggable.Content>}
+    {children && <Draggable.Content>{children}</Draggable.Content>}
   </Draggable>
 );

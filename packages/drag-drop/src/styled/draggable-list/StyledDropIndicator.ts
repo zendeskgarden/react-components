@@ -50,26 +50,6 @@ function afterPseudoElementStyles(props: IStyledDropIndicatorProps) {
   return style;
 }
 
-const pseudoElementStyles = (props: IStyledDropIndicatorProps) => css`
-  &::before,
-  &::after {
-    position: absolute;
-    border-radius: 50%;
-    background-color: ${p => getColor('primaryHue', 600, p.theme)};
-    width: ${p => p.theme.space.xs};
-    height: ${p => p.theme.space.xs};
-    content: '';
-  }
-
-  &::before {
-    ${beforePseudoElementStyles(props)}
-  }
-
-  &::after {
-    ${afterPseudoElementStyles(props)}
-  }
-`;
-
 const colorStyles = (props: IStyledDropIndicatorProps) => {
   const { theme } = props;
 
@@ -89,7 +69,24 @@ export const StyledDropIndicator = styled.li.attrs({
   position: relative;
 
   ${colorStyles}
-  ${pseudoElementStyles}
+
+  &::before,
+  &::after {
+    position: absolute;
+    border-radius: 50%;
+    background-color: ${p => getColor('primaryHue', 600, p.theme)};
+    width: ${p => p.theme.space.xs};
+    height: ${p => p.theme.space.xs};
+    content: '';
+  }
+
+  &::before {
+    ${beforePseudoElementStyles}
+  }
+
+  &::after {
+    ${afterPseudoElementStyles}
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

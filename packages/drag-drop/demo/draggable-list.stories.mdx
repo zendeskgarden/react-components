@@ -21,14 +21,15 @@ import { LIST_ITEMS as items } from './stories/data';
 <Canvas>
   <Story
     name="DraggableList"
-    args={{ items }}
+    args={{ items, 'aria-label': 'Label' }}
     argTypes={{
       items: { name: 'DraggableList.Item[]', table: { category: 'Story' } },
-      dropIndicatorIndex: {
+      indicatorIndex: {
         name: 'DraggableList.DropIndicator',
         control: { type: 'number' },
         table: { category: 'Story' }
-      }
+      },
+      'aria-label': { table: { category: 'DraggableList.DropIndicator' } }
     }}
   >
     {args => <DraggableListStory {...args} />}

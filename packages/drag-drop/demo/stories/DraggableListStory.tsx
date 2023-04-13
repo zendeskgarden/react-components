@@ -11,12 +11,18 @@ import { Draggable, IDraggableListProps, DraggableList } from '@zendeskgarden/re
 
 interface IArgs extends IDraggableListProps {
   items: string[];
-  dropIndicatorIndex?: number;
+  indicatorIndex?: number;
+  ariaLabel?: string;
 }
 
-export const DraggableListStory: Story<IArgs> = ({ items, dropIndicatorIndex, ...args }: IArgs) => (
+export const DraggableListStory: Story<IArgs> = ({
+  items,
+  indicatorIndex,
+  'aria-label': ariaLabel,
+  ...args
+}: IArgs) => (
   <DraggableList {...args}>
-    {dropIndicatorIndex === 0 && <DraggableList.DropIndicator />}
+    {indicatorIndex === 0 && <DraggableList.DropIndicator aria-label={ariaLabel} />}
 
     {items.map((item, idx) => {
       const innerStartIdx = 1;
@@ -24,10 +30,10 @@ export const DraggableListStory: Story<IArgs> = ({ items, dropIndicatorIndex, ..
 
       return (
         <Fragment key={item}>
-          {typeof dropIndicatorIndex === 'number' &&
-            dropIndicatorIndex >= innerStartIdx &&
-            dropIndicatorIndex <= endIdx &&
-            dropIndicatorIndex === idx && <DraggableList.DropIndicator />}
+          {typeof indicatorIndex === 'number' &&
+            indicatorIndex >= innerStartIdx &&
+            indicatorIndex <= endIdx &&
+            indicatorIndex === idx && <DraggableList.DropIndicator aria-label={ariaLabel} />}
           <DraggableList.Item>
             <Draggable>
               <Draggable.Grip />
@@ -38,6 +44,6 @@ export const DraggableListStory: Story<IArgs> = ({ items, dropIndicatorIndex, ..
       );
     })}
 
-    {dropIndicatorIndex === items.length && <DraggableList.DropIndicator />}
+    {indicatorIndex === items.length && <DraggableList.DropIndicator aria-label={ariaLabel} />}
   </DraggableList>
 );

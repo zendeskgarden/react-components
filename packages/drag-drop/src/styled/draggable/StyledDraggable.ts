@@ -93,18 +93,6 @@ const colorStyles = (props: IStyledDraggableProps) => {
   `;
 };
 
-const cursorStyles = (props: IStyledDraggableProps) => {
-  let cursor = props.isGrabbed ? 'grabbing' : 'grab';
-
-  if (props.isDisabled || props.isPlaceholder) {
-    cursor = 'default';
-  }
-
-  return css`
-    cursor: ${cursor};
-  `;
-};
-
 const sizeStyles = (props: IStyledDraggableProps) => {
   const { isCompact, theme } = props;
   const paddingDefault = theme.space.base * 2.25;
@@ -124,6 +112,16 @@ const sizeStyles = (props: IStyledDraggableProps) => {
   `;
 };
 
+const getCursor = (props: IStyledDraggableProps) => {
+  let cursor = props.isGrabbed ? 'grabbing' : 'grab';
+
+  if (props.isDisabled || props.isPlaceholder) {
+    cursor = 'default';
+  }
+
+  return cursor;
+};
+
 export const StyledDraggable = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -138,6 +136,7 @@ export const StyledDraggable = styled.div.attrs({
     background-color 0.25s ease-in-out,
     color 0.25s ease-in-out,
     z-index 0.25s ease-in-out;
+  cursor: ${getCursor};
   font-family: ${props => props.theme.fonts.system};
   direction: ${props => props.theme.rtl && 'rtl'};
   box-sizing: border-box;
@@ -148,7 +147,6 @@ export const StyledDraggable = styled.div.attrs({
     outline: none;
   }
 
-  ${cursorStyles}
   ${colorStyles}
 
   > * {
