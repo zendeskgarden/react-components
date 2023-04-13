@@ -33,6 +33,7 @@ export const StyledSeparator = styled.li.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
   border: none;
+  cursor: default;
 
   ${sizeStyles};
 

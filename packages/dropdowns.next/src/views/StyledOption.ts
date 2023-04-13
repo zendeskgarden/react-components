@@ -82,7 +82,7 @@ export const StyledOption = styled.li.attrs({
   display: flex;
   position: relative;
   transition: color 0.25s ease-in-out;
-  cursor: ${props => props.$type !== 'header' && 'pointer'};
+  cursor: ${props => (props.$type === 'group' || props.$type === 'header' ? 'default' : 'pointer')};
   word-wrap: break-word;
   font-weight: ${props =>
     props.$type === 'header' || props.$type === 'previous'
