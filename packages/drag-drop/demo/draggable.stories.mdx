@@ -20,10 +20,7 @@ import { DraggableStory } from './stories/DraggableStory';
 <Canvas>
   <Story
     name="Draggable"
-    args={{
-      children: 'Content',
-      hasGrip: true
-    }}
+    args={{ hasGrip: true, children: 'Content' }}
     argTypes={{
       children: { name: 'Draggable.Content', table: { category: 'Story' } },
       hasGrip: { name: 'Draggable.Grip', table: { category: 'Story' } },

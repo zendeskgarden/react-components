@@ -5,7 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css, CSSObject } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'draggable_list.drop_indicator';
@@ -14,50 +15,100 @@ export interface IStyledDropIndicatorProps extends ThemeProps<DefaultTheme> {
   isHorizontal?: boolean;
 }
 
-function beforePseudoElementStyles(props: IStyledDropIndicatorProps) {
+const getPosition = ({ theme }: IStyledDropIndicatorProps) => {
+  const { borderWidths, space } = theme;
+
+  return math(`${space.xxs} - ${borderWidths.sm}`);
+};
+
+const getBeforeTransform = (props: IStyledDropIndicatorProps) => {
   const {
     isHorizontal,
     theme: { rtl }
   } = props;
-
-  const style: CSSObject = {
-    [isHorizontal ? 'top' : 'left']: 0,
-    transform: 'translate(-100%, -50%)'
-  };
+  const position = getPosition(props);
 
   if (isHorizontal) {
-    style.transform = rtl ? 'translate(50%, -100%)' : 'translate(-50%, -100%)';
+    return rtl ? `translate(${position}, -100%)` : `translate(-${position}, -100%)`;
   }
 
-  return style;
+  return `translate(-100%, -${position})`;
+};
+
+const getAfterTransform = (props: IStyledDropIndicatorProps) => {
+  const {
+    isHorizontal,
+    theme: { rtl }
+  } = props;
+  const position = getPosition(props);
+
+  if (isHorizontal) {
+    return rtl ? `translate(${position}, 100%)` : `translate(-${position}, 100%)`;
+  }
+
+  return `translate(100%, -${position})`;
+};
+
+function pseudoBeforeSize(props: IStyledDropIndicatorProps) {
+  const { isHorizontal } = props;
+  const positionProperty = isHorizontal ? 'top' : 'left';
+
+  return css`
+    ${positionProperty}: 0;
+    transform: ${getBeforeTransform(props)};
+  `;
 }
 
-function afterPseudoElementStyles(props: IStyledDropIndicatorProps) {
-  const {
-    isHorizontal,
-    theme: { rtl }
-  } = props;
+function pseudoAfterSize(props: IStyledDropIndicatorProps) {
+  const { isHorizontal } = props;
+  const positionProperty = isHorizontal ? 'bottom' : 'right';
 
-  const style: CSSObject = {
-    [isHorizontal ? 'bottom' : 'right']: 0,
-    transform: 'translate(100%, -50%)'
-  };
-
-  if (isHorizontal) {
-    style.transform = rtl ? 'translate(50%, 100%)' : 'translate(-50%, 100%)';
-  }
-
-  return style;
+  return css`
+    ${positionProperty}: 0;
+    transform: ${getAfterTransform(props)};
+  `;
 }
 
 const colorStyles = (props: IStyledDropIndicatorProps) => {
   const { theme } = props;
+  const backgroundColor = getColor('primaryHue', 600, theme);
 
   return css`
-    border: ${theme.borders.sm} ${getColor('primaryHue', 600, theme)};
+    background-color: ${backgroundColor};
+
+    &::before,
+    &::after {
+      background-color: ${backgroundColor};
+    }
 
     &:focus {
       outline: none;
+    }
+  `;
+};
+
+const sizeStyles = (props: IStyledDropIndicatorProps) => {
+  const { theme, isHorizontal } = props;
+  const size = `${theme.space.base / 2}px`;
+  const pseudoSize = theme.space.xs;
+
+  return css`
+    width: ${isHorizontal && size};
+    height: ${!isHorizontal && size};
+
+    &::before,
+    &::after {
+      border-radius: 50%;
+      width: ${pseudoSize};
+      height: ${pseudoSize};
+    }
+
+    &::before {
+      ${pseudoBeforeSize}
+    }
+
+    &::after {
+      ${pseudoAfterSize}
     }
   `;
 };
@@ -68,24 +119,13 @@ export const StyledDropIndicator = styled.li.attrs({
 })<IStyledDropIndicatorProps>`
   position: relative;
 
+  ${sizeStyles}
   ${colorStyles}
 
   &::before,
   &::after {
     position: absolute;
-    border-radius: 50%;
-    background-color: ${p => getColor('primaryHue', 600, p.theme)};
-    width: ${p => p.theme.space.xs};
-    height: ${p => p.theme.space.xs};
     content: '';
-  }
-
-  &::before {
-    ${beforePseudoElementStyles}
-  }
-
-  &::after {
-    ${afterPseudoElementStyles}
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

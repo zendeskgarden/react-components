@@ -39,7 +39,7 @@ function positionStyles(props: IStyledDraggableListProps, isStart = true) {
   const style: Record<string, string> = {};
 
   if (isHorizontal) {
-    style.height = `calc(100% - ${theme.space.base / 2}px)`;
+    style.height = '100%';
 
     if (isStart) {
       style[theme.rtl ? 'right' : 'left'] = offsetValue;
@@ -47,7 +47,7 @@ function positionStyles(props: IStyledDraggableListProps, isStart = true) {
       style[theme.rtl ? 'left' : 'right'] = offsetValue;
     }
   } else {
-    style.width = `calc(100% - ${theme.space.base / 2}px)`;
+    style.width = '100%';
     style[isStart ? 'top' : 'bottom'] = offsetValue;
   }
 
