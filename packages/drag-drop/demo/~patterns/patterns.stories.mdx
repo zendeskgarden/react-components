@@ -1,0 +1,25 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { DragAndDropStory } from './stories/DragAndDropStory';
+import { COLUMNS as columns } from './stories/data';
+
+<Meta title="Packages/Drag-Drop/[patterns]" />
+
+# Patterns
+
+## Drag and Drop
+
+Use `DraggableList`, `Dropzone`, and `Draggable` to create a drag and drop experience.
+
+<Canvas>
+  <Story
+    name="Drag and drop"
+    args={{ columns }}
+    argTypes={{
+      columns: {
+        table: { category: 'Story' }
+      }
+    }}
+  >
+    {args => <DragAndDropStory {...args} />}
+  </Story>
+</Canvas>
