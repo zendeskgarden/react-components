@@ -74,6 +74,7 @@ const sizeStyles = (props: IStyledDraggableListProps) => {
   const {
     theme: { space, borderWidths }
   } = props;
+  const offsetValue = math(`${space.base / 2}px + ${borderWidths.sm}`);
 
   return css`
     > ${StyledItem} {
@@ -82,14 +83,14 @@ const sizeStyles = (props: IStyledDraggableListProps) => {
       }
 
       + ${StyledDropIndicator} {
-        ${getMargin(props, math(`${space.base / 2}px + ${borderWidths.sm}`))};
+        ${getMargin(props, offsetValue)};
       }
     }
 
     > ${StyledDropIndicator} {
       /* stylelint-disable-next-line selector-max-specificity */
       &:not(:first-child) + ${StyledItem} {
-        ${getMargin(props, math(`${space.base / 2}px + ${borderWidths.sm}`))};
+        ${getMargin(props, offsetValue)};
       }
 
       /* stylelint-disable-next-line selector-max-specificity */
