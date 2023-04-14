@@ -13,10 +13,10 @@ import { useDropzoneContext } from '../../../utils/useDropzoneContext';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Icon = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { hasIcon, setHasIcon, isVertical, isDanger } = useDropzoneContext();
+  const { hasIcon, setHasIcon, hasMessage, isVertical } = useDropzoneContext();
 
   useEffect(() => {
-    if (isDanger && setHasIcon && !hasIcon) {
+    if (setHasIcon && !hasIcon) {
       setHasIcon(true);
     }
 
@@ -25,9 +25,17 @@ export const Icon = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
         setHasIcon(false);
       }
     };
-  }, [setHasIcon, hasIcon, isDanger]);
+  }, [setHasIcon, hasIcon]);
 
-  return <StyledIcon aria-hidden="true" {...props} isVertical={isVertical} ref={ref} />;
+  return (
+    <StyledIcon
+      aria-hidden="true"
+      {...props}
+      hasMessage={hasMessage}
+      isVertical={isVertical}
+      ref={ref}
+    />
+  );
 });
 
 Icon.displayName = 'Dropzone.Icon';

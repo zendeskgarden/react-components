@@ -17,9 +17,21 @@ describe('StyledIcon', () => {
     expect(container.firstChild!.nodeName).toBe('DIV');
   });
 
-  it('renders RTL styling correctly', () => {
-    const { container } = renderRtl(<StyledIcon />);
+  it('renders default styling correctly', () => {
+    const { container } = render(<StyledIcon hasMessage />);
 
-    expect(container.firstChild).toHaveStyleRule('margin-left', DEFAULT_THEME.space.xs);
+    expect(container.firstChild).toHaveStyle(`margin-right: ${DEFAULT_THEME.space.xs}`);
+  });
+
+  it('renders RTL styling correctly', () => {
+    const { container } = renderRtl(<StyledIcon hasMessage />);
+
+    expect(container.firstChild).toHaveStyle(`margin-left: ${DEFAULT_THEME.space.xs}`);
+  });
+
+  it('renders vertical styling correctly', () => {
+    const { container } = render(<StyledIcon isVertical hasMessage />);
+
+    expect(container.firstChild).toHaveStyle(`margin-bottom: ${DEFAULT_THEME.space.xs}`);
   });
 });

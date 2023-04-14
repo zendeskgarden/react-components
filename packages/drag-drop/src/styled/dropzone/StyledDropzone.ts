@@ -18,6 +18,7 @@ export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
   isDisabled?: boolean;
   isHighlighted?: boolean;
   hasMessage?: boolean;
+  hasIcon?: boolean;
 }
 
 const colorStyles = (props: IStyledDropzoneProps) => {
@@ -73,10 +74,10 @@ export const StyledDropzone = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledDropzoneProps>`
-  display: ${p => p.hasMessage && 'flex'};
+  display: ${p => (p.hasMessage || p.hasIcon) && 'flex'};
   flex-direction: ${p => p.hasMessage && p.isVertical && 'column'};
-  align-items: ${p => p.hasMessage && 'center'};
-  justify-content: ${p => p.hasMessage && 'center'};
+  align-items: ${p => (p.hasMessage || p.hasIcon) && 'center'};
+  justify-content: ${p => (p.hasMessage || p.hasIcon) && 'center'};
   /* prettier-ignore */
   transition:
     border-color 0.25s ease-in-out,

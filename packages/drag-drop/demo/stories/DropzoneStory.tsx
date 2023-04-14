@@ -22,6 +22,6 @@ export const DropzoneStory: Story<IArgs> = ({ children, hasIcon, ...args }) => (
         <ReplaceIcon />
       </Dropzone.Icon>
     )}
-    <Dropzone.Message>{children}</Dropzone.Message>
+    {children && <Dropzone.Message>{children}</Dropzone.Message>}
   </Dropzone>
 );

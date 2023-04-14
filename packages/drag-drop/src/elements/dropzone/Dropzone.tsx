@@ -32,13 +32,14 @@ const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
           as={tag}
           aria-disabled={props.isDisabled}
           {...props}
+          hasIcon={hasIcon}
           hasMessage={hasMessage}
           isVertical={isVertical}
           ref={ref}
         >
           {/* [1] */}
           {hasMessage && isDanger && !hasIcon && (
-            <StyledIcon aria-hidden="true" isVertical={isVertical}>
+            <StyledIcon aria-hidden="true" hasMessage={hasMessage} isVertical={isVertical}>
               <TrashIcon />
             </StyledIcon>
           )}
