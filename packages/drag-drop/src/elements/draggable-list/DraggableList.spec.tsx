@@ -6,9 +6,10 @@
  */
 
 import React from 'react';
+import { math } from 'polished';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
 import { DraggableList } from './DraggableList';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('DraggableList', () => {
   it('passes ref to underlying DOM element', () => {
@@ -98,9 +99,9 @@ describe('DraggableList', () => {
 
       const item = queryByTestId('item2');
       const indicator = queryByTestId('indicator');
-      const value = `calc(${DEFAULT_THEME.space.base / 2}px + ${DEFAULT_THEME.borderWidths.sm})`;
+      const value = math(`${DEFAULT_THEME.space.base / 2}px + ${DEFAULT_THEME.borderWidths.sm}`);
 
-      expect(item).toHaveStyle(`margin-top: ${DEFAULT_THEME.space.xs}`);
+      expect(item).toHaveStyle(`margin-top: ${value}`);
       expect(indicator).toHaveStyle(`margin-top: ${value}`);
     });
 
@@ -114,7 +115,7 @@ describe('DraggableList', () => {
       );
 
       const indicator = queryByTestId('indicator');
-      const value = `calc(-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm})`;
+      const value = math(`-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm}`);
 
       expect(indicator).toHaveStyle(`
         position: absolute;
@@ -131,7 +132,7 @@ describe('DraggableList', () => {
       );
 
       const indicator = queryByTestId('indicator');
-      const value = `calc(-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm})`;
+      const value = math(`-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm}`);
 
       expect(indicator).toHaveStyle(`
         position: absolute;
@@ -171,9 +172,9 @@ describe('DraggableList', () => {
 
       const item = queryByTestId('item2');
       const indicator = queryByTestId('indicator');
-      const value = `calc(${DEFAULT_THEME.space.base / 2}px + ${DEFAULT_THEME.borderWidths.sm})`;
+      const value = math(`${DEFAULT_THEME.space.base / 2}px + ${DEFAULT_THEME.borderWidths.sm}`);
 
-      expect(item).toHaveStyle(`${inlineMarginProp}: ${DEFAULT_THEME.space.xs}`);
+      expect(item).toHaveStyle(`${inlineMarginProp}: ${value}`);
       expect(indicator).toHaveStyle(`${inlineMarginProp}: ${value}`);
     });
 
@@ -186,7 +187,7 @@ describe('DraggableList', () => {
       );
 
       const indicator = queryByTestId('indicator');
-      const value = `calc(-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm})`;
+      const value = math(`-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm}`);
 
       expect(indicator).toHaveStyle(`
         position: absolute;
@@ -203,7 +204,7 @@ describe('DraggableList', () => {
       );
 
       const indicator = queryByTestId('indicator');
-      const value = `calc(-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm})`;
+      const value = math(`-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm}`);
 
       expect(indicator).toHaveStyle(`
         position: absolute;

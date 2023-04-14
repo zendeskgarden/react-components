@@ -6,6 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledItem } from './StyledItem';
 import { StyledDropIndicator } from './StyledDropIndicator';
@@ -46,7 +47,7 @@ function getPosition(props: IStyledDraggableListProps, isStart = true) {
     isHorizontal,
     theme: { rtl, space, borderWidths }
   } = props;
-  const offsetValue = `calc(-${space.xxs} - ${borderWidths.sm})`;
+  const offsetValue = math(`-${space.xxs} - ${borderWidths.sm}`);
   let positionProperty;
   let dimensionProperty;
 
@@ -81,14 +82,14 @@ const sizeStyles = (props: IStyledDraggableListProps) => {
       }
 
       + ${StyledDropIndicator} {
-        ${getMargin(props, `calc(${space.base / 2}px + ${borderWidths.sm})`)};
+        ${getMargin(props, math(`${space.base / 2}px + ${borderWidths.sm}`))};
       }
     }
 
     > ${StyledDropIndicator} {
       /* stylelint-disable-next-line selector-max-specificity */
       &:not(:first-child) + ${StyledItem} {
-        ${getMargin(props, `calc(${space.base / 2}px + ${borderWidths.sm})`)};
+        ${getMargin(props, math(`${space.base / 2}px + ${borderWidths.sm}`))};
       }
 
       /* stylelint-disable-next-line selector-max-specificity */
