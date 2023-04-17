@@ -5,11 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useContext, useMemo, useRef, useState } from 'react';
-import { ThemeContext } from 'styled-components';
+import React, { forwardRef, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import OptionIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
@@ -18,50 +15,40 @@ import { ComboboxContext } from '../context/useComboboxContext';
 import {
   StyledCombobox,
   StyledContainer,
-  StyledFloating,
   StyledInputIcon,
   StyledInput,
   StyledInputGroup,
-  StyledListbox,
   StyledTrigger,
   StyledValue
 } from '../views';
 import { Option } from './Option';
 import { OptGroup } from './OptGroup';
+import { Listbox } from './Listbox';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) => {
   const {
+    appendListboxToNode,
+    focusInset,
     isAutocomplete,
     isBare,
     isCompact,
     isDisabled,
     isEditable,
-    focusInset,
+    listboxMaxHeight,
+    listboxZIndex,
     placeholder,
     validation,
     ...comboboxProps
   } = props;
   const contextValue = useMemo(() => ({ isCompact }), [isCompact]);
-  const theme = useContext(ThemeContext) || DEFAULT_THEME;
   const [isInputHidden, setIsInputHidden] = useState(true);
   const [value, setValue] = useState('');
+  const triggerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { reference, floating, placement, x, y } = useFloating({
-    placement: 'bottom-start',
-    whileElementsMounted: autoUpdate,
-    middleware: [
-      offset(theme.space.base),
-      flip(),
-      size({
-        apply: ({ elements, rects }) => {
-          elements.floating.style.width = `${rects.reference.width}px`;
-        }
-      })
-    ]
-  });
+  const listboxRef = useRef<HTMLDivElement>(null);
 
   return (
     <ComboboxContext.Provider value={contextValue}>
@@ -73,7 +60,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
           isEditable={isEditable}
           focusInset={focusInset}
           validation={validation}
-          ref={reference}
+          ref={triggerRef}
           /* remove following props with useCombobox hook */
           aria-disabled={isDisabled}
           onClick={() => inputRef.current?.focus()}
@@ -110,28 +97,27 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
             </StyledInputIcon>
           </StyledContainer>
         </StyledTrigger>
-        <StyledFloating
-          data-garden-animate={!isInputHidden}
-          isHidden={false}
-          position={placement === 'bottom-start' ? 'bottom' : 'top'}
-          style={{ top: y ?? 0, left: x ?? 0 }}
-          ref={floating}
+        <Listbox
+          appendToNode={appendListboxToNode}
+          isExpanded={!isInputHidden}
+          maxHeight={listboxMaxHeight}
+          triggerRef={triggerRef}
+          zIndex={listboxZIndex}
+          ref={listboxRef}
         >
-          <StyledListbox>
-            <OptGroup icon={<OptionIcon />} label="Header">
-              <Option isDisabled={isDisabled}>Zero</Option>
-            </OptGroup>
-            <Option icon={<OptionIcon />} isDisabled={isDisabled}>
-              One
-              <Option.Meta>Meta</Option.Meta>
-            </Option>
-            <Option isDisabled={isDisabled}>
-              Two
-              <Option.Meta>Meta</Option.Meta>
-            </Option>
-            <Option isDisabled={isDisabled}>Three</Option>
-          </StyledListbox>
-        </StyledFloating>
+          <OptGroup icon={<OptionIcon />} label="Header">
+            <Option isDisabled={isDisabled}>Zero</Option>
+          </OptGroup>
+          <Option icon={<OptionIcon />} isDisabled={isDisabled}>
+            One
+            <Option.Meta>Meta</Option.Meta>
+          </Option>
+          <Option isDisabled={isDisabled}>
+            Two
+            <Option.Meta>Meta</Option.Meta>
+          </Option>
+          <Option isDisabled={isDisabled}>Three</Option>
+        </Listbox>
       </StyledCombobox>
     </ComboboxContext.Provider>
   );
@@ -140,17 +126,21 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
 Combobox.displayName = 'Combobox';
 
 Combobox.propTypes = {
+  appendListboxToNode: PropTypes.any,
+  focusInset: PropTypes.bool,
   isAutocomplete: PropTypes.bool,
   isBare: PropTypes.bool,
   isCompact: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isEditable: PropTypes.bool,
-  focusInset: PropTypes.bool,
+  listboxMaxHeight: PropTypes.string,
+  listboxZIndex: PropTypes.number,
   placeholder: PropTypes.string,
   validation: PropTypes.oneOf(VALIDATION)
 };
 
 Combobox.defaultProps = {
   isAutocomplete: true,
-  isEditable: true
+  isEditable: true,
+  listboxMaxHeight: '400px'
 };

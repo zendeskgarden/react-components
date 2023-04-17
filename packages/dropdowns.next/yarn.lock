@@ -69,6 +69,11 @@
     polished "^4.0.0"
     prop-types "^15.5.7"
 
+"@zendeskgarden/svg-icons@6.33.0":
+  version "6.33.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.33.0.tgz#ab915654f1e089318b89fc5de2126812f9322e9c"
+  integrity sha512-RdHsM2EPFgFy0cRZ2jAEe0iqsyMAgetfMibpO9Pk+4fPE7NjFDk4Ul7OpVhadrZQ18RCzSmmD6j/isZBRVQr/w==
+
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -106,6 +111,11 @@ react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-merge-refs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
+  integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
 regenerator-runtime@^0.13.4:
   version "0.13.9"

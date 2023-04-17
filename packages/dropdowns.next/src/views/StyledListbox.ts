@@ -5,15 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { IListboxProps } from '../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.listbox';
+
+interface IStyledListboxProps extends ThemeProps<DefaultTheme> {
+  maxHeight?: IListboxProps['maxHeight'];
+}
 
 export const StyledListbox = styled.ul.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledListboxProps>`
+  max-height: ${props => props.maxHeight};
   overflow-y: scroll;
   list-style-type: none;
 

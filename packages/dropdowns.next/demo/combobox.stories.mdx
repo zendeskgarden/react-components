@@ -10,7 +10,14 @@ import { Combobox } from '@zendeskgarden/react-dropdowns.next';
 # Demo
 
 <Canvas>
-  <Story name="Combobox" args={{ isAutocomplete: true, isEditable: true }}>
+  <Story
+    name="Combobox"
+    args={{
+      isAutocomplete: true,
+      isEditable: true,
+      listboxMaxHeight: Combobox.defaultProps.listboxMaxHeight
+    }}
+  >
     {args => <Combobox {...args} />}
   </Story>
 </Canvas>
