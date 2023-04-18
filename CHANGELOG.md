@@ -12,6 +12,17 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.64.0 (2023-04-17)
+
+#### :rocket: New Feature
+* `drag-drop`
+  * [#1535](https://github.com/zendeskgarden/react-components/pull/1535) feat(drag-drop): introduces drag and drop components ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* [#1525](https://github.com/zendeskgarden/react-components/pull/1525) chore: add version for clearing corrupted CI cache ([@jzempel](https://github.com/jzempel))
+* [#1523](https://github.com/zendeskgarden/react-components/pull/1523) chore(deps-dev): bump webpack from 5.76.0 to 5.76.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#1522](https://github.com/zendeskgarden/react-components/pull/1522) chore(deps): update dependency webpack to v5.76.0 [security] ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.63.2 (2023-02-23)
 
 #### :bug: Bug Fix

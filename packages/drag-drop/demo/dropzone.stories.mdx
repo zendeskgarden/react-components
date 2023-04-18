@@ -1,0 +1,32 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Dropzone } from '@zendeskgarden/react-drag-drop';
+import { DropzoneStory } from './stories/DropzoneStory';
+
+<Meta
+  title="Packages/Drag-Drop/Dropzone"
+  component={Dropzone}
+  subcomponents={{
+    'Dropzone.Icon': Dropzone.Icon,
+    'Dropzone.Message': Dropzone.Message
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Dropzone"
+    args={{ hasIcon: true, children: 'Message' }}
+    argTypes={{
+      tag: { control: { type: 'text' } },
+      hasIcon: { name: 'Dropzone.Icon', table: { category: 'Story' } },
+      children: { name: 'Dropzone.Message', table: { category: 'Story' } }
+    }}
+  >
+    {args => <DropzoneStory {...args} />}
+  </Story>
+</Canvas>

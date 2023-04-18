@@ -28,6 +28,7 @@ to install.
 | [`@zendeskgarden/react-chrome`](packages/chrome)               | [![npm version][chrome npm version]][chrome npm link]               | [![Bundle Size][chrome size bundle]][chrome size link]               |
 | [`@zendeskgarden/react-colorpickers`](packages/colorpickers)   | [![npm version][colorpickers npm version]][colorpickers npm link]   | [![Bundle Size][colorpickers size bundle]][colorpickers size link]   |
 | [`@zendeskgarden/react-datepickers`](packages/datepickers)     | [![npm version][datepickers npm version]][datepickers npm link]     | [![Bundle Size][datepickers size bundle]][datepickers size link]     |
+| [`@zendeskgarden/react-drag-drop`](packages/drag-drop)         | [![npm version][drag-drop npm version]][drag-drop npm link]         | [![Bundle Size][drag-drop size bundle]][drag-drop size link]         |
 | [`@zendeskgarden/react-dropdowns`](packages/dropdowns)         | [![npm version][dropdowns npm version]][dropdowns npm link]         | [![Bundle Size][dropdowns size bundle]][dropdowns size link]         |
 | [`@zendeskgarden/react-forms`](packages/forms)                 | [![npm version][forms npm version]][forms npm link]                 | [![Bundle Size][forms size bundle]][forms size link]                 |
 | [`@zendeskgarden/react-grid`](packages/grid)                   | [![npm version][grid npm version]][grid npm link]                   | [![Bundle Size][grid size bundle]][grid size link]                   |
@@ -70,6 +71,10 @@ to install.
 [datepickers npm link]: https://www.npmjs.com/package/@zendeskgarden/react-datepickers
 [datepickers size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-datepickers
 [datepickers size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-datepickers
+[drag-drop npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-drag-drop
+[drag-drop npm link]: https://www.npmjs.com/package/@zendeskgarden/react-drag-drop
+[drag-drop size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-drag-drop
+[drag-drop size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-drag-drop
 [dropdowns npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns
 [dropdowns npm link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns
 [dropdowns size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-dropdowns
