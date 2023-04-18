@@ -5,9 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { IUseComboboxReturnValue } from '@zendeskgarden/container-combobox';
+import { HTMLAttributes, createContext, useContext } from 'react';
 
-export const ComboboxContext = createContext<{ isCompact?: boolean } | undefined>(undefined);
+export const ComboboxContext = createContext<
+  | {
+      activeValue: IUseComboboxReturnValue['activeValue'];
+      getOptionProps: IUseComboboxReturnValue['getOptionProps'];
+      isCompact?: boolean;
+      listboxProps: HTMLAttributes<HTMLUListElement>;
+    }
+  | undefined
+>(undefined);
 
 const useComboboxContext = () => {
   const context = useContext(ComboboxContext);

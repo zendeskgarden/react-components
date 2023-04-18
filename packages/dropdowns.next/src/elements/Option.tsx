@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useMemo, useState } from 'react';
+import React, { LiHTMLAttributes, forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { IOption } from '@zendeskgarden/container-combobox';
 import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
@@ -23,10 +24,9 @@ import {
 import { OptionMeta } from './OptionMeta';
 
 const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
-  ({ children, icon, isDisabled, type, ...props }, ref) => {
+  ({ children, icon, isDisabled, label, type, value, ...props }, ref) => {
     const contextValue = useMemo(() => ({ isDisabled }), [isDisabled]);
-    const { isCompact } = useComboboxContext();
-    const [isSelected, setIsSelected] = useState(false);
+    const { activeValue, getOptionProps, isCompact } = useComboboxContext();
     const renderActionIcon = (iconType?: OptionType) => {
       switch (iconType) {
         case 'add':
@@ -42,24 +42,23 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
           return <SelectedIcon />;
       }
     };
+    const option: IOption | undefined = value ? { value, label, disabled: isDisabled } : undefined;
 
     return (
       <OptionContext.Provider value={contextValue}>
         <StyledOption
+          isActive={value === activeValue}
           isCompact={isCompact}
           $type={type}
           {...props}
+          {...(getOptionProps({ option }) as LiHTMLAttributes<HTMLLIElement>)}
           ref={ref}
-          /* remove following props with useCombobox hook */
-          aria-disabled={isDisabled}
-          aria-selected={isSelected ? 'true' : undefined}
-          onClick={() => setIsSelected(!isSelected)}
         >
           <StyledOptionTypeIcon isCompact={isCompact} type={type}>
             {renderActionIcon(type)}
           </StyledOptionTypeIcon>
           {icon && <StyledOptionIcon>{icon}</StyledOptionIcon>}
-          <StyledOptionContent>{children}</StyledOptionContent>
+          <StyledOptionContent>{children || label || value}</StyledOptionContent>
         </StyledOption>
       </OptionContext.Provider>
     );

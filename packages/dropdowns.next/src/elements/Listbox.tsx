@@ -6,15 +6,17 @@
  */
 
 import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
 import { autoUpdate, flip, size, useFloating } from '@floating-ui/react-dom';
 import { IListboxProps } from '../types';
+import useComboboxContext from '../context/useComboboxContext';
 import { StyledFloating, StyledListbox } from '../views';
-import { createPortal } from 'react-dom';
 
 export const Listbox = forwardRef<HTMLDivElement, IListboxProps>(
   ({ appendToNode, children, isExpanded, maxHeight, triggerRef, ...props }, ref) => {
+    const { listboxProps } = useComboboxContext();
     const listboxRef = useRef<HTMLDivElement>(null);
     const [width, setWidth] = useState<number>();
     const { refs, placement, update, x, y } = useFloating<HTMLElement>({
@@ -53,7 +55,9 @@ export const Listbox = forwardRef<HTMLDivElement, IListboxProps>(
         {...props}
         ref={mergeRefs([listboxRef, ref])}
       >
-        <StyledListbox maxHeight={maxHeight}>{children}</StyledListbox>
+        <StyledListbox maxHeight={maxHeight} {...listboxProps}>
+          {children}
+        </StyledListbox>
       </StyledFloating>
     );
 
