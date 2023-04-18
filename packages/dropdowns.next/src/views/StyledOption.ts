@@ -28,9 +28,7 @@ const colorStyles = (props: IStyledOptionProps) => {
   const backgroundColor =
     props.isActive && props.$type !== 'group' && props.$type !== 'header'
       ? activeBackgroundColor
-      : props.theme.colors.background;
-  const hoverBackgroundColor =
-    props.$type !== 'group' && props.$type !== 'header' ? activeBackgroundColor : undefined;
+      : undefined;
   const disabledForegroundColor = getColor('neutralHue', 400, props.theme);
   let foregroundColor = props.theme.colors.foreground;
 
@@ -43,10 +41,6 @@ const colorStyles = (props: IStyledOptionProps) => {
   return css`
     background-color: ${backgroundColor};
     color: ${foregroundColor};
-
-    &:hover {
-      background-color: ${hoverBackgroundColor};
-    }
 
     &[aria-disabled='true'] {
       background-color: ${backgroundColor};

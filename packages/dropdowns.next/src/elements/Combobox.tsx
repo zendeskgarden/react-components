@@ -136,14 +136,15 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>((props, ref) 
           triggerRef={triggerRef}
           zIndex={listboxZIndex}
         >
-          {OPTIONS.map((option, index) => (
-            <Option
-              key={index}
-              value={option.value}
-              label={option.label}
-              isDisabled={option.disabled}
-            />
-          ))}
+          {isExpanded &&
+            OPTIONS.map((option, index) => (
+              <Option
+                key={index}
+                value={option.value}
+                label={option.label}
+                isDisabled={option.disabled}
+              />
+            ))}
         </Listbox>
       </StyledCombobox>
     </ComboboxContext.Provider>

@@ -29,6 +29,7 @@ export const Listbox = forwardRef<HTMLDivElement, IListboxProps>(
     const transform = `translate(${horizontal}px, ${vertical}px)`;
 
     useLayoutEffect(() => {
+      // https://floating-ui.com/docs/react#refs
       refs.setReference(triggerRef?.current);
       refs.setFloating(listboxRef?.current);
     }, [refs, triggerRef, listboxRef]);
