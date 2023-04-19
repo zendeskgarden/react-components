@@ -6,10 +6,8 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledItem } from './StyledItem';
-import { StyledDropIndicator } from './StyledDropIndicator';
 
 const COMPONENT_ID = 'draggable_list';
 
@@ -17,86 +15,28 @@ export interface IStyledDraggableListProps extends ThemeProps<DefaultTheme> {
   isHorizontal?: boolean;
 }
 
-/**
- * Prevents layout shifting when drop indicator is between list items.
- */
-function getMargin(props: IStyledDraggableListProps, value: string) {
-  const {
-    isHorizontal,
-    theme: { rtl }
-  } = props;
-  let marginProperty;
-
-  if (isHorizontal) {
-    marginProperty = rtl ? 'margin-right' : 'margin-left';
-  } else {
-    marginProperty = 'margin-top';
-  }
-
-  return css`
-    ${marginProperty}: ${value};
-  `;
-}
-
-/**
- * Returns styles that push DropIndicator away from DraggableList's bounding box when
- * the indicator is the first or last item.
- */
-function getPosition(props: IStyledDraggableListProps, isStart = true) {
-  const {
-    isHorizontal,
-    theme: { rtl, space, borderWidths }
-  } = props;
-  const offsetValue = math(`-${space.xxs} - ${borderWidths.sm}`);
-  let positionProperty;
-  let dimensionProperty;
-
-  if (isHorizontal) {
-    dimensionProperty = 'height';
-
-    if (isStart) {
-      positionProperty = rtl ? 'right' : 'left';
-    } else {
-      positionProperty = rtl ? 'left' : 'right';
-    }
-  } else {
-    dimensionProperty = 'width';
-    positionProperty = isStart ? 'top' : 'bottom';
-  }
-
-  return css`
-    ${positionProperty}: ${offsetValue};
-    ${dimensionProperty}: 100%;
-  `;
-}
-
 const sizeStyles = (props: IStyledDraggableListProps) => {
   const {
-    theme: { space, borderWidths }
+    isHorizontal,
+    theme: { space }
   } = props;
-  const offsetValue = math(`${space.base / 2}px + ${borderWidths.sm}`);
+  let padding;
 
+  if (isHorizontal) {
+    padding = `0 ${space.xxs}`;
+  } else {
+    padding = `${space.xxs} 0`;
+  }
+
+  /**
+   * 1. Offset the top and bottom padding so adjacent UI elements align to the list container.
+   */
   return css`
+    margin-top: -${space.xxs}; /* [1] */
+    margin-bottom: -${space.xxs}; /* [1] */
+
     > ${StyledItem} {
-      &:not(:first-child) {
-        ${getMargin(props, `${space.base * 2}px`)};
-      }
-
-      + ${StyledDropIndicator} {
-        ${getMargin(props, offsetValue)};
-      }
-    }
-
-    > ${StyledDropIndicator} {
-      /* stylelint-disable-next-line selector-max-specificity */
-      &:not(:first-child) + ${StyledItem} {
-        ${getMargin(props, offsetValue)};
-      }
-
-      /* stylelint-disable-next-line selector-max-specificity */
-      &:first-child + ${StyledItem} {
-        ${getMargin(props, '0')};
-      }
+      padding: ${padding};
     }
   `;
 };
@@ -109,7 +49,6 @@ export const StyledDraggableList = styled.ul.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledDraggableListProps & ThemeProps<DefaultTheme>>`
   display: flex;
-  position: relative;
   flex-direction: ${p => (p.isHorizontal ? 'row' : 'column')};
   margin: 0; /* [1] */
   padding: 0; /* [1] */
@@ -117,21 +56,11 @@ export const StyledDraggableList = styled.ul.attrs({
   box-sizing: border-box;
   direction: ${props => props.theme.rtl && 'rtl'};
 
-  ${sizeStyles};
-
   > ${StyledItem} {
     flex: 1;
   }
 
-  > ${StyledItem} + ${StyledDropIndicator}:last-child {
-    position: absolute;
-    ${p => getPosition(p, false)};
-  }
-
-  > ${StyledDropIndicator}:first-child {
-    position: absolute;
-    ${p => getPosition(p)};
-  }
+  ${sizeStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

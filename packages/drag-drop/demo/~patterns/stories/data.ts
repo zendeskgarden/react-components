@@ -7,10 +7,10 @@
 
 export const COLUMNS = {
   'column-1': [
-    { label: 'Turnip', id: 'item-1' },
-    { label: 'Corn', id: 'item-2' },
-    { label: 'Celery', id: 'item-3' },
-    { label: 'Grape', id: 'item-4' }
+    { label: 'Turnip', id: 'item-1', isDisabled: false },
+    { label: 'Corn', id: 'item-2', isDisabled: false },
+    { label: 'Celery', id: 'item-3', isDisabled: false },
+    { label: 'Grape', id: 'item-4', isDisabled: false }
   ],
   'column-2': []
 };

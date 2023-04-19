@@ -5,15 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'draggable.grip';
 
 function sizeStyles({ theme }: ThemeProps<DefaultTheme>) {
-  return {
-    [theme.rtl ? 'marginLeft' : 'marginRight']: theme.space.xs
-  };
+  const property = theme.rtl ? 'margin-left' : 'margin-right';
+
+  return css`
+    ${property}: ${theme.space.xs};
+  `;
 }
 
 export const StyledGrip = styled.div.attrs({

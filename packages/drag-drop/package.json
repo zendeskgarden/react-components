@@ -35,7 +35,8 @@
     "@dnd-kit/sortable": "7.0.2",
     "@dnd-kit/utilities": "3.2.1",
     "@zendeskgarden/react-theming": "^8.63.2",
-    "@zendeskgarden/svg-icons": "6.33.0"
+    "@zendeskgarden/svg-icons": "6.33.0",
+    "lodash.debounce": "^4.0.8"
   },
   "keywords": [
     "components",
