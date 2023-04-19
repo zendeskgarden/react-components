@@ -10,9 +10,9 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
 import { autoUpdate, flip, size, useFloating } from '@floating-ui/react-dom';
-import { IListboxProps } from '../types';
-import useComboboxContext from '../context/useComboboxContext';
-import { StyledFloating, StyledListbox } from '../views';
+import { IListboxProps } from '../../types';
+import useComboboxContext from '../../context/useComboboxContext';
+import { StyledFloating, StyledListbox } from '../../views';
 
 export const Listbox = forwardRef<HTMLDivElement, IListboxProps>(
   ({ appendToNode, children, isExpanded, maxHeight, triggerRef, ...props }, ref) => {

@@ -10,7 +10,7 @@ import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
-import { OptionType } from '../types';
+import { OptionType } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.option.type_icon';
 

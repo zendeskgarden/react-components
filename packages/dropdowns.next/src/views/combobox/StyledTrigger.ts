@@ -8,7 +8,7 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math, rgba } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { Validation } from '../types';
+import { Validation } from '../../types';
 import { getHeight } from './StyledInput';
 
 const COMPONENT_ID = 'dropdowns.combobox.trigger';

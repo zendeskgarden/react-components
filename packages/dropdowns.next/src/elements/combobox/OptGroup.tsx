@@ -8,15 +8,15 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { useText } from '@zendeskgarden/react-theming';
-import { IOptGroupProps } from '../types';
-import useComboboxContext from '../context/useComboboxContext';
+import { IOptGroupProps } from '../../types';
+import useComboboxContext from '../../context/useComboboxContext';
 import {
   StyledOptGroup,
   StyledOption,
   StyledOptionContent,
   StyledOptionTypeIcon,
   StyledSeparator
-} from '../views';
+} from '../../views';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>

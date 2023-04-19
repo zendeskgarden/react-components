@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Combobox } from './elements/Combobox';
+export { Combobox } from './elements/combobox/Combobox';
+export { Option } from './elements/combobox/Option';
+export { OptGroup } from './elements/combobox/OptGroup';
 
 export type { IComboboxProps, IOptionProps, IOptGroupProps } from './types';

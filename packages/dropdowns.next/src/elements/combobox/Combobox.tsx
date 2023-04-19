@@ -18,8 +18,8 @@ import { IOption, IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/co
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { IComboboxProps, VALIDATION } from '../types';
-import { ComboboxContext } from '../context/useComboboxContext';
+import { IComboboxProps, VALIDATION } from '../../types';
+import { ComboboxContext } from '../../context/useComboboxContext';
 import {
   StyledCombobox,
   StyledContainer,
@@ -28,7 +28,7 @@ import {
   StyledInputGroup,
   StyledTrigger,
   StyledValue
-} from '../views';
+} from '../../views';
 import { Option } from './Option';
 import { Listbox } from './Listbox';
 

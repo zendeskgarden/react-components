@@ -12,8 +12,8 @@ import {
   MENU_POSITION as MenuPosition,
   menuStyles
 } from '@zendeskgarden/react-theming';
+import { IListboxProps } from '../../types';
 import { StyledListbox } from './StyledListbox';
-import { IListboxProps } from '../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.floating';
 

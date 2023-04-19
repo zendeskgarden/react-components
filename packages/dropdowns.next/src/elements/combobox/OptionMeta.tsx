@@ -6,8 +6,8 @@
  */
 
 import React, { HTMLAttributes, forwardRef } from 'react';
-import useOptionContext from '../context/useOptionContext';
-import { StyledOptionMeta } from '../views';
+import useOptionContext from '../../context/useOptionContext';
+import { StyledOptionMeta } from '../../views';
 
 const OptionMetaComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {

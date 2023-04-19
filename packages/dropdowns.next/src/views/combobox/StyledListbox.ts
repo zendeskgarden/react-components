@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { IListboxProps } from '../types';
+import { IListboxProps } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.listbox';
 

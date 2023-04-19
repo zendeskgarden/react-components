@@ -12,15 +12,15 @@ import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import SelectedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
-import { IOptionProps, OPTION_TYPE, OptionType } from '../types';
-import useComboboxContext from '../context/useComboboxContext';
-import { OptionContext } from '../context/useOptionContext';
+import { IOptionProps, OPTION_TYPE, OptionType } from '../../types';
+import useComboboxContext from '../../context/useComboboxContext';
+import { OptionContext } from '../../context/useOptionContext';
 import {
   StyledOption,
   StyledOptionContent,
   StyledOptionIcon,
   StyledOptionTypeIcon
-} from '../views';
+} from '../../views';
 import { OptionMeta } from './OptionMeta';
 
 const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
