@@ -6,7 +6,6 @@
  */
 
 import React, { RefObject, forwardRef, useEffect } from 'react';
-import styled from 'styled-components';
 import { useDraggable, useDroppable } from '@dnd-kit/core';
 import {
   SortableContext,
@@ -35,7 +34,12 @@ export const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((pr
   });
 
   return (
-    <Draggable {...restProps} tabIndex={isOverlay ? -1 : tabIndex} ref={ref}>
+    <Draggable
+      {...restProps}
+      isDisabled={data.isDisabled}
+      tabIndex={isOverlay ? -1 : tabIndex}
+      ref={ref}
+    >
       <Draggable.Grip />
       <Draggable.Content>
         <div>{data.label}</div>
@@ -65,7 +69,8 @@ const SortableItem = ({
     isSorting
   } = useSortable({
     animateLayoutChanges,
-    id: data.id
+    id: data.id,
+    disabled: data.isDisabled
   });
 
   const isActiveItem = active?.id === data.id;
@@ -100,10 +105,6 @@ const SortableItem = ({
   );
 };
 
-const StyledDropzone = styled(Dropzone)`
-  flex: 1;
-`;
-
 export const SortablesColumn = ({
   items,
   id,
@@ -121,7 +122,7 @@ export const SortablesColumn = ({
   const showDropMessage = items.length === 1 && isHighlighted;
 
   return (
-    <StyledDropzone
+    <Dropzone
       style={{ flex: 1, margin: isHorizontal ? '0 4px' : undefined }}
       ref={setNodeRef}
       isActive={isActive}
@@ -143,7 +144,7 @@ export const SortablesColumn = ({
         {items.length === 0 && <Dropzone.Message>Drag to add</Dropzone.Message>}
         {showDropMessage && <Dropzone.Message>Drop item here</Dropzone.Message>}
       </SortableContext>
-    </StyledDropzone>
+    </Dropzone>
   );
 };
 
@@ -155,7 +156,11 @@ export const DraggableListItem = ({
   isHorizontal
 }: IDraggableItemProps) => {
   const { isDragging, attributes, listeners, setNodeRef, setActivatorNodeRef, transform } =
-    useDraggable({ id: data.id, data: { type: 'draggable' } });
+    useDraggable({
+      id: data.id,
+      disabled: data.isDisabled,
+      data: { type: 'draggable' }
+    });
 
   const listItemStyle: React.CSSProperties = {
     transform: CSS.Transform.toString(transform),

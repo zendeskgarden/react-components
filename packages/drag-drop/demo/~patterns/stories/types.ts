@@ -11,11 +11,7 @@ import { IDraggableProps } from '@zendeskgarden/react-drag-drop';
 export interface IPresentationalDraggableItem {
   label: string;
   id: UniqueIdentifier;
-}
-
-export interface IColumnProps {
-  id: UniqueIdentifier;
-  items: IPresentationalDraggableItem[];
+  isDisabled: boolean;
 }
 
 export interface IDraggableItemProps extends IDraggableProps {
@@ -33,6 +29,11 @@ export interface IDraggableItemProps extends IDraggableProps {
 }
 
 export type IColumns = Record<UniqueIdentifier, IPresentationalDraggableItem[]>;
+
+export interface IColumnProps {
+  id: UniqueIdentifier;
+  items: IPresentationalDraggableItem[];
+}
 
 export interface ISortableColumnProps extends IColumnProps {
   activeId: UniqueIdentifier | null;

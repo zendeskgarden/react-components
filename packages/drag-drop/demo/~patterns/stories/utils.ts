@@ -59,7 +59,7 @@ export function findColumn(
 
 /**
  * Check if the draggable overlaps via rect intersection, and if so, return the
- * closest droppable/sortable target.
+ * closest drop target.
  */
 export const collisionDetection: CollisionDetection = args => {
   const collisions = rectIntersection(args);

@@ -80,7 +80,7 @@ export const DragAndDropStory: Story<IArgs> = ({
   const draggablesColId = Object.keys(columns)[0];
 
   /**
-   * If the coordinate getter is used in the draggable list, restrict to left/right
+   * If the coordinate getter is used in the draggable list, restrict to left/right/down
    * arrow keys. Otherwise return the sortable list getter.
    *
    * 1. Prevent moving the draggable in the opposite direction of the sortable list target.
@@ -100,24 +100,15 @@ export const DragAndDropStory: Story<IArgs> = ({
           case 'ArrowRight':
             if (isHorizontal || currentCoordinates.x > deltaX) return undefined; /* [1] */
 
-            return {
-              y: deltaY,
-              x: deltaX
-            };
+            return { y: deltaY, x: deltaX };
           case 'ArrowLeft':
             if (isHorizontal || currentCoordinates.x < deltaX) return undefined; /* [1] */
 
-            return {
-              y: deltaY,
-              x: deltaX
-            };
+            return { y: deltaY, x: deltaX };
           case 'ArrowDown': {
             if (!isHorizontal) return undefined; /* [1] */
 
-            return {
-              y: deltaY,
-              x: deltaX
-            };
+            return { y: deltaY, x: deltaX };
           }
         }
       }
@@ -202,7 +193,7 @@ export const DragAndDropStory: Story<IArgs> = ({
           newIndex = overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
         }
 
-        // Removed moved item
+        // Remove moved item
         nextColumns[activeColId] = nextColumns[activeColId].filter(item => item.id !== active.id);
 
         // Add moved item
