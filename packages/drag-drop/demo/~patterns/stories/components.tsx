@@ -6,12 +6,20 @@
  */
 
 import React, { RefObject, forwardRef, useEffect } from 'react';
-import { IDraggableItemProps, ISortablesColumnProps } from './types';
-import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-drop';
-import { useDroppable } from '@dnd-kit/core';
-import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
-import { animateLayoutChanges } from './utils';
+import styled from 'styled-components';
+import { useDraggable, useDroppable } from '@dnd-kit/core';
+import {
+  SortableContext,
+  horizontalListSortingStrategy,
+  useSortable,
+  verticalListSortingStrategy
+} from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+
+import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-drop';
+
+import { animateLayoutChanges } from './utils';
+import type { IDraggableItemProps, ISortableColumnProps } from './types';
 
 export const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((props, ref) => {
   const { isOverlay, data, tabIndex, ...restProps } = props;
@@ -31,7 +39,6 @@ export const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((pr
       <Draggable.Grip />
       <Draggable.Content>
         <div>{data.label}</div>
-        <div>{data.id}</div>
       </Draggable.Content>
     </Draggable>
   );
@@ -43,7 +50,8 @@ const SortableItem = ({
   data,
   showDropMessage,
   hasDropIndicator,
-  isCompact
+  isCompact,
+  isUsingKeyboard
 }: IDraggableItemProps) => {
   const {
     overIndex,
@@ -65,7 +73,7 @@ const SortableItem = ({
     transform: CSS.Transform.toString(transform)
   };
 
-  if (isSorting && hasDropIndicator && isActiveItem && !showDropMessage) {
+  if (!isUsingKeyboard && isSorting && hasDropIndicator && isActiveItem && !showDropMessage) {
     return (
       <DraggableList.DropIndicator
         ref={setNodeRef}
@@ -92,29 +100,35 @@ const SortableItem = ({
   );
 };
 
+const StyledDropzone = styled(Dropzone)`
+  flex: 1;
+`;
+
 export const SortablesColumn = ({
   items,
   id,
   activeId,
   activeColumnId,
   hasDropIndicator,
-  hasDanger,
-  isCompact
-}: ISortablesColumnProps) => {
+  isCompact,
+  isHorizontal,
+  isUsingKeyboard
+}: ISortableColumnProps) => {
+  const strategy = isHorizontal ? horizontalListSortingStrategy : verticalListSortingStrategy;
   const { setNodeRef } = useDroppable({ id });
   const isActive = !!activeId;
   const isHighlighted = activeColumnId === id;
   const showDropMessage = items.length === 1 && isHighlighted;
 
   return (
-    <Dropzone
-      ref={items.length === 0 ? setNodeRef : undefined}
+    <StyledDropzone
+      style={{ flex: 1, margin: isHorizontal ? '0 4px' : undefined }}
+      ref={setNodeRef}
       isActive={isActive}
       isHighlighted={isHighlighted}
-      isDanger={hasDanger}
     >
-      <SortableContext id={id as string} items={items} strategy={verticalListSortingStrategy}>
-        <DraggableList>
+      <SortableContext id={id as string} items={items} strategy={strategy}>
+        <DraggableList isHorizontal={isHorizontal}>
           {items.map(item => (
             <SortableItem
               data={item}
@@ -122,14 +136,91 @@ export const SortablesColumn = ({
               showDropMessage={showDropMessage}
               hasDropIndicator={hasDropIndicator}
               isCompact={isCompact}
+              isUsingKeyboard={isUsingKeyboard}
             />
           ))}
         </DraggableList>
-        {items.length === 0 && (
-          <Dropzone.Message>Drag to {hasDanger ? 'remove' : 'add'}</Dropzone.Message>
-        )}
+        {items.length === 0 && <Dropzone.Message>Drag to add</Dropzone.Message>}
         {showDropMessage && <Dropzone.Message>Drop item here</Dropzone.Message>}
       </SortableContext>
-    </Dropzone>
+    </StyledDropzone>
+  );
+};
+
+export const DraggableListItem = ({
+  data,
+  isCompact,
+  isPlaceholder,
+  isUsingKeyboard,
+  isHorizontal
+}: IDraggableItemProps) => {
+  const { isDragging, attributes, listeners, setNodeRef, setActivatorNodeRef, transform } =
+    useDraggable({ id: data.id, data: { type: 'draggable' } });
+
+  const listItemStyle: React.CSSProperties = {
+    transform: CSS.Transform.toString(transform),
+    maxWidth: isHorizontal ? 150 : undefined
+  };
+  const draggableItemStyle = {
+    opacity: isDragging && !isPlaceholder ? 0 : 1
+  };
+
+  return (
+    <DraggableList.Item ref={setNodeRef} style={listItemStyle}>
+      <DraggableItem
+        data={data}
+        {...attributes}
+        {...listeners}
+        style={draggableItemStyle}
+        isCompact={isCompact}
+        isPlaceholder={isDragging && isPlaceholder}
+        isUsingKeyboard={isUsingKeyboard}
+        ref={setActivatorNodeRef}
+      />
+    </DraggableList.Item>
+  );
+};
+
+export const DraggablesColumn = ({
+  items,
+  hasPlaceholder,
+  isCompact,
+  isUsingKeyboard,
+  isHorizontal
+}: ISortableColumnProps) => {
+  return (
+    <div style={isHorizontal ? { minHeight: '100px' } : { width: '250px' }}>
+      <p>
+        <strong>Produce</strong>
+      </p>
+      {items.length > 0 && (
+        <DraggableList isHorizontal={isHorizontal}>
+          {items.map(item => (
+            <DraggableListItem
+              data={item}
+              isCompact={isCompact}
+              isHorizontal={isHorizontal}
+              isPlaceholder={hasPlaceholder}
+              isUsingKeyboard={isUsingKeyboard}
+              key={item.id}
+            />
+          ))}
+        </DraggableList>
+      )}
+      {items.length === 0 && <small>You picked every fruit!</small>}
+    </div>
+  );
+};
+
+export const DroppablesColumn = (props: ISortableColumnProps) => {
+  const { isHorizontal } = props;
+
+  return (
+    <div style={isHorizontal ? { minHeight: '100px' } : { width: '284px' }}>
+      <p>
+        <strong>Favorites</strong>
+      </p>
+      <SortablesColumn {...props} />
+    </div>
   );
 };

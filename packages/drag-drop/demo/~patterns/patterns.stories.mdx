@@ -1,52 +1,34 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { MultiDirectionDnDStory } from './stories/MultiDirectionDnDStory';
-import { SingleDirectionDnDStory } from './stories/SingleDirectionDnDStory';
+import { DragAndDropStory } from './stories/DragAndDropStory';
 import { COLUMNS as columns } from './stories/data';
 
 <Meta title="Packages/Drag-Drop/[patterns]" />
 
 # Patterns
 
-## Single Direction Drag and Drop
+## Drag and Drop
 
-Use a combination of props to create a drag and drop experience.
+Use a combination of `Draggable`, `DraggableList`, and `Dropzone` to create a
+drag and drop experience.
 
 <Canvas>
   <Story
-    name="Single direction drag and drop"
+    name="Drag and drop"
     args={{
       columns,
       hasDropIndicator: true,
       hasPlaceholder: true,
-      hasDanger: false,
-      isCompact: false
+      isCompact: false,
+      isHorizontal: false
     }}
     argTypes={{
       columns: { table: { category: 'Story' } },
       hasDropIndicator: { table: { category: 'Story' } },
       hasPlaceholder: { table: { category: 'Story' } },
-      hasDanger: { table: { category: 'Story' } },
-      isCompact: { table: { category: 'Story' } }
+      isCompact: { table: { category: 'Story' } },
+      isHorizontal: { type: {}, table: { category: 'Story' } }
     }}
   >
-    {args => <SingleDirectionDnDStory {...args} />}
-  </Story>
-</Canvas>
-
-## Multi-Direction Drag and Drop
-
-Use `DraggableList`, `Dropzone`, and `Draggable` to create a drag and drop experience.
-
-<Canvas>
-  <Story
-    name="Multi-direction drag and drop"
-    args={{ columns }}
-    argTypes={{
-      columns: {
-        table: { category: 'Story' }
-      }
-    }}
-  >
-    {args => <MultiDirectionDnDStory {...args} />}
+    {args => <DragAndDropStory {...args} />}
   </Story>
 </Canvas>

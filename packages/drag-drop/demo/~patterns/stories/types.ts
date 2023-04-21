@@ -8,38 +8,40 @@
 import { UniqueIdentifier } from '@dnd-kit/core';
 import { IDraggableProps } from '@zendeskgarden/react-drag-drop';
 
-export interface IDraggableItem {
+export interface IPresentationalDraggableItem {
   label: string;
-  isDisabled: boolean;
-  isDropIndicator?: boolean;
   id: UniqueIdentifier;
 }
 
 export interface IColumnProps {
   id: UniqueIdentifier;
-  items: IDraggableItem[];
+  items: IPresentationalDraggableItem[];
 }
 
 export interface IDraggableItemProps extends IDraggableProps {
-  data: IDraggableItem;
+  data: IPresentationalDraggableItem;
   dragOverId?: UniqueIdentifier | null;
   isOverlay?: boolean;
   isGrabbed?: boolean;
   isCompact?: boolean;
-  items?: IDraggableItem[];
+  isHorizontal?: boolean;
+  items?: IPresentationalDraggableItem[];
   hasDropIndicator?: boolean;
   showDropMessage?: boolean;
   tabIndex?: number;
+  isUsingKeyboard?: boolean;
 }
 
-export type IColumns = Record<UniqueIdentifier, IDraggableItem[]>;
+export type IColumns = Record<UniqueIdentifier, IPresentationalDraggableItem[]>;
 
-export interface ISortablesColumnProps extends IColumnProps {
+export interface ISortableColumnProps extends IColumnProps {
   activeId: UniqueIdentifier | null;
   activeColumnId: UniqueIdentifier | null;
   dragOverId?: UniqueIdentifier | null;
   isCompact?: boolean;
+  isHorizontal?: boolean;
   hasPlaceholder?: boolean;
   hasDanger?: boolean;
   hasDropIndicator?: boolean;
+  isUsingKeyboard?: boolean;
 }

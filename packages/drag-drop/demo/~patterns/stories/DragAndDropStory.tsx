@@ -5,117 +5,62 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Story } from '@storybook/react';
+import styled from 'styled-components';
 import {
   DndContext,
   DragEndEvent,
   DragOverEvent,
   DragOverlay,
   DragStartEvent,
+  KeyboardCoordinateGetter,
   KeyboardSensor,
   MeasuringStrategy,
   MouseSensor,
   TouchSensor,
   UniqueIdentifier,
-  useDraggable,
   useSensor,
   useSensors
 } from '@dnd-kit/core';
-import { IDraggableItem, IDraggableItemProps, ISortablesColumnProps } from './types';
-import { collisionDetection, findColumn, getAnnouncements } from './utils';
 import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
-import styled from 'styled-components';
-import { DraggableItem, SortablesColumn } from './components';
-import { DraggableList } from '@zendeskgarden/react-drag-drop';
-import { CSS } from '@dnd-kit/utilities';
 
-type IColumns = Record<UniqueIdentifier, IDraggableItem[]>;
+import { useDocument } from '@zendeskgarden/react-theming';
+
+import { DraggableItem, DraggablesColumn, DroppablesColumn } from './components';
+import { IColumns } from './types';
+import { collisionDetection, findColumn, getAnnouncements } from './utils';
 
 interface IArgs {
   columns: IColumns;
-  hasDropIndicator?: boolean;
-  hasPlaceholder?: boolean;
-  hasDanger?: boolean;
-  isCompact?: boolean;
+  hasDropIndicator: boolean;
+  hasPlaceholder: boolean;
+  isCompact: boolean;
+  isHorizontal: boolean;
 }
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.div<{ isHorizontal: boolean }>`
   display: flex;
+  flex-direction: ${p => (p.isHorizontal ? 'column' : 'row')};
   gap: 16px;
   max-width: 600px;
-  min-height: 250px;
+  min-height: ${p => !p.isHorizontal && '250px'};
+
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
-const DraggableListItem = ({ data, isCompact, isPlaceholder }: IDraggableItemProps) => {
-  const { isDragging, attributes, listeners, setNodeRef, setActivatorNodeRef, transform } =
-    useDraggable({
-      id: data.id
-    });
-
-  const listItemStyle: React.CSSProperties = isDragging
-    ? {}
-    : {
-        transform: CSS.Transform.toString(transform)
-      };
-  const draggableItemStyle = {
-    opacity: isDragging && !isPlaceholder ? 0 : 1
-  };
-
-  return (
-    <DraggableList.Item ref={setNodeRef} style={listItemStyle}>
-      <DraggableItem
-        data={data}
-        {...attributes}
-        {...listeners}
-        style={draggableItemStyle}
-        isCompact={isCompact}
-        isPlaceholder={isDragging && isPlaceholder}
-        ref={setActivatorNodeRef}
-      />
-    </DraggableList.Item>
-  );
-};
-
-const DraggablesColumn = ({ items, hasPlaceholder, isCompact }: ISortablesColumnProps) => {
-  return (
-    <div style={{ width: '250px' }}>
-      <p>
-        <strong>Produce</strong>
-      </p>
-      <DraggableList>
-        {items.map(item => (
-          <DraggableListItem
-            data={item}
-            isCompact={isCompact}
-            isPlaceholder={hasPlaceholder}
-            key={item.id}
-          />
-        ))}
-      </DraggableList>
-    </div>
-  );
-};
-
-const DroppablesColumn = (props: ISortablesColumnProps) => {
-  return (
-    <div style={{ width: '284px' }}>
-      <p>
-        <strong>Favorites</strong>
-      </p>
-      <SortablesColumn {...props} />
-    </div>
-  );
-};
-
-export const SingleDirectionDnDStory: Story<IArgs> = ({
+export const DragAndDropStory: Story<IArgs> = ({
   columns: defaultColumns,
   hasDropIndicator,
   hasPlaceholder,
-  hasDanger,
-  isCompact
+  isCompact,
+  isHorizontal
 }: IArgs) => {
   const [columns, setColumns] = useState<IColumns>(defaultColumns);
+  const environment = useDocument();
 
   // state fallback for cancelled drag
   const [snapshot, setSnapshot] = useState<IColumns | null>(null);
@@ -123,23 +68,87 @@ export const SingleDirectionDnDStory: Story<IArgs> = ({
   // active drag item pointer - item & column
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
   const [activeColumnId, setActiveColumnId] = useState<UniqueIdentifier | null>(null);
+  const [isUsingKeyboard, setIsUsingKeyboard] = useState(false);
 
   // Overlay ref to move focus when dragging
   const overlayRef = useRef<HTMLDivElement>(null);
 
-  const activeItem = useMemo(
-    () => columns[activeColumnId as UniqueIdentifier]?.find(item => item.id === activeId),
-    [activeColumnId, activeId, columns]
+  const activeItem = columns[activeColumnId as UniqueIdentifier]?.find(
+    item => item.id === activeId
   );
 
   const draggablesColId = Object.keys(columns)[0];
+
+  /**
+   * If the coordinate getter is used in the draggable list, restrict to left/right
+   * arrow keys. Otherwise return the sortable list getter.
+   *
+   * 1. Prevent moving the draggable in the opposite direction of the sortable list target.
+   */
+  const coordinateGetter: KeyboardCoordinateGetter = useCallback(
+    (event, args) => {
+      const isDraggableList = args?.context?.active?.data?.current?.type === 'draggable';
+
+      if (isDraggableList && ['ArrowDown', 'ArrowRight', 'ArrowLeft'].includes(event.key)) {
+        const { currentCoordinates } = args;
+        const targetRects = [...args.context.droppableRects.values()];
+        const target = targetRects[targetRects.length - 1];
+        const deltaX = target.left;
+        const deltaY = target.top;
+
+        switch (event.key) {
+          case 'ArrowRight':
+            if (isHorizontal || currentCoordinates.x > deltaX) return undefined; /* [1] */
+
+            return {
+              y: deltaY,
+              x: deltaX
+            };
+          case 'ArrowLeft':
+            if (isHorizontal || currentCoordinates.x < deltaX) return undefined; /* [1] */
+
+            return {
+              y: deltaY,
+              x: deltaX
+            };
+          case 'ArrowDown': {
+            if (!isHorizontal) return undefined; /* [1] */
+
+            return {
+              y: deltaY,
+              x: deltaX
+            };
+          }
+        }
+      }
+
+      return sortableKeyboardCoordinates(event, args);
+    },
+    [isHorizontal]
+  );
 
   // DndKit interaction sensors
   const sensors = useSensors(
     useSensor(MouseSensor),
     useSensor(TouchSensor),
-    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
+    useSensor(KeyboardSensor, { coordinateGetter })
   );
+
+  const unsetKeyboard = useCallback(() => {
+    setIsUsingKeyboard(false);
+  }, []);
+
+  useEffect(() => {
+    if (environment) {
+      environment.addEventListener('mousedown', unsetKeyboard, true);
+    }
+
+    return () => {
+      if (environment) {
+        environment.removeEventListener('mousedown', unsetKeyboard, true);
+      }
+    };
+  });
 
   const onDragStart = ({ active }: DragStartEvent) => {
     const columnId = findColumn(active.id, columns) as UniqueIdentifier;
@@ -277,7 +286,11 @@ export const SingleDirectionDnDStory: Story<IArgs> = ({
       onDragCancel={onDragCancel}
       measuring={{ droppable: { strategy: MeasuringStrategy.Always } }}
     >
-      <StyledContainer>
+      <StyledContainer
+        isHorizontal={isHorizontal}
+        onKeyDown={() => !isUsingKeyboard && setIsUsingKeyboard(true)}
+        onKeyUp={() => !isUsingKeyboard && setIsUsingKeyboard(true)}
+      >
         {Object.keys(columns).map(columnId => {
           const isDraggablesColumn = columnId === draggablesColId;
           const ColumnComponent = isDraggablesColumn ? DraggablesColumn : DroppablesColumn;
@@ -289,17 +302,24 @@ export const SingleDirectionDnDStory: Story<IArgs> = ({
               key={columnId}
               activeId={activeId}
               activeColumnId={activeColumnId}
+              isUsingKeyboard={isUsingKeyboard}
               hasDropIndicator={hasDropIndicator && !isDraggablesColumn}
               hasPlaceholder={hasPlaceholder && isDraggablesColumn}
-              hasDanger={!isDraggablesColumn && hasDanger}
               isCompact={isCompact}
+              isHorizontal={isHorizontal}
             />
           );
         })}
       </StyledContainer>
       <DragOverlay>
         {activeItem ? (
-          <DraggableItem data={activeItem} isOverlay isGrabbed ref={overlayRef} />
+          <DraggableItem
+            data={activeItem}
+            isOverlay
+            isGrabbed
+            isCompact={isCompact}
+            ref={overlayRef}
+          />
         ) : null}
       </DragOverlay>
     </DndContext>
