@@ -161,7 +161,6 @@ Combobox.propTypes = {
 };
 
 Combobox.defaultProps = {
-  isAutocomplete: true,
   isEditable: true,
   listboxMaxHeight: '400px'
 };
