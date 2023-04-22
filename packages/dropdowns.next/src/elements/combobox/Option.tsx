@@ -7,7 +7,6 @@
 
 import React, { LiHTMLAttributes, forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { IOption } from '@zendeskgarden/container-combobox';
 import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
@@ -22,9 +21,10 @@ import {
   StyledOptionTypeIcon
 } from '../../views';
 import { OptionMeta } from './OptionMeta';
+import { toOption } from './utils';
 
 const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
-  ({ children, icon, isDisabled, label, type, value, ...props }, ref) => {
+  ({ children, icon, isDisabled, isSelected, label, type, value, ...props }, ref) => {
     const contextValue = useMemo(() => ({ isDisabled }), [isDisabled]);
     const { activeValue, getOptionProps, isCompact } = useComboboxContext();
     const renderActionIcon = (iconType?: OptionType) => {
@@ -42,7 +42,8 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
           return <SelectedIcon />;
       }
     };
-    const option: IOption | undefined = value ? { value, label, disabled: isDisabled } : undefined;
+    const option = toOption({ value, label, isDisabled, isSelected });
+    const optionProps = getOptionProps({ option }) as LiHTMLAttributes<HTMLLIElement>;
 
     return (
       <OptionContext.Provider value={contextValue}>
@@ -51,7 +52,7 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
           isCompact={isCompact}
           $type={type}
           {...props}
-          {...(getOptionProps({ option }) as LiHTMLAttributes<HTMLLIElement>)}
+          {...optionProps}
           ref={ref}
         >
           <StyledOptionTypeIcon isCompact={isCompact} type={type}>
@@ -70,7 +71,10 @@ OptionComponent.displayName = 'Option';
 OptionComponent.propTypes = {
   icon: PropTypes.any,
   isDisabled: PropTypes.bool,
-  type: PropTypes.oneOf(OPTION_TYPE)
+  isSelected: PropTypes.bool,
+  label: PropTypes.string,
+  type: PropTypes.oneOf(OPTION_TYPE),
+  value: PropTypes.oneOf([PropTypes.string, PropTypes.object]).isRequired
 };
 
 /**

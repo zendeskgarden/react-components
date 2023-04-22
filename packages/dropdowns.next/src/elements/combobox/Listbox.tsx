@@ -18,6 +18,7 @@ export const Listbox = forwardRef<HTMLDivElement, IListboxProps>(
   ({ appendToNode, children, isExpanded, maxHeight, triggerRef, ...props }, ref) => {
     const { listboxProps } = useComboboxContext();
     const listboxRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
     const [width, setWidth] = useState<number>();
     const { refs, placement, update, x, y } = useFloating<HTMLElement>({
       placement: 'bottom-start',
@@ -47,9 +48,21 @@ export const Listbox = forwardRef<HTMLDivElement, IListboxProps>(
       return () => cleanup && cleanup();
     }, [isExpanded, refs.reference, refs.floating, update]);
 
+    useEffect(() => {
+      let timeout: NodeJS.Timeout;
+
+      if (isExpanded) {
+        setIsVisible(true);
+      } else {
+        timeout = setTimeout(() => setIsVisible(false), 200 /* match menu opacity transition */);
+      }
+
+      return () => clearTimeout(timeout);
+    }, [isExpanded]);
+
     const Node = (
       <StyledFloating
-        data-garden-animate={isExpanded}
+        data-garden-animate={isVisible ? 'true' : 'false'}
         isHidden={!isExpanded}
         position={placement === 'bottom-start' ? 'bottom' : 'top'}
         style={{ transform, width }}
@@ -57,7 +70,7 @@ export const Listbox = forwardRef<HTMLDivElement, IListboxProps>(
         ref={mergeRefs([listboxRef, ref])}
       >
         <StyledListbox maxHeight={maxHeight} {...listboxProps}>
-          {children}
+          {isVisible && children}
         </StyledListbox>
       </StyledFloating>
     );

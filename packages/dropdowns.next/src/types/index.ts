@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IOption } from '@zendeskgarden/container-combobox';
 import {
   HTMLAttributes,
   InputHTMLAttributes,
@@ -67,22 +66,26 @@ export interface IListboxProps extends HTMLAttributes<HTMLDivElement> {
   zIndex?: IComboboxProps['listboxZIndex'];
 }
 
-export interface IOptionProps extends LiHTMLAttributes<HTMLLIElement> {
+export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'value'> {
   /** Accepts an icon to display */
   icon?: ReactElement;
   /** Indicates that the option is not interactive */
   isDisabled?: boolean;
+  /** Determines the initial selection state for the option */
+  isSelected?: boolean;
   /** Sets the text label of the option (defaults to `value`) */
   label?: string;
   /** Determines the option type */
   type?: OptionType;
-  /** Sets the value that is returned upon selection */
-  value?: IOption['value'];
+  /** Sets the unique value that is returned upon selection */
+  value: string | object;
 }
 
 export interface IOptGroupProps extends LiHTMLAttributes<HTMLLIElement> {
+  /** Renders content for the option group (defaults to `label` text) */
+  content?: ReactNode;
   /** Accepts an icon to display */
   icon?: ReactElement;
-  /** Renders a label for the option group */
-  label?: ReactNode;
+  /** Sets the text label of the option group */
+  label?: string;
 }

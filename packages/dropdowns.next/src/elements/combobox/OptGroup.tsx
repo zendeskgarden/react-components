@@ -22,7 +22,7 @@ import {
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
-  ({ children, icon, label, 'aria-label': ariaLabel, ...props }, ref) => {
+  ({ children, content, icon, label, 'aria-label': ariaLabel, ...props }, ref) => {
     const { isCompact } = useComboboxContext();
     /* This useText logic ensures that the group has a valid `aria-label`, either
      * specified directly or provided by the `label` prop. */
@@ -37,14 +37,14 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
     return (
       <StyledOption isCompact={isCompact} $type="group" role="none" {...props} ref={ref}>
         <StyledOptionContent>
-          {label && (
+          {(content || label) && (
             <StyledOption as="div" isCompact={isCompact} $type="header">
               {icon && (
                 <StyledOptionTypeIcon isCompact={isCompact} type="header">
                   {icon}
                 </StyledOptionTypeIcon>
               )}
-              {label}
+              {content || label}
             </StyledOption>
           )}
           <StyledOptGroup aria-label={groupAriaLabel} isCompact={isCompact}>
@@ -60,5 +60,7 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
 OptGroup.displayName = 'OptGroup';
 
 OptGroup.propTypes = {
-  icon: PropTypes.any
+  content: PropTypes.any,
+  icon: PropTypes.any,
+  label: PropTypes.string
 };

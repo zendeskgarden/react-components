@@ -1,7 +1,12 @@
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
-import { Combobox } from '@zendeskgarden/react-dropdowns.next';
+import { Combobox, Option, OptGroup } from '@zendeskgarden/react-dropdowns.next';
+import { ComboboxStory } from './stories/ComboboxStory';
 
-<Meta title="Packages/Dropdowns.Next/Combobox" component={Combobox} />
+<Meta
+  title="Packages/Dropdowns.Next/Combobox"
+  component={Combobox}
+  subcomponents={{ Option, OptGroup }}
+/>
 
 # API
 
@@ -18,6 +23,6 @@ import { Combobox } from '@zendeskgarden/react-dropdowns.next';
       listboxMaxHeight: Combobox.defaultProps.listboxMaxHeight
     }}
   >
-    {args => <Combobox {...args} />}
+    {args => <ComboboxStory {...args} />}
   </Story>
 </Canvas>
