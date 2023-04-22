@@ -7,20 +7,15 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
+import OptionIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { Combobox, OptGroup, Option } from '@zendeskgarden/react-dropdowns.next';
 import { OPTIONS } from './data';
 
 export const ComboboxStory: Story = args => (
   <Combobox {...args}>
     <OptGroup label="Group">
-      {OPTIONS.map((option, index) => (
-        <Option
-          key={index}
-          value={option.value}
-          label={option.label}
-          isDisabled={option.disabled}
-          isSelected={option.selected}
-        />
+      {OPTIONS.map(({ icon, ...option }, index) => (
+        <Option key={index} icon={icon ? <OptionIcon /> : undefined} {...option} />
       ))}
     </OptGroup>
   </Combobox>
