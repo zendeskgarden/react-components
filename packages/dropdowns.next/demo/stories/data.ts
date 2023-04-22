@@ -12,6 +12,5 @@ export const OPTIONS: IOption[] = [
   { value: 'fruit-02', label: 'Banana', isDisabled: true },
   { value: 'fruit-03', label: 'Cherry' },
   { value: 'fruit-04', label: 'Grape' },
-  { value: 'fruit-05', label: 'Kiwi' },
-  { value: null, label: '???' }
+  { value: 'fruit-05', label: 'Kiwi' }
 ];

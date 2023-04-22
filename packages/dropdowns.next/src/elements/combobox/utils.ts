@@ -14,21 +14,15 @@ import { IOptGroupProps, IOptionProps } from '../../types';
  *
  * @param props `Option` props.
  *
- * @returns A valid `IOption` object or `undefined` if the option value is `null`.
+ * @returns A valid `IOption` object.
  */
-export const toOption = (props: IOptionProps): IOption | undefined => {
-  let retVal;
-
-  if (props.value !== null) {
-    retVal = {
-      value: props.value,
-      label: props.label,
-      disabled: props.isDisabled,
-      selected: props.isSelected
-    };
-  }
-
-  return retVal;
+export const toOption = (props: IOptionProps): IOption => {
+  return {
+    value: props.value,
+    label: props.label,
+    disabled: props.isDisabled,
+    selected: props.isSelected
+  };
 };
 
 /**
@@ -45,11 +39,7 @@ export const toOptions = (children: ReactNode) =>
 
     if (isValidElement(option)) {
       if ('value' in option.props) {
-        const currentOption = toOption(option.props);
-
-        if (currentOption !== undefined) {
-          retVal.push(currentOption);
-        }
+        retVal.push(toOption(option.props));
       } else {
         const props: IOptGroupProps = option.props;
         const groupOptions = toOptions(props.children) as IOption[];

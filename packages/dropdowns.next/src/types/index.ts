@@ -77,8 +77,8 @@ export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'val
   label?: string;
   /** Determines the option type */
   type?: OptionType;
-  /** Sets the unique value that is returned upon selection, or `null` to prevent selection */
-  value: string | object | null;
+  /** Sets the unique value that is returned upon selection */
+  value: string | object;
 }
 
 export interface IOptGroupProps extends LiHTMLAttributes<HTMLLIElement> {
