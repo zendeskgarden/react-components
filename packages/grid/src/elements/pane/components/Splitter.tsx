@@ -121,7 +121,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
 
     const separatorProps = getSeparatorProps({
       'aria-controls': paneContext.id,
-      'aria-label': ariaLabel,
+      'aria-label': ariaLabel!,
       /* allow following handlers to be composed */
       onMouseDown,
       onTouchStart,

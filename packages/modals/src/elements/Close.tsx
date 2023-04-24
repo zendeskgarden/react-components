@@ -30,7 +30,7 @@ export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButt
       <StyledClose
         {...(getCloseProps({
           ...props,
-          'aria-label': ariaLabel
+          'aria-label': ariaLabel!
         }) as ButtonHTMLAttributes<HTMLButtonElement>)}
         ref={ref}
       >

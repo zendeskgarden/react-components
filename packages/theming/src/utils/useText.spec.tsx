@@ -81,6 +81,14 @@ describe('useText()', () => {
       expect(spy.mock.calls[0][0]).toStrictEqual(expect.stringContaining('<Component>'));
     });
 
+    it('does not log a warning with a conditional bypass', () => {
+      const spy = jest.spyOn(console, 'warn');
+
+      renderHook(() => useText(Component, {}, 'test', 'value', false /* condition */));
+
+      expect(spy).not.toHaveBeenCalled();
+    });
+
     it('does not log a warning in production', () => {
       const spy = jest.spyOn(console, 'warn');
 
