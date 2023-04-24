@@ -27,7 +27,7 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
       <StyledDrawerModalClose
         {...(getCloseProps({
           ...props,
-          'aria-label': ariaLabel
+          'aria-label': ariaLabel!
         }) as ButtonHTMLAttributes<HTMLButtonElement>)}
         ref={ref}
       >
