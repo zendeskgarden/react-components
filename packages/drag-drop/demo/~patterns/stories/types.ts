@@ -7,6 +7,7 @@
 
 import { UniqueIdentifier } from '@dnd-kit/core';
 import { IDraggableProps } from '@zendeskgarden/react-drag-drop';
+import { LiHTMLAttributes } from 'react';
 
 export interface IPresentationalDraggableItem {
   label: string;
@@ -26,6 +27,13 @@ export interface IDraggableItemProps extends IDraggableProps {
   showDropMessage?: boolean;
   tabIndex?: number;
   isUsingKeyboard?: boolean;
+}
+
+export interface IDropIndicatorProps extends LiHTMLAttributes<HTMLLIElement> {
+  overIndex: number;
+  transition?: string;
+  transformValue?: string;
+  showDropMessage?: boolean;
 }
 
 export type IColumns = Record<UniqueIdentifier, IPresentationalDraggableItem[]>;

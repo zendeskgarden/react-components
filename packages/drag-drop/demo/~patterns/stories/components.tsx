@@ -18,7 +18,7 @@ import { CSS } from '@dnd-kit/utilities';
 import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-drop';
 
 import { animateLayoutChanges } from './utils';
-import type { IDraggableItemProps, ISortableColumnProps } from './types';
+import type { IDraggableItemProps, IDropIndicatorProps, ISortableColumnProps } from './types';
 
 export const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((props, ref) => {
   const { isOverlay, data, tabIndex, ...restProps } = props;
@@ -50,12 +50,29 @@ export const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((pr
 
 DraggableItem.displayName = 'DraggableItem';
 
+const DropIndicator = forwardRef<HTMLLIElement, IDropIndicatorProps>(
+  ({ transition, transformValue, showDropMessage, overIndex }, ref) => (
+    <DraggableList.DropIndicator
+      ref={ref}
+      aria-label={`Drop indicator at position ${overIndex + 1}`}
+      style={{
+        display: showDropMessage ? 'none' : 'flex',
+        transform: transformValue,
+        transition
+      }}
+    />
+  )
+);
+
+DropIndicator.displayName = 'DropIndicator';
+
 const SortableItem = ({
   data,
   showDropMessage,
   hasDropIndicator,
   isCompact,
-  isHorizontal
+  isHorizontal,
+  isUsingKeyboard
 }: IDraggableItemProps) => {
   const {
     overIndex,
@@ -74,38 +91,49 @@ const SortableItem = ({
   });
 
   const isActiveItem = active?.id === data.id;
-  const style: React.CSSProperties = {
-    transform: CSS.Transform.toString(transform)
-  };
+  const transformValue = CSS.Transform.toString(transform);
+  const showIndicator = isSorting && hasDropIndicator && isActiveItem && !showDropMessage;
 
-  if (isSorting && hasDropIndicator && isActiveItem && !showDropMessage) {
+  if (!isUsingKeyboard && showIndicator) {
     return (
-      <DraggableList.DropIndicator
+      <DropIndicator
         ref={setNodeRef}
-        aria-label={`Drop indicator at position ${overIndex + 1}`}
-        style={{
-          display: showDropMessage ? 'none' : 'flex',
-          ...style
-        }}
+        transition={transition}
+        transformValue={transformValue}
+        showDropMessage={showDropMessage}
+        overIndex={overIndex}
       />
     );
   }
 
-  style.opacity = isActiveItem ? 0 : 1;
-  style.transition = transition;
-  style.maxWidth = isHorizontal ? '150px' : undefined;
+  const style: React.CSSProperties = {
+    transition,
+    transform: transformValue,
+    opacity: !isUsingKeyboard && isActiveItem ? 0 : 1,
+    maxWidth: isHorizontal ? '150px' : undefined
+  };
 
   return (
-    <DraggableList.Item ref={setNodeRef} style={style}>
-      <DraggableItem
-        data={data}
-        {...attributes}
-        {...listeners}
-        isCompact={isCompact}
-        style={{ display: showDropMessage ? 'none' : 'flex' }}
-        ref={setActivatorNodeRef}
-      />
-    </DraggableList.Item>
+    <>
+      {isUsingKeyboard && showIndicator && (
+        <DropIndicator
+          transition={transition}
+          transformValue={transformValue}
+          showDropMessage={showDropMessage}
+          overIndex={overIndex}
+        />
+      )}
+      <DraggableList.Item ref={setNodeRef} style={style}>
+        <DraggableItem
+          data={data}
+          {...attributes}
+          {...listeners}
+          isCompact={isCompact}
+          style={{ display: showDropMessage ? 'none' : 'flex' }}
+          ref={setActivatorNodeRef}
+        />
+      </DraggableList.Item>
+    </>
   );
 };
 
@@ -116,7 +144,8 @@ export const SortablesColumn = ({
   activeColumnId,
   hasDropIndicator,
   isCompact,
-  isHorizontal
+  isHorizontal,
+  isUsingKeyboard
 }: ISortableColumnProps) => {
   const strategy = isHorizontal ? horizontalListSortingStrategy : verticalListSortingStrategy;
   const { setNodeRef } = useDroppable({ id });
@@ -126,7 +155,7 @@ export const SortablesColumn = ({
 
   return (
     <Dropzone
-      style={{ flex: '1 1 auto', margin: isHorizontal ? '0 4px' : undefined }}
+      style={{ flex: '1 1 auto' }}
       ref={setNodeRef}
       isActive={isActive}
       isHighlighted={isHighlighted}
@@ -141,6 +170,7 @@ export const SortablesColumn = ({
               hasDropIndicator={hasDropIndicator}
               isHorizontal={isHorizontal}
               isCompact={isCompact}
+              isUsingKeyboard={isUsingKeyboard}
             />
           ))}
         </DraggableList>

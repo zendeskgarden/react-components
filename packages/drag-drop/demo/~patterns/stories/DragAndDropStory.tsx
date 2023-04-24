@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Story } from '@storybook/react';
 import styled from 'styled-components';
 import {
@@ -28,6 +28,7 @@ import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { DraggableItem, DraggablesColumn, DroppablesColumn } from './components';
 import { IColumns } from './types';
 import { collisionDetection, findColumn, getAnnouncements } from './utils';
+import { useDocument } from '@zendeskgarden/react-theming';
 
 interface IArgs {
   columns: IColumns;
@@ -40,7 +41,7 @@ interface IArgs {
 const StyledContainer = styled.div<{ isHorizontal: boolean }>`
   display: flex;
   flex-direction: ${p => (p.isHorizontal ? 'column' : 'row')};
-  gap: 16px;
+  gap: 48px;
   max-width: 700px;
   min-height: ${p => !p.isHorizontal && '250px'};
 
@@ -58,6 +59,8 @@ export const DragAndDropStory: Story<IArgs> = ({
   isHorizontal
 }: IArgs) => {
   const [columns, setColumns] = useState<IColumns>(defaultColumns);
+  const [isUsingKeyboard, setIsUsingKeyboard] = useState(false);
+  const environment = useDocument();
 
   // state fallback for cancelled drag
   const [snapshot, setSnapshot] = useState<IColumns | null>(null);
@@ -74,6 +77,22 @@ export const DragAndDropStory: Story<IArgs> = ({
   );
 
   const draggablesColId = Object.keys(columns)[0];
+
+  const unsetKeyboard = useCallback(() => {
+    setIsUsingKeyboard(false);
+  }, []);
+
+  useEffect(() => {
+    if (environment) {
+      environment.addEventListener('mousedown', unsetKeyboard, true);
+    }
+
+    return () => {
+      if (environment) {
+        environment.removeEventListener('mousedown', unsetKeyboard, true);
+      }
+    };
+  });
 
   /**
    * If the coordinate getter is used in the draggable list, restrict to left/right/down
@@ -261,7 +280,11 @@ export const DragAndDropStory: Story<IArgs> = ({
       onDragCancel={onDragCancel}
       measuring={{ droppable: { strategy: MeasuringStrategy.Always } }}
     >
-      <StyledContainer isHorizontal={isHorizontal}>
+      <StyledContainer
+        isHorizontal={isHorizontal}
+        onKeyUp={() => !isUsingKeyboard && setIsUsingKeyboard(true)}
+        onKeyDown={() => !isUsingKeyboard && setIsUsingKeyboard(true)}
+      >
         {Object.keys(columns).map(columnId => {
           const isDraggablesColumn = columnId === draggablesColId;
           const ColumnComponent = isDraggablesColumn ? DraggablesColumn : DroppablesColumn;
@@ -277,6 +300,7 @@ export const DragAndDropStory: Story<IArgs> = ({
               hasPlaceholder={hasPlaceholder && isDraggablesColumn}
               isCompact={isCompact}
               isHorizontal={isHorizontal}
+              isUsingKeyboard={isUsingKeyboard}
             />
           );
         })}
