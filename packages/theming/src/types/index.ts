@@ -33,6 +33,7 @@ type Hue = Record<number | string, string> | string;
 export interface IGardenTheme {
   rtl: boolean;
   document?: any;
+  window?: any;
   borders: {
     sm: string;
     md: string;
