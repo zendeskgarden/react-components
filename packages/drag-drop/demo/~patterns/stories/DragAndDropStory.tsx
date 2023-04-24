@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Story } from '@storybook/react';
 import styled from 'styled-components';
 import {
@@ -25,8 +25,6 @@ import {
 } from '@dnd-kit/core';
 import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 
-import { useDocument } from '@zendeskgarden/react-theming';
-
 import { DraggableItem, DraggablesColumn, DroppablesColumn } from './components';
 import { IColumns } from './types';
 import { collisionDetection, findColumn, getAnnouncements } from './utils';
@@ -43,7 +41,7 @@ const StyledContainer = styled.div<{ isHorizontal: boolean }>`
   display: flex;
   flex-direction: ${p => (p.isHorizontal ? 'column' : 'row')};
   gap: 16px;
-  max-width: 600px;
+  max-width: 700px;
   min-height: ${p => !p.isHorizontal && '250px'};
 
   > div {
@@ -60,7 +58,6 @@ export const DragAndDropStory: Story<IArgs> = ({
   isHorizontal
 }: IArgs) => {
   const [columns, setColumns] = useState<IColumns>(defaultColumns);
-  const environment = useDocument();
 
   // state fallback for cancelled drag
   const [snapshot, setSnapshot] = useState<IColumns | null>(null);
@@ -68,7 +65,6 @@ export const DragAndDropStory: Story<IArgs> = ({
   // active drag item pointer - item & column
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
   const [activeColumnId, setActiveColumnId] = useState<UniqueIdentifier | null>(null);
-  const [isUsingKeyboard, setIsUsingKeyboard] = useState(false);
 
   // Overlay ref to move focus when dragging
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -87,12 +83,16 @@ export const DragAndDropStory: Story<IArgs> = ({
    */
   const coordinateGetter: KeyboardCoordinateGetter = useCallback(
     (event, args) => {
-      const isDraggableList = args?.context?.active?.data?.current?.type === 'draggable';
+      const {
+        context: { active, droppableRects },
+        currentCoordinates
+      } = args;
+
+      const isDraggableList = active?.data?.current?.type === 'draggable';
 
       if (isDraggableList && ['ArrowDown', 'ArrowRight', 'ArrowLeft'].includes(event.key)) {
-        const { currentCoordinates } = args;
-        const targetRects = [...args.context.droppableRects.values()];
-        const target = targetRects[targetRects.length - 1];
+        const rects = [...droppableRects.values()];
+        const target = rects[rects.length - 1];
         const deltaX = target.left;
         const deltaY = target.top;
 
@@ -124,22 +124,6 @@ export const DragAndDropStory: Story<IArgs> = ({
     useSensor(TouchSensor),
     useSensor(KeyboardSensor, { coordinateGetter })
   );
-
-  const unsetKeyboard = useCallback(() => {
-    setIsUsingKeyboard(false);
-  }, []);
-
-  useEffect(() => {
-    if (environment) {
-      environment.addEventListener('mousedown', unsetKeyboard, true);
-    }
-
-    return () => {
-      if (environment) {
-        environment.removeEventListener('mousedown', unsetKeyboard, true);
-      }
-    };
-  });
 
   const onDragStart = ({ active }: DragStartEvent) => {
     const columnId = findColumn(active.id, columns) as UniqueIdentifier;
@@ -277,11 +261,7 @@ export const DragAndDropStory: Story<IArgs> = ({
       onDragCancel={onDragCancel}
       measuring={{ droppable: { strategy: MeasuringStrategy.Always } }}
     >
-      <StyledContainer
-        isHorizontal={isHorizontal}
-        onKeyDown={() => !isUsingKeyboard && setIsUsingKeyboard(true)}
-        onKeyUp={() => !isUsingKeyboard && setIsUsingKeyboard(true)}
-      >
+      <StyledContainer isHorizontal={isHorizontal}>
         {Object.keys(columns).map(columnId => {
           const isDraggablesColumn = columnId === draggablesColId;
           const ColumnComponent = isDraggablesColumn ? DraggablesColumn : DroppablesColumn;
@@ -293,7 +273,6 @@ export const DragAndDropStory: Story<IArgs> = ({
               key={columnId}
               activeId={activeId}
               activeColumnId={activeColumnId}
-              isUsingKeyboard={isUsingKeyboard}
               hasDropIndicator={hasDropIndicator && !isDraggablesColumn}
               hasPlaceholder={hasPlaceholder && isDraggablesColumn}
               isCompact={isCompact}
@@ -305,11 +284,12 @@ export const DragAndDropStory: Story<IArgs> = ({
       <DragOverlay>
         {activeItem ? (
           <DraggableItem
+            ref={overlayRef}
+            style={isHorizontal ? { width: '150px' } : undefined}
             data={activeItem}
             isOverlay
             isGrabbed
             isCompact={isCompact}
-            ref={overlayRef}
           />
         ) : null}
       </DragOverlay>

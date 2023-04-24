@@ -55,7 +55,7 @@ const SortableItem = ({
   showDropMessage,
   hasDropIndicator,
   isCompact,
-  isUsingKeyboard
+  isHorizontal
 }: IDraggableItemProps) => {
   const {
     overIndex,
@@ -78,18 +78,22 @@ const SortableItem = ({
     transform: CSS.Transform.toString(transform)
   };
 
-  if (!isUsingKeyboard && isSorting && hasDropIndicator && isActiveItem && !showDropMessage) {
+  if (isSorting && hasDropIndicator && isActiveItem && !showDropMessage) {
     return (
       <DraggableList.DropIndicator
         ref={setNodeRef}
         aria-label={`Drop indicator at position ${overIndex + 1}`}
-        style={{ display: showDropMessage ? 'none' : 'flex', ...style }}
+        style={{
+          display: showDropMessage ? 'none' : 'flex',
+          ...style
+        }}
       />
     );
   }
 
   style.opacity = isActiveItem ? 0 : 1;
   style.transition = transition;
+  style.maxWidth = isHorizontal ? '150px' : undefined;
 
   return (
     <DraggableList.Item ref={setNodeRef} style={style}>
@@ -112,8 +116,7 @@ export const SortablesColumn = ({
   activeColumnId,
   hasDropIndicator,
   isCompact,
-  isHorizontal,
-  isUsingKeyboard
+  isHorizontal
 }: ISortableColumnProps) => {
   const strategy = isHorizontal ? horizontalListSortingStrategy : verticalListSortingStrategy;
   const { setNodeRef } = useDroppable({ id });
@@ -123,7 +126,7 @@ export const SortablesColumn = ({
 
   return (
     <Dropzone
-      style={{ flex: 1, margin: isHorizontal ? '0 4px' : undefined }}
+      style={{ flex: '1 1 auto', margin: isHorizontal ? '0 4px' : undefined }}
       ref={setNodeRef}
       isActive={isActive}
       isHighlighted={isHighlighted}
@@ -136,8 +139,8 @@ export const SortablesColumn = ({
               key={item.id}
               showDropMessage={showDropMessage}
               hasDropIndicator={hasDropIndicator}
+              isHorizontal={isHorizontal}
               isCompact={isCompact}
-              isUsingKeyboard={isUsingKeyboard}
             />
           ))}
         </DraggableList>
@@ -152,18 +155,15 @@ export const DraggableListItem = ({
   data,
   isCompact,
   isPlaceholder,
-  isUsingKeyboard,
   isHorizontal
 }: IDraggableItemProps) => {
-  const { isDragging, attributes, listeners, setNodeRef, setActivatorNodeRef, transform } =
-    useDraggable({
-      id: data.id,
-      disabled: data.isDisabled,
-      data: { type: 'draggable' }
-    });
+  const { isDragging, attributes, listeners, setNodeRef, setActivatorNodeRef } = useDraggable({
+    id: data.id,
+    disabled: data.isDisabled,
+    data: { type: 'draggable' }
+  });
 
   const listItemStyle: React.CSSProperties = {
-    transform: CSS.Transform.toString(transform),
     maxWidth: isHorizontal ? 150 : undefined
   };
   const draggableItemStyle = {
@@ -179,7 +179,6 @@ export const DraggableListItem = ({
         style={draggableItemStyle}
         isCompact={isCompact}
         isPlaceholder={isDragging && isPlaceholder}
-        isUsingKeyboard={isUsingKeyboard}
         ref={setActivatorNodeRef}
       />
     </DraggableList.Item>
@@ -190,7 +189,6 @@ export const DraggablesColumn = ({
   items,
   hasPlaceholder,
   isCompact,
-  isUsingKeyboard,
   isHorizontal
 }: ISortableColumnProps) => {
   return (
@@ -206,7 +204,6 @@ export const DraggablesColumn = ({
               isCompact={isCompact}
               isHorizontal={isHorizontal}
               isPlaceholder={hasPlaceholder}
-              isUsingKeyboard={isUsingKeyboard}
               key={item.id}
             />
           ))}

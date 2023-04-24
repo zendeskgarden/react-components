@@ -20,24 +20,20 @@ const sizeStyles = (props: IStyledDraggableListProps) => {
     isHorizontal,
     theme: { space }
   } = props;
-  let padding;
+  let marginStart = 'margin-top';
+  let marginEnd = 'margin-bottom';
 
   if (isHorizontal) {
-    padding = `0 ${space.xxs}`;
-  } else {
-    padding = `${space.xxs} 0`;
+    marginStart = 'margin-right';
+    marginEnd = 'margin-left';
   }
 
   /**
-   * 1. Offset the top and bottom padding so adjacent UI elements align to the list container.
+   * 1. Offset padding so adjacent UI elements align to the list container.
    */
   return css`
-    margin-top: -${space.xxs}; /* [1] */
-    margin-bottom: -${space.xxs}; /* [1] */
-
-    > ${StyledItem} {
-      padding: ${padding};
-    }
+    ${marginStart}: -${space.xxs}; /* [1] */
+    ${marginEnd}: -${space.xxs}; /* [1] */
   `;
 };
 

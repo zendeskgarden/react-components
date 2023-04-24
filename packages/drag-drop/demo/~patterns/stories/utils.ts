@@ -9,7 +9,8 @@ import {
   Announcements,
   CollisionDetection,
   UniqueIdentifier,
-  closestCenter,
+  closestCorners,
+  pointerWithin,
   rectIntersection
 } from '@dnd-kit/core';
 import { AnimateLayoutChanges, defaultAnimateLayoutChanges } from '@dnd-kit/sortable';
@@ -62,10 +63,10 @@ export function findColumn(
  * closest drop target.
  */
 export const collisionDetection: CollisionDetection = args => {
-  const collisions = rectIntersection(args);
+  const collisions = [...pointerWithin(args), ...rectIntersection(args)];
 
   if (collisions.length > 0) {
-    return closestCenter(args);
+    return closestCorners(args);
   }
 
   return collisions;
