@@ -47,7 +47,7 @@ export const Breadcrumb = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
   const ariaLabel = useText(Breadcrumb, props, 'aria-label', 'Breadcrumbs');
 
   return (
-    <nav {...getContainerProps({ ...props, ref, role: null, 'aria-label': ariaLabel })}>
+    <nav {...getContainerProps({ ...props, ref, role: null, 'aria-label': ariaLabel! })}>
       <StyledBreadcrumb>{mappedChildren}</StyledBreadcrumb>
     </nav>
   );
