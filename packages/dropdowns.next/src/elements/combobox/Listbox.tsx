@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { forwardRef, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
+import { ThemeContext } from 'styled-components';
 import mergeRefs from 'react-merge-refs';
 import { autoUpdate, flip, size, useFloating } from '@floating-ui/react-dom';
+import { DEFAULT_THEME, useWindow } from '@zendeskgarden/react-theming';
 import { IListboxProps } from '../../types';
 import useComboboxContext from '../../context/useComboboxContext';
 import { StyledFloating, StyledListbox } from '../../views';
@@ -24,7 +26,9 @@ export const Listbox = forwardRef<HTMLDivElement, IListboxProps>(
       placement: 'bottom-start',
       middleware: [flip(), size({ apply: ({ rects }) => setWidth(rects.reference.width) })]
     });
-    const devicePixelRatio = window.devicePixelRatio || 1; // TODO replace `window` with theme object
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const win = useWindow(theme);
+    const devicePixelRatio = win?.devicePixelRatio || 1;
     const horizontal = Math.round(devicePixelRatio * (x ?? 0)) / devicePixelRatio;
     const vertical = Math.round(devicePixelRatio * (y ?? 0)) / devicePixelRatio;
     const transform = `translate(${horizontal}px, ${vertical}px)`;

@@ -9,13 +9,16 @@ import React, {
   HTMLAttributes,
   InputHTMLAttributes,
   forwardRef,
+  useContext,
   useMemo,
   useRef,
   useState
 } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeContext } from 'styled-components';
 import { IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { DEFAULT_THEME, useWindow } from '@zendeskgarden/react-theming';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { IComboboxProps, VALIDATION } from '../../types';
@@ -60,6 +63,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const triggerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const listboxRef = useRef<HTMLUListElement>(null);
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const environment = useWindow(theme);
     const {
       activeValue,
       inputValue,
@@ -74,6 +79,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       inputRef,
       listboxRef,
       options,
+      environment,
       isAutocomplete,
       isEditable,
       disabled: isDisabled
