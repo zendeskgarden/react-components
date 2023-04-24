@@ -28,16 +28,16 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
     /* Prevent listbox collapse */
     const handleMouseDown: MouseEventHandler = event => event.preventDefault();
     /* This useText logic ensures that the group has a valid `aria-label`, either
-     * specified directly or provided by the `label` prop. */
-    const name = label && !ariaLabel ? 'label' : 'aria-label';
+     * specified directly or provided implicitly by the `label` prop. */
     const groupAriaLabel = useText(
       OptGroup,
-      { label, 'aria-label': ariaLabel },
-      name,
-      label ? '' : 'group'
+      { 'aria-label': ariaLabel },
+      'aria-label',
+      'Group',
+      !label /* condition */
     );
     const optGroupProps = getOptGroupProps({
-      'aria-label': groupAriaLabel
+      'aria-label': (groupAriaLabel || label)!
     }) as HTMLAttributes<HTMLUListElement>;
 
     return (

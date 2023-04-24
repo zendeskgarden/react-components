@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { DEFAULT_THEME, useWindow } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, useText, useWindow } from '@zendeskgarden/react-theming';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { IComboboxProps, VALIDATION } from '../../types';
@@ -50,6 +50,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       isDisabled,
       isEditable,
       inputProps: _inputProps,
+      listboxAriaLabel,
       listboxMaxHeight,
       listboxZIndex,
       placeholder,
@@ -105,7 +106,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       }) as InputHTMLAttributes<HTMLInputElement>)
     };
     const listboxProps = getListboxProps({
-      'aria-label': 'Options'
+      'aria-label': useText(Combobox, { listboxAriaLabel }, 'listboxAriaLabel', 'Options')!
     }) as HTMLAttributes<HTMLUListElement>;
     const contextValue = useMemo(
       () => ({ activeValue, getOptionProps, getOptGroupProps, isCompact, listboxProps }),
@@ -160,6 +161,7 @@ Combobox.propTypes = {
   isCompact: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isEditable: PropTypes.bool,
+  listboxAriaLabel: PropTypes.string,
   listboxMaxHeight: PropTypes.string,
   listboxZIndex: PropTypes.number,
   placeholder: PropTypes.string,

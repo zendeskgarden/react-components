@@ -41,6 +41,8 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   isDisabled?: boolean;
   /** Determines whether the combobox is editable or select-only */
   isEditable?: boolean;
+  /** Specifies the listbox `aria-label` */
+  listboxAriaLabel?: string;
   /** Sets the `max-height` of the listbox */
   listboxMaxHeight?: string;
   /** Sets the `z-index` of the listbox */

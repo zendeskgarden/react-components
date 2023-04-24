@@ -74,7 +74,7 @@ OptionComponent.propTypes = {
   isSelected: PropTypes.bool,
   label: PropTypes.string,
   type: PropTypes.oneOf(OPTION_TYPE),
-  value: PropTypes.oneOf([PropTypes.string, PropTypes.object]).isRequired
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
 };
 
 /**
