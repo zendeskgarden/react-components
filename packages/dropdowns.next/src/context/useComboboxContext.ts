@@ -12,6 +12,7 @@ export const ComboboxContext = createContext<
   | {
       activeValue: IUseComboboxReturnValue['activeValue'];
       getOptionProps: IUseComboboxReturnValue['getOptionProps'];
+      getOptGroupProps: IUseComboboxReturnValue['getOptGroupProps'];
       isCompact?: boolean;
       listboxProps: HTMLAttributes<HTMLUListElement>;
     }

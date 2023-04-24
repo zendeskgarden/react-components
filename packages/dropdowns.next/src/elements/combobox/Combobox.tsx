@@ -67,7 +67,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       getTriggerProps,
       getInputProps,
       getListboxProps,
-      getOptionProps
+      getOptionProps,
+      getOptGroupProps
     } = useCombobox({
       triggerRef,
       inputRef,
@@ -101,8 +102,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       'aria-label': 'Options'
     }) as HTMLAttributes<HTMLUListElement>;
     const contextValue = useMemo(
-      () => ({ activeValue, getOptionProps, isCompact, listboxProps }),
-      [activeValue, getOptionProps, isCompact, listboxProps]
+      () => ({ activeValue, getOptionProps, getOptGroupProps, isCompact, listboxProps }),
+      [activeValue, getOptionProps, getOptGroupProps, isCompact, listboxProps]
     );
 
     return (

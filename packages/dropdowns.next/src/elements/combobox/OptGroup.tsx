@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
+import React, { HTMLAttributes, MouseEventHandler, forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { useText } from '@zendeskgarden/react-theming';
 import { IOptGroupProps } from '../../types';
 import useComboboxContext from '../../context/useComboboxContext';
@@ -22,8 +23,10 @@ import {
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
-  ({ children, content, icon, label, 'aria-label': ariaLabel, ...props }, ref) => {
-    const { isCompact } = useComboboxContext();
+  ({ children, content, icon, label, 'aria-label': ariaLabel, onMouseDown, ...props }, ref) => {
+    const { getOptGroupProps, isCompact } = useComboboxContext();
+    /* Prevent listbox collapse */
+    const handleMouseDown: MouseEventHandler = event => event.preventDefault();
     /* This useText logic ensures that the group has a valid `aria-label`, either
      * specified directly or provided by the `label` prop. */
     const name = label && !ariaLabel ? 'label' : 'aria-label';
@@ -33,9 +36,19 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
       name,
       label ? '' : 'group'
     );
+    const optGroupProps = getOptGroupProps({
+      'aria-label': groupAriaLabel
+    }) as HTMLAttributes<HTMLUListElement>;
 
     return (
-      <StyledOption isCompact={isCompact} $type="group" role="none" {...props} ref={ref}>
+      <StyledOption
+        isCompact={isCompact}
+        $type="group"
+        onMouseDown={composeEventHandlers(onMouseDown, handleMouseDown)}
+        role="none"
+        {...props}
+        ref={ref}
+      >
         <StyledOptionContent>
           {(content || label) && (
             <StyledOption as="div" isCompact={isCompact} $type="header">
@@ -47,7 +60,7 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
               {content || label}
             </StyledOption>
           )}
-          <StyledOptGroup aria-label={groupAriaLabel} isCompact={isCompact}>
+          <StyledOptGroup isCompact={isCompact} {...optGroupProps}>
             <StyledSeparator role="none" />
             {children}
           </StyledOptGroup>
