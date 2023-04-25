@@ -41,6 +41,8 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   isDisabled?: boolean;
   /** Determines whether the combobox is editable or select-only */
   isEditable?: boolean;
+  /** Determines whether multiple options can be selected */
+  isMultiselectable?: boolean;
   /** Specifies the listbox `aria-label` */
   listboxAriaLabel?: string;
   /** Sets the `max-height` of the listbox */
@@ -55,7 +57,7 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   validation?: Validation;
 }
 
-export interface IListboxProps extends HTMLAttributes<HTMLDivElement> {
+export interface IListboxProps extends HTMLAttributes<HTMLUListElement> {
   /** Appends the lisbox to the element provided */
   appendToNode?: Element | DocumentFragment;
   /** Determines listbox expansion */

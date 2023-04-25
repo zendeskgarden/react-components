@@ -9,17 +9,14 @@ import React, { forwardRef, useContext, useEffect, useLayoutEffect, useRef, useS
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import mergeRefs from 'react-merge-refs';
 import { autoUpdate, flip, size, useFloating } from '@floating-ui/react-dom';
 import { DEFAULT_THEME, useWindow } from '@zendeskgarden/react-theming';
 import { IListboxProps } from '../../types';
-import useComboboxContext from '../../context/useComboboxContext';
 import { StyledFloating, StyledListbox } from '../../views';
 
-export const Listbox = forwardRef<HTMLDivElement, IListboxProps>(
+export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
   ({ appendToNode, children, isExpanded, maxHeight, triggerRef, ...props }, ref) => {
-    const { listboxProps } = useComboboxContext();
-    const listboxRef = useRef<HTMLDivElement>(null);
+    const floatingRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [width, setWidth] = useState<number>();
     const { refs, placement, update, x, y } = useFloating<HTMLElement>({
@@ -36,8 +33,8 @@ export const Listbox = forwardRef<HTMLDivElement, IListboxProps>(
     useLayoutEffect(() => {
       // https://floating-ui.com/docs/react#refs
       refs.setReference(triggerRef?.current);
-      refs.setFloating(listboxRef?.current);
-    }, [refs, triggerRef, listboxRef]);
+      refs.setFloating(floatingRef?.current);
+    }, [refs, triggerRef, floatingRef]);
 
     useEffect(() => {
       // Only allow listbox positioning updates on expanded combobox.
@@ -70,10 +67,9 @@ export const Listbox = forwardRef<HTMLDivElement, IListboxProps>(
         isHidden={!isExpanded}
         position={placement === 'bottom-start' ? 'bottom' : 'top'}
         style={{ transform, width }}
-        {...props}
-        ref={mergeRefs([listboxRef, ref])}
+        ref={floatingRef}
       >
-        <StyledListbox maxHeight={maxHeight} {...listboxProps}>
+        <StyledListbox maxHeight={maxHeight} {...props} ref={ref}>
           {isVisible && children}
         </StyledListbox>
       </StyledFloating>

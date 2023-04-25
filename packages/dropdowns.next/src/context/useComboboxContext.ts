@@ -6,7 +6,7 @@
  */
 
 import { IUseComboboxReturnValue } from '@zendeskgarden/container-combobox';
-import { HTMLAttributes, createContext, useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 export const ComboboxContext = createContext<
   | {
@@ -14,7 +14,6 @@ export const ComboboxContext = createContext<
       getOptionProps: IUseComboboxReturnValue['getOptionProps'];
       getOptGroupProps: IUseComboboxReturnValue['getOptGroupProps'];
       isCompact?: boolean;
-      listboxProps: HTMLAttributes<HTMLUListElement>;
     }
   | undefined
 >(undefined);

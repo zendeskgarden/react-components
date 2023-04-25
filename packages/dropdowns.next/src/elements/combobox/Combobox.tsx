@@ -49,6 +49,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       isCompact,
       isDisabled,
       isEditable,
+      isMultiselectable,
       inputProps: _inputProps,
       listboxAriaLabel,
       listboxMaxHeight,
@@ -83,6 +84,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       environment,
       isAutocomplete,
       isEditable,
+      isMultiselectable,
       disabled: isDisabled
     });
     const triggerProps = {
@@ -109,8 +111,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       'aria-label': useText(Combobox, { listboxAriaLabel }, 'listboxAriaLabel', 'Options')!
     }) as HTMLAttributes<HTMLUListElement>;
     const contextValue = useMemo(
-      () => ({ activeValue, getOptionProps, getOptGroupProps, isCompact, listboxProps }),
-      [activeValue, getOptionProps, getOptGroupProps, isCompact, listboxProps]
+      () => ({ activeValue, getOptionProps, getOptGroupProps, isCompact }),
+      [activeValue, getOptionProps, getOptGroupProps, isCompact]
     );
 
     return (
@@ -122,6 +124,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                 <StartIcon />
               </StyledInputIcon>
               <StyledInputGroup>
+                {/* insert tags here */}
                 {isInputHidden && (
                   <StyledValue isCompact={isCompact} isPlaceholder={!inputValue}>
                     {inputValue || placeholder}
@@ -140,6 +143,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
             maxHeight={listboxMaxHeight}
             triggerRef={triggerRef}
             zIndex={listboxZIndex}
+            {...listboxProps}
           >
             {children}
           </Listbox>
@@ -161,6 +165,7 @@ Combobox.propTypes = {
   isCompact: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isEditable: PropTypes.bool,
+  isMultiselectable: PropTypes.bool,
   listboxAriaLabel: PropTypes.string,
   listboxMaxHeight: PropTypes.string,
   listboxZIndex: PropTypes.number,
