@@ -306,7 +306,7 @@ export const DragAndDropStory: Story<IArgs> = ({
         })}
       </StyledContainer>
       <DragOverlay>
-        {activeItem ? (
+        {activeItem && (
           <DraggableItem
             ref={overlayRef}
             style={isHorizontal ? { width: '150px' } : undefined}
@@ -315,7 +315,7 @@ export const DragAndDropStory: Story<IArgs> = ({
             isGrabbed
             isCompact={isCompact}
           />
-        ) : null}
+        )}
       </DragOverlay>
     </DndContext>
   );

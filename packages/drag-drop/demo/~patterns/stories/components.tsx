@@ -109,7 +109,7 @@ const SortableItem = ({
   const style: React.CSSProperties = {
     transition,
     transform: transformValue,
-    opacity: !isUsingKeyboard && isActiveItem ? 0 : 1,
+    opacity: isActiveItem ? 0 : 1,
     maxWidth: isHorizontal ? '150px' : undefined
   };
 
