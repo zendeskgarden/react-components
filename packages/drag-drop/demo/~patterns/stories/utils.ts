@@ -5,14 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  Announcements,
-  CollisionDetection,
-  UniqueIdentifier,
-  closestCorners,
-  pointerWithin,
-  rectIntersection
-} from '@dnd-kit/core';
+import { Announcements, UniqueIdentifier } from '@dnd-kit/core';
 import { AnimateLayoutChanges, defaultAnimateLayoutChanges } from '@dnd-kit/sortable';
 import { IColumns } from './types';
 
@@ -57,17 +50,3 @@ export function findColumn(
     return columns[cId].findIndex(item => item?.id === id) > -1;
   });
 }
-
-/**
- * Check if the draggable overlaps via rect intersection, and if so, return the
- * closest drop target.
- */
-export const collisionDetection: CollisionDetection = args => {
-  const collisions = [...pointerWithin(args), ...rectIntersection(args)];
-
-  if (collisions.length > 0) {
-    return closestCorners(args);
-  }
-
-  return collisions;
-};

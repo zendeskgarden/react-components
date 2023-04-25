@@ -98,7 +98,6 @@ const SortableItem = ({
     return (
       <DropIndicator
         ref={setNodeRef}
-        transition={transition}
         transformValue={transformValue}
         showDropMessage={showDropMessage}
         overIndex={overIndex}

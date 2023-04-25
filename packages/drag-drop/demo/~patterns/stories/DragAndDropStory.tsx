@@ -9,6 +9,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Story } from '@storybook/react';
 import styled from 'styled-components';
 import {
+  CollisionDetection,
   DndContext,
   DragEndEvent,
   DragOverEvent,
@@ -20,6 +21,9 @@ import {
   MouseSensor,
   TouchSensor,
   UniqueIdentifier,
+  closestCorners,
+  pointerWithin,
+  rectIntersection,
   useSensor,
   useSensors
 } from '@dnd-kit/core';
@@ -27,7 +31,7 @@ import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 
 import { DraggableItem, DraggablesColumn, DroppablesColumn } from './components';
 import { IColumns } from './types';
-import { collisionDetection, findColumn, getAnnouncements } from './utils';
+import { findColumn, getAnnouncements } from './utils';
 import { useDocument } from '@zendeskgarden/react-theming';
 
 interface IArgs {
@@ -137,6 +141,23 @@ export const DragAndDropStory: Story<IArgs> = ({
     [isHorizontal]
   );
 
+  /**
+   * Check if the draggable overlaps via rect intersection, and if so, return the
+   * closest drop target.
+   */
+  const collisionDetection: CollisionDetection = useCallback(
+    args => {
+      const collisions = [...pointerWithin(args), ...rectIntersection(args)];
+
+      if (collisions.length > 0 && activeColumnId) {
+        return closestCorners(args);
+      }
+
+      return collisions;
+    },
+    [activeColumnId]
+  );
+
   // DndKit interaction sensors
   const sensors = useSensors(
     useSensor(MouseSensor),
@@ -155,6 +176,13 @@ export const DragAndDropStory: Story<IArgs> = ({
   const onDragOver = useCallback(
     ({ active, over }: DragOverEvent) => {
       const overId = over?.id;
+
+      if (activeColumnId && !overId) {
+        setActiveColumnId(draggablesColId);
+        setColumns(snapshot!);
+
+        return;
+      }
 
       if (!overId || active.id in columns) return;
 
@@ -209,7 +237,7 @@ export const DragAndDropStory: Story<IArgs> = ({
         return nextColumns;
       });
     },
-    [columns, activeColumnId]
+    [columns, activeColumnId, snapshot, draggablesColId]
   );
 
   const onDragEnd = useCallback(
