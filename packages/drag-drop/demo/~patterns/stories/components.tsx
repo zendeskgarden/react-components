@@ -72,6 +72,7 @@ const SortableItem = ({
   hasDropIndicator,
   isCompact,
   isHorizontal,
+  isBare,
   isUsingKeyboard
 }: IDraggableItemProps) => {
   const {
@@ -127,6 +128,7 @@ const SortableItem = ({
           data={data}
           {...attributes}
           {...listeners}
+          isBare={isBare}
           isCompact={isCompact}
           style={{ display: showDropMessage ? 'none' : 'flex' }}
           ref={setActivatorNodeRef}
@@ -144,6 +146,7 @@ export const SortablesColumn = ({
   hasDropIndicator,
   isCompact,
   isHorizontal,
+  isBare,
   isUsingKeyboard
 }: ISortableColumnProps) => {
   const strategy = isHorizontal ? horizontalListSortingStrategy : verticalListSortingStrategy;
@@ -165,6 +168,7 @@ export const SortablesColumn = ({
             <SortableItem
               data={item}
               key={item.id}
+              isBare={isBare}
               showDropMessage={showDropMessage}
               hasDropIndicator={hasDropIndicator}
               isHorizontal={isHorizontal}
@@ -184,7 +188,8 @@ export const DraggableListItem = ({
   data,
   isCompact,
   isPlaceholder,
-  isHorizontal
+  isHorizontal,
+  isBare
 }: IDraggableItemProps) => {
   const { isDragging, attributes, listeners, setNodeRef, setActivatorNodeRef } = useDraggable({
     id: data.id,
@@ -207,6 +212,7 @@ export const DraggableListItem = ({
         {...listeners}
         style={draggableItemStyle}
         isCompact={isCompact}
+        isBare={isBare}
         isPlaceholder={isDragging && isPlaceholder}
         ref={setActivatorNodeRef}
       />
@@ -218,7 +224,8 @@ export const DraggablesColumn = ({
   items,
   hasPlaceholder,
   isCompact,
-  isHorizontal
+  isHorizontal,
+  isBare
 }: ISortableColumnProps) => {
   return (
     <div style={isHorizontal ? { minHeight: '100px' } : { width: '250px' }}>
@@ -231,6 +238,7 @@ export const DraggablesColumn = ({
             <DraggableListItem
               data={item}
               isCompact={isCompact}
+              isBare={isBare}
               isHorizontal={isHorizontal}
               isPlaceholder={hasPlaceholder}
               key={item.id}

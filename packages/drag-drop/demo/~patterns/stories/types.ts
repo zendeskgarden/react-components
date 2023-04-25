@@ -22,6 +22,7 @@ export interface IDraggableItemProps extends IDraggableProps {
   isGrabbed?: boolean;
   isCompact?: boolean;
   isHorizontal?: boolean;
+  isBare?: boolean;
   items?: IPresentationalDraggableItem[];
   hasDropIndicator?: boolean;
   showDropMessage?: boolean;
@@ -49,6 +50,7 @@ export interface ISortableColumnProps extends IColumnProps {
   dragOverId?: UniqueIdentifier | null;
   isCompact?: boolean;
   isHorizontal?: boolean;
+  isBare?: boolean;
   hasPlaceholder?: boolean;
   hasDanger?: boolean;
   hasDropIndicator?: boolean;

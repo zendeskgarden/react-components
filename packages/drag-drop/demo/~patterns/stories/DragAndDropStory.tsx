@@ -40,6 +40,7 @@ interface IArgs {
   hasPlaceholder: boolean;
   isCompact: boolean;
   isHorizontal: boolean;
+  isBare: boolean;
 }
 
 const StyledContainer = styled.div<{ isHorizontal: boolean }>`
@@ -60,7 +61,8 @@ export const DragAndDropStory: Story<IArgs> = ({
   hasDropIndicator,
   hasPlaceholder,
   isCompact,
-  isHorizontal
+  isHorizontal,
+  isBare
 }: IArgs) => {
   const [columns, setColumns] = useState<IColumns>(defaultColumns);
   const [isUsingKeyboard, setIsUsingKeyboard] = useState(false);
@@ -328,6 +330,7 @@ export const DragAndDropStory: Story<IArgs> = ({
               hasPlaceholder={hasPlaceholder && isDraggablesColumn}
               isCompact={isCompact}
               isHorizontal={isHorizontal}
+              isBare={isBare}
               isUsingKeyboard={isUsingKeyboard}
             />
           );
@@ -339,6 +342,7 @@ export const DragAndDropStory: Story<IArgs> = ({
             ref={overlayRef}
             style={isHorizontal ? { width: '150px' } : undefined}
             data={activeItem}
+            isBare={isBare}
             isOverlay
             isGrabbed
             isCompact={isCompact}
