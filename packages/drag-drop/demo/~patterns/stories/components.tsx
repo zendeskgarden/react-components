@@ -110,17 +110,27 @@ const SortableItem = ({
   };
 
   return (
-    <DraggableList.Item ref={setNodeRef} style={style}>
-      <DraggableItem
-        data={data}
-        {...attributes}
-        {...listeners}
-        isBare={isBare}
-        isCompact={isCompact}
-        style={{ display: showDropMessage ? 'none' : 'flex' }}
-        ref={setActivatorNodeRef}
-      />
-    </DraggableList.Item>
+    <>
+      {isUsingKeyboard && showIndicator && (
+        <DropIndicator
+          transition={transition}
+          transform={transformValue}
+          showDropMessage={showDropMessage}
+          overIndex={overIndex}
+        />
+      )}
+      <DraggableList.Item ref={setNodeRef} style={style}>
+        <DraggableItem
+          data={data}
+          {...attributes}
+          {...listeners}
+          isBare={isBare}
+          isCompact={isCompact}
+          style={{ display: showDropMessage ? 'none' : 'flex' }}
+          ref={setActivatorNodeRef}
+        />
+      </DraggableList.Item>
+    </>
   );
 };
 

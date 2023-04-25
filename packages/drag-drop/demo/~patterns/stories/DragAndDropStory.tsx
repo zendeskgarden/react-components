@@ -73,6 +73,7 @@ export const DragAndDropStory: Story<IArgs> = ({
 
   // active drag item pointer - item & column
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
+  const [startColumnId, setStartColumnId] = useState<UniqueIdentifier | null>(null);
   const [activeColumnId, setActiveColumnId] = useState<UniqueIdentifier | null>(null);
 
   // Overlay ref to move focus when dragging
@@ -170,6 +171,7 @@ export const DragAndDropStory: Story<IArgs> = ({
     const columnId = findColumn(active.id, columns) as UniqueIdentifier;
 
     setActiveId(active.id);
+    setStartColumnId(columnId);
     setActiveColumnId(columnId);
     setSnapshot(columns);
   };
@@ -178,7 +180,7 @@ export const DragAndDropStory: Story<IArgs> = ({
     ({ active, over }: DragOverEvent) => {
       const overId = over?.id;
 
-      if (activeColumnId && !overId) {
+      if (activeColumnId && startColumnId === draggablesColId && !overId) {
         setActiveColumnId(draggablesColId);
         setColumns(snapshot!);
 
@@ -238,7 +240,7 @@ export const DragAndDropStory: Story<IArgs> = ({
         return nextColumns;
       });
     },
-    [columns, activeColumnId, snapshot, draggablesColId]
+    [columns, activeColumnId, snapshot, draggablesColId, startColumnId]
   );
 
   const onDragEnd = useCallback(
