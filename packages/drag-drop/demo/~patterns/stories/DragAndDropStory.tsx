@@ -7,7 +7,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Story } from '@storybook/react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import {
   CollisionDetection,
   DndContext,
@@ -67,6 +67,7 @@ export const DragAndDropStory: Story<IArgs> = ({
   const [columns, setColumns] = useState<IColumns>(defaultColumns);
   const [isUsingKeyboard, setIsUsingKeyboard] = useState(false);
   const environment = useDocument();
+  const theme = useTheme();
 
   // state fallback for cancelled drag
   const [snapshot, setSnapshot] = useState<IColumns | null>(null);
@@ -299,6 +300,7 @@ export const DragAndDropStory: Story<IArgs> = ({
   };
 
   const activeItemsCount = columns[activeColumnId!]?.length;
+  const overlayOffset = theme.space.xxs;
 
   return (
     <DndContext
@@ -339,15 +341,17 @@ export const DragAndDropStory: Story<IArgs> = ({
       </StyledContainer>
       <DragOverlay>
         {activeItem && (
-          <DraggableItem
-            ref={overlayRef}
-            style={isHorizontal ? { width: '150px' } : undefined}
-            data={activeItem}
-            isBare={isBare}
-            isOverlay
-            isGrabbed
-            isCompact={isCompact}
-          />
+          <div style={{ padding: isHorizontal ? `0 ${overlayOffset}` : `${overlayOffset} 0` }}>
+            <DraggableItem
+              ref={overlayRef}
+              style={{ width: isHorizontal ? '150px' : undefined }}
+              data={activeItem}
+              isBare={isBare}
+              isOverlay
+              isGrabbed
+              isCompact={isCompact}
+            />
+          </div>
         )}
       </DragOverlay>
     </DndContext>
