@@ -33,7 +33,7 @@ export interface IDraggableItemProps extends IDraggableProps {
 export interface IDropIndicatorProps extends LiHTMLAttributes<HTMLLIElement> {
   overIndex: number;
   transition?: string;
-  transformValue?: string;
+  transform?: string;
   showDropMessage?: boolean;
 }
 

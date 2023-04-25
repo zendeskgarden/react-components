@@ -51,15 +51,11 @@ export const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((pr
 DraggableItem.displayName = 'DraggableItem';
 
 const DropIndicator = forwardRef<HTMLLIElement, IDropIndicatorProps>(
-  ({ transition, transformValue, showDropMessage, overIndex }, ref) => (
+  ({ transition, transform, showDropMessage, overIndex }, ref) => (
     <DraggableList.DropIndicator
       ref={ref}
       aria-label={`Drop indicator at position ${overIndex + 1}`}
-      style={{
-        display: showDropMessage ? 'none' : 'flex',
-        transform: transformValue,
-        transition
-      }}
+      style={{ display: showDropMessage ? 'none' : 'flex', transform, transition }}
     />
   )
 );
@@ -99,7 +95,7 @@ const SortableItem = ({
     return (
       <DropIndicator
         ref={setNodeRef}
-        transformValue={transformValue}
+        transform={transformValue}
         showDropMessage={showDropMessage}
         overIndex={overIndex}
       />
@@ -114,27 +110,17 @@ const SortableItem = ({
   };
 
   return (
-    <>
-      {isUsingKeyboard && showIndicator && (
-        <DropIndicator
-          transition={transition}
-          transformValue={transformValue}
-          showDropMessage={showDropMessage}
-          overIndex={overIndex}
-        />
-      )}
-      <DraggableList.Item ref={setNodeRef} style={style}>
-        <DraggableItem
-          data={data}
-          {...attributes}
-          {...listeners}
-          isBare={isBare}
-          isCompact={isCompact}
-          style={{ display: showDropMessage ? 'none' : 'flex' }}
-          ref={setActivatorNodeRef}
-        />
-      </DraggableList.Item>
-    </>
+    <DraggableList.Item ref={setNodeRef} style={style}>
+      <DraggableItem
+        data={data}
+        {...attributes}
+        {...listeners}
+        isBare={isBare}
+        isCompact={isCompact}
+        style={{ display: showDropMessage ? 'none' : 'flex' }}
+        ref={setActivatorNodeRef}
+      />
+    </DraggableList.Item>
   );
 };
 

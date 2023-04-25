@@ -130,11 +130,10 @@ export const DragAndDropStory: Story<IArgs> = ({
             if (isHorizontal || currentCoordinates.x < deltaX) return undefined; /* [1] */
 
             return { y: deltaY, x: deltaX };
-          case 'ArrowDown': {
+          case 'ArrowDown':
             if (!isHorizontal) return undefined; /* [1] */
 
             return { y: deltaY, x: deltaX };
-          }
         }
       }
 
