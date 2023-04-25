@@ -85,6 +85,7 @@ export const DragAndDropStory: Story<IArgs> = ({
   );
 
   const draggablesColId = Object.keys(columns)[0];
+  const droppablesColId = Object.keys(columns)[1];
 
   const unsetKeyboard = useCallback(() => {
     setIsUsingKeyboard(false);
@@ -110,38 +111,43 @@ export const DragAndDropStory: Story<IArgs> = ({
    */
   const coordinateGetter: KeyboardCoordinateGetter = useCallback(
     (event, args) => {
-      const {
-        context: { active, droppableRects },
-        currentCoordinates
-      } = args;
-
+      const { context, currentCoordinates } = args;
+      const { active, droppableRects } = context;
       const isDraggableList = active?.data?.current?.type === 'draggable';
 
-      if (isDraggableList && ['ArrowDown', 'ArrowRight', 'ArrowLeft'].includes(event.key)) {
-        const rects = [...droppableRects.values()];
-        const target = rects[rects.length - 1];
-        const deltaX = target.left;
-        const deltaY = target.top;
+      if (['ArrowDown', 'ArrowUp', 'ArrowRight', 'ArrowLeft'].includes(event.key)) {
+        const isDraggingWidowItem =
+          columns[droppablesColId].length === 1 && context.collisions?.length === 2;
 
-        switch (event.key) {
-          case 'ArrowRight':
-            if (isHorizontal || currentCoordinates.x > deltaX) return undefined; /* [1] */
+        if (isDraggableList) {
+          const rects = [...droppableRects.values()];
+          const target = rects[rects.length - 1];
+          const deltaX = target.left;
+          const deltaY = target.top;
 
-            return { y: deltaY, x: deltaX };
-          case 'ArrowLeft':
-            if (isHorizontal || currentCoordinates.x < deltaX) return undefined; /* [1] */
+          switch (event.key) {
+            case 'ArrowRight':
+              if (isHorizontal || currentCoordinates.x > deltaX) return undefined; /* [1] */
 
-            return { y: deltaY, x: deltaX };
-          case 'ArrowDown':
-            if (!isHorizontal) return undefined; /* [1] */
+              return { y: deltaY, x: deltaX };
+            case 'ArrowLeft':
+              if (isHorizontal || currentCoordinates.x < deltaX) return undefined; /* [1] */
 
-            return { y: deltaY, x: deltaX };
+              return { y: deltaY, x: deltaX };
+            case 'ArrowDown':
+              if (!isHorizontal) return undefined; /* [1] */
+
+              return { y: deltaY, x: deltaX };
+          }
+        } else if (columns[droppablesColId].length === 0 || isDraggingWidowItem) {
+          // Don't let the only draggable item in the list move
+          return undefined;
         }
       }
 
       return sortableKeyboardCoordinates(event, args);
     },
-    [isHorizontal]
+    [isHorizontal, columns, droppablesColId]
   );
 
   /**
