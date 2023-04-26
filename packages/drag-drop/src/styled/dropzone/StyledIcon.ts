@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { CSSObject, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropzone.icon';
@@ -16,15 +16,20 @@ interface IStyledIconProps extends ThemeProps<DefaultTheme> {
 }
 
 function sizeStyles({ theme, isVertical }: IStyledIconProps) {
-  const style: CSSObject = {};
+  let property;
+  let value;
 
   if (isVertical) {
-    style.marginBottom = theme.space.xs;
+    property = 'margin-bottom';
+    value = theme.space.xs;
   } else {
-    style[theme.rtl ? 'marginLeft' : 'marginRight'] = theme.space.xs;
+    property = theme.rtl ? 'margin-left' : 'margin-right';
+    value = theme.space.xs;
   }
 
-  return style;
+  return css`
+    ${property}: ${value};
+  `;
 }
 
 /**

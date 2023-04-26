@@ -5,348 +5,288 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { RefObject, forwardRef, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-
-import type { Story } from '@storybook/react';
-import type {
-  Announcements,
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Story } from '@storybook/react';
+import styled, { useTheme } from 'styled-components';
+import {
+  CollisionDetection,
+  DndContext,
   DragEndEvent,
   DragOverEvent,
-  DragStartEvent,
-  UniqueIdentifier
-} from '@dnd-kit/core';
-
-import {
-  MeasuringStrategy,
-  closestCorners,
   DragOverlay,
-  DndContext,
+  DragStartEvent,
+  KeyboardCoordinateGetter,
   KeyboardSensor,
+  MeasuringStrategy,
   MouseSensor,
   TouchSensor,
-  useDroppable,
+  UniqueIdentifier,
+  closestCorners,
+  pointerWithin,
+  rectIntersection,
   useSensor,
   useSensors
 } from '@dnd-kit/core';
-import {
-  sortableKeyboardCoordinates,
-  SortableContext,
-  verticalListSortingStrategy,
-  arrayMove,
-  useSortable,
-  AnimateLayoutChanges,
-  defaultAnimateLayoutChanges
-} from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
+import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 
-import {
-  Draggable,
-  DraggableList,
-  Dropzone,
-  IDraggableProps
-} from '@zendeskgarden/react-drag-drop';
-
-interface IColumnProps {
-  id: UniqueIdentifier;
-  items: ISortableItem[];
-}
-
-interface IDropzoneColumnProps extends IColumnProps {
-  activeId: UniqueIdentifier | null;
-  activeColumnId: UniqueIdentifier | null;
-  activeItem?: ISortableItem | null;
-}
-
-interface ISortableItem {
-  label: string;
-  caption: string;
-  id: UniqueIdentifier;
-}
-
-interface ISortableItemProps extends IDraggableProps {
-  data: ISortableItem;
-  showDropMessage?: boolean;
-  activeItem?: ISortableItem | null;
-  isOverlay?: boolean;
-  isGrabbed?: boolean;
-  tabIndex?: number;
-}
-
-type IColumns = Record<UniqueIdentifier, ISortableItem[]>;
+import { DraggableItem, DraggablesColumn, DroppablesColumn } from './components';
+import { IColumns } from './types';
+import { findColumn, getAnnouncements } from './utils';
+import { useDocument } from '@zendeskgarden/react-theming';
 
 interface IArgs {
   columns: IColumns;
+  hasDropIndicator: boolean;
+  hasPlaceholder: boolean;
+  isCompact: boolean;
+  isHorizontal: boolean;
+  isBare: boolean;
 }
 
-const StyledSortablesContainer = styled.div`
+const StyledContainer = styled.div<{ isHorizontal: boolean }>`
   display: flex;
-  gap: 16px;
-  max-width: 600px;
-  min-height: 250px;
+  flex-direction: ${p => (p.isHorizontal ? 'column' : 'row')};
+  gap: 48px;
+  max-width: 700px;
+  min-height: ${p => !p.isHorizontal && '250px'};
+
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
-const animateLayoutChanges: AnimateLayoutChanges = args =>
-  defaultAnimateLayoutChanges({ ...args, wasDragging: true });
-
-export const getAnnouncements = (
-  getPosition: (id: UniqueIdentifier | undefined) => number,
-  count: number | undefined
-): Announcements => ({
-  onDragStart({ active }) {
-    return `Picked up sortable item ${active.id}. Sortable item ${
-      active.id
-    } is in position ${getPosition(active.id as UniqueIdentifier)} of ${count}`;
-  },
-  onDragOver({ active, over }) {
-    return `Sortable item ${active.id} was moved into position ${getPosition(
-      over?.id
-    )} of ${count}`;
-  },
-  onDragEnd({ active, over }) {
-    return `Sortable item ${active.id} was dropped at position ${getPosition(
-      over?.id
-    )} of ${count}`;
-  },
-  onDragCancel({ active }) {
-    return `Dragging was cancelled. Sortable item ${active.id} was dropped.`;
-  }
-});
-
-function findColumn(
-  id: UniqueIdentifier | undefined,
-  columns: IColumns
-): UniqueIdentifier | undefined {
-  if (!id) return undefined;
-
-  if (id in columns) {
-    return id;
-  }
-
-  return Object.keys(columns).find(cId => {
-    return columns[cId].findIndex(item => item?.id === id) > -1;
-  });
-}
-
-const DraggableItem = forwardRef<HTMLDivElement, Omit<ISortableItemProps, 'activeItem'>>(
-  (props, ref) => {
-    const { isOverlay, data, tabIndex, ...restProps } = props;
-
-    useEffect(() => {
-      // This is a safe assumptions given a ref is always provided
-      const draggableRef = ref as RefObject<HTMLDivElement>;
-
-      // Maintain focus when the DraggableItem is part of a drag overlay
-      if (isOverlay && draggableRef?.current?.focus) {
-        draggableRef.current.focus();
-      }
-    });
-
-    return (
-      <Draggable {...restProps} tabIndex={isOverlay ? -1 : tabIndex} ref={ref}>
-        <Draggable.Grip />
-        <Draggable.Content>{data.label}</Draggable.Content>
-      </Draggable>
-    );
-  }
-);
-
-DraggableItem.displayName = 'DraggableItem';
-
-const ListItem = ({ data, showDropMessage, activeItem }: ISortableItemProps) => {
-  const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition } =
-    useSortable({
-      animateLayoutChanges,
-      id: data.id,
-      transition: {
-        duration: 200,
-        easing: 'ease-in-out'
-      }
-    });
-  const isActive = activeItem?.id === data.id;
-
-  const style: React.CSSProperties = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-    opacity: isActive ? 0 : 1
-  };
-
-  return (
-    <DraggableList.Item ref={setNodeRef} style={style}>
-      <DraggableItem
-        data={data}
-        {...attributes}
-        {...listeners}
-        style={{ display: showDropMessage ? 'none' : 'flex' }}
-        ref={setActivatorNodeRef}
-      />
-    </DraggableList.Item>
-  );
-};
-
-const DropzoneColumn = ({
-  items,
-  id,
-  activeId,
-  activeColumnId,
-  activeItem
-}: IDropzoneColumnProps) => {
-  const { setNodeRef } = useDroppable({ id });
-  const isActive = !!activeId;
-  const isHighlighted = activeColumnId === id;
-  const showDropMessage = items.length === 1 && isHighlighted;
-
-  return (
-    <Dropzone
-      ref={items.length === 0 ? setNodeRef : undefined}
-      isActive={isActive}
-      isHighlighted={isHighlighted}
-    >
-      <SortableContext id={id as string} items={items} strategy={verticalListSortingStrategy}>
-        <DraggableList>
-          {items.map(item => (
-            <ListItem
-              data={item}
-              activeItem={activeItem}
-              key={item.id}
-              showDropMessage={showDropMessage}
-            />
-          ))}
-        </DraggableList>
-        {items.length === 0 && <Dropzone.Message>Drag to add</Dropzone.Message>}
-        {showDropMessage && <Dropzone.Message>Drop item here</Dropzone.Message>}
-      </SortableContext>
-    </Dropzone>
-  );
-};
-
-export const DragAndDropStory: Story<IArgs> = ({ columns: defaultColumns }: IArgs) => {
+export const DragAndDropStory: Story<IArgs> = ({
+  columns: defaultColumns,
+  hasDropIndicator,
+  hasPlaceholder,
+  isCompact,
+  isHorizontal,
+  isBare
+}: IArgs) => {
   const [columns, setColumns] = useState<IColumns>(defaultColumns);
+  const [isUsingKeyboard, setIsUsingKeyboard] = useState(false);
+  const environment = useDocument();
+  const theme = useTheme();
 
   // state fallback for cancelled drag
   const [snapshot, setSnapshot] = useState<IColumns | null>(null);
 
   // active drag item pointer - item & column
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
+  const [startColumnId, setStartColumnId] = useState<UniqueIdentifier | null>(null);
   const [activeColumnId, setActiveColumnId] = useState<UniqueIdentifier | null>(null);
 
   // Overlay ref to move focus when dragging
   const overlayRef = useRef<HTMLDivElement>(null);
 
-  // derive the active item if activeId/activeColumnId is present
-  const activeItem =
-    activeId && activeColumnId
-      ? columns[findColumn(activeId, columns)!].find(item => item.id === activeId)
-      : null;
+  const activeItem = columns[activeColumnId as UniqueIdentifier]?.find(
+    item => item.id === activeId
+  );
+
+  const draggablesColId = Object.keys(columns)[0];
+  const droppablesColId = Object.keys(columns)[1];
+
+  const unsetKeyboard = useCallback(() => {
+    setIsUsingKeyboard(false);
+  }, []);
+
+  useEffect(() => {
+    if (environment) {
+      environment.addEventListener('mousedown', unsetKeyboard, true);
+    }
+
+    return () => {
+      if (environment) {
+        environment.removeEventListener('mousedown', unsetKeyboard, true);
+      }
+    };
+  });
+
+  /**
+   * If the coordinate getter is used in the draggable list, restrict to left/right/down
+   * arrow keys. Otherwise return the sortable list getter.
+   *
+   * 1. Prevent moving the draggable in the opposite direction of the sortable list target.
+   */
+  const coordinateGetter: KeyboardCoordinateGetter = useCallback(
+    (event, args) => {
+      const { context, currentCoordinates } = args;
+      const { active, droppableRects } = context;
+      const isDraggableList = active?.data?.current?.type === 'draggable';
+
+      if (['ArrowDown', 'ArrowUp', 'ArrowRight', 'ArrowLeft'].includes(event.key)) {
+        const isDraggingWidowItem =
+          columns[droppablesColId].length === 1 && context.collisions?.length === 2;
+
+        if (isDraggableList) {
+          const rects = [...droppableRects.values()];
+          const target = rects[rects.length - 1];
+          const deltaX = target.left;
+          const deltaY = target.top;
+
+          switch (event.key) {
+            case 'ArrowRight':
+              if (isHorizontal || currentCoordinates.x > deltaX) return undefined; /* [1] */
+
+              return { y: deltaY, x: deltaX };
+            case 'ArrowLeft':
+              if (isHorizontal || currentCoordinates.x < deltaX) return undefined; /* [1] */
+
+              return { y: deltaY, x: deltaX };
+            case 'ArrowDown':
+              if (!isHorizontal) return undefined; /* [1] */
+
+              return { y: deltaY, x: deltaX };
+          }
+        } else if (columns[droppablesColId].length === 0 || isDraggingWidowItem) {
+          // Don't let the only draggable item in the list move
+          return undefined;
+        }
+      }
+
+      return sortableKeyboardCoordinates(event, args);
+    },
+    [isHorizontal, columns, droppablesColId]
+  );
+
+  /**
+   * Check if the draggable overlaps via rect intersection, and if so, return the
+   * closest drop target.
+   */
+  const collisionDetection: CollisionDetection = useCallback(
+    args => {
+      const collisions = [...pointerWithin(args), ...rectIntersection(args)];
+
+      if (collisions.length > 0 && activeColumnId) {
+        return closestCorners(args);
+      }
+
+      return collisions;
+    },
+    [activeColumnId]
+  );
 
   // DndKit interaction sensors
   const sensors = useSensors(
     useSensor(MouseSensor),
     useSensor(TouchSensor),
-    useSensor(KeyboardSensor, {
-      coordinateGetter: sortableKeyboardCoordinates
-    })
+    useSensor(KeyboardSensor, { coordinateGetter })
   );
 
   const onDragStart = ({ active }: DragStartEvent) => {
     const columnId = findColumn(active.id, columns) as UniqueIdentifier;
 
     setActiveId(active.id);
+    setStartColumnId(columnId);
     setActiveColumnId(columnId);
     setSnapshot(columns);
   };
 
-  const onDragOver = ({ active, over }: DragOverEvent) => {
-    const overId = over?.id;
+  const onDragOver = useCallback(
+    ({ active, over }: DragOverEvent) => {
+      const overId = over?.id;
 
-    if (!overId || active.id in columns) return;
+      if (activeColumnId && startColumnId === draggablesColId && !overId) {
+        setActiveColumnId(draggablesColId);
+        setColumns(snapshot!);
 
-    // Find column ids
-    const overColId = findColumn(overId, columns);
-    const activeColId = findColumn(active.id, columns);
-
-    if (!overColId || !activeColId) return;
-
-    if (activeColumnId !== overColId) {
-      setActiveColumnId(overColId);
-    }
-
-    if (activeColId === overColId) return;
-
-    setColumns(prevColumns => {
-      const nextColumns = { ...prevColumns };
-      const activeItems = nextColumns[activeColId];
-      const overItems = nextColumns[overColId];
-
-      // Find the indices for items
-      const activeIndex = activeItems.findIndex(item => item.id === active.id);
-      const overIndex = overItems.findIndex(item => item.id === overId);
-      let newIndex: number;
-
-      if (overId in nextColumns) {
-        const length = overItems.length;
-
-        newIndex = length > 0 ? length + 1 : length;
-      } else {
-        const isBelowLastItem =
-          over &&
-          overIndex === overItems.length - 1 &&
-          active.rect?.current?.translated?.top &&
-          active.rect.current.translated.top > over.rect.top + over.rect.height;
-
-        const modifier = isBelowLastItem ? 1 : 0;
-
-        newIndex = overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
+        return;
       }
 
-      // Remove moved item
-      nextColumns[activeColId] = nextColumns[activeColId].filter(item => item.id !== active.id);
+      if (!overId || active.id in columns) return;
 
-      // Add moved item
-      nextColumns[overColId] = [
-        ...nextColumns[overColId].slice(0, newIndex),
-        prevColumns[activeColId][activeIndex],
-        ...nextColumns[overColId].slice(newIndex, nextColumns[overColId].length)
-      ];
+      // Find column ids
+      const overColId = findColumn(overId, columns);
+      const activeColId = findColumn(active.id, columns);
 
-      return nextColumns;
-    });
-  };
+      if (!overColId || !activeColId) return;
 
-  const onDragEnd = ({ active, over }: DragEndEvent) => {
-    const activeColId = findColumn(active.id, columns);
-    const overId = over?.id;
+      if (activeColumnId !== overColId) {
+        setActiveColumnId(overColId);
+      }
 
-    if (!activeColId || !overId) {
-      setActiveId(null);
-      setActiveColumnId(null);
+      if (activeColId === overColId) return;
 
-      return;
-    }
-
-    const overColId = findColumn(overId, columns);
-
-    if (!overColId) return;
-
-    const activeIndex = columns[activeColId].findIndex(item => item.id === active.id);
-    const overIndex = columns[overColId].findIndex(item => item.id === overId);
-
-    // If a droppable area isn't active, we can't drop/set the items
-    // revert to snapshot
-    if (activeIndex !== overIndex) {
       setColumns(prevColumns => {
         const nextColumns = { ...prevColumns };
+        const activeItems = nextColumns[activeColId];
+        const overItems = nextColumns[overColId];
 
-        nextColumns[overColId] = arrayMove(prevColumns[overColId], activeIndex, overIndex);
+        // Find the indices for items
+        const activeIndex = activeItems.findIndex(item => item.id === active.id);
+        const overIndex = overItems.findIndex(item => item.id === overId);
+        let newIndex: number;
+
+        if (overId in nextColumns) {
+          const length = overItems.length;
+
+          newIndex = length > 0 ? length + 1 : length;
+        } else {
+          const isBelowLastItem =
+            over &&
+            overIndex === overItems.length - 1 &&
+            active.rect?.current?.translated?.top &&
+            active.rect.current.translated.top > over.rect.top + over.rect.height;
+
+          const modifier = isBelowLastItem ? 1 : 0;
+
+          newIndex = overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
+        }
+
+        // Remove moved item
+        nextColumns[activeColId] = nextColumns[activeColId].filter(item => item.id !== active.id);
+
+        // Add moved item
+        nextColumns[overColId] = [
+          ...nextColumns[overColId].slice(0, newIndex),
+          prevColumns[activeColId][activeIndex],
+          ...nextColumns[overColId].slice(newIndex, nextColumns[overColId].length)
+        ];
 
         return nextColumns;
       });
-    }
+    },
+    [columns, activeColumnId, snapshot, draggablesColId, startColumnId]
+  );
 
-    setSnapshot(null);
-    setActiveId(null);
-    setActiveColumnId(null);
-  };
+  const onDragEnd = useCallback(
+    ({ active, over }: DragEndEvent) => {
+      const activeColId = findColumn(active.id, columns);
+      const overId = over?.id;
+
+      if (!activeColId || !overId) {
+        setActiveId(null);
+        setActiveColumnId(null);
+
+        return;
+      }
+
+      const overColId = findColumn(overId, columns);
+
+      if (!overColId) return;
+
+      const activeIndex = columns[activeColId].findIndex(item => item.id === active.id);
+      const overIndex = columns[overColId].findIndex(item => item.id === overId);
+
+      // If a droppable area isn't active, we can't drop/set the items
+      // revert to snapshot
+      if (activeIndex !== overIndex) {
+        setColumns(prevColumns => {
+          const nextColumns = { ...prevColumns };
+
+          nextColumns[overColId] = arrayMove(prevColumns[overColId], activeIndex, overIndex);
+
+          return nextColumns;
+        });
+      }
+
+      setSnapshot(null);
+      setActiveId(null);
+      setActiveColumnId(null);
+    },
+    [columns]
+  );
 
   const onDragCancel = () => {
     setColumns(snapshot!);
@@ -366,11 +306,12 @@ export const DragAndDropStory: Story<IArgs> = ({ columns: defaultColumns }: IArg
   };
 
   const activeItemsCount = columns[activeColumnId!]?.length;
+  const overlayOffset = theme.space.xxs;
 
   return (
     <DndContext
       accessibility={{ announcements: getAnnouncements(getPosition, activeItemsCount) }}
-      collisionDetection={closestCorners}
+      collisionDetection={collisionDetection}
       sensors={sensors}
       onDragStart={onDragStart}
       onDragOver={onDragOver}
@@ -378,22 +319,46 @@ export const DragAndDropStory: Story<IArgs> = ({ columns: defaultColumns }: IArg
       onDragCancel={onDragCancel}
       measuring={{ droppable: { strategy: MeasuringStrategy.Always } }}
     >
-      <StyledSortablesContainer>
-        {Object.keys(columns).map(columnId => (
-          <DropzoneColumn
-            items={columns[columnId]}
-            id={columnId}
-            key={columnId}
-            activeId={activeId}
-            activeColumnId={activeColumnId}
-            activeItem={activeItem}
-          />
-        ))}
-      </StyledSortablesContainer>
+      <StyledContainer
+        isHorizontal={isHorizontal}
+        onKeyUp={() => !isUsingKeyboard && setIsUsingKeyboard(true)}
+        onKeyDown={() => !isUsingKeyboard && setIsUsingKeyboard(true)}
+      >
+        {Object.keys(columns).map(columnId => {
+          const isDraggablesColumn = columnId === draggablesColId;
+          const ColumnComponent = isDraggablesColumn ? DraggablesColumn : DroppablesColumn;
+
+          return (
+            <ColumnComponent
+              items={columns[columnId]}
+              id={columnId}
+              key={columnId}
+              activeId={activeId}
+              activeColumnId={activeColumnId}
+              hasDropIndicator={hasDropIndicator && !isDraggablesColumn}
+              hasPlaceholder={hasPlaceholder && isDraggablesColumn}
+              isCompact={isCompact}
+              isHorizontal={isHorizontal}
+              isBare={isBare}
+              isUsingKeyboard={isUsingKeyboard}
+            />
+          );
+        })}
+      </StyledContainer>
       <DragOverlay>
-        {activeItem ? (
-          <DraggableItem data={activeItem} isOverlay isGrabbed ref={overlayRef} />
-        ) : null}
+        {activeItem && (
+          <div style={{ padding: isHorizontal ? `0 ${overlayOffset}` : `${overlayOffset} 0` }}>
+            <DraggableItem
+              ref={overlayRef}
+              style={{ width: isHorizontal ? '150px' : undefined }}
+              data={activeItem}
+              isBare={isBare}
+              isOverlay
+              isGrabbed
+              isCompact={isCompact}
+            />
+          </div>
+        )}
       </DragOverlay>
     </DndContext>
   );

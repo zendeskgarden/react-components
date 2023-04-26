@@ -6,7 +6,6 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'draggable_list.drop_indicator';
@@ -15,66 +14,13 @@ export interface IStyledDropIndicatorProps extends ThemeProps<DefaultTheme> {
   isHorizontal?: boolean;
 }
 
-const getPosition = ({ theme }: IStyledDropIndicatorProps) => {
-  const { borderWidths, space } = theme;
-
-  return math(`${space.xxs} - ${borderWidths.sm}`);
-};
-
-const getBeforeTransform = (props: IStyledDropIndicatorProps) => {
-  const {
-    isHorizontal,
-    theme: { rtl }
-  } = props;
-  const position = getPosition(props);
-
-  if (isHorizontal) {
-    return rtl ? `translate(${position}, -100%)` : `translate(-${position}, -100%)`;
-  }
-
-  return `translate(-100%, -${position})`;
-};
-
-const getAfterTransform = (props: IStyledDropIndicatorProps) => {
-  const {
-    isHorizontal,
-    theme: { rtl }
-  } = props;
-  const position = getPosition(props);
-
-  if (isHorizontal) {
-    return rtl ? `translate(${position}, 100%)` : `translate(-${position}, 100%)`;
-  }
-
-  return `translate(100%, -${position})`;
-};
-
-function pseudoBeforeSize(props: IStyledDropIndicatorProps) {
-  const { isHorizontal } = props;
-  const positionProperty = isHorizontal ? 'top' : 'left';
-
-  return css`
-    ${positionProperty}: 0;
-    transform: ${getBeforeTransform(props)};
-  `;
-}
-
-function pseudoAfterSize(props: IStyledDropIndicatorProps) {
-  const { isHorizontal } = props;
-  const positionProperty = isHorizontal ? 'bottom' : 'right';
-
-  return css`
-    ${positionProperty}: 0;
-    transform: ${getAfterTransform(props)};
-  `;
-}
-
 const colorStyles = (props: IStyledDropIndicatorProps) => {
   const { theme } = props;
   const backgroundColor = getColor('primaryHue', 600, theme);
+  const color = getColor('primaryHue', 600, theme);
 
   return css`
-    background-color: ${backgroundColor};
+    box-shadow: ${`0 0 0 ${theme.borderWidths.sm} ${color}`};
 
     &::before,
     &::after {
@@ -88,14 +34,12 @@ const colorStyles = (props: IStyledDropIndicatorProps) => {
 };
 
 const sizeStyles = (props: IStyledDropIndicatorProps) => {
-  const { theme, isHorizontal } = props;
-  const size = `${theme.space.base / 2}px`;
+  const { isHorizontal, theme } = props;
   const pseudoSize = theme.space.xs;
+  const translateX = isHorizontal ? theme.space.xxs : theme.space.xs;
+  const translateY = isHorizontal ? theme.space.xs : theme.space.xxs;
 
   return css`
-    width: ${isHorizontal && size};
-    height: ${!isHorizontal && size};
-
     &::before,
     &::after {
       border-radius: 50%;
@@ -104,11 +48,15 @@ const sizeStyles = (props: IStyledDropIndicatorProps) => {
     }
 
     &::before {
-      ${pseudoBeforeSize}
+      top: 0;
+      left: 0;
+      transform: translate(-${translateX}, -${translateY});
     }
 
     &::after {
-      ${pseudoAfterSize}
+      right: 0;
+      bottom: 0;
+      transform: translate(${translateX}, ${translateY});
     }
   `;
 };
