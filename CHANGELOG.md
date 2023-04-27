@@ -12,6 +12,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.65.0 (2023-04-27)
+
+#### :rocket: New Feature
+* `breadcrumbs`, `grid`, `modals`, `theming`
+  * [#1539](https://github.com/zendeskgarden/react-components/pull/1539) feat(theming): add `useWindow` utility and enhance `useText` with optional `condition` parameter ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `tags`
+  * [#1541](https://github.com/zendeskgarden/react-components/pull/1541) fix(tags): prevent `buttontext` color override on `Tag.Close` ([@jzempel](https://github.com/jzempel))
+* `drag-drop`
+  * [#1538](https://github.com/zendeskgarden/react-components/pull/1538) fix(drag-drop) : improves drop indicator positioning in draggable context ([@geotrev](https://github.com/geotrev))
+
 ## v8.64.0 (2023-04-17)
 
 #### :rocket: New Feature
