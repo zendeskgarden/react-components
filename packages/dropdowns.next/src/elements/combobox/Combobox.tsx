@@ -21,7 +21,7 @@ import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { DEFAULT_THEME, useText, useWindow } from '@zendeskgarden/react-theming';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { IComboboxProps, VALIDATION } from '../../types';
+import { IComboboxProps, IOptionProps, VALIDATION } from '../../types';
 import { ComboboxContext } from '../../context/useComboboxContext';
 import {
   StyledCombobox,
@@ -33,7 +33,8 @@ import {
   StyledValue
 } from '../../views';
 import { Listbox } from './Listbox';
-import { toOptions } from './utils';
+import { Tag } from './Tag';
+import { toOptions, toString } from './utils';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -61,7 +62,12 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     ref
   ) => {
     const [isInputHidden, setIsInputHidden] = useState(true);
-    const options = useMemo(() => toOptions(children), [children]);
+    const [options, optionTagProps] = useMemo(() => {
+      const _optionTagProps: Record<string, IOptionProps['tagProps']> = {};
+      const _options = toOptions(children, _optionTagProps);
+
+      return [_options, _optionTagProps];
+    }, [children]);
     const triggerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const listboxRef = useRef<HTMLUListElement>(null);
@@ -75,7 +81,9 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       getInputProps,
       getListboxProps,
       getOptionProps,
-      getOptGroupProps
+      getOptGroupProps,
+      getTagProps,
+      selection
     } = useCombobox({
       triggerRef,
       inputRef,
@@ -111,8 +119,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       'aria-label': useText(Combobox, { listboxAriaLabel }, 'listboxAriaLabel', 'Options')!
     }) as HTMLAttributes<HTMLUListElement>;
     const contextValue = useMemo(
-      () => ({ activeValue, getOptionProps, getOptGroupProps, isCompact }),
-      [activeValue, getOptionProps, getOptGroupProps, isCompact]
+      () => ({ activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact }),
+      [activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact]
     );
 
     return (
@@ -124,7 +132,15 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                 <StartIcon />
               </StyledInputIcon>
               <StyledInputGroup>
-                {/* insert tags here */}
+                {isMultiselectable &&
+                  Array.isArray(selection) &&
+                  selection.map(option => (
+                    <Tag
+                      key={toString(option)}
+                      option={option}
+                      {...optionTagProps[toString(option)]}
+                    />
+                  ))}
                 {isInputHidden && (
                   <StyledValue isCompact={isCompact} isPlaceholder={!inputValue}>
                     {inputValue || placeholder}

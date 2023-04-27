@@ -13,6 +13,7 @@ export const ComboboxContext = createContext<
       activeValue: IUseComboboxReturnValue['activeValue'];
       getOptionProps: IUseComboboxReturnValue['getOptionProps'];
       getOptGroupProps: IUseComboboxReturnValue['getOptGroupProps'];
+      getTagProps: IUseComboboxReturnValue['getTagProps'];
       isCompact?: boolean;
     }
   | undefined

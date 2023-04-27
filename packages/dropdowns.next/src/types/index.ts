@@ -13,6 +13,8 @@ import {
   ReactNode,
   RefObject
 } from 'react';
+import { IOption } from '@zendeskgarden/container-combobox';
+import { ITagProps as IBaseTagProps } from '@zendeskgarden/react-tags';
 
 export const OPTION_TYPE = ['add', 'danger', 'next', 'previous'] as const;
 
@@ -79,6 +81,8 @@ export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'val
   isSelected?: boolean;
   /** Sets the text label of the option (defaults to `value`) */
   label?: string;
+  /** Overrides props (including `children`) for the associated tag */
+  tagProps?: Omit<ITagProps, 'option'>;
   /** Determines the option type */
   type?: OptionType;
   /** Sets the unique value that is returned upon selection */
@@ -92,4 +96,11 @@ export interface IOptGroupProps extends LiHTMLAttributes<HTMLLIElement> {
   icon?: ReactElement;
   /** Sets the text label of the option group */
   label?: string;
+}
+
+export interface ITagProps extends Omit<IBaseTagProps, 'isRound' | 'size'> {
+  /** @ignore Associates this tag with the given option (internal only) */
+  option: IOption;
+  /** Sets the `aria-label` and tooltip for the remove icon */
+  removeLabel?: string;
 }

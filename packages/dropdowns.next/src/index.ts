@@ -8,5 +8,6 @@
 export { Combobox } from './elements/combobox/Combobox';
 export { Option } from './elements/combobox/Option';
 export { OptGroup } from './elements/combobox/OptGroup';
+export { Tag } from './elements/combobox/Tag';
 
-export type { IComboboxProps, IOptionProps, IOptGroupProps } from './types';
+export type { IComboboxProps, IOptionProps, IOptGroupProps, ITagProps } from './types';

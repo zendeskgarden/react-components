@@ -21,7 +21,7 @@ import {
   StyledOptionTypeIcon
 } from '../../views';
 import { OptionMeta } from './OptionMeta';
-import { toOption } from './utils';
+import { toOption, toString } from './utils';
 
 const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
   ({ children, icon, isDisabled, isSelected, label, type, value, ...props }, ref) => {
@@ -59,7 +59,7 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
             {renderActionIcon(type)}
           </StyledOptionTypeIcon>
           {icon && <StyledOptionIcon>{icon}</StyledOptionIcon>}
-          <StyledOptionContent>{children || label || value}</StyledOptionContent>
+          <StyledOptionContent>{children || label || toString({ value })}</StyledOptionContent>
         </StyledOption>
       </OptionContext.Provider>
     );
@@ -73,6 +73,7 @@ OptionComponent.propTypes = {
   isDisabled: PropTypes.bool,
   isSelected: PropTypes.bool,
   label: PropTypes.string,
+  tagProps: PropTypes.object,
   type: PropTypes.oneOf(OPTION_TYPE),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
 };

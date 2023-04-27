@@ -19,5 +19,6 @@ export * from './combobox/StyledOptionIcon';
 export * from './combobox/StyledOptionMeta';
 export * from './combobox/StyledOptionTypeIcon';
 export * from './combobox/StyledSeparator';
+export * from './combobox/StyledTag';
 export * from './combobox/StyledTrigger';
 export * from './combobox/StyledValue';
