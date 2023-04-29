@@ -16,7 +16,7 @@ export {
 } from './utils/retrieveComponentStyles';
 export { default as withTheme } from './utils/withTheme';
 export { default as getDocument } from './utils/getDocument';
-export { default as getColor } from './utils/getColor';
+export { getColor } from './utils/getColor';
 export { default as getLineHeight } from './utils/getLineHeight';
 export { default as mediaQuery } from './utils/mediaQuery';
 export { default as arrowStyles } from './utils/arrowStyles';
