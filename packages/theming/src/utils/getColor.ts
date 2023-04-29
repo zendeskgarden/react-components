@@ -9,9 +9,9 @@ import DEFAULT_THEME from '../elements/theme';
 import { darken, lighten, rgba } from 'polished';
 import { DefaultTheme } from 'styled-components';
 
-type Hue = Record<number | string, string> | string;
+export type Hue = Record<number | string, string> | string;
 
-const DEFAULT_SHADE = 600;
+export const DEFAULT_SHADE = 600;
 
 const adjust = (color: string, expected: number, actual: number) => {
   if (expected !== actual) {

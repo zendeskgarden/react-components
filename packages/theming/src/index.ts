@@ -24,6 +24,7 @@ export { useDocument } from './utils/useDocument';
 export { useWindow } from './utils/useWindow';
 export { useText } from './utils/useText';
 export { default as menuStyles } from './utils/menuStyles';
+export { focusStyles } from './utils/focusStyles';
 
 export {
   ARROW_POSITION as ARRAY_ARROW_POSITION,
