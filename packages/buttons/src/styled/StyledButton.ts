@@ -68,7 +68,9 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
       : baseColor;
   const boxShadow = `
     ${props.focusInset ? 'inset' : ''}
-    ${props.theme.shadows.md(rgba(boxShadowColor as string, 0.35))}`;
+    ${props.theme.shadows.xs(props.theme.palette.white as string)},
+    ${props.focusInset ? 'inset' : ''}
+    ${props.theme.shadows.md(boxShadowColor as string)}`;
 
   if (props.isLink) {
     retVal = css`
