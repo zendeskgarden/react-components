@@ -17,6 +17,7 @@ export {
 export { default as withTheme } from './utils/withTheme';
 export { default as getDocument } from './utils/getDocument';
 export { getColor } from './utils/getColor';
+export { getFocusBoxShadow } from './utils/getFocusBoxShadow';
 export { default as getLineHeight } from './utils/getLineHeight';
 export { default as mediaQuery } from './utils/mediaQuery';
 export { default as arrowStyles } from './utils/arrowStyles';
