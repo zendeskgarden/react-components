@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { em, math } from 'polished';
+import { em, math, rgba } from 'polished';
 import {
   retrieveComponentStyles,
   getColor,
@@ -53,9 +53,7 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
 
   const boxShadow = `
     ${props.focusInset ? 'inset' : ''}
-    ${props.theme.shadows.xs(props.theme.palette.white as string)},
-    ${props.focusInset ? 'inset' : ''}
-    ${props.theme.shadows.md(focusBorderColor)}`;
+    ${props.theme.shadows.md(rgba(focusBorderColor, 0.35))}`;
   const readOnlyBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);
   const readOnlyBorderColor = getColor('neutralHue', SHADE - 300, props.theme);
   const disabledBackgroundColor = readOnlyBackgroundColor;
