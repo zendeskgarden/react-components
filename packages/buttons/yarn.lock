@@ -9,14 +9,6 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@reach/auto-id@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.16.0.tgz#dfabc3227844e8c04f8e6e45203a8e14a8edbaed"
-  integrity sha512-5ssbeP5bCkM39uVsfQCwBBL+KT8YColdnMN5/Eto6Rj7929ql95R3HZUOkKIvj7mgPtEb60BLQxd1P3o6cjbmg==
-  dependencies:
-    "@reach/utils" "0.16.0"
-    tslib "^2.3.0"
-
 "@reach/auto-id@^0.17.0":
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.17.0.tgz#60cce65eb7a0d6de605820727f00dfe2b03b5f17"
@@ -25,13 +17,12 @@
     "@reach/utils" "0.17.0"
     tslib "^2.3.0"
 
-"@reach/utils@0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.16.0.tgz#5b0777cf16a7cab1ddd4728d5d02762df0ba84ce"
-  integrity sha512-PCggBet3qaQmwFNcmQ/GqHSefadAFyNCUekq9RrWoaU9hh/S4iaFgf2MBMdM47eQj5i/Bk0Mm07cP/XPFlkN+Q==
+"@reach/auto-id@^0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.18.0.tgz#4b97085cd1cf1360a9bedc6e9c78e97824014f0d"
+  integrity sha512-XwY1IwhM7mkHZFghhjiqjQ6dstbOdpbFLdggeke75u8/8icT8uEHLbovFUgzKjy9qPvYwZIB87rLiR8WdtOXCg==
   dependencies:
-    tiny-warning "^1.0.3"
-    tslib "^2.3.0"
+    "@reach/utils" "0.18.0"
 
 "@reach/utils@0.17.0":
   version "0.17.0"
@@ -41,6 +32,11 @@
     tiny-warning "^1.0.3"
     tslib "^2.3.0"
 
+"@reach/utils@0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.18.0.tgz#4f3cebe093dd436eeaff633809bf0f68f4f9d2ee"
+  integrity sha512-KdVMdpTgDyK8FzdKO9SCpiibuy/kbv3pwgfXshTI6tEcQT1OOwj7BAksnzGC0rPz0UholwC+AgkqEl3EJX3M1A==
+
 "@zendeskgarden/container-buttongroup@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-buttongroup/-/container-buttongroup-1.0.1.tgz#f21fce9d7a182ffdbf0e1a2fb679892a4c742501"
@@ -49,10 +45,10 @@
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-selection" "^2.0.1"
 
-"@zendeskgarden/container-focusvisible@^0.4.6":
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.8.tgz#97026300d1766bf7b30c218eb614b87900b26ebd"
-  integrity sha512-oCd7ippef7YupfHaKOvyBwiCShFKYfJZRGFei1iLOhfWDtr7znrjgiLHwIw7TBlbGz/uSqaF0mPkwkvVjAebAQ==
+"@zendeskgarden/container-focusvisible@^1.0.0":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-1.0.5.tgz#a5eb69bda1f380d6be5ef59bf916d8259006689b"
+  integrity sha512-pHDrLl7Fx06M/E/SslCdfrG9Ys3VXQc1+xhsSjxG4Q0Z7rpz53FKdYSsq6ZyR0ydm0tdL+xgerT4kxU5V66T2g==
   dependencies:
     "@babel/runtime" "^7.8.4"
 
@@ -72,13 +68,13 @@
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-utilities" "^1.0.1"
 
-"@zendeskgarden/container-utilities@^0.7.0":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.7.1.tgz#de9d02b82e9e29dfa209aac1bfad83ff868aeb9e"
-  integrity sha512-L+OOI2FfqlNb1LVDtGFrnxNEwxaM+LrL1dy1r3wKakUZ2ww1FbrcHWjnF07WLHa56l7ufNjLvqahZdpHNHEE6Q==
+"@zendeskgarden/container-utilities@^1.0.0":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-1.0.5.tgz#f787e2d75471bbf684d5b1b0c0daabe6e23a0b18"
+  integrity sha512-9BEpLnAwSsDq4QgnGWhK/O/Fj+Q9daNGaSNNxqSfhkWj8h7HQDM4vU4gtu/mDEgDO8ubDE9Qeu+zytN/pdWqpQ==
   dependencies:
     "@babel/runtime" "^7.8.4"
-    "@reach/auto-id" "^0.16.0"
+    "@reach/auto-id" "^0.18.0"
 
 "@zendeskgarden/container-utilities@^1.0.1":
   version "1.0.1"
@@ -88,13 +84,13 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.17.0"
 
-"@zendeskgarden/react-theming@^8.61.0":
-  version "8.61.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.61.0.tgz#696f001649d10605b67d7f2443e34f92c152926d"
-  integrity sha512-2evI0OTLMtltO8XWQbMUNxr0zxV4oJJ6W226F/ILgGW0ojF/8k9BYGrsR5i3qDcbMXDZFHiJyv+/r5quvLl1hw==
+"@zendeskgarden/react-theming@^8.64.0":
+  version "8.65.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.65.0.tgz#f9293e1220875afa659ad3582d53a83df95f1ddd"
+  integrity sha512-GH/QNUSFGTBCZtrL2CiZy1YapMnlfBXsFPneRAQ9jC1PApkv9sHNNvdwoW4/n/DBZKYR+DUT60PT8mL8RbNTlg==
   dependencies:
-    "@zendeskgarden/container-focusvisible" "^0.4.6"
-    "@zendeskgarden/container-utilities" "^0.7.0"
+    "@zendeskgarden/container-focusvisible" "^1.0.0"
+    "@zendeskgarden/container-utilities" "^1.0.0"
     polished "^4.0.0"
     prop-types "^15.5.7"
 

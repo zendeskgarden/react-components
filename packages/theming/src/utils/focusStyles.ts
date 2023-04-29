@@ -8,7 +8,7 @@
 import { css } from 'styled-components';
 import { IGardenTheme } from '../types';
 import DEFAULT_THEME from '../elements/theme';
-import { getColor, DEFAULT_SHADE, Hue } from './getColor';
+import getColor, { DEFAULT_SHADE, Hue } from './getColor';
 
 type FocusStyles = {
   focusInset?: boolean;
