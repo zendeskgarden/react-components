@@ -11,8 +11,7 @@ import {
   retrieveComponentStyles,
   getColor,
   getLineHeight,
-  DEFAULT_THEME,
-  focusStyles
+  DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
 import { Validation } from '../../types';
 import { StyledHint } from '../common/StyledHint';
@@ -92,12 +91,11 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
       border-color: ${hoverBorderColor};
     }
 
-    ${focusStyles({
-      condition: !props.isBare,
-      theme: props.theme,
-      focusInset: props.focusInset,
-      styles: { borderColor: focusBorderColor }
-    })}
+    &:focus,
+    &[data-garden-focus-visible='true'] {
+      border-color: ${focusBorderColor};
+      box-shadow: ${!props.isBare && boxShadow};
+    }
 
     &:disabled,
     /* apply to faux input */

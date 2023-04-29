@@ -7,12 +7,7 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { em, math, rgba } from 'polished';
-import {
-  DEFAULT_THEME,
-  getColor,
-  getFocusBoxShadow,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { IButtonProps } from '../types';
 import { StyledButtonGroup } from './StyledButtonGroup';
 import { StyledIcon } from './StyledIcon';
@@ -67,11 +62,13 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const activeColor = getColor(hue, shade + 200, props.theme);
   const disabledBackgroundColor = getDisabledBackgroundColor(props);
   const disabledForegroundColor = getColor(hue, shade - 200, props.theme);
-  const boxShadow = getFocusBoxShadow({
-    theme: props.theme,
-    focusInset: props.focusInset,
-    spacerWidth: props.focusInset && (props.isPrimary || props.isSelected) ? 'sm' : undefined
-  });
+  const boxShadowColor =
+    props.focusInset && (props.isPrimary || props.isSelected)
+      ? props.theme.palette.white
+      : baseColor;
+  const boxShadow = `
+    ${props.focusInset ? 'inset' : ''}
+    ${props.theme.shadows.md(rgba(boxShadowColor as string, 0.35))}`;
 
   if (props.isLink) {
     retVal = css`
