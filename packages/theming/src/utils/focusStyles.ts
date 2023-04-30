@@ -38,6 +38,7 @@ type FocusStylesParameters = FocusBoxShadowParameters & {
  *               0 0 0 {3px} {blue};
  *   outline: {2px} solid transparent;
  *   outline-offset: {1px};
+ *   // additional {styles} here...
  * }
  * ```
  */
