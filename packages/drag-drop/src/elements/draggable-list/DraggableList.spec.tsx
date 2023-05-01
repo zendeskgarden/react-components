@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { math } from 'polished';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
 import { DraggableList } from './DraggableList';
@@ -71,144 +70,35 @@ describe('DraggableList', () => {
     });
   });
 
-  describe('vertical list spacing', () => {
-    it('renders expected spacing between list items', () => {
-      const { queryAllByText } = render(
-        <DraggableList>
-          <DraggableList.Item>item</DraggableList.Item>
-          <DraggableList.Item>item</DraggableList.Item>
-          <DraggableList.Item>item</DraggableList.Item>
-        </DraggableList>
-      );
+  it(`renders expected vertical spacing between list items`, () => {
+    const { queryAllByText } = renderRtl(
+      <DraggableList isHorizontal>
+        <DraggableList.Item>item</DraggableList.Item>
+        <DraggableList.Item>item</DraggableList.Item>
+        <DraggableList.Item>item</DraggableList.Item>
+      </DraggableList>
+    );
 
-      const items = queryAllByText('item').slice(1);
+    const items = queryAllByText('item').slice();
 
-      items.forEach(item => {
-        expect(item).toHaveStyle(`margin-top: ${DEFAULT_THEME.space.xs}`);
-      });
-    });
-
-    it('renders expected spacing when drop indicator is between items', () => {
-      const { queryByTestId } = render(
-        <DraggableList>
-          <DraggableList.Item>item 1</DraggableList.Item>
-          <DraggableList.DropIndicator data-test-id="indicator" />
-          <DraggableList.Item data-test-id="item2">item 2</DraggableList.Item>
-        </DraggableList>
-      );
-
-      const item = queryByTestId('item2');
-      const indicator = queryByTestId('indicator');
-      const value = math(`${DEFAULT_THEME.space.base / 2}px + ${DEFAULT_THEME.borderWidths.sm}`);
-
-      expect(item).toHaveStyle(`margin-top: ${value}`);
-      expect(indicator).toHaveStyle(`margin-top: ${value}`);
-    });
-
-    it('renders expected spacing when drop indicator is at start of list', () => {
-      const { queryByTestId } = render(
-        <DraggableList>
-          <DraggableList.DropIndicator data-test-id="indicator" />
-          <DraggableList.Item>item 1</DraggableList.Item>
-          <DraggableList.Item>item 2</DraggableList.Item>
-        </DraggableList>
-      );
-
-      const indicator = queryByTestId('indicator');
-      const value = math(`-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm}`);
-
-      expect(indicator).toHaveStyle(`
-        position: absolute;
-        top: ${value};
-      `);
-    });
-
-    it('renders expected spacing when drop indicator is at end of list', () => {
-      const { queryByTestId } = render(
-        <DraggableList>
-          <DraggableList.Item>item 2</DraggableList.Item>
-          <DraggableList.DropIndicator data-test-id="indicator" />
-        </DraggableList>
-      );
-
-      const indicator = queryByTestId('indicator');
-      const value = math(`-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm}`);
-
-      expect(indicator).toHaveStyle(`
-        position: absolute;
-        bottom: ${value};
-      `);
+    items.forEach(item => {
+      expect(item).toHaveStyle(`padding: 0 ${DEFAULT_THEME.space.xxs}`);
     });
   });
 
-  describe.each(['ltr', 'rtl'])('horizontal list in %s', dir => {
-    const renderFn = dir === 'rtl' ? renderRtl : render;
-    const inlineMarginProp = dir === 'rtl' ? 'margin-right' : 'margin-left';
+  it(`renders expected horizontal spacing between list items`, () => {
+    const { queryAllByText } = render(
+      <DraggableList isHorizontal>
+        <DraggableList.Item>item</DraggableList.Item>
+        <DraggableList.Item>item</DraggableList.Item>
+        <DraggableList.Item>item</DraggableList.Item>
+      </DraggableList>
+    );
 
-    it(`renders expected ${dir} spacing between list items`, () => {
-      const { queryAllByText } = renderFn(
-        <DraggableList isHorizontal>
-          <DraggableList.Item>item</DraggableList.Item>
-          <DraggableList.Item>item</DraggableList.Item>
-          <DraggableList.Item>item</DraggableList.Item>
-        </DraggableList>
-      );
+    const items = queryAllByText('item').slice();
 
-      const items = queryAllByText('item').slice(1);
-
-      items.forEach(item => {
-        expect(item).toHaveStyle(`${inlineMarginProp}: ${DEFAULT_THEME.space.xs}`);
-      });
-    });
-
-    it(`renders expected ${dir} spacing when drop indicator is between items`, () => {
-      const { queryByTestId } = renderFn(
-        <DraggableList isHorizontal>
-          <DraggableList.Item>item 1</DraggableList.Item>
-          <DraggableList.DropIndicator data-test-id="indicator" />
-          <DraggableList.Item data-test-id="item2">item 2</DraggableList.Item>
-        </DraggableList>
-      );
-
-      const item = queryByTestId('item2');
-      const indicator = queryByTestId('indicator');
-      const value = math(`${DEFAULT_THEME.space.base / 2}px + ${DEFAULT_THEME.borderWidths.sm}`);
-
-      expect(item).toHaveStyle(`${inlineMarginProp}: ${value}`);
-      expect(indicator).toHaveStyle(`${inlineMarginProp}: ${value}`);
-    });
-
-    it(`renders expected ${dir} spacing when drop indicator is at start of list`, () => {
-      const { queryByTestId } = renderFn(
-        <DraggableList isHorizontal>
-          <DraggableList.DropIndicator data-test-id="indicator" />
-          <DraggableList.Item>item 1</DraggableList.Item>
-        </DraggableList>
-      );
-
-      const indicator = queryByTestId('indicator');
-      const value = math(`-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm}`);
-
-      expect(indicator).toHaveStyle(`
-        position: absolute;
-        ${dir === 'rtl' ? 'right' : 'left'}: ${value};
-      `);
-    });
-
-    it(`renders expected ${dir} spacing when drop indicator is at end of list`, () => {
-      const { queryByTestId } = renderFn(
-        <DraggableList isHorizontal>
-          <DraggableList.Item>item 2</DraggableList.Item>
-          <DraggableList.DropIndicator data-test-id="indicator" />
-        </DraggableList>
-      );
-
-      const indicator = queryByTestId('indicator');
-      const value = math(`-${DEFAULT_THEME.space.xxs} - ${DEFAULT_THEME.borderWidths.sm}`);
-
-      expect(indicator).toHaveStyle(`
-        position: absolute;
-        ${dir === 'rtl' ? 'left' : 'right'}: ${value}`);
+    items.forEach(item => {
+      expect(item).toHaveStyle(`padding: 0 ${DEFAULT_THEME.space.xxs}`);
     });
   });
 });

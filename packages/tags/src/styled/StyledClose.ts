@@ -29,6 +29,7 @@ export const StyledClose = styled.button.attrs<unknown>({
   background: transparent; /* [1] */
   cursor: pointer;
   padding: 0; /* [1] */
+  color: inherit; /* [1] */
   font-size: 0; /* [2] */
   appearance: none; /* [1] */
 

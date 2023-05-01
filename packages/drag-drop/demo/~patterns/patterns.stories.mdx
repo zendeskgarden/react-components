@@ -8,16 +8,27 @@ import { COLUMNS as columns } from './stories/data';
 
 ## Drag and Drop
 
-Use `DraggableList`, `Dropzone`, and `Draggable` to create a drag and drop experience.
+Use a combination of `Draggable`, `DraggableList`, and `Dropzone` to create a
+drag and drop experience.
 
 <Canvas>
   <Story
     name="Drag and drop"
-    args={{ columns }}
+    args={{
+      columns,
+      hasDropIndicator: true,
+      hasPlaceholder: true,
+      isCompact: false,
+      isHorizontal: false,
+      isBare: false
+    }}
     argTypes={{
-      columns: {
-        table: { category: 'Story' }
-      }
+      columns: { table: { category: 'Story' } },
+      hasDropIndicator: { table: { category: 'Story' } },
+      hasPlaceholder: { table: { category: 'Story' } },
+      isCompact: { table: { category: 'Story' } },
+      isHorizontal: { table: { category: 'Story' } },
+      isBare: { table: { category: 'Story' } }
     }}
   >
     {args => <DragAndDropStory {...args} />}
