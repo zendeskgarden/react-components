@@ -15,7 +15,7 @@ import PALETTE from '../elements/palette';
 
 interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   condition?: boolean;
-  focusInset?: boolean;
+  inset?: boolean;
   hue?: Hue;
   shade?: number;
   shadowWidth?: 'sm' | 'md';
@@ -56,7 +56,7 @@ describe('focusStyles', () => {
   });
 
   it('renders inset as expected', () => {
-    const { container } = render(<StyledDiv focusInset />);
+    const { container } = render(<StyledDiv inset />);
 
     expect(container.firstChild).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
       modifier: '&:focus-visible'

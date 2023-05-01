@@ -18,7 +18,7 @@ type FocusStylesParameters = FocusBoxShadowParameters & {
  * Garden standard `box-shadow` focus styling.
  *
  * @param {boolean} [options.condition=true] Supplies an optional condition that can be used to prevent the focus `box-shadow`
- * @param {boolean} [options.focusInset=false] Determines whether the `box-shadow` is inset
+ * @param {boolean} [options.inset=false] Determines whether the `box-shadow` is inset
  * @param {string|Object} [options.hue='primaryHue'] Provides a theme object `palette` hue or `color` key, or any valid CSS color notation
  * @param {number} [options.shade=600] Selects a shade for the given hue
  * @param {string} [options.shadowWidth='md'] Provides a theme object `shadowWidth` key for the cumulative width of the `box-shadow`

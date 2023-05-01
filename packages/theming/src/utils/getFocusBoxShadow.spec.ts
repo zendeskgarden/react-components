@@ -30,7 +30,7 @@ describe('getFocusBoxShadow', () => {
   });
 
   it('insets as expected', () => {
-    const boxShadow = getFocusBoxShadow({ theme: DEFAULT_THEME, focusInset: true });
+    const boxShadow = getFocusBoxShadow({ theme: DEFAULT_THEME, inset: true });
 
     expect(boxShadow).toContain('inset');
   });
