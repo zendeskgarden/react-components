@@ -17,6 +17,7 @@ interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   condition?: boolean;
   inset?: boolean;
   hue?: Hue;
+  selector?: string;
   shade?: number;
   shadowWidth?: 'sm' | 'md';
   spacerWidth?: 'xs' | 'sm';
@@ -71,6 +72,18 @@ describe('focusStyles', () => {
       expect.stringContaining(`${DEFAULT_THEME.shadowWidths.md} ${PALETTE.red[400]}`),
       {
         modifier: '&:focus-visible'
+      }
+    );
+  });
+
+  it('renders selector as expected', () => {
+    const { container } = render(<StyledDiv selector="&:focus-within" />);
+
+    expect(container.firstChild).toHaveStyleRule(
+      'box-shadow',
+      expect.stringContaining(`${PALETTE.blue[600]}`),
+      {
+        modifier: '&:focus-within'
       }
     );
   });

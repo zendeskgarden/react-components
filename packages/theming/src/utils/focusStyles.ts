@@ -9,8 +9,11 @@ import { css, CSSObject } from 'styled-components';
 import { math } from 'polished';
 import { FocusBoxShadowParameters, getFocusBoxShadow } from './getFocusBoxShadow';
 
+export const SELECTOR_FOCUS_VISIBLE = '&:focus-visible, &[data-garden-focus-visible="true"]';
+
 type FocusStylesParameters = FocusBoxShadowParameters & {
   condition?: boolean;
+  selector?: string;
   styles?: CSSObject;
 };
 
@@ -20,6 +23,7 @@ type FocusStylesParameters = FocusBoxShadowParameters & {
  * @param {boolean} [options.condition=true] Supplies an optional condition that can be used to prevent the focus `box-shadow`
  * @param {boolean} [options.inset=false] Determines whether the `box-shadow` is inset
  * @param {string|Object} [options.hue='primaryHue'] Provides a theme object `palette` hue or `color` key, or any valid CSS color notation
+ * @param {string} [options.selector=SELECTOR_FOCUS_VISIBLE] Provides a subsitute `:focus-visible` pseudo-class CSS selector.
  * @param {number} [options.shade=600] Selects a shade for the given hue
  * @param {string} [options.shadowWidth='md'] Provides a theme object `shadowWidth` key for the cumulative width of the `box-shadow`
  * @param {string} [options.spacerWidth='xs'] Provides a theme object `shadowWidth` for the white spacer
@@ -44,6 +48,7 @@ type FocusStylesParameters = FocusBoxShadowParameters & {
  */
 export const focusStyles = ({
   condition = true,
+  selector = SELECTOR_FOCUS_VISIBLE,
   shadowWidth = 'md',
   spacerWidth = 'xs',
   styles,
@@ -66,8 +71,7 @@ export const focusStyles = ({
       outline: none; /* [1] */
     }
 
-    &:focus-visible,
-    &[data-garden-focus-visible='true'] {
+    ${selector} {
       outline: ${outline}; /* [2] */
       outline-offset: ${theme.shadowWidths[spacerWidth]};
       box-shadow: ${boxShadow};
