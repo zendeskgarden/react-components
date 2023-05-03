@@ -44,4 +44,10 @@ describe('getFocusBoxShadow', () => {
       `${DEFAULT_THEME.shadowWidths.md} ${getColor(hue, shade, DEFAULT_THEME)}`
     );
   });
+
+  it('knocks out spacer as expected', () => {
+    const boxShadow = getFocusBoxShadow({ theme: DEFAULT_THEME, spacerWidth: null });
+
+    expect(boxShadow).not.toContain(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE.white}`);
+  });
 });

@@ -20,7 +20,7 @@ interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   selector?: string;
   shade?: number;
   shadowWidth?: 'sm' | 'md';
-  spacerWidth?: 'xs' | 'sm';
+  spacerWidth?: null | 'xs' | 'sm';
   styles?: CSSObject;
 }
 
@@ -111,6 +111,14 @@ describe('focusStyles', () => {
     const { container } = render(<StyledDiv condition={false} />);
 
     expect(container.firstChild).not.toHaveStyleRule('box-shadow', undefined, {
+      modifier: '&:focus-visible'
+    });
+  });
+
+  it('knocks out spacer as expected', () => {
+    const { container } = render(<StyledDiv spacerWidth={null} />);
+
+    expect(container.firstChild).not.toHaveStyleRule('outline-offset', undefined, {
       modifier: '&:focus-visible'
     });
   });

@@ -14,7 +14,7 @@ export type FocusBoxShadowParameters = {
   hue?: Hue;
   shade?: number;
   shadowWidth?: 'sm' | 'md';
-  spacerWidth?: 'xs' | 'sm';
+  spacerWidth?: null | 'xs' | 'sm';
   theme: IGardenTheme;
 };
 
@@ -26,7 +26,7 @@ export type FocusBoxShadowParameters = {
  * @param {string|Object} [options.hue='primaryHue'] Provides a theme object `palette` hue or `color` key, or any valid CSS color notation
  * @param {number} [options.shade=600] Selects a shade for the given hue
  * @param {string} [options.shadowWidth='md'] Provides a theme object `shadowWidth` key for the cumulative width of the `box-shadow`
- * @param {string} [options.spacerWidth='xs'] Provides a theme object `shadowWidth` for the white spacer
+ * @param {string} [options.spacerWidth='xs'] Provides a theme object `shadowWidth` for the white spacer, or `null` to remove
  * @param {Object} options.theme Provides values used to resolve the desired color
  *
  * @returns A `box-shadow` property value for the given options. Default is a
@@ -41,8 +41,13 @@ export const getFocusBoxShadow = ({
   theme = DEFAULT_THEME
 }: FocusBoxShadowParameters) => {
   const color = getColor(hue, shade, theme);
+  const shadow = theme.shadows[shadowWidth](color!);
+
+  if (spacerWidth === null) {
+    return `${inset ? 'inset' : ''} ${shadow}`;
+  }
 
   return `
     ${inset ? 'inset' : ''} ${theme.shadows[spacerWidth](theme.colors.background)},
-    ${inset ? 'inset' : ''} ${theme.shadows[shadowWidth](color!)}`;
+    ${inset ? 'inset' : ''} ${shadow}`;
 };

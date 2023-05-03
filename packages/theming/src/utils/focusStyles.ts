@@ -26,7 +26,7 @@ type FocusStylesParameters = FocusBoxShadowParameters & {
  * @param {string} [options.selector=SELECTOR_FOCUS_VISIBLE] Provides a subsitute `:focus-visible` pseudo-class CSS selector.
  * @param {number} [options.shade=600] Selects a shade for the given hue
  * @param {string} [options.shadowWidth='md'] Provides a theme object `shadowWidth` key for the cumulative width of the `box-shadow`
- * @param {string} [options.spacerWidth='xs'] Provides a theme object `shadowWidth` for the white spacer
+ * @param {string} [options.spacerWidth='xs'] Provides a theme object `shadowWidth` for the white spacer, or `null` to remove
  * @param {Object} [options.styles] Adds CSS property values to be rendered with `:focus-visible`
  * @param {Object} options.theme Provides values used to resolve the desired color
  *
@@ -55,12 +55,20 @@ export const focusStyles = ({
   theme,
   ...options
 }: FocusStylesParameters) => {
-  const outline = `${math(
-    `${theme.shadowWidths[shadowWidth]} - ${theme.shadowWidths[spacerWidth]}`
-  )} solid transparent`;
   const boxShadow = condition
     ? getFocusBoxShadow({ shadowWidth, spacerWidth, theme, ...options })
     : undefined;
+  let outline;
+  let outlineOffset;
+
+  if (spacerWidth === null) {
+    outline = theme.shadowWidths[shadowWidth];
+  } else {
+    outline = `${math(
+      `${theme.shadowWidths[shadowWidth]} - ${theme.shadowWidths[spacerWidth]}`
+    )} solid transparent`;
+    outlineOffset = theme.shadowWidths[spacerWidth];
+  }
 
   /*
    * 1. Browser reset
@@ -73,7 +81,7 @@ export const focusStyles = ({
 
     ${selector} {
       outline: ${outline}; /* [2] */
-      outline-offset: ${theme.shadowWidths[spacerWidth]};
+      outline-offset: ${outlineOffset};
       box-shadow: ${boxShadow};
       ${styles}
     }
