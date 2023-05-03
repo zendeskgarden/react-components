@@ -207,11 +207,13 @@ exports[`DEFAULT_THEME matches snapshot 1`] = `
   "shadowWidths": {
     "md": "3px",
     "sm": "2px",
+    "xs": "1px",
   },
   "shadows": {
     "lg": "0 0 0 0 black",
     "md": "0 0 0 3px black",
     "sm": "0 0 0 2px black",
+    "xs": "0 0 0 1px black",
   },
   "space": {
     "base": 4,

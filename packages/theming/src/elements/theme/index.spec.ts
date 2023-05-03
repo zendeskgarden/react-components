@@ -12,6 +12,7 @@ describe('DEFAULT_THEME', () => {
     expect({
       ...DEFAULT_THEME,
       shadows: {
+        xs: DEFAULT_THEME.shadows.xs('black'),
         sm: DEFAULT_THEME.shadows.sm('black'),
         md: DEFAULT_THEME.shadows.md('black'),
         lg: DEFAULT_THEME.shadows.lg('0', '0', 'black')
