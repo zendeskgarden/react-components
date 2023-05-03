@@ -68,6 +68,8 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
 
     & > ${StyledTextInput}:hover,
     & > button:hover,
+    & > ${StyledTextInput}:focus-visible,
+    & > button:focus-visible,
     & > ${StyledTextInput}[data-garden-focus-visible],
     & > button[data-garden-focus-visible],
     & > ${StyledTextInput}:active,

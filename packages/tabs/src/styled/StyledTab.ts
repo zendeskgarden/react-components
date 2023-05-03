@@ -6,7 +6,12 @@
  */
 
 import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  getColor,
+  focusStyles,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 import { stripUnit } from 'polished';
 
 const COMPONENT_ID = 'tabs.tab';
@@ -34,13 +39,14 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
       color: ${selectedColor};
     }
 
-    &[data-garden-focus-visible] {
-      color: ${selectedColor};
-    }
-
-    &[data-garden-focus-visible]::before {
-      box-shadow: inset ${theme.shadows.sm(getColor('primaryHue', 600, theme, 0.35)!)};
-    }
+    ${focusStyles({
+      theme,
+      inset: true,
+      spacerWidth: null,
+      shadowWidth: 'sm',
+      selector: `&[data-garden-focus-visible='true']::before, &:focus-visible::before`,
+      styles: { color: selectedColor }
+    })}
 
     &[aria-disabled='true'] {
       border-color: transparent;
@@ -88,10 +94,10 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>({
   ${colorStyles}
 
   &:focus {
-    outline: none;
     text-decoration: none;
   }
 
+  &:focus-visible::before,
   &[data-garden-focus-visible]::before {
     position: absolute;
     top: ${props => props.theme.space.base * 2.5}px;

@@ -11,7 +11,8 @@ import {
   retrieveComponentStyles,
   getColor,
   getLineHeight,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  focusStyles
 } from '@zendeskgarden/react-theming';
 import { Validation } from '../../types';
 import { StyledHint } from '../common/StyledHint';
@@ -72,7 +73,7 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
 
   return css`
     border-color: ${controlledBorderColor};
-    box-shadow: ${!props.isBare && props.isFocused && boxShadow};
+    /* box-shadow: ${!props.isBare && props.isFocused && boxShadow}; */
     background-color: ${props.isBare ? 'transparent' : props.theme.colors.background};
     color: ${props.theme.colors.foreground};
 
@@ -91,11 +92,14 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
       border-color: ${hoverBorderColor};
     }
 
-    &:focus,
-    &[data-garden-focus-visible='true'] {
-      border-color: ${focusBorderColor};
-      box-shadow: ${!props.isBare && boxShadow};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      inset: props.focusInset,
+      hue: focusBorderColor,
+      styles: {
+        borderColor: focusBorderColor
+      }
+    })}
 
     &:disabled,
     /* apply to faux input */
@@ -214,6 +218,7 @@ export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props =
     color 0.25s ease-in-out,
     z-index 0.25s ease-in-out;
   direction: ${props => props.theme.rtl && 'rtl'};
+  /* TODO: address isBare styling and with focus inset */
   border: ${props => (props.isBare ? 'none' : props.theme.borders.sm)};
   border-radius: ${props => (props.isBare ? '0' : props.theme.borderRadii.md)};
   width: 100%; /* vs. display: block to limit mouse interaction area */
@@ -276,10 +281,6 @@ export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props =
   }
 
   ${props => sizeStyles(props)};
-
-  &:focus {
-    outline: none;
-  }
 
   /* Color (default and validation) styling */
   ${props => colorStyles(props)};

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, focusStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.header';
 
@@ -22,10 +22,15 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
 })<IStyledHeader>`
   display: flex;
   align-items: center;
-  box-shadow: ${props =>
-    props.isFocused &&
-    `${props.theme.shadows.md(getColor('primaryHue', 600, props.theme, 0.35) as string)} inset`};
   font-size: ${props => props.theme.fontSizes.md};
+
+  ${props =>
+    focusStyles({
+      theme: props.theme,
+      condition: props.isFocused,
+      inset: true,
+      selector: '&'
+    })}
 
   &:hover {
     cursor: ${props => (props.isCollapsible || !props.isExpanded) && 'pointer'};

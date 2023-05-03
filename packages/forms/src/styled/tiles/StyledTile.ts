@@ -6,7 +6,12 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  DEFAULT_THEME,
+  retrieveComponentStyles,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 import { rgba } from 'polished';
 import { StyledTileIcon } from './StyledTileIcon';
 
@@ -51,9 +56,13 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
       color: ${iconColor};
     }
 
-    &:focus {
-      outline: none;
-    }
+    ${focusStyles({
+      theme: props.theme,
+      hue: focusBorderColor,
+      styles: {
+        borderColor: focusBorderColor
+      }
+    })}
 
     &:hover:not([aria-disabled='true']) {
       border-color: ${hoverBorderColor};
@@ -63,11 +72,6 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
       ${StyledTileIcon} {
         color: ${color};
       }
-    }
-
-    &[data-garden-focus-visible='true'] {
-      border-color: ${focusBorderColor};
-      box-shadow: ${focusBoxShadow};
     }
 
     &:active:not([aria-disabled='true']) {

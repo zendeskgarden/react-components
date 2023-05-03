@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { rgba } from 'polished';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getColor,
-  getLineHeight
+  getLineHeight,
+  focusStyles
 } from '@zendeskgarden/react-theming';
 import { FileValidation } from '../../types';
 import { StyledFileClose } from './StyledFileClose';
@@ -37,18 +37,17 @@ const colorStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
     foregroundColor = props.theme.colors.foreground;
   }
 
-  const boxShadow = `
-    ${props.focusInset ? 'inset' : ''}
-    ${props.theme.shadows.md(rgba(focusBorderColor!, 0.35))}`;
-
-  return `
+  return css`
     border-color: ${borderColor};
     color: ${foregroundColor};
 
-    &:focus {
-      box-shadow: ${boxShadow};
-      border-color: ${focusBorderColor};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      inset: props.focusInset,
+      hue: focusBorderColor,
+      styles: { borderColor: focusBorderColor },
+      selector: '&:focus'
+    })}
   `;
 };
 
@@ -95,10 +94,6 @@ export const StyledFile = styled.div.attrs({
   align-items: center;
 
   ${sizeStyles};
-
-  &:focus {
-    outline: none;
-  }
 
   ${colorStyles};
 

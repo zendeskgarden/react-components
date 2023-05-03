@@ -11,7 +11,8 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getColor,
-  getLineHeight
+  getLineHeight,
+  focusStyles
 } from '@zendeskgarden/react-theming';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledHint } from '../common/StyledHint';
@@ -30,7 +31,6 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) =
   const activeColor = getColor('primaryHue', 800, props.theme);
   const disabledBackgroundColor = getColor('neutralHue', 200, props.theme);
   const disabledForegroundColor = getColor('neutralHue', 400, props.theme);
-  const boxShadow = `inset ${props.theme.shadows.md(rgba(baseColor as string, 0.35))}`;
 
   return css`
     border-color: ${props.isDragging ? activeColor : getColor('neutralHue', 600, props.theme)};
@@ -43,9 +43,10 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) =
       color: ${hoverColor};
     }
 
-    &[data-garden-focus-visible] {
-      box-shadow: ${boxShadow};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      hue: baseColor
+    })}
 
     &:active {
       border-color: ${activeColor};
@@ -110,10 +111,6 @@ export const StyledFileUpload = styled.div.attrs({
   user-select: none;
 
   ${sizeStyles};
-
-  &:focus {
-    outline: none;
-  }
 
   &[aria-disabled='true'] {
     cursor: default;

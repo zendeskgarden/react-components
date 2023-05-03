@@ -7,7 +7,13 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { em, math, rgba } from 'polished';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  SELECTOR_FOCUS_VISIBLE,
+  focusStyles,
+  getColor,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 import { IButtonProps } from '../types';
 import { StyledButtonGroup } from './StyledButtonGroup';
 import { StyledIcon } from './StyledIcon';
@@ -15,9 +21,7 @@ import { StyledIcon } from './StyledIcon';
 const COMPONENT_ID = 'buttons.button';
 
 const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  if (props.isLink) {
-    return 0;
-  } else if (props.isPill) {
+  if (props.isPill) {
     return '100px';
   }
 
@@ -62,13 +66,10 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const activeColor = getColor(hue, shade + 200, props.theme);
   const disabledBackgroundColor = getDisabledBackgroundColor(props);
   const disabledForegroundColor = getColor(hue, shade - 200, props.theme);
-  const boxShadowColor =
+  const focusColor =
     props.focusInset && (props.isPrimary || props.isSelected)
       ? props.theme.palette.white
       : baseColor;
-  const boxShadow = `
-    ${props.focusInset ? 'inset' : ''}
-    ${props.theme.shadows.md(rgba(boxShadowColor as string, 0.35))}`;
 
   if (props.isLink) {
     retVal = css`
@@ -79,8 +80,15 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
         color: ${baseColor}; /* [1] */
       }
 
+      ${focusStyles({
+        theme: props.theme,
+        inset: props.focusInset,
+        hue: focusColor,
+        shade
+      })}
+
       &:hover,
-      &[data-garden-focus-visible] {
+      ${SELECTOR_FOCUS_VISIBLE} {
         color: ${hoverColor};
       }
 
@@ -103,9 +111,13 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
         background-color: ${hoverColor};
       }
 
-      &[data-garden-focus-visible] {
-        box-shadow: ${boxShadow};
-      }
+      ${focusStyles({
+        theme: props.theme,
+        inset: props.focusInset,
+        hue: focusColor,
+        shade,
+        shadowWidth: props.focusInset ? 'sm' : 'md'
+      })}
 
       &:active {
         background-color: ${activeColor};
@@ -139,10 +151,13 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
         color: ${hoverForegroundColor};
       }
 
-      &[data-garden-focus-visible] {
-        border-color: ${props.isNeutral && baseColor};
-        box-shadow: ${boxShadow};
-      }
+      ${focusStyles({
+        theme: props.theme,
+        inset: props.focusInset,
+        hue: focusColor,
+        shade,
+        styles: { borderColor: props.isNeutral ? baseColor : undefined }
+      })}
 
       &:active,
       &[aria-pressed='true'],
@@ -162,9 +177,12 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
         color: ${props.isNeutral && getColor('neutralHue', shade, props.theme)};
       }
 
-      /* prettier-ignore */
-      &:hover ${StyledIcon},
-      &[data-garden-focus-visible] ${StyledIcon} {
+      &:hover
+        ${StyledIcon},
+        &:focus-visible
+        ${StyledIcon},
+        &[data-garden-focus-visible]
+        ${StyledIcon} {
         color: ${props.isNeutral && getColor('neutralHue', shade + 100, props.theme)};
       }
 
@@ -200,8 +218,8 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
     border-left-color: ${isPrimary && lightBorderColor};
 
     &:hover,
-    &[data-garden-focus-visible],
-    &:active {
+    &:active,
+    ${SELECTOR_FOCUS_VISIBLE} {
       z-index: 1;
     }
 
@@ -314,7 +332,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     color 0.25s ease-in-out,
     z-index 0.25s ease-in-out;
   margin: 0;
-  border: ${props => (props.isLink ? 'none' : `${props.theme.borders.sm} transparent`)};
+  border: ${props => `${props.isLink ? 0 : props.theme.borders.sm} transparent`};
   border-radius: ${props => getBorderRadius(props)};
   cursor: pointer;
   width: ${props => (props.isStretched ? '100%' : '')};
@@ -342,12 +360,9 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     text-decoration: ${props => props.isLink && 'none'}; /* [2] */
   }
 
-  &:hover {
-    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
-  }
-
-  &[data-garden-focus-visible] {
-    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
+  &:hover,
+  ${SELECTOR_FOCUS_VISIBLE} {
+    text-decoration: none; /* [2] */
   }
 
   &:active,
@@ -359,7 +374,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
       background-color 0.1s ease-in-out,
       color 0.1s ease-in-out,
       z-index 0.25s ease-in-out;
-    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
+    text-decoration: none; /* [2] */
   }
 
   ${props => colorStyles(props)};
