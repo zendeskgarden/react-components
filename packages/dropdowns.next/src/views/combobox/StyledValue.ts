@@ -47,6 +47,7 @@ export const StyledValue = styled.div.attrs({
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  user-select: none;
 
   ${sizeStyles};
 

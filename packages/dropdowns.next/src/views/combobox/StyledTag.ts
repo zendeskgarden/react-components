@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import { hideVisually } from 'polished';
 import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { Tag } from '@zendeskgarden/react-tags';
 
@@ -17,6 +18,11 @@ export const StyledTag = styled(Tag).attrs({
 })`
   &[aria-disabled='true'] {
     color: ${props => (props.hue ? undefined : getColor('neutralHue', 400, props.theme))};
+  }
+
+  &[hidden] {
+    display: revert;
+    ${hideVisually()}
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

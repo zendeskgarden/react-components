@@ -51,8 +51,18 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   listboxMaxHeight?: string;
   /** Sets the `z-index` of the listbox */
   listboxZIndex?: number;
+  /** Determines the maximum number of tags displayed when a multiselectable combobox is collapsed */
+  maxTags?: number;
   /** Defines text that appears in the element when no items are selected */
   placeholder?: string;
+  /**
+   * Overrides the "+ N more" text displayed when the total number of multiselectable tags exceeds `maxTags`
+   *
+   * @param {number} value The number of hidden items
+   *
+   * @returns a replacement for the "+ N more" text
+   */
+  renderExpandTags?: (value: number) => string;
   /** Accepts a "start" icon to display */
   startIcon?: ReactElement;
   /** Applies validation state styling */

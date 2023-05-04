@@ -17,7 +17,6 @@ import React, {
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
-import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { DEFAULT_THEME, useText, useWindow } from '@zendeskgarden/react-theming';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
@@ -35,6 +34,9 @@ import {
 import { Listbox } from './Listbox';
 import { Tag } from './Tag';
 import { toOptions, toString } from './utils';
+import { StyledTagsButton } from '../../views/combobox/StyledTagsButton';
+
+const MAX_TAGS = 4;
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -55,13 +57,15 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       listboxAriaLabel,
       listboxMaxHeight,
       listboxZIndex,
+      maxTags = MAX_TAGS,
       placeholder,
+      renderExpandTags,
       validation,
       ...props
     },
     ref
   ) => {
-    const [isInputHidden, setIsInputHidden] = useState(true);
+    const [hasFocus, setHasFocus] = useState(false);
     const [options, optionTagProps] = useMemo(() => {
       const _optionTagProps: Record<string, IOptionProps['tagProps']> = {};
       const _options = toOptions(children, _optionTagProps);
@@ -102,22 +106,32 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       isEditable,
       focusInset,
       validation,
-      ...(getTriggerProps() as HTMLAttributes<HTMLDivElement>)
+      ...(getTriggerProps({
+        onFocus: () => setHasFocus(true) /* bubbles */,
+        onBlur: event =>
+          (event.relatedTarget === null || !triggerRef.current?.contains(event.relatedTarget)) &&
+          setHasFocus(false)
+      }) as HTMLAttributes<HTMLDivElement>)
     };
     const inputProps = {
       'aria-invalid': validation === 'error' || validation === 'warning',
-      hidden: isInputHidden,
+      hidden: !(isEditable && hasFocus),
       isCompact,
       placeholder,
       ...(getInputProps({
-        ...(_inputProps as IUseComboboxReturnValue['getInputProps']),
-        onBlur: composeEventHandlers(_inputProps?.onBlur, () => setIsInputHidden(true)),
-        onFocus: composeEventHandlers(_inputProps?.onFocus, () => setIsInputHidden(false))
+        ...(_inputProps as IUseComboboxReturnValue['getInputProps'])
       }) as InputHTMLAttributes<HTMLInputElement>)
     };
     const listboxProps = getListboxProps({
       'aria-label': useText(Combobox, { listboxAriaLabel }, 'listboxAriaLabel', 'Options')!
     }) as HTMLAttributes<HTMLUListElement>;
+    const expandTags = useText(
+      Combobox,
+      { renderExpandTags },
+      'renderExpandTags',
+      '+ {{value}} more',
+      isMultiselectable || false
+    );
     const contextValue = useMemo(
       () => ({ activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact }),
       [activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact]
@@ -132,16 +146,40 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                 <StartIcon />
               </StyledInputIcon>
               <StyledInputGroup>
-                {isMultiselectable &&
-                  Array.isArray(selection) &&
-                  selection.map(option => (
-                    <Tag
-                      key={toString(option)}
-                      option={option}
-                      {...optionTagProps[toString(option)]}
-                    />
-                  ))}
-                {isInputHidden && (
+                {isMultiselectable && Array.isArray(selection) && (
+                  <>
+                    {selection.map((option, index) => {
+                      const key = toString(option);
+                      const disabled = isDisabled || option.disabled;
+                      const hidden = !hasFocus && index >= maxTags;
+
+                      return (
+                        <Tag
+                          key={key}
+                          hidden={hidden}
+                          option={{ ...option, disabled }}
+                          {...optionTagProps[key]}
+                        />
+                      );
+                    })}
+                    {!hasFocus && selection.length > maxTags && (
+                      <StyledTagsButton
+                        disabled={isDisabled}
+                        isCompact={isCompact}
+                        tabIndex={-1}
+                        type="button"
+                      >
+                        {renderExpandTags
+                          ? renderExpandTags(selection.length - maxTags)
+                          : expandTags?.replace(
+                              '{{value}}',
+                              (selection.length - maxTags).toString()
+                            )}
+                      </StyledTagsButton>
+                    )}
+                  </>
+                )}
+                {!(isEditable && hasFocus) && (
                   <StyledValue isCompact={isCompact} isPlaceholder={!inputValue}>
                     {inputValue || placeholder}
                   </StyledValue>
@@ -185,12 +223,15 @@ Combobox.propTypes = {
   listboxAriaLabel: PropTypes.string,
   listboxMaxHeight: PropTypes.string,
   listboxZIndex: PropTypes.number,
+  maxTags: PropTypes.number,
   placeholder: PropTypes.string,
+  renderExpandTags: PropTypes.func,
   startIcon: PropTypes.any,
   validation: PropTypes.oneOf(VALIDATION)
 };
 
 Combobox.defaultProps = {
   isEditable: true,
-  listboxMaxHeight: '400px'
+  listboxMaxHeight: '400px',
+  maxTags: MAX_TAGS
 };
