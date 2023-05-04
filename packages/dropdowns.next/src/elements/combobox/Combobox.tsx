@@ -99,6 +99,24 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       isMultiselectable,
       disabled: isDisabled
     });
+    const contextValue = useMemo(
+      () => ({ activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact }),
+      [activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact]
+    );
+    const expandTags = useText(
+      Combobox,
+      { renderExpandTags },
+      'renderExpandTags',
+      '+ {{value}} more',
+      isMultiselectable || false
+    );
+    const _listboxAriaLabel = useText(
+      Combobox,
+      { listboxAriaLabel },
+      'listboxAriaLabel',
+      'Options'
+    );
+
     const triggerProps = {
       isAutocomplete,
       isBare,
@@ -123,19 +141,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       }) as InputHTMLAttributes<HTMLInputElement>)
     };
     const listboxProps = getListboxProps({
-      'aria-label': useText(Combobox, { listboxAriaLabel }, 'listboxAriaLabel', 'Options')!
+      'aria-label': _listboxAriaLabel!
     }) as HTMLAttributes<HTMLUListElement>;
-    const expandTags = useText(
-      Combobox,
-      { renderExpandTags },
-      'renderExpandTags',
-      '+ {{value}} more',
-      isMultiselectable || false
-    );
-    const contextValue = useMemo(
-      () => ({ activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact }),
-      [activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact]
-    );
 
     return (
       <ComboboxContext.Provider value={contextValue}>
