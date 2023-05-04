@@ -86,5 +86,6 @@ export const getColor = memoize(
 
     return retVal;
   },
-  (...args) => JSON.stringify(args)
+  (hue, shade, theme, transparency) =>
+    JSON.stringify({ hue, shade, palette: theme?.palette, colors: theme?.colors, transparency })
 );
