@@ -16,7 +16,8 @@ export {
 } from './utils/retrieveComponentStyles';
 export { default as withTheme } from './utils/withTheme';
 export { default as getDocument } from './utils/getDocument';
-export { default as getColor } from './utils/getColor';
+export { getColor } from './utils/getColor';
+export { getFocusBoxShadow } from './utils/getFocusBoxShadow';
 export { default as getLineHeight } from './utils/getLineHeight';
 export { default as mediaQuery } from './utils/mediaQuery';
 export { default as arrowStyles } from './utils/arrowStyles';
@@ -24,6 +25,7 @@ export { useDocument } from './utils/useDocument';
 export { useWindow } from './utils/useWindow';
 export { useText } from './utils/useText';
 export { default as menuStyles } from './utils/menuStyles';
+export { focusStyles, SELECTOR_FOCUS_VISIBLE } from './utils/focusStyles';
 
 export {
   ARROW_POSITION as ARRAY_ARROW_POSITION,
