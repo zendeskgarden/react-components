@@ -6,8 +6,13 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { math, rgba } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 import { Validation } from '../../types';
 import { getHeight } from './StyledInput';
 
@@ -49,14 +54,16 @@ const colorStyles = (props: IStyledTriggerProps) => {
     focusBorderColor = hoverBorderColor;
   }
 
-  const boxShadow = props.isBare
-    ? undefined
-    : `${props.focusInset ? 'inset' : ''} ${props.theme.shadows.md(rgba(focusBorderColor!, 0.35))}`;
   const disabledBackgroundColor = props.isBare
     ? undefined
     : getColor('neutralHue', SHADE - 500, props.theme);
   const disabledBorderColor = getColor('neutralHue', SHADE - 400, props.theme);
   const disabledForegroundColor = getColor('neutralHue', SHADE - 200, props.theme);
+  const focusSelector = `
+    &:focus-within:not([aria-disabled='true']),
+    &:focus-visible,
+    &[data-garden-focus-visible='true']
+  `;
 
   return css`
     border-color: ${borderColor};
@@ -67,12 +74,14 @@ const colorStyles = (props: IStyledTriggerProps) => {
       border-color: ${hoverBorderColor};
     }
 
-    &:focus-within,
-    &:focus,
-    &[data-garden-focus-visible='true'] {
-      border-color: ${focusBorderColor};
-      box-shadow: ${boxShadow};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      inset: props.focusInset,
+      hue: focusBorderColor,
+      selector: focusSelector,
+      styles: { borderColor: focusBorderColor },
+      condition: !props.isBare
+    })}
 
     &[aria-disabled='true'] {
       border-color: ${disabledBorderColor};
