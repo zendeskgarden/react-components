@@ -16,7 +16,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import { IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
+import { IOption, IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
 import { DEFAULT_THEME, useText, useWindow } from '@zendeskgarden/react-theming';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
@@ -65,16 +65,17 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     },
     ref
   ) => {
-    const [hasFocus, setHasFocus] = useState(false);
     const [options, optionTagProps] = useMemo(() => {
       const _optionTagProps: Record<string, IOptionProps['tagProps']> = {};
       const _options = toOptions(children, _optionTagProps);
 
       return [_options, _optionTagProps];
     }, [children]);
+    const hasFocus = useRef(false);
     const triggerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const listboxRef = useRef<HTMLUListElement>(null);
+    const tagsButtonRef = useRef<HTMLButtonElement>(null);
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const environment = useWindow(theme);
     const {
@@ -116,7 +117,6 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       'listboxAriaLabel',
       'Options'
     );
-
     const triggerProps = {
       isAutocomplete,
       isBare,
@@ -125,15 +125,19 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       focusInset,
       validation,
       ...(getTriggerProps({
-        onFocus: () => setHasFocus(true) /* bubbles */,
-        onBlur: event =>
-          (event.relatedTarget === null || !triggerRef.current?.contains(event.relatedTarget)) &&
-          setHasFocus(false)
+        onFocus: () => {
+          hasFocus.current = true;
+        },
+        onBlur: event => {
+          if (event.relatedTarget === null || !triggerRef.current?.contains(event.relatedTarget)) {
+            hasFocus.current = false;
+          }
+        }
       }) as HTMLAttributes<HTMLDivElement>)
     };
     const inputProps = {
       'aria-invalid': validation === 'error' || validation === 'warning',
-      hidden: !(isEditable && hasFocus),
+      hidden: !(isEditable && hasFocus.current),
       isCompact,
       placeholder,
       ...(getInputProps({
@@ -143,6 +147,45 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const listboxProps = getListboxProps({
       'aria-label': _listboxAriaLabel!
     }) as HTMLAttributes<HTMLUListElement>;
+
+    const Tags = ({ selectedOptions }: { selectedOptions: IOption[] }) => {
+      const [isFocused, setIsFocused] = useState(hasFocus.current);
+      const value = selectedOptions.length - maxTags;
+
+      return (
+        <>
+          {selectedOptions.map((option, index) => {
+            const key = toString(option);
+            const disabled = isDisabled || option.disabled;
+            const hidden = !isFocused && index >= maxTags;
+
+            return (
+              <Tag
+                key={key}
+                hidden={hidden}
+                onFocus={() => setIsFocused(true)}
+                option={{ ...option, disabled }}
+                {...optionTagProps[key]}
+              />
+            );
+          })}
+          {!isFocused && selectedOptions.length > maxTags && (
+            <StyledTagsButton
+              disabled={isDisabled}
+              isCompact={isCompact}
+              onClick={() => isEditable && inputRef.current?.focus()}
+              tabIndex={-1}
+              type="button"
+              ref={tagsButtonRef}
+            >
+              {renderExpandTags
+                ? renderExpandTags(value)
+                : expandTags?.replace('{{value}}', value.toString())}
+            </StyledTagsButton>
+          )}
+        </>
+      );
+    };
 
     return (
       <ComboboxContext.Provider value={contextValue}>
@@ -154,40 +197,20 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
               </StyledInputIcon>
               <StyledInputGroup>
                 {isMultiselectable && Array.isArray(selection) && (
-                  <>
-                    {selection.map((option, index) => {
-                      const key = toString(option);
-                      const disabled = isDisabled || option.disabled;
-                      const hidden = !hasFocus && index >= maxTags;
-
-                      return (
-                        <Tag
-                          key={key}
-                          hidden={hidden}
-                          option={{ ...option, disabled }}
-                          {...optionTagProps[key]}
-                        />
-                      );
-                    })}
-                    {!hasFocus && selection.length > maxTags && (
-                      <StyledTagsButton
-                        disabled={isDisabled}
-                        isCompact={isCompact}
-                        tabIndex={-1}
-                        type="button"
-                      >
-                        {renderExpandTags
-                          ? renderExpandTags(selection.length - maxTags)
-                          : expandTags?.replace(
-                              '{{value}}',
-                              (selection.length - maxTags).toString()
-                            )}
-                      </StyledTagsButton>
-                    )}
-                  </>
+                  <Tags selectedOptions={selection} />
                 )}
-                {!(isEditable && hasFocus) && (
-                  <StyledValue isCompact={isCompact} isPlaceholder={!inputValue}>
+                {!(isEditable && hasFocus.current) && (
+                  <StyledValue
+                    isCompact={isCompact}
+                    isPlaceholder={!inputValue}
+                    onClick={event => {
+                      event.stopPropagation();
+
+                      if (isEditable) {
+                        inputRef.current?.focus();
+                      }
+                    }}
+                  >
                     {inputValue || placeholder}
                   </StyledValue>
                 )}
