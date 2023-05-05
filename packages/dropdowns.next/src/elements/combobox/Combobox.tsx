@@ -88,6 +88,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       getOptionProps,
       getOptGroupProps,
       getTagProps,
+      removeSelection,
       selection
     } = useCombobox({
       triggerRef,
@@ -101,8 +102,15 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       disabled: isDisabled
     });
     const contextValue = useMemo(
-      () => ({ activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact }),
-      [activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact]
+      () => ({
+        activeValue,
+        getOptionProps,
+        getOptGroupProps,
+        getTagProps,
+        isCompact,
+        removeSelection
+      }),
+      [activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact, removeSelection]
     );
     const expandTags = useText(
       Combobox,

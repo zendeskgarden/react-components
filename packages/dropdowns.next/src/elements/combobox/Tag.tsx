@@ -18,7 +18,7 @@ import { toString } from './utils';
 
 const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
   ({ children, option, removeLabel, ...props }, ref) => {
-    const { getTagProps, isCompact } = useComboboxContext();
+    const { getTagProps, isCompact, removeSelection } = useComboboxContext();
     const text = option.label || toString(option);
     const ariaLabel = useText(
       /* eslint-disable-next-line @typescript-eslint/no-use-before-define */
@@ -34,6 +34,7 @@ const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
     }) as HTMLAttributes<HTMLDivElement>;
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const doc = useDocument(theme);
+    const handleClick = () => removeSelection(option.value);
 
     return (
       <StyledTag
@@ -48,10 +49,10 @@ const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
         {!option.disabled &&
           (removeLabel ? (
             <Tooltip appendToNode={doc?.body} content={removeLabel}>
-              <StyledTag.Close aria-label={removeLabel} />
+              <StyledTag.Close aria-label={removeLabel} onClick={handleClick} />
             </Tooltip>
           ) : (
-            <StyledTag.Close />
+            <StyledTag.Close onClick={handleClick} />
           ))}
       </StyledTag>
     );

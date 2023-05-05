@@ -15,6 +15,7 @@ export const ComboboxContext = createContext<
       getOptGroupProps: IUseComboboxReturnValue['getOptGroupProps'];
       getTagProps: IUseComboboxReturnValue['getTagProps'];
       isCompact?: boolean;
+      removeSelection: IUseComboboxReturnValue['removeSelection'];
     }
   | undefined
 >(undefined);
