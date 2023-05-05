@@ -57,7 +57,14 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
       return ['status'].concat(statusMessage || []).join(': ');
     }, [computedStatus, badge]);
 
-    const statusLabel = useText(AvatarComponent, props, 'statusLabel', defaultStatusLabel);
+    const shouldValidate = computedStatus !== undefined;
+    const statusLabel = useText(
+      AvatarComponent,
+      props,
+      'statusLabel',
+      defaultStatusLabel,
+      shouldValidate
+    );
 
     return (
       <StyledAvatar

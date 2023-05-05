@@ -12,6 +12,22 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.66.0 (2023-05-04)
+
+#### :rocket: New Feature
+* `theming`
+  * [#1542](https://github.com/zendeskgarden/react-components/pull/1542) feat(theming): add focus styling utilities ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `avatars`
+  * [#1540](https://github.com/zendeskgarden/react-components/pull/1540) fix(avatars): suppress `statusLabel` useText warning when there is no configured status ([@geotrev](https://github.com/geotrev))
+* `theming`
+  * [#1545](https://github.com/zendeskgarden/react-components/pull/1545) fix(theming): improve `getColor` memoization resolver performance ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* `drag-drop`
+  * [#1544](https://github.com/zendeskgarden/react-components/pull/1544) chore(drag-drop): adds figma link to drag and drop storybook ([@geotrev](https://github.com/geotrev))
+
 ## v8.65.0 (2023-04-27)
 
 #### :rocket: New Feature
