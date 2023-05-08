@@ -15,7 +15,7 @@ import { IListboxProps } from '../../types';
 import { StyledFloating, StyledListbox } from '../../views';
 
 export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
-  ({ appendToNode, children, isExpanded, maxHeight, triggerRef, ...props }, ref) => {
+  ({ appendToNode, children, isExpanded, maxHeight, triggerRef, zIndex, ...props }, ref) => {
     const floatingRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [width, setWidth] = useState<number>();
@@ -67,6 +67,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         isHidden={!isExpanded}
         position={placement === 'bottom-start' ? 'bottom' : 'top'}
         style={{ transform, width }}
+        zIndex={zIndex}
         ref={floatingRef}
       >
         <StyledListbox maxHeight={maxHeight} {...props} ref={ref}>

@@ -8,17 +8,17 @@
 import {
   HTMLAttributes,
   InputHTMLAttributes,
+  LabelHTMLAttributes,
   LiHTMLAttributes,
   ReactElement,
   ReactNode,
   RefObject
 } from 'react';
 import { IOption } from '@zendeskgarden/container-combobox';
+import { VALIDATION } from '@zendeskgarden/react-forms';
 import { ITagProps as IBaseTagProps } from '@zendeskgarden/react-tags';
 
 export const OPTION_TYPE = ['add', 'danger', 'next', 'previous'] as const;
-
-export const VALIDATION = ['success', 'warning', 'error'] as const;
 
 export type OptionType = (typeof OPTION_TYPE)[number];
 
@@ -69,6 +69,13 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   validation?: Validation;
 }
 
+export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+  /** Applies regular (non-bold) font weight */
+  isRegular?: boolean;
+  /** Hides the label visually without hiding it from screen readers */
+  hidden?: LabelHTMLAttributes<HTMLLabelElement>['hidden'];
+}
+
 export interface IListboxProps extends HTMLAttributes<HTMLUListElement> {
   /** Appends the lisbox to the element provided */
   appendToNode?: Element | DocumentFragment;
@@ -80,6 +87,13 @@ export interface IListboxProps extends HTMLAttributes<HTMLUListElement> {
   triggerRef: RefObject<HTMLElement>;
   /** Sets the `z-index` of the listbox */
   zIndex?: IComboboxProps['listboxZIndex'];
+}
+
+export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies validation state styling */
+  validation?: Validation;
+  /** Defines the `aria-label` for the validation icon */
+  validationLabel?: string;
 }
 
 export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'value'> {

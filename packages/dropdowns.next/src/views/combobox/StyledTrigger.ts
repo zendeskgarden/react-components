@@ -23,6 +23,7 @@ interface IStyledTriggerProps extends ThemeProps<DefaultTheme> {
   isBare?: boolean;
   isCompact?: boolean;
   isEditable?: boolean;
+  isLabelHovered?: boolean;
   focusInset?: boolean;
   validation?: Validation;
 }
@@ -66,7 +67,7 @@ const colorStyles = (props: IStyledTriggerProps) => {
   `;
 
   return css`
-    border-color: ${borderColor};
+    border-color: ${props.isLabelHovered ? hoverBorderColor : borderColor};
     background-color: ${backgroundColor};
     color: ${props.theme.colors.foreground};
 

@@ -8,18 +8,27 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { Combobox } from './Combobox';
+import { Field } from './Field';
 
 describe('Combobox', () => {
   it('is rendered as a div', () => {
-    const { container } = render(<Combobox />);
+    const { container } = render(
+      <Field>
+        <Combobox />
+      </Field>
+    );
 
-    expect(container.firstChild!.nodeName).toBe('DIV');
+    expect(container.firstChild?.firstChild?.nodeName).toBe('DIV');
   });
 
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(<Combobox ref={ref} />);
+    const { container } = render(
+      <Field>
+        <Combobox ref={ref} />
+      </Field>
+    );
 
-    expect(container.firstChild).toBe(ref.current);
+    expect(container.firstChild?.firstChild).toBe(ref.current);
   });
 });

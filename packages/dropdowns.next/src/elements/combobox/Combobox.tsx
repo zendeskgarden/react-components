@@ -8,8 +8,10 @@
 import React, {
   HTMLAttributes,
   InputHTMLAttributes,
+  LabelHTMLAttributes,
   forwardRef,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState
@@ -18,10 +20,12 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { IOption, IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
 import { DEFAULT_THEME, useText, useWindow } from '@zendeskgarden/react-theming';
+import { VALIDATION } from '@zendeskgarden/react-forms';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { IComboboxProps, IOptionProps, VALIDATION } from '../../types';
+import { IComboboxProps, IOptionProps } from '../../types';
 import { ComboboxContext } from '../../context/useComboboxContext';
+import useFieldContext from '../../context/useFieldContext';
 import {
   StyledCombobox,
   StyledContainer,
@@ -31,10 +35,10 @@ import {
   StyledTrigger,
   StyledValue
 } from '../../views';
+import { StyledTagsButton } from '../../views/combobox/StyledTagsButton';
 import { Listbox } from './Listbox';
 import { Tag } from './Tag';
 import { toOptions, toString } from './utils';
-import { StyledTagsButton } from '../../views/combobox/StyledTagsButton';
 
 const MAX_TAGS = 4;
 
@@ -65,6 +69,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     },
     ref
   ) => {
+    const { hasHint, hasMessage, labelProps, setLabelProps } = useFieldContext();
+    const [isLabelHovered, setIsLabelHovered] = useState(false);
     const [options, optionTagProps] = useMemo(() => {
       const _optionTagProps: Record<string, IOptionProps['tagProps']> = {};
       const _options = toOptions(children, _optionTagProps);
@@ -84,6 +90,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       isExpanded,
       getTriggerProps,
       getInputProps,
+      getLabelProps,
       getListboxProps,
       getOptionProps,
       getOptGroupProps,
@@ -96,6 +103,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       listboxRef,
       options,
       environment,
+      hasHint,
+      hasMessage,
       isAutocomplete,
       isEditable,
       isMultiselectable,
@@ -130,6 +139,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       isBare,
       isCompact,
       isEditable,
+      isLabelHovered,
       focusInset,
       validation,
       ...(getTriggerProps({
@@ -155,6 +165,20 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const listboxProps = getListboxProps({
       'aria-label': _listboxAriaLabel!
     }) as HTMLAttributes<HTMLUListElement>;
+
+    useEffect(() => {
+      // context callback
+      if (!labelProps) {
+        const _labelProps = getLabelProps({
+          onMouseEnter: () => setIsLabelHovered(true),
+          onMouseLeave: () => setIsLabelHovered(false)
+        }) as LabelHTMLAttributes<HTMLLabelElement>;
+
+        setLabelProps(_labelProps);
+      }
+
+      return () => labelProps && setLabelProps(undefined);
+    }, [getLabelProps, labelProps, setLabelProps]);
 
     const Tags = ({ selectedOptions }: { selectedOptions: IOption[] }) => {
       const [isFocused, setIsFocused] = useState(hasFocus.current);
@@ -200,7 +224,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
         <StyledCombobox isCompact={isCompact} {...props} ref={ref}>
           <StyledTrigger {...triggerProps}>
             <StyledContainer>
-              <StyledInputIcon isCompact={isCompact}>
+              <StyledInputIcon isLabelHovered={isLabelHovered} isCompact={isCompact}>
                 <StartIcon />
               </StyledInputIcon>
               <StyledInputGroup>
@@ -224,7 +248,12 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                 )}
                 <StyledInput {...inputProps} />
               </StyledInputGroup>
-              <StyledInputIcon isCompact={isCompact} isEnd isRotated={isExpanded}>
+              <StyledInputIcon
+                isCompact={isCompact}
+                isEnd
+                isLabelHovered={isLabelHovered}
+                isRotated={isExpanded}
+              >
                 <EndIcon />
               </StyledInputIcon>
             </StyledContainer>
@@ -271,5 +300,6 @@ Combobox.propTypes = {
 Combobox.defaultProps = {
   isEditable: true,
   listboxMaxHeight: '400px',
+  listboxZIndex: 1000,
   maxTags: MAX_TAGS
 };

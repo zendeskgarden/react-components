@@ -6,8 +6,21 @@
  */
 
 export { Combobox } from './elements/combobox/Combobox';
+export { Field } from './elements/combobox/Field';
+export { Hint } from './elements/combobox/Hint';
+export { Label } from './elements/combobox/Label';
+export { Message } from './elements/combobox/Message';
 export { Option } from './elements/combobox/Option';
 export { OptGroup } from './elements/combobox/OptGroup';
 export { Tag } from './elements/combobox/Tag';
 
-export type { IComboboxProps, IOptionProps, IOptGroupProps, ITagProps } from './types';
+export { VALIDATION } from '@zendeskgarden/react-forms';
+
+export type {
+  IComboboxProps,
+  ILabelProps,
+  IMessageProps,
+  IOptionProps,
+  IOptGroupProps,
+  ITagProps
+} from './types';

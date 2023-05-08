@@ -7,11 +7,15 @@
 
 export * from './combobox/StyledCombobox';
 export * from './combobox/StyledContainer';
+export * from './combobox/StyledField';
 export * from './combobox/StyledFloating';
+export * from './combobox/StyledHint';
 export * from './combobox/StyledInput';
 export * from './combobox/StyledInputGroup';
 export * from './combobox/StyledInputIcon';
+export * from './combobox/StyledLabel';
 export * from './combobox/StyledListbox';
+export * from './combobox/StyledMessage';
 export * from './combobox/StyledOptGroup';
 export * from './combobox/StyledOption';
 export * from './combobox/StyledOptionContent';

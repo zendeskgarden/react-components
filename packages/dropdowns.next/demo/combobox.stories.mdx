@@ -1,11 +1,19 @@
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
-import { Combobox, Option, OptGroup, Tag } from '@zendeskgarden/react-dropdowns.next';
+import {
+  Combobox,
+  Hint,
+  Label,
+  Message,
+  Option,
+  OptGroup,
+  Tag
+} from '@zendeskgarden/react-dropdowns.next';
 import { ComboboxStory } from './stories/ComboboxStory';
 
 <Meta
   title="Packages/Dropdowns.Next/Combobox"
   component={Combobox}
-  subcomponents={{ Option, OptGroup, Tag, 'Tag.Avatar': Tag.Avatar }}
+  subcomponents={{ Hint, Label, Option, Message, OptGroup, Tag, 'Tag.Avatar': Tag.Avatar }}
 />
 
 # API
@@ -19,7 +27,8 @@ import { ComboboxStory } from './stories/ComboboxStory';
     name="Combobox"
     args={{
       isEditable: true,
-      listboxMaxHeight: Combobox.defaultProps.listboxMaxHeight
+      listboxMaxHeight: Combobox.defaultProps.listboxMaxHeight,
+      listboxZIndex: Combobox.defaultProps.listboxZIndex
     }}
   >
     {args => <ComboboxStory {...args} />}

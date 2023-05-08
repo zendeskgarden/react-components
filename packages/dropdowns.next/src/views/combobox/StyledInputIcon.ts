@@ -18,6 +18,7 @@ interface IStyledInputIconProps extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;
   isDisabled?: boolean;
   isEnd?: boolean;
+  isLabelHovered?: boolean;
   isRotated?: boolean;
 }
 
@@ -27,7 +28,7 @@ const colorStyles = (props: IStyledInputIconProps) => {
   const disabledColor = getColor('neutralHue', 400, props.theme);
 
   return css`
-    color: ${color};
+    color: ${props.isLabelHovered ? focusColor : color};
 
     /* stylelint-disable selector-no-qualifying-type */
     ${StyledTrigger}:hover &,
@@ -73,6 +74,7 @@ export const StyledInputIcon = styled(
     isCompact,
     isDisabled,
     isEnd,
+    isLabelHovered,
     isRotated,
     theme,
     ...props
