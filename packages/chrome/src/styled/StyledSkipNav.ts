@@ -11,7 +11,9 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getColor,
-  getLineHeight
+  getLineHeight,
+  getFocusBoxShadow,
+  SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
 import { getHeaderHeight } from './header/StyledHeader';
 
@@ -52,6 +54,14 @@ const colorStyles = (theme: DefaultTheme) => {
     box-shadow: ${boxShadow};
     background-color: ${theme.colors.background};
     color: ${color};
+
+    ${SELECTOR_FOCUS_VISIBLE} {
+      box-shadow: ${boxShadow},
+        ${getFocusBoxShadow({
+          theme,
+          inset: true
+        })};
+    }
 
     &:hover,
     &:focus {

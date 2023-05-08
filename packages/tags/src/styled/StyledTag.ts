@@ -64,8 +64,6 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     ${focusStyles({
       theme: props.theme,
       hue: boxShadowColor,
-      // TODO: verify shadowWidth with design
-      shadowWidth: props.size === 'large' ? 'md' : 'sm',
       selector: '&:focus'
     })}
 

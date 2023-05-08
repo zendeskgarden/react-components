@@ -45,8 +45,7 @@ const colorStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
       theme: props.theme,
       inset: props.focusInset,
       hue: focusBorderColor,
-      styles: { borderColor: focusBorderColor },
-      selector: '&:focus'
+      styles: { borderColor: focusBorderColor }
     })}
   `;
 };

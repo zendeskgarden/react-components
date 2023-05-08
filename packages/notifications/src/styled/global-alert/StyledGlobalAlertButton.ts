@@ -6,7 +6,12 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  DEFAULT_THEME,
+  retrieveComponentStyles,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
 import { IGlobalAlertProps } from '../../types';
@@ -27,32 +32,32 @@ function colorStyles(props: ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonP
   let backgroundColor;
   let hoverBackgroundColor;
   let activeBackgroundColor;
-  let boxShadowColor;
+  let focusColor;
 
   switch (props.alertType) {
     case 'success':
       backgroundColor = getColor('successHue', 800, props.theme);
       hoverBackgroundColor = getColor('successHue', 900, props.theme);
       activeBackgroundColor = getColor('successHue', 1000, props.theme);
-      boxShadowColor = getColor('successHue', 200, props.theme, 0.35);
+      focusColor = 'successHue';
       break;
 
     case 'error':
       backgroundColor = getColor('dangerHue', 800, props.theme);
       hoverBackgroundColor = getColor('dangerHue', 900, props.theme);
       activeBackgroundColor = getColor('dangerHue', 1000, props.theme);
-      boxShadowColor = getColor('dangerHue', 100, props.theme, 0.35);
+      focusColor = 'dangerHue';
       break;
 
     case 'warning':
       backgroundColor = getColor('warningHue', 800, props.theme);
       hoverBackgroundColor = getColor('warningHue', 900, props.theme);
       activeBackgroundColor = getColor('warningHue', 1000, props.theme);
-      boxShadowColor = getColor('warningHue', 800, props.theme, 0.35);
+      focusColor = 'warningHue';
       break;
 
     case 'info':
-      boxShadowColor = getColor('primaryHue', 700, props.theme, 0.35);
+      focusColor = 'primaryHue';
       break;
   }
 
@@ -63,9 +68,11 @@ function colorStyles(props: ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonP
       background-color: ${hoverBackgroundColor};
     }
 
-    &[data-garden-focus-visible] {
-      box-shadow: ${boxShadowColor && props.theme.shadows.md(boxShadowColor)};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      hue: focusColor,
+      shade: props.alertType === 'info' ? 600 : 800
+    })}
 
     &:active {
       background-color: ${activeBackgroundColor};

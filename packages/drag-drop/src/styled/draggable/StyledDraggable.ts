@@ -12,7 +12,9 @@ import {
   DEFAULT_THEME,
   getColor,
   IGardenTheme,
-  getLineHeight
+  getLineHeight,
+  focusStyles,
+  getFocusBoxShadow
 } from '@zendeskgarden/react-theming';
 import { StyledGrip } from './StyledGrip';
 
@@ -36,27 +38,17 @@ export function getDragShadow(theme: IGardenTheme) {
   return shadows.lg(offsetY, blurRadius, color);
 }
 
-export function getFocusShadow(
-  focusInset: IStyledDraggableProps['focusInset'],
-  baseColor: string,
-  theme: IGardenTheme
-) {
-  return `${focusInset ? 'inset ' : ''}${theme.shadows.md(rgba(baseColor as string, 0.35))}`;
-}
-
 const colorStyles = (props: IStyledDraggableProps) => {
   const { isBare, isGrabbed, isDisabled, isPlaceholder, focusInset, theme } = props;
 
   const baseColor = getColor('primaryHue', 600, theme);
   const dragShadow = getDragShadow(theme);
-  const focusShadow = getFocusShadow(focusInset, baseColor!, theme);
   const baseBgColor = theme.colors.background;
   const disabledColor = getColor('neutralHue', 400, theme);
 
   let color;
   let hoverBackgroundColor;
   let boxShadow;
-  let focusBoxShadow;
   let borderColor = 'transparent';
   let backgroundColor = baseBgColor;
 
@@ -69,7 +61,6 @@ const colorStyles = (props: IStyledDraggableProps) => {
     color = theme.colors.foreground;
     borderColor = isBare ? 'transparent' : (getColor('neutralHue', 300, theme) as string);
     hoverBackgroundColor = isGrabbed ? baseBgColor : rgba(baseColor as string, 0.08);
-    focusBoxShadow = isGrabbed ? `${focusShadow}, ${dragShadow}` : focusShadow;
     boxShadow = dragShadow;
   }
 
@@ -83,9 +74,16 @@ const colorStyles = (props: IStyledDraggableProps) => {
       background-color: ${hoverBackgroundColor};
     }
 
-    &[data-garden-focus-visible] {
-      box-shadow: ${focusBoxShadow};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      inset: focusInset,
+      condition: !isGrabbed,
+      styles: {
+        boxShadow: isGrabbed
+          ? `${getFocusBoxShadow({ theme: props.theme, inset: focusInset })}, ${dragShadow}`
+          : undefined
+      }
+    })}
 
     > ${StyledGrip} {
       color: ${isDisabled && disabledColor};
@@ -142,10 +140,6 @@ export const StyledDraggable = styled.div.attrs({
   box-sizing: border-box;
 
   ${sizeStyles}
-
-  &:focus {
-    outline: none;
-  }
 
   ${colorStyles}
 

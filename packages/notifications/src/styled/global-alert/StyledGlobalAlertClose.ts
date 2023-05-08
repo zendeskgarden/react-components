@@ -6,7 +6,12 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  DEFAULT_THEME,
+  retrieveComponentStyles,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
 import { IGlobalAlertProps } from '../../types';
@@ -22,7 +27,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
   let hoverForegroundColor;
   let activeBackgroundColor;
   let activeForegroundColor;
-  let boxShadowColor;
+  let focusColor;
 
   switch (props.alertType) {
     case 'success':
@@ -30,7 +35,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
       hoverForegroundColor = props.theme.palette.white;
       activeBackgroundColor = getColor('successHue', 100, props.theme, 0.2);
       activeForegroundColor = props.theme.palette.white;
-      boxShadowColor = getColor('successHue', 100, props.theme, 0.35);
+      focusColor = 'successHue';
       break;
 
     case 'error':
@@ -38,7 +43,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
       hoverForegroundColor = props.theme.palette.white;
       activeBackgroundColor = getColor('dangerHue', 100, props.theme, 0.2);
       activeForegroundColor = props.theme.palette.white;
-      boxShadowColor = getColor('dangerHue', 100, props.theme, 0.35);
+      focusColor = 'dangerHue';
       break;
 
     case 'warning':
@@ -46,7 +51,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
       hoverForegroundColor = getColor('warningHue', 900, props.theme);
       activeBackgroundColor = getColor('warningHue', 800, props.theme, 0.2);
       activeForegroundColor = getColor('warningHue', 1000, props.theme);
-      boxShadowColor = getColor('warningHue', 800, props.theme, 0.35);
+      focusColor = 'warningHue';
       break;
 
     case 'info':
@@ -54,7 +59,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
       hoverForegroundColor = getColor('primaryHue', 800, props.theme);
       activeBackgroundColor = getColor('primaryHue', 700, props.theme, 0.2);
       activeForegroundColor = getColor('primaryHue', 900, props.theme);
-      boxShadowColor = getColor('primaryHue', 700, props.theme, 0.35);
+      focusColor = 'primaryHue';
       break;
   }
 
@@ -66,9 +71,11 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
       color: ${hoverForegroundColor};
     }
 
-    &[data-garden-focus-visible] {
-      box-shadow: ${props.theme.shadows.md(boxShadowColor!)};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      hue: focusColor,
+      shade: props.alertType === 'info' ? 600 : 800
+    })}
 
     &:active {
       background-color: ${activeBackgroundColor};

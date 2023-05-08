@@ -7,7 +7,12 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, stripUnit } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  getFocusBoxShadow
+} from '@zendeskgarden/react-theming';
 import { ISplitterButtonProps, Orientation, PLACEMENT } from '../../types';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
 import { StyledPaneSplitter } from './StyledPaneSplitter';
@@ -49,11 +54,14 @@ const colorStyles = ({ theme }: IStyledSplitterButtonProps & ThemeProps<DefaultT
     `${theme.space.base * 2}px`,
     getColor('chromeHue', 600, theme, 0.15)!
   );
-  const focusBoxShadow = theme.shadows.md(getColor('primaryHue', 600, theme, 0.35)!);
+  const focusBoxShadow = getFocusBoxShadow({
+    theme
+  });
 
   return css`
     box-shadow: ${boxShadow};
 
+    &:focus-visible,
     &[data-garden-focus-visible] {
       box-shadow: ${focusBoxShadow}, ${boxShadow};
     }
@@ -120,8 +128,10 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   opacity: 0;
 
   /* stylelint-disable selector-no-qualifying-type */
+  &:focus-visible,
   &[data-garden-focus-visible],
   ${StyledPaneSplitter}:hover &,
+  ${StyledPaneSplitter}:focus-visible &,
   ${StyledPaneSplitter}[data-garden-focus-visible] & {
     opacity: 1;
   }

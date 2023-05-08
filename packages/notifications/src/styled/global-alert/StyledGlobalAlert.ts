@@ -10,7 +10,9 @@ import {
   getColor,
   DEFAULT_THEME,
   retrieveComponentStyles,
-  getLineHeight
+  getLineHeight,
+  focusStyles,
+  SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
 
 import { IGlobalAlertProps } from '../../types';
@@ -27,7 +29,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
   let foregroundColor;
   let anchorHoverColor;
   let anchorActiveColor;
-  let anchorBoxShadowColor;
+  let focusColor;
 
   switch (props.alertType) {
     case 'success':
@@ -36,7 +38,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
       foregroundColor = getColor('successHue', 100, props.theme);
       anchorHoverColor = props.theme.palette.white;
       anchorActiveColor = props.theme.palette.white;
-      anchorBoxShadowColor = getColor('successHue', 200, props.theme, 0.35);
+      focusColor = 'successHue';
       break;
 
     case 'error':
@@ -45,7 +47,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
       foregroundColor = getColor('dangerHue', 100, props.theme);
       anchorHoverColor = props.theme.palette.white;
       anchorActiveColor = props.theme.palette.white;
-      anchorBoxShadowColor = getColor('dangerHue', 100, props.theme, 0.35);
+      focusColor = 'dangerHue';
       break;
 
     case 'warning':
@@ -54,7 +56,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
       foregroundColor = getColor('warningHue', 800, props.theme);
       anchorHoverColor = getColor('warningHue', 900, props.theme);
       anchorActiveColor = getColor('warningHue', 1000, props.theme);
-      anchorBoxShadowColor = getColor('warningHue', 800, props.theme, 0.35);
+      focusColor = 'warningHue';
       break;
 
     case 'info':
@@ -63,7 +65,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
       foregroundColor = getColor('primaryHue', 700, props.theme);
       anchorHoverColor = getColor('primaryHue', 800, props.theme);
       anchorActiveColor = getColor('primaryHue', 900, props.theme);
-      anchorBoxShadowColor = getColor('primaryHue', 700, props.theme, 0.35);
+      focusColor = 'primaryHue';
       break;
   }
 
@@ -83,13 +85,17 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
         color: inherit;
       }
 
-      &:hover,
-      [data-garden-focus-visible] {
-        color: ${anchorHoverColor};
-      }
+      ${focusStyles({
+        theme: props.theme,
+        shadowWidth: 'sm',
+        hue: focusColor,
+        shade: props.alertType === 'info' ? 600 : 800,
+        styles: { textDecoration: 'none' }
+      })}
 
-      &[data-garden-focus-visible] {
-        box-shadow: ${props.theme.shadows.sm(anchorBoxShadowColor!)};
+      &:hover,
+      ${SELECTOR_FOCUS_VISIBLE} {
+        color: ${anchorHoverColor};
       }
 
       &:active {
@@ -127,10 +133,6 @@ export const StyledGlobalAlert = styled.div.attrs({
   && a {
     border-radius: ${props => props.theme.borderRadii.sm};
     text-decoration: underline;
-
-    &:focus {
-      text-decoration: underline;
-    }
   }
 
   ${sizeStyles}

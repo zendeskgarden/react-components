@@ -65,6 +65,7 @@ const colorStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
   const thumbBorderColor = thumbBackgroundColor;
   const thumbActiveBackgroundColor = getColor('neutralHue', 200, props.theme);
   const thumbActiveBorderColor = getColor('primaryHue', 600, props.theme);
+  const thumbFocusBorderColor = getColor('primaryHue', 400, props.theme);
   const thumbHoverBackgroundColor = thumbActiveBackgroundColor;
   const thumbHoverBorderColor = thumbHoverBackgroundColor;
 
@@ -95,7 +96,7 @@ const colorStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
     ${thumbStyles(
       `
         background-color: ${thumbBackgroundColor};
-        border-color: ${thumbActiveBorderColor};
+        border-color: ${thumbFocusBorderColor};
       `,
       '[data-garden-focus-visible="true"]'
     )}

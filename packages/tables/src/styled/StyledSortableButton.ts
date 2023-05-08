@@ -7,7 +7,13 @@
 
 import styled from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  focusStyles,
+  SELECTOR_FOCUS_VISIBLE
+} from '@zendeskgarden/react-theming';
 import { ISortableCellProps } from '../types';
 
 const COMPONENT_ID = 'tables.sortable';
@@ -98,7 +104,7 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   }
 
   &:hover,
-  &[data-garden-focus-visible] {
+  ${SELECTOR_FOCUS_VISIBLE} {
     text-decoration: none;
     color: ${props => getColor('primaryHue', 600, props.theme)};
 
@@ -135,9 +141,11 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
     `}
   }
 
-  &:focus {
-    outline: none;
-  }
+  ${props =>
+    focusStyles({
+      theme: props.theme,
+      styles: { borderRadius: props.theme.borderRadii.sm }
+    })}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

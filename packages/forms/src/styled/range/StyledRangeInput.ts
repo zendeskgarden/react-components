@@ -7,7 +7,12 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  getFocusBoxShadow,
+  retrieveComponentStyles,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 import { StyledHint } from '../common/StyledHint';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledMessage } from '../common/StyledMessage';
@@ -71,9 +76,6 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) =
   const thumbActiveBorderColor = thumbBorderColor;
   const thumbDisabledBackgroundColor = getColor('neutralHue', SHADE - 300, props.theme);
   const thumbDisabledBorderColor = thumbDisabledBackgroundColor;
-  const thumbFocusBoxShadow = props.theme.shadows.md(
-    getColor('primaryHue', SHADE, props.theme, 0.35)!
-  );
   const thumbHoverBackgroundColor = thumbActiveBackgroundColor;
   const thumbHoverBorderColor = thumbHoverBackgroundColor;
   const trackBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
@@ -115,7 +117,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) =
 
     ${thumbStyles(
       `
-        box-shadow: ${thumbFocusBoxShadow};
+        box-shadow: ${getFocusBoxShadow({ theme: props.theme })}
       `,
       '[data-garden-focus-visible="true"]'
     )}

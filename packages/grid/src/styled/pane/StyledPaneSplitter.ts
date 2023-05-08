@@ -6,8 +6,13 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { math, rgba } from 'polished';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import {
+  DEFAULT_THEME,
+  focusStyles,
+  getColor,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 import { Orientation } from '../../types';
 
 const COMPONENT_ID = 'pane.splitter';
@@ -22,7 +27,6 @@ const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>)
   const color = getColor('neutralHue', 300, props.theme);
   const hoverColor = getColor('primaryHue', 600, props.theme);
   const activeColor = getColor('primaryHue', 800, props.theme);
-  const boxShadow = props.theme.shadows.md(rgba(hoverColor!, 0.35));
 
   return css`
     &::before {
@@ -33,10 +37,14 @@ const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>)
       background-color: ${props.isHovered && hoverColor};
     }
 
-    &[data-garden-focus-visible]::before {
-      box-shadow: ${boxShadow};
-      background-color: ${hoverColor};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      hue: hoverColor,
+      styles: {
+        backgroundColor: hoverColor
+      },
+      selector: '&:focus-visible::before, &[data-garden-focus-visible]::before'
+    })}
 
     &:active::before {
       background-color: ${props.isHovered && activeColor};
@@ -160,10 +168,6 @@ export const StyledPaneSplitter = styled.div.attrs({
   user-select: none;
 
   ${sizeStyles};
-
-  &:focus {
-    outline: none;
-  }
 
   &::before {
     position: absolute;

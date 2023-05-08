@@ -6,7 +6,12 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  getColor,
+  DEFAULT_THEME,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 import { Hue } from '../../utils/useNotificationsContext';
 
 const COMPONENT_ID = 'notifications.close';
@@ -50,22 +55,11 @@ export const StyledClose = styled.button.attrs({
       props.hue ? getColor(props.hue, 800, props.theme) : getColor('neutralHue', 800, props.theme)};
   }
 
-  &:focus {
-    outline: none;
-  }
-
-  &[data-garden-focus-visible] {
-    background-color: ${props =>
-      props.hue
-        ? getColor(props.hue, props.hue === 'warningHue' ? 700 : 600, props.theme, 0.15)
-        : getColor('neutralHue', 600, props.theme, 0.15)};
-    color: ${props =>
-      props.hue ? getColor(props.hue, 800, props.theme) : getColor('neutralHue', 800, props.theme)};
-
-    &::-moz-focus-inner {
-      border: 0; /* [2] */
-    }
-  }
+  ${props =>
+    focusStyles({
+      theme: props.theme,
+      inset: true
+    })}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

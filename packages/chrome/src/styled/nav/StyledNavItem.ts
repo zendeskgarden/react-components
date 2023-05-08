@@ -7,7 +7,12 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { rgba, math } from 'polished';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  getColor,
+  DEFAULT_THEME,
+  SELECTOR_FOCUS_VISIBLE
+} from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';
 import { getNavWidth } from './StyledNav';
@@ -33,7 +38,6 @@ const colorStyles = (props: IStyledNavItemProps) => {
   }
 
   const activeColor = rgba(props.isLight ? BLACK : WHITE, 0.1);
-  const focusColor = rgba(props.isLight ? BLACK : WHITE, 0.2);
 
   return css`
     opacity: ${props.isCurrent ? 1 : 0.6};
@@ -44,9 +48,13 @@ const colorStyles = (props: IStyledNavItemProps) => {
       background-color: ${hoverColor};
     }
 
-    &[data-garden-focus-visible] {
+    ${SELECTOR_FOCUS_VISIBLE} {
       opacity: 1;
-      box-shadow: inset ${props.theme.shadows.md(focusColor)};
+      box-shadow: inset
+        ${props.theme.shadows.xs(
+          getColor('chromeHue', props.isCurrent ? 500 : 700, props.theme) as string
+        )},
+        inset ${props.theme.shadows.md(props.isLight ? BLACK : WHITE)};
     }
 
     &:active {
