@@ -244,9 +244,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                     isCompact={isCompact}
                     isPlaceholder={!inputValue}
                     onClick={event => {
-                      event.stopPropagation();
-
                       if (isEditable) {
+                        event.stopPropagation();
                         inputRef.current?.focus();
                       }
                     }}
