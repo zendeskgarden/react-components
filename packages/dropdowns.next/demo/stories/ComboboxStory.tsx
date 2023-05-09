@@ -8,6 +8,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import OptionIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import {
   Combobox,
   Field,
@@ -20,17 +21,41 @@ import {
 } from '@zendeskgarden/react-dropdowns.next';
 import { OPTIONS } from './data';
 
-export const ComboboxStory: Story<IComboboxProps> = ({ validation, ...args }) => (
-  <Field>
-    <Label>Label</Label>
-    <Hint>Hint</Hint>
-    <Combobox validation={validation} {...args}>
-      <OptGroup label="Group">
-        {OPTIONS.map(({ icon, ...option }, index) => (
-          <Option key={index} icon={icon ? <OptionIcon /> : undefined} {...option} />
-        ))}
-      </OptGroup>
-    </Combobox>
-    <Message validation={validation}>Message</Message>
-  </Field>
+interface IArgs extends IComboboxProps {
+  label: string;
+  isLabelRegular: boolean;
+  isLabelHidden: boolean;
+  hint: string;
+  message: string;
+}
+
+export const ComboboxStory: Story<IArgs> = ({
+  label,
+  isLabelRegular,
+  isLabelHidden,
+  hint,
+  message,
+  validation,
+  ...args
+}) => (
+  <Grid>
+    <Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
+      <Col alignSelf="center">
+        <Field>
+          <Label hidden={isLabelHidden} isRegular={isLabelRegular}>
+            {label}
+          </Label>
+          {hint && <Hint>{hint}</Hint>}
+          <Combobox validation={validation} {...args}>
+            <OptGroup label="Group">
+              {OPTIONS.map(({ icon, ...option }, index) => (
+                <Option key={index} icon={icon ? <OptionIcon /> : undefined} {...option} />
+              ))}
+            </OptGroup>
+          </Combobox>
+          {message && <Message validation={validation}>{message}</Message>}
+        </Field>
+      </Col>
+    </Row>
+  </Grid>
 );
