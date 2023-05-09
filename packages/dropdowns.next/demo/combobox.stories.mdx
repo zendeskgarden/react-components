@@ -1,4 +1,5 @@
 import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
 import {
   Combobox,
   Hint,
@@ -14,6 +15,31 @@ import { ComboboxStory } from './stories/ComboboxStory';
   title="Packages/Dropdowns.Next/Combobox"
   component={Combobox}
   subcomponents={{ Hint, Label, Option, Message, OptGroup, Tag, 'Tag.Avatar': Tag.Avatar }}
+  args={{
+    label: 'Label',
+    isLabelRegular: false,
+    isLabelHidden: false,
+    hint: 'Hint',
+    startIcon: false,
+    endIcon: false,
+    listboxAriaLabel: 'Label',
+    message: 'Message',
+    validationLabel: 'Label',
+    isEditable: true,
+    listboxMaxHeight: Combobox.defaultProps.listboxMaxHeight,
+    listboxZIndex: Combobox.defaultProps.listboxZIndex
+  }}
+  argTypes={{
+    label: { name: 'children', table: { category: 'Label' } },
+    hint: { name: 'children', table: { category: 'Hint' } },
+    startIcon: { control: 'boolean' },
+    endIcon: { control: 'boolean' },
+    appendListboxToNode: { control: false },
+    message: { name: 'children', table: { category: 'Message' } },
+    validationLabel: { table: { category: 'Message' } },
+    isLabelRegular: { name: 'isRegular', table: { category: 'Label' } },
+    isLabelHidden: { name: 'hidden', table: { category: 'Label' } }
+  }}
 />
 
 # API
@@ -22,27 +48,20 @@ import { ComboboxStory } from './stories/ComboboxStory';
 
 # Demo
 
+## Uncontrolled
+
 <Canvas>
-  <Story
-    name="Combobox"
-    args={{
-      label: 'Label',
-      isLabelRegular: false,
-      isLabelHidden: false,
-      hint: 'Hint',
-      message: 'Message',
-      isEditable: true,
-      listboxMaxHeight: Combobox.defaultProps.listboxMaxHeight,
-      listboxZIndex: Combobox.defaultProps.listboxZIndex
+  <Story name="Uncontrolled">{args => <ComboboxStory {...args} />}</Story>
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story name="Controlled">
+    {args => {
+      const updateArgs = useArgs()[1];
+      const handleChange = event => updateArgs({});
+      return <ComboboxStory {...args} onChange={handleChange} />;
     }}
-    argTypes={{
-      label: { name: 'children', table: { category: 'Label' } },
-      hint: { name: 'children', table: { category: 'Hint' } },
-      message: { name: 'children', table: { category: 'Message' } },
-      isLabelRegular: { name: 'isRegular', table: { category: 'Label' } },
-      isLabelHidden: { name: 'hidden', table: { category: 'Label' } }
-    }}
-  >
-    {args => <ComboboxStory {...args} />}
   </Story>
 </Canvas>

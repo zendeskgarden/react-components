@@ -7,7 +7,8 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import OptionIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
+import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import {
   Combobox,
@@ -21,12 +22,15 @@ import {
 } from '@zendeskgarden/react-dropdowns.next';
 import { OPTIONS } from './data';
 
-interface IArgs extends IComboboxProps {
+interface IArgs extends Omit<IComboboxProps, 'startIcon' | 'endIcon'> {
   label: string;
   isLabelRegular: boolean;
   isLabelHidden: boolean;
-  hint: string;
-  message: string;
+  hint?: string;
+  startIcon: boolean;
+  endIcon: boolean;
+  message?: string;
+  validationLabel: string;
 }
 
 export const ComboboxStory: Story<IArgs> = ({
@@ -34,8 +38,11 @@ export const ComboboxStory: Story<IArgs> = ({
   isLabelRegular,
   isLabelHidden,
   hint,
+  startIcon,
+  endIcon,
   message,
   validation,
+  validationLabel,
   ...args
 }) => (
   <Grid>
@@ -46,14 +53,23 @@ export const ComboboxStory: Story<IArgs> = ({
             {label}
           </Label>
           {hint && <Hint>{hint}</Hint>}
-          <Combobox validation={validation} {...args}>
+          <Combobox
+            validation={validation}
+            {...args}
+            startIcon={startIcon ? <StartIcon /> : undefined}
+            endIcon={endIcon ? <Icon /> : undefined}
+          >
             <OptGroup label="Group">
               {OPTIONS.map(({ icon, ...option }, index) => (
-                <Option key={index} icon={icon ? <OptionIcon /> : undefined} {...option} />
+                <Option key={index} icon={icon ? <Icon /> : undefined} {...option} />
               ))}
             </OptGroup>
           </Combobox>
-          {message && <Message validation={validation}>{message}</Message>}
+          {message && (
+            <Message validation={validation} validationLabel={validationLabel}>
+              {message}
+            </Message>
+          )}
         </Field>
       </Col>
     </Row>

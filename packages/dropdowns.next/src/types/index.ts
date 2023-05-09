@@ -14,7 +14,7 @@ import {
   ReactNode,
   RefObject
 } from 'react';
-import { IOption } from '@zendeskgarden/container-combobox';
+import { IOption, IUseComboboxReturnValue } from '@zendeskgarden/container-combobox';
 import { VALIDATION } from '@zendeskgarden/react-forms';
 import { ITagProps as IBaseTagProps } from '@zendeskgarden/react-tags';
 
@@ -63,6 +63,18 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
    * @returns a replacement for the "+ N more" text
    */
   renderExpandTags?: (value: number) => string;
+  /**
+   * Overrides the `inputValue` or `placeholder` text displayed when the combobox is not focused
+   *
+   * @param {object|object[]} options.selection Current selection
+   * @param {string} [options.inputValue] Current input value
+   *
+   * @returns content for the current combobox value
+   */
+  renderValue?: (options: {
+    selection: IUseComboboxReturnValue['selection'];
+    inputValue?: IUseComboboxReturnValue['inputValue'];
+  }) => ReactNode;
   /** Accepts a "start" icon to display */
   startIcon?: ReactElement;
   /** Applies validation state styling */

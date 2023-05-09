@@ -21,8 +21,7 @@ import { ThemeContext } from 'styled-components';
 import { IOption, IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
 import { DEFAULT_THEME, useText, useWindow } from '@zendeskgarden/react-theming';
 import { VALIDATION } from '@zendeskgarden/react-forms';
-import StartIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
-import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { IComboboxProps, IOptionProps } from '../../types';
 import { ComboboxContext } from '../../context/useComboboxContext';
 import useFieldContext from '../../context/useFieldContext';
@@ -50,6 +49,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     {
       children,
       appendListboxToNode,
+      endIcon,
       focusInset,
       isAutocomplete,
       isBare,
@@ -64,6 +64,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       maxTags = MAX_TAGS,
       placeholder,
       renderExpandTags,
+      renderValue,
+      startIcon,
       validation,
       ...props
     },
@@ -120,6 +122,10 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
         removeSelection
       }),
       [activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact, removeSelection]
+    );
+    const hasChevron = useMemo(
+      () => !isBare && (isAutocomplete || isMultiselectable || !isEditable),
+      [isAutocomplete, isBare, isEditable, isMultiselectable]
     );
     const expandTags = useText(
       Combobox,
@@ -224,9 +230,11 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
         <StyledCombobox isCompact={isCompact} {...props} ref={ref}>
           <StyledTrigger {...triggerProps}>
             <StyledContainer>
-              <StyledInputIcon isLabelHovered={isLabelHovered} isCompact={isCompact}>
-                <StartIcon />
-              </StyledInputIcon>
+              {startIcon && (
+                <StyledInputIcon isLabelHovered={isLabelHovered} isCompact={isCompact}>
+                  {startIcon}
+                </StyledInputIcon>
+              )}
               <StyledInputGroup>
                 {isMultiselectable && Array.isArray(selection) && (
                   <Tags selectedOptions={selection} />
@@ -243,19 +251,23 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                       }
                     }}
                   >
-                    {inputValue || placeholder}
+                    {renderValue
+                      ? renderValue({ selection, inputValue })
+                      : inputValue || placeholder}
                   </StyledValue>
                 )}
                 <StyledInput {...inputProps} />
               </StyledInputGroup>
-              <StyledInputIcon
-                isCompact={isCompact}
-                isEnd
-                isLabelHovered={isLabelHovered}
-                isRotated={isExpanded}
-              >
-                <EndIcon />
-              </StyledInputIcon>
+              {(hasChevron || endIcon) && (
+                <StyledInputIcon
+                  isCompact={isCompact}
+                  isEnd
+                  isLabelHovered={isLabelHovered}
+                  isRotated={hasChevron && isExpanded}
+                >
+                  {hasChevron ? <ChevronIcon /> : endIcon}
+                </StyledInputIcon>
+              )}
             </StyledContainer>
           </StyledTrigger>
           <Listbox
@@ -293,6 +305,7 @@ Combobox.propTypes = {
   maxTags: PropTypes.number,
   placeholder: PropTypes.string,
   renderExpandTags: PropTypes.func,
+  renderValue: PropTypes.func,
   startIcon: PropTypes.any,
   validation: PropTypes.oneOf(VALIDATION)
 };
