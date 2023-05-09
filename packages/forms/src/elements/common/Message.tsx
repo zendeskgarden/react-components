@@ -58,7 +58,13 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
       combinedProps = getMessageProps(combinedProps);
     }
 
-    const ariaLabel = useText(Message, combinedProps, 'validationLabel', validation as string);
+    const ariaLabel = useText(
+      Message,
+      combinedProps,
+      'validationLabel',
+      validation as string,
+      validation !== undefined
+    );
 
     return (
       <MessageComponent ref={ref} {...combinedProps}>
