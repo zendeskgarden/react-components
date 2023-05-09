@@ -50,6 +50,10 @@ export const StyledClose = styled.button.attrs({
   font-size: 0; /* [1] */
   user-select: none;
 
+  &::-moz-focus-inner {
+    border: 0; /* [2] */
+  }
+
   &:hover {
     color: ${props =>
       props.hue ? getColor(props.hue, 800, props.theme) : getColor('neutralHue', 800, props.theme)};

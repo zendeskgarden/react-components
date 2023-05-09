@@ -13,7 +13,7 @@ import {
   getColor,
   getLineHeight,
   getFocusBoxShadow,
-  SELECTOR_FOCUS_VISIBLE
+  focusStyles
 } from '@zendeskgarden/react-theming';
 import { getHeaderHeight } from './header/StyledHeader';
 
@@ -55,18 +55,22 @@ const colorStyles = (theme: DefaultTheme) => {
     background-color: ${theme.colors.background};
     color: ${color};
 
-    ${SELECTOR_FOCUS_VISIBLE} {
-      box-shadow: ${boxShadow},
-        ${getFocusBoxShadow({
-          theme,
-          inset: true
-        })};
-    }
-
     &:hover,
     &:focus {
       color: ${color};
     }
+
+    ${focusStyles({
+      theme,
+      condition: false,
+      styles: {
+        boxShadow: `${boxShadow},
+        ${getFocusBoxShadow({
+          theme,
+          inset: true
+        })}`
+      }
+    })}
   `;
 };
 
@@ -111,10 +115,6 @@ export const StyledSkipNav = styled.a.attrs({
   white-space: nowrap;
 
   ${props => sizeStyles(props)};
-
-  &:focus {
-    outline: none;
-  }
 
   ${props => colorStyles(props.theme)};
 

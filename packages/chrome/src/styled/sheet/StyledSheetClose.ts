@@ -76,6 +76,10 @@ export const StyledSheetClose = styled.button.attrs({
   font-size: 0;
   user-select: none;
 
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
   ${props => colorStyles(props)};
 
   & > svg {

@@ -10,8 +10,8 @@ import { rgba, math } from 'polished';
 import {
   retrieveComponentStyles,
   getColor,
-  DEFAULT_THEME,
-  SELECTOR_FOCUS_VISIBLE
+  focusStyles,
+  DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';
@@ -49,11 +49,15 @@ const colorStyles = (props: IStyledNavItemProps) => {
       background-color: ${hoverColor};
     }
 
-    ${SELECTOR_FOCUS_VISIBLE} {
-      opacity: 1;
-      box-shadow: inset ${props.theme.shadows.xs(focusRingColor)},
-        inset ${props.theme.shadows.md(props.isLight ? BLACK : WHITE)};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      condition: false,
+      styles: {
+        opacity: 1,
+        boxShadow: `inset ${props.theme.shadows.xs(focusRingColor)},
+        inset ${props.theme.shadows.md(props.isLight ? BLACK : WHITE)}`
+      }
+    })}
 
     &:active {
       background-color: ${activeColor};
@@ -88,10 +92,6 @@ export const StyledNavItem = styled(StyledBaseNavItem as 'button').attrs({
   &:focus {
     text-decoration: none; /* [1] */
     color: inherit; /* [1] */
-  }
-
-  &:focus {
-    outline: none; /* [1] */
   }
 
   ${props => colorStyles(props)};
