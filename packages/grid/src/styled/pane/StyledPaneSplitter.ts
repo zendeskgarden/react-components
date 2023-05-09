@@ -43,7 +43,7 @@ const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>)
       styles: {
         backgroundColor: hoverColor
       },
-      selector: '&:focus-visible::before, &[data-garden-focus-visible]::before'
+      selector: '&:focus-visible::before, &[data-garden-focus-visible="true"]::before'
     })}
 
     &:active::before {
@@ -141,8 +141,8 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
       ${dimensionProperty}: ${props.isHovered && separatorSize};
     }
 
-    &[data-garden-focus-visible]::before,
-    &:focus::before {
+    &:focus::before,
+    &[data-garden-focus-visible]::before {
       ${dimensionProperty}: ${separatorSize};
     }
 

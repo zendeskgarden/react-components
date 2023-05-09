@@ -44,7 +44,7 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
       inset: true,
       spacerWidth: null,
       shadowWidth: 'sm',
-      selector: `&[data-garden-focus-visible='true']::before, &:focus-visible::before`,
+      selector: '&:focus-visible::before, &[data-garden-focus-visible="true"]::before',
       styles: { color: selectedColor }
     })}
 
@@ -97,6 +97,11 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>({
     text-decoration: none;
   }
 
+  &::before {
+    transition: box-shadow 0.1s ease-in-out;
+    content: '';
+  }
+
   &:focus-visible::before,
   &[data-garden-focus-visible]::before {
     position: absolute;
@@ -106,11 +111,6 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>({
     border-radius: ${props => props.theme.borderRadii.md};
     height: ${props => props.theme.space.base * 5}px;
     pointer-events: none;
-  }
-
-  &::before {
-    transition: box-shadow 0.1s ease-in-out;
-    content: '';
   }
 
   &:active::before {

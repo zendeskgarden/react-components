@@ -38,6 +38,7 @@ const colorStyles = (props: IStyledNavItemProps) => {
   }
 
   const activeColor = rgba(props.isLight ? BLACK : WHITE, 0.1);
+  const focusRingColor = getColor('chromeHue', props.isCurrent ? 500 : 700, props.theme) as string;
 
   return css`
     opacity: ${props.isCurrent ? 1 : 0.6};
@@ -50,10 +51,7 @@ const colorStyles = (props: IStyledNavItemProps) => {
 
     ${SELECTOR_FOCUS_VISIBLE} {
       opacity: 1;
-      box-shadow: inset
-        ${props.theme.shadows.xs(
-          getColor('chromeHue', props.isCurrent ? 500 : 700, props.theme) as string
-        )},
+      box-shadow: inset ${props.theme.shadows.xs(focusRingColor)},
         inset ${props.theme.shadows.md(props.isLight ? BLACK : WHITE)};
     }
 

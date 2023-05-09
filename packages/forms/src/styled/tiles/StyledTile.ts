@@ -12,7 +12,6 @@ import {
   retrieveComponentStyles,
   focusStyles
 } from '@zendeskgarden/react-theming';
-import { rgba } from 'polished';
 import { StyledTileIcon } from './StyledTileIcon';
 
 const COMPONENT_ID = 'forms.tile';
@@ -32,7 +31,6 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
   const hoverBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.08);
   const hoverBorderColor = getColor('primaryHue', SHADE, props.theme);
   const focusBorderColor = hoverBorderColor;
-  const focusBoxShadow = props.theme.shadows.md(rgba(focusBorderColor!, 0.35));
   const activeBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.2);
   const activeBorderColor = focusBorderColor;
   const disabledBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);

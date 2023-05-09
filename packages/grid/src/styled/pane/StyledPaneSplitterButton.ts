@@ -11,7 +11,8 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getColor,
-  getFocusBoxShadow
+  getFocusBoxShadow,
+  SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
 import { ISplitterButtonProps, Orientation, PLACEMENT } from '../../types';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
@@ -61,8 +62,7 @@ const colorStyles = ({ theme }: IStyledSplitterButtonProps & ThemeProps<DefaultT
   return css`
     box-shadow: ${boxShadow};
 
-    &:focus-visible,
-    &[data-garden-focus-visible] {
+    ${SELECTOR_FOCUS_VISIBLE} {
       box-shadow: ${focusBoxShadow}, ${boxShadow};
     }
   `;

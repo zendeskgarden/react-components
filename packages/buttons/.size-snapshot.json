@@ -5,17 +5,17 @@
     "gzipped": 4222,
     "treeshaked": {
       "rollup": {
-        "code": 12552,
-        "import_statements": 430
+        "code": 12523,
+        "import_statements": 475
       },
       "webpack": {
-        "code": 13494
+        "code": 13522
       }
     }
   },
   "index.cjs.js": {
-    "bundled": 23685,
-    "minified": 17349,
-    "gzipped": 4466
+    "bundled": 23854,
+    "minified": 17435,
+    "gzipped": 4516
   }
 }

@@ -27,9 +27,8 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
   ${props =>
     focusStyles({
       theme: props.theme,
-      condition: props.isFocused,
       inset: true,
-      selector: '&'
+      selector: '&:focus-within'
     })}
 
   &:hover {

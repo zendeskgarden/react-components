@@ -7,12 +7,11 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { rgba } from 'polished';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor, getFocusBoxShadow } from '@zendeskgarden/react-theming';
 import { render, fireEvent } from 'garden-test-utils';
-import { StyledDraggable, getDragShadow, getFocusShadow } from './StyledDraggable';
+import { StyledDraggable, getDragShadow } from './StyledDraggable';
 
-const GARDEN_FOCUS_VISIBLE = '&[data-garden-focus-visible]';
+const GARDEN_FOCUS_VISIBLE = '&:focus-visible';
 
 describe('StyledDraggable', () => {
   const user = userEvent.setup();
@@ -85,14 +84,19 @@ describe('StyledDraggable', () => {
     it('applies correct styles when focused', () => {
       const { queryByText } = render(<StyledDraggable tabIndex={-1}>draggable</StyledDraggable>);
       const draggable = queryByText('draggable') as HTMLElement;
-      const baseColor = rgba(getColor('primaryHue', 600, DEFAULT_THEME) as string, 0.35);
 
       fireEvent.focus(draggable);
 
       expect(draggable).toHaveStyleRule(
         'box-shadow',
-        getFocusShadow(false, baseColor, DEFAULT_THEME),
-        { modifier: GARDEN_FOCUS_VISIBLE }
+        getFocusBoxShadow({ theme: DEFAULT_THEME })
+          // normalize string output to match
+          .split(',')
+          .map(str => str.trim())
+          .join(', '),
+        {
+          modifier: GARDEN_FOCUS_VISIBLE
+        }
       );
     });
 
@@ -104,13 +108,16 @@ describe('StyledDraggable', () => {
         </StyledDraggable>
       );
       const draggable = queryByText('draggable') as HTMLElement;
-      const baseColor = rgba(getColor('primaryHue', 600, DEFAULT_THEME) as string, 0.35);
 
       fireEvent.focus(draggable);
 
       expect(draggable).toHaveStyleRule(
         'box-shadow',
-        `${getFocusShadow(false, baseColor, DEFAULT_THEME)},${getDragShadow(DEFAULT_THEME)}`,
+        `${getFocusBoxShadow({ theme: DEFAULT_THEME })
+          // normalize string output to match
+          .split(',')
+          .map(str => str.trim())
+          .join(', ')},${getDragShadow(DEFAULT_THEME)}`,
         { modifier: GARDEN_FOCUS_VISIBLE }
       );
     });

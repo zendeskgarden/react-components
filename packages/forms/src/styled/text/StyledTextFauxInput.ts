@@ -6,7 +6,12 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  SELECTOR_FOCUS_VISIBLE,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 
@@ -17,6 +22,26 @@ export interface IStyledTextFauxInputProps extends IStyledTextInputProps {
   isDisabled?: boolean;
   isReadOnly?: boolean;
 }
+
+const getValidationHue = (
+  validation: IStyledTextInputProps['validation'],
+  defaultHue = 'primaryHue'
+) => {
+  switch (validation) {
+    case 'success':
+      return 'successHue';
+    case 'warning':
+      return 'warningHue';
+    case 'error':
+      return 'dangerHue';
+    default:
+      return defaultHue;
+  }
+};
+
+/**
+ * [1] removes inner input styles when focused
+ */
 
 export const StyledTextFauxInput = styled(
   StyledTextInput as 'div'
@@ -32,8 +57,21 @@ export const StyledTextFauxInput = styled(
   cursor: ${props => (props.mediaLayout && !props.isDisabled ? 'text' : 'default')};
   overflow: hidden;
 
+  ${props =>
+    focusStyles({
+      theme: props.theme,
+      inset: props.focusInset,
+      hue: getValidationHue(props.validation),
+      shade: props.validation === 'warning' ? 700 : 600,
+      selector: '&:focus-within'
+    })}
+
   & > ${StyledTextInput} {
     vertical-align: ${props => !props.mediaLayout && 'baseline'};
+
+    ${SELECTOR_FOCUS_VISIBLE} {
+      box-shadow: unset; /* [1] */
+    }
   }
 
   & > ${StyledTextMediaFigure} {

@@ -72,6 +72,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) =
     math(`${props.theme.space.base} * 2px`),
     getColor('neutralHue', SHADE + 200, props.theme, 0.24)!
   );
+  const thumbFocusBoxShadow = getFocusBoxShadow({ theme: props.theme });
   const thumbActiveBackgroundColor = getColor('primaryHue', SHADE + 100, props.theme);
   const thumbActiveBorderColor = thumbBorderColor;
   const thumbDisabledBackgroundColor = getColor('neutralHue', SHADE - 300, props.theme);
@@ -117,7 +118,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) =
 
     ${thumbStyles(
       `
-        box-shadow: ${getFocusBoxShadow({ theme: props.theme })}
+        box-shadow: ${thumbFocusBoxShadow};
       `,
       '[data-garden-focus-visible="true"]'
     )}
@@ -125,7 +126,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) =
     ${thumbStyles(
       `
         border-color: ${thumbActiveBorderColor};
-        background-color: ${thumbActiveBackgroundColor}
+        background-color: ${thumbActiveBackgroundColor};
       `,
       ':active'
     )}
@@ -148,7 +149,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) =
 
     ${trackLowerStyles(
       `
-        background-color: ${trackDisabledLowerBackgroundColor}
+        background-color: ${trackDisabledLowerBackgroundColor};
       `,
       ':disabled'
     )}

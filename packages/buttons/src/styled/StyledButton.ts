@@ -358,9 +358,12 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     text-decoration: ${props => props.isLink && 'none'}; /* [2] */
   }
 
-  &:hover,
+  &:hover {
+    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
+  }
+
   ${SELECTOR_FOCUS_VISIBLE} {
-    text-decoration: none; /* [2] */
+    text-decoration: none;
   }
 
   &:active,

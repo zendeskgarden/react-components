@@ -17,6 +17,7 @@ export const StyledSelectWrapper = styled(StyledTextFauxInput).attrs({
   isBare: true
 })`
   position: relative;
+  border-radius: ${props => props.theme.borderRadii.md};
   overflow: visible;
 `;
 

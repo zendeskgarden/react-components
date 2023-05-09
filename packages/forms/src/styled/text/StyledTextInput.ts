@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { em, math, rgba } from 'polished';
+import { em, math } from 'polished';
 import {
   retrieveComponentStyles,
   getColor,
@@ -26,19 +26,23 @@ const isInvalid = (validation?: Validation) => {
 };
 
 const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
+  const HUE = 'primaryHue';
   const SHADE = 600;
   const placeholderColor = getColor('neutralHue', SHADE - 200, props.theme);
   let borderColor: string | undefined;
   let hoverBorderColor: string | undefined;
   let focusBorderColor: string;
+  let focusRingHue = HUE;
+  let focusRingShade = SHADE;
 
   if (props.validation) {
-    let hue;
+    let hue = HUE;
 
     if (props.validation === 'success') {
       hue = 'successHue';
     } else if (props.validation === 'warning') {
       hue = 'warningHue';
+      focusRingShade = 700;
     } else if (props.validation === 'error') {
       hue = 'dangerHue';
     }
@@ -46,15 +50,13 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
     borderColor = getColor(hue as string, SHADE, props.theme)!;
     hoverBorderColor = borderColor;
     focusBorderColor = borderColor;
+    focusRingHue = hue;
   } else {
     borderColor = getColor('neutralHue', SHADE - 300, props.theme);
     hoverBorderColor = getColor('primaryHue', SHADE, props.theme);
     focusBorderColor = hoverBorderColor!;
   }
 
-  const boxShadow = `
-    ${props.focusInset ? 'inset' : ''}
-    ${props.theme.shadows.md(rgba(focusBorderColor, 0.35))}`;
   const readOnlyBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);
   const readOnlyBorderColor = getColor('neutralHue', SHADE - 300, props.theme);
   const disabledBackgroundColor = readOnlyBackgroundColor;
@@ -73,7 +75,6 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
 
   return css`
     border-color: ${controlledBorderColor};
-    /* box-shadow: ${!props.isBare && props.isFocused && boxShadow}; */
     background-color: ${props.isBare ? 'transparent' : props.theme.colors.background};
     color: ${props.theme.colors.foreground};
 
@@ -95,7 +96,8 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
     ${focusStyles({
       theme: props.theme,
       inset: props.focusInset,
-      hue: focusBorderColor,
+      hue: focusRingHue,
+      shade: focusRingShade,
       styles: {
         borderColor: focusBorderColor
       }

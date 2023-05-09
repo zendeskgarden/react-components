@@ -78,11 +78,14 @@ const colorStyles = (props: IStyledDraggableProps) => {
       theme: props.theme,
       inset: focusInset,
       condition: !isGrabbed,
-      styles: {
-        boxShadow: isGrabbed
-          ? `${getFocusBoxShadow({ theme: props.theme, inset: focusInset })}, ${dragShadow}`
-          : undefined
-      }
+      styles: isGrabbed
+        ? {
+            boxShadow: `${getFocusBoxShadow({
+              theme: props.theme,
+              inset: focusInset
+            })}, ${dragShadow}`
+          }
+        : undefined
     })}
 
     > ${StyledGrip} {

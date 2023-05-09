@@ -38,8 +38,8 @@ describe('InputGroup', () => {
 
     fireEvent.focus(input);
 
-    expect(input).toHaveStyleRule('box-shadow', 'inset 0 0 0 3px rgba(31,115,183,0.35)', {
-      modifier: '&:focus'
+    expect(input).toHaveStyleRule('box-shadow', 'inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7', {
+      modifier: '&:focus-visible'
     });
   });
 

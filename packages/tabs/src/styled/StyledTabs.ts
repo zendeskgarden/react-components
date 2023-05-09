@@ -48,6 +48,7 @@ const verticalStyling = ({ theme }: ThemeProps<DefaultTheme>) => {
         margin-bottom: 0;
       }
 
+      &:focus-visible::before,
       &[data-garden-focus-visible]::before {
         top: ${theme.space.base}px;
         right: ${theme.space.base}px;

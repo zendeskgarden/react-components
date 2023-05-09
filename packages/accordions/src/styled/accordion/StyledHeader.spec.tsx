@@ -7,24 +7,38 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import userEvent from '@testing-library/user-event';
+import { DEFAULT_THEME, getFocusBoxShadow } from '@zendeskgarden/react-theming';
 import { StyledHeader } from './StyledHeader';
 
 describe('StyledHeader', () => {
+  const user = userEvent.setup();
+
   it('renders default styling correctly', () => {
     const { container } = render(<StyledHeader />);
 
     expect(container.firstChild).not.toHaveStyleRule('box-shadow');
   });
 
-  it('renders isFocused styling correctly', () => {
-    const { container } = render(<StyledHeader isFocused />);
+  it('renders isFocused styling correctly', async () => {
+    const { container } = render(
+      <StyledHeader>
+        <button />
+      </StyledHeader>
+    );
+
+    await user.tab();
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      `${DEFAULT_THEME.shadows.md(
-        getColor('primaryHue', 600, DEFAULT_THEME, 0.35) as string
-      )} inset`
+      getFocusBoxShadow({ theme: DEFAULT_THEME, inset: true })
+        // normalize string output to match
+        .split(',')
+        .map(str => str.trim())
+        .join(', '),
+      {
+        modifier: '&:focus-within'
+      }
     );
   });
 });
