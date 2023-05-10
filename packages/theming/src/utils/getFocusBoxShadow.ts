@@ -25,7 +25,7 @@ export type FocusBoxShadowParameters = {
  * Get a CSS `box-shadow` property value for focus state styling. The `hue` and
  * `shade` are used to determine the color of the focus ring.
  *
- * @param {Object} [options.boxShadow] Provides an existing `box-shadow` (a drop shadow, for example) to be retained along with the focus ring
+ * @param {string} [options.boxShadow] Provides an existing `box-shadow` (a drop shadow, for example) to be retained along with the focus ring
  * @param {boolean} [options.inset=false] Determines whether the `box-shadow` is inset
  * @param {string|Object} [options.hue='primaryHue'] Provides a theme object `palette` hue or `color` key, or any valid CSS color notation
  * @param {number} [options.shade=600] Selects a shade for the given `hue`
