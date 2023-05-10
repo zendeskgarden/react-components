@@ -7,7 +7,12 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  getColor,
+  focusStyles,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
 import {
   StyledBaseHeaderItem,
@@ -44,14 +49,12 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem as 'button').attrs({
     color: inherit; /* [1] */
   }
 
-  &:focus {
-    outline: none; /* [1] */
-  }
+  ${props =>
+    focusStyles({
+      theme: props.theme
+    })}
 
-  &[data-garden-focus-visible] {
-    box-shadow: ${props => props.theme.shadows.md(getColor('chromeHue', 400, props.theme, 0.35)!)};
-  }
-
+  &:focus-visible:active,
   &[data-garden-focus-visible]:active {
     box-shadow: none;
   }

@@ -64,6 +64,7 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     ${focusStyles({
       theme: props.theme,
       hue: boxShadowColor,
+      shadowWidth: 'sm',
       selector: '&:focus'
     })}
 

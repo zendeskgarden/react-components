@@ -10,7 +10,8 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   SELECTOR_FOCUS_VISIBLE,
-  focusStyles
+  focusStyles,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
@@ -23,10 +24,10 @@ export interface IStyledTextFauxInputProps extends IStyledTextInputProps {
   isReadOnly?: boolean;
 }
 
-const getValidationHue = (
-  validation: IStyledTextInputProps['validation'],
+export function getValidationHue(
+  validation: IStyledTextInputProps['validation'] | null,
   defaultHue = 'primaryHue'
-) => {
+) {
   switch (validation) {
     case 'success':
       return 'successHue';
@@ -37,7 +38,7 @@ const getValidationHue = (
     default:
       return defaultHue;
   }
-};
+}
 
 /**
  * [1] removes inner input styles when focused
@@ -61,9 +62,11 @@ export const StyledTextFauxInput = styled(
     focusStyles({
       theme: props.theme,
       inset: props.focusInset,
+      condition: !props.isBare,
       hue: getValidationHue(props.validation),
       shade: props.validation === 'warning' ? 700 : 600,
-      selector: '&:focus-within'
+      selector: '&:focus-within',
+      styles: { borderColor: getColor(getValidationHue(props.validation), 600, props.theme) }
     })}
 
   & > ${StyledTextInput} {

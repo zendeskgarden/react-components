@@ -62,7 +62,10 @@ const colorStyles = (theme: DefaultTheme) => {
     ${focusStyles({
       theme,
       inset: true,
-      boxShadow
+      boxShadow,
+      styles: {
+        textDecoration: 'none'
+      }
     })}
   `;
 };

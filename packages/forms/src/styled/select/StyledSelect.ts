@@ -20,7 +20,7 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
   return css`
     &:hover + ${StyledTextMediaFigure},
     &:focus + ${StyledTextMediaFigure},
-    &[data-garden-focus-visible='true'] + ${StyledTextMediaFigure} {
+    &:focus-visible + ${StyledTextMediaFigure} {
       color: ${color};
     }
   `;

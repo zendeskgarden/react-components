@@ -11,7 +11,8 @@ import {
   DEFAULT_THEME,
   focusStyles,
   getColor,
-  retrieveComponentStyles
+  retrieveComponentStyles,
+  SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
 import { Orientation } from '../../types';
 
@@ -177,6 +178,10 @@ export const StyledPaneSplitter = styled.div.attrs({
       background-color 0.25s ease-in-out;
     z-index: -1; /* [2] */
     content: '';
+  }
+
+  ${SELECTOR_FOCUS_VISIBLE} {
+    z-index: 2;
   }
 
   ${colorStyles};

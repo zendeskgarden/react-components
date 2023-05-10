@@ -51,10 +51,8 @@ const colorStyles = (props: IStyledNavItemProps) => {
     ${focusStyles({
       theme: props.theme,
       inset: true,
-      hue: props.isLight ? props.theme.palette.grey[800] : WHITE,
-      spacerHue: props.isCurrent
-        ? currentColor
-        : getColor(props.hue, props.isLight ? 500 : 700, props.theme),
+      hue: props.isLight ? BLACK : WHITE,
+      spacerHue: props.isCurrent ? currentColor : getColor(props.hue, 600, props.theme),
       styles: { opacity: 1 }
     })}
 

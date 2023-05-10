@@ -66,10 +66,6 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const activeColor = getColor(hue, shade + 200, props.theme);
   const disabledBackgroundColor = getDisabledBackgroundColor(props);
   const disabledForegroundColor = getColor(hue, shade - 200, props.theme);
-  const focusColor =
-    props.focusInset && (props.isPrimary || props.isSelected)
-      ? props.theme.palette.white
-      : baseColor;
 
   if (props.isLink) {
     retVal = css`
@@ -82,9 +78,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
       ${focusStyles({
         theme: props.theme,
-        inset: props.focusInset,
-        hue: focusColor,
-        shade
+        inset: props.focusInset
       })}
 
       &:hover,
@@ -114,9 +108,14 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
       ${focusStyles({
         theme: props.theme,
         inset: props.focusInset,
-        hue: focusColor,
-        shade,
-        shadowWidth: props.focusInset ? 'sm' : 'md'
+        shadowWidth: props.focusInset ? 'sm' : 'md',
+        spacerWidth: props.focusInset ? 'sm' : 'xs',
+        styles:
+          props.isDanger && props.focusInset
+            ? {
+                borderColor: getColor('primaryHue', shade, props.theme)
+              }
+            : undefined
       })}
 
       &:active {
@@ -154,9 +153,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
       ${focusStyles({
         theme: props.theme,
         inset: props.focusInset,
-        hue: focusColor,
-        shade,
-        styles: { borderColor: props.isNeutral ? baseColor : undefined }
+        styles: props.isNeutral ? { borderColor: baseColor } : undefined
       })}
 
       &:active,
