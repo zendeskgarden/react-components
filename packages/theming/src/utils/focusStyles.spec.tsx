@@ -20,6 +20,8 @@ interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   selector?: string;
   shade?: number;
   shadowWidth?: 'sm' | 'md';
+  spacerHue?: Hue;
+  spacerShade?: number;
   spacerWidth?: null | 'xs' | 'sm';
   styles?: CSSObject;
 }
@@ -70,6 +72,18 @@ describe('focusStyles', () => {
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
       expect.stringContaining(`${DEFAULT_THEME.shadowWidths.md} ${PALETTE.red[400]}`),
+      {
+        modifier: '&:focus-visible'
+      }
+    );
+  });
+
+  it('renders spacer color as expected', () => {
+    const { container } = render(<StyledDiv spacerHue="red" spacerShade={400} />);
+
+    expect(container.firstChild).toHaveStyleRule(
+      'box-shadow',
+      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE.red[400]}`),
       {
         modifier: '&:focus-visible'
       }

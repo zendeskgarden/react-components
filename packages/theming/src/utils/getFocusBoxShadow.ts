@@ -15,6 +15,8 @@ export type FocusBoxShadowParameters = {
   hue?: Hue;
   shade?: number;
   shadowWidth?: 'sm' | 'md';
+  spacerHue?: Hue;
+  spacerShade?: number;
   spacerWidth?: null | 'xs' | 'sm';
   theme: IGardenTheme;
 };
@@ -26,8 +28,10 @@ export type FocusBoxShadowParameters = {
  * @param {Object} [options.boxShadow] Provides an existing `box-shadow` (a drop shadow, for example) to be retained along with the focus ring
  * @param {boolean} [options.inset=false] Determines whether the `box-shadow` is inset
  * @param {string|Object} [options.hue='primaryHue'] Provides a theme object `palette` hue or `color` key, or any valid CSS color notation
- * @param {number} [options.shade=600] Selects a shade for the given hue
+ * @param {number} [options.shade=600] Selects a shade for the given `hue`
  * @param {string} [options.shadowWidth='md'] Provides a theme object `shadowWidth` key for the cumulative width of the `box-shadow`
+ * @param {string|Object} [options.spacerHue='background'] Provides a theme object `palette` hue or `color` key, or any valid CSS color notation
+ * @param {number} [options.spacerShade=600] Selects a shade for the given `spacerHue`
  * @param {string} [options.spacerWidth='xs'] Provides a theme object `shadowWidth` for the white spacer, or `null` to remove
  * @param {Object} options.theme Provides values used to resolve the desired color
  *
@@ -40,6 +44,8 @@ export const getFocusBoxShadow = ({
   hue = 'primaryHue',
   shade = DEFAULT_SHADE,
   shadowWidth = 'md',
+  spacerHue = 'background',
+  spacerShade = DEFAULT_SHADE,
   spacerWidth = 'xs',
   theme = DEFAULT_THEME
 }: FocusBoxShadowParameters) => {
@@ -50,8 +56,10 @@ export const getFocusBoxShadow = ({
     return `${inset ? 'inset' : ''} ${shadow}`;
   }
 
+  const spacerColor = getColor(spacerHue, spacerShade, theme);
+
   const retVal = `
-    ${inset ? 'inset' : ''} ${theme.shadows[spacerWidth](theme.colors.background)},
+    ${inset ? 'inset' : ''} ${theme.shadows[spacerWidth](spacerColor!)},
     ${inset ? 'inset' : ''} ${shadow}`;
 
   return boxShadow ? `${retVal}, ${boxShadow}` : retVal;

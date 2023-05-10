@@ -45,6 +45,20 @@ describe('getFocusBoxShadow', () => {
     );
   });
 
+  it('overrides spacer color as expected', () => {
+    const spacerHue = 'successHue';
+    const spacerShade = 400;
+    const boxShadow = getFocusBoxShadow({
+      theme: DEFAULT_THEME,
+      spacerHue,
+      spacerShade
+    });
+
+    expect(boxShadow).toContain(
+      `${DEFAULT_THEME.shadowWidths.xs} ${getColor(spacerHue, spacerShade, DEFAULT_THEME)}`
+    );
+  });
+
   it('knocks out spacer as expected', () => {
     const boxShadow = getFocusBoxShadow({ theme: DEFAULT_THEME, spacerWidth: null });
 
