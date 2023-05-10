@@ -11,7 +11,6 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getColor,
-  getFocusBoxShadow,
   focusStyles
 } from '@zendeskgarden/react-theming';
 import { ISplitterButtonProps, Orientation, PLACEMENT } from '../../types';
@@ -55,19 +54,13 @@ const colorStyles = ({ theme }: IStyledSplitterButtonProps & ThemeProps<DefaultT
     `${theme.space.base * 2}px`,
     getColor('chromeHue', 600, theme, 0.15)!
   );
-  const focusBoxShadow = getFocusBoxShadow({
-    theme
-  });
 
   return css`
     box-shadow: ${boxShadow};
 
     ${focusStyles({
       theme,
-      condition: false,
-      styles: {
-        boxShadow: `${focusBoxShadow}, ${boxShadow}`
-      }
+      boxShadow
     })}
   `;
 };

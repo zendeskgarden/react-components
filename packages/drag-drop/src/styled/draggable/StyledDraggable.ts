@@ -13,8 +13,7 @@ import {
   getColor,
   IGardenTheme,
   getLineHeight,
-  focusStyles,
-  getFocusBoxShadow
+  focusStyles
 } from '@zendeskgarden/react-theming';
 import { StyledGrip } from './StyledGrip';
 
@@ -77,15 +76,7 @@ const colorStyles = (props: IStyledDraggableProps) => {
     ${focusStyles({
       theme: props.theme,
       inset: focusInset,
-      condition: !isGrabbed,
-      styles: isGrabbed
-        ? {
-            boxShadow: `${getFocusBoxShadow({
-              theme: props.theme,
-              inset: focusInset
-            })}, ${dragShadow}`
-          }
-        : undefined
+      boxShadow: isGrabbed ? dragShadow : undefined
     })}
 
     > ${StyledGrip} {

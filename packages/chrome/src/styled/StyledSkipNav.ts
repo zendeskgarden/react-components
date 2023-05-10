@@ -12,7 +12,6 @@ import {
   DEFAULT_THEME,
   getColor,
   getLineHeight,
-  getFocusBoxShadow,
   focusStyles
 } from '@zendeskgarden/react-theming';
 import { getHeaderHeight } from './header/StyledHeader';
@@ -62,14 +61,8 @@ const colorStyles = (theme: DefaultTheme) => {
 
     ${focusStyles({
       theme,
-      condition: false,
-      styles: {
-        boxShadow: `${boxShadow},
-        ${getFocusBoxShadow({
-          theme,
-          inset: true
-        })}`
-      }
+      inset: true,
+      boxShadow
     })}
   `;
 };

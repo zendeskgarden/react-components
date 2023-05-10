@@ -38,7 +38,6 @@ const colorStyles = (props: IStyledNavItemProps) => {
   }
 
   const activeColor = rgba(props.isLight ? BLACK : WHITE, 0.1);
-  const focusRingColor = getColor('chromeHue', props.isCurrent ? 500 : 700, props.theme) as string;
 
   return css`
     opacity: ${props.isCurrent ? 1 : 0.6};
@@ -51,12 +50,12 @@ const colorStyles = (props: IStyledNavItemProps) => {
 
     ${focusStyles({
       theme: props.theme,
-      condition: false,
-      styles: {
-        opacity: 1,
-        boxShadow: `inset ${props.theme.shadows.xs(focusRingColor)},
-        inset ${props.theme.shadows.md(props.isLight ? BLACK : WHITE)}`
-      }
+      inset: true,
+      hue: props.isLight ? props.theme.palette.grey[800] : WHITE,
+      spacerHue: props.isCurrent
+        ? currentColor
+        : getColor(props.hue, props.isLight ? 500 : 700, props.theme),
+      styles: { opacity: 1 }
     })}
 
     &:active {
