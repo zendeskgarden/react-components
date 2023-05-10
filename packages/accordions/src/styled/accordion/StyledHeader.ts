@@ -11,7 +11,6 @@ import { retrieveComponentStyles, DEFAULT_THEME, focusStyles } from '@zendeskgar
 const COMPONENT_ID = 'accordions.header';
 
 interface IStyledHeader {
-  isFocused?: boolean;
   isExpanded?: boolean;
   isCollapsible?: boolean;
 }

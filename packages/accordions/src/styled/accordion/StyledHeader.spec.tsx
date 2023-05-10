@@ -20,7 +20,7 @@ describe('StyledHeader', () => {
     expect(container.firstChild).not.toHaveStyleRule('box-shadow');
   });
 
-  it('renders isFocused styling correctly', async () => {
+  it('renders focus styling correctly', async () => {
     const { container } = render(
       <StyledHeader>
         <button />
