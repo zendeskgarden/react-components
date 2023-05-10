@@ -81,8 +81,9 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
     & a {
       color: inherit;
 
-      &:focus {
-        color: inherit;
+      &:hover,
+      ${SELECTOR_FOCUS_VISIBLE} {
+        color: ${anchorHoverColor};
       }
 
       ${focusStyles({
@@ -90,13 +91,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
         shadowWidth: 'sm',
         hue: focusColor,
         shade: props.alertType === 'info' ? 600 : 800,
-        styles: { textDecoration: 'none' }
+        styles: { color: 'inherit' }
       })}
-
-      &:hover,
-      ${SELECTOR_FOCUS_VISIBLE} {
-        color: ${anchorHoverColor};
-      }
 
       &:active {
         color: ${anchorActiveColor};
@@ -133,6 +129,10 @@ export const StyledGlobalAlert = styled.div.attrs({
   && a {
     border-radius: ${props => props.theme.borderRadii.sm};
     text-decoration: underline;
+
+    ${SELECTOR_FOCUS_VISIBLE} {
+      text-decoration: none;
+    }
   }
 
   ${sizeStyles}

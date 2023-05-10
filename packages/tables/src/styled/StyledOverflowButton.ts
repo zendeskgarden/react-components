@@ -50,15 +50,15 @@ const colorStyles = (props: IStyledOverflowButtonProps & ThemeProps<DefaultTheme
       color: ${hoverForegroundColor};
     }
 
-    &:active {
-      background-color: ${activeBackgroundColor};
-      color: ${activeForegroundColor};
-    }
-
     ${focusStyles({
       theme: props.theme,
       inset: true
     })}
+
+    &:active {
+      background-color: ${activeBackgroundColor};
+      color: ${activeForegroundColor};
+    }
   `;
 };
 

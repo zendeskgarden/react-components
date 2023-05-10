@@ -24,16 +24,16 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
   align-items: center;
   font-size: ${props => props.theme.fontSizes.md};
 
+  &:hover {
+    cursor: ${props => (props.isCollapsible || !props.isExpanded) && 'pointer'};
+  }
+
   ${props =>
     focusStyles({
       theme: props.theme,
       inset: true,
       selector: '&:focus-within'
     })}
-
-  &:hover {
-    cursor: ${props => (props.isCollapsible || !props.isExpanded) && 'pointer'};
-  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

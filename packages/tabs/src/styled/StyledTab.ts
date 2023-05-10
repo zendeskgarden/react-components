@@ -34,11 +34,6 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
       color: ${selectedColor};
     }
 
-    &:active {
-      border-color: currentColor;
-      color: ${selectedColor};
-    }
-
     ${focusStyles({
       theme,
       inset: true,
@@ -47,6 +42,11 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
       selector: '&:focus-visible::before, &[data-garden-focus-visible="true"]::before',
       styles: { color: selectedColor }
     })}
+
+    &:active {
+      border-color: currentColor;
+      color: ${selectedColor};
+    }
 
     &[aria-disabled='true'] {
       border-color: transparent;

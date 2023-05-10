@@ -72,6 +72,11 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
       background-color: transparent;
       color: ${baseColor};
 
+      &:hover,
+      ${SELECTOR_FOCUS_VISIBLE} {
+        color: ${hoverColor};
+      }
+
       &:focus {
         color: ${baseColor}; /* [1] */
       }
@@ -80,11 +85,6 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
         theme: props.theme,
         inset: props.focusInset
       })}
-
-      &:hover,
-      ${SELECTOR_FOCUS_VISIBLE} {
-        color: ${hoverColor};
-      }
 
       &:active,
       &[aria-pressed='true'],
@@ -350,13 +350,13 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     padding: 0;
   }
 
+  &:hover {
+    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
+  }
+
   &:focus {
     outline: none;
     text-decoration: ${props => props.isLink && 'none'}; /* [2] */
-  }
-
-  &:hover {
-    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
   }
 
   ${SELECTOR_FOCUS_VISIBLE} {

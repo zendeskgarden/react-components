@@ -54,14 +54,6 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
       color: ${iconColor};
     }
 
-    ${focusStyles({
-      theme: props.theme,
-      hue: focusBorderColor,
-      styles: {
-        borderColor: focusBorderColor
-      }
-    })}
-
     &:hover:not([aria-disabled='true']) {
       border-color: ${hoverBorderColor};
       background-color: ${hoverBackgroundColor};
@@ -71,6 +63,14 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
         color: ${color};
       }
     }
+
+    ${focusStyles({
+      theme: props.theme,
+      hue: focusBorderColor,
+      styles: {
+        borderColor: focusBorderColor
+      }
+    })}
 
     &:active:not([aria-disabled='true']) {
       border-color: ${activeBorderColor};
