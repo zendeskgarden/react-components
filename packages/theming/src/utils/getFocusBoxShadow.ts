@@ -10,6 +10,7 @@ import { IGardenTheme } from '../types';
 import { DEFAULT_SHADE, Hue, getColor } from './getColor';
 
 export type FocusBoxShadowParameters = {
+  boxShadow?: string;
   inset?: boolean;
   hue?: Hue;
   shade?: number;
@@ -22,6 +23,7 @@ export type FocusBoxShadowParameters = {
  * Get a CSS `box-shadow` property value for focus state styling. The `hue` and
  * `shade` are used to determine the color of the focus ring.
  *
+ * @param {Object} [options.boxShadow] Provides an existing `box-shadow` (a drop shadow, for example) to be retained along with the focus ring
  * @param {boolean} [options.inset=false] Determines whether the `box-shadow` is inset
  * @param {string|Object} [options.hue='primaryHue'] Provides a theme object `palette` hue or `color` key, or any valid CSS color notation
  * @param {number} [options.shade=600] Selects a shade for the given hue
@@ -33,6 +35,7 @@ export type FocusBoxShadowParameters = {
  * 3px `blue[600]` ring with a 1px white spacer overlay.
  */
 export const getFocusBoxShadow = ({
+  boxShadow,
   inset = false,
   hue = 'primaryHue',
   shade = DEFAULT_SHADE,
@@ -47,7 +50,9 @@ export const getFocusBoxShadow = ({
     return `${inset ? 'inset' : ''} ${shadow}`;
   }
 
-  return `
+  const retVal = `
     ${inset ? 'inset' : ''} ${theme.shadows[spacerWidth](theme.colors.background)},
     ${inset ? 'inset' : ''} ${shadow}`;
+
+  return boxShadow ? `${retVal}, ${boxShadow}` : retVal;
 };

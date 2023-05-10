@@ -50,4 +50,14 @@ describe('getFocusBoxShadow', () => {
 
     expect(boxShadow).not.toContain(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE.white}`);
   });
+
+  it('combines with existing box-shadow as expected', () => {
+    const dropShadow = DEFAULT_THEME.shadows.lg('4px', '8px', PALETTE.black);
+    const boxShadow = getFocusBoxShadow({
+      theme: DEFAULT_THEME,
+      boxShadow: dropShadow
+    });
+
+    expect(boxShadow).toContain(dropShadow);
+  });
 });

@@ -124,8 +124,9 @@ describe('focusStyles', () => {
   });
 
   it('renders user provided styles', () => {
+    const dropShadow = DEFAULT_THEME.shadows.lg('4px', '8px', PALETTE.black);
     const { container } = render(
-      <StyledDiv styles={{ backgroundColor: 'black', color: 'white' }} />
+      <StyledDiv styles={{ backgroundColor: 'black', boxShadow: dropShadow, color: 'white' }} />
     );
 
     expect(container.firstChild).toHaveStyleRule('background-color', 'black', {
@@ -134,5 +135,12 @@ describe('focusStyles', () => {
     expect(container.firstChild).toHaveStyleRule('color', 'white', {
       modifier: '&:focus-visible'
     });
+    expect(container.firstChild).toHaveStyleRule(
+      'box-shadow',
+      expect.stringContaining(dropShadow),
+      {
+        modifier: '&:focus-visible'
+      }
+    );
   });
 });
