@@ -62,6 +62,7 @@ export const StyledTextFauxInput = styled(
     focusStyles({
       theme: props.theme,
       inset: props.focusInset,
+      // removes focus ring when `isBare`
       condition: !props.isBare,
       hue: getValidationHue(props.validation),
       shade: props.validation === 'warning' ? 700 : 600,
