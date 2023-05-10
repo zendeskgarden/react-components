@@ -10,11 +10,21 @@ import {
   Tag
 } from '@zendeskgarden/react-dropdowns.next';
 import { ComboboxStory } from './stories/ComboboxStory';
+import { OPTIONS } from './stories/data';
 
 <Meta
   title="Packages/Dropdowns.Next/Combobox"
   component={Combobox}
-  subcomponents={{ Hint, Label, Option, Message, OptGroup, Tag, 'Tag.Avatar': Tag.Avatar }}
+  subcomponents={{
+    Hint,
+    Label,
+    Message,
+    Option,
+    'Option.Meta': Option.Meta,
+    OptGroup,
+    Tag,
+    'Tag.Avatar': Tag.Avatar
+  }}
   args={{
     label: 'Label',
     isLabelRegular: false,
@@ -27,7 +37,8 @@ import { ComboboxStory } from './stories/ComboboxStory';
     validationLabel: 'Label',
     isEditable: true,
     listboxMaxHeight: Combobox.defaultProps.listboxMaxHeight,
-    listboxZIndex: Combobox.defaultProps.listboxZIndex
+    listboxZIndex: Combobox.defaultProps.listboxZIndex,
+    options: OPTIONS
   }}
   argTypes={{
     label: { name: 'children', table: { category: 'Label' } },
