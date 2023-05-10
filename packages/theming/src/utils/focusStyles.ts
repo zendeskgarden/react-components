@@ -51,13 +51,13 @@ export const focusStyles = ({
   selector = SELECTOR_FOCUS_VISIBLE,
   shadowWidth = 'md',
   spacerWidth = 'xs',
-  styles,
+  styles: { boxShadow, ...styles } = {},
   theme,
   ...options
 }: FocusStylesParameters) => {
-  const boxShadow = condition
-    ? getFocusBoxShadow({ shadowWidth, spacerWidth, theme, ...options })
-    : undefined;
+  const _boxShadow = condition
+    ? getFocusBoxShadow({ boxShadow, shadowWidth, spacerWidth, theme, ...options })
+    : boxShadow;
   let outline;
   let outlineOffset;
 
@@ -82,7 +82,7 @@ export const focusStyles = ({
     ${selector} {
       outline: ${outline}; /* [2] */
       outline-offset: ${outlineOffset};
-      box-shadow: ${boxShadow};
+      box-shadow: ${_boxShadow};
       ${styles}
     }
   `;

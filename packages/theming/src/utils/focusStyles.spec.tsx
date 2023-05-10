@@ -20,6 +20,8 @@ interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   selector?: string;
   shade?: number;
   shadowWidth?: 'sm' | 'md';
+  spacerHue?: Hue;
+  spacerShade?: number;
   spacerWidth?: null | 'xs' | 'sm';
   styles?: CSSObject;
 }
@@ -76,6 +78,18 @@ describe('focusStyles', () => {
     );
   });
 
+  it('renders spacer color as expected', () => {
+    const { container } = render(<StyledDiv spacerHue="red" spacerShade={400} />);
+
+    expect(container.firstChild).toHaveStyleRule(
+      'box-shadow',
+      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE.red[400]}`),
+      {
+        modifier: '&:focus-visible'
+      }
+    );
+  });
+
   it('renders selector as expected', () => {
     const { container } = render(<StyledDiv selector="&:focus-within" />);
 
@@ -124,8 +138,9 @@ describe('focusStyles', () => {
   });
 
   it('renders user provided styles', () => {
+    const dropShadow = DEFAULT_THEME.shadows.lg('4px', '8px', PALETTE.black);
     const { container } = render(
-      <StyledDiv styles={{ backgroundColor: 'black', color: 'white' }} />
+      <StyledDiv styles={{ backgroundColor: 'black', boxShadow: dropShadow, color: 'white' }} />
     );
 
     expect(container.firstChild).toHaveStyleRule('background-color', 'black', {
@@ -134,5 +149,12 @@ describe('focusStyles', () => {
     expect(container.firstChild).toHaveStyleRule('color', 'white', {
       modifier: '&:focus-visible'
     });
+    expect(container.firstChild).toHaveStyleRule(
+      'box-shadow',
+      expect.stringContaining(dropShadow),
+      {
+        modifier: '&:focus-visible'
+      }
+    );
   });
 });
