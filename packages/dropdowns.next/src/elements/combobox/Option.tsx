@@ -43,7 +43,7 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
       }
     };
     const option = toOption({ value, label, isDisabled, isSelected });
-    const optionProps = getOptionProps({ option }) as LiHTMLAttributes<HTMLLIElement>;
+    const optionProps = getOptionProps({ option, ref }) as LiHTMLAttributes<HTMLLIElement>;
 
     return (
       <OptionContext.Provider value={contextValue}>
@@ -53,7 +53,6 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
           $type={type}
           {...props}
           {...optionProps}
-          ref={ref}
         >
           <StyledOptionTypeIcon isCompact={isCompact} type={type}>
             {renderActionIcon(type)}
