@@ -12,6 +12,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.67.0 (2023-05-11)
+
+#### :rocket: New Feature
+* `theming`
+  * [#1549](https://github.com/zendeskgarden/react-components/pull/1549) feat(theming): enhance focus utilities with additional parameter overrides ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1547](https://github.com/zendeskgarden/react-components/pull/1547) fix(forms): prevent `validationLabel` warning on `Message` when `validation` is undefined ([@jzempel](https://github.com/jzempel))
+* `breadcrumbs`
+  * [#1546](https://github.com/zendeskgarden/react-components/pull/1546) fix(breadcrumbs): add global theme styles override ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.66.0 (2023-05-04)
 
 #### :rocket: New Feature
