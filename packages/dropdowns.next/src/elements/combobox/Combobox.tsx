@@ -271,6 +271,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
           </StyledTrigger>
           <Listbox
             appendToNode={appendListboxToNode}
+            isCompact={isCompact}
             isExpanded={isExpanded}
             maxHeight={listboxMaxHeight}
             triggerRef={triggerRef}

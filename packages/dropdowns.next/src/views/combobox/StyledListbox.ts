@@ -5,28 +5,44 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IListboxProps } from '../../types';
+import { getMinHeight as getOptionMinHeight } from './StyledOption';
 
 const COMPONENT_ID = 'dropdowns.combobox.listbox';
 
 interface IStyledListboxProps extends ThemeProps<DefaultTheme> {
+  isCompact?: boolean;
   maxHeight?: IListboxProps['maxHeight'];
 }
+
+const sizeStyles = (props: IStyledListboxProps) => {
+  const padding = props.theme.space.base;
+  const minHeight = getOptionMinHeight(props) + padding * 2;
+
+  return css`
+    min-height: ${minHeight}px;
+    max-height: ${props.maxHeight};
+
+    &&& {
+      padding-top: ${padding}px;
+      padding-bottom: ${padding}px;
+    }
+  `;
+};
 
 export const StyledListbox = styled.ul.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledListboxProps>`
-  max-height: ${props => props.maxHeight};
   overflow-y: scroll;
   list-style-type: none;
 
+  ${sizeStyles};
+
   &&& {
     display: block;
-    padding-top: ${props => props.theme.space.base}px;
-    padding-bottom: ${props => props.theme.space.base}px;
   }
 `;
 

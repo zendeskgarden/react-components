@@ -5,18 +5,25 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import { autoUpdate, flip, size, useFloating } from '@floating-ui/react-dom';
+import { autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
 import { IListboxProps } from '../../types';
 import { StyledFloating, StyledListbox } from '../../views';
+import { ThemeContext } from 'styled-components';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
-  ({ appendToNode, children, isExpanded, maxHeight, triggerRef, zIndex, ...props }, ref) => {
+  (
+    { appendToNode, children, isCompact, isExpanded, maxHeight, triggerRef, zIndex, ...props },
+    ref
+  ) => {
     const floatingRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
+    const [height, setHeight] = useState<number>();
     const [width, setWidth] = useState<number>();
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const {
       refs,
       placement,
@@ -25,7 +32,19 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
     } = useFloating<HTMLElement>({
       elements: { reference: triggerRef?.current, floating: floatingRef?.current },
       placement: 'bottom-start',
-      middleware: [flip(), size({ apply: ({ rects }) => setWidth(rects.reference.width) })]
+      middleware: [
+        offset(theme.space.base),
+        flip(),
+        size({
+          apply: ({ rects, availableHeight }) => {
+            setWidth(rects.reference.width);
+
+            if (rects.floating.height > availableHeight) {
+              setHeight(availableHeight);
+            }
+          }
+        })
+      ]
     });
 
     useEffect(() => {
@@ -47,7 +66,10 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
       if (isExpanded) {
         setIsVisible(true);
       } else {
-        timeout = setTimeout(() => setIsVisible(false), 200 /* match menu opacity transition */);
+        timeout = setTimeout(() => {
+          setIsVisible(false);
+          setHeight(undefined);
+        }, 200 /* match menu opacity transition */);
       }
 
       return () => clearTimeout(timeout);
@@ -62,7 +84,13 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         zIndex={zIndex}
         ref={floatingRef}
       >
-        <StyledListbox maxHeight={maxHeight} {...props} ref={ref}>
+        <StyledListbox
+          isCompact={isCompact}
+          maxHeight={maxHeight}
+          style={{ height }}
+          {...props}
+          ref={ref}
+        >
           {isVisible && children}
         </StyledListbox>
       </StyledFloating>
@@ -76,6 +104,7 @@ Listbox.displayName = 'Listbox';
 
 Listbox.propTypes = {
   appendToNode: PropTypes.any,
+  isCompact: PropTypes.bool,
   isExpanded: PropTypes.bool,
   maxHeight: PropTypes.string,
   triggerRef: PropTypes.any.isRequired,

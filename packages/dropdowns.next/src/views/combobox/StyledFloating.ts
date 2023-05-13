@@ -37,7 +37,6 @@ export const StyledFloating = styled.div.attrs({
     menuStyles(props.position, {
       theme: props.theme,
       hidden: props.isHidden,
-      margin: `${props.theme.space.base}px`,
       childSelector: `> ${StyledListbox}`,
       animationModifier: '[data-garden-animate="true"]',
       zIndex: props.zIndex

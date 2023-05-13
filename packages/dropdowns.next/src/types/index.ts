@@ -91,6 +91,8 @@ export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
 export interface IListboxProps extends HTMLAttributes<HTMLUListElement> {
   /** Appends the lisbox to the element provided */
   appendToNode?: Element | DocumentFragment;
+  /** Applies compact styling */
+  isCompact?: boolean;
   /** Determines listbox expansion */
   isExpanded?: boolean;
   /** Sets the `max-height` of the listbox */
