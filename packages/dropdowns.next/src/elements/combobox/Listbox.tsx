@@ -68,6 +68,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
       } else {
         timeout = setTimeout(() => {
           setIsVisible(false);
+          setHeight(undefined);
         }, 200 /* match menu opacity transition */);
       }
 
