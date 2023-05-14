@@ -48,23 +48,30 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
   (
     {
       children,
+      activeIndex,
       appendListboxToNode,
+      defaultActiveIndex,
+      defaultExpanded,
       endIcon,
       focusInset,
+      inputProps: _inputProps,
+      inputValue: _inputValue,
       isAutocomplete,
       isBare,
       isCompact,
       isDisabled,
       isEditable,
+      isExpanded: _isExpanded,
       isMultiselectable,
-      inputProps: _inputProps,
       listboxAriaLabel,
       listboxMaxHeight,
       listboxZIndex,
       maxTags = MAX_TAGS,
+      onChange,
       placeholder,
       renderExpandTags,
       renderValue,
+      selectionValue,
       startIcon,
       validation,
       ...props
@@ -100,6 +107,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       removeSelection,
       selection
     } = useCombobox({
+      idPrefix: props.id,
       triggerRef,
       inputRef,
       listboxRef,
@@ -110,7 +118,14 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       isAutocomplete,
       isEditable,
       isMultiselectable,
-      disabled: isDisabled
+      disabled: isDisabled,
+      inputValue: _inputValue,
+      selectionValue,
+      isExpanded: _isExpanded,
+      defaultExpanded,
+      activeIndex,
+      defaultActiveIndex,
+      onChange
     });
     const contextValue = useMemo(
       () => ({
@@ -289,23 +304,31 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
 Combobox.displayName = 'Combobox';
 
 Combobox.propTypes = {
+  activeIndex: PropTypes.number,
   appendListboxToNode: PropTypes.any,
+  defaultActiveIndex: PropTypes.number,
+  defaultExpanded: PropTypes.bool,
   endIcon: PropTypes.any,
   focusInset: PropTypes.bool,
+  id: PropTypes.string,
   inputProps: PropTypes.object,
+  inputValue: PropTypes.string,
   isAutocomplete: PropTypes.bool,
   isBare: PropTypes.bool,
   isCompact: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isEditable: PropTypes.bool,
+  isExpanded: PropTypes.bool,
   isMultiselectable: PropTypes.bool,
   listboxAriaLabel: PropTypes.string,
   listboxMaxHeight: PropTypes.string,
   listboxZIndex: PropTypes.number,
   maxTags: PropTypes.number,
+  onChange: PropTypes.func,
   placeholder: PropTypes.string,
   renderExpandTags: PropTypes.func,
   renderValue: PropTypes.func,
+  selectionValue: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   startIcon: PropTypes.any,
   validation: PropTypes.oneOf(VALIDATION)
 };

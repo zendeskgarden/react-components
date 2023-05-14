@@ -14,7 +14,11 @@ import {
   ReactNode,
   RefObject
 } from 'react';
-import { IOption, IUseComboboxReturnValue } from '@zendeskgarden/container-combobox';
+import {
+  IOption,
+  IUseComboboxProps,
+  IUseComboboxReturnValue
+} from '@zendeskgarden/container-combobox';
 import { VALIDATION } from '@zendeskgarden/react-forms';
 import { ITagProps as IBaseTagProps } from '@zendeskgarden/react-tags';
 
@@ -25,14 +29,24 @@ export type OptionType = (typeof OPTION_TYPE)[number];
 export type Validation = (typeof VALIDATION)[number];
 
 export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
+  /** Sets the currently active option index in a controlled combobox */
+  activeIndex?: number;
   /** Appends the lisbox to the element provided */
   appendListboxToNode?: Element | DocumentFragment;
+  /** Sets the default active option index in an uncontrolled combobox */
+  defaultActiveIndex?: number;
+  /** Determines default listbox expansion in an uncontrolled combobox */
+  defaultExpanded?: boolean;
   /** Accepts an "end" icon to display */
   endIcon?: ReactElement;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
+  /** Identifies the combobox */
+  id?: string;
   /** Passes HTML attributes to the input element */
   inputProps?: InputHTMLAttributes<HTMLInputElement>;
+  /** Sets the input value in a controlled combobox */
+  inputValue?: string;
   /** Indicates that the combobox provides autocompletion  */
   isAutocomplete?: boolean;
   /** Removes borders and padding */
@@ -43,6 +57,8 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   isDisabled?: boolean;
   /** Determines whether the combobox is editable or select-only */
   isEditable?: boolean;
+  /** Determines listbox expansion in a controlled combobox */
+  isExpanded?: boolean;
   /** Determines whether multiple options can be selected */
   isMultiselectable?: boolean;
   /** Specifies the listbox `aria-label` */
@@ -53,6 +69,16 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   listboxZIndex?: number;
   /** Determines the maximum number of tags displayed when a multiselectable combobox is collapsed */
   maxTags?: number;
+  /**
+   * Handles combobox state changes
+   *
+   * @param {string} changes.type The event type that triggered the change
+   * @param {boolean} [changes.isExpanded] The updated listbox expansion
+   * @param {OptionValue|OptionValue[]} [changes.selectionValue] The updated selection value(s)
+   * @param {string} [changes.inputValue] The updated input value
+   * @param {number} [changes.activeIndex] The updated active option index
+   */
+  onChange?: IUseComboboxProps['onChange'];
   /** Defines text that appears in the element when no items are selected */
   placeholder?: string;
   /**
@@ -75,6 +101,8 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
     selection: IUseComboboxReturnValue['selection'];
     inputValue?: IUseComboboxReturnValue['inputValue'];
   }) => ReactNode;
+  /** Sets the selection value (or `isMultiselectable` values) in a controlled combobox */
+  selectionValue?: IUseComboboxProps['selectionValue'];
   /** Accepts a "start" icon to display */
   startIcon?: ReactElement;
   /** Applies validation state styling */

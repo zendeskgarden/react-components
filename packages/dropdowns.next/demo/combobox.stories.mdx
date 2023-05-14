@@ -62,16 +62,41 @@ import { OPTIONS } from './stories/data';
 ## Uncontrolled
 
 <Canvas>
-  <Story name="Uncontrolled">{args => <ComboboxStory {...args} />}</Story>
+  <Story
+    name="Uncontrolled"
+    argTypes={{
+      activeIndex: { control: false },
+      inputValue: { control: false },
+      isExpanded: { control: false },
+      selectionValue: { control: false }
+    }}
+  >
+    {args => <ComboboxStory {...args} />}
+  </Story>
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story name="Controlled">
+  <Story
+    name="Controlled"
+    args={{
+      isExpanded: false,
+      inputValue: '',
+      activeIndex: -1,
+      selectionValue: null
+    }}
+    argTypes={{
+      defaultExpanded: { control: false },
+      defaultSelectionValue: { control: false }
+    }}
+  >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleChange = event => updateArgs({});
+      const handleChange = changes => {
+        const { type, ...args } = changes;
+        updateArgs(args);
+      };
       return <ComboboxStory {...args} onChange={handleChange} />;
     }}
   </Story>
