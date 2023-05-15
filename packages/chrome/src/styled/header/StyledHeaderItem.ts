@@ -51,7 +51,8 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem as 'button').attrs({
 
   ${props =>
     focusStyles({
-      theme: props.theme
+      theme: props.theme,
+      inset: props.maxY
     })}
 
   &:focus-visible:active,
@@ -66,25 +67,6 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem as 'button').attrs({
   &:active ${/* sc-selector */ StyledHeaderItemText} {
     color: ${props => getColor('chromeHue', 700, props.theme)};
   }
-
-  ${props =>
-    props.maxY &&
-    `
-      &[data-garden-focus-visible] {
-        box-shadow: inset ${props.theme.shadows.lg(
-          props.theme.shadowWidths.md,
-          '0',
-          getColor('chromeHue', 400, props.theme, 0.35)!
-        )},
-        ${props.theme.shadowWidths.md} 0 0 0 ${getColor('chromeHue', 400, props.theme, 0.35)},
-        inset ${props.theme.shadows.lg(
-          `-${props.theme.shadowWidths.md}`,
-          '0',
-          getColor('chromeHue', 400, props.theme, 0.35)!
-        )},
-        -${props.theme.shadowWidths.md} 0 0 0 ${getColor('chromeHue', 400, props.theme, 0.35)};
-      }
-  `}
 
   ${imgStyles}
 

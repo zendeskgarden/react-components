@@ -23,7 +23,6 @@ const COMPONENT_ID = 'tags.tag_view';
 
 const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
   let backgroundColor;
-  let boxShadowColor;
   let foregroundColor;
   let closeColor;
 
@@ -31,7 +30,6 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     const shade = props.hue === 'yellow' ? 400 : 600;
 
     backgroundColor = getColor(props.hue, shade, props.theme);
-    boxShadowColor = getColor(props.hue, shade, props.theme);
 
     if (props.hue === 'yellow' || props.hue === 'lemon') {
       foregroundColor = getColor('yellow', 800, props.theme);
@@ -44,7 +42,6 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     }
   } else {
     backgroundColor = getColor('neutralHue', 200, props.theme);
-    boxShadowColor = getColor('primaryHue', 600, props.theme);
     foregroundColor = getColor('neutralHue', 700, props.theme);
     closeColor = getColor('neutralHue', 600, props.theme);
   }
@@ -63,7 +60,6 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
      **/
     ${focusStyles({
       theme: props.theme,
-      hue: boxShadowColor,
       shadowWidth: 'sm',
       selector: '&:focus'
     })}

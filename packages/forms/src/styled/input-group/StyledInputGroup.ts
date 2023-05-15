@@ -48,6 +48,7 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 
 /**
  * 1. remove border overlap in items
+ * 2. keep text inputs above other elements for validation states
  */
 const itemStyles = (props: ThemeProps<DefaultTheme>) => {
   const startDirection = props.theme.rtl ? 'right' : 'left';
@@ -60,6 +61,10 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
       selector-no-qualifying-type */
     & > * {
       z-index: -1;
+    }
+
+    & > ${StyledTextInput} {
+      z-index: 0;
     }
 
     & > ${StyledTextInput}:disabled {

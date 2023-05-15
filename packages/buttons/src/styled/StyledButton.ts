@@ -83,7 +83,11 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
       ${focusStyles({
         theme: props.theme,
-        inset: props.focusInset
+        inset: props.focusInset,
+        condition: false,
+        styles: {
+          outline: `${props.theme.borders.md} ${getColor('primaryHue', shade, props.theme)}`
+        }
       })}
 
       &:active,
@@ -205,12 +209,6 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
   return css`
     position: relative;
-    /* stylelint-disable-next-line property-no-unknown */
-    margin-${rtl ? 'right' : 'left'}: ${math(`${props.theme.borderWidths.sm} * -1`)};
-    border-top-width: ${isPrimary && 0};
-    border-bottom-width: ${isPrimary && 0};
-    border-right-color: ${isPrimary && lightBorderColor};
-    border-left-color: ${isPrimary && lightBorderColor};
 
     &:hover,
     &:active,
@@ -220,31 +218,36 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
     &:disabled {
       z-index: -1;
-      border-top-width: 0;
-      border-bottom-width: 0;
+    }
+
+    /* stylelint-disable property-no-unknown, property-case */
+    &:not(:first-of-type) {
+      /* prettier-ignore */
+      margin-${rtl ? 'right' : 'left'}: ${
+    isPrimary ? props.theme.borderWidths.sm : `-${props.theme.borderWidths.sm}`
+  };
+    }
+
+    &:not(:first-of-type):disabled {
       border-right-color: ${lightBorderColor};
       border-left-color: ${lightBorderColor};
       background-color: ${!isPrimary && disabledBackgroundColor}; /* [1] */
     }
 
-    /* stylelint-disable property-no-unknown, property-case */
+    &:not(:first-of-type):not(:last-of-type) {
+      border-radius: 0;
+    }
+
     &:first-of-type:not(:last-of-type) {
-      margin-${rtl ? 'right' : 'left'}: 0;
       border-top-${rtl ? 'left' : 'right'}-radius: 0;
       border-bottom-${rtl ? 'left' : 'right'}-radius: 0;
-      border-${rtl ? 'right' : 'left'}-width: ${isPrimary && 0};
     }
 
     &:last-of-type:not(:first-of-type) {
       border-top-${rtl ? 'right' : 'left'}-radius: 0;
       border-bottom-${rtl ? 'right' : 'left'}-radius: 0;
-      border-${rtl ? 'left' : 'right'}-width: ${isPrimary && 0};
     }
     /* stylelint-enable property-no-unknown, property-case */
-
-    &:not(:first-of-type):not(:last-of-type) {
-      border-radius: 0;
-    }
 
     /* stylelint-disable property-no-unknown, selector-max-specificity */
     &:first-of-type:not(:last-of-type) ${StyledIcon} {
