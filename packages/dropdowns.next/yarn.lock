@@ -71,10 +71,10 @@
   resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.18.0.tgz#4f3cebe093dd436eeaff633809bf0f68f4f9d2ee"
   integrity sha512-KdVMdpTgDyK8FzdKO9SCpiibuy/kbv3pwgfXshTI6tEcQT1OOwj7BAksnzGC0rPz0UholwC+AgkqEl3EJX3M1A==
 
-"@zendeskgarden/container-combobox@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-combobox/-/container-combobox-0.3.1.tgz#864fe23069bf89896522044e79d4de24c3b9af6f"
-  integrity sha512-5zIE9QfM9s3xsSuRc8g6aVwVu++9Ub61atr25FghMqJoIVaDUOwJFEC0GH4K0i8GMn0cUwmjOnGxf9YSv0tHTw==
+"@zendeskgarden/container-combobox@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-combobox/-/container-combobox-0.3.2.tgz#baaa386e2ec3277e4eb7353a422b770043330050"
+  integrity sha512-YfIavWupRljVib6YbcTg87bWxJGcpOJh+Zue+Tv0UaOLAugqNHF6F3Ip9N+egtEIs+mQ0DK3bZjrMhI1O4Xhog==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-field" "^3.0.4"
