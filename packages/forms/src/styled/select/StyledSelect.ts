@@ -18,9 +18,11 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
 
   /* prettier-ignore */
   return css`
+    /* stylelint-disable-next-line no-duplicate-selectors */
     &:hover + ${StyledTextMediaFigure},
     &:focus + ${StyledTextMediaFigure},
-    &:focus-visible + ${StyledTextMediaFigure} {
+    &:focus-visible + ${StyledTextMediaFigure},
+    &[data-garden-focus-visible='true'] ${StyledTextMediaFigure} {
       color: ${color};
     }
   `;

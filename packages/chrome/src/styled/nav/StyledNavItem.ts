@@ -44,7 +44,7 @@ const colorStyles = (props: IStyledNavItemProps) => {
   }
 
   const activeColor = rgba(isLight ? DARK : LIGHT, 0.1);
-  const focusHue = isLight ? DARK : LIGHT;
+  const focusColor = isLight ? DARK : LIGHT;
 
   return css`
     opacity: ${isCurrent ? 1 : 0.6};
@@ -58,7 +58,7 @@ const colorStyles = (props: IStyledNavItemProps) => {
     ${focusStyles({
       theme,
       condition: false /* [1] */,
-      styles: { opacity: 1, outlineColor: focusHue }
+      styles: { opacity: 1, outlineColor: focusColor }
     })}
 
     &:active {

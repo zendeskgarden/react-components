@@ -64,7 +64,7 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
     }
 
     & > ${StyledTextInput} {
-      z-index: 0;
+      z-index: 0; /* [2] */
     }
 
     & > ${StyledTextInput}:disabled {
