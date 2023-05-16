@@ -222,7 +222,6 @@ export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props =
     color 0.25s ease-in-out,
     z-index 0.25s ease-in-out;
   direction: ${props => props.theme.rtl && 'rtl'};
-  /* TODO: address isBare styling and with focus inset */
   border: ${props => (props.isBare ? 'none' : props.theme.borders.sm)};
   border-radius: ${props => (props.isBare ? '0' : props.theme.borderRadii.md)};
   width: 100%; /* vs. display: block to limit mouse interaction area */
