@@ -7,10 +7,8 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, fireEvent, renderRtl } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
 import { Tiles } from './Tiles';
-
-jest.useFakeTimers();
 
 describe('Tiles', () => {
   const user = userEvent.setup({ delay: null });
@@ -96,35 +94,6 @@ describe('Tiles', () => {
       await user.click(getByText('label'));
 
       expect(getByLabelText('label')).toBeChecked();
-    });
-
-    it('attempts to apply focus-visible styling on focus', async () => {
-      const { getByTestId, getByLabelText } = render(
-        <Tiles name="example" value="item-1">
-          <Tiles.Tile data-test-id="tile" disabled value="item-1">
-            <Tiles.Label>label</Tiles.Label>
-          </Tiles.Tile>
-        </Tiles>
-      );
-
-      await user.click(getByLabelText('label'));
-      jest.runOnlyPendingTimers();
-
-      expect(getByTestId('tile')).toHaveAttribute('data-test-is-focused', 'false');
-    });
-
-    it('removes focus styling on blur', () => {
-      const { getByTestId, getByLabelText } = render(
-        <Tiles name="example" value="item-1">
-          <Tiles.Tile data-test-id="tile" disabled value="item-1">
-            <Tiles.Label>label</Tiles.Label>
-          </Tiles.Tile>
-        </Tiles>
-      );
-
-      fireEvent.blur(getByLabelText('label'));
-
-      expect(getByTestId('tile')).toHaveAttribute('data-test-is-focused', 'false');
     });
 
     it('applies RTL styling', () => {

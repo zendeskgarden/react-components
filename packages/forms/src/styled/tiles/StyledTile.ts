@@ -69,7 +69,8 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
       hue: focusBorderColor,
       styles: {
         borderColor: focusBorderColor
-      }
+      },
+      selector: `&:focus-within`
     })}
 
     &:active:not([aria-disabled='true']) {
@@ -140,7 +141,6 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
 export const StyledTile = styled.label.attrs<IStyledTileProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'data-garden-focus-visible': props.isFocused,
   'data-garden-selected': props.isSelected
 }))<IStyledTileProps>`
   display: block;
