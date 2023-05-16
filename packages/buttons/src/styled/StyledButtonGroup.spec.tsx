@@ -51,7 +51,7 @@ describe('StyledButtonGroup', () => {
     );
 
     expect(screen.getByText('test')).toHaveStyleRule('background-color', PALETTE.grey[200], {
-      modifier: `${StyledButtonGroup} &&:not(:first-of-type):disabled`
+      modifier: `${StyledButtonGroup} &&:disabled`
     });
   });
 });

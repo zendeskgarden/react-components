@@ -218,6 +218,7 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
     &:disabled {
       z-index: -1;
+      background-color: ${!isPrimary && disabledBackgroundColor}; /* [1] */
     }
 
     /* stylelint-disable property-no-unknown, property-case */
@@ -231,7 +232,6 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
     &:not(:first-of-type):disabled {
       border-right-color: ${lightBorderColor};
       border-left-color: ${lightBorderColor};
-      background-color: ${!isPrimary && disabledBackgroundColor}; /* [1] */
     }
 
     &:not(:first-of-type):not(:last-of-type) {
