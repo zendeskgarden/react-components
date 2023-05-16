@@ -11,7 +11,7 @@ import { render, renderRtl } from 'garden-test-utils';
 import { Tiles } from './Tiles';
 
 describe('Tiles', () => {
-  const user = userEvent.setup({ delay: null });
+  const user = userEvent.setup();
 
   it('applies ref to the wrapping element', () => {
     const ref = React.createRef<HTMLDivElement>();
