@@ -158,6 +158,7 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
 /**
  * 1. Elevated initial context to pickup full-width hover
  * 2. Stack below splitter button.
+ * 3. Stack above other splitters when focused
  */
 export const StyledPaneSplitter = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
@@ -183,7 +184,7 @@ export const StyledPaneSplitter = styled.div.attrs({
   }
 
   ${SELECTOR_FOCUS_VISIBLE} {
-    z-index: 2;
+    z-index: 2; /* [3] */
   }
 
   ${colorStyles};

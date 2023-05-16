@@ -13,6 +13,7 @@ import {
   focusStyles,
   getColor
 } from '@zendeskgarden/react-theming';
+import { getValidationHue } from '../../utils/getValidationHue';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 
@@ -22,22 +23,6 @@ export interface IStyledTextFauxInputProps extends IStyledTextInputProps {
   mediaLayout?: boolean;
   isDisabled?: boolean;
   isReadOnly?: boolean;
-}
-
-export function getValidationHue(
-  validation: IStyledTextInputProps['validation'] | null,
-  defaultHue = 'primaryHue'
-) {
-  switch (validation) {
-    case 'success':
-      return 'successHue';
-    case 'warning':
-      return 'warningHue';
-    case 'error':
-      return 'dangerHue';
-    default:
-      return defaultHue;
-  }
 }
 
 /**
@@ -62,7 +47,6 @@ export const StyledTextFauxInput = styled(
     focusStyles({
       theme: props.theme,
       inset: props.focusInset,
-      // removes focus ring when `isBare`
       condition: !props.isBare,
       hue: getValidationHue(props.validation),
       shade: props.validation === 'warning' ? 700 : 600,

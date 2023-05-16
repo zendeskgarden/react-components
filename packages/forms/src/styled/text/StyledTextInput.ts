@@ -96,7 +96,6 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
     ${focusStyles({
       theme: props.theme,
       inset: props.focusInset,
-      // removes focus ring when `isBare`
       condition: !props.isBare,
       hue: focusRingHue,
       shade: focusRingShade,
