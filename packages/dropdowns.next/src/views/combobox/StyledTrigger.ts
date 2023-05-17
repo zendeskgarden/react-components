@@ -14,7 +14,7 @@ import {
   focusStyles
 } from '@zendeskgarden/react-theming';
 import { Validation } from '../../types';
-import { getHeight } from './StyledInput';
+import { getHeight as getInputHeight } from './StyledInput';
 
 const COMPONENT_ID = 'dropdowns.combobox.trigger';
 
@@ -24,6 +24,7 @@ interface IStyledTriggerProps extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;
   isEditable?: boolean;
   isLabelHovered?: boolean;
+  maxHeight?: string;
   focusInset?: boolean;
   validation?: Validation;
 }
@@ -94,14 +95,16 @@ const colorStyles = (props: IStyledTriggerProps) => {
 
 const sizeStyles = (props: IStyledTriggerProps) => {
   const minHeight = `${props.theme.space.base * (props.isCompact ? 8 : 10)}px`;
+  const maxHeight = props.maxHeight || minHeight;
   const horizontalPadding = `${props.theme.space.base * 3}px`;
   const verticalPadding = math(
-    `(${minHeight} - ${getHeight(props)} - (${props.theme.borderWidths.sm} * 2)) / 2`
+    `(${minHeight} - ${getInputHeight(props)} - (${props.theme.borderWidths.sm} * 2)) / 2`
   );
 
   return css`
     padding: ${verticalPadding} ${horizontalPadding};
     min-height: ${minHeight};
+    max-height: ${maxHeight};
     font-size: ${props.theme.fontSizes.md};
   `;
 };

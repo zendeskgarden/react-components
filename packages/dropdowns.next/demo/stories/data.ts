@@ -9,23 +9,204 @@ import { Options } from './types';
 
 export const OPTIONS: Options = [
   {
-    label: 'Fruits',
+    label: 'Flowers',
+    icon: true,
     options: [
-      { value: 'fruit-01', label: 'Apple' },
-      { value: 'fruit-02', label: 'Banana', isDisabled: true },
-      { value: 'fruit-03', label: 'Cherry' },
-      { value: 'fruit-04', label: 'Grape' },
-      { value: 'fruit-05', label: 'Kiwi' }
+      {
+        value: 'flower-01',
+        label: 'Aster',
+        meta: 'Yohannes',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      },
+      {
+        value: 'flower-02',
+        label: 'Daisy',
+        meta: 'Bates',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      },
+      {
+        value: 'flower-03',
+        label: 'Ivy',
+        meta: 'Poison',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        },
+        isDisabled: true
+      },
+      {
+        value: 'flower-04',
+        label: 'Poppy',
+        meta: 'Lee',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      }
     ]
   },
   {
-    label: 'Vegetables',
+    label: 'Fruits',
+    icon: true,
     options: [
-      { value: 'vegetable-01', label: 'Asparagus' },
-      { value: 'vegetable-02', label: 'Broccoli', isDisabled: true },
-      { value: 'vegetable-03', label: 'Brussel sprouts' },
-      { value: 'vegetable-04', label: 'Cauliflower' },
-      { value: 'vegetable-07', label: 'Kale' }
+      {
+        value: 'fruit-01',
+        label: 'Apple',
+        meta: 'Martin',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      },
+      {
+        value: 'fruit-02',
+        label: 'Cherry',
+        meta: 'Jones',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      },
+      {
+        value: 'fruit-03',
+        label: 'Clementine',
+        meta: 'Laine',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      },
+      {
+        value: 'fruit-04',
+        label: 'Huckleberry',
+        meta: 'Finn',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      }
+    ]
+  },
+  {
+    label: 'Herbs',
+    icon: true,
+    options: [
+      {
+        value: 'herb-01',
+        label: 'Basil',
+        meta: 'Rathbone',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      },
+      {
+        value: 'herb-02',
+        label: 'Clover',
+        meta: 'Maitland',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      },
+      {
+        value: 'herb-03',
+        label: 'Rue',
+        meta: 'McClanahan',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      },
+      {
+        value: 'herb-04',
+        label: 'Sage',
+        meta: 'Francis',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      }
+    ]
+  },
+  {
+    label: 'Trees',
+    icon: true,
+    options: [
+      {
+        value: 'tree-01',
+        label: 'Ash',
+        meta: 'Williams',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      },
+      {
+        value: 'tree-02',
+        label: 'Oak',
+        meta: 'Onaodowan',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      },
+      {
+        value: 'tree-03',
+        label: 'Olive',
+        meta: 'Borden',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      },
+      {
+        value: 'tree-04',
+        label: 'Willow',
+        meta: 'Smith',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        }
+      }
     ]
   }
 ];

@@ -67,6 +67,8 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   listboxMaxHeight?: string;
   /** Sets the `z-index` of the listbox */
   listboxZIndex?: number;
+  /** Overrides the `max-height` of the combobox */
+  maxHeight?: string;
   /** Determines the maximum number of tags displayed when a multiselectable combobox is collapsed */
   maxTags?: number;
   /**

@@ -66,6 +66,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       listboxAriaLabel,
       listboxMaxHeight,
       listboxZIndex,
+      maxHeight,
       maxTags = MAX_TAGS,
       onChange,
       placeholder,
@@ -139,8 +140,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       [activeValue, getOptionProps, getOptGroupProps, getTagProps, isCompact, removeSelection]
     );
     const hasChevron = useMemo(
-      () => !isBare && (isAutocomplete || isMultiselectable || !isEditable),
-      [isAutocomplete, isBare, isEditable, isMultiselectable]
+      () => !isBare && (isAutocomplete || !isEditable),
+      [isAutocomplete, isBare, isEditable]
     );
     const expandTags = useText(
       Combobox,
@@ -161,6 +162,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       isCompact,
       isEditable,
       isLabelHovered,
+      maxHeight,
       focusInset,
       validation,
       ...(getTriggerProps({
@@ -257,6 +259,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                 {!(isEditable && hasFocus.current) && (
                   <StyledValue
                     isCompact={isCompact}
+                    isEditable={isEditable}
                     isPlaceholder={!inputValue}
                     onClick={event => {
                       if (isEditable) {
@@ -323,6 +326,7 @@ Combobox.propTypes = {
   listboxAriaLabel: PropTypes.string,
   listboxMaxHeight: PropTypes.string,
   listboxZIndex: PropTypes.number,
+  maxHeight: PropTypes.string,
   maxTags: PropTypes.number,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
