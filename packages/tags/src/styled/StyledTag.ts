@@ -58,7 +58,11 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
      * Tags show their focus state regardless of
      * whether it was performed by a mouse or keyboard.
      **/
-    ${focusStyles({ theme: props.theme, shadowWidth: 'sm', selector: '&:focus' })}
+    ${focusStyles({
+      theme: props.theme,
+      shadowWidth: 'sm',
+      selector: '&:focus'
+    })}
 
     & ${StyledClose} {
       color: ${closeColor};

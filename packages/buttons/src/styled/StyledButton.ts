@@ -202,10 +202,10 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
  * 1. Icon button override.
  */
 const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  const isPrimary = props.isPrimary;
-  const rtl = props.theme.rtl;
-  const lightBorderColor = props.theme.colors.background;
+  const { theme, isPrimary, isPill } = props;
+  const rtl = theme.rtl;
   const disabledBackgroundColor = getDisabledBackgroundColor(props);
+  const marginOffset = isPrimary ? theme.borderWidths.sm : `-${theme.borderWidths.sm}`;
 
   return css`
     position: relative;
@@ -223,15 +223,12 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
     /* stylelint-disable property-no-unknown, property-case */
     &:not(:first-of-type) {
-      /* prettier-ignore */
-      margin-${rtl ? 'right' : 'left'}: ${
-    isPrimary ? props.theme.borderWidths.sm : `-${props.theme.borderWidths.sm}`
-  };
+      margin-${rtl ? 'right' : 'left'}: ${marginOffset};
     }
 
     &:not(:first-of-type):disabled {
-      border-right-color: ${lightBorderColor};
-      border-left-color: ${lightBorderColor};
+      margin-${rtl ? 'right' : 'left'}: ${theme.borderWidths.sm};
+      border-${rtl ? 'right' : 'left'}-width: ${0};
     }
 
     &:not(:first-of-type):not(:last-of-type) {
@@ -251,11 +248,11 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
     /* stylelint-disable property-no-unknown, selector-max-specificity */
     &:first-of-type:not(:last-of-type) ${StyledIcon} {
-      margin-${rtl ? 'left' : 'right'}: ${props.isPill && '-2px'};
+      margin-${rtl ? 'left' : 'right'}: ${isPill && '-2px'};
     }
 
     &:last-of-type:not(:first-of-type) ${StyledIcon} {
-      margin-${rtl ? 'right' : 'left'}: ${props.isPill && '-2px'};
+      margin-${rtl ? 'right' : 'left'}: ${isPill && '-2px'};
     }
     /* stylelint-enable property-no-unknown, selector-max-specificity */
   `;
