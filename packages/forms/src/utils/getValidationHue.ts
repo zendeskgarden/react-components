@@ -7,7 +7,7 @@
 
 import type { Validation } from '../types';
 
-export function getValidationHue(validation: Validation | null, defaultHue = 'primaryHue') {
+export function getValidationHue(validation?: Validation, defaultHue = 'primaryHue') {
   switch (validation) {
     case 'success':
       return 'successHue';
