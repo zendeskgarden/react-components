@@ -17,7 +17,7 @@ import { StyledTag } from '../../views';
 import { toString } from './utils';
 
 const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
-  ({ children, option, removeLabel, ...props }, ref) => {
+  ({ children, option, removeLabel, tooltipZIndex, ...props }, ref) => {
     const { getTagProps, isCompact, removeSelection } = useComboboxContext();
     const text = option.label || toString(option);
     const ariaLabel = useText(
@@ -48,7 +48,7 @@ const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
         {children || <span>{text}</span>}
         {!option.disabled &&
           (removeLabel ? (
-            <Tooltip appendToNode={doc?.body} content={removeLabel}>
+            <Tooltip appendToNode={doc?.body} content={removeLabel} zIndex={tooltipZIndex}>
               <StyledTag.Close aria-label={removeLabel} onClick={handleClick} />
             </Tooltip>
           ) : (

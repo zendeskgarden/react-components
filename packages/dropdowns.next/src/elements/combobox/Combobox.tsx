@@ -220,6 +220,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                 hidden={hidden}
                 onFocus={() => setIsFocused(true)}
                 option={{ ...option, disabled }}
+                tooltipZIndex={listboxZIndex ? listboxZIndex + 1 : undefined}
                 {...optionTagProps[key]}
               />
             );

@@ -171,4 +171,6 @@ export interface ITagProps extends Omit<IBaseTagProps, 'isRound' | 'size'> {
   option: IOption;
   /** Sets the `aria-label` and tooltip for the remove icon */
   removeLabel?: string;
+  /** @ignore Sets the `z-index` of the tooltip */
+  tooltipZIndex?: number;
 }
