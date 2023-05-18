@@ -103,8 +103,8 @@ export const StyledNavItem = styled(StyledBaseNavItem as 'button').attrs({
   &:focus-visible:hover,
   &:focus-visible:active,
   ${SELECTOR_FOCUS_VISIBLE} {
-    outline: ${props => props.theme.borderWidths.md} solid; /* [3] */
-    outline-offset: -${props => math(`${props.theme.borderWidths.md} + ${props.theme.borderWidths.sm}`)}; /* [4] */
+    outline: ${props => math(`${props.theme.borderWidths.md} - 1`)} solid; /* [3] */
+    outline-offset: -${props => props.theme.borderWidths.md}; /* [4] */
   }
 
   ${props =>

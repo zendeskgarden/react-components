@@ -74,9 +74,8 @@ const colorStyles = (props: IStyledDraggableProps) => {
     }
 
     ${focusStyles({
-      theme: props.theme,
+      theme,
       inset: focusInset,
-      condition: !isBare,
       boxShadow: isGrabbed ? dragShadow : undefined
     })}
 

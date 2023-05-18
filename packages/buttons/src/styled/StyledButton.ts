@@ -83,10 +83,13 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
       ${focusStyles({
         theme: props.theme,
-        inset: props.focusInset,
         condition: false,
         styles: {
-          outline: `${props.theme.borders.md} ${getColor('primaryHue', shade, props.theme)}`
+          outline: `${math(`${props.theme.borderWidths.md} - 1`)} solid ${getColor(
+            'primaryHue',
+            shade,
+            props.theme
+          )}`
         }
       })}
 
