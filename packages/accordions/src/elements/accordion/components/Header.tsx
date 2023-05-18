@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, forwardRef, HTMLAttributes, useMemo } from 'react';
+import React, { useState, FocusEvent, forwardRef, HTMLAttributes, useMemo } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { useAccordionContext, useSectionContext, HeaderContext } from '../../../utils';
-import { StyledHeader, StyledRotateIcon } from '../../../styled';
+import { StyledHeader, StyledRotateIcon, COMPONENT_ID as buttonGardenId } from '../../../styled';
 
 const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const {
@@ -20,8 +20,9 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
     getTriggerProps,
     expandedSections
   } = useAccordionContext();
-  const { onClick, onMouseOver, onMouseOut, children, ...other } = props;
+  const { onClick, onFocus, onBlur, onMouseOver, onMouseOut, children, ...other } = props;
   const sectionIndex = useSectionContext();
+  const [isFocused, setIsFocused] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const isExpanded = expandedSections.includes(sectionIndex);
   /**
@@ -38,6 +39,18 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
     type: 'button',
     index: sectionIndex
   });
+  const onHeaderFocus = (e: FocusEvent) => {
+    e.persist();
+
+    setTimeout(() => {
+      const isAccordionButton = e.target.getAttribute('data-garden-id') === buttonGardenId;
+      const isFocusVisible = e.target.getAttribute('data-garden-focus-visible');
+
+      if (isAccordionButton && isFocusVisible) {
+        setIsFocused(true);
+      }
+    }, 0);
+  };
 
   const value = useMemo(
     () => ({
@@ -54,9 +67,12 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
           ref,
           ariaLevel,
           isCompact,
+          isFocused,
           isExpanded,
           isCollapsible,
           onClick: composeEventHandlers(onClick, onTriggerClick),
+          onFocus: composeEventHandlers(onFocus, onHeaderFocus),
+          onBlur: composeEventHandlers(onBlur, () => setIsFocused(false)),
           onMouseOver: composeEventHandlers(onMouseOver, () => setIsHovered(true)),
           onMouseOut: composeEventHandlers(onMouseOut, () => setIsHovered(false)),
           ...other

@@ -11,6 +11,7 @@ import { retrieveComponentStyles, DEFAULT_THEME, focusStyles } from '@zendeskgar
 const COMPONENT_ID = 'accordions.header';
 
 interface IStyledHeader {
+  isFocused?: boolean;
   isExpanded?: boolean;
   isCollapsible?: boolean;
 }
@@ -31,6 +32,7 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
     focusStyles({
       theme: props.theme,
       inset: true,
+      condition: props.isFocused,
       selector: '&:focus-within'
     })}
 

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render } from 'garden-test-utils';
+import { render, fireEvent } from 'garden-test-utils';
 import { Accordion } from '../Accordion';
 
 describe('Header', () => {
@@ -31,13 +31,21 @@ describe('Header', () => {
 
   it('composes event handlers', async () => {
     const onClick = jest.fn();
+    const onFocus = jest.fn();
+    const onBlur = jest.fn();
     const onMouseOver = jest.fn();
     const onMouseOut = jest.fn();
 
     const { getByRole } = render(
       <Accordion level={3}>
         <Accordion.Section>
-          <Accordion.Header onClick={onClick} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
+          <Accordion.Header
+            onClick={onClick}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onMouseOver={onMouseOver}
+            onMouseOut={onMouseOut}
+          >
             <Accordion.Label>Header Button</Accordion.Label>
           </Accordion.Header>
         </Accordion.Section>
@@ -48,8 +56,12 @@ describe('Header', () => {
 
     await user.click(header);
     await user.unhover(header);
+    fireEvent.focus(header);
+    fireEvent.blur(header);
 
     expect(onClick).toHaveBeenCalledTimes(1);
+    expect(onFocus).toHaveBeenCalledTimes(1);
+    expect(onBlur).toHaveBeenCalledTimes(1);
     expect(onMouseOver).toHaveBeenCalledTimes(1);
     expect(onMouseOut).toHaveBeenCalledTimes(1);
   });
