@@ -63,7 +63,9 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   type: 'button'
 })<IStyledSortableButtonProps>`
   position: relative;
+  transition: box-shadow 0.1s ease-in-out;
   border: none; /* [1] */
+  border-radius: ${props => props.theme.borderRadii.sm};
   background-color: transparent; /* [1] */
   cursor: pointer;
   padding: 0; /* [1] */
@@ -143,8 +145,7 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
 
   ${props =>
     focusStyles({
-      theme: props.theme,
-      styles: { borderRadius: props.theme.borderRadii.sm }
+      theme: props.theme
     })}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

@@ -72,7 +72,11 @@ export const StyledOverflowButton = styled.button.attrs<IStyledOverflowButtonPro
   type: 'button'
 })<IStyledOverflowButtonProps>`
   display: block;
-  transition: opacity 0.25s ease-in-out, background-color 0.1s ease-in-out;
+  /* prettier-ignore */
+  transition:
+    opacity 0.25s ease-in-out,
+    background-color 0.1s ease-in-out,
+    box-shadow 0.1s ease-in-out;
   opacity: ${props => (props.isHovered || props.isFocused || props.isActive ? '1' : '0')};
   z-index: ${props => (props.isActive ? '1' : '0')};
   margin-top: calc(${props => math(`${getRowHeight(props)} / 2`)} - 1em);

@@ -324,6 +324,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   justify-content: ${props => !props.isLink && 'center'};
   /* prettier-ignore */
   transition:
+    ${props => props.isLink && 'outline 0.1s ease-in-out,'}
     border-color 0.25s ease-in-out,
     box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,

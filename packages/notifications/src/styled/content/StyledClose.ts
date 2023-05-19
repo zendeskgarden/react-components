@@ -34,7 +34,11 @@ export const StyledClose = styled.button.attrs({
   position: absolute;
   top: ${props => props.theme.space.base}px;
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base}px`};
-  transition: background-color 0.1s ease-in-out, color 0.25s ease-in-out;
+  /* prettier-ignore */
+  transition:
+    background-color 0.1s ease-in-out,
+    color 0.25s ease-in-out,
+    box-shadow 0.1s ease-in-out;
   border: none; /* [1] */
   border-radius: 50%;
   background-color: transparent; /* [1] */
