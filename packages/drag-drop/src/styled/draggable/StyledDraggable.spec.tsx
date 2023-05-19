@@ -7,7 +7,7 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { DEFAULT_THEME, getColor, getFocusBoxShadow } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { render, fireEvent } from 'garden-test-utils';
 import { StyledDraggable, getDragShadow } from './StyledDraggable';
 
@@ -87,17 +87,9 @@ describe('StyledDraggable', () => {
 
       fireEvent.focus(draggable);
 
-      expect(draggable).toHaveStyleRule(
-        'box-shadow',
-        getFocusBoxShadow({ theme: DEFAULT_THEME })
-          // normalize string output to match
-          .split(',')
-          .map(str => str.trim())
-          .join(', '),
-        {
-          modifier: GARDEN_FOCUS_VISIBLE
-        }
-      );
+      expect(draggable).toHaveStyleRule('box-shadow', '0 0 0 1px #fff, 0 0 0 3px #1f73b7', {
+        modifier: GARDEN_FOCUS_VISIBLE
+      });
     });
 
     it('applies correct styles when focused and grabbed', () => {
@@ -113,11 +105,7 @@ describe('StyledDraggable', () => {
 
       expect(draggable).toHaveStyleRule(
         'box-shadow',
-        `${getFocusBoxShadow({ theme: DEFAULT_THEME })
-          // normalize string output to match
-          .split(',')
-          .map(str => str.trim())
-          .join(', ')},${getDragShadow(DEFAULT_THEME)}`,
+        '0 0 0 1px #fff, 0 0 0 3px #1f73b7,0 20px 28px 0 rgba(104,115,125,0.35)',
         { modifier: GARDEN_FOCUS_VISIBLE }
       );
     });

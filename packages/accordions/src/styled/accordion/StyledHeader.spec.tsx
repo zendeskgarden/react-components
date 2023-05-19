@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { DEFAULT_THEME, getFocusBoxShadow } from '@zendeskgarden/react-theming';
 import { StyledHeader } from './StyledHeader';
 
 describe('StyledHeader', () => {
@@ -22,11 +21,7 @@ describe('StyledHeader', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      getFocusBoxShadow({ theme: DEFAULT_THEME, inset: true })
-        // normalize string output to match
-        .split(',')
-        .map(str => str.trim())
-        .join(', '),
+      'inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7',
       {
         modifier: '&:focus-within'
       }
