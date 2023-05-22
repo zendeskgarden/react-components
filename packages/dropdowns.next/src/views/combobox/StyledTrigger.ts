@@ -63,8 +63,7 @@ const colorStyles = (props: IStyledTriggerProps) => {
   const disabledForegroundColor = getColor('neutralHue', SHADE - 200, props.theme);
   const focusSelector = `
     &:focus-within:not([aria-disabled='true']),
-    &:focus-visible,
-    &[data-garden-focus-visible='true']
+    &:focus-visible
   `;
 
   return css`
