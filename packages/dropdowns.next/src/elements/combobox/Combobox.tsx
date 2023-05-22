@@ -293,6 +293,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
             isCompact={isCompact}
             isExpanded={isExpanded}
             maxHeight={listboxMaxHeight}
+            options={options}
             triggerRef={triggerRef}
             zIndex={listboxZIndex}
             {...listboxProps}

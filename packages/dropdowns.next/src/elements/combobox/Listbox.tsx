@@ -16,7 +16,17 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
   (
-    { appendToNode, children, isCompact, isExpanded, maxHeight, triggerRef, zIndex, ...props },
+    {
+      appendToNode,
+      children,
+      isCompact,
+      isExpanded,
+      maxHeight,
+      options,
+      triggerRef,
+      zIndex,
+      ...props
+    },
     ref
   ) => {
     const floatingRef = useRef<HTMLDivElement>(null);
@@ -74,6 +84,21 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
 
       return () => clearTimeout(timeout);
     }, [isExpanded]);
+
+    useEffect(
+      () => {
+        if (height) {
+          // Reset height on options change.
+          setHeight(undefined);
+          update();
+        }
+      },
+      /* eslint-disable-line react-hooks/exhaustive-deps */ [
+        /* height, // prevent height update loop */
+        options,
+        update
+      ]
+    );
 
     const Node = (
       <StyledFloating

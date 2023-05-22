@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Story } from '@storybook/react';
 import Avatar from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import {
   Combobox,
@@ -62,12 +63,46 @@ export const ComboboxStory: Story<IArgs> = ({
   startIcon,
   renderValue,
   endIcon,
-  options,
+  options: _options,
+  onChange,
   message,
   validation,
   validationLabel,
   ...args
 }) => {
+  const [options, setOptions] = useState(_options);
+
+  const getOptions = useCallback(() => {
+    const retVal: IOption[] = [];
+
+    _options.forEach(option => {
+      if ('options' in option) {
+        retVal.push(...option.options);
+      } else {
+        retVal.push(option);
+      }
+    });
+
+    return retVal;
+  }, [_options]);
+
+  const handleChange: IComboboxProps['onChange'] = changes => {
+    if (args.isAutocomplete && args.isEditable && changes.inputValue !== undefined) {
+      const value = changes.inputValue;
+
+      if (value === '') {
+        setOptions(_options);
+      } else {
+        const regex = new RegExp(value.replace(/[.*+?^${}()|[\]\\]/giu, '\\$&'), 'gui');
+        const matchingOptions = getOptions().filter(option =>
+          (option.label || toString(option)).match(regex)
+        );
+
+        setOptions(matchingOptions);
+      }
+    }
+  };
+
   const getTagProps = (option: IOption): IOptionProps['tagProps'] => {
     const Svg = option.tagProps?.isPill ? Avatar : Icon;
     const children = option.icon ? (
@@ -113,9 +148,10 @@ export const ComboboxStory: Story<IArgs> = ({
                   : undefined
               }
               endIcon={endIcon ? <Icon /> : undefined}
+              onChange={composeEventHandlers(handleChange, onChange)}
             >
               {options.length === 0 ? (
-                <Option label="No results found" isDisabled value="" />
+                <Option label="No options found" isDisabled value="" />
               ) : (
                 options.map(({ icon, ...option }, index) =>
                   'options' in option ? (
