@@ -38,6 +38,7 @@ const iconButtonStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const width = getHeight(props);
 
   return css`
+    border: ${props.isBasic && 'none'};
     padding: 0;
     width: ${width};
     min-width: ${width};

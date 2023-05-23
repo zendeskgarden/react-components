@@ -129,10 +129,6 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   ${sizeStyles};
   ${transformStyles};
 
-  ${SELECTOR_FOCUS_VISIBLE} {
-    border-width: 0;
-  }
-
   /* [1] */
   &::before {
     position: absolute;

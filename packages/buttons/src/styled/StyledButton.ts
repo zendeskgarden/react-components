@@ -374,7 +374,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
       background-color 0.1s ease-in-out,
       color 0.1s ease-in-out,
       z-index 0.25s ease-in-out;
-    text-decoration: none; /* [2] */
+    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
   }
 
   ${props => colorStyles(props)};
