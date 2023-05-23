@@ -13,7 +13,6 @@ import {
   focusStyles,
   getColor
 } from '@zendeskgarden/react-theming';
-import { getValidationHue } from '../../utils/getValidationHue';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 
@@ -23,6 +22,23 @@ export interface IStyledTextFauxInputProps extends IStyledTextInputProps {
   mediaLayout?: boolean;
   isDisabled?: boolean;
   isReadOnly?: boolean;
+}
+
+const VALIDATION_HUES = {
+  success: 'successHue',
+  warning: 'warningHue',
+  error: 'dangerHue'
+};
+
+export function getValidationHue(
+  validation?: IStyledTextInputProps['validation'],
+  defaultHue = 'primaryHue'
+) {
+  if (validation) {
+    return VALIDATION_HUES[validation];
+  }
+
+  return defaultHue;
 }
 
 /**
