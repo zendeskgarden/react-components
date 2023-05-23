@@ -27,6 +27,8 @@ import {
 import { IOption, Options } from './types';
 import { toString } from '../../src/elements/combobox/utils';
 
+const toLabel = (option: IOption) => option.label || toString(option);
+
 const ComboboxOption = ({ icon, meta, ...props }: IOption) => {
   const Svg = props.tagProps?.isPill ? Avatar : Icon;
 
@@ -34,7 +36,7 @@ const ComboboxOption = ({ icon, meta, ...props }: IOption) => {
     <Option icon={icon ? <Svg /> : undefined} {...props}>
       {meta && (
         <>
-          {props.children || props.label || toString(props)}
+          {props.children || toLabel(props)}
           <Option.Meta>{meta}</Option.Meta>
         </>
       )}
@@ -94,9 +96,7 @@ export const ComboboxStory: Story<IArgs> = ({
         setOptions(_options);
       } else {
         const regex = new RegExp(value.replace(/[.*+?^${}()|[\]\\]/giu, '\\$&'), 'gui');
-        const matchingOptions = getOptions().filter(option =>
-          (option.label || toString(option)).match(regex)
-        );
+        const matchingOptions = getOptions().filter(option => toLabel(option).match(regex));
 
         setOptions(matchingOptions);
       }
@@ -112,7 +112,7 @@ export const ComboboxStory: Story<IArgs> = ({
             <Svg />
           </span>
         </Tag.Avatar>{' '}
-        {option.tagProps?.children || option.label || toString(option)}
+        {option.tagProps?.children || toLabel(option)}
       </>
     ) : undefined;
 
@@ -138,9 +138,11 @@ export const ComboboxStory: Story<IArgs> = ({
               renderExpandTags={value => `+ ${value} more`}
               renderValue={
                 renderValue
-                  ? ({ inputValue }) => {
+                  ? ({ selection, inputValue }) => {
                       if (inputValue) {
                         return `🌱 ${inputValue}`;
+                      } else if (selection && !Array.isArray(selection)) {
+                        return `🌱 ${toLabel(selection)}`;
                       }
 
                       return inputValue;

@@ -261,7 +261,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                   <StyledValue
                     isCompact={isCompact}
                     isEditable={isEditable}
-                    isPlaceholder={!inputValue}
+                    isPlaceholder={!(inputValue || renderValue)}
                     onClick={event => {
                       if (isEditable) {
                         event.stopPropagation();
