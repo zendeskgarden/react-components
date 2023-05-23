@@ -89,6 +89,9 @@ interface IStyledSkipNavProps {
   zIndex?: number;
 }
 
+/**
+ * 1. breaking LVHFA order for `<a>` to underline when focused and hovered
+ */
 export const StyledSkipNav = styled.a.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -112,6 +115,11 @@ export const StyledSkipNav = styled.a.attrs({
 
   ${SELECTOR_FOCUS_VISIBLE} {
     text-decoration: none;
+  }
+
+  /* [1] */
+  &:hover {
+    text-decoration: underline;
   }
 
   ${props => colorStyles(props.theme)};

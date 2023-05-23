@@ -23,6 +23,9 @@ interface IStyledGlobalAlertProps {
   alertType: IGlobalAlertProps['type'];
 }
 
+/**
+ * 1. Shifting :focus-visible from LVHFA order to preserve `color` on hover
+ */
 const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) => {
   let borderColor;
   let backgroundColor;
@@ -81,17 +84,17 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
     & a {
       color: inherit;
 
-      &:hover,
-      ${SELECTOR_FOCUS_VISIBLE} {
-        color: ${anchorHoverColor};
-      }
-
+      /* [1] */
       ${focusStyles({
         theme: props.theme,
         hue: focusColor,
-        shade: props.alertType === 'info' ? 600 : 800,
-        styles: { color: 'inherit' }
+        shade: props.alertType === 'info' ? 600 : 800
       })}
+
+      /* [1] */
+      &:hover {
+        color: ${anchorHoverColor};
+      }
 
       &:active {
         color: ${anchorActiveColor};
@@ -100,6 +103,9 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
   `;
 };
 
+/**
+ * 1. Shifting :focus-visible from LVHFA order to preserve `text-decoration` on hover
+ */
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const { fontSizes, space } = props.theme;
   const minHeight = space.base * 13;
@@ -125,17 +131,23 @@ export const StyledGlobalAlert = styled.div.attrs({
   box-sizing: border-box;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
+  ${sizeStyles}
+  ${colorStyles}
+
   && a {
     border-radius: ${props => props.theme.borderRadii.sm};
     text-decoration: underline;
 
+    /* [1] */
     ${SELECTOR_FOCUS_VISIBLE} {
       text-decoration: none;
     }
-  }
 
-  ${sizeStyles}
-  ${colorStyles}
+    /* [1] */
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

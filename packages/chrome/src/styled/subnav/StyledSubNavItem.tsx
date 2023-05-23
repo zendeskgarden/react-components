@@ -73,7 +73,8 @@ export const StyledSubNavItem = styled.button.attrs({
   display: flex;
   align-items: center;
   /* prettier-ignore */
-  transition: box-shadow 0.1s ease-in-out,
+  transition:
+    box-shadow 0.1s ease-in-out,
     background-color 0.1s ease-in-out,
     opacity 0.1s ease-in-out;
   margin: ${props => props.theme.space.base * 2}px 0 0; /* [2] */

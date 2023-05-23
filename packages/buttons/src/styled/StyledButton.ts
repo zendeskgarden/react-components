@@ -313,6 +313,7 @@ const sizeStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 /**
  * 1. FF <input type="submit"> fix
  * 2. <a> element reset
+ * 3. Shifting :focus-visible from LVHFA order to preserve `text-decoration` on hover
  */
 export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   'data-garden-id': COMPONENT_ID,
@@ -331,7 +332,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     color 0.25s ease-in-out,
     z-index 0.25s ease-in-out;
   margin: 0;
-  border: ${props => `${props.isLink ? 0 : props.theme.borders.sm} transparent`};
+  border: ${props => `${props.isLink ? `0px solid` : props.theme.borders.sm} transparent`};
   border-radius: ${props => getBorderRadius(props)};
   cursor: pointer;
   width: ${props => (props.isStretched ? '100%' : '')};
@@ -354,17 +355,14 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     padding: 0;
   }
 
-  &:hover {
-    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
-  }
-
-  &:focus {
-    outline: none;
-    text-decoration: ${props => props.isLink && 'none'}; /* [2] */
-  }
-
+  /* [3] */
   ${SELECTOR_FOCUS_VISIBLE} {
     text-decoration: none;
+  }
+
+  /* [3] */
+  &:hover {
+    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
   }
 
   &:active,
@@ -392,11 +390,11 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   }
 
   ${StyledButtonGroup} && {
-    ${props => groupStyles(props)};
+    ${props => groupStyles(props)}
   }
   /* stylelint-enable */
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)}
 `;
 
 StyledButton.defaultProps = {
