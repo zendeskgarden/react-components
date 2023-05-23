@@ -11,7 +11,8 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getColor,
-  focusStyles
+  focusStyles,
+  SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
 import { ISplitterButtonProps, Orientation, PLACEMENT } from '../../types';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
@@ -120,22 +121,17 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   position: absolute;
   /* prettier-ignore */
   transition:
+    box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
     opacity 0.25s ease-in-out 0.1s;
   opacity: 0;
 
-  /* stylelint-disable selector-no-qualifying-type */
-  &:focus-visible,
-  &[data-garden-focus-visible],
-  ${StyledPaneSplitter}:hover &,
-  ${StyledPaneSplitter}:focus-visible &,
-  ${StyledPaneSplitter}[data-garden-focus-visible] & {
-    opacity: 1;
-  }
-
   ${sizeStyles};
   ${transformStyles};
-  ${colorStyles};
+
+  ${SELECTOR_FOCUS_VISIBLE} {
+    border-width: 0;
+  }
 
   /* [1] */
   &::before {
@@ -145,6 +141,16 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
     width: 100%;
     height: 100%;
     content: '';
+  }
+
+  ${colorStyles};
+
+  /* stylelint-disable selector-no-qualifying-type */
+  ${StyledPaneSplitter}:hover &,
+  ${StyledPaneSplitter}:focus-visible &,
+  ${StyledPaneSplitter}[data-garden-focus-visible] &,
+  ${SELECTOR_FOCUS_VISIBLE} {
+    opacity: 1;
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

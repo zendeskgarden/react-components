@@ -173,6 +173,10 @@ export const StyledPaneSplitter = styled.div.attrs({
 
   ${sizeStyles};
 
+  ${SELECTOR_FOCUS_VISIBLE} {
+    z-index: 2; /* [3] */
+  }
+
   &::before {
     position: absolute;
     /* prettier-ignore */
@@ -181,10 +185,6 @@ export const StyledPaneSplitter = styled.div.attrs({
       background-color 0.25s ease-in-out;
     z-index: -1; /* [2] */
     content: '';
-  }
-
-  ${SELECTOR_FOCUS_VISIBLE} {
-    z-index: 2; /* [3] */
   }
 
   ${colorStyles};
