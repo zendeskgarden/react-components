@@ -63,7 +63,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
 
       if (isExpanded && refs.reference.current && refs.floating.current) {
         cleanup = autoUpdate(refs.reference.current, refs.floating.current, update, {
-          elementResize: false
+          elementResize: typeof ResizeObserver === 'function'
         });
       }
 
