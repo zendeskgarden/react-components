@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { LiHTMLAttributes, forwardRef, useMemo } from 'react';
+import React, { LiHTMLAttributes, forwardRef, useEffect, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
+import mergeRefs from 'react-merge-refs';
 import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
@@ -27,6 +28,18 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
   ({ children, icon, isDisabled, isSelected, label, type, value, ...props }, ref) => {
     const contextValue = useMemo(() => ({ isDisabled }), [isDisabled]);
     const { activeValue, getOptionProps, isCompact } = useComboboxContext();
+    const isActive = value === activeValue;
+    const optionRef = useRef<HTMLLIElement>(null);
+
+    useEffect(() => {
+      if (isActive) {
+        // Scroll active option into view.
+        setTimeout(() => {
+          optionRef.current?.scrollIntoView({ block: 'nearest' });
+        });
+      }
+    }, [isActive]);
+
     const renderActionIcon = (iconType?: OptionType) => {
       switch (iconType) {
         case 'add':
@@ -43,12 +56,15 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
       }
     };
     const option = toOption({ value, label, isDisabled, isSelected });
-    const optionProps = getOptionProps({ option, ref }) as LiHTMLAttributes<HTMLLIElement>;
+    const optionProps = getOptionProps({
+      option,
+      ref: mergeRefs([optionRef, ref])
+    }) as LiHTMLAttributes<HTMLLIElement>;
 
     return (
       <OptionContext.Provider value={contextValue}>
         <StyledOption
-          isActive={value === activeValue}
+          isActive={isActive}
           isCompact={isCompact}
           $type={type}
           {...props}
