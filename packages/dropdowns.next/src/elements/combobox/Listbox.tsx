@@ -16,17 +16,7 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
   (
-    {
-      appendToNode,
-      children,
-      isCompact,
-      isExpanded,
-      maxHeight,
-      options,
-      triggerRef,
-      zIndex,
-      ...props
-    },
+    { appendToNode, children, isCompact, isExpanded, maxHeight, triggerRef, zIndex, ...props },
     ref
   ) => {
     const floatingRef = useRef<HTMLDivElement>(null);
@@ -95,7 +85,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
       },
       /* eslint-disable-line react-hooks/exhaustive-deps */ [
         /* height, // prevent height update loop */
-        options,
+        children,
         update
       ]
     );

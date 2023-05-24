@@ -127,8 +127,6 @@ export interface IListboxProps extends HTMLAttributes<HTMLUListElement> {
   isExpanded?: boolean;
   /** Sets the `max-height` of the listbox */
   maxHeight?: IComboboxProps['listboxMaxHeight'];
-  /** @ignore Provides an ordered list of option groups and options */
-  options: IUseComboboxProps['options'];
   /** Provides ref access to the associated trigger element */
   triggerRef: RefObject<HTMLElement>;
   /** Sets the `z-index` of the listbox */
