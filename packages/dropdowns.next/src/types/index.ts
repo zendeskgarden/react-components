@@ -31,8 +31,6 @@ export type Validation = (typeof VALIDATION)[number];
 export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the currently active option index in a controlled combobox */
   activeIndex?: number;
-  /** Appends the lisbox to the element provided */
-  appendListboxToNode?: Element | DocumentFragment;
   /** Sets the default active option index in an uncontrolled combobox */
   defaultActiveIndex?: number;
   /** Determines default listbox expansion in an uncontrolled combobox */
@@ -61,6 +59,8 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   isExpanded?: boolean;
   /** Determines whether multiple options can be selected */
   isMultiselectable?: boolean;
+  /** Appends the lisbox to the element provided */
+  listboxAppendToNode?: Element | DocumentFragment;
   /** Specifies the listbox `aria-label` */
   listboxAriaLabel?: string;
   /** Sets the `max-height` of the listbox */

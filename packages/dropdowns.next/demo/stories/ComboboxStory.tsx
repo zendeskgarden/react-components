@@ -36,7 +36,7 @@ const ComboboxOption = ({ icon, meta, ...props }: IOption) => {
     <Option icon={icon ? <Svg /> : undefined} {...props}>
       {meta && (
         <>
-          {props.children || toLabel(props)}
+          <span>{props.children || toLabel(props)}</span>
           <Option.Meta>{meta}</Option.Meta>
         </>
       )}

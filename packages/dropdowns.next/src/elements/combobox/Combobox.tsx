@@ -49,7 +49,6 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     {
       children,
       activeIndex,
-      appendListboxToNode,
       defaultActiveIndex,
       defaultExpanded,
       endIcon,
@@ -63,6 +62,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       isEditable,
       isExpanded: _isExpanded,
       isMultiselectable,
+      listboxAppendToNode,
       listboxAriaLabel,
       listboxMaxHeight,
       listboxZIndex,
@@ -289,7 +289,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
             </StyledContainer>
           </StyledTrigger>
           <Listbox
-            appendToNode={appendListboxToNode}
+            appendToNode={listboxAppendToNode}
             isCompact={isCompact}
             isExpanded={isExpanded}
             maxHeight={listboxMaxHeight}
@@ -309,7 +309,6 @@ Combobox.displayName = 'Combobox';
 
 Combobox.propTypes = {
   activeIndex: PropTypes.number,
-  appendListboxToNode: PropTypes.any,
   defaultActiveIndex: PropTypes.number,
   defaultExpanded: PropTypes.bool,
   endIcon: PropTypes.any,
@@ -324,6 +323,7 @@ Combobox.propTypes = {
   isEditable: PropTypes.bool,
   isExpanded: PropTypes.bool,
   isMultiselectable: PropTypes.bool,
+  listboxAppendToNode: PropTypes.any,
   listboxAriaLabel: PropTypes.string,
   listboxMaxHeight: PropTypes.string,
   listboxZIndex: PropTypes.number,
