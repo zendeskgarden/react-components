@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
@@ -31,7 +31,7 @@ const VALIDATION_HUES = {
 };
 
 export function getValidationHue(
-  validation?: IStyledTextInputProps['validation'],
+  validation?: IStyledTextFauxInputProps['validation'],
   defaultHue = 'primaryHue'
 ) {
   if (validation) {
@@ -40,6 +40,22 @@ export function getValidationHue(
 
   return defaultHue;
 }
+
+const colorStyles = (props: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>) => {
+  const { theme, validation, focusInset, isBare, isFocused } = props;
+
+  return css`
+    ${focusStyles({
+      theme,
+      inset: focusInset,
+      condition: !isBare,
+      hue: getValidationHue(validation),
+      shade: validation === 'warning' ? 700 : 600,
+      selector: isFocused ? '&' : '&:focus-within',
+      styles: { borderColor: getColor(getValidationHue(validation), 600, theme) }
+    })}
+  `;
+};
 
 /**
  * [1] removes inner input styles when focused
@@ -59,16 +75,7 @@ export const StyledTextFauxInput = styled(
   cursor: ${props => (props.mediaLayout && !props.isDisabled ? 'text' : 'default')};
   overflow: hidden;
 
-  ${props =>
-    focusStyles({
-      theme: props.theme,
-      inset: props.focusInset,
-      condition: !props.isBare,
-      hue: getValidationHue(props.validation),
-      shade: props.validation === 'warning' ? 700 : 600,
-      selector: '&:focus-within',
-      styles: { borderColor: getColor(getValidationHue(props.validation), 600, props.theme) }
-    })}
+  ${colorStyles}
 
   & > ${StyledTextInput} {
     vertical-align: ${props => !props.mediaLayout && 'baseline'};

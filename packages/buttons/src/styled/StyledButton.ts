@@ -45,6 +45,7 @@ export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 /**
  * 1. override CSS bedrock
  * 2. focus shadow outline replaces box-shadow for links that break into new lines
+ * 3. Shifting :focus-visible from LVHFA order to preserve `color` on hover
  */
 const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
@@ -73,19 +74,12 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
       background-color: transparent;
       color: ${baseColor};
 
-      &:hover,
-      ${SELECTOR_FOCUS_VISIBLE} {
-        color: ${hoverColor};
-      }
-
-      &:focus {
-        color: ${baseColor}; /* [1] */
-      }
-
       ${focusStyles({
         theme: props.theme,
         condition: false,
         styles: {
+          /* [1] */
+          color: baseColor,
           /* [2] */
           outline: `${math(`${props.theme.borderWidths.md} - 1`)} solid ${getColor(
             'primaryHue',
@@ -94,6 +88,11 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
           )}`
         }
       })}
+
+      /* [3] */
+      &:hover {
+        color: ${hoverColor};
+      }
 
       &:active,
       &[aria-pressed='true'],
