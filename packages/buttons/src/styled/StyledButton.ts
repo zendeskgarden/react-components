@@ -44,6 +44,7 @@ export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
 /**
  * 1. override CSS bedrock
+ * 2. focus shadow outline replaces box-shadow for links that break into new lines
  */
 const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
@@ -85,6 +86,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
         theme: props.theme,
         condition: false,
         styles: {
+          /* [2] */
           outline: `${math(`${props.theme.borderWidths.md} - 1`)} solid ${getColor(
             'primaryHue',
             shade,
