@@ -71,15 +71,15 @@
   resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.18.0.tgz#4f3cebe093dd436eeaff633809bf0f68f4f9d2ee"
   integrity sha512-KdVMdpTgDyK8FzdKO9SCpiibuy/kbv3pwgfXshTI6tEcQT1OOwj7BAksnzGC0rPz0UholwC+AgkqEl3EJX3M1A==
 
-"@zendeskgarden/container-combobox@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-combobox/-/container-combobox-0.3.2.tgz#baaa386e2ec3277e4eb7353a422b770043330050"
-  integrity sha512-YfIavWupRljVib6YbcTg87bWxJGcpOJh+Zue+Tv0UaOLAugqNHF6F3Ip9N+egtEIs+mQ0DK3bZjrMhI1O4Xhog==
+"@zendeskgarden/container-combobox@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-combobox/-/container-combobox-0.3.3.tgz#82ec3cced24035625d247274662536cf73ee4754"
+  integrity sha512-zk+FGXSAOiK5KHbBp7uHv5H583JbCty6viAkpUj/DxoUKVSpHuncVpIrSo685RoO6MfEgkdeiBu/4RCHeakoYg==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-field" "^3.0.4"
     "@zendeskgarden/container-utilities" "^1.0.5"
-    downshift "^7.2.0"
+    downshift "^7.6.0"
 
 "@zendeskgarden/container-field@^2.1.0":
   version "2.1.2"
@@ -227,7 +227,7 @@ define-properties@^1.1.3, define-properties@^1.2.0:
     has-property-descriptors "^1.0.0"
     object-keys "^1.1.1"
 
-downshift@^7.2.0:
+downshift@^7.6.0:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/downshift/-/downshift-7.6.0.tgz#de04fb2962bd6c4ea94589c797c91f34aa9816f3"
   integrity sha512-VSoTVynTAsabou/hbZ6HJHUVhtBiVOjQoBsCPcQq5eAROIGP+9XKMp9asAKQ3cEcUP4oe0fFdD2pziUjhFY33Q==
