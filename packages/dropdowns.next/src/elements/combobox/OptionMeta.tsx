@@ -19,4 +19,7 @@ const OptionMetaComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEle
 
 OptionMetaComponent.displayName = 'Option.Meta';
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const OptionMeta = OptionMetaComponent;

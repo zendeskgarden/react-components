@@ -9,12 +9,12 @@ import React, { HTMLAttributes, forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME, useDocument, useText } from '@zendeskgarden/react-theming';
-import { Tag as BaseTag } from '@zendeskgarden/react-tags';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { ITagProps } from '../../types';
 import useComboboxContext from '../../context/useComboboxContext';
 import { StyledTag } from '../../views';
 import { toString } from './utils';
+import { TagAvatar } from './TagAvatar';
 
 const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
   ({ children, option, removeLabel, tooltipZIndex, ...props }, ref) => {
@@ -72,7 +72,7 @@ TagComponent.propTypes = {
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Tag = TagComponent as typeof TagComponent & {
-  Avatar: typeof BaseTag.Avatar;
+  Avatar: typeof TagAvatar;
 };
 
-Tag.Avatar = BaseTag.Avatar;
+Tag.Avatar = TagAvatar;
