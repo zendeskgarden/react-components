@@ -7,7 +7,6 @@
 
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import glob from 'glob';
 import { render, configure } from '@testing-library/react';
 import { ThemeProvider, DEFAULT_THEME } from '../../packages/theming/src';
 
@@ -45,32 +44,3 @@ const customRtlRender = (ui: React.ReactElement, options?: any) =>
 export * from '@testing-library/react';
 export { customLtrRender as render };
 export { customRtlRender as renderRtl };
-
-/**
- * defaultFileMapper
- * @param {*} files
- */
-function defaultFileMapper(files: string[]) {
-  return files.map(entry => entry.replace(/\.js$/u, '').split('/').pop()).sort();
-}
-
-/**
- * getExports
- * @param {*} options
- */
-export function getExports({
-  globPath = '**/!(index|*.spec).js',
-  cwd,
-  options = {},
-  fileMapper = defaultFileMapper
-}: { globPath?: string; cwd?: string; options?: any; fileMapper?: any } = {}) {
-  return new Promise((resolve, reject) => {
-    glob(globPath, { ...options, cwd }, (error, files) => {
-      if (error) {
-        reject(error);
-      }
-
-      resolve(fileMapper(files));
-    });
-  });
-}
