@@ -17,7 +17,7 @@ describe('Blockquote', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLElement>();
+    const ref = React.createRef<HTMLQuoteElement>();
     const { container } = render(<Blockquote ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
