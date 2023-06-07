@@ -46,7 +46,7 @@ export type GardenPlacement = (typeof PLACEMENT)[number];
 
 export type PopperPlacement = (typeof POPPER_PLACEMENT)[number];
 
-export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
+export interface ITooltipProps extends Omit<HTMLAttributes<HTMLDivElement>, 'content'> {
   /** Appends the tooltip to the element provided */
   appendToNode?: Element;
   /** Adds an arrow to the tooltip */

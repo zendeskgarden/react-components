@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import InfoStrokeIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import { INotificationProps, TYPE } from '../types';
@@ -15,22 +15,30 @@ import { validationIcons, validationHues } from '../utils/icons';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Notification = React.forwardRef<HTMLDivElement, INotificationProps>((props, ref) => {
-  const Icon = props.type ? validationIcons[props.type] : InfoStrokeIcon;
-  const hue = props.type && validationHues[props.type];
+export const Notification = forwardRef<HTMLDivElement, INotificationProps>(
+  ({ role, ...props }, ref) => {
+    const Icon = props.type ? validationIcons[props.type] : InfoStrokeIcon;
+    const hue = props.type && validationHues[props.type];
 
-  return (
-    <StyledNotification ref={ref} type={props.type} isFloating {...props}>
-      {props.type && (
-        <StyledIcon hue={hue}>
-          <Icon />
-        </StyledIcon>
-      )}
+    return (
+      <StyledNotification
+        ref={ref}
+        type={props.type}
+        isFloating
+        {...props}
+        role={role === undefined ? 'status' : role}
+      >
+        {props.type && (
+          <StyledIcon hue={hue}>
+            <Icon />
+          </StyledIcon>
+        )}
 
-      {props.children}
-    </StyledNotification>
-  );
-});
+        {props.children}
+      </StyledNotification>
+    );
+  }
+);
 
 Notification.displayName = 'Notification';
 
