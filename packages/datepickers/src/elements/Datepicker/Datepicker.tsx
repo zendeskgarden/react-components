@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { IDatepickerProps, PLACEMENT, PopperPlacement } from '../../types';
+import { IDatepickerProps, PLACEMENT, PopperPlacement, WEEK_STARTS_ON } from '../../types';
 import { getRtlPopperPlacement, getPopperPlacement } from './utils/garden-placements';
 import { Calendar } from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
@@ -211,7 +211,7 @@ Datepicker.propTypes = {
   onChange: PropTypes.any,
   formatDate: PropTypes.func,
   locale: PropTypes.any,
-  weekStartsOn: PropTypes.number,
+  weekStartsOn: PropTypes.oneOf(WEEK_STARTS_ON),
   minValue: PropTypes.any,
   maxValue: PropTypes.any,
   isCompact: PropTypes.bool,
