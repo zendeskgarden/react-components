@@ -37,10 +37,12 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         flip(),
         size({
           apply: ({ rects, availableHeight }) => {
-            setWidth(rects.reference.width);
+            if (rects.reference.width > 0) {
+              setWidth(rects.reference.width);
 
-            if (rects.floating.height > availableHeight) {
-              setHeight(availableHeight);
+              if (rects.floating.height > availableHeight) {
+                setHeight(availableHeight);
+              }
             }
           }
         })
