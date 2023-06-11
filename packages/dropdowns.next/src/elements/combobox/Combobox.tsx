@@ -81,11 +81,16 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
   ) => {
     const { hasHint, hasMessage, labelProps, setLabelProps } = useFieldContext();
     const [isLabelHovered, setIsLabelHovered] = useState(false);
-    const [options, optionTagProps] = useMemo(() => {
-      const _optionTagProps: Record<string, IOptionProps['tagProps']> = {};
-      const _options = toOptions(children, _optionTagProps);
+    const [optionTagProps, setOptionTagProps] = useState<Record<string, IOptionProps['tagProps']>>(
+      {}
+    );
+    const options = useMemo(() => {
+      const tagProps: Record<string, IOptionProps['tagProps']> = {};
+      const retVal = toOptions(children, tagProps);
 
-      return [_options, _optionTagProps];
+      setOptionTagProps(value => ({ ...value, ...tagProps }));
+
+      return retVal;
     }, [children]);
     const hasFocus = useRef(false);
     const triggerRef = useRef<HTMLDivElement>(null);
@@ -116,7 +121,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       environment,
       hasHint,
       hasMessage,
-      isAutocomplete,
+      isAutocomplete: isAutocomplete || false,
       isEditable,
       isMultiselectable,
       disabled: isDisabled,
@@ -162,6 +167,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       isCompact,
       isEditable,
       isLabelHovered,
+      isMultiselectable,
       maxHeight,
       focusInset,
       validation,
@@ -179,7 +185,9 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const inputProps = {
       'aria-invalid': validation === 'error' || validation === 'warning',
       hidden: !(isEditable && hasFocus.current),
+      isBare,
       isCompact,
+      isMultiselectable,
       placeholder,
       ...(getInputProps({
         ...(_inputProps as IUseComboboxReturnValue['getInputProps'])
@@ -259,8 +267,10 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                 )}
                 {!(isEditable && hasFocus.current) && (
                   <StyledValue
+                    isBare={isBare}
                     isCompact={isCompact}
                     isEditable={isEditable}
+                    isMultiselectable={isMultiselectable}
                     isPlaceholder={!(inputValue || renderValue)}
                     onClick={event => {
                       if (isEditable) {
