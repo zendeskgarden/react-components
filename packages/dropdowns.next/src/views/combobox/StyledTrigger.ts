@@ -24,6 +24,7 @@ interface IStyledTriggerProps extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;
   isEditable?: boolean;
   isLabelHovered?: boolean;
+  isMultiselectable?: boolean;
   maxHeight?: string;
   focusInset?: boolean;
   validation?: Validation;
@@ -93,11 +94,26 @@ const colorStyles = (props: IStyledTriggerProps) => {
 };
 
 const sizeStyles = (props: IStyledTriggerProps) => {
-  const minHeight = `${props.theme.space.base * (props.isCompact ? 8 : 10)}px`;
+  const inputHeight = getInputHeight(props);
+  let minHeight;
+  let horizontalPadding;
+
+  if (props.isBare) {
+    if (props.isMultiselectable) {
+      minHeight = math(`${props.theme.shadowWidths.sm} * 2 + ${inputHeight}`);
+      horizontalPadding = props.theme.shadowWidths.sm;
+    } else {
+      minHeight = `${inputHeight}px`;
+      horizontalPadding = '0';
+    }
+  } else {
+    minHeight = `${props.theme.space.base * 3 + inputHeight}px`;
+    horizontalPadding = `${props.theme.space.base * 3}px`;
+  }
+
   const maxHeight = props.maxHeight || minHeight;
-  const horizontalPadding = `${props.theme.space.base * 3}px`;
   const verticalPadding = math(
-    `(${minHeight} - ${getInputHeight(props)} - (${props.theme.borderWidths.sm} * 2)) / 2`
+    `(${minHeight} - ${inputHeight} - (${props.isBare ? 0 : props.theme.borderWidths.sm} * 2)) / 2`
   );
 
   return css`

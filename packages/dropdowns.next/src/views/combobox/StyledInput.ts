@@ -17,7 +17,9 @@ import {
 const COMPONENT_ID = 'dropdowns.combobox.input';
 
 interface IStyledInputProps extends ThemeProps<DefaultTheme> {
+  isBare?: boolean;
   isCompact?: boolean;
+  isMultiselectable?: boolean;
 }
 
 const colorStyles = (props: IStyledInputProps) => {
@@ -34,8 +36,13 @@ const colorStyles = (props: IStyledInputProps) => {
   `;
 };
 
-export const getHeight = (props: IStyledInputProps) =>
-  props.theme.space.base * (props.isCompact ? 5 : 8);
+export const getHeight = (props: IStyledInputProps) => {
+  if (props.isBare && !props.isMultiselectable) {
+    return props.theme.space.base * 5;
+  }
+
+  return props.theme.space.base * (props.isCompact ? 5 : 8);
+};
 
 const sizeStyles = (props: IStyledInputProps) => {
   const height = `${getHeight(props)}px`;

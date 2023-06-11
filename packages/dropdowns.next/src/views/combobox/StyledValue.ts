@@ -12,8 +12,10 @@ import { getHeight as getInputHeight } from './StyledInput';
 const COMPONENT_ID = 'dropdowns.combobox.value';
 
 interface IStyledValueProps extends ThemeProps<DefaultTheme> {
+  isBare?: boolean;
   isCompact?: boolean;
   isEditable?: boolean;
+  isMultiselectable?: boolean;
   isPlaceholder?: boolean;
 }
 
