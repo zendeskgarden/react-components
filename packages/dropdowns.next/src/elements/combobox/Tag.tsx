@@ -48,6 +48,7 @@ const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
         {children || <span>{text}</span>}
         {!option.disabled &&
           (removeLabel ? (
+            /* istanbul ignore next */
             <Tooltip appendToNode={doc?.body} content={removeLabel} zIndex={tooltipZIndex}>
               <StyledTag.Close aria-label={removeLabel} onClick={handleClick} />
             </Tooltip>

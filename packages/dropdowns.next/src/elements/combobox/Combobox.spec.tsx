@@ -75,6 +75,18 @@ TestCombobox.displayName = 'TestCombobox';
 describe('Combobox', () => {
   const user = userEvent.setup();
 
+  it('throws if rendered outside of a Field component', () => {
+    const originalError = console.error;
+
+    console.error = jest.fn();
+
+    expect(() => {
+      render(<Combobox />);
+    }).toThrow('Error: this component must be rendered within a <Field>.');
+
+    console.error = originalError;
+  });
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByTestId } = render(<TestCombobox ref={ref} />);
@@ -170,14 +182,28 @@ describe('Combobox', () => {
   });
 
   it('renders `isCompact` styling as expected', () => {
-    const { getByTestId, rerender } = render(<TestCombobox />);
+    const tagProps = { 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>;
+    const { getByTestId, rerender } = render(
+      <TestCombobox defaultExpanded isMultiselectable>
+        <Option data-test-id="option" isSelected tagProps={tagProps} value="test" />
+      </TestCombobox>
+    );
     const combobox = getByTestId('combobox');
+    const option = getByTestId('option');
 
     expect(combobox.firstChild).toHaveStyleRule('min-height', '44px');
+    expect(option).toHaveStyleRule('min-height', '36px');
+    expect(getByTestId('tag')).toHaveStyleRule('height', '32px');
 
-    rerender(<TestCombobox isCompact />);
+    rerender(
+      <TestCombobox isCompact defaultExpanded isMultiselectable>
+        <Option data-test-id="option" isSelected tagProps={tagProps} value="test" />
+      </TestCombobox>
+    );
 
     expect(combobox.firstChild).toHaveStyleRule('min-height', '32px');
+    expect(option).toHaveStyleRule('min-height', '28px');
+    expect(getByTestId('tag')).toHaveStyleRule('height', '20px');
   });
 
   it('renders disabled as expected', () => {
@@ -380,6 +406,60 @@ describe('Combobox', () => {
       await user.click(getByTestId('optgroup'));
 
       expect(input).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('handles tag removal as expected', async () => {
+      const tagProps = { 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>;
+      const { getByTestId, queryByTestId } = render(
+        <TestCombobox isMultiselectable>
+          <Option isSelected tagProps={tagProps} value="value" />
+        </TestCombobox>
+      );
+      const tag = getByTestId('tag');
+
+      expect(tag).not.toBeNull();
+
+      await user.click(tag.querySelector('button') as HTMLElement);
+
+      expect(queryByTestId('tag')).toBeNull();
+    });
+
+    it('focuses input on expand tags click', async () => {
+      const { getByTestId, getByText } = render(
+        <TestCombobox isMultiselectable maxTags={1} renderExpandTags={() => 'test'}>
+          <Option isSelected value="value-1" />
+          <Option isSelected value="value-2" />
+        </TestCombobox>
+      );
+      const button = getByText('test');
+      const input = getByTestId('input');
+
+      await user.click(button);
+
+      expect(input).toHaveFocus();
+    });
+
+    it('focuses input on value click', async () => {
+      const { getByTestId } = render(<TestCombobox />);
+      const input = getByTestId('input');
+
+      await user.click(input.previousElementSibling as HTMLElement);
+
+      expect(input).toHaveFocus();
+    });
+
+    it('hides input on blur', async () => {
+      const { getByTestId } = render(<TestCombobox />);
+      const combobox = getByTestId('combobox');
+      const input = getByTestId('input');
+
+      await user.click(combobox.firstChild as HTMLElement);
+
+      expect(input).not.toHaveAttribute('hidden');
+
+      await user.keyboard('{Tab}');
+
+      expect(input).toHaveAttribute('hidden');
     });
   });
 });

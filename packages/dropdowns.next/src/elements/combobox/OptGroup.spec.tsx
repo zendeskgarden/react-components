@@ -30,7 +30,19 @@ const TestOptGroup = forwardRef<HTMLLIElement, ITestOptGroupProps>(
 
 TestOptGroup.displayName = 'TestOptGroup';
 
-describe('OptionGroup', () => {
+describe('OptGroup', () => {
+  it('throws if rendered outside of a Combobox component', () => {
+    const originalError = console.error;
+
+    console.error = jest.fn();
+
+    expect(() => {
+      render(<OptGroup />);
+    }).toThrow('Error: this component must be rendered within a <Combobox>.');
+
+    console.error = originalError;
+  });
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLLIElement>();
     const { getByTestId } = render(<TestOptGroup ref={ref} />);

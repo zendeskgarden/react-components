@@ -97,6 +97,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const inputRef = useRef<HTMLInputElement>(null);
     const listboxRef = useRef<HTMLUListElement>(null);
     const tagsButtonRef = useRef<HTMLButtonElement>(null);
+    /* istanbul ignore next */
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const environment = useWindow(theme);
     const {

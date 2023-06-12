@@ -36,6 +36,7 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
         // Scroll active option into view.
         setTimeout(() => {
           if (optionRef.current && optionRef.current.scrollIntoView) {
+            /* istanbul ignore next */
             optionRef.current.scrollIntoView({ block: 'nearest' });
           }
         });

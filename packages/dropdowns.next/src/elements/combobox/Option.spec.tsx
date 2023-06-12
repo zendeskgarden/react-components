@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import { render } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { IOptionProps } from '../../types';
@@ -21,8 +21,14 @@ interface ITestOptionProps extends Partial<IOptionProps> {
 const TestOption = forwardRef<HTMLLIElement, ITestOptionProps>(
   ({ optionTestId = 'option', value = 'test', children, ...props }, ref) => (
     <Field>
-      <Combobox defaultExpanded>
-        <Option data-test-id={optionTestId} value={value} {...props} ref={ref}>
+      <Combobox defaultExpanded isMultiselectable>
+        <Option
+          data-test-id={optionTestId}
+          tagProps={{ 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>}
+          value={value}
+          {...props}
+          ref={ref}
+        >
           {children}
         </Option>
       </Combobox>
@@ -33,6 +39,18 @@ const TestOption = forwardRef<HTMLLIElement, ITestOptionProps>(
 TestOption.displayName = 'TestOption';
 
 describe('Option', () => {
+  it('throws if rendered outside of a Combobox component', () => {
+    const originalError = console.error;
+
+    console.error = jest.fn();
+
+    expect(() => {
+      render(<Option value="value" />);
+    }).toThrow('Error: this component must be rendered within a <Combobox>.');
+
+    console.error = originalError;
+  });
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLLIElement>();
     const { getByTestId } = render(<TestOption ref={ref} />);
@@ -48,24 +66,35 @@ describe('Option', () => {
     expect(icon).not.toBeNull();
   });
 
-  it('renders disabled as expected', () => {
-    const { getByTestId } = render(<TestOption isDisabled />);
-    const option = getByTestId('option');
-
-    expect(option).toHaveAttribute('aria-disabled', 'true');
-    expect(option).toHaveStyleRule('color', PALETTE.grey[400], {
-      modifier: '[aria-disabled="true"]'
-    });
-  });
-
   it('renders selected as expected', () => {
     const { getByTestId } = render(<TestOption isSelected />);
     const option = getByTestId('option');
+    const tag = getByTestId('tag');
 
     expect(option).toHaveAttribute('aria-selected', 'true');
     expect(option.firstChild).toHaveStyleRule('opacity', '1', {
       modifier: `${StyledOption}[aria-selected='true'] > &`
     });
+    expect(tag).toHaveAttribute('tabindex', '0');
+  });
+
+  it('renders disabled as expected', () => {
+    const { getByTestId } = render(<TestOption isDisabled isSelected />);
+    const option = getByTestId('option');
+    const tag = getByTestId('tag');
+
+    expect(option).toHaveAttribute('aria-disabled', 'true');
+    expect(option).toHaveStyleRule('color', PALETTE.grey[400], {
+      modifier: '[aria-disabled="true"]'
+    });
+    expect(tag).not.toHaveAttribute('tabindex');
+  });
+
+  it('renders value text as expected', () => {
+    const { getByTestId } = render(<TestOption />);
+    const option = getByTestId('option');
+
+    expect(option).toHaveTextContent('test');
   });
 
   it('sets label as expected', () => {
@@ -116,14 +145,28 @@ describe('Option', () => {
     });
   });
 
-  it('renders `Option.Meta` as expected', () => {
-    const { getByTestId } = render(
-      <TestOption>
-        <Option.Meta data-test-id="meta">Meta</Option.Meta>
-      </TestOption>
-    );
-    const meta = getByTestId('meta');
+  describe('Option.Meta', () => {
+    it('throws if rendered outside of an Option component', () => {
+      const originalError = console.error;
 
-    expect(meta).toHaveStyleRule('color', PALETTE.grey[600]);
+      console.error = jest.fn();
+
+      expect(() => {
+        render(<Option.Meta />);
+      }).toThrow('Error: this component must be rendered within an <Option>.');
+
+      console.error = originalError;
+    });
+
+    it('renders as expected', () => {
+      const { getByTestId } = render(
+        <TestOption>
+          <Option.Meta data-test-id="meta">Meta</Option.Meta>
+        </TestOption>
+      );
+      const meta = getByTestId('meta');
+
+      expect(meta).toHaveStyleRule('color', PALETTE.grey[600]);
+    });
   });
 });

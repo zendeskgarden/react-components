@@ -23,6 +23,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
     const [isVisible, setIsVisible] = useState(false);
     const [height, setHeight] = useState<number>();
     const [width, setWidth] = useState<number>();
+    /* istanbul ignore next */
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const {
       refs,
@@ -37,6 +38,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         flip(),
         size({
           apply: ({ rects, availableHeight }) => {
+            /* istanbul ignore if */
             if (rects.reference.width > 0) {
               setWidth(rects.reference.width);
 
@@ -65,6 +67,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
     useEffect(() => {
       let timeout: NodeJS.Timeout;
 
+      /* istanbul ignore else */
       if (isExpanded) {
         setIsVisible(true);
       } else {
@@ -79,6 +82,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
 
     useEffect(
       () => {
+        /* istanbul ignore if */
         if (height) {
           // Reset height on options change.
           setHeight(undefined);
