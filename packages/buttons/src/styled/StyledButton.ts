@@ -44,7 +44,7 @@ export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
 /**
  * 1. override CSS bedrock
- * 2. focus shadow outline replaces box-shadow for links that break into new lines
+ * 2. focus shadow outline replaces box-shadow for links, to contain outline on line breaks
  * 3. Shifting :focus-visible from LVHFA order to preserve `color` on hover
  */
 const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
@@ -66,11 +66,13 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const baseColor = getColor(hue, shade, props.theme);
   const hoverColor = getColor(hue, shade + 100, props.theme);
   const activeColor = getColor(hue, shade + 200, props.theme);
+  const focusColor = getColor('primaryHue', shade, props.theme);
   const disabledBackgroundColor = getDisabledBackgroundColor(props);
   const disabledForegroundColor = getColor(hue, shade - 200, props.theme);
 
   if (props.isLink) {
     retVal = css`
+      outline-color: transparent; /* [2] */
       background-color: transparent;
       color: ${baseColor};
 
@@ -81,11 +83,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
           /* [1] */
           color: baseColor,
           /* [2] */
-          outline: `${math(`${props.theme.borderWidths.md} - 1`)} solid ${getColor(
-            'primaryHue',
-            shade,
-            props.theme
-          )}`
+          outlineColor: focusColor
         }
       })}
 
@@ -121,7 +119,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
         styles:
           props.isDanger && props.focusInset
             ? {
-                borderColor: getColor('primaryHue', shade, props.theme)
+                borderColor: focusColor
               }
             : undefined
       })}
@@ -326,7 +324,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   justify-content: ${props => !props.isLink && 'center'};
   /* prettier-ignore */
   transition:
-    ${props => props.isLink && 'outline 0.1s ease-in-out,'}
+    ${props => props.isLink && 'outline-color 0.1s ease-in-out,'}
     border-color 0.25s ease-in-out,
     box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
