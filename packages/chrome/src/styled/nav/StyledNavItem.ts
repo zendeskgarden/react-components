@@ -48,6 +48,7 @@ const colorStyles = (props: IStyledNavItemProps) => {
 
   return css`
     opacity: ${isCurrent ? 1 : 0.6};
+    outline-color: transparent;
     background-color: ${currentColor};
 
     &:hover {
