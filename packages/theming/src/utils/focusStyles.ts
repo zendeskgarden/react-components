@@ -26,6 +26,8 @@ type FocusStylesParameters = FocusBoxShadowParameters & {
  * @param {string} [options.selector=SELECTOR_FOCUS_VISIBLE] Provides a substitute `:focus-visible` pseudo-class CSS selector.
  * @param {number} [options.shade=600] Selects a shade for the given hue
  * @param {string} [options.shadowWidth='md'] Provides a theme object `shadowWidth` key for the cumulative width of the `box-shadow`
+ * @param {string|Object} [options.spacerHue='background'] Provides a theme object `palette` hue or `color` key, or any valid CSS color notation
+ * @param {number} [options.spacerShade=600] Selects a shade for the given `spacerHue`
  * @param {string} [options.spacerWidth='xs'] Provides a theme object `shadowWidth` for the white spacer, or `null` to remove
  * @param {Object} [options.styles] Adds CSS property values to be rendered with `:focus-visible`
  * @param {Object} options.theme Provides values used to resolve the desired color
