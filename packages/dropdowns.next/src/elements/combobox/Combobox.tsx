@@ -121,7 +121,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       environment,
       hasHint,
       hasMessage,
-      isAutocomplete: isAutocomplete || false,
+      isAutocomplete,
       isEditable,
       isMultiselectable,
       disabled: isDisabled,
