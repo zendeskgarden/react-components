@@ -16,12 +16,14 @@ import {
   StyledSubNavItemIconWrapper,
   StyledSubNavItemIcon
 } from '../../styled';
+import { useChromeContext } from '../../utils/useChromeContext';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsibleSubNavItemProps>(
   ({ header, children, isExpanded: controlledExpanded, onChange, ...other }, ref) => {
+    const { isDark, isLight } = useChromeContext();
     const panelRef = useRef<HTMLDivElement>();
     const [internalExpanded, setInternalExpanded] = useState(controlledExpanded);
     const expanded = getControlledValue(controlledExpanded, internalExpanded);
@@ -50,6 +52,8 @@ export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsib
       <div ref={ref}>
         <div {...getHeaderProps({ ariaLevel: 2 })}>
           <StyledSubNavItemHeader
+            isDark={isDark}
+            isLight={isLight}
             {...getTriggerProps({
               isExpanded: expanded,
               index: 0,
