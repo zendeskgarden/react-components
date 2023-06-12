@@ -76,7 +76,7 @@ export interface ITypescaleMonospaceProps extends ITypescaleProps {
   isMonospace?: boolean;
 }
 
-export interface IBlockquoteProps extends BlockquoteHTMLAttributes<HTMLElement> {
+export interface IBlockquoteProps extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
   /** Controls the spacing between sibling blockquotes and paragraphs */
   size?: Size;
 }

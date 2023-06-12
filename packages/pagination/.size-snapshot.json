@@ -1,4 +1,9 @@
 {
+  "index.cjs.js": {
+    "bundled": 23553,
+    "minified": 16158,
+    "gzipped": 3819
+  },
   "index.esm.js": {
     "bundled": 21724,
     "minified": 14531,
@@ -12,10 +17,5 @@
         "code": 12324
       }
     }
-  },
-  "index.cjs.js": {
-    "bundled": 23553,
-    "minified": 16158,
-    "gzipped": 3819
   }
 }

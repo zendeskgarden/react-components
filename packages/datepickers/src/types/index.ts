@@ -7,7 +7,8 @@
 
 import { HTMLAttributes } from 'react';
 import { Modifiers } from 'popper.js';
-import { DateFnsIndex } from '../utils/calendar-utils';
+
+export const WEEK_STARTS_ON = [0, 1, 2, 3, 4, 5, 6] as const;
 
 const SHARED_PLACEMENT = [
   'auto',
@@ -69,7 +70,7 @@ export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   /**
    * Overrides the locale default start day of week
    */
-  weekStartsOn?: DateFnsIndex;
+  weekStartsOn?: (typeof WEEK_STARTS_ON)[number];
   /**
    * Disables dates before this value on the calendar
    */
