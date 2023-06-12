@@ -22,6 +22,10 @@ import {
 import { VALIDATION } from '@zendeskgarden/react-forms';
 import { ITagProps as IBaseTagProps } from '@zendeskgarden/react-tags';
 
+export type ISelectedOption = Extract<IUseComboboxReturnValue['selection'], IOption>;
+
+export type OptionValue = Exclude<IUseComboboxReturnValue['activeValue'], undefined>;
+
 export const OPTION_TYPE = ['add', 'danger', 'next', 'previous'] as const;
 
 export type OptionType = (typeof OPTION_TYPE)[number];
@@ -157,7 +161,7 @@ export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'val
   value: string | object;
 }
 
-export interface IOptGroupProps extends LiHTMLAttributes<HTMLLIElement> {
+export interface IOptGroupProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'content'> {
   /** Renders content for the option group (defaults to `label` text) */
   content?: ReactNode;
   /** Accepts an icon to display */

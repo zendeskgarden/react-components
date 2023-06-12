@@ -269,6 +269,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                   <StyledValue
                     isBare={isBare}
                     isCompact={isCompact}
+                    isDisabled={isDisabled}
                     isEditable={isEditable}
                     isMultiselectable={isMultiselectable}
                     isPlaceholder={!(inputValue || renderValue)}

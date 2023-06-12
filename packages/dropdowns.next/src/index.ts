@@ -22,5 +22,7 @@ export type {
   IMessageProps,
   IOptionProps,
   IOptGroupProps,
-  ITagProps
+  ITagProps,
+  ISelectedOption,
+  OptionValue
 } from './types';

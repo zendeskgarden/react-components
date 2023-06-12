@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { InputHTMLAttributes, forwardRef } from 'react';
+import React, { HTMLAttributes, InputHTMLAttributes, forwardRef } from 'react';
 import { render } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { IComboboxProps } from '../../types';
+import { IComboboxProps, ISelectedOption } from '../../types';
 import { Combobox } from './Combobox';
+import { OptGroup } from './OptGroup';
 import { Option } from './Option';
 import { Field } from './Field';
 import { Label } from './Label';
@@ -166,5 +167,219 @@ describe('Combobox', () => {
     const combobox = getByTestId('combobox');
 
     expect(combobox.firstChild).toHaveStyleRule('border', 'none');
+  });
+
+  it('renders `isCompact` styling as expected', () => {
+    const { getByTestId, rerender } = render(<TestCombobox />);
+    const combobox = getByTestId('combobox');
+
+    expect(combobox.firstChild).toHaveStyleRule('min-height', '44px');
+
+    rerender(<TestCombobox isCompact />);
+
+    expect(combobox.firstChild).toHaveStyleRule('min-height', '32px');
+  });
+
+  it('renders disabled as expected', () => {
+    const { getByTestId } = render(<TestCombobox isDisabled />);
+    const trigger = getByTestId('combobox').firstChild;
+    const input = getByTestId('input');
+
+    expect(trigger).toHaveAttribute('aria-disabled', 'true');
+    expect(trigger).toHaveStyleRule('background-color', PALETTE.grey[100], {
+      modifier: '[aria-disabled="true"]'
+    });
+    expect(input).toHaveAttribute('disabled');
+  });
+
+  it('renders non-editable as expected', () => {
+    const { getByTestId } = render(<TestCombobox isEditable={false} />);
+    const input = getByTestId('input');
+
+    expect(input).toHaveAttribute('readonly');
+    expect(input).toHaveAttribute('hidden');
+  });
+
+  it('renders `isMultiselectable` as expected', () => {
+    const tagProps = { 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>;
+    const { getByTestId } = render(
+      <TestCombobox isMultiselectable>
+        <Option isSelected tagProps={tagProps} value="test" />
+      </TestCombobox>
+    );
+    const tag = getByTestId('tag');
+
+    expect(tag).toHaveTextContent('test');
+  });
+
+  it('portals the listbox as expected', () => {
+    const { container, rerender } = render(<TestCombobox />);
+
+    expect(container.querySelector('[role="listbox"]')).not.toBeNull();
+
+    const node = document.createElement('DIV');
+
+    document.body.appendChild(node);
+
+    rerender(<TestCombobox listboxAppendToNode={node} />);
+
+    expect(container.querySelector('[role="listbox"]')).toBeNull();
+    expect(node.querySelector('[role="listbox"]')).not.toBeNull();
+  });
+
+  it('applies `listboxAriaLabel` as expected', () => {
+    const { container } = render(<TestCombobox listboxAriaLabel="test" />);
+    const listbox = container.querySelector('[role="listbox"]');
+
+    expect(listbox).toHaveAttribute('aria-label', 'test');
+  });
+
+  it('applies `listboxMaxHeight` as expected', () => {
+    const { container, rerender } = render(<TestCombobox />);
+    const listbox = container.querySelector('[role="listbox"]');
+
+    expect(listbox).toHaveStyleRule('max-height', '400px');
+
+    rerender(<TestCombobox listboxMaxHeight="100px" />);
+
+    expect(listbox).toHaveStyleRule('max-height', '100px');
+  });
+
+  it('applies `listboxZIndex` as expected', () => {
+    const { container, rerender } = render(<TestCombobox />);
+    const listbox = container.querySelector('[role="listbox"]');
+
+    expect(listbox?.parentElement).toHaveStyleRule('z-index', '1000');
+
+    rerender(<TestCombobox listboxZIndex={0} />);
+
+    expect(listbox?.parentElement).toHaveStyleRule('z-index', '0');
+  });
+
+  it('applies `maxHeight` as expected', () => {
+    const { getByTestId, rerender } = render(<TestCombobox />);
+
+    expect(getByTestId('combobox').firstChild).toHaveStyleRule('max-height', '44px');
+
+    rerender(<TestCombobox maxHeight="100px" />);
+
+    expect(getByTestId('combobox').firstChild).toHaveStyleRule('max-height', '100px');
+  });
+
+  it('handles max tags as expected', () => {
+    const tagProps = { 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>;
+    const { getByTestId, rerender } = render(
+      <TestCombobox isMultiselectable>
+        <Option isSelected value="value" />
+        <Option isSelected tagProps={tagProps} value="test" />
+      </TestCombobox>
+    );
+
+    expect(getByTestId('tag')).not.toHaveAttribute('hidden');
+
+    rerender(
+      <TestCombobox isMultiselectable maxTags={1}>
+        <Option isSelected value="value" />
+        <Option isSelected tagProps={tagProps} value="test" />
+      </TestCombobox>
+    );
+
+    expect(getByTestId('tag')).toHaveAttribute('hidden');
+  });
+
+  it('applies `placeholder` as expected', () => {
+    const { getByTestId } = render(<TestCombobox placeholder="test" />);
+    const input = getByTestId('input');
+
+    expect(input).toHaveAttribute('placeholder', 'test');
+    expect(input.previousSibling).toHaveTextContent('test');
+  });
+
+  it('applies `renderExpandTags` as expected', () => {
+    const tagProps = { 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>;
+    const { getByTestId } = render(
+      <TestCombobox isMultiselectable maxTags={1} renderExpandTags={value => `test-${value}`}>
+        <Option isSelected value="value" />
+        <Option isSelected tagProps={tagProps} value="test" />
+      </TestCombobox>
+    );
+    const button = getByTestId('tag').nextSibling;
+
+    expect(button).toHaveTextContent('test-1');
+  });
+
+  it('handles `renderValue` as expected', () => {
+    const { getByTestId } = render(
+      <TestCombobox renderValue={({ selection }) => `test-${(selection as ISelectedOption).value}`}>
+        <Option isSelected value="value" />
+      </TestCombobox>
+    );
+    const input = getByTestId('input');
+
+    expect(input).toHaveValue('value');
+    expect(input.previousSibling).toHaveTextContent('test-value');
+  });
+
+  describe('validation', () => {
+    it('renders `success` styling as expected', () => {
+      const { getByTestId } = render(<TestCombobox validation="success" />);
+      const combobox = getByTestId('combobox');
+      const message = getByTestId('message');
+
+      expect(combobox.firstChild).toHaveStyleRule('border-color', PALETTE.green[600]);
+      expect(message).toHaveStyleRule('color', PALETTE.green[600]);
+      expect(message.firstChild).not.toBeNull();
+    });
+
+    it('renders `warning` styling as expected', () => {
+      const { getByTestId } = render(<TestCombobox validation="warning" />);
+      const combobox = getByTestId('combobox');
+      const message = getByTestId('message');
+
+      expect(combobox.firstChild).toHaveStyleRule('border-color', PALETTE.yellow[600]);
+      expect(message).toHaveStyleRule('color', PALETTE.yellow[700]);
+      expect(message.firstChild).not.toBeNull();
+    });
+
+    it('renders `error` styling as expected', () => {
+      const { getByTestId } = render(<TestCombobox validation="error" />);
+      const combobox = getByTestId('combobox');
+      const message = getByTestId('message');
+
+      expect(combobox.firstChild).toHaveStyleRule('border-color', PALETTE.red[600]);
+      expect(message).toHaveStyleRule('color', PALETTE.red[600]);
+      expect(message.firstChild).not.toBeNull();
+    });
+  });
+
+  describe('interaction', () => {
+    it('retains expansion on `OptGroup` click', async () => {
+      const { getByTestId } = render(
+        <TestCombobox isAutocomplete>
+          <OptGroup data-test-id="optgroup">
+            <Option data-test-id="option" value="test" />
+          </OptGroup>
+        </TestCombobox>
+      );
+      const combobox = getByTestId('combobox');
+      const trigger = combobox.firstChild as HTMLElement;
+      const input = getByTestId('input');
+
+      await user.click(trigger);
+
+      expect(input).toHaveAttribute('aria-expanded', 'true');
+
+      await user.click(getByTestId('option'));
+
+      expect(input).toHaveAttribute('aria-expanded', 'false');
+
+      await user.click(trigger);
+
+      expect(input).toHaveAttribute('aria-expanded', 'true');
+
+      await user.click(getByTestId('optgroup'));
+
+      expect(input).toHaveAttribute('aria-expanded', 'true');
+    });
   });
 });

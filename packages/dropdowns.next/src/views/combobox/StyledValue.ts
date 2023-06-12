@@ -14,6 +14,7 @@ const COMPONENT_ID = 'dropdowns.combobox.value';
 interface IStyledValueProps extends ThemeProps<DefaultTheme> {
   isBare?: boolean;
   isCompact?: boolean;
+  isDisabled?: boolean;
   isEditable?: boolean;
   isMultiselectable?: boolean;
   isPlaceholder?: boolean;
@@ -47,7 +48,13 @@ export const StyledValue = styled.div.attrs({
 })<IStyledValueProps>`
   flex-basis: 0;
   flex-grow: 1;
-  cursor: ${props => (props.isEditable ? 'text' : 'pointer')};
+  cursor: ${props => {
+    if (props.isDisabled) {
+      return 'default';
+    }
+
+    return props.isEditable ? 'text' : 'pointer';
+  }};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
