@@ -104,9 +104,6 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
   `;
 };
 
-/**
- * 1. Shifting :focus-visible from LVHFA order to preserve `text-decoration` on hover
- */
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const { fontSizes, space } = props.theme;
   const minHeight = space.base * 13;
@@ -139,14 +136,12 @@ export const StyledGlobalAlert = styled.div.attrs({
     border-radius: ${props => props.theme.borderRadii.sm};
     text-decoration: underline;
 
-    /* [1] */
-    ${SELECTOR_FOCUS_VISIBLE} {
-      text-decoration: none;
-    }
-
-    /* [1] */
     &:hover {
       text-decoration: underline;
+    }
+
+    ${SELECTOR_FOCUS_VISIBLE} {
+      text-decoration: none;
     }
   }
 
