@@ -52,7 +52,10 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
             if (rects.reference.width > 0) {
               setWidth(rects.reference.width);
 
-              if (minHeight !== 'fit-content' && rects.floating.height > availableHeight) {
+              if (
+                !(minHeight === null || minHeight === 'fit-content') &&
+                rects.floating.height > availableHeight
+              ) {
                 setHeight(availableHeight);
               }
             }

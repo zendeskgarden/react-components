@@ -20,10 +20,13 @@ interface IStyledListboxProps extends ThemeProps<DefaultTheme> {
 
 const sizeStyles = (props: IStyledListboxProps) => {
   const padding = props.theme.space.base;
-  const minHeight = props.minHeight || getOptionMinHeight(props) + padding * 2;
+  const minHeight =
+    props.minHeight === undefined
+      ? `${getOptionMinHeight(props) + padding * 2}px`
+      : props.minHeight;
 
   return css`
-    min-height: ${minHeight}px;
+    min-height: ${minHeight};
     max-height: ${props.maxHeight};
 
     &&& {

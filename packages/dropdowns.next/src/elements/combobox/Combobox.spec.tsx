@@ -271,6 +271,21 @@ describe('Combobox', () => {
     expect(listbox).toHaveStyleRule('max-height', '100px');
   });
 
+  it('applies `listboxMinHeight` as expected', () => {
+    const { container, rerender } = render(<TestCombobox />);
+    const listbox = container.querySelector('[role="listbox"]');
+
+    expect(listbox).toHaveStyleRule('min-height', '44px');
+
+    rerender(<TestCombobox listboxMinHeight="100px" />);
+
+    expect(listbox).toHaveStyleRule('min-height', '100px');
+
+    rerender(<TestCombobox listboxMinHeight={null} />);
+
+    expect(listbox).not.toHaveStyleRule('min-height');
+  });
+
   it('applies `listboxZIndex` as expected', () => {
     const { container, rerender } = render(<TestCombobox />);
     const listbox = container.querySelector('[role="listbox"]');

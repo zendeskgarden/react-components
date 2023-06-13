@@ -70,7 +70,7 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the `max-height` of the listbox */
   listboxMaxHeight?: string;
   /** Overrides the `min-height` of the listbox */
-  listboxMinHeight?: string;
+  listboxMinHeight?: string | null;
   /** Sets the `z-index` of the listbox */
   listboxZIndex?: number;
   /** Overrides the `max-height` of the combobox */
