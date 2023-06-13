@@ -462,4 +462,81 @@ describe('Combobox', () => {
       expect(input).toHaveAttribute('hidden');
     });
   });
+
+  describe('controlled', () => {
+    const handleChange = jest.fn();
+
+    beforeEach(() => {
+      handleChange.mockReset();
+    });
+
+    it('calls onChange as expected', async () => {
+      const { getByTestId } = render(
+        <TestCombobox onChange={handleChange}>
+          <Option value="value" />
+        </TestCombobox>
+      );
+      const trigger = getByTestId('combobox').firstChild as HTMLElement;
+
+      await user.click(trigger);
+      await user.keyboard('{ArrowDown}');
+
+      expect(handleChange).toHaveBeenCalledTimes(1);
+
+      const changeTypes = handleChange.mock.calls.map(([change]) => change.type);
+
+      expect(changeTypes).toMatchObject(['input:keyDown:ArrowDown']);
+    });
+
+    it('handles `activeIndex` and `isExpanded` as expected', () => {
+      const { getByTestId } = render(
+        <TestCombobox activeIndex={0} isExpanded>
+          <Option data-test-id="option" value="value" />
+        </TestCombobox>
+      );
+      const input = getByTestId('input');
+      const option = getByTestId('option');
+
+      expect(input).toHaveAttribute('aria-expanded', 'true');
+      expect(input).toHaveAttribute('aria-activedescendant', option.id);
+    });
+
+    it('handles single `selectionValue` as expected', () => {
+      const { getByTestId } = render(
+        <TestCombobox defaultExpanded selectionValue="value">
+          <Option data-test-id="option" value="value" />
+        </TestCombobox>
+      );
+      const option = getByTestId('option');
+
+      expect(option).toHaveAttribute('aria-selected', 'true');
+    });
+
+    it('handles multiple `selectionValue` as expected', async () => {
+      const { getByTestId } = render(
+        <TestCombobox
+          defaultExpanded
+          isMultiselectable
+          onChange={handleChange}
+          selectionValue={['value-1', 'value-2']}
+        >
+          <Option data-test-id="option-1" value="value-1" />
+          <Option data-test-id="option-2" value="value-2" />
+        </TestCombobox>
+      );
+      const option1 = getByTestId('option-1');
+      const option2 = getByTestId('option-2');
+
+      expect(option1).toHaveAttribute('aria-selected', 'true');
+      expect(option2).toHaveAttribute('aria-selected', 'true');
+
+      await user.click(option1);
+
+      expect(handleChange).toHaveBeenCalledTimes(2); /* option:mouseMove & option:click */
+
+      const selectionValue = handleChange.mock.calls[1][0].selectionValue;
+
+      expect(selectionValue).toMatchObject(['value-2']);
+    });
+  });
 });
