@@ -15,11 +15,12 @@ const COMPONENT_ID = 'dropdowns.combobox.listbox';
 interface IStyledListboxProps extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;
   maxHeight?: IListboxProps['maxHeight'];
+  minHeight?: IListboxProps['minHeight'];
 }
 
 const sizeStyles = (props: IStyledListboxProps) => {
   const padding = props.theme.space.base;
-  const minHeight = getOptionMinHeight(props) + padding * 2;
+  const minHeight = props.minHeight || getOptionMinHeight(props) + padding * 2;
 
   return css`
     min-height: ${minHeight}px;

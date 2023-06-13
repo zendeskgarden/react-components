@@ -16,7 +16,17 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
   (
-    { appendToNode, children, isCompact, isExpanded, maxHeight, triggerRef, zIndex, ...props },
+    {
+      appendToNode,
+      children,
+      isCompact,
+      isExpanded,
+      maxHeight,
+      minHeight,
+      triggerRef,
+      zIndex,
+      ...props
+    },
     ref
   ) => {
     const floatingRef = useRef<HTMLDivElement>(null);
@@ -42,7 +52,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
             if (rects.reference.width > 0) {
               setWidth(rects.reference.width);
 
-              if (rects.floating.height > availableHeight) {
+              if (minHeight !== 'fit-content' && rects.floating.height > availableHeight) {
                 setHeight(availableHeight);
               }
             }
@@ -108,6 +118,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         <StyledListbox
           isCompact={isCompact}
           maxHeight={maxHeight}
+          minHeight={minHeight}
           style={{ height }}
           {...props}
           ref={ref}

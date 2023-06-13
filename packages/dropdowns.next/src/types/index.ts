@@ -69,6 +69,8 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   listboxAriaLabel?: string;
   /** Sets the `max-height` of the listbox */
   listboxMaxHeight?: string;
+  /** Sets the `min-height` of the listbox */
+  listboxMinHeight?: string;
   /** Sets the `z-index` of the listbox */
   listboxZIndex?: number;
   /** Overrides the `max-height` of the combobox */
@@ -131,6 +133,8 @@ export interface IListboxProps extends HTMLAttributes<HTMLUListElement> {
   isExpanded?: boolean;
   /** Sets the `max-height` of the listbox */
   maxHeight?: IComboboxProps['listboxMaxHeight'];
+  /** Sets the `min-height` of the listbox */
+  minHeight?: IComboboxProps['listboxMinHeight'];
   /** Provides ref access to the associated trigger element */
   triggerRef: RefObject<HTMLElement>;
   /** Sets the `z-index` of the listbox */
