@@ -22,6 +22,7 @@ export const StyledSwatchButton = styled(StyledButtonPreview).attrs<IStyleButton
     'data-garden-version': PACKAGE_VERSION
   })
 )`
+  transition: box-shadow 0.1s ease-in-out;
   outline: none;
   border: none;
   border-radius: ${props => props.theme.borderRadii.md};

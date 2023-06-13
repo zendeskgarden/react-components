@@ -91,6 +91,7 @@ export const StyledFile = styled.div.attrs({
   position: relative;
   flex-wrap: nowrap;
   align-items: center;
+  transition: box-shadow 0.1s ease-in-out;
 
   ${sizeStyles};
 
