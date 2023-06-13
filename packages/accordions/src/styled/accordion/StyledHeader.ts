@@ -22,6 +22,7 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
 })<IStyledHeader>`
   display: flex;
   align-items: center;
+  transition: box-shadow 0.1s ease-in-out;
   font-size: ${props => props.theme.fontSizes.md};
 
   &:hover {

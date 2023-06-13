@@ -14,6 +14,7 @@ export const StyledCodeBlockContainer = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  transition: box-shadow 0.1s ease-in-out;
   overflow: auto;
 
   ${props =>
