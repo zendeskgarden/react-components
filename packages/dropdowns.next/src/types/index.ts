@@ -69,7 +69,7 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   listboxAriaLabel?: string;
   /** Sets the `max-height` of the listbox */
   listboxMaxHeight?: string;
-  /** Sets the `min-height` of the listbox */
+  /** Overrides the `min-height` of the listbox */
   listboxMinHeight?: string;
   /** Sets the `z-index` of the listbox */
   listboxZIndex?: number;

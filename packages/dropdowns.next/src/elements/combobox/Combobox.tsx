@@ -340,6 +340,7 @@ Combobox.propTypes = {
   listboxAppendToNode: PropTypes.any,
   listboxAriaLabel: PropTypes.string,
   listboxMaxHeight: PropTypes.string,
+  listboxMinHeight: PropTypes.string,
   listboxZIndex: PropTypes.number,
   maxHeight: PropTypes.string,
   maxTags: PropTypes.number,

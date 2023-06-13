@@ -1,0 +1,29 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Combobox } from '@zendeskgarden/react-dropdowns.next';
+import { ListboxStory } from './stories/ListboxStory';
+
+<Meta title="Packages/Dropdowns.Next/[patterns]" />
+
+# Patterns
+
+## Render listbox in a root level React portal
+
+The `listboxAppendToNode` property can be used to render the listbox in a
+different DOM location than inline with the Combobox component. This is done via
+React portals under the hood.
+
+You typically will need to set this property if you are using the `Combobox`
+inside an element with `overflow: hidden` / `auto` / `scroll` CSS styles.
+
+See in this example, that the listbox is currently getting cropped. Enable the
+`listboxAppendToNode` property to see the full listbox.
+
+<Canvas>
+  <Story
+    name="Listbox"
+    args={{ listboxAppendToNode: false }}
+    argTypes={{ listboxAppendToNode: { control: 'boolean' } }}
+  >
+    {args => <ListboxStory {...args} />}
+  </Story>
+</Canvas>
