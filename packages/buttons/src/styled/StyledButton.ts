@@ -12,6 +12,7 @@ import {
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
   getColor,
+  getFocusBoxShadow,
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
 import { IButtonProps } from '../types';
@@ -205,6 +206,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
 /**
  * 1. Icon button override.
+ * 2. reset icon button with border
  */
 const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const { theme, isPrimary, isBasic, isSelected, isPill, focusInset } = props;
@@ -215,7 +217,18 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const marginDisplacement = `${isPrimary || isBasic ? '' : '-'}${marginOffset}`;
   const iconMarginDisplacement = isPill && '-2px';
   const disabledBackgroundColor = !isPrimary && getDisabledBackgroundColor(props);
+  const borderColor = isBasic ? 'transparent' : 'revert';
   const focusColor = getColor('primaryHue', 600, theme);
+  const focusBoxShadow =
+    isBasic &&
+    !isSelected &&
+    !isPrimary &&
+    getFocusBoxShadow({
+      theme,
+      inset: focusInset,
+      spacerHue: focusColor,
+      hue: 'transparent'
+    });
 
   return css`
     position: relative;
@@ -230,18 +243,12 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
       outline-color 0.1s ease-in-out,
       z-index 0.25s ease-in-out;
     /* stylelint-enable value-keyword-case */
-    border: ${borders.sm} transparent;
+    border: ${borders.sm} ${borderColor}; /* [2] */
 
-    ${focusStyles({
-      theme,
-      condition: isBasic && !isSelected && !isPrimary,
-      inset: focusInset,
-      spacerHue: focusColor,
-      hue: 'transparent',
-      styles: {
-        borderColor: focusColor
-      }
-    })}
+    ${SELECTOR_FOCUS_VISIBLE} {
+      border-color: ${focusColor};
+      box-shadow: ${focusBoxShadow};
+    }
 
     &:hover,
     &:active,
