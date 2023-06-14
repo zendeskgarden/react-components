@@ -45,7 +45,8 @@ export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 /**
  * 1. override CSS bedrock
  * 2. focus shadow outline replaces box-shadow for links, to contain outline on line breaks
- * 3. Shifting :focus-visible from LVHFA order to preserve `color` on hover
+ * 3. shifting :focus-visible from LVHFA order to preserve `color` on hover
+ * 4. set default outline-color for smooth transition without artifacts
  */
 const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
@@ -72,7 +73,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
   if (props.isLink) {
     retVal = css`
-      outline-color: transparent; /* [2] */
+      outline-color: transparent; /* [4] */
       background-color: transparent;
       color: ${baseColor};
 
@@ -104,6 +105,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
     `;
   } else if (props.isPrimary || props.isSelected) {
     retVal = css`
+      outline-color: transparent; /* [4] */
       background-color: ${props.isPrimary && props.isSelected ? activeColor : baseColor};
       color: ${props.theme.palette.white};
 
@@ -146,6 +148,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
     const hoverForegroundColor = props.isNeutral ? foregroundColor : hoverColor;
 
     retVal = css`
+      outline-color: transparent; /* [4] */
       border-color: ${!props.isBasic && borderColor};
       background-color: transparent;
       color: ${foregroundColor};
@@ -204,13 +207,41 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
  * 1. Icon button override.
  */
 const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  const { theme, isPrimary, isPill } = props;
-  const rtl = theme.rtl;
-  const disabledBackgroundColor = getDisabledBackgroundColor(props);
-  const marginOffset = isPrimary ? theme.borderWidths.sm : `-${theme.borderWidths.sm}`;
+  const { theme, isPrimary, isBasic, isSelected, isPill, focusInset } = props;
+  const { rtl, borderWidths, borders } = theme;
+  const marginStartPosition = rtl ? 'right' : 'left';
+  const marginEndPosition = rtl ? 'left' : 'right';
+  const marginOffset = borderWidths.sm;
+  const marginDisplacement = `${isPrimary || isBasic ? '' : '-'}${marginOffset}`;
+  const iconMarginDisplacement = isPill && '-2px';
+  const disabledBackgroundColor = !isPrimary && getDisabledBackgroundColor(props);
+  const focusColor = getColor('primaryHue', 600, theme);
 
   return css`
     position: relative;
+    /* stylelint-disable value-keyword-case */
+    /* prettier-ignore */
+    transition:
+      border-color 0.1s ease-in-out,
+      background-color 0.1s ease-in-out,
+      box-shadow 0.1s ease-in-out,
+      color 0.1s ease-in-out,
+      margin-${marginStartPosition} 0.1s ease-in-out,
+      outline-color 0.1s ease-in-out,
+      z-index 0.25s ease-in-out;
+    /* stylelint-enable value-keyword-case */
+    border: ${borders.sm} transparent;
+
+    ${focusStyles({
+      theme,
+      condition: isBasic && !isSelected && !isPrimary,
+      inset: focusInset,
+      spacerHue: focusColor,
+      hue: 'transparent',
+      styles: {
+        borderColor: focusColor
+      }
+    })}
 
     &:hover,
     &:active,
@@ -220,17 +251,16 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
     &:disabled {
       z-index: -1;
-      background-color: ${!isPrimary && disabledBackgroundColor}; /* [1] */
+      background-color: ${disabledBackgroundColor}; /* [1] */
     }
 
     /* stylelint-disable property-no-unknown, property-case */
     &:not(:first-of-type) {
-      margin-${rtl ? 'right' : 'left'}: ${marginOffset};
+      margin-${marginStartPosition}: ${marginDisplacement};
     }
 
     &:not(:first-of-type):disabled {
-      margin-${rtl ? 'right' : 'left'}: ${theme.borderWidths.sm};
-      border-${rtl ? 'right' : 'left'}-width: ${0};
+      margin-${marginStartPosition}: ${marginOffset};
     }
 
     &:not(:first-of-type):not(:last-of-type) {
@@ -238,23 +268,23 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
     }
 
     &:first-of-type:not(:last-of-type) {
-      border-top-${rtl ? 'left' : 'right'}-radius: 0;
-      border-bottom-${rtl ? 'left' : 'right'}-radius: 0;
+      border-top-${marginEndPosition}-radius: 0;
+      border-bottom-${marginEndPosition}-radius: 0;
     }
 
     &:last-of-type:not(:first-of-type) {
-      border-top-${rtl ? 'right' : 'left'}-radius: 0;
-      border-bottom-${rtl ? 'right' : 'left'}-radius: 0;
+      border-top-${marginStartPosition}-radius: 0;
+      border-bottom-${marginStartPosition}-radius: 0;
     }
     /* stylelint-enable property-no-unknown, property-case */
 
     /* stylelint-disable property-no-unknown, selector-max-specificity */
     &:first-of-type:not(:last-of-type) ${StyledIcon} {
-      margin-${rtl ? 'left' : 'right'}: ${isPill && '-2px'};
+      margin-${marginEndPosition}: ${iconMarginDisplacement};
     }
 
     &:last-of-type:not(:first-of-type) ${StyledIcon} {
-      margin-${rtl ? 'right' : 'left'}: ${isPill && '-2px'};
+      margin-${marginStartPosition}: ${iconMarginDisplacement};
     }
     /* stylelint-enable property-no-unknown, selector-max-specificity */
   `;
@@ -324,11 +354,11 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   justify-content: ${props => !props.isLink && 'center'};
   /* prettier-ignore */
   transition:
-    ${props => props.isLink && 'outline-color 0.1s ease-in-out,'}
     border-color 0.25s ease-in-out,
     box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
     color 0.25s ease-in-out,
+    outline-color 0.1s ease-in-out,
     z-index 0.25s ease-in-out;
   margin: 0;
   border: ${props => `${props.isLink ? `0px solid` : props.theme.borders.sm} transparent`};
@@ -371,7 +401,9 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     transition:
       border-color 0.1s ease-in-out,
       background-color 0.1s ease-in-out,
+      box-shadow 0.1s ease-in-out,
       color 0.1s ease-in-out,
+      outline-color 0.1s ease-in-out,
       z-index 0.25s ease-in-out;
     text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
   }
