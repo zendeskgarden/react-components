@@ -209,8 +209,8 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const { theme, isPrimary, isBasic, isSelected, isPill, focusInset } = props;
   const { rtl, borderWidths, borders } = theme;
-  const marginStartPosition = rtl ? 'right' : 'left';
-  const marginEndPosition = rtl ? 'left' : 'right';
+  const startPosition = rtl ? 'right' : 'left';
+  const endPosition = rtl ? 'left' : 'right';
   const marginOffset = borderWidths.sm;
   const marginDisplacement = `${isPrimary || isBasic ? '' : '-'}${marginOffset}`;
   const iconMarginDisplacement = isPill && '-2px';
@@ -226,7 +226,7 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
       background-color 0.1s ease-in-out,
       box-shadow 0.1s ease-in-out,
       color 0.1s ease-in-out,
-      margin-${marginStartPosition} 0.1s ease-in-out,
+      margin-${startPosition} 0.1s ease-in-out,
       outline-color 0.1s ease-in-out,
       z-index 0.25s ease-in-out;
     /* stylelint-enable value-keyword-case */
@@ -256,11 +256,11 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
     /* stylelint-disable property-no-unknown, property-case */
     &:not(:first-of-type) {
-      margin-${marginStartPosition}: ${marginDisplacement};
+      margin-${startPosition}: ${marginDisplacement};
     }
 
     &:not(:first-of-type):disabled {
-      margin-${marginStartPosition}: ${marginOffset};
+      margin-${startPosition}: ${marginOffset};
     }
 
     &:not(:first-of-type):not(:last-of-type) {
@@ -268,23 +268,23 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
     }
 
     &:first-of-type:not(:last-of-type) {
-      border-top-${marginEndPosition}-radius: 0;
-      border-bottom-${marginEndPosition}-radius: 0;
+      border-top-${endPosition}-radius: 0;
+      border-bottom-${endPosition}-radius: 0;
     }
 
     &:last-of-type:not(:first-of-type) {
-      border-top-${marginStartPosition}-radius: 0;
-      border-bottom-${marginStartPosition}-radius: 0;
+      border-top-${startPosition}-radius: 0;
+      border-bottom-${startPosition}-radius: 0;
     }
     /* stylelint-enable property-no-unknown, property-case */
 
     /* stylelint-disable property-no-unknown, selector-max-specificity */
     &:first-of-type:not(:last-of-type) ${StyledIcon} {
-      margin-${marginEndPosition}: ${iconMarginDisplacement};
+      margin-${endPosition}: ${iconMarginDisplacement};
     }
 
     &:last-of-type:not(:first-of-type) ${StyledIcon} {
-      margin-${marginStartPosition}: ${iconMarginDisplacement};
+      margin-${startPosition}: ${iconMarginDisplacement};
     }
     /* stylelint-enable property-no-unknown, selector-max-specificity */
   `;
