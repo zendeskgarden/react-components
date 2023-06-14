@@ -11,8 +11,7 @@ import {
   DEFAULT_THEME,
   retrieveComponentStyles,
   getLineHeight,
-  focusStyles,
-  SELECTOR_FOCUS_VISIBLE
+  focusStyles
 } from '@zendeskgarden/react-theming';
 
 import { IGlobalAlertProps } from '../../types';
@@ -135,14 +134,6 @@ export const StyledGlobalAlert = styled.div.attrs({
   && a {
     border-radius: ${props => props.theme.borderRadii.sm};
     text-decoration: underline;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    ${SELECTOR_FOCUS_VISIBLE} {
-      text-decoration: none;
-    }
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
