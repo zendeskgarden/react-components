@@ -10,7 +10,7 @@ Each package has peerDependencies for `@zendeskgarden/react-theming`, `react`,
 major version when there is a change in its peer dependency requirements.
 However, Garden proposes a DECISION to deviate from this [general
 rule](https://nodejs.org/en/blog/npm/peer-dependencies) and allow special
-treatment for `@zendeskgarden/react-theming` peer dependency.
+treatment for `@zendeskgarden/react-theming`.
 
 While this decision conflicts with [semantic versioning](https://semver.org/),
 it benefits both maintainers and consumers by enabling centralized and tested
@@ -19,7 +19,7 @@ to ingest duplicated and more brittle code. A console warning will notify the
 consumer if a peer version is out-of-date.
 
 Ideally, all Garden package versions should align. However, at the very least,
-the theming peer dependency should align with the highest version of Garden
+the theming peer dependency should align with the highest version of a Garden
 component package dependency.
 
 ## Decision
@@ -27,7 +27,7 @@ component package dependency.
 As [centralized theming
 utilities](https://garden.zendesk.com/components/utilities) are added or
 modified (in non-breaking fashion), other Garden component packages may take
-advantage of them by updating the `@zendeskgarden/react-theming` peer dependency
+advantage of them by updating their `@zendeskgarden/react-theming` peer dependency
 minor version without publishing a major version breaking change.
 
 ## Consequences
