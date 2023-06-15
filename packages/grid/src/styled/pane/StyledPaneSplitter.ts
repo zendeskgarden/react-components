@@ -6,8 +6,14 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { math, rgba } from 'polished';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import {
+  DEFAULT_THEME,
+  focusStyles,
+  getColor,
+  retrieveComponentStyles,
+  SELECTOR_FOCUS_VISIBLE
+} from '@zendeskgarden/react-theming';
 import { Orientation } from '../../types';
 
 const COMPONENT_ID = 'pane.splitter';
@@ -22,7 +28,6 @@ const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>)
   const color = getColor('neutralHue', 300, props.theme);
   const hoverColor = getColor('primaryHue', 600, props.theme);
   const activeColor = getColor('primaryHue', 800, props.theme);
-  const boxShadow = props.theme.shadows.md(rgba(hoverColor!, 0.35));
 
   return css`
     &::before {
@@ -33,10 +38,14 @@ const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>)
       background-color: ${props.isHovered && hoverColor};
     }
 
-    &[data-garden-focus-visible]::before {
-      box-shadow: ${boxShadow};
-      background-color: ${hoverColor};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      hue: hoverColor,
+      styles: {
+        backgroundColor: hoverColor
+      },
+      selector: '&:focus-visible::before, &[data-garden-focus-visible="true"]::before'
+    })}
 
     &:active::before {
       background-color: ${props.isHovered && activeColor};
@@ -133,11 +142,13 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
       ${dimensionProperty}: ${props.isHovered && separatorSize};
     }
 
-    &[data-garden-focus-visible]::before,
-    &:focus::before {
+    &:focus::before,
+    &:focus-visible::before,
+    &[data-garden-focus-visible]::before {
       ${dimensionProperty}: ${separatorSize};
     }
 
+    &:focus-visible::before,
     &[data-garden-focus-visible]::before {
       border-radius: ${props.theme.borderRadii.md};
     }
@@ -147,6 +158,7 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
 /**
  * 1. Elevated initial context to pickup full-width hover
  * 2. Stack below splitter button.
+ * 3. Stack above other splitters when focused
  */
 export const StyledPaneSplitter = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
@@ -161,8 +173,8 @@ export const StyledPaneSplitter = styled.div.attrs({
 
   ${sizeStyles};
 
-  &:focus {
-    outline: none;
+  ${SELECTOR_FOCUS_VISIBLE} {
+    z-index: 2; /* [3] */
   }
 
   &::before {

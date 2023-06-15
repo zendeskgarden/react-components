@@ -36,7 +36,8 @@ const visibleStyling = (props: IStyledMultiselectInputProps & ThemeProps<Default
 
 export const StyledMultiselectInput = styled(StyledInput).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  isBare: true
 })<IStyledMultiselectInputProps>`
   flex-basis: ${props => props.theme.space.base * 15}px;
   flex-grow: 1;

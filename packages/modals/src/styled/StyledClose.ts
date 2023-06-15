@@ -6,7 +6,12 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.close';
 
@@ -23,11 +28,10 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       color: ${getColor(foregroundColor, 700, props.theme)};
     }
 
-    &[data-garden-focus-visible] {
-      box-shadow: ${props.theme.shadows.md(
-        getColor(backgroundColor, 600, props.theme, 0.35) as string
-      )};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      hue: backgroundColor
+    })}
 
     &:active {
       /* prettier-ignore */
@@ -77,10 +81,6 @@ export const StyledClose = styled.button.attrs({
 
   &::-moz-focus-inner {
     border: 0; /* [1] */
-  }
-
-  &:focus {
-    outline: none;
   }
 
   ${props => colorStyles(props)}

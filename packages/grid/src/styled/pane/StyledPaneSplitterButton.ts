@@ -7,7 +7,13 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, stripUnit } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  focusStyles,
+  SELECTOR_FOCUS_VISIBLE
+} from '@zendeskgarden/react-theming';
 import { ISplitterButtonProps, Orientation, PLACEMENT } from '../../types';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
 import { StyledPaneSplitter } from './StyledPaneSplitter';
@@ -49,14 +55,14 @@ const colorStyles = ({ theme }: IStyledSplitterButtonProps & ThemeProps<DefaultT
     `${theme.space.base * 2}px`,
     getColor('chromeHue', 600, theme, 0.15)!
   );
-  const focusBoxShadow = theme.shadows.md(getColor('primaryHue', 600, theme, 0.35)!);
 
   return css`
     box-shadow: ${boxShadow};
 
-    &[data-garden-focus-visible] {
-      box-shadow: ${focusBoxShadow}, ${boxShadow};
-    }
+    ${focusStyles({
+      theme,
+      boxShadow
+    })}
   `;
 };
 
@@ -115,20 +121,13 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   position: absolute;
   /* prettier-ignore */
   transition:
+    box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
     opacity 0.25s ease-in-out 0.1s;
   opacity: 0;
 
-  /* stylelint-disable selector-no-qualifying-type */
-  &[data-garden-focus-visible],
-  ${StyledPaneSplitter}:hover &,
-  ${StyledPaneSplitter}[data-garden-focus-visible] & {
-    opacity: 1;
-  }
-
   ${sizeStyles};
   ${transformStyles};
-  ${colorStyles};
 
   /* [1] */
   &::before {
@@ -138,6 +137,16 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
     width: 100%;
     height: 100%;
     content: '';
+  }
+
+  ${colorStyles};
+
+  /* stylelint-disable selector-no-qualifying-type */
+  ${StyledPaneSplitter}:hover &,
+  ${StyledPaneSplitter}:focus-visible &,
+  ${StyledPaneSplitter}[data-garden-focus-visible] &,
+  ${SELECTOR_FOCUS_VISIBLE} {
+    opacity: 1;
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

@@ -7,7 +7,14 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { em, math, rgba } from 'polished';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  SELECTOR_FOCUS_VISIBLE,
+  focusStyles,
+  getColor,
+  getFocusBoxShadow,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 import { IButtonProps } from '../types';
 import { StyledButtonGroup } from './StyledButtonGroup';
 import { StyledIcon } from './StyledIcon';
@@ -15,9 +22,7 @@ import { StyledIcon } from './StyledIcon';
 const COMPONENT_ID = 'buttons.button';
 
 const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  if (props.isLink) {
-    return 0;
-  } else if (props.isPill) {
+  if (props.isPill) {
     return '100px';
   }
 
@@ -40,6 +45,9 @@ export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
 /**
  * 1. override CSS bedrock
+ * 2. focus shadow outline replaces box-shadow for links, to contain outline on line breaks
+ * 3. shifting :focus-visible from LVHFA order to preserve `color` on hover
+ * 4. set default outline-color for smooth transition without artifacts
  */
 const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
@@ -60,27 +68,29 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const baseColor = getColor(hue, shade, props.theme);
   const hoverColor = getColor(hue, shade + 100, props.theme);
   const activeColor = getColor(hue, shade + 200, props.theme);
+  const focusColor = getColor('primaryHue', shade, props.theme);
   const disabledBackgroundColor = getDisabledBackgroundColor(props);
   const disabledForegroundColor = getColor(hue, shade - 200, props.theme);
-  const boxShadowColor =
-    props.focusInset && (props.isPrimary || props.isSelected)
-      ? props.theme.palette.white
-      : baseColor;
-  const boxShadow = `
-    ${props.focusInset ? 'inset' : ''}
-    ${props.theme.shadows.md(rgba(boxShadowColor as string, 0.35))}`;
 
   if (props.isLink) {
     retVal = css`
+      outline-color: transparent; /* [4] */
       background-color: transparent;
       color: ${baseColor};
 
-      &:focus {
-        color: ${baseColor}; /* [1] */
-      }
+      ${focusStyles({
+        theme: props.theme,
+        condition: false,
+        styles: {
+          /* [1] */
+          color: baseColor,
+          /* [2] */
+          outlineColor: focusColor
+        }
+      })}
 
-      &:hover,
-      &[data-garden-focus-visible] {
+      /* [3] */
+      &:hover {
         color: ${hoverColor};
       }
 
@@ -96,6 +106,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
     `;
   } else if (props.isPrimary || props.isSelected) {
     retVal = css`
+      outline-color: transparent; /* [4] */
       background-color: ${props.isPrimary && props.isSelected ? activeColor : baseColor};
       color: ${props.theme.palette.white};
 
@@ -103,9 +114,18 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
         background-color: ${hoverColor};
       }
 
-      &[data-garden-focus-visible] {
-        box-shadow: ${boxShadow};
-      }
+      ${focusStyles({
+        theme: props.theme,
+        inset: props.focusInset,
+        shadowWidth: props.focusInset ? 'sm' : 'md',
+        spacerWidth: props.focusInset ? 'sm' : 'xs',
+        styles:
+          props.isDanger && props.focusInset
+            ? {
+                borderColor: focusColor
+              }
+            : undefined
+      })}
 
       &:active {
         background-color: ${activeColor};
@@ -129,6 +149,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
     const hoverForegroundColor = props.isNeutral ? foregroundColor : hoverColor;
 
     retVal = css`
+      outline-color: transparent; /* [4] */
       border-color: ${!props.isBasic && borderColor};
       background-color: transparent;
       color: ${foregroundColor};
@@ -139,10 +160,11 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
         color: ${hoverForegroundColor};
       }
 
-      &[data-garden-focus-visible] {
-        border-color: ${props.isNeutral && baseColor};
-        box-shadow: ${boxShadow};
-      }
+      ${focusStyles({
+        theme: props.theme,
+        inset: props.focusInset,
+        styles: props.isNeutral ? { borderColor: baseColor } : undefined
+      })}
 
       &:active,
       &[aria-pressed='true'],
@@ -164,6 +186,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
       /* prettier-ignore */
       &:hover ${StyledIcon},
+      &:focus-visible ${StyledIcon},
       &[data-garden-focus-visible] ${StyledIcon} {
         color: ${props.isNeutral && getColor('neutralHue', shade + 100, props.theme)};
       }
@@ -183,63 +206,92 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
 /**
  * 1. Icon button override.
+ * 2. reset icon button with border
  */
 const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  const isPrimary = props.isPrimary;
-  const rtl = props.theme.rtl;
-  const lightBorderColor = props.theme.colors.background;
-  const disabledBackgroundColor = getDisabledBackgroundColor(props);
+  const { theme, isPrimary, isBasic, isSelected, isPill, focusInset } = props;
+  const { rtl, borderWidths, borders } = theme;
+  const startPosition = rtl ? 'right' : 'left';
+  const endPosition = rtl ? 'left' : 'right';
+  const marginOffset = borderWidths.sm;
+  const marginDisplacement = `${isPrimary || isBasic ? '' : '-'}${marginOffset}`;
+  const iconMarginDisplacement = isPill && '-2px';
+  const disabledBackgroundColor = !isPrimary && getDisabledBackgroundColor(props);
+  const borderColor = isBasic ? 'transparent' : 'revert';
+  const focusColor = getColor('primaryHue', 600, theme);
+  const focusBoxShadow =
+    isBasic &&
+    !isSelected &&
+    !isPrimary &&
+    getFocusBoxShadow({
+      theme,
+      inset: focusInset,
+      spacerHue: focusColor,
+      hue: 'transparent'
+    });
 
   return css`
     position: relative;
-    /* stylelint-disable-next-line property-no-unknown */
-    margin-${rtl ? 'right' : 'left'}: ${math(`${props.theme.borderWidths.sm} * -1`)};
-    border-top-width: ${isPrimary && 0};
-    border-bottom-width: ${isPrimary && 0};
-    border-right-color: ${isPrimary && lightBorderColor};
-    border-left-color: ${isPrimary && lightBorderColor};
+    /* stylelint-disable value-keyword-case */
+    /* prettier-ignore */
+    transition:
+      border-color 0.1s ease-in-out,
+      background-color 0.1s ease-in-out,
+      box-shadow 0.1s ease-in-out,
+      color 0.1s ease-in-out,
+      margin-${startPosition} 0.1s ease-in-out,
+      outline-color 0.1s ease-in-out,
+      z-index 0.25s ease-in-out;
+    /* stylelint-enable value-keyword-case */
+    border: ${borders.sm} ${borderColor}; /* [2] */
+
+    ${SELECTOR_FOCUS_VISIBLE} {
+      border-color: ${focusColor};
+      box-shadow: ${focusBoxShadow};
+    }
 
     &:hover,
-    &[data-garden-focus-visible],
-    &:active {
+    &:active,
+    ${SELECTOR_FOCUS_VISIBLE} {
       z-index: 1;
     }
 
     &:disabled {
       z-index: -1;
-      border-top-width: 0;
-      border-bottom-width: 0;
-      border-right-color: ${lightBorderColor};
-      border-left-color: ${lightBorderColor};
-      background-color: ${!isPrimary && disabledBackgroundColor}; /* [1] */
+      background-color: ${disabledBackgroundColor}; /* [1] */
     }
 
     /* stylelint-disable property-no-unknown, property-case */
-    &:first-of-type:not(:last-of-type) {
-      margin-${rtl ? 'right' : 'left'}: 0;
-      border-top-${rtl ? 'left' : 'right'}-radius: 0;
-      border-bottom-${rtl ? 'left' : 'right'}-radius: 0;
-      border-${rtl ? 'right' : 'left'}-width: ${isPrimary && 0};
+    &:not(:first-of-type) {
+      margin-${startPosition}: ${marginDisplacement};
     }
 
-    &:last-of-type:not(:first-of-type) {
-      border-top-${rtl ? 'right' : 'left'}-radius: 0;
-      border-bottom-${rtl ? 'right' : 'left'}-radius: 0;
-      border-${rtl ? 'left' : 'right'}-width: ${isPrimary && 0};
+    &:not(:first-of-type):disabled {
+      margin-${startPosition}: ${marginOffset};
     }
-    /* stylelint-enable property-no-unknown, property-case */
 
     &:not(:first-of-type):not(:last-of-type) {
       border-radius: 0;
     }
 
+    &:first-of-type:not(:last-of-type) {
+      border-top-${endPosition}-radius: 0;
+      border-bottom-${endPosition}-radius: 0;
+    }
+
+    &:last-of-type:not(:first-of-type) {
+      border-top-${startPosition}-radius: 0;
+      border-bottom-${startPosition}-radius: 0;
+    }
+    /* stylelint-enable property-no-unknown, property-case */
+
     /* stylelint-disable property-no-unknown, selector-max-specificity */
     &:first-of-type:not(:last-of-type) ${StyledIcon} {
-      margin-${rtl ? 'left' : 'right'}: ${props.isPill && '-2px'};
+      margin-${endPosition}: ${iconMarginDisplacement};
     }
 
     &:last-of-type:not(:first-of-type) ${StyledIcon} {
-      margin-${rtl ? 'right' : 'left'}: ${props.isPill && '-2px'};
+      margin-${startPosition}: ${iconMarginDisplacement};
     }
     /* stylelint-enable property-no-unknown, selector-max-specificity */
   `;
@@ -297,6 +349,7 @@ const sizeStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 /**
  * 1. FF <input type="submit"> fix
  * 2. <a> element reset
+ * 3. Shifting :focus-visible from LVHFA order to preserve `text-decoration` on hover
  */
 export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   'data-garden-id': COMPONENT_ID,
@@ -312,9 +365,10 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
     color 0.25s ease-in-out,
+    outline-color 0.1s ease-in-out,
     z-index 0.25s ease-in-out;
   margin: 0;
-  border: ${props => (props.isLink ? 'none' : `${props.theme.borders.sm} transparent`)};
+  border: ${props => `${props.isLink ? `0px solid` : props.theme.borders.sm} transparent`};
   border-radius: ${props => getBorderRadius(props)};
   cursor: pointer;
   width: ${props => (props.isStretched ? '100%' : '')};
@@ -337,16 +391,13 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     padding: 0;
   }
 
-  &:focus {
-    outline: none;
-    text-decoration: ${props => props.isLink && 'none'}; /* [2] */
+  /* [3] */
+  ${SELECTOR_FOCUS_VISIBLE} {
+    text-decoration: none;
   }
 
+  /* [3] */
   &:hover {
-    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
-  }
-
-  &[data-garden-focus-visible] {
     text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
   }
 
@@ -357,7 +408,9 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     transition:
       border-color 0.1s ease-in-out,
       background-color 0.1s ease-in-out,
+      box-shadow 0.1s ease-in-out,
       color 0.1s ease-in-out,
+      outline-color 0.1s ease-in-out,
       z-index 0.25s ease-in-out;
     text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
   }
@@ -375,11 +428,11 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   }
 
   ${StyledButtonGroup} && {
-    ${props => groupStyles(props)};
+    ${props => groupStyles(props)}
   }
   /* stylelint-enable */
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)}
 `;
 
 StyledButton.defaultProps = {
