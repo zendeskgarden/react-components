@@ -165,6 +165,7 @@ the links below to learn more.
 - Major release [migration](docs/migration.md) instructions
 - Component [API](docs/api.md)
 - [Development](docs/development.md) guidelines
+- Architectural [decision](docs/adrs/#readme) records
 
 ## Contribution
 
