@@ -21,7 +21,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Field, Label, Combobox } from '@zendeskgarden/react-dropdowns.next';
+import { Field, Label, Combobox, Option } from '@zendeskgarden/react-dropdowns.next';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
