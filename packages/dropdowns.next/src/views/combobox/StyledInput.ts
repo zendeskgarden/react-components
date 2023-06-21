@@ -6,12 +6,12 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { hideVisually } from 'polished';
+import { hideVisually, math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getLineHeight,
-  getColor
+  getColor,
+  getLineHeight
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.combobox.input';
@@ -44,32 +44,34 @@ export const getHeight = (props: IStyledInputProps) => {
   return props.theme.space.base * (props.isCompact ? 5 : 8);
 };
 
-const sizeStyles = (props: IStyledInputProps) => {
-  const height = `${getHeight(props)}px`;
+export const sizeStyles = (props: IStyledInputProps) => {
+  const height = props.theme.space.base * 5;
   const fontSize = props.theme.fontSizes.md;
-  const lineHeight = getLineHeight(props.theme.space.base * 4, fontSize);
+  const lineHeight = getLineHeight(height, fontSize);
+  const margin = math(`${props.theme.shadowWidths.sm} + ${(getHeight(props) - height) / 2}`);
   const minWidth = `${props.theme.space.base * 8}px`;
 
   return css`
-    padding: 0;
     min-width: ${minWidth};
-    height: ${height};
+    height: ${height}px;
     line-height: ${lineHeight};
     font-size: ${fontSize};
+
+    && {
+      margin-top: ${margin};
+      margin-bottom: ${margin};
+    }
   `;
 };
 
-/*
- * 1. Line up input with the styled value.
- */
 export const StyledInput = styled.input.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledInputProps>`
   flex-basis: 0;
   flex-grow: 1;
-  transform: translateY(-0.5px); /* [1] */
   border: none;
+  padding: 0;
   font-family: inherit;
 
   :focus {

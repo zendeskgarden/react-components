@@ -7,7 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { getHeight as getInputHeight } from './StyledInput';
+import { sizeStyles } from './StyledInput';
 
 const COMPONENT_ID = 'dropdowns.combobox.value';
 
@@ -25,20 +25,6 @@ const colorStyles = (props: IStyledValueProps) => {
 
   return css`
     color: ${foregroundColor};
-  `;
-};
-
-const sizeStyles = (props: IStyledValueProps) => {
-  const height = `${getInputHeight(props)}px`;
-  const fontSize = props.theme.fontSizes.md;
-  const minWidth = `${props.theme.space.base * 8}px`;
-
-  return css`
-    padding: 0;
-    min-width: ${minWidth};
-    height: ${height};
-    line-height: ${height};
-    font-size: ${fontSize};
   `;
 };
 
