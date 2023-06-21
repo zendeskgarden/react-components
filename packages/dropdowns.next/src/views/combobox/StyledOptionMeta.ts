@@ -8,7 +8,7 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.option.meta';
+const COMPONENT_ID = 'dropdowns.combobox.option.meta';
 
 interface IStyledOptionMetaProps extends ThemeProps<DefaultTheme> {
   isDisabled?: boolean;

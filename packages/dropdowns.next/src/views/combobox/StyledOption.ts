@@ -10,7 +10,7 @@ import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { OptionType } from '../../types';
 
-const COMPONENT_ID = 'dropdowns.option';
+const COMPONENT_ID = 'dropdowns.combobox.option';
 
 interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
   isActive?: boolean;

@@ -12,7 +12,7 @@ import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
 import { OptionType } from '../../types';
 
-const COMPONENT_ID = 'dropdowns.option.type_icon';
+const COMPONENT_ID = 'dropdowns.combobox.option.type_icon';
 
 interface IStyledOptionTypeIconProps extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;

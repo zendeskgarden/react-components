@@ -8,7 +8,7 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.separator';
+const COMPONENT_ID = 'dropdowns.combobox.separator';
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const backgroundColor = getColor('neutralHue', 200, props.theme);
@@ -32,7 +32,6 @@ export const StyledSeparator = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
-  border: none;
   cursor: default;
 
   ${sizeStyles};

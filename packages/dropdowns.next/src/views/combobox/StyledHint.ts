@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Hint } from '@zendeskgarden/react-forms';
 
-const COMPONENT_ID = 'dropdowns.hint';
+const COMPONENT_ID = 'dropdowns.combobox.hint';
 
 export const StyledHint = styled(Hint).attrs({
   'data-garden-id': COMPONENT_ID,

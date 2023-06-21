@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Label } from '@zendeskgarden/react-forms';
 
-const COMPONENT_ID = 'dropdowns.label';
+const COMPONENT_ID = 'dropdowns.combobox.label';
 
 export const StyledLabel = styled(Label).attrs({
   'data-garden-id': COMPONENT_ID,

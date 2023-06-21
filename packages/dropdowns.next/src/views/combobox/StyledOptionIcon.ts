@@ -10,7 +10,7 @@ import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Children, cloneElement } from 'react';
 
-const COMPONENT_ID = 'dropdowns.option.icon';
+const COMPONENT_ID = 'dropdowns.combobox.option.icon';
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const size = props.theme.iconSizes.md;
