@@ -6,7 +6,12 @@
  */
 
 import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  getColor,
+  focusStyles,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 import { stripUnit } from 'polished';
 
 const COMPONENT_ID = 'tabs.tab';
@@ -29,17 +34,18 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
       color: ${selectedColor};
     }
 
+    ${focusStyles({
+      theme,
+      inset: true,
+      spacerWidth: null,
+      shadowWidth: 'sm',
+      selector: '&:focus-visible::before, &[data-garden-focus-visible="true"]::before',
+      styles: { color: selectedColor }
+    })}
+
     &:active {
       border-color: currentColor;
       color: ${selectedColor};
-    }
-
-    &[data-garden-focus-visible] {
-      color: ${selectedColor};
-    }
-
-    &[data-garden-focus-visible]::before {
-      box-shadow: inset ${theme.shadows.sm(getColor('primaryHue', 600, theme, 0.35)!)};
     }
 
     &[aria-disabled='true'] {
@@ -88,10 +94,15 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>({
   ${colorStyles}
 
   &:focus {
-    outline: none;
     text-decoration: none;
   }
 
+  &::before {
+    transition: box-shadow 0.1s ease-in-out;
+    content: '';
+  }
+
+  &:focus-visible::before,
   &[data-garden-focus-visible]::before {
     position: absolute;
     top: ${props => props.theme.space.base * 2.5}px;
@@ -100,11 +111,6 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>({
     border-radius: ${props => props.theme.borderRadii.md};
     height: ${props => props.theme.space.base * 5}px;
     pointer-events: none;
-  }
-
-  &::before {
-    transition: box-shadow 0.1s ease-in-out;
-    content: '';
   }
 
   &:active::before {

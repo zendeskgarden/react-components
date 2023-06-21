@@ -7,31 +7,31 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { rgba } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, focusStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.subnav_item';
 
 const colorStyles = (props: IStyledSubNavItemProps) => {
-  const BLACK = props.theme.palette.black as string;
-  const WHITE = props.theme.palette.white as string;
+  const { theme, isLight, isCurrent } = props;
+  const DARK = theme.palette.black as string;
+  const LIGHT = theme.palette.white as string;
   let currentColor;
   let hoverColor;
 
-  if (props.isCurrent) {
-    if (props.isLight) {
-      currentColor = rgba(BLACK, 0.1);
+  if (isCurrent) {
+    if (isLight) {
+      currentColor = rgba(DARK, 0.1);
     } else {
-      currentColor = rgba(WHITE, 0.1);
+      currentColor = rgba(LIGHT, 0.1);
     }
   } else {
-    hoverColor = rgba(props.isLight ? WHITE : BLACK, 0.1);
+    hoverColor = rgba(isLight ? LIGHT : DARK, 0.1);
   }
 
-  const activeColor = rgba(props.isLight ? BLACK : WHITE, 0.03);
-  const focusColor = rgba(props.isLight ? BLACK : WHITE, 0.2);
+  const activeColor = rgba(isLight ? DARK : LIGHT, 0.03);
 
   return css`
-    opacity: ${props.isCurrent ? '1' : '0.6'};
+    opacity: ${isCurrent ? '1' : '0.6'};
     background-color: ${currentColor};
 
     &:hover {
@@ -39,10 +39,12 @@ const colorStyles = (props: IStyledSubNavItemProps) => {
       background-color: ${hoverColor};
     }
 
-    &[data-garden-focus-visible] {
-      opacity: 1;
-      box-shadow: ${props.theme.shadows.md(focusColor)};
-    }
+    ${focusStyles({
+      theme,
+      hue: isLight ? DARK : LIGHT,
+      spacerWidth: null,
+      styles: { opacity: 1 }
+    })}
 
     &:not([data-garden-header='true']):active {
       background-color: ${activeColor};
@@ -71,7 +73,8 @@ export const StyledSubNavItem = styled.button.attrs({
   display: flex;
   align-items: center;
   /* prettier-ignore */
-  transition: box-shadow 0.1s ease-in-out,
+  transition:
+    box-shadow 0.1s ease-in-out,
     background-color 0.1s ease-in-out,
     opacity 0.1s ease-in-out;
   margin: ${props => props.theme.space.base * 2}px 0 0; /* [2] */
@@ -91,10 +94,6 @@ export const StyledSubNavItem = styled.button.attrs({
   &:focus {
     text-decoration: none; /* [1] */
     color: inherit; /* [1] */
-  }
-
-  &:focus {
-    outline: none; /* [1] */
   }
 
   ${props => colorStyles(props)};

@@ -6,8 +6,13 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math, rgba } from 'polished';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import {
+  getColor,
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 import { StyledRadioLabel } from './StyledRadioLabel';
 import { StyledMessage } from '../common/StyledMessage';
 
@@ -24,7 +29,6 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const focusBorderColor = hoverBorderColor;
   const activeBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.2);
   const activeBorderColor = focusBorderColor;
-  const boxShadow = props.theme.shadows.md(rgba(focusBorderColor!, 0.35));
   const checkedBorderColor = focusBorderColor;
   const checkedBackgroundColor = checkedBorderColor;
   const checkedHoverBorderColor = getColor('primaryHue', SHADE + 100, props.theme);
@@ -48,10 +52,11 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       background-color: ${hoverBackgroundColor};
     }
 
-    &[data-garden-focus-visible='true'] ~ ${StyledRadioLabel}::before {
-      border-color: ${focusBorderColor};
-      box-shadow: ${boxShadow};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      styles: { borderColor: focusBorderColor },
+      selector: `&:focus-visible ~ ${StyledRadioLabel}::before, &[data-garden-focus-visible='true'] ~ ${StyledRadioLabel}::before`
+    })}
 
     & ~ ${StyledRadioLabel}:active::before {
       border-color: ${activeBorderColor};

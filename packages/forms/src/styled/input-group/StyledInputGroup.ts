@@ -48,6 +48,7 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 
 /**
  * 1. remove border overlap in items
+ * 2. keep text inputs above other elements for validation states
  */
 const itemStyles = (props: ThemeProps<DefaultTheme>) => {
   const startDirection = props.theme.rtl ? 'right' : 'left';
@@ -62,12 +63,18 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
       z-index: -1;
     }
 
+    & > ${StyledTextInput} {
+      z-index: 0; /* [2] */
+    }
+
     & > ${StyledTextInput}:disabled {
       z-index: -2;
     }
 
     & > ${StyledTextInput}:hover,
     & > button:hover,
+    & > ${StyledTextInput}:focus-visible,
+    & > button:focus-visible,
     & > ${StyledTextInput}[data-garden-focus-visible],
     & > button[data-garden-focus-visible],
     & > ${StyledTextInput}:active,

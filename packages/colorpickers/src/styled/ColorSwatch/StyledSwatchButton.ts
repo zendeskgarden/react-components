@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, focusStyles } from '@zendeskgarden/react-theming';
 import {
   StyledButtonPreview,
   IStyleButtonPreviewProps
@@ -22,16 +22,17 @@ export const StyledSwatchButton = styled(StyledButtonPreview).attrs<IStyleButton
     'data-garden-version': PACKAGE_VERSION
   })
 )`
+  transition: box-shadow 0.1s ease-in-out;
   outline: none;
   border: none;
   border-radius: ${props => props.theme.borderRadii.md};
   cursor: pointer;
   padding: 0;
 
-  &[data-garden-focus-visible] {
-    box-shadow: ${props =>
-      props.theme.shadows.md(getColor('primaryHue', 600, props.theme, 0.35) as string)};
-  }
+  ${props =>
+    focusStyles({
+      theme: props.theme
+    })}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

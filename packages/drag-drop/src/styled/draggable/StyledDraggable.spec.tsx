@@ -7,12 +7,11 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { rgba } from 'polished';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { render, fireEvent } from 'garden-test-utils';
-import { StyledDraggable, getDragShadow, getFocusShadow } from './StyledDraggable';
+import { StyledDraggable, getDragShadow } from './StyledDraggable';
 
-const GARDEN_FOCUS_VISIBLE = '&[data-garden-focus-visible]';
+const GARDEN_FOCUS_VISIBLE = '&:focus-visible';
 
 describe('StyledDraggable', () => {
   const user = userEvent.setup();
@@ -85,15 +84,12 @@ describe('StyledDraggable', () => {
     it('applies correct styles when focused', () => {
       const { queryByText } = render(<StyledDraggable tabIndex={-1}>draggable</StyledDraggable>);
       const draggable = queryByText('draggable') as HTMLElement;
-      const baseColor = rgba(getColor('primaryHue', 600, DEFAULT_THEME) as string, 0.35);
 
       fireEvent.focus(draggable);
 
-      expect(draggable).toHaveStyleRule(
-        'box-shadow',
-        getFocusShadow(false, baseColor, DEFAULT_THEME),
-        { modifier: GARDEN_FOCUS_VISIBLE }
-      );
+      expect(draggable).toHaveStyleRule('box-shadow', '0 0 0 1px #fff, 0 0 0 3px #1f73b7', {
+        modifier: GARDEN_FOCUS_VISIBLE
+      });
     });
 
     it('applies correct styles when focused and grabbed', () => {
@@ -104,13 +100,12 @@ describe('StyledDraggable', () => {
         </StyledDraggable>
       );
       const draggable = queryByText('draggable') as HTMLElement;
-      const baseColor = rgba(getColor('primaryHue', 600, DEFAULT_THEME) as string, 0.35);
 
       fireEvent.focus(draggable);
 
       expect(draggable).toHaveStyleRule(
         'box-shadow',
-        `${getFocusShadow(false, baseColor, DEFAULT_THEME)},${getDragShadow(DEFAULT_THEME)}`,
+        '0 0 0 1px #fff, 0 0 0 3px #1f73b7,0 20px 28px 0 rgba(104,115,125,0.35)',
         { modifier: GARDEN_FOCUS_VISIBLE }
       );
     });

@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledHeader } from './StyledHeader';
 
 describe('StyledHeader', () => {
@@ -17,14 +16,15 @@ describe('StyledHeader', () => {
     expect(container.firstChild).not.toHaveStyleRule('box-shadow');
   });
 
-  it('renders isFocused styling correctly', () => {
+  it('renders focus styling correctly', () => {
     const { container } = render(<StyledHeader isFocused />);
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      `${DEFAULT_THEME.shadows.md(
-        getColor('primaryHue', 600, DEFAULT_THEME, 0.35) as string
-      )} inset`
+      'inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7',
+      {
+        modifier: '&:focus-within'
+      }
     );
   });
 });

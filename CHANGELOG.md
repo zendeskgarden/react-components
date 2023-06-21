@@ -12,6 +12,28 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.68.0 (2023-06-15)
+
+#### :rocket: New Feature
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `drag-drop`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `typography`
+  * [#1548](https://github.com/zendeskgarden/react-components/pull/1548) feat(components): use new focus styles for interactive elements ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :bug: Bug Fix
+* `chrome`
+  * [#1558](https://github.com/zendeskgarden/react-components/pull/1558) fix(chrome): consistent focus style for sub nav items ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* `colorpickers`, `datepickers`, `forms`, `notifications`, `pagination`, `theming`, `tooltips`, `typography`
+  * [#1526](https://github.com/zendeskgarden/react-components/pull/1526) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1552](https://github.com/zendeskgarden/react-components/pull/1552) chore(deps): update dependency @svgr/webpack to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1551](https://github.com/zendeskgarden/react-components/pull/1551) chore(deps): update dependency @svgr/rollup to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1504](https://github.com/zendeskgarden/react-components/pull/1504) chore(deps): update dependency stylelint-order to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1550](https://github.com/zendeskgarden/react-components/pull/1550) chore(deps): update dependency @rollup/plugin-commonjs to v25 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1555](https://github.com/zendeskgarden/react-components/pull/1555) chore(deps): update mheap/github-action-required-labels action to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+* `utilities`
+  * [#1553](https://github.com/zendeskgarden/react-components/pull/1553) chore(deps): update dependency glob to v10 ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.67.0 (2023-05-11)
 
 #### :rocket: New Feature
