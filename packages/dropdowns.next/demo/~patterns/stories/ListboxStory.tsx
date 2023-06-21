@@ -16,18 +16,18 @@ interface IArgs {
   listboxAppendToNode: boolean;
 }
 
+const StyledContainer = styled.div`
+  position: relative;
+  border: ${p => p.theme.borders.sm};
+  border-radius: ${p => p.theme.borderRadii.md};
+  border-color: ${p => getColor('neutralHue', 300, p.theme)};
+  padding: ${p => p.theme.space.md};
+  max-height: 300px;
+  overflow: clip;
+`;
+
 export const ListboxStory: Story<IArgs> = ({ listboxAppendToNode }) => {
   const portalNode = useRef<HTMLDivElement>(null);
-
-  const StyledContainer = styled.div`
-    position: relative;
-    border: ${p => p.theme.borders.sm};
-    border-radius: ${p => p.theme.borderRadii.md};
-    border-color: ${p => getColor('neutralHue', 300, p.theme)};
-    padding: ${p => p.theme.space.md};
-    max-height: 300px;
-    overflow: clip;
-  `;
 
   return (
     <>
