@@ -115,7 +115,7 @@ const sizeStyles = (props: IStyledTriggerProps) => {
       horizontalPadding = '0';
     }
   } else {
-    minHeight = `${props.theme.space.base * 3 + inputHeight}px`;
+    minHeight = `${props.theme.space.base * (props.isCompact ? 3 : 2) + inputHeight}px`;
     horizontalPadding = `${props.theme.space.base * 3}px`;
   }
 

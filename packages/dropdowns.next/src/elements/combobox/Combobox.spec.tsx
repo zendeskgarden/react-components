@@ -191,7 +191,7 @@ describe('Combobox', () => {
     const combobox = getByTestId('combobox');
     const option = getByTestId('option');
 
-    expect(combobox.firstChild).toHaveStyleRule('min-height', '44px');
+    expect(combobox.firstChild).toHaveStyleRule('min-height', '40px');
     expect(option).toHaveStyleRule('min-height', '36px');
     expect(getByTestId('tag')).toHaveStyleRule('height', '32px');
 
@@ -300,7 +300,7 @@ describe('Combobox', () => {
   it('applies `maxHeight` as expected', () => {
     const { getByTestId, rerender } = render(<TestCombobox />);
 
-    expect(getByTestId('combobox').firstChild).toHaveStyleRule('max-height', '44px');
+    expect(getByTestId('combobox').firstChild).toHaveStyleRule('max-height', '40px');
 
     rerender(<TestCombobox maxHeight="100px" />);
 
