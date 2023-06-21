@@ -46,11 +46,18 @@ const colorStyles = (props: IStyledTriggerProps) => {
   let borderColor: string | undefined;
   let hoverBorderColor: string | undefined;
   let focusBorderColor: string | undefined;
+  let focusShade: number | undefined;
 
   if (props.validation) {
     borderColor = getColor(hue, SHADE, props.theme);
     hoverBorderColor = borderColor;
-    focusBorderColor = borderColor;
+
+    if (props.validation === 'warning') {
+      focusBorderColor = getColor(hue, SHADE + 100, props.theme);
+      focusShade = SHADE + 100;
+    } else {
+      focusBorderColor = borderColor;
+    }
   } else {
     borderColor = getColor('neutralHue', SHADE - 300, props.theme);
     hoverBorderColor = getColor('primaryHue', SHADE, props.theme);
@@ -80,6 +87,7 @@ const colorStyles = (props: IStyledTriggerProps) => {
       theme: props.theme,
       inset: props.focusInset,
       hue: focusBorderColor,
+      shade: focusShade,
       selector: focusSelector,
       styles: { borderColor: focusBorderColor },
       condition: !props.isBare
