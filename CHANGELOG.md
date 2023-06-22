@@ -12,6 +12,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.0 (2023-06-22)
+
+#### :rocket: New Feature
+* `dropdowns.next`
+  * [#1559](https://github.com/zendeskgarden/react-components/pull/1559) feat: add refactored `Combobox` component ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* [#1560](https://github.com/zendeskgarden/react-components/pull/1560) doc(adrs): add theming peer dependency ADR-001 ([@jzempel](https://github.com/jzempel))
+
 ## v8.68.0 (2023-06-15)
 
 #### :rocket: New Feature
