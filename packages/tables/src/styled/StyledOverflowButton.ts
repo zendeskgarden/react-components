@@ -74,10 +74,8 @@ export const StyledOverflowButton = styled.button.attrs<IStyledOverflowButtonPro
   display: block;
   /* prettier-ignore */
   transition:
-    opacity 0.25s ease-in-out,
     background-color 0.1s ease-in-out,
     box-shadow 0.1s ease-in-out;
-  opacity: ${props => (props.isHovered || props.isFocused || props.isActive ? '1' : '0')};
   z-index: ${props => (props.isActive ? '1' : '0')};
   margin-top: calc(${props => math(`${getRowHeight(props)} / 2`)} - 1em);
   border: none; /* [1] */
@@ -92,10 +90,6 @@ export const StyledOverflowButton = styled.button.attrs<IStyledOverflowButtonPro
 
   ${props => colorStyles(props)}
 
-  &[aria-expanded='true'] {
-    opacity: 1;
-  }
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
@@ -108,14 +102,10 @@ export const StyledOverflowButtonIconWrapper = styled.div`
   align-items: center;
   justify-content: center;
   transform: rotate(90deg);
-  transition: opacity 0.25s ease-in-out, background-color 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
 
   width: ${OVERFLOW_BUTTON_SIZE};
   height: ${OVERFLOW_BUTTON_SIZE};
-
-  &:hover {
-    opacity: 1;
-  }
 `;
 
 StyledOverflowButtonIconWrapper.defaultProps = {
