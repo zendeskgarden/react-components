@@ -15,6 +15,8 @@ export const StyledLabel = styled(Label).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  vertical-align: revert;
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
