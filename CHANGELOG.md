@@ -12,6 +12,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.1 (2023-06-30)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1562](https://github.com/zendeskgarden/react-components/pull/1562) fix(combobox): correct peer dependencies and label pixel shift ([@jzempel](https://github.com/jzempel))
+* `tables`
+  * [#1561](https://github.com/zendeskgarden/react-components/pull/1561) fix(tables): persist overflow button visibility ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.69.0 (2023-06-22)
 
 #### :rocket: New Feature
