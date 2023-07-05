@@ -10,6 +10,7 @@ import { Story } from '@storybook/react';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { Avatar, IStatusIndicatorProps, StatusIndicator } from '@zendeskgarden/react-avatars';
+import { IconButton } from '@zendeskgarden/react-buttons';
 
 export const StatusMenuStory: Story = ({ isCompact }) => {
   const [selectedType, setSelectedType] = useState<IStatusIndicatorProps['type']>();
@@ -20,9 +21,11 @@ export const StatusMenuStory: Story = ({ isCompact }) => {
         <Col textAlign="center" alignSelf="center">
           <Dropdown selectedItem={selectedType} onSelect={value => setSelectedType(value)}>
             <Trigger>
-              <Avatar status={selectedType} size={isCompact ? 'small' : 'medium'}>
-                <img alt="Example User" src="images/avatars/chrome.png" />
-              </Avatar>
+              <IconButton>
+                <Avatar status={selectedType} size={isCompact ? 'small' : 'medium'}>
+                  <img alt="Example User" src="images/avatars/chrome.png" />
+                </Avatar>
+              </IconButton>
             </Trigger>
             <Menu isCompact={isCompact}>
               <Item value="offline">
