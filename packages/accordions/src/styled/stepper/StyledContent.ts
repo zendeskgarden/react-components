@@ -33,9 +33,14 @@ export const StyledContent = styled.div.attrs<IStyledContent>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledContent>`
-  ${sizeStyles}
+  display: grid;
+  grid-template-rows: ${props => (props.isActive ? 1 : 0)}fr;
+  transition: grid-template-rows 0.25s ease-in-out;
   min-width: ${props => props.theme.space.base * 30}px;
+  height: auto;
   word-break: break-word;
+
+  ${sizeStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

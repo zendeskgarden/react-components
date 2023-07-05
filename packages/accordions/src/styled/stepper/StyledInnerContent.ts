@@ -22,9 +22,7 @@ export const StyledInnerContent = styled.div.attrs<IStyledInnerContent>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledInnerContent>`
-  transition: max-height 0.25s ease-in-out;
   overflow: hidden;
-  max-height: ${props => !props.isActive && '0 !important'}; /* stylelint-disable-line */
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   color: ${props => props.theme.colors.foreground};
   font-size: ${props => props.theme.fontSizes.md};
