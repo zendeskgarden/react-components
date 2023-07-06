@@ -117,6 +117,15 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   validation?: Validation;
 }
 
+export interface IItemProps extends LiHTMLAttributes<HTMLLIElement> {
+  /** Accepts an icon to display */
+  icon?: ReactElement;
+  /** Indicates that the item is not interactive */
+  isDisabled?: boolean;
+  /** Determines the item type */
+  type?: OptionType;
+}
+
 export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /** Applies regular (non-bold) font weight */
   isRegular?: boolean;
@@ -146,6 +155,11 @@ export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
   validation?: Validation;
   /** Defines the `aria-label` for the validation icon */
   validationLabel?: string;
+}
+
+export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
+  /** Applies compact styling */
+  isCompact?: boolean;
 }
 
 export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'value'> {

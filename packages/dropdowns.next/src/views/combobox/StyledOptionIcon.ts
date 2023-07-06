@@ -36,7 +36,7 @@ export const StyledOptionIcon = styled(
 ).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<ThemeProps<DefaultTheme>>`
+})`
   flex-shrink: 0;
 
   ${sizeStyles};

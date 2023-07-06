@@ -10,7 +10,7 @@ import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden
 
 const COMPONENT_ID = 'dropdowns.combobox.option.meta';
 
-interface IStyledOptionMetaProps extends ThemeProps<DefaultTheme> {
+export interface IStyledOptionMetaProps extends ThemeProps<DefaultTheme> {
   isDisabled?: boolean;
 }
 
