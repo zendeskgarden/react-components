@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.2 (2023-07-06)
+
+#### :bug: Bug Fix
+* `avatars`
+  * [#1564](https://github.com/zendeskgarden/react-components/pull/1564) fix(avatars): explicitly set box sizing for status indicator icon container ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.69.1 (2023-06-30)
 
 #### :bug: Bug Fix
