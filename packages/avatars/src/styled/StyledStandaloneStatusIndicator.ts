@@ -18,6 +18,7 @@ export const StyledStandaloneStatusIndicator = styled(StyledStatusIndicatorBase)
   'data-garden-version': PACKAGE_VERSION
 })<IStyledStatusIndicatorProps>`
   position: relative;
+  box-sizing: content-box;
   margin-top: ${props =>
     `calc((${props.theme.lineHeights.md} - ${getStatusSize(props, '0')}) / 2)`};
 
