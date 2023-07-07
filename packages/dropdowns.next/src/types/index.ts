@@ -167,6 +167,8 @@ export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
+  /** Attaches an arrow that points towards the menu trigger */
+  hasArrow?: boolean;
   /** Applies compact styling */
   isCompact?: boolean;
 }
