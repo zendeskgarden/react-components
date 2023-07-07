@@ -153,7 +153,7 @@ export interface IItemGroupProps extends Omit<LiHTMLAttributes<HTMLLIElement>, '
   content?: ReactNode;
   /** Accepts an icon to display */
   icon?: ReactElement;
-  /** Sets the text label of the option group */
+  /** Sets the text label of the item group */
   label?: string;
 }
 
