@@ -27,6 +27,12 @@
     "preversion": "yarn test:ci",
     "version": "yarn build && git add -A"
   },
+  "workspaces": [
+    "packages/*"
+  ],
+  "resolutions": {
+    "@reach/auto-id": "0.18.0"
+  },
   "devDependencies": {
     "@babel/cli": "7.21.5",
     "@babel/core": "7.22.1",
@@ -38,10 +44,12 @@
     "@babel/preset-react": "7.22.3",
     "@babel/preset-typescript": "7.21.5",
     "@brodybits/rollup-plugin-size-snapshot": "0.14.1",
+    "@reach/auto-id": "0.18.0",
     "@rollup/plugin-commonjs": "25.0.0",
     "@rollup/plugin-node-resolve": "15.1.0",
     "@rollup/plugin-replace": "5.0.2",
     "@storybook/addon-a11y": "7.0.20",
+    "@storybook/addon-designs": "7.0.0",
     "@storybook/addon-essentials": "7.0.20",
     "@storybook/react": "7.0.20",
     "@storybook/react-webpack5": "7.0.20",
@@ -117,7 +125,6 @@
     "rollup-plugin-license": "3.0.1",
     "rollup-plugin-typescript2": "0.34.1",
     "storybook": "7.0.20",
-    "storybook-addon-designs": "6.3.1",
     "styled-components": "5.3.11",
     "stylelint": "13.13.1",
     "stylelint-config-styled-components": "0.1.1",

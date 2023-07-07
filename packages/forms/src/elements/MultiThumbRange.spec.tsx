@@ -15,7 +15,7 @@ import { MultiThumbRange } from './MultiThumbRange';
 import { Label } from './common/Label';
 import { Field } from './common/Field';
 
-type IMockDebounceReturnValue = { default: (fn: any) => any; __esModule: true };
+type IMockDebounceReturnValue = (fn: any) => any;
 
 jest.mock<IMockDebounceReturnValue>('lodash.debounce', () => {
   const wrapWithCancel = (fn: any) => {
@@ -24,10 +24,8 @@ jest.mock<IMockDebounceReturnValue>('lodash.debounce', () => {
     return fn;
   };
 
-  return {
-    default: (fn: any) => wrapWithCancel(fn),
-    __esModule: true
-  };
+  // treated as cjs
+  return (fn: any) => wrapWithCancel(fn);
 });
 
 describe('MultiThumbRange', () => {
