@@ -18,19 +18,17 @@ export const MenuStory: Story<IMenuProps> = args => (
         <div style={{ display: 'inline-block', position: 'relative', width: 300 }}>
           <Menu {...args} data-garden-animate="true">
             <Item>Item</Item>
-            <Item isDisabled>Disabled item</Item>
             <Item icon={<Icon />}>Item with icon</Item>
-            <ItemGroup label="Types">
+            <Item isDisabled>Disabled item</Item>
+            <Item>
+              Item
+              <Item.Meta>with meta</Item.Meta>
+            </Item>
+            <ItemGroup label="Types" icon={<Icon />}>
               <Item type="add">Add item</Item>
               <Item type="danger">Danger item</Item>
               <Item type="next">Next item</Item>
               <Item type="previous">Previous item</Item>
-            </ItemGroup>
-            <ItemGroup aria-label="meta">
-              <Item>
-                Item
-                <Item.Meta>with meta</Item.Meta>
-              </Item>
             </ItemGroup>
           </Menu>
         </div>

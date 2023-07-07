@@ -32,6 +32,28 @@ export type OptionType = (typeof OPTION_TYPE)[number];
 
 export type Validation = (typeof VALIDATION)[number];
 
+export const SHARED_PLACEMENT = [
+  'auto',
+  'top',
+  'top-start',
+  'top-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end'
+] as const;
+
+export const PLACEMENT = [
+  ...SHARED_PLACEMENT,
+  'end',
+  'end-top',
+  'end-bottom',
+  'start',
+  'start-top',
+  'start-bottom'
+] as const;
+
+export type GardenPlacement = (typeof PLACEMENT)[number];
+
 export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the currently active option index in a controlled combobox */
   activeIndex?: number;
@@ -171,6 +193,14 @@ export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   hasArrow?: boolean;
   /** Applies compact styling */
   isCompact?: boolean;
+  /** Sets the `max-height` of the menu */
+  maxHeight?: IListboxProps['maxHeight'];
+  /** Sets the `min-height` of the menu */
+  minHeight?: IListboxProps['minHeight'];
+  /** Adjusts the placement of the menu */
+  placement?: GardenPlacement;
+  /** Sets the `z-index` of the menu */
+  zIndex?: IListboxProps['zIndex'];
 }
 
 export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'value'> {

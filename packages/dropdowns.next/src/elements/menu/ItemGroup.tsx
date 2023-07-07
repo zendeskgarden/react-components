@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 import { useText } from '@zendeskgarden/react-theming';
 import { IItemGroupProps } from '../../types';
 import useMenuContext from '../../context/useMenuContext';
@@ -57,3 +58,9 @@ export const ItemGroup = forwardRef<HTMLLIElement, IItemGroupProps>(
 );
 
 ItemGroup.displayName = 'ItemGroup';
+
+ItemGroup.propTypes = {
+  content: PropTypes.any,
+  icon: PropTypes.any,
+  label: PropTypes.string
+};

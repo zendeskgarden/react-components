@@ -6,11 +6,12 @@
  */
 
 import React, { forwardRef, useMemo, useState } from 'react';
+import PropTypes from 'prop-types';
 import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import CheckedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
-import { IItemProps, OptionType as ItemType } from '../../types';
+import { IItemProps, OptionType as ItemType, OPTION_TYPE } from '../../types';
 import useMenuContext from '../../context/useMenuContext';
 import { ItemContext } from '../../context/useItemContext';
 import { StyledItem, StyledItemContent, StyledItemIcon, StyledItemTypeIcon } from '../../views';
@@ -70,6 +71,12 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
 );
 
 ItemComponent.displayName = 'Item';
+
+ItemComponent.propTypes = {
+  icon: PropTypes.any,
+  isDisabled: PropTypes.bool,
+  type: PropTypes.oneOf(OPTION_TYPE)
+};
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>

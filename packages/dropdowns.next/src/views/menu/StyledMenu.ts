@@ -6,13 +6,18 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, arrowStyles } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  arrowStyles,
+  ARROW_POSITION as ArrowPosition
+} from '@zendeskgarden/react-theming';
 import { IStyledListboxProps, StyledListbox } from '../combobox/StyledListbox';
 
 const COMPONENT_ID = 'dropdowns.menu';
 
 interface IStyledMenuProps extends IStyledListboxProps {
-  hasArrow?: boolean;
+  arrowPosition?: ArrowPosition;
 }
 
 /*
@@ -26,8 +31,8 @@ export const StyledMenu = styled(StyledListbox).attrs({
   position: static !important; /* [1] */
 
   ${props =>
-    props.hasArrow &&
-    arrowStyles('top-left', {
+    props.arrowPosition &&
+    arrowStyles(props.arrowPosition, {
       size: `${props.theme.space.base * 2}px`,
       inset: '2px',
       animationModifier: '[data-garden-animate="true"]'
