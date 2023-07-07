@@ -126,6 +126,15 @@ export interface IItemProps extends LiHTMLAttributes<HTMLLIElement> {
   type?: OptionType;
 }
 
+export interface IItemGroupProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'content'> {
+  /** Renders content for the item group (defaults to `label` text) */
+  content?: ReactNode;
+  /** Accepts an icon to display */
+  icon?: ReactElement;
+  /** Sets the text label of the option group */
+  label?: string;
+}
+
 export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /** Applies regular (non-bold) font weight */
   isRegular?: boolean;

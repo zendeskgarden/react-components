@@ -12,11 +12,11 @@ import { useText } from '@zendeskgarden/react-theming';
 import { IOptGroupProps } from '../../types';
 import useComboboxContext from '../../context/useComboboxContext';
 import {
+  StyledListboxSeparator,
   StyledOptGroup,
   StyledOption,
   StyledOptionContent,
-  StyledOptionTypeIcon,
-  StyledSeparator
+  StyledOptionTypeIcon
 } from '../../views';
 
 /**
@@ -61,7 +61,7 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
             </StyledOption>
           )}
           <StyledOptGroup isCompact={isCompact} {...optGroupProps}>
-            <StyledSeparator role="none" />
+            <StyledListboxSeparator role="none" />
             {children}
           </StyledOptGroup>
         </StyledOptionContent>
