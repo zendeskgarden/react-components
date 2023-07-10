@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DateFnsIndex } from 'packages/datepickers/src/utils/calendar-utils';
 import { useContext, createContext, MutableRefObject } from 'react';
+import { DateFnsIndex } from '../../../utils/calendar-utils';
 import { IDatepickerRangeState, DatepickerRangeAction } from './datepicker-range-reducer';
 
 export interface IDatepickerRangeContext {
