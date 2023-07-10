@@ -35,16 +35,16 @@ const externalPackages = [
   'react-uid',
   '@zendeskgarden/react-theming',
   ...Object.keys(pkg.dependencies || {})
-];
+].map(external => new RegExp(`^${external}/?.*`, 'u'));
 
 export default [
   {
     input: pkg['zendeskgarden:src'],
     /**
-     * Only mark common peerDependencies as externals.
-     * These are not included in the bundlesize.
+     * Filter out dependencies that consumers
+     * will bundle during build time
      */
-    external: id => externalPackages.includes(id),
+    external: id => externalPackages.filter(regexp => regexp.test(id)).length > 0,
     acornInjectPlugins: [jsx()],
     plugins: [
       /**
