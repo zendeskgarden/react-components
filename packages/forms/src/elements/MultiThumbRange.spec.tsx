@@ -15,17 +15,12 @@ import { MultiThumbRange } from './MultiThumbRange';
 import { Label } from './common/Label';
 import { Field } from './common/Field';
 
-type IMockDebounceReturnValue = (fn: any) => any;
+type IMockDebounceReturnValue<T = () => void> = (fn: T) => T;
 
-jest.mock<IMockDebounceReturnValue>('lodash.debounce', () => {
-  const wrapWithCancel = (fn: any) => {
-    fn.cancel = jest.fn();
+jest.mock<IMockDebounceReturnValue>('lodash.debounce', () => (fn: any) => {
+  fn.cancel = jest.fn();
 
-    return fn;
-  };
-
-  // treated as cjs
-  return (fn: any) => wrapWithCancel(fn);
+  return fn;
 });
 
 describe('MultiThumbRange', () => {
