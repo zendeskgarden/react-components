@@ -6,8 +6,8 @@
  */
 
 import { useContext, createContext, MutableRefObject } from 'react';
-import { IDatepickerRangeState, DatepickerRangeAction } from './datepicker-range-reducer';
 import { DateFnsIndex } from '../../../utils/calendar-utils';
+import { IDatepickerRangeState, DatepickerRangeAction } from './datepicker-range-reducer';
 
 export interface IDatepickerRangeContext {
   state: IDatepickerRangeState;
