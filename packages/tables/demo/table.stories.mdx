@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import {
   Table,
   Body,
@@ -14,6 +14,7 @@ import {
 } from '@zendeskgarden/react-tables';
 import { TableStory } from './stories/TableStory';
 import { TABLE_DATA as DATA } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Tables/Table"
@@ -68,3 +69,5 @@ import { TABLE_DATA as DATA } from './stories/data';
     {args => <TableStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

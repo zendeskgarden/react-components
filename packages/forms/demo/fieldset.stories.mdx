@@ -1,8 +1,9 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Fieldset, Field } from '@zendeskgarden/react-forms';
 import { FieldsetStory } from './stories/FieldsetStory';
 import { FIELDSET_FIELDS as FIELDS } from './stories/data';
 import { hintArgs, hintArgTypes, messageArgs, messageArgTypes } from './stories/common';
+import README from '../README.md';
 
 <Meta
   title="Packages/Forms/Fieldset"
@@ -52,3 +53,5 @@ import { hintArgs, hintArgTypes, messageArgs, messageArgTypes } from './stories/
 <Canvas>
   <Story name="Toggle">{args => <FieldsetStory type="toggle" {...args} />}</Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

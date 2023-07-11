@@ -1,5 +1,6 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { StatusIndicator } from '@zendeskgarden/react-avatars';
+import README from '../README.md';
 
 import { StatusIndicatorStory } from './stories/StatusIndicatorStory';
 
@@ -32,3 +33,5 @@ import { StatusIndicatorStory } from './stories/StatusIndicatorStory';
     {args => <StatusIndicatorStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

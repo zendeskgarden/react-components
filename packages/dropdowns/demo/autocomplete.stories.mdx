@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import Downshift from 'downshift';
 import {
@@ -12,6 +12,7 @@ import {
 } from '@zendeskgarden/react-dropdowns';
 import { AutocompleteStory } from './stories/AutocompleteStory';
 import { AUTOCOMPLETE_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Dropdowns/Autocomplete"
@@ -96,3 +97,5 @@ import { AUTOCOMPLETE_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

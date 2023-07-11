@@ -1,8 +1,9 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { ButtonGroup, Button } from '@zendeskgarden/react-buttons';
 import { ButtonGroupStory } from './stories/ButtonGroupStory';
 import { BUTTON_GROUP_BUTTONS as BUTTONS } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Buttons/ButtonGroup"
@@ -48,3 +49,5 @@ import { BUTTON_GROUP_BUTTONS as BUTTONS } from './stories/data';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

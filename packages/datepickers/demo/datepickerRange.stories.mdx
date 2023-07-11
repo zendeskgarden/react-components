@@ -1,8 +1,9 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { DatepickerRange } from '@zendeskgarden/react-datepickers';
 import { DatepickerRangeStory } from './stories/DatepickerRangeStory';
 import { DATE_STYLE_OPTIONS } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Datepickers/DatepickerRange"
@@ -50,3 +51,5 @@ import { DATE_STYLE_OPTIONS } from './stories/data';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

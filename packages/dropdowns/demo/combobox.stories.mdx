@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import Downshift from 'downshift';
 import {
@@ -12,6 +12,7 @@ import {
 } from '@zendeskgarden/react-dropdowns';
 import { ComboboxStory } from './stories/ComboboxStory';
 import { COMBOBOX_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Dropdowns/Combobox"
@@ -95,3 +96,5 @@ import { COMBOBOX_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stor
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>
