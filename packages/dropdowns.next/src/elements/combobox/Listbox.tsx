@@ -10,7 +10,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
 import { IListboxProps } from '../../types';
-import { StyledFloating, StyledListbox } from '../../views';
+import { StyledFloatingListbox, StyledListbox } from '../../views';
 import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
@@ -110,7 +110,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
     );
 
     const Node = (
-      <StyledFloating
+      <StyledFloatingListbox
         data-garden-animate={isVisible ? 'true' : 'false'}
         isHidden={!isExpanded}
         position={placement === 'bottom-start' ? 'bottom' : 'top'}
@@ -128,7 +128,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         >
           {isVisible && children}
         </StyledListbox>
-      </StyledFloating>
+      </StyledFloatingListbox>
     );
 
     return appendToNode ? createPortal(Node, appendToNode) : Node;

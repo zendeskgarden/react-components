@@ -7,20 +7,17 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledListboxSeparator } from '../combobox/StyledListboxSeparator';
 
-const COMPONENT_ID = 'dropdowns.combobox.option.content';
+const COMPONENT_ID = 'dropdowns.menu.separator';
 
-export const StyledOptionContent = styled.div.attrs({
+export const StyledMenuSeparator = styled(StyledListboxSeparator).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledOptionContent.defaultProps = {
+StyledMenuSeparator.defaultProps = {
   theme: DEFAULT_THEME
 };

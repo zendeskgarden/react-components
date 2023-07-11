@@ -45,10 +45,10 @@ const validationStyles = (props: IStyledMessageProps & ThemeProps<DefaultTheme>)
 
 const COMPONENT_ID = 'forms.input_message';
 
-export const StyledMessage = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledMessageProps>`
+export const StyledMessage = styled.div.attrs(props => ({
+  'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
+  'data-garden-version': (props as any)['data-garden-version'] || PACKAGE_VERSION
+}))<IStyledMessageProps>`
   direction: ${props => props.theme.rtl && 'rtl'};
   display: inline-block;
   position: relative;

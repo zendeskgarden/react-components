@@ -23,10 +23,10 @@ export interface IStyledLabelProps {
 /**
  * 1. CSS Bedrock override.
  */
-export const StyledLabel = styled.label.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledLabelProps>`
+export const StyledLabel = styled.label.attrs(props => ({
+  'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
+  'data-garden-version': (props as any)['data-garden-version'] || PACKAGE_VERSION
+}))<IStyledLabelProps>`
   direction: ${props => props.theme.rtl && 'rtl'};
   vertical-align: middle; /* support label inline with input layout */
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};

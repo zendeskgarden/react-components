@@ -7,20 +7,17 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledFloatingListbox } from '../combobox/StyledFloatingListbox';
 
-const COMPONENT_ID = 'dropdowns.combobox.option.content';
+const COMPONENT_ID = 'dropdowns.menu.floating';
 
-export const StyledOptionContent = styled.div.attrs({
+export const StyledFloatingMenu = styled(StyledFloatingListbox).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledOptionContent.defaultProps = {
+StyledFloatingMenu.defaultProps = {
   theme: DEFAULT_THEME
 };

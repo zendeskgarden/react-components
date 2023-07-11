@@ -12,7 +12,7 @@ import { getMinHeight as getOptionMinHeight } from './StyledOption';
 
 const COMPONENT_ID = 'dropdowns.combobox.listbox';
 
-interface IStyledListboxProps extends ThemeProps<DefaultTheme> {
+export interface IStyledListboxProps extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;
   maxHeight?: IListboxProps['maxHeight'];
   minHeight?: IListboxProps['minHeight'];
@@ -39,8 +39,8 @@ const sizeStyles = (props: IStyledListboxProps) => {
 export const StyledListbox = styled.ul.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledListboxProps>`
-  overflow-y: scroll;
+})`
+  overflow-y: auto;
   list-style-type: none;
 
   ${sizeStyles};

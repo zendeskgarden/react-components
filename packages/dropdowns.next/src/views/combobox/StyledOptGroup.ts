@@ -10,7 +10,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'dropdowns.combobox.optgroup';
 
-interface IStyledOptGroupProps extends ThemeProps<DefaultTheme> {
+export interface IStyledOptGroupProps extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;
 }
 

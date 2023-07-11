@@ -14,6 +14,10 @@ export { Option } from './elements/combobox/Option';
 export { OptGroup } from './elements/combobox/OptGroup';
 export { Tag } from './elements/combobox/Tag';
 
+// export { Item } from './elements/menu/Item';
+// export { ItemGroup } from './elements/menu/ItemGroup';
+// export { Menu } from './elements/menu/Menu';
+
 export { VALIDATION } from '@zendeskgarden/react-forms';
 
 export type {
@@ -25,4 +29,8 @@ export type {
   ITagProps,
   ISelectedOption,
   OptionValue
+  // IItemProps,
+  // IItemGroupProps,
+  // IMenuProps,
+  // OptionValue as ItemValue
 } from './types';
