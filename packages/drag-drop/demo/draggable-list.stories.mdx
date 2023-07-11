@@ -1,7 +1,8 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { DraggableList } from '@zendeskgarden/react-drag-drop';
 import { DraggableListStory } from './stories/DraggableListStory';
 import { LIST_ITEMS as items } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Drag-Drop/DraggableList"
@@ -42,3 +43,5 @@ import { LIST_ITEMS as items } from './stories/data';
     {args => <DraggableListStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

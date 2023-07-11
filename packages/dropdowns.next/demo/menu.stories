@@ -1,0 +1,22 @@
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
+import { Menu, Item, ItemGroup } from '@zendeskgarden/react-dropdowns.next';
+import { MenuStory } from './stories/MenuStory';
+import README from '../README.md';
+
+<Meta
+  title="Packages/Dropdowns.Next/Menu"
+  component={Menu}
+  subcomponents={{ Item, 'Item.Meta': Item.Meta, ItemGroup }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story name="Menu">{args => <MenuStory {...args} />}</Story>
+</Canvas>
+
+<Markdown>{README}</Markdown>

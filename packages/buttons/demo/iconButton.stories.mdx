@@ -1,6 +1,7 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import Icon from '@zendeskgarden/svg-icons/src/16/smiley-stroke.svg';
 import { IconButton } from '@zendeskgarden/react-buttons';
+import README from '../README.md';
 
 <Meta title="Packages/Buttons/IconButton" component={IconButton} />
 
@@ -30,3 +31,5 @@ import { IconButton } from '@zendeskgarden/react-buttons';
     )}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

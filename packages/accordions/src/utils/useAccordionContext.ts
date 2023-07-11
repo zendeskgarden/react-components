@@ -6,7 +6,7 @@
  */
 
 import { createContext, useContext, MutableRefObject } from 'react';
-import { IUseAccordionPropGetters } from 'packages/chrome/node_modules/@zendeskgarden/container-accordion/dist/typings';
+import { IUseAccordionPropGetters } from '@zendeskgarden/container-accordion';
 export interface IAccordionContext extends IUseAccordionPropGetters {
   expandedSections: number[];
   currentIndexRef: MutableRefObject<number>;

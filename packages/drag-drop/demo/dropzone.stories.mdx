@@ -1,6 +1,7 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Dropzone } from '@zendeskgarden/react-drag-drop';
 import { DropzoneStory } from './stories/DropzoneStory';
+import README from '../README.md';
 
 <Meta
   title="Packages/Drag-Drop/Dropzone"
@@ -37,3 +38,5 @@ import { DropzoneStory } from './stories/DropzoneStory';
     {args => <DropzoneStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

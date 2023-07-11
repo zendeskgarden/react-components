@@ -17,7 +17,7 @@ import { StyledListbox } from './StyledListbox';
 
 const COMPONENT_ID = 'dropdowns.combobox.floating';
 
-interface IStyledFloatingProps extends ThemeProps<DefaultTheme> {
+export interface IStyledFloatingListboxProps extends ThemeProps<DefaultTheme> {
   isHidden?: boolean;
   position: MenuPosition;
   zIndex?: IListboxProps['zIndex'];
@@ -26,10 +26,10 @@ interface IStyledFloatingProps extends ThemeProps<DefaultTheme> {
 /*
  * 1. Expected to use https://floating-ui.com/docs/misc#subpixel-and-accelerated-positioning
  */
-export const StyledFloating = styled.div.attrs({
+export const StyledFloatingListbox = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledFloatingProps>`
+})<IStyledFloatingListboxProps>`
   top: 0; /* [1] */
   left: 0; /* [1] */
 
@@ -45,6 +45,6 @@ export const StyledFloating = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledFloating.defaultProps = {
+StyledFloatingListbox.defaultProps = {
   theme: DEFAULT_THEME
 };

@@ -1,7 +1,8 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { CursorPagination } from '@zendeskgarden/react-pagination';
 import { CursorPaginationStory } from './stories/CursorPaginationStory';
+import README from '../README.md';
 
 <Meta
   title="Packages/Pagination/CursorPagination"
@@ -54,3 +55,5 @@ import { CursorPaginationStory } from './stories/CursorPaginationStory';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

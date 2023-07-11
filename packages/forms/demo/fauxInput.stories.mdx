@@ -1,7 +1,8 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { FauxInput, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
 import { FauxInputStory } from './stories/FauxInputStory';
 import { commonArgs, commonArgTypes } from './stories/common';
+import README from '../README.md';
 
 <Meta
   title="Packages/Forms/FauxInput"
@@ -59,3 +60,5 @@ import { commonArgs, commonArgTypes } from './stories/common';
     {args => <FauxInputStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

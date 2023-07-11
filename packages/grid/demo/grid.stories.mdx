@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import {
   Grid,
   Row,
@@ -9,6 +9,7 @@ import {
 } from '@zendeskgarden/react-grid';
 import { GridStory } from './stories/GridStory';
 import { GRID_ROWS as ROWS } from './stories/data';
+import README from '../README.md';
 
 <Meta title="Packages/Grid/Grid" component={Grid} subcomponents={{ Col, Row }} />
 
@@ -114,3 +115,5 @@ set any related `Col` prop along with `children` text for display.
     {args => <GridStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

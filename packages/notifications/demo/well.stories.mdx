@@ -1,6 +1,7 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Well, Close, Paragraph, Title } from '@zendeskgarden/react-notifications';
 import { WellStory } from './stories/WellStory';
+import README from '../README.md';
 
 <Meta title="Packages/Notifications/Well" component={Well} subcomponents={{ Paragraph, Title }} />
 
@@ -30,3 +31,5 @@ import { WellStory } from './stories/WellStory';
     {args => <WellStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>
