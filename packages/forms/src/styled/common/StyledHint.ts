@@ -15,10 +15,10 @@ import {
 
 const COMPONENT_ID = 'forms.input_hint';
 
-export const StyledHint = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledHint = styled.div.attrs(props => ({
+  'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
+  'data-garden-version': (props as any)['data-garden-version'] || PACKAGE_VERSION
+}))`
   direction: ${props => props.theme.rtl && 'rtl'};
   display: block;
   vertical-align: middle; /* support hint inline with input layout */

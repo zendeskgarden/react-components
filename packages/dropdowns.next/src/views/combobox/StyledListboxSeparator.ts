@@ -28,10 +28,10 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledSeparator = styled.li.attrs({
+export const StyledListboxSeparator = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<ThemeProps<DefaultTheme>>`
+})`
   cursor: default;
 
   ${sizeStyles};
@@ -41,6 +41,6 @@ export const StyledSeparator = styled.li.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledSeparator.defaultProps = {
+StyledListboxSeparator.defaultProps = {
   theme: DEFAULT_THEME
 };

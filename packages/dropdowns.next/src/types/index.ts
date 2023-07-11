@@ -32,6 +32,28 @@ export type OptionType = (typeof OPTION_TYPE)[number];
 
 export type Validation = (typeof VALIDATION)[number];
 
+export const SHARED_PLACEMENT = [
+  'auto',
+  'top',
+  'top-start',
+  'top-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end'
+] as const;
+
+export const PLACEMENT = [
+  ...SHARED_PLACEMENT,
+  'end',
+  'end-top',
+  'end-bottom',
+  'start',
+  'start-top',
+  'start-bottom'
+] as const;
+
+export type GardenPlacement = (typeof PLACEMENT)[number];
+
 export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the currently active option index in a controlled combobox */
   activeIndex?: number;
@@ -117,6 +139,24 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   validation?: Validation;
 }
 
+export interface IItemProps extends LiHTMLAttributes<HTMLLIElement> {
+  /** Accepts an icon to display */
+  icon?: ReactElement;
+  /** Indicates that the item is not interactive */
+  isDisabled?: boolean;
+  /** Determines the item type */
+  type?: OptionType;
+}
+
+export interface IItemGroupProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'content'> {
+  /** Renders content for the item group (defaults to `label` text) */
+  content?: ReactNode;
+  /** Accepts an icon to display */
+  icon?: ReactElement;
+  /** Sets the text label of the item group */
+  label?: string;
+}
+
 export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /** Applies regular (non-bold) font weight */
   isRegular?: boolean;
@@ -146,6 +186,21 @@ export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
   validation?: Validation;
   /** Defines the `aria-label` for the validation icon */
   validationLabel?: string;
+}
+
+export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
+  /** Attaches an arrow that points towards the menu trigger */
+  hasArrow?: boolean;
+  /** Applies compact styling */
+  isCompact?: boolean;
+  /** Sets the `max-height` of the menu */
+  maxHeight?: IListboxProps['maxHeight'];
+  /** Sets the `min-height` of the menu */
+  minHeight?: IListboxProps['minHeight'];
+  /** Adjusts the placement of the menu */
+  placement?: GardenPlacement;
+  /** Sets the `z-index` of the menu */
+  zIndex?: IListboxProps['zIndex'];
 }
 
 export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'value'> {

@@ -12,7 +12,7 @@ import { OptionType } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.option';
 
-interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
+export interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
   isActive?: boolean;
   isCompact?: boolean;
   $type?: OptionType | 'header' | 'group';
@@ -43,7 +43,7 @@ const colorStyles = (props: IStyledOptionProps) => {
     color: ${foregroundColor};
 
     &[aria-disabled='true'] {
-      background-color: ${backgroundColor};
+      background-color: transparent;
       color: ${disabledForegroundColor};
     }
   `;

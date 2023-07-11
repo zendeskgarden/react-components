@@ -7,20 +7,17 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledOptGroup } from '../combobox/StyledOptGroup';
 
-const COMPONENT_ID = 'dropdowns.combobox.option.content';
+const COMPONENT_ID = 'dropdowns.menu.item_group';
 
-export const StyledOptionContent = styled.div.attrs({
+export const StyledItemGroup = styled(StyledOptGroup).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledOptionContent.defaultProps = {
+StyledItemGroup.defaultProps = {
   theme: DEFAULT_THEME
 };

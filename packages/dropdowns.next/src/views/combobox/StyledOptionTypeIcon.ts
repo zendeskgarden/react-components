@@ -14,7 +14,7 @@ import { OptionType } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.option.type_icon';
 
-interface IStyledOptionTypeIconProps extends ThemeProps<DefaultTheme> {
+export interface IStyledOptionTypeIconProps extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;
   type?: OptionType | 'header';
 }
