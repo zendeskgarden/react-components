@@ -1,5 +1,6 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Spinner } from '@zendeskgarden/react-loaders';
+import README from '../README.md';
 
 <Meta title="Packages/Loaders/Spinner" component={Spinner} />
 
@@ -24,3 +25,5 @@ import { Spinner } from '@zendeskgarden/react-loaders';
     {args => <Spinner {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

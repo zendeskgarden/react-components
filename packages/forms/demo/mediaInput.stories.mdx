@@ -1,8 +1,9 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { MediaInput, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
 import { MediaInputStory } from './stories/MediaInputStory';
 import { commonArgs, commonArgTypes } from './stories/common';
+import README from '../README.md';
 
 <Meta
   title="Packages/Forms/MediaInput"
@@ -75,3 +76,5 @@ import { commonArgs, commonArgTypes } from './stories/common';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

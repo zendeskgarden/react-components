@@ -1,8 +1,9 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { Tiles } from '@zendeskgarden/react-forms';
 import { TilesStory } from './stories/TilesStory';
 import { TILES } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Forms/Tiles"
@@ -52,3 +53,5 @@ import { TILES } from './stories/data';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

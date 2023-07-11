@@ -1,6 +1,7 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
+import README from '../README.md';
 
 <Meta title="Packages/Buttons/ChevronButton" component={ChevronButton} />
 
@@ -23,3 +24,5 @@ import { ChevronButton } from '@zendeskgarden/react-buttons';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

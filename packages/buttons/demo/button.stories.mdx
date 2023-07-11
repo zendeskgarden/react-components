@@ -1,6 +1,7 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Button } from '@zendeskgarden/react-buttons';
 import { ButtonStory } from './stories/ButtonStory';
+import README from '../README.md';
 
 <Meta
   title="Packages/Buttons/Button"
@@ -44,3 +45,5 @@ import { ButtonStory } from './stories/ButtonStory';
     {args => <ButtonStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

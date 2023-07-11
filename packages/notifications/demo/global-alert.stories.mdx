@@ -1,7 +1,8 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { GlobalAlert, Close, Paragraph, Title } from '@zendeskgarden/react-notifications';
 import { GlobalAlertStory } from './stories/GlobalAlertStory';
 import { GLOBAL_ALERT_BUTTONS } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Notifications/GlobalAlert"
@@ -58,3 +59,5 @@ import { GLOBAL_ALERT_BUTTONS } from './stories/data';
     {args => <GlobalAlertStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

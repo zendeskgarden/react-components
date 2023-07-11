@@ -1,5 +1,6 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Progress } from '@zendeskgarden/react-loaders';
+import README from '../README.md';
 
 <Meta title="Packages/Loaders/Progress" component={Progress} />
 
@@ -31,3 +32,5 @@ import { Progress } from '@zendeskgarden/react-loaders';
     {args => <Progress {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>
