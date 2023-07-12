@@ -69,14 +69,15 @@ const colorStyles = ({ theme }: IStyledSplitterButtonProps & ThemeProps<DefaultT
 const sizeStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>) => {
   const size = `${props.theme.space.base * 6}px`;
   const display =
-    props.splitterSize <= stripUnit(math(`${props.theme.shadowWidths.md} * 2 + ${size}`)) && 'none';
+    props.splitterSize <=
+      (stripUnit(math(`${props.theme.shadowWidths.md} * 2 + ${size}`)) as number) && 'none';
   const isVertical = props.orientation === 'start' || props.orientation === 'end';
   let top;
   let left;
   let right;
   let bottom;
 
-  if (props.splitterSize >= stripUnit(math(`${size} * 3`))) {
+  if (props.splitterSize >= (stripUnit(math(`${size} * 3`)) as number)) {
     if (props.placement === 'start') {
       if (isVertical) {
         top = size;
