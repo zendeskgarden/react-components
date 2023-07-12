@@ -26,6 +26,8 @@ const sizeStyles = (props: IStyledContent & ThemeProps<DefaultTheme>) => {
   return css`
     margin: ${marginVertical}px ${marginRight}px ${marginVertical}px ${marginLeft}px;
     padding: 0 ${paddingRight}px ${paddingBottom}px ${paddingLeft}px;
+    min-width: ${space.base * 30}px;
+    height: auto;
   `;
 };
 
@@ -33,9 +35,12 @@ export const StyledContent = styled.div.attrs<IStyledContent>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledContent>`
-  ${sizeStyles}
-  min-width: ${props => props.theme.space.base * 30}px;
+  display: grid;
+  grid-template-rows: ${props => (props.isActive ? 1 : 0)}fr;
+  transition: grid-template-rows 0.25s ease-in-out;
   word-break: break-word;
+
+  ${sizeStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
