@@ -12,6 +12,17 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.3 (2023-07-13)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1574](https://github.com/zendeskgarden/react-components/pull/1574) fix(combobox): prevent combobox focus retention on multiselectable tag removal ([@jzempel](https://github.com/jzempel))
+  * [#1573](https://github.com/zendeskgarden/react-components/pull/1573) fix(combobox): prevent page scroll on input focus ([@jzempel](https://github.com/jzempel))
+* `accordions`
+  * [#1570](https://github.com/zendeskgarden/react-components/pull/1570) fix(accordions): allow dynamic height for stepper content ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `chrome`, `datepickers`, `modals`
+  * [#1566](https://github.com/zendeskgarden/react-components/pull/1566) fix(build): ensure nested external dependencies are not bundled ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.69.2 (2023-07-06)
 
 #### :bug: Bug Fix
