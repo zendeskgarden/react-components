@@ -5,9 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useMemo } from 'react';
+import React, {
+  Children,
+  forwardRef,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+  isValidElement
+} from 'react';
 import PropTypes from 'prop-types';
-import { useButtonGroup } from '@zendeskgarden/container-buttongroup';
+import { ThemeContext } from 'styled-components';
+import { useSelection } from '@zendeskgarden/container-selection';
+import { getControlledValue } from '@zendeskgarden/container-utilities';
 import { IButtonGroupProps } from '../types';
 import { StyledButtonGroup } from '../styled';
 import { ButtonGroupContext } from '../utils/useButtonGroupContext';
@@ -18,16 +28,52 @@ import { ButtonGroupContext } from '../utils/useButtonGroupContext';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const ButtonGroup = forwardRef<HTMLDivElement, IButtonGroupProps>(
-  ({ children, onSelect, selectedItem: controlledSelectedItem, ...otherProps }, ref) => {
-    const { selectedItem, getButtonProps, getGroupProps } = useButtonGroup({
-      selectedItem: controlledSelectedItem,
-      defaultSelectedIndex: 0,
-      onSelect
+  ({ children, onSelect, selectedItem: controlledSelectedValue, ...otherProps }, ref) => {
+    const { rtl } = useContext(ThemeContext);
+    const [internalSelectedValue, setInternalSelectedValue] = useState<any>();
+    const selectedValue = getControlledValue(controlledSelectedValue, internalSelectedValue);
+    const values = useMemo(
+      () =>
+        Children.toArray(children).reduce((buttons, child) => {
+          if (isValidElement(child) && child.type !== 'string' && !child.props.disabled) {
+            (buttons as any[]).push(child.props.value);
+          }
+
+          return buttons;
+        }, []) as any[],
+      [children]
+    );
+
+    const {
+      selectedValue: selectedItem,
+      getElementProps,
+      getGroupProps
+    } = useSelection({
+      rtl,
+      values,
+      defaultSelectedValue: values[0],
+      selectedValue,
+      onSelect: useCallback(
+        value => {
+          onSelect && onSelect(value);
+
+          setInternalSelectedValue(value);
+        },
+        [onSelect]
+      )
     });
 
     const contextValue = useMemo(
-      () => ({ selectedItem, getButtonProps }),
-      [selectedItem, getButtonProps]
+      () => ({
+        selectedItem,
+        getButtonProps: (props: any) =>
+          getElementProps({
+            role: 'button',
+            selectedAriaKey: 'aria-pressed',
+            ...props
+          })
+      }),
+      [selectedItem, getElementProps]
     );
 
     return (

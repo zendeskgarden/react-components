@@ -36,8 +36,6 @@ const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>((props, ref)
     }
 
     computedProps = buttonGroupContext.getButtonProps({
-      item: props.value,
-      focusRef: React.createRef(),
       isSelected: props.value === buttonGroupContext.selectedItem,
       ...computedProps
     });
