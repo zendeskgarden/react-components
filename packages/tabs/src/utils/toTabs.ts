@@ -16,7 +16,7 @@ import { Tab } from '../elements/Tab';
  *
  * @returns A valid `IUseTabsProps['tabs']` data structure.
  */
-export const toTabs = (children: ReactNode[]) =>
+export const toTabs = (children: ReactNode) =>
   Children.toArray(children).reduce((_items: IUseTabsProps<any>['tabs'], child) => {
     const retVal = _items;
 
