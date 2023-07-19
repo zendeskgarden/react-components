@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { useSelection } from '@zendeskgarden/container-selection';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IButtonGroupProps } from '../types';
 import { StyledButtonGroup } from '../styled';
 import { ButtonGroupContext } from '../utils/useButtonGroupContext';
@@ -29,7 +30,7 @@ import { ButtonGroupContext } from '../utils/useButtonGroupContext';
  */
 export const ButtonGroup = forwardRef<HTMLDivElement, IButtonGroupProps>(
   ({ children, onSelect, selectedItem: controlledSelectedValue, ...otherProps }, ref) => {
-    const { rtl } = useContext(ThemeContext);
+    const { rtl } = useContext(ThemeContext) || DEFAULT_THEME;
     const [internalSelectedValue, setInternalSelectedValue] = useState();
     const selectedValue = getControlledValue(controlledSelectedValue, internalSelectedValue);
     const values = useMemo(
