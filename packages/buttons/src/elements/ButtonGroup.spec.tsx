@@ -45,7 +45,7 @@ describe('ButtonGroup', () => {
     const groupRef = React.createRef<HTMLButtonElement>();
     const btnRef = React.createRef<HTMLButtonElement>();
     const { getAllByRole } = render(
-      <ButtonGroup data-test-id="group" ref={groupRef}>
+      <ButtonGroup data-test-id="group" ref={groupRef as any}>
         <Button value="button-1" data-test-id="button" ref={btnRef}>
           Button 1
         </Button>
