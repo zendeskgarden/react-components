@@ -21,14 +21,6 @@
   resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.18.0.tgz#4f3cebe093dd436eeaff633809bf0f68f4f9d2ee"
   integrity sha512-KdVMdpTgDyK8FzdKO9SCpiibuy/kbv3pwgfXshTI6tEcQT1OOwj7BAksnzGC0rPz0UholwC+AgkqEl3EJX3M1A==
 
-"@zendeskgarden/container-buttongroup@^1.0.0":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-buttongroup/-/container-buttongroup-1.0.6.tgz#f6feb7acfcfd35cf52d986a8fcfb6c0c067f477b"
-  integrity sha512-Aqcou4Azv+tRa8hiK3ZcPGOKHoV6p1bDGRYTpnO97Q5E+c/uxOME14E8/YIn509pP9iuzlBWMYemDyZHlJJr2w==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-selection" "^2.0.6"
-
 "@zendeskgarden/container-focusvisible@^1.0.0":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-1.0.6.tgz#89986125f6e1d00e739e184f1ffdd150944ea195"
@@ -36,18 +28,10 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-keyboardfocus@^1.0.0":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-keyboardfocus/-/container-keyboardfocus-1.0.6.tgz#f9895bf63de54fff3ad9204f92643816ff90e718"
-  integrity sha512-RdBi+8ZSaRJw9E1WLG/IAHFNg9FkiXGJTf1/rbNMZULz2APskJAq5WENmNDCSuJZPR1B/p8kYudivTwoG4PPIQ==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-utilities" "^1.0.6"
-
-"@zendeskgarden/container-selection@^2.0.6":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-2.0.6.tgz#7a78edb831f584e84dca87c2a9ee1bbe3f2801d1"
-  integrity sha512-TjVxmwepKGAKW2vR0G4mJsFR/AmrRKpPfZTfttfI2j9z5w00gYTxxN0Mxy4QUZou/TAKQsnSpcA/+6jJQQ5QhA==
+"@zendeskgarden/container-selection@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-3.0.0.tgz#b8ef4764d67cbd2da1dbd15cffe6dc1f17ca9e83"
+  integrity sha512-gDhuCsDRGlly1Loa/p8bVgaKZuLHjWYxkggctAgUZ8oI8TlPsCcPrBrDgF+NSeEf38hGR4RN36vcZzmJoYrdXA==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-utilities" "^1.0.6"
@@ -118,6 +102,11 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-merge-refs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
+  integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
 regenerator-runtime@^0.13.11:
   version "0.13.11"
