@@ -30,7 +30,7 @@ import { ButtonGroupContext } from '../utils/useButtonGroupContext';
 export const ButtonGroup = forwardRef<HTMLDivElement, IButtonGroupProps>(
   ({ children, onSelect, selectedItem: controlledSelectedValue, ...otherProps }, ref) => {
     const { rtl } = useContext(ThemeContext);
-    const [internalSelectedValue, setInternalSelectedValue] = useState<any>();
+    const [internalSelectedValue, setInternalSelectedValue] = useState();
     const selectedValue = getControlledValue(controlledSelectedValue, internalSelectedValue);
     const values = useMemo(
       () =>
