@@ -29,12 +29,9 @@ export { focusStyles, SELECTOR_FOCUS_VISIBLE } from './utils/focusStyles';
 
 export {
   ARROW_POSITION as ARRAY_ARROW_POSITION,
-  MENU_POSITION as ARRAY_MENU_POSITION
-} from './types';
-
-export type {
-  IGardenTheme,
-  IThemeProviderProps,
-  ArrowPosition as ARROW_POSITION,
-  MenuPosition as MENU_POSITION
+  MENU_POSITION as ARRAY_MENU_POSITION,
+  type IGardenTheme,
+  type IThemeProviderProps,
+  type ArrowPosition as ARROW_POSITION,
+  type MenuPosition as MENU_POSITION
 } from './types';

@@ -10,6 +10,7 @@ import { Story } from '@storybook/react';
 import { Field } from '@zendeskgarden/react-forms';
 import { ICommonArgs, renderHint, renderLabel, renderMessage } from './common';
 
+/* eslint-disable-next-line no-duplicate-imports */
 export type { ICommonArgs as IFieldArgs } from './common';
 
 interface IArgs extends HTMLAttributes<HTMLDivElement>, ICommonArgs {}
