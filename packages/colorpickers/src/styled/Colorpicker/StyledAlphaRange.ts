@@ -36,7 +36,9 @@ export const StyledAlphaRange = styled(StyledRange as 'input').attrs<IRGBColor>(
   },
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-}))<IRGBColor>``;
+}))<IRGBColor>`
+  /* stylelint-disable no-empty-source */
+`;
 
 StyledAlphaRange.defaultProps = {
   theme: DEFAULT_THEME

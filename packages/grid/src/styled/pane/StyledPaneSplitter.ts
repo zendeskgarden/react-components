@@ -125,10 +125,7 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
   const dimensionProperty = width === '100%' ? 'height' : 'width';
 
   return css`
-    top: ${top};
-    right: ${right};
-    bottom: ${bottom};
-    left: ${left};
+    inset: ${top} ${right} ${bottom} ${left};
     cursor: ${props.isFixed ? 'pointer' : cursor};
     width: ${width};
     height: ${height};

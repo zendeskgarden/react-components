@@ -34,6 +34,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) =
 
   return css`
     border-color: ${props.isDragging ? activeColor : getColor('neutralHue', 600, props.theme)};
+    /* stylelint-disable-next-line color-function-notation */
     background-color: ${props.isDragging && rgba(baseColor as string, 0.2)};
     color: ${props.isDragging ? activeColor : baseColor};
 

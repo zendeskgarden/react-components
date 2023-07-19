@@ -99,10 +99,7 @@ const sizeStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>
 
   return css`
     display: ${display};
-    top: ${top};
-    right: ${right};
-    bottom: ${bottom};
-    left: ${left};
+    inset: ${top} ${right} ${bottom} ${left};
     width: ${size};
     min-width: ${size};
     height: ${size};
