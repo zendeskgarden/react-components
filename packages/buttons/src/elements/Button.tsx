@@ -48,7 +48,7 @@ const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>((props, ref)
     ]);
   }
 
-  return <StyledButton ref={computedRef} {...computedProps} />;
+  return <StyledButton {...computedProps} ref={computedRef} />;
 });
 
 ButtonComponent.displayName = 'Button';

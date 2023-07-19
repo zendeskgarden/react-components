@@ -41,6 +41,24 @@ describe('ButtonGroup', () => {
     console.error = originalError;
   });
 
+  it('passes ref to underlying DOM elements', () => {
+    const groupRef = React.createRef<HTMLButtonElement>();
+    const btnRef = React.createRef<HTMLButtonElement>();
+    const { getAllByRole } = render(
+      <ButtonGroup data-test-id="group" ref={groupRef}>
+        <Button value="button-1" data-test-id="button" ref={btnRef}>
+          Button 1
+        </Button>
+        <Button value="button-2" data-test-id="button">
+          Button 2
+        </Button>
+      </ButtonGroup>
+    );
+
+    expect(getAllByRole('group')[0]).toBe(groupRef.current);
+    expect(getAllByRole('button')[0]).toBe(btnRef.current);
+  });
+
   it('applies selected styling to currently selected tab', async () => {
     const { getAllByTestId } = render(<BasicExample />);
     const lastButton = getAllByTestId('button')[1];
