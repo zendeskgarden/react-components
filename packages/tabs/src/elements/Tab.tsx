@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, MutableRefObject } from 'react';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
 import { ITabProps } from '../types';
@@ -25,14 +25,14 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
 
     const { ref: tabRef, ...tabProps } = tabsPropGetters.getTabProps<HTMLDivElement>({
       value: item
-    }) as HTMLAttributes<HTMLDivElement>;
+    }) as HTMLAttributes<HTMLDivElement> & { ref: MutableRefObject<HTMLDivElement> };
 
     return (
       <StyledTab
         isSelected={item === tabsPropGetters.selectedValue}
         {...tabProps}
         {...otherProps}
-        ref={mergeRefs([ref, tabRef])}
+        ref={mergeRefs([tabRef, ref])}
       />
     );
   }
