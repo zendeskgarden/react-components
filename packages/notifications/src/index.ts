@@ -12,7 +12,13 @@ export { Close } from './elements/content/Close';
 export { Paragraph } from './elements/content/Paragraph';
 export { Title } from './elements/content/Title';
 export { ToastProvider } from './elements/toaster/ToastProvider';
-export { useToast } from './elements/toaster/useToast';
+export {
+  useToast,
+  type IToastOptions,
+  type IToast,
+  /** @deprecated can be dereferenced via IToast['content'] */
+  type Content as ToastContent
+} from './elements/toaster/useToast';
 export { GlobalAlert } from './elements/global-alert/GlobalAlert';
 
 export type {
@@ -27,10 +33,3 @@ export type {
   /** @deprecated can be dereferenced via IToastOptions['placement'] */
   Placement as ToastPlacement
 } from './types';
-
-export type {
-  IToastOptions,
-  IToast,
-  /** @deprecated can be dereferenced via IToast['content'] */
-  Content as ToastContent
-} from './elements/toaster/useToast';
