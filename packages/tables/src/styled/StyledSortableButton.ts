@@ -36,13 +36,17 @@ StyledBaseIconWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledSortableStrokeIconWrapper = styled(StyledBaseIconWrapper)``;
+export const StyledSortableStrokeIconWrapper = styled(StyledBaseIconWrapper)`
+  /* stylelint-disable-line no-empty-source */
+`;
 
 StyledSortableStrokeIconWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledSortableFillIconWrapper = styled(StyledBaseIconWrapper)``;
+export const StyledSortableFillIconWrapper = styled(StyledBaseIconWrapper)`
+  /* stylelint-disable-line no-empty-source */
+`;
 
 StyledSortableFillIconWrapper.defaultProps = {
   theme: DEFAULT_THEME

@@ -73,21 +73,21 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class=" c0"
+            class="c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c1"
+            class="c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c2"
+            class="c2"
             cx="71"
             cy="36"
             r="9"
@@ -124,21 +124,21 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class=" c0"
+            class="c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c1"
+            class="c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c2"
+            class="c2"
             cx="71"
             cy="36"
             r="9"
@@ -173,21 +173,21 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class=" c0"
+            class="c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c1"
+            class="c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c2"
+            class="c2"
             cx="71"
             cy="36"
             r="9"
@@ -224,21 +224,21 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class=" c0"
+            class="c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c1"
+            class="c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c2"
+            class="c2"
             cx="71"
             cy="36"
             r="9"
@@ -273,21 +273,21 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class=" c0"
+            class="c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c1"
+            class="c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c2"
+            class="c2"
             cx="71"
             cy="36"
             r="9"
@@ -324,21 +324,21 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class=" c0"
+            class="c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c1"
+            class="c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c2"
+            class="c2"
             cx="71"
             cy="36"
             r="9"
@@ -373,21 +373,21 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class=" c0"
+            class="c0"
             cx="9"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c1"
+            class="c1"
             cx="40"
             cy="36"
             r="9"
             transform=""
           />
           <circle
-            class=" c2"
+            class="c2"
             cx="71"
             cy="36"
             r="9"

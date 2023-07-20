@@ -39,13 +39,9 @@ const retrieveColor = ({
   isHighlighted,
   theme
 }: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
-  if (isHighlighted) {
-    return css`
-      background-color: ${getColor('primaryHue', 600, theme, 0.08)};
-    `;
-  }
-
-  return css``;
+  return css`
+    background-color: ${isHighlighted && getColor('primaryHue', 600, theme, 0.08)};
+  `;
 };
 
 interface IStyledHighlightProps {
