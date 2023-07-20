@@ -49,7 +49,7 @@ export const StyledSubNavItemIconWrapper = styled.div.attrs({
   height: ${getSubNavItemHeight};
 
   ${StyledSubNavItemIcon} {
-    transform: ${props => props.isExpanded && `rotate(${props.theme.rtl && '-'}180deg)`};
+    transform: ${props => props.isExpanded && `rotate(${props.theme.rtl ? '-' : ''}180deg)`};
     transition: transform 0.25s ease-in-out;
   }
 

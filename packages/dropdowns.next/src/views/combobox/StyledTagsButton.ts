@@ -37,7 +37,6 @@ export const StyledTagsButton = styled(StyledValue as 'button').attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTagsButtonProps>`
   flex: 0 1 auto; /* [1] */
-  transition: color 0.25s ease-in-out 0s;
   border: none; /* [2] */
   background-color: transparent; /* [2] */
   cursor: pointer;
