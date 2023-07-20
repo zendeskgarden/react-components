@@ -41,7 +41,15 @@ import README from '../README.md';
     {args => {
       const updateArgs = useArgs()[1];
       const handleChange = selectedItem => updateArgs({ selectedItem });
-      return <TabsStory {...args} onChange={handleChange} />;
+      const selectedItem =
+        typeof args.selectedItem === 'number' ? TABS[args.selectedItem] : args.selectedItem;
+      return (
+        <TabsStory
+          {...args}
+          selectedItem={(!selectedItem?.disabled && selectedItem?.value) || null}
+          onChange={handleChange}
+        />
+      );
     }}
   </Story>
 </Canvas>
