@@ -20,8 +20,8 @@ export const StyledParagraph = styled.p.attrs({
   padding: 0;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
-  blockquote + &,
-  & + & {
+  & + &,
+  blockquote + & {
     margin-top: ${props => props.theme.lineHeights[THEME_SIZES[props.size!]]};
   }
 

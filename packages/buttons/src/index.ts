@@ -5,8 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Button } from './elements/Button';
-export type { IIconProps } from './elements/Button';
+export { Button, type IIconProps } from './elements/Button';
 export { Anchor } from './elements/Anchor';
 export { ButtonGroup } from './elements/ButtonGroup';
 export { ChevronButton } from './elements/ChevronButton';

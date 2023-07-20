@@ -18,10 +18,7 @@ export const StyledTooltipModalBackdrop = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: 400;
   overflow: hidden;
   -webkit-overflow-scrolling: touch; /* [1] */

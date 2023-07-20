@@ -27,7 +27,7 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
   const selectedColor = getColor('primaryHue', 600, theme);
 
   return css`
-    border-color: ${isSelected && 'currentColor !important'}; /* [1] */
+    border-color: ${isSelected && 'currentcolor !important'}; /* [1] */
     color: ${isSelected ? selectedColor : 'inherit'};
 
     &:hover {
@@ -44,7 +44,7 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
     })}
 
     &:active {
-      border-color: currentColor;
+      border-color: currentcolor;
       color: ${selectedColor};
     }
 

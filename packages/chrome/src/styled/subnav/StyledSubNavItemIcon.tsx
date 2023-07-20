@@ -6,7 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import styled, { ThemeProps, css } from 'styled-components';
+import styled, { ThemeProps } from 'styled-components';
 import ChevronDownStrokeIcon from '@zendeskgarden/svg-icons/src/12/chevron-down-stroke.svg';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IStyledSubNavItemHeaderProps } from './StyledSubNavItemHeader';
@@ -49,13 +49,7 @@ export const StyledSubNavItemIconWrapper = styled.div.attrs({
   height: ${getSubNavItemHeight};
 
   ${StyledSubNavItemIcon} {
-    transform: ${props => {
-      if (props.isExpanded) {
-        return css`rotate(${props.theme.rtl && '-'}180deg)`;
-      }
-
-      return undefined;
-    }};
+    transform: ${props => props.isExpanded && `rotate(${props.theme.rtl ? '-' : ''}180deg)`};
     transition: transform 0.25s ease-in-out;
   }
 

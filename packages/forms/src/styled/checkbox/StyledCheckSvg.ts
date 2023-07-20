@@ -17,7 +17,7 @@ export const StyledCheckSvg = styled(CheckIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  transition: opacity 0.25 ease-in-out;
+  transition: opacity 0.25s ease-in-out;
   opacity: 0;
   pointer-events: none;
 

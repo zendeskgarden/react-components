@@ -41,10 +41,10 @@ export const StyledTimelineItem = styled.li.attrs({
     !props.hasOppositeContent &&
     props.isAlternate &&
     css`
-      &:before {
+      &::before {
         flex: 1;
-        content: '';
         padding: ${props.theme.space.base * 4}px;
+        content: '';
       }
     `}
 
