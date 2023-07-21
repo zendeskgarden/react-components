@@ -12,6 +12,22 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.4 (2023-07-20)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1575](https://github.com/zendeskgarden/react-components/pull/1575) fix(combobox): keyboard interactions and value space rendering ([@jzempel](https://github.com/jzempel))
+* `buttons`
+  * [#1576](https://github.com/zendeskgarden/react-components/pull/1576) refactor(buttons): button group react v18 uplift ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* `accordions`, `chrome`, `colorpickers`, `datepickers`, `dropdowns.next`, `forms`, `grid`, `loaders`, `modals`, `tables`, `tabs`, `theming`, `typography`
+  * [#1578](https://github.com/zendeskgarden/react-components/pull/1578) chore(deps): update dependency @zendeskgarden/stylelint-config to v20 ([@renovate[bot]](https://github.com/apps/renovate))
+* `buttons`, `chrome`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `theming`
+  * [#1577](https://github.com/zendeskgarden/react-components/pull/1577) chore(deps): update dependency @zendeskgarden/eslint-config to v34 ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1579](https://github.com/zendeskgarden/react-components/pull/1579) chore(deps): bump word-wrap from 1.2.3 to 1.2.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## v8.69.3 (2023-07-13)
 
 #### :bug: Bug Fix
