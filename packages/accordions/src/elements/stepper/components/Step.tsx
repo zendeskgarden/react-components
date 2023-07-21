@@ -5,31 +5,36 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, LiHTMLAttributes, useLayoutEffect, useMemo, useState } from 'react';
+import React, { forwardRef, useMemo, LiHTMLAttributes } from 'react';
 import { StyledStep, StyledLine } from '../../../styled';
 import { StepContext, useStepperContext } from '../../../utils';
 
-const StepComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
-  const { currentIndexRef, isHorizontal } = useStepperContext();
-  const [currentStepIndex, setCurrentStepIndex] = useState<number>(currentIndexRef.current);
+const StepComponent = forwardRef<
+  HTMLLIElement,
+  LiHTMLAttributes<HTMLLIElement> & {
+    /**
+     * @ignore
+     */
+    _currentIndex: number;
+  }
+>(({ _currentIndex, children, ...props }, ref) => {
+  const { activeIndex, isHorizontal } = useStepperContext();
 
-  useLayoutEffect(() => {
-    setCurrentStepIndex(currentIndexRef.current);
-    currentIndexRef.current++;
-    const currentIndex = currentIndexRef;
-
-    return () => {
-      currentIndex.current--;
-    };
-  }, [currentIndexRef]);
-
-  const value = useMemo(() => ({ currentStepIndex }), [currentStepIndex]);
+  const stepContextValue = useMemo(
+    () => ({
+      currentStepIndex: _currentIndex,
+      isActive: activeIndex === _currentIndex,
+      isCompleted: activeIndex > _currentIndex,
+      isHorizontal
+    }),
+    [isHorizontal, activeIndex, _currentIndex]
+  );
 
   return (
-    <StepContext.Provider value={value}>
+    <StepContext.Provider value={stepContextValue}>
       <StyledStep ref={ref} isHorizontal={isHorizontal} {...props}>
         {isHorizontal && <StyledLine data-test-id="step-line" />}
-        {props.children}
+        {children}
       </StyledStep>
     </StepContext.Provider>
   );

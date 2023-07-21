@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, forwardRef, useMemo } from 'react';
+import React, { Children, ReactElement, cloneElement, forwardRef, useMemo } from 'react';
 import { IStepperProps } from '../../types';
 import { StyledStepper } from '../../styled';
 import { StepperContext } from '../../utils';
@@ -14,24 +14,26 @@ import { Label } from './components/Label';
 import { Content } from './components/Content';
 
 const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
-  ({ isHorizontal, activeIndex, ...props }, ref) => {
-    const currentIndexRef = useRef(0);
+  ({ isHorizontal, activeIndex, children, ...props }, ref) => {
     const stepperContext = useMemo(
       () => ({
         isHorizontal: isHorizontal || false,
-        activeIndex: activeIndex!,
-        currentIndexRef
+        activeIndex: activeIndex!
       }),
-      [isHorizontal, activeIndex, currentIndexRef]
+      [isHorizontal, activeIndex]
     );
-
-    useEffect(() => {
-      currentIndexRef.current = 0;
-    });
 
     return (
       <StepperContext.Provider value={stepperContext}>
-        <StyledStepper ref={ref} isHorizontal={isHorizontal} {...props} />
+        <StyledStepper ref={ref} isHorizontal={isHorizontal} {...props}>
+          {useMemo(
+            () =>
+              Children.toArray(children).map((child, _currentIndex) =>
+                cloneElement(child as ReactElement, { _currentIndex })
+              ),
+            [children]
+          )}
+        </StyledStepper>
       </StepperContext.Provider>
     );
   }

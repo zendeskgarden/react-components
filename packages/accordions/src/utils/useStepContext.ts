@@ -9,6 +9,9 @@ import { createContext, useContext } from 'react';
 
 export interface IStepContext {
   currentStepIndex: number;
+  isActive: boolean;
+  isCompleted: boolean;
+  isHorizontal: boolean;
 }
 
 export const StepContext = createContext<IStepContext | undefined>(undefined);
