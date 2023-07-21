@@ -30,7 +30,7 @@ export const Tabs = forwardRef<HTMLDivElement, ITabsProps>(
 
     const tabs = useMemo(() => toTabs(children), [children]);
 
-    const tabPropGetters = useTabs({
+    const tabsContextValue = useTabs({
       tabs,
       rtl: theme!.rtl,
       orientation: isVertical ? 'vertical' : 'horizontal',
@@ -44,8 +44,6 @@ export const Tabs = forwardRef<HTMLDivElement, ITabsProps>(
         }
       }
     });
-
-    const tabsContextValue = useMemo(() => ({ ...tabPropGetters }), [tabPropGetters]);
 
     return (
       <TabsContext.Provider value={tabsContextValue}>
