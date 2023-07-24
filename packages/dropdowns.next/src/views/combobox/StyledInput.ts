@@ -74,7 +74,7 @@ export const StyledInput = styled.input.attrs({
   padding: 0;
   font-family: inherit;
 
-  :focus {
+  &:focus {
     outline: none;
   }
 
