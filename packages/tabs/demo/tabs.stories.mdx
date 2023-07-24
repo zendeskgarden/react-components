@@ -37,7 +37,7 @@ import README from '../README.md';
 ## Controlled
 
 <Canvas>
-  <Story name="Controlled" argTypes={{ selectedItem: { control: 'number' } }}>
+  <Story name="Controlled">
     {args => {
       const updateArgs = useArgs()[1];
       const handleChange = selectedItem => updateArgs({ selectedItem });

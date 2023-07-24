@@ -6,7 +6,7 @@
  */
 
 export interface ITab {
-  tab: string;
+  value: string;
   panel: string;
   disabled?: boolean;
 }
