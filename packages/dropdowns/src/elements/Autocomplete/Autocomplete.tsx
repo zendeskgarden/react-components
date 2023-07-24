@@ -18,6 +18,8 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 /**
+ * @deprecated use `@zendeskgarden/react-dropdowns.next` Combobox instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(

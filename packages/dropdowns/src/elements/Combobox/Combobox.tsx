@@ -15,6 +15,8 @@ import { IComboboxProps } from '../../types';
 import useDropdownContext from '../../utils/useDropdownContext';
 
 /**
+ * @deprecated use `@zendeskgarden/react-dropdowns.next` Combobox instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
