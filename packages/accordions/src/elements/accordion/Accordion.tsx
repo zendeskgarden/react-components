@@ -5,19 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, forwardRef, useMemo } from 'react';
+import React, { Children, cloneElement, forwardRef, useMemo, type ReactElement } from 'react';
 import { useAccordion } from '@zendeskgarden/container-accordion';
 import { IAccordionProps } from '../../types';
 import { StyledAccordion } from '../../styled';
 import { AccordionContext } from '../../utils';
-import { Section } from '../accordion/components/Section';
-import { Header } from '../accordion/components/Header';
-import { Label } from '../accordion/components/Label';
-import { Panel } from '../accordion/components/Panel';
+import { Section } from './components/Section';
+import { Header } from './components/Header';
+import { Label } from './components/Label';
+import { Panel } from './components/Panel';
 
 const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
   (
     {
+      children,
       level,
       isBare,
       onChange,
@@ -38,13 +39,8 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
       defaultExpandedSections,
       expandedSections: controlledExpandedSections
     });
-    const currentIndexRef = useRef(0);
 
-    useEffect(() => {
-      currentIndexRef.current = 0;
-    });
-
-    const value = useMemo(
+    const accordionContextValue = useMemo(
       () => ({
         level,
         isBare,
@@ -54,7 +50,6 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
         getPanelProps,
         getHeaderProps,
         getTriggerProps,
-        currentIndexRef,
         expandedSections
       }),
       [
@@ -66,14 +61,21 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
         getPanelProps,
         getHeaderProps,
         getTriggerProps,
-        currentIndexRef,
         expandedSections
       ]
     );
 
     return (
-      <AccordionContext.Provider value={value}>
-        <StyledAccordion ref={ref} {...props} />
+      <AccordionContext.Provider value={accordionContextValue}>
+        <StyledAccordion ref={ref} {...props}>
+          {useMemo(
+            () =>
+              Children.toArray(children).map((child, _currentIndex) =>
+                cloneElement(child as ReactElement, { _currentIndex })
+              ),
+            [children]
+          )}
+        </StyledAccordion>
       </AccordionContext.Provider>
     );
   }

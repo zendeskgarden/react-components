@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, ReactElement, cloneElement, forwardRef, useMemo } from 'react';
+import React, { Children, cloneElement, forwardRef, useMemo, type ReactElement } from 'react';
 import { IStepperProps } from '../../types';
 import { StyledStepper } from '../../styled';
 import { StepperContext } from '../../utils';

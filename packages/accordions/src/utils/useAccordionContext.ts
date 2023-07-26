@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext, MutableRefObject } from 'react';
+import { createContext, useContext } from 'react';
 import { IUseAccordionPropGetters } from '@zendeskgarden/container-accordion';
 export interface IAccordionContext extends IUseAccordionPropGetters {
   expandedSections: number[];
-  currentIndexRef: MutableRefObject<number>;
   level: number;
   isCompact?: boolean;
   isAnimated?: boolean;

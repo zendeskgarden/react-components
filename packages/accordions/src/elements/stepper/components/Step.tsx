@@ -9,36 +9,33 @@ import React, { forwardRef, useMemo, LiHTMLAttributes } from 'react';
 import { StyledStep, StyledLine } from '../../../styled';
 import { StepContext, useStepperContext } from '../../../utils';
 
-const StepComponent = forwardRef<
-  HTMLLIElement,
-  LiHTMLAttributes<HTMLLIElement> & {
-    /**
-     * @ignore
-     */
-    _currentIndex: number;
+const StepComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
+  ({ children, ...props }, ref) => {
+    // @ts-expect-error ignoring private prop that is assigned
+    // from Stepper when iterating over its children.
+    const currentIndex = props._currentIndex;
+    const { activeIndex, isHorizontal } = useStepperContext();
+
+    const stepContextValue = useMemo(
+      () => ({
+        currentStepIndex: currentIndex,
+        isActive: activeIndex === currentIndex,
+        isCompleted: activeIndex > currentIndex,
+        isHorizontal
+      }),
+      [isHorizontal, activeIndex, currentIndex]
+    );
+
+    return (
+      <StepContext.Provider value={stepContextValue}>
+        <StyledStep ref={ref} isHorizontal={isHorizontal} {...props}>
+          {isHorizontal && <StyledLine data-test-id="step-line" />}
+          {children}
+        </StyledStep>
+      </StepContext.Provider>
+    );
   }
->(({ _currentIndex, children, ...props }, ref) => {
-  const { activeIndex, isHorizontal } = useStepperContext();
-
-  const stepContextValue = useMemo(
-    () => ({
-      currentStepIndex: _currentIndex,
-      isActive: activeIndex === _currentIndex,
-      isCompleted: activeIndex > _currentIndex,
-      isHorizontal
-    }),
-    [isHorizontal, activeIndex, _currentIndex]
-  );
-
-  return (
-    <StepContext.Provider value={stepContextValue}>
-      <StyledStep ref={ref} isHorizontal={isHorizontal} {...props}>
-        {isHorizontal && <StyledLine data-test-id="step-line" />}
-        {children}
-      </StyledStep>
-    </StepContext.Provider>
-  );
-});
+);
 
 StepComponent.displayName = 'Stepper.Step';
 
