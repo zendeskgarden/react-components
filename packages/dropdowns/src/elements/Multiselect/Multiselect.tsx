@@ -35,6 +35,8 @@ import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 
 /**
+ * @deprecated use `@zendeskgarden/react-dropdowns.next` Combobox instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(

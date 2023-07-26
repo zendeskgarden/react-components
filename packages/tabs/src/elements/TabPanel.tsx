@@ -23,13 +23,12 @@ export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
     }
 
     const tabPanelProps = tabsPropGetters.getTabPanelProps<HTMLDivElement>({
-      item,
-      index: tabsPropGetters.tabPanelIndexRef.current++
+      value: item
     }) as HTMLAttributes<HTMLDivElement>;
 
     return (
       <StyledTabPanel
-        aria-hidden={tabsPropGetters.selectedItem !== item}
+        aria-hidden={tabsPropGetters.selectedValue !== item}
         {...tabPanelProps}
         {...otherProps}
         ref={ref}

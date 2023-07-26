@@ -17,14 +17,14 @@ interface IArgs extends ITabsProps {
 export const TabsStory: Story<IArgs> = ({ tabs, ...args }) => (
   <Tabs {...args}>
     <TabList>
-      {tabs.map((tab, index) => (
-        <Tab key={index} item={index} disabled={tab.disabled}>
-          {tab.tab}
+      {tabs.map(tab => (
+        <Tab key={tab.value} item={tab.value} disabled={tab.disabled}>
+          {tab.value}
         </Tab>
       ))}
     </TabList>
-    {tabs.map((tab, index) => (
-      <TabPanel key={index} item={index}>
+    {tabs.map(tab => (
+      <TabPanel key={tab.value} item={tab.value}>
         {tab.panel}
       </TabPanel>
     ))}
