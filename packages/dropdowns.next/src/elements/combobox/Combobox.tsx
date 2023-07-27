@@ -89,10 +89,12 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       const tagProps: Record<string, IOptionProps['tagProps']> = {};
       const retVal = toOptions(children, tagProps);
 
-      setOptionTagProps(value => ({ ...value, ...tagProps }));
+      if (isMultiselectable) {
+        setOptionTagProps(value => ({ ...value, ...tagProps }));
+      }
 
       return retVal;
-    }, [children]);
+    }, [children, isMultiselectable]);
     const hasFocus = useRef(false);
     const triggerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -212,6 +214,21 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
 
       return () => labelProps && setLabelProps(undefined);
     }, [getLabelProps, labelProps, setLabelProps]);
+
+    useEffect(() => {
+      // prevent `optionTagProps` state bloat
+      if (Array.isArray(selection)) {
+        setOptionTagProps(values =>
+          selection.reduce((value, option) => {
+            const key = toString(option);
+
+            return { ...value, [key]: values[key] };
+          }, {})
+        );
+      }
+
+      return () => setOptionTagProps({});
+    }, [selection]);
 
     const Tags = ({ selectedOptions }: { selectedOptions: IOption[] }) => {
       const [isFocused, setIsFocused] = useState(hasFocus.current);
