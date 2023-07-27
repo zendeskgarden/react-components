@@ -215,21 +215,6 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       return () => labelProps && setLabelProps(undefined);
     }, [getLabelProps, labelProps, setLabelProps]);
 
-    useEffect(() => {
-      // prevent `optionTagProps` state bloat
-      if (Array.isArray(selection)) {
-        setOptionTagProps(values =>
-          selection.reduce((value, option) => {
-            const key = toString(option);
-
-            return { ...value, [key]: values[key] };
-          }, {})
-        );
-      }
-
-      return () => setOptionTagProps({});
-    }, [selection]);
-
     const Tags = ({ selectedOptions }: { selectedOptions: IOption[] }) => {
       const [isFocused, setIsFocused] = useState(hasFocus.current);
       const value = selectedOptions.length - maxTags;
@@ -365,7 +350,7 @@ Combobox.propTypes = {
   placeholder: PropTypes.string,
   renderExpandTags: PropTypes.func,
   renderValue: PropTypes.func,
-  selectionValue: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  selectionValue: PropTypes.any,
   startIcon: PropTypes.any,
   validation: PropTypes.oneOf(VALIDATION)
 };
