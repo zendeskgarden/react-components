@@ -216,7 +216,6 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     }, [getLabelProps, labelProps, setLabelProps]);
 
     const Tags = ({ selectedOptions }: { selectedOptions: IOption[] }) => {
-      const [isFocused, setIsFocused] = useState(hasFocus.current);
       const value = selectedOptions.length - maxTags;
 
       return (
@@ -224,20 +223,19 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
           {selectedOptions.map((option, index) => {
             const key = toString(option);
             const disabled = isDisabled || option.disabled;
-            const hidden = !isFocused && index >= maxTags;
+            const hidden = !hasFocus.current && index >= maxTags;
 
             return (
               <Tag
                 key={key}
                 hidden={hidden}
-                onFocus={() => setIsFocused(true)}
                 option={{ ...option, disabled }}
                 tooltipZIndex={listboxZIndex ? listboxZIndex + 1 : undefined}
                 {...optionTagProps[key]}
               />
             );
           })}
-          {!isFocused && selectedOptions.length > maxTags && (
+          {!hasFocus.current && selectedOptions.length > maxTags && (
             <StyledTagsButton
               disabled={isDisabled}
               isCompact={isCompact}
