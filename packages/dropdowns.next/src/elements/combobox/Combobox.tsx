@@ -225,7 +225,12 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
 
     return (
       <ComboboxContext.Provider value={contextValue}>
-        <StyledCombobox isCompact={isCompact} {...props} ref={ref}>
+        <StyledCombobox
+          isCompact={isCompact}
+          tabIndex={isEditable ? undefined : -1} // HACK: otherwise JAWS + NVDA can't read the label
+          {...props}
+          ref={ref}
+        >
           <StyledTrigger {...triggerProps}>
             <StyledContainer>
               {startIcon && (

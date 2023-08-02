@@ -220,8 +220,10 @@ describe('Combobox', () => {
 
   it('renders non-editable as expected', () => {
     const { getByTestId } = render(<TestCombobox isEditable={false} />);
+    const combobox = getByTestId('combobox');
     const input = getByTestId('input');
 
+    expect(combobox).toHaveAttribute('tabIndex', '-1');
     expect(input).toHaveAttribute('readonly');
     expect(input).toHaveAttribute('hidden');
   });
