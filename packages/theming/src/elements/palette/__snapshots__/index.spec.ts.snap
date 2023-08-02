@@ -96,7 +96,7 @@ exports[`PALETTE matches snapshot 1`] = `
     "connect": "#ff6224",
     "explore": "#30aabc",
     "gather": "#f6c8be",
-    "guide": "#ff6224",
+    "guide": "#eb4962",
     "message": "#37b8af",
     "sell": "#c38f00",
     "support": "#00a656",
