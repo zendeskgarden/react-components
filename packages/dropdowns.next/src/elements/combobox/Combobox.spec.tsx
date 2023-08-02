@@ -351,6 +351,41 @@ describe('Combobox', () => {
     expect(button).toHaveTextContent('test-1');
   });
 
+  it('handles tag group expansion as expected', async () => {
+    const tagProps = { 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>;
+    const { getByTestId } = render(
+      <TestCombobox isMultiselectable maxTags={1}>
+        <Option isSelected value="one" />
+        <Option isSelected tagProps={tagProps} value="two" />
+      </TestCombobox>
+    );
+    const combobox = getByTestId('combobox');
+    const trigger = combobox.firstChild as HTMLElement;
+    const input = getByTestId('input');
+    const tag = getByTestId('tag');
+    const button = tag.nextSibling as HTMLElement;
+
+    expect(tag).toHaveAttribute('hidden');
+    expect(button).not.toHaveAttribute('hidden');
+
+    await user.click(button);
+
+    expect(tag).not.toHaveAttribute('hidden');
+    expect(button).toHaveAttribute('hidden');
+    expect(input).toHaveFocus();
+
+    await user.keyboard('{Tab}');
+
+    expect(tag).toHaveAttribute('hidden');
+    expect(button).not.toHaveAttribute('hidden');
+
+    await user.click(trigger);
+
+    expect(tag).not.toHaveAttribute('hidden');
+    expect(button).toHaveAttribute('hidden');
+    expect(input).toHaveFocus();
+  });
+
   it('handles `renderValue` as expected', () => {
     const { getByTestId } = render(
       <TestCombobox renderValue={({ selection }) => `test-${(selection as ISelectedOption).value}`}>
