@@ -199,6 +199,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       hidden: !(isEditable && hasFocus.current),
       isBare,
       isCompact,
+      isEditable,
       isMultiselectable,
       placeholder,
       ...(getInputProps({
@@ -227,7 +228,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       <ComboboxContext.Provider value={contextValue}>
         <StyledCombobox
           isCompact={isCompact}
-          tabIndex={isEditable ? undefined : -1} // HACK: otherwise JAWS + NVDA can't read the label
+          tabIndex={-1} // HACK: otherwise screenreaders can't read the label
           {...props}
           ref={ref}
         >

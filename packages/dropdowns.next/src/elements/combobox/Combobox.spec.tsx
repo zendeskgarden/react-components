@@ -226,6 +226,8 @@ describe('Combobox', () => {
     expect(combobox).toHaveAttribute('tabIndex', '-1');
     expect(input).toHaveAttribute('readonly');
     expect(input).toHaveAttribute('hidden');
+    expect(input).toHaveAttribute('aria-hidden', 'true');
+    expect(input).toHaveStyleRule('display', 'none', { modifier: '&[aria-hidden="true"]' });
   });
 
   it('renders `isMultiselectable` as expected', () => {
