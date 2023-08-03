@@ -18,7 +18,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import { IOption, IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
+import { IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
 import { DEFAULT_THEME, useText, useWindow } from '@zendeskgarden/react-theming';
 import { VALIDATION } from '@zendeskgarden/react-forms';
 import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
@@ -31,13 +31,13 @@ import {
   StyledInputIcon,
   StyledInput,
   StyledInputGroup,
+  StyledTagsButton,
   StyledTrigger,
   StyledValue
 } from '../../views';
-import { StyledTagsButton } from '../../views/combobox/StyledTagsButton';
 import { Listbox } from './Listbox';
-import { Tag } from './Tag';
-import { toOptions, toString } from './utils';
+import { TagGroup } from './TagGroup';
+import { toOptions } from './utils';
 
 const MAX_TAGS = 4;
 
@@ -82,6 +82,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
   ) => {
     const { hasHint, hasMessage, labelProps, setLabelProps } = useFieldContext();
     const [isLabelHovered, setIsLabelHovered] = useState(false);
+    const [isTagGroupExpanded, setIsTagGroupExpanded] = useState(false);
     const [optionTagProps, setOptionTagProps] = useState<Record<string, IOptionProps['tagProps']>>(
       {}
     );
@@ -99,7 +100,6 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const triggerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const listboxRef = useRef<HTMLUListElement>(null);
-    const tagsButtonRef = useRef<HTMLButtonElement>(null);
     /* istanbul ignore next */
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const environment = useWindow(theme);
@@ -178,10 +178,18 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       ...(getTriggerProps({
         onFocus: () => {
           hasFocus.current = true;
+
+          if (isMultiselectable) {
+            setIsTagGroupExpanded(true);
+          }
         },
         onBlur: event => {
           if (event.relatedTarget === null || !triggerRef.current?.contains(event.relatedTarget)) {
             hasFocus.current = false;
+
+            if (isMultiselectable) {
+              setIsTagGroupExpanded(false);
+            }
           }
         }
       }) as HTMLAttributes<HTMLDivElement>)
@@ -191,6 +199,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       hidden: !(isEditable && hasFocus.current),
       isBare,
       isCompact,
+      isEditable,
       isMultiselectable,
       placeholder,
       ...(getInputProps({
@@ -215,47 +224,14 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       return () => labelProps && setLabelProps(undefined);
     }, [getLabelProps, labelProps, setLabelProps]);
 
-    const Tags = ({ selectedOptions }: { selectedOptions: IOption[] }) => {
-      const value = selectedOptions.length - maxTags;
-
-      return (
-        <>
-          {selectedOptions.map((option, index) => {
-            const key = toString(option);
-            const disabled = isDisabled || option.disabled;
-            const hidden = !hasFocus.current && index >= maxTags;
-
-            return (
-              <Tag
-                key={key}
-                hidden={hidden}
-                option={{ ...option, disabled }}
-                tooltipZIndex={listboxZIndex ? listboxZIndex + 1 : undefined}
-                {...optionTagProps[key]}
-              />
-            );
-          })}
-          {!hasFocus.current && selectedOptions.length > maxTags && (
-            <StyledTagsButton
-              disabled={isDisabled}
-              isCompact={isCompact}
-              onClick={() => isEditable && inputRef.current?.focus()}
-              tabIndex={-1}
-              type="button"
-              ref={tagsButtonRef}
-            >
-              {renderExpandTags
-                ? renderExpandTags(value)
-                : expandTags?.replace('{{value}}', value.toString())}
-            </StyledTagsButton>
-          )}
-        </>
-      );
-    };
-
     return (
       <ComboboxContext.Provider value={contextValue}>
-        <StyledCombobox isCompact={isCompact} {...props} ref={ref}>
+        <StyledCombobox
+          isCompact={isCompact}
+          tabIndex={-1} // HACK: otherwise screenreaders can't read the label
+          {...props}
+          ref={ref}
+        >
           <StyledTrigger {...triggerProps}>
             <StyledContainer>
               {startIcon && (
@@ -265,7 +241,37 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
               )}
               <StyledInputGroup>
                 {isMultiselectable && Array.isArray(selection) && (
-                  <Tags selectedOptions={selection} />
+                  <TagGroup
+                    isDisabled={isDisabled}
+                    isExpanded={isTagGroupExpanded}
+                    maxTags={maxTags}
+                    optionTagProps={optionTagProps}
+                    selection={selection}
+                  >
+                    {selection.length > maxTags && (
+                      <StyledTagsButton
+                        disabled={isDisabled}
+                        hidden={isTagGroupExpanded}
+                        isCompact={isCompact}
+                        onClick={event => {
+                          if (isEditable) {
+                            event.stopPropagation();
+                            inputRef.current?.focus();
+                          }
+                        }}
+                        tabIndex={-1}
+                        type="button"
+                      >
+                        {(() => {
+                          const value = selection.length - maxTags;
+
+                          return renderExpandTags
+                            ? renderExpandTags(value)
+                            : expandTags?.replace('{{value}}', value.toString());
+                        })()}
+                      </StyledTagsButton>
+                    )}
+                  </TagGroup>
                 )}
                 {!(isEditable && hasFocus.current) && (
                   <StyledValue

@@ -220,10 +220,14 @@ describe('Combobox', () => {
 
   it('renders non-editable as expected', () => {
     const { getByTestId } = render(<TestCombobox isEditable={false} />);
+    const combobox = getByTestId('combobox');
     const input = getByTestId('input');
 
+    expect(combobox).toHaveAttribute('tabIndex', '-1');
     expect(input).toHaveAttribute('readonly');
     expect(input).toHaveAttribute('hidden');
+    expect(input).toHaveAttribute('aria-hidden', 'true');
+    expect(input).toHaveStyleRule('display', 'none', { modifier: '&[aria-hidden="true"]' });
   });
 
   it('renders `isMultiselectable` as expected', () => {
@@ -347,6 +351,41 @@ describe('Combobox', () => {
     const button = getByTestId('tag').nextSibling;
 
     expect(button).toHaveTextContent('test-1');
+  });
+
+  it('handles tag group expansion as expected', async () => {
+    const tagProps = { 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>;
+    const { getByTestId } = render(
+      <TestCombobox isMultiselectable maxTags={1}>
+        <Option isSelected value="one" />
+        <Option isSelected tagProps={tagProps} value="two" />
+      </TestCombobox>
+    );
+    const combobox = getByTestId('combobox');
+    const trigger = combobox.firstChild as HTMLElement;
+    const input = getByTestId('input');
+    const tag = getByTestId('tag');
+    const button = tag.nextSibling as HTMLElement;
+
+    expect(tag).toHaveAttribute('hidden');
+    expect(button).not.toHaveAttribute('hidden');
+
+    await user.click(button);
+
+    expect(tag).not.toHaveAttribute('hidden');
+    expect(button).toHaveAttribute('hidden');
+    expect(input).toHaveFocus();
+
+    await user.keyboard('{Tab}');
+
+    expect(tag).toHaveAttribute('hidden');
+    expect(button).not.toHaveAttribute('hidden');
+
+    await user.click(trigger);
+
+    expect(tag).not.toHaveAttribute('hidden');
+    expect(button).toHaveAttribute('hidden');
+    expect(input).toHaveFocus();
   });
 
   it('handles `renderValue` as expected', () => {
