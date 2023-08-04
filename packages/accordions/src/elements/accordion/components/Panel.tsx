@@ -11,16 +11,14 @@ import mergeRefs from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import { useDocument } from '@zendeskgarden/react-theming';
 
-import { useAccordionContext, useSectionContext, IAccordionContext } from '../../../utils';
+import { useAccordionContext, useSectionContext } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
-
-type PanelProps = IAccordionContext | { isExpanded?: boolean };
 
 const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCompact, isBare, isAnimated, getPanelProps, expandedSections } = useAccordionContext();
   const panelRef = useRef<HTMLElement>();
-  const index = useSectionContext();
-  const isExpanded = expandedSections.includes(index);
+  const sectionValue = useSectionContext();
+  const isExpanded = expandedSections.includes(sectionValue);
 
   const theme = useContext(ThemeContext);
   const environment = useDocument(theme);
@@ -55,16 +53,16 @@ const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((pro
 
   return (
     <StyledPanel
-      {...getPanelProps<PanelProps>({
-        role: null,
+      {...(getPanelProps({
+        role: null as any,
         ref: mergeRefs([panelRef, ref]),
-        index,
+        value: sectionValue,
         isBare,
         isCompact,
         isExpanded,
         isAnimated,
         ...props
-      })}
+      } as any) as any)}
     >
       <StyledInnerPanel isExpanded={isExpanded} isAnimated={isAnimated}>
         {props.children}

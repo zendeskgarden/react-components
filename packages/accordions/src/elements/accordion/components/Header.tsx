@@ -12,6 +12,7 @@ import { useAccordionContext, useSectionContext, HeaderContext } from '../../../
 import { StyledHeader, StyledRotateIcon, COMPONENT_ID as buttonGardenId } from '../../../styled';
 
 const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { onClick, onFocus, onBlur, onMouseOver, onMouseOut, children, ...other } = props;
   const {
     level: ariaLevel,
     isCompact,
@@ -20,11 +21,10 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
     getTriggerProps,
     expandedSections
   } = useAccordionContext();
-  const { onClick, onFocus, onBlur, onMouseOver, onMouseOut, children, ...other } = props;
-  const sectionIndex = useSectionContext();
+  const sectionValue = useSectionContext();
   const [isFocused, setIsFocused] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const isExpanded = expandedSections.includes(sectionIndex);
+  const isExpanded = expandedSections.includes(sectionValue);
   /**
    *  Pressing the space key on a button triggers the `onTriggerClick` callback.
    * `onKeyDown` is plucked out and not passed to the Label (button) element
@@ -37,7 +37,7 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
     ...otherTriggerProps
   } = getTriggerProps({
     type: 'button',
-    index: sectionIndex
+    value: sectionValue
   });
   const onHeaderFocus = (e: FocusEvent) => {
     e.persist();
@@ -63,10 +63,9 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
   return (
     <HeaderContext.Provider value={value}>
       <StyledHeader
-        {...getHeaderProps({
+        {...(getHeaderProps({
           ref,
-          ariaLevel,
-          isCompact,
+          'aria-level': ariaLevel,
           isFocused,
           isExpanded,
           isCollapsible,
@@ -76,7 +75,7 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
           onMouseOver: composeEventHandlers(onMouseOver, () => setIsHovered(true)),
           onMouseOut: composeEventHandlers(onMouseOut, () => setIsHovered(false)),
           ...other
-        })}
+        } as any) as any)}
       >
         {children}
         <StyledRotateIcon

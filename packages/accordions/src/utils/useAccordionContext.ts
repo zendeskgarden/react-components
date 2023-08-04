@@ -6,9 +6,9 @@
  */
 
 import { createContext, useContext } from 'react';
-import { IUseAccordionPropGetters } from '@zendeskgarden/container-accordion';
-export interface IAccordionContext extends IUseAccordionPropGetters {
-  expandedSections: number[];
+import { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
+export interface IAccordionContext<Value>
+  extends Omit<IUseAccordionReturnValue<Value>, 'disabledSections'> {
   level: number;
   isCompact?: boolean;
   isAnimated?: boolean;
@@ -16,7 +16,7 @@ export interface IAccordionContext extends IUseAccordionPropGetters {
   isCollapsible?: boolean;
 }
 
-export const AccordionContext = createContext<IAccordionContext | undefined>(undefined);
+export const AccordionContext = createContext<IAccordionContext<any> | undefined>(undefined);
 
 export const useAccordionContext = () => {
   const context = useContext(AccordionContext);

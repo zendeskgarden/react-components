@@ -6,19 +6,10 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { SectionContext } from '../../../utils';
 import { StyledSection } from '../../../styled';
 
 const SectionComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    return (
-      // @ts-expect-error ignoring private prop that is assigned
-      // from Accordion when iterating over its children.
-      <SectionContext.Provider value={props._currentIndex}>
-        <StyledSection ref={ref} {...props} />
-      </SectionContext.Provider>
-    );
-  }
+  (props, ref) => <StyledSection ref={ref} {...props} />
 );
 
 SectionComponent.displayName = 'Accordion.Section';

@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { IUseAccordionProps } from '@zendeskgarden/container-accordion';
 import {
   ReactNode,
   SVGAttributes,
@@ -13,13 +14,14 @@ import {
   OlHTMLAttributes
 } from 'react';
 
-export interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface IAccordionProps<Value = any>
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** Sets `aria-level` heading rank in the document structure */
-  level: number;
+  level: NonNullable<HTMLAttributes<HTMLDivElement>['aria-level']>;
   /** Sets the expanded sections in a controlled accordion */
-  expandedSections?: number[];
+  expandedSections?: Value[];
   /** Sets the default expanded sections in an uncontrolled accordion */
-  defaultExpandedSections?: number[];
+  defaultExpandedSections?: Value[];
   /** Hides section borders */
   isBare?: boolean;
   /** Allows uncontrolled accordion sections to collapse */
@@ -33,9 +35,9 @@ export interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'o
   /**
    * Handles accordion expansion changes
    *
-   * @param {number} index A section index
+   * @param {*} value A section value
    */
-  onChange?: (index: number) => void;
+  onChange?: IUseAccordionProps<Value>['onChange'];
 }
 
 export interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {

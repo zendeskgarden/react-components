@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement, forwardRef, useMemo, type ReactElement } from 'react';
+import React, { Children, forwardRef, useMemo } from 'react';
 import { useAccordion } from '@zendeskgarden/container-accordion';
 import { IAccordionProps } from '../../types';
 import { StyledAccordion } from '../../styled';
-import { AccordionContext } from '../../utils';
+import { AccordionContext, SectionContext } from '../../utils';
 import { Section } from './components/Section';
 import { Header } from './components/Header';
 import { Label } from './components/Label';
@@ -19,23 +19,47 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
   (
     {
       children,
-      level,
       isBare,
-      onChange,
       isCompact,
       isAnimated,
       isExpandable,
       isCollapsible,
+      level,
+      onChange,
       defaultExpandedSections,
       expandedSections: controlledExpandedSections,
       ...props
     },
     ref
   ) => {
+    const { sections, sectionChildren } = useMemo(
+      () =>
+        Children.toArray(children)
+          .map((child, index) => (
+            <SectionContext.Provider key={index} value={index}>
+              {child}
+            </SectionContext.Provider>
+          ))
+          .reduce(
+            (acc, child, index) => {
+              acc.sectionChildren.push(child as any);
+              acc.sections.push(index as number);
+
+              return acc;
+            },
+            { sectionChildren: [], sections: [] } as {
+              sectionChildren: any[];
+              sections: number[];
+            }
+          ),
+      [children]
+    );
+
     const { expandedSections, getHeaderProps, getTriggerProps, getPanelProps } = useAccordion({
+      onChange,
       collapsible: isCollapsible,
       expandable: isExpandable || false,
-      onChange,
+      sections,
       defaultExpandedSections,
       expandedSections: controlledExpandedSections
     });
@@ -68,13 +92,7 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
     return (
       <AccordionContext.Provider value={accordionContextValue}>
         <StyledAccordion ref={ref} {...props}>
-          {useMemo(
-            () =>
-              Children.toArray(children).map((child, _currentIndex) =>
-                cloneElement(child as ReactElement, { _currentIndex })
-              ),
-            [children]
-          )}
+          {sectionChildren}
         </StyledAccordion>
       </AccordionContext.Provider>
     );

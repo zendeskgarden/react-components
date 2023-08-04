@@ -20,7 +20,7 @@ export const useStepContext = () => {
   const context = useContext(StepContext);
 
   if (context === undefined) {
-    throw new Error('This component must be rendered within a Stepper.Step component');
+    throw new Error('This component must be rendered within a Stepper component');
   }
 
   return context;
