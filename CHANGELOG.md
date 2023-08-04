@@ -12,6 +12,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.6 (2023-08-04)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1589](https://github.com/zendeskgarden/react-components/pull/1589) fix(combobox): address multiselectable state issues with new `TagGroup` component ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `theming`
+  * [#1588](https://github.com/zendeskgarden/react-components/pull/1588) chore(theming): roll back guide product color ([@jzempel](https://github.com/jzempel))
+
 ## v8.69.5 (2023-07-28)
 
 #### :bug: Bug Fix
