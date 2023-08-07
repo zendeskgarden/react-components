@@ -40,28 +40,28 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
               {child}
             </SectionContext.Provider>
           ))
-          .reduce(
+          .reduce<{
+            sectionChildren: any[];
+            sections: number[];
+          }>(
             (acc, child, index) => {
               acc.sectionChildren.push(child as any);
               acc.sections.push(index as number);
 
               return acc;
             },
-            { sectionChildren: [], sections: [] } as {
-              sectionChildren: any[];
-              sections: number[];
-            }
+            { sectionChildren: [], sections: [] }
           ),
       [children]
     );
 
     const { expandedSections, getHeaderProps, getTriggerProps, getPanelProps } = useAccordion({
-      onChange,
-      collapsible: isCollapsible,
-      expandable: isExpandable || false,
       sections,
       defaultExpandedSections,
-      expandedSections: controlledExpandedSections
+      expandedSections: controlledExpandedSections,
+      collapsible: isCollapsible,
+      expandable: isExpandable || false,
+      onChange
     });
 
     const accordionContextValue = useMemo(

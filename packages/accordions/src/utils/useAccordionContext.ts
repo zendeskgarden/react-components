@@ -7,14 +7,14 @@
 
 import { createContext, useContext } from 'react';
 import { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
+import { IAccordionProps } from '../types';
+
 export interface IAccordionContext<Value>
-  extends Omit<IUseAccordionReturnValue<Value>, 'disabledSections'> {
-  level: number;
-  isCompact?: boolean;
-  isAnimated?: boolean;
-  isBare?: boolean;
-  isCollapsible?: boolean;
-}
+  extends Omit<IUseAccordionReturnValue<Value>, 'disabledSections'>,
+    Pick<
+      IAccordionProps<Value>,
+      'level' | 'isCompact' | 'isAnimated' | 'isBare' | 'isCollapsible'
+    > {}
 
 export const AccordionContext = createContext<IAccordionContext<any> | undefined>(undefined);
 
