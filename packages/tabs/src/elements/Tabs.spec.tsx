@@ -10,10 +10,13 @@ import userEvent from '@testing-library/user-event';
 import { render as baseRender } from '@testing-library/react';
 import { render } from 'garden-test-utils';
 
-import { Tabs, ITabsProps, TabList, TabPanel, Tab } from '../';
+import { Tabs, ITabsProps, TabList, TabPanel, Tab, ITabProps } from '../';
 
 describe('Tabs', () => {
   const user = userEvent.setup();
+
+  /* Validates `Tab` component extension works as expected with `toTabs` */
+  const TestTab = (props: ITabProps) => <Tab {...props} />;
 
   const BasicExample = (props: ITabsProps) => (
     <Tabs data-test-id="container" {...props}>
@@ -21,9 +24,9 @@ describe('Tabs', () => {
         <Tab item="tab-1" data-test-id="tab">
           Tab 1
         </Tab>
-        <Tab item="tab-2" data-test-id="tab">
+        <TestTab item="tab-2" data-test-id="tab">
           Tab 2
-        </Tab>
+        </TestTab>
       </TabList>
       <TabPanel item="tab-1" data-test-id="panel">
         Tab 1 content
