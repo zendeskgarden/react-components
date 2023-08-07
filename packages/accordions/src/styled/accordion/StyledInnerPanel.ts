@@ -14,7 +14,7 @@ export const StyledInnerPanel = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  overflow: inherit;
+  overflow: hidden;
   line-height: inherit;
   font-size: inherit;
 
