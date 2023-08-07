@@ -57,9 +57,6 @@ const sizeStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-/**
- * 1. reverse order of `sizeStyles` and `colorStyles` to give `border-bottom-color` styling precedence
- */
 export const StyledPanel = styled.section.attrs<IStyledPanel>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -69,7 +66,6 @@ export const StyledPanel = styled.section.attrs<IStyledPanel>({
     props.isAnimated && 'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out'};
   overflow: hidden;
 
-  /* [1] */
   ${sizeStyles}
   ${colorStyles}
 
