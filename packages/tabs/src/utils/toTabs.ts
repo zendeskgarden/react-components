@@ -7,7 +7,6 @@
 
 import { IUseTabsProps } from '@zendeskgarden/container-tabs';
 import { Children, ReactNode, isValidElement } from 'react';
-import { Tab } from '../elements/Tab';
 
 /**
  * Converts an array of `Tab` children to a valid `tabs` data structure for `useTabs`.
@@ -20,8 +19,8 @@ export const toTabs = (children: ReactNode) =>
   Children.toArray(children).reduce((_items: IUseTabsProps<any>['tabs'], child) => {
     const retVal = _items;
 
-    if (isValidElement(child) && child.type !== 'string') {
-      if (Tab === child.type && 'item' in child.props) {
+    if (isValidElement(child)) {
+      if ('item' in child.props) {
         const props = child.props;
 
         retVal.push({
