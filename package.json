@@ -26,12 +26,6 @@
     "preversion": "yarn test:ci",
     "version": "yarn build && git add -A"
   },
-  "resolutions": {
-    "node-fetch": "2.6.12",
-    "string-width": "4.2.3",
-    "strip-ansi": "6.0.1",
-    "wrap-ansi": "7.0.0"
-  },
   "devDependencies": {
     "@babel/cli": "7.22.10",
     "@babel/core": "7.22.10",
