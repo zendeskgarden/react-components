@@ -15,13 +15,13 @@ import { Hue, NotificationsContext } from '../utils/useNotificationsContext';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Alert = React.forwardRef<HTMLDivElement, IAlertProps>((props, ref) => {
+export const Alert = React.forwardRef<HTMLDivElement, IAlertProps>(({ role, ...props }, ref) => {
   const hue = validationHues[props.type];
   const Icon = validationIcons[props.type] as any;
 
   return (
     <NotificationsContext.Provider value={hue as Hue}>
-      <StyledAlert ref={ref} hue={hue} {...props}>
+      <StyledAlert ref={ref} hue={hue} role={role === undefined ? 'alert' : role} {...props}>
         <StyledIcon hue={hue}>
           <Icon />
         </StyledIcon>
