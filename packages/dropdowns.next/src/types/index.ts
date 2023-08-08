@@ -237,3 +237,18 @@ export interface ITagProps extends Omit<IBaseTagProps, 'isRound' | 'size'> {
   /** @ignore Sets the `z-index` of the tooltip */
   tooltipZIndex?: number;
 }
+
+export interface ITagGroupProps {
+  /** Indicates that the tag group is not interactive */
+  isDisabled?: boolean;
+  /** Determines tag group expansion */
+  isExpanded: boolean;
+  /** Indicates the `z-index` of the listbox */
+  listboxZIndex?: number;
+  /** Determines the maximum number of tags displayed when the tag group is collapsed */
+  maxTags: number;
+  /** Provides tag props for the associated option */
+  optionTagProps: Record<string, IOptionProps['tagProps']>;
+  /** Provides the current selection */
+  selection: IOption[];
+}

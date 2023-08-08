@@ -16,11 +16,14 @@ const getPixelsPerFr = (totalFrs: number, totalDimension: number) => {
 };
 
 const convertToPixels = (values: Record<string, number>, pixelsPerFr: number) => {
-  return Object.entries(values).reduce((prev, [key, value]) => {
-    prev[key] = value * pixelsPerFr;
+  return Object.entries(values).reduce(
+    (prev, [key, value]) => {
+      prev[key] = value * pixelsPerFr;
 
-    return prev;
-  }, {} as Record<string, number>);
+      return prev;
+    },
+    {} as Record<string, number>
+  );
 };
 
 export const PaneProvider = ({
@@ -94,17 +97,23 @@ export const PaneProvider = ({
     const rowArray = Object.keys(rowsTrack);
     const columnArray = Object.keys(columnsTrack);
 
-    const rows = rowArray.reduce((prev, key, index) => {
-      prev[key] = index;
+    const rows = rowArray.reduce(
+      (prev, key, index) => {
+        prev[key] = index;
 
-      return prev;
-    }, {} as Record<string, number>);
+        return prev;
+      },
+      {} as Record<string, number>
+    );
 
-    const columns = columnArray.reduce((prev, key, index) => {
-      prev[key] = index;
+    const columns = columnArray.reduce(
+      (prev, key, index) => {
+        prev[key] = index;
 
-      return prev;
-    }, {} as Record<string, number>);
+        return prev;
+      },
+      {} as Record<string, number>
+    );
 
     return {
       rows,

@@ -12,6 +12,34 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.6 (2023-08-04)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1589](https://github.com/zendeskgarden/react-components/pull/1589) fix(combobox): address multiselectable state issues with new `TagGroup` component ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `theming`
+  * [#1588](https://github.com/zendeskgarden/react-components/pull/1588) chore(theming): roll back guide product color ([@jzempel](https://github.com/jzempel))
+
+## v8.69.5 (2023-07-28)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1587](https://github.com/zendeskgarden/react-components/pull/1587) fix(combobox): prevent tag state rerender on focus ([@jzempel](https://github.com/jzempel))
+  * [#1585](https://github.com/zendeskgarden/react-components/pull/1585) chore(dropdowns.next): rollback option tag props optimization ([@jzempel](https://github.com/jzempel))
+  * [#1581](https://github.com/zendeskgarden/react-components/pull/1581) fix(combobox): ensure input focus reset ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* `dropdowns`
+  * [#1583](https://github.com/zendeskgarden/react-components/pull/1583) chore(dropdowns): tag and document deprecated components ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `dropdowns.next`
+  * [#1584](https://github.com/zendeskgarden/react-components/pull/1584) chore(combobox): prevent `optionTagProps` state bloat ([@jzempel](https://github.com/jzempel))
+* `tabs`
+  * [#1580](https://github.com/zendeskgarden/react-components/pull/1580) refactor(tabs): uptake new version of container-selection ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.69.4 (2023-07-20)
 
 #### :bug: Bug Fix

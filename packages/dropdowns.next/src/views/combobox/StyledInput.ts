@@ -19,6 +19,7 @@ const COMPONENT_ID = 'dropdowns.combobox.input';
 interface IStyledInputProps extends ThemeProps<DefaultTheme> {
   isBare?: boolean;
   isCompact?: boolean;
+  isEditable?: boolean;
   isMultiselectable?: boolean;
 }
 
@@ -84,7 +85,11 @@ export const StyledInput = styled.input.attrs({
 
   &[hidden] {
     display: revert;
-    ${hideVisually()}
+    ${props => props.isEditable && hideVisually()}
+  }
+
+  &[aria-hidden='true'] {
+    display: none;
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

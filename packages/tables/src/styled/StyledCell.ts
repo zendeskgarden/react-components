@@ -63,7 +63,9 @@ export const StyledCell = styled.td.attrs<IStyledCellProps>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledCellProps>`
   display: table-cell;
-  transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out;
+  transition:
+    border-color 0.25s ease-in-out,
+    box-shadow 0.1s ease-in-out;
 
   ${props => sizeStyling(props)};
   ${props => props.isTruncated && truncatedStyling};
