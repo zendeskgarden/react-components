@@ -54,7 +54,7 @@ const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((pro
   return (
     <StyledPanel
       {...(getPanelProps({
-        role: null as any,
+        role: null,
         ref: mergeRefs([panelRef, ref]),
         value: sectionValue,
         isBare,
@@ -62,7 +62,7 @@ const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((pro
         isExpanded,
         isAnimated,
         ...props
-      } as any) as any)}
+      } as Omit<HTMLAttributes<HTMLElement>, 'role'> & { value: number }) as any)}
     >
       <StyledInnerPanel isExpanded={isExpanded} isAnimated={isAnimated}>
         {props.children}

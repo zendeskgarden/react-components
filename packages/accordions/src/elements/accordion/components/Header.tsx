@@ -75,7 +75,7 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
           onMouseOver: composeEventHandlers(onMouseOver, () => setIsHovered(true)),
           onMouseOut: composeEventHandlers(onMouseOut, () => setIsHovered(false)),
           ...other
-        } as any) as any)}
+        } as Omit<HTMLAttributes<HTMLDivElement>, 'role' | 'aria-level'> & { 'aria-level': NonNullable<any> }) as any)}
       >
         {children}
         <StyledRotateIcon
