@@ -47,7 +47,7 @@ jobs:
     steps:
       - *attach_workspace
       - run: yarn build:demo
-      - run: utils/scripts/deploy.js
+      - run: utils/scripts/deploy.mjs
 
   publish:
     <<: *executor

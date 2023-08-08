@@ -7,17 +7,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const program = require('commander');
-const execa = require('execa');
-const fs = require('fs');
-const garden = require('@zendeskgarden/scripts');
-const lernaConfig = require('../../lerna.json');
-const ora = require('ora');
-const inquirer = require('inquirer');
-const resolve = require('path').resolve;
-const temp = require('temp').track();
-const util = require('util');
+import { Command } from 'commander';
+import { execa } from 'execa';
+import fs from 'fs';
+import { githubBranch, githubRelease, lernaChangelog } from '@zendeskgarden/scripts';
+import ora from 'ora';
+import inquirer from 'inquirer';
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
+import { track } from 'temp';
+import util from 'util';
+import { createRequire } from 'module';
 
+const lernaConfig = createRequire(import.meta.url)('../../lerna.json');
+const temp = track();
+
+const program = new Command();
 const info = (message, spinner) => spinner.info(message).start();
 
 /**
@@ -36,7 +41,7 @@ const changelog = async (tag, spinner) => {
   const write = util.promisify(fs.write);
   const open = util.promisify(temp.open);
   const { path, fd } = await open({ prefix: 'CHANGELOG', suffix: '.md' });
-  const markdown = await garden.lernaChangelog({ spinner });
+  const markdown = await lernaChangelog({ spinner });
   const editor = await execa('git', ['var', 'GIT_EDITOR']);
 
   await write(fd, markdown);
@@ -46,7 +51,8 @@ const changelog = async (tag, spinner) => {
 
   const readFile = util.promisify(fs.readFile);
   const INSERTION_SLUG = '<!-- insert-new-changelog-here -->';
-  const changelogPath = resolve(__dirname, '..', '..', 'CHANGELOG.md');
+  const currentDir = dirname(fileURLToPath(import.meta.url));
+  const changelogPath = resolve(currentDir, '..', '..', 'CHANGELOG.md');
   const data = await readFile(changelogPath, 'utf8');
 
   if (data.includes(INSERTION_SLUG)) {
@@ -92,7 +98,7 @@ const release = async (tag, markdown, spinner) => {
   await execa('git', pushArgs.concat('HEAD^:main'));
   await execa('git', pushArgs.concat('main'));
 
-  const url = await garden.githubRelease({ tag, body: markdown, spinner });
+  const url = await githubRelease({ tag, body: markdown, spinner });
 
   spinner.succeed(
     `Success.\n🎗 Approve the draft release – ${url} – upon notification of a successful ${tag} publish to NPM.`
@@ -119,7 +125,7 @@ const rollback = async (tag, spinner) => {
  * @param {Ora} spinner Terminal spinner.
  */
 const sync = async (main, spinner) => {
-  const branch = await garden.githubBranch(undefined /* path */, spinner);
+  const branch = await githubBranch(undefined /* path */, spinner);
 
   if (branch === main) {
     info('Syncing with remote...', spinner);

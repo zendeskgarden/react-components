@@ -7,13 +7,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const program = require('commander');
-const execa = require('execa');
-const garden = require('@zendeskgarden/scripts');
-const ora = require('ora');
-const pluralize = require('pluralize');
-const resolve = require('path').resolve;
+import { Command } from 'commander';
+import { execa } from 'execa';
+import { lernaNew } from '@zendeskgarden/scripts';
+import ora from 'ora';
+import pluralize from 'pluralize';
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
 
+const program = new Command();
 const info = (message, spinner) => spinner.info(message).start();
 
 /**
@@ -44,9 +46,10 @@ const bootstrap = async (component, spinner) => {
  * @returns The package destination directory path.
  */
 const generate = async (component, spinner) => {
-  const src = resolve(__dirname, '..', '..', 'packages', '.template');
+  const currentDir = dirname(fileURLToPath(import.meta.url));
+  const src = resolve(currentDir, '..', '..', 'packages', '.template');
   const dest = resolve(
-    __dirname,
+    currentDir,
     '..',
     '..',
     'packages',
@@ -56,7 +59,7 @@ const generate = async (component, spinner) => {
 
   info(`Generating package...`, spinner);
 
-  const result = await garden.lernaNew({ src, dest, tags, spinner });
+  const result = await lernaNew({ src, dest, tags, spinner });
 
   return result.dest;
 };
