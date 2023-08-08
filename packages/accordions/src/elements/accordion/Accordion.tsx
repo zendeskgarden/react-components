@@ -47,7 +47,7 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
           }>(
             (acc, child, index) => {
               acc.sectionChildren.push(child);
-              acc.sections.push(index as number);
+              acc.sections.push(index);
 
               return acc;
             },
