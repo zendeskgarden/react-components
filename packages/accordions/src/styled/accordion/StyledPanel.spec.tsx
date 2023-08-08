@@ -16,7 +16,10 @@ describe('StyledPanel', () => {
 
     expect(container.firstChild).toHaveStyleRule('grid-template-rows', '0fr');
     expect(container.firstChild).toHaveStyleRule('padding', '8px 20px 32px');
-    expect(container.firstChild).toHaveStyleRule('border-bottom', `${DEFAULT_THEME.borders.sm}`);
+    expect(container.firstChild).toHaveStyleRule(
+      'border-bottom-width',
+      `${DEFAULT_THEME.borderWidths.sm}`
+    );
     expect(container.firstChild).toHaveStyleRule(
       'border-bottom-color',
       `${getColor('neutralHue', 300, DEFAULT_THEME)}`
@@ -50,7 +53,10 @@ describe('StyledPanel', () => {
   it('renders isBare styling correctly', () => {
     const { container } = render(<StyledPanel isBare />);
 
-    expect(container.firstChild).toHaveStyleRule('border-bottom', `${DEFAULT_THEME.borders.sm}`);
+    expect(container.firstChild).toHaveStyleRule(
+      'border-bottom-width',
+      `${DEFAULT_THEME.borderWidths.sm}`
+    );
     expect(container.firstChild).toHaveStyleRule('border-bottom-color', 'transparent');
   });
 
