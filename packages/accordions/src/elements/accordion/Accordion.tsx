@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, forwardRef, useMemo } from 'react';
+import React, { type ReactElement, Children, forwardRef, isValidElement, useMemo } from 'react';
 import { useAccordion } from '@zendeskgarden/container-accordion';
 import { IAccordionProps } from '../../types';
 import { StyledAccordion } from '../../styled';
@@ -35,17 +35,18 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
     const { sections, sectionChildren } = useMemo(
       () =>
         Children.toArray(children)
+          .filter(isValidElement)
           .map((child, index) => (
             <SectionContext.Provider key={index} value={index}>
               {child}
             </SectionContext.Provider>
           ))
           .reduce<{
-            sectionChildren: any[];
+            sectionChildren: ReactElement[];
             sections: number[];
           }>(
             (acc, child, index) => {
-              acc.sectionChildren.push(child as any);
+              acc.sectionChildren.push(child);
               acc.sections.push(index as number);
 
               return acc;

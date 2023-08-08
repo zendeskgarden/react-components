@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, forwardRef, useMemo } from 'react';
+import React, { Children, forwardRef, isValidElement, useMemo } from 'react';
 import { IStepperProps } from '../../types';
 import { StyledStepper } from '../../styled';
 import { StepContext, StepperContext } from '../../utils';
@@ -28,20 +28,22 @@ const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
         <StyledStepper ref={ref} isHorizontal={isHorizontal} {...props}>
           {useMemo(
             () =>
-              Children.toArray(children).map((child, index) => (
-                <StepContext.Provider
-                  key={index}
-                  // eslint-disable-next-line react/jsx-no-constructed-context-values
-                  value={{
-                    currentStepIndex: index,
-                    isActive: stepperContext.activeIndex === index,
-                    isCompleted: stepperContext.activeIndex > index,
-                    isHorizontal: stepperContext.isHorizontal
-                  }}
-                >
-                  {child}
-                </StepContext.Provider>
-              )),
+              Children.toArray(children)
+                .filter(isValidElement)
+                .map((child, index) => (
+                  <StepContext.Provider
+                    key={index}
+                    // eslint-disable-next-line react/jsx-no-constructed-context-values
+                    value={{
+                      currentStepIndex: index,
+                      isActive: stepperContext.activeIndex === index,
+                      isCompleted: stepperContext.activeIndex > index,
+                      isHorizontal: stepperContext.isHorizontal
+                    }}
+                  >
+                    {child}
+                  </StepContext.Provider>
+                )),
             [children, stepperContext]
           )}
         </StyledStepper>
