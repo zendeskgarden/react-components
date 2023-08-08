@@ -27,7 +27,7 @@
     "version": "yarn build && git add -A"
   },
   "resolutions": {
-    "@netlify/zip-it-and-ship-it": "9.14.0",
+    "netlify-cli": "15.11.0",
     "node-fetch": "2.6.12",
     "string-width": "4.2.3",
     "strip-ansi": "6.0.1",
