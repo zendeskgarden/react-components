@@ -21,29 +21,10 @@
   resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.18.0.tgz#4f3cebe093dd436eeaff633809bf0f68f4f9d2ee"
   integrity sha512-KdVMdpTgDyK8FzdKO9SCpiibuy/kbv3pwgfXshTI6tEcQT1OOwj7BAksnzGC0rPz0UholwC+AgkqEl3EJX3M1A==
 
-<<<<<<< HEAD
-"@types/lodash.debounce@4.0.7":
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/@types/lodash.debounce/-/lodash.debounce-4.0.7.tgz#0285879defb7cdb156ae633cecd62d5680eded9f"
-  integrity sha512-X1T4wMZ+gT000M2/91SYj0d/7JfeNZ9PeeOldSNoE/lunLeQXKvkmIumI29IaKMotU/ln/McOIvgzZcQ/3TrSA==
-  dependencies:
-    "@types/lodash" "*"
-
-"@types/lodash@*":
-  version "4.14.176"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.176.tgz#641150fc1cda36fbfa329de603bbb175d7ee20c0"
-  integrity sha512-xZmuPTa3rlZoIbtDUyJKZQimJV3bxCmzMIO2c9Pz9afyDro6kr7R79GwcB6mRhuoPmV2p1Vb66WOJH7F886WKQ==
-
 "@zendeskgarden/container-accordion@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-accordion/-/container-accordion-3.0.0.tgz#171ac9e9d28a7e5c5e3ddf4ba7aea7b1246fbbae"
   integrity sha512-jAzsDOTd8LqHfD4+XOEdm8yNJJqnGs7mAEYa1cGi+ARVZ64kkZFxsFuI9/SIbLnYYWt/V15amcmMxsjKc5MDwQ==
-=======
-"@zendeskgarden/container-accordion@^2.0.0":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-accordion/-/container-accordion-2.0.8.tgz#eb7192dfcc2a5473bc63a3751e0d529285535d3f"
-  integrity sha512-6AK2AgCP2mLP5qzYMZcn6qF/FchzFFm3Npn32NeR2vwc+XmK16GbFejYdrvB0vuUpKzMUOPifwGawGGihlUwVA==
->>>>>>> origin/main
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-utilities" "^1.0.8"
