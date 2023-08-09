@@ -56,6 +56,10 @@ const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
 
 StepperComponent.displayName = 'Stepper';
 
+StepperComponent.defaultProps = {
+  activeIndex: DEFAULT_ACTIVE_INDEX
+};
+
 /**
  * @extends OlHTMLAttributes<HTMLOListElement>
  */
