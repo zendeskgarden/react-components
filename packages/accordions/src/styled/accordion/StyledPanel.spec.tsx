@@ -14,12 +14,20 @@ describe('StyledPanel', () => {
   it('renders default styling correctly', () => {
     const { container } = render(<StyledPanel />);
 
+    expect(container.firstChild).toHaveStyleRule('grid-template-rows', '0fr');
     expect(container.firstChild).toHaveStyleRule('padding', '8px 20px 32px');
     expect(container.firstChild).toHaveStyleRule(
-      'border-bottom',
-      `${DEFAULT_THEME.borders.sm} ${getColor('neutralHue', 300, DEFAULT_THEME)}`
+      'border-bottom-width',
+      `${DEFAULT_THEME.borderWidths.sm}`
     );
-    expect(container.firstChild).toHaveStyleRule('transition', 'padding 0.25s ease-in-out');
+    expect(container.firstChild).toHaveStyleRule(
+      'border-bottom-color',
+      `${getColor('neutralHue', 300, DEFAULT_THEME)}`
+    );
+    expect(container.firstChild).toHaveStyleRule(
+      'transition',
+      'padding 0.25s ease-in-out,grid-template-rows 0.25s ease-in-out'
+    );
   });
 
   it('renders isCompact styling correctly', () => {
@@ -32,21 +40,24 @@ describe('StyledPanel', () => {
     const { container } = render(<StyledPanel isExpanded />);
 
     expect(container.firstChild).toHaveStyleRule('padding', '8px 20px 32px');
+    expect(container.firstChild).toHaveStyleRule('grid-template-rows', '1fr');
   });
 
   it('renders isCompact & isExpanded styling correctly', () => {
     const { container } = render(<StyledPanel isCompact isExpanded />);
 
     expect(container.firstChild).toHaveStyleRule('padding', '8px 12px 16px');
+    expect(container.firstChild).toHaveStyleRule('grid-template-rows', '1fr');
   });
 
   it('renders isBare styling correctly', () => {
     const { container } = render(<StyledPanel isBare />);
 
     expect(container.firstChild).toHaveStyleRule(
-      'border-bottom',
-      `${DEFAULT_THEME.borders.sm} transparent`
+      'border-bottom-width',
+      `${DEFAULT_THEME.borderWidths.sm}`
     );
+    expect(container.firstChild).toHaveStyleRule('border-bottom-color', 'transparent');
   });
 
   it('renders transition styling correctly', () => {

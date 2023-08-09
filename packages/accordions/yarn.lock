@@ -21,6 +21,7 @@
   resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.18.0.tgz#4f3cebe093dd436eeaff633809bf0f68f4f9d2ee"
   integrity sha512-KdVMdpTgDyK8FzdKO9SCpiibuy/kbv3pwgfXshTI6tEcQT1OOwj7BAksnzGC0rPz0UholwC+AgkqEl3EJX3M1A==
 
+<<<<<<< HEAD
 "@types/lodash.debounce@4.0.7":
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/@types/lodash.debounce/-/lodash.debounce-4.0.7.tgz#0285879defb7cdb156ae633cecd62d5680eded9f"
@@ -37,6 +38,12 @@
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-accordion/-/container-accordion-3.0.0.tgz#171ac9e9d28a7e5c5e3ddf4ba7aea7b1246fbbae"
   integrity sha512-jAzsDOTd8LqHfD4+XOEdm8yNJJqnGs7mAEYa1cGi+ARVZ64kkZFxsFuI9/SIbLnYYWt/V15amcmMxsjKc5MDwQ==
+=======
+"@zendeskgarden/container-accordion@^2.0.0":
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-accordion/-/container-accordion-2.0.8.tgz#eb7192dfcc2a5473bc63a3751e0d529285535d3f"
+  integrity sha512-6AK2AgCP2mLP5qzYMZcn6qF/FchzFFm3Npn32NeR2vwc+XmK16GbFejYdrvB0vuUpKzMUOPifwGawGGihlUwVA==
+>>>>>>> origin/main
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-utilities" "^1.0.8"
@@ -77,11 +84,6 @@
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-lodash.debounce@^4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
-  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
-
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -119,11 +121,6 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
-react-merge-refs@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
-  integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
 regenerator-runtime@^0.14.0:
   version "0.14.0"
