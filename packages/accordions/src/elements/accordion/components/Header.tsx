@@ -12,7 +12,7 @@ import { useAccordionContext, useSectionContext, HeaderContext } from '../../../
 import { StyledHeader, StyledRotateIcon, COMPONENT_ID as buttonGardenId } from '../../../styled';
 
 const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { onClick, onFocus, onBlur, onMouseOver, onMouseOut, children, ...other } = props;
+  const { onClick, onFocus, onBlur, onMouseOver, onMouseOut, role, children, ...other } = props;
   const {
     level: ariaLevel,
     isCompact,
@@ -63,19 +63,20 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
   return (
     <HeaderContext.Provider value={value}>
       <StyledHeader
+        isCollapsible={isCollapsible}
+        isExpanded={isExpanded}
+        isFocused={isFocused}
         {...(getHeaderProps({
           ref,
           'aria-level': ariaLevel,
-          isFocused,
-          isExpanded,
-          isCollapsible,
+          role: role === undefined || role === null ? role : 'heading',
           onClick: composeEventHandlers(onClick, onTriggerClick),
           onFocus: composeEventHandlers(onFocus, onHeaderFocus),
           onBlur: composeEventHandlers(onBlur, () => setIsFocused(false)),
           onMouseOver: composeEventHandlers(onMouseOver, () => setIsHovered(true)),
           onMouseOut: composeEventHandlers(onMouseOut, () => setIsHovered(false)),
           ...other
-        } as Omit<HTMLAttributes<HTMLDivElement>, 'role' | 'aria-level'> & { 'aria-level': NonNullable<any> }) as any)}
+        }) as HTMLAttributes<HTMLDivElement>)}
       >
         {children}
         <StyledRotateIcon

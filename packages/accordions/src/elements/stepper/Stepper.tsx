@@ -13,14 +13,16 @@ import { Step } from './components/Step';
 import { Label } from './components/Label';
 import { Content } from './components/Content';
 
+const DEFAULT_ACTIVE_INDEX = 0;
+
 const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
-  ({ isHorizontal, activeIndex, children, ...props }, ref) => {
+  ({ activeIndex = DEFAULT_ACTIVE_INDEX, isHorizontal, children, ...props }, ref) => {
     const stepperContext = useMemo(
       () => ({
-        isHorizontal: isHorizontal || false,
-        activeIndex: activeIndex!
+        activeIndex,
+        isHorizontal: isHorizontal || false
       }),
-      [isHorizontal, activeIndex]
+      [activeIndex, isHorizontal]
     );
 
     return (
@@ -53,10 +55,6 @@ const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
 );
 
 StepperComponent.displayName = 'Stepper';
-
-StepperComponent.defaultProps = {
-  activeIndex: 0
-};
 
 /**
  * @extends OlHTMLAttributes<HTMLOListElement>
