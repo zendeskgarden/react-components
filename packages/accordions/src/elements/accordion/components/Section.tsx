@@ -5,22 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useRef, HTMLAttributes } from 'react';
-import { useAccordionContext, SectionContext } from '../../../utils';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledSection } from '../../../styled';
 
 const SectionComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    const { currentIndexRef } = useAccordionContext();
-    const sectionIndexRef = useRef(currentIndexRef.current++);
-    const sectionIndex = sectionIndexRef.current;
-
-    return (
-      <SectionContext.Provider value={sectionIndex}>
-        <StyledSection ref={ref} {...props} />
-      </SectionContext.Provider>
-    );
-  }
+  (props, ref) => <StyledSection ref={ref} {...props} />
 );
 
 SectionComponent.displayName = 'Accordion.Section';

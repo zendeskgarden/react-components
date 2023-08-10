@@ -8,13 +8,11 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 
 import { StyledContent, StyledInnerContent } from '../../../styled';
-import { useStepContext, useStepperContext } from '../../../utils';
+import { useStepContext } from '../../../utils';
 
 const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
-    const { activeIndex, isHorizontal } = useStepperContext();
-    const { currentStepIndex } = useStepContext();
-    const isActive = currentStepIndex === activeIndex;
+    const { isActive, isHorizontal } = useStepContext();
 
     return isHorizontal === false ? (
       <StyledContent ref={ref} isActive={isActive} {...props}>

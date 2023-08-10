@@ -5,33 +5,50 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, forwardRef, useMemo } from 'react';
+import React, { Children, forwardRef, isValidElement, useMemo } from 'react';
 import { IStepperProps } from '../../types';
 import { StyledStepper } from '../../styled';
-import { StepperContext } from '../../utils';
+import { StepContext, StepperContext } from '../../utils';
 import { Step } from './components/Step';
 import { Label } from './components/Label';
 import { Content } from './components/Content';
 
+const DEFAULT_ACTIVE_INDEX = 0;
+
 const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
-  ({ isHorizontal, activeIndex, ...props }, ref) => {
-    const currentIndexRef = useRef(0);
+  ({ activeIndex = DEFAULT_ACTIVE_INDEX, isHorizontal, children, ...props }, ref) => {
     const stepperContext = useMemo(
       () => ({
-        isHorizontal: isHorizontal || false,
-        activeIndex: activeIndex!,
-        currentIndexRef
+        activeIndex,
+        isHorizontal: isHorizontal || false
       }),
-      [isHorizontal, activeIndex, currentIndexRef]
+      [activeIndex, isHorizontal]
     );
-
-    useEffect(() => {
-      currentIndexRef.current = 0;
-    });
 
     return (
       <StepperContext.Provider value={stepperContext}>
-        <StyledStepper ref={ref} isHorizontal={isHorizontal} {...props} />
+        <StyledStepper ref={ref} isHorizontal={isHorizontal} {...props}>
+          {useMemo(
+            () =>
+              Children.toArray(children)
+                .filter(isValidElement)
+                .map((child, index) => (
+                  <StepContext.Provider
+                    key={index}
+                    // eslint-disable-next-line react/jsx-no-constructed-context-values
+                    value={{
+                      currentStepIndex: index,
+                      isActive: stepperContext.activeIndex === index,
+                      isCompleted: stepperContext.activeIndex > index,
+                      isHorizontal: stepperContext.isHorizontal
+                    }}
+                  >
+                    {child}
+                  </StepContext.Provider>
+                )),
+            [children, stepperContext]
+          )}
+        </StyledStepper>
       </StepperContext.Provider>
     );
   }
@@ -40,7 +57,7 @@ const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
 StepperComponent.displayName = 'Stepper';
 
 StepperComponent.defaultProps = {
-  activeIndex: 0
+  activeIndex: DEFAULT_ACTIVE_INDEX
 };
 
 /**
