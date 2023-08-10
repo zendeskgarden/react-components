@@ -8,7 +8,7 @@
  */
 
 import { Command } from 'commander';
-import { execa } from 'execa';
+import { execa, execaCommand } from 'execa';
 import fs from 'fs';
 import { githubBranch, githubRelease, lernaChangelog } from '@zendeskgarden/scripts';
 import ora from 'ora';
@@ -46,7 +46,7 @@ const changelog = async (tag, spinner) => {
 
   await write(fd, markdown);
   spinner.stop();
-  await execa.command(`${editor.stdout} ${path}`, { stdio: 'inherit' });
+  await execaCommand(`${editor.stdout} ${path}`, { stdio: 'inherit' });
   spinner.start();
 
   const readFile = util.promisify(fs.readFile);
