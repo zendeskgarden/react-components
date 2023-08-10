@@ -156,9 +156,7 @@ export const StyledAvatar = styled.figure.attrs({
   position: relative;
   align-items: center;
   justify-content: center;
-  transition:
-    box-shadow ${TRANSITION_DURATION}s ease-in-out,
-    color 0.1s ease-in-out;
+  transition: box-shadow ${TRANSITION_DURATION}s ease-in-out, color 0.1s ease-in-out;
   margin: 0; /* <figure> reset */
   vertical-align: middle;
   box-sizing: border-box;

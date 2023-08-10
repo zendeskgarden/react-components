@@ -75,7 +75,7 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   padding: 0; /* [1] */
   /* stylelint-disable-next-line property-no-unknown */
   padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-    math(`${props.theme.space.base} + ${props.theme.iconSizes.sm}`)};
+  math(`${props.theme.space.base} + ${props.theme.iconSizes.sm}`)};
   width: ${props => props.width};
   text-decoration: none; /* [2] */
   color: inherit;
