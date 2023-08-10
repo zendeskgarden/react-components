@@ -12,6 +12,30 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.7 (2023-08-10)
+
+#### :bug: Bug Fix
+* `accordions`, `avatars`, `buttons`, `chrome`, `dropdowns`, `forms`, `grid`, `tables`, `typography`
+  * [#1603](https://github.com/zendeskgarden/react-components/pull/1603) chore: revert to prettier v2 ([@jzempel](https://github.com/jzempel))
+* `accordions`
+  * [#1600](https://github.com/zendeskgarden/react-components/pull/1600) fix(accordions): enable dynamic height for panel ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `tabs`
+  * [#1601](https://github.com/zendeskgarden/react-components/pull/1601) fix(tabs): loosen `toTabs` type checking ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1605](https://github.com/zendeskgarden/react-components/pull/1605) fix(scripts): execa command ([@jzempel](https://github.com/jzempel))
+  * [#1592](https://github.com/zendeskgarden/react-components/pull/1592) chore(deps): update dependency @zendeskgarden/scripts to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1599](https://github.com/zendeskgarden/react-components/pull/1599) chore(deps): update mheap/github-action-required-labels action to v5 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`
+  * [#1582](https://github.com/zendeskgarden/react-components/pull/1582) refactor(accordions): uplift for react v18 ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `accordions`, `avatars`, `buttons`, `chrome`, `dropdowns`, `forms`, `grid`, `tables`, `typography`
+  * [#1597](https://github.com/zendeskgarden/react-components/pull/1597) chore(deps): update dependency prettier to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1590](https://github.com/zendeskgarden/react-components/pull/1590) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`, `notifications`
+  * [#1591](https://github.com/zendeskgarden/react-components/pull/1591) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.69.6 (2023-08-04)
 
 #### :bug: Bug Fix
