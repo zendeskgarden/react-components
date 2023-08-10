@@ -27,9 +27,7 @@ const animationStyles = () => {
   `;
 
   return css`
-    transition:
-      opacity 0.2s ease-out,
-      clip 0s linear 0.2s;
+    transition: opacity 0.2s ease-out, clip 0s linear 0.2s;
     opacity: 0;
     clip: rect(0, 0, 0, 0);
 
