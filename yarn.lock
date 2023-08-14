@@ -5844,10 +5844,10 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-34.0.0.tgz#153d3b19a8dd16b1210e7742566cebf8a02e5795"
   integrity sha512-Fm5k+8vF55zPSY4DlMmQrUkiOSxSzRJqTNlJX3VMyIrVlQxmiXhlJtjVtVJexNlOKWqOO6eiUET3XYb77DMeog==
 
-"@zendeskgarden/scripts@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/scripts/-/scripts-2.0.0.tgz#0de4cf4ef8ba59be8605e270d4c3c38607240f40"
-  integrity sha512-6gOVsaHXHlG9+fKVTFBKItc4kg5ZPpcOvAV5nWFjOdWAeycCkUah+N/ZJCBzZL9uabk5joGODW4u04UFRumLoA==
+"@zendeskgarden/scripts@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/scripts/-/scripts-2.0.1.tgz#27df3e96975fb92d6b702a09fffa64f28bb169b5"
+  integrity sha512-/rRYehjwCcPHwaYUXQQzgjV3Tmg2r+IomAtKe3WCzBHXJaMMktWnWzXqgcOlS20aOVt04FPXYo+teQ3hRM2Tfw==
   dependencies:
     "@octokit/request-error" "5.0.0"
     "@octokit/rest" "20.0.1"
