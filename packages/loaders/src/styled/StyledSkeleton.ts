@@ -27,14 +27,20 @@ const fadeInAnimation = keyframes`
 `;
 
 const skeletonAnimation = keyframes`
+  0% {
+    transform: translateX(-100%);
+  }
   100% {
-    left: 100%;
+    transform: translateX(100%);
   }
 `;
 
 const skeletonRtlAnimation = keyframes`
+  0% {
+    transform: translateX(100%);
+  }
   100% {
-    right: 100%;
+    transform: translateX(-100%)
   }
 `;
 
@@ -64,13 +70,11 @@ interface IStyledSkeletonProps {
 const retrieveSkeletonAnimation = ({ theme }: ThemeProps<DefaultTheme>) => {
   if (theme.rtl) {
     return css`
-      right: -1800px;
       animation: ${skeletonRtlAnimation} 1.5s ease-in-out 300ms infinite;
     `;
   }
 
   return css`
-    left: -1800px;
     animation: ${skeletonAnimation} 1.5s ease-in-out 300ms infinite;
   `;
 };
