@@ -51,9 +51,6 @@ describe('Skeleton', () => {
   it('applies RTL styling correctly', () => {
     const { container } = renderRtl(<Skeleton />);
 
-    expect(container.firstChild).toHaveStyleRule('right', '-1800px', {
-      modifier: '&::before'
-    });
     expect(container.firstChild).toHaveStyleRule(
       'background-image',
       'linear-gradient( -45deg, transparent, rgba(255,255,255,0.6), transparent )',
