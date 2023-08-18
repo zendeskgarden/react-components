@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.8 (2023-08-17)
+
+#### :bug: Bug Fix
+* `loaders`
+  * [#1610](https://github.com/zendeskgarden/react-components/pull/1610) fix(loaders): optimize performance of skeleton loader ([@geotrev](https://github.com/geotrev))
+
 ## v8.69.7 (2023-08-10)
 
 #### :bug: Bug Fix
