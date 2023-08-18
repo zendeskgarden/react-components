@@ -12,6 +12,7 @@ import { sizeStyles } from './StyledInput';
 const COMPONENT_ID = 'dropdowns.combobox.value';
 
 interface IStyledValueProps extends ThemeProps<DefaultTheme> {
+  isAutocomplete?: boolean;
   isBare?: boolean;
   isCompact?: boolean;
   isDisabled?: boolean;
@@ -39,7 +40,7 @@ export const StyledValue = styled.div.attrs({
       return 'default';
     }
 
-    return props.isEditable ? 'text' : 'pointer';
+    return props.isEditable && !props.isAutocomplete ? 'text' : 'pointer';
   }};
   overflow: hidden;
   text-overflow: ellipsis;
@@ -49,6 +50,10 @@ export const StyledValue = styled.div.attrs({
   ${sizeStyles};
 
   ${colorStyles};
+
+  &[hidden] {
+    display: none;
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
