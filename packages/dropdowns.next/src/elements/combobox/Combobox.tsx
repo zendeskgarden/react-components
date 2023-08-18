@@ -81,6 +81,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     ref
   ) => {
     const { hasHint, hasMessage, labelProps, setLabelProps } = useFieldContext();
+    const [isInputHidden, setIsInputHidden] = useState(true);
     const [isLabelHovered, setIsLabelHovered] = useState(false);
     const [isTagGroupExpanded, setIsTagGroupExpanded] = useState(false);
     const [optionTagProps, setOptionTagProps] = useState<Record<string, IOptionProps['tagProps']>>(
@@ -96,7 +97,6 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
 
       return retVal;
     }, [children, isMultiselectable]);
-    const hasFocus = useRef(false);
     const triggerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const listboxRef = useRef<HTMLUListElement>(null);
@@ -177,7 +177,9 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       validation,
       ...(getTriggerProps({
         onFocus: () => {
-          hasFocus.current = true;
+          if (isEditable) {
+            setIsInputHidden(false);
+          }
 
           if (isMultiselectable) {
             setIsTagGroupExpanded(true);
@@ -185,7 +187,9 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
         },
         onBlur: event => {
           if (event.relatedTarget === null || !triggerRef.current?.contains(event.relatedTarget)) {
-            hasFocus.current = false;
+            if (isEditable) {
+              setIsInputHidden(true);
+            }
 
             if (isMultiselectable) {
               setIsTagGroupExpanded(false);
@@ -196,7 +200,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     };
     const inputProps = {
       'aria-invalid': validation === 'error' || validation === 'warning',
-      hidden: !(isEditable && hasFocus.current),
+      hidden: isInputHidden,
       isBare,
       isCompact,
       isEditable,
@@ -253,12 +257,6 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                         disabled={isDisabled}
                         hidden={isTagGroupExpanded}
                         isCompact={isCompact}
-                        onClick={event => {
-                          if (isEditable) {
-                            event.stopPropagation();
-                            inputRef.current?.focus();
-                          }
-                        }}
                         tabIndex={-1}
                         type="button"
                       >
@@ -273,26 +271,18 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                     )}
                   </TagGroup>
                 )}
-                {!(isEditable && hasFocus.current) && (
-                  <StyledValue
-                    isBare={isBare}
-                    isCompact={isCompact}
-                    isDisabled={isDisabled}
-                    isEditable={isEditable}
-                    isMultiselectable={isMultiselectable}
-                    isPlaceholder={!(inputValue || renderValue)}
-                    onClick={event => {
-                      if (isEditable) {
-                        event.stopPropagation();
-                        inputRef.current?.focus();
-                      }
-                    }}
-                  >
-                    {renderValue
-                      ? renderValue({ selection, inputValue })
-                      : inputValue || placeholder}
-                  </StyledValue>
-                )}
+                <StyledValue
+                  hidden={!isInputHidden}
+                  isAutocomplete={isAutocomplete}
+                  isBare={isBare}
+                  isCompact={isCompact}
+                  isDisabled={isDisabled}
+                  isEditable={isEditable}
+                  isMultiselectable={isMultiselectable}
+                  isPlaceholder={!(inputValue || renderValue)}
+                >
+                  {renderValue ? renderValue({ selection, inputValue }) : inputValue || placeholder}
+                </StyledValue>
                 <StyledInput {...inputProps} />
               </StyledInputGroup>
               {(hasChevron || endIcon) && (

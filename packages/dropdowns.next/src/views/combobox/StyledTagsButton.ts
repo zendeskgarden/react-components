@@ -36,7 +36,9 @@ export const StyledTagsButton = styled(StyledValue as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTagsButtonProps>`
+  display: inline-flex;
   flex: 0 1 auto; /* [1] */
+  align-items: center;
   border: none; /* [2] */
   background-color: transparent; /* [2] */
   cursor: pointer;
