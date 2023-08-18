@@ -163,15 +163,22 @@ describe('Combobox', () => {
     expect(input).toHaveAttribute('type', 'search');
   });
 
-  it('renders `isAutocomplete` as expected', () => {
+  it('renders `isAutocomplete` as expected', async () => {
     const { getByTestId, rerender } = render(<TestCombobox />);
+    const trigger = getByTestId('combobox').firstChild as HTMLElement;
     const input = getByTestId('input');
 
+    await user.click(trigger);
+
     expect(input).not.toHaveAttribute('aria-autocomplete');
+    expect(input).toHaveAttribute('aria-expanded', 'false');
 
     rerender(<TestCombobox isAutocomplete />);
 
+    await user.click(trigger);
+
     expect(input).toHaveAttribute('aria-autocomplete', 'list');
+    expect(input).toHaveAttribute('aria-expanded', 'true');
   });
 
   it('renders `isBare` styling as expected', () => {
