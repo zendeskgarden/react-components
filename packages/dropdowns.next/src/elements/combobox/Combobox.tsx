@@ -257,12 +257,6 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                         disabled={isDisabled}
                         hidden={isTagGroupExpanded}
                         isCompact={isCompact}
-                        onClick={event => {
-                          if (isEditable) {
-                            event.stopPropagation();
-                            inputRef.current?.focus();
-                          }
-                        }}
                         tabIndex={-1}
                         type="button"
                       >
@@ -286,17 +280,6 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                   isEditable={isEditable}
                   isMultiselectable={isMultiselectable}
                   isPlaceholder={!(inputValue || renderValue)}
-                  onClick={event => {
-                    if (isEditable) {
-                      event.stopPropagation();
-
-                      if (isAutocomplete) {
-                        inputRef.current?.click();
-                      } else {
-                        inputRef.current?.focus();
-                      }
-                    }
-                  }}
                 >
                   {renderValue ? renderValue({ selection, inputValue }) : inputValue || placeholder}
                 </StyledValue>
