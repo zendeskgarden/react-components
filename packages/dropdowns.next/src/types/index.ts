@@ -19,8 +19,15 @@ import {
   IUseComboboxProps,
   IUseComboboxReturnValue
 } from '@zendeskgarden/container-combobox';
+import {
+  IUseMenuProps,
+  ISelectedItem as IUseMenuSelectedItem
+} from '@zendeskgarden/container-menu';
 import { VALIDATION } from '@zendeskgarden/react-forms';
 import { ITagProps as IBaseTagProps } from '@zendeskgarden/react-tags';
+import { IButtonProps } from '@zendeskgarden/react-buttons';
+
+export type ISelectedItem = IUseMenuSelectedItem;
 
 export type ISelectedOption = Extract<IUseComboboxReturnValue['selection'], IOption>;
 
@@ -139,24 +146,6 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
   validation?: Validation;
 }
 
-export interface IItemProps extends LiHTMLAttributes<HTMLLIElement> {
-  /** Accepts an icon to display */
-  icon?: ReactElement;
-  /** Indicates that the item is not interactive */
-  isDisabled?: boolean;
-  /** Determines the item type */
-  type?: OptionType;
-}
-
-export interface IItemGroupProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'content'> {
-  /** Renders content for the item group (defaults to `label` text) */
-  content?: ReactNode;
-  /** Accepts an icon to display */
-  icon?: ReactElement;
-  /** Sets the text label of the item group */
-  label?: string;
-}
-
 export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /** Applies regular (non-bold) font weight */
   isRegular?: boolean;
@@ -186,21 +175,6 @@ export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
   validation?: Validation;
   /** Defines the `aria-label` for the validation icon */
   validationLabel?: string;
-}
-
-export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
-  /** Attaches an arrow that points towards the menu trigger */
-  hasArrow?: boolean;
-  /** Applies compact styling */
-  isCompact?: boolean;
-  /** Sets the `max-height` of the menu */
-  maxHeight?: IListboxProps['maxHeight'];
-  /** Sets the `min-height` of the menu */
-  minHeight?: IListboxProps['minHeight'];
-  /** Adjusts the placement of the menu */
-  placement?: GardenPlacement;
-  /** Sets the `z-index` of the menu */
-  zIndex?: IListboxProps['zIndex'];
 }
 
 export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'value'> {
@@ -251,4 +225,101 @@ export interface ITagGroupProps {
   optionTagProps: Record<string, IOptionProps['tagProps']>;
   /** Provides the current selection */
   selection: IOption[];
+}
+
+export interface IMenuListProps extends HTMLAttributes<HTMLUListElement> {
+  /** Appends the menu to the element provided */
+  appendToNode?: Element | DocumentFragment;
+  /** Attaches an arrow that points towards the menu trigger */
+  hasArrow?: boolean;
+  /** Applies compact styling */
+  isCompact?: boolean;
+  /** Determines menu expansion */
+  isExpanded?: boolean;
+  /** Provides a list of acceptable fallback placements */
+  fallbackPlacements?: GardenPlacement[];
+  /** Sets the `max-height` of the menu */
+  maxHeight?: IListboxProps['maxHeight'];
+  /** Sets the `min-height` of the menu */
+  minHeight?: IListboxProps['minHeight'];
+  /** Adjusts the placement of the menu */
+  placement?: GardenPlacement;
+  /** Provides ref access to the associated trigger element */
+  triggerRef: RefObject<HTMLElement>;
+  /** Sets the `z-index` of the menu */
+  zIndex?: IListboxProps['zIndex'];
+}
+
+export interface IMenuButtonProps extends IButtonProps {
+  ref: RefObject<HTMLButtonElement>;
+}
+
+export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
+  /** Appends the menu to the element provided */
+  appendToNode?: IMenuListProps['appendToNode'];
+  /** Sets the menu button label or renders a provided trigger element */
+  button: string | ((props: IMenuButtonProps) => ReactNode);
+  /** Determines default expansion in an uncontrolled menu */
+  defaultExpanded?: IUseMenuProps['defaultExpanded'];
+  /** Determines focused value on menu initialization */
+  defaultFocusedValue?: IUseMenuProps['defaultFocusedValue'];
+  /** Provides a list of acceptable fallback placements */
+  fallbackPlacements?: IMenuListProps['fallbackPlacements'];
+  /** Sets the focused value in a controlled menu */
+  focusedValue?: IUseMenuProps['focusedValue'];
+  /** Attaches an arrow that points towards the menu trigger */
+  hasArrow?: IMenuListProps['hasArrow'];
+  /** Applies compact styling */
+  isCompact?: IMenuListProps['isCompact'];
+  /** Sets the expansion in a controlled menu */
+  isExpanded?: IUseMenuProps['isExpanded'];
+  /** Sets the `max-height` of the menu */
+  maxHeight?: IListboxProps['maxHeight'];
+  /** Sets the `min-height` of the menu */
+  minHeight?: IListboxProps['minHeight'];
+  /**
+   * Handles menu state changes
+   *
+   * @param {string} changes.type The event type that triggered the change
+   * @param {boolean} [changes.isExpanded] The updated menu expansion
+   * @param {ISelectedItem[]} [changes.selectedItems] The updated selection values
+   * @param {string | null} [changes.focusedValue] The updated focused value
+   */
+  onChange?: IUseMenuProps['onChange'];
+  /** Sets the selected items in a controlled menu */
+  selectedItems?: IUseMenuProps['selectedItems'];
+  /** Adjusts the placement of the menu */
+  placement?: GardenPlacement;
+  /** Sets the `z-index` of the menu */
+  zIndex?: IListboxProps['zIndex'];
+}
+
+export interface IItemProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'value'> {
+  /** Sets the item as an anchor, if given */
+  href?: string;
+  /** Accepts an icon to display */
+  icon?: ReactElement;
+  /** Indicates that the item is not interactive */
+  isDisabled?: boolean;
+  /** Determines the initial selection state for the item */
+  isSelected?: boolean;
+  /** Sets the text label of the item (defaults to `value`) */
+  label?: string;
+  /** Associates the item in a radio item group */
+  name?: string;
+  /** Determines the item type */
+  type?: OptionType;
+  /** Sets the unique value that is returned upon selection */
+  value: string;
+}
+
+export interface IItemGroupProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'content'> {
+  /** Renders content for the item group (defaults to `legend` text) */
+  content?: ReactNode;
+  /** Accepts an icon to display */
+  icon?: ReactElement;
+  /** Sets the text label of the item group */
+  legend?: string;
+  /** Configures the selection type for items within the group */
+  type?: ISelectedItem['type'];
 }

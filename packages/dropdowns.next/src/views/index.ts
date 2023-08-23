@@ -27,6 +27,8 @@ export * from './combobox/StyledTag';
 export * from './combobox/StyledTagsButton';
 export * from './combobox/StyledTrigger';
 export * from './combobox/StyledValue';
+
+export * from './menu/StyledMenu';
 export * from './menu/StyledFloatingMenu';
 export * from './menu/StyledItem';
 export * from './menu/StyledItemContent';
@@ -34,5 +36,5 @@ export * from './menu/StyledItemGroup';
 export * from './menu/StyledItemIcon';
 export * from './menu/StyledItemMeta';
 export * from './menu/StyledItemTypeIcon';
-export * from './menu/StyledMenu';
-export * from './menu/StyledMenuSeparator';
+export * from './menu/StyledButton';
+export * from './menu/StyledSeparator';

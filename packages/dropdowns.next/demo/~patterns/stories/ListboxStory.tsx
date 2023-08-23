@@ -16,7 +16,7 @@ interface IArgs {
   listboxAppendToNode: boolean;
 }
 
-const StyledContainer = styled.div`
+export const StyledContainer = styled.div`
   position: relative;
   border: ${p => p.theme.borders.sm};
   border-radius: ${p => p.theme.borderRadii.md};

@@ -5,7 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IOptGroupProps, IOptionProps } from '@zendeskgarden/react-dropdowns.next';
+import {
+  IItemProps,
+  IItemGroupProps,
+  IOptGroupProps,
+  IOptionProps
+} from '@zendeskgarden/react-dropdowns.next';
 
 export interface IOption extends Omit<IOptionProps, 'icon'> {
   icon?: boolean;
@@ -17,4 +22,17 @@ export interface IOptGroup extends Omit<IOptGroupProps, 'icon'> {
   options: IOption[];
 }
 
+export interface IItem extends Omit<IItemProps, 'icon'> {
+  icon?: boolean;
+  meta?: string;
+  isSeparator?: boolean;
+}
+
+export interface IItemGroup extends Omit<IItemGroupProps, 'icon'> {
+  icon?: boolean;
+  items: IItem[];
+}
+
 export type Options = (IOption | IOptGroup)[];
+
+export type Items = (IItem | IItemGroup)[];

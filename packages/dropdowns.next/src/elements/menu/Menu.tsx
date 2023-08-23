@@ -5,42 +5,103 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useContext, useMemo } from 'react';
+import React, { RefObject, forwardRef, useContext, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { IMenuProps, PLACEMENT } from '../../types';
+import mergeRefs from 'react-merge-refs';
+import { IMenuProps, IMenuButtonProps, PLACEMENT } from '../../types';
 import { MenuContext } from '../../context/useMenuContext';
-import { StyledFloatingMenu, StyledMenu } from '../../views';
-import { toArrowPosition, toFloatingPlacement, toMenuPosition } from './utils';
+import { MenuList } from './MenuList';
+import { StyledButton } from '../../views';
+import { useMenu } from '@zendeskgarden/container-menu';
+import { toItems } from './utils';
+import { ThemeContext } from 'styled-components';
+import { DEFAULT_THEME, useWindow } from '@zendeskgarden/react-theming';
 
 /**
  * @extends HTMLAttributes<HTMLUListElement>
  */
 export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
-  ({ children, hasArrow, isCompact, maxHeight, minHeight, placement, zIndex, ...props }, ref) => {
-    const contextValue = useMemo(() => ({ isCompact }), [isCompact]);
+  (
+    {
+      button,
+      children,
+      isCompact,
+      focusedValue: _focusedValue,
+      defaultFocusedValue,
+      defaultExpanded,
+      isExpanded: _isExpanded,
+      selectedItems,
+      onChange,
+      ...props
+    },
+    ref
+  ) => {
+    const triggerRef = useRef(null);
+    const menuRef = useRef(null);
+    const items = toItems(children);
+    /* istanbul ignore next */
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
-    const floatingPlacement = toFloatingPlacement(theme.rtl, placement);
+    const environment = useWindow(theme);
+
+    const {
+      isExpanded,
+      focusedValue,
+      getTriggerProps,
+      getMenuProps,
+      getItemProps,
+      getItemGroupProps,
+      getSeparatorProps
+    } = useMenu({
+      rtl: theme.rtl,
+      environment,
+      defaultFocusedValue,
+      focusedValue: _focusedValue,
+      defaultExpanded,
+      isExpanded: _isExpanded,
+      selectedItems,
+      items,
+      menuRef,
+      triggerRef,
+      onChange
+    });
+
+    const triggerProps: IMenuButtonProps = {
+      ...getTriggerProps({ type: 'button' }),
+      ...(isCompact && { size: 'small' }),
+      ref: mergeRefs([triggerRef, ref]) as unknown as RefObject<HTMLButtonElement>
+    };
+
+    const trigger =
+      typeof button === 'function' ? (
+        button(triggerProps)
+      ) : (
+        <StyledButton {...triggerProps}>{button}</StyledButton>
+      );
+
+    const contextValue = useMemo(
+      () => ({
+        isCompact,
+        focusedValue,
+        getItemProps,
+        getItemGroupProps,
+        getSeparatorProps
+      }),
+      [isCompact, focusedValue, getItemProps, getItemGroupProps, getSeparatorProps]
+    );
 
     return (
       <MenuContext.Provider value={contextValue}>
-        <StyledFloatingMenu
-          data-garden-animate="true"
-          position={toMenuPosition(floatingPlacement)}
-          zIndex={zIndex}
+        {trigger}
+        <MenuList
+          {...getMenuProps()}
+          ref={mergeRefs([menuRef, ref])}
+          isCompact={isCompact}
+          isExpanded={isExpanded}
+          triggerRef={triggerRef}
+          {...props}
         >
-          <StyledMenu
-            arrowPosition={hasArrow ? toArrowPosition(floatingPlacement) : undefined}
-            isCompact={isCompact}
-            minHeight={minHeight}
-            maxHeight={maxHeight}
-            {...props}
-            ref={ref}
-          >
-            {children}
-          </StyledMenu>
-        </StyledFloatingMenu>
+          {children}
+        </MenuList>
       </MenuContext.Provider>
     );
   }
@@ -49,10 +110,19 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
 Menu.displayName = 'Menu';
 
 Menu.propTypes = {
+  appendToNode: PropTypes.any,
+  button: PropTypes.any.isRequired,
+  defaultExpanded: PropTypes.bool,
+  defaultFocusedValue: PropTypes.string,
+  fallbackPlacements: PropTypes.arrayOf(PropTypes.any),
+  focusedValue: PropTypes.string,
   hasArrow: PropTypes.bool,
   isCompact: PropTypes.bool,
+  isExpanded: PropTypes.bool,
   maxHeight: PropTypes.string,
   minHeight: PropTypes.string,
+  onChange: PropTypes.func,
+  selectedItems: PropTypes.arrayOf(PropTypes.any),
   placement: PropTypes.oneOf(PLACEMENT),
   zIndex: PropTypes.number
 };

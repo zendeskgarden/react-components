@@ -35,7 +35,7 @@ export const StyledMenu = styled(StyledListbox).attrs({
     arrowStyles(props.arrowPosition, {
       size: `${props.theme.space.base * 2}px`,
       inset: '2px',
-      animationModifier: '[data-garden-animate="true"]'
+      animationModifier: '[data-garden-animate-arrow="true"]'
     })};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
