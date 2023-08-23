@@ -26,7 +26,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
       matrix: colors,
       selection: true,
       wrap: true,
-      idPrefix: useId(),
+      idPrefix: useId(undefined),
       ...props
     });
 

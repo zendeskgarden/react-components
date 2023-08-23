@@ -50,12 +50,12 @@
     "@zendeskgarden/container-utilities" "^1.0.8"
 
 "@zendeskgarden/container-splitter@^2.0.3":
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-splitter/-/container-splitter-2.0.10.tgz#06efdfa4a09ed7b26f5beccab63cc9b9345303d4"
-  integrity sha512-RUF6a+PgI0pXoUD/j2rqRCAtMp3VnKs2d+AYauTpmRBtChZch109KRDKT9sCeN5S9pligD5j6a3ykEKfoTZfCw==
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-splitter/-/container-splitter-2.0.11.tgz#39cc06d9d40914c5ac6bdbcddc40ff87ce0585b0"
+  integrity sha512-nfZT41ofoGfVfX4X/U7fnmj1WsK+83/tqpzkmYtWAWrmGsiafwl6VEbO3/+q/r0A+G3YNSHG4r6cLWokNaRLMg==
   dependencies:
     "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-utilities" "^1.0.8"
+    "@zendeskgarden/container-utilities" "^1.0.9"
 
 "@zendeskgarden/container-tooltip@^1.0.0":
   version "1.0.6"
@@ -66,18 +66,18 @@
     "@zendeskgarden/container-utilities" "^1.0.6"
     react-uid "^2.2.0"
 
-"@zendeskgarden/container-utilities@^1.0.0", "@zendeskgarden/container-utilities@^1.0.6", "@zendeskgarden/container-utilities@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-1.0.8.tgz#c2e59d355080cfcb2b9a516c53ddda604e9b34fc"
-  integrity sha512-7ERJtrnaVUD+qOnp8XTlofuV67+j5XleVRXJy1QmVi/Yy/usqjcCFpMosZnYVMgDHmJgvHomUyqTNvKdgqwfrg==
+"@zendeskgarden/container-utilities@^1.0.0", "@zendeskgarden/container-utilities@^1.0.6", "@zendeskgarden/container-utilities@^1.0.8", "@zendeskgarden/container-utilities@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-1.0.9.tgz#8668c156b074fe0cf0151724f93409b11bb5bbb8"
+  integrity sha512-m42GBwvH1vSXOgmIBy55k1Ka95e/uViMNMf+0+qzv5IP7uH8hBcLhyUWiXfmigVdN+yW0IgucszkGQfceKgreg==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.18.0"
 
-"@zendeskgarden/react-buttons@^8.69.6":
-  version "8.69.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.69.6.tgz#16d456515a1f8c3c813b7de36fcb6bb8d486eaed"
-  integrity sha512-dwFx8BJv/exnoFmme392Eooa1bfm+/uB0lwCoJtuphU/Imi2ZzZKhOTCc+Wr9WdWJEYrS7cwoORrKzVrS1eQ3Q==
+"@zendeskgarden/react-buttons@^8.69.8":
+  version "8.69.8"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.69.8.tgz#0bb64037844925b394e7d7b491687be9a4d2427c"
+  integrity sha512-xJnR983ZvUzP39FnkWCZueu86Ak9++itP2lAVCmUTc02YZlTyStIBlkpOgL5EMU9u2+qg5CS1Q3zpbkPSyIFPQ==
   dependencies:
     "@zendeskgarden/container-selection" "^3.0.0"
     "@zendeskgarden/container-utilities" "^1.0.6"
@@ -85,10 +85,10 @@
     prop-types "^15.5.7"
     react-merge-refs "^1.1.0"
 
-"@zendeskgarden/react-theming@^8.69.6":
-  version "8.69.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.69.6.tgz#b1a2af2eb42645d1db4972f5b0cacd0a5a1ed0bb"
-  integrity sha512-ltWaRPRts7ynUrYxJapEoBjK3zUAw57z/vH0GuxG7k+ngczj4Vt2HvWIrdMACWqd9KTdQ11lgeJjXGsTxrLD4Q==
+"@zendeskgarden/react-theming@^8.69.8":
+  version "8.69.8"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.69.8.tgz#c98a9a45cba72bb7322e266ca505bd5585b60425"
+  integrity sha512-TAMpl98UtcdYIp4WFCwf3+CqZSUvfeyagO9kAYoPEks06ypu62+lbiKSVaI565loiK6KpvBQwcpysHwbeXrH4g==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^1.0.0"
     "@zendeskgarden/container-utilities" "^1.0.0"
@@ -96,10 +96,10 @@
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/react-tooltips@^8.69.6":
-  version "8.69.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tooltips/-/react-tooltips-8.69.6.tgz#4f87a27ac8730135685c8664a45ecdabcb228b0c"
-  integrity sha512-tksenWVPap1tslDzAtl6FE9vlvIq+9cWQVlF4mf16LuaHWDms+ox9MmmQ1qXidgMtgS31cO3kocm0Y4mUNJpVQ==
+"@zendeskgarden/react-tooltips@^8.69.8":
+  version "8.69.8"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tooltips/-/react-tooltips-8.69.8.tgz#757d877efc61880ebbb375eb5be175aa691aa62c"
+  integrity sha512-VPvoDjpdIPFg38zSJ5KRhEqcym8hy4+7bnl0/jTyNUveHlY4BSFe+8y+X8zqTTeSWGh9sw2NHtOE8P+4MUY0sQ==
   dependencies:
     "@zendeskgarden/container-tooltip" "^1.0.0"
     "@zendeskgarden/container-utilities" "^1.0.0"
