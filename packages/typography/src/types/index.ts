@@ -76,6 +76,11 @@ export interface ITypescaleMonospaceProps extends ITypescaleProps {
   isMonospace?: boolean;
 }
 
+export interface IAccessibleTextProps extends HTMLAttributes<HTMLSpanElement> {
+  /** Updates the element's HTML tag */
+  tag?: any;
+}
+
 export interface IBlockquoteProps extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
   /** Controls the spacing between sibling blockquotes and paragraphs */
   size?: Size;
@@ -141,9 +146,4 @@ export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
    * when possible. Accepts all hex values.
    */
   hue?: string;
-}
-
-export interface IHiddenTextProps extends HTMLAttributes<HTMLSpanElement> {
-  /** Updates the element's HTML tag */
-  tag?: any;
 }

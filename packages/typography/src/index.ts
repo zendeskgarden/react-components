@@ -11,6 +11,7 @@ export { LG } from './elements/LG';
 export { XL } from './elements/XL';
 export { XXL } from './elements/XXL';
 export { XXXL } from './elements/XXXL';
+export { AccessibleText } from './elements/AccessibleText';
 export { Blockquote } from './elements/Blockquote';
 export { Code } from './elements/Code';
 export { CodeBlock } from './elements/CodeBlock';
@@ -19,7 +20,6 @@ export { Paragraph } from './elements/Paragraph';
 export { OrderedList } from './elements/lists/OrderedList';
 export { UnorderedList } from './elements/lists/UnorderedList';
 export { Span } from './elements/span/Span';
-export { HiddenText } from './elements/HiddenText';
 
 export type {
   ITypescaleMonospaceProps as ISMProps,
@@ -28,6 +28,7 @@ export type {
   ITypescaleProps as IXLProps,
   ITypescaleProps as IXXLProps,
   ITypescaleProps as IXXXLProps,
+  IAccessibleTextProps,
   IBlockquoteProps,
   ICodeProps,
   ICodeBlockProps,
@@ -35,6 +36,5 @@ export type {
   IParagraphProps,
   IOrderedListProps,
   IUnorderedListProps,
-  ISpanProps,
-  IHiddenTextProps
+  ISpanProps
 } from './types';

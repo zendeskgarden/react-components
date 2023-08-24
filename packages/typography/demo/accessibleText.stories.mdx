@@ -1,9 +1,9 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import { HiddenText } from '@zendeskgarden/react-typography';
-import { HiddenTextStory } from './stories/HiddenTextStory';
+import { AccessibleText } from '@zendeskgarden/react-typography';
+import { AccessibleTextStory } from './stories/AccessibleTextStory';
 import README from '../README.md';
 
-<Meta title="Packages/Typography/HiddenText" component={HiddenText} />
+<Meta title="Packages/Typography/AccessibleText" component={AccessibleText} />
 
 # API
 
@@ -13,13 +13,13 @@ import README from '../README.md';
 
 <Canvas>
   <Story
-    name="HiddenText"
+    name="AccessibleText"
     args={{ children: 'Text' }}
     argTypes={{
       tag: { control: 'text' }
     }}
   >
-    {args => <HiddenTextStory {...args} />}
+    {args => <AccessibleTextStory {...args} />}
   </Story>
 </Canvas>
 

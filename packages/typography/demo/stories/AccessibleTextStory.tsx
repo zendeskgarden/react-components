@@ -7,8 +7,8 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { IHiddenTextProps, HiddenText } from '@zendeskgarden/react-typography';
+import { IAccessibleTextProps, AccessibleText } from '@zendeskgarden/react-typography';
 
-export const HiddenTextStory: Story<IHiddenTextProps> = ({ ...args }) => (
-  <HiddenText {...args}>{args.children}</HiddenText>
+export const AccessibleTextStory: Story<IAccessibleTextProps> = ({ ...args }) => (
+  <AccessibleText {...args}>{args.children}</AccessibleText>
 );
