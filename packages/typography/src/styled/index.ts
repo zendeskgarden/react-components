@@ -13,6 +13,7 @@ export * from './StyledCodeBlockLine';
 export * from './StyledCodeBlockToken';
 export * from './StyledEllipsis';
 export * from './StyledFont';
+export * from './StyledHiddenText';
 export * from './StyledIcon';
 export * from './StyledList';
 export * from './StyledListItem';

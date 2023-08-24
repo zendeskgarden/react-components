@@ -142,3 +142,8 @@ export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
    */
   hue?: string;
 }
+
+export interface IHiddenTextProps extends HTMLAttributes<HTMLSpanElement> {
+  /** Updates the element's HTML tag */
+  tag?: any;
+}
