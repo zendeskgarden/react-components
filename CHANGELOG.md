@@ -12,6 +12,17 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.9 (2023-08-24)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1609](https://github.com/zendeskgarden/react-components/pull/1609) fix(combobox): enhance listbox expand/collapse on input mouse click ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `accordions`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`
+  * [#1613](https://github.com/zendeskgarden/react-components/pull/1613) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1611](https://github.com/zendeskgarden/react-components/pull/1611) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.69.8 (2023-08-17)
 
 #### :bug: Bug Fix
