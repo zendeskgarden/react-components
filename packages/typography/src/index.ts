@@ -19,6 +19,7 @@ export { Paragraph } from './elements/Paragraph';
 export { OrderedList } from './elements/lists/OrderedList';
 export { UnorderedList } from './elements/lists/UnorderedList';
 export { Span } from './elements/span/Span';
+export { HiddenText } from './elements/HiddenText';
 
 export type {
   ITypescaleMonospaceProps as ISMProps,
@@ -34,5 +35,6 @@ export type {
   IParagraphProps,
   IOrderedListProps,
   IUnorderedListProps,
-  ISpanProps
+  ISpanProps,
+  IHiddenTextProps
 } from './types';
