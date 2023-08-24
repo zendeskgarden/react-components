@@ -3,9 +3,9 @@
 
 
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.17.8", "@babel/runtime@^7.8.4":
-  version "7.22.10"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.10.tgz#ae3e9631fd947cb7e3610d3e9d8fef5f76696682"
-  integrity sha512-21t/fkKLMZI4pqP2wlmsQAWnYW1PDyKyyUV4vCi+B25ydmdaYTKXPwCj0BzSUnZf4seIiYvSA3jcZ3gdsMFkLQ==
+  version "7.22.11"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.11.tgz#7a9ba3bbe406ad6f9e8dd4da2ece453eb23a77a4"
+  integrity sha512-ee7jVNlWN09+KftVOu9n7S8gQzD/Z6hN/I8VBRXW4P1+Xe7kJGXMwu8vds4aGIMHZnNbdpSWCfZZtinytpcAvA==
   dependencies:
     regenerator-runtime "^0.14.0"
 
@@ -50,12 +50,12 @@
     "@zendeskgarden/container-utilities" "^1.0.8"
 
 "@zendeskgarden/container-splitter@^2.0.3":
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-splitter/-/container-splitter-2.0.11.tgz#39cc06d9d40914c5ac6bdbcddc40ff87ce0585b0"
-  integrity sha512-nfZT41ofoGfVfX4X/U7fnmj1WsK+83/tqpzkmYtWAWrmGsiafwl6VEbO3/+q/r0A+G3YNSHG4r6cLWokNaRLMg==
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-splitter/-/container-splitter-2.0.12.tgz#cea09ed5ba1b1504ac3fc62e3e6d5e2e412b5d45"
+  integrity sha512-K7Xw7yD6XqzKYi6gBKCDsCbvGYikB+f3JLO1iKmXfjvv9KvuF9R4q8mgiPUorg56sWtGrhW6dnlVhWaenWiwew==
   dependencies:
     "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-utilities" "^1.0.9"
+    "@zendeskgarden/container-utilities" "^1.0.10"
 
 "@zendeskgarden/container-tooltip@^1.0.0":
   version "1.0.6"
@@ -66,10 +66,10 @@
     "@zendeskgarden/container-utilities" "^1.0.6"
     react-uid "^2.2.0"
 
-"@zendeskgarden/container-utilities@^1.0.0", "@zendeskgarden/container-utilities@^1.0.6", "@zendeskgarden/container-utilities@^1.0.8", "@zendeskgarden/container-utilities@^1.0.9":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-1.0.9.tgz#8668c156b074fe0cf0151724f93409b11bb5bbb8"
-  integrity sha512-m42GBwvH1vSXOgmIBy55k1Ka95e/uViMNMf+0+qzv5IP7uH8hBcLhyUWiXfmigVdN+yW0IgucszkGQfceKgreg==
+"@zendeskgarden/container-utilities@^1.0.0", "@zendeskgarden/container-utilities@^1.0.10", "@zendeskgarden/container-utilities@^1.0.6", "@zendeskgarden/container-utilities@^1.0.8":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-1.0.10.tgz#1550160d221bfb4b3be4ec850f632acf21c800dc"
+  integrity sha512-c1x3xph/7IE5+zNSDF8B27nbh6LSURQ0pFMdyusbbxo9fIUerh/85+kCk8t1wElYFeNFeB6vVABqKbhO4nlFqw==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.18.0"
