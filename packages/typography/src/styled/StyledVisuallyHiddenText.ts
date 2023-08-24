@@ -9,9 +9,9 @@ import styled from 'styled-components';
 import { hideVisually } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'typography.hidden_text';
+const COMPONENT_ID = 'typography.visually_hidden_text';
 
-export const StyledHiddenText = styled.span.attrs({
+export const StyledVisuallyHiddenText = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -20,6 +20,6 @@ export const StyledHiddenText = styled.span.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledHiddenText.defaultProps = {
+StyledVisuallyHiddenText.defaultProps = {
   theme: DEFAULT_THEME
 };

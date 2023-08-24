@@ -8,13 +8,13 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { IAccessibleTextProps } from '../types';
-import { StyledHiddenText } from '../styled';
+import { StyledVisuallyHiddenText } from '../styled';
 
 /**
  * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const AccessibleText = forwardRef<HTMLSpanElement, IAccessibleTextProps>(
-  ({ tag, ...other }, ref) => <StyledHiddenText as={tag} ref={ref} {...other} />
+  ({ tag, ...other }, ref) => <StyledVisuallyHiddenText as={tag} ref={ref} {...other} />
 );
 
 AccessibleText.displayName = 'AccessibleText';
