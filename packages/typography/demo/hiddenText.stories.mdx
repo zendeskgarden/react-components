@@ -1,0 +1,26 @@
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
+import { HiddenText } from '@zendeskgarden/react-typography';
+import { HiddenTextStory } from './stories/HiddenTextStory';
+import README from '../README.md';
+
+<Meta title="Packages/Typography/HiddenText" component={HiddenText} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="HiddenText"
+    args={{ children: 'Text' }}
+    argTypes={{
+      tag: { control: 'text' }
+    }}
+  >
+    {args => <HiddenTextStory {...args} />}
+  </Story>
+</Canvas>
+
+<Markdown>{README}</Markdown>
