@@ -13,7 +13,7 @@ import { StyledHint } from '../../views';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Hint = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { setHasHint } = useFieldContext();
+  const { hintProps, setHasHint } = useFieldContext();
 
   useEffect(() => {
     setHasHint(true);
@@ -21,7 +21,7 @@ export const Hint = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
     return () => setHasHint(false);
   }, [setHasHint]);
 
-  return <StyledHint {...props} ref={ref} />;
+  return <StyledHint {...hintProps} {...props} ref={ref} />;
 });
 
 Hint.displayName = 'Hint';
