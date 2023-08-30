@@ -80,7 +80,16 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     },
     ref
   ) => {
-    const { hasHint, hasMessage, labelProps, setLabelProps } = useFieldContext();
+    const {
+      hasHint,
+      hasMessage,
+      labelProps,
+      setLabelProps,
+      hintProps,
+      setHintProps,
+      messageProps,
+      setMessageProps
+    } = useFieldContext();
     const [isInputHidden, setIsInputHidden] = useState(true);
     const [isLabelHovered, setIsLabelHovered] = useState(false);
     const [isTagGroupExpanded, setIsTagGroupExpanded] = useState(false);
@@ -108,9 +117,11 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       inputValue,
       isExpanded,
       getTriggerProps,
+      getHintProps,
       getInputProps,
       getLabelProps,
       getListboxProps,
+      getMessageProps,
       getOptionProps,
       getOptGroupProps,
       getTagProps,
@@ -227,6 +238,28 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
 
       return () => labelProps && setLabelProps(undefined);
     }, [getLabelProps, labelProps, setLabelProps]);
+
+    useEffect(() => {
+      // context callback
+      if (!hintProps) {
+        const _hintProps = getHintProps() as HTMLAttributes<HTMLDivElement>;
+
+        setHintProps(_hintProps);
+      }
+
+      return () => hintProps && setHintProps(undefined);
+    }, [getHintProps, hintProps, setHintProps]);
+
+    useEffect(() => {
+      // context callback
+      if (!messageProps) {
+        const _messageProps = getMessageProps() as HTMLAttributes<HTMLDivElement>;
+
+        setMessageProps(_messageProps);
+      }
+
+      return () => messageProps && setMessageProps(undefined);
+    }, [getMessageProps, messageProps, setMessageProps]);
 
     return (
       <ComboboxContext.Provider value={contextValue}>

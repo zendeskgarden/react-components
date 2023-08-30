@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { LabelHTMLAttributes, createContext, useContext } from 'react';
+import { HTMLAttributes, LabelHTMLAttributes, createContext, useContext } from 'react';
 
 export const FieldContext = createContext<
   | {
@@ -13,8 +13,12 @@ export const FieldContext = createContext<
       setLabelProps: (labelProps?: LabelHTMLAttributes<HTMLLabelElement>) => void;
       hasHint: boolean;
       setHasHint: (hasHint: boolean) => void;
+      hintProps?: HTMLAttributes<HTMLDivElement>;
+      setHintProps: (hintProps?: HTMLAttributes<HTMLDivElement>) => void;
       hasMessage: boolean;
       setHasMessage: (hasMessage: boolean) => void;
+      messageProps?: HTMLAttributes<HTMLDivElement>;
+      setMessageProps: (messageProps?: HTMLAttributes<HTMLDivElement>) => void;
     }
   | undefined
 >(undefined);

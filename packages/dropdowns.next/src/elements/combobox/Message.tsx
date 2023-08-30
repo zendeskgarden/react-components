@@ -16,7 +16,7 @@ import { StyledMessage } from '../../views';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Message = forwardRef<HTMLDivElement, IMessageProps>((props, ref) => {
-  const { setHasMessage } = useFieldContext();
+  const { messageProps, setHasMessage } = useFieldContext();
 
   useEffect(() => {
     setHasMessage(true);
@@ -24,7 +24,7 @@ export const Message = forwardRef<HTMLDivElement, IMessageProps>((props, ref) =>
     return () => setHasMessage(false);
   }, [setHasMessage]);
 
-  return <StyledMessage {...props} ref={ref} />;
+  return <StyledMessage {...messageProps} {...props} ref={ref} />;
 });
 
 Message.displayName = 'Message';

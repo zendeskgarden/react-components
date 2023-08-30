@@ -16,11 +16,37 @@ export const Field = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   const [labelProps, setLabelProps] = useState<LabelHTMLAttributes<HTMLLabelElement> | undefined>(
     undefined
   );
+  const [hintProps, setHintProps] = useState<HTMLAttributes<HTMLDivElement> | undefined>(undefined);
+  const [messageProps, setMessageProps] = useState<HTMLAttributes<HTMLDivElement> | undefined>(
+    undefined
+  );
   const [hasHint, setHasHint] = useState(false);
   const [hasMessage, setHasMessage] = useState(false);
   const contextValue = useMemo(
-    () => ({ labelProps, setLabelProps, hasHint, setHasHint, hasMessage, setHasMessage }),
-    [labelProps, setLabelProps, hasHint, setHasHint, hasMessage, setHasMessage]
+    () => ({
+      labelProps,
+      setLabelProps,
+      hasHint,
+      setHasHint,
+      hintProps,
+      setHintProps,
+      hasMessage,
+      setHasMessage,
+      messageProps,
+      setMessageProps
+    }),
+    [
+      labelProps,
+      setLabelProps,
+      hasHint,
+      setHasHint,
+      hintProps,
+      setHintProps,
+      hasMessage,
+      setHasMessage,
+      messageProps,
+      setMessageProps
+    ]
   );
 
   return (
