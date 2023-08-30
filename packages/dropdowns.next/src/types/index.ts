@@ -116,7 +116,7 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
    *
    * @param {number} value The number of hidden items
    *
-   * @returns a replacement for the "+ N more" text
+   * @returns {string} a replacement for the "+ N more" text
    */
   renderExpandTags?: (value: number) => string;
   /**
@@ -125,7 +125,7 @@ export interface IComboboxProps extends HTMLAttributes<HTMLDivElement> {
    * @param {object|object[]} options.selection Current selection
    * @param {string} [options.inputValue] Current input value
    *
-   * @returns content for the current combobox value
+   * @returns {Object} content for the current combobox value
    */
   renderValue?: (options: {
     selection: IUseComboboxReturnValue['selection'];
