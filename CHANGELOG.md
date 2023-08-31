@@ -12,6 +12,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.10 (2023-08-31)
+
+#### :bug: Bug Fix
+* `colorpickers`
+  * [#1616](https://github.com/zendeskgarden/react-components/pull/1616) fix(colorpicker): prevent infinite rerender in React v18 Legacy mode ([@tgohn](https://github.com/tgohn))
+* `dropdowns.next`
+  * [#1614](https://github.com/zendeskgarden/react-components/pull/1614) fix(combobox): stabilize IDs and add missing hint/message props ([@jzempel](https://github.com/jzempel))
+
 ## v8.69.9 (2023-08-24)
 
 #### :bug: Bug Fix
