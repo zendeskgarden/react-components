@@ -12,6 +12,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.69.11 (2023-09-07)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1618](https://github.com/zendeskgarden/react-components/pull/1618) fix(combobox): stabilize production SSR ID generation ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* [#1615](https://github.com/zendeskgarden/react-components/pull/1615) chore(deps): bump @adobe/css-tools from 4.3.0 to 4.3.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## v8.69.10 (2023-08-31)
 
 #### :bug: Bug Fix
