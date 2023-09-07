@@ -89,8 +89,7 @@ export interface IDrawerModalHeaderProps extends HTMLAttributes<HTMLDivElement> 
   tag?: any;
 }
 
-export interface ITooltipModalProps
-  extends Omit<IModalProps, 'appendToNode' | 'isCentered' | 'isLarge'> {
+export interface ITooltipModalProps extends Omit<IModalProps, 'isCentered' | 'isLarge'> {
   /**
    * Positions the modal relative to the provided `HTMLElement`
    */
