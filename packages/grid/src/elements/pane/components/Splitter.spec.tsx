@@ -16,6 +16,7 @@ import { fireEvent, render } from 'garden-test-utils';
 import { PaneProvider } from '../PaneProvider';
 import { Pane } from '../Pane';
 import { Splitter } from './Splitter';
+import { ISplitterProps } from 'packages/grid/src/types';
 
 const UncontrolledTestSplitter = ({
   splitterRef,
@@ -23,6 +24,7 @@ const UncontrolledTestSplitter = ({
   splitterOnTouchStart,
   splitterOnKeyDown,
   splitterClick,
+  splitterOrientation,
   isFixed
 }: {
   splitterRef?: RefObject<HTMLDivElement>;
@@ -30,6 +32,7 @@ const UncontrolledTestSplitter = ({
   splitterOnTouchStart?: TouchEventHandler<HTMLDivElement>;
   splitterOnKeyDown?: KeyboardEventHandler<HTMLDivElement>;
   splitterClick?: MouseEventHandler<HTMLDivElement>;
+  splitterOrientation?: ISplitterProps['orientation'];
   isFixed?: boolean;
 }) => {
   return (
@@ -46,7 +49,7 @@ const UncontrolledTestSplitter = ({
             layoutKey="a"
             min={0}
             max={1}
-            orientation="end"
+            orientation={splitterOrientation}
             onMouseDown={splitterOnMouseDown}
             onTouchStart={splitterOnTouchStart}
             onKeyDown={splitterOnKeyDown}
@@ -74,6 +77,29 @@ describe('Splitter', () => {
     render(<UncontrolledTestSplitter splitterRef={ref} />);
 
     expect(ref.current?.getAttribute('role')).toBe('separator');
+  });
+
+  it('positions splitter correctly', () => {
+    const { getByRole, rerender } = render(<UncontrolledTestSplitter />);
+    const splitter = getByRole('separator');
+
+    expect(splitter).toHaveStyleRule('top', '0');
+    expect(splitter).toHaveStyleRule('right', expect.any(String));
+
+    rerender(<UncontrolledTestSplitter splitterOrientation="start" />);
+
+    expect(splitter).toHaveStyleRule('top', '0');
+    expect(splitter).toHaveStyleRule('left', expect.any(String));
+
+    rerender(<UncontrolledTestSplitter splitterOrientation="top" />);
+
+    expect(splitter).toHaveStyleRule('top', expect.any(String));
+    expect(splitter).not.toHaveStyleRule('bottom');
+
+    rerender(<UncontrolledTestSplitter splitterOrientation="bottom" />);
+
+    expect(splitter).toHaveStyleRule('bottom', expect.any(String));
+    expect(splitter).not.toHaveStyleRule('top');
   });
 
   it('behaves as expected in fixed mode', async () => {

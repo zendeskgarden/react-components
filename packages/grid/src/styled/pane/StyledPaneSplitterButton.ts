@@ -99,7 +99,11 @@ const sizeStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>
 
   return css`
     display: ${display};
-    inset: ${top} ${right} ${bottom} ${left};
+    /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+    top: ${top};
+    right: ${right};
+    bottom: ${bottom};
+    left: ${left};
     width: ${size};
     min-width: ${size};
     height: ${size};
