@@ -22,10 +22,12 @@ import { Close } from './Close';
 import { Footer } from './Footer';
 import { FooterItem } from './FooterItem';
 import { useText } from '@zendeskgarden/react-theming';
+import { createPortal } from 'react-dom';
 
 const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProps>(
   (
     {
+      appendToNode,
       referenceElement,
       popperModifiers,
       placement,
@@ -106,7 +108,7 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
       getCloseProps
     };
 
-    return (
+    const Node = (
       <CSSTransition
         unmountOnExit
         timeout={isAnimated ? 200 : 0}
@@ -147,6 +149,8 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
         }}
       </CSSTransition>
     );
+
+    return appendToNode ? createPortal(Node, appendToNode) : Node;
   }
 );
 
@@ -160,6 +164,7 @@ TooltipModalComponent.defaultProps = {
 };
 
 TooltipModalComponent.propTypes = {
+  appendToNode: PropTypes.any,
   referenceElement: PropTypes.any,
   popperModifiers: PropTypes.any,
   placement: PropTypes.any,

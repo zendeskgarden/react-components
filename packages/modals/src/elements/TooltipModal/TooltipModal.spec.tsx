@@ -165,6 +165,37 @@ describe('TooltipModal', () => {
     expect(getAllByRole('button')[1]).toHaveAttribute('aria-label', 'Close');
   });
 
+  it('portals the modal as expected', async () => {
+    const { container, getByText, rerender } = render(<Example />);
+    const trigger = getByText('open');
+
+    // Open modal
+    await act(async () => {
+      await user.click(trigger);
+    });
+
+    expect(container.querySelector('[aria-modal]')).not.toBeNull();
+
+    // Close modal
+    await act(async () => {
+      await user.click(trigger);
+    });
+
+    const node = document.createElement('DIV');
+
+    document.body.appendChild(node);
+
+    rerender(<Example appendToNode={node} />);
+
+    // Open modal
+    await act(async () => {
+      await user.click(trigger);
+    });
+
+    expect(container.querySelector('[aria-modal]')).toBeNull();
+    expect(node.querySelector('[aria-modal]')).not.toBeNull();
+  });
+
   describe('onClose()', () => {
     it('is triggered by backdrop click', async () => {
       const { getByTestId, getByText } = render(
