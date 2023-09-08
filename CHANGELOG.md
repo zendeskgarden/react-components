@@ -12,6 +12,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.70.0 (2023-09-08)
+
+#### :rocket: New Feature
+* `modals`
+  * [#1619](https://github.com/zendeskgarden/react-components/pull/1619) feat(modals): adds appendToNode prop to TooltipModal ([@geotrev](https://github.com/geotrev))
+
+#### :bug: Bug Fix
+* `theming`
+  * [#1621](https://github.com/zendeskgarden/react-components/pull/1621) fix(theming): improve kale-500 color contrast ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1620](https://github.com/zendeskgarden/react-components/pull/1620) fix(grid): `Pane.Splitter` position styling regression ([@jzempel](https://github.com/jzempel))
+
 ## v8.69.11 (2023-09-07)
 
 #### :bug: Bug Fix
