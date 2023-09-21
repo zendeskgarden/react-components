@@ -63,7 +63,7 @@ export const TooltipModalStory: Story<IArgs> = ({
           <TooltipModal.Footer>
             {current > 0 && (
               <TooltipModal.FooterItem>
-                <Button size="small" onClick={() => handleClick(refs.current[current - 1])}>
+                <Button size="small" isBasic onClick={() => handleClick(refs.current[current - 1])}>
                   Previous
                 </Button>
               </TooltipModal.FooterItem>
