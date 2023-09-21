@@ -48,10 +48,10 @@
   resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.18.0.tgz#4f3cebe093dd436eeaff633809bf0f68f4f9d2ee"
   integrity sha512-KdVMdpTgDyK8FzdKO9SCpiibuy/kbv3pwgfXshTI6tEcQT1OOwj7BAksnzGC0rPz0UholwC+AgkqEl3EJX3M1A==
 
-"@zendeskgarden/container-combobox@^1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-combobox/-/container-combobox-1.0.10.tgz#ce6e183de49fa2efed48e411e901d4bcc26955bc"
-  integrity sha512-ujZNT7t2Yz7k/iuJ6TgWJzcVAAHhEcl1lMGu4b8J3l8TlT2nKDdhW1rciV0UqswosF3W/EvGvMfIzJJg+brMMA==
+"@zendeskgarden/container-combobox@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-combobox/-/container-combobox-1.0.11.tgz#3c53f61ed9497c25f8b5f57fb4e2449fad284caa"
+  integrity sha512-OcqcHUZOgW0+HtaBfI7j6TMVgahwwZGnV2jQrogGlRzPsMgyGfS3bUo15MzQgoBtc4gJii85K/i3RoRkGukLqw==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-field" "^3.0.10"
@@ -106,10 +106,10 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.18.0"
 
-"@zendeskgarden/react-forms@^8.69.10":
-  version "8.69.10"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.69.10.tgz#d60929a8f8b82de8412effac239de98b5096b40b"
-  integrity sha512-aQ3WjpbzkHuWKE9FFzWi7pSPJ9H/lwsXxOp4LTxKGxs1WZ3kU+uOPJJQ8XG/9jrY8bQkLHUF0MPMWRW9BeBU3g==
+"@zendeskgarden/react-forms@^8.70.0":
+  version "8.70.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.70.0.tgz#c1eb52ff9deb1d72409edb04a8303f3b9743b631"
+  integrity sha512-EIkWsZiWq/MOzjQ/QwsucAt/P1N1o/QaAqk5CzGsW4PU9kk2/9VPkljSZMcG5QhfD/eR7fornxB4E9A/LPws4w==
   dependencies:
     "@zendeskgarden/container-field" "^2.1.0"
     "@zendeskgarden/container-slider" "^0.1.1"
@@ -119,19 +119,19 @@
     prop-types "^15.5.7"
     react-merge-refs "^1.1.0"
 
-"@zendeskgarden/react-tags@^8.69.10":
-  version "8.69.10"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tags/-/react-tags-8.69.10.tgz#28fd2873a898c2980b075dcc16b66ba8f30f5830"
-  integrity sha512-6CvkVBU42KwmxuIcCh5N0pTVw4i31d3dmQYvmboEJWuS37WgOQ5A5LjgEj1fOyzeGy01NzQiXmAhDY+LK2U05g==
+"@zendeskgarden/react-tags@^8.70.0":
+  version "8.70.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tags/-/react-tags-8.70.0.tgz#2bb0c86b9e99fa6b319998886b98bfc744a7da8f"
+  integrity sha512-whZ9IBuK2JTj/HXfXi/hmPQUPb1RMmAu3Oc8m0YqT+mZLzz5+c7FByWOdniTO40F7q6ut/QCSCd2Y2WOxaB7tg==
   dependencies:
     "@zendeskgarden/container-utilities" "^1.0.0"
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/react-theming@^8.69.10":
-  version "8.69.10"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.69.10.tgz#3d36c0a9e8e15ce6f73bb298d60ad1a0ef0eea4a"
-  integrity sha512-vA2aJWuV/mzUiuEtBaXDzDSfSzkK3tz57GFiRc63RNWoC2ngRXjnISeQp5ciZhlZTKBY5Kv4iZKmmVDqlMpzVQ==
+"@zendeskgarden/react-theming@^8.70.0":
+  version "8.70.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.70.0.tgz#08d334aee182792d20445ae45c887656adfc140a"
+  integrity sha512-g+D+PJc+O3Ddsr52EGVR5XsQadHLgB273PHYNUeHCFUyWbFotTVJcdRFg3Z9PqdbVnK6Qb9STlalRuD6DrnohQ==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^1.0.0"
     "@zendeskgarden/container-utilities" "^1.0.0"
@@ -139,10 +139,10 @@
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/react-tooltips@^8.69.10":
-  version "8.69.10"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tooltips/-/react-tooltips-8.69.10.tgz#743f65c83cf343b481838ceacd9601d09adb06f3"
-  integrity sha512-OYwj5QLqplW/ybmy+LmgRZ+B4U+k6oVRVwLm+CqytpkNoNom7tE6LD/TQvz356xWIYtqb6Mvmn9GjtBIQQX9pA==
+"@zendeskgarden/react-tooltips@^8.70.0":
+  version "8.70.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tooltips/-/react-tooltips-8.70.0.tgz#385f5c0fefde22edfbe201e861e6bb490da95f55"
+  integrity sha512-lHhD3ylHnLyK3+0mfuKpFUzdr+OM98NHlYo3PZ/9qMaIV1c0hxtXwK1QWrfhdRc8jH1pQ/NFQX4/S+7m7OUNyw==
   dependencies:
     "@zendeskgarden/container-tooltip" "^1.0.0"
     "@zendeskgarden/container-utilities" "^1.0.0"
