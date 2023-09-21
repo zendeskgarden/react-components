@@ -12,6 +12,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.70.1 (2023-09-21)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1624](https://github.com/zendeskgarden/react-components/pull/1624) fix(combobox): handle IME via controlled input ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* `modals`
+  * [#1622](https://github.com/zendeskgarden/react-components/pull/1622) docs(TooltipModal): Match storybook example with website example for consistency ([@smritimadan](https://github.com/smritimadan))
+
 ## v8.70.0 (2023-09-08)
 
 #### :rocket: New Feature
