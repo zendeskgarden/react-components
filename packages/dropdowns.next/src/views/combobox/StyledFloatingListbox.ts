@@ -13,7 +13,6 @@ import {
   menuStyles
 } from '@zendeskgarden/react-theming';
 import { IListboxProps } from '../../types';
-import { StyledListbox } from './StyledListbox';
 
 const COMPONENT_ID = 'dropdowns.combobox.floating';
 
@@ -37,7 +36,6 @@ export const StyledFloatingListbox = styled.div.attrs({
     menuStyles(props.position, {
       theme: props.theme,
       hidden: props.isHidden,
-      childSelector: `> ${StyledListbox}`,
       animationModifier: '[data-garden-animate="true"]',
       zIndex: props.zIndex
     })};

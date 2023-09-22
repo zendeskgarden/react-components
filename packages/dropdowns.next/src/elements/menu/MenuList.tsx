@@ -123,7 +123,7 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
 
     const Node = (
       <StyledFloatingMenu
-        data-garden-animate-menu={isVisible}
+        data-garden-animate={isVisible}
         isHidden={!isExpanded}
         position={toMenuPosition(placement)}
         zIndex={zIndex}
