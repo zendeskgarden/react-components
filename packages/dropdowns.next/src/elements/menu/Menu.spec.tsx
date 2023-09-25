@@ -129,15 +129,18 @@ describe('Menu', () => {
   it('applies `isCompact` styling', async () => {
     const renderButton = jest.fn();
 
-    render(
-      <TestMenu isCompact button={renderButton}>
+    const { getByTestId } = render(
+      <TestMenu isCompact isExpanded button={renderButton}>
         <Item value="Flower" data-test-id="item-01" />
         <Item value="Cactus" data-test-id="item-02" />
       </TestMenu>
     );
 
     await floating();
+    const item = getByTestId('item-01');
+
     expect(renderButton).toHaveBeenCalledWith(expect.objectContaining({ size: 'small' }));
+    expect(item).toHaveStyleRule('min-height', '28px');
   });
 
   it('portals the menu with `appendToNode`', async () => {
@@ -591,7 +594,7 @@ describe('Menu', () => {
       expect(changeTypes).toMatchObject(['menuItem:mouseMove', 'menuItem:click']);
     });
 
-    it('handles `activeIndex` and `isExpanded` as expected', async () => {
+    it('handles `focusedValue` and `isExpanded` as expected', async () => {
       const { getByTestId, getByRole } = render(
         <TestMenu isExpanded focusedValue="Cactus">
           <Item value="Flower" />

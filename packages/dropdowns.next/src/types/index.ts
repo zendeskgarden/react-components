@@ -295,8 +295,6 @@ export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
 }
 
 export interface IItemProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'value'> {
-  /** Sets the item as an anchor, if given */
-  href?: string;
   /** Accepts an icon to display */
   icon?: ReactElement;
   /** Indicates that the item is not interactive */

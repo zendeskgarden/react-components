@@ -85,14 +85,13 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
 ItemComponent.displayName = 'Item';
 
 ItemComponent.propTypes = {
-  value: PropTypes.string.isRequired,
-  href: PropTypes.string,
   icon: PropTypes.any,
   isDisabled: PropTypes.bool,
   isSelected: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string,
-  type: PropTypes.oneOf(OPTION_TYPE)
+  type: PropTypes.oneOf(OPTION_TYPE),
+  value: PropTypes.string.isRequired
 };
 
 /**

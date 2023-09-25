@@ -122,8 +122,8 @@ Menu.propTypes = {
   maxHeight: PropTypes.string,
   minHeight: PropTypes.string,
   onChange: PropTypes.func,
-  selectedItems: PropTypes.arrayOf(PropTypes.any),
   placement: PropTypes.oneOf(PLACEMENT),
+  selectedItems: PropTypes.arrayOf(PropTypes.any),
   zIndex: PropTypes.number
 };
 
