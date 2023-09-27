@@ -9,9 +9,11 @@ import { ITEMS } from './stories/data';
   title="Packages/Dropdowns.Next/Menu"
   component={Menu}
   subcomponents={{ Item, 'Item.Meta': Item.Meta, Separator, ItemGroup }}
+  argTypes={{
+    appendToNode: { control: false }
+  }}
   args={{
     button: 'Menu',
-    fallbackPlacements: [],
     items: ITEMS,
     placement: Menu.defaultProps.placement,
     maxHeight: Menu.defaultProps.maxHeight,

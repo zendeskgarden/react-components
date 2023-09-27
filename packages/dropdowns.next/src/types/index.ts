@@ -250,16 +250,13 @@ export interface IMenuListProps extends HTMLAttributes<HTMLUListElement> {
   zIndex?: IListboxProps['zIndex'];
 }
 
-export interface IMenuButtonProps extends IButtonProps {
-  /** Provides the menu button ref  */
-  ref: RefObject<HTMLButtonElement>;
-}
-
 export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   /** Appends the menu to the element provided */
   appendToNode?: IMenuListProps['appendToNode'];
   /** Sets the menu button label or renders a provided trigger element */
-  button: string | ((props: IMenuButtonProps) => ReactNode);
+  button: string | ((props: IButtonProps & { ref: RefObject<HTMLButtonElement> }) => ReactNode);
+  /** Provides additional props to the menu button */
+  buttonProps?: IButtonProps;
   /** Determines default expansion in an uncontrolled menu */
   defaultExpanded?: IUseMenuProps['defaultExpanded'];
   /** Determines focused value on menu initialization */

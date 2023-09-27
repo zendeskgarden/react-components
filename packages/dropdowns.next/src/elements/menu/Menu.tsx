@@ -8,7 +8,7 @@
 import React, { RefObject, forwardRef, useContext, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
-import { IMenuProps, IMenuButtonProps, PLACEMENT } from '../../types';
+import { IMenuProps, PLACEMENT } from '../../types';
 import { MenuContext } from '../../context/useMenuContext';
 import { MenuList } from './MenuList';
 import { StyledButton } from '../../views';
@@ -16,6 +16,7 @@ import { useMenu } from '@zendeskgarden/container-menu';
 import { toItems } from './utils';
 import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME, useWindow } from '@zendeskgarden/react-theming';
+import { IButtonProps } from '@zendeskgarden/react-buttons';
 
 /**
  * @extends HTMLAttributes<HTMLUListElement>
@@ -24,6 +25,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
   (
     {
       button,
+      buttonProps,
       children,
       isCompact,
       focusedValue: _focusedValue,
@@ -65,7 +67,8 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
       onChange
     });
 
-    const triggerProps: IMenuButtonProps = {
+    const triggerProps: IButtonProps & { ref: RefObject<HTMLButtonElement> } = {
+      ...buttonProps,
       ...getTriggerProps({ type: 'button' }),
       ...(isCompact && { size: 'small' }),
       ref: mergeRefs([triggerRef, ref]) as unknown as RefObject<HTMLButtonElement>
@@ -112,6 +115,7 @@ Menu.displayName = 'Menu';
 Menu.propTypes = {
   appendToNode: PropTypes.any,
   button: PropTypes.any.isRequired,
+  buttonProps: PropTypes.object,
   defaultExpanded: PropTypes.bool,
   defaultFocusedValue: PropTypes.string,
   fallbackPlacements: PropTypes.arrayOf(PropTypes.any),
