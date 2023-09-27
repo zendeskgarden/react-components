@@ -19,6 +19,7 @@ export const MenuButtonStory: StoryFn = () => {
         <Col alignSelf="center" textAlign="center">
           <div style={{ display: 'inline-block', position: 'relative', width: 300 }}>
             <Menu
+              hasArrow
               button={props => (
                 <IconButton {...props} aria-label="Menu">
                   <LeafIcon />

@@ -26,14 +26,14 @@ const FLOATING_PLACEMENT = [
 
 type FloatingPlacement = (typeof FLOATING_PLACEMENT)[number];
 
-const Placements: Record<string, Placement[]> = {
+const PLACEMENT_LISTS_MAP: Record<string, Placement[]> = {
   top: ['top-start', 'top', 'top-end'],
   bottom: ['bottom-start', 'bottom', 'bottom-end'],
   left: ['left-start', 'left', 'left-end'],
   right: ['right-start', 'right', 'right-end']
 };
 
-const oppositeSideMap: Record<string, Side> = {
+const OPPOSITE_PLACEMENT_MAP: Record<string, Side> = {
   left: 'right',
   right: 'left',
   top: 'bottom',
@@ -89,7 +89,7 @@ export const toFloatingPlacement = (
 };
 
 /**
- * If `fallbackPlacements` are given, converts them to FLoating-UI placements.
+ * If `fallbackPlacements` are given, converts them to Floating-UI placements.
  *
  * Otherwise, builds a list of Floating-UI fallback placements given the
  * current `placement`.
@@ -110,8 +110,8 @@ export const getFallbackPlacements = (
   }
 
   const side = placement.split('-')[0];
-  const sameSideFallbacks = [...Placements[side]];
-  const oppositeSideFallbacks = Placements[oppositeSideMap[side]];
+  const sameSideFallbacks = [...PLACEMENT_LISTS_MAP[side]];
+  const oppositeSideFallbacks = PLACEMENT_LISTS_MAP[OPPOSITE_PLACEMENT_MAP[side]];
 
   // Remove the primary placement from the list of same-side fallbacks
   // to prevent extra work for Floating-UI

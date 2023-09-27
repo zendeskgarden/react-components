@@ -251,6 +251,7 @@ export interface IMenuListProps extends HTMLAttributes<HTMLUListElement> {
 }
 
 export interface IMenuButtonProps extends IButtonProps {
+  /** Provides the menu button ref  */
   ref: RefObject<HTMLButtonElement>;
 }
 
