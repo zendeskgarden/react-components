@@ -21,7 +21,23 @@ import { ItemContext } from '../../context/useItemContext';
 import { toItem } from './utils';
 
 const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
-  ({ children, value, label = value, isSelected, icon, isDisabled, type, name, ...props }, ref) => {
+  (
+    {
+      children,
+      value,
+      label = value,
+      isSelected,
+      icon,
+      isDisabled,
+      type,
+      name,
+      onClick,
+      onKeyDown,
+      onMouseEnter,
+      ...props
+    },
+    ref
+  ) => {
     const { type: selectionType } = useItemGroupContext();
     const { focusedValue, getItemProps } = useMenuContext();
     const item = {
@@ -37,7 +53,10 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
     };
 
     const { ref: _itemRef, ...itemProps } = getItemProps({
-      item
+      item,
+      onClick,
+      onKeyDown,
+      onMouseEnter
     }) as LiHTMLAttributes<HTMLLIElement> & { ref: MutableRefObject<HTMLLIElement> };
 
     const isActive = value === focusedValue;

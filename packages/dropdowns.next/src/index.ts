@@ -35,6 +35,5 @@ export type {
   IItemProps,
   IItemGroupProps,
   IMenuProps,
-  IMenuButtonProps,
   ISelectedItem
 } from './types';

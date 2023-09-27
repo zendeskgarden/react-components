@@ -25,7 +25,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
   (
     {
       button,
-      buttonProps,
+      buttonProps: _buttonProps = {},
       children,
       isCompact,
       focusedValue: _focusedValue,
@@ -34,6 +34,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
       isExpanded: _isExpanded,
       selectedItems,
       onChange,
+      onMouseLeave,
       ...props
     },
     ref
@@ -67,9 +68,11 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
       onChange
     });
 
+    const { onClick, onKeyDown, ...buttonProps } = _buttonProps;
+
     const triggerProps: IButtonProps & { ref: RefObject<HTMLButtonElement> } = {
       ...buttonProps,
-      ...getTriggerProps({ type: 'button' }),
+      ...getTriggerProps({ type: 'button', onClick, onKeyDown }),
       ...(isCompact && { size: 'small' }),
       ref: mergeRefs([triggerRef, ref]) as unknown as RefObject<HTMLButtonElement>
     };
@@ -96,12 +99,12 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
       <MenuContext.Provider value={contextValue}>
         {trigger}
         <MenuList
-          {...getMenuProps()}
+          {...props}
+          {...getMenuProps({ onMouseLeave })}
           ref={mergeRefs([menuRef, ref])}
           isCompact={isCompact}
           isExpanded={isExpanded}
           triggerRef={triggerRef}
-          {...props}
         >
           {children}
         </MenuList>
