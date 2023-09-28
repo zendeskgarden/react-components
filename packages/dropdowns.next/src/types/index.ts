@@ -255,7 +255,7 @@ export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   appendToNode?: IMenuListProps['appendToNode'];
   /** Sets the menu button label or renders a provided trigger element */
   button: string | ((props: IButtonProps & { ref: RefObject<HTMLButtonElement> }) => ReactNode);
-  /** Provides additional props to the menu button */
+  /** Provides additional props to the menu [Button](/components/button#button) */
   buttonProps?: IButtonProps;
   /** Determines default expansion in an uncontrolled menu */
   defaultExpanded?: IUseMenuProps['defaultExpanded'];
