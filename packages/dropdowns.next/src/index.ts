@@ -14,13 +14,15 @@ export { Option } from './elements/combobox/Option';
 export { OptGroup } from './elements/combobox/OptGroup';
 export { Tag } from './elements/combobox/Tag';
 
-// export { Item } from './elements/menu/Item';
-// export { ItemGroup } from './elements/menu/ItemGroup';
-// export { Menu } from './elements/menu/Menu';
+export { Menu } from './elements/menu/Menu';
+export { ItemGroup } from './elements/menu/ItemGroup';
+export { Item } from './elements/menu/Item';
+export { Separator } from './elements/menu/Separator';
 
 export { VALIDATION } from '@zendeskgarden/react-forms';
 
 export type {
+  /** combobox */
   IComboboxProps,
   ILabelProps,
   IMessageProps,
@@ -28,9 +30,10 @@ export type {
   IOptGroupProps,
   ITagProps,
   ISelectedOption,
-  OptionValue
-  // IItemProps,
-  // IItemGroupProps,
-  // IMenuProps,
-  // OptionValue as ItemValue
+  OptionValue,
+  /** menu */
+  IItemProps,
+  IItemGroupProps,
+  IMenuProps,
+  ISelectedItem
 } from './types';

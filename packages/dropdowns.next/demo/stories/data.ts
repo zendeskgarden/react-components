@@ -5,7 +5,71 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Options } from './types';
+import { Items, Options } from './types';
+
+export const ITEMS: Items = [
+  {
+    value: 'item',
+    label: 'Item'
+  },
+  {
+    value: 'item-icon',
+    label: 'Item with icon',
+    icon: true
+  },
+  {
+    value: 'separator',
+    isSeparator: true
+  },
+  {
+    value: 'item-meta',
+    label: 'Item',
+    meta: 'With meta'
+  },
+  {
+    legend: 'Choose flowers',
+    type: 'checkbox',
+    icon: true,
+    items: [
+      {
+        value: 'aster',
+        label: 'Aster',
+        isSelected: true
+      },
+      {
+        value: 'daisy',
+        label: 'Daisy',
+        isDisabled: true
+      },
+      {
+        value: 'ivy',
+        label: 'Ivy'
+      }
+    ]
+  },
+  {
+    'aria-label': 'Select a fruit',
+    type: 'radio',
+    icon: true,
+    items: [
+      {
+        value: 'apple',
+        label: 'Apple',
+        name: 'fruits'
+      },
+      {
+        value: 'cherry',
+        label: 'Cherry',
+        name: 'fruits'
+      },
+      {
+        value: 'clementine',
+        label: 'Clementine',
+        name: 'fruits'
+      }
+    ]
+  }
+];
 
 export const OPTIONS: Options = [
   {

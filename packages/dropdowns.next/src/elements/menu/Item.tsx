@@ -5,26 +5,61 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useMemo, useState } from 'react';
+import React, { LiHTMLAttributes, MutableRefObject, forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import mergeRefs from 'react-merge-refs';
 import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import CheckedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { IItemProps, OptionType as ItemType, OPTION_TYPE } from '../../types';
-import useMenuContext from '../../context/useMenuContext';
-import { ItemContext } from '../../context/useItemContext';
 import { StyledItem, StyledItemContent, StyledItemIcon, StyledItemTypeIcon } from '../../views';
 import { ItemMeta } from './ItemMeta';
+import useMenuContext from '../../context/useMenuContext';
+import useItemGroupContext from '../../context/useItemGroupContext';
+import { ItemContext } from '../../context/useItemContext';
+import { toItem } from './utils';
 
 const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
-  ({ children, icon, isDisabled, type, ...props }, ref) => {
-    // TODO [jz] remove state for styling demo only
-    const [isActive, setIsActive] = useState(false);
-    const [isChecked, setIsChecked] = useState(false);
-    // END TODO
+  (
+    {
+      children,
+      value,
+      label = value,
+      isSelected,
+      icon,
+      isDisabled,
+      type,
+      name,
+      onClick,
+      onKeyDown,
+      onMouseEnter,
+      ...props
+    },
+    ref
+  ) => {
+    const { type: selectionType } = useItemGroupContext();
+    const { focusedValue, getItemProps } = useMenuContext();
+    const item = {
+      ...toItem({
+        value,
+        label,
+        name,
+        type,
+        isSelected,
+        isDisabled
+      }),
+      type: selectionType
+    };
 
-    const contextValue = useMemo(() => ({ isDisabled }), [isDisabled]);
+    const { ref: _itemRef, ...itemProps } = getItemProps({
+      item,
+      onClick,
+      onKeyDown,
+      onMouseEnter
+    }) as LiHTMLAttributes<HTMLLIElement> & { ref: MutableRefObject<HTMLLIElement> };
+
+    const isActive = value === focusedValue;
     const { isCompact } = useMenuContext();
 
     const renderActionIcon = (iconType?: ItemType) => {
@@ -43,27 +78,23 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
       }
     };
 
+    const contextValue = useMemo(() => ({ isDisabled }), [isDisabled]);
+
     return (
       <ItemContext.Provider value={contextValue}>
         <StyledItem
-          isCompact={isCompact}
           $type={type}
-          {...props}
-          // TODO [jz] replace with container props
-          aria-checked={isChecked}
-          aria-disabled={isDisabled}
+          isCompact={isCompact}
           isActive={isActive}
-          onClick={() => setIsChecked(!isChecked)}
-          onMouseEnter={() => setIsActive(true)}
-          onMouseLeave={() => setIsActive(false)}
-          // END TODO
-          ref={ref}
+          {...props}
+          {...itemProps}
+          ref={mergeRefs([_itemRef, ref])}
         >
           <StyledItemTypeIcon isCompact={isCompact} type={type}>
             {renderActionIcon(type)}
           </StyledItemTypeIcon>
           {icon && <StyledItemIcon>{icon}</StyledItemIcon>}
-          <StyledItemContent>{children}</StyledItemContent>
+          <StyledItemContent>{children || label}</StyledItemContent>
         </StyledItem>
       </ItemContext.Provider>
     );
@@ -75,7 +106,11 @@ ItemComponent.displayName = 'Item';
 ItemComponent.propTypes = {
   icon: PropTypes.any,
   isDisabled: PropTypes.bool,
-  type: PropTypes.oneOf(OPTION_TYPE)
+  isSelected: PropTypes.bool,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  type: PropTypes.oneOf(OPTION_TYPE),
+  value: PropTypes.string.isRequired
 };
 
 /**

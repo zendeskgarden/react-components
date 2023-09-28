@@ -6,8 +6,18 @@
  */
 
 import { createContext, useContext } from 'react';
+import { IUseMenuReturnValue } from '@zendeskgarden/container-menu';
 
-export const MenuContext = createContext<{ isCompact?: boolean } | undefined>(undefined);
+export const MenuContext = createContext<
+  | {
+      isCompact?: boolean;
+      focusedValue?: string | null;
+      getItemGroupProps: IUseMenuReturnValue['getItemGroupProps'];
+      getItemProps: IUseMenuReturnValue['getItemProps'];
+      getSeparatorProps: IUseMenuReturnValue['getSeparatorProps'];
+    }
+  | undefined
+>(undefined);
 
 const useMenuContext = () => {
   const context = useContext(MenuContext);
