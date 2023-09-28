@@ -59,8 +59,8 @@ import { ITEMS } from './stories/data';
     {args => {
       const updateArgs = useArgs()[1];
       const handleChange = changes => {
-        const { type, ...args } = changes;
-        updateArgs(args);
+        const { type, ...rest } = changes;
+        updateArgs(rest);
       };
       return <MenuStory {...args} onChange={handleChange} />;
     }}
