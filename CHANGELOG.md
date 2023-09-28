@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.71.0 (2023-09-28)
+
+#### :rocket: New Feature
+* `dropdowns.next`
+  * [#1623](https://github.com/zendeskgarden/react-components/pull/1623) feat(dropdowns.next): add refactored menu component ([@geotrev](https://github.com/geotrev))
+
 ## v8.70.1 (2023-09-21)
 
 #### :bug: Bug Fix
