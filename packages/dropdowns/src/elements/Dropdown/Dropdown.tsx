@@ -16,6 +16,9 @@ import { DropdownContext, DROPDOWN_TYPE } from '../../utils/useDropdownContext';
 
 export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
 
+/**
+ * @deprecated use `@zendeskgarden/react-dropdowns.next` instead
+ */
 export const Dropdown = (props: PropsWithChildren<IDropdownProps>) => {
   const {
     children,

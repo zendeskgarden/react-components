@@ -79,4 +79,22 @@ WAI-ARIA compliant combobox features. Key capabilities include:
 - **RTL theme-able**: Functionality displays and operates correctly for
   left-to-right and right-to-left layouts.
 
+### Menu
+
+```jsx
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
+
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Menu button="Choose an item">
+    <Item value="item-01" label="One" />
+    <Item value="item-02" label="Two" />
+    <Item value="item-03" label="Three" />
+  </Menu>
+</ThemeProvider>;
+```
+
 Visit [storybook](https://zendeskgarden.github.io/react-components) for live examples.

@@ -17,6 +17,8 @@ import { getPopperPlacement, getRtlPopperPlacement } from '../../utils/garden-pl
 import { MenuContext } from '../../utils/useMenuContext';
 
 /**
+ * @deprecated use `@zendeskgarden/react-dropdowns.next` Menu instead
+ *
  * @extends HTMLAttributes<HTMLUListElement>
  */
 export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) => {

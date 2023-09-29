@@ -3,6 +3,10 @@
 This package includes components relating to dropdowns in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
+**DEPRECATED:** use [`@zendeskgarden/react-dropdowns.next`][dropdowns.next] instead.
+
+[dropdowns.next]: https://github.com/zendeskgarden/react-components/tree/main/packages/dropdowns.next
+
 ## Installation
 
 ```sh
