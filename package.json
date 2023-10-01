@@ -118,7 +118,7 @@
     "rollup-plugin-license": "3.0.1",
     "rollup-plugin-typescript2": "0.35.0",
     "storybook": "7.2.1",
-    "styled-components": "5.3.11",
+    "styled-components": "6.0.8",
     "stylelint": "15.10.2",
     "stylelint-order": "6.0.3",
     "temp": "0.9.4",
