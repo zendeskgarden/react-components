@@ -12,6 +12,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.72.0 (2023-10-05)
+
+#### :rocket: New Feature
+* `dropdowns.next`
+  * [#1628](https://github.com/zendeskgarden/react-components/pull/1628) feat(dropdowns.next): hides separator in label-less, first group child in Combobox/Menu ([@geotrev](https://github.com/geotrev))
+
+#### :memo: Documentation
+* `dropdowns.next`, `dropdowns`
+  * [#1625](https://github.com/zendeskgarden/react-components/pull/1625) chore(dropdowns): Add menu to readme, mark legacy dropdowns deprecated ([@geotrev](https://github.com/geotrev))
+
 ## v8.71.0 (2023-09-28)
 
 #### :rocket: New Feature
