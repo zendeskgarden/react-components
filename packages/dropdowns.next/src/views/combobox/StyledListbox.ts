@@ -8,7 +8,10 @@
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IListboxProps } from '../../types';
-import { getMinHeight as getOptionMinHeight } from './StyledOption';
+import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
+import { StyledOptionContent } from './StyledOptionContent';
+import { StyledOptGroup } from './StyledOptGroup';
+import { StyledListboxSeparator } from './StyledListboxSeparator';
 
 const COMPONENT_ID = 'dropdowns.combobox.listbox';
 
@@ -47,6 +50,10 @@ export const StyledListbox = styled.ul.attrs({
 
   &&& {
     display: block;
+  }
+
+  ${StyledOption}:first-child ${StyledOptionContent} ${StyledOptGroup}:first-child ${StyledListboxSeparator}[role='none']:first-child {
+    display: none;
   }
 `;
 
