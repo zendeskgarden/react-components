@@ -81,10 +81,10 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-menu@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-menu/-/container-menu-0.2.2.tgz#2ad983eb2dea08aac64a0597d6b06438933d85e2"
-  integrity sha512-NNE3iRzM9aRSLyF0H5vxo9b2/7KhF2cX8su4EkaW57+6t8Q3NhVyCWOAvDjqfwF7igLPVhZn4CT8o2wFmLWl+A==
+"@zendeskgarden/container-menu@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-menu/-/container-menu-0.3.0.tgz#af13e54b3a6cbc23acdec20b0199269dc04c5ceb"
+  integrity sha512-oTzwfxxUu4H7P1H5tmoZW2/VyitPtVyeowATBfbQNSHg/qCv+89C4i7cuLnZ3TXDoDdLI32sGVy+z/W9vXcBdw==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-selection" "^3.0.6"
