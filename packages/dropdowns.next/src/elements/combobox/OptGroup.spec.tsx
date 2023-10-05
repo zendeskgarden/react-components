@@ -11,6 +11,7 @@ import { IOptGroupProps } from '../../types';
 import { Field } from './Field';
 import { Combobox } from './Combobox';
 import { OptGroup } from './OptGroup';
+import { Option } from './Option';
 
 interface ITestOptGroupProps extends IOptGroupProps {
   optGroupTestId?: string;
@@ -51,13 +52,38 @@ describe('OptGroup', () => {
     expect(optgroup).toBe(ref.current);
   });
 
-  it('renders a separator by default', () => {
-    const { getByTestId } = render(<TestOptGroup />);
+  it('renders a separator if second or later child', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Combobox defaultExpanded>
+          <Option value="foo" />
+          <OptGroup data-test-id="optgroup" />
+        </Combobox>
+      </Field>
+    );
     const option = getByTestId('optgroup');
     const optGroup = option.querySelector('[aria-label="Group"]');
     const separator = optGroup?.firstChild;
 
     expect(separator).toHaveStyleRule('height', '1px');
+  });
+
+  it('hides separator when first Combobox child with no label', () => {
+    const { getByTestId } = render(<TestOptGroup aria-label="Group" />);
+    const option = getByTestId('optgroup');
+    const optGroup = option.querySelector('[aria-label="Group"]');
+    const separator = optGroup?.firstChild;
+
+    expect(separator).not.toBeVisible();
+  });
+
+  it('renders separator when first Combobox child with label', () => {
+    const { getByTestId } = render(<TestOptGroup label="Group" />);
+    const option = getByTestId('optgroup');
+    const optGroup = option.querySelector('[aria-label="Group"]');
+    const separator = optGroup?.firstChild;
+
+    expect(separator).toBeVisible();
   });
 
   it('renders a label if provided', () => {
