@@ -304,20 +304,21 @@ describe('Menu', () => {
     });
 
     it('applies `items` with default selection', async () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <TestMenu defaultExpanded defaultFocusedValue="Cactus">
           <ItemGroup legend="Plants" type="checkbox">
-            <Item value="Flower" />
-            <Item value="Cactus" isSelected />
+            <Item value="Flower" data-test-id="flower" />
+            <Item value="Cactus" data-test-id="cactus" isSelected />
           </ItemGroup>
         </TestMenu>
       );
 
       await floating();
-      const items = [...container.querySelectorAll('svg')];
+      const itemOne = getByTestId('flower').querySelector('svg');
+      const itemTwo = getByTestId('cactus').querySelector('svg');
 
-      expect(items[0]).not.toBeVisible();
-      expect(items[1]).toBeVisible();
+      expect(itemOne).not.toBeVisible();
+      expect(itemTwo).toBeVisible();
     });
   });
 
