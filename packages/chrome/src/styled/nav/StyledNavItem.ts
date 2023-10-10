@@ -33,9 +33,9 @@ const colorStyles = (props: IStyledNavItemProps) => {
 
   if (isCurrent) {
     if (isLight) {
-      currentColor = rgba(DARK, 0.3);
+      currentColor = rgba(DARK, 0.4);
     } else if (isDark) {
-      currentColor = rgba(LIGHT, 0.3);
+      currentColor = rgba(LIGHT, 0.4);
     } else {
       currentColor = getColor(hue, 500, theme);
     }

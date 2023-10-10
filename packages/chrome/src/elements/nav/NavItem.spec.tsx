@@ -143,7 +143,7 @@ describe('NavItem', () => {
 
       expect(container.firstChild!.firstChild).toHaveStyleRule(
         'background-color',
-        'rgba(255,255,255,0.3)'
+        'rgba(255,255,255,0.4)'
       );
     });
 
@@ -156,7 +156,7 @@ describe('NavItem', () => {
 
       expect(container.firstChild!.firstChild).toHaveStyleRule(
         'background-color',
-        'rgba(0,0,0,0.3)'
+        'rgba(0,0,0,0.4)'
       );
     });
   });
