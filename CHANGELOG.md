@@ -12,6 +12,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.73.0 (2023-10-10)
+
+#### :rocket: New Feature
+* `dropdowns.next`
+  * [#1631](https://github.com/zendeskgarden/react-components/pull/1631) feat(dropdowns.next): adds rotating chevron to default menu button ([@geotrev](https://github.com/geotrev))
+
+#### :bug: Bug Fix
+* `chrome`
+  * [#1642](https://github.com/zendeskgarden/react-components/pull/1642) fix(chrome): improve custom `Nav` color contrast ([@jzempel](https://github.com/jzempel))
+
 ## v8.72.0 (2023-10-05)
 
 #### :rocket: New Feature
