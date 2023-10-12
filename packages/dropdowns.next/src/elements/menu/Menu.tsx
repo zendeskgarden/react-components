@@ -69,12 +69,17 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
       onChange
     });
 
-    const { onClick, onKeyDown, ...buttonProps } = _buttonProps;
+    const { onClick, onKeyDown, disabled, ...buttonProps } = _buttonProps;
 
     const triggerProps: IButtonProps & { ref: RefObject<HTMLButtonElement> } = {
       ...(isCompact && { size: 'small' }),
       ...buttonProps,
-      ...getTriggerProps({ type: 'button', onClick, onKeyDown }),
+      ...getTriggerProps({
+        type: 'button',
+        onClick,
+        onKeyDown,
+        disabled
+      }),
       ref: mergeRefs([triggerRef, ref]) as unknown as RefObject<HTMLButtonElement>
     };
 
