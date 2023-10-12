@@ -3,9 +3,9 @@
 
 
 "@babel/runtime@^7.17.8", "@babel/runtime@^7.8.4":
-  version "7.22.10"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.10.tgz#ae3e9631fd947cb7e3610d3e9d8fef5f76696682"
-  integrity sha512-21t/fkKLMZI4pqP2wlmsQAWnYW1PDyKyyUV4vCi+B25ydmdaYTKXPwCj0BzSUnZf4seIiYvSA3jcZ3gdsMFkLQ==
+  version "7.23.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.2.tgz#062b0ac103261d68a966c4c7baf2ae3e62ec3885"
+  integrity sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==
   dependencies:
     regenerator-runtime "^0.14.0"
 
@@ -29,9 +29,9 @@
     "@babel/runtime" "^7.8.4"
 
 "@zendeskgarden/container-scrollregion@^1.0.0":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-scrollregion/-/container-scrollregion-1.0.7.tgz#56b2f7411c7307e7bd471f6bf978bbaa12edf603"
-  integrity sha512-j9nDdy5XV7QgjO1rNr11Jqjf3tHY3flm/ovfTEfYIwxqvC8UVzzoGV3uLIGWy4HjRsqQj++oxZeFtN9kQtAMUw==
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-scrollregion/-/container-scrollregion-1.0.8.tgz#f63eda5d27493a42958f63e13bd9e0250b1e31ec"
+  integrity sha512-0hyTsB5jzG2vbZgmxBRlpfty9jBTX6ISzcjn7+7GoJQrOTyure6+9lzVji5AViToV8hES+hht8ybq0BdcI5Mkg==
   dependencies:
     "@babel/runtime" "^7.8.4"
     lodash.debounce "^4.0.8"
@@ -45,10 +45,10 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.18.0"
 
-"@zendeskgarden/react-theming@^8.69.6":
-  version "8.69.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.69.6.tgz#b1a2af2eb42645d1db4972f5b0cacd0a5a1ed0bb"
-  integrity sha512-ltWaRPRts7ynUrYxJapEoBjK3zUAw57z/vH0GuxG7k+ngczj4Vt2HvWIrdMACWqd9KTdQ11lgeJjXGsTxrLD4Q==
+"@zendeskgarden/react-theming@^8.73.0":
+  version "8.73.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.73.0.tgz#a9113adb9fa796940a4101d9790efed6ff8dfa1b"
+  integrity sha512-x4mO25dDTMmhu10JwL29AtbvuGqiSwnj7fpNcfAbKqAA7DwBh7+GnDj3vcrpTBzoDmLmG7IsYY7ISZPN6OmafA==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^1.0.0"
     "@zendeskgarden/container-utilities" "^1.0.0"
