@@ -102,7 +102,7 @@
     "ora": "7.0.1",
     "pluralize": "8.0.0",
     "postcss-styled-syntax": "0.4.0",
-    "prettier": "2.8.8",
+    "prettier": "3.0.3",
     "prettier-package-json": "2.8.0",
     "qs": "6.11.2",
     "react": "17.0.2",
