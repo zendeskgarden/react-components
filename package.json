@@ -27,7 +27,7 @@
     "version": "yarn build && git add -A"
   },
   "resolutions": {
-    "string-width": "4.2.3"
+    "string-width": "6.1.0"
   },
   "devDependencies": {
     "@babel/cli": "7.22.10",
