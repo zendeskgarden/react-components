@@ -34,17 +34,20 @@ const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children
 
   useEffect(() => {
     /* simulate file upload progress */
-    const interval = setInterval(() => {
-      setUploadProgress(value => {
-        if (value >= 100) {
-          clearInterval(interval);
+    const interval = setInterval(
+      () => {
+        setUploadProgress(value => {
+          if (value >= 100) {
+            clearInterval(interval);
 
-          return 100;
-        }
+            return 100;
+          }
 
-        return value + 20;
-      });
-    }, Math.random() * 300 + 100);
+          return value + 20;
+        });
+      },
+      Math.random() * 300 + 100
+    );
 
     return () => {
       clearInterval(interval);
