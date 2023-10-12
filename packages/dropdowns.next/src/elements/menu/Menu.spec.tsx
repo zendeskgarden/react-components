@@ -92,6 +92,33 @@ describe('Menu', () => {
     expect(trigger).toHaveAttribute('role', 'button');
   });
 
+  it('passes disabled from buttonProps to container props', async () => {
+    const { getByRole } = render(<TestMenu button="click me" buttonProps={{ disabled: true }} />);
+
+    await floating();
+    const trigger = getByRole('button');
+
+    expect(trigger).toHaveAttribute('disabled');
+  });
+
+  it('passes handlers from buttonProps to container props', async () => {
+    const onClick = jest.fn();
+    const onKeyDown = jest.fn();
+    const { getByRole } = render(
+      <TestMenu button="click me" buttonProps={{ onClick, onKeyDown }} />
+    );
+
+    await floating();
+    const trigger = getByRole('button');
+
+    await user.click(trigger);
+    expect(onClick).toHaveBeenCalled();
+
+    trigger.focus();
+    await user.keyboard(' ');
+    expect(onKeyDown).toHaveBeenCalled();
+  });
+
   it('applies `defaultExpanded`', async () => {
     const { getByText } = render(
       <TestMenu defaultExpanded>
