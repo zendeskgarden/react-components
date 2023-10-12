@@ -55,10 +55,10 @@
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/svg-icons@6.34.0":
-  version "6.34.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.34.0.tgz#b91673e2167fe9666c22a9e74dd2d311e03c0d6c"
-  integrity sha512-73JY3wVMYM3+tqEichEZI9m94Gc+eo1/iSocTsmuO5whv1kVgUxPe1zFanWriBxLrs98KkfAs2y8ZElDHM3NUQ==
+"@zendeskgarden/svg-icons@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-7.0.0.tgz#cebeea7a465f2d0b269f29f1ee3d3504e70676af"
+  integrity sha512-bKTZZCKDsnER2LKVCDpludH6sx2RlYj7GMd76BjA5oGo4LMETHKnw5RVgDsQ1x8gy/YHeeByMXvR3KOxoXRO8Q==
 
 call-bind@^1.0.2:
   version "1.0.2"

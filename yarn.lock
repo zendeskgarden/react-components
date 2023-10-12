@@ -5953,10 +5953,10 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-20.0.0.tgz#e69c2dd5510e7c9e6b991457b08e01e73a705d4c"
   integrity sha512-Tvp60DfmpdgMt1lTnwXEevxcjXqcxGJ8b531emkIMK+rGNYk0WO+X0mQ/2yhu3iYH+6D2pErPnTgoGrplsvmuA==
 
-"@zendeskgarden/svg-icons@6.33.0":
-  version "6.33.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.33.0.tgz#ab915654f1e089318b89fc5de2126812f9322e9c"
-  integrity sha512-RdHsM2EPFgFy0cRZ2jAEe0iqsyMAgetfMibpO9Pk+4fPE7NjFDk4Ul7OpVhadrZQ18RCzSmmD6j/isZBRVQr/w==
+"@zendeskgarden/svg-icons@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-7.0.0.tgz#cebeea7a465f2d0b269f29f1ee3d3504e70676af"
+  integrity sha512-bKTZZCKDsnER2LKVCDpludH6sx2RlYj7GMd76BjA5oGo4LMETHKnw5RVgDsQ1x8gy/YHeeByMXvR3KOxoXRO8Q==
 
 "@zkochan/js-yaml@0.0.6":
   version "0.0.6"
