@@ -26,10 +26,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
-"@types/react-transition-group@4.4.6":
-  version "4.4.6"
-  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.6.tgz#18187bcda5281f8e10dfc48f0943e2fdf4f75e2e"
-  integrity sha512-VnCdSxfcm08KjsJVQcfBmhEQAPnLB8G08hAxn39azX1qYBQ/5RVQuoHuKIcfKOdncuaUvEpFKFzEvbtIMsfVew==
+"@types/react-transition-group@4.4.7":
+  version "4.4.7"
+  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.7.tgz#bf69f269d74aa78b99097673ca6dd6824a68ef1c"
+  integrity sha512-ICCyBl5mvyqYp8Qeq9B5G/fyBSRC0zx3XM3sCC6KkcMsNeAHqXBKkmat4GqdJET5jtYUpZXrxI5flve5qhi2Eg==
   dependencies:
     "@types/react" "*"
 
@@ -47,14 +47,6 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
-"@zendeskgarden/container-buttongroup@^1.0.0":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-buttongroup/-/container-buttongroup-1.0.6.tgz#f6feb7acfcfd35cf52d986a8fcfb6c0c067f477b"
-  integrity sha512-Aqcou4Azv+tRa8hiK3ZcPGOKHoV6p1bDGRYTpnO97Q5E+c/uxOME14E8/YIn509pP9iuzlBWMYemDyZHlJJr2w==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-selection" "^2.0.6"
-
 "@zendeskgarden/container-focusvisible@^1.0.0":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-1.0.6.tgz#89986125f6e1d00e739e184f1ffdd150944ea195"
@@ -62,44 +54,37 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-keyboardfocus@^1.0.0":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-keyboardfocus/-/container-keyboardfocus-1.0.6.tgz#f9895bf63de54fff3ad9204f92643816ff90e718"
-  integrity sha512-RdBi+8ZSaRJw9E1WLG/IAHFNg9FkiXGJTf1/rbNMZULz2APskJAq5WENmNDCSuJZPR1B/p8kYudivTwoG4PPIQ==
+"@zendeskgarden/container-selection@^3.0.0":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-3.0.6.tgz#4c4efa00403aa9b0d0a54948086518fd894a08a2"
+  integrity sha512-aGfPbFqrkmEAODAFBH16hdyCBTSuir3EaaXRSSzkhBTR2cps1+053b6+T20PDCg0coLVaEwTZ9ninCFQF3uQJg==
   dependencies:
     "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-utilities" "^1.0.6"
+    "@zendeskgarden/container-utilities" "^1.0.12"
 
-"@zendeskgarden/container-selection@^2.0.6":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-2.0.6.tgz#7a78edb831f584e84dca87c2a9ee1bbe3f2801d1"
-  integrity sha512-TjVxmwepKGAKW2vR0G4mJsFR/AmrRKpPfZTfttfI2j9z5w00gYTxxN0Mxy4QUZou/TAKQsnSpcA/+6jJQQ5QhA==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@zendeskgarden/container-utilities" "^1.0.6"
-
-"@zendeskgarden/container-utilities@^1.0.0", "@zendeskgarden/container-utilities@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-1.0.6.tgz#78db1b19695307b58bf739f8c49255ef8c5667cd"
-  integrity sha512-yM3kTgZ5kzWbFckIFPIiyzB72yEWHt1f3GVPoD8W8NNfR+WXmbqwfsSs6woxDnohsT4K+aZHMc5lOjGycsz3IQ==
+"@zendeskgarden/container-utilities@^1.0.0", "@zendeskgarden/container-utilities@^1.0.12", "@zendeskgarden/container-utilities@^1.0.6":
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-1.0.12.tgz#c2843a6a2bba00690bca877c85b32c9409a7bba9"
+  integrity sha512-DJDtYwEYLtbtuSkIe/9huX/ctT/u+rUKroDXsVOeRuFOW55zB0JJC8WKCGgTmi+oI0kbHZxx6reAj4OrJpNZCA==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.18.0"
 
-"@zendeskgarden/react-buttons@^8.69.2":
-  version "8.69.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.69.2.tgz#3be4dc3c1972002e4ab03fe4ca5a5570fd8568a8"
-  integrity sha512-MLXkAgccA2y+qHDs/iTPpl/ASy+Sa+K2/19qJ4j6rsWl+/rS7eHVuRhV0yfZ/wprjzleGjHWLBM75kj0p7pW1g==
+"@zendeskgarden/react-buttons@^8.73.0":
+  version "8.73.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.73.0.tgz#9d6a9c4b342f89c621d4d0a579e96eb399d69640"
+  integrity sha512-FiuiNdtwe+KGba7kQj/256QkPse0Fe40+bf3jWIqoji3mPe0h0O7pKXiYLbIaYi0LKWYAkXxkWpcgfsoAyR0HA==
   dependencies:
-    "@zendeskgarden/container-buttongroup" "^1.0.0"
-    "@zendeskgarden/container-keyboardfocus" "^1.0.0"
+    "@zendeskgarden/container-selection" "^3.0.0"
+    "@zendeskgarden/container-utilities" "^1.0.6"
     polished "^4.0.0"
     prop-types "^15.5.7"
+    react-merge-refs "^1.1.0"
 
-"@zendeskgarden/react-theming@^8.69.2":
-  version "8.69.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.69.2.tgz#432b9aa895a7f7ccc6cba4ed10abfc5870e5b96e"
-  integrity sha512-uD5CWZAWj/Jb54vzScLMJLXS1EUQnMjVwl343EsTZairCtCHkbtuLFpKt9CxrX9LFu+PGeLYTW8vAAZne7VBjw==
+"@zendeskgarden/react-theming@^8.73.0":
+  version "8.73.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.73.0.tgz#a9113adb9fa796940a4101d9790efed6ff8dfa1b"
+  integrity sha512-x4mO25dDTMmhu10JwL29AtbvuGqiSwnj7fpNcfAbKqAA7DwBh7+GnDj3vcrpTBzoDmLmG7IsYY7ISZPN6OmafA==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^1.0.0"
     "@zendeskgarden/container-utilities" "^1.0.0"
@@ -107,10 +92,10 @@
     polished "^4.0.0"
     prop-types "^15.5.7"
 
-"@zendeskgarden/svg-icons@6.33.0":
-  version "6.33.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.33.0.tgz#ab915654f1e089318b89fc5de2126812f9322e9c"
-  integrity sha512-RdHsM2EPFgFy0cRZ2jAEe0iqsyMAgetfMibpO9Pk+4fPE7NjFDk4Ul7OpVhadrZQ18RCzSmmD6j/isZBRVQr/w==
+"@zendeskgarden/svg-icons@6.34.0":
+  version "6.34.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.34.0.tgz#b91673e2167fe9666c22a9e74dd2d311e03c0d6c"
+  integrity sha512-73JY3wVMYM3+tqEichEZI9m94Gc+eo1/iSocTsmuO5whv1kVgUxPe1zFanWriBxLrs98KkfAs2y8ZElDHM3NUQ==
 
 csstype@^3.0.2:
   version "3.1.2"
@@ -167,6 +152,11 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-merge-refs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
+  integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
 react-transition-group@^4.4.2:
   version "4.4.5"
