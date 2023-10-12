@@ -67,7 +67,7 @@
     "@zendeskgarden/eslint-config": "34.0.0",
     "@zendeskgarden/scripts": "2.0.1",
     "@zendeskgarden/stylelint-config": "20.0.0",
-    "@zendeskgarden/svg-icons": "6.33.0",
+    "@zendeskgarden/svg-icons": "7.0.0",
     "acorn-jsx": "5.3.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-loader": "9.1.3",
