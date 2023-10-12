@@ -1,15 +1,10 @@
-# General ignores
-node_modules
-*.log
-.changelog
-.vscode
-.netlify
-.env
 .cache
-
-# Package specific
-packages/**/dist
-package-lock.json
-
-# Demo specific
+.changelog
+.env
+.netlify
+.vscode
+node_modules
+yarn.lock
+*.log
 demo/**/*
+packages/**/dist
