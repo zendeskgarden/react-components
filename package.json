@@ -77,7 +77,7 @@
     "commander": "11.0.0",
     "core-js": "3.32.0",
     "coveralls": "3.1.1",
-    "envalid": "7.3.1",
+    "envalid": "8.0.0",
     "eslint": "8.46.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-garden-local": "file:./utils/eslint",
