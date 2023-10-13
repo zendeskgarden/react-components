@@ -21,7 +21,7 @@
     "tag": "utils/scripts/tag.mjs",
     "test": "jest --config=utils/test/jest.config.js",
     "test:ci": "npm run lint && npm run format:all && npm exec tsc && npm test --coverage",
-    "test:watch": "npm test --watch",
+    "test:watch": "npm test -- --watch",
     "preversion": "npm run test:ci",
     "version": "npm run build && git add -A"
   },
