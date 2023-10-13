@@ -51,5 +51,8 @@
   "publishConfig": {
     "access": "public"
   },
+  "overrides": {
+    "@types/react": "17.0.62"
+  },
   "zendeskgarden:src": "src/index.ts"
 }
