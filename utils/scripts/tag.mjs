@@ -132,7 +132,7 @@ const sync = async (main, spinner) => {
     await execa('git', ['pull']);
     await execa('git', ['fetch', '--tags', '--prune', '--prune-tags']);
     spinner.stop();
-    await execa('yarn', ['install', '--force'], { stdout: process.stdout });
+    await execa('npm', ['install', '--force'], { stdout: process.stdout });
   } else {
     throw new Error(`Switch to the ${main} branch`);
   }
@@ -150,6 +150,7 @@ const sync = async (main, spinner) => {
  */
 const version = async (bump, preid, main, spinner) => {
   const lernaArgs = [
+    'exec',
     'lerna',
     'version',
     '--conventional-commits',
@@ -181,7 +182,7 @@ const version = async (bump, preid, main, spinner) => {
     lernaArgs.push('--allow-branch', main);
   }
 
-  await execa('yarn', lernaArgs, { stdin: process.stdin, stdout: process.stdout });
+  await execa('npm', lernaArgs, { stdin: process.stdin, stdout: process.stdout });
 
   const retVal = (await execa('git', describeArgs)).stdout.toString();
 

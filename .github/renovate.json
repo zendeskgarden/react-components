@@ -4,7 +4,7 @@
   "ignorePaths": ["**/node_modules/**"],
   "schedule": ["on Monday every 9 weeks of the year starting on the 5th week"],
   "labels": ["PR: Internal :seedling:"],
-  "postUpdateOptions": ["yarnDedupeHighest"],
+  "postUpdateOptions": ["npmDedupe"],
   "packageRules": [
     {
       "matchFiles": ["package.json"],

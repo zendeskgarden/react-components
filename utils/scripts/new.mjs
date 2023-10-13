@@ -28,13 +28,14 @@ const bootstrap = async (component, spinner) => {
   info(`Bootstrapping package...`, spinner);
 
   const lernaArgs = [
+    'exec',
     'lerna',
     'bootstrap',
     '--scope',
     `@zendeskgarden/react-${pluralize.plural(component.toLowerCase())}`
   ];
 
-  await execa('yarn', lernaArgs, { stdin: process.stdin, stdout: process.stdout });
+  await execa('npm', lernaArgs, { stdin: process.stdin, stdout: process.stdout });
 };
 
 /**
