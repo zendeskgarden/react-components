@@ -52,7 +52,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       weekStartsOn: preferredWeekStartsOn
     });
 
-    const dayLabelFormatter = useCallback(
+    const dayLabelFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
           weekday: 'short'

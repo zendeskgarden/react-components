@@ -127,7 +127,7 @@ export const FileUploadStory: Story<IArgs> = ({
     [files]
   );
 
-  const handleRemove = useCallback(
+  const handleRemove = useCallback<(fileIndex: number) => undefined>(
     fileIndex => {
       setFiles(files.filter((_, i) => i !== fileIndex));
     },

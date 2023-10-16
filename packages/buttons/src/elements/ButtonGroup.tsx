@@ -54,7 +54,7 @@ export const ButtonGroup = forwardRef<HTMLDivElement, IButtonGroupProps>(
       values,
       defaultSelectedValue: values[0],
       selectedValue,
-      onSelect: useCallback(
+      onSelect: useCallback<(value: any) => undefined>(
         value => {
           onSelect && onSelect(value);
 

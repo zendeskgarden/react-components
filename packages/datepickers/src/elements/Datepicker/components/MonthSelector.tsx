@@ -23,7 +23,7 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
 }) => {
   const { state, dispatch } = useDatepickerContext();
 
-  const headerLabelFormatter = useCallback(
+  const headerLabelFormatter = useCallback<(date: Date) => string>(
     date => {
       const formatter = new Intl.DateTimeFormat(locale, {
         month: 'long',
