@@ -20,7 +20,6 @@ interface IColorWellProps {
   onChange?: (hsv: IHSVColor, event: MouseEvent) => void;
 }
 
-/* eslint-disable jsx-a11y/prefer-tag-over-role */
 export const ColorWell: React.FC<IColorWellProps> = React.memo(
   ({ hue, saturation, lightness, onChange }) => {
     const { rtl } = useContext(ThemeContext);
