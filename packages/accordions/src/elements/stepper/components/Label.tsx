@@ -42,7 +42,7 @@ const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>(
 LabelComponent.displayName = 'Stepper.Label';
 
 LabelComponent.propTypes = {
-  icon: PropTypes.node,
+  icon: PropTypes.any,
   iconProps: PropTypes.object,
   isHidden: PropTypes.bool
 };

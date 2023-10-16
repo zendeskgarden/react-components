@@ -87,8 +87,7 @@ export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsib
 CollapsibleSubNavItem.propTypes = {
   header: PropTypes.any,
   isExpanded: PropTypes.bool,
-  onChange: PropTypes.func,
-  children: PropTypes.node
+  onChange: PropTypes.func
 };
 
 CollapsibleSubNavItem.displayName = 'CollapsibleSubNavItem';

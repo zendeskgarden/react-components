@@ -12,7 +12,7 @@ import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { ITooltipProps, Paragraph, Title, Tooltip } from '@zendeskgarden/react-tooltips';
 import { ITooltipContent } from './types';
 
-interface IArgs extends ITooltipProps {
+interface IArgs extends Omit<ITooltipProps, 'content'> {
   content: ITooltipContent;
 }
 

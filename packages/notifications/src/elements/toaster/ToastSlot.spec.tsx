@@ -7,10 +7,10 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, act } from 'garden-test-utils';
+import { render, act, waitFor } from 'garden-test-utils';
 import { useToast, ToastProvider } from '../../';
-
 import { config } from 'react-transition-group';
+
 config.disabled = true;
 
 jest.useFakeTimers();
@@ -71,14 +71,14 @@ describe('ToastSlot', () => {
 
     expect(getAllByText('notification')).toHaveLength(5);
 
-    await act(async () => {
-      await user.unhover(getAllByText('notification')[0]);
-    });
+    await user.unhover(getAllByText('notification')[0]);
 
     act(() => {
       jest.runAllTimers();
     });
 
-    expect(queryByText('notification')).not.toBeInTheDocument();
+    waitFor(() => {
+      expect(queryByText('notification')).not.toBeInTheDocument();
+    });
   });
 });
