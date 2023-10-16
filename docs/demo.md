@@ -1,7 +1,7 @@
 # Garden demos
 
 Garden leverages [Storybook](https://storybook.js.org/) for generating component
-demos with story controls. Run `yarn start` to build and serve package demos in
+demos with story controls. Run `npm start` to build and serve package demos in
 development mode (with hot reloading).
 
 The development goal for demos is to render components in isolation with the
@@ -42,8 +42,8 @@ The following list of dos and don'ts outline demo code expectations.
 ## Conventions
 
 Stick to the following conventions for authoring demo stories that are
-consistent with the existing codebase. You may find that running `yarn new` is
-helpful for auto-generating component demo scaffolding.
+consistent with the existing codebase. You may find that running `npm run new`
+is helpful for auto-generating component demo scaffolding.
 
 ### Structure
 
