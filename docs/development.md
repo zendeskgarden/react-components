@@ -8,10 +8,10 @@ along with versioning, development, and PR workflows.
 ## Package creation
 
 One of the best ways to get familiar with Garden's package structure is to
-create your own. Garden makes this simple by providing a `yarn new` command.
+create your own. Garden makes this simple by providing a `npm run new` command.
 This command will prompt you to enter a name (e.g. `test`). The new package
 will be generated under `/packages` and you can view the results by running
-the `yarn start` command (e.g. `yarn start --scope @zendeskgarden/react-test`).
+the `npm start` command.
 
 Unless you are a member of the core team, it is unlikely that we'll accept
 brand new package PRs. However, a new package provides the simplified sandbox
@@ -44,7 +44,7 @@ architecture, along with rules that apply to each component type. See Garden's
 ## Package demos
 
 Package demo code is generated via [Storybook](https://storybook.js.org/). Run
-`yarn start` to build and serve package documentation in development mode (with
+`npm start` to build and serve package documentation in development mode (with
 hot reloading). See [demo documentation](/docs/demo.md) for development
 information.
 
@@ -99,4 +99,5 @@ Garden packages are built using [Rollup](https://rollupjs.org/). Package distrib
 - ES module bundle (the package `module` entry)
 - type definitions
 
-Run a full repo build using `yarn build` or a package-scoped build with `yarn build --scope @zendeskgarden/react-[package]`.
+Run a full repo build using `npm run build` or a package-scoped build with
+`npm run build -- --scope @zendeskgarden/react-[package]`.

@@ -4,7 +4,7 @@ The API for Garden components is based on a Container-View-Element
 architecture. This architecture provides a separation of concerns, advancing
 [development](development.md) with an approach that is repeatable,
 consistent, and reliable. The component parts of the architecture are explained
-in more detail below. Use the `yarn new`
+in more detail below. Use the `npm run new`
 [command](development.md#package-creation) to generate starter code that
 satisfies API rules for Garden components.
 
