@@ -10,7 +10,7 @@
     "format:js": "prettier --log-level warn '{packages,utils}/**/*.{js,mjs,ts,tsx}' '!packages/.template' '!packages/**/dist/**'",
     "format:md": "prettier --log-level warn 'packages/**/*.{md,mdx}'",
     "format:package_json": "lerna exec -- prettier-package-json",
-    "postinstall": "husky install && lerna bootstrap",
+    "postinstall": "husky install",
     "lint": "npm run lint:css && npm run lint:js && npm run lint:md",
     "lint:css": "stylelint '{packages,utils}/**/*.{js,ts,tsx}'",
     "lint:js": "eslint .storybook/ packages/ utils/ --ext js,mjs,ts,tsx --max-warnings 0",
@@ -25,6 +25,9 @@
     "preversion": "npm run test:ci",
     "version": "npm run build && git add -A"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@babel/cli": "7.23.0",
     "@babel/core": "7.23.2",
@@ -87,7 +90,7 @@
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "jest-styled-components": "7.2.0",
-    "lerna": "6.6.2",
+    "lerna": "7.3.1",
     "lint-staged": "13.3.0",
     "markdownlint-cli": "0.37.0",
     "micromatch": "4.0.5",
