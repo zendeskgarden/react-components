@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, renderRtl, act } from 'garden-test-utils';
+import { render, renderRtl, act, waitFor } from 'garden-test-utils';
 import { TooltipModal } from './TooltipModal';
 import { ITooltipModalProps } from '../../types';
 
@@ -202,7 +202,7 @@ describe('TooltipModal', () => {
         <Example onClose={onCloseSpy} backdropProps={{ 'data-test-id': 'backdrop' } as any} />
       );
 
-      await act(async () => {
+      await waitFor(async () => {
         await user.click(getByText('open'));
         await user.click(getByTestId('backdrop'));
       });
@@ -213,7 +213,7 @@ describe('TooltipModal', () => {
     it('is triggered by Close element click', async () => {
       const { getAllByRole, getByText } = render(<Example onClose={onCloseSpy} />);
 
-      await act(async () => {
+      await waitFor(async () => {
         await user.click(getByText('open'));
         await user.click(getAllByRole('button')[1]);
       });
@@ -224,7 +224,7 @@ describe('TooltipModal', () => {
     it('is triggered by ESC key', async () => {
       const { getByRole, getByText } = render(<Example onClose={onCloseSpy} />);
 
-      await act(async () => {
+      await waitFor(async () => {
         await user.click(getByText('open'));
         await user.type(getByRole('dialog'), '{escape}');
       });

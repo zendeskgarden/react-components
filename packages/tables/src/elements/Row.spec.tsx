@@ -103,7 +103,7 @@ describe('Row', () => {
     const row = getByTestId('row');
 
     await user.click(row);
-    row.blur();
+    await user.tab();
 
     expect(row).not.toHaveStyleRule(
       'box-shadow',

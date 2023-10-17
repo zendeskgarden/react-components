@@ -56,7 +56,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       onChange
     } = useDatepickerRangeContext();
 
-    const headerLabelFormatter = useCallback(
+    const headerLabelFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
           month: 'long',
@@ -68,7 +68,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       [locale]
     );
 
-    const dayLabelFormatter = useCallback(
+    const dayLabelFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
           weekday: 'short'
@@ -79,7 +79,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       [locale]
     );
 
-    const dayFormatter = useCallback(
+    const dayFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
           day: 'numeric'

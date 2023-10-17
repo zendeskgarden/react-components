@@ -32,7 +32,7 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
       }
     }
 
-    const setValue = useCallback(
+    const setValue = useCallback<(value: number) => undefined>(
       value => {
         if (isRow) {
           paneProviderContext!.setRowValue(isTop, layoutKey, value);

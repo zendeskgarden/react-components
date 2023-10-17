@@ -6,14 +6,18 @@
  */
 
 import styled from 'styled-components';
-import React, { Children } from 'react';
+import React, { Children, PropsWithChildren } from 'react';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import AlertError from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 import AlertWarning from '@zendeskgarden/svg-icons/src/16/alert-warning-stroke.svg';
 import CheckCircle from '@zendeskgarden/svg-icons/src/16/check-circle-stroke.svg';
 import { Validation } from '../../types';
 
-const MessageIcon: React.FC<IStyledMessageIconProps> = ({ children, validation, ...props }) => {
+const MessageIcon: React.FC<PropsWithChildren<IStyledMessageIconProps>> = ({
+  children,
+  validation,
+  ...props
+}) => {
   let retVal;
 
   if (validation === 'error') {

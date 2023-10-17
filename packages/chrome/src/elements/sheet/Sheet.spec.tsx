@@ -57,6 +57,6 @@ describe('Sheet', () => {
     const sheet = getByRole('complementary');
 
     expect(screen.getByLabelText('title')).toBe(sheet);
-    expect(sheet).toHaveDescription('description');
+    expect(sheet).toHaveAccessibleDescription('description');
   });
 });

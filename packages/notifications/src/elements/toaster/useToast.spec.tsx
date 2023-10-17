@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, act } from 'garden-test-utils';
 import { useToast, ToastProvider } from '../../';
@@ -15,7 +15,7 @@ config.disabled = true;
 
 jest.useFakeTimers();
 
-const Notification: React.FC<{ close: () => void }> = ({ close, children }) => {
+const Notification: React.FC<PropsWithChildren<{ close: () => void }>> = ({ close, children }) => {
   return (
     <div role="alert">
       {children}

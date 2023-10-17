@@ -12,7 +12,8 @@ import React, {
   useState,
   useMemo,
   useCallback,
-  HTMLAttributes
+  HTMLAttributes,
+  ReactNode
 } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
@@ -163,7 +164,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
       } as any)
     );
 
-    const renderSelectableItem = useCallback(
+    const renderSelectableItem = useCallback<(item: any, index: number) => ReactNode>(
       (item, index) => {
         const removeValue = () => {
           (setDownshiftState as any)({
