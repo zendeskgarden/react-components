@@ -1,7 +1,8 @@
 Bundled license information:
 
 react-is/cjs/react-is.production.min.js:
-  /** @license React v17.0.2
+  /**
+   * @license React
    * react-is.production.min.js
    *
    * Copyright (c) Facebook, Inc. and its affiliates.
