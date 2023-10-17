@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { FunctionComponent } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { Story } from '@storybook/react';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { LG, MD, SM, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
@@ -19,7 +19,7 @@ interface IArgs extends ISkeletonProps {
 }
 
 export const SkeletonStory: Story<IArgs> = ({ backgroundColor, count = 1, typescale, ...args }) => {
-  let Typescale: FunctionComponent | undefined;
+  let Typescale: FC<PropsWithChildren> | undefined;
 
   switch (typescale) {
     case 'small':
