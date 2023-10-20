@@ -152,6 +152,7 @@ const version = async (bump, preid, main, spinner) => {
   const lernaArgs = [
     'exec',
     'lerna',
+    '--',
     'version',
     '--conventional-commits',
     '--force-git-tag',
