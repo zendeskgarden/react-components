@@ -12,6 +12,38 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.73.1 (2023-10-20)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1645](https://github.com/zendeskgarden/react-components/pull/1645) fix(dropdowns.next): allows buttonProps to flow into container-menu props ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* Other
+  * [#1649](https://github.com/zendeskgarden/react-components/pull/1649) chore: fix `lerna-version` command in tag script ([@jzempel](https://github.com/jzempel))
+  * [#1647](https://github.com/zendeskgarden/react-components/pull/1647) chore(deps): bump postcss from 8.4.23 to 8.4.31 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1636](https://github.com/zendeskgarden/react-components/pull/1636) chore(deps): update dependency @zendeskgarden/eslint-config to v35 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1640](https://github.com/zendeskgarden/react-components/pull/1640) chore(deps): update dependency rollup to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1635](https://github.com/zendeskgarden/react-components/pull/1635) chore(deps): update dependency @testing-library/jest-dom to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1632](https://github.com/zendeskgarden/react-components/pull/1632) chore(deps): replace dependency rollup-plugin-babel with @rollup/plugin-babel 5.0.0 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1638](https://github.com/zendeskgarden/react-components/pull/1638) chore(deps): update dependency execa to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1637](https://github.com/zendeskgarden/react-components/pull/1637) chore(deps): update dependency envalid to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1629](https://github.com/zendeskgarden/react-components/pull/1629) chore(deps): bump postcss from 8.4.27 to 8.4.31 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1648](https://github.com/zendeskgarden/react-components/pull/1648) chore(deps): update dependency lerna to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `tables`, `tooltips`
+  * [#1646](https://github.com/zendeskgarden/react-components/pull/1646) chore(deps): update react monorepo to v18 (major) ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`, `notifications`
+  * [#1634](https://github.com/zendeskgarden/react-components/pull/1634) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`, `utilities`
+  * [#1641](https://github.com/zendeskgarden/react-components/pull/1641) chore(deps): update dependency string-width to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.next`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#1643](https://github.com/zendeskgarden/react-components/pull/1643) chore(deps): update dependency @zendeskgarden/svg-icons to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `buttons`, `chrome`, `dropdowns`, `forms`, `grid`, `tables`, `typography`
+  * [#1644](https://github.com/zendeskgarden/react-components/pull/1644) chore(deps): update dependency prettier to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1633](https://github.com/zendeskgarden/react-components/pull/1633) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.73.0 (2023-10-10)
 
 #### :rocket: New Feature
