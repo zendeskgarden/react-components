@@ -50,6 +50,7 @@ export const StyledRotateIcon = styled(
       ? `${props.theme.space.base * 1.5}px ${props.theme.space.base * 3}px`
       : `${props.theme.space.base * 5}px`};
   width: ${props => props.theme.iconSizes.md};
+  min-width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};
   vertical-align: middle;
 
