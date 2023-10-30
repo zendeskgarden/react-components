@@ -5,7 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react';
+import React, {
+  MouseEventHandler,
+  forwardRef,
+  useContext,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
@@ -13,6 +20,7 @@ import { IListboxProps } from '../../types';
 import { StyledFloatingListbox, StyledListbox } from '../../views';
 import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 
 export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
   (
@@ -23,6 +31,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
       isExpanded,
       maxHeight,
       minHeight,
+      onMouseDown,
       triggerRef,
       zIndex,
       ...props
@@ -63,6 +72,8 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         })
       ]
     });
+    /* Prevent listbox close on scrollbar click */
+    const handleMouseDown: MouseEventHandler = event => event.preventDefault();
 
     useEffect(() => {
       // Only allow listbox positioning updates on expanded combobox.
@@ -122,6 +133,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
           isCompact={isCompact}
           maxHeight={maxHeight}
           minHeight={minHeight}
+          onMouseDown={composeEventHandlers(onMouseDown, handleMouseDown)}
           style={{ height }}
           {...props}
           ref={ref}

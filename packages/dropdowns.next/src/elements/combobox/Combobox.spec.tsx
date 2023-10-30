@@ -440,6 +440,31 @@ describe('Combobox', () => {
   });
 
   describe('interaction', () => {
+    it('retains expansion on `Listbox` click', async () => {
+      const { getByTestId } = render(
+        <TestCombobox isAutocomplete>
+          <Option data-test-id="option" value="test" />
+        </TestCombobox>
+      );
+      const combobox = getByTestId('combobox');
+      const trigger = combobox.firstChild as HTMLElement;
+      const input = getByTestId('input');
+
+      await user.click(trigger);
+
+      expect(input).toHaveAttribute('aria-expanded', 'true');
+
+      const listbox = combobox.querySelector('[role="listbox"]') as HTMLElement;
+
+      await user.click(listbox);
+
+      expect(input).toHaveAttribute('aria-expanded', 'true');
+
+      await user.click(getByTestId('option'));
+
+      expect(input).toHaveAttribute('aria-expanded', 'false');
+    });
+
     it('retains expansion on `OptGroup` click', async () => {
       const { getByTestId } = render(
         <TestCombobox isAutocomplete>
