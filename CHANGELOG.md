@@ -12,6 +12,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.73.2 (2023-11-02)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1653](https://github.com/zendeskgarden/react-components/pull/1653) fix(combobox): prevent listbox close on scrollbar click ([@jzempel](https://github.com/jzempel))
+* `accordions`
+  * [#1651](https://github.com/zendeskgarden/react-components/pull/1651) fix(accordions): prevent flex shrink on chevron ([@jzempel](https://github.com/jzempel))
+
 ## v8.73.1 (2023-10-20)
 
 #### :bug: Bug Fix
