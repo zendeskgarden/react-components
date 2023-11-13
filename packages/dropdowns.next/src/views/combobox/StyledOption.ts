@@ -19,16 +19,18 @@ export interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
 }
 
 const colorStyles = (props: IStyledOptionProps) => {
-  const activeBackgroundColor = getColor(
-    props.$type === 'danger' ? 'dangerHue' : 'primaryHue',
-    600,
-    props.theme,
-    0.08
-  );
-  const backgroundColor =
-    props.isActive && props.$type !== 'group' && props.$type !== 'header'
-      ? activeBackgroundColor
-      : undefined;
+  let backgroundColor;
+  let boxShadow;
+
+  if (props.isActive && props.$type !== 'group' && props.$type !== 'header') {
+    const hue = props.$type === 'danger' ? 'dangerHue' : 'primaryHue';
+
+    backgroundColor = getColor(hue, 600, props.theme, 0.08);
+    boxShadow = `inset ${
+      props.theme.rtl ? `-${props.theme.borderWidths.md}` : props.theme.borderWidths.md
+    } 0 ${getColor(hue, 600, props.theme)}`;
+  }
+
   const disabledForegroundColor = getColor('neutralHue', 400, props.theme);
   let foregroundColor = props.theme.colors.foreground;
 
@@ -39,6 +41,7 @@ const colorStyles = (props: IStyledOptionProps) => {
   }
 
   return css`
+    box-shadow: ${boxShadow};
     background-color: ${backgroundColor};
     color: ${foregroundColor};
 
