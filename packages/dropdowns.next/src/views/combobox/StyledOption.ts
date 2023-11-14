@@ -26,7 +26,7 @@ const colorStyles = (props: IStyledOptionProps) => {
     const hue = props.$type === 'danger' ? 'dangerHue' : 'primaryHue';
 
     backgroundColor = getColor(hue, 600, props.theme, 0.08);
-    boxShadow = `inset 0 0 0 ${props.theme.borderWidths.sm} ${getColor(hue, 600, props.theme)}`;
+    boxShadow = `inset 0 0 0 ${props.theme.shadowWidths.sm} ${getColor(hue, 600, props.theme)}`;
   }
 
   const disabledForegroundColor = getColor('neutralHue', 400, props.theme);
