@@ -27,7 +27,7 @@ const colorStyles = (props: IStyledOptionProps) => {
 
     backgroundColor = getColor(hue, 600, props.theme, 0.08);
     boxShadow = `inset ${
-      props.theme.rtl ? `-${props.theme.borderWidths.md}` : props.theme.borderWidths.md
+      props.theme.rtl ? `-${props.theme.shadowWidths.md}` : props.theme.shadowWidths.md
     } 0 ${getColor(hue, 600, props.theme)}`;
   }
 
