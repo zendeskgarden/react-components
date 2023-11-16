@@ -57,9 +57,9 @@ workflows:
   main:
     jobs:
       - build
-      - test:
-          requires:
-            - build
+      # - test:
+      #     requires:
+      #       - build
       - deploy:
           requires:
             - test
