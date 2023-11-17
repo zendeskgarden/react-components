@@ -25,8 +25,9 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
+          override-ci-command: npm ci --ignore-scripts
           cache-version: '{{ .Environment.CACHE_VERSION }}'
-      - run: npm exec -- lerna run build --concurrency=1 # prevent out-of-memory
+      - run: npm exec -- lerna run build --concurrency=2 # prevent out-of-memory
       - *persist_to_workspace
 
   test:
