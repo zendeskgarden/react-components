@@ -63,7 +63,7 @@ workflows:
             - build
       - deploy:
           requires:
-            - build
+            - test
           context: writer
       - publish:
           requires:
