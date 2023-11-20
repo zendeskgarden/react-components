@@ -6,7 +6,7 @@
  */
 
 import React, { HTMLAttributes, InputHTMLAttributes, forwardRef } from 'react';
-import { render } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { IComboboxProps, ISelectedOption } from '../../types';
@@ -147,6 +147,18 @@ describe('Combobox', () => {
     const option = getByTestId('option');
 
     expect(input).toHaveAttribute('aria-activedescendant', option.id);
+    expect(option).toHaveStyleRule('box-shadow', expect.stringContaining('inset 3px'));
+  });
+
+  it('handles active index RTL as expected', () => {
+    const { getByTestId } = renderRtl(
+      <TestCombobox defaultExpanded defaultActiveIndex={0}>
+        <Option data-test-id="option" value="active" />
+      </TestCombobox>
+    );
+    const option = getByTestId('option');
+
+    expect(option).toHaveStyleRule('box-shadow', expect.stringContaining('inset -3px'));
   });
 
   it('applies `id` as expected', () => {
