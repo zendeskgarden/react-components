@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.73.3 (2023-11-20)
+
+#### :bug: Bug Fix
+* `colorpickers`, `dropdowns.next`
+  * [#1655](https://github.com/zendeskgarden/react-components/pull/1655) fix(dropdowns.next): active listbox option and menu item styling ([@jzempel](https://github.com/jzempel))
+
 ## v8.73.2 (2023-11-02)
 
 #### :bug: Bug Fix
