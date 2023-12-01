@@ -1,0 +1,37 @@
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
+import { Tree } from '@zendeskgarden/react-trees';
+import README from '../README.md';
+
+export const subcomponents = { 'Tree.Text': Tree.Text };
+
+<Meta title="Packages/Trees/Tree" component={Tree} subcomponents={subcomponents} />
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+export const args = { children: 'Text' };
+
+export const argTypes = {
+  children: {
+    table: { category: 'Tree.Text' }
+  },
+  isFocusable: {
+    control: { type: 'boolean' },
+    table: { category: 'Story' }
+  }
+};
+
+<Canvas>
+  <Story name="Tree" args={args} argTypes={argTypes}>
+    {({ children, ...args }) => (
+      <Tree {...args} tabIndex={args.isFocusable ? 0 : -1}>
+        <Tree.Text>{children}</Tree.Text>
+      </Tree>
+    )}
+  </Story>
+</Canvas>
+
+<Markdown>{README}</Markdown>
