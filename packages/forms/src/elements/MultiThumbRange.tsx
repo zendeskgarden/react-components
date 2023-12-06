@@ -23,6 +23,8 @@ const MIN = 0;
 const MAX = 100;
 
 /**
+ * @deprecated this legacy component will be removed in a future release
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const MultiThumbRange = forwardRef<HTMLDivElement, IMultiThumbRangeProps>(
