@@ -30,7 +30,7 @@ const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
           ...props
         }) as HTMLAttributes<HTMLElement>)}
       >
-        <StyledInnerPanel>{children}</StyledInnerPanel>
+        <StyledInnerPanel isAnimated={isAnimated}>{children}</StyledInnerPanel>
       </StyledPanel>
     );
   }
