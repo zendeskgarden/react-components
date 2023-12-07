@@ -22,6 +22,9 @@ module.exports = {
     name: '@storybook/react-webpack5',
     options: {}
   },
+  core: {
+    disableWhatsNewNotifications: true
+  },
   webpackFinal: config => {
     const fileLoaderRule = config.module.rules.find(rule => rule.test.test('.svg'));
 
