@@ -14,6 +14,7 @@ import {
 } from '@zendeskgarden/react-theming';
 
 interface IStyledPanel {
+  inert?: string;
   isBare?: boolean;
   isCompact?: boolean;
   isExpanded?: boolean;
