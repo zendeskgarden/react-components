@@ -14,6 +14,7 @@ import {
 } from '@zendeskgarden/react-theming';
 
 interface IStyledPanel {
+  inert?: string;
   isBare?: boolean;
   isCompact?: boolean;
   isExpanded?: boolean;
@@ -50,8 +51,7 @@ const sizeStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
 
   return css`
     grid-template-rows: ${isExpanded ? 1 : 0}fr;
-    border-bottom-width: ${theme.borderWidths.sm};
-    border-bottom-style: solid;
+    border-bottom: ${theme.borders.sm};
     padding: ${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px;
     line-height: ${getLineHeight(base * 5, theme.fontSizes.md)};
     font-size: ${theme.fontSizes.md};
