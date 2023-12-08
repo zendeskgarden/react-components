@@ -12,6 +12,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.73.4 (2023-12-08)
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#1662](https://github.com/zendeskgarden/react-components/pull/1662) fix(accordions): hide collapsed panel content ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1659](https://github.com/zendeskgarden/react-components/pull/1659) chore(deps-dev): bump @adobe/css-tools from 4.3.1 to 4.3.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1658](https://github.com/zendeskgarden/react-components/pull/1658) chore(deps): bump the npm_and_yarn at /. security update group with 1 update ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `forms`
+  * [#1661](https://github.com/zendeskgarden/react-components/pull/1661) chore(forms): mark `MultiThumbRange` deprecated ([@jzempel](https://github.com/jzempel))
+
 ## v8.73.3 (2023-11-20)
 
 #### :bug: Bug Fix
