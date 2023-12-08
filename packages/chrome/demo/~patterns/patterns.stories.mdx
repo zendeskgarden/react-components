@@ -1,0 +1,12 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { DarkStory } from './stories/DarkStory';
+
+<Meta title="Packages/Chrome/[patterns]" />
+
+# Patterns
+
+## Dark mode
+
+<Canvas>
+  <Story name="Dark">{args => <DarkStory {...args} />}</Story>
+</Canvas>

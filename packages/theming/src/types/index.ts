@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ThemeProps } from 'styled-components';
+import { ThemeProviderProps } from 'styled-components';
 
 export const ARROW_POSITION = [
   'top',
@@ -129,13 +129,13 @@ export interface IGardenTheme {
   palette: Record<string, Hue>;
 }
 
-export interface IThemeProviderProps extends Partial<ThemeProps<IGardenTheme>> {
+export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenTheme>> {
   /**
    * Provides values for component styling. See styled-components
    * [`ThemeProvider`](https://styled-components.com/docs/api#themeprovider)
    * for details.
    */
-  theme?: IGardenTheme;
+  theme?: IGardenTheme | ((theme: IGardenTheme) => IGardenTheme);
   /**
    * Provides a reference to the DOM node used to scope a `:focus-visible`
    * polyfill. If left `undefined`, a scoping `<div>` will be rendered.
