@@ -33,7 +33,7 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
-    "@types/lodash.memoize": "4.1.7"
+    "@types/lodash.memoize": "4.1.9"
   },
   "keywords": [
     "components",

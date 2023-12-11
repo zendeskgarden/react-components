@@ -39,8 +39,8 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
-    "@types/lodash.isequal": "4.5.6",
-    "@types/lodash.throttle": "4.1.7",
+    "@types/lodash.isequal": "4.5.8",
+    "@types/lodash.throttle": "4.1.9",
     "@zendeskgarden/react-theming": "^8.73.4",
     "@zendeskgarden/svg-icons": "7.0.0"
   },
