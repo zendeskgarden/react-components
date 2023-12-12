@@ -6,9 +6,7 @@
  */
 
 import React from 'react';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl, screen } from 'garden-test-utils';
-
 import { Modal } from './Modal';
 import { Header } from './Header';
 import { Close } from './Close';
@@ -36,10 +34,7 @@ describe('Header', () => {
       </Modal>
     );
 
-    expect(screen.getByText('Header')).toHaveStyleRule(
-      'padding-right',
-      `${DEFAULT_THEME.space.base * 18.5}px`
-    );
+    expect(screen.getByText('Header')).toHaveStyleRule('padding', '20px 74px 20px 40px');
   });
 
   it('renders horizontal padding in rtl mode when Close is present', () => {
@@ -50,10 +45,7 @@ describe('Header', () => {
       </Modal>
     );
 
-    expect(screen.getByText('Header')).toHaveStyleRule(
-      'padding-left',
-      `${DEFAULT_THEME.space.base * 18.5}px`
-    );
+    expect(screen.getByText('Header')).toHaveStyleRule('padding', '20px 40px 20px 74px');
   });
 
   it('does not have horizontal padding when Close is absent', () => {

@@ -12,7 +12,8 @@ const COMPONENT_ID = 'chrome.nav';
 
 const colorStyles = (props: IStyledNavProps) => {
   const shade = props.isDark || props.isLight ? 600 : 700;
-  const backgroundColor = getColor(props.hue, shade, props.theme);
+  const isDarkMode = props.theme.colors.base === 'dark';
+  const backgroundColor = getColor(props.hue, isDarkMode ? 950 : shade, props.theme);
   const foregroundColor = props.isLight ? props.theme.palette.black : props.theme.palette.white;
 
   return css`

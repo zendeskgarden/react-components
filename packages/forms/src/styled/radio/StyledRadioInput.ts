@@ -21,7 +21,11 @@ const COMPONENT_ID = 'forms.radio';
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
 
-  const borderColor = getColor('neutralHue', SHADE - 300, props.theme);
+  const borderColor = getColor(
+    'neutralHue',
+    props.theme.colors.base === 'dark' ? SHADE + 100 : SHADE - 300,
+    props.theme
+  );
   const backgroundColor = props.theme.colors.background;
   const iconColor = backgroundColor;
   const hoverBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.08);

@@ -38,8 +38,12 @@ export const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(
     const isLight = hue ? isLightMemoized : false;
     const isDark = hue ? !isLightMemoized : false;
     const chromeContextValue = useMemo(
-      () => ({ hue: hue || 'chromeHue', isLight, isDark }),
-      [hue, isLight, isDark]
+      () => ({
+        hue: hue || (theme.colors.base === 'dark' ? 'neutralHue' : 'chromeHue'),
+        isLight,
+        isDark
+      }),
+      [hue, isLight, isDark, theme.colors.base]
     );
     const environment = useDocument(theme);
 

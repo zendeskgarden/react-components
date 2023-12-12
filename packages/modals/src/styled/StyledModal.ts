@@ -16,7 +16,7 @@ import {
 
 const COMPONENT_ID = 'modals.modal';
 
-export interface IStyledModalProps {
+export interface IStyledModalProps extends ThemeProps<DefaultTheme> {
   isLarge?: boolean;
   isCentered?: boolean;
   isAnimated?: boolean;
@@ -40,27 +40,45 @@ const animationName = keyframes`
 const animationStyles = (props: IStyledModalProps) => {
   if (props.isAnimated) {
     return css`
-      animation: ${animationName} 0.3s ease-in;
+      animation: ${animationName} 0.3s ease-in 0.01s;
     `;
   }
 
   return '';
 };
 
-const boxShadow = (props: ThemeProps<DefaultTheme>) => {
-  const { theme } = props;
-  const { space, shadows } = theme;
-  const offsetY = `${space.base * 5}px`;
-  const blurRadius = `${space.base * 7}px`;
-  const color = getColor('neutralHue', 800, theme, 0.35);
+const colorStyles = (props: IStyledModalProps) => {
+  const boxShadow = props.theme.shadows.lg(
+    `${props.theme.space.base * 5}px`,
+    `${props.theme.space.base * 7}px`,
+    getColor('neutralHue', 800, props.theme, 0.35)!
+  );
 
-  return shadows.lg(offsetY, blurRadius, color as string);
+  return css`
+    box-shadow: ${boxShadow};
+    background-color: ${props.theme.colors.background};
+  `;
 };
 
-const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledModalProps) => {
+  const margin = props.isCentered ? '0' : `${props.theme.space.base * 12}px`;
+  const maxHeight = `calc(100vh - ${props.theme.space.base * 24}px)`;
+
   return css`
+    margin: ${margin};
+    min-height: 60px;
+    max-height: ${maxHeight};
+
     ${mediaQuery('up', props.isLarge ? 'md' : 'sm', props.theme)} {
       width: ${props.isLarge ? props.theme.breakpoints.md : props.theme.breakpoints.sm};
+    }
+
+    /* stylelint-disable-next-line */
+    @media (max-height: 399px) {
+      top: ${props.theme.space.base * 6}px;
+      bottom: auto;
+      margin-bottom: ${props.theme.space.base * 6}px;
+      max-height: none;
     }
   `;
 };
@@ -68,37 +86,23 @@ const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
 /**
  * 1. IE11 centering hack.
  */
-export const StyledModal = styled.div.attrs<IStyledModalProps>({
+export const StyledModal = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledModalProps>`
   display: flex;
   position: fixed;
   flex-direction: column;
-  animation-delay: 0.01s;
-  margin: ${props => (props.isCentered ? '0' : `${props.theme.space.base * 12}px`)};
   border-radius: ${props => props.theme.borderRadii.md};
-  box-shadow: ${boxShadow};
-  background-color: ${props => props.theme.colors.background};
-  min-height: 60px;
-  max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
   overflow: auto;
   direction: ${props => props.theme.rtl && 'rtl'};
 
   ${animationStyles};
-
   ${sizeStyles};
+  ${colorStyles};
 
   &:focus {
     outline: none;
-  }
-
-  /* stylelint-disable-next-line */
-  @media (max-height: 399px) {
-    top: ${props => props.theme.space.base * 6}px;
-    bottom: auto;
-    margin-bottom: ${props => props.theme.space.base * 6}px;
-    max-height: none;
   }
 
   /* stylelint-disable-next-line */

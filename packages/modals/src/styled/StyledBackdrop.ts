@@ -49,7 +49,13 @@ export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
   align-items: ${props => props.isCentered && 'center'};
   justify-content: ${props => props.isCentered && 'center'};
   z-index: 400;
-  background-color: ${props => getColor('neutralHue', 800, props.theme, 0.85)};
+  background-color: ${props =>
+    getColor(
+      'neutralHue',
+      props.theme.colors.base === 'dark' ? 750 : 800,
+      props.theme,
+      props.theme.colors.base === 'dark' ? 0.8 : 0.85
+    )};
   overflow: auto;
   -webkit-overflow-scrolling: touch; /* [1] */
   font-family: ${props => props.theme.fonts.system};

@@ -6,22 +6,42 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { DefaultTheme } from 'styled-components';
-import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, IGardenTheme, ThemeProvider, getColor } from '@zendeskgarden/react-theming';
+import { Chrome, Body, Content } from '@zendeskgarden/react-chrome';
+import { Nav } from './components/Nav';
+import { Header } from './components/Header';
+import { Main } from './components/Main';
 
 interface IArgs {
   test: boolean;
 }
 
-export const DarkStory: Story<IArgs> = props => {
-  const theme = (parentTheme: DefaultTheme) => ({
-    ...parentTheme
-  });
+export const DarkStory: StoryFn<IArgs> = args => {
+  const theme = (parentTheme: DefaultTheme) =>
+    ({
+      ...parentTheme,
+      colors: {
+        ...parentTheme.colors,
+        base: 'dark',
+        background: getColor('neutralHue', 900, parentTheme),
+        foreground: getColor('neutralHue', 200, parentTheme),
+        primaryHue: '#50a1e1'
+      }
+    }) as IGardenTheme;
 
   return (
     <ThemeProvider focusVisibleRef={null} theme={theme}>
-      <div {...props}>Dark</div>
+      <Chrome {...args} isFluid style={{ margin: `-${DEFAULT_THEME.space.xl}` }}>
+        <Nav />
+        <Body>
+          <Header />
+          <Content>
+            <Main />
+          </Content>
+        </Body>
+      </Chrome>
     </ThemeProvider>
   );
 };
