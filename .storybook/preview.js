@@ -54,12 +54,12 @@ const withThemeProvider = (story, context) => {
   }
 
   const colors = { ...DEFAULT_THEME.colors, primaryHue: context.globals.primaryHue };
-  const isDark =
+
+  if (
     context.globals.backgrounds && context.globals.backgrounds.value !== 'transparent'
       ? context.globals.backgrounds.value === DEFAULT_THEME.colors.foreground
-      : context.parameters.backgrounds.default === 'dark';
-
-  if (isDark) {
+      : context.parameters.backgrounds.default === 'dark'
+  ) {
     colors.base = 'dark';
     colors.background = getColor('neutralHue', 900, DEFAULT_THEME);
     colors.foreground = getColor('neutralHue', 200, DEFAULT_THEME);
