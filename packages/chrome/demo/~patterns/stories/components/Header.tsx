@@ -12,27 +12,26 @@ import {
   HeaderItemIcon,
   HeaderItemText
 } from '@zendeskgarden/react-chrome';
-import { Dropdown, Menu, Item, Separator, Trigger } from '@zendeskgarden/react-dropdowns';
+import { Menu, Item, Separator } from '@zendeskgarden/react-dropdowns.next';
 import MenuIcon from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
 
 export const Header = () => (
   <ChromeHeader>
-    <Dropdown>
-      <Trigger>
-        <HeaderItem>
+    <Menu
+      button={props => (
+        <HeaderItem {...props}>
           <HeaderItemIcon>
             <MenuIcon />
           </HeaderItemIcon>
           <HeaderItemText isClipped>Products</HeaderItemText>
         </HeaderItem>
-      </Trigger>
-      <Menu>
-        <Item value="item-one">One</Item>
-        <Item value="item-two">Two</Item>
-        <Item value="item-three">Three</Item>
-        <Separator />
-        <Item value="item-signout">Sign out</Item>
-      </Menu>
-    </Dropdown>
+      )}
+    >
+      <Item value="item-one">One</Item>
+      <Item value="item-two">Two</Item>
+      <Item value="item-three">Three</Item>
+      <Separator />
+      <Item value="item-signout">Sign out</Item>
+    </Menu>
   </ChromeHeader>
 );

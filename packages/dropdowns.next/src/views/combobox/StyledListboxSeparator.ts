@@ -11,7 +11,11 @@ import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden
 const COMPONENT_ID = 'dropdowns.combobox.separator';
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const backgroundColor = getColor('neutralHue', 200, props.theme);
+  const backgroundColor = getColor(
+    'neutralHue',
+    props.theme.colors.base === 'dark' ? 750 : 200,
+    props.theme
+  );
 
   return css`
     background-color: ${backgroundColor};

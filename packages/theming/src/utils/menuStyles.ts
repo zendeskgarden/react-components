@@ -112,7 +112,8 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
       position: relative; /* [2] */
       margin: 0; /* [3] */
       box-sizing: border-box;
-      border: ${theme.borders.sm} ${getColor('neutralHue', 300, theme)};
+      border: ${theme.borders.sm}
+        ${getColor('neutralHue', theme.colors.base === 'dark' ? 700 : 300, theme)};
       border-radius: ${theme.borderRadii.md};
       box-shadow: ${theme.shadows.lg(
         `${theme.space.base * 5}px`,

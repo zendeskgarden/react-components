@@ -8,7 +8,7 @@ import { DarkStory } from './stories/DarkStory';
 ## Dark mode
 
 <Canvas>
-  <Story name="Dark" argTypes={{ hue: { control: 'color' } }}>
+  <Story name="Dark" args={{ isLight: false }} argTypes={{ hue: { control: 'color' } }}>
     {args => <DarkStory {...args} />}
   </Story>
 </Canvas>

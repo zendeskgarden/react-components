@@ -15,10 +15,10 @@ import { Header } from './components/Header';
 import { Main } from './components/Main';
 
 interface IArgs {
-  test: boolean;
+  isLight: boolean;
 }
 
-export const DarkStory: StoryFn<IArgs> = args => {
+export const DarkStory: StoryFn<IArgs> = ({ isLight, ...args }) => {
   const theme = (parentTheme: DefaultTheme) =>
     ({
       ...parentTheme,
@@ -32,7 +32,7 @@ export const DarkStory: StoryFn<IArgs> = args => {
     }) as IGardenTheme;
 
   return (
-    <ThemeProvider focusVisibleRef={null} theme={theme}>
+    <ThemeProvider focusVisibleRef={null} theme={isLight ? undefined : theme}>
       <Chrome {...args} isFluid style={{ margin: `-${DEFAULT_THEME.space.xl}` }}>
         <Nav />
         <Body>
