@@ -27,7 +27,8 @@ export const StyledHeaderRow = styled(StyledBaseRow).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  border-bottom-color: ${props => getColor('neutralHue', 300, props.theme)};
+  border-bottom-color: ${props =>
+    getColor('neutralHue', props.theme.colors.base === 'dark' ? 700 : 300, props.theme)};
   height: ${getHeaderRowHeight};
   vertical-align: bottom;
   font-weight: ${props => props.theme.fontWeights.semibold};

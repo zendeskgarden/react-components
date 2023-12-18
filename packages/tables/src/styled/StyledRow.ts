@@ -27,7 +27,11 @@ export const StyledBaseRow = styled.tr<IStyledRowProps>`
   display: table-row;
   transition: background-color 0.1s ease-in-out;
   border-bottom: ${props =>
-    `${props.theme.borders.sm} ${getColor('neutralHue', 200, props.theme)}`};
+    `${props.theme.borders.sm} ${getColor(
+      'neutralHue',
+      props.theme.colors.base === 'dark' ? 750 : 200,
+      props.theme
+    )}`};
   background-color: ${props => props.isStriped && getColor('neutralHue', 100, props.theme)};
   vertical-align: top;
   box-sizing: border-box;
