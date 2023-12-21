@@ -37,7 +37,7 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
-    "@types/lodash.debounce": "4.0.7",
+    "@types/lodash.debounce": "4.0.9",
     "@zendeskgarden/react-theming": "^8.73.4",
     "@zendeskgarden/svg-icons": "7.0.0",
     "lodash.debounce": "4.0.8"
