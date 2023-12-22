@@ -114,7 +114,7 @@
     "rollup-plugin-typescript2": "0.36.0",
     "storybook": "7.6.6",
     "styled-components": "5.3.11",
-    "stylelint": "15.11.0",
+    "stylelint": "16.0.2",
     "stylelint-order": "6.0.4",
     "temp": "0.9.4",
     "typescript": "5.3.3",
