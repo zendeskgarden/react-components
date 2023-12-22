@@ -162,15 +162,15 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
         ...style
       },
       ...props
-    };
+    } as any;
 
     if (fieldContext) {
-      combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+      combinedProps = fieldContext.getInputProps(combinedProps);
     }
 
     return (
       <>
-        <StyledTextarea {...(combinedProps as any)} />
+        <StyledTextarea {...combinedProps} />
         {isAutoResizable && (
           <StyledTextarea
             aria-hidden

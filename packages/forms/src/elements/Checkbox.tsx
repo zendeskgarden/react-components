@@ -41,7 +41,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
       ref: combinedRef,
       ...props,
       ...fieldsetContext
-    };
+    } as any;
 
     if (fieldContext) {
       combinedProps = fieldContext.getInputProps(combinedProps);
@@ -49,7 +49,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
 
     return (
       <InputContext.Provider value="checkbox">
-        <StyledCheckInput {...(combinedProps as any)} />
+        <StyledCheckInput {...combinedProps} />
         {children}
       </InputContext.Provider>
     );

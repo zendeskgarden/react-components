@@ -28,13 +28,16 @@ export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
     const [isLabelActive, setIsLabelActive] = useState(false);
     const [isLabelHovered, setIsLabelHovered] = useState(false);
     const multiThumbRangeRef = useRef<HTMLDivElement>(null);
-    const { getInputProps, getMessageProps, ...propGetters } = useField(props.id);
+    const { getInputProps, getMessageProps, ...propGetters } = useField({
+      idPrefix: props.id,
+      hasHint,
+      hasMessage
+    });
     const fieldProps = useMemo(
       () => ({
         ...propGetters,
-        getInputProps: (options: any, describeOptions: any = {}) =>
-          getInputProps(options, { ...describeOptions, isDescribed: hasHint, hasMessage }),
-        getMessageProps: (options: any) => getMessageProps({ role: 'alert', ...options }),
+        getInputProps,
+        getMessageProps,
         isLabelActive,
         setIsLabelActive,
         isLabelHovered,

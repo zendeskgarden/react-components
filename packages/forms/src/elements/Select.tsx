@@ -28,10 +28,10 @@ export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
       focusInset,
       ref,
       ...props
-    };
+    } as any;
 
     if (fieldContext) {
-      combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+      combinedProps = fieldContext.getInputProps(combinedProps);
     }
 
     return (
@@ -41,7 +41,7 @@ export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
         validation={validation}
         focusInset={focusInset}
       >
-        <StyledSelect {...(combinedProps as any)} />
+        <StyledSelect {...combinedProps} />
         {!isBare && (
           <FauxInput.EndIcon isDisabled={disabled}>
             <Chevron />

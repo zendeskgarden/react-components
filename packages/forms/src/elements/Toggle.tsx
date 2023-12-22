@@ -25,7 +25,7 @@ export const Toggle = React.forwardRef<HTMLInputElement, IToggleProps>(
       ref,
       ...props,
       ...fieldsetContext
-    };
+    } as any;
 
     if (fieldContext) {
       combinedProps = fieldContext.getInputProps(combinedProps);
@@ -33,7 +33,7 @@ export const Toggle = React.forwardRef<HTMLInputElement, IToggleProps>(
 
     return (
       <InputContext.Provider value="toggle">
-        <StyledToggleInput {...(combinedProps as any)} />
+        <StyledToggleInput {...combinedProps} />
         {children}
       </InputContext.Provider>
     );

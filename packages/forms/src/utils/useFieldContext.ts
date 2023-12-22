@@ -6,9 +6,9 @@
  */
 
 import { createContext, useContext, MutableRefObject } from 'react';
-import { IUseFieldPropGetters } from '@zendeskgarden/container-field';
+import { IUseFieldReturnValue } from '@zendeskgarden/container-field';
 
-interface IFieldContext extends IUseFieldPropGetters {
+interface IFieldContext extends IUseFieldReturnValue {
   getMessageProps: (messageProps: any) => any;
   isLabelActive: boolean;
   isLabelHovered: boolean;
