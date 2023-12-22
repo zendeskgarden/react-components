@@ -31,7 +31,7 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
       ref,
       onSelect: onSelectHandler,
       ...props
-    };
+    } as any;
 
     if (inputGroupContext) {
       combinedProps = {
@@ -45,7 +45,7 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
       combinedProps = fieldContext.getInputProps(combinedProps);
     }
 
-    return <StyledTextInput {...(combinedProps as any)} />;
+    return <StyledTextInput {...combinedProps} />;
   }
 );
 
