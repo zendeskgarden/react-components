@@ -3,11 +3,9 @@
   "customSyntax": "postcss-styled-syntax",
   "rules": {
     "block-no-empty": null,
-    "declaration-colon-newline-after": null,
     "declaration-empty-line-before": null,
     "keyframes-name-pattern": null,
     "media-query-no-invalid": null,
-    "number-leading-zero": null,
     "selector-type-case": null,
     "selector-type-no-unknown": null,
     "time-min-milliseconds": [100, { "ignore": ["delay"] }],
