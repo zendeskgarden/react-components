@@ -5,21 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useRef,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useContext,
-  useState
-} from 'react';
+import React, { useRef, useCallback, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import debounce from 'lodash.debounce';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import mergeRefs from 'react-merge-refs';
-import { ThemeContext } from 'styled-components';
-import { useDocument } from '@zendeskgarden/react-theming';
-
 import { ITextareaProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
 import { StyledTextarea } from '../styled';
@@ -110,30 +99,6 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
       },
       [calculateHeight, isControlled, onChange]
     );
-
-    const theme = useContext(ThemeContext);
-    const environment = useDocument(theme);
-
-    useEffect(() => {
-      if (!isAutoResizable) {
-        return undefined;
-      }
-
-      if (environment) {
-        const win = environment.defaultView! || window;
-
-        const resizeHandler = debounce(calculateHeight);
-
-        win.addEventListener('resize', resizeHandler);
-
-        return () => {
-          resizeHandler.cancel();
-          win.removeEventListener('resize', resizeHandler);
-        };
-      }
-
-      return undefined;
-    }, [calculateHeight, isAutoResizable, environment]);
 
     useLayoutEffect(() => {
       calculateHeight();
