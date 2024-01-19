@@ -141,4 +141,6 @@ export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
    * when possible. Accepts all hex values.
    */
   hue?: string;
+  /** Hides the span visually without hiding it from screen readers */
+  hidden?: HTMLAttributes<HTMLSpanElement>['hidden'];
 }

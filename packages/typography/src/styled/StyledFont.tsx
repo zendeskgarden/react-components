@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { math } from 'polished';
+import { hideVisually, math } from 'polished';
 import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { SIZE } from '../types';
 
@@ -89,7 +89,13 @@ export const StyledFont = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledFontProps>`
-  ${props => fontStyles(props)};
+  ${props => !props.hidden && fontStyles(props)};
+
+  &[hidden] {
+    display: inline;
+    ${hideVisually()};
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
