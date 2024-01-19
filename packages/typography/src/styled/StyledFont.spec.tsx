@@ -27,6 +27,12 @@ describe('StyledFont', () => {
     expect(container.firstChild).toHaveStyleRule('line-height', 'normal');
   });
 
+  it('renders expected hidden styling', () => {
+    const { container } = render(<StyledFont hidden />);
+
+    expect(container.firstChild).toHaveStyleRule('clip', 'rect(0 0 0 0)', { modifier: '[hidden]' });
+  });
+
   it('renders expected RTL direction', () => {
     const { container } = renderRtl(<StyledFont />);
 
