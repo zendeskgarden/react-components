@@ -30,6 +30,7 @@ export const toOption = (props: IOptionProps): IOption => {
   return {
     value: props.value,
     label: props.label,
+    hidden: props.isHidden,
     disabled: props.isDisabled,
     selected: props.isSelected
   };

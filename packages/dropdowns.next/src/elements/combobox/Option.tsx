@@ -25,7 +25,7 @@ import { OptionMeta } from './OptionMeta';
 import { toOption, toString } from './utils';
 
 const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
-  ({ children, icon, isDisabled, isSelected, label, type, value, ...props }, ref) => {
+  ({ children, icon, isDisabled, isHidden, isSelected, label, type, value, ...props }, ref) => {
     const contextValue = useMemo(() => ({ isDisabled }), [isDisabled]);
     const { activeValue, getOptionProps, isCompact } = useComboboxContext();
     const isActive = value === activeValue;
@@ -58,7 +58,7 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
           return <SelectedIcon />;
       }
     };
-    const option = toOption({ value, label, isDisabled, isSelected });
+    const option = toOption({ value, label, isDisabled, isHidden, isSelected });
     const optionProps = getOptionProps({
       option,
       ref: mergeRefs([optionRef, ref])
@@ -90,6 +90,7 @@ OptionComponent.propTypes = {
   icon: PropTypes.any,
   isDisabled: PropTypes.bool,
   isSelected: PropTypes.bool,
+  isHidden: PropTypes.bool,
   label: PropTypes.string,
   tagProps: PropTypes.object,
   type: PropTypes.oneOf(OPTION_TYPE),

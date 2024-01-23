@@ -182,6 +182,8 @@ export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'val
   icon?: ReactElement;
   /** Indicates that the option is not interactive */
   isDisabled?: boolean;
+  /** Hides the option while retaining props (i.e. selected `tagProps`) */
+  isHidden?: boolean;
   /** Determines the initial selection state for the option */
   isSelected?: boolean;
   /** Sets the text label of the option (defaults to `value`) */
