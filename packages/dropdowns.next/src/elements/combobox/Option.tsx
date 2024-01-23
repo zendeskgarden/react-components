@@ -90,6 +90,7 @@ OptionComponent.propTypes = {
   icon: PropTypes.any,
   isDisabled: PropTypes.bool,
   isSelected: PropTypes.bool,
+  isHidden: PropTypes.bool,
   label: PropTypes.string,
   tagProps: PropTypes.object,
   type: PropTypes.oneOf(OPTION_TYPE),
