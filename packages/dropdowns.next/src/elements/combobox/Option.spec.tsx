@@ -19,12 +19,12 @@ interface ITestOptionProps extends Partial<IOptionProps> {
 }
 
 const TestOption = forwardRef<HTMLLIElement, ITestOptionProps>(
-  ({ optionTestId = 'option', value = 'test', children, ...props }, ref) => (
+  ({ optionTestId = 'option', value = 'test', tagProps, children, ...props }, ref) => (
     <Field>
       <Combobox defaultExpanded isMultiselectable>
         <Option
           data-test-id={optionTestId}
-          tagProps={{ 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>}
+          tagProps={{ 'data-test-id': 'tag', ...tagProps } as HTMLAttributes<HTMLDivElement>}
           value={value}
           {...props}
           ref={ref}
@@ -88,6 +88,16 @@ describe('Option', () => {
       modifier: '[aria-disabled="true"]'
     });
     expect(tag).not.toHaveAttribute('tabindex');
+  });
+
+  it('renders hidden as expected', () => {
+    const { getByTestId } = render(<TestOption isHidden isSelected tagProps={{ isPill: true }} />);
+    const option = getByTestId('option');
+    const tag = getByTestId('tag');
+
+    expect(option).toHaveAttribute('aria-hidden', 'true');
+    expect(option).toHaveStyleRule('clip', 'rect(0 0 0 0)', { modifier: '[aria-hidden="true"]' });
+    expect(tag).toHaveStyleRule('border-radius', '100px');
   });
 
   it('renders value text as expected', () => {
