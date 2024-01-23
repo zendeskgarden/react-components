@@ -104,7 +104,6 @@ export const OPTIONS: Options = [
         meta: 'Poison',
         icon: true,
         tagProps: {
-          'aria-label': 'Press delete or backspace to remove',
           isPill: true,
           removeLabel: 'Remove'
         },
@@ -120,6 +119,18 @@ export const OPTIONS: Options = [
           isPill: true,
           removeLabel: 'Remove'
         }
+      },
+      {
+        value: 'flower-05',
+        label: 'Lily-Rose',
+        meta: 'Depp',
+        icon: true,
+        tagProps: {
+          'aria-label': 'Press delete or backspace to remove',
+          isPill: true,
+          removeLabel: 'Remove'
+        },
+        isHidden: true
       }
     ]
   },

@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { math } from 'polished';
+import { hideVisually, math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { OptionType } from '../../types';
 
@@ -97,6 +97,10 @@ export const StyledOption = styled.li.attrs({
 
   &[aria-disabled='true'] {
     cursor: default;
+  }
+
+  &[aria-hidden='true'] {
+    ${hideVisually()};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
