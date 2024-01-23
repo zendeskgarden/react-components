@@ -12,6 +12,34 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.74.0 (2024-01-23)
+
+#### :rocket: New Feature
+* `dropdowns.next`
+  * [#1678](https://github.com/zendeskgarden/react-components/pull/1678) feat(combobox): add `isHidden` prop to `Option` component ([@jzempel](https://github.com/jzempel))
+* `typography`
+  * [#1677](https://github.com/zendeskgarden/react-components/pull/1677) feat(typography): add support for accessible, visually hidden `Span` styling ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1676](https://github.com/zendeskgarden/react-components/pull/1676) fix(forms): prevent `Textarea` autosize infinite loop ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1675](https://github.com/zendeskgarden/react-components/pull/1675) chore(deps): bump follow-redirects ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1668](https://github.com/zendeskgarden/react-components/pull/1668) chore(deps): update dependency stylelint to v16 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1667](https://github.com/zendeskgarden/react-components/pull/1667) chore(deps): update dependency lint-staged to v15 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1666](https://github.com/zendeskgarden/react-components/pull/1666) chore(deps): update dependency lerna to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1663](https://github.com/zendeskgarden/react-components/pull/1663) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `forms`
+  * [#1669](https://github.com/zendeskgarden/react-components/pull/1669) fix(deps): update dependency @zendeskgarden/container-field to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+* `modals`, `theming`
+  * [#1670](https://github.com/zendeskgarden/react-components/pull/1670) fix(deps): update dependency @zendeskgarden/container-focusvisible to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+* `drag-drop`
+  * [#1665](https://github.com/zendeskgarden/react-components/pull/1665) chore(deps): update dependency @dnd-kit/sortable to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`, `drag-drop`, `dropdowns`, `forms`, `modals`, `notifications`, `tables`, `theming`
+  * [#1664](https://github.com/zendeskgarden/react-components/pull/1664) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.73.4 (2023-12-08)
 
 #### :bug: Bug Fix
