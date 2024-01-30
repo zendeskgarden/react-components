@@ -29,18 +29,26 @@ const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   return props.theme.borderRadii.md;
 };
 
-const getDisabledBackgroundColor = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  return getColor('neutralHue', 200, props.theme);
+const getDisabledBackgroundColor = (
+  props: IButtonProps & ThemeProps<DefaultTheme>,
+  shades: Record<string, any>
+) => {
+  return getColor('neutralHue', shades.disabledBgColor, props.theme);
 };
 
 export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+  const { sizes } = props.theme.variables.buttons;
+  let height;
+
   if (props.size === 'small') {
-    return `${props.theme.space.base * 8}px`;
+    height = sizes.sm.height;
   } else if (props.size === 'large') {
-    return `${props.theme.space.base * 12}px`;
+    height = sizes.lg.height;
+  } else {
+    height = sizes.md.height;
   }
 
-  return `${props.theme.space.base * 10}px`;
+  return `${height}px`;
 };
 
 /**
@@ -50,6 +58,7 @@ export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
  * 4. set default outline-color for smooth transition without artifacts
  */
 const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+  const { shades } = props.theme.variables.buttons;
   let retVal;
   let hue;
 
@@ -64,13 +73,13 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
     hue = 'primaryHue';
   }
 
-  const shade = 600;
+  const shade = shades.base;
   const baseColor = getColor(hue, shade, props.theme);
-  const hoverColor = getColor(hue, shade + 100, props.theme);
-  const activeColor = getColor(hue, shade + 200, props.theme);
+  const hoverColor = getColor(hue, shades.hover, props.theme);
+  const activeColor = getColor(hue, shades.active, props.theme);
   const focusColor = getColor('primaryHue', shade, props.theme);
-  const disabledBackgroundColor = getDisabledBackgroundColor(props);
-  const disabledForegroundColor = getColor(hue, shade - 200, props.theme);
+  const disabledBackgroundColor = getDisabledBackgroundColor(props, shades);
+  const disabledForegroundColor = getColor(hue, shades.disabledColor, props.theme);
 
   if (props.isLink) {
     retVal = css`
@@ -209,6 +218,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
  * 2. reset icon button with border
  */
 const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+  const { shades } = props.theme.variables.buttons;
   const { theme, isPrimary, isBasic, isSelected, isPill, focusInset } = props;
   const { rtl, borderWidths, borders } = theme;
   const startPosition = rtl ? 'right' : 'left';
@@ -216,7 +226,7 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const marginOffset = borderWidths.sm;
   const marginDisplacement = `${isPrimary || isBasic ? '' : '-'}${marginOffset}`;
   const iconMarginDisplacement = isPill && '-2px';
-  const disabledBackgroundColor = !isPrimary && getDisabledBackgroundColor(props);
+  const disabledBackgroundColor = !isPrimary && getDisabledBackgroundColor(props, shades);
   const borderColor = isBasic ? 'transparent' : 'revert';
   const focusColor = getColor('primaryHue', 600, theme);
   const focusBoxShadow =
@@ -309,6 +319,9 @@ const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 };
 
 const sizeStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+  const { prefix } = props.theme;
+  const { sizes } = props.theme.variables.buttons;
+
   let retVal;
 
   if (props.isLink) {
@@ -319,27 +332,35 @@ const sizeStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   } else {
     const height = getHeight(props);
     const lineHeight = math(`${height} - (${props.theme.borderWidths.sm} * 2)`);
-    let padding;
     let fontSize;
+    let size;
+
+    if (props.size === 'large') {
+      size = 'lg';
+    } else if (props.size === 'small') {
+      size = 'sm';
+    } else {
+      size = 'md';
+    }
 
     if (props.size === 'small') {
-      fontSize = props.theme.fontSizes.sm;
-      padding = `${props.theme.space.base * 3}px`;
+      fontSize = 'sm';
     } else {
-      fontSize = props.theme.fontSizes.md;
-
-      if (props.size === 'large') {
-        padding = `${props.theme.space.base * 5}px`;
-      } else {
-        padding = `${props.theme.space.base * 4}px`;
-      }
+      fontSize = 'md';
     }
 
     retVal = css`
-      padding: 0 ${em(math(`${padding} - ${props.theme.borderWidths.sm}`), fontSize)};
-      height: ${height};
+      padding: 0
+        var(
+          --${prefix}--buttons_${size}--padding,
+          ${em(
+            math(`${sizes[size].padding}px - ${props.theme.borderWidths.sm}`),
+            sizes[fontSize].fontSize
+          )}
+        );
+      height: var(--${prefix}--buttons_${size}--height, ${height});
       line-height: ${lineHeight};
-      font-size: ${fontSize};
+      font-size: var(--${prefix}--buttons_${fontSize}--fontSize, ${sizes[fontSize].fontSize});
     `;
   }
 
@@ -360,13 +381,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   align-items: ${props => !props.isLink && 'center'};
   justify-content: ${props => !props.isLink && 'center'};
   /* prettier-ignore */
-  transition:
-    border-color 0.25s ease-in-out,
-    box-shadow 0.1s ease-in-out,
-    background-color 0.25s ease-in-out,
-    color 0.25s ease-in-out,
-    outline-color 0.1s ease-in-out,
-    z-index 0.25s ease-in-out;
+  transition: ${p => p.theme.variables.buttons.transition};
   margin: 0;
   border: ${props => `${props.isLink ? `0px solid` : props.theme.borders.sm} transparent`};
   border-radius: ${props => getBorderRadius(props)};

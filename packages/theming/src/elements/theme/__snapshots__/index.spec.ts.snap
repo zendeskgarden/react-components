@@ -203,6 +203,7 @@ exports[`DEFAULT_THEME matches snapshot 1`] = `
       "800": "#703815",
     },
   },
+  "prefix": "zdg",
   "rtl": false,
   "shadowWidths": {
     "md": "3px",
@@ -224,6 +225,9 @@ exports[`DEFAULT_THEME matches snapshot 1`] = `
     "xs": "8px",
     "xxl": "48px",
     "xxs": "4px",
+  },
+  "variables": {
+    "buttons": {},
   },
 }
 `;

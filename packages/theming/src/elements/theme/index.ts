@@ -159,7 +159,11 @@ const DEFAULT_THEME: IGardenTheme = {
   rtl: false,
   shadowWidths,
   shadows,
-  space
+  space,
+  prefix: 'zdg',
+  variables: {
+    buttons: {}
+  }
 };
 
 /** @component */
