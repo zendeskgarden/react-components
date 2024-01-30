@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ThemeProviderProps } from 'styled-components';
+import { DefaultTheme, ThemeProviderProps } from 'styled-components';
 
 export const ARROW_POSITION = [
   'top',
@@ -30,7 +30,11 @@ export type MenuPosition = (typeof MENU_POSITION)[number];
 
 type Hue = Record<number | string, string> | string;
 
-export interface IGardenTheme {
+export interface ISemanticVariables {
+  buttons: Record<string, any>;
+}
+
+export interface IGardenTheme extends DefaultTheme {
   rtl: boolean;
   document?: any;
   window?: any;
@@ -127,6 +131,8 @@ export interface IGardenTheme {
     xxl: string;
   };
   palette: Record<string, Hue>;
+  prefix: string;
+  variables: ISemanticVariables;
 }
 
 export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenTheme>> {
@@ -136,6 +142,14 @@ export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenT
    * for details.
    */
   theme?: IGardenTheme | ((theme: IGardenTheme) => IGardenTheme);
+  /**
+   * Provides semantic theme getters across specific groups of components. E.g., buttons, forms, chrome.
+   */
+  variables?: (theme: IGardenTheme) => ISemanticVariables;
+  /**
+   * Provides a prefix to CSS custom properties.
+   */
+  prefix?: string;
   /**
    * Provides a reference to the DOM node used to scope a `:focus-visible`
    * polyfill. If left `undefined`, a scoping `<div>` will be rendered.
