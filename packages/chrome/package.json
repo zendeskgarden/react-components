@@ -21,7 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-accordion": "^2.0.0",
+    "@zendeskgarden/container-accordion": "^3.0.4",
     "@zendeskgarden/container-utilities": "^1.0.0",
     "dom-helpers": "^5.2.1",
     "polished": "^4.0.0",
