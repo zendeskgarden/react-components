@@ -7,7 +7,7 @@
 
 import React, { HTMLAttributes, MutableRefObject } from 'react';
 import PropTypes from 'prop-types';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { ITabProps } from '../types';
 import { StyledTab } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
