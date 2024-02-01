@@ -24,7 +24,7 @@
     "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-combobox": "^1.1.0",
     "@zendeskgarden/container-menu": "^0.3.0",
-    "@zendeskgarden/container-utilities": "^1.0.0",
+    "@zendeskgarden/container-utilities": "^2.0.0",
     "@zendeskgarden/react-buttons": "^8.74.0",
     "@zendeskgarden/react-forms": "^8.74.0",
     "@zendeskgarden/react-tags": "^8.74.0",
