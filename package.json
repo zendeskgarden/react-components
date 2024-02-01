@@ -95,7 +95,7 @@
     "markdownlint-cli": "0.39.0",
     "micromatch": "4.0.5",
     "mockdate": "3.0.5",
-    "ora": "7.0.1",
+    "ora": "8.0.1",
     "pluralize": "8.0.0",
     "postcss-styled-syntax": "0.6.4",
     "prettier": "3.2.4",
