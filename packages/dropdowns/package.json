@@ -22,7 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-selection": "^2.0.0",
-    "@zendeskgarden/container-utilities": "^2.0.0",
+    "@zendeskgarden/container-utilities": "^1.0.14",
     "@zendeskgarden/react-forms": "^8.74.0",
     "downshift": "^7.0.0",
     "polished": "^4.0.0",

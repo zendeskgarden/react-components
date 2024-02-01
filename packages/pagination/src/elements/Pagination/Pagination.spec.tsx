@@ -8,7 +8,7 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import { Pagination } from './Pagination';
 import { IPaginationProps, PageType } from '../../types';
 
@@ -106,7 +106,7 @@ describe('Pagination', () => {
       const previousPage = container.firstElementChild!.children[0];
 
       fireEvent.focus(previousPage);
-      fireEvent.keyDown(previousPage, { keyCode: KEY_CODES.ENTER });
+      fireEvent.keyDown(previousPage, { key: KEYS.ENTER });
 
       expect(container.firstElementChild!.children[1]).toHaveAttribute('tabindex', '0');
       expect(container.firstElementChild!.children[2]).toHaveAttribute('aria-current', 'true');
