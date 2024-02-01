@@ -7,8 +7,8 @@
 
 import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import isValid from 'date-fns/isValid';
-import isSameDay from 'date-fns/isSameDay';
+import { isValid } from 'date-fns/isValid';
+import { isSameDay } from 'date-fns/isSameDay';
 import { parseInputValue } from '../utils/datepicker-range-reducer';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 

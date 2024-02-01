@@ -8,7 +8,8 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent, act } from 'garden-test-utils';
-import { addDays, subDays } from 'date-fns';
+import { addDays } from 'date-fns/addDays';
+import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { Datepicker } from './Datepicker';
