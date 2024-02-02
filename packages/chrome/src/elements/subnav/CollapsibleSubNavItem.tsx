@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ButtonHTMLAttributes, HTMLAttributes, createRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useAccordion } from '@zendeskgarden/container-accordion';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
@@ -24,12 +24,14 @@ import { useChromeContext } from '../../utils/useChromeContext';
 export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsibleSubNavItemProps>(
   ({ header, children, isExpanded: controlledExpanded, onChange, ...other }, ref) => {
     const { isDark, isLight } = useChromeContext();
-    const panelRef = useRef<HTMLDivElement>();
+    const panelRef = createRef<HTMLDivElement>();
     const [internalExpanded, setInternalExpanded] = useState(controlledExpanded);
     const expanded = getControlledValue(controlledExpanded, internalExpanded);
-    const expandedSections = expanded ? [0] : [];
+    const value = 0;
+    const expandedSections = expanded ? [value] : [];
 
     const { getHeaderProps, getTriggerProps, getPanelProps } = useAccordion({
+      sections: [value],
       expandedSections,
       onChange: () => {
         const isExpanded = expandedSections.length === 0;
@@ -46,21 +48,22 @@ export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsib
       if (expanded && panelRef.current) {
         panelRef.current.style.maxHeight = `${panelRef.current.scrollHeight}px`;
       }
-    }, [expanded, children]);
+    }, [expanded, children, panelRef]);
 
     return (
       <div ref={ref}>
-        <div {...getHeaderProps({ ariaLevel: 2 })}>
+        <div {...getHeaderProps({ 'aria-level': 2 })}>
           <StyledSubNavItemHeader
             isDark={isDark}
             isLight={isLight}
-            {...getTriggerProps({
-              isExpanded: expanded,
-              index: 0,
+            isExpanded={expanded}
+            {...(getTriggerProps({
+              ...other,
               role: null,
-              tabIndex: null,
-              ...other
-            })}
+              tabIndex: null as any,
+              value
+            }) as ButtonHTMLAttributes<HTMLButtonElement>)}
+            type="button"
           >
             <>
               {header}
@@ -71,11 +74,11 @@ export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsib
           </StyledSubNavItemHeader>
         </div>
         <StyledSubNavPanel
-          {...getPanelProps({
-            index: 0,
-            isHidden: !expanded,
-            ref: panelRef
-          })}
+          isHidden={!expanded}
+          {...(getPanelProps({
+            ref: panelRef,
+            value
+          }) as HTMLAttributes<HTMLDivElement>)}
         >
           {children}
         </StyledSubNavPanel>
