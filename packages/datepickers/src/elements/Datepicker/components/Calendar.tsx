@@ -6,18 +6,18 @@
  */
 
 import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
-import startOfMonth from 'date-fns/startOfMonth';
-import endOfMonth from 'date-fns/endOfMonth';
-import startOfWeek from 'date-fns/startOfWeek';
-import endOfWeek from 'date-fns/endOfWeek';
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import addDays from 'date-fns/addDays';
-import isToday from 'date-fns/isToday';
-import isSameDay from 'date-fns/isSameDay';
-import isSameMonth from 'date-fns/isSameMonth';
-import isBefore from 'date-fns/isBefore';
-import isAfter from 'date-fns/isAfter';
-import getDate from 'date-fns/getDate';
+import { startOfMonth } from 'date-fns/startOfMonth';
+import { endOfMonth } from 'date-fns/endOfMonth';
+import { startOfWeek } from 'date-fns/startOfWeek';
+import { endOfWeek } from 'date-fns/endOfWeek';
+import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
+import { addDays } from 'date-fns/addDays';
+import { isToday } from 'date-fns/isToday';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isSameMonth } from 'date-fns/isSameMonth';
+import { isBefore } from 'date-fns/isBefore';
+import { isAfter } from 'date-fns/isAfter';
+import { getDate } from 'date-fns/getDate';
 import {
   StyledDatepicker,
   StyledCalendar,

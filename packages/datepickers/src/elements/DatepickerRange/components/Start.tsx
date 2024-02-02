@@ -8,8 +8,8 @@
 import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import isValid from 'date-fns/isValid';
-import isSameDay from 'date-fns/isSameDay';
+import { isValid } from 'date-fns/isValid';
+import { isSameDay } from 'date-fns/isSameDay';
 import { parseInputValue } from '../utils/datepicker-range-reducer';
 
 export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {

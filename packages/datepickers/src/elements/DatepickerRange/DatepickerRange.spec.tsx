@@ -8,7 +8,10 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, getAllByTestId as globalGetAllByTestId, renderRtl } from 'garden-test-utils';
-import { addDays, subDays, addMonths, subMonths } from 'date-fns';
+import { addDays } from 'date-fns/addDays';
+import { subDays } from 'date-fns/subDays';
+import { addMonths } from 'date-fns/addMonths';
+import { subMonths } from 'date-fns/subMonths';
 import mockDate from 'mockdate';
 import { DatepickerRange } from './DatepickerRange';
 import { IDatepickerRangeProps } from '../../types';
