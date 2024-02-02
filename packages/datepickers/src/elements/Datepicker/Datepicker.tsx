@@ -18,7 +18,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
-import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { IDatepickerProps, PLACEMENT, PopperPlacement, WEEK_STARTS_ON } from '../../types';
 import { getRtlPopperPlacement, getPopperPlacement } from './utils/garden-placements';
 import { Calendar } from './components/Calendar';
@@ -143,14 +143,14 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
               onKeyDown: composeEventHandlers(
                 childElement.props.onKeyDown,
                 (e: React.KeyboardEvent<HTMLInputElement>) => {
-                  switch (e.keyCode) {
-                    case KEY_CODES.ESCAPE:
-                    case KEY_CODES.ENTER:
+                  switch (e.key) {
+                    case KEYS.ESCAPE:
+                    case KEYS.ENTER:
                       dispatch({ type: 'CLOSE' });
                       break;
-                    case KEY_CODES.UP:
-                    case KEY_CODES.DOWN:
-                    case KEY_CODES.SPACE:
+                    case KEYS.UP:
+                    case KEYS.DOWN:
+                    case KEYS.SPACE:
                       dispatch({ type: 'OPEN' });
                       break;
                   }

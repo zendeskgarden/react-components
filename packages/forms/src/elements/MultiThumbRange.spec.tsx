@@ -9,7 +9,7 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent, createEvent } from 'garden-test-utils';
 import { getColor } from '@zendeskgarden/react-theming';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
 
 import { MultiThumbRange } from './MultiThumbRange';
 import { Label } from './common/Label';
@@ -268,7 +268,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.LEFT });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 10, maxValue: 75 });
       });
 
@@ -277,7 +277,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.DOWN });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.DOWN });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 10, maxValue: 75 });
       });
 
@@ -286,7 +286,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.RIGHT });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 20, maxValue: 75 });
       });
 
@@ -295,7 +295,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.UP });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 20, maxValue: 75 });
       });
 
@@ -304,7 +304,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.PAGE_UP });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.PAGE_UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 25, maxValue: 75 });
       });
 
@@ -313,7 +313,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.PAGE_DOWN });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.PAGE_DOWN });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 5, maxValue: 75 });
       });
 
@@ -322,7 +322,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.HOME });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.HOME });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 0, maxValue: 75 });
       });
 
@@ -331,7 +331,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.END });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.END });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 75, maxValue: 75 });
       });
     });
@@ -348,7 +348,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.LEFT });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 20, maxValue: 75 });
       });
 
@@ -357,7 +357,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.RIGHT });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 10, maxValue: 75 });
       });
     });
@@ -494,7 +494,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.LEFT });
+        fireEvent.keyDown(maxThumb, { key: KEYS.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 70 });
       });
 
@@ -504,7 +504,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.DOWN });
+        fireEvent.keyDown(maxThumb, { key: KEYS.DOWN });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 70 });
       });
 
@@ -514,7 +514,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.RIGHT });
+        fireEvent.keyDown(maxThumb, { key: KEYS.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
       });
 
@@ -524,7 +524,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.UP });
+        fireEvent.keyDown(maxThumb, { key: KEYS.UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
       });
 
@@ -533,7 +533,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[1], { keyCode: KEY_CODES.PAGE_UP });
+        fireEvent.keyDown(getAllByTestId('thumb')[1], { key: KEYS.PAGE_UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 85 });
       });
 
@@ -542,7 +542,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[1], { keyCode: KEY_CODES.PAGE_DOWN });
+        fireEvent.keyDown(getAllByTestId('thumb')[1], { key: KEYS.PAGE_DOWN });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 65 });
       });
 
@@ -552,7 +552,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.HOME });
+        fireEvent.keyDown(maxThumb, { key: KEYS.HOME });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 15 });
       });
 
@@ -562,7 +562,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.END });
+        fireEvent.keyDown(maxThumb, { key: KEYS.END });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 100 });
       });
     });
@@ -580,7 +580,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.LEFT });
+        fireEvent.keyDown(maxThumb, { key: KEYS.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
       });
 
@@ -590,7 +590,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.RIGHT });
+        fireEvent.keyDown(maxThumb, { key: KEYS.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 70 });
       });
     });

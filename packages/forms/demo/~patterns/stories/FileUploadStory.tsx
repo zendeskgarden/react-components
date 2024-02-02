@@ -8,7 +8,7 @@
 import React, { FC, memo, useCallback, useEffect, useState } from 'react';
 import { Story } from '@storybook/react';
 import { DropzoneProps, useDropzone } from 'react-dropzone';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import {
   File,
   FileList,
@@ -55,18 +55,18 @@ const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children
   }, []);
 
   const handleCloseKeydown = (e: React.KeyboardEvent<any>) => {
-    const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER];
+    const _KEYS = [KEYS.SPACE, KEYS.ENTER];
 
-    if (KEYS.includes(e.keyCode)) {
+    if (_KEYS.includes(e.key)) {
       e.preventDefault();
       onRemove();
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<any>) => {
-    const KEYS = [KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+    const _KEYS = [KEYS.DELETE, KEYS.BACKSPACE];
 
-    if (KEYS.includes(e.keyCode)) {
+    if (_KEYS.includes(e.key)) {
       e.preventDefault();
       onRemove();
     }

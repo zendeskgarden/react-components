@@ -11,7 +11,7 @@ import { render, renderRtl, fireEvent, act } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import { Datepicker } from './Datepicker';
 import { IDatepickerProps } from '../../types';
 
@@ -305,11 +305,11 @@ describe('Datepicker', () => {
       );
       const input = getByTestId('input');
 
-      fireEvent.keyDown(input, { keyCode: KEY_CODES.UP });
+      fireEvent.keyDown(input, { key: KEYS.UP });
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
       await user.tab();
 
-      fireEvent.keyDown(input, { keyCode: KEY_CODES.DOWN });
+      fireEvent.keyDown(input, { key: KEYS.DOWN });
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
       await user.tab();
 
@@ -325,12 +325,12 @@ describe('Datepicker', () => {
       const input = getByTestId('input');
 
       await user.click(input);
-      fireEvent.keyDown(input, { keyCode: KEY_CODES.ESCAPE });
+      fireEvent.keyDown(input, { key: KEYS.ESCAPE });
 
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
 
       await user.click(input);
-      fireEvent.keyDown(input, { keyCode: KEY_CODES.ENTER });
+      fireEvent.keyDown(input, { key: KEYS.ENTER });
 
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });

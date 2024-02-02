@@ -24,14 +24,14 @@
     "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-combobox": "^1.1.0",
     "@zendeskgarden/container-menu": "^0.3.0",
-    "@zendeskgarden/container-utilities": "^1.0.0",
+    "@zendeskgarden/container-utilities": "^2.0.0",
     "@zendeskgarden/react-buttons": "^8.74.0",
     "@zendeskgarden/react-forms": "^8.74.0",
     "@zendeskgarden/react-tags": "^8.74.0",
     "@zendeskgarden/react-tooltips": "^8.74.0",
     "polished": "^4.0.0",
     "prop-types": "^15.7.2",
-    "react-merge-refs": "^1.1.0"
+    "react-merge-refs": "^2.0.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.67.0",

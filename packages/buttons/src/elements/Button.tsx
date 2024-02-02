@@ -7,7 +7,7 @@
 
 import React, { forwardRef, MutableRefObject, SVGAttributes } from 'react';
 import PropTypes from 'prop-types';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { IButtonProps, SIZE } from '../types';
 import { StyledButton } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';

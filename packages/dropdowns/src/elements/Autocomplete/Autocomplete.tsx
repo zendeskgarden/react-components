@@ -11,7 +11,7 @@ import { Reference } from 'react-popper';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { VALIDATION } from '@zendeskgarden/react-forms';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { IAutocompleteProps } from '../../types';
 import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
 import useDropdownContext from '../../utils/useDropdownContext';
