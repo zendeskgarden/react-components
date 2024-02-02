@@ -24,7 +24,7 @@
     "@popperjs/core": "^2.4.4",
     "@zendeskgarden/container-focusvisible": "^2.0.0",
     "@zendeskgarden/container-modal": "^1.0.0",
-    "@zendeskgarden/container-utilities": "^1.0.0",
+    "@zendeskgarden/container-utilities": "^2.0.0",
     "dom-helpers": "^5.1.0",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^1.1.0",

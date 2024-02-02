@@ -9,7 +9,7 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { fireEvent, render } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import { KEY_CODES, KEYS } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
 
 import { DatepickerRange } from '../DatepickerRange';
 import { IDatepickerRangeProps } from '../../../types';
@@ -134,7 +134,7 @@ describe('DatepickerRange', () => {
 
       await user.clear(startInput);
       await user.type(startInput, 'January 4th, 2019');
-      fireEvent.keyDown(startInput, { key: KEYS.ENTER, keyCode: KEY_CODES.ENTER });
+      fireEvent.keyDown(startInput, { key: KEYS.ENTER });
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 0, 4),
