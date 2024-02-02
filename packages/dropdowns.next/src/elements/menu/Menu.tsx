@@ -7,7 +7,7 @@
 
 import React, { RefObject, forwardRef, useContext, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import { useMenu } from '@zendeskgarden/container-menu';
 import { DEFAULT_THEME, useWindow } from '@zendeskgarden/react-theming';

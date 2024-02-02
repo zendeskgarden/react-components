@@ -27,7 +27,7 @@
     "@zendeskgarden/container-utilities": "^2.0.0",
     "dom-helpers": "^5.1.0",
     "prop-types": "^15.5.7",
-    "react-merge-refs": "^1.1.0",
+    "react-merge-refs": "^2.0.0",
     "react-popper": "^2.2.3",
     "react-transition-group": "^4.4.2"
   },
