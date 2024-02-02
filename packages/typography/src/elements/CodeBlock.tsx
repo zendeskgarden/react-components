@@ -6,7 +6,7 @@
  */
 
 import React, { useMemo, useRef } from 'react';
-import Highlight, { Language, Prism } from 'prism-react-renderer';
+import { Highlight, Language, Prism } from 'prism-react-renderer';
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
 import { Diff, ICodeBlockProps, LANGUAGES } from '../types';
 import {
@@ -61,9 +61,9 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
     return (
       <StyledCodeBlockContainer {...containerProps} ref={containerRef} tabIndex={containerTabIndex}>
         <Highlight
-          Prism={Prism}
+          prism={Prism}
           code={code ? code.trim() : ''}
-          language={LANGUAGES.includes(language as Language) ? (language as Language) : 'tsx'}
+          language={LANGUAGES.includes(language!) ? (language as Language) : 'tsx'}
         >
           {({ className, tokens, getLineProps, getTokenProps }) => (
             <StyledCodeBlock className={className} ref={ref} isLight={isLight} {...other}>
@@ -77,12 +77,14 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
                   isNumbered={isNumbered}
                   diff={getDiff(line)}
                   size={size}
+                  style={undefined}
                 >
                   {line.map((token, tokenKey) => (
                     <StyledCodeBlockToken
                       {...getTokenProps({ token })}
                       key={tokenKey}
                       isLight={isLight}
+                      style={undefined}
                     >
                       {token.empty ? '\n' : token.content}
                     </StyledCodeBlockToken>
