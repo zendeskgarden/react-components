@@ -21,11 +21,13 @@
   ],
   "command": {
     "publish": {
+      "preDistTag": "next",
       "registry": "https://registry.npmjs.org/"
     },
     "version": {
       "allowBranch": "main",
-      "message": "chore(release): publish"
+      "message": "chore(release): publish",
+      "preid": "next"
     }
   }
 }

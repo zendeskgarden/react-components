@@ -164,7 +164,7 @@ const version = async (bump, preid, main, spinner) => {
   let tag;
 
   if (bump) {
-    lernaArgs.splice(2, 0, bump);
+    lernaArgs.splice(4, 0, bump);
   } else {
     info('Commits since current version:', spinner);
     spinner.stop();
