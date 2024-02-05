@@ -25,9 +25,9 @@
       "registry": "https://registry.npmjs.org/"
     },
     "version": {
-      "allowBranch": "next",
-      "preid": "next",
-      "message": "chore(release): publish"
+      "allowBranch": "main",
+      "message": "chore(release): publish",
+      "preid": "next"
     }
   }
 }
