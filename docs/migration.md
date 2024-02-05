@@ -10,7 +10,7 @@ isolation.
 
 ### Upgrade Steps
 
-- Upgrade all existing Garden React dependencies to their [latest `v7`](https://github.com/zendeskgarden/react-components/blob/main/CHANGELOG.md#v700-2019-10-17)
+- Upgrade all existing Garden React dependencies to their [latest `v7`](https://github.com/zendeskgarden/react-components/blob/main/docs/changelogs/v7.md#v700-2019-10-17)
   version.
 - Upgrade `@zendeskgarden/react-theming` to `v8`.
   - `react-theming@v8` includes breaking changes. Refer to the
