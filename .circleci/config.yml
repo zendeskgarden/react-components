@@ -52,7 +52,7 @@ jobs:
     steps:
       - *attach_workspace
       - run: npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-      - run: npm exec -- lerna publish from-git --ignore-scripts --no-verify-access --yes
+      - run: npm exec -- lerna publish from-git --ignore-scripts --yes
 
 workflows:
   main:
@@ -71,4 +71,4 @@ workflows:
           context: maintainer
           filters:
             branches:
-              only: main
+              only: next
