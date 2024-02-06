@@ -188,12 +188,14 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       validation,
       ...(getTriggerProps({
         onFocus: () => {
-          if (isEditable) {
-            setIsInputHidden(false);
-          }
+          if (!isDisabled) {
+            if (isEditable) {
+              setIsInputHidden(false);
+            }
 
-          if (isMultiselectable) {
-            setIsTagGroupExpanded(true);
+            if (isMultiselectable) {
+              setIsTagGroupExpanded(true);
+            }
           }
         },
         onBlur: event => {

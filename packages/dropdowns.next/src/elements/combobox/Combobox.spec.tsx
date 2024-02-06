@@ -407,16 +407,45 @@ describe('Combobox', () => {
     expect(input).toHaveFocus();
   });
 
-  it('handles `renderValue` as expected', () => {
-    const { getByTestId } = render(
-      <TestCombobox renderValue={({ selection }) => `test-${(selection as ISelectedOption).value}`}>
-        <Option isSelected value="value" />
-      </TestCombobox>
-    );
-    const input = getByTestId('input');
+  describe('`renderValue`', () => {
+    it('handles custom value as expected', async () => {
+      const { getByTestId } = render(
+        <TestCombobox
+          renderValue={({ selection }) => `test-${(selection as ISelectedOption).value}`}
+        >
+          <Option isSelected value="value" />
+        </TestCombobox>
+      );
+      const combobox = getByTestId('combobox');
+      const trigger = combobox.firstChild as HTMLElement;
+      const input = getByTestId('input');
 
-    expect(input).toHaveValue('value');
-    expect(input.previousSibling).toHaveTextContent('test-value');
+      await user.click(trigger);
+
+      expect(input).not.toHaveAttribute('hidden');
+      expect(input).toHaveValue('value');
+      expect(input.previousSibling).toHaveTextContent('test-value');
+    });
+
+    it('handles disabled with custom value as expected', async () => {
+      const { getByTestId } = render(
+        <TestCombobox
+          isDisabled
+          renderValue={({ selection }) => `test-${(selection as ISelectedOption).value}`}
+        >
+          <Option isSelected value="value" />
+        </TestCombobox>
+      );
+      const combobox = getByTestId('combobox');
+      const trigger = combobox.firstChild as HTMLElement;
+      const input = getByTestId('input');
+
+      await user.click(trigger);
+
+      expect(input).toHaveAttribute('hidden');
+      expect(input).toHaveValue('value');
+      expect(input.previousSibling).toHaveTextContent('test-value');
+    });
   });
 
   describe('validation', () => {
