@@ -18,7 +18,7 @@
     "new": "utils/scripts/new.mjs",
     "prepare": "npm run build",
     "start": "storybook dev --no-version-updates -p 6006",
-    "tag": "utils/scripts/tag.mjs",
+    "tag": "utils/scripts/tag.mjs --main next",
     "test": "jest --config=utils/test/jest.config.js",
     "test:ci": "npm run lint && npm run format:all && npm exec tsc && npm test -- --coverage",
     "test:watch": "npm test -- --watch",
