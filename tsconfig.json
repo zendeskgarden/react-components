@@ -32,7 +32,6 @@
       "@zendeskgarden/react-theming": ["./packages/theming/src/index.ts"],
       "@zendeskgarden/react-tooltips": ["./packages/tooltips/src/index.ts"],
       "@zendeskgarden/react-typography": ["./packages/typography/src/index.ts"],
-      "@zendeskgarden/react-utilities": ["./packages/utilities/src/index.ts"]
     },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
