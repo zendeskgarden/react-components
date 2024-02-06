@@ -6,7 +6,8 @@
 
 #### @zendeskgarden/react-utilities
 
-- This package has been removed. Migrate to `@zendeskgarden/container-utilities` to continue
+- This package has been removed.
+- Migrate to `@zendeskgarden/container-utilities` and `@zendeskgarden/react-theming` to continue
   receiving updates.
 
 ## v8
