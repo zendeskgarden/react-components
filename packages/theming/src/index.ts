@@ -8,14 +8,11 @@
 export { ThemeProvider } from './elements/ThemeProvider';
 export { default as DEFAULT_THEME } from './elements/theme';
 export { default as PALETTE } from './elements/palette';
-export { default as isRtl } from './utils/isRtl';
 export {
   default as retrieveComponentStyles,
   /** `retrieveTheme` is a deprecated usage for v7 compatability */
   default as retrieveTheme
 } from './utils/retrieveComponentStyles';
-export { default as withTheme } from './utils/withTheme';
-export { default as getDocument } from './utils/getDocument';
 export { getColor } from './utils/getColor';
 export { getFocusBoxShadow } from './utils/getFocusBoxShadow';
 export { default as getLineHeight } from './utils/getLineHeight';
