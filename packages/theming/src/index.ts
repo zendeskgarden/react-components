@@ -13,7 +13,6 @@ export {
   /** `retrieveTheme` is a deprecated usage for v7 compatability */
   default as retrieveTheme
 } from './utils/retrieveComponentStyles';
-export { default as withTheme } from './utils/withTheme';
 export { getColor } from './utils/getColor';
 export { getFocusBoxShadow } from './utils/getFocusBoxShadow';
 export { default as getLineHeight } from './utils/getLineHeight';
