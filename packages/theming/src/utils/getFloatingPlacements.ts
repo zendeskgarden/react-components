@@ -6,10 +6,10 @@
  */
 
 import { Placement as FloatingPlacement } from '@floating-ui/react-dom';
-import { IGardenTheme, Placement } from '../types';
+import { IGardenTheme, MenuPosition, Placement } from '../types';
 
 /* Map Garden to Floating-UI placements */
-const PLACEMENT_MAP: Record<string, FloatingPlacement> = {
+export const PLACEMENT_MAP: Record<string, FloatingPlacement> = {
   end: 'right',
   'end-top': 'right-start',
   'end-bottom': 'right-end',
@@ -19,7 +19,7 @@ const PLACEMENT_MAP: Record<string, FloatingPlacement> = {
 };
 
 /* Map Floating-UI to RTL placements */
-const RTL_PLACEMENT_MAP: Record<string, FloatingPlacement> = {
+export const RTL_PLACEMENT_MAP: Record<string, FloatingPlacement> = {
   left: 'right',
   'left-start': 'right-start',
   'left-end': 'right-end',
@@ -51,7 +51,7 @@ const SIDE_FALLBACKS_MAP: Record<string, FloatingPlacement[]> = {
 };
 
 /* Map Floating-UI side placement to opposite side */
-const SIDE_OPPOSITE_MAP: Record<string, FloatingPlacement> = {
+const SIDE_OPPOSITE_MAP: Record<string, MenuPosition> = {
   top: 'bottom',
   right: 'left',
   bottom: 'top',

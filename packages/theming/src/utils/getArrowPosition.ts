@@ -8,7 +8,7 @@
 import { Placement } from '@floating-ui/react-dom';
 import { ArrowPosition } from '../types';
 
-const POSITION_MAP: Record<Placement, ArrowPosition> = {
+export const POSITION_MAP: Record<Placement, ArrowPosition> = {
   top: 'bottom',
   'top-start': 'bottom-left',
   'top-end': 'bottom-right',
