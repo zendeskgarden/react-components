@@ -21,6 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
+    "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-focusvisible": "^2.0.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
     "lodash.memoize": "^4.1.2",
