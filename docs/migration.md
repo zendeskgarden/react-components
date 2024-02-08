@@ -4,6 +4,11 @@
 
 ### Breaking Changes
 
+#### All Packages
+
+- Garden v9 packages use `styled-components` version range `^5.1.0`.
+  - `react-theming@v9` uses version range `^4.2.0 || ^5.1.0` to support `v8` to `v9` upgrades.
+
 #### @zendeskgarden/react-theming
 
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
