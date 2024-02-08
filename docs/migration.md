@@ -6,10 +6,8 @@
 
 #### All Packages
 
-- Garden's React packages now require a minimum peer dependency of
-  `styled-components` at `v6.0.0`.
-  - Any custom styled components should follow the styled components v6
-    [migration requirements](https://styled-components.com/docs/faqs#what-do-i-need-to-do-to-migrate-to-v6).
+- Garden v9 packages use `styled-components` version range `^5.1.0`.
+  - `react-theming@v9` uses version range `^4.2.0 || ^5.1.0` to support `v8` to `v9` upgrades.
 
 #### @zendeskgarden/react-theming
 
