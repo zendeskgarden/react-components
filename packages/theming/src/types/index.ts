@@ -28,6 +28,23 @@ export const MENU_POSITION = ['top', 'right', 'bottom', 'left'] as const;
 
 export type MenuPosition = (typeof MENU_POSITION)[number];
 
+export const PLACEMENT = [
+  'top',
+  'top-start',
+  'top-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end',
+  'end',
+  'end-top',
+  'end-bottom',
+  'start',
+  'start-top',
+  'start-bottom'
+] as const;
+
+export type Placement = (typeof PLACEMENT)[number];
+
 type Hue = Record<number | string, string> | string;
 
 export interface IGardenTheme {
