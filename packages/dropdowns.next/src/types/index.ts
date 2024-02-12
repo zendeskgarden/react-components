@@ -39,18 +39,14 @@ export type OptionType = (typeof OPTION_TYPE)[number];
 
 export type Validation = (typeof VALIDATION)[number];
 
-export const SHARED_PLACEMENT = [
+export const PLACEMENT = [
   'auto',
   'top',
   'top-start',
   'top-end',
   'bottom',
   'bottom-start',
-  'bottom-end'
-] as const;
-
-export const PLACEMENT = [
-  ...SHARED_PLACEMENT,
+  'bottom-end',
   'end',
   'end-top',
   'end-bottom',
@@ -239,7 +235,7 @@ export interface IMenuListProps extends HTMLAttributes<HTMLUListElement> {
   /** Determines menu expansion */
   isExpanded?: boolean;
   /** Provides a list of acceptable fallback placements */
-  fallbackPlacements?: GardenPlacement[];
+  fallbackPlacements?: Exclude<GardenPlacement, 'auto'>[];
   /** Sets the `max-height` of the menu */
   maxHeight?: IListboxProps['maxHeight'];
   /** Sets the `min-height` of the menu */

@@ -5,20 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import {
-  getFallbackPlacements,
-  toArrowPosition,
-  toFloatingPlacement,
-  toMenuPosition
-} from './utils';
-import { Placement, autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
+  DEFAULT_THEME,
+  getArrowPosition,
+  getFloatingPlacements,
+  getMenuPosition
+} from '@zendeskgarden/react-theming';
+import { autoPlacement, autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
 import { IMenuListProps, PLACEMENT } from '../../types';
 import { StyledFloatingMenu, StyledMenu } from '../../views';
 import { createPortal } from 'react-dom';
+
+const PLACEMENT_DEFAULT = 'bottom-start';
 
 /**
  * @extends HTMLAttributes<HTMLUListElement>
@@ -46,10 +47,10 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
     const [height, setHeight] = useState<number>();
     /* istanbul ignore next */
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
-    const floatingPlacement = toFloatingPlacement(theme.rtl, _placement!);
-    const fallbackPlacements = useMemo(
-      () => getFallbackPlacements(theme.rtl, floatingPlacement, _fallbackPlacements),
-      [floatingPlacement, _fallbackPlacements, theme.rtl]
+    const [floatingPlacement, fallbackPlacements] = getFloatingPlacements(
+      theme,
+      _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!,
+      _fallbackPlacements
     );
 
     const {
@@ -59,10 +60,10 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
       floatingStyles: { transform }
     } = useFloating<HTMLElement>({
       elements: { reference: triggerRef?.current, floating: floatingRef?.current },
-      placement: floatingPlacement as Placement,
+      placement: floatingPlacement,
       middleware: [
         offset(theme.space.base * (hasArrow ? 2 : 1)),
-        flip({ fallbackPlacements }),
+        _placement === 'auto' ? autoPlacement() : flip({ fallbackPlacements }),
         size({
           apply: ({ rects, availableHeight }) => {
             /* istanbul ignore if */
@@ -125,14 +126,14 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
       <StyledFloatingMenu
         data-garden-animate={isVisible}
         isHidden={!isExpanded}
-        position={toMenuPosition(placement)}
+        position={getMenuPosition(placement)}
         zIndex={zIndex}
         style={{ transform }}
         ref={floatingRef}
       >
         <StyledMenu
           data-garden-animate-arrow={isVisible}
-          arrowPosition={hasArrow ? toArrowPosition(placement) : undefined}
+          arrowPosition={hasArrow ? getArrowPosition(placement) : undefined}
           isCompact={isCompact}
           minHeight={minHeight}
           maxHeight={maxHeight}
@@ -165,6 +166,6 @@ MenuList.propTypes = {
 
 MenuList.defaultProps = {
   maxHeight: '400px',
-  placement: 'bottom-start',
+  placement: PLACEMENT_DEFAULT,
   zIndex: 1000
 };
