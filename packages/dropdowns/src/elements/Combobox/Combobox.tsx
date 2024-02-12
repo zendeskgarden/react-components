@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { MediaInput, VALIDATION } from '@zendeskgarden/react-forms';
-import { mergeRefs } from 'react-merge-refs';
+import mergeRefs from 'react-merge-refs';
 import { IComboboxProps } from '../../types';
 import useDropdownContext from '../../utils/useDropdownContext';
 

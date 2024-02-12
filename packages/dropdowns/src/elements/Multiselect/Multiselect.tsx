@@ -22,7 +22,7 @@ import { useSelection } from '@zendeskgarden/container-selection';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { useDocument } from '@zendeskgarden/react-theming';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { mergeRefs } from 'react-merge-refs';
+import mergeRefs from 'react-merge-refs';
 import { IMultiselectProps } from '../../types';
 import {
   StyledFauxInput,

@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 import { useDocument, useText } from '@zendeskgarden/react-theming';
 import { useModal } from '@zendeskgarden/container-modal';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
-import { mergeRefs } from 'react-merge-refs';
+import mergeRefs from 'react-merge-refs';
 import isWindow from 'dom-helpers/isWindow';
 import ownerDocument from 'dom-helpers/ownerDocument';
 import ownerWindow from 'dom-helpers/ownerWindow';

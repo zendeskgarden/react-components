@@ -11,7 +11,7 @@ import { ThemeContext } from 'styled-components';
 import { usePopper } from 'react-popper';
 import { CSSTransition } from 'react-transition-group';
 import { useModal } from '@zendeskgarden/container-modal';
-import { mergeRefs } from 'react-merge-refs';
+import mergeRefs from 'react-merge-refs';
 import { getRtlPopperPlacement, getPopperPlacement } from '../../utils/gardenPlacements';
 import { TooltipModalContext } from '../../utils/useTooltipModalContext';
 import { StyledTooltipWrapper, StyledTooltipModal, StyledTooltipModalBackdrop } from '../../styled';

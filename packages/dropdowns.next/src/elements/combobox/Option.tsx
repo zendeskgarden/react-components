@@ -7,7 +7,7 @@
 
 import React, { LiHTMLAttributes, forwardRef, useEffect, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { mergeRefs } from 'react-merge-refs';
+import mergeRefs from 'react-merge-refs';
 import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
