@@ -6,10 +6,10 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
-import { IPaginationProps, Pagination } from '@zendeskgarden/react-pagination';
+import { StoryFn } from '@storybook/react';
+import { IPaginationProps, OffsetPagination } from '@zendeskgarden/react-pagination';
 
-export const PaginationStory: Story<IPaginationProps> = args => {
+export const PaginationStory: StoryFn<IPaginationProps> = args => {
   const transformPageProps: IPaginationProps['transformPageProps'] = (
     pageType,
     props,
@@ -43,5 +43,5 @@ export const PaginationStory: Story<IPaginationProps> = args => {
     return retVal;
   };
 
-  return <Pagination {...args} transformPageProps={transformPageProps} />;
+  return <OffsetPagination {...args} transformPageProps={transformPageProps} />;
 };

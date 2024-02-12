@@ -23,7 +23,7 @@ const NEXT_KEY = 'next';
 /**
  * @extends HTMLAttributes<HTMLUListElement>
  */
-export const Pagination = forwardRef<HTMLUListElement, IPaginationProps>(
+export const OffsetPagination = forwardRef<HTMLUListElement, IPaginationProps>(
   (
     {
       currentPage: controlledCurrentPage,
@@ -231,7 +231,7 @@ export const Pagination = forwardRef<HTMLUListElement, IPaginationProps>(
   }
 );
 
-Pagination.propTypes = {
+OffsetPagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
   pagePadding: PropTypes.number,
@@ -240,9 +240,9 @@ Pagination.propTypes = {
   transformPageProps: PropTypes.func
 };
 
-Pagination.defaultProps = {
+OffsetPagination.defaultProps = {
   pagePadding: 2,
   pageGap: 2
 };
 
-Pagination.displayName = 'Pagination';
+OffsetPagination.displayName = 'OffsetPagination';
