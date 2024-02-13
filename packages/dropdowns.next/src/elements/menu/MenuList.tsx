@@ -133,7 +133,7 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
       >
         <StyledMenu
           data-garden-animate-arrow={isVisible}
-          arrowPosition={hasArrow ? getArrowPosition(placement) : undefined}
+          arrowPosition={hasArrow ? getArrowPosition(theme, placement) : undefined}
           isCompact={isCompact}
           minHeight={minHeight}
           maxHeight={maxHeight}

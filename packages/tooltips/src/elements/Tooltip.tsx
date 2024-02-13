@@ -18,7 +18,7 @@ import { autoPlacement, autoUpdate, useFloating } from '@floating-ui/react-dom';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import { toSize } from './utils';
 
-const PLACEMENT_DEFAULT = 'top';
+export const PLACEMENT_DEFAULT = 'top';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -129,11 +129,9 @@ Tooltip.propTypes = {
   appendToNode: PropTypes.any,
   hasArrow: PropTypes.bool,
   delayMS: PropTypes.number,
-  eventsEnabled: PropTypes.bool,
   id: PropTypes.string,
   content: PropTypes.node.isRequired,
   placement: PropTypes.oneOf(PLACEMENT),
-  popperModifiers: PropTypes.any,
   size: PropTypes.oneOf(SIZE),
   type: PropTypes.oneOf(TYPE),
   zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

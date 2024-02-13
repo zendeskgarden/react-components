@@ -14,6 +14,7 @@ import {
   ReactNode,
   RefObject
 } from 'react';
+import { PLACEMENT as PLACEMENT_BASE } from '@zendeskgarden/react-theming';
 import {
   IOption,
   IUseComboboxProps,
@@ -39,21 +40,7 @@ export type OptionType = (typeof OPTION_TYPE)[number];
 
 export type Validation = (typeof VALIDATION)[number];
 
-export const PLACEMENT = [
-  'auto',
-  'top',
-  'top-start',
-  'top-end',
-  'bottom',
-  'bottom-start',
-  'bottom-end',
-  'end',
-  'end-top',
-  'end-bottom',
-  'start',
-  'start-top',
-  'start-bottom'
-] as const;
+export const PLACEMENT = ['auto', ...PLACEMENT_BASE] as const;
 
 export type GardenPlacement = (typeof PLACEMENT)[number];
 

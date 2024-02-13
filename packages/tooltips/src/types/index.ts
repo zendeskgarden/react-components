@@ -5,23 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { PLACEMENT as PLACEMENT_BASE } from '@zendeskgarden/react-theming';
 import { HTMLAttributes, ReactElement, ReactNode } from 'react';
 
-export const PLACEMENT = [
-  'auto',
-  'top',
-  'top-start',
-  'top-end',
-  'bottom',
-  'bottom-start',
-  'bottom-end',
-  'end',
-  'end-top',
-  'end-bottom',
-  'start',
-  'start-top',
-  'start-bottom'
-] as const;
+export const PLACEMENT = ['auto', ...PLACEMENT_BASE] as const;
 
 export const SIZE = ['small', 'medium', 'large', 'extra-large'] as const;
 

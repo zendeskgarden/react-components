@@ -21,14 +21,13 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@popperjs/core": "^2.4.4",
+    "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-focusvisible": "^2.0.0",
     "@zendeskgarden/container-modal": "^1.0.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
     "dom-helpers": "^5.1.0",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^2.0.0",
-    "react-popper": "^2.2.3",
     "react-transition-group": "^4.4.2"
   },
   "peerDependencies": {
