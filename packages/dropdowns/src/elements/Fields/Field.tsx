@@ -6,7 +6,7 @@
  */
 
 import React, { useState, HTMLAttributes, useMemo, forwardRef } from 'react';
-import { mergeRefs } from 'react-merge-refs';
+import mergeRefs from 'react-merge-refs';
 import { Field as FormField } from '@zendeskgarden/react-forms';
 import useDropdownContext from '../../utils/useDropdownContext';
 import { FieldContext } from '../../utils/useFieldContext';

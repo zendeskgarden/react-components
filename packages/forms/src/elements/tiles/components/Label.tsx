@@ -6,7 +6,7 @@
  */
 
 import React, { HTMLAttributes, useState, useEffect, useRef, forwardRef } from 'react';
-import { mergeRefs } from 'react-merge-refs';
+import mergeRefs from 'react-merge-refs';
 import { StyledTileLabel } from '../../../styled';
 import { useTilesContext } from '../../../utils/useTilesContext';
 
