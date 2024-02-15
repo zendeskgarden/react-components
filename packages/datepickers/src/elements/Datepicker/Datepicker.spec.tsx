@@ -440,7 +440,7 @@ describe('Datepicker', () => {
     });
   });
 
-  describe('Popper', () => {
+  describe('Calendar', () => {
     it('applies LTR classes by default', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
