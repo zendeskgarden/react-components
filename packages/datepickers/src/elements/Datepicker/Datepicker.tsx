@@ -18,14 +18,14 @@ import React, {
 import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
-import { autoPlacement, autoUpdate, useFloating } from '@floating-ui/react-dom';
-import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { autoPlacement, autoUpdate, flip, useFloating } from '@floating-ui/react-dom';
 import { IDatepickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
 import { Calendar } from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
 import { DatepickerContext } from './utils/useDatepickerContext';
 import { StyledMenu, StyledMenuWrapper } from '../../styled';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
+import { Input } from './components/Input';
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 
@@ -57,11 +57,10 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
     [value, formatDate, locale, onChange, customParseDate]
   );
   const [state, dispatch] = useReducer(memoizedReducer, retrieveInitialState(props));
-  const isInputMouseDownRef = useRef(false);
   const triggerRef = useRef<HTMLInputElement>(null);
   const floatingRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(state.isOpen);
-
+  const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
   const [floatingPlacement] = getFloatingPlacements(
     theme,
     _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!
@@ -75,8 +74,12 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
   } = useFloating({
     elements: { reference: triggerRef?.current, floating: floatingRef?.current },
     placement: floatingPlacement,
-    middleware: _placement === 'auto' ? [autoPlacement()] : undefined
+    middleware: [_placement === 'auto' ? autoPlacement() : flip()]
   });
+
+  const Child = React.Children.only<React.ReactElement & React.RefAttributes<HTMLInputElement>>(
+    children
+  );
 
   useEffect(() => {
     // Only allow positioning updates on visible tooltip.
@@ -117,94 +120,43 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
     dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
   }, [locale]);
 
-  const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
-
-  const Input = useCallback(() => {
-    const Child = React.Children.only<React.ReactElement & React.RefAttributes<HTMLInputElement>>(
-      children
-    );
-
-    const handleBlur = () => {
-      dispatch({ type: 'CLOSE' });
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: e.target.value });
-    };
-
-    const handleClick = () => {
-      // Ensure click/focus events from associated labels are not triggered
-      if (isInputMouseDownRef.current && !state.isOpen) {
-        dispatch({ type: 'OPEN' });
-      }
-    };
-
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      switch (e.key) {
-        case KEYS.ESCAPE:
-        case KEYS.ENTER:
-          dispatch({ type: 'CLOSE' });
-          break;
-        case KEYS.UP:
-        case KEYS.DOWN:
-        case KEYS.SPACE:
-          dispatch({ type: 'OPEN' });
-          break;
-      }
-    };
-
-    const handleMouseDown = () => {
-      isInputMouseDownRef.current = true;
-    };
-
-    const handleMouseUp = () => {
-      setTimeout(() => {
-        isInputMouseDownRef.current = false;
-      }, 0);
-    };
-
-    return React.cloneElement(Child, {
-      [refKey!]: mergeRefs([triggerRef, Child.ref ? Child.ref : null]),
-      onMouseDown: composeEventHandlers(Child.props.onMouseDown, handleMouseDown),
-      onMouseUp: composeEventHandlers(Child.props.onMouseUp, handleMouseUp),
-      onClick: composeEventHandlers(Child.props.onClick, handleClick),
-      onBlur: composeEventHandlers(Child.props.onBlur, handleBlur),
-      onChange: composeEventHandlers(Child.props.onChange, handleChange),
-      onKeyDown: composeEventHandlers(Child.props.onKeyDown, handleKeyDown),
-      autoComplete: 'off',
-      value: state.inputValue
-    });
-  }, [children, refKey, state.inputValue, state.isOpen]);
-
   return (
-    <DatepickerContext.Provider value={contextValue}>
-      <Input />
-      <StyledMenuWrapper
-        ref={floatingRef}
-        style={{ transform }}
-        isHidden={!state.isOpen}
-        isAnimated={isAnimated && (state.isOpen || isVisible)}
-        placement={placement}
-        zIndex={zIndex}
-        data-test-id="datepicker-menu"
-        data-test-open={state.isOpen}
-        data-test-rtl={theme.rtl}
-      >
-        {(state.isOpen || isVisible) && (
-          <StyledMenu {...menuProps}>
-            <Calendar
-              ref={calendarRef}
-              isCompact={isCompact}
-              value={value}
-              minValue={minValue}
-              maxValue={maxValue}
-              locale={locale}
-              weekStartsOn={weekStartsOn}
-            />
-          </StyledMenu>
-        )}
-      </StyledMenuWrapper>
-    </DatepickerContext.Provider>
+    <>
+      <Input
+        element={Child}
+        dispatch={dispatch}
+        state={state}
+        refKey={refKey!}
+        ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
+      />
+      <DatepickerContext.Provider value={contextValue}>
+        <StyledMenuWrapper
+          ref={floatingRef}
+          style={{ transform }}
+          isHidden={!state.isOpen}
+          isAnimated={isAnimated && (state.isOpen || isVisible)}
+          placement={placement}
+          zIndex={zIndex}
+          data-test-id="datepicker-menu"
+          data-test-open={state.isOpen}
+          data-test-rtl={theme.rtl}
+        >
+          {(state.isOpen || isVisible) && (
+            <StyledMenu {...menuProps}>
+              <Calendar
+                ref={calendarRef}
+                isCompact={isCompact}
+                value={value}
+                minValue={minValue}
+                maxValue={maxValue}
+                locale={locale}
+                weekStartsOn={weekStartsOn}
+              />
+            </StyledMenu>
+          )}
+        </StyledMenuWrapper>
+      </DatepickerContext.Provider>
+    </>
   );
 });
 
