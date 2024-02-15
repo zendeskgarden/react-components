@@ -12,6 +12,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.74.2 (2024-02-15)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1708](https://github.com/zendeskgarden/react-components/pull/1708) fix(menu): correct RTL menu placement and arrow position ([@jzempel](https://github.com/jzempel))
+* `buttons`, `chrome`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `modals`, `tabs`, `tooltips`
+  * [#1707](https://github.com/zendeskgarden/react-components/pull/1707) fix: reverts dependency bump react-merge-refs v2 ([@geotrev](https://github.com/geotrev))
+
 ## v8.74.1 (2024-02-08)
 
 #### :bug: Bug Fix
