@@ -45,7 +45,6 @@ export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogPr
       isAnimated,
       isOpaque,
       isOpen,
-      popperModifiers,
       zIndex,
       focusInset,
       disabled,
@@ -125,7 +124,6 @@ export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogPr
         <StyledTooltipModal
           ref={ref}
           hasArrow={hasArrow}
-          popperModifiers={popperModifiers}
           zIndex={zIndex}
           isAnimated={isAnimated}
           isOpaque={isOpaque}
@@ -164,7 +162,6 @@ ColorpickerDialog.propTypes = {
   disabled: PropTypes.bool,
   labels: PropTypes.object,
   buttonProps: PropTypes.object,
-  popperModifiers: PropTypes.any,
   zIndex: PropTypes.number,
   hasArrow: PropTypes.bool,
   isAnimated: PropTypes.bool,
