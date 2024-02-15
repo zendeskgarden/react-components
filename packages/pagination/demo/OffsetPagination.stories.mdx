@@ -1,7 +1,6 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { OffsetPagination } from '@zendeskgarden/react-pagination';
-import { OffsetPaginationStory } from './stories/OffsetPaginationStory';
 import README from '../README.md';
 
 <Meta title="Packages/Pagination/OffsetPagination" component={OffsetPagination} />
@@ -15,7 +14,17 @@ import README from '../README.md';
 <Canvas>
   <Story
     name="OffsetPagination"
-    args={{ currentPage: 1, totalPages: 11 }}
+    args={{
+      currentPage: 1,
+      totalPages: 11,
+      labels: {
+        gap: 'Ellipsis indicating non-visible pages',
+        page: p => `Page ${p}`,
+        next: 'Next page',
+        previous: 'Previous page'
+      },
+      'aria-label': 'Pagination'
+    }}
     parameters={{
       design: {
         allowFullscreen: true,
@@ -27,7 +36,7 @@ import README from '../README.md';
     {args => {
       const updateArgs = useArgs()[1];
       const handleChange = currentPage => updateArgs({ currentPage });
-      return <OffsetPaginationStory {...args} onChange={handleChange} />;
+      return <OffsetPagination {...args} onChange={handleChange} />;
     }}
   </Story>
 </Canvas>

@@ -5,13 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useContext, forwardRef, HTMLAttributes } from 'react';
+import React, { useState, forwardRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
-import { usePagination } from '@zendeskgarden/container-pagination';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
-import { IPaginationProps, PageType } from '../../types';
-import { StyledPagination } from '../../styled';
+import { useText } from '@zendeskgarden/react-theming';
+import { IPaginationProps } from '../../types';
+import { StyledListItem, StyledNav, StyledList } from '../../styled';
 import { Previous } from './components/Previous';
 import { Next } from './components/Next';
 import { Page } from './components/Page';
@@ -27,129 +26,107 @@ export const OffsetPagination = forwardRef<HTMLUListElement, IPaginationProps>(
   (
     {
       currentPage: controlledCurrentPage,
-      transformPageProps,
       totalPages,
       pagePadding,
       pageGap,
       onChange,
+      'aria-label': ariaLabel,
+      labels,
       ...otherProps
     },
     ref
   ) => {
     const [focusedItem, setFocusedItem] = useState<number | string>();
     const [internalCurrentPage, setInternalCurrentPage] = useState(1);
+    const navigationLabel = useText(
+      OffsetPagination,
+      { 'aria-label': ariaLabel },
+      'aria-label',
+      'Pagination'
+    );
     const currentPage = getControlledValue(controlledCurrentPage, internalCurrentPage)!;
-    const theme = useContext(ThemeContext);
 
-    const { getContainerProps, getPageProps, getPreviousPageProps, getNextPageProps } =
-      usePagination<number | string | undefined>({
-        rtl: theme.rtl,
-        focusedItem,
-        selectedItem: currentPage,
-        onFocus: item => {
-          setFocusedItem(item);
-        },
-        onSelect: item => {
-          let updatedCurrentPage = item;
-          let updatedFocusedKey = focusedItem;
+    const handleFocus = useCallback<(item: string | number | undefined) => void>(item => {
+      setFocusedItem(item);
+    }, []);
 
-          if (updatedCurrentPage === PREVIOUS_KEY && currentPage > 1) {
-            updatedCurrentPage = currentPage - 1;
+    const handleSelect = useCallback<(item: string | number) => void>(
+      item => {
+        let updatedCurrentPage = item;
+        let updatedFocusedKey = focusedItem;
 
-            // Must manually change focusedKey once PreviousPage is no longer visible
-            if (updatedCurrentPage === 1 && focusedItem === PREVIOUS_KEY) {
-              updatedFocusedKey = 1;
-            }
-          } else if (updatedCurrentPage === NEXT_KEY && currentPage < totalPages) {
-            updatedCurrentPage = currentPage + 1;
+        if (updatedCurrentPage === PREVIOUS_KEY && currentPage > 1) {
+          updatedCurrentPage = currentPage - 1;
 
-            // Must manually change focusedKey once NextPage is no longer visible
-            if (updatedCurrentPage === totalPages && updatedFocusedKey === NEXT_KEY) {
-              updatedFocusedKey = totalPages;
-            }
+          // Must manually change focusedKey once PreviousPage is no longer visible
+          if (updatedCurrentPage === 1 && focusedItem === PREVIOUS_KEY) {
+            updatedFocusedKey = 1;
           }
+        } else if (updatedCurrentPage === NEXT_KEY && currentPage < totalPages) {
+          updatedCurrentPage = currentPage + 1;
 
-          if (onChange && updatedCurrentPage !== undefined) {
-            onChange(updatedCurrentPage as number);
+          // Must manually change focusedKey once NextPage is no longer visible
+          if (updatedCurrentPage === totalPages && updatedFocusedKey === NEXT_KEY) {
+            updatedFocusedKey = totalPages;
           }
-
-          setFocusedItem(updatedFocusedKey);
-          setInternalCurrentPage(updatedCurrentPage as number);
         }
-      });
 
-    const getTransformedProps = (pageType: PageType, props: any = {}, pageNumber?: number) => {
-      if (transformPageProps) {
-        return transformPageProps(pageType, props, pageNumber);
-      }
+        if (onChange && updatedCurrentPage !== undefined) {
+          onChange(updatedCurrentPage as number);
+        }
 
-      return props;
-    };
+        setFocusedItem(updatedFocusedKey);
+        setInternalCurrentPage(updatedCurrentPage as number);
+      },
+      [currentPage, focusedItem, onChange, totalPages]
+    );
 
     const renderPreviousPage = () => {
       const isFirstPageSelected = totalPages > 0 && currentPage === 1;
-      const focusRef = React.createRef<HTMLLIElement>();
-      const props = isFirstPageSelected
-        ? // The PreviousPage element should be hidden when first page is selected
-          { hidden: true }
-        : {
-            ...getPreviousPageProps({ 'aria-label': '', role: null, item: PREVIOUS_KEY, focusRef }),
-            // [HACK] appease TS above and then knock-out ARIA label for fallback addition via transform below
-            'aria-label': undefined
-          };
 
       return (
-        <Previous
-          isFocused={focusedItem === PREVIOUS_KEY}
-          {...getTransformedProps('previous', props)}
-          ref={focusRef}
-        />
+        <StyledListItem>
+          <Previous
+            hidden={isFirstPageSelected}
+            onFocus={() => handleFocus('previous')}
+            onClick={() => handleSelect('previous')}
+            aria-label={labels?.previous}
+          />
+        </StyledListItem>
       );
     };
 
     const renderNextPage = () => {
       const isLastPageSelected = currentPage === totalPages;
-      const focusRef = React.createRef<HTMLLIElement>();
-      const props = isLastPageSelected
-        ? // The NextPage element should be hidden when the last page is selected
-          { hidden: true }
-        : {
-            ...getNextPageProps({
-              'aria-label': '',
-              role: null,
-              item: NEXT_KEY,
-              focusRef
-            }),
-            // [HACK] appease TS above and then knock-out ARIA label for fallback addition via transform below
-            'aria-label': undefined
-          };
 
       return (
-        <Next
-          isFocused={focusedItem === NEXT_KEY}
-          {...getTransformedProps('next', props)}
-          ref={focusRef}
-        />
+        <StyledListItem>
+          <Next
+            hidden={isLastPageSelected}
+            onFocus={() => handleFocus('next')}
+            onClick={() => handleSelect('next')}
+            aria-label={labels?.next}
+          />
+        </StyledListItem>
       );
     };
 
     const createGap = (pageIndex: number) => (
-      <Gap key={`gap-${pageIndex}`} {...getTransformedProps('gap')} />
+      <Gap key={`gap-${pageIndex}`} aria-label={labels?.gap} />
     );
 
     const createPage = (pageIndex: number) => {
-      const focusRef = React.createRef<HTMLLIElement>();
-      const props = {
-        ...getPageProps({ 'aria-label': '', role: null, item: pageIndex, focusRef }),
-        // [HACK] appease TS above and then knock-out ARIA label for fallback addition via transform below
-        'aria-label': undefined,
-        title: pageIndex
-      };
-
       return (
-        <Page key={pageIndex} {...getTransformedProps('page', props, pageIndex)} ref={focusRef}>
-          {pageIndex}
-        </Page>
+        <StyledListItem key={pageIndex}>
+          <Page
+            onFocus={() => handleFocus(pageIndex)}
+            onClick={() => handleSelect(pageIndex)}
+            aria-current={currentPage === pageIndex ? 'page' : undefined}
+            aria-label={labels?.renderPage?.(pageIndex)}
+          >
+            {pageIndex}
+          </Page>
+        </StyledListItem>
       );
     };
 
@@ -218,15 +195,13 @@ export const OffsetPagination = forwardRef<HTMLUListElement, IPaginationProps>(
     };
 
     return (
-      <StyledPagination
-        {...(getContainerProps({ role: null }) as HTMLAttributes<HTMLUListElement>)}
-        {...otherProps}
-        ref={ref}
-      >
-        {renderPreviousPage()}
-        {totalPages > 0 && renderPages()}
-        {renderNextPage()}
-      </StyledPagination>
+      <StyledNav aria-label={navigationLabel}>
+        <StyledList {...otherProps} ref={ref}>
+          {renderPreviousPage()}
+          {totalPages > 0 && renderPages()}
+          {renderNextPage()}
+        </StyledList>
+      </StyledNav>
     );
   }
 );
@@ -237,7 +212,7 @@ OffsetPagination.propTypes = {
   pagePadding: PropTypes.number,
   pageGap: PropTypes.number,
   onChange: PropTypes.func,
-  transformPageProps: PropTypes.func
+  labels: PropTypes.any
 };
 
 OffsetPagination.defaultProps = {

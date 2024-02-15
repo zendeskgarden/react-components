@@ -7,18 +7,12 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { StyledGap } from './StyledGap';
+import { StyledGapListItem } from './StyledGapListItem';
 
-describe('StyledGap', () => {
+describe('StyledGapListItem', () => {
   it('renders the expected element', () => {
-    const { container } = render(<StyledGap />);
+    const { container } = render(<StyledGapListItem />);
 
     expect(container.firstChild!.nodeName).toBe('LI');
-  });
-
-  it('renders default styling', () => {
-    const { container } = render(<StyledGap />);
-
-    expect(container.firstChild).toHaveStyleRule('cursor', 'default');
   });
 });

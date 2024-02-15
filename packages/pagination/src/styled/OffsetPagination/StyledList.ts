@@ -8,13 +8,13 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'pagination.pagination_view';
+const COMPONENT_ID = 'pagination.list';
 
 /**
  * 1. List reset.
  * 2. Text truncation.
  */
-export const StyledPagination = styled.ul.attrs({
+export const StyledList = styled.ul.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -23,6 +23,7 @@ export const StyledPagination = styled.ul.attrs({
   justify-content: center;
   margin: 0; /* [1] */
   padding: 0; /* [1] */
+  list-style: none; /* [1] */
   white-space: nowrap; /* [2] */
   color: ${props => getColor('neutralHue', 600, props.theme)};
 
@@ -33,6 +34,6 @@ export const StyledPagination = styled.ul.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledPagination.defaultProps = {
+StyledList.defaultProps = {
   theme: DEFAULT_THEME
 };

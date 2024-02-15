@@ -6,13 +6,23 @@
  */
 
 import React, { forwardRef, LiHTMLAttributes } from 'react';
-import { StyledGap } from '../../../styled';
+import { StyledGapListItem } from '../../../styled';
+import { useText } from '@zendeskgarden/react-theming';
 
-const GapComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => (
-  <StyledGap {...props} ref={ref}>
-    …
-  </StyledGap>
-));
+const GapComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
+  const ariaLabel = useText(
+    GapComponent,
+    props,
+    'aria-label',
+    'Ellipsis indicating non-visible pages'
+  );
+
+  return (
+    <StyledGapListItem {...props} aria-label={ariaLabel} ref={ref}>
+      …
+    </StyledGapListItem>
+  );
+});
 
 GapComponent.displayName = 'Pagination.Gap';
 

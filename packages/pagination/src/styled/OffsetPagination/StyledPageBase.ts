@@ -28,6 +28,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const currentActiveBackgroundColor = getColor('primaryHue', 600, props.theme, 0.28);
 
   return css`
+    border: none;
+    background: transparent;
     color: ${defaultColor};
 
     &:hover {
@@ -47,16 +49,16 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       color: ${activeForegroundColor};
     }
 
-    &[aria-current='true'] {
+    &[aria-current='page'] {
       background-color: ${currentBackgroundColor};
       color: ${currentForegroundColor};
     }
 
-    &[aria-current='true']:hover {
+    &[aria-current='page']:hover {
       background-color: ${currentHoverBackgroundColor};
     }
 
-    &[aria-current='true']:active {
+    &[aria-current='page']:active {
       background-color: ${currentActiveBackgroundColor};
     }
 
@@ -82,7 +84,11 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledPageBase = styled.li.attrs({
+/**
+ * 1. <button> override.
+ * 2. Remove dotted outline from Firefox on focus.
+ */
+export const StyledPageBase = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -99,12 +105,17 @@ export const StyledPageBase = styled.li.attrs({
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
+  font-family: inherit; /* [1] */
   user-select: none;
 
   ${props => sizeStyles(props)};
 
-  &[aria-current='true'] {
+  &[aria-current='page'] {
     font-weight: ${props => props.theme.fontWeights.semibold};
+  }
+
+  &::-moz-focus-inner {
+    border: 0; /* [2] */
   }
 
   :disabled,

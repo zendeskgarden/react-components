@@ -12,8 +12,8 @@ import { Gap } from './Gap';
 describe('Gap', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLLIElement>();
-    const { getByRole } = render(<Gap ref={ref} />);
+    const { container } = render(<Gap ref={ref} />);
 
-    expect(getByRole('listitem')).toBe(ref.current);
+    expect(container.firstElementChild).toBe(ref.current);
   });
 });
