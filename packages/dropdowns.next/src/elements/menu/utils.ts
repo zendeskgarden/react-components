@@ -134,6 +134,7 @@ export const toMenuPosition = (placement?: FloatingPlacement): MenuPosition => {
 /**
  * Convert Floating-UI placement to a valid `arrowStyles` position.
  *
+ * @param isRtl Determines if layout is right-to-left.
  * @param placement A Floating-UI placement.
  *
  * @returns An `arrowStyles` position.
