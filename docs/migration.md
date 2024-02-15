@@ -22,15 +22,24 @@ consider additional positioning prop support on a case-by-case basis.
 - Garden v9 packages use `styled-components` version range `^5.1.0`.
   - `react-theming@v9` uses version range `^4.2.0 || ^5.1.0` to support `v8` to `v9` upgrades.
 
+#### @zendesk/react-colorpickers
+
+- `ColorPickerDialog`: removed `popperModifiers` prop (see [note](#breaking-changes))
+- `ColorSwatchDialog`: removed `popperModifiers` prop (see [note](#breaking-changes))
+
 #### @zendeskgarden/react-datepickers
 
 - Removed `GardenPlacement` type export. Use `IDatePickerProps['placement']` instead.
-- Removed `eventsEnabled` prop (no longer exposed by Floating UI)
-- Removed `popperModifiers` prop (see [note](#breaking-changes))
+- `DatePicker`: removed `eventsEnabled` prop (no longer exposed by Floating UI)
+- `DatePicker`: removed `popperModifiers` prop (see [note](#breaking-changes))
 
 #### @zendeskgarden/react-dropdowns
 
-- `Menu` – value `auto` is no longer valid for the `fallbackPlacements` prop.
+- `Menu`: value `auto` is no longer valid for the `fallbackPlacements` prop.
+
+#### @zendeskgarden/react-modals
+
+- `TooltipModal`: removed `popperModifiers` prop (see [note](#breaking-changes))
 
 #### @zendeskgarden/react-theming
 
@@ -39,8 +48,8 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-tooltips
 
-- Removed `eventsEnabled` prop (no longer exposed by Floating UI)
-- Removed `popperModifiers` prop (see [note](#breaking-changes))
+- `Tooltip`: removed `eventsEnabled` prop (no longer exposed by Floating UI)
+- `Tooltip`: removed `popperModifiers` prop (see [note](#breaking-changes))
 
 #### @zendeskgarden/react-utilities
 
