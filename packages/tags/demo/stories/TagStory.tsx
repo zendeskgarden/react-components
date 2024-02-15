@@ -12,16 +12,27 @@ import { ITagProps, Tag } from '@zendeskgarden/react-tags';
 export interface IArgs extends ITagProps {
   hasAvatar: boolean;
   hasClose: boolean;
+  closeAriaLabel: string;
 }
 
-export const TagStory: Story<IArgs> = ({ children, hasAvatar, hasClose, ...args }) => (
-  <Tag {...args} tabIndex={hasClose ? 0 : args.tabIndex}>
-    {hasAvatar && (
-      <Tag.Avatar>
-        <img alt="" src={`images/avatars/${args.isPill ? 'user' : 'system'}.png`} />
-      </Tag.Avatar>
-    )}
-    {children}
-    {hasClose && <Tag.Close />}
-  </Tag>
-);
+export const TagStory: Story<IArgs> = ({
+  children,
+  hasAvatar,
+  hasClose,
+  closeAriaLabel,
+  ...args
+}) => {
+  const ariaLabel = closeAriaLabel ? { 'aria-label': closeAriaLabel } : {};
+
+  return (
+    <Tag {...args} tabIndex={hasClose ? 0 : args.tabIndex}>
+      {hasAvatar && (
+        <Tag.Avatar>
+          <img alt="" src={`images/avatars/${args.isPill ? 'user' : 'system'}.png`} />
+        </Tag.Avatar>
+      )}
+      {children}
+      {hasClose && <Tag.Close {...ariaLabel} />}
+    </Tag>
+  );
+};

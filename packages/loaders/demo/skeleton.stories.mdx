@@ -1,7 +1,8 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Skeleton } from '@zendeskgarden/react-loaders';
 import { SkeletonStory } from './stories/SkeletonStory';
 import { TYPE_SCALE_OPTIONS } from './stories/data';
+import README from '../README.md';
 
 <Meta title="Packages/Loaders/Skeleton" component={Skeleton} />
 
@@ -35,3 +36,5 @@ import { TYPE_SCALE_OPTIONS } from './stories/data';
     {args => <SkeletonStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

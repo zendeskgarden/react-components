@@ -9,12 +9,18 @@ import React, { AnchorHTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { IAnchorProps } from '../types';
 import { StyledAnchor, StyledExternalIcon } from '../styled';
+import { useText } from '@zendeskgarden/react-theming';
+
+/**
+ * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.
+ *    https://dequeuniversity.com/rules/axe/4.2/svg-img-alt
+ */
 
 /**
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
-  ({ children, isExternal, ...otherProps }, ref) => {
+  ({ children, isExternal, externalIconLabel, ...otherProps }, ref) => {
     let anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = otherProps;
 
     if (isExternal) {
@@ -25,10 +31,23 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
       };
     }
 
+    // Only show label warnings for the external icon when the Anchor is external
+    const checkProps = isExternal ? { externalIconLabel } : { noIconLabel: 'true' };
+    const iconAriaLabel = useText(
+      Anchor,
+      checkProps,
+      isExternal ? 'externalIconLabel' : 'noIconLabel',
+      '(opens in a new tab)'
+    );
+
     return (
       <StyledAnchor ref={ref} {...(anchorProps as any)}>
         {children}
-        {isExternal && <StyledExternalIcon />}
+        {isExternal && (
+          /* [1] */
+          // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
+          <StyledExternalIcon role="img" aria-label={iconAriaLabel} aria-hidden={undefined} />
+        )}
       </StyledAnchor>
     );
   }
@@ -38,5 +57,6 @@ Anchor.displayName = 'Anchor';
 
 Anchor.propTypes = {
   isExternal: PropTypes.bool,
-  isDanger: PropTypes.bool
+  isDanger: PropTypes.bool,
+  externalIconLabel: PropTypes.string
 };

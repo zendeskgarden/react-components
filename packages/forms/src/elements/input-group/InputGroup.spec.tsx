@@ -38,8 +38,8 @@ describe('InputGroup', () => {
 
     fireEvent.focus(input);
 
-    expect(input).toHaveStyleRule('box-shadow', 'inset 0 0 0 3px rgba(31,115,183,0.35)', {
-      modifier: '&:focus'
+    expect(input).toHaveStyleRule('box-shadow', 'inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7', {
+      modifier: '&:focus-visible'
     });
   });
 
@@ -58,8 +58,8 @@ describe('InputGroup', () => {
 
       const inputGroupElement = getByText('A').parentElement!;
 
-      expect(inputGroupElement).toHaveStyleRule('margin-left', '-1px !important', {
-        modifier: '& > *'
+      expect(inputGroupElement).toHaveStyleRule('margin-left', '-1px', {
+        modifier: '& > *:not(:first-child)'
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-right-radius', '0', {
@@ -91,8 +91,8 @@ describe('InputGroup', () => {
 
       const inputGroupElement = getByText('A').parentElement!;
 
-      expect(inputGroupElement).toHaveStyleRule('margin-right', '-1px !important', {
-        modifier: '& > *'
+      expect(inputGroupElement).toHaveStyleRule('margin-right', '-1px', {
+        modifier: '& > *:not(:first-child)'
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-left-radius', '0', {

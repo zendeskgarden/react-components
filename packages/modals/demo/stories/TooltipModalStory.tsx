@@ -24,6 +24,9 @@ interface IArgs extends ITooltipModalProps {
   hasFooter: boolean;
   hasTitle: boolean;
   title: string;
+  tag: string;
+  closeAriaLabel: string;
+  dialogAriaLabel: string;
 }
 
 export const TooltipModalStory: Story<IArgs> = ({
@@ -35,21 +38,32 @@ export const TooltipModalStory: Story<IArgs> = ({
   hasFooter,
   hasTitle,
   title,
+  tag,
+  closeAriaLabel,
+  dialogAriaLabel,
   ...args
 }) => {
   const refs = useRef<(HTMLElement | null | undefined)[]>([]);
   const current = refs.current.indexOf(args.referenceElement);
 
+  // Using `aria-label={undefined}` when `hasTitle` is `true` appears to
+  // void the fallback value in Storybook, resulting in no rendered attribute
+  const ariaProp: Record<string, any> = hasTitle
+    ? {}
+    : {
+        'aria-label': dialogAriaLabel
+      };
+
   return (
     <>
-      <TooltipModal {...args} placement={args.placement || PLACEMENT[current]}>
-        {hasTitle && <TooltipModal.Title>{title}</TooltipModal.Title>}
+      <TooltipModal {...args} placement={args.placement || PLACEMENT[current]} {...ariaProp}>
+        {hasTitle && <TooltipModal.Title tag={tag}>{title}</TooltipModal.Title>}
         {hasBody && <TooltipModal.Body>{body}</TooltipModal.Body>}
         {hasFooter && (
           <TooltipModal.Footer>
             {current > 0 && (
               <TooltipModal.FooterItem>
-                <Button size="small" onClick={() => handleClick(refs.current[current - 1])}>
+                <Button size="small" isBasic onClick={() => handleClick(refs.current[current - 1])}>
                   Previous
                 </Button>
               </TooltipModal.FooterItem>
@@ -71,7 +85,7 @@ export const TooltipModalStory: Story<IArgs> = ({
             )}
           </TooltipModal.Footer>
         )}
-        {hasClose && <TooltipModal.Close />}
+        {hasClose && <TooltipModal.Close aria-label={closeAriaLabel} />}
       </TooltipModal>
       <Grid>
         <Row style={{ height: 'calc(100vh - 80px)' }}>

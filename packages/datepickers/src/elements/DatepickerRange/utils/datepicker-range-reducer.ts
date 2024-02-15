@@ -5,16 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import addMonths from 'date-fns/addMonths';
-import subMonths from 'date-fns/subMonths';
-import isBefore from 'date-fns/isBefore';
-import isValid from 'date-fns/isValid';
-import isSameDay from 'date-fns/isSameDay';
-import endOfMonth from 'date-fns/endOfMonth';
-import parse from 'date-fns/parse';
-import startOfMonth from 'date-fns/startOfMonth';
-import compareAsc from 'date-fns/compareAsc';
-import isAfter from 'date-fns/isAfter';
+import { addMonths } from 'date-fns/addMonths';
+import { subMonths } from 'date-fns/subMonths';
+import { isBefore } from 'date-fns/isBefore';
+import { isValid } from 'date-fns/isValid';
+import { isSameDay } from 'date-fns/isSameDay';
+import { endOfMonth } from 'date-fns/endOfMonth';
+import { parse } from 'date-fns/parse';
+import { startOfMonth } from 'date-fns/startOfMonth';
+import { compareAsc } from 'date-fns/compareAsc';
+import { isAfter } from 'date-fns/isAfter';
 import { IDatepickerRangeProps } from '../../../types';
 
 export interface IDatepickerRangeState {

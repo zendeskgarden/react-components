@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { IBlockquoteProps, SIZE } from '../types';
 import { StyledBlockquote } from '../styled';
 
 /**
- * @extends BlockquoteHTMLAttributes<HTMLElement>
+ * @extends BlockquoteHTMLAttributes<HTMLQuoteElement>
  */
-export const Blockquote = React.forwardRef<HTMLElement, IBlockquoteProps>((props, ref) => (
+export const Blockquote = forwardRef<HTMLQuoteElement, IBlockquoteProps>((props, ref) => (
   <StyledBlockquote ref={ref} {...props} />
 ));
 

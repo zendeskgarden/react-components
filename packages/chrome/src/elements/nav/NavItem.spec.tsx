@@ -34,6 +34,24 @@ describe('NavItem', () => {
     `);
   });
 
+  describe('Current', () => {
+    it('renders state attribute when current', () => {
+      const { getByTestId } = render(<NavItem isCurrent data-test-id="current-nav-item" />);
+
+      const currentNavItem = getByTestId('current-nav-item');
+
+      expect(currentNavItem).toHaveAttribute('aria-current', 'true');
+    });
+
+    it('does not render state attribute when not current', () => {
+      const { getByTestId } = render(<NavItem data-test-id="nav-item" />);
+
+      const navItem = getByTestId('nav-item');
+
+      expect(navItem).not.toHaveAttribute('aria-current');
+    });
+  });
+
   describe('Order', () => {
     it('renders correct order if used as brandmark', () => {
       const { container } = render(<NavItem hasBrandmark />);
@@ -125,7 +143,7 @@ describe('NavItem', () => {
 
       expect(container.firstChild!.firstChild).toHaveStyleRule(
         'background-color',
-        'rgba(255,255,255,0.3)'
+        'rgba(255,255,255,0.4)'
       );
     });
 
@@ -138,7 +156,7 @@ describe('NavItem', () => {
 
       expect(container.firstChild!.firstChild).toHaveStyleRule(
         'background-color',
-        'rgba(0,0,0,0.3)'
+        'rgba(0,0,0,0.4)'
       );
     });
   });

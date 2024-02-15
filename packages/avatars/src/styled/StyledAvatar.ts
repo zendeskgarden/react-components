@@ -5,105 +5,45 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css, ThemeProps, keyframes, DefaultTheme } from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+
+import { IAvatarProps, SIZE } from '../types';
 import { StyledText } from './StyledText';
-import { IAvatarProps } from '../types';
+import { StyledStatusIndicator } from './StyledStatusIndicator';
+import { getStatusColor, TRANSITION_DURATION } from './utility';
 
 const COMPONENT_ID = 'avatars.avatar';
 
-const TRANSITION_DURATION = 0.25;
-
 const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
-  let content = `''`;
-  let position = '0';
-  let padding = '0';
-  let minWidth = '0';
-  let height = '0';
-  let fontSize = '0';
-  let borderWidth = props.theme.shadowWidths.sm;
+  const [xxs, xs, s, m, l] = SIZE;
 
-  if (props.status === 'active') {
-    position = `${props.theme.space.base * -1}px`;
+  let position = `${props.theme.space.base * -1}px`;
 
-    if (props.size === 'small') {
-      fontSize = props.theme.fontSizes.xs;
-      height = `${props.theme.space.base * 4}px`;
-      minWidth = fontSize;
-      padding = `${props.theme.space.base - 1}px`;
-      content = 'attr(data-badge)';
-    } else if (props.size === 'extrasmall') {
-      height = `${props.theme.space.base * 2}px`;
-      minWidth = height;
-    } else if (props.size === 'extraextrasmall') {
-      position = math(`${position} + 1`);
-      height = `${props.theme.space.base + 1}px`;
-      minWidth = height;
-      borderWidth = math(`${borderWidth} - 1`);
-    } else {
-      fontSize = props.theme.fontSizes.xs;
-      height = `${props.theme.space.base * 5}px`;
-      minWidth = fontSize;
-      padding = `${props.theme.space.base + 1}px`;
-      content = 'attr(data-badge)';
-    }
-  } else if (props.status === 'available') {
-    position = `${props.theme.space.base * -1}px`;
-
-    if (props.size === 'large') {
-      height = `${props.theme.space.base * 3.5}px`;
-    } else if (props.size === 'small') {
-      height = `${props.theme.space.base * 2.5}px`;
-    } else if (props.size === 'extrasmall') {
-      height = `${props.theme.space.base * 2}px`;
-    } else if (props.size === 'extraextrasmall') {
-      position = math(`${position} + 1`);
-      height = `${props.theme.space.base + 1}px`;
-      borderWidth = math(`${borderWidth} - 1`);
-    } else {
-      height = `${props.theme.space.base * 3}px`;
-    }
-
-    minWidth = height;
-  } else if (props.size === 'large') {
-    position = math(`${props.theme.shadowWidths.sm} + 1`);
-  } else if (props.size === 'small') {
-    position = math(`${props.theme.shadowWidths.sm} - 1`);
-  } else if (props.size === 'medium') {
-    position = props.theme.shadowWidths.sm;
+  switch (props.size) {
+    case s:
+    case m:
+      position = math(`${position}  + 2`);
+      break;
+    case xxs:
+    case xs:
+    case l:
+      position = math(`${position}  + 3`);
+      break;
   }
 
   const animation = keyframes`
-    0% {
-      transform: scale(.1);
-    }
-  `;
-  const opacity = props.status === 'active' || props.status === 'available' ? 1 : 0;
-  const border = `${borderWidth} ${props.theme.borderStyles.solid}`;
+      0% {
+        transform: scale(.1);
+      }
+    `;
 
   return css`
-    display: inline-block;
     position: absolute;
     ${props.theme.rtl ? 'left' : 'right'}: ${position};
     bottom: ${position};
-    transition: all ${TRANSITION_DURATION}s ease-in-out, color 0s;
-    opacity: ${opacity};
-    border: ${border};
-    border-radius: 100px;
-    padding: 0 ${padding};
-    min-width: ${minWidth};
-    max-width: 2em;
-    height: ${height};
-    box-sizing: content-box !important; /* stylelint-disable-line */
-    overflow: hidden;
-    text-align: center;
-    text-overflow: ellipsis;
-    line-height: ${height === '0' ? '1px' : height}; /* improve animation easing */
-    white-space: nowrap;
-    font-size: ${fontSize};
-    font-weight: ${props.theme.fontWeights.semibold};
-    content: ${content};
+    transition: all ${TRANSITION_DURATION}s ease-in-out;
 
     ${props.status === 'active' &&
     css`
@@ -113,20 +53,12 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
 };
 
 const colorStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
-  let statusColor = 'transparent';
+  const statusColor = getStatusColor(props.status, props.theme);
   const backgroundColor = props.backgroundColor || 'transparent';
   const foregroundColor = props.foregroundColor || props.theme.palette.white;
   const surfaceColor = props.status
     ? props.surfaceColor || props.theme.colors.background
     : 'transparent';
-
-  if (props.status === 'available') {
-    statusColor = getColor('mint', 400, props.theme)!;
-  } else if (props.status === 'active') {
-    statusColor = getColor('crimson', 400, props.theme)!;
-  } else if (props.status === 'away') {
-    statusColor = getColor('yellow', 400, props.theme)!;
-  }
 
   return css`
     box-shadow: ${props.theme.shadows.sm(statusColor)};
@@ -137,20 +69,6 @@ const colorStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     & ${StyledText} {
       color: ${foregroundColor};
     }
-
-    &::after {
-      background-color: ${statusColor};
-      /* set text color without altering border */
-      -webkit-text-fill-color: ${props.theme.palette.white};
-    }
-
-    /* stylelint-disable selector-type-no-unknown, selector-no-vendor-prefix */
-    _:-ms-input-placeholder,
-    &::after {
-      /* fallback for IE11 (which will set border) */
-      color: ${props.theme.palette.white};
-    }
-    /* stylelint-enable selector-type-no-unknown, selector-no-vendor-prefix */
   `;
 };
 
@@ -238,7 +156,9 @@ export const StyledAvatar = styled.figure.attrs({
   position: relative;
   align-items: center;
   justify-content: center;
-  transition: box-shadow ${TRANSITION_DURATION}s ease-in-out, color 0.1s ease-in-out;
+  transition:
+    box-shadow ${TRANSITION_DURATION}s ease-in-out,
+    color 0.1s ease-in-out;
   margin: 0; /* <figure> reset */
   vertical-align: middle;
   box-sizing: border-box;
@@ -273,8 +193,8 @@ export const StyledAvatar = styled.figure.attrs({
     height: 1em;
   }
 
-  &::after {
-    ${props => badgeStyles(props)};
+  & > ${StyledStatusIndicator} {
+    ${badgeStyles};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

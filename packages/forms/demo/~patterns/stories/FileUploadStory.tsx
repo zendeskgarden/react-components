@@ -8,7 +8,7 @@
 import React, { FC, memo, useCallback, useEffect, useState } from 'react';
 import { Story } from '@storybook/react';
 import { DropzoneProps, useDropzone } from 'react-dropzone';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import {
   File,
   FileList,
@@ -23,32 +23,50 @@ import { FileStory } from '../../stories/FileStory';
 interface IFileItemProps extends IFileProps {
   disabled?: boolean;
   onRemove: () => void;
+  closeAriaLabel: string;
+  deleteAriaLabel: string;
 }
+
+const ARIA_LABEL = 'Press backspace to delete';
 
 const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children, onRemove }) => {
   const [uploadProgress, setUploadProgress] = React.useState(0);
 
   useEffect(() => {
     /* simulate file upload progress */
-    const interval = setInterval(() => {
-      setUploadProgress(value => {
-        if (value >= 100) {
-          clearInterval(interval);
+    const interval = setInterval(
+      () => {
+        setUploadProgress(value => {
+          if (value >= 100) {
+            clearInterval(interval);
 
-          return 100;
-        }
+            return 100;
+          }
 
-        return value + 20;
-      });
-    }, Math.random() * 300 + 100);
+          return value + 20;
+        });
+      },
+      Math.random() * 300 + 100
+    );
 
     return () => {
       clearInterval(interval);
     };
   }, []);
 
+  const handleCloseKeydown = (e: React.KeyboardEvent<any>) => {
+    const _KEYS = [KEYS.SPACE, KEYS.ENTER];
+
+    if (_KEYS.includes(e.key)) {
+      e.preventDefault();
+      onRemove();
+    }
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<any>) => {
-    if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+    const _KEYS = [KEYS.DELETE, KEYS.BACKSPACE];
+
+    if (_KEYS.includes(e.key)) {
       e.preventDefault();
       onRemove();
     }
@@ -63,7 +81,10 @@ const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children
       hasClose={!disabled && uploadProgress < 100}
       hasDelete={!disabled && uploadProgress === 100}
       onKeyDown={handleKeyDown}
+      onCloseKeydown={handleCloseKeydown}
       onClick={onRemove}
+      closeAriaLabel={ARIA_LABEL}
+      deleteAriaLabel={ARIA_LABEL}
     >
       {children}
     </FileStory>
@@ -79,6 +100,8 @@ interface IArgs extends IFileUploadProps {
   minSize?: DropzoneProps['minSize'];
   multiple?: DropzoneProps['multiple'];
   type?: IFileProps['type'];
+  closeAriaLabel: string;
+  deleteAriaLabel: string;
 }
 
 export const FileUploadStory: Story<IArgs> = ({
@@ -104,9 +127,9 @@ export const FileUploadStory: Story<IArgs> = ({
     [files]
   );
 
-  const handleRemove = useCallback(
+  const handleRemove = useCallback<(fileIndex: number) => undefined>(
     fileIndex => {
-      setFiles(files.filter((file, i) => i !== fileIndex));
+      setFiles(files.filter((_, i) => i !== fileIndex));
     },
     [files]
   );
@@ -145,6 +168,8 @@ export const FileUploadStory: Story<IArgs> = ({
                 disabled={disabled}
                 isCompact={args.isCompact}
                 type={type}
+                closeAriaLabel={ARIA_LABEL}
+                deleteAriaLabel={ARIA_LABEL}
               >
                 {file}
               </FileItem>

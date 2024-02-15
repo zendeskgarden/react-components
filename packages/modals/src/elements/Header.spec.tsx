@@ -65,4 +65,26 @@ describe('Header', () => {
 
     expect(screen.getByText('Header')).not.toHaveStyleRule('padding-right');
   });
+
+  it('renders as a <div> by default', () => {
+    const { getByTestId } = render(
+      <Modal>
+        <Header data-test-id="header">Header content</Header>
+      </Modal>
+    );
+
+    expect(getByTestId('header').tagName).toBe('DIV');
+  });
+
+  it('renders as a custom element, when passed a tag', () => {
+    const { getByTestId } = render(
+      <Modal>
+        <Header tag="h1" data-test-id="header">
+          Header content
+        </Header>
+      </Modal>
+    );
+
+    expect(getByTestId('header').tagName).not.toBe('DIV');
+  });
 });

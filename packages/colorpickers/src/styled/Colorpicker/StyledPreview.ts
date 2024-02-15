@@ -39,7 +39,7 @@ export const StyledPreview = styled.div.attrs<IStyledColorPreviewProps>(props =>
 }))<IStyledColorPreviewProps>`
   flex-shrink: 0;
   border-radius: ${props => props.theme.borderRadii.md};
-  /* stylelint-disable-next-line color-function-notation */
+  /* stylelint-disable color-function-notation */
   box-shadow: inset 0 0 0 ${props => props.theme.borderWidths.sm}
     ${props => rgba(props.theme.palette.black as string, 0.19)};
   width: ${props => props.theme.space.base * (props.isOpaque ? 6 : 8)}px;

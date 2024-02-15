@@ -1,6 +1,7 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Span } from '@zendeskgarden/react-typography';
 import { SpanStory } from './stories/SpanStory';
+import README from '../README.md';
 
 <Meta
   title="Packages/Typography/Span"
@@ -19,6 +20,7 @@ import { SpanStory } from './stories/SpanStory';
     name="Span"
     args={{ children: 'Text', hasIcon: false, hasStartIcon: false }}
     argTypes={{
+      hidden: { control: 'boolean' },
       hue: { control: 'color' },
       tag: { control: 'text' },
       hasIcon: { name: 'Span.Icon', table: { category: 'Story' } },
@@ -28,3 +30,5 @@ import { SpanStory } from './stories/SpanStory';
     {args => <SpanStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

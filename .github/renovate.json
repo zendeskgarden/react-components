@@ -1,9 +1,10 @@
 {
   "extends": ["config:base"],
   "rebaseStalePrs": true,
-  "ignorePaths": ["**/node_modules/**"],
+  "ignorePaths": ["**/node_modules/**", "packages/dropdowns/**"],
   "schedule": ["on Monday every 9 weeks of the year starting on the 5th week"],
   "labels": ["PR: Internal :seedling:"],
+  "postUpdateOptions": ["npmDedupe"],
   "packageRules": [
     {
       "matchFiles": ["package.json"],
@@ -16,12 +17,6 @@
       "matchUpdateTypes": ["patch", "minor"],
       "groupName": "non-major package dependencies",
       "groupSlug": "packages-minor-patch"
-    },
-    {
-      "matchPaths": ["examples/**"],
-      "matchUpdateTypes": ["patch", "minor"],
-      "groupName": "non-major example dependencies",
-      "groupSlug": "examples-minor-patch"
     },
     {
       "matchPackagePatterns": ["^@zendeskgarden/react"],

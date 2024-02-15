@@ -7,11 +7,11 @@
 
 import React, { HTMLAttributes, useCallback, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useDocument } from '@zendeskgarden/react-theming';
 import { Placement } from '../../types';
 import { Toast } from './Toast';
-import { StyledFadeInTransition, StyledTransitionGroup, TRANSITION_CLASS } from './styled';
+import { StyledFadeInTransition, StyledTransitionContainer, TRANSITION_CLASS } from './styled';
 import { IToast } from './useToast';
 
 interface IToastSlotProps extends HTMLAttributes<HTMLDivElement> {
@@ -66,35 +66,37 @@ export const ToastSlot = ({ toasts, placement, zIndex, limit, ...props }: IToast
   );
 
   return (
-    <StyledTransitionGroup
+    <StyledTransitionContainer
       key={placement}
-      $placement={placement}
-      $zIndex={zIndex}
+      toastPlacement={placement}
+      toastZIndex={zIndex}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       {...props}
     >
-      {toasts.map((toast, index) => {
-        const transitionRef = React.createRef<HTMLDivElement>();
+      <TransitionGroup>
+        {toasts.map((toast, index) => {
+          const transitionRef = React.createRef<HTMLDivElement>();
 
-        return (
-          <CSSTransition
-            key={toast.id}
-            timeout={{ enter: 400, exit: 550 }}
-            unmountOnExit
-            classNames={TRANSITION_CLASS}
-            nodeRef={transitionRef}
-          >
-            <StyledFadeInTransition
-              ref={transitionRef}
-              placement={placement}
-              isHidden={isHidden(index)}
+          return (
+            <CSSTransition
+              key={toast.id}
+              timeout={{ enter: 400, exit: 550 }}
+              unmountOnExit
+              classNames={TRANSITION_CLASS}
+              nodeRef={transitionRef}
             >
-              <Toast toast={toast} pauseTimers={pauseTimers || isHidden(index)} />
-            </StyledFadeInTransition>
-          </CSSTransition>
-        );
-      })}
-    </StyledTransitionGroup>
+              <StyledFadeInTransition
+                ref={transitionRef}
+                placement={placement}
+                isHidden={isHidden(index)}
+              >
+                <Toast toast={toast} pauseTimers={pauseTimers || isHidden(index)} />
+              </StyledFadeInTransition>
+            </CSSTransition>
+          );
+        })}
+      </TransitionGroup>
+    </StyledTransitionContainer>
   );
 };

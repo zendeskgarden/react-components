@@ -7,7 +7,12 @@
 
 import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 import { ITableProps } from '../types';
 import { getRowHeight } from './style-utils';
 
@@ -23,7 +28,6 @@ interface IStyledOverflowButtonProps {
 const OVERFLOW_BUTTON_SIZE = '2em';
 
 const colorStyles = (props: IStyledOverflowButtonProps & ThemeProps<DefaultTheme>) => {
-  const boxShadow = props.theme.shadows.md(getColor('primaryHue', 600, props.theme, 0.35)!);
   const hoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
   const hoverForegroundColor = getColor('neutralHue', 700, props.theme);
   const activeBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
@@ -46,17 +50,14 @@ const colorStyles = (props: IStyledOverflowButtonProps & ThemeProps<DefaultTheme
       color: ${hoverForegroundColor};
     }
 
+    ${focusStyles({
+      theme: props.theme,
+      inset: true
+    })}
+
     &:active {
       background-color: ${activeBackgroundColor};
       color: ${activeForegroundColor};
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-    &[data-garden-focus-visible] {
-      box-shadow: inset ${boxShadow};
     }
   `;
 };
@@ -71,8 +72,10 @@ export const StyledOverflowButton = styled.button.attrs<IStyledOverflowButtonPro
   type: 'button'
 })<IStyledOverflowButtonProps>`
   display: block;
-  transition: opacity 0.25s ease-in-out, background-color 0.1s ease-in-out;
-  opacity: ${props => (props.isHovered || props.isFocused || props.isActive ? '1' : '0')};
+  /* prettier-ignore */
+  transition:
+    background-color 0.1s ease-in-out,
+    box-shadow 0.1s ease-in-out;
   z-index: ${props => (props.isActive ? '1' : '0')};
   margin-top: calc(${props => math(`${getRowHeight(props)} / 2`)} - 1em);
   border: none; /* [1] */
@@ -87,10 +90,6 @@ export const StyledOverflowButton = styled.button.attrs<IStyledOverflowButtonPro
 
   ${props => colorStyles(props)}
 
-  &[aria-expanded='true'] {
-    opacity: 1;
-  }
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
@@ -103,14 +102,10 @@ export const StyledOverflowButtonIconWrapper = styled.div`
   align-items: center;
   justify-content: center;
   transform: rotate(90deg);
-  transition: opacity 0.25s ease-in-out, background-color 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
 
   width: ${OVERFLOW_BUTTON_SIZE};
   height: ${OVERFLOW_BUTTON_SIZE};
-
-  &:hover {
-    opacity: 1;
-  }
 `;
 
 StyledOverflowButtonIconWrapper.defaultProps = {

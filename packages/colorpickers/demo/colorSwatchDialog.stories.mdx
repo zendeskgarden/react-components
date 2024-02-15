@@ -1,13 +1,20 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
 import { ColorSwatchDialogStory } from './stories/ColorSwatchDialogStory';
 import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Colorpickers/ColorSwatchDialog"
   component={ColorSwatchDialog}
-  args={{ buttonProps: { 'aria-label': 'Label' }, colors: COLORS, isAnimated: true, name: 'name' }}
+  args={{ 
+    buttonProps: { 'aria-label': 'Label' }, 
+    'aria-label': 'Title', 
+    colors: COLORS, 
+    isAnimated: true, 
+    name: 'name' 
+  }}
   argTypes={{
     focusInset: { control: 'boolean' },
     hasArrow: { control: 'boolean' },
@@ -67,3 +74,5 @@ import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

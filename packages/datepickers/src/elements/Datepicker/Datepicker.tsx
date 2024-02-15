@@ -18,8 +18,8 @@ import React, {
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
-import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { IDatepickerProps, PLACEMENT, PopperPlacement } from '../../types';
+import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { IDatepickerProps, PLACEMENT, PopperPlacement, WEEK_STARTS_ON } from '../../types';
 import { getRtlPopperPlacement, getPopperPlacement } from './utils/garden-placements';
 import { Calendar } from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
@@ -45,6 +45,7 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
     minValue,
     maxValue,
     locale,
+    weekStartsOn,
     customParseDate,
     ...menuProps
   } = props;
@@ -70,18 +71,18 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
     }
   });
 
-  const [isVisible, setVisible] = useState(state.isOpen);
+  const [isVisible, setIsVisible] = useState(state.isOpen);
 
   useEffect(() => {
     let timeout: any;
 
     if (state.isOpen) {
-      setVisible(true);
+      setIsVisible(true);
     } else if (isAnimated) {
       // Match the duration of the menu fade out transition.
-      timeout = setTimeout(() => setVisible(false), 200);
+      timeout = setTimeout(() => setIsVisible(false), 200);
     } else {
-      setVisible(false);
+      setIsVisible(false);
     }
 
     return () => clearTimeout(timeout);
@@ -142,14 +143,14 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
               onKeyDown: composeEventHandlers(
                 childElement.props.onKeyDown,
                 (e: React.KeyboardEvent<HTMLInputElement>) => {
-                  switch (e.keyCode) {
-                    case KEY_CODES.ESCAPE:
-                    case KEY_CODES.ENTER:
+                  switch (e.key) {
+                    case KEYS.ESCAPE:
+                    case KEYS.ENTER:
                       dispatch({ type: 'CLOSE' });
                       break;
-                    case KEY_CODES.UP:
-                    case KEY_CODES.DOWN:
-                    case KEY_CODES.SPACE:
+                    case KEYS.UP:
+                    case KEYS.DOWN:
+                    case KEYS.SPACE:
                       dispatch({ type: 'OPEN' });
                       break;
                   }
@@ -190,6 +191,7 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
                       minValue={minValue}
                       maxValue={maxValue}
                       locale={locale}
+                      weekStartsOn={weekStartsOn}
                     />
                   </StyledMenu>
                 )}
@@ -209,6 +211,7 @@ Datepicker.propTypes = {
   onChange: PropTypes.any,
   formatDate: PropTypes.func,
   locale: PropTypes.any,
+  weekStartsOn: PropTypes.oneOf(WEEK_STARTS_ON),
   minValue: PropTypes.any,
   maxValue: PropTypes.any,
   isCompact: PropTypes.bool,

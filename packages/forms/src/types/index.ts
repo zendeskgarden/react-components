@@ -29,11 +29,11 @@ export const FILE_TYPE = [
   'generic'
 ] as const;
 
-export type Validation = typeof VALIDATION[number];
+export type Validation = (typeof VALIDATION)[number];
 
-export type FileValidation = typeof FILE_VALIDATION[number];
+export type FileValidation = (typeof FILE_VALIDATION)[number];
 
-export type FileType = typeof FILE_TYPE[number];
+export type FileType = (typeof FILE_TYPE)[number];
 
 export interface IFieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
   /** Applies compact styling */
@@ -54,6 +54,8 @@ export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
 export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies validation state styling */
   validation?: Validation;
+  /** Defines the aria-label for the validation icon */
+  validationLabel?: string;
 }
 
 export interface IRadioProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -157,12 +159,14 @@ export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElemen
   min?: number;
   /** Sets the maximum permitted value */
   max?: number;
-  /** Sets the minimum thumb input value */
+  /** Sets the minimum thumb value */
   minValue?: number;
-  /** Sets the maximum thumb input value */
+  /** Sets the maximum thumb value */
   maxValue?: number;
   /** Defines the stepping interval */
   step?: number;
+  /** Defines the jumping interval for keyboard page up/down navigation. Defaults to `step`. */
+  jump?: number;
   /** Indicates that the element is not interactive */
   disabled?: IRangeProps['disabled'];
   /**

@@ -59,7 +59,7 @@ export const StyledLogoHeaderItem = styled(StyledBaseHeaderItem).attrs({
   margin-left: ${props => (props.theme.rtl ? 'auto' : `-${props.theme.space.base}px`)};
   /* stylelint-disable-next-line property-no-unknown */
   border-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-  `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
+    `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
   border-radius: 0;
   padding: 0;
   width: ${props => getNavWidth(props)};

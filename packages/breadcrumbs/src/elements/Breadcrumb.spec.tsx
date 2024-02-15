@@ -28,7 +28,7 @@ describe('Breadcrumb', () => {
     it('receives useBreadcrumb() props', () => {
       const { getByTestId } = render(<BasicExample />);
 
-      expect(getByTestId('breadcrumb')).toHaveAttribute('aria-label', 'Breadcrumb navigation');
+      expect(getByTestId('breadcrumb')).toHaveAttribute('aria-label', 'Breadcrumbs');
     });
 
     it('does not receive useBreadcrumb() `role` prop', () => {

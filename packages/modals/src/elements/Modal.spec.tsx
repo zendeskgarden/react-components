@@ -16,10 +16,16 @@ import { Close } from './Close';
 import { IModalProps } from '../types';
 
 describe('Modal', () => {
+  const user = userEvent.setup();
+
+  type FixtureProps = {
+    noHeader?: boolean;
+  } & IModalProps;
+
   const MODAL_ID = 'TEST_ID';
   let onCloseSpy: jest.Mock;
 
-  const BasicExample = ({ onClose, ...other }: IModalProps) => (
+  const BasicExample = ({ onClose, noHeader, ...other }: FixtureProps) => (
     <Modal
       {...other}
       id={MODAL_ID}
@@ -27,7 +33,7 @@ describe('Modal', () => {
       data-test-id="modal"
       backdropProps={{ 'data-test-id': 'backdrop' } as any}
     >
-      <Header data-test-id="header">Example Header</Header>
+      {!noHeader && <Header data-test-id="header">Example Header</Header>}
       <Body data-test-id="body">Body content</Body>
       <Footer data-test-id="footer">
         <button onClick={() => onClose}>Confirm</button>
@@ -79,6 +85,35 @@ describe('Modal', () => {
     expect(getByTestId('backdrop')).not.toBeNull();
   });
 
+  it('applies aria-labelledby to dialog when Title is present', () => {
+    const { getByText, getByRole } = render(<BasicExample />);
+
+    const labelId = getByRole('dialog').getAttribute('aria-labelledby');
+    const titleId = getByText('Example Header').getAttribute('id');
+
+    expect(labelId).toStrictEqual(titleId);
+  });
+
+  it("doesn't show aria-labelledby to dialog when Title isn't present", () => {
+    const { getByRole } = render(<BasicExample noHeader />);
+
+    expect(getByRole('dialog').hasAttribute('aria-labelledby')).toBe(false);
+  });
+
+  it("applies default aria-label to dialog when Title isn't present", () => {
+    const { getByRole } = render(<BasicExample noHeader />);
+
+    const ariaLabel = getByRole('dialog').getAttribute('aria-label');
+
+    expect(ariaLabel).toBe('Modal dialog');
+  });
+
+  it("applies aria-label to dialog prop when Title isn't present", () => {
+    const { getByRole } = render(<BasicExample noHeader aria-label="Fun dialog" />);
+
+    expect(getByRole('dialog').getAttribute('aria-label')).toBe('Fun dialog');
+  });
+
   it('applies modal props to StyledModal element', () => {
     const { getByTestId } = render(<BasicExample />);
 
@@ -88,13 +123,13 @@ describe('Modal', () => {
   it('applies title props to Header element', () => {
     const { getByTestId } = render(<BasicExample />);
 
-    expect(getByTestId('header')).toHaveAttribute('id', `${MODAL_ID}--title`);
+    expect(getByTestId('header')).toHaveAttribute('id', `${MODAL_ID}__title`);
   });
 
   it('applies content props to Body element', () => {
     const { getByTestId } = render(<BasicExample />);
 
-    expect(getByTestId('body')).toHaveAttribute('id', `${MODAL_ID}--content`);
+    expect(getByTestId('body')).toHaveAttribute('id', `${MODAL_ID}__content`);
   });
 
   it('applies close props to Close element', () => {
@@ -104,24 +139,24 @@ describe('Modal', () => {
   });
 
   describe('onClose()', () => {
-    it('is triggered by backdrop click', () => {
+    it('is triggered by backdrop click', async () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
-      userEvent.click(getByTestId('backdrop'));
+      await user.click(getByTestId('backdrop'));
       expect(onCloseSpy).toHaveBeenCalled();
     });
 
-    it('is triggered by Close element click', () => {
+    it('is triggered by Close element click', async () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
-      userEvent.click(getByTestId('close'));
+      await user.click(getByTestId('close'));
       expect(onCloseSpy).toHaveBeenCalled();
     });
 
-    it('is triggered by ESC keydown', () => {
+    it('is triggered by ESC keydown', async () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
-      userEvent.type(getByTestId('modal'), '{esc}');
+      await user.type(getByTestId('modal'), '{escape}');
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });

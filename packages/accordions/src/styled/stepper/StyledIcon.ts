@@ -35,8 +35,8 @@ const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
     margin-bottom: ${props.isHorizontal && `${props.theme.space.base * 2}px`};
     /* stylelint-disable-next-line property-no-unknown */
     margin-${props.theme.rtl ? 'left' : 'right'}: ${
-    !props.isHorizontal && `${props.theme.space.base * 3}px`
-  };
+      !props.isHorizontal && `${props.theme.space.base * 3}px`
+    };
     width: ${size};
     min-width: ${size};
     height: ${size};
@@ -62,7 +62,9 @@ export const StyledIcon = styled.div.attrs<IStyledIcon>({
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+  transition:
+    background 0.25s ease-in-out,
+    color 0.25s ease-in-out;
   border-radius: 100%;
   ${sizeStyles}
   ${colorStyles}

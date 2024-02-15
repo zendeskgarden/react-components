@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import Downshift from 'downshift';
 import {
@@ -12,6 +12,7 @@ import {
 } from '@zendeskgarden/react-dropdowns';
 import { SelectStory } from './stories/SelectStory';
 import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Dropdowns/Select"
@@ -20,6 +21,10 @@ import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './storie
 />
 
 # API
+
+**DEPRECATED:** use `@zendeskgarden/react-dropdowns.next`
+[Combobox](https://zendeskgarden.github.io/react-components/?path=/docs/packages-dropdowns-next-combobox--docs)
+instead.
 
 <ArgsTable />
 
@@ -48,6 +53,10 @@ import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './storie
       isLabelHidden: { name: 'hidden', table: { category: 'Label' } },
       hint: { name: 'children', table: { category: 'Hint' } },
       message: { name: 'children', table: { category: 'Message' } },
+      validationLabel: {
+        control: { type: 'text' },
+        table: { category: 'Message' }
+      },
       hasHint: { name: 'Hint', table: { category: 'Story' } },
       hasMessage: { name: 'Message', table: { category: 'Story' } },
       items: { name: 'Item[]', table: { category: 'Story' } },
@@ -80,3 +89,5 @@ import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './storie
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

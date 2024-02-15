@@ -7,19 +7,30 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useText } from '@zendeskgarden/react-theming';
 import { IProgressProps, SIZE } from '../types';
 import { StyledProgressBackground, StyledProgressIndicator } from '../styled';
 
 const COMPONENT_ID = 'loaders.progress';
 
 /**
+ * 1. Garden progress bar is quite custom, and while using a native
+ *    `progress` element would be ideal, its inclusion of a shadow
+ *    root in Safari prevents straightforward restyling/functional overrides.
+ */
+
+/**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
-  ({ value, size, ...other }, ref) => {
+  ({ value, size, 'aria-label': label, ...other }, ref) => {
     const percentage = Math.max(0, Math.min(100, value!));
 
+    const ariaLabel = useText(Progress, { 'aria-label': label }, 'aria-label', 'Progress');
+
     return (
+      /* [1] */
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       <StyledProgressBackground
         data-garden-id={COMPONENT_ID}
         data-garden-version={PACKAGE_VERSION}
@@ -29,6 +40,7 @@ export const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
         role="progressbar"
         size={size!}
         ref={ref}
+        aria-label={ariaLabel}
         {...other}
       >
         <StyledProgressIndicator value={percentage} size={size!} />

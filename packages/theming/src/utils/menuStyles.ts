@@ -6,7 +6,7 @@
  */
 
 import { css, DefaultTheme, keyframes } from 'styled-components';
-import getColor from './getColor';
+import { getColor } from './getColor';
 import DEFAULT_THEME from '../elements/theme';
 import { MenuPosition } from '../types';
 
@@ -128,6 +128,7 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
       font-weight: ${theme.fontWeights.regular};
       direction: ${theme.rtl && 'rtl'};
 
+      /* stylelint-disable-next-line selector-max-compound-selectors */
       :focus {
         outline: none;
       }

@@ -5,10 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, forwardRef } from 'react';
+import React, { Children, forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { useText } from '@zendeskgarden/react-theming';
+import ClockIcon12 from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
+import ClockIcon16 from '@zendeskgarden/svg-icons/src/16/clock-stroke.svg';
+import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-sm-stroke.svg';
+import ArrowLeftIcon16 from '@zendeskgarden/svg-icons/src/16/arrow-left-sm-stroke.svg';
+
 import { IAvatarProps, SIZE, STATUS } from '../types';
-import { StyledAvatar } from '../styled';
+import { StyledAvatar, StyledStatusIndicator } from '../styled';
+
 import { Text } from './components/Text';
 
 const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
@@ -22,11 +29,42 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
       surfaceColor,
       backgroundColor,
       foregroundColor,
-      ...other
+      ...props
     },
     ref
   ) => {
     const computedStatus = badge === undefined ? status : 'active';
+
+    let ClockIcon = ClockIcon12;
+    let ArrowLeftIcon = ArrowLeftIcon12;
+
+    if (['large', 'medium'].includes(size as string)) {
+      ClockIcon = ClockIcon16;
+      ArrowLeftIcon = ArrowLeftIcon16;
+    }
+
+    const defaultStatusLabel = useMemo(() => {
+      let statusMessage = computedStatus;
+
+      if (computedStatus === 'active') {
+        const count = typeof badge === 'string' ? parseInt(badge, 10) : (badge as number);
+
+        statusMessage = `active. ${
+          count > 0 ? `${count} notification${count > 1 ? 's' : ''}` : 'no notifications'
+        }`;
+      }
+
+      return ['status'].concat(statusMessage || []).join(': ');
+    }, [computedStatus, badge]);
+
+    const shouldValidate = computedStatus !== undefined;
+    const statusLabel = useText(
+      AvatarComponent,
+      props,
+      'statusLabel',
+      defaultStatusLabel,
+      shouldValidate
+    );
 
     return (
       <StyledAvatar
@@ -34,15 +72,34 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         isSystem={isSystem}
         size={size}
         status={computedStatus}
-        data-badge={badge}
         surfaceColor={surfaceColor}
         backgroundColor={backgroundColor}
         foregroundColor={foregroundColor}
         aria-atomic="true"
         aria-live="polite"
-        {...other}
+        {...props}
       >
         {Children.only(children)}
+        {computedStatus && (
+          <StyledStatusIndicator
+            size={size}
+            type={computedStatus}
+            surfaceColor={surfaceColor}
+            aria-label={statusLabel}
+            as="figcaption"
+          >
+            {computedStatus === 'active' ? (
+              <span aria-hidden="true">{badge}</span>
+            ) : (
+              <>
+                {computedStatus === 'away' ? <ClockIcon data-icon-status={computedStatus} /> : null}
+                {computedStatus === 'transfers' ? (
+                  <ArrowLeftIcon data-icon-status={computedStatus} />
+                ) : null}
+              </>
+            )}
+          </StyledStatusIndicator>
+        )}
       </StyledAvatar>
     );
   }
@@ -57,7 +114,8 @@ AvatarComponent.propTypes = {
   isSystem: PropTypes.bool,
   badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   size: PropTypes.oneOf(SIZE),
-  status: PropTypes.oneOf(STATUS)
+  status: PropTypes.oneOf(STATUS),
+  statusLabel: PropTypes.string
 };
 
 AvatarComponent.defaultProps = {

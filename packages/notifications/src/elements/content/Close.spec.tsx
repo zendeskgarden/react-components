@@ -16,4 +16,16 @@ describe('Close', () => {
 
     expect(container.firstChild).toBe(ref.current);
   });
+
+  it('sets default aria-label', () => {
+    const { container } = render(<Close />);
+
+    expect(container.firstElementChild!.getAttribute('aria-label')).toBe('Close');
+  });
+
+  it('sets aria-label as prop', () => {
+    const { container } = render(<Close aria-label="Foo" />);
+
+    expect(container.firstElementChild!.getAttribute('aria-label')).toBe('Foo');
+  });
 });

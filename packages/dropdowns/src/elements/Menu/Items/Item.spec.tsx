@@ -11,6 +11,8 @@ import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, Item } from '../../..';
 
 describe('Item', () => {
+  const user = userEvent.setup();
+
   it('throws error if value is not provided', () => {
     const originalError = console.error;
 
@@ -76,7 +78,7 @@ describe('Item', () => {
     expect(getByTestId('item')).toBe(ref.current);
   });
 
-  it('highlights first selected index on open', () => {
+  it('highlights first selected index on open', async () => {
     const { getByTestId, getAllByTestId } = render(
       <Dropdown selectedItem="item-2">
         <Trigger>
@@ -93,11 +95,11 @@ describe('Item', () => {
       </Dropdown>
     );
 
-    userEvent.click(getByTestId('trigger'));
+    await user.click(getByTestId('trigger'));
     expect(getAllByTestId('item')[1]).toHaveAttribute('data-test-is-focused', 'true');
   });
 
-  it('applies correct icon styling when isCompact', () => {
+  it('applies correct icon styling when isCompact', async () => {
     const { getByTestId } = render(
       <Dropdown selectedItem="item-1">
         <Trigger>
@@ -109,12 +111,12 @@ describe('Item', () => {
       </Dropdown>
     );
 
-    userEvent.click(getByTestId('trigger'));
+    await user.click(getByTestId('trigger'));
     expect(getByTestId('item-icon')).toHaveStyleRule('width', '16px', { modifier: '& > *' });
   });
 
   describe('States', () => {
-    it('applies focus treatment if item is currently highlighted', () => {
+    it('applies focus treatment if item is currently highlighted', async () => {
       const { getByTestId, getAllByTestId } = render(
         <Dropdown>
           <Trigger>
@@ -135,13 +137,13 @@ describe('Item', () => {
       );
       const trigger = getByTestId('trigger');
 
-      userEvent.click(trigger);
+      await user.click(trigger);
       fireEvent.keyDown(trigger, { key: 'ArrowDown', keyCode: '40' });
       expect(getAllByTestId('item')[0]).toHaveAttribute('data-test-is-focused', 'true');
     });
 
     describe('Single selection', () => {
-      it('applies selected treatment if single item is selected and value is not an object', () => {
+      it('applies selected treatment if single item is selected and value is not an object', async () => {
         const { getByTestId, getAllByTestId } = render(
           <Dropdown selectedItem="item-1">
             <Trigger>
@@ -158,11 +160,11 @@ describe('Item', () => {
           </Dropdown>
         );
 
-        userEvent.click(getByTestId('trigger'));
+        await user.click(getByTestId('trigger'));
         expect(getAllByTestId('item')[0]).toHaveAttribute('data-test-is-selected', 'true');
       });
 
-      it('applies selected treatment if single item is selected and value is an object', () => {
+      it('applies selected treatment if single item is selected and value is an object', async () => {
         const { getByTestId, getAllByTestId } = render(
           <Dropdown
             selectedItem={{ id: 'item-1' }}
@@ -182,13 +184,13 @@ describe('Item', () => {
           </Dropdown>
         );
 
-        userEvent.click(getByTestId('trigger'));
+        await user.click(getByTestId('trigger'));
         expect(getAllByTestId('item')[0]).toHaveAttribute('data-test-is-selected', 'true');
       });
     });
 
     describe('Multi selection', () => {
-      it('applies selected treatment if single item is selected and value is not an object', () => {
+      it('applies selected treatment if single item is selected and value is not an object', async () => {
         const { getByTestId, getAllByTestId } = render(
           <Dropdown selectedItems={['item-1', 'item-2']}>
             <Trigger>
@@ -208,7 +210,7 @@ describe('Item', () => {
           </Dropdown>
         );
 
-        userEvent.click(getByTestId('trigger'));
+        await user.click(getByTestId('trigger'));
         const items = getAllByTestId('item');
 
         expect(items[0]).toHaveAttribute('data-test-is-selected', 'true');
@@ -216,7 +218,7 @@ describe('Item', () => {
         expect(items[2]).toHaveAttribute('data-test-is-selected', 'false');
       });
 
-      it('applies selected treatment if single item is selected and value is an object', () => {
+      it('applies selected treatment if single item is selected and value is an object', async () => {
         const { getByTestId, getAllByTestId } = render(
           <Dropdown
             selectedItems={[{ id: 'item-1' }, { id: 'item-2' }]}
@@ -239,7 +241,7 @@ describe('Item', () => {
           </Dropdown>
         );
 
-        userEvent.click(getByTestId('trigger'));
+        await user.click(getByTestId('trigger'));
         const items = getAllByTestId('item');
 
         expect(items[0]).toHaveAttribute('data-test-is-selected', 'true');

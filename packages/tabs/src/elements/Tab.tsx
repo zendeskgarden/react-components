@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
+import React, { HTMLAttributes, MutableRefObject } from 'react';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
 import { ITabProps } from '../types';
@@ -18,22 +18,21 @@ import { useTabsContext } from '../utils/useTabsContext';
 export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
   ({ disabled, item, ...otherProps }, ref) => {
     const tabsPropGetters = useTabsContext();
-    const tabRef = useRef<HTMLDivElement>();
 
     if (disabled || !tabsPropGetters) {
-      return <StyledTab disabled={disabled} ref={mergeRefs([tabRef, ref])} {...otherProps} />;
+      return <StyledTab role="tab" aria-disabled={disabled} ref={ref} {...otherProps} />;
     }
+
+    const { ref: tabRef, ...tabProps } = tabsPropGetters.getTabProps<HTMLDivElement>({
+      value: item
+    }) as HTMLAttributes<HTMLDivElement> & { ref: MutableRefObject<HTMLDivElement> };
 
     return (
       <StyledTab
+        isSelected={item === tabsPropGetters.selectedValue}
+        {...tabProps}
+        {...otherProps}
         ref={mergeRefs([tabRef, ref])}
-        {...tabsPropGetters.getTabProps({
-          item,
-          focusRef: tabRef,
-          index: tabsPropGetters.tabIndexRef.current++,
-          isSelected: item === tabsPropGetters.selectedItem,
-          ...otherProps
-        })}
       />
     );
   }

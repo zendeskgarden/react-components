@@ -26,7 +26,9 @@ export const StyledLabel = styled.div.attrs<IStyledLabelProps>({
 })<IStyledLabelProps>`
   display: ${props => !props.isHorizontal && 'flex'};
   align-items: ${props => !props.isHorizontal && 'center'};
-  transition: color 0.25s ease-in-out, font-weight 0.25s ease-in-out;
+  transition:
+    color 0.25s ease-in-out,
+    font-weight 0.25s ease-in-out;
   text-align: ${props => props.isHorizontal && 'center'};
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   color: ${props =>

@@ -1,5 +1,6 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { {{capitalize component}} } from '@zendeskgarden/react-{{pluralize (lowercase component)}}';
+import README from '../README.md';
 
 export const subcomponents = { '{{capitalize component}}.Text': {{capitalize component}}.Text };
 
@@ -32,3 +33,5 @@ export const argTypes = {
     )}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

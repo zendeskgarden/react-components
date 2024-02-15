@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import getColor from './getColor';
+import { getColor } from './getColor';
 import PALETTE from '../elements/palette';
 import DEFAULT_THEME from '../elements/theme';
 import { darken, lighten, rgba } from 'polished';

@@ -5,15 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext, MutableRefObject } from 'react';
+import { createContext, useContext } from 'react';
 import { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
 
-interface ITabsContext extends IUseTabsReturnValue<any> {
-  tabIndexRef: MutableRefObject<number>;
-  tabPanelIndexRef: MutableRefObject<number>;
-}
-
-export const TabsContext = createContext<ITabsContext | undefined>(undefined);
+export const TabsContext = createContext<IUseTabsReturnValue<any> | undefined>(undefined);
 
 export const useTabsContext = () => {
   return useContext(TabsContext);

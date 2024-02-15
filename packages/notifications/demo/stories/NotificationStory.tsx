@@ -28,11 +28,12 @@ export const NotificationStory: Story<IArgs> = ({
   hasClose,
   hasParagraph,
   isRegular,
+  'aria-label': ariaLabel,
   ...args
 }) => (
   <Notification {...args}>
     {title && <Title isRegular={isRegular}>{title}</Title>}
     {hasParagraph ? <Paragraph>{children}</Paragraph> : children}
-    {hasClose && <Close aria-label="Close" />}
+    {hasClose && <Close aria-label={ariaLabel} />}
   </Notification>
 );

@@ -7,9 +7,9 @@
 
 import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
-import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import isValid from 'date-fns/isValid';
-import isSameDay from 'date-fns/isSameDay';
+import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { isValid } from 'date-fns/isValid';
+import { isSameDay } from 'date-fns/isSameDay';
 import { parseInputValue } from '../utils/datepicker-range-reducer';
 
 export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
@@ -54,7 +54,7 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
 
   const onKeyDownCallback = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.keyCode === KEY_CODES.ENTER) {
+      if (e.key === KEYS.ENTER) {
         e.preventDefault();
         handleBlur();
       }

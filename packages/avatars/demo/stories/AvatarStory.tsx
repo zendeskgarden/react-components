@@ -11,6 +11,7 @@ import IconUser from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 import IconSystem from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
+
 import { TYPE } from './types';
 
 interface IArgs extends IAvatarProps {
@@ -25,9 +26,9 @@ export const AvatarStory: Story<IArgs> = ({ children, type, ...args }) => (
     {
       {
         icon: args.isSystem ? <IconSystem /> : <IconUser />,
-        image: <img alt="" src={`images/avatars/${args.isSystem ? 'system' : 'user'}.png`} />,
+        image: <img alt="user" src={`images/avatars/${args.isSystem ? 'system' : 'user'}.png`} />,
         text: <Avatar.Text>{children || (args.isSystem ? 'ZD' : 'G')}</Avatar.Text>
-      }[type]
+      }[type || 'image']
     }
   </Avatar>
 );

@@ -20,7 +20,7 @@ export const StyledField = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   position: relative; /* [1] */
-  direction: ${props => props.theme.rtl && 'rtl'};
+  direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
   margin: 0; /* [2] */
   border: 0; /* [2] */
   padding: 0; /* [2] */

@@ -115,11 +115,13 @@ const palette = { ...PALETTE };
 delete (palette as any).product;
 
 const shadowWidths = {
+  xs: '1px',
   sm: '2px',
   md: '3px'
 };
 
 const shadows = {
+  xs: (color: string) => `0 0 0 ${shadowWidths.xs} ${color}`,
   sm: (color: string) => `0 0 0 ${shadowWidths.sm} ${color}`,
   md: (color: string) => `0 0 0 ${shadowWidths.md} ${color}`,
   lg: (offsetY: string, blurRadius: string, color: string) =>

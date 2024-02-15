@@ -5,9 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IItemProps } from '@zendeskgarden/react-dropdowns';
+import { IItemProps, IMessageProps } from '@zendeskgarden/react-dropdowns';
 
 export type MENU_SEPARATOR = '---';
+
+export interface ICommonArgs {
+  label?: string;
+  isLabelRegular?: boolean;
+  isLabelHidden?: boolean;
+  hasHint?: boolean;
+  hint?: string;
+  hasMessage?: boolean;
+  message?: string;
+  validation?: IMessageProps['validation'];
+  validationLabel?: IMessageProps['validationLabel'];
+}
 
 export interface IMenuItem {
   text: string;

@@ -53,6 +53,10 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
         retVal.alpha = 100;
       }
 
+      if (areColorsEqual(retVal, previousComputedColorRef.current)) {
+        return previousComputedColorRef.current;
+      }
+
       return retVal;
     }, [color, isOpaque, state.color]);
 
@@ -67,13 +71,11 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
       previousStateColorRef.current = state.color;
     }, [color, onChange, state.color]);
 
-    useEffect(() => {
-      if (!areColorsEqual(computedColor, previousComputedColorRef.current)) {
-        dispatch({ type: 'RESET_COLOR', payload: computedColor });
-      }
+    if (previousComputedColorRef.current !== computedColor) {
+      dispatch({ type: 'RESET_COLOR', payload: computedColor });
 
       previousComputedColorRef.current = computedColor;
-    }, [computedColor]);
+    }
 
     const handleColorWellChange = useCallback((hsv: IHSVColor) => {
       dispatch({

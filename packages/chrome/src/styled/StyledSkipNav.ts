@@ -11,7 +11,9 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getColor,
-  getLineHeight
+  getLineHeight,
+  focusStyles,
+  SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
 import { getHeaderHeight } from './header/StyledHeader';
 
@@ -25,7 +27,9 @@ const animationStyles = () => {
   `;
 
   return css`
-    transition: opacity 0.2s ease-out, clip 0s linear 0.2s;
+    transition:
+      opacity 0.2s ease-out,
+      clip 0s linear 0.2s;
     opacity: 0;
     clip: rect(0, 0, 0, 0);
 
@@ -57,6 +61,12 @@ const colorStyles = (theme: DefaultTheme) => {
     &:focus {
       color: ${color};
     }
+
+    ${focusStyles({
+      theme,
+      inset: true,
+      boxShadow
+    })}
   `;
 };
 
@@ -81,6 +91,9 @@ interface IStyledSkipNavProps {
   zIndex?: number;
 }
 
+/**
+ * 1. breaking LVHFA order for `<a>` to underline when focused and hovered
+ */
 export const StyledSkipNav = styled.a.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -102,8 +115,13 @@ export const StyledSkipNav = styled.a.attrs({
 
   ${props => sizeStyles(props)};
 
-  &:focus {
-    outline: none;
+  ${SELECTOR_FOCUS_VISIBLE} {
+    text-decoration: none;
+  }
+
+  /* [1] */
+  &:hover {
+    text-decoration: underline;
   }
 
   ${props => colorStyles(props.theme)};

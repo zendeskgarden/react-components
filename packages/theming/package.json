@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-theming",
-  "version": "8.51.0",
+  "version": "8.74.2",
   "description": "Theming utilities and components within the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -21,8 +21,9 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-focusvisible": "^0.4.6",
-    "@zendeskgarden/container-utilities": "^0.7.0",
+    "@zendeskgarden/container-focusvisible": "^2.0.0",
+    "@zendeskgarden/container-utilities": "^2.0.0",
+    "lodash.memoize": "^4.1.2",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7"
   },
@@ -30,6 +31,9 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
     "styled-components": "^4.2.0 || ^5.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash.memoize": "4.1.9"
   },
   "keywords": [
     "components",

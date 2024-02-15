@@ -19,23 +19,21 @@ export {
   JUSTIFY_CONTENT as ARRAY_JUSTIFY_CONTENT,
   TEXT_ALIGN as ARRAY_TEXT_ALIGN,
   SPACE as ARRAY_SPACE,
-  WRAP as ARRAY_WRAP
-} from './types';
-
-export type {
-  IPaneProviderProps,
-  ISplitterProps,
-  IColProps,
-  IGridProps,
-  IRowProps,
+  WRAP as ARRAY_WRAP,
+  type IPaneProviderProps,
+  type ISplitterProps,
+  type ISplitterButtonProps,
+  type IColProps,
+  type IGridProps,
+  type IRowProps,
   /* @deprecated these types can be dereferenced on the exported interfaces */
-  AlignItems as ALIGN_ITEMS,
-  AlignSelf as ALIGN_SELF,
-  Direction as DIRECTION,
-  JustifyContent as JUSTIFY_CONTENT,
-  TextAlign as TEXT_ALIGN,
-  GridNumber as GRID_NUMBER,
-  Breakpoint as BREAKPOINT,
-  Space as SPACE,
-  Wrap as WRAP
+  type AlignItems as ALIGN_ITEMS,
+  type AlignSelf as ALIGN_SELF,
+  type Direction as DIRECTION,
+  type JustifyContent as JUSTIFY_CONTENT,
+  type TextAlign as TEXT_ALIGN,
+  type GridNumber as GRID_NUMBER,
+  type Breakpoint as BREAKPOINT,
+  type Space as SPACE,
+  type Wrap as WRAP
 } from './types';

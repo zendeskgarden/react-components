@@ -5,46 +5,67 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, forwardRef, useMemo } from 'react';
+import React, { type ReactElement, Children, forwardRef, isValidElement, useMemo } from 'react';
 import { useAccordion } from '@zendeskgarden/container-accordion';
 import { IAccordionProps } from '../../types';
 import { StyledAccordion } from '../../styled';
-import { AccordionContext } from '../../utils';
-import { Section } from '../accordion/components/Section';
-import { Header } from '../accordion/components/Header';
-import { Label } from '../accordion/components/Label';
-import { Panel } from '../accordion/components/Panel';
+import { AccordionContext, SectionContext } from '../../utils';
+import { Section } from './components/Section';
+import { Header } from './components/Header';
+import { Label } from './components/Label';
+import { Panel } from './components/Panel';
 
 const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
   (
     {
-      level,
+      children,
       isBare,
-      onChange,
       isCompact,
       isAnimated,
       isExpandable,
       isCollapsible,
+      level,
+      onChange,
       defaultExpandedSections,
       expandedSections: controlledExpandedSections,
       ...props
     },
     ref
   ) => {
+    const { sections, sectionChildren } = useMemo(
+      () =>
+        Children.toArray(children)
+          .filter(isValidElement)
+          .map((child, index) => (
+            <SectionContext.Provider key={index} value={index}>
+              {child}
+            </SectionContext.Provider>
+          ))
+          .reduce<{
+            sectionChildren: ReactElement[];
+            sections: number[];
+          }>(
+            (acc, child, index) => {
+              acc.sectionChildren.push(child);
+              acc.sections.push(index);
+
+              return acc;
+            },
+            { sectionChildren: [], sections: [] }
+          ),
+      [children]
+    );
+
     const { expandedSections, getHeaderProps, getTriggerProps, getPanelProps } = useAccordion({
+      sections,
+      defaultExpandedSections,
+      expandedSections: controlledExpandedSections,
       collapsible: isCollapsible,
       expandable: isExpandable || false,
-      onChange,
-      defaultExpandedSections,
-      expandedSections: controlledExpandedSections
-    });
-    const currentIndexRef = useRef(0);
-
-    useEffect(() => {
-      currentIndexRef.current = 0;
+      onChange
     });
 
-    const value = useMemo(
+    const accordionContextValue = useMemo(
       () => ({
         level,
         isBare,
@@ -54,7 +75,6 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
         getPanelProps,
         getHeaderProps,
         getTriggerProps,
-        currentIndexRef,
         expandedSections
       }),
       [
@@ -66,14 +86,15 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
         getPanelProps,
         getHeaderProps,
         getTriggerProps,
-        currentIndexRef,
         expandedSections
       ]
     );
 
     return (
-      <AccordionContext.Provider value={value}>
-        <StyledAccordion ref={ref} {...props} />
+      <AccordionContext.Provider value={accordionContextValue}>
+        <StyledAccordion ref={ref} {...props}>
+          {sectionChildren}
+        </StyledAccordion>
       </AccordionContext.Provider>
     );
   }

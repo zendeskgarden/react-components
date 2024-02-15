@@ -10,7 +10,8 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getLineHeight,
-  getColor
+  getColor,
+  focusStyles
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pagination.page';
@@ -19,7 +20,6 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const defaultColor = getColor('neutralHue', 600, props.theme);
   const hoverForegroundColor = getColor('neutralHue', 700, props.theme);
   const hoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
-  const boxShadowColor = getColor('primaryHue', 600, props.theme, 0.35);
   const activeForegroundColor = getColor('neutralHue', 800, props.theme);
   const activeBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
   const currentForegroundColor = activeForegroundColor;
@@ -35,11 +35,13 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       color: ${hoverForegroundColor};
     }
 
-    &[data-garden-focus-visible] {
-      box-shadow: inset ${props.theme.shadows.md(boxShadowColor!)};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      inset: true
+    })}
 
     &:active,
+    &:focus-visible:active,
     &[data-garden-focus-visible]:active {
       background-color: ${activeBackgroundColor};
       color: ${activeForegroundColor};
@@ -100,10 +102,6 @@ export const StyledPageBase = styled.li.attrs({
   user-select: none;
 
   ${props => sizeStyles(props)};
-
-  &:focus {
-    outline: none;
-  }
 
   &[aria-current='true'] {
     font-weight: ${props => props.theme.fontWeights.semibold};

@@ -16,6 +16,9 @@ import { DropdownContext, DROPDOWN_TYPE } from '../../utils/useDropdownContext';
 
 export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
 
+/**
+ * @deprecated use `@zendeskgarden/react-dropdowns.next` instead
+ */
 export const Dropdown = (props: PropsWithChildren<IDropdownProps>) => {
   const {
     children,
@@ -37,7 +40,7 @@ export const Dropdown = (props: PropsWithChildren<IDropdownProps>) => {
   const containsMultiselectRef = useRef(false);
   const itemSearchRegistry = useRef([]);
   const [dropdownType, setDropdownType] = useState<DROPDOWN_TYPE>('');
-  const themeContext = useContext(ThemeContext);
+  const { rtl } = useContext(ThemeContext);
 
   // Ref used to determine ARIA attributes for menu dropdowns
   const hasMenuRef = useRef(false);
@@ -50,8 +53,7 @@ export const Dropdown = (props: PropsWithChildren<IDropdownProps>) => {
    **/
   const customGetInputProps = (
     { onKeyDown, ...other }: any,
-    downshift: ControllerStateAndHelpers<any>,
-    rtl: any
+    downshift: ControllerStateAndHelpers<any>
   ) => {
     return {
       onKeyDown: composeEventHandlers(onKeyDown, (e: KeyboardEvent) => {
@@ -100,7 +102,7 @@ export const Dropdown = (props: PropsWithChildren<IDropdownProps>) => {
 
   const transformDownshift = ({ getInputProps, getToggleButtonProps, ...downshift }: any) => {
     return {
-      getInputProps: (p: any) => getInputProps(customGetInputProps(p, downshift, themeContext.rtl)),
+      getInputProps: (p: any) => getInputProps(customGetInputProps(p, downshift)),
       // The default aria-label provided by Downshift is invalid due to our DOM structure
       getToggleButtonProps: (p: any) => getToggleButtonProps({ 'aria-label': undefined, ...p }),
       ...downshift

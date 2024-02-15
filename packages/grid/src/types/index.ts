@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ReactNode, HTMLAttributes } from 'react';
+import { ReactNode, HTMLAttributes, ButtonHTMLAttributes } from 'react';
 export const ALIGN_ITEMS = ['start', 'end', 'center', 'baseline', 'stretch'] as const;
 export const ALIGN_SELF = ['auto', ...ALIGN_ITEMS] as const;
 export const DIRECTION = ['row', 'row-reverse', 'column', 'column-reverse'] as const;
@@ -13,16 +13,17 @@ export const JUSTIFY_CONTENT = ['start', 'end', 'center', 'between', 'around'] a
 export const TEXT_ALIGN = ['start', 'end', 'center', 'justify'] as const;
 export const SPACE = [false, 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 export const WRAP = ['nowrap', 'wrap', 'wrap-reverse'] as const;
+export const PLACEMENT = ['end', 'start', 'center'] as const;
 
-export type AlignItems = typeof ALIGN_ITEMS[number];
-export type AlignSelf = typeof ALIGN_SELF[number];
-export type Direction = typeof DIRECTION[number];
-export type JustifyContent = typeof JUSTIFY_CONTENT[number];
-export type TextAlign = typeof TEXT_ALIGN[number];
+export type AlignItems = (typeof ALIGN_ITEMS)[number];
+export type AlignSelf = (typeof ALIGN_SELF)[number];
+export type Direction = (typeof DIRECTION)[number];
+export type JustifyContent = (typeof JUSTIFY_CONTENT)[number];
+export type TextAlign = (typeof TEXT_ALIGN)[number];
 export type GridNumber = number | string;
 export type Breakpoint = number | string | boolean;
-export type Space = typeof SPACE[number];
-export type Wrap = typeof WRAP[number];
+export type Space = (typeof SPACE)[number];
+export type Wrap = (typeof WRAP)[number];
 
 export interface IColProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the total number of grid `columns` that the column spans on all screen sizes */
@@ -159,9 +160,11 @@ export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ORIENTATION = ['top', 'bottom', 'start', 'end'] as const;
-export type Orientation = typeof ORIENTATION[number];
+export type Orientation = (typeof ORIENTATION)[number];
 
 export interface IPaneProviderProps {
+  /** Identifies the pane provider */
+  id?: string;
   /** Provides the total width, in `px` units, of all panes in the layout */
   totalPanesWidth: number;
   /** Provides the total height, in `px` units, of all panes in the layout */
@@ -182,19 +185,22 @@ export interface IPaneProviderProps {
    */
   onChange?: (rowValues: Record<string, number>, columnValues: Record<string, number>) => void;
   /**
-   * Surfaces render prop functions for applying splitter state to the supporting layout
+   * Surfaces render props for applying splitter state to the supporting layout
    *
+   * @param id Provides the `id` prop, if specified; otherwise, a generated ID.
    * @param getColumnValue Gets column value by key
    * @param getRowValue Gets row value by key
    * @param getGridTemplateRows Gets grid template rows track
    * @param getGridTemplateColumns Gets grid template columns track
    */
   children?: ({
+    id,
     getColumnValue,
     getRowValue,
     getGridTemplateRows,
     getGridTemplateColumns
   }: {
+    id: string;
     getColumnValue: (splitterKey: string, isPixels?: boolean) => number;
     getRowValue: (splitterKey: string, isPixels?: boolean) => number;
     getGridTemplateRows: (isPixels?: boolean) => string;
@@ -203,6 +209,8 @@ export interface IPaneProviderProps {
 }
 
 export interface ISplitterProps extends HTMLAttributes<HTMLDivElement> {
+  /** Identifies the associated `PaneProvider`. Assumes the closest parent provider, by default. */
+  providerId?: string;
   /** Specifies the splitter key */
   layoutKey: string;
   /** Sets a minimum, in `fr` units, for splitter position */
@@ -211,4 +219,13 @@ export interface ISplitterProps extends HTMLAttributes<HTMLDivElement> {
   max: number;
   /** Determines splitter orientation within a pane */
   orientation?: Orientation;
+  /** Determines if the splitter only toggles between `min` and `max` */
+  isFixed?: boolean;
+}
+
+export interface ISplitterButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Adjusts the placement of the splitter button. Assumes start when vertical and center when horizontal, by default. */
+  placement?: (typeof PLACEMENT)[number];
+  /** Renders the provided label text inside a tooltip */
+  label: string;
 }

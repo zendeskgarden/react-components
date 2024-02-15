@@ -22,6 +22,9 @@ interface IArgs extends IDrawerModalProps {
   footerItems: IFooterItem[];
   hasHeader: boolean;
   header: string;
+  tag: string;
+  dialogAriaLabel: string;
+  closeAriaLabel: string;
 }
 
 export const DrawerModalStory: Story<IArgs> = ({
@@ -34,9 +37,20 @@ export const DrawerModalStory: Story<IArgs> = ({
   footerItems,
   hasHeader,
   header,
+  tag,
+  dialogAriaLabel,
+  closeAriaLabel,
   ...args
 }) => {
   const theme = useTheme();
+
+  // Using `aria-label={undefined}` when `hasHeader` is `true` appears to
+  // void the fallback value in Storybook, resulting in no rendered attribute
+  const ariaProp: Record<string, any> = hasHeader
+    ? {}
+    : {
+        'aria-label': dialogAriaLabel
+      };
 
   return (
     <>
@@ -46,8 +60,8 @@ export const DrawerModalStory: Story<IArgs> = ({
           <Icon />
         </Button.EndIcon>
       </Button>
-      <DrawerModal {...args} onClose={onClose}>
-        {hasHeader && <DrawerModal.Header>{header}</DrawerModal.Header>}
+      <DrawerModal {...args} onClose={onClose} {...ariaProp}>
+        {hasHeader && <DrawerModal.Header tag={tag}>{header}</DrawerModal.Header>}
         {hasBody ? <DrawerModal.Body>{body}</DrawerModal.Body> : body}
         {hasFooter && (
           <DrawerModal.Footer>
@@ -60,7 +74,7 @@ export const DrawerModalStory: Story<IArgs> = ({
             ))}
           </DrawerModal.Footer>
         )}
-        {hasClose && <DrawerModal.Close />}
+        {hasClose && <DrawerModal.Close aria-label={closeAriaLabel} />}
       </DrawerModal>
     </>
   );

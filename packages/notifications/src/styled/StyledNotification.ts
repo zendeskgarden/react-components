@@ -49,11 +49,10 @@ const colorStyles = (props: INotificationProps & ThemeProps<DefaultTheme>) => {
 /**
  * Supports all `<div>` props
  */
-export const StyledNotification = styled(StyledBase).attrs(props => ({
+export const StyledNotification = styled(StyledBase).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  role: props.role === undefined ? 'status' : props.role
-}))<INotificationProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<INotificationProps>`
   ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

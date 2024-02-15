@@ -84,11 +84,15 @@ import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
         </Pane>
         <Pane>
           <Pane.Content>Pane 2</Pane.Content>
-          <Pane.Splitter layoutKey="row-1" min={0} max={2} orientation="bottom" />
+          <Pane.Splitter layoutKey="row-1" min={0} max={2} orientation="bottom">
+            <Pane.SplitterButton label="toggle row-1" />
+          </Pane.Splitter>
         </Pane>
         <Pane>
           <Pane.Content>Pane 3</Pane.Content>
-          <Pane.Splitter layoutKey="row-2" min={0} max={2} orientation="top" />
+          <Pane.Splitter layoutKey="row-2" min={0} max={2} orientation="top">
+            <Pane.SplitterButton label="toggle row-2" placement="end" />
+          </Pane.Splitter>
         </Pane>
         <Pane>
           <Pane.Content>Pane 4</Pane.Content>
@@ -99,3 +103,8 @@ import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
   </PaneProvider>
 </ThemeProvider>;
 ```
+
+> the `Pane` component uses [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API)
+> which is not available in node.js or other server side environments (if testing with Jest) - please
+> make sure to polyfill as needed. Since the ref used internally is not created when server side rendering,
+> the ResizeObserver API will not be invoked and should not pose an issue when doing so.

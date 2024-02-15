@@ -12,3 +12,4 @@ export * from './StyledRow';
 export * from './pane/StyledPane';
 export * from './pane/StyledPaneContent';
 export * from './pane/StyledPaneSplitter';
+export * from './pane/StyledPaneSplitterButton';

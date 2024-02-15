@@ -27,6 +27,7 @@ import {
   StyledTooltipBody
 } from '../../styled';
 import { IColor, IColorpickerDialogProps } from '../../types';
+import { useText } from '@zendeskgarden/react-theming';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -50,6 +51,7 @@ export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogPr
       disabled,
       buttonProps,
       onDialogChange,
+      'aria-label': ariaLabel,
       children,
       ...props
     },
@@ -62,6 +64,12 @@ export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogPr
     const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
     const [uncontrolledColor, setUncontrolledColor] = useState<string | IColor | undefined>(
       defaultColor
+    );
+    const ariaLabelText = useText(
+      ColorpickerDialog,
+      { 'aria-label': ariaLabel },
+      'aria-label',
+      'Color picker'
     );
 
     const openDialog = () => {
@@ -128,6 +136,7 @@ export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogPr
             closeDialog();
             onClose && onClose(isControlled ? (color as IColor) : (uncontrolledColor as IColor));
           }}
+          aria-label={ariaLabelText}
           {...props}
         >
           <StyledTooltipBody>

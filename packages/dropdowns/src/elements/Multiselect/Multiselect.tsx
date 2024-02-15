@@ -5,12 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext, useRef, useEffect, useState, useMemo, useCallback } from 'react';
+import React, {
+  useContext,
+  useRef,
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+  HTMLAttributes,
+  ReactNode
+} from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Reference } from 'react-popper';
 import { useSelection } from '@zendeskgarden/container-selection';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { useDocument } from '@zendeskgarden/react-theming';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import mergeRefs from 'react-merge-refs';
 import { IMultiselectProps } from '../../types';
@@ -26,6 +36,8 @@ import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 
 /**
+ * @deprecated use `@zendeskgarden/react-dropdowns.next` Combobox instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
@@ -69,6 +81,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
     const [isFocused, setIsFocused] = useState(false);
     const [focusedItem, setFocusedItem] = useState(undefined);
     const themeContext = useContext(ThemeContext);
+    const environment = useDocument(themeContext);
 
     const { getContainerProps, getItemProps } = useSelection({
       rtl: themeContext.rtl,
@@ -135,7 +148,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
           const currentTarget = e.currentTarget;
 
           blurTimeoutRef.current = setTimeout(() => {
-            if (!currentTarget.contains(document.activeElement)) {
+            if (environment && !currentTarget.contains(environment.activeElement)) {
               setIsFocused(false);
             }
           }, 0) as unknown as number;
@@ -151,7 +164,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
       } as any)
     );
 
-    const renderSelectableItem = useCallback(
+    const renderSelectableItem = useCallback<(item: any, index: number) => ReactNode>(
       (item, index) => {
         const removeValue = () => {
           (setDownshiftState as any)({
@@ -162,7 +175,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
         };
 
         const renderedItem = renderItem({ value: item, removeValue });
-        const focusRef = React.createRef();
+        const focusRef = React.createRef<Element>();
 
         const clonedChild = React.cloneElement(renderedItem, {
           ...getItemProps({
@@ -298,7 +311,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
             data-test-is-open={isOpen}
             data-test-is-hovered={isContainerHovered}
             data-test-is-focused={isContainerFocused}
-            {...getContainerProps({
+            {...(getContainerProps({
               ...selectProps,
               isHovered: isContainerHovered,
               isFocused: isContainerFocused,
@@ -309,7 +322,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
                 // Apply Select ref to global Dropdown context
                 mergeRefs([triggerRef, popperReferenceElementRef, ref])(selectRef);
               }
-            })}
+            }) as HTMLAttributes<HTMLDivElement>)}
           >
             {start && (
               <StyledFauxInput.StartIcon

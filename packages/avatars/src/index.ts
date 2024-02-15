@@ -6,4 +6,5 @@
  */
 
 export { Avatar } from './elements/Avatar';
-export type { IAvatarProps } from './types';
+export { StatusIndicator } from './elements/StatusIndicator';
+export type { IAvatarProps, IStatusIndicatorProps } from './types';

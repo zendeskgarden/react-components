@@ -27,6 +27,7 @@ describe('Progress', () => {
     expect(progress).toHaveAttribute('aria-valuemin', '0');
     expect(progress).toHaveAttribute('aria-valuenow', '40');
     expect(progress).toHaveAttribute('aria-valuemax', '100');
+    expect(progress).toHaveAttribute('aria-label', 'Progress');
   });
 
   it('renders a progress indicator', () => {

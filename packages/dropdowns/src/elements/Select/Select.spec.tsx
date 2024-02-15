@@ -30,6 +30,8 @@ const ExampleSelect = () => (
 );
 
 describe('Select', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
 
@@ -46,22 +48,22 @@ describe('Select', () => {
     expect(getByTestId('select')).toBe(ref.current);
   });
 
-  it('focuses internal input when opened', () => {
+  it('focuses internal input when opened', async () => {
     const { getByTestId } = render(<ExampleSelect />);
 
-    userEvent.click(getByTestId('select'));
+    await user.click(getByTestId('select'));
 
     expect(document.activeElement!.nodeName).toBe('INPUT');
   });
 
-  it('focuses select when closed', () => {
+  it('focuses select when closed', async () => {
     const { getByTestId } = render(<ExampleSelect />);
     const select = getByTestId('select');
 
     // Open dropdown
-    userEvent.click(select);
+    await user.click(select);
     // Close dropdown
-    userEvent.click(select);
+    await user.click(select);
 
     expect(document.activeElement).toStrictEqual(select);
   });
@@ -80,7 +82,7 @@ describe('Select', () => {
     expect(getByTestId('select')).not.toHaveAttribute('tabindex');
   });
 
-  it('applies correct styling if open', () => {
+  it('applies correct styling if open', async () => {
     const { getByTestId } = render(
       <Dropdown>
         <Field>
@@ -91,13 +93,13 @@ describe('Select', () => {
 
     const select = getByTestId('select');
 
-    userEvent.click(select);
+    await user.click(select);
 
     expect(select).toHaveAttribute('data-test-is-focused', 'true');
     expect(select).toHaveAttribute('data-test-is-open', 'true');
   });
 
-  it('applies correct styling if label is hovered', () => {
+  it('applies correct styling if label is hovered', async () => {
     const { getByTestId } = render(
       <Dropdown>
         <Field>
@@ -107,7 +109,7 @@ describe('Select', () => {
       </Dropdown>
     );
 
-    userEvent.hover(getByTestId('label'));
+    await user.hover(getByTestId('label'));
 
     expect(getByTestId('select')).toHaveAttribute('data-test-is-hovered', 'true');
   });
@@ -140,11 +142,11 @@ describe('Select', () => {
   });
 
   describe('Interaction', () => {
-    it('opens on click', () => {
+    it('opens on click', async () => {
       const { getByTestId } = render(<ExampleSelect />);
       const select = getByTestId('select');
 
-      userEvent.click(select);
+      await user.click(select);
 
       expect(select).toHaveAttribute('data-test-is-open', 'true');
     });
@@ -173,14 +175,14 @@ describe('Select', () => {
       expect(items[items.length - 1]).toHaveAttribute('aria-selected', 'true');
     });
 
-    it('closes on escape key', () => {
+    it('closes on escape key', async () => {
       const { getByTestId } = render(<ExampleSelect />);
       const select = getByTestId('select');
 
-      userEvent.click(select);
+      await user.click(select);
       expect(select).toHaveAttribute('data-test-is-open', 'true');
 
-      userEvent.type(select, '{esc}');
+      await user.type(select, '{escape}');
       expect(select).not.toHaveClass('is-open');
     });
   });

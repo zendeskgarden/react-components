@@ -17,12 +17,11 @@ export { TooltipModal } from './elements/TooltipModal/TooltipModal';
 
 export { DrawerModal } from './elements/DrawerModal/DrawerModal';
 
-export { PLACEMENT } from './types';
-
-export type {
-  IModalProps,
-  IDrawerModalProps,
-  ITooltipModalProps,
+export {
+  PLACEMENT,
+  type IModalProps,
+  type IDrawerModalProps,
+  type ITooltipModalProps,
   /* @deprecated type can be dereferenced from the exported interfaces */
-  Placement as GARDEN_PLACEMENT
+  type Placement as GARDEN_PLACEMENT
 } from './types';

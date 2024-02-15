@@ -62,7 +62,7 @@ export const LANGUAGES = [
 
 export type Diff = 'hunk' | 'add' | 'delete' | 'change';
 
-export type Size = typeof SIZE[number];
+export type Size = (typeof SIZE)[number];
 
 export interface ITypescaleProps extends HTMLAttributes<HTMLDivElement> {
   /** Updates the element's HTML tag */
@@ -76,21 +76,21 @@ export interface ITypescaleMonospaceProps extends ITypescaleProps {
   isMonospace?: boolean;
 }
 
-export interface IBlockquoteProps extends BlockquoteHTMLAttributes<HTMLElement> {
+export interface IBlockquoteProps extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
   /** Controls the spacing between sibling blockquotes and paragraphs */
   size?: Size;
 }
 
 export interface ICodeProps extends HTMLAttributes<HTMLElement> {
   /** Applies color to the background and the text */
-  hue?: typeof HUE[number];
+  hue?: (typeof HUE)[number];
   /** Adjusts the font size. By default font size is inherited from the surrounding text. */
-  size?: typeof INHERIT_SIZE[number];
+  size?: (typeof INHERIT_SIZE)[number];
 }
 
 export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
   /** Selects the language used by the [Prism](https://prismjs.com/) tokenizer */
-  language?: typeof LANGUAGES[number];
+  language?: (typeof LANGUAGES)[number];
   /** Specifies the font size */
   size?: Size;
   /** Applies light mode styling */
@@ -119,14 +119,14 @@ export interface IOrderedListProps extends Omit<OlHTMLAttributes<HTMLOListElemen
   /** Adjusts the vertical spacing between list items */
   size?: Size;
   /** Sets the marker style */
-  type?: typeof TYPE_ORDERED_LIST[number];
+  type?: (typeof TYPE_ORDERED_LIST)[number];
 }
 
 export interface IUnorderedListProps extends HTMLAttributes<HTMLUListElement> {
   /** Adjusts the vertical spacing between list items */
   size?: Size;
   /** Sets the marker style */
-  type?: typeof TYPE_UNORDERED_LIST[number];
+  type?: (typeof TYPE_UNORDERED_LIST)[number];
 }
 
 export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
@@ -141,4 +141,6 @@ export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
    * when possible. Accepts all hex values.
    */
   hue?: string;
+  /** Hides the span visually without hiding it from screen readers */
+  hidden?: HTMLAttributes<HTMLSpanElement>['hidden'];
 }

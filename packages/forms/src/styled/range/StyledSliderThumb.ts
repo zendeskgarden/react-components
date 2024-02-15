@@ -7,7 +7,12 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.slider_thumb';
 
@@ -29,7 +34,6 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const activeBorderColor = borderColor;
   const hoverBackgroundColor = activeBackgroundColor;
   const hoverBorderColor = hoverBackgroundColor;
-  const focusBoxShadow = props.theme.shadows.md(getColor('primaryHue', SHADE, props.theme, 0.35)!);
   const disabledBackgroundColor = getColor('neutralHue', SHADE - 300, props.theme);
   const disabledBorderColor = disabledBackgroundColor;
 
@@ -38,15 +42,15 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     box-shadow: ${boxShadow};
     background-color: ${backgroundColor};
 
-    &[data-garden-focus-visible='true'] {
-      box-shadow: ${focusBoxShadow};
-    }
-
     &:hover,
     &[data-garden-hover='true'] {
       border-color: ${hoverBorderColor};
       background-color: ${hoverBackgroundColor};
     }
+
+    ${focusStyles({
+      theme: props.theme
+    })}
 
     &:active,
     &[data-garden-active='true'] {
@@ -95,10 +99,6 @@ export const StyledSliderThumb = styled.div.attrs<IStyledSliderThumbProps>(props
   font-size: 0;
 
   ${props => sizeStyles(props)};
-
-  &:focus {
-    outline: none;
-  }
 
   ${props => colorStyles(props)};
 

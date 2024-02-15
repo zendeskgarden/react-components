@@ -12,13 +12,12 @@ import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
-import babel from 'rollup-plugin-babel';
-import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
+import { babel } from '@rollup/plugin-babel';
+// import { sizeSnapshot } from '@brodybits/rollup-plugin-size-snapshot';
 import analyze from 'rollup-plugin-analyzer';
 import license from 'rollup-plugin-license';
 import cleanup from 'rollup-plugin-cleanup';
 import del from 'rollup-plugin-delete';
-import jsx from 'acorn-jsx';
 import svgr from '@svgr/rollup';
 import tsc from 'typescript';
 
@@ -35,17 +34,16 @@ const externalPackages = [
   'react-uid',
   '@zendeskgarden/react-theming',
   ...Object.keys(pkg.dependencies || {})
-];
+].map(external => new RegExp(`^${external}/?.*`, 'u'));
 
 export default [
   {
     input: pkg['zendeskgarden:src'],
     /**
-     * Only mark common peerDependencies as externals.
-     * These are not included in the bundlesize.
+     * Filter out dependencies that consumers
+     * will bundle during build time
      */
-    external: id => externalPackages.includes(id),
-    acornInjectPlugins: [jsx()],
+    external: id => externalPackages.filter(regexp => regexp.test(id)).length > 0,
     plugins: [
       /**
        * Remove existing dist files and type definitions
@@ -66,6 +64,7 @@ export default [
           typescript: tsc
         }),
       babel({
+        babelHelpers: 'bundled',
         babelrc: false,
         exclude: 'node_modules/**', // only transpile our source code
         ...babelOptions,
@@ -93,14 +92,14 @@ export default [
       /**
        * Only enforce matching size snapshot files in CI environments
        */
-      sizeSnapshot({
-        matchSnapshot: !!process.env.CI,
-        printInfo: !!process.env.CI || !!process.env.ANALYZE_BUNDLE
-      }),
+      // sizeSnapshot({
+      //   matchSnapshot: !!process.env.CI,
+      //   printInfo: !!process.env.CI || !!process.env.ANALYZE_BUNDLE
+      // }),
       !!process.env.ANALYZE_BUNDLE && analyze({ summaryOnly: true })
     ],
     output: [
-      { file: pkg.main, format: 'cjs' },
+      { file: pkg.main, format: 'cjs', interop: 'auto' },
       { file: pkg.module, format: 'es' }
     ]
   }

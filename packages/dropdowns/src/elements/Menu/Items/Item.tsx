@@ -19,7 +19,10 @@ import { ItemContext } from '../../../utils/useItemContext';
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
-  ({ value, disabled, isDanger, component = StyledItem, children, ...props }, forwardRef) => {
+  (
+    { value, disabled, isDanger, component = StyledItem, hasIcon, children, ...props },
+    forwardRef
+  ) => {
     const {
       selectedItems,
       hasMenuRef,
@@ -88,7 +91,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
             isCompact={isCompact}
             {...props}
           >
-            {isSelected && (
+            {isSelected && !hasIcon && (
               <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
                 <SelectedSvg />
               </StyledItemIcon>
@@ -120,7 +123,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
             ...props
           } as any)}
         >
-          {isSelected && (
+          {isSelected && !hasIcon && (
             <StyledItemIcon isCompact={isCompact} isVisible={isSelected} data-test-id="item-icon">
               <SelectedSvg />
             </StyledItemIcon>

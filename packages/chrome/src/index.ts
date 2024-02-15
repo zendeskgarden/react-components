@@ -28,23 +28,22 @@ export { SubNavItemText } from './elements/subnav/SubNavItemText';
 export { CollapsibleSubNavItem } from './elements/subnav/CollapsibleSubNavItem';
 export { Sheet } from './elements/sheet/Sheet';
 
-export { PRODUCT as PRODUCTS } from './types';
-
-export type {
-  IChromeProps,
-  ISkipNavProps,
-  IBodyProps,
-  IHeaderProps,
-  IHeaderItemProps,
-  IHeaderItemTextProps,
-  IHeaderItemWrapperProps,
-  INavProps,
-  INavItemProps,
-  INavItemTextProps,
-  ISubNavItemProps,
-  ICollapsibleSubNavItemProps,
-  ISheetProps,
-  ISheetFooterProps,
+export {
+  PRODUCT as PRODUCTS,
+  type IChromeProps,
+  type ISkipNavProps,
+  type IBodyProps,
+  type IHeaderProps,
+  type IHeaderItemProps,
+  type IHeaderItemTextProps,
+  type IHeaderItemWrapperProps,
+  type INavProps,
+  type INavItemProps,
+  type INavItemTextProps,
+  type ISubNavItemProps,
+  type ICollapsibleSubNavItemProps,
+  type ISheetProps,
+  type ISheetFooterProps,
   /** @deprecated can be accessed via IHeaderItemProps['product'] */
-  Product as PRODUCT
+  type Product as PRODUCT
 } from './types';

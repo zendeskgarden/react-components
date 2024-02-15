@@ -10,16 +10,14 @@ import PropTypes from 'prop-types';
 import CheckCircleStrokeIcon from '@zendeskgarden/svg-icons/src/16/check-sm-stroke.svg';
 import { IStepperLabelProps } from '../../../types';
 import { StyledLabel, StyledLabelText, StyledIcon, StyledIconFlexContainer } from '../../../styled';
-import { useStepContext, useStepperContext } from '../../../utils';
+import { useStepContext } from '../../../utils';
 
 const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>(
   ({ icon, iconProps, isHidden, children, ...other }, ref) => {
-    const { currentStepIndex } = useStepContext();
-    const { activeIndex, isHorizontal } = useStepperContext();
+    const { currentStepIndex, isActive, isCompleted, isHorizontal } = useStepContext();
     const numericStep = currentStepIndex + 1;
     const stepIcon = icon || numericStep;
-    const isActive = activeIndex === currentStepIndex;
-    const isCompleted = activeIndex > currentStepIndex;
+
     const styledIcon = (
       <StyledIcon isActive={isActive} isHorizontal={isHorizontal}>
         {isCompleted ? <CheckCircleStrokeIcon {...iconProps} /> : stepIcon}
@@ -44,7 +42,7 @@ const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>(
 LabelComponent.displayName = 'Stepper.Label';
 
 LabelComponent.propTypes = {
-  icon: PropTypes.node,
+  icon: PropTypes.any,
   iconProps: PropTypes.object,
   isHidden: PropTypes.bool
 };

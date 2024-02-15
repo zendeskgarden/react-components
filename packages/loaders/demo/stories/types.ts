@@ -7,4 +7,4 @@
 
 import { TYPE_SCALE_OPTIONS } from './data';
 
-export type TYPE_SCALE = typeof TYPE_SCALE_OPTIONS[number];
+export type TYPE_SCALE = (typeof TYPE_SCALE_OPTIONS)[number];

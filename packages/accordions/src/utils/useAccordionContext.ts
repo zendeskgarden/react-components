@@ -5,19 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext, MutableRefObject } from 'react';
-import { IUseAccordionPropGetters } from 'packages/chrome/node_modules/@zendeskgarden/container-accordion/dist/typings';
-export interface IAccordionContext extends IUseAccordionPropGetters {
-  expandedSections: number[];
-  currentIndexRef: MutableRefObject<number>;
-  level: number;
-  isCompact?: boolean;
-  isAnimated?: boolean;
-  isBare?: boolean;
-  isCollapsible?: boolean;
-}
+import { createContext, useContext } from 'react';
+import { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
+import { IAccordionProps } from '../types';
 
-export const AccordionContext = createContext<IAccordionContext | undefined>(undefined);
+export interface IAccordionContext<Value>
+  extends Omit<IUseAccordionReturnValue<Value>, 'disabledSections'>,
+    Pick<
+      IAccordionProps<Value>,
+      'level' | 'isCompact' | 'isAnimated' | 'isBare' | 'isCollapsible'
+    > {}
+
+export const AccordionContext = createContext<IAccordionContext<any> | undefined>(undefined);
 
 export const useAccordionContext = () => {
   const context = useContext(AccordionContext);

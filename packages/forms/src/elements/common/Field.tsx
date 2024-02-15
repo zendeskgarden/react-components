@@ -24,26 +24,39 @@ export interface IFieldProps extends HTMLAttributes<HTMLDivElement> {
 export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const [hasHint, setHasHint] = useState(false);
+    const [hasMessage, setHasMessage] = useState(false);
     const [isLabelActive, setIsLabelActive] = useState(false);
     const [isLabelHovered, setIsLabelHovered] = useState(false);
     const multiThumbRangeRef = useRef<HTMLDivElement>(null);
-    const getMessageProps = (messageProps: any) => ({ role: 'alert', ...messageProps });
-    const { getInputProps, ...propGetters } = useField(props.id);
+    const { getInputProps, getMessageProps, ...propGetters } = useField({
+      idPrefix: props.id,
+      hasHint,
+      hasMessage
+    });
     const fieldProps = useMemo(
       () => ({
         ...propGetters,
+        getInputProps,
         getMessageProps,
         isLabelActive,
         setIsLabelActive,
         isLabelHovered,
         setIsLabelHovered,
-        multiThumbRangeRef,
-        getInputProps: (options: any, describeOptions: any) =>
-          getInputProps(options, { ...describeOptions, isDescribed: hasHint }),
-        setHint: (hintPresent: boolean) => setHasHint(hintPresent),
-        hasHint
+        hasHint,
+        setHasHint,
+        hasMessage,
+        setHasMessage,
+        multiThumbRangeRef
       }),
-      [propGetters, isLabelActive, isLabelHovered, hasHint, getInputProps]
+      [
+        propGetters,
+        getInputProps,
+        getMessageProps,
+        isLabelActive,
+        isLabelHovered,
+        hasHint,
+        hasMessage
+      ]
     );
 
     return (

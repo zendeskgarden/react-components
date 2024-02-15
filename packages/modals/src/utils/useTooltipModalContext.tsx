@@ -5,12 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext, HTMLAttributes } from 'react';
+import { IUseModalReturnValue } from '@zendeskgarden/container-modal';
+import { createContext, useContext } from 'react';
 
 export interface IModalContext {
-  getTitleProps: <T>(options?: T) => T & HTMLAttributes<HTMLDivElement>;
-  getContentProps: <T>(options?: T) => T & HTMLAttributes<HTMLDivElement>;
-  getCloseProps: <T>(options?: T) => T & HTMLAttributes<HTMLButtonElement>;
+  hasTitle: boolean;
+  setHasTitle: (isPresent: boolean) => void;
+  getTitleProps: IUseModalReturnValue['getTitleProps'];
+  getContentProps: IUseModalReturnValue['getContentProps'];
+  getCloseProps: IUseModalReturnValue['getCloseProps'];
 }
 
 export const TooltipModalContext = createContext<IModalContext | undefined>(undefined);

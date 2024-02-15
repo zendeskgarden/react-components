@@ -20,7 +20,7 @@ includes:
 - `└── packages/` – the folder that contains individual `@zendeskgarden`
   packages which are published to the registry.<br>
   &nbsp;&nbsp;&nbsp;&nbsp;`├── .template/` – a special template package
-  referenced by `yarn new` to generate a component.<br>
+  referenced by `npm run new` to generate a component.<br>
   &nbsp;&nbsp;&nbsp;&nbsp;`├── buttons/`<br>
   &nbsp;&nbsp;&nbsp;&nbsp;`├── tabs/`<br>
   &nbsp;&nbsp;&nbsp;&nbsp;`├── theming/`<br>
@@ -43,29 +43,34 @@ merged.
 
 ## Development Workflow
 
-Before you start, be sure [yarn](https://yarnpkg.com/en/) is installed
-on your system. After you clone this repo, run `yarn` to install
+Before you start, be sure [npm](https://www.npmjs.com/package/npm) is installed
+on your system. After you clone this repo, run `npm install` to install
 dependencies needed for development. After installation, the following
 commands are available:
 
-- `yarn start` to launch Storybook with live reload.
-- `yarn test` to run Jest testing.
-- `yarn lint` to enforce consistent JavaScript, CSS, and
+- `npm start` to launch Storybook with live reload.
+- `npm test` to run Jest testing.
+- `npm run lint` to enforce consistent JavaScript, CSS, and
   markdown code conventions across all component packages. Note this is
   run as a git `pre-commit` hook.
-- `yarn format` to enforce code style with opinionated
+- `npm run format` to enforce code style with opinionated
   formats across all component packages. Note this is run as a git
   `pre-commit` hook.
-- `yarn build` to rebuild distributions across all packages.
+- `npm run build` to rebuild distributions across all packages.
   The build runs as part of the initial install. Operates as a facade
   over a Lerna command; operation may be modified using option
   [flags](https://github.com/lerna/lerna#flags) (i.e. `scope`, `since`,
   or `ignore`).
-- `yarn new` to generate a new React component based on a package
+- `npm run new` to generate a new React component based on a package
   template.
 
 See Garden's [development documentation](/docs/development.md) for package
-implementation requirements.
+implementation requirements. In general, your code will be expected to follow
+documented standards and prevailing conventions. If you feel the need to
+introduce a new or novel pattern, please start a new
+[discussion](https://github.com/zendeskgarden/react-components/discussions) or
+open an [issue](https://github.com/zendeskgarden/react-components/issues) for
+consideration by the core team.
 
 ## Pull Request Workflow
 

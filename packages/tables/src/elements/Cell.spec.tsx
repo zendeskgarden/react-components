@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { hideVisually } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
 
 import { Table } from './Table';
@@ -95,5 +96,21 @@ describe('Cell', () => {
     expect(getByTestId('cell')).toHaveStyle(`
       padding: 0 0 0 4px;
     `);
+  });
+
+  it('applies visually hidden styling', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row>
+            <Cell data-test-id="cell" hidden>
+              Foo
+            </Cell>
+          </Row>
+        </Body>
+      </Table>
+    );
+
+    expect(getByTestId('cell').firstChild).toHaveStyle(hideVisually());
   });
 });

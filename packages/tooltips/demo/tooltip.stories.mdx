@@ -1,7 +1,8 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Tooltip, Title, Paragraph } from '@zendeskgarden/react-tooltips';
 import { TooltipStory } from './stories/TooltipStory';
 import { TOOLTIP_CONTENT as CONTENT } from './stories/data';
+import README from '../README.md';
 
 <Meta title="Packages/Tooltips/Tooltip" component={Tooltip} subcomponents={{ Paragraph, Title }} />
 
@@ -34,3 +35,5 @@ import { TOOLTIP_CONTENT as CONTENT } from './stories/data';
     {args => <TooltipStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

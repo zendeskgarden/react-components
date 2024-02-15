@@ -1,8 +1,9 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { Tabs, Tab, TabList, TabPanel } from '@zendeskgarden/react-tabs';
 import { TabsStory } from './stories/TabsStory';
 import { TABS } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Tabs/Tabs"
@@ -36,7 +37,7 @@ import { TABS } from './stories/data';
 ## Controlled
 
 <Canvas>
-  <Story name="Controlled" argTypes={{ selectedItem: { control: 'number' } }}>
+  <Story name="Controlled">
     {args => {
       const updateArgs = useArgs()[1];
       const handleChange = selectedItem => updateArgs({ selectedItem });
@@ -44,3 +45,5 @@ import { TABS } from './stories/data';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

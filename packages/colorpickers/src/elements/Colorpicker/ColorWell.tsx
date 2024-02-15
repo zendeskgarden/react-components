@@ -90,6 +90,7 @@ export const ColorWell: React.FC<IColorWellProps> = React.memo(
     }, [throttledChange]);
 
     return (
+      /* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */
       <StyledColorWell
         hue={hue}
         ref={containerRef}

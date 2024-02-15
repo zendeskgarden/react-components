@@ -6,7 +6,12 @@
  */
 
 import styled, { css } from 'styled-components';
-import { getColor, getLineHeight, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  getLineHeight,
+  retrieveComponentStyles,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'breadcrumbs.item';
 
@@ -45,7 +50,10 @@ export const StyledBreadcrumbItem = styled.li.attrs({
   white-space: nowrap;
   color: ${props => (props.isCurrent ? getColor(props.theme.colors.neutralHue, 600) : 'inherit')};
   font-size: inherit;
+
   ${linkStyles};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledBreadcrumbItem.defaultProps = {

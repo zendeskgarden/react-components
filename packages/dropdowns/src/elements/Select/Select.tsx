@@ -18,6 +18,8 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 /**
+ * @deprecated use `@zendeskgarden/react-dropdowns.next` Combobox instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
@@ -195,6 +197,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             isHovered={isContainerHovered}
             isFocused={isContainerFocused}
             {...selectProps}
+            role="none"
             ref={selectRef => {
               // Pass ref to popperJS for positioning
               (popperReference as any)(selectRef);

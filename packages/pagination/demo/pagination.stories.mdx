@@ -1,6 +1,8 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { Pagination } from '@zendeskgarden/react-pagination';
+import { PaginationStory } from './stories/PaginationStory';
+import README from '../README.md';
 
 <Meta title="Packages/Pagination/Pagination" component={Pagination} />
 
@@ -25,7 +27,9 @@ import { Pagination } from '@zendeskgarden/react-pagination';
     {args => {
       const updateArgs = useArgs()[1];
       const handleChange = currentPage => updateArgs({ currentPage });
-      return <Pagination {...args} onChange={handleChange} />;
+      return <PaginationStory {...args} onChange={handleChange} />;
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

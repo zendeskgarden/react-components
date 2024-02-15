@@ -14,7 +14,7 @@ const PALETTE = {
     message: '#37b8af',
     explore: '#30aabc',
     gather: '#f6c8be',
-    guide: '#ff6224',
+    guide: '#eb4962',
     connect: '#ff6224',
     chat: '#f79a3e',
     talk: '#efc93d',
@@ -77,7 +77,7 @@ const PALETTE = {
     200: '#daeded',
     300: '#bdd9d7',
     400: '#90bbbb',
-    500: '#467b7c',
+    500: '#498283',
     600: '#17494d',
     700: '#03363d',
     800: '#012b30'

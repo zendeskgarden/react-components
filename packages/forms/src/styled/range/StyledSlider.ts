@@ -14,15 +14,10 @@ import { StyledMessage } from '../common/StyledMessage';
 
 const COMPONENT_ID = 'forms.slider';
 
-interface IStyledSliderProps {
-  isDisabled?: boolean;
-}
-
-export const StyledSlider = styled.div.attrs<IStyledSliderProps>(props => ({
+export const StyledSlider = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'aria-disabled': props.isDisabled
-}))<IStyledSliderProps>`
+  'data-garden-version': PACKAGE_VERSION
+})`
   display: block;
   position: relative;
   z-index: 0;

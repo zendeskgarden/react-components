@@ -8,7 +8,10 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, getAllByTestId as globalGetAllByTestId, renderRtl } from 'garden-test-utils';
-import { addDays, subDays, addMonths, subMonths } from 'date-fns';
+import { addDays } from 'date-fns/addDays';
+import { subDays } from 'date-fns/subDays';
+import { addMonths } from 'date-fns/addMonths';
+import { subMonths } from 'date-fns/subMonths';
 import mockDate from 'mockdate';
 import { DatepickerRange } from './DatepickerRange';
 import { IDatepickerRangeProps } from '../../types';
@@ -29,6 +32,8 @@ const Example = (props: IDatepickerRangeProps) => (
 );
 
 describe('DatepickerRange', () => {
+  const user = userEvent.setup();
+
   let onChangeSpy: (values: { startValue?: Date; endValue?: Date }) => void;
 
   beforeEach(() => {
@@ -86,6 +91,30 @@ describe('DatepickerRange', () => {
       const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
 
       expect(secondMonthDays[9]).toHaveAttribute('data-test-selected', 'true');
+    });
+
+    it('displays "Sun" as default first day of week', () => {
+      const { getAllByTestId } = render(<Example />);
+
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Sun');
+    });
+
+    it('display locale based first day of week', () => {
+      const { getAllByTestId } = render(<Example locale="en-GB" />);
+
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Mon');
+    });
+
+    it('display custom first day of week', () => {
+      const { getAllByTestId } = render(<Example locale="en-GB" weekStartsOn={3} />);
+
+      const dayLabels = getAllByTestId('day-label');
+
+      expect(dayLabels[0]).toHaveTextContent('Wed');
     });
 
     it('displays highlighted days correctly if both values are provided', () => {
@@ -166,14 +195,14 @@ describe('DatepickerRange', () => {
       }
     });
 
-    it('displays highlighted days correctly when moused', () => {
+    it('displays highlighted days correctly when moused', async () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
       const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0], 'highlight');
       const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1], 'highlight');
 
-      userEvent.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
+      await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
 
       for (let x = 0; x < firstMonthHighlights.length; x++) {
         const highlight = firstMonthHighlights[x];
@@ -204,15 +233,15 @@ describe('DatepickerRange', () => {
       }
     });
 
-    it('removes highlighted days when moused away', () => {
+    it('removes highlighted days when moused away', async () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
       const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0], 'highlight');
       const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1], 'highlight');
 
-      userEvent.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
-      userEvent.unhover(getAllByTestId('calendar-internal-wrapper')[1]);
+      await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
+      await user.unhover(getAllByTestId('calendar-internal-wrapper')[1]);
 
       firstMonthHighlights.forEach(highlight => {
         expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
@@ -278,12 +307,12 @@ describe('DatepickerRange', () => {
       expect(monthDisplays[1]).toHaveTextContent('March 2019');
     });
 
-    it('displays previous month if previous paddle is clicked', () => {
+    it('displays previous month if previous paddle is clicked', async () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      userEvent.click(getAllByTestId('previous-month')[0]);
+      await user.click(getAllByTestId('previous-month')[0]);
 
       const monthDisplays = getAllByTestId('month-display');
 
@@ -291,12 +320,12 @@ describe('DatepickerRange', () => {
       expect(monthDisplays[1]).toHaveTextContent('February 2019');
     });
 
-    it('displays next month if next paddle is clicked', () => {
+    it('displays next month if next paddle is clicked', async () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      userEvent.click(getAllByTestId('next-month')[1]);
+      await user.click(getAllByTestId('next-month')[1]);
 
       const monthDisplays = getAllByTestId('month-display');
 
@@ -313,15 +342,15 @@ describe('DatepickerRange', () => {
       expect(monthDisplays[1]).toHaveTextContent('March 2019');
     });
 
-    it('resets preview date if start value is updated while outside of visible range', () => {
+    it('resets preview date if start value is updated while outside of visible range', async () => {
       const { getAllByTestId, rerender } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const previousPaddle = getAllByTestId('previous-month')[0];
 
-      userEvent.click(previousPaddle);
-      userEvent.click(previousPaddle);
-      userEvent.click(previousPaddle);
-      userEvent.click(previousPaddle);
+      await user.click(previousPaddle);
+      await user.click(previousPaddle);
+      await user.click(previousPaddle);
+      await user.click(previousPaddle);
 
       const monthDisplays = getAllByTestId('month-display');
 
@@ -334,15 +363,15 @@ describe('DatepickerRange', () => {
       expect(monthDisplays[1]).toHaveTextContent('April 2019');
     });
 
-    it('resets preview date if end value is updated while outside of visible range', () => {
+    it('resets preview date if end value is updated while outside of visible range', async () => {
       const { getAllByTestId, rerender } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
       const nextPaddle = getAllByTestId('next-month')[1];
 
-      userEvent.click(nextPaddle);
-      userEvent.click(nextPaddle);
-      userEvent.click(nextPaddle);
-      userEvent.click(nextPaddle);
+      await user.click(nextPaddle);
+      await user.click(nextPaddle);
+      await user.click(nextPaddle);
+      await user.click(nextPaddle);
 
       const monthDisplays = getAllByTestId('month-display');
 
@@ -355,47 +384,47 @@ describe('DatepickerRange', () => {
       expect(monthDisplays[1]).toHaveTextContent('March 2019');
     });
 
-    it('resets preview date if start input is focused while outside of visible range', () => {
+    it('resets preview date if start input is focused while outside of visible range', async () => {
       const { getAllByTestId, getByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
       const previousPaddle = getAllByTestId('previous-month')[0];
 
-      userEvent.click(previousPaddle);
-      userEvent.click(previousPaddle);
-      userEvent.click(previousPaddle);
-      userEvent.click(previousPaddle);
+      await user.click(previousPaddle);
+      await user.click(previousPaddle);
+      await user.click(previousPaddle);
+      await user.click(previousPaddle);
 
       const monthDisplays = getAllByTestId('month-display');
 
       expect(monthDisplays[0]).toHaveTextContent('October 2018');
       expect(monthDisplays[1]).toHaveTextContent('November 2018');
 
-      userEvent.click(getByTestId('start'));
+      await user.click(getByTestId('start'));
 
       expect(monthDisplays[0]).toHaveTextContent('February 2019');
       expect(monthDisplays[1]).toHaveTextContent('March 2019');
     });
 
-    it('resets preview date if end input is focused while outside of visible range', () => {
+    it('resets preview date if end input is focused while outside of visible range', async () => {
       const { getAllByTestId, getByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
       const nextPaddle = getAllByTestId('next-month')[1];
 
-      userEvent.click(nextPaddle);
-      userEvent.click(nextPaddle);
-      userEvent.click(nextPaddle);
-      userEvent.click(nextPaddle);
+      await user.click(nextPaddle);
+      await user.click(nextPaddle);
+      await user.click(nextPaddle);
+      await user.click(nextPaddle);
 
       const monthDisplays = getAllByTestId('month-display');
 
       expect(monthDisplays[0]).toHaveTextContent('June 2019');
       expect(monthDisplays[1]).toHaveTextContent('July 2019');
 
-      userEvent.click(getByTestId('end'));
+      await user.click(getByTestId('end'));
 
       expect(monthDisplays[0]).toHaveTextContent('March 2019');
       expect(monthDisplays[1]).toHaveTextContent('April 2019');
@@ -412,7 +441,7 @@ describe('DatepickerRange', () => {
   });
 
   describe('Calendar selection', () => {
-    it('clears end value when date is selected', () => {
+    it('clears end value when date is selected', async () => {
       const { getAllByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -423,7 +452,7 @@ describe('DatepickerRange', () => {
 
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
-      userEvent.click(globalGetAllByTestId(monthDisplays[0], 'day')[6]);
+      await user.click(globalGetAllByTestId(monthDisplays[0], 'day')[6]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 2),
@@ -431,14 +460,14 @@ describe('DatepickerRange', () => {
       });
     });
 
-    it('selects end value when additional date is selected', () => {
+    it('selects end value when additional date is selected', async () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
       );
 
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
-      userEvent.click(globalGetAllByTestId(monthDisplays[1], 'day')[6]);
+      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[6]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 5),
@@ -446,12 +475,12 @@ describe('DatepickerRange', () => {
       });
     });
 
-    it('selects start value if no values are selected', () => {
+    it('selects start value if no values are selected', async () => {
       const { getAllByTestId } = render(<Example onChange={onChangeSpy} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
 
-      userEvent.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
+      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 2, 2),
@@ -459,14 +488,14 @@ describe('DatepickerRange', () => {
       });
     });
 
-    it('updates start value when clicked date is before end value', () => {
+    it('updates start value when clicked date is before end value', async () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
 
-      userEvent.click(globalGetAllByTestId(calendarWrappers[0], 'day')[5]);
+      await user.click(globalGetAllByTestId(calendarWrappers[0], 'day')[5]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 1),
@@ -514,7 +543,7 @@ describe('DatepickerRange', () => {
       expect(getByTestId('end')).toHaveValue('March 15, 2019');
     });
 
-    it('does not select date if before minDate', () => {
+    it('does not select date if before minDate', async () => {
       const { getAllByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -529,13 +558,13 @@ describe('DatepickerRange', () => {
       const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
       const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
 
-      userEvent.click(firstMonthDays[4]);
-      userEvent.click(secondMonthDays[33]);
+      await user.click(firstMonthDays[4]);
+      await user.click(secondMonthDays[33]);
 
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
 
-    it('updates valid start value when start input is focused', () => {
+    it('updates valid start value when start input is focused', async () => {
       const { getAllByTestId, getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -546,8 +575,8 @@ describe('DatepickerRange', () => {
 
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
-      userEvent.click(getByTestId('start'));
-      userEvent.click(globalGetAllByTestId(monthDisplays[0], 'day')[12]);
+      await user.click(getByTestId('start'));
+      await user.click(globalGetAllByTestId(monthDisplays[0], 'day')[12]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 8),
@@ -555,7 +584,7 @@ describe('DatepickerRange', () => {
       });
     });
 
-    it('updates invalid start value when start input is focused', () => {
+    it('updates invalid start value when start input is focused', async () => {
       const { getAllByTestId, getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -566,8 +595,8 @@ describe('DatepickerRange', () => {
 
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
-      userEvent.click(getByTestId('start'));
-      userEvent.click(globalGetAllByTestId(monthDisplays[1], 'day')[12]);
+      await user.click(getByTestId('start'));
+      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[12]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 2, 8),
@@ -575,7 +604,7 @@ describe('DatepickerRange', () => {
       });
     });
 
-    it('updates valid end value when end input is focused', () => {
+    it('updates valid end value when end input is focused', async () => {
       const { getAllByTestId, getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -586,8 +615,8 @@ describe('DatepickerRange', () => {
 
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
-      userEvent.click(getByTestId('end'));
-      userEvent.click(globalGetAllByTestId(monthDisplays[1], 'day')[12]);
+      await user.click(getByTestId('end'));
+      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[12]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 5),
@@ -595,7 +624,7 @@ describe('DatepickerRange', () => {
       });
     });
 
-    it('updates invalid end value when end input is focused', () => {
+    it('updates invalid end value when end input is focused', async () => {
       const { getAllByTestId, getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -606,8 +635,8 @@ describe('DatepickerRange', () => {
 
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
-      userEvent.click(getByTestId('end'));
-      userEvent.click(globalGetAllByTestId(monthDisplays[0], 'day')[8]);
+      await user.click(getByTestId('end'));
+      await user.click(globalGetAllByTestId(monthDisplays[0], 'day')[8]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 4),
@@ -617,7 +646,7 @@ describe('DatepickerRange', () => {
   });
 
   describe('customParseDate()', () => {
-    it('uses customParseDate to determine date validitiy if provided', () => {
+    it('uses customParseDate to determine date validitiy if provided', async () => {
       const MOCK_DATE = new Date(2019, 0, 1);
       const customParseDateSpy: (input?: string) => Date = jest.fn().mockReturnValue(MOCK_DATE);
       const { getByTestId } = render(
@@ -630,8 +659,8 @@ describe('DatepickerRange', () => {
       );
       const startInput = getByTestId('start');
 
-      userEvent.type(startInput, 'invalid date');
-      userEvent.tab();
+      await user.type(startInput, 'invalid date');
+      await user.tab();
 
       expect(customParseDateSpy).toHaveBeenCalled();
       expect(onChangeSpy).toHaveBeenCalledWith({
@@ -640,7 +669,7 @@ describe('DatepickerRange', () => {
       });
     });
 
-    it('does not call onChange if parsed date is the current value', () => {
+    it('does not call onChange if parsed date is the current value', async () => {
       const customParseDateSpy: (input?: string) => Date = jest
         .fn()
         .mockReturnValue(DEFAULT_END_VALUE);
@@ -654,8 +683,8 @@ describe('DatepickerRange', () => {
       );
       const endInput = getByTestId('end');
 
-      userEvent.type(endInput, 'invalid date');
-      userEvent.tab();
+      await user.type(endInput, 'invalid date');
+      await user.tab();
 
       expect(customParseDateSpy).toHaveBeenCalled();
       expect(onChangeSpy).not.toHaveBeenCalled();

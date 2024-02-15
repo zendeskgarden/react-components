@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useContext, useMemo, useEffect, useRef } from 'react';
+import React, { HTMLAttributes, useState, useContext, useMemo, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { usePopper } from 'react-popper';
@@ -21,10 +21,13 @@ import { Body } from './Body';
 import { Close } from './Close';
 import { Footer } from './Footer';
 import { FooterItem } from './FooterItem';
+import { useText } from '@zendeskgarden/react-theming';
+import { createPortal } from 'react-dom';
 
 const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProps>(
   (
     {
+      appendToNode,
       referenceElement,
       popperModifiers,
       placement,
@@ -32,7 +35,6 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
       hasArrow,
       isAnimated,
       zIndex,
-      style,
       backdropProps,
       focusOnMount,
       restoreFocus,
@@ -46,9 +48,10 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
     const modalRef = useRef<HTMLDivElement>(null);
     const transitionRef = useRef<HTMLDivElement>(null);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
+    const [hasTitle, setHasTitle] = useState<boolean>(false);
     const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
       useModal({
-        id,
+        idPrefix: id,
         onClose,
         modalRef,
         focusOnMount,
@@ -77,34 +80,49 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
       ]
     });
 
+    // If <TooltipModal.Title /> isn't used, remove aria-labelledby
+    const modalProps = getModalProps({
+      'aria-describedby': undefined,
+      ...(hasTitle ? {} : { 'aria-labelledby': undefined })
+    }) as HTMLAttributes<HTMLDivElement>;
+
+    // Derive aria attributes from props
+    const attribute = hasTitle ? 'aria-labelledby' : 'aria-label';
+    const defaultValue = hasTitle ? modalProps['aria-labelledby'] : 'Modal dialog';
+    const labelValue = hasTitle ? modalProps['aria-labelledby'] : props['aria-label'];
+
+    const ariaProps = {
+      [attribute]: useText(
+        TooltipModalComponent,
+        { [attribute]: labelValue },
+        attribute,
+        defaultValue!
+      )
+    };
+
     const value = {
+      hasTitle,
+      setHasTitle,
       getTitleProps,
       getContentProps,
       getCloseProps
     };
 
-    const modalProps = getModalProps({
-      ref: mergeRefs([modalRef, ref]),
-      placement: state ? state.placement : 'top',
-      hasArrow,
-      isAnimated,
-      style,
-      ...props
-    }) as any;
-
-    return (
+    const Node = (
       <CSSTransition
         unmountOnExit
         timeout={isAnimated ? 200 : 0}
         in={Boolean(referenceElement)}
         classNames={isAnimated ? 'garden-tooltip-modal-transition' : ''}
-        nodRef={transitionRef}
+        nodeRef={transitionRef}
       >
         {transitionState => {
           return (
             <TooltipModalContext.Provider value={value}>
               <StyledTooltipModalBackdrop
-                {...(getBackdropProps({ ref: transitionRef, ...backdropProps }) as any)}
+                {...(getBackdropProps() as HTMLAttributes<HTMLDivElement>)}
+                {...backdropProps}
+                ref={transitionRef}
               >
                 <StyledTooltipWrapper
                   ref={setPopperElement}
@@ -114,7 +132,16 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
                   isAnimated={isAnimated}
                   {...attributes.popper}
                 >
-                  <StyledTooltipModal transitionState={transitionState} {...modalProps} />
+                  <StyledTooltipModal
+                    transitionState={transitionState}
+                    placement={state ? state.placement : 'top'}
+                    hasArrow={hasArrow}
+                    isAnimated={isAnimated}
+                    {...modalProps}
+                    {...ariaProps}
+                    {...props}
+                    ref={mergeRefs([modalRef, ref])}
+                  />
                 </StyledTooltipWrapper>
               </StyledTooltipModalBackdrop>
             </TooltipModalContext.Provider>
@@ -122,6 +149,8 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
         }}
       </CSSTransition>
     );
+
+    return appendToNode ? createPortal(Node, appendToNode) : Node;
   }
 );
 
@@ -129,13 +158,13 @@ TooltipModalComponent.displayName = 'TooltipModal';
 
 TooltipModalComponent.defaultProps = {
   placement: 'auto',
-  isAnimated: true,
   hasArrow: true,
   focusOnMount: true,
   restoreFocus: true
 };
 
 TooltipModalComponent.propTypes = {
+  appendToNode: PropTypes.any,
   referenceElement: PropTypes.any,
   popperModifiers: PropTypes.any,
   placement: PropTypes.any,

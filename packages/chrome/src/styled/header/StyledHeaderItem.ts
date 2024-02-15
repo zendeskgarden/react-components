@@ -7,7 +7,12 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  getColor,
+  focusStyles,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
 import {
   StyledBaseHeaderItem,
@@ -44,14 +49,13 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem as 'button').attrs({
     color: inherit; /* [1] */
   }
 
-  &:focus {
-    outline: none; /* [1] */
-  }
+  ${props =>
+    focusStyles({
+      theme: props.theme,
+      inset: props.maxY
+    })}
 
-  &[data-garden-focus-visible] {
-    box-shadow: ${props => props.theme.shadows.md(getColor('chromeHue', 400, props.theme, 0.35)!)};
-  }
-
+  &:focus-visible:active,
   &[data-garden-focus-visible]:active {
     box-shadow: none;
   }
@@ -63,25 +67,6 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem as 'button').attrs({
   &:active ${/* sc-selector */ StyledHeaderItemText} {
     color: ${props => getColor('chromeHue', 700, props.theme)};
   }
-
-  ${props =>
-    props.maxY &&
-    `
-      &[data-garden-focus-visible] {
-        box-shadow: inset ${props.theme.shadows.lg(
-          props.theme.shadowWidths.md,
-          '0',
-          getColor('chromeHue', 400, props.theme, 0.35)!
-        )},
-        ${props.theme.shadowWidths.md} 0 0 0 ${getColor('chromeHue', 400, props.theme, 0.35)},
-        inset ${props.theme.shadows.lg(
-          `-${props.theme.shadowWidths.md}`,
-          '0',
-          getColor('chromeHue', 400, props.theme, 0.35)!
-        )},
-        -${props.theme.shadowWidths.md} 0 0 0 ${getColor('chromeHue', 400, props.theme, 0.35)};
-      }
-  `}
 
   ${imgStyles}
 

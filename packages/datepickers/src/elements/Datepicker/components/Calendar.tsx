@@ -6,18 +6,18 @@
  */
 
 import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
-import startOfMonth from 'date-fns/startOfMonth';
-import endOfMonth from 'date-fns/endOfMonth';
-import startOfWeek from 'date-fns/startOfWeek';
-import endOfWeek from 'date-fns/endOfWeek';
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import addDays from 'date-fns/addDays';
-import isToday from 'date-fns/isToday';
-import isSameDay from 'date-fns/isSameDay';
-import isSameMonth from 'date-fns/isSameMonth';
-import isBefore from 'date-fns/isBefore';
-import isAfter from 'date-fns/isAfter';
-import getDate from 'date-fns/getDate';
+import { startOfMonth } from 'date-fns/startOfMonth';
+import { endOfMonth } from 'date-fns/endOfMonth';
+import { startOfWeek } from 'date-fns/startOfWeek';
+import { endOfWeek } from 'date-fns/endOfWeek';
+import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
+import { addDays } from 'date-fns/addDays';
+import { isToday } from 'date-fns/isToday';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isSameMonth } from 'date-fns/isSameMonth';
+import { isBefore } from 'date-fns/isBefore';
+import { isAfter } from 'date-fns/isAfter';
+import { getDate } from 'date-fns/getDate';
 import {
   StyledDatepicker,
   StyledCalendar,
@@ -26,7 +26,7 @@ import {
   StyledDay
 } from '../../../styled';
 import useDatepickerContext from '../utils/useDatepickerContext';
-import { getStartOfWeek } from '../../../utils/calendar-utils';
+import { DateFnsIndex, getStartOfWeek } from '../../../utils/calendar-utils';
 import { MonthSelector } from './MonthSelector';
 
 interface ICalendarProps extends HTMLAttributes<HTMLDivElement> {
@@ -35,23 +35,24 @@ interface ICalendarProps extends HTMLAttributes<HTMLDivElement> {
   maxValue?: Date;
   isCompact?: boolean;
   locale?: string;
+  weekStartsOn?: DateFnsIndex;
 }
 
 export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
-  ({ value, minValue, maxValue, isCompact, locale }, ref) => {
+  ({ value, minValue, maxValue, isCompact, locale, weekStartsOn }, ref) => {
     const { state, dispatch } = useDatepickerContext();
 
-    const weekStartsOn = getStartOfWeek(locale);
+    const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
     const monthStartDate = startOfMonth(state.previewDate);
     const monthEndDate = endOfMonth(monthStartDate);
     const startDate = startOfWeek(monthStartDate, {
-      weekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
     const endDate = endOfWeek(monthEndDate, {
-      weekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
 
-    const dayLabelFormatter = useCallback(
+    const dayLabelFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
           weekday: 'short'
@@ -68,7 +69,9 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
 
         return (
           <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isCompact={isCompact}>
-            <StyledDayLabel isCompact={isCompact!}>{formattedDayLabel}</StyledDayLabel>
+            <StyledDayLabel isCompact={isCompact!} data-test-id="day-label">
+              {formattedDayLabel}
+            </StyledDayLabel>
           </StyledCalendarItem>
         );
       }

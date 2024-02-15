@@ -1,5 +1,6 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Anchor } from '@zendeskgarden/react-buttons';
+import README from '../README.md';
 
 <Meta title="Packages/Buttons/Anchor" component={Anchor} />
 
@@ -21,6 +22,8 @@ import { Anchor } from '@zendeskgarden/react-buttons';
       }
     }}
   >
-    {args => <Anchor {...args} />}
+    {args => <Anchor href="#" {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

@@ -12,6 +12,682 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.74.2 (2024-02-15)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1708](https://github.com/zendeskgarden/react-components/pull/1708) fix(menu): correct RTL menu placement and arrow position ([@jzempel](https://github.com/jzempel))
+* `buttons`, `chrome`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `modals`, `tabs`, `tooltips`
+  * [#1707](https://github.com/zendeskgarden/react-components/pull/1707) fix: reverts dependency bump react-merge-refs v2 ([@geotrev](https://github.com/geotrev))
+
+## v8.74.1 (2024-02-08)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1705](https://github.com/zendeskgarden/react-components/pull/1705) fix(combobox): prevent controlled input cursor jump ([@jzempel](https://github.com/jzempel))
+  * [#1699](https://github.com/zendeskgarden/react-components/pull/1699) fix(combobox): prevent disabled combobox from swapping static/input values on click ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* [#1696](https://github.com/zendeskgarden/react-components/pull/1696) chore(docs): split up CHANGELOG by major version ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1697](https://github.com/zendeskgarden/react-components/pull/1697) chore: fix config to support `next` prerelease ([@jzempel](https://github.com/jzempel))
+  * [#1695](https://github.com/zendeskgarden/react-components/pull/1695) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1693](https://github.com/zendeskgarden/react-components/pull/1693) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1694](https://github.com/zendeskgarden/react-components/pull/1694) chore(deps): update dependency commander to v12 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1691](https://github.com/zendeskgarden/react-components/pull/1691) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1690](https://github.com/zendeskgarden/react-components/pull/1690) fix(deps): update dependency react-popper to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1685](https://github.com/zendeskgarden/react-components/pull/1685) chore(deps): update dependency ora to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1684](https://github.com/zendeskgarden/react-components/pull/1684) chore(deps): update dependency husky to v9 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1683](https://github.com/zendeskgarden/react-components/pull/1683) chore(deps): update dependency @zendeskgarden/stylelint-config to v21 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1682](https://github.com/zendeskgarden/react-components/pull/1682) chore(deps): update dependency @zendeskgarden/eslint-config to v37 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1681](https://github.com/zendeskgarden/react-components/pull/1681) chore(deps): update node orb to v5.2.0 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1679](https://github.com/zendeskgarden/react-components/pull/1679) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `chrome`
+  * [#1692](https://github.com/zendeskgarden/react-components/pull/1692) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `datepickers`
+  * [#1687](https://github.com/zendeskgarden/react-components/pull/1687) fix(deps): update dependency date-fns to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+* `buttons`, `chrome`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `modals`, `tabs`, `tooltips`
+  * [#1689](https://github.com/zendeskgarden/react-components/pull/1689) fix(deps): update dependency react-merge-refs to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`
+  * [#1686](https://github.com/zendeskgarden/react-components/pull/1686) fix(deps): update dependency @zendeskgarden/container-utilities to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+* `tables`
+  * [#1680](https://github.com/zendeskgarden/react-components/pull/1680) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v8.74.0 (2024-01-23)
+
+#### :rocket: New Feature
+* `dropdowns.next`
+  * [#1678](https://github.com/zendeskgarden/react-components/pull/1678) feat(combobox): add `isHidden` prop to `Option` component ([@jzempel](https://github.com/jzempel))
+* `typography`
+  * [#1677](https://github.com/zendeskgarden/react-components/pull/1677) feat(typography): add support for accessible, visually hidden `Span` styling ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1676](https://github.com/zendeskgarden/react-components/pull/1676) fix(forms): prevent `Textarea` autosize infinite loop ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1675](https://github.com/zendeskgarden/react-components/pull/1675) chore(deps): bump follow-redirects ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1668](https://github.com/zendeskgarden/react-components/pull/1668) chore(deps): update dependency stylelint to v16 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1667](https://github.com/zendeskgarden/react-components/pull/1667) chore(deps): update dependency lint-staged to v15 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1666](https://github.com/zendeskgarden/react-components/pull/1666) chore(deps): update dependency lerna to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1663](https://github.com/zendeskgarden/react-components/pull/1663) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `forms`
+  * [#1669](https://github.com/zendeskgarden/react-components/pull/1669) fix(deps): update dependency @zendeskgarden/container-field to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+* `modals`, `theming`
+  * [#1670](https://github.com/zendeskgarden/react-components/pull/1670) fix(deps): update dependency @zendeskgarden/container-focusvisible to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+* `drag-drop`
+  * [#1665](https://github.com/zendeskgarden/react-components/pull/1665) chore(deps): update dependency @dnd-kit/sortable to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`, `drag-drop`, `dropdowns`, `forms`, `modals`, `notifications`, `tables`, `theming`
+  * [#1664](https://github.com/zendeskgarden/react-components/pull/1664) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v8.73.4 (2023-12-08)
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#1662](https://github.com/zendeskgarden/react-components/pull/1662) fix(accordions): hide collapsed panel content ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1659](https://github.com/zendeskgarden/react-components/pull/1659) chore(deps-dev): bump @adobe/css-tools from 4.3.1 to 4.3.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1658](https://github.com/zendeskgarden/react-components/pull/1658) chore(deps): bump the npm_and_yarn at /. security update group with 1 update ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `forms`
+  * [#1661](https://github.com/zendeskgarden/react-components/pull/1661) chore(forms): mark `MultiThumbRange` deprecated ([@jzempel](https://github.com/jzempel))
+
+## v8.73.3 (2023-11-20)
+
+#### :bug: Bug Fix
+* `colorpickers`, `dropdowns.next`
+  * [#1655](https://github.com/zendeskgarden/react-components/pull/1655) fix(dropdowns.next): active listbox option and menu item styling ([@jzempel](https://github.com/jzempel))
+
+## v8.73.2 (2023-11-02)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1653](https://github.com/zendeskgarden/react-components/pull/1653) fix(combobox): prevent listbox close on scrollbar click ([@jzempel](https://github.com/jzempel))
+* `accordions`
+  * [#1651](https://github.com/zendeskgarden/react-components/pull/1651) fix(accordions): prevent flex shrink on chevron ([@jzempel](https://github.com/jzempel))
+
+## v8.73.1 (2023-10-20)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1645](https://github.com/zendeskgarden/react-components/pull/1645) fix(dropdowns.next): allows buttonProps to flow into container-menu props ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* Other
+  * [#1649](https://github.com/zendeskgarden/react-components/pull/1649) chore: fix `lerna-version` command in tag script ([@jzempel](https://github.com/jzempel))
+  * [#1647](https://github.com/zendeskgarden/react-components/pull/1647) chore(deps): bump postcss from 8.4.23 to 8.4.31 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1636](https://github.com/zendeskgarden/react-components/pull/1636) chore(deps): update dependency @zendeskgarden/eslint-config to v35 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1640](https://github.com/zendeskgarden/react-components/pull/1640) chore(deps): update dependency rollup to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1635](https://github.com/zendeskgarden/react-components/pull/1635) chore(deps): update dependency @testing-library/jest-dom to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1632](https://github.com/zendeskgarden/react-components/pull/1632) chore(deps): replace dependency rollup-plugin-babel with @rollup/plugin-babel 5.0.0 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1638](https://github.com/zendeskgarden/react-components/pull/1638) chore(deps): update dependency execa to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1637](https://github.com/zendeskgarden/react-components/pull/1637) chore(deps): update dependency envalid to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1629](https://github.com/zendeskgarden/react-components/pull/1629) chore(deps): bump postcss from 8.4.27 to 8.4.31 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1648](https://github.com/zendeskgarden/react-components/pull/1648) chore(deps): update dependency lerna to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `tables`, `tooltips`
+  * [#1646](https://github.com/zendeskgarden/react-components/pull/1646) chore(deps): update react monorepo to v18 (major) ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`, `notifications`
+  * [#1634](https://github.com/zendeskgarden/react-components/pull/1634) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`, `utilities`
+  * [#1641](https://github.com/zendeskgarden/react-components/pull/1641) chore(deps): update dependency string-width to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.next`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#1643](https://github.com/zendeskgarden/react-components/pull/1643) chore(deps): update dependency @zendeskgarden/svg-icons to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `buttons`, `chrome`, `dropdowns`, `forms`, `grid`, `tables`, `typography`
+  * [#1644](https://github.com/zendeskgarden/react-components/pull/1644) chore(deps): update dependency prettier to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1633](https://github.com/zendeskgarden/react-components/pull/1633) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v8.73.0 (2023-10-10)
+
+#### :rocket: New Feature
+* `dropdowns.next`
+  * [#1631](https://github.com/zendeskgarden/react-components/pull/1631) feat(dropdowns.next): adds rotating chevron to default menu button ([@geotrev](https://github.com/geotrev))
+
+#### :bug: Bug Fix
+* `chrome`
+  * [#1642](https://github.com/zendeskgarden/react-components/pull/1642) fix(chrome): improve custom `Nav` color contrast ([@jzempel](https://github.com/jzempel))
+
+## v8.72.0 (2023-10-05)
+
+#### :rocket: New Feature
+* `dropdowns.next`
+  * [#1628](https://github.com/zendeskgarden/react-components/pull/1628) feat(dropdowns.next): hides separator in label-less, first group child in Combobox/Menu ([@geotrev](https://github.com/geotrev))
+
+#### :memo: Documentation
+* `dropdowns.next`, `dropdowns`
+  * [#1625](https://github.com/zendeskgarden/react-components/pull/1625) chore(dropdowns): Add menu to readme, mark legacy dropdowns deprecated ([@geotrev](https://github.com/geotrev))
+
+## v8.71.0 (2023-09-28)
+
+#### :rocket: New Feature
+* `dropdowns.next`
+  * [#1623](https://github.com/zendeskgarden/react-components/pull/1623) feat(dropdowns.next): add refactored menu component ([@geotrev](https://github.com/geotrev))
+
+## v8.70.1 (2023-09-21)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1624](https://github.com/zendeskgarden/react-components/pull/1624) fix(combobox): handle IME via controlled input ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* `modals`
+  * [#1622](https://github.com/zendeskgarden/react-components/pull/1622) docs(TooltipModal): Match storybook example with website example for consistency ([@smritimadan](https://github.com/smritimadan))
+
+## v8.70.0 (2023-09-08)
+
+#### :rocket: New Feature
+* `modals`
+  * [#1619](https://github.com/zendeskgarden/react-components/pull/1619) feat(modals): adds appendToNode prop to TooltipModal ([@geotrev](https://github.com/geotrev))
+
+#### :bug: Bug Fix
+* `theming`
+  * [#1621](https://github.com/zendeskgarden/react-components/pull/1621) fix(theming): improve kale-500 color contrast ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1620](https://github.com/zendeskgarden/react-components/pull/1620) fix(grid): `Pane.Splitter` position styling regression ([@jzempel](https://github.com/jzempel))
+
+## v8.69.11 (2023-09-07)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1618](https://github.com/zendeskgarden/react-components/pull/1618) fix(combobox): stabilize production SSR ID generation ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* [#1615](https://github.com/zendeskgarden/react-components/pull/1615) chore(deps): bump @adobe/css-tools from 4.3.0 to 4.3.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+## v8.69.10 (2023-08-31)
+
+#### :bug: Bug Fix
+* `colorpickers`
+  * [#1616](https://github.com/zendeskgarden/react-components/pull/1616) fix(colorpicker): prevent infinite rerender in React v18 Legacy mode ([@tgohn](https://github.com/tgohn))
+* `dropdowns.next`
+  * [#1614](https://github.com/zendeskgarden/react-components/pull/1614) fix(combobox): stabilize IDs and add missing hint/message props ([@jzempel](https://github.com/jzempel))
+
+## v8.69.9 (2023-08-24)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1609](https://github.com/zendeskgarden/react-components/pull/1609) fix(combobox): enhance listbox expand/collapse on input mouse click ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `accordions`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`
+  * [#1613](https://github.com/zendeskgarden/react-components/pull/1613) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1611](https://github.com/zendeskgarden/react-components/pull/1611) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v8.69.8 (2023-08-17)
+
+#### :bug: Bug Fix
+* `loaders`
+  * [#1610](https://github.com/zendeskgarden/react-components/pull/1610) fix(loaders): optimize performance of skeleton loader ([@geotrev](https://github.com/geotrev))
+
+## v8.69.7 (2023-08-10)
+
+#### :bug: Bug Fix
+* `accordions`, `avatars`, `buttons`, `chrome`, `dropdowns`, `forms`, `grid`, `tables`, `typography`
+  * [#1603](https://github.com/zendeskgarden/react-components/pull/1603) chore: revert to prettier v2 ([@jzempel](https://github.com/jzempel))
+* `accordions`
+  * [#1600](https://github.com/zendeskgarden/react-components/pull/1600) fix(accordions): enable dynamic height for panel ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `tabs`
+  * [#1601](https://github.com/zendeskgarden/react-components/pull/1601) fix(tabs): loosen `toTabs` type checking ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1605](https://github.com/zendeskgarden/react-components/pull/1605) fix(scripts): execa command ([@jzempel](https://github.com/jzempel))
+  * [#1592](https://github.com/zendeskgarden/react-components/pull/1592) chore(deps): update dependency @zendeskgarden/scripts to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1599](https://github.com/zendeskgarden/react-components/pull/1599) chore(deps): update mheap/github-action-required-labels action to v5 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`
+  * [#1582](https://github.com/zendeskgarden/react-components/pull/1582) refactor(accordions): uplift for react v18 ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `accordions`, `avatars`, `buttons`, `chrome`, `dropdowns`, `forms`, `grid`, `tables`, `typography`
+  * [#1597](https://github.com/zendeskgarden/react-components/pull/1597) chore(deps): update dependency prettier to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1590](https://github.com/zendeskgarden/react-components/pull/1590) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`, `notifications`
+  * [#1591](https://github.com/zendeskgarden/react-components/pull/1591) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v8.69.6 (2023-08-04)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1589](https://github.com/zendeskgarden/react-components/pull/1589) fix(combobox): address multiselectable state issues with new `TagGroup` component ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `theming`
+  * [#1588](https://github.com/zendeskgarden/react-components/pull/1588) chore(theming): roll back guide product color ([@jzempel](https://github.com/jzempel))
+
+## v8.69.5 (2023-07-28)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1587](https://github.com/zendeskgarden/react-components/pull/1587) fix(combobox): prevent tag state rerender on focus ([@jzempel](https://github.com/jzempel))
+  * [#1585](https://github.com/zendeskgarden/react-components/pull/1585) chore(dropdowns.next): rollback option tag props optimization ([@jzempel](https://github.com/jzempel))
+  * [#1581](https://github.com/zendeskgarden/react-components/pull/1581) fix(combobox): ensure input focus reset ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* `dropdowns`
+  * [#1583](https://github.com/zendeskgarden/react-components/pull/1583) chore(dropdowns): tag and document deprecated components ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `dropdowns.next`
+  * [#1584](https://github.com/zendeskgarden/react-components/pull/1584) chore(combobox): prevent `optionTagProps` state bloat ([@jzempel](https://github.com/jzempel))
+* `tabs`
+  * [#1580](https://github.com/zendeskgarden/react-components/pull/1580) refactor(tabs): uptake new version of container-selection ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.69.4 (2023-07-20)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1575](https://github.com/zendeskgarden/react-components/pull/1575) fix(combobox): keyboard interactions and value space rendering ([@jzempel](https://github.com/jzempel))
+* `buttons`
+  * [#1576](https://github.com/zendeskgarden/react-components/pull/1576) refactor(buttons): button group react v18 uplift ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* `accordions`, `chrome`, `colorpickers`, `datepickers`, `dropdowns.next`, `forms`, `grid`, `loaders`, `modals`, `tables`, `tabs`, `theming`, `typography`
+  * [#1578](https://github.com/zendeskgarden/react-components/pull/1578) chore(deps): update dependency @zendeskgarden/stylelint-config to v20 ([@renovate[bot]](https://github.com/apps/renovate))
+* `buttons`, `chrome`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `theming`
+  * [#1577](https://github.com/zendeskgarden/react-components/pull/1577) chore(deps): update dependency @zendeskgarden/eslint-config to v34 ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1579](https://github.com/zendeskgarden/react-components/pull/1579) chore(deps): bump word-wrap from 1.2.3 to 1.2.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+## v8.69.3 (2023-07-13)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1574](https://github.com/zendeskgarden/react-components/pull/1574) fix(combobox): prevent combobox focus retention on multiselectable tag removal ([@jzempel](https://github.com/jzempel))
+  * [#1573](https://github.com/zendeskgarden/react-components/pull/1573) fix(combobox): prevent page scroll on input focus ([@jzempel](https://github.com/jzempel))
+* `accordions`
+  * [#1570](https://github.com/zendeskgarden/react-components/pull/1570) fix(accordions): allow dynamic height for stepper content ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `chrome`, `datepickers`, `modals`
+  * [#1566](https://github.com/zendeskgarden/react-components/pull/1566) fix(build): ensure nested external dependencies are not bundled ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.69.2 (2023-07-06)
+
+#### :bug: Bug Fix
+* `avatars`
+  * [#1564](https://github.com/zendeskgarden/react-components/pull/1564) fix(avatars): explicitly set box sizing for status indicator icon container ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.69.1 (2023-06-30)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1562](https://github.com/zendeskgarden/react-components/pull/1562) fix(combobox): correct peer dependencies and label pixel shift ([@jzempel](https://github.com/jzempel))
+* `tables`
+  * [#1561](https://github.com/zendeskgarden/react-components/pull/1561) fix(tables): persist overflow button visibility ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.69.0 (2023-06-22)
+
+#### :rocket: New Feature
+* `dropdowns.next`
+  * [#1559](https://github.com/zendeskgarden/react-components/pull/1559) feat: add refactored `Combobox` component ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* [#1560](https://github.com/zendeskgarden/react-components/pull/1560) doc(adrs): add theming peer dependency ADR-001 ([@jzempel](https://github.com/jzempel))
+
+## v8.68.0 (2023-06-15)
+
+#### :rocket: New Feature
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `drag-drop`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `typography`
+  * [#1548](https://github.com/zendeskgarden/react-components/pull/1548) feat(components): use new focus styles for interactive elements ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :bug: Bug Fix
+* `chrome`
+  * [#1558](https://github.com/zendeskgarden/react-components/pull/1558) fix(chrome): consistent focus style for sub nav items ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* `colorpickers`, `datepickers`, `forms`, `notifications`, `pagination`, `theming`, `tooltips`, `typography`
+  * [#1526](https://github.com/zendeskgarden/react-components/pull/1526) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1552](https://github.com/zendeskgarden/react-components/pull/1552) chore(deps): update dependency @svgr/webpack to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1551](https://github.com/zendeskgarden/react-components/pull/1551) chore(deps): update dependency @svgr/rollup to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1504](https://github.com/zendeskgarden/react-components/pull/1504) chore(deps): update dependency stylelint-order to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1550](https://github.com/zendeskgarden/react-components/pull/1550) chore(deps): update dependency @rollup/plugin-commonjs to v25 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1555](https://github.com/zendeskgarden/react-components/pull/1555) chore(deps): update mheap/github-action-required-labels action to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+* `utilities`
+  * [#1553](https://github.com/zendeskgarden/react-components/pull/1553) chore(deps): update dependency glob to v10 ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v8.67.0 (2023-05-11)
+
+#### :rocket: New Feature
+* `theming`
+  * [#1549](https://github.com/zendeskgarden/react-components/pull/1549) feat(theming): enhance focus utilities with additional parameter overrides ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1547](https://github.com/zendeskgarden/react-components/pull/1547) fix(forms): prevent `validationLabel` warning on `Message` when `validation` is undefined ([@jzempel](https://github.com/jzempel))
+* `breadcrumbs`
+  * [#1546](https://github.com/zendeskgarden/react-components/pull/1546) fix(breadcrumbs): add global theme styles override ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.66.0 (2023-05-04)
+
+#### :rocket: New Feature
+* `theming`
+  * [#1542](https://github.com/zendeskgarden/react-components/pull/1542) feat(theming): add focus styling utilities ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `avatars`
+  * [#1540](https://github.com/zendeskgarden/react-components/pull/1540) fix(avatars): suppress `statusLabel` useText warning when there is no configured status ([@geotrev](https://github.com/geotrev))
+* `theming`
+  * [#1545](https://github.com/zendeskgarden/react-components/pull/1545) fix(theming): improve `getColor` memoization resolver performance ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* `drag-drop`
+  * [#1544](https://github.com/zendeskgarden/react-components/pull/1544) chore(drag-drop): adds figma link to drag and drop storybook ([@geotrev](https://github.com/geotrev))
+
+## v8.65.0 (2023-04-27)
+
+#### :rocket: New Feature
+* `breadcrumbs`, `grid`, `modals`, `theming`
+  * [#1539](https://github.com/zendeskgarden/react-components/pull/1539) feat(theming): add `useWindow` utility and enhance `useText` with optional `condition` parameter ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `tags`
+  * [#1541](https://github.com/zendeskgarden/react-components/pull/1541) fix(tags): prevent `buttontext` color override on `Tag.Close` ([@jzempel](https://github.com/jzempel))
+* `drag-drop`
+  * [#1538](https://github.com/zendeskgarden/react-components/pull/1538) fix(drag-drop) : improves drop indicator positioning in draggable context ([@geotrev](https://github.com/geotrev))
+
+## v8.64.0 (2023-04-17)
+
+#### :rocket: New Feature
+* `drag-drop`
+  * [#1535](https://github.com/zendeskgarden/react-components/pull/1535) feat(drag-drop): introduces drag and drop components ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* [#1525](https://github.com/zendeskgarden/react-components/pull/1525) chore: add version for clearing corrupted CI cache ([@jzempel](https://github.com/jzempel))
+* [#1523](https://github.com/zendeskgarden/react-components/pull/1523) chore(deps-dev): bump webpack from 5.76.0 to 5.76.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#1522](https://github.com/zendeskgarden/react-components/pull/1522) chore(deps): update dependency webpack to v5.76.0 [security] ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v8.63.2 (2023-02-23)
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1517](https://github.com/zendeskgarden/react-components/pull/1517) fix(forms): reset margin start for text input in input group ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.63.1 (2023-02-16)
+
+#### :bug: Bug Fix
+* `tables`
+  * [#1516](https://github.com/zendeskgarden/react-components/pull/1516) fix(tables): hide content of Table cell without breaking table layout ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* [#1513](https://github.com/zendeskgarden/react-components/pull/1513) chore(readme): removes daviddm dependency badges from README ([@geotrev](https://github.com/geotrev))
+
+## v8.63.0 (2023-02-09)
+
+#### :bug: Bug Fix
+* `modals`
+  * [#1512](https://github.com/zendeskgarden/react-components/pull/1512) fix(modals/drawer): correctly set focus on trigger element when focus is restored ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `tables`
+  * [#1514](https://github.com/zendeskgarden/react-components/pull/1514) feat(tables): add [hidden] prop support to Cell ([@geotrev](https://github.com/geotrev))
+* `tags`
+  * [#1511](https://github.com/zendeskgarden/react-components/pull/1511) fix: improves accessibility of Tag close button ([@geotrev](https://github.com/geotrev))
+* `forms`
+  * [#1509](https://github.com/zendeskgarden/react-components/pull/1509) fix(forms): File accessibility improvements ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* `avatars`, `buttons`, `chrome`, `forms`, `grid`, `loaders`, `notifications`
+  * [#1510](https://github.com/zendeskgarden/react-components/pull/1510) chore(deps): config-eslint updates  ([@geotrev](https://github.com/geotrev))
+
+## v8.62.2 (2023-01-26)
+
+#### :bug: Bug Fix
+* `grid`
+  * [#1497](https://github.com/zendeskgarden/react-components/pull/1497) fix(grid): hide pane content when not visible ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `forms`
+  * [#1498](https://github.com/zendeskgarden/react-components/pull/1498) fix(forms): force FileUpload's container to role='button' ([@geotrev](https://github.com/geotrev))
+* `modals`
+  * [#1495](https://github.com/zendeskgarden/react-components/pull/1495) fix(modals): reset tooltip modal isAnimated prop to false ([@Francois-Esquire](https://github.com/Francois-Esquire))
+  * [#1492](https://github.com/zendeskgarden/react-components/pull/1492) fix(modals): enables accessible label in DrawerModal when no Header is given ([@geotrev](https://github.com/geotrev))
+  * [#1491](https://github.com/zendeskgarden/react-components/pull/1491) fix(modals): enables accessible label on Modal when no Header is given ([@geotrev](https://github.com/geotrev))
+* `notifications`
+  * [#1496](https://github.com/zendeskgarden/react-components/pull/1496) fix(notifications): remove invalid attributes and transient props from toast ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `dropdowns`
+  * [#1493](https://github.com/zendeskgarden/react-components/pull/1493) fix(dropdowns): hide selected check from menu action items when not disabled ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* `grid`, `notifications`
+  * [#1494](https://github.com/zendeskgarden/react-components/pull/1494) chore(storybook): add figma design for pane and global alert ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.62.1 (2023-01-19)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1489](https://github.com/zendeskgarden/react-components/pull/1489) fix(dropdowns): remove selected icon from next, previous and add item… ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `colorpickers`, `modals`
+  * [#1488](https://github.com/zendeskgarden/react-components/pull/1488) fix: enables accessible label in TooltipModal, ColorpickerDialog, and ColorSwatchDialog ([@geotrev](https://github.com/geotrev))
+* `modals`
+  * [#1487](https://github.com/zendeskgarden/react-components/pull/1487) fix(modals): restore `Header` danger styling ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1486](https://github.com/zendeskgarden/react-components/pull/1486) chore(renovate): add postUpdateOptions to config ([@Francois-Esquire](https://github.com/Francois-Esquire))
+  * [#1484](https://github.com/zendeskgarden/react-components/pull/1484) chore: turn off Nx with lerna ([@geotrev](https://github.com/geotrev))
+
+## v8.62.0 (2022-12-15)
+
+#### :rocket: New Feature
+* `tables`
+  * [#1482](https://github.com/zendeskgarden/react-components/pull/1482) feat(tables): add isSticky prop to Head component ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :bug: Bug Fix
+* `notifications`
+  * [#1481](https://github.com/zendeskgarden/react-components/pull/1481) fix(notifications): lets GlobalAlert.Title flow correctly in RTL documents ([@geotrev](https://github.com/geotrev))
+  * [#1465](https://github.com/zendeskgarden/react-components/pull/1465) fix(notifications): adds useText utility to encourage aria-label on Close component ([@geotrev](https://github.com/geotrev))
+
+## v8.61.0 (2022-12-01)
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#1463](https://github.com/zendeskgarden/react-components/pull/1463) fix(accordions): relative type interface import ([@jzempel](https://github.com/jzempel))
+* `breadcrumbs`
+  * [#1461](https://github.com/zendeskgarden/react-components/pull/1461) fix(breadcrumbs): remove redundant word "navigation" from default ARIA label ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :seedling: Internal
+* [#1460](https://github.com/zendeskgarden/react-components/pull/1460) chore(deps): bump loader-utils from 1.4.1 to 1.4.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#1459](https://github.com/zendeskgarden/react-components/pull/1459) chore(demo): prevent strict mode tool in production Storybook ([@jzempel](https://github.com/jzempel))
+
+## v8.60.0 (2022-11-10)
+
+#### :rocket: New Feature
+* `notifications`
+  * [#1450](https://github.com/zendeskgarden/react-components/pull/1450) feat(notifications): global alert component ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `grid`
+  * [#1455](https://github.com/zendeskgarden/react-components/pull/1455) feat(grid): add `isFixed` prop along with a11y fixes ([@jzempel](https://github.com/jzempel))
+* `buttons`
+  * [#1448](https://github.com/zendeskgarden/react-components/pull/1448) feat(anchor): add default alternative text to external anchor icon ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+* `chrome`
+  * [#1453](https://github.com/zendeskgarden/react-components/pull/1453) feat(chrome): add aria-current attribute to NavItem component, when it's current ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :bug: Bug Fix
+* `accordions`, `forms`
+  * [#1417](https://github.com/zendeskgarden/react-components/pull/1417) fix(accordions, forms): use document for resizing ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `chrome`
+  * [#1454](https://github.com/zendeskgarden/react-components/pull/1454) fix(chrome): scroll on subnav overflow ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* `forms`
+  * [#1456](https://github.com/zendeskgarden/react-components/pull/1456) chore(jest): use swc as transformer ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.59.1 (2022-11-04)
+
+#### :bug: Bug Fix
+* `loaders`
+  * [#1451](https://github.com/zendeskgarden/react-components/pull/1451) fix(loaders): changed Dots and Spinner roles from progressbar to img ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+* `tabs`
+  * [#1449](https://github.com/zendeskgarden/react-components/pull/1449) fix(tabs): remove duplicate disabled attribute from StyledTab component ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :seedling: Internal
+* [#1452](https://github.com/zendeskgarden/react-components/pull/1452) chore: upgrade storybook ([@jzempel](https://github.com/jzempel))
+
+## v8.59.0 (2022-10-26)
+
+#### :rocket: New Feature
+* `modals`
+  * [#1446](https://github.com/zendeskgarden/react-components/pull/1446) feat(modals): add tag prop to Modal, Drawer, and Tooltip Modal components ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1447](https://github.com/zendeskgarden/react-components/pull/1447) fix(forms): field renders rtl and ltr ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* `buttons`
+  * [#1439](https://github.com/zendeskgarden/react-components/pull/1439) fix(deps): update dependency @zendeskgarden/container-buttongroup to v1 ([@renovate[bot]](https://github.com/apps/renovate))
+* `grid`, `theming`
+  * [#1434](https://github.com/zendeskgarden/react-components/pull/1434) chore(deps): update jest monorepo to v29 (major) ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tooltips`
+  * [#1419](https://github.com/zendeskgarden/react-components/pull/1419) chore(deps): update testing library user events to v14 ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.58.0 (2022-10-20)
+
+#### :rocket: New Feature
+* `forms`
+  * [#1431](https://github.com/zendeskgarden/react-components/pull/1431) feat(forms): back `MultiThumbSlider` with new `useSlider` hook ([@jzempel](https://github.com/jzempel))
+* `loaders`
+  * [#1443](https://github.com/zendeskgarden/react-components/pull/1443) feat(progress): add useText helper with default value for ARIA label ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+#### :bug: Bug Fix
+* `avatars`
+  * [#1445](https://github.com/zendeskgarden/react-components/pull/1445) fix(avatars): prevent background/foreground prop colors from affecting the status indicator ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1444](https://github.com/zendeskgarden/react-components/pull/1444) fix(grid): properly compose Pane.Splitter events ([@jzempel](https://github.com/jzempel))
+* `forms`
+  * [#1442](https://github.com/zendeskgarden/react-components/pull/1442) fix(forms): remove user-select: none from radio and checkbox labels ([@colinkey](https://github.com/colinkey))
+  * [#1415](https://github.com/zendeskgarden/react-components/pull/1415) fix(forms): add min-width to tile ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* Other
+  * [#1418](https://github.com/zendeskgarden/react-components/pull/1418) chore: update PULL_REQUEST_TEMPLATE.md ([@zendesk-rickschmoo](https://github.com/zendesk-rickschmoo))
+  * [#1440](https://github.com/zendeskgarden/react-components/pull/1440) fix: revert renovate configuration ([@jzempel](https://github.com/jzempel))
+
+## v8.57.1 (2022-10-06)
+
+#### :bug: Bug Fix
+* `avatars`
+  * [#1413](https://github.com/zendeskgarden/react-components/pull/1413) fix(avatars): `StatusIndicator` code structure ([@jzempel](https://github.com/jzempel))
+
+## v8.57.0 (2022-09-22)
+
+#### :rocket: New Feature
+* `avatars`
+  * [#1410](https://github.com/zendeskgarden/react-components/pull/1410) feat(avatars): add status indicator component ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :memo: Documentation
+* [#1411](https://github.com/zendeskgarden/react-components/pull/1411) docs: update contributing documentation and PR template ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `accordions`
+  * [#1412](https://github.com/zendeskgarden/react-components/pull/1412) demo(accordions): add Figma designs for Timeline component ([@jzempel](https://github.com/jzempel))
+
+## v8.56.0 (2022-09-15)
+
+#### :rocket: New Feature
+* `datepickers`
+  * [#1409](https://github.com/zendeskgarden/react-components/pull/1409) feat(datepickers): add weekStartsOn prop on calendars ([@Axel-Duval](https://github.com/Axel-Duval))
+
+## v8.55.0 (2022-09-06)
+
+#### :rocket: New Feature
+* `avatars`
+  * [#1403](https://github.com/zendeskgarden/react-components/pull/1403) feat(avatars): add status label ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1405](https://github.com/zendeskgarden/react-components/pull/1405) fix(dropdowns): remove nested controls violation from select ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `avatars`
+  * [#1404](https://github.com/zendeskgarden/react-components/pull/1404) fix(avatars): correct status icon sizing with css bedrock ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `theming`
+  * [#1402](https://github.com/zendeskgarden/react-components/pull/1402) fix(theming): allow use text to be dynamic when updated ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.54.3 (2022-08-18)
+
+#### :bug: Bug Fix
+* `loaders`
+  * [#1400](https://github.com/zendeskgarden/react-components/pull/1400) fix(loaders): use text for inline loader label ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.54.2 (2022-08-11)
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1399](https://github.com/zendeskgarden/react-components/pull/1399) fix(forms): prevent message and hint component from throwing outside of field component ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* `tabs`
+  * [#1391](https://github.com/zendeskgarden/react-components/pull/1391) fix(tabs): add role when tab is disabled ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+
+## v8.54.1 (2022-08-04)
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1389](https://github.com/zendeskgarden/react-components/pull/1389) fix(forms): add message id to input aria-describedby attribute ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.54.0 (2022-07-21)
+
+#### :rocket: New Feature
+* `dropdowns`, `forms`
+  * [#1381](https://github.com/zendeskgarden/react-components/pull/1381) feat(forms): add validation label to message component ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1386](https://github.com/zendeskgarden/react-components/pull/1386) fix(dropdowns): prevent enter key from firing callbacks twice ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :seedling: Internal
+* [#1387](https://github.com/zendeskgarden/react-components/pull/1387) chore(storybook): remove eslint from webpack config ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* [#1388](https://github.com/zendeskgarden/react-components/pull/1388) chore(lint-staged): update jest to pass with no tests ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.53.3 (2022-07-14)
+
+#### :bug: Bug Fix
+* `grid`
+  * [#1382](https://github.com/zendeskgarden/react-components/pull/1382) fix(grid): upgrade `Pane.Splitter` with default aria-label and offscreen drag support ([@jzempel](https://github.com/jzempel))
+
+## v8.53.2 (2022-07-07)
+
+#### :bug: Bug Fix
+* `breadcrumbs`, `dropdowns`, `modals`, `pagination`, `tabs`
+  * [#1378](https://github.com/zendeskgarden/react-components/pull/1378) fix(breadcrumbs,dropdowns,modals,pagination,tabs): improved a11y with upgraded react-containers ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1380](https://github.com/zendeskgarden/react-components/pull/1380) fix(grid): address splitter button design and interaction issues ([@jzempel](https://github.com/jzempel))
+
+## v8.53.1 (2022-06-28)
+
+#### :bug: Bug Fix
+* `modals`
+  * [#1377](https://github.com/zendeskgarden/react-components/pull/1377) fix(modals): typo in nodeRef ([@JamesSingleton](https://github.com/JamesSingleton))
+
+## v8.53.0 (2022-06-16)
+
+#### :rocket: New Feature
+* `grid`
+  * [#1371](https://github.com/zendeskgarden/react-components/pull/1371) feat(grid): add pane splitter button ([@mtomcal](https://github.com/mtomcal))
+* `avatars`
+  * [#1358](https://github.com/zendeskgarden/react-components/pull/1358) feat(avatars): extend status prop ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+#### :bug: Bug Fix
+* `tables`
+  * [#1373](https://github.com/zendeskgarden/react-components/pull/1373) fix(tables): remove redundant rendering of row component ([@pudewan-zd](https://github.com/pudewan-zd))
+
+#### :seedling: Internal
+* `colorpickers`
+  * [#1374](https://github.com/zendeskgarden/react-components/pull/1374) chore(colorpickers): remove popper.js direct dependency ([@Francois-Esquire](https://github.com/Francois-Esquire))
+* Other
+  * [#1375](https://github.com/zendeskgarden/react-components/pull/1375) chore(git): add demo to gitignore ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
+## v8.52.0 (2022-05-26)
+
+#### :rocket: New Feature
+* `breadcrumbs`, `modals`, `theming`
+  * [#1357](https://github.com/zendeskgarden/react-components/pull/1357) feat(theming,breadcrumbs,modals): add and apply `useText` utility ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1356](https://github.com/zendeskgarden/react-components/pull/1356) feat(pane): add providerId ([@mtomcal](https://github.com/mtomcal))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1355](https://github.com/zendeskgarden/react-components/pull/1355) fix(multiselect): add useDocument ([@mtomcal](https://github.com/mtomcal))
+
+#### :seedling: Internal
+* [#1354](https://github.com/zendeskgarden/react-components/pull/1354) chore(examples): remove ([@Francois-Esquire](https://github.com/Francois-Esquire))
+
 ## v8.51.0 (2022-05-19)
 
 #### :rocket: New Feature
@@ -1596,635 +2272,6 @@ utilities upgrade to `@zendeskgarden/react-theming@v8.1.0` first.
 * `.template`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `selection`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`, `utilities`
   * [#639](https://github.com/zendeskgarden/react-components/pull/639) feat(build): bring master up-to-date with next ([@austin94](https://github.com/austin94))
 
-## v7.1.9 (2020-02-14)
+## v7 changelog
 
-#### :bug: Bug Fix
-* `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `loaders`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
-  * [#629](https://github.com/zendeskgarden/react-components/pull/629) fix(deps): ensure all garden container packages support ie11 ([@austin94](https://github.com/austin94))
-  * [#623](https://github.com/zendeskgarden/react-components/pull/623) fix(build): move from uglify to terser for UMD builds ([@austin94](https://github.com/austin94))
-
-#### :seedling: Internal
-* `buttons`, `chrome`, `datepickers`, `dropdowns`, `tables`
-  * [#625](https://github.com/zendeskgarden/react-components/pull/625) chore(deps): update dependency @zendeskgarden/svg-icons to v6.10.0 ([@renovate[bot]](https://github.com/apps/renovate))
-* Other
-  * [#626](https://github.com/zendeskgarden/react-components/pull/626) chore(deps): update dependency husky to v4.2.3 ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v7.1.8 (2020-02-10)
-
-#### :bug: Bug Fix
-* `dropdowns`
-  * [#618](https://github.com/zendeskgarden/react-components/pull/618) fix(dropdowns): allow forwardRef usage of Select component ([@austin94](https://github.com/austin94))
-* `loaders`
-  * [#609](https://github.com/zendeskgarden/react-components/pull/609) perf(loaders): prevent rerender for dots ([@li-kai](https://github.com/li-kai))
-
-## v7.1.7 (2020-02-06)
-
-#### :bug: Bug Fix
-* `dropdowns`
-  * [#614](https://github.com/zendeskgarden/react-components/pull/614) fix(dropdowns): conditionally render menu items to correct android rendering ([@austin94](https://github.com/austin94))
-  * [#613](https://github.com/zendeskgarden/react-components/pull/613) fix(dropdowns): limit PopperJS computations while dropdowns are closed ([@austin94](https://github.com/austin94))
-
-## v7.1.6 (2020-02-04)
-
-#### :bug: Bug Fix
-* `dropdowns`
-  * [#607](https://github.com/zendeskgarden/react-components/pull/607) fix(dropdowns): overflow in Multiselect items ([@sunesimonsen](https://github.com/sunesimonsen))
-* `pagination`
-  * [#608](https://github.com/zendeskgarden/react-components/pull/608) fix(build): correct failing tests ([@austin94](https://github.com/austin94))
-
-## v7.1.5 (2020-01-17)
-
-#### :bug: Bug Fix
-* `tooltips`
-  * [#593](https://github.com/zendeskgarden/react-components/pull/593) fix(tooltips): improve tooltip rendering performance ([@austin94](https://github.com/austin94))
-    * Tooltips now render efficiently when used in large (500+) numbers
-
-#### :seedling: Internal
-* Other
-  * [#590](https://github.com/zendeskgarden/react-components/pull/590) chore(deps): update dependency stylelint-order to v4 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#589](https://github.com/zendeskgarden/react-components/pull/589) chore(deps): update dependency stylelint to v13 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#592](https://github.com/zendeskgarden/react-components/pull/592) chore(deps): update dependency typescript to v3.7.5 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#585](https://github.com/zendeskgarden/react-components/pull/585) chore(deps): update dependency @svgr/webpack to v5 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#586](https://github.com/zendeskgarden/react-components/pull/586) chore(deps): update dependency husky to v4 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#571](https://github.com/zendeskgarden/react-components/pull/571) chore(deps): bump handlebars from 4.1.2 to 4.5.3 in /examples/codesandbox/garden-create-react-app ([@dependabot[bot]](https://github.com/apps/dependabot))
-  * [#568](https://github.com/zendeskgarden/react-components/pull/568) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#567](https://github.com/zendeskgarden/react-components/pull/567) chore(deps): update dependency lerna-changelog to v1 ([@renovate[bot]](https://github.com/apps/renovate))
-* `dropdowns`
-  * [#591](https://github.com/zendeskgarden/react-components/pull/591) fix(deps): update dependency downshift to v4 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#565](https://github.com/zendeskgarden/react-components/pull/565) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
-  * [#584](https://github.com/zendeskgarden/react-components/pull/584) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* `forms`
-  * [#583](https://github.com/zendeskgarden/react-components/pull/583) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
-  * [#564](https://github.com/zendeskgarden/react-components/pull/564) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* `datepickers`
-  * [#536](https://github.com/zendeskgarden/react-components/pull/536) chore(deps): update dependency @zendeskgarden/stylelint-config to v12 ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v7.1.4 (2019-12-17)
-
-#### :seedling: Internal
-* chore: force-publish all packages to ensure valid `latest` tag in NPM
-* [#549](https://github.com/zendeskgarden/react-components/pull/549) chore: apply garden logo to demo pages ([@jzempel](https://github.com/jzempel))
-
-## v7.1.3 (2019-11-27)
-
-#### :rocket: New Feature
-* `modals`
-  * [#547](https://github.com/zendeskgarden/react-components/pull/547) Allow the portal container to be passed in as a prop ([@luis-almeida](https://github.com/luis-almeida))
-
-## v7.1.2 (2019-11-26)
-
-#### :seedling: Internal
-* Other
-  * [#537](https://github.com/zendeskgarden/react-components/pull/537) chore(deps): update dependency chalk to v3 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#538](https://github.com/zendeskgarden/react-components/pull/538) chore(deps): update dependency commander to v4 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#539](https://github.com/zendeskgarden/react-components/pull/539) chore(deps): update dependency eslint-plugin-jest to v23 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#543](https://github.com/zendeskgarden/react-components/pull/543) chore(deps): update dependency core-js to v3.4.2 ([@renovate[bot]](https://github.com/apps/renovate))
-* `datepickers`, `dropdowns`
-  * [#534](https://github.com/zendeskgarden/react-components/pull/534) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
-  * [#535](https://github.com/zendeskgarden/react-components/pull/535) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v7.1.1 (2019-11-13)
-
-#### :bug: Bug Fix
-* `datepickers`
-  * [#517](https://github.com/zendeskgarden/react-components/pull/517) fix(datepickers): allow controlled value to update internal state ([@austin94](https://github.com/austin94))
-* `forms`
-  * [#516](https://github.com/zendeskgarden/react-components/pull/516) fix(forms): allow MultiThumbRange to position correctly in Edge and IE11 ([@austin94](https://github.com/austin94))
-
-#### :memo: Documentation
-* `tables`
-  * [#518](https://github.com/zendeskgarden/react-components/pull/518) chore(docs): remove invalid prop from table docs ([@austin94](https://github.com/austin94))
-
-## v7.1.0 (2019-11-06)
-
-#### :rocket: New Feature
-* `dropdowns`
-  * [#511](https://github.com/zendeskgarden/react-components/pull/511) feat(dropdowns): add inputRef prop to Autocomplete and Multiselect ([@austin94](https://github.com/austin94))
-
-#### :bug: Bug Fix
-* `datepickers`, `dropdowns`
-  * [#513](https://github.com/zendeskgarden/react-components/pull/513) fix(build): correct TS usages of react-popper ([@austin94](https://github.com/austin94))
-* `dropdowns`
-  * [#512](https://github.com/zendeskgarden/react-components/pull/512) fix(dropdowns): allow inline style to override Menu width ([@austin94](https://github.com/austin94))
-* `datepickers`
-  * [#492](https://github.com/zendeskgarden/react-components/pull/492) chore(datepicker): remove invalid arrow prop ([@austin94](https://github.com/austin94))
-* `buttons`
-  * [#510](https://github.com/zendeskgarden/react-components/pull/510) fix(buttons): remove invalid disabled prop from Anchor ([@austin94](https://github.com/austin94))
-
-#### :memo: Documentation
-* `dropdowns`
-  * [#509](https://github.com/zendeskgarden/react-components/pull/509) chore(docs): remove invalid advanced dropdown example ([@austin94](https://github.com/austin94))
-
-## v7.0.2 (2019-10-30)
-
-#### :seedling: Internal
-* Other
-  * [#501](https://github.com/zendeskgarden/react-components/pull/501) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
-  * [#502](https://github.com/zendeskgarden/react-components/pull/502) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v7.0.1 (2019-10-22)
-
-#### :bug: Bug Fix
-* `buttons`
-  * [#498](https://github.com/zendeskgarden/react-components/pull/498) fix(buttons): allow buttons to control type attribute ([@austin94](https://github.com/austin94))
-
-#### :memo: Documentation
-* [#496](https://github.com/zendeskgarden/react-components/pull/496) chore(internal): upgrade Garden examples to v7 ([@austin94](https://github.com/austin94))
-
-## v7.0.0 (2019-10-17)
-
-#### :boom: Breaking Change
-* `buttons`, `chrome`, `modals`, `pagination`, `selection`, `tabs`, `tooltips`
-  * [#486](https://github.com/zendeskgarden/react-components/pull/486) chore(internal): deprecated react-selection and migrate Tabs and Pagination components BREAKING ([@austin94](https://github.com/austin94))
-* `breadcrumbs`, `buttons`, `chrome`, `modals`, `pagination`, `tabs`, `tooltips`
-  * [#485](https://github.com/zendeskgarden/react-components/pull/485) chore(internal): remove all deprecated render-prop containers BREAKING ([@austin94](https://github.com/austin94))
-* `autocomplete`, `checkboxes`, `menus`, `radios`, `ranges`, `select`, `textfields`, `toggles`, `utilities`
-  * [#484](https://github.com/zendeskgarden/react-components/pull/484)  chore(internal): remove all deprecated packages BREAKING ([@austin94](https://github.com/austin94))
-* `loaders`
-  * [#491](https://github.com/zendeskgarden/react-components/pull/491) feat(loaders): deprecate ScheduleContainer BREAKING ([@austin94](https://github.com/austin94))
-
-#### :seedling: Internal
-* `.template`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `selection`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
-  * [#495](https://github.com/zendeskgarden/react-components/pull/495) chore(deps): upgrade react-theming peerDependencies to allow v7 ([@austin94](https://github.com/austin94))
-* Other
-  * [#493](https://github.com/zendeskgarden/react-components/pull/493) chore(deps): bump lodash.template from 4.4.0 to 4.5.0 in /examples/codesandbox/garden-create-react-app ([@dependabot[bot]](https://github.com/apps/dependabot))
-  * [#494](https://github.com/zendeskgarden/react-components/pull/494) chore(deps): bump mixin-deep from 1.3.1 to 1.3.2 in /examples/codesandbox/garden-create-react-app ([@dependabot[bot]](https://github.com/apps/dependabot))
-* `modals`
-  * [#475](https://github.com/zendeskgarden/react-components/pull/475) fix(deps): update dependency tabbable to v4 ([@renovate[bot]](https://github.com/apps/renovate))
-* `loaders`
-  * [#473](https://github.com/zendeskgarden/react-components/pull/473) fix(deps): update dependency polished to v3 ([@renovate[bot]](https://github.com/apps/renovate))
-* `datepickers`, `dropdowns`, `tooltips`
-  * [#487](https://github.com/zendeskgarden/react-components/pull/487) chore(internal): update react-popper dependencies ([@austin94](https://github.com/austin94))
-* `buttons`, `modals`, `selection`, `tables`
-  * [#490](https://github.com/zendeskgarden/react-components/pull/490) chore(deps): update dom-helpers ([@hzhu](https://github.com/hzhu))
-
-### Breaking Changes
-
-#### `react-loaders`
-
-* The `Dots` and `Spinner` components no longer accept a `velocity` prop
-  * To customize the speed of the animation use the `duration` prop to provide the time in MS.
-
-#### `react-pagination`
-
-* The `focusedKey` prop is no longer accepted
-  * This state is no longer controllable
-* The `onStateChange` prop is no longer accepted
-  * Use the `onChange` prop to receive `currentPage` updates.
-
-#### `react-tabs`
-
-* The `selectedKey` prop has been renamed to `selectedItem`
-  * This API now aligns with other components
-* All `<TabPanel>` components now require an `item` prop instead of a `key` prop
-  * Previously we used the `key` attribute to uniquely identify each tab
-  * This created confusion as `key` is also a reserved prop name in React
-* The `onStateChange` prop is no longer valid
-  * Use the `onChange` prop to receive `selectedItem` updates
-
-#### Removal of deprecated packages
-
-The following deprecated packages have been removed from the repository and will not be upgraded to `v7`:
-
-* `@zendeskgarden/react-autocomplete`
-  * Migrate to the `@zendeskgarden/react-dropdowns` package
-* `@zendeskgarden/react-checkboxes`
-  * Migrate to the `@zendeskgarden/react-forms` package
-* `@zendeskgarden/react-menus`
-* Migrate to the `@zendeskgarden/react-dropdowns` package
-* `@zendeskgarden/react-radios`
-  * Migrate to the `@zendeskgarden/react-forms` package
-* `@zendeskgarden/react-ranges`
-  * Migrate to the `@zendeskgarden/react-forms` package
-* `@zendeskgarden/react-select`
-  * Migrate to the `@zendeskgarden/react-dropdowns` package
-* `@zendeskgarden/react-textfields`
-  * Migrate to the `@zendeskgarden/react-forms` package
-* `@zendeskgarden/react-toggles`
-  * Migrate to the `@zendeskgarden/react-forms` package
-
-#### Removal of deprecated Render-Prop Containers
-
-In previous versions we have included render-prop containers for
-the common UX patterns provided in our components. To help make these
-assets more flexible, we have created a new repository [react-containers](https://github.com/zendeskgarden/react-containers).
-
-In `v7` all render-prop containers (`*Container`) has been moved to standalone packages.
-These containers are now available as standard React Hooks as well as render-props.
-
-### Migration Steps
-
-* Upgrade all Garden React dependencies to their latest `v6.x` version
-* Check your console and testing environments to see if any deprecation warnings can be seen
-* Remove any usages of deprecated packages and containers
-* Upgrade all Garden React dependencies to their latest `v7.x` version
-* Update any `react-tabs`, `react-pagination`, and `react-loaders` usages affected by the breaking changes listed above
-
-For this breaking change we were able to allow an open range for our peer dependency of `react-theming` to allow `v6` and `v7` versions.
-
-This allows you to upgrade each package individually if necessary, ending with `react-theming`.
-If you have any questions about this process please open an issue.
-
-## v6.9.0 (2019-10-16)
-
-#### :seedling: Internal
-* `buttons`, `chrome`, `forms`
-  * [#489](https://github.com/zendeskgarden/react-components/pull/489) chore(internal): upgrade @zendeskgarden/container-keyboardfocus ([@austin94](https://github.com/austin94))
-* `buttons`, `chrome`
-  * [#482](https://github.com/zendeskgarden/react-components/pull/482) feat(buttons|chrome): upgrade to useKeyboardFocus() hook ([@austin94](https://github.com/austin94))
-
-## v6.8.1 (2019-10-11)
-
-#### :bug: Bug Fix
-* `datepickers`
-  * [#481](https://github.com/zendeskgarden/react-components/pull/481) fix(datepicker): ensure mouse events are propagated correctly ([@austin94](https://github.com/austin94))
-* `forms`
-  * [#480](https://github.com/zendeskgarden/react-components/pull/480) fix(forms): allow MediaInput to receive all possible ref values ([@austin94](https://github.com/austin94))
-
-## v6.8.0 (2019-10-09)
-
-#### :rocket: New Feature
-* `forms`, `loaders`, `ranges`, `typography`
-  * [#463](https://github.com/zendeskgarden/react-components/pull/463) feat(forms): deprecate react-ranges and migrate components to react-forms ([@austin94](https://github.com/austin94))
-* `loaders`
-  * [#468](https://github.com/zendeskgarden/react-components/pull/468) feat(loaders): introduce Progress component ([@sunesimonsen](https://github.com/sunesimonsen))
-
-#### :seedling: Internal
-* `modals`, `pagination`, `tables`, `tags`
-  * [#479](https://github.com/zendeskgarden/react-components/pull/479) chore(selection): remove usages of react-selection KEY_CODES and composeEventHandlers ([@austin94](https://github.com/austin94))
-
-## v6.7.1 (2019-10-03)
-
-#### :seedling: Internal
-* Other
-  * [#478](https://github.com/zendeskgarden/react-components/pull/478) fix(build): revert react-docgen-typescript upgrade ([@austin94](https://github.com/austin94))
-* `chrome`, `loaders`
-  * [#469](https://github.com/zendeskgarden/react-components/pull/469) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* `menus`, `utilities`
-  * [#471](https://github.com/zendeskgarden/react-components/pull/471) chore(deps): update dependency @zendeskgarden/eslint-config to v10 ([@renovate[bot]](https://github.com/apps/renovate))
-* `autocomplete`, `breadcrumbs`, `buttons`, `checkboxes`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `menus`, `modals`, `notifications`, `pagination`, `radios`, `ranges`, `tables`, `tabs`, `tags`, `textfields`, `toggles`, `tooltips`, `typography`
-  * [#470](https://github.com/zendeskgarden/react-components/pull/470) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v6.7.0 (2019-09-25)
-
-#### :construction: Deprecations
-* `react-chrome`
-  * `AccordionContainer`
-    * Migrate to [@zendeskgarden/container-accordion](https://www.npmjs.com/package/@zendeskgarden/container-accordion)
-* `react-buttons`
-  * `ButtonGroupContainer`
-    * Migrate to [@zendeskgarden/container-buttongroup](https://www.npmjs.com/package/@zendeskgarden/container-buttongroup)
-
-#### :rocket: New Feature
-* `chrome`
-  * [#461](https://github.com/zendeskgarden/react-components/pull/461) feat(chrome): deprecate AccordionContainer ([@austin94](https://github.com/austin94))
-* `autocomplete`, `buttons`, `menus`, `tabs`
-  * [#460](https://github.com/zendeskgarden/react-components/pull/460) feat(buttons): deprecate ButtonGroupContainer ([@austin94](https://github.com/austin94))
-
-#### :bug: Bug Fix
-* `avatars`
-  * [#464](https://github.com/zendeskgarden/react-components/pull/464) fix(avatars): prevent badge `content-box` sizing overrides ([@jzempel](https://github.com/jzempel))
-* `modals`
-  * [#459](https://github.com/zendeskgarden/react-components/pull/459) fix(modals): allow Modal to receive ref prop ([@hzhu](https://github.com/hzhu))
-
-#### :seedling: Internal
-* [#466](https://github.com/zendeskgarden/react-components/pull/466) chore: update renovate schedule ([@jzempel](https://github.com/jzempel))
-* [#455](https://github.com/zendeskgarden/react-components/pull/455) chore(deps): update dependency stylelint to v11 ([@renovate[bot]](https://github.com/apps/renovate))
-* [#458](https://github.com/zendeskgarden/react-components/pull/458) chore: update renovate configuration ([@jzempel](https://github.com/jzempel))
-
-## v6.6.0 (2019-09-18)
-
-#### :construction: Deprecations
-* `react-modals`
-  * `FocusJailContainer`
-    * Migrate to [@zendeskgarden/container-focusjail](https://www.npmjs.com/package/@zendeskgarden/container-focusjail)
-  * `ModalContainer`
-    * Migrate to [@zendeskgarden/container-modal](https://www.npmjs.com/package/@zendeskgarden/container-modal)
-
-#### :rocket: New Feature
-* `dropdowns`
-  * [#439](https://github.com/zendeskgarden/react-components/pull/439) feat(dropdowns): introduce Multiselect component ([@austin94](https://github.com/austin94))
-* `autocomplete`, `menus`, `modals`, `select`
-  * [#456](https://github.com/zendeskgarden/react-components/pull/456) feat(modals): deprecate FocusJailContainer and ModalContainer ([@austin94](https://github.com/austin94))
-
-#### :seedling: Internal
-* [#454](https://github.com/zendeskgarden/react-components/pull/454) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v6.5.0 (2019-09-13)
-
-#### Deprecations
-
-Beginning in this release we are deprecating our internal render-prop containers in favor
-of our [react-containers](https://github.com/zendeskgarden/react-containers) package.
-
-All render-props will be removed in the next major release.
-
-* `react-pagination`
-  * `PaginationContainer`
-    * Migrate to [@zendeskgarden/container-pagination](https://www.npmjs.com/package/@zendeskgarden/container-pagination)
-* `react-tooltips`
-  * `TooltipContainer`
-    * Migrate to [@zendeskgarden/container-tooltip](https://www.npmjs.com/package/@zendeskgarden/container-tooltip)
-* `react-tabs`
-  * `TabsContainer`
-    * Migrate to [@zendeskgarden/container-tabs](https://www.npmjs.com/package/@zendeskgarden/container-tabs)
-* `react-breadcrumbs`
-  * `BreadcrumbContainer`
-    * Migrate to [@zendeskgarden/container-breadcrumb](https://www.npmjs.com/package/@zendeskgarden/container-breadcrumb)
-
-#### :rocket: New Feature
-* `datepickers`, `dropdowns`, `forms`, `pagination`, `tabs`, `tooltips`
-  * [#453](https://github.com/zendeskgarden/react-components/pull/453) feat(pagination): deprecate PaginationContainer and migrate to container-pagination ([@austin94](https://github.com/austin94))
-* `autocomplete`, `menus`, `select`, `tooltips`
-  * [#451](https://github.com/zendeskgarden/react-components/pull/451) feat(tooltips): deprecate TooltipContainer and migrate to useTooltip ([@austin94](https://github.com/austin94))
-* `.template`, `breadcrumbs`, `tabs`
-  * [#448](https://github.com/zendeskgarden/react-components/pull/448) feat(tabs): deprecate TabsContainer component ([@austin94](https://github.com/austin94))
-* `breadcrumbs`
-  * [#444](https://github.com/zendeskgarden/react-components/pull/444) feat(breadcrumbs): deprecate BreadcrumbContainer and migrate to useBreadcrumb() container ([@austin94](https://github.com/austin94))
-
-#### :memo: Documentation
-* `dropdowns`
-  * [#447](https://github.com/zendeskgarden/react-components/pull/447) fix(dropdowns): Fix invalid ARIA role ([@hzhu](https://github.com/hzhu))
-
-#### :seedling: Internal
-* `autocomplete`, `avatars`, `breadcrumbs`, `buttons`, `checkboxes`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `menus`, `modals`, `notifications`, `pagination`, `radios`, `ranges`, `select`, `selection`, `tables`, `tabs`, `tags`, `textfields`, `theming`, `toggles`, `tooltips`, `typography`, `utilities`
-  * [#449](https://github.com/zendeskgarden/react-components/pull/449) chore(build): add bundleSize check to all packages ([@austin94](https://github.com/austin94))
-* `datepickers`, `dropdowns`
-  * [#418](https://github.com/zendeskgarden/react-components/pull/418) chore(deps): update typescript-eslint monorepo to v2 (major) ([@renovate[bot]](https://github.com/apps/renovate))
-* `autocomplete`, `buttons`, `checkboxes`, `dropdowns`, `loaders`, `radios`, `select`, `tables`, `tabs`, `toggles`
-  * [#446](https://github.com/zendeskgarden/react-components/pull/446) chore(deps): update dependency @zendeskgarden/eslint-config to v9 ([@renovate[bot]](https://github.com/apps/renovate))
-* Other
-  * [#445](https://github.com/zendeskgarden/react-components/pull/445) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#438](https://github.com/zendeskgarden/react-components/pull/438) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#433](https://github.com/zendeskgarden/react-components/pull/433) chore(deps): bump eslint-utils from 1.3.1 to 1.4.2 in /examples/codesandbox/garden-create-react-app ([@dependabot[bot]](https://github.com/apps/dependabot))
-  * [#437](https://github.com/zendeskgarden/react-components/pull/437) fix(test): mock scrollTo dom-helper utility in tests ([@austin94](https://github.com/austin94))
-
-## v6.4.4 (2019-08-27)
-
-#### :bug: Bug Fix
-* `chrome`
-  * [#416](https://github.com/zendeskgarden/react-components/pull/416) chore(deps): update css-chrome dependency to correct Chrome overflow issue ([@renovate[bot]](https://github.com/apps/renovate))
-
-#### :memo: Documentation
-* `modals`
-  * [#434](https://github.com/zendeskgarden/react-components/pull/434) fix(modals): documentation typo ([@sunesimonsen](https://github.com/sunesimonsen))
-  * [#435](https://github.com/zendeskgarden/react-components/pull/435) fix(modals): missing import from react-modals documentation ([@sunesimonsen](https://github.com/sunesimonsen))
-
-#### :seedling: Internal
-* Other
-  * [#430](https://github.com/zendeskgarden/react-components/pull/430) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#429](https://github.com/zendeskgarden/react-components/pull/429) chore(deps): update dependency eslint-loader to v3 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#428](https://github.com/zendeskgarden/react-components/pull/428) chore(deps): update dependency inquirer to v7 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#426](https://github.com/zendeskgarden/react-components/pull/426) chore(deps): update dependency @zendeskgarden/eslint-config to v8 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#417](https://github.com/zendeskgarden/react-components/pull/417) chore(deps): update dependency rimraf to v3 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#427](https://github.com/zendeskgarden/react-components/pull/427) chore(deps): update dependency eslint-plugin-react-hooks to v2 ([@renovate[bot]](https://github.com/apps/renovate))
-* `avatars`, `breadcrumbs`, `buttons`, `checkboxes`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `menus`, `modals`, `notifications`, `pagination`, `radios`, `ranges`, `tables`, `tabs`, `tags`, `textfields`, `toggles`, `tooltips`
-  * [#416](https://github.com/zendeskgarden/react-components/pull/416) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v6.4.3 (2019-08-23)
-
-#### :bug: Bug Fix
-* `datepickers`
-  * [#415](https://github.com/zendeskgarden/react-components/pull/415) fix(datepicker): correct minValue and maxValue displays and allow same date selection within Range ([@austin94](https://github.com/austin94))
-
-#### :memo: Documentation
-* `theming`
-  * [#421](https://github.com/zendeskgarden/react-components/pull/421) docs: correct react-theming peer dependencies ([@vhiairrassary](https://github.com/vhiairrassary))
-* `forms`
-  * [#422](https://github.com/zendeskgarden/react-components/pull/422) docs(forms): Checkbox example in forms is throwing ([@ryanseddon](https://github.com/ryanseddon))
-
-## v6.4.2 (2019-08-16)
-
-#### :bug: Bug Fix
-* `dropdowns`
-  * [#414](https://github.com/zendeskgarden/react-components/pull/414) fix(dropdowns): persist cursor location in Autocomplete ([@austin94](https://github.com/austin94))
-
-#### :seedling: Internal
-* [#407](https://github.com/zendeskgarden/react-components/pull/407) chore(deps): update dependency commander to v3 ([@renovate[bot]](https://github.com/apps/renovate))
-* [#405](https://github.com/zendeskgarden/react-components/pull/405) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* [#406](https://github.com/zendeskgarden/react-components/pull/406) chore(deps): update dependency @testing-library/react to v9 ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v6.4.1 (2019-08-12)
-
-#### :bug: Bug Fix
-* `datepickers`
-  * [#409](https://github.com/zendeskgarden/react-components/pull/409) fix(build): correct prettier error to allow release ([@austin94](https://github.com/austin94))
-
-## v6.4.0 (2019-08-12)
-
-#### :rocket: New Feature
-* `datepickers`
-  * [#397](https://github.com/zendeskgarden/react-components/pull/397)  feat(datepickers): introduce DatepickerRange component ([@austin94](https://github.com/austin94))
-  * [#397](https://github.com/zendeskgarden/react-components/pull/397) Apply a default locale of `en-US` to all datepickers to align with default browser date parsing.
-
-## v6.3.2 (2019-08-05)
-
-#### :bug: Bug Fix
-* `dropdowns`
-  * [#402](https://github.com/zendeskgarden/react-components/pull/402) feat(Menu/Items/Item): change Item 'value' requirement to be inclusive of 0 ([@chungkikelly](https://github.com/chungkikelly))
-
-#### :seedling: Internal
-* [#400](https://github.com/zendeskgarden/react-components/pull/400) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v6.3.1 (2019-08-02)
-
-#### :bug: Bug Fix
-* `buttons`
-  * [#398](https://github.com/zendeskgarden/react-components/pull/398) fix(buttons): white-space/word-wrap styling in the Anchor component ([@luis-almeida](https://github.com/luis-almeida))
-  * [#396](https://github.com/zendeskgarden/react-components/pull/396) fix(buttons): allow correct ref validation in PropTypes ([@austin94](https://github.com/austin94))
-
-#### :memo: Documentation
-* `dropdowns`
-  * [#394](https://github.com/zendeskgarden/react-components/pull/394) Update autocomplete dropdown example due to google translate issue ([@KaiminHuang](https://github.com/KaiminHuang))
-* `datepickers`
-  * [#393](https://github.com/zendeskgarden/react-components/pull/393) chore(datepicker): update examples to include correct localization names ([@austin94](https://github.com/austin94))
-
-#### :seedling: Internal
-* Other
-  * [#395](https://github.com/zendeskgarden/react-components/pull/395) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* `avatars`, `breadcrumbs`, `buttons`, `checkboxes`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `menus`, `modals`, `notifications`, `pagination`, `radios`, `ranges`, `tables`, `tabs`, `tags`, `textfields`, `toggles`, `tooltips`
-  * [#392](https://github.com/zendeskgarden/react-components/pull/392) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v6.3.0 (2019-07-16)
-
-#### :rocket: New Feature
-* `typography`
-  * [#388](https://github.com/zendeskgarden/react-components/pull/388) feat(typography): add `List` component ([@jzempel](https://github.com/jzempel))
-* `dropdowns`
-  * [#387](https://github.com/zendeskgarden/react-components/pull/387) feat(dropdowns): export resetIdCounter to allow SSR ([@austin94](https://github.com/austin94))
-
-#### :bug: Bug Fix
-* `dropdowns`
-  * [#391](https://github.com/zendeskgarden/react-components/pull/391) fix(dropdowns): allow previous item selection with arrow key ([@austin94](https://github.com/austin94))
-
-#### :seedling: Internal
-* [#389](https://github.com/zendeskgarden/react-components/pull/389) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* [#390](https://github.com/zendeskgarden/react-components/pull/390) chore(deps): update dependency jest-dom to v4 ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v6.2.1 (2019-07-11)
-
-#### :bug: Bug Fix
-* `dropdowns`
-  * [#386](https://github.com/zendeskgarden/react-components/pull/386) fix(dropdowns): remove webkit button styling when used with css-bedrock ([@austin94](https://github.com/austin94))
-
-#### :seedling: Internal
-* `tables`
-  * [#382](https://github.com/zendeskgarden/react-components/pull/382) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* Other
-  * [#383](https://github.com/zendeskgarden/react-components/pull/383) chore(deps): update dependency husky to v3 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#384](https://github.com/zendeskgarden/react-components/pull/384) chore(deps): update dependency lint-staged to v9 ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v6.2.0 (2019-07-03)
-
-#### :rocket: New Feature
-* `datepickers`
-  * [#373](https://github.com/zendeskgarden/react-components/pull/373) feat(datepickers): introduce Datepicker component ([@austin94](https://github.com/austin94))
-
-#### :bug: Bug Fix
-* `notifications`
-  * [#379](https://github.com/zendeskgarden/react-components/pull/379) fix(notifications): show correct Notification and Alert styling ([@austin94](https://github.com/austin94))
-
-#### :seedling: Internal
-* Other
-  * [#377](https://github.com/zendeskgarden/react-components/pull/377) chore(deps): update dependency eslint-config-prettier to v6 ([@renovate[bot]](https://github.com/apps/renovate))
-  * [#376](https://github.com/zendeskgarden/react-components/pull/376) chore(deps): update dependency eslint to v6 ([@renovate[bot]](https://github.com/apps/renovate))
-* `dropdowns`
-  * [#374](https://github.com/zendeskgarden/react-components/pull/374) chore(deps): pin dependency @types/lodash.debounce to 4.0.6 ([@renovate[bot]](https://github.com/apps/renovate))
-* `breadcrumbs`, `buttons`, `checkboxes`, `chrome`, `dropdowns`, `forms`, `grid`, `menus`, `modals`, `notifications`, `pagination`, `radios`, `ranges`, `tables`, `tabs`, `tags`, `textfields`, `toggles`, `tooltips`
-  * [#375](https://github.com/zendeskgarden/react-components/pull/375) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-
-## v6.1.0 (2019-06-26)
-
-#### :rocket: New Feature
-* `dropdowns`, `notifications`
-  * [#371](https://github.com/zendeskgarden/react-components/pull/371)  feat(dropdowns): migrate react-dropdowns to Typescript ([@austin94](https://github.com/austin94))
-
-##### Typescript Support
-
-The `dropdowns` package is now written in [Typescript](https://www.typescriptlang.org/). The API has
-not been changed, but Type definitions are now included with the package.
-
-If you are not using Typescript in your development environment you will still benefit from
-improved autocompletion and documentation in certain IDEs and editors like VSCode.
-
-## v6.0.3 (2019-06-20)
-
-#### :bug: Bug Fix
-* `avatars`
-  * [#368](https://github.com/zendeskgarden/react-components/pull/368) fix(avatars): display badge status whenever badge data exists ([@jzempel](https://github.com/jzempel))
-
-## v6.0.2 (2019-06-14)
-
-#### :bug: Bug Fix
-* `buttons`
-  * [#366](https://github.com/zendeskgarden/react-components/pull/366) fix(buttons): Pass className to <Icon /> ([@giacomorebonato](https://github.com/giacomorebonato))
-* `avatars`
-  * [#363](https://github.com/zendeskgarden/react-components/pull/363) fix(avatars): update avatar CSS for badge animation ([@jzempel](https://github.com/jzempel))
-* Other
-  * [#361](https://github.com/zendeskgarden/react-components/pull/361) fix(build): add tag fetching to process ([@austin94](https://github.com/austin94))
-
-#### :memo: Documentation
-* [#364](https://github.com/zendeskgarden/react-components/pull/364) chore(demo): add `react-containers` link + deprecated packages section ([@jzempel](https://github.com/jzempel))
-* [#362](https://github.com/zendeskgarden/react-components/pull/362) chore: add versioning documentation ([@jzempel](https://github.com/jzempel))
-
-## v6.0.1 (2019-06-10)
-
-#### :bug: Bug Fix
-* `pagination`
-  * [#358](https://github.com/zendeskgarden/react-components/pull/358) fix(pagination): update peerDependencies to match other packages ([@austin94](https://github.com/austin94))
-
-#### :memo: Documentation
-* `tables`
-  * [#360](https://github.com/zendeskgarden/react-components/pull/360) fix(tables): adjust paginated example cell width to accommodate small-sized avatar ([@jzempel](https://github.com/jzempel))
-* Other
-  * [#357](https://github.com/zendeskgarden/react-components/pull/357) chore(docs): add create-react-app codesandbox example ([@austin94](https://github.com/austin94))
-
-#### :seedling: Internal
-* [#359](https://github.com/zendeskgarden/react-components/pull/359) chore(lint): ensure that no unsafe lifecycle events are used ([@austin94](https://github.com/austin94))
-* [#355](https://github.com/zendeskgarden/react-components/pull/355) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* [#356](https://github.com/zendeskgarden/react-components/pull/356) fix(publish): allow version flow to push changelog correctly ([@austin94](https://github.com/austin94))
-
-## v6.0.0 (2019-06-07)
-
-#### :boom: Breaking Change
-* `all packages`
-  * [#342](https://github.com/zendeskgarden/react-components/pull/342) BREAKING CHANGE: upgrade to React@v16.8 and styled-components@v4 ([@austin94](https://github.com/austin94))
-
-#### :seedling: Internal
-* `all packages`
-  * [#344](https://github.com/zendeskgarden/react-components/pull/344) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
-* `other`
-  * [#349](https://github.com/zendeskgarden/react-components/pull/349) chore(deps): update dependency react-testing-library to v8 ([@renovate[bot]](https://github.com/apps/renovate))
-* `all packages`
-  * [#353](https://github.com/zendeskgarden/react-components/pull/353) chore(lerna): update versioning flow ([@austin94](https://github.com/austin94))
-
-### Breaking Change Details
-
-#### New versioning strategy
-
-- Garden React packages are now published under a shared, fixed (common major) version number
-- You are still able to upgrade packages individually
-- This change will help us better communicate changes and allows consumers to better understand the state of their dependencies
-- This is the first release under the new versioning strategy, **v6.0.0**
-
-#### New peer dependencies
-
-From **v6.0.0** all Garden React libraries now require the following peer dependencies:
-
-```bash
-react@^16.8.0
-react-dom@^16.8.0
-styled-components@^4.2.0
-@zendeskgarden/react-theming@^6.0.0
-```
-
-[React v16 upgrade docs](https://reactjs.org/blog/2017/09/26/react-v16.0.html)
-[styled-components v4 upgrade docs](https://www.styled-components.com/docs/faqs#what-do-i-need-to-do-to-migrate-to-v4)
-
-Beginning with v4, styled-components now uses the [React.forwardRef](https://reactjs.org/docs/react-api.html#reactforwardref) API.
-
-This means that all existing `innerRef`, `menuRef`, `buttonRef`, etc. props are now replaced with `ref`.
-
-#### How to upgrade
-
-1. Upgrade `react` and `react-dom` to `latest`
-2. Upgrade all Garden dependencies to their most recent, pre v6 versions
-3. Upgrade styled-components and all Garden dependencies to `latest`
-  1. Correct all `innerRef`, `buttonRef`, `menuRef`, etc. usages based on the [styled-components v4 upgrade docs](https://www.styled-components.com/docs/faqs#what-do-i-need-to-do-to-migrate-to-v4)
-
-If you have any upgrade questions please [create an issue](https://github.com/zendeskgarden/react-components/issues).
-
-#### Pre v6 changelogs
-
-[react-autocomplete](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/autocomplete/CHANGELOG.md),
-[react-avatars](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/avatars/CHANGELOG.md),
-[react-breadcrumbs](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/breadcrumbs/CHANGELOG.md),
-[react-buttons](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/buttons/CHANGELOG.md),
-[react-checkboxes](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/checkboxes/CHANGELOG.md),
-[react-chrome](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/chrome/CHANGELOG.md),
-[react-dropdowns](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/dropdowns/CHANGELOG.md),
-[react-forms](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/forms/CHANGELOG.md),
-[react-grid](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/grid/CHANGELOG.md),
-[react-loaders](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/loaders/CHANGELOG.md),
-[react-menus](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/menus/CHANGELOG.md),
-[react-modals](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/modals/CHANGELOG.md),
-[react-notifications](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/notifications/CHANGELOG.md),
-[react-pagination](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/pagination/CHANGELOG.md),
-[react-radios](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/radios/CHANGELOG.md),
-[react-ranges](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/ranges/CHANGELOG.md),
-[react-select](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/select/CHANGELOG.md),
-[react-selection](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/selection/CHANGELOG.md),
-[react-tables](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/tables/CHANGELOG.md),
-[react-tabs](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/tabs/CHANGELOG.md),
-[react-tags](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/tags/CHANGELOG.md),
-[react-testing](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/testing/CHANGELOG.md),
-[react-textfields](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/textfields/CHANGELOG.md),
-[react-theming](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/theming/CHANGELOG.md),
-[react-toggles](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/toggles/CHANGELOG.md),
-[react-tooltips](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/tooltips/CHANGELOG.md),
-[react-typography](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/typography/CHANGELOG.md),
-[react-utilities](https://github.com/zendeskgarden/react-components/blob/930d97a0c923a98aa821a475c2557ceda22bec2c/packages/utilities/CHANGELOG.md)
+https://github.com/zendeskgarden/react-components/blob/main/docs/changelogs/v7.md

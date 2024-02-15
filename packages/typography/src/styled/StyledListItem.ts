@@ -64,9 +64,9 @@ export const StyledOrderedListItem = styled(StyledFont as 'li').attrs({
 })<IStyledListItemProps>`
   /* stylelint-disable */
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-  math(`${props.theme.space.base} * -1px`)};
+    math(`${props.theme.space.base} * -1px`)};
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-  math(`${props.theme.space.base} * 1px`)};
+    math(`${props.theme.space.base} * 1px`)};
   /* stylelint-enable */
 
   ${props => listItemStyles(props)};

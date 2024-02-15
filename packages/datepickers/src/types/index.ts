@@ -8,6 +8,8 @@
 import { HTMLAttributes } from 'react';
 import { Modifiers } from 'popper.js';
 
+export const WEEK_STARTS_ON = [0, 1, 2, 3, 4, 5, 6] as const;
+
 const SHARED_PLACEMENT = [
   'auto',
   'top',
@@ -38,9 +40,9 @@ export const POPPER_PLACEMENT = [
   'left-end'
 ] as const;
 
-export type GardenPlacement = typeof PLACEMENT[number];
+export type GardenPlacement = (typeof PLACEMENT)[number];
 
-export type PopperPlacement = typeof POPPER_PLACEMENT[number];
+export type PopperPlacement = (typeof POPPER_PLACEMENT)[number];
 
 export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /**
@@ -65,6 +67,10 @@ export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    * Accepts all valid `Intl` [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
    */
   locale?: string;
+  /**
+   * Overrides the locale default start day of week
+   */
+  weekStartsOn?: (typeof WEEK_STARTS_ON)[number];
   /**
    * Disables dates before this value on the calendar
    */
@@ -111,7 +117,10 @@ export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
 }
 
 export interface IDatepickerRangeProps
-  extends Pick<IDatepickerProps, 'locale' | 'minValue' | 'maxValue' | 'formatDate' | 'isCompact'> {
+  extends Pick<
+    IDatepickerProps,
+    'locale' | 'weekStartsOn' | 'minValue' | 'maxValue' | 'formatDate' | 'isCompact'
+  > {
   /**
    * Sets the start date
    */

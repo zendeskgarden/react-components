@@ -6,8 +6,7 @@
  */
 
 /** Common */
-export { Field } from './elements/common/Field';
-export type { IFieldProps } from './elements/common/Field';
+export { Field, type IFieldProps } from './elements/common/Field';
 export { Fieldset } from './elements/common/Fieldset';
 export { Hint } from './elements/common/Hint';
 export { Label } from './elements/common/Label';
@@ -37,32 +36,30 @@ export { FileList } from './elements/file-list/FileList';
 export { File } from './elements/file-list/components/File';
 
 /** Other */
-export { FauxInput } from './elements/faux-input/FauxInput';
-export type { IIconProps } from './elements/faux-input/FauxInput';
+export { FauxInput, type IIconProps } from './elements/faux-input/FauxInput';
 export { MediaInput } from './elements/MediaInput';
 
 /** types */
-export { VALIDATION } from './types';
-
-export type {
-  IFieldsetProps,
-  ILabelProps,
-  IMessageProps,
-  ICheckboxProps,
-  IRadioProps,
-  IToggleProps,
-  IInputProps,
-  ITextareaProps,
-  ISelectProps,
-  IFileUploadProps,
-  IFileProps,
-  IRangeProps,
-  IMultiThumbRangeProps,
-  IInputGroupProps,
-  ITilesProps,
-  ITilesTileProps,
-  IFauxInputProps,
-  IFauxInputIconProps as IFauxInputStartIconProps,
-  IFauxInputIconProps as IFauxInputEndIconProps,
-  IMediaInputProps
+export {
+  VALIDATION,
+  type IFieldsetProps,
+  type ILabelProps,
+  type IMessageProps,
+  type ICheckboxProps,
+  type IRadioProps,
+  type IToggleProps,
+  type IInputProps,
+  type ITextareaProps,
+  type ISelectProps,
+  type IFileUploadProps,
+  type IFileProps,
+  type IRangeProps,
+  type IMultiThumbRangeProps,
+  type IInputGroupProps,
+  type ITilesProps,
+  type ITilesTileProps,
+  type IFauxInputProps,
+  type IFauxInputIconProps as IFauxInputStartIconProps,
+  type IFauxInputIconProps as IFauxInputEndIconProps,
+  type IMediaInputProps
 } from './types';

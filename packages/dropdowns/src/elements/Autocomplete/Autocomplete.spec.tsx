@@ -8,10 +8,14 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
-import { Dropdown, Autocomplete, Field, Menu, Item, Label } from '../..';
+import { Dropdown, Autocomplete, Field, Menu, Item, Label, IDropdownProps } from '../..';
 
-const ExampleAutocomplete = () => (
-  <Dropdown>
+const ExampleAutocomplete = ({
+  onStateChange
+}: {
+  onStateChange?: IDropdownProps['onStateChange'];
+}) => (
+  <Dropdown onStateChange={onStateChange}>
     <Field>
       <Autocomplete data-test-id="autocomplete">Test</Autocomplete>
     </Field>
@@ -30,6 +34,8 @@ const ExampleAutocomplete = () => (
 );
 
 describe('Autocomplete', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
 
@@ -46,26 +52,26 @@ describe('Autocomplete', () => {
     expect(getByTestId('autocomplete')).toBe(ref.current);
   });
 
-  it('focuses internal input when opened', () => {
+  it('focuses internal input when opened', async () => {
     const { getByTestId } = render(<ExampleAutocomplete />);
 
-    userEvent.click(getByTestId('autocomplete'));
+    await user.click(getByTestId('autocomplete'));
 
     expect(document.activeElement!.nodeName).toBe('INPUT');
   });
 
-  it('closes on input blur', () => {
+  it('closes on input blur', async () => {
     const { getByTestId } = render(<ExampleAutocomplete />);
 
     const autocomplete = getByTestId('autocomplete');
 
-    userEvent.tab();
+    await user.tab();
     expect(autocomplete).toHaveAttribute('data-test-is-focused', 'true');
-    userEvent.tab();
+    await user.tab();
     expect(autocomplete).toHaveAttribute('data-test-is-focused', 'false');
   });
 
-  it('applies correct styling if open', () => {
+  it('applies correct styling if open', async () => {
     const { getByTestId } = render(
       <Dropdown>
         <Field>
@@ -76,13 +82,13 @@ describe('Autocomplete', () => {
 
     const autocomplete = getByTestId('autocomplete');
 
-    userEvent.click(autocomplete);
+    await user.click(autocomplete);
 
     expect(autocomplete).toHaveAttribute('data-test-is-focused', 'true');
     expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
   });
 
-  it('applies correct styling if label is hovered', () => {
+  it('applies correct styling if label is hovered', async () => {
     const { getByTestId } = render(
       <Dropdown>
         <Field>
@@ -92,7 +98,7 @@ describe('Autocomplete', () => {
       </Dropdown>
     );
 
-    userEvent.hover(getByTestId('label'));
+    await user.hover(getByTestId('label'));
 
     expect(getByTestId('autocomplete')).toHaveAttribute('data-test-is-hovered', 'true');
   });
@@ -113,11 +119,11 @@ describe('Autocomplete', () => {
   });
 
   describe('Interaction', () => {
-    it('opens on click', () => {
+    it('opens on click', async () => {
       const { getByTestId } = render(<ExampleAutocomplete />);
       const autocomplete = getByTestId('autocomplete');
 
-      userEvent.click(autocomplete);
+      await user.click(autocomplete);
 
       expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
     });
@@ -146,15 +152,48 @@ describe('Autocomplete', () => {
       expect(items[items.length - 1]).toHaveAttribute('aria-selected', 'true');
     });
 
-    it('closes on escape key', () => {
+    it('closes on escape key', async () => {
       const { getByTestId } = render(<ExampleAutocomplete />);
       const autocomplete = getByTestId('autocomplete');
 
-      userEvent.click(autocomplete);
+      await user.click(autocomplete);
       expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
 
-      userEvent.type(autocomplete.querySelector('input')!, '{escape}');
+      await user.type(autocomplete.querySelector('input')!, '{escape}');
       expect(autocomplete).not.toHaveClass('is-open');
+    });
+  });
+
+  describe('Functionality', () => {
+    it('calls onStateChange once for "__autocomplete_keydown_enter__" when enter key is pressed', async () => {
+      const onStateChange = jest.fn();
+      const { getByTestId, getAllByTestId, getByRole } = render(
+        <ExampleAutocomplete onStateChange={onStateChange} />
+      );
+      const input = getByRole('combobox');
+      const autocomplete = getByTestId('autocomplete');
+
+      await user.type(input, '{enter}');
+
+      expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
+
+      await user.type(input, '{arrowdown}');
+
+      const items = getAllByTestId('item');
+
+      expect(items[0]).toHaveAttribute('aria-selected', 'true');
+
+      await user.type(input, '{enter}');
+
+      const stateChangeTypes = onStateChange.mock.calls.map(([change]) => change.type);
+
+      expect(onStateChange).toHaveBeenCalledTimes(3);
+      // eslint-disable-next-line jest/prefer-strict-equal
+      expect(stateChangeTypes).toEqual([
+        '__autocomplete_click_button__',
+        '__autocomplete_keydown_arrow_down__',
+        '__autocomplete_keydown_enter__'
+      ]);
     });
   });
 });

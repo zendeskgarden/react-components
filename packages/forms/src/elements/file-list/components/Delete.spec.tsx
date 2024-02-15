@@ -11,24 +11,32 @@ import { render } from 'garden-test-utils';
 import { File } from './File';
 
 describe('File.Delete', () => {
+  const user = userEvent.setup();
+
   it('renders the expected HTML element', () => {
     const { container } = render(<File.Delete />);
 
-    expect(container.firstChild!.nodeName).toBe('DIV');
+    expect(container.firstChild!.nodeName).toBe('BUTTON');
+  });
+
+  it('renders with aria-label', () => {
+    const { container } = render(<File.Delete />);
+
+    expect(container.firstChild).toHaveAttribute('aria-label', 'Delete');
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.createRef<HTMLButtonElement>();
     const { container } = render(<File.Delete ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
   });
 
-  it('composes mousedown event handler', () => {
+  it('composes mousedown event handler', async () => {
     const mouseDown = jest.fn();
     const { getByTestId } = render(<File.Delete data-test-id="delete" onMouseDown={mouseDown} />);
 
-    userEvent.click(getByTestId('delete'));
+    await user.click(getByTestId('delete'));
 
     expect(mouseDown).toHaveBeenCalledTimes(1);
   });

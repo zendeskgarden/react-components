@@ -20,15 +20,15 @@ describe('StyledItem', () => {
     });
 
     expect(item).not.toHaveStyleRule('flex', '1', {
-      modifier: '&:before'
+      modifier: '&::before'
     });
 
     expect(item).not.toHaveStyleRule('content', "''", {
-      modifier: '&:before'
+      modifier: '&::before'
     });
 
     expect(item).not.toHaveStyleRule('padding', '16px', {
-      modifier: '&:before'
+      modifier: '&::before'
     });
   });
 
@@ -42,15 +42,15 @@ describe('StyledItem', () => {
     });
 
     expect(item).toHaveStyleRule('flex', '1', {
-      modifier: '&:before'
+      modifier: '&::before'
     });
 
     expect(item).toHaveStyleRule('content', "''", {
-      modifier: '&:before'
+      modifier: '&::before'
     });
 
     expect(item).toHaveStyleRule('padding', '16px', {
-      modifier: '&:before'
+      modifier: '&::before'
     });
   });
 });

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, LiHTMLAttributes } from 'react';
+import { HTMLAttributes, LiHTMLAttributes, PropsWithChildren } from 'react';
 import { ControllerStateAndHelpers, StateChangeOptions } from 'downshift';
 import { Modifiers } from 'popper.js';
 import { IFauxInputProps } from '@zendeskgarden/react-forms';
@@ -40,11 +40,11 @@ export const POPPER_PLACEMENT = [
   'left-end'
 ] as const;
 
-export type GardenPlacement = typeof PLACEMENT[number];
+export type GardenPlacement = (typeof PLACEMENT)[number];
 
-export type PopperPlacement = typeof POPPER_PLACEMENT[number];
+export type PopperPlacement = (typeof POPPER_PLACEMENT)[number];
 
-export interface IDropdownProps {
+export interface IDropdownProps extends PropsWithChildren {
   /** Opens the dropdown */
   isOpen?: boolean;
   /** Identifies the currently selected item */
@@ -182,6 +182,10 @@ export interface IItemProps extends LiHTMLAttributes<HTMLLIElement> {
    * @ignore Sets the wrapping component for the item
    */
   component?: any;
+  /**
+   * @ignore Hides the select icon for the item
+   */
+  hasIcon?: boolean;
 }
 
 export interface IHeaderItemProps extends LiHTMLAttributes<HTMLLIElement> {

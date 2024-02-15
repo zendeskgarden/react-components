@@ -40,6 +40,12 @@ describe('Span', () => {
     expect(container.firstChild).toHaveStyleRule('font-family', DEFAULT_THEME.fonts.mono);
   });
 
+  it('applies hidden styling if provided', () => {
+    const { container } = render(<Span hidden />);
+
+    expect(container.firstChild).toHaveStyleRule('clip', 'rect(0 0 0 0)', { modifier: '[hidden]' });
+  });
+
   describe('hue', () => {
     it('renders the hue provided', () => {
       [

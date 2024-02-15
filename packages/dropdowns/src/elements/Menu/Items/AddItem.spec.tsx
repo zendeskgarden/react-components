@@ -11,7 +11,9 @@ import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, AddItem } from '../../..';
 
 describe('AddItem', () => {
-  it('behaves as Item', () => {
+  const user = userEvent.setup();
+
+  it('behaves as Item', async () => {
     const onSelectSpy = jest.fn();
 
     const { getByTestId } = render(
@@ -27,7 +29,7 @@ describe('AddItem', () => {
       </Dropdown>
     );
 
-    userEvent.click(getByTestId('trigger'));
+    await user.click(getByTestId('trigger'));
     fireEvent.click(getByTestId('add-item'));
 
     expect(onSelectSpy.mock.calls[0][0]).toBe('add-item');
@@ -50,5 +52,24 @@ describe('AddItem', () => {
     );
 
     expect(getByTestId('add-item')).toBe(ref.current);
+  });
+
+  it('does not contain a select icon when selected', async () => {
+    const { getByTestId, container } = render(
+      <Dropdown selectedItem="add-item">
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu>
+          <AddItem value="add-item" data-test-id="add-item">
+            Add Item
+          </AddItem>
+        </Menu>
+      </Dropdown>
+    );
+
+    await user.click(getByTestId('trigger'));
+
+    expect(container.querySelectorAll('svg')).toHaveLength(1);
   });
 });

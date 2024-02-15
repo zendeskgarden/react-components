@@ -63,7 +63,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
       rtl: theme.rtl,
       matrix: colors,
       wrap: true,
-      idPrefix: useId(),
+      idPrefix: useId(undefined),
       defaultRowIndex: defaultSelectedRowIndex,
       defaultColIndex: defaultSelectedColIndex,
       rowIndex,

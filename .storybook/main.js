@@ -5,26 +5,32 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+const path = require('path');
+const { readdirSync } = require('fs');
 const webpack = require('webpack');
 const svgoConfig = require('../.svgo.config.js');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const docs = process.env.BROWSER ? process.env.BROWSER.toUpperCase() !== 'IE11' : true;
+
+const PACKAGE_NAMES = readdirSync(path.resolve(__dirname, '../packages')).filter(
+  name => name !== '.template'
+);
 
 module.exports = {
   stories: ['../packages/*/demo/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   staticDirs: ['./static'],
-  addons: [
-    { name: '@storybook/addon-essentials', options: { docs } },
-    '@storybook/addon-a11y',
-    'storybook-addon-designs'
-  ],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y', '@storybook/addon-designs'],
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {}
+  },
   core: {
-    builder: 'webpack5'
+    disableWhatsNewNotifications: true
   },
   webpackFinal: config => {
     const fileLoaderRule = config.module.rules.find(rule => rule.test.test('.svg'));
 
     fileLoaderRule.exclude = /@zendeskgarden\/svg-icons/u;
+
+    config.output.hashFunction = 'xxhash64';
 
     config.module.rules.push({
       test: /\.svg$/u,
@@ -39,8 +45,19 @@ module.exports = {
     config.plugins.push(
       new webpack.DefinePlugin({
         PACKAGE_VERSION: JSON.stringify('storybook')
-      }),
-      new ESLintPlugin({ emitWarning: true, extensions: '.tsx' })
+      })
+    );
+
+    Object.assign(
+      config.resolve.alias,
+      PACKAGE_NAMES.reduce((previousValue, packageName) => {
+        previousValue[`@zendeskgarden/react-${packageName}`] = path.resolve(
+          __dirname,
+          `../packages/${packageName}/src`
+        );
+
+        return previousValue;
+      }, {})
     );
 
     return config;

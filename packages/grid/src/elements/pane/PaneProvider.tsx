@@ -7,22 +7,27 @@
 
 import React, { useState, useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { SplitterContext } from '../../utils/useSplitterContext';
+import { useId } from '@zendeskgarden/container-utilities';
 import { IPaneProviderProps } from '../../types';
+import usePaneProviderContext, { PaneProviderContext } from '../../utils/usePaneProviderContext';
 
 const getPixelsPerFr = (totalFrs: number, totalDimension: number) => {
   return totalDimension / totalFrs;
 };
 
 const convertToPixels = (values: Record<string, number>, pixelsPerFr: number) => {
-  return Object.entries(values).reduce((prev, [key, value]) => {
-    prev[key] = value * pixelsPerFr;
+  return Object.entries(values).reduce(
+    (prev, [key, value]) => {
+      prev[key] = value * pixelsPerFr;
 
-    return prev;
-  }, {} as Record<string, number>);
+      return prev;
+    },
+    {} as Record<string, number>
+  );
 };
 
 export const PaneProvider = ({
+  id,
   totalPanesWidth,
   totalPanesHeight,
   defaultRowValues,
@@ -44,24 +49,24 @@ export const PaneProvider = ({
 
   const setRowsTrack = useCallback(
     (values: (state: Record<string, number>) => Record<string, number>) => {
-      if (onChange) {
+      if (isControlled && onChange) {
         return onChange(values(rowsTrack), columnsTrack);
       }
 
       return setRowState(values);
     },
-    [onChange, setRowState, columnsTrack, rowsTrack]
+    [isControlled, onChange, setRowState, columnsTrack, rowsTrack]
   );
 
   const setColumnsTrack = useCallback(
     (values: (state: Record<string, number>) => Record<string, number>) => {
-      if (onChange) {
+      if (isControlled && onChange) {
         return onChange(rowsTrack, values(columnsTrack));
       }
 
       return setColumnState(values);
     },
-    [onChange, setColumnState, rowsTrack, columnsTrack]
+    [isControlled, onChange, setColumnState, rowsTrack, columnsTrack]
   );
 
   const totalFractions = useMemo(
@@ -92,17 +97,23 @@ export const PaneProvider = ({
     const rowArray = Object.keys(rowsTrack);
     const columnArray = Object.keys(columnsTrack);
 
-    const rows = rowArray.reduce((prev, key, index) => {
-      prev[key] = index;
+    const rows = rowArray.reduce(
+      (prev, key, index) => {
+        prev[key] = index;
 
-      return prev;
-    }, {} as Record<string, number>);
+        return prev;
+      },
+      {} as Record<string, number>
+    );
 
-    const columns = columnArray.reduce((prev, key, index) => {
-      prev[key] = index;
+    const columns = columnArray.reduce(
+      (prev, key, index) => {
+        prev[key] = index;
 
-      return prev;
-    }, {} as Record<string, number>);
+        return prev;
+      },
+      {} as Record<string, number>
+    );
 
     return {
       rows,
@@ -113,15 +124,15 @@ export const PaneProvider = ({
   }, [rowsTrack, columnsTrack]);
 
   const setRowValue = useCallback(
-    (isTop: boolean, id: string, value: number) => {
+    (isTop: boolean, splitterId: string, value: number) => {
       const { rows, rowArray } = layoutIndices;
       const stealFromTraversal = isTop ? -1 : 1;
       const addToTraversal = 0;
 
       setRowsTrack(state => {
-        const oldValue = rowsTrack[id];
-        const stealFromIndex = rows[id] + stealFromTraversal;
-        const addToIndex = rows[id] + addToTraversal;
+        const oldValue = rowsTrack[splitterId];
+        const stealFromIndex = rows[splitterId] + stealFromTraversal;
+        const addToIndex = rows[splitterId] + addToTraversal;
 
         const stealFromKey = rowArray[stealFromIndex];
         const addToKey = rowArray[addToIndex];
@@ -142,15 +153,15 @@ export const PaneProvider = ({
   );
 
   const setColumnValue = useCallback(
-    (isStart: boolean, id: string, value: number) => {
+    (isStart: boolean, splitterId: string, value: number) => {
       const { columns, columnArray } = layoutIndices;
-      const stealFromTraversal = isStart ? 0 : 1;
-      const addToTraversal = isStart ? -1 : 0;
+      const stealFromTraversal = isStart ? -1 : 1;
+      const addToTraversal = 0;
 
       setColumnsTrack(state => {
-        const stealFromIndex = columns[id] + stealFromTraversal;
-        const addToIndex = columns[id] + addToTraversal;
-        const oldValue = columnsTrack[id];
+        const stealFromIndex = columns[splitterId] + stealFromTraversal;
+        const addToIndex = columns[splitterId] + addToTraversal;
+        const oldValue = columnsTrack[splitterId];
 
         const stealFromKey = columnArray[stealFromIndex];
         const addToKey = columnArray[addToIndex];
@@ -218,19 +229,36 @@ export const PaneProvider = ({
     [layoutIndices, rowsTrack, layoutStateInPixels]
   );
 
-  const splitterContext = useMemo(
-    () => ({
-      columnState,
-      rowState,
-      setRowValue,
-      setColumnValue,
-      getRowValue,
-      getColumnValue,
-      totalPanesHeight,
-      totalPanesWidth,
-      pixelsPerFr
-    }),
+  const providerId = useId(id);
+
+  /* Combine with parent PaneProviderContext, allowing `Splitter` to selectively
+   * affect ancestor DOM layouts */
+  const parentPaneProviderContext = usePaneProviderContext();
+
+  const paneProviderContext = useMemo(
+    () =>
+      providerId
+        ? {
+            providerId,
+            contextData: {
+              ...parentPaneProviderContext.contextData,
+              [providerId]: {
+                columnState,
+                rowState,
+                setRowValue,
+                setColumnValue,
+                getRowValue,
+                getColumnValue,
+                totalPanesHeight,
+                totalPanesWidth,
+                pixelsPerFr
+              }
+            }
+          }
+        : {},
     [
+      providerId,
+      parentPaneProviderContext,
       rowState,
       columnState,
       setRowValue,
@@ -244,20 +272,22 @@ export const PaneProvider = ({
   );
 
   return (
-    <SplitterContext.Provider value={splitterContext}>
+    <PaneProviderContext.Provider value={paneProviderContext}>
       {children?.({
+        id: providerId!,
         getRowValue,
         getColumnValue,
         getGridTemplateColumns,
         getGridTemplateRows
       })}
-    </SplitterContext.Provider>
+    </PaneProviderContext.Provider>
   );
 };
 
 PaneProvider.displayName = 'PaneProvider';
 
 PaneProvider.propTypes = {
+  id: PropTypes.string,
   totalPanesWidth: PropTypes.number.isRequired,
   totalPanesHeight: PropTypes.number.isRequired,
   defaultRowValues: PropTypes.object,

@@ -11,6 +11,7 @@ import { Splitter } from './components/Splitter';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
 import { Content } from './components/Content';
+import { SplitterButton } from './components/SplitterButton';
 import { IPaneProviderProps } from '../../types';
 
 interface IExtendedMouseEvent extends MouseEventInit {
@@ -62,46 +63,48 @@ const UncontrolledTestSplitter = () => {
         >
           <Pane>
             <Content>Pane 1</Content>
-            <Splitter data-test-id="pane-1-end" layoutKey="a" min={0} max={2} orientation="end" />
+            <Splitter data-test-id="pane-1-end" layoutKey="a" min={0} max={2} orientation="end">
+              <SplitterButton label="toggle pane-1-end-a" />
+            </Splitter>
             <Splitter
               data-test-id="pane-1-bottom"
               layoutKey="c"
               min={0}
               max={2}
               orientation="bottom"
-            />
+            >
+              <SplitterButton label="toggle pane-1-bottom-c" />
+            </Splitter>
           </Pane>
           <Pane>
             <Content>Pane 2</Content>
-            <Splitter
-              data-test-id="pane-2-start"
-              layoutKey="b"
-              min={0}
-              max={2}
-              orientation="start"
-            />
+            <Splitter data-test-id="pane-2-start" layoutKey="b" min={0} max={2} orientation="start">
+              <SplitterButton label="toggle pane-2-start-b" placement="end" />
+            </Splitter>
             <Splitter
               data-test-id="pane-2-bottom"
               layoutKey="c"
               min={0}
               max={2}
               orientation="bottom"
-            />
+            >
+              <SplitterButton label="toggle pane-2-bottom-c" placement="start" />
+            </Splitter>
           </Pane>
           <Pane>
             <Content>Pane 3</Content>
-            <Splitter data-test-id="pane-3-end" layoutKey="a" min={0} max={2} orientation="end" />
-            <Splitter data-test-id="pane-3-top" layoutKey="d" min={0} max={2} orientation="top" />
+            <Splitter data-test-id="pane-3-end" layoutKey="a" min={0} max={2} orientation="end">
+              <SplitterButton label="toggle pane-3-end-a" placement="end" />
+            </Splitter>
+            <Splitter data-test-id="pane-3-top" layoutKey="d" min={0} max={2} orientation="top">
+              <SplitterButton label="toggle pane-3-top-d" placement="end" />
+            </Splitter>
           </Pane>
           <Pane>
             <Content>Pane 4</Content>
-            <Splitter
-              data-test-id="pane-4-start"
-              layoutKey="b"
-              min={0}
-              max={2}
-              orientation="start"
-            />
+            <Splitter data-test-id="pane-4-start" layoutKey="b" min={0} max={2} orientation="start">
+              <SplitterButton label="toggle pane-4-start-b" placement="center" />
+            </Splitter>
             <Splitter data-test-id="pane-4-top" layoutKey="d" min={0} max={2} orientation="top" />
           </Pane>
         </div>
@@ -184,6 +187,97 @@ const ControlledTestSplitter = ({
   );
 };
 
+const NestedTestSplitter = ({
+  parent,
+  child
+}: {
+  parent: Pick<IPaneProviderProps, 'columnValues' | 'rowValues' | 'onChange'>;
+  child: Pick<IPaneProviderProps, 'columnValues' | 'rowValues' | 'onChange'>;
+}) => {
+  const parentHandleOnChange = parent.onChange;
+  const childHandleOnChange = child.onChange;
+
+  return (
+    <PaneProvider
+      id="column-layout"
+      totalPanesWidth={1000}
+      totalPanesHeight={500}
+      columnValues={parent.columnValues}
+      rowValues={parent.rowValues}
+      onChange={parentHandleOnChange}
+    >
+      {({
+        getGridTemplateColumns: getParentGridTemplateColumns,
+        getGridTemplateRows: getParentGridTemplateRows
+      }) => (
+        <div
+          style={{
+            direction: 'ltr',
+            display: 'grid',
+            width: '1000px',
+            height: '500px',
+            gridTemplateRows: getParentGridTemplateRows(),
+            gridTemplateColumns: getParentGridTemplateColumns()
+          }}
+        >
+          <Pane>
+            <Content>
+              <PaneProvider
+                totalPanesWidth={500}
+                totalPanesHeight={500}
+                columnValues={child.columnValues}
+                rowValues={child.rowValues}
+                onChange={childHandleOnChange}
+              >
+                {({
+                  getGridTemplateColumns: getChildGridTemplateColumns,
+                  getGridTemplateRows: getChildGridTemplateRows
+                }) => (
+                  <div
+                    style={{
+                      direction: 'ltr',
+                      display: 'grid',
+                      width: '100%',
+                      height: '500px',
+                      gridTemplateRows: getChildGridTemplateRows(),
+                      gridTemplateColumns: getChildGridTemplateColumns()
+                    }}
+                  >
+                    <Pane>
+                      <Content>Nested Pane 1</Content>
+                      <Splitter
+                        data-test-id="nested-pane-1-bottom"
+                        layoutKey="nested-a"
+                        min={0}
+                        max={2}
+                        orientation="bottom"
+                      />
+                      <Splitter
+                        data-test-id="nested-pane-1-end"
+                        providerId="column-layout"
+                        layoutKey="nested-b"
+                        min={0}
+                        max={2}
+                        orientation="end"
+                      />
+                    </Pane>
+                    <Pane>
+                      <Content>Nested Pane 2</Content>
+                    </Pane>
+                  </div>
+                )}
+              </PaneProvider>
+            </Content>
+          </Pane>
+          <Pane>
+            <Content>Pane 2</Content>
+          </Pane>
+        </div>
+      )}
+    </PaneProvider>
+  );
+};
+
 describe('PaneProvider', () => {
   beforeAll(() => {
     Object.defineProperty(document.body, 'clientWidth', {
@@ -200,6 +294,7 @@ describe('PaneProvider', () => {
 
     render(
       <PaneProvider
+        id="named-layout"
         totalPanesWidth={500}
         totalPanesHeight={500}
         defaultColumnValues={{ a: 1, b: 1 }}
@@ -210,12 +305,13 @@ describe('PaneProvider', () => {
     );
 
     expect(renderProp.mock.calls[0]).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "getColumnValue": [Function],
           "getGridTemplateColumns": [Function],
           "getGridTemplateRows": [Function],
           "getRowValue": [Function],
+          "id": "named-layout",
         },
       ]
     `);
@@ -437,8 +533,8 @@ describe('PaneProvider', () => {
       fireEvent(document, new ExtendedMouseEvent('mousemove', { pageX: 200 }));
       fireEvent.mouseUp(document);
 
-      expect(separator).toHaveAttribute('aria-valuenow', '200');
-      expect(separatorComplement).toHaveAttribute('aria-valuenow', '800');
+      expect(separator).toHaveAttribute('aria-valuenow', '20');
+      expect(separatorComplement).toHaveAttribute('aria-valuenow', '80');
     });
 
     it('moves row based splitter', () => {
@@ -474,8 +570,8 @@ describe('PaneProvider', () => {
       fireEvent(document, new ExtendedMouseEvent('mousemove', { pageY: 50 }));
       fireEvent.mouseUp(document);
 
-      expect(separator).toHaveAttribute('aria-valuenow', '49.999999999999986');
-      expect(separatorComplement).toHaveAttribute('aria-valuenow', '450');
+      expect(separator).toHaveAttribute('aria-valuenow', '9.999999999999998');
+      expect(separatorComplement).toHaveAttribute('aria-valuenow', '90');
     });
     it('moves column start based splitter', () => {
       const { getByTestId } = render(<UncontrolledTestSplitter />);
@@ -510,8 +606,8 @@ describe('PaneProvider', () => {
       fireEvent(document, new ExtendedMouseEvent('mousemove', { pageX: 600 }));
       fireEvent.mouseUp(document);
 
-      expect(separator).toHaveAttribute('aria-valuenow', '400');
-      expect(separatorComplement).toHaveAttribute('aria-valuenow', '600');
+      expect(separator).toHaveAttribute('aria-valuenow', '40');
+      expect(separatorComplement).toHaveAttribute('aria-valuenow', '60');
     });
     it('moves row top based splitter', () => {
       const { getByTestId } = render(<UncontrolledTestSplitter />);
@@ -546,8 +642,8 @@ describe('PaneProvider', () => {
       fireEvent(document, new ExtendedMouseEvent('mousemove', { pageY: 400 }));
       fireEvent.mouseUp(document);
 
-      expect(separator).toHaveAttribute('aria-valuenow', '100');
-      expect(separatorComplement).toHaveAttribute('aria-valuenow', '400');
+      expect(separator).toHaveAttribute('aria-valuenow', '20');
+      expect(separatorComplement).toHaveAttribute('aria-valuenow', '80');
     });
   });
 
@@ -600,13 +696,13 @@ describe('PaneProvider', () => {
       fireEvent.mouseUp(document);
 
       expect(_rowValues).toMatchInlineSnapshot(`
-        Object {
+        {
           "c": 1,
           "d": 1,
         }
       `);
       expect(_columnValues).toMatchInlineSnapshot(`
-        Object {
+        {
           "a": 0.5,
           "b": 1.5,
         }
@@ -661,17 +757,207 @@ describe('PaneProvider', () => {
       fireEvent.mouseUp(document);
 
       expect(_rowValues).toMatchInlineSnapshot(`
-        Object {
+        {
           "c": 0.19999999999999996,
           "d": 1.8,
         }
       `);
       expect(_columnValues).toMatchInlineSnapshot(`
-        Object {
+        {
           "a": 1,
           "b": 1,
         }
       `);
+    });
+  });
+  describe('nested splitter', () => {
+    it('should resize the parent layout from inside a child layout', () => {
+      let _parentColumnValues: any;
+      let _childRowValues: any;
+
+      const element = React.createElement(() => {
+        const [parentColumnValues, setParentColumnValues] = useState<Record<string, number>>({
+          'nested-b': 1,
+          a: 1
+        });
+        const [childRowValues, setChildRowValues] = useState<Record<string, number>>({
+          'nested-a': 1,
+          b: 1
+        });
+
+        const onParentChange = useCallback(
+          (rows: Record<string, number>, cols: Record<string, number>) => {
+            setParentColumnValues(cols);
+          },
+          [setParentColumnValues]
+        );
+        const onChildChange = useCallback(
+          (rows: Record<string, number>) => {
+            setChildRowValues(rows);
+          },
+          [setChildRowValues]
+        );
+
+        _parentColumnValues = parentColumnValues;
+        _childRowValues = childRowValues;
+
+        return (
+          <NestedTestSplitter
+            parent={{
+              rowValues: {},
+              columnValues: parentColumnValues,
+              onChange: onParentChange
+            }}
+            child={{
+              rowValues: childRowValues,
+              columnValues: {},
+              onChange: onChildChange
+            }}
+          />
+        );
+      });
+
+      const { getByTestId } = render(element);
+
+      const childSeparator = getByTestId('nested-pane-1-bottom');
+      const parentSeparator = getByTestId('nested-pane-1-end');
+
+      childSeparator.getBoundingClientRect = () => ({
+        bottom: window.document.body.clientHeight - 250,
+        height: 0,
+        left: 0,
+        right: 0,
+        top: 250,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.mouseDown(childSeparator);
+      fireEvent(document, new ExtendedMouseEvent('mousemove', { pageY: 150 }));
+      fireEvent.mouseUp(document);
+
+      parentSeparator.getBoundingClientRect = () => ({
+        bottom: 0,
+        height: 0,
+        left: 500,
+        right: window.document.body.clientWidth - 500,
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.mouseDown(parentSeparator);
+      fireEvent(document, new ExtendedMouseEvent('mousemove', { pageX: 600 }));
+      fireEvent.mouseUp(document);
+
+      expect(_childRowValues).toMatchInlineSnapshot(`
+        {
+          "b": 1.4,
+          "nested-a": 0.6,
+        }
+      `);
+      expect(_parentColumnValues).toMatchInlineSnapshot(`
+        {
+          "a": 0.8,
+          "nested-b": 1.2,
+        }
+      `);
+    });
+  });
+  describe('splitter button', () => {
+    it('collapses column based splitter', () => {
+      const { getByTestId, getByLabelText } = render(<UncontrolledTestSplitter />);
+
+      const separator = getByTestId('pane-1-end');
+      const button = getByLabelText('toggle pane-1-end-a');
+
+      separator.getBoundingClientRect = () => ({
+        bottom: 0,
+        height: 0,
+        left: 500,
+        right: window.document.body.clientWidth - 500,
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.click(button);
+
+      expect(separator).toHaveAttribute('aria-valuenow', '0');
+    });
+    it('expands column based splitter', () => {
+      const { getByTestId, getByLabelText } = render(<UncontrolledTestSplitter />);
+
+      const separator = getByTestId('pane-1-end');
+      const button = getByLabelText('toggle pane-1-end-a');
+
+      separator.getBoundingClientRect = () => ({
+        bottom: 0,
+        height: 0,
+        left: 500,
+        right: window.document.body.clientWidth - 500,
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.click(button);
+      fireEvent.click(button);
+
+      expect(separator).toHaveAttribute('aria-valuenow', '100');
+    });
+    it('collapses row based splitter', () => {
+      const { getByTestId, getByLabelText } = render(<UncontrolledTestSplitter />);
+
+      const separator = getByTestId('pane-1-bottom');
+      const button = getByLabelText('toggle pane-1-bottom-c');
+
+      separator.getBoundingClientRect = () => ({
+        bottom: 0,
+        height: 0,
+        left: 500,
+        right: window.document.body.clientWidth - 500,
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.click(button);
+
+      expect(separator).toHaveAttribute('aria-valuenow', '0');
+    });
+    it('expands row based splitter', () => {
+      const { getByTestId, getByLabelText } = render(<UncontrolledTestSplitter />);
+
+      const separator = getByTestId('pane-1-bottom');
+      const button = getByLabelText('toggle pane-1-bottom-c');
+
+      separator.getBoundingClientRect = () => ({
+        bottom: 0,
+        height: 0,
+        left: 500,
+        right: window.document.body.clientWidth - 500,
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => undefined
+      });
+
+      fireEvent.click(button);
+      fireEvent.click(button);
+
+      expect(separator).toHaveAttribute('aria-valuenow', '100');
     });
   });
 });

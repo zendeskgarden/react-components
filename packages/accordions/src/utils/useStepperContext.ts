@@ -10,7 +10,6 @@ import { createContext, useContext } from 'react';
 export interface IStepperContext {
   activeIndex: number;
   isHorizontal: boolean;
-  currentIndexRef: React.MutableRefObject<number>;
 }
 
 export const StepperContext = createContext<IStepperContext | undefined>(undefined);

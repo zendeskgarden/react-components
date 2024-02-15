@@ -12,6 +12,8 @@ import userEvent from '@testing-library/user-event';
 import { useFocusableMount } from './useFocusableMount';
 
 describe('useFocusableMount', () => {
+  const user = userEvent.setup();
+
   const TestFocusOnMount = ({ isMounted = true, focusOnMount = true, restoreFocus = true }) => {
     const [mounted, setMounted] = React.useState(() => isMounted);
     const targetRef = React.useRef(null);
@@ -34,21 +36,21 @@ describe('useFocusableMount', () => {
     expect(btn).toHaveFocus();
   });
 
-  it('focuses on trigger when sheet is closed', () => {
+  it('focuses on trigger when sheet is closed', async () => {
     render(<TestFocusOnMount isMounted={false} />);
 
     const [triggerBtn, targetBtn] = screen.getAllByRole('button');
 
     expect(targetBtn).not.toHaveFocus();
 
-    act(() => {
-      userEvent.click(triggerBtn);
+    await act(async () => {
+      await user.click(triggerBtn);
     });
 
     expect(targetBtn).toHaveFocus();
 
-    act(() => {
-      userEvent.click(triggerBtn);
+    await act(async () => {
+      await user.click(triggerBtn);
     });
 
     expect(triggerBtn).toHaveFocus();

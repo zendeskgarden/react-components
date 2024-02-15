@@ -1,6 +1,7 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Alert, Close, Paragraph, Title } from '@zendeskgarden/react-notifications';
 import { AlertStory } from './stories/AlertStory';
+import README from '../README.md';
 
 <Meta
   title="Packages/Notifications/Alert"
@@ -17,12 +18,20 @@ import { AlertStory } from './stories/AlertStory';
 <Canvas>
   <Story
     name="Alert"
-    args={{ children: 'Text', type: 'info', title: 'Title', hasClose: true, hasParagraph: false }}
+    args={{
+      children: 'Text',
+      type: 'info',
+      title: 'Title',
+      hasClose: true,
+      hasParagraph: false,
+      'aria-label': 'Close'
+    }}
     argTypes={{
       title: { name: 'children', table: { category: 'Title' } },
       isRegular: { control: { type: 'boolean' }, table: { category: 'Title' } },
       hasClose: { name: 'Close', table: { category: 'Story' } },
-      hasParagraph: { name: 'Paragraph', table: { category: 'Story' } }
+      hasParagraph: { name: 'Paragraph', table: { category: 'Story' } },
+      'aria-label': { table: { category: 'Close' } }
     }}
     parameters={{
       design: {
@@ -35,3 +44,5 @@ import { AlertStory } from './stories/AlertStory';
     {args => <AlertStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

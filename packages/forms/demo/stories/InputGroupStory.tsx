@@ -29,6 +29,7 @@ export const InputGroupStory: Story<IArgs> = ({
   hint,
   hasMessage,
   message,
+  validationLabel,
   items,
   disabled,
   isNeutral,
@@ -46,6 +47,7 @@ export const InputGroupStory: Story<IArgs> = ({
     hasMessage={hasMessage}
     message={message}
     validation={args.validation}
+    validationLabel={validationLabel}
   >
     <InputGroup {...args}>
       {items.map((item, index) =>

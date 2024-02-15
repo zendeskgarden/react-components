@@ -5,9 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useCallback, useEffect, useLayoutEffect, useState } from 'react';
+import React, { useRef, useCallback, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import debounce from 'lodash.debounce';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import mergeRefs from 'react-merge-refs';
 import { ITextareaProps, VALIDATION } from '../types';
@@ -101,23 +100,6 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
       [calculateHeight, isControlled, onChange]
     );
 
-    useEffect(() => {
-      if (!isAutoResizable) {
-        return undefined;
-      }
-
-      const resizeHandler = debounce(() => {
-        calculateHeight();
-      });
-
-      window.addEventListener('resize', resizeHandler);
-
-      return () => {
-        resizeHandler.cancel();
-        window.removeEventListener('resize', resizeHandler);
-      };
-    }, [calculateHeight, isAutoResizable]);
-
     useLayoutEffect(() => {
       calculateHeight();
     });
@@ -145,15 +127,15 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
         ...style
       },
       ...props
-    };
+    } as any;
 
     if (fieldContext) {
-      combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+      combinedProps = fieldContext.getInputProps(combinedProps);
     }
 
     return (
       <>
-        <StyledTextarea {...(combinedProps as any)} />
+        <StyledTextarea {...combinedProps} />
         {isAutoResizable && (
           <StyledTextarea
             aria-hidden

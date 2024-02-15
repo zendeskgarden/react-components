@@ -12,7 +12,9 @@ import { render } from 'garden-test-utils';
 import { CollapsibleSubNavItem } from './CollapsibleSubNavItem';
 
 describe('CollapsibleSubNavItem', () => {
-  it('calls onChange with expanded state if header is clicked', () => {
+  const user = userEvent.setup();
+
+  it('calls onChange with expanded state if header is clicked', async () => {
     const onChangeSpy = jest.fn();
     const { queryByRole } = render(
       <CollapsibleSubNavItem header="Header" onChange={onChangeSpy}>
@@ -20,12 +22,12 @@ describe('CollapsibleSubNavItem', () => {
       </CollapsibleSubNavItem>
     );
 
-    userEvent.click(queryByRole('heading')!.firstChild as any);
+    await user.click(queryByRole('heading')!.firstChild as any);
 
     expect(onChangeSpy).toHaveBeenCalledWith(true);
   });
 
-  it('toggles expansion if onChange callback is not provided', () => {
+  it('toggles expansion if onChange callback is not provided', async () => {
     const { queryByRole, container } = render(
       <CollapsibleSubNavItem header="Header">
         <p>Content</p>
@@ -33,7 +35,7 @@ describe('CollapsibleSubNavItem', () => {
     );
 
     expect(container.querySelector("[role='region']")).toHaveAttribute('aria-hidden', 'true');
-    userEvent.click(queryByRole('heading')!.firstChild as any);
+    await user.click(queryByRole('heading')!.firstChild as any);
     expect(container.querySelector("[role='region']")).toHaveAttribute('aria-hidden', 'false');
   });
 

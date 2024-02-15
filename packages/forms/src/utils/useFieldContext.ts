@@ -6,17 +6,19 @@
  */
 
 import { createContext, useContext, MutableRefObject } from 'react';
-import { IUseFieldPropGetters } from '@zendeskgarden/container-field';
+import { IUseFieldReturnValue } from '@zendeskgarden/container-field';
 
-interface IFieldContext extends IUseFieldPropGetters {
+interface IFieldContext extends IUseFieldReturnValue {
   getMessageProps: (messageProps: any) => any;
   isLabelActive: boolean;
   isLabelHovered: boolean;
   setIsLabelHovered: (isLabelHovered: boolean) => void;
   setIsLabelActive: (isLabelActive: boolean) => void;
   multiThumbRangeRef: MutableRefObject<HTMLDivElement | null>;
-  setHint: (hintPresent: boolean) => void;
+  setHasHint: (hintPresent: boolean) => void;
   hasHint: boolean;
+  setHasMessage: (messagePresent: boolean) => void;
+  hasMessage: boolean;
 }
 
 export const FieldContext = createContext<IFieldContext | undefined>(undefined);

@@ -33,7 +33,7 @@ const NextItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
-export const NextItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
+export const NextItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component' | 'hasIcon'>>(
   ({ value, disabled, ...props }, ref) => {
     const {
       nextItemsHashRef,
@@ -54,6 +54,7 @@ export const NextItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'compon
         value={value}
         ref={ref}
         {...props}
+        hasIcon
       />
     );
   }

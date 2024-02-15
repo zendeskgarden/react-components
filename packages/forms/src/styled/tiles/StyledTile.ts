@@ -6,8 +6,12 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { rgba } from 'polished';
+import {
+  getColor,
+  DEFAULT_THEME,
+  retrieveComponentStyles,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 import { StyledTileIcon } from './StyledTileIcon';
 
 const COMPONENT_ID = 'forms.tile';
@@ -27,7 +31,6 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
   const hoverBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.08);
   const hoverBorderColor = getColor('primaryHue', SHADE, props.theme);
   const focusBorderColor = hoverBorderColor;
-  const focusBoxShadow = props.theme.shadows.md(rgba(focusBorderColor!, 0.35));
   const activeBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.2);
   const activeBorderColor = focusBorderColor;
   const disabledBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);
@@ -51,10 +54,6 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
       color: ${iconColor};
     }
 
-    &:focus {
-      outline: none;
-    }
-
     &:hover:not([aria-disabled='true']) {
       border-color: ${hoverBorderColor};
       background-color: ${hoverBackgroundColor};
@@ -65,10 +64,14 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
       }
     }
 
-    &[data-garden-focus-visible='true'] {
-      border-color: ${focusBorderColor};
-      box-shadow: ${focusBoxShadow};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      hue: focusBorderColor,
+      styles: {
+        borderColor: focusBorderColor
+      },
+      selector: `&:focus-within`
+    })}
 
     &:active:not([aria-disabled='true']) {
       border-color: ${activeBorderColor};
@@ -138,7 +141,6 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
 export const StyledTile = styled.label.attrs<IStyledTileProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'data-garden-focus-visible': props.isFocused,
   'data-garden-selected': props.isSelected
 }))<IStyledTileProps>`
   display: block;
@@ -153,6 +155,8 @@ export const StyledTile = styled.label.attrs<IStyledTileProps>(props => ({
   cursor: ${props => !props.isDisabled && 'pointer'};
   padding: ${props => props.theme.space.base * 5}px;
   direction: ${props => props.theme.rtl && 'rtl'};
+  min-width: 132px;
+  word-break: break-word;
 
   ${props => colorStyles(props)};
 

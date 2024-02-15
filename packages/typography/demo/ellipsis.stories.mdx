@@ -1,5 +1,6 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Ellipsis } from '@zendeskgarden/react-typography';
+import README from '../README.md';
 
 <Meta title="Packages/Typography/Ellipsis" component={Ellipsis} />
 
@@ -21,3 +22,5 @@ import { Ellipsis } from '@zendeskgarden/react-typography';
     {args => <Ellipsis {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

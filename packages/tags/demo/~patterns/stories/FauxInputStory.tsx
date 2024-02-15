@@ -18,7 +18,7 @@ interface IArgs extends ITagStoryArgs {
 export const FauxInputStory: Story<IArgs> = ({ tags, width, ...args }) => (
   <FauxInput isCompact={args.size !== 'large'} style={{ width: `${width}%` }}>
     {tags.map((tag, index) => (
-      <TagStory key={index} {...args} tabIndex={0} style={{ margin: 2 }}>
+      <TagStory key={index} {...args} closeAriaLabel="Label" tabIndex={0} style={{ margin: 2 }}>
         <span>{tag}</span>
       </TagStory>
     ))}

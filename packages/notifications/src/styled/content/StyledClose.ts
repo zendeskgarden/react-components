@@ -6,7 +6,12 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  getColor,
+  DEFAULT_THEME,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 import { Hue } from '../../utils/useNotificationsContext';
 
 const COMPONENT_ID = 'notifications.close';
@@ -29,7 +34,11 @@ export const StyledClose = styled.button.attrs({
   position: absolute;
   top: ${props => props.theme.space.base}px;
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base}px`};
-  transition: background-color 0.1s ease-in-out, color 0.25s ease-in-out;
+  /* prettier-ignore */
+  transition:
+    background-color 0.1s ease-in-out,
+    color 0.25s ease-in-out,
+    box-shadow 0.1s ease-in-out;
   border: none; /* [1] */
   border-radius: 50%;
   background-color: transparent; /* [1] */
@@ -45,27 +54,20 @@ export const StyledClose = styled.button.attrs({
   font-size: 0; /* [1] */
   user-select: none;
 
+  &::-moz-focus-inner {
+    border: 0; /* [2] */
+  }
+
   &:hover {
     color: ${props =>
       props.hue ? getColor(props.hue, 800, props.theme) : getColor('neutralHue', 800, props.theme)};
   }
 
-  &:focus {
-    outline: none;
-  }
-
-  &[data-garden-focus-visible] {
-    background-color: ${props =>
-      props.hue
-        ? getColor(props.hue, props.hue === 'warningHue' ? 700 : 600, props.theme, 0.15)
-        : getColor('neutralHue', 600, props.theme, 0.15)};
-    color: ${props =>
-      props.hue ? getColor(props.hue, 800, props.theme) : getColor('neutralHue', 800, props.theme)};
-
-    &::-moz-focus-inner {
-      border: 0; /* [2] */
-    }
-  }
+  ${props =>
+    focusStyles({
+      theme: props.theme,
+      inset: true
+    })}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

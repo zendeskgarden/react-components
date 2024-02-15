@@ -1,6 +1,7 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Tag } from '@zendeskgarden/react-tags';
 import { TagStory } from './stories/TagStory';
+import README from '../README.md';
 
 <Meta
   title="Packages/Tags/Tag"
@@ -17,11 +18,17 @@ import { TagStory } from './stories/TagStory';
 <Canvas>
   <Story
     name="Tag"
-    args={{ children: 'Tag', hasAvatar: false, hasClose: false }}
+    args={{
+      children: 'Tag',
+      hasAvatar: false,
+      hasClose: false,
+      closeAriaLabel: 'Label'
+    }}
     argTypes={{
       hue: { control: 'color' },
       hasAvatar: { name: 'Tag.Avatar', table: { category: 'Story' } },
-      hasClose: { name: 'Tag.Close', table: { category: 'Story' } }
+      hasClose: { name: 'Tag.Close', table: { category: 'Story' } },
+      closeAriaLabel: { name: 'aria-label', table: { category: 'Tag.Close' } }
     }}
     parameters={{
       design: {
@@ -34,3 +41,5 @@ import { TagStory } from './stories/TagStory';
     {args => <TagStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

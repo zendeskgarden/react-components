@@ -5,23 +5,48 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import React, { useEffect, HTMLAttributes, forwardRef } from 'react';
+import PropTypes from 'prop-types';
 import { useModalContext } from '../../utils/useModalContext';
 import { StyledDrawerModalHeader } from '../../styled';
+import { IDrawerModalHeaderProps } from '../../types';
 
-const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { isCloseButtonPresent, getTitleProps } = useModalContext();
+const HeaderComponent = forwardRef<HTMLDivElement, IDrawerModalHeaderProps>(
+  ({ tag, ...other }, ref) => {
+    const { isCloseButtonPresent, hasHeader, setHasHeader, getTitleProps } = useModalContext();
 
-  return (
-    <StyledDrawerModalHeader
-      ref={ref}
-      {...getTitleProps(props)}
-      isCloseButtonPresent={isCloseButtonPresent}
-    />
-  );
-});
+    useEffect(() => {
+      if (!hasHeader && setHasHeader) {
+        setHasHeader(true);
+      }
+
+      return () => {
+        if (hasHeader && setHasHeader) {
+          setHasHeader(false);
+        }
+      };
+    }, [hasHeader, setHasHeader]);
+
+    return (
+      <StyledDrawerModalHeader
+        {...(getTitleProps(other) as HTMLAttributes<HTMLDivElement>)}
+        as={tag}
+        isCloseButtonPresent={isCloseButtonPresent}
+        ref={ref}
+      />
+    );
+  }
+);
 
 HeaderComponent.displayName = 'DrawerModal.Header';
+
+HeaderComponent.propTypes = {
+  tag: PropTypes.any
+};
+
+HeaderComponent.defaultProps = {
+  tag: 'div'
+};
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

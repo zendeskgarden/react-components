@@ -13,13 +13,13 @@ import { useSheetContext } from '../../../utils/useSheetContext';
 
 const SheetClose = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
-    const { setCloseButtonPresent } = useSheetContext();
+    const { setIsCloseButtonPresent } = useSheetContext();
 
     useEffect(() => {
-      setCloseButtonPresent(true);
+      setIsCloseButtonPresent(true);
 
-      return () => setCloseButtonPresent(false);
-    }, [setCloseButtonPresent]);
+      return () => setIsCloseButtonPresent(false);
+    }, [setIsCloseButtonPresent]);
 
     return (
       <StyledSheetClose aria-label="Close Sheet" ref={ref} {...props}>

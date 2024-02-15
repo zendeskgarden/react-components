@@ -11,11 +11,19 @@ import { IFileUploadProps } from '../types';
 import { StyledFileUpload } from '../styled';
 
 /**
+ * [1] A generic div is used for best support with `react-dropzone`.
+ */
+
+/**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const FileUpload = React.forwardRef<HTMLDivElement, IFileUploadProps>(
   ({ disabled, ...props }, ref) => {
-    return <StyledFileUpload ref={ref} aria-disabled={disabled} {...props} />;
+    return (
+      /* [1] */
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
+      <StyledFileUpload ref={ref} aria-disabled={disabled} {...props} role="button" />
+    );
   }
 );
 

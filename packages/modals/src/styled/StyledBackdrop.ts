@@ -26,6 +26,16 @@ const animationName = keyframes`
   }
 `;
 
+const animationStyles = (props: IStyledBackdropProps) => {
+  if (props.isAnimated) {
+    return css`
+      animation: ${animationName} 0.15s ease-in;
+    `;
+  }
+
+  return '';
+};
+
 /**
  * 1. Smooth iOS scrolling.
  */
@@ -35,10 +45,7 @@ export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
 })<IStyledBackdropProps>`
   display: flex;
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   align-items: ${props => props.isCentered && 'center'};
   justify-content: ${props => props.isCentered && 'center'};
   z-index: 400;
@@ -47,11 +54,8 @@ export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
   -webkit-overflow-scrolling: touch; /* [1] */
   font-family: ${props => props.theme.fonts.system};
   direction: ${props => props.theme.rtl && 'rtl'};
-  animation: ${props =>
-    props.isAnimated &&
-    css`
-      ${animationName} 0.15s ease-in
-    `};
+
+  ${animationStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

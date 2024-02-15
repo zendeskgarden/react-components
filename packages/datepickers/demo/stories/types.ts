@@ -7,4 +7,4 @@
 
 import { DATE_STYLE_OPTIONS } from './data';
 
-export type DATE_STYLE = typeof DATE_STYLE_OPTIONS[number];
+export type DATE_STYLE = (typeof DATE_STYLE_OPTIONS)[number];

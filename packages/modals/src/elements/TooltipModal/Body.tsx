@@ -12,7 +12,12 @@ import { useTooltipModalContext } from '../../utils/useTooltipModalContext';
 const BodyComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { getContentProps } = useTooltipModalContext();
 
-  return <StyledTooltipModalBody ref={ref} {...getContentProps(props)} />;
+  return (
+    <StyledTooltipModalBody
+      {...(getContentProps(props) as HTMLAttributes<HTMLDivElement>)}
+      ref={ref}
+    />
+  );
 });
 
 BodyComponent.displayName = 'TooltipModal.Body';

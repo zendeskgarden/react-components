@@ -20,6 +20,7 @@ export const RangeStory: Story<IArgs> = ({
   hint,
   hasMessage,
   message,
+  validationLabel,
   ...args
 }) => (
   <FieldStory
@@ -31,6 +32,7 @@ export const RangeStory: Story<IArgs> = ({
     hasMessage={hasMessage}
     message={message}
     validation={args.validation}
+    validationLabel={validationLabel}
   >
     <Range {...args} />
   </FieldStory>

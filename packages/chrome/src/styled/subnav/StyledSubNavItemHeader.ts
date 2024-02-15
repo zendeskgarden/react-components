@@ -24,7 +24,7 @@ export const StyledSubNavItemHeader = styled(StyledSubNavItem).attrs<IStyledSubN
   position: relative;
   /* stylelint-disable-next-line property-no-unknown */
   padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-  props.theme.space.base * 7}px;
+    props.theme.space.base * 7}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

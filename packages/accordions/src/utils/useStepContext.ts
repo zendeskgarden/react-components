@@ -9,6 +9,9 @@ import { createContext, useContext } from 'react';
 
 export interface IStepContext {
   currentStepIndex: number;
+  isActive: boolean;
+  isCompleted: boolean;
+  isHorizontal: boolean;
 }
 
 export const StepContext = createContext<IStepContext | undefined>(undefined);
@@ -17,7 +20,7 @@ export const useStepContext = () => {
   const context = useContext(StepContext);
 
   if (context === undefined) {
-    throw new Error('This component must be rendered within a Stepper.Step component');
+    throw new Error('This component must be rendered within a Stepper component');
   }
 
   return context;

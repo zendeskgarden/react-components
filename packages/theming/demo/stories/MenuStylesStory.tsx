@@ -41,8 +41,8 @@ const MENU_ARROW_MAPPING: Record<MenuPosition, ArrowPosition> = {
   left: 'right'
 };
 
-/* stylelint-disable declaration-no-important */
 const StyledMenu = styled.div<{ position: MenuPosition }>`
+  /* stylelint-disable-next-line declaration-no-important */
   display: flex !important;
   align-items: center;
   justify-content: center;

@@ -24,7 +24,9 @@ export const StyledSpinnerCircle = styled.circle.attrs<IStyledSpinnerCircleProps
   strokeWidth: props.strokeWidthValue,
   strokeDasharray: `${props.dasharrayValue} 250`,
   transform: props.transform
-}))<IStyledSpinnerCircleProps>``;
+}))<IStyledSpinnerCircleProps>`
+  /* stylelint-disable no-empty-source */
+`;
 
 StyledSpinnerCircle.defaultProps = {
   theme: DEFAULT_THEME

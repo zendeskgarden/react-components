@@ -1,8 +1,9 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { Modal, Body, Close, Footer, FooterItem, Header } from '@zendeskgarden/react-modals';
 import { ModalStory } from './stories/ModalStory';
 import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Modals/Modal"
@@ -29,7 +30,9 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
       hasFooter: true,
       hasHeader: true,
       header: 'Header',
-      footerItems: FOOTER_ITEMS
+      footerItems: FOOTER_ITEMS,
+      dialogAriaLabel: 'Header',
+      closeAriaLabel: 'Close'
     }}
     argTypes={{
       appendToNode: { control: false },
@@ -41,7 +44,10 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
       footerItems: { name: 'FooterItem[]', table: { category: 'Story' } },
       body: { name: 'children', table: { category: 'Body' } },
       isDanger: { control: 'boolean', table: { category: 'Header' } },
-      header: { name: 'children', table: { category: 'Header' } }
+      tag: { control: 'text', table: { category: 'Header' } },
+      header: { name: 'children', table: { category: 'Header' } },
+      closeAriaLabel: { name: 'aria-label', table: { category: 'Close' } },
+      dialogAriaLabel: { name: 'aria-label' }
     }}
     parameters={{
       design: {
@@ -59,3 +65,5 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

@@ -6,7 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
-import addMonths from 'date-fns/addMonths';
+import { addMonths } from 'date-fns/addMonths';
 
 import { StyledRangeCalendar } from '../../../styled';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';

@@ -34,33 +34,49 @@ const ToastExample: React.FC<IToastProviderProps> = props => {
 };
 
 describe('ToastProvider', () => {
-  it('renders toasts in their provided placement', () => {
+  const user = userEvent.setup();
+
+  it('renders toasts in their provided placement', async () => {
     const { getByRole, getByText } = render(<ToastExample />);
 
-    userEvent.click(getByRole('button'));
+    await user.click(getByRole('button'));
     const notificationElement = getByText('notification');
 
     expect(notificationElement).toBeInTheDocument();
-    expect(notificationElement.parentElement?.parentElement).toHaveStyleRule('bottom', '64px');
-    expect(notificationElement.parentElement?.parentElement).toHaveStyleRule('left', '12px');
+    expect(notificationElement.parentElement?.parentElement?.parentElement).toHaveStyleRule(
+      'bottom',
+      '64px'
+    );
+    expect(notificationElement.parentElement?.parentElement?.parentElement).toHaveStyleRule(
+      'left',
+      '12px'
+    );
   });
 
-  it('renders toasts in alternative placement when in RTL mode', () => {
+  it('renders toasts in alternative placement when in RTL mode', async () => {
     const { getByRole, getByText } = renderRtl(<ToastExample />);
 
-    userEvent.click(getByRole('button'));
+    await user.click(getByRole('button'));
     const notificationElement = getByText('notification');
 
     expect(notificationElement).toBeInTheDocument();
-    expect(notificationElement.parentElement?.parentElement).toHaveStyleRule('bottom', '64px');
-    expect(notificationElement.parentElement?.parentElement).toHaveStyleRule('right', '12px');
+    expect(notificationElement.parentElement?.parentElement?.parentElement).toHaveStyleRule(
+      'bottom',
+      '64px'
+    );
+    expect(notificationElement.parentElement?.parentElement?.parentElement).toHaveStyleRule(
+      'right',
+      '12px'
+    );
   });
 
-  it('renders visible toasts up to provided limit', () => {
+  it('renders visible toasts up to provided limit', async () => {
     const { getByRole, getAllByText } = render(<ToastExample />);
 
-    for (let x = 0; x < 10; x++) {
-      userEvent.click(getByRole('button'));
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for (const _ of new Array(10).fill(null)) {
+      // eslint-disable-next-line no-await-in-loop
+      await user.click(getByRole('button'));
     }
 
     const notificationElements = getAllByText('notification');
@@ -74,14 +90,17 @@ describe('ToastProvider', () => {
     }
   });
 
-  it('renders toasts with provided zIndex', () => {
+  it('renders toasts with provided zIndex', async () => {
     const { getByRole, getByText } = render(<ToastExample zIndex={100} />);
 
-    userEvent.click(getByRole('button'));
+    await user.click(getByRole('button'));
     const notificationElement = getByText('notification');
 
     expect(notificationElement).toBeInTheDocument();
-    expect(notificationElement.parentElement?.parentElement).toHaveStyleRule('z-index', '100');
+    expect(notificationElement.parentElement?.parentElement?.parentElement).toHaveStyleRule(
+      'z-index',
+      '100'
+    );
   });
 
   it('applies placementProps when provided', () => {

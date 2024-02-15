@@ -59,13 +59,13 @@ export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
       backgroundSize,
       ...props,
       onChange
-    };
+    } as any;
 
     if (fieldContext) {
-      combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+      combinedProps = fieldContext.getInputProps(combinedProps);
     }
 
-    return <StyledRangeInput {...(combinedProps as any)} />;
+    return <StyledRangeInput {...combinedProps} />;
   }
 );
 

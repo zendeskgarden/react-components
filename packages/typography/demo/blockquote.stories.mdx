@@ -1,7 +1,8 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Blockquote } from '@zendeskgarden/react-typography';
 import { BlockquoteStory } from './stories/BlockquoteStory';
 import { BLOCKQUOTE_CHILDREN as CHILDREN } from './stories/data';
+import README from '../README.md';
 
 <Meta title="Packages/Typography/Blockquote" component={Blockquote} />
 
@@ -26,3 +27,5 @@ import { BLOCKQUOTE_CHILDREN as CHILDREN } from './stories/data';
     {args => <BlockquoteStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

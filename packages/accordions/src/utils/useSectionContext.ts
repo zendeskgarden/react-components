@@ -17,7 +17,7 @@ export const useSectionContext = () => {
   const context = useContext(SectionContext);
 
   if (context === undefined) {
-    throw new Error('This component must be rendered within a Accordion.Section component');
+    throw new Error('This component must be rendered within an Accordion component');
   }
 
   return context;

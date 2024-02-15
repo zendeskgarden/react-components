@@ -48,7 +48,9 @@ export const StyledBaseHeaderItem = styled.button.attrs({
   align-items: center;
   justify-content: ${props => (props.maxX ? 'start' : 'center')};
   order: 1;
-  transition: box-shadow 0.1s ease-in-out, color 0.1s ease-in-out;
+  transition:
+    box-shadow 0.1s ease-in-out,
+    color 0.1s ease-in-out;
   z-index: 0; /* [1] */
   margin: ${props => `0 ${props.theme.space.base * 3}px`};
   border: none; /* [2] */

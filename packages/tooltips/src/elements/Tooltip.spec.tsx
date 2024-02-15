@@ -15,6 +15,8 @@ import { ITooltipProps } from '../types';
 jest.useFakeTimers();
 
 describe('Tooltip', () => {
+  const user = userEvent.setup({ delay: null });
+
   const BasicExample = ({ placement, size, type, ...other }: Partial<ITooltipProps>) => (
     <Tooltip
       placement={placement}
@@ -35,13 +37,13 @@ describe('Tooltip', () => {
     expect(getByTestId('tooltip').parentElement!.parentElement!.tagName).toBe('BODY');
   });
 
-  it('renders tooltip with RTL styling if provided', () => {
+  it('renders tooltip with RTL styling if provided', async () => {
     const { getByTestId, getByText } = renderRtl(<BasicExample />);
 
     expect(getByText('Trigger')).not.toHaveFocus();
 
-    act(() => {
-      userEvent.tab();
+    await act(async () => {
+      await user.tab();
       jest.runOnlyPendingTimers();
     });
 
@@ -50,7 +52,7 @@ describe('Tooltip', () => {
   });
 
   describe('Focusable Tooltip Content', () => {
-    it('remains visible if tooltip content is focused', () => {
+    it('remains visible if tooltip content is focused', async () => {
       const { getByTestId, getByText } = renderRtl(
         <Tooltip content={<button>Content CTA</button>} data-test-id="tooltip">
           <button>Trigger</button>
@@ -59,16 +61,16 @@ describe('Tooltip', () => {
 
       expect(getByText('Trigger')).not.toHaveFocus();
 
-      act(() => {
-        userEvent.tab();
+      await act(async () => {
+        await user.tab();
         jest.runOnlyPendingTimers();
       });
 
       expect(getByText('Trigger')).toHaveFocus();
       expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'false');
 
-      act(() => {
-        userEvent.tab();
+      await act(async () => {
+        await user.tab();
         jest.runOnlyPendingTimers();
       });
 
@@ -77,18 +79,18 @@ describe('Tooltip', () => {
       expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'false');
     });
 
-    it('closes tooltip if content is blurred', () => {
+    it('closes tooltip if content is blurred', async () => {
       const { getByTestId } = renderRtl(<BasicExample />);
 
-      act(() => {
-        userEvent.tab();
+      await act(async () => {
+        await user.tab();
         jest.runOnlyPendingTimers();
       });
 
       expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'false');
 
-      act(() => {
-        userEvent.tab();
+      await act(async () => {
+        await user.tab();
         jest.runOnlyPendingTimers();
       });
 
@@ -97,11 +99,11 @@ describe('Tooltip', () => {
   });
 
   describe('Types', () => {
-    it('renders light tooltip if provided', () => {
+    it('renders light tooltip if provided', async () => {
       const { getByTestId } = render(<BasicExample type="light" />);
 
-      act(() => {
-        userEvent.tab();
+      await act(async () => {
+        await user.tab();
         jest.runOnlyPendingTimers();
       });
 
@@ -111,11 +113,11 @@ describe('Tooltip', () => {
       );
     });
 
-    it('renders dark tooltip if provided', () => {
+    it('renders dark tooltip if provided', async () => {
       const { getByTestId } = render(<BasicExample type="dark" />);
 
-      act(() => {
-        userEvent.tab();
+      await act(async () => {
+        await user.tab();
         jest.runOnlyPendingTimers();
       });
 
@@ -124,11 +126,11 @@ describe('Tooltip', () => {
   });
 
   describe('Sizes', () => {
-    it('renders extra-large tooltip', () => {
+    it('renders extra-large tooltip', async () => {
       const { getByTestId } = render(<BasicExample size="extra-large" />);
 
-      act(() => {
-        userEvent.tab();
+      await act(async () => {
+        await user.tab();
         jest.runOnlyPendingTimers();
       });
 
@@ -137,11 +139,11 @@ describe('Tooltip', () => {
       expect(tooltip).toHaveStyleRule('max-width', '460px');
     });
 
-    it('renders large tooltip', () => {
+    it('renders large tooltip', async () => {
       const { getByTestId } = render(<BasicExample size="large" />);
 
-      act(() => {
-        userEvent.tab();
+      await act(async () => {
+        await user.tab();
         jest.runOnlyPendingTimers();
       });
 
@@ -150,11 +152,11 @@ describe('Tooltip', () => {
       expect(tooltip).toHaveStyleRule('max-width', '270px');
     });
 
-    it('renders medium tooltip', () => {
+    it('renders medium tooltip', async () => {
       const { getByTestId } = render(<BasicExample size="medium" />);
 
-      act(() => {
-        userEvent.tab();
+      await act(async () => {
+        await user.tab();
         jest.runOnlyPendingTimers();
       });
 

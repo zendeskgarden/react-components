@@ -6,12 +6,14 @@
  */
 
 import { useContext, createContext, MutableRefObject } from 'react';
+import { DateFnsIndex } from '../../../utils/calendar-utils';
 import { IDatepickerRangeState, DatepickerRangeAction } from './datepicker-range-reducer';
 
 export interface IDatepickerRangeContext {
   state: IDatepickerRangeState;
   dispatch: React.Dispatch<DatepickerRangeAction>;
   locale?: string;
+  weekStartsOn?: DateFnsIndex;
   isCompact?: boolean;
   minValue?: Date;
   maxValue?: Date;

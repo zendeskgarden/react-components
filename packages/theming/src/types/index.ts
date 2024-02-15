@@ -22,17 +22,18 @@ export const ARROW_POSITION = [
   'left-bottom'
 ] as const;
 
-export type ArrowPosition = typeof ARROW_POSITION[number];
+export type ArrowPosition = (typeof ARROW_POSITION)[number];
 
 export const MENU_POSITION = ['top', 'right', 'bottom', 'left'] as const;
 
-export type MenuPosition = typeof MENU_POSITION[number];
+export type MenuPosition = (typeof MENU_POSITION)[number];
 
 type Hue = Record<number | string, string> | string;
 
 export interface IGardenTheme {
   rtl: boolean;
   document?: any;
+  window?: any;
   borders: {
     sm: string;
     md: string;
@@ -105,10 +106,12 @@ export interface IGardenTheme {
     xxxl: string;
   };
   shadowWidths: {
+    xs: string;
     sm: string;
     md: string;
   };
   shadows: {
+    xs: (color: string) => string;
     sm: (color: string) => string;
     md: (color: string) => string;
     lg: (offsetY: string, blurRadius: string, color: string) => string;

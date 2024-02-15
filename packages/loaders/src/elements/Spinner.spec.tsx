@@ -10,7 +10,7 @@ import { render, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import { Spinner } from './Spinner';
 
-jest.useFakeTimers();
+jest.useFakeTimers({ legacyFakeTimers: true });
 
 const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 
@@ -88,5 +88,17 @@ describe('Spinner', () => {
         />
       `);
     });
+  });
+
+  it('applies correct accessibility values', () => {
+    const { getByTestId } = render(<Spinner data-test-id="spinner" />);
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    const spinner = getByTestId('spinner');
+
+    expect(spinner).toHaveAttribute('role', 'img');
   });
 });

@@ -13,6 +13,8 @@ import { Sheet } from './Sheet';
 import { ISheetProps } from '../../types';
 
 describe('Sheet', () => {
+  const user = userEvent.setup();
+
   const Example = forwardRef<HTMLElement, ISheetProps>((props: ISheetProps, ref) => {
     const [isOpen, setIsOpen] = useState(props.isOpen);
 
@@ -41,11 +43,11 @@ describe('Sheet', () => {
 
   Example.displayName = 'Example';
 
-  it('passes ref to underlying DOM element', () => {
+  it('passes ref to underlying DOM element', async () => {
     const ref = React.createRef<HTMLElement>();
     const { getByRole, getByText } = render(<Example ref={ref} />);
 
-    userEvent.click(getByText('Toggle Sheet'));
+    await user.click(getByText('Toggle Sheet'));
 
     expect(getByRole('complementary')).toBe(ref.current);
   });
@@ -55,6 +57,6 @@ describe('Sheet', () => {
     const sheet = getByRole('complementary');
 
     expect(screen.getByLabelText('title')).toBe(sheet);
-    expect(sheet).toHaveDescription('description');
+    expect(sheet).toHaveAccessibleDescription('description');
   });
 });

@@ -1,8 +1,9 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { DrawerModal } from '@zendeskgarden/react-modals';
 import { DrawerModalStory } from './stories/DrawerModalStory';
 import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Modals/DrawerModal"
@@ -32,7 +33,9 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
       hasFooter: true,
       hasHeader: true,
       header: 'Header',
-      footerItems: FOOTER_ITEMS
+      footerItems: FOOTER_ITEMS,
+      dialogAriaLabel: 'Header',
+      closeAriaLabel: 'Close'
     }}
     argTypes={{
       appendToNode: { control: false },
@@ -42,7 +45,10 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
       hasHeader: { name: 'DrawerModal.Header', table: { category: 'Story' } },
       footerItems: { name: 'DrawerModal.FooterItem[]', table: { category: 'Story' } },
       body: { name: 'children', table: { category: 'DrawerModal.Body' } },
-      header: { name: 'children', table: { category: 'DrawerModal.Header' } }
+      header: { name: 'children', table: { category: 'DrawerModal.Header' } },
+      tag: { control: 'text', table: { category: 'DrawerModal.Header' } },
+      closeAriaLabel: { name: 'aria-label', table: { category: 'DrawerModal.Close' } },
+      dialogAriaLabel: { name: 'aria-label' }
     }}
     parameters={{
       design: {
@@ -60,3 +66,5 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

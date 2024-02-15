@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { IDatepickerProps } from '../types';
+
 /**
  * The following mappings use the Date offests:
  * 0 - Sunday
@@ -13,7 +15,7 @@
  */
 
 /** This type matches definition required by date-fns utilities */
-type DateFnsIndex = 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
+export type DateFnsIndex = IDatepickerProps['weekStartsOn'];
 
 const REGION_MAPPINGS: Record<string, DateFnsIndex> = {
   'ar-DZ': 0,

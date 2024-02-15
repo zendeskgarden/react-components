@@ -1,34 +1,21 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { Radio, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
 import { RadioStory } from './stories/RadioStory';
+import { commonArgs, commonArgTypes } from './stories/common';
+import README from '../README.md';
 
 <Meta
   title="Packages/Forms/Radio"
   component={Radio}
   subcomponents={{ Field, Label, Hint, Message }}
   args={{
-    label: 'Label',
-    isLabelRegular: false,
-    isLabelHidden: false,
-    hasHint: false,
-    hint: 'Hint',
-    hasMessage: true,
-    message: 'Message'
+    ...commonArgs,
+    hasHint: false
   }}
   argTypes={{
     disabled: { control: 'boolean' },
-    label: { name: 'children', table: { category: 'Label' } },
-    isLabelRegular: { name: 'isRegular', table: { category: 'Label' } },
-    isLabelHidden: { name: 'hidden', table: { category: 'Label' } },
-    hint: { name: 'children', table: { category: 'Hint' } },
-    message: { name: 'children', table: { category: 'Message' } },
-    validation: {
-      control: { type: 'radio', options: ['success', 'warning', 'error'] },
-      table: { category: 'Message' }
-    },
-    hasHint: { name: 'Hint', table: { category: 'Story' } },
-    hasMessage: { name: 'Message', table: { category: 'Story' } }
+    ...commonArgTypes
   }}
   parameters={{
     design: {
@@ -62,3 +49,5 @@ import { RadioStory } from './stories/RadioStory';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

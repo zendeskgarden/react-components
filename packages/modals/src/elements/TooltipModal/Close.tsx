@@ -7,6 +7,7 @@
 
 import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import { StyledTooltipModalClose } from '../../styled';
+import { useText } from '@zendeskgarden/react-theming';
 import { useTooltipModalContext } from '../../utils/useTooltipModalContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
@@ -14,8 +15,16 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
   (props, ref) => {
     const { getCloseProps } = useTooltipModalContext();
 
+    const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Close tooltip');
+
     return (
-      <StyledTooltipModalClose ref={ref} {...getCloseProps(props)}>
+      <StyledTooltipModalClose
+        {...(getCloseProps({
+          ...props,
+          'aria-label': ariaLabel!
+        }) as ButtonHTMLAttributes<HTMLButtonElement>)}
+        ref={ref}
+      >
         <XStrokeIcon />
       </StyledTooltipModalClose>
     );

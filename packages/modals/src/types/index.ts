@@ -24,7 +24,7 @@ export const PLACEMENT = [
   'start-bottom'
 ] as const;
 
-export type Placement = typeof PLACEMENT[number];
+export type Placement = (typeof PLACEMENT)[number];
 
 export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -68,6 +68,10 @@ export interface IHeaderProps extends HTMLAttributes<HTMLDivElement> {
    * Applies danger styling
    */
   isDanger?: boolean;
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
 }
 
 export interface IDrawerModalProps
@@ -78,8 +82,14 @@ export interface IDrawerModalProps
   isOpen?: boolean;
 }
 
-export interface ITooltipModalProps
-  extends Omit<IModalProps, 'appendToNode' | 'isCentered' | 'isLarge'> {
+export interface IDrawerModalHeaderProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
+}
+
+export interface ITooltipModalProps extends Omit<IModalProps, 'isCentered' | 'isLarge'> {
   /**
    * Positions the modal relative to the provided `HTMLElement`
    */
@@ -100,4 +110,11 @@ export interface ITooltipModalProps
    * Sets the `z-index` of the tooltip
    */
   zIndex?: number;
+}
+
+export interface ITooltipModalTitleProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
 }

@@ -7,7 +7,13 @@
 
 import styled from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  focusStyles,
+  SELECTOR_FOCUS_VISIBLE
+} from '@zendeskgarden/react-theming';
 import { ISortableCellProps } from '../types';
 
 const COMPONENT_ID = 'tables.sortable';
@@ -30,13 +36,17 @@ StyledBaseIconWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledSortableStrokeIconWrapper = styled(StyledBaseIconWrapper)``;
+export const StyledSortableStrokeIconWrapper = styled(StyledBaseIconWrapper)`
+  /* stylelint-disable-line no-empty-source */
+`;
 
 StyledSortableStrokeIconWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledSortableFillIconWrapper = styled(StyledBaseIconWrapper)``;
+export const StyledSortableFillIconWrapper = styled(StyledBaseIconWrapper)`
+  /* stylelint-disable-line no-empty-source */
+`;
 
 StyledSortableFillIconWrapper.defaultProps = {
   theme: DEFAULT_THEME
@@ -57,13 +67,15 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   type: 'button'
 })<IStyledSortableButtonProps>`
   position: relative;
+  transition: box-shadow 0.1s ease-in-out;
   border: none; /* [1] */
+  border-radius: ${props => props.theme.borderRadii.sm};
   background-color: transparent; /* [1] */
   cursor: pointer;
   padding: 0; /* [1] */
   /* stylelint-disable-next-line property-no-unknown */
   padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-  math(`${props.theme.space.base} + ${props.theme.iconSizes.sm}`)};
+    math(`${props.theme.space.base} + ${props.theme.iconSizes.sm}`)};
   width: ${props => props.width};
   text-decoration: none; /* [2] */
   color: inherit;
@@ -98,7 +110,7 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   }
 
   &:hover,
-  &[data-garden-focus-visible] {
+  ${SELECTOR_FOCUS_VISIBLE} {
     text-decoration: none;
     color: ${props => getColor('primaryHue', 600, props.theme)};
 
@@ -135,9 +147,10 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
     `}
   }
 
-  &:focus {
-    outline: none;
-  }
+  ${props =>
+    focusStyles({
+      theme: props.theme
+    })}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

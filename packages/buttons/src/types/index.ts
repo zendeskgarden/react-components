@@ -13,7 +13,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Applies danger styling */
   isDanger?: boolean;
   /** Specifies the button size */
-  size?: typeof SIZE[number];
+  size?: (typeof SIZE)[number];
   /** Stretches the button fill to its container width */
   isStretched?: boolean;
   /** Applies neutral button styling */
@@ -62,6 +62,11 @@ export interface IAnchorProps
    * safe [cross-origin destination link](https://web.dev/external-anchors-use-rel-noopener/).
    **/
   isExternal?: boolean;
+  /**
+   * Allows a customized/translated text label to be passed to the external link icon,
+   * making that icon accessible to assistive technology
+   **/
+  externalIconLabel?: string;
 }
 
 export interface IButtonGroupProps extends HTMLAttributes<HTMLDivElement> {

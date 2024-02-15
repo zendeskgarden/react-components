@@ -1,7 +1,8 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
 import { BreadcrumbStory } from './stories/BreadcrumbStory';
 import { BREADCRUMB_CHILDREN as CHILDREN } from './stories/data';
+import README from '../README.md';
 
 <Meta title="Packages/Breadcrumbs/Breadcrumb" component={Breadcrumb} />
 
@@ -10,7 +11,7 @@ import { BREADCRUMB_CHILDREN as CHILDREN } from './stories/data';
 <Canvas>
   <Story
     name="Breadcrumb"
-    args={{ children: CHILDREN }}
+    args={{ 'aria-label': 'Breadcrumbs', children: CHILDREN }}
     parameters={{
       design: {
         allowFullscreen: true,
@@ -22,3 +23,5 @@ import { BREADCRUMB_CHILDREN as CHILDREN } from './stories/data';
     {args => <BreadcrumbStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

@@ -9,6 +9,7 @@ import { createContext, useContext } from 'react';
 
 interface IPaneContext {
   id?: string;
+  isVisible?: boolean;
   setId: (id: string) => void;
 }
 

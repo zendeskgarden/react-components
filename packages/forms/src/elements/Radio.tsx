@@ -25,7 +25,7 @@ export const Radio = React.forwardRef<HTMLInputElement, IRadioProps>(
       ref,
       ...props,
       ...fieldsetContext
-    };
+    } as any;
 
     if (fieldContext) {
       combinedProps = fieldContext.getInputProps(combinedProps);
@@ -33,7 +33,7 @@ export const Radio = React.forwardRef<HTMLInputElement, IRadioProps>(
 
     return (
       <InputContext.Provider value="radio">
-        <StyledRadioInput {...(combinedProps as any)} />
+        <StyledRadioInput {...combinedProps} />
         {children}
       </InputContext.Provider>
     );

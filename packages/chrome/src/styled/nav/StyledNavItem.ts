@@ -6,37 +6,49 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { rgba, math } from 'polished';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { math, rgba } from 'polished';
+import {
+  retrieveComponentStyles,
+  getColor,
+  focusStyles,
+  DEFAULT_THEME,
+  SELECTOR_FOCUS_VISIBLE
+} from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';
 import { getNavWidth } from './StyledNav';
 
 const COMPONENT_ID = 'chrome.nav_item';
 
+/**
+ * 1. Use outline for focus styling to work with transparent backgrounds
+ */
 const colorStyles = (props: IStyledNavItemProps) => {
-  const BLACK = props.theme.palette.black as string;
-  const WHITE = props.theme.palette.white as string;
+  const { theme, hue, isLight, isDark, isCurrent } = props;
+  const DARK = theme.palette.black as string;
+  const LIGHT = theme.palette.white as string;
+
   let currentColor;
   let hoverColor;
 
-  if (props.isCurrent) {
-    if (props.isLight) {
-      currentColor = rgba(BLACK, 0.3);
-    } else if (props.isDark) {
-      currentColor = rgba(WHITE, 0.3);
+  if (isCurrent) {
+    if (isLight) {
+      currentColor = rgba(DARK, 0.4);
+    } else if (isDark) {
+      currentColor = rgba(LIGHT, 0.4);
     } else {
-      currentColor = getColor(props.hue, 500, props.theme);
+      currentColor = getColor(hue, 500, theme);
     }
   } else {
-    hoverColor = rgba(props.isLight ? WHITE : BLACK, 0.1);
+    hoverColor = rgba(isLight ? LIGHT : DARK, 0.1);
   }
 
-  const activeColor = rgba(props.isLight ? BLACK : WHITE, 0.1);
-  const focusColor = rgba(props.isLight ? BLACK : WHITE, 0.2);
+  const activeColor = rgba(isLight ? DARK : LIGHT, 0.1);
+  const focusColor = isLight ? DARK : LIGHT;
 
   return css`
-    opacity: ${props.isCurrent ? 1 : 0.6};
+    opacity: ${isCurrent ? 1 : 0.6};
+    outline-color: transparent;
     background-color: ${currentColor};
 
     &:hover {
@@ -44,10 +56,11 @@ const colorStyles = (props: IStyledNavItemProps) => {
       background-color: ${hoverColor};
     }
 
-    &[data-garden-focus-visible] {
-      opacity: 1;
-      box-shadow: inset ${props.theme.shadows.md(focusColor)};
-    }
+    ${focusStyles({
+      theme,
+      condition: false /* [1] */,
+      styles: { opacity: 1, outlineColor: focusColor }
+    })}
 
     &:active {
       background-color: ${activeColor};
@@ -66,6 +79,8 @@ interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
 /**
  * 1. Anchor reset
  * 2. Button reset
+ * 3. Override `focusStyles` outline (in `colorStyles`)
+ * 4. Use of negative offset to create an inset outline
  */
 export const StyledNavItem = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
@@ -84,11 +99,14 @@ export const StyledNavItem = styled(StyledBaseNavItem as 'button').attrs({
     color: inherit; /* [1] */
   }
 
-  &:focus {
-    outline: none; /* [1] */
-  }
+  ${colorStyles};
 
-  ${props => colorStyles(props)};
+  &:focus-visible:hover,
+  &:focus-visible:active,
+  ${SELECTOR_FOCUS_VISIBLE} {
+    outline: ${props => math(`${props.theme.borderWidths.md} - 1`)} solid; /* [3] */
+    outline-offset: -${props => props.theme.borderWidths.md}; /* [4] */
+  }
 
   ${props =>
     props.isExpanded &&

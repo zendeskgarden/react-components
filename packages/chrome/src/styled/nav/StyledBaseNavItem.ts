@@ -38,8 +38,11 @@ export const StyledBaseNavItem = styled.button.attrs({
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  /* stylelint-disable-next-line value-list-comma-newline-after */
-  transition: box-shadow 0.1s ease-in-out, background-color 0.1s ease-in-out,
+  /* prettier-ignore */
+  transition:
+    outline-color 0.1s ease-in-out,
+    box-shadow 0.1s ease-in-out,
+    background-color 0.1s ease-in-out,
     opacity 0.1s ease-in-out;
   border: none; /* [1] */
   box-sizing: border-box;

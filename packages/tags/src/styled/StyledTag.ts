@@ -11,7 +11,9 @@ import {
   DEFAULT_THEME,
   getColor,
   retrieveComponentStyles,
-  getLineHeight
+  getLineHeight,
+  SELECTOR_FOCUS_VISIBLE,
+  focusStyles
 } from '@zendeskgarden/react-theming';
 import { StyledAvatar } from './StyledAvatar';
 import { StyledClose } from './StyledClose';
@@ -21,7 +23,6 @@ const COMPONENT_ID = 'tags.tag_view';
 
 const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
   let backgroundColor;
-  let boxShadowColor;
   let foregroundColor;
   let closeColor;
 
@@ -29,7 +30,6 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     const shade = props.hue === 'yellow' ? 400 : 600;
 
     backgroundColor = getColor(props.hue, shade, props.theme);
-    boxShadowColor = getColor(props.hue, shade, props.theme, 0.35);
 
     if (props.hue === 'yellow' || props.hue === 'lemon') {
       foregroundColor = getColor('yellow', 800, props.theme);
@@ -42,7 +42,6 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     }
   } else {
     backgroundColor = getColor('neutralHue', 200, props.theme);
-    boxShadowColor = getColor('neutralHue', 600, props.theme, 0.35);
     foregroundColor = getColor('neutralHue', 700, props.theme);
     closeColor = getColor('neutralHue', 600, props.theme);
   }
@@ -59,9 +58,11 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
      * Tags show their focus state regardless of
      * whether it was performed by a mouse or keyboard.
      **/
-    &:focus {
-      box-shadow: ${props.theme.shadows.sm(boxShadowColor!)};
-    }
+    ${focusStyles({
+      theme: props.theme,
+      shadowWidth: 'sm',
+      selector: '&:focus'
+    })}
 
     & ${StyledClose} {
       color: ${closeColor};
@@ -180,10 +181,6 @@ export const StyledTag = styled.div.attrs<ITagProps>({
     text-decoration: none;
   }
 
-  &:focus {
-    outline: none;
-  }
-
   &:link:hover,
   &:visited:hover {
     cursor: pointer;
@@ -193,7 +190,7 @@ export const StyledTag = styled.div.attrs<ITagProps>({
     cursor: pointer;
   }
 
-  &[data-garden-focus-visible] {
+  ${SELECTOR_FOCUS_VISIBLE} {
     text-decoration: none;
   }
 

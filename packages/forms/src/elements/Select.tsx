@@ -17,24 +17,32 @@ import useFieldContext from '../utils/useFieldContext';
  * @extends SelectHTMLAttributes<HTMLSelectElement>
  */
 export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
-  ({ disabled, isCompact, ...props }, ref) => {
+  ({ disabled, isCompact, validation, focusInset, isBare, ...props }, ref) => {
     const fieldContext = useFieldContext();
 
     let combinedProps = {
       disabled,
+      isBare,
       isCompact,
+      validation,
+      focusInset,
       ref,
       ...props
-    };
+    } as any;
 
     if (fieldContext) {
-      combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+      combinedProps = fieldContext.getInputProps(combinedProps);
     }
 
     return (
-      <StyledSelectWrapper isCompact={isCompact}>
-        <StyledSelect {...(combinedProps as any)} />
-        {!props.isBare && (
+      <StyledSelectWrapper
+        isCompact={isCompact}
+        isBare={isBare}
+        validation={validation}
+        focusInset={focusInset}
+      >
+        <StyledSelect {...combinedProps} />
+        {!isBare && (
           <FauxInput.EndIcon isDisabled={disabled}>
             <Chevron />
           </FauxInput.EndIcon>

@@ -1,13 +1,18 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ColorpickerDialog } from '@zendeskgarden/react-colorpickers';
 import { ColorpickerDialogStory } from './stories/ColorpickerDialogStory';
+import README from '../README.md';
 
 <Meta
   title="Packages/Colorpickers/ColorpickerDialog"
   component={ColorpickerDialog}
-  args={{ buttonProps: { 'aria-label': 'Label' }, isAnimated: true }}
+  args={{
+    buttonProps: { 'aria-label': 'Label' },
+    'aria-label': 'Title',
+    isAnimated: true
+  }}
   argTypes={{
     focusInset: { control: 'boolean' },
     hasArrow: { control: 'boolean' },
@@ -60,3 +65,5 @@ import { ColorpickerDialogStory } from './stories/ColorpickerDialogStory';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

@@ -10,7 +10,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'forms.file.close';
 
-export const StyledFileClose = styled.div.attrs({
+export const StyledFileClose = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -20,8 +20,11 @@ export const StyledFileClose = styled.div.attrs({
   justify-content: center;
   transition: opacity 0.25s ease-in-out;
   opacity: 0.8;
+  border: none;
+  background: transparent;
   cursor: pointer;
   color: ${props => props.theme.colors.foreground};
+  appearance: none;
 
   &:hover {
     opacity: 0.9;

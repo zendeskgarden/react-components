@@ -42,11 +42,11 @@ export const SIZE = ['small', 'medium', 'large', 'extra-large'] as const;
 
 export const TYPE = ['light', 'dark'] as const;
 
-export type GardenPlacement = typeof PLACEMENT[number];
+export type GardenPlacement = (typeof PLACEMENT)[number];
 
-export type PopperPlacement = typeof POPPER_PLACEMENT[number];
+export type PopperPlacement = (typeof POPPER_PLACEMENT)[number];
 
-export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
+export interface ITooltipProps extends Omit<HTMLAttributes<HTMLDivElement>, 'content'> {
   /** Appends the tooltip to the element provided */
   appendToNode?: Element;
   /** Adds an arrow to the tooltip */
@@ -64,9 +64,9 @@ export interface ITooltipProps extends HTMLAttributes<HTMLDivElement> {
   /** Passes configurations to the [Popper instance](https://popper.js.org/docs/v2/modifiers/) */
   popperModifiers?: Modifiers;
   /** Adjusts the padding and font size */
-  size?: typeof SIZE[number];
+  size?: (typeof SIZE)[number];
   /** Specifies the tooltip type */
-  type?: typeof TYPE[number];
+  type?: (typeof TYPE)[number];
   /** Sets the `z-index` of the tooltip */
   zIndex?: number | string;
   /** Displays the tooltip on initial render */

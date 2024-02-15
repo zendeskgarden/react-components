@@ -5,19 +5,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import { StyledClose } from '../styled';
 import XIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
+import { useText } from '@zendeskgarden/react-theming';
 
-const CloseComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
-  <StyledClose ref={ref} {...props}>
-    <XIcon />
-  </StyledClose>
-));
+const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
+  (props, ref) => {
+    const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Remove');
+
+    return (
+      <StyledClose ref={ref} aria-label={ariaLabel} {...props} type="button" tabIndex={-1}>
+        <XIcon />
+      </StyledClose>
+    );
+  }
+);
 
 CloseComponent.displayName = 'Tag.Close';
 
 /**
- * @extends HTMLAttributes<HTMLDivElement>
+ * @extends HTMLAttributes<HTMLButtonElement>
  */
 export const Close = CloseComponent;

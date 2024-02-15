@@ -12,6 +12,8 @@ import { ButtonGroup } from './ButtonGroup';
 import { Button } from './Button';
 
 describe('ButtonGroup', () => {
+  const user = userEvent.setup();
+
   const BasicExample = () => (
     <ButtonGroup data-test-id="group">
       <Button value="button-1" data-test-id="button">
@@ -39,20 +41,38 @@ describe('ButtonGroup', () => {
     console.error = originalError;
   });
 
-  it('applies selected styling to currently selected tab', () => {
+  it('passes ref to underlying DOM elements', () => {
+    const groupRef = React.createRef<HTMLButtonElement>();
+    const btnRef = React.createRef<HTMLButtonElement>();
+    const { getAllByRole } = render(
+      <ButtonGroup data-test-id="group" ref={groupRef as any}>
+        <Button value="button-1" data-test-id="button" ref={btnRef}>
+          Button 1
+        </Button>
+        <Button value="button-2" data-test-id="button">
+          Button 2
+        </Button>
+      </ButtonGroup>
+    );
+
+    expect(getAllByRole('group')[0]).toBe(groupRef.current);
+    expect(getAllByRole('button')[0]).toBe(btnRef.current);
+  });
+
+  it('applies selected styling to currently selected tab', async () => {
     const { getAllByTestId } = render(<BasicExample />);
     const lastButton = getAllByTestId('button')[1];
 
-    userEvent.click(lastButton);
+    await user.click(lastButton);
 
     expect(lastButton).toHaveAttribute('aria-pressed', 'true');
   });
 
-  it('applies focused attributes to currently focused tab', () => {
+  it('applies focused attributes to currently focused tab', async () => {
     const { getAllByTestId } = render(<BasicExample />);
     const [, button] = getAllByTestId('button');
 
-    userEvent.click(button);
+    await user.click(button);
 
     expect(button).toHaveAttribute('tabIndex', '0');
   });
@@ -78,7 +98,7 @@ describe('ButtonGroup', () => {
     expect(getAllByTestId('button')[0]).toHaveAttribute('aria-pressed', 'true');
   });
 
-  it('does not apply props to any component other than Button', () => {
+  it('does not apply props to any component other than Button', async () => {
     const { getByTestId } = render(
       <ButtonGroup>
         <span>Non button test</span>
@@ -90,7 +110,7 @@ describe('ButtonGroup', () => {
 
     const button = getByTestId('button');
 
-    userEvent.click(button);
+    await user.click(button);
 
     expect(button).toHaveFocus();
   });

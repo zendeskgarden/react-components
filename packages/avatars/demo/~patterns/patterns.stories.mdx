@@ -2,6 +2,7 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { MenuStory } from './stories/MenuStory';
 import { ChromeStory } from './stories/ChromeStory';
+import { StatusMenuStory } from './stories/StatusMenuStory';
 
 <Meta title="Packages/Avatars/[patterns]" component={Avatar} />
 
@@ -39,5 +40,20 @@ details.
     argTypes={{ isCompact: { control: 'boolean' } }}
   >
     {args => <MenuStory {...args} />}
+  </Story>
+</Canvas>
+
+## Status Menu
+
+The following example demonstrates StatusIndicator being used in a menu.
+
+<Canvas>
+  <Story
+    name="StatusMenu"
+    parameters={{ controls: { include: ['isCompact'] } }}
+    args={{ isCompact: false, type: 'available' }}
+    argTypes={{ isCompact: { control: 'boolean' } }}
+  >
+    {args => <StatusMenuStory {...args} />}
   </Story>
 </Canvas>

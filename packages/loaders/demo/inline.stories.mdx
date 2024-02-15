@@ -1,5 +1,6 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { Inline } from '@zendeskgarden/react-loaders';
+import README from '../README.md';
 
 <Meta title="Packages/Loaders/Inline" component={Inline} />
 
@@ -24,3 +25,5 @@ import { Inline } from '@zendeskgarden/react-loaders';
     {args => <Inline {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

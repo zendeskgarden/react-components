@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useRef, useContext, useMemo, forwardRef } from 'react';
+import React, { useState, useContext, useMemo, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { useTabs } from '@zendeskgarden/container-tabs';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
 import { ITabsProps } from '../types';
+import { toTabs } from '../utils/toTabs';
 import { TabsContext } from '../utils/useTabsContext';
 import { StyledTabs } from '../styled/StyledTabs';
 
@@ -24,29 +25,25 @@ export const Tabs = forwardRef<HTMLDivElement, ITabsProps>(
     ref
   ) => {
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
-    const [internalSelectedItem, setSelectedItem] = useState();
-    const tabIndexRef = useRef<number>(0);
-    const tabPanelIndexRef = useRef<number>(0);
+    const [internalSelectedItem, setInternalSelectedItem] = useState();
     const selectedItem = getControlledValue(controlledSelectedItem, internalSelectedItem);
 
-    const tabPropGetters = useTabs({
+    const tabs = useMemo(() => toTabs(children), [children]);
+
+    const tabsContextValue = useTabs({
+      tabs,
       rtl: theme!.rtl,
-      vertical: isVertical,
-      selectedItem,
-      defaultSelectedIndex: 0,
+      orientation: isVertical ? 'vertical' : 'horizontal',
+      selectedValue: selectedItem,
+      defaultSelectedValue: tabs.find(tab => !tab.disabled)?.value,
       onSelect: item => {
         if (onChange) {
           onChange(item);
         } else {
-          setSelectedItem(item);
+          setInternalSelectedItem(item);
         }
       }
     });
-
-    const tabsContextValue = useMemo(
-      () => ({ ...tabPropGetters, tabIndexRef, tabPanelIndexRef }),
-      [tabPropGetters]
-    );
 
     return (
       <TabsContext.Provider value={tabsContextValue}>

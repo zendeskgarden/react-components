@@ -22,13 +22,15 @@ const colors = [
 ];
 
 describe('ColorSwatchDialog', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', async () => {
     const ref = createRef<HTMLDivElement>();
 
     render(<ColorSwatchDialog name="test" colors={colors} ref={ref} />);
 
-    act(() => {
-      userEvent.click(screen.getByRole('button'));
+    await act(async () => {
+      await user.click(screen.getByRole('button'));
     });
 
     await waitFor(() => {
@@ -52,7 +54,7 @@ describe('ColorSwatchDialog', () => {
     expect(button).toBe(screen.getByLabelText('Choose your favorite color'));
   });
 
-  it('calls onDialogChange when the dialog state changes', () => {
+  it('calls onDialogChange when the dialog state changes', async () => {
     const onDialogChange = jest.fn();
     const label = 'Choose your favorite color';
 
@@ -67,14 +69,14 @@ describe('ColorSwatchDialog', () => {
 
     const trigger = screen.getByLabelText(label);
 
-    act(() => {
-      userEvent.click(trigger);
+    await act(async () => {
+      await user.click(trigger);
     });
 
     expect(onDialogChange).toHaveBeenCalledTimes(1);
     expect(onDialogChange).toHaveBeenCalledWith({ isOpen: true });
 
-    userEvent.keyboard('{esc}');
+    await user.keyboard('{escape}');
 
     expect(onDialogChange).toHaveBeenCalledTimes(2);
     expect(onDialogChange).toHaveBeenCalledWith({ isOpen: false });
@@ -95,8 +97,8 @@ describe('ColorSwatchDialog', () => {
 
       expect(document.body).toHaveFocus();
 
-      act(() => {
-        userEvent.click(trigger);
+      await act(async () => {
+        await user.click(trigger);
       });
 
       await waitFor(() => {
@@ -122,8 +124,8 @@ describe('ColorSwatchDialog', () => {
 
       expect(document.body).toHaveFocus();
 
-      act(() => {
-        userEvent.click(trigger);
+      await act(async () => {
+        await user.click(trigger);
       });
 
       await waitFor(() => {
@@ -140,11 +142,11 @@ describe('ColorSwatchDialog', () => {
 
       const trigger = screen.getByRole('button');
 
-      userEvent.click(trigger);
+      await user.click(trigger);
 
       expect(screen.getByLabelText('Green-200')).toHaveFocus();
 
-      userEvent.keyboard('{arrowright}');
+      await user.keyboard('{arrowright}');
 
       expect(screen.getByLabelText('Green-300')).toHaveFocus();
 
@@ -155,11 +157,11 @@ describe('ColorSwatchDialog', () => {
 
       await waitForElementToBeRemoved(screen.getByRole('dialog'));
 
-      userEvent.click(trigger);
+      await user.click(trigger);
 
       expect(screen.getByLabelText('Green-300')).toHaveFocus();
 
-      userEvent.keyboard('{arrowleft}');
+      await user.keyboard('{arrowleft}');
 
       await waitFor(() => {
         expect(screen.getByLabelText('Green-200')).toHaveFocus();
@@ -182,8 +184,8 @@ describe('ColorSwatchDialog', () => {
 
       expect(document.body).toHaveFocus();
 
-      act(() => {
-        userEvent.click(trigger);
+      await act(async () => {
+        await user.click(trigger);
       });
 
       await waitFor(() => {
@@ -200,8 +202,8 @@ describe('ColorSwatchDialog', () => {
 
       expect(document.body).toHaveFocus();
 
-      act(() => {
-        userEvent.click(trigger);
+      await act(async () => {
+        await user.click(trigger);
       });
 
       await waitFor(() => {

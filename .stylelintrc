@@ -1,15 +1,15 @@
 {
-  "processors": ["stylelint-processor-styled-components"],
-  "extends": ["@zendeskgarden/stylelint-config", "stylelint-config-styled-components"],
+  "extends": ["@zendeskgarden/stylelint-config"],
+  "customSyntax": "postcss-styled-syntax",
   "rules": {
-    "declaration-colon-newline-after": null,
+    "block-no-empty": null,
     "declaration-empty-line-before": null,
     "keyframes-name-pattern": null,
-    "value-keyword-case": ["lower", { "ignoreKeywords": ["dummyValue"] }],
-    "block-no-empty": null,
-    "number-leading-zero": null,
+    "media-query-no-invalid": null,
     "selector-type-case": null,
-    "selector-type-no-unknown": null
+    "selector-type-no-unknown": null,
+    "time-min-milliseconds": [100, { "ignore": ["delay"] }],
+    "value-keyword-case": ["lower", { "ignoreKeywords": ["dummyValue"] }]
   },
   "ignoreFiles": ["packages/**/*.spec.{js,ts,tsx}", "packages/**/dist/**"]
 }

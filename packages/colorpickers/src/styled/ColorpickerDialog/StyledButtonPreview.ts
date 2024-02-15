@@ -45,7 +45,7 @@ export const StyledButtonPreview = styled.span.attrs<IStyleButtonPreviewProps>(p
   display: inline-block;
   bottom: ${props => props.theme.space.base}px;
   border-radius: ${props => props.theme.borderRadii.sm};
-  /* stylelint-disable-next-line color-function-notation */
+  /* stylelint-disable color-function-notation */
   box-shadow: inset 0 0 0 ${props => props.theme.borderWidths.sm}
     ${props => rgba(props.theme.palette.black as string, 0.19)};
   width: ${props => props.theme.space.base * 5}px;

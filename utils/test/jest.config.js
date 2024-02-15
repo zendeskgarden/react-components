@@ -6,36 +6,48 @@
  */
 
 const path = require('path');
-const { defaults } = require('jest-config');
 
 module.exports = {
-  rootDir: '../../',
+  rootDir: path.resolve(__dirname, '..', '..'),
   roots: ['<rootDir>', path.resolve(__dirname, 'rootDir')],
-  preset: 'ts-jest/presets/js-with-babel',
+  cacheDirectory: '<rootDir>/.cache/jest',
+  coverageDirectory: '<rootDir>/.cache/coverage',
+  collectCoverageFrom: [
+    '<rootDir>/packages/*/src/**/*.{js,jsx,ts,tsx}',
+    '!<rootDir>/packages/*/src/index.{js,jsx,ts,tsx}',
+    '!<rootDir>/packages/*/src/types/index.{js,jsx,ts,tsx}',
+    '!<rootDir>/packages/.template/**',
+    '!**/node_modules/**',
+    '!**/vendor/**'
+  ],
+  testMatch: ['<rootDir>/packages/*/src/**/?(*.)+(spec|test).[jt]s?(x)'],
+  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/packages/.template'],
+  testEnvironment: 'jest-environment-jsdom',
+  setupFilesAfterEnv: ['<rootDir>/utils/test/jest.setup.js'],
   modulePathIgnorePatterns: ['./node_modules'],
   transformIgnorePatterns: ['\\/node_modules\\/(?!@zendeskgarden)'],
-  resolver: path.resolve(__dirname, 'jest.resolver.js'),
-  globals: {
-    PACKAGE_VERSION: 'version',
-    'ts-jest': {
-      tsconfig: path.resolve(__dirname, 'tsconfig.test.json')
-    }
+  transform: {
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          parser: {
+            syntax: 'typescript',
+            tsx: true,
+            preserveAllComments: true
+          }
+        }
+      }
+    ]
   },
-  moduleFileExtensions: [...defaults.moduleFileExtensions],
-  setupFilesAfterEnv: ['<rootDir>/utils/test/jest.setup.js'],
   moduleNameMapper: {
     '\\.(css)$': 'identity-obj-proxy',
     '@zendeskgarden/css(?!-variables)': 'identity-obj-proxy',
     'garden-test-utils': '<rootDir>/utils/test/garden-test-utils.tsx',
-    '\\.(svg)$': '<rootDir>/utils/test/svg-mock.js'
+    '\\.(svg)$': '<rootDir>/utils/test/svg-mock.tsx',
+    'use-resize-observer': 'use-resize-observer/polyfilled'
   },
-  collectCoverageFrom: [
-    '<rootDir>/packages/*/src/**/*.{js,jsx,ts,tsx}',
-    '!<rootDir>/packages/*/src/index.{js,jsx,ts,tsx}',
-    '!<rootDir>/packages/.template',
-    '!**/node_modules/**',
-    '!**/vendor/**'
-  ],
-  coverageDirectory: '<rootDir>/utils/storybook/coverage',
-  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/packages/.template']
+  globals: {
+    PACKAGE_VERSION: 'version'
+  }
 };

@@ -15,6 +15,8 @@ import { IComboboxProps } from '../../types';
 import useDropdownContext from '../../utils/useDropdownContext';
 
 /**
+ * @deprecated use `@zendeskgarden/react-dropdowns.next` Combobox instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
@@ -48,7 +50,11 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
         onClick: (event: MouseEvent) => {
           (event as any).nativeEvent.preventDownshiftDefault = true;
         },
-        ...props
+        ...props,
+        // prevents onSelect from firing twice
+        onKeyDown: (event: KeyboardEvent<HTMLElement>) => {
+          (event.nativeEvent as any).preventDownshiftDefault = true;
+        }
       } as any)
     );
     const inputProps = getInputProps({

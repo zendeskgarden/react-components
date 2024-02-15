@@ -5,8 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useText } from '@zendeskgarden/react-theming';
+
 import { IMessageProps, VALIDATION } from '../../types';
 import useFieldContext from '../../utils/useFieldContext';
 import useInputContext from '../../utils/useInputContext';
@@ -22,9 +24,21 @@ import {
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
-  ({ validation, children, ...props }, ref) => {
-    const fieldContext = useFieldContext();
+  ({ validation, validationLabel, children, ...props }, ref) => {
+    const { hasMessage, setHasMessage, getMessageProps } = useFieldContext() || {};
     const type = useInputContext();
+
+    useEffect(() => {
+      if (!hasMessage && setHasMessage) {
+        setHasMessage(true);
+      }
+
+      return () => {
+        if (hasMessage && setHasMessage) {
+          setHasMessage(false);
+        }
+      };
+    }, [hasMessage, setHasMessage]);
 
     let MessageComponent;
 
@@ -38,15 +52,23 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
       MessageComponent = StyledMessage;
     }
 
-    let combinedProps = { validation, ...props };
+    let combinedProps = { validation, validationLabel, ...props };
 
-    if (fieldContext) {
-      combinedProps = fieldContext.getMessageProps(combinedProps);
+    if (getMessageProps) {
+      combinedProps = getMessageProps(combinedProps);
     }
+
+    const ariaLabel = useText(
+      Message,
+      combinedProps,
+      'validationLabel',
+      validation as string,
+      validation !== undefined
+    );
 
     return (
       <MessageComponent ref={ref} {...combinedProps}>
-        {validation && <StyledMessageIcon validation={validation} />}
+        {validation && <StyledMessageIcon validation={validation} aria-label={ariaLabel} />}
         {children}
       </MessageComponent>
     );
@@ -56,5 +78,6 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
 Message.displayName = 'Message';
 
 Message.propTypes = {
-  validation: PropTypes.oneOf(VALIDATION)
+  validation: PropTypes.oneOf(VALIDATION),
+  validationLabel: PropTypes.string
 };

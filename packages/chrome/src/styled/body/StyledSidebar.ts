@@ -19,7 +19,7 @@ export const StyledSidebar = styled.aside.attrs({
   box-sizing: border-box;
   /* stylelint-disable-next-line property-no-unknown */
   border-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-  `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
+    `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
   width: 330px;
   overflow: auto;
 

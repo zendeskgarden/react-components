@@ -64,7 +64,7 @@ export const StyledProgressIndicator = styled.div.attrs<IStyledProgressIndicator
 }))<IStyledProgressIndicatorProps>`
   transition: width 0.1s ease-in-out;
   border-radius: ${props => props.borderRadius}px;
-  background: currentColor;
+  background: currentcolor;
   width: ${props => props.value}%;
   height: ${props => props.height}px;
 

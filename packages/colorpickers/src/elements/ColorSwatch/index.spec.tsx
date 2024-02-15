@@ -23,6 +23,8 @@ const colors = [
 ];
 
 describe('ColorSwatch', () => {
+  const user = userEvent.setup();
+
   it('passes ref to underlying DOM element', () => {
     const ref = createRef<HTMLTableElement>();
 

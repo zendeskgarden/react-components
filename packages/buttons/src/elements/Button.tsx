@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, SVGAttributes } from 'react';
+import React, { forwardRef, MutableRefObject, SVGAttributes } from 'react';
 import PropTypes from 'prop-types';
+import mergeRefs from 'react-merge-refs';
 import { IButtonProps, SIZE } from '../types';
 import { StyledButton } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
@@ -25,6 +26,7 @@ const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>((props, ref)
   const buttonGroupContext = useButtonGroupContext();
   const splitButtonContext = useSplitButtonContext();
 
+  let computedRef = ref;
   let computedProps = {
     ...props,
     focusInset: props.focusInset || buttonGroupContext !== undefined || splitButtonContext
@@ -36,14 +38,17 @@ const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>((props, ref)
     }
 
     computedProps = buttonGroupContext.getButtonProps({
-      item: props.value,
-      focusRef: React.createRef(),
       isSelected: props.value === buttonGroupContext.selectedItem,
       ...computedProps
     });
+    computedRef = mergeRefs([
+      // a `ref` is added by the `useSelection` container which we need to merge with the forwarded `ref`
+      (computedProps as IButtonProps & { ref: MutableRefObject<HTMLButtonElement> }).ref,
+      ref
+    ]);
   }
 
-  return <StyledButton ref={ref} {...computedProps} />;
+  return <StyledButton {...computedProps} ref={computedRef} />;
 });
 
 ButtonComponent.displayName = 'Button';

@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement, HTMLAttributes } from 'react';
+import React, { Children, cloneElement, forwardRef, HTMLAttributes } from 'react';
 import { useBreadcrumb } from '@zendeskgarden/container-breadcrumb';
+import { useText } from '@zendeskgarden/react-theming';
 import {
   StyledBreadcrumb,
   StyledBreadcrumbItem,
@@ -17,39 +18,39 @@ import {
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-export const Breadcrumb = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
-  (props, ref) => {
-    const { getContainerProps, getCurrentPageProps } = useBreadcrumb();
+export const Breadcrumb = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
+  const { getContainerProps, getCurrentPageProps } = useBreadcrumb();
 
-    const totalChildren = Children.count(props.children);
+  const totalChildren = Children.count(props.children);
 
-    const mappedChildren = Children.map(props.children, (child, index) => {
-      const isLastItem = index === totalChildren - 1;
+  const mappedChildren = Children.map(props.children, (child, index) => {
+    const isLastItem = index === totalChildren - 1;
 
-      if (isLastItem) {
-        return (
-          <StyledBreadcrumbItem isCurrent>
-            {cloneElement(child as any, getCurrentPageProps())}
-          </StyledBreadcrumbItem>
-        );
-      }
-
+    if (isLastItem) {
       return (
-        <>
-          <StyledBreadcrumbItem>{child}</StyledBreadcrumbItem>
-          <StyledCenteredBreadcrumbItem>
-            <StyledChevronIcon />
-          </StyledCenteredBreadcrumbItem>
-        </>
+        <StyledBreadcrumbItem isCurrent>
+          {cloneElement(child as any, getCurrentPageProps())}
+        </StyledBreadcrumbItem>
       );
-    });
+    }
 
     return (
-      <nav {...getContainerProps({ ...props, ref, role: null } as any)}>
-        <StyledBreadcrumb>{mappedChildren}</StyledBreadcrumb>
-      </nav>
+      <>
+        <StyledBreadcrumbItem>{child}</StyledBreadcrumbItem>
+        <StyledCenteredBreadcrumbItem>
+          <StyledChevronIcon />
+        </StyledCenteredBreadcrumbItem>
+      </>
     );
-  }
-);
+  });
+
+  const ariaLabel = useText(Breadcrumb, props, 'aria-label', 'Breadcrumbs');
+
+  return (
+    <nav {...getContainerProps({ ...props, ref, role: null, 'aria-label': ariaLabel! })}>
+      <StyledBreadcrumb>{mappedChildren}</StyledBreadcrumb>
+    </nav>
+  );
+});
 
 Breadcrumb.displayName = 'Breadcrumb';

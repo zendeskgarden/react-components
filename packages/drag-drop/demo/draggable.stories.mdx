@@ -1,0 +1,42 @@
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
+import { Draggable } from '@zendeskgarden/react-drag-drop';
+import { DraggableStory } from './stories/DraggableStory';
+import README from '../README.md';
+
+<Meta
+  title="Packages/Drag-Drop/Draggable"
+  component={Draggable}
+  subcomponents={{
+    'Draggable.Content': Draggable.Content,
+    'Draggable.Grip': Draggable.Grip
+  }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+<Canvas>
+  <Story
+    name="Draggable"
+    args={{ hasGrip: true, children: 'Content' }}
+    argTypes={{
+      children: { name: 'Draggable.Content', table: { category: 'Story' } },
+      hasGrip: { name: 'Draggable.Grip', table: { category: 'Story' } },
+      tag: { control: { type: 'text' } }
+    }}
+    parameters={{
+      design: {
+        allowFullscreen: true,
+        type: 'figma',
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=14015-52473'
+      }
+    }}
+  >
+    {args => <DraggableStory {...args} />}
+  </Story>
+</Canvas>
+
+<Markdown>{README}</Markdown>

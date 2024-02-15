@@ -9,20 +9,26 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent, createEvent } from 'garden-test-utils';
 import { getColor } from '@zendeskgarden/react-theming';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
+
 import { MultiThumbRange } from './MultiThumbRange';
 import { Label } from './common/Label';
 import { Field } from './common/Field';
 
-jest.mock('lodash.debounce');
-import debounce from 'lodash.debounce';
+type IMockDebounceReturnValue<T = () => void> = (fn: T) => T;
+
+jest.mock<IMockDebounceReturnValue>('lodash.debounce', () => (fn: any) => {
+  fn.cancel = jest.fn();
+
+  return fn;
+});
 
 describe('MultiThumbRange', () => {
+  const user = userEvent.setup();
+
   let originalGetBoundingClientRect: any;
 
   beforeEach(() => {
-    (debounce as jest.Mock).mockImplementation((fn: any) => fn);
-
     originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
     Element.prototype.getBoundingClientRect = jest.fn(() => {
       return {
@@ -62,7 +68,7 @@ describe('MultiThumbRange', () => {
   });
 
   describe('MultiThumbRange label', () => {
-    it('clicking the label focuses the min thumb', () => {
+    it('clicking the label focuses the min thumb', async () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
@@ -73,11 +79,11 @@ describe('MultiThumbRange', () => {
       const minThumb = getAllByRole('slider')[0];
 
       expect(minThumb).not.toHaveFocus();
-      userEvent.click(label);
+      await user.click(label);
       expect(minThumb).toHaveFocus();
     });
 
-    it('focus leaves the min thumb when user blurs out of min thumb', () => {
+    it('focus leaves the min thumb when user blurs out of min thumb', async () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
@@ -88,14 +94,14 @@ describe('MultiThumbRange', () => {
       const minThumb = getAllByRole('slider')[0];
 
       expect(minThumb).not.toHaveFocus();
-      userEvent.click(label);
+      await user.click(label);
       expect(minThumb).toHaveFocus();
 
-      userEvent.tab();
+      await user.tab();
       expect(minThumb).not.toHaveFocus();
     });
 
-    it('hovering over the label visually identifies the min thumb', () => {
+    it('hovering over the label visually identifies the min thumb', async () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
@@ -108,7 +114,7 @@ describe('MultiThumbRange', () => {
       expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600));
       expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 600));
 
-      userEvent.hover(label);
+      await user.hover(label);
 
       ['border-color', 'background-color'].forEach(color => {
         expect(minThumb).toHaveStyleRule(color, getColor('blue', 700), {
@@ -117,7 +123,7 @@ describe('MultiThumbRange', () => {
       });
     });
 
-    it('pressing on the label visually identifies the activated min thumb', () => {
+    it('pressing on the label visually identifies the activated min thumb', async () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
@@ -130,7 +136,7 @@ describe('MultiThumbRange', () => {
       expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600));
       expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 600));
 
-      userEvent.click(label);
+      await user.click(label);
 
       expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600), {
         modifier: ':active'
@@ -205,14 +211,14 @@ describe('MultiThumbRange', () => {
       expect(thumb).toHaveAttribute('aria-valuemin', '0');
       expect(thumb).toHaveAttribute('aria-valuemax', '75');
       expect(thumb).toHaveAttribute('aria-valuenow', '15');
-      expect(thumb).toHaveAttribute('aria-valuetext', '15');
+      expect(thumb).toHaveAttribute('aria-label', '15');
     });
 
     it('removes thumb from tab order when disabled', () => {
       const { getAllByTestId } = render(<MultiThumbRange disabled minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[0];
 
-      expect(thumb).not.toHaveAttribute('tabIndex');
+      expect(thumb).toHaveAttribute('tabIndex', '-1');
     });
 
     it('applies correct style', () => {
@@ -262,7 +268,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.LEFT });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 10, maxValue: 75 });
       });
 
@@ -271,7 +277,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.DOWN });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.DOWN });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 10, maxValue: 75 });
       });
 
@@ -280,7 +286,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.RIGHT });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 20, maxValue: 75 });
       });
 
@@ -289,8 +295,26 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.UP });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 20, maxValue: 75 });
+      });
+
+      it('jumps minValue up on PAGE_UP key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.PAGE_UP });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 25, maxValue: 75 });
+      });
+
+      it('jumps minValue down on PAGE_DOWN key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.PAGE_DOWN });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 5, maxValue: 75 });
       });
 
       it('sets minValue to min on HOME key', () => {
@@ -298,7 +322,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.HOME });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.HOME });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 0, maxValue: 75 });
       });
 
@@ -307,7 +331,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.END });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.END });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 75, maxValue: 75 });
       });
     });
@@ -324,7 +348,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.LEFT });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 20, maxValue: 75 });
       });
 
@@ -333,7 +357,7 @@ describe('MultiThumbRange', () => {
           <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
-        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.RIGHT });
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { key: KEYS.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 10, maxValue: 75 });
       });
     });
@@ -382,13 +406,13 @@ describe('MultiThumbRange', () => {
           expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 75, maxValue: 75 });
         });
 
-        it('does not update minValue when disabled', () => {
+        it('does not update minValue when disabled', async () => {
           const { container, getAllByTestId } = renderRtl(
             <MultiThumbRange disabled minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
           const thumb = getAllByTestId('thumb')[0];
 
-          userEvent.click(thumb);
+          await user.click(thumb);
 
           const mouseEvent = new MouseEvent('mousemove');
 
@@ -412,14 +436,14 @@ describe('MultiThumbRange', () => {
       expect(thumb).toHaveAttribute('aria-valuemin', '15');
       expect(thumb).toHaveAttribute('aria-valuemax', '100');
       expect(thumb).toHaveAttribute('aria-valuenow', '75');
-      expect(thumb).toHaveAttribute('aria-valuetext', '75');
+      expect(thumb).toHaveAttribute('aria-label', '75');
     });
 
     it('removes thumb from tab order when disabled', () => {
       const { getAllByTestId } = render(<MultiThumbRange disabled minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[1];
 
-      expect(thumb).not.toHaveAttribute('tabindex');
+      expect(thumb).toHaveAttribute('tabindex', '-1');
     });
 
     it('applies correct style', () => {
@@ -440,7 +464,7 @@ describe('MultiThumbRange', () => {
       const { getAllByTestId } = render(<MultiThumbRange minValue={50} maxValue={40} />);
       const thumb = getAllByTestId('thumb')[1];
 
-      expect(thumb).toHaveStyle('left: 50px');
+      expect(thumb).toHaveStyle('left: 40px');
     });
 
     it('applies correct style if maxValue is less than min', () => {
@@ -470,7 +494,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.LEFT });
+        fireEvent.keyDown(maxThumb, { key: KEYS.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 70 });
       });
 
@@ -480,7 +504,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.DOWN });
+        fireEvent.keyDown(maxThumb, { key: KEYS.DOWN });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 70 });
       });
 
@@ -490,7 +514,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.RIGHT });
+        fireEvent.keyDown(maxThumb, { key: KEYS.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
       });
 
@@ -500,8 +524,26 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.UP });
+        fireEvent.keyDown(maxThumb, { key: KEYS.UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
+      });
+
+      it('jumps maxValue up on PAGE_UP key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[1], { key: KEYS.PAGE_UP });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 85 });
+      });
+
+      it('jumps maxValue down on PAGE_DOWN key', () => {
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} jump={10} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[1], { key: KEYS.PAGE_DOWN });
+        expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 65 });
       });
 
       it('sets maxValue to minValue on HOME key', () => {
@@ -510,7 +552,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.HOME });
+        fireEvent.keyDown(maxThumb, { key: KEYS.HOME });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 15 });
       });
 
@@ -520,7 +562,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.END });
+        fireEvent.keyDown(maxThumb, { key: KEYS.END });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 100 });
       });
     });
@@ -538,7 +580,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.LEFT });
+        fireEvent.keyDown(maxThumb, { key: KEYS.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
       });
 
@@ -548,7 +590,7 @@ describe('MultiThumbRange', () => {
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
-        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.RIGHT });
+        fireEvent.keyDown(maxThumb, { key: KEYS.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 70 });
       });
     });
@@ -597,13 +639,13 @@ describe('MultiThumbRange', () => {
           expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 90 });
         });
 
-        it('does not update maxValue when disabled', () => {
+        it('does not update maxValue when disabled', async () => {
           const { container, getAllByTestId } = renderRtl(
             <MultiThumbRange disabled minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
           const thumb = getAllByTestId('thumb')[1];
 
-          userEvent.click(thumb);
+          await user.click(thumb);
 
           const mouseEvent = new MouseEvent('mousemove');
 

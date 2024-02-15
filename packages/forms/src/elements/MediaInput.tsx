@@ -75,12 +75,12 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       ref: mergeRefs([inputRef, ref]),
       onSelect: onSelectHandler,
       ...props
-    };
+    } as any;
 
     let isLabelHovered;
 
     if (fieldContext) {
-      combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+      combinedProps = fieldContext.getInputProps(combinedProps);
       isLabelHovered = fieldContext.isLabelHovered;
     }
 
@@ -113,7 +113,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
             {start}
           </FauxInput.StartIcon>
         )}
-        <StyledTextMediaInput {...(combinedProps as any)} />
+        <StyledTextMediaInput {...combinedProps} />
         {end && (
           <FauxInput.EndIcon
             isDisabled={disabled}

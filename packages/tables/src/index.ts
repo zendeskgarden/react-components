@@ -21,6 +21,7 @@ export type {
   ITableProps,
   IRowProps,
   ICellProps,
+  IHeadProps,
   IHeaderCellProps,
   ISortableCellProps
 } from './types';

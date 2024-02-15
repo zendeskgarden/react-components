@@ -17,7 +17,6 @@ const StyledPanes = styled.div`
 `;
 
 interface IArgs extends IPaneProviderProps {
-  handleValueChange?: IPaneProviderProps['onChange'];
   panes: ISplitterPane[];
 }
 
@@ -28,7 +27,7 @@ export const PaneProviderStory: Story<IArgs> = ({
   rowValues,
   defaultColumnValues,
   defaultRowValues,
-  handleValueChange,
+  onChange,
   panes
 }) => (
   <PaneProvider
@@ -38,7 +37,7 @@ export const PaneProviderStory: Story<IArgs> = ({
     rowValues={rowValues}
     defaultColumnValues={defaultColumnValues}
     defaultRowValues={defaultRowValues}
-    onChange={handleValueChange}
+    onChange={onChange}
   >
     {({ getGridTemplateColumns, getGridTemplateRows }) => {
       return (
@@ -54,7 +53,14 @@ export const PaneProviderStory: Story<IArgs> = ({
             <Pane key={index}>
               <Pane.Content>{pane.content}</Pane.Content>
               {pane.splitters.map(splitter => (
-                <Pane.Splitter key={splitter.layoutKey} {...splitter} />
+                <Pane.Splitter key={splitter.layoutKey} {...splitter}>
+                  {splitter.button && (
+                    <Pane.SplitterButton
+                      label={splitter.button.label}
+                      placement={splitter.button.placement}
+                    />
+                  )}
+                </Pane.Splitter>
               ))}
             </Pane>
           ))}

@@ -8,7 +8,4 @@
 // Styled-Component setup
 import 'jest-styled-components';
 
-import '@testing-library/jest-dom/extend-expect';
-
-// Enable async/await
-import '@babel/polyfill';
+import '@testing-library/jest-dom';

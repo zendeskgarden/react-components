@@ -5,7 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, ButtonHTMLAttributes } from 'react';
+import { IButtonProps } from '@zendeskgarden/react-buttons';
 
 export const PLACEMENT = [
   'top-start',
@@ -18,9 +19,9 @@ export const PLACEMENT = [
 
 export const TYPE = ['success', 'warning', 'error', 'info'] as const;
 
-export type Placement = typeof PLACEMENT[number];
+export type Placement = (typeof PLACEMENT)[number];
 
-export type Type = typeof TYPE[number];
+export type Type = (typeof TYPE)[number];
 
 export interface IAlertProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies alert type styles */
@@ -57,4 +58,22 @@ export interface IToastProviderProps {
    * Sets the `z-index` of the toast
    */
   zIndex?: number;
+}
+
+export interface IGlobalAlertProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Applies global alert type styles
+   */
+  type: Type;
+}
+
+export interface IGlobalAlertButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    Pick<IButtonProps, 'isBasic'> {}
+
+export interface IGlobalAlertTitleProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Applies regular (non-bold) font weight
+   */
+  isRegular?: boolean;
 }

@@ -11,9 +11,9 @@ import { useAccordionContext, useHeaderContext, useSectionContext } from '../../
 
 const LabelComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
-    const sectionIndex = useSectionContext();
+    const sectionValue = useSectionContext();
     const { isCompact, isCollapsible, expandedSections } = useAccordionContext();
-    const isExpanded = expandedSections.includes(sectionIndex);
+    const isExpanded = expandedSections.includes(sectionValue);
     const { isHovered, otherTriggerProps } = useHeaderContext();
 
     return (

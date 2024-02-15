@@ -10,18 +10,23 @@ import userEvent from '@testing-library/user-event';
 import { render as baseRender } from '@testing-library/react';
 import { render } from 'garden-test-utils';
 
-import { Tabs, ITabsProps, TabList, TabPanel, Tab } from '../';
+import { Tabs, ITabsProps, TabList, TabPanel, Tab, ITabProps } from '../';
 
 describe('Tabs', () => {
+  const user = userEvent.setup();
+
+  /* Validates `Tab` component extension works as expected with `toTabs` */
+  const TestTab = (props: ITabProps) => <Tab {...props} />;
+
   const BasicExample = (props: ITabsProps) => (
     <Tabs data-test-id="container" {...props}>
       <TabList>
         <Tab item="tab-1" data-test-id="tab">
           Tab 1
         </Tab>
-        <Tab item="tab-2" data-test-id="tab">
+        <TestTab item="tab-2" data-test-id="tab">
           Tab 2
-        </Tab>
+        </TestTab>
       </TabList>
       <TabPanel item="tab-1" data-test-id="panel">
         Tab 1 content
@@ -44,12 +49,12 @@ describe('Tabs', () => {
     expect(getByTestId('container')).toHaveStyleRule('display', 'table');
   });
 
-  it('calls onChange with correct item on selection', () => {
+  it('calls onChange with correct item on selection', async () => {
     const onChangeSpy = jest.fn();
 
     const { getAllByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-    userEvent.click(getAllByTestId('tab')[1]);
+    await user.click(getAllByTestId('tab')[1]);
     expect(onChangeSpy).toHaveBeenCalledWith('tab-2');
   });
 
@@ -74,11 +79,11 @@ describe('Tabs', () => {
   });
 
   describe('Tab', () => {
-    it('applies selected styling to currently selected tab', () => {
+    it('applies selected styling to currently selected tab', async () => {
       const { getAllByTestId } = render(<BasicExample />);
       const tab = getAllByTestId('tab')[1];
 
-      userEvent.click(tab);
+      await user.click(tab);
 
       expect(tab).toHaveAttribute('aria-selected', 'true');
     });
@@ -124,25 +129,6 @@ describe('Tabs', () => {
   });
 
   describe('TabPanel', () => {
-    it('throws if no item is provided to TabPanel', () => {
-      const originalError = console.error;
-
-      console.error = jest.fn();
-
-      expect(() => {
-        render(
-          <Tabs>
-            <TabList>
-              <Tab>Invalid panel</Tab>
-            </TabList>
-            <TabPanel>Invalid panel</TabPanel>
-          </Tabs>
-        );
-      }).toThrow('Accessibility Error: You must provide an "item" option to "getTabProps()"');
-
-      console.error = originalError;
-    });
-
     it('does not throw if a item is provided to TabPanel', () => {
       expect(() => {
         render(

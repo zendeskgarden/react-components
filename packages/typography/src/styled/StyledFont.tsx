@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { math } from 'polished';
+import { hideVisually, math } from 'polished';
 import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { SIZE } from '../types';
 
@@ -16,7 +16,7 @@ const TYPOGRAPHY_SIZE = [...SIZE, 'extralarge', '2xlarge', '3xlarge'] as const;
 
 const FONT_SIZE = ['inherit', ...TYPOGRAPHY_SIZE] as const;
 
-type TypographySize = typeof TYPOGRAPHY_SIZE[number];
+type TypographySize = (typeof TYPOGRAPHY_SIZE)[number];
 
 type ThemeSize = keyof DefaultTheme['lineHeights'];
 
@@ -81,7 +81,7 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
 export interface IStyledFontProps {
   isBold?: boolean;
   isMonospace?: boolean;
-  size?: typeof FONT_SIZE[number];
+  size?: (typeof FONT_SIZE)[number];
   hue?: string;
 }
 
@@ -89,7 +89,13 @@ export const StyledFont = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledFontProps>`
-  ${props => fontStyles(props)};
+  ${props => !props.hidden && fontStyles(props)};
+
+  &[hidden] {
+    display: inline;
+    ${hideVisually()};
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

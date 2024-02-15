@@ -13,6 +13,7 @@ export { StyledCell } from './StyledCell';
 export { StyledGroupRow } from './StyledGroupRow';
 export { StyledTable } from './StyledTable';
 export { StyledHeaderCell } from './StyledHeaderCell';
+export { StyledHiddenCell } from './StyledHiddenCell';
 export {
   StyledSortableButton,
   StyledSortableFillIconWrapper,

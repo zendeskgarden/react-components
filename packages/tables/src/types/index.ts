@@ -19,9 +19,14 @@ export const SORT = ['asc', 'desc'];
 
 export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
   /** Sets the table size */
-  size?: typeof SIZE[number];
+  size?: (typeof SIZE)[number];
   /** Removes interactive styling from table rows */
   isReadOnly?: boolean;
+}
+
+export interface IHeadProps extends HTMLAttributes<HTMLTableSectionElement> {
+  /** Applies sticky header styling */
+  isSticky?: boolean;
 }
 
 export interface IRowProps extends HTMLAttributes<HTMLTableRowElement> {
@@ -55,7 +60,7 @@ export interface IHeaderCellProps
 
 export interface ISortableCellProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Sets the sort order */
-  sort?: typeof SORT[number];
+  sort?: (typeof SORT)[number];
   /** Sets the width of the cell */
   width?: ICellProps['width'];
   /** Passes props to the cell */

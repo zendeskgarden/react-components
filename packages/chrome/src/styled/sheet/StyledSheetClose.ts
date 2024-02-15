@@ -6,7 +6,12 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  focusStyles
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_close';
 
@@ -29,11 +34,9 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       color: ${getColor(foregroundColor, 700, props.theme)};
     }
 
-    &[data-garden-focus-visible] {
-      box-shadow: ${props.theme.shadows.md(
-        getColor(backgroundColor, 600, props.theme, 0.35) as string
-      )};
-    }
+    ${focusStyles({
+      theme: props.theme
+    })}
 
     &:active {
       /* prettier-ignore */
@@ -74,11 +77,7 @@ export const StyledSheetClose = styled.button.attrs({
   user-select: none;
 
   &::-moz-focus-inner {
-    border: 0; /* [1] */
-  }
-
-  &:focus {
-    outline: none;
+    border: 0;
   }
 
   ${props => colorStyles(props)};

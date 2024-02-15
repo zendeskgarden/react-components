@@ -71,6 +71,16 @@ describe('Message', () => {
     expect(getByTestId('message')).toHaveAttribute('data-garden-id', 'forms.radio_message');
   });
 
+  it('renders radio message if within a Radio component without Field component', () => {
+    const { getByTestId } = render(
+      <Radio>
+        <Message data-test-id="message">Test</Message>
+      </Radio>
+    );
+
+    expect(getByTestId('message')).toHaveAttribute('data-garden-id', 'forms.radio_message');
+  });
+
   describe('Validation', () => {
     it('renders expected component for each validation type', () => {
       VALIDATION.forEach(validation => {
@@ -82,7 +92,24 @@ describe('Message', () => {
         );
 
         expect(getByText(text).firstChild!.nodeName).toBe('svg');
+        expect(getByText(text).firstChild).toHaveAttribute('aria-label', validation);
       });
+    });
+
+    it('renders SVG child element with a validation label', () => {
+      const validation = VALIDATION[0];
+      const validationLabel = `great ${validation}`;
+      const text = `This is ${validation} text`;
+      const { getByText } = render(
+        <Field>
+          <Message validation={validation} validationLabel={validationLabel}>
+            {text}
+          </Message>
+        </Field>
+      );
+
+      expect(getByText(text).firstChild!.nodeName).toBe('svg');
+      expect(getByText(text).firstChild).toHaveAttribute('aria-label', validationLabel);
     });
   });
 });

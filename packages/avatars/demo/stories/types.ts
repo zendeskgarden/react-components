@@ -7,4 +7,4 @@
 
 import { AVATAR_TYPE } from './data';
 
-export type TYPE = typeof AVATAR_TYPE[number];
+export type TYPE = (typeof AVATAR_TYPE)[number];

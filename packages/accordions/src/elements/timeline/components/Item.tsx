@@ -9,7 +9,7 @@ import React, { useMemo, forwardRef, Children, ReactElement } from 'react';
 import { OppositeContent } from './OppositeContent';
 import { StyledTimelineItem } from '../../../styled';
 import { TimelineItemContext, useTimelineContext } from '../../../utils';
-import { ITimelineItemProps } from 'packages/accordions/src/types';
+import { ITimelineItemProps } from '../../../types';
 
 /**
  * @deprecated use ITimelineItemProps instead

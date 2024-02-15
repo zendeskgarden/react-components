@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import {
   Table,
   Body,
@@ -14,6 +14,7 @@ import {
 } from '@zendeskgarden/react-tables';
 import { TableStory } from './stories/TableStory';
 import { TABLE_DATA as DATA } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Tables/Table"
@@ -46,8 +47,10 @@ import { TABLE_DATA as DATA } from './stories/data';
       isReadOnly: { control: 'boolean' },
       hasOverflow: { control: 'boolean', table: { category: 'Cell' } },
       isTruncated: { control: 'boolean', table: { category: 'Cell' } },
+      isHidden: { name: 'hidden', control: 'boolean', table: { category: 'Cell' } },
       caption: { name: 'children', table: { category: 'Caption' } },
       isBold: { control: 'boolean', table: { category: 'GroupRow' } },
+      isSticky: { control: 'boolean', table: { category: 'Head' } },
       isStriped: { control: 'boolean', table: { category: 'Row' } },
       isSelected: { control: 'boolean', table: { category: 'Row' } },
       data: { name: 'Row[]', table: { category: 'Story' } },
@@ -66,3 +69,5 @@ import { TABLE_DATA as DATA } from './stories/data';
     {args => <TableStory {...args} />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

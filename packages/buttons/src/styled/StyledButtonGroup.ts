@@ -23,10 +23,6 @@ export const StyledButtonGroup = styled.div.attrs({
   direction: ${props => props.theme.rtl && 'rtl'};
   white-space: nowrap;
 
-  :focus {
-    outline: none;
-  }
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

@@ -1,0 +1,94 @@
+import { useCallback } from 'react';
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
+import { Combobox } from '@zendeskgarden/react-dropdowns.next';
+import { ListboxStory } from './stories/ListboxStory';
+import { MenuAppendStory } from './stories/MenuAppendStory';
+import { MenuButtonStory } from './stories/MenuButtonStory';
+import { MenuNestedStory } from './stories/MenuNestedStory';
+import { BASE_ITEMS, NESTED_ITEMS } from './stories/data';
+
+<Meta title="Packages/Dropdowns.Next/[patterns]" />
+
+# Patterns
+
+## Render listbox in a root level React portal
+
+The `listboxAppendToNode` property can be used to render the listbox in a
+different DOM location than inline with the Combobox component. This is done via
+React portals under the hood.
+
+You typically will need to set this property if you are using the `Combobox`
+inside an element with `overflow: hidden` / `auto` / `scroll` CSS styles.
+
+See in this example, that the listbox is currently getting cropped. Enable the
+`listboxAppendToNode` property to see the full listbox.
+
+<Canvas>
+  <Story
+    name="Listbox"
+    args={{ listboxAppendToNode: false }}
+    argTypes={{ listboxAppendToNode: { control: 'boolean' } }}
+  >
+    {args => <ListboxStory {...args} />}
+  </Story>
+</Canvas>
+
+## Render menu in a root level React portal
+
+The `appendToNode` property can be used to render the menu popover in a
+different DOM location than inline with the menu button. This is done via
+React portals under the hood.
+
+You typically will need to set this property if you are using `Menu` inside an
+element with `overflow: hidden` / `auto` / `scroll` CSS styles.
+
+See in this example that the menu will attempt to reposition, however it's
+ultimately still cropped. Enable the `appendToNode` property to see the full menu.
+
+<Canvas>
+  <Story
+    name="Menu portal"
+    args={{ appendToNode: false }}
+    argTypes={{ appendToNode: { control: 'boolean' } }}
+  >
+    {args => <MenuAppendStory {...args} />}
+  </Story>
+</Canvas>
+
+## Render menu with custom button
+
+The `button` property can alternatively be set as a callback function that returns
+custom button JSX. By default, `Menu` will use a Garden `Button` internally.
+
+This is an option for things like icon buttons.
+
+<Canvas>
+  <Story name="Menu button">{args => <MenuButtonStory {...args} />}</Story>
+</Canvas>
+
+## Menu with nested items
+
+Adding an `Item` with `type="next"` will enable nested menu
+behavior. It can be implemented with or without controlled focus.
+
+The subsequent nested menu will then need an `Item` with `type="previous"`
+to allow backwards navigation to the previous menu.
+
+<Canvas>
+  <Story name="Menu nested" args={{ items: BASE_ITEMS }}>
+    {args => {
+      const [_, updateArgs, resetArgs] = useArgs();
+      const onChange = useCallback(({ type, isExpanded }) => {
+        const isNext = type.includes('next');
+        const isPrev = type.includes('previous');
+        if (isNext || isPrev) {
+          updateArgs({ items: isNext ? NESTED_ITEMS : BASE_ITEMS });
+        } else if (isExpanded === false) {
+          resetArgs(['items']);
+        }
+      }, []);
+      return <MenuNestedStory {...args} onChange={onChange} />;
+    }}
+  </Story>
+</Canvas>

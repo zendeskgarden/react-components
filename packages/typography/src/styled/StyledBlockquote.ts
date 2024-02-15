@@ -19,16 +19,16 @@ export const StyledBlockquote = styled.blockquote.attrs({
   margin: 0;
   /* stylelint-disable property-no-unknown */
   border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-  props.theme.shadowWidths.sm} solid;
+    props.theme.shadowWidths.sm} solid;
   border-color: ${props => getColor('neutralHue', 400, props.theme)};
   padding: 0;
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-  props.theme.space.base * 4}px;
+    props.theme.space.base * 4}px;
   /* stylelint-enable property-no-unknown */
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
-  p + &,
-  & + & {
+  & + &,
+  p + & {
     margin-top: ${props => props.theme.lineHeights[THEME_SIZES[props.size!]]};
   }
 

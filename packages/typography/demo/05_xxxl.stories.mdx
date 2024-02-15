@@ -1,6 +1,7 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { XXXL } from '@zendeskgarden/react-typography';
 import { TypescaleStory } from './stories/TypescaleStory';
+import README from '../README.md';
 
 <Meta title="Packages/Typography/Typescale/XXXL" component={XXXL} />
 
@@ -26,3 +27,5 @@ import { TypescaleStory } from './stories/TypescaleStory';
     {args => <TypescaleStory {...args} size="3x-large" />}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

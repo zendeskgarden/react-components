@@ -6,13 +6,17 @@
  */
 
 import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  getColor,
+  focusStyles,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 import { stripUnit } from 'polished';
 
 const COMPONENT_ID = 'tabs.tab';
 
 interface IStyledTabProps {
-  disabled?: boolean;
   isSelected?: boolean;
 }
 
@@ -23,24 +27,25 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
   const selectedColor = getColor('primaryHue', 600, theme);
 
   return css`
-    border-color: ${isSelected && 'currentColor !important'}; /* [1] */
+    border-color: ${isSelected && 'currentcolor !important'}; /* [1] */
     color: ${isSelected ? selectedColor : 'inherit'};
 
     &:hover {
       color: ${selectedColor};
     }
 
+    ${focusStyles({
+      theme,
+      inset: true,
+      spacerWidth: null,
+      shadowWidth: 'sm',
+      selector: '&:focus-visible::before, &[data-garden-focus-visible="true"]::before',
+      styles: { color: selectedColor }
+    })}
+
     &:active {
-      border-color: currentColor;
+      border-color: currentcolor;
       color: ${selectedColor};
-    }
-
-    &[data-garden-focus-visible] {
-      color: ${selectedColor};
-    }
-
-    &[data-garden-focus-visible]::before {
-      box-shadow: inset ${theme.shadows.sm(getColor('primaryHue', 600, theme, 0.35)!)};
     }
 
     &[aria-disabled='true'] {
@@ -68,11 +73,10 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
  * 2. Overflow compensation.
  * 3. Override default anchor styling
  */
-export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
+export const StyledTab = styled.div.attrs<IStyledTabProps>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'aria-disabled': props.disabled
-}))<IStyledTabProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledTabProps>`
   display: inline-block;
   position: relative;
   transition: color 0.25s ease-in-out;
@@ -90,10 +94,15 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
   ${colorStyles}
 
   &:focus {
-    outline: none;
     text-decoration: none;
   }
 
+  &::before {
+    transition: box-shadow 0.1s ease-in-out;
+    content: '';
+  }
+
+  &:focus-visible::before,
   &[data-garden-focus-visible]::before {
     position: absolute;
     top: ${props => props.theme.space.base * 2.5}px;
@@ -102,11 +111,6 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
     border-radius: ${props => props.theme.borderRadii.md};
     height: ${props => props.theme.space.base * 5}px;
     pointer-events: none;
-  }
-
-  &::before {
-    transition: box-shadow 0.1s ease-in-out;
-    content: '';
   }
 
   &:active::before {

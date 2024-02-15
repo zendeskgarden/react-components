@@ -8,6 +8,8 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent } from 'garden-test-utils';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
+
 import { Dropdown, Trigger, Menu, Item, NextItem, PreviousItem, IDropdownProps } from '../..';
 
 const ExampleDropdown = (props: IDropdownProps) => (
@@ -36,15 +38,17 @@ const ExampleDropdown = (props: IDropdownProps) => (
 );
 
 describe('Dropdown', () => {
+  const user = userEvent.setup();
+
   describe('Custom keyboard nav', () => {
-    it('selects previous item on left arrow key in LTR mode', () => {
+    it('selects previous item on left arrow key in LTR mode', async () => {
       const onSelectSpy = jest.fn();
       const { container, getByTestId } = render(<ExampleDropdown onSelect={onSelectSpy} />);
 
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      userEvent.click(trigger);
+      await user.click(trigger);
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowLeft', keyCode: 37 });
@@ -52,14 +56,14 @@ describe('Dropdown', () => {
       expect(onSelectSpy.mock.calls[0][0]).toBe('previous-item');
     });
 
-    it('selects previous item on right arrow key in RTL mode', () => {
+    it('selects previous item on right arrow key in RTL mode', async () => {
       const onSelectSpy = jest.fn();
       const { container, getByTestId } = renderRtl(<ExampleDropdown onSelect={onSelectSpy} />);
 
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      userEvent.click(trigger);
+      await user.click(trigger);
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowRight', keyCode: 39 });
@@ -67,14 +71,14 @@ describe('Dropdown', () => {
       expect(onSelectSpy.mock.calls[0][0]).toBe('previous-item');
     });
 
-    it('selects next item on right arrow key in LTR mode', () => {
+    it('selects next item on right arrow key in LTR mode', async () => {
       const onSelectSpy = jest.fn();
       const { container, getByTestId } = render(<ExampleDropdown onSelect={onSelectSpy} />);
 
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      userEvent.click(trigger);
+      await user.click(trigger);
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
@@ -84,14 +88,14 @@ describe('Dropdown', () => {
       expect(onSelectSpy.mock.calls[0][0]).toBe('next-item-1');
     });
 
-    it('selects next item on left arrow key in RTL mode', () => {
+    it('selects next item on left arrow key in RTL mode', async () => {
       const onSelectSpy = jest.fn();
       const { container, getByTestId } = renderRtl(<ExampleDropdown onSelect={onSelectSpy} />);
 
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      userEvent.click(trigger);
+      await user.click(trigger);
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
@@ -101,7 +105,7 @@ describe('Dropdown', () => {
       expect(onSelectSpy.mock.calls[0][0]).toBe('next-item-1');
     });
 
-    it('selects next item when provided value is an object', () => {
+    it('selects next item when provided value is an object', async () => {
       const onSelectSpy = jest.fn();
       const { container, getByTestId } = render(
         <Dropdown
@@ -122,7 +126,7 @@ describe('Dropdown', () => {
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      userEvent.click(trigger);
+      await user.click(trigger);
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowRight', keyCode: 39 });
@@ -137,7 +141,7 @@ describe('Dropdown', () => {
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      userEvent.type(input!, '{space}');
+      fireEvent.keyDown(input!, { keyCode: KEY_CODES.SPACE });
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
 
@@ -148,45 +152,45 @@ describe('Dropdown', () => {
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      userEvent.type(input!, '{enter}');
+      fireEvent.keyDown(input!, { keyCode: KEY_CODES.ENTER });
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
   });
 
   describe('Event handlers', () => {
-    it('calls onOpen handler if controlled', () => {
+    it('calls onOpen handler if controlled', async () => {
       const onStateChangeSpy = jest.fn();
       const { getByTestId } = render(
         <ExampleDropdown isOpen={false} onStateChange={onStateChangeSpy} />
       );
 
-      userEvent.click(getByTestId('trigger'));
+      await user.click(getByTestId('trigger'));
       expect(onStateChangeSpy.mock.calls[0][0]).toMatchObject({ isOpen: true });
     });
 
-    it('calls onSelect handler correctly if controlled with single value', () => {
+    it('calls onSelect handler correctly if controlled with single value', async () => {
       const onSelectSpy = jest.fn();
       const { getByTestId, getAllByTestId } = render(
         <ExampleDropdown selectedItem="item-1" onSelect={onSelectSpy} />
       );
 
-      userEvent.click(getByTestId('trigger'));
+      await user.click(getByTestId('trigger'));
       fireEvent.click(getAllByTestId('item')[0]);
       expect(onSelectSpy.mock.calls[0][0]).toBe('previous-item');
     });
 
-    it('calls onSelect handler correctly if controlled with multiple values and is not selected', () => {
+    it('calls onSelect handler correctly if controlled with multiple values and is not selected', async () => {
       const onSelectSpy = jest.fn();
       const { getByTestId, getAllByTestId } = render(
         <ExampleDropdown selectedItems={['item-1', 'item-2']} onSelect={onSelectSpy} />
       );
 
-      userEvent.click(getByTestId('trigger'));
+      await user.click(getByTestId('trigger'));
       fireEvent.click(getAllByTestId('item')[0]);
       expect(onSelectSpy.mock.calls[0][0]).toStrictEqual(['item-1', 'item-2', 'previous-item']);
     });
 
-    it('calls onSelect handler correctly if controlled with multiple values and is selected', () => {
+    it('calls onSelect handler correctly if controlled with multiple values and is selected', async () => {
       const onSelectSpy = jest.fn();
       const { getByTestId, getAllByTestId } = render(
         <ExampleDropdown
@@ -195,12 +199,12 @@ describe('Dropdown', () => {
         />
       );
 
-      userEvent.click(getByTestId('trigger'));
+      await user.click(getByTestId('trigger'));
       fireEvent.click(getAllByTestId('item')[0]);
       expect(onSelectSpy.mock.calls[0][0]).toStrictEqual(['item-1', 'item-2']);
     });
 
-    it('calls onHighlight handler if controlled', () => {
+    it('calls onHighlight handler if controlled', async () => {
       const onStateChangeSpy = jest.fn();
       const { container, getByTestId } = render(
         <ExampleDropdown
@@ -210,13 +214,13 @@ describe('Dropdown', () => {
         />
       );
 
-      userEvent.click(getByTestId('trigger'));
+      await user.click(getByTestId('trigger'));
       fireEvent.keyDown(container.querySelector('input')!, { key: 'ArrowDown', keyCode: 40 });
 
       expect(onStateChangeSpy.mock.calls[1][0]).toMatchObject({ highlightedIndex: 2 });
     });
 
-    it('calls onStateChange with inputValue if controlled', () => {
+    it('calls onStateChange with inputValue if controlled', async () => {
       const onStateChangeSpy = jest.fn();
       const { container } = render(
         <ExampleDropdown inputValue="test" onStateChange={onStateChangeSpy} />
@@ -224,13 +228,13 @@ describe('Dropdown', () => {
 
       container.querySelector('input')!.readOnly = false;
 
-      userEvent.type(container.querySelector('input')!, 't');
+      await user.type(container.querySelector('input')!, 't');
 
       expect(onStateChangeSpy).toHaveBeenCalledTimes(1);
       expect(onStateChangeSpy.mock.calls[0][0]).toMatchObject({ inputValue: 't' });
     });
 
-    it('calls onInputValueChange with input value when open', () => {
+    it('calls onInputValueChange with input value when open', async () => {
       const onInputValueChangeSpy = jest.fn();
 
       const { container } = render(
@@ -238,7 +242,7 @@ describe('Dropdown', () => {
       );
 
       container.querySelector('input')!.readOnly = false;
-      userEvent.type(container.querySelector('input')!, 't');
+      await user.type(container.querySelector('input')!, 't');
 
       expect(onInputValueChangeSpy.mock.calls[0][0]).toBe('t');
     });

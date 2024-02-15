@@ -6,19 +6,19 @@
  */
 
 import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
-import startOfMonth from 'date-fns/startOfMonth';
-import endOfMonth from 'date-fns/endOfMonth';
-import startOfWeek from 'date-fns/startOfWeek';
-import endOfWeek from 'date-fns/endOfWeek';
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import addDays from 'date-fns/addDays';
-import isToday from 'date-fns/isToday';
-import isSameDay from 'date-fns/isSameDay';
-import isSameMonth from 'date-fns/isSameMonth';
-import isBefore from 'date-fns/isBefore';
-import isAfter from 'date-fns/isAfter';
-import subDays from 'date-fns/subDays';
-import compareAsc from 'date-fns/compareAsc';
+import { startOfMonth } from 'date-fns/startOfMonth';
+import { endOfMonth } from 'date-fns/endOfMonth';
+import { startOfWeek } from 'date-fns/startOfWeek';
+import { endOfWeek } from 'date-fns/endOfWeek';
+import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
+import { addDays } from 'date-fns/addDays';
+import { isToday } from 'date-fns/isToday';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isSameMonth } from 'date-fns/isSameMonth';
+import { isBefore } from 'date-fns/isBefore';
+import { isAfter } from 'date-fns/isAfter';
+import { subDays } from 'date-fns/subDays';
+import { compareAsc } from 'date-fns/compareAsc';
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import {
@@ -47,6 +47,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       state,
       dispatch,
       locale,
+      weekStartsOn,
       isCompact,
       minValue,
       maxValue,
@@ -55,7 +56,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       onChange
     } = useDatepickerRangeContext();
 
-    const headerLabelFormatter = useCallback(
+    const headerLabelFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
           month: 'long',
@@ -67,7 +68,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       [locale]
     );
 
-    const dayLabelFormatter = useCallback(
+    const dayLabelFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
           weekday: 'short'
@@ -78,7 +79,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       [locale]
     );
 
-    const dayFormatter = useCallback(
+    const dayFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
           day: 'numeric'
@@ -89,14 +90,14 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       [locale]
     );
 
-    const weekStartsOn = getStartOfWeek(locale);
+    const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
     const monthStartDate = startOfMonth(displayDate);
     const monthEndDate = endOfMonth(monthStartDate);
     const startDate = startOfWeek(monthStartDate, {
-      weekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
     const endDate = endOfWeek(monthEndDate, {
-      weekStartsOn
+      weekStartsOn: preferredWeekStartsOn
     });
 
     const dayLabels = eachDayOfInterval({ start: startDate, end: addDays(startDate, 6) }).map(
@@ -105,7 +106,9 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
         return (
           <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isCompact={isCompact}>
-            <StyledDayLabel isCompact={isCompact!}>{formattedDayLabel}</StyledDayLabel>
+            <StyledDayLabel isCompact={isCompact!} data-test-id="day-label">
+              {formattedDayLabel}
+            </StyledDayLabel>
           </StyledCalendarItem>
         );
       }

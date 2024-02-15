@@ -12,6 +12,8 @@ import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 import { FauxInput } from './FauxInput';
 
 describe('FauxInput', () => {
+  const user = userEvent.setup();
+
   it('renders the expected element', () => {
     const { container } = render(<FauxInput />);
 
@@ -32,24 +34,24 @@ describe('FauxInput', () => {
     expect(container.firstElementChild!.getAttribute('tabIndex')).toBeNull();
   });
 
-  it('applies focused styling on focus event', () => {
+  it('applies focused styling on focus event', async () => {
     const { container } = render(<FauxInput />);
 
     expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'false');
 
-    userEvent.click(container.firstElementChild!);
+    await user.click(container.firstElementChild!);
 
     expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'true');
   });
 
-  it('removes focused styling on blur event', () => {
+  it('removes focused styling on blur event', async () => {
     const { container } = render(<FauxInput />);
 
-    userEvent.click(container.firstElementChild!);
+    await user.click(container.firstElementChild!);
 
     expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'true');
 
-    userEvent.tab();
+    await user.tab();
 
     expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'false');
   });

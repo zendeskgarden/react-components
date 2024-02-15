@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import Downshift from 'downshift';
 import {
@@ -19,6 +19,7 @@ import {
 } from '@zendeskgarden/react-dropdowns';
 import { TriggerStory } from './stories/TriggerStory';
 import { MENU_ITEMS as ITEMS } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Dropdowns/Menu"
@@ -42,6 +43,10 @@ import { MENU_ITEMS as ITEMS } from './stories/data';
 />
 
 # API
+
+**DEPRECATED:** use `@zendeskgarden/react-dropdowns.next`
+[Menu](https://zendeskgarden.github.io/react-components/?path=/docs/packages-dropdowns-next-menu--docs)
+instead.
 
 <ArgsTable />
 
@@ -96,3 +101,5 @@ import { MENU_ITEMS as ITEMS } from './stories/data';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>

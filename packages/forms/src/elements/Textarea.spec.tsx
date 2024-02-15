@@ -15,6 +15,8 @@ const { getComputedStyle } = window;
 const originalScrollHeight = Object.getOwnPropertyDescriptor(Element.prototype, 'scrollHeight');
 
 describe('Textarea', () => {
+  const user = userEvent.setup();
+
   it('is rendered as a textarea', () => {
     const { getByTestId } = render(
       <Field>
@@ -36,7 +38,7 @@ describe('Textarea', () => {
     expect(getByTestId('textarea')).toBe(ref.current);
   });
 
-  it('selects readonly text', () => {
+  it('selects readonly text', async () => {
     const value = 'testing';
     const { getByTestId } = render(
       <Field>
@@ -45,7 +47,7 @@ describe('Textarea', () => {
     );
     const textarea = getByTestId('textarea') as HTMLTextAreaElement;
 
-    userEvent.click(textarea);
+    await user.click(textarea);
 
     expect(textarea.selectionStart).toBe(0);
     expect(textarea.selectionEnd).toBe(value.length);

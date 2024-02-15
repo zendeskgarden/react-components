@@ -25,7 +25,7 @@ export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
   height: props.height,
   focusable: 'false',
   viewBox: `0 0 ${props.width} ${props.height}`,
-  role: 'progressbar'
+  role: 'img'
 }))<IStyledSVGProps>`
   width: ${props => props.containerWidth || '1em'};
   height: ${props => props.containerHeight || '0.9em'};

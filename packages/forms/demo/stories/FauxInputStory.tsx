@@ -31,6 +31,7 @@ export const FauxInputStory: Story<IArgs> = ({
   hint,
   hasMessage,
   message,
+  validationLabel,
   ...args
 }) => (
   <FieldStory
@@ -42,6 +43,7 @@ export const FauxInputStory: Story<IArgs> = ({
     hasMessage={hasMessage}
     message={message}
     validation={args.validation}
+    validationLabel={validationLabel}
   >
     <FauxInput {...args}>
       {hasStartIcon && (

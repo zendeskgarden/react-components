@@ -11,7 +11,7 @@ export const SIZE = ['small', 'medium', 'large'] as const;
 
 export interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   /** Adjusts font size and padding */
-  size?: typeof SIZE[number];
+  size?: (typeof SIZE)[number];
   /**
    * Sets the color of the tag. Refer to
    * [PALETTE](/components/palette#palette)

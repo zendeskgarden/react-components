@@ -1,8 +1,9 @@
-import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { TooltipModal } from '@zendeskgarden/react-modals';
 import { TooltipModalStory } from './stories/TooltipModalStory';
 import { TOOLTIP_MODAL_BODY as BODY } from './stories/data';
+import README from '../README.md';
 
 <Meta
   title="Packages/Modals/TooltipModal"
@@ -28,14 +29,15 @@ import { TOOLTIP_MODAL_BODY as BODY } from './stories/data';
     args={{
       focusOnMount: true,
       hasArrow: true,
-      isAnimated: true,
       restoreFocus: true,
       hasBody: true,
       body: BODY,
       hasClose: true,
       hasFooter: true,
       hasTitle: true,
-      title: 'Title'
+      title: 'Title',
+      closeAriaLabel: 'Close',
+      dialogAriaLabel: 'Title'
     }}
     argTypes={{
       referenceElement: { control: false },
@@ -44,7 +46,10 @@ import { TOOLTIP_MODAL_BODY as BODY } from './stories/data';
       hasFooter: { name: 'TooltipModal.Footer', table: { category: 'Story' } },
       hasTitle: { name: 'TooltipModal.Title', table: { category: 'Story' } },
       body: { name: 'children', table: { category: 'TooltipModal.Body' } },
-      title: { name: 'children', table: { category: 'TooltipModal.Title' } }
+      title: { name: 'children', table: { category: 'TooltipModal.Title' } },
+      tag: { control: 'text', table: { category: 'TooltipModal.Title' } },
+      closeAriaLabel: { name: 'aria-label', table: { category: 'TooltipModal.Close' } },
+      dialogAriaLabel: { name: 'aria-label' }
     }}
     parameters={{
       design: {
@@ -64,3 +69,5 @@ import { TOOLTIP_MODAL_BODY as BODY } from './stories/data';
     }}
   </Story>
 </Canvas>
+
+<Markdown>{README}</Markdown>
