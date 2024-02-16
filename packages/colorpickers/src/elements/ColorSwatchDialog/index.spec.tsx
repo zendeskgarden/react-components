@@ -7,7 +7,7 @@
 
 import React, { createRef } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, screen, act, waitFor, waitForElementToBeRemoved } from 'garden-test-utils';
+import { render, screen, act, waitFor } from 'garden-test-utils';
 import { ColorSwatchDialog } from './index';
 
 const colors = [
@@ -22,7 +22,7 @@ const colors = [
 ];
 
 describe('ColorSwatchDialog', () => {
-  const user = userEvent.setup();
+  const user = userEvent.setup({ delay: null });
 
   it('passes ref to underlying DOM element', async () => {
     const ref = createRef<HTMLDivElement>();
@@ -105,7 +105,7 @@ describe('ColorSwatchDialog', () => {
         expect(screen.getByLabelText('Green-200')).toHaveFocus();
       });
 
-      userEvent.type(screen.getByLabelText('Green-200'), '{esc}');
+      await user.keyboard('{escape}');
 
       expect(trigger).toHaveFocus();
     });
@@ -132,7 +132,7 @@ describe('ColorSwatchDialog', () => {
         expect(screen.getByLabelText('Green-500')).toHaveFocus();
       });
 
-      userEvent.type(screen.getByLabelText('Green-500'), '{esc}');
+      await user.keyboard('{escape}');
 
       expect(trigger).toHaveFocus();
     });
@@ -150,12 +150,10 @@ describe('ColorSwatchDialog', () => {
 
       expect(screen.getByLabelText('Green-300')).toHaveFocus();
 
-      userEvent.keyboard('{space}');
-      userEvent.keyboard('{esc}');
+      await user.keyboard('{space}');
+      await user.keyboard('{escape}');
 
       expect(trigger).toHaveFocus();
-
-      await waitForElementToBeRemoved(screen.getByRole('dialog'));
 
       await user.click(trigger);
 
@@ -210,7 +208,7 @@ describe('ColorSwatchDialog', () => {
         expect(screen.getByLabelText('Green-500')).toHaveFocus();
       });
 
-      userEvent.type(screen.getByLabelText('Green-500'), '{esc}');
+      await user.keyboard('{escape}');
 
       expect(trigger).toHaveFocus();
     });

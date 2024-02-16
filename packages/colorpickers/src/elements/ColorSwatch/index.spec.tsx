@@ -34,23 +34,23 @@ describe('ColorSwatch', () => {
   });
 
   describe('Uncontrolled', () => {
-    it('sets selection as expected', () => {
+    it('sets selection as expected', async () => {
       const { container } = render(<ColorSwatch colors={colors} name="test" />);
       const selector = 'input[name="test"]:checked';
 
       expect(container.querySelector<HTMLInputElement>(selector)).toBeNull();
 
-      userEvent.tab();
-      userEvent.type(document.activeElement as HTMLElement, '{space}');
+      await user.tab();
+      await user.type(document.activeElement as HTMLElement, '{space}');
 
       expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
 
-      userEvent.click(screen.getByLabelText('Green-600'));
+      await user.click(screen.getByLabelText('Green-600'));
 
       expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#038153');
     });
 
-    it('prevents radio deselection', () => {
+    it('prevents radio deselection', async () => {
       const { container } = render(
         <ColorSwatch
           colors={colors}
@@ -63,12 +63,12 @@ describe('ColorSwatch', () => {
 
       expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
 
-      userEvent.click(screen.getByLabelText('Green-800'));
+      await user.click(screen.getByLabelText('Green-800'));
 
       expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
     });
 
-    it('allows checkbox deselection', () => {
+    it('allows checkbox deselection', async () => {
       const { container } = render(
         <ColorSwatch
           colors={colors}
@@ -82,7 +82,7 @@ describe('ColorSwatch', () => {
 
       expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
 
-      userEvent.click(screen.getByLabelText('Green-800'));
+      await user.click(screen.getByLabelText('Green-800'));
 
       expect(container.querySelector<HTMLInputElement>(selector)).toBeNull();
     });
@@ -111,23 +111,23 @@ describe('ColorSwatch', () => {
       );
     };
 
-    it('sets selection as expected', () => {
+    it('sets selection as expected', async () => {
       const { container } = render(<ControlledColorSwatch colors={colors} name="test" />);
       const selector = 'input[name="test"]:checked';
 
       expect(container.querySelector<HTMLInputElement>(selector)).toBeNull();
 
-      userEvent.tab();
-      userEvent.type(document.activeElement as HTMLElement, '{space}');
+      await user.tab();
+      await user.type(document.activeElement as HTMLElement, '{space}');
 
       expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
 
-      userEvent.click(screen.getByLabelText('Green-600'));
+      await user.click(screen.getByLabelText('Green-600'));
 
       expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#038153');
     });
 
-    it('prevents radio deselection', () => {
+    it('prevents radio deselection', async () => {
       const { container } = render(
         <ControlledColorSwatch
           colors={colors}
@@ -140,12 +140,12 @@ describe('ColorSwatch', () => {
 
       expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
 
-      userEvent.click(screen.getByLabelText('Green-800'));
+      await user.click(screen.getByLabelText('Green-800'));
 
       expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
     });
 
-    it('allows checkbox deselection', () => {
+    it('allows checkbox deselection', async () => {
       const { container } = render(
         <ControlledColorSwatch
           colors={colors}
@@ -159,14 +159,14 @@ describe('ColorSwatch', () => {
 
       expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('#0b3b29');
 
-      userEvent.click(screen.getByLabelText('Green-800'));
+      await user.click(screen.getByLabelText('Green-800'));
 
       expect(container.querySelector<HTMLInputElement>(selector)).toBeNull();
     });
   });
 
   describe('onFocus', () => {
-    it('adjusts radio group tab index to selection on blur', () => {
+    it('adjusts radio group tab index to selection on blur', async () => {
       render(
         <ColorSwatch
           colors={colors}
@@ -176,22 +176,22 @@ describe('ColorSwatch', () => {
         />
       );
 
-      userEvent.tab(); // focus
+      await user.tab(); // focus
 
       expect((document.activeElement as HTMLInputElement).value).toBe('#228f67');
 
-      userEvent.keyboard('{arrowup}');
-      userEvent.keyboard('{arrowleft}');
+      await user.keyboard('{arrowup}');
+      await user.keyboard('{arrowleft}');
 
       expect((document.activeElement as HTMLInputElement).value).toBe('#0b3b29');
 
-      userEvent.tab(); // blur
-      userEvent.tab({ shift: true }); // re-focus
+      await user.tab(); // blur
+      await user.tab({ shift: true }); // re-focus
 
       expect((document.activeElement as HTMLInputElement).value).toBe('#228f67');
     });
 
-    it('does not adjust checkbox group tab index to selection on blur', () => {
+    it('does not adjust checkbox group tab index to selection on blur', async () => {
       render(
         <ColorSwatch
           colors={colors}
@@ -202,17 +202,17 @@ describe('ColorSwatch', () => {
         />
       );
 
-      userEvent.tab(); // focus
+      await user.tab(); // focus
 
       expect((document.activeElement as HTMLInputElement).value).toBe('#228f67');
 
-      userEvent.keyboard('{arrowup}');
-      userEvent.keyboard('{arrowleft}');
+      await user.keyboard('{arrowup}');
+      await user.keyboard('{arrowleft}');
 
       expect((document.activeElement as HTMLInputElement).value).toBe('#0b3b29');
 
-      userEvent.tab(); // blur
-      userEvent.tab({ shift: true }); // re-focus
+      await user.tab(); // blur
+      await user.tab({ shift: true }); // re-focus
 
       expect((document.activeElement as HTMLInputElement).value).toBe('#0b3b29');
     });
