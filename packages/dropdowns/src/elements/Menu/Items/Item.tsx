@@ -8,7 +8,7 @@
 import React, { useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import SelectedSvg from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { IItemProps } from '../../../types';
 import { StyledItem, StyledItemIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';

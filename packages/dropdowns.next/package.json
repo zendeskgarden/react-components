@@ -31,7 +31,7 @@
     "@zendeskgarden/react-tooltips": "^9.0.0-next.1",
     "polished": "^4.0.0",
     "prop-types": "^15.7.2",
-    "react-merge-refs": "^1.1.0"
+    "react-merge-refs": "^2.0.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.67.0",

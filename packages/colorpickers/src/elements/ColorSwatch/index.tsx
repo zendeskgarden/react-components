@@ -15,7 +15,7 @@ import React, {
   useState
 } from 'react';
 import PropTypes from 'prop-types';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import { useGrid } from '@zendeskgarden/container-grid';
 import { composeEventHandlers, useId } from '@zendeskgarden/container-utilities';

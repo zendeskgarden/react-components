@@ -8,7 +8,7 @@
 import React, { useRef, useCallback, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { ITextareaProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
 import { StyledTextarea } from '../styled';
