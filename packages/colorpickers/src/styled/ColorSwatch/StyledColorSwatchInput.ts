@@ -19,10 +19,10 @@ export const StyledColorSwatchInput = styled.input.attrs({
 })`
   position: absolute;
   opacity: 0;
+  z-index: 1;
   margin: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
