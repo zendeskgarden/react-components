@@ -73,13 +73,9 @@ export const toFloatingPlacement = (
       left: 'right',
       'left-start': 'right-start',
       'left-end': 'right-end',
-      'top-start': 'top-end',
-      'top-end': 'top-start',
       right: 'left',
       'right-start': 'left-start',
-      'right-end': 'left-end',
-      'bottom-start': 'bottom-end',
-      'bottom-end': 'bottom-start'
+      'right-end': 'left-end'
     };
 
     retVal = placementMapRtl[retVal] || retVal;
@@ -138,11 +134,12 @@ export const toMenuPosition = (placement?: FloatingPlacement): MenuPosition => {
 /**
  * Convert Floating-UI placement to a valid `arrowStyles` position.
  *
+ * @param isRtl Determines if layout is right-to-left.
  * @param placement A Floating-UI placement.
  *
  * @returns An `arrowStyles` position.
  */
-export const toArrowPosition = (placement?: FloatingPlacement): ArrowPosition => {
+export const toArrowPosition = (isRtl: boolean, placement?: FloatingPlacement): ArrowPosition => {
   const positionMap: Record<FloatingPlacement, ArrowPosition> = {
     auto: 'top',
     top: 'bottom',
@@ -158,8 +155,20 @@ export const toArrowPosition = (placement?: FloatingPlacement): ArrowPosition =>
     'left-start': 'right-top',
     'left-end': 'right-bottom'
   };
+  let retVal = positionMap[placement || 'auto'];
 
-  return positionMap[placement || 'auto'];
+  if (isRtl) {
+    const rtlPositionMap: Record<string, ArrowPosition> = {
+      'bottom-left': 'bottom-right',
+      'bottom-right': 'bottom-left',
+      'top-left': 'top-right',
+      'top-right': 'top-left'
+    };
+
+    retVal = rtlPositionMap[retVal] || retVal;
+  }
+
+  return retVal;
 };
 
 /**
