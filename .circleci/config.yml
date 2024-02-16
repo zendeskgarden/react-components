@@ -71,4 +71,4 @@ workflows:
           context: maintainer
           filters:
             branches:
-              only: main
+              only: next
