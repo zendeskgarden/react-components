@@ -9,6 +9,7 @@ import React, {
   ChangeEventHandler,
   FocusEvent,
   FocusEventHandler,
+  InputHTMLAttributes,
   forwardRef,
   useContext,
   useRef,
@@ -19,7 +20,7 @@ import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import { useGrid } from '@zendeskgarden/container-grid';
 import { composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
-import { useDocument } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, useDocument } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import {
   StyledCell,
@@ -48,7 +49,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
     },
     ref
   ) => {
-    const theme = useContext(ThemeContext);
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const environment = useDocument(theme);
     const gridRef = useRef<HTMLTableElement>();
     const [rowIndex, setRowIndex] = useState(
@@ -77,25 +78,25 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
     return (
       <StyledColorSwatch role="grid" ref={mergeRefs([gridRef, ref])} {...props}>
         <tbody>
-          {colors.map((row: ILabeledColor[], rowIdx: number) => (
+          {colors.map((row: ILabeledColor[], _rowIndex: number) => (
             <tr key={row[0].value}>
-              {row.map((color: ILabeledColor, colIdx: number) => {
+              {row.map((color: ILabeledColor, _colIndex: number) => {
                 const { label, value } = color;
                 const { role, onFocus, ...gridCellProps } = getGridCellProps({
-                  colIdx,
-                  rowIdx
+                  colIndex: _colIndex,
+                  rowIndex: _rowIndex
                 });
                 const checked = isControlled
-                  ? selectedRowIndex === rowIdx && selectedColIndex === colIdx
+                  ? selectedRowIndex === _rowIndex && selectedColIndex === _colIndex
                   : undefined;
                 const defaultChecked = isControlled
                   ? undefined
-                  : defaultSelectedRowIndex === rowIdx && defaultSelectedColIndex === colIdx;
+                  : defaultSelectedRowIndex === _rowIndex && defaultSelectedColIndex === _colIndex;
 
                 const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
                   if (onSelect) {
                     if (event.target.checked) {
-                      onSelect(rowIdx, colIdx);
+                      onSelect(_rowIndex, _colIndex);
                     } else {
                       onSelect(null, null);
                     }
@@ -153,7 +154,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                           onFocus={handleFocus}
                           onBlur={handleBlur}
                           onChange={handleChange}
-                          {...gridCellProps}
+                          {...(gridCellProps as InputHTMLAttributes<HTMLInputElement>)}
                         />
                       </Tooltip>
                       <StyledIcon />

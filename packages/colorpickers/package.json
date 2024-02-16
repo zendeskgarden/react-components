@@ -21,7 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-grid": "^0.1.1",
+    "@zendeskgarden/container-grid": "^3.0.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
     "@zendeskgarden/react-buttons": "^9.0.0-next.1",
     "@zendeskgarden/react-forms": "^9.0.0-next.1",
