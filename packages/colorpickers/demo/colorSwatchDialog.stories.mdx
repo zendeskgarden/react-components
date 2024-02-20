@@ -12,7 +12,8 @@ import README from '../README.md';
     buttonProps: { 'aria-label': 'Label' },
     'aria-label': 'Title',
     colors: COLORS,
-    isAnimated: true
+    isAnimated: true,
+    name: 'name'
   }}
   argTypes={{
     focusInset: { control: 'boolean' },
@@ -40,12 +41,6 @@ import README from '../README.md';
   <Story
     name="Uncontrolled"
     argTypes={{
-      defaultColIndex: { control: 'number' },
-      defaultRowIndex: { control: 'number' },
-      defaultSelectedColIndex: { control: 'number' },
-      defaultSelectedRowIndex: { control: 'number' },
-      colIndex: { control: false },
-      rowIndex: { control: false },
       selectedColIndex: { control: false },
       selectedRowIndex: { control: false }
     }}
@@ -59,20 +54,22 @@ import README from '../README.md';
 <Canvas>
   <Story
     name="Controlled"
-    args={{ rowIndex: 0, colIndex: 5, selectedRowIndex: 0, selectedColIndex: 5 }}
+    args={{ isOpen: false, selectedRowIndex: 0, selectedColIndex: 5 }}
     argTypes={{
-      defaultColIndex: { control: false },
-      defaultRowIndex: { control: false },
       defaultSelectedColIndex: { control: false },
-      defaultSelectedRowIndex: { control: false }
+      defaultSelectedRowIndex: { control: false },
+      selectedColIndex: { control: { type: 'number' } },
+      selectedRowIndex: { control: { type: 'number' } }
     }}
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleChange = (rowIndex, colIndex) => updateArgs({ rowIndex, colIndex });
+      const handleChange = ({ isOpen }) => updateArgs({ isOpen });
       const handleSelect = (selectedRowIndex, selectedColIndex) =>
         updateArgs({ selectedRowIndex, selectedColIndex });
-      return <ColorSwatchDialogStory {...args} onChange={handleChange} onSelect={handleSelect} />;
+      return (
+        <ColorSwatchDialogStory {...args} onDialogChange={handleChange} onSelect={handleSelect} />
+      );
     }}
   </Story>
 </Canvas>
