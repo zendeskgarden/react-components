@@ -6,9 +6,13 @@
  */
 
 import styled from 'styled-components';
-import { Placement } from '@popperjs/core';
-import { arrowStyles, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { getArrowPosition } from '../utils/gardenPlacements';
+import { Placement } from '@floating-ui/react-dom';
+import {
+  arrowStyles,
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getArrowPosition
+} from '@zendeskgarden/react-theming';
 import { TransitionStatus } from 'react-transition-group';
 import { ITooltipModalProps } from '../types';
 
@@ -29,7 +33,7 @@ export const StyledTooltipModal = styled.div.attrs<IStyledTooltipModalProps>(pro
   width: 400px;
 
   ${props => {
-    const computedArrowStyles = arrowStyles(getArrowPosition(props.placement), {
+    const computedArrowStyles = arrowStyles(getArrowPosition(props.theme, props.placement), {
       size: `${props.theme.space.base * 2}px`,
       inset: '1px',
       animationModifier: '.is-animated'

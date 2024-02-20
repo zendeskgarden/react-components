@@ -64,7 +64,7 @@ describe('TooltipModal', () => {
         await user.click(getByText('open'));
       });
 
-      expect(getByRole('dialog').parentElement).toHaveAttribute('data-popper-placement', 'left');
+      expect(getByRole('dialog').parentElement).toHaveStyle({ transform: 'translate(-12px, 0px)' });
     });
 
     it('renders RTL placement correctly', async () => {
@@ -74,7 +74,7 @@ describe('TooltipModal', () => {
         await user.click(getByText('open'));
       });
 
-      expect(getByRole('dialog').parentElement).toHaveAttribute('data-popper-placement', 'right');
+      expect(getByRole('dialog').parentElement).toHaveStyle({ transform: 'translate(12px, 0px)' });
     });
   });
 

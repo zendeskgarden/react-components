@@ -6,23 +6,9 @@
  */
 
 import { HTMLAttributes, KeyboardEvent, MouseEvent } from 'react';
-import { Modifier } from 'react-popper';
+import { PLACEMENT as PLACEMENT_BASE } from '@zendeskgarden/react-theming';
 
-export const PLACEMENT = [
-  'auto',
-  'top',
-  'top-start',
-  'top-end',
-  'bottom',
-  'bottom-start',
-  'bottom-end',
-  'end',
-  'end-top',
-  'end-bottom',
-  'start',
-  'start-top',
-  'start-bottom'
-] as const;
+export const PLACEMENT = ['auto', ...PLACEMENT_BASE] as const;
 
 export type Placement = (typeof PLACEMENT)[number];
 
@@ -94,10 +80,6 @@ export interface ITooltipModalProps extends Omit<IModalProps, 'isCentered' | 'is
    * Positions the modal relative to the provided `HTMLElement`
    */
   referenceElement?: HTMLElement | null;
-  /**
-   * Modifies [Popper instance](https://popper.js.org/docs/v2/modifiers/) to customize positioning logic
-   */
-  popperModifiers?: Partial<Modifier<any, any>>[];
   /**
    * Adjusts the placement of the tooltip
    **/

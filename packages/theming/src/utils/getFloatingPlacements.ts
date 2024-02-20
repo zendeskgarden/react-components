@@ -23,13 +23,9 @@ export const RTL_PLACEMENT_MAP: Record<string, FloatingPlacement> = {
   left: 'right',
   'left-start': 'right-start',
   'left-end': 'right-end',
-  'top-start': 'top-end',
-  'top-end': 'top-start',
   right: 'left',
   'right-start': 'left-start',
-  'right-end': 'left-end',
-  'bottom-start': 'bottom-end',
-  'bottom-end': 'bottom-start'
+  'right-end': 'left-end'
 };
 
 const toFloatingPlacement = (placement: Placement, theme: IGardenTheme): FloatingPlacement => {

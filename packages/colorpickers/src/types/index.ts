@@ -79,10 +79,6 @@ export interface IColorpickerDialogProps extends IColorpickerProps {
   /** Disables the color dialog button */
   disabled?: boolean;
   /**
-   * Modifies [Popper instance](https://popper.js.org/docs/v2/modifiers/) to customize positioning logic
-   */
-  popperModifiers?: ITooltipModalProps['popperModifiers'];
-  /**
    * Sets the `z-index` of the color dialog
    */
   zIndex?: ITooltipModalProps['zIndex'];
@@ -143,8 +139,6 @@ export interface IColorSwatchDialogProps extends IColorSwatchProps {
   placement?: ITooltipModalProps['placement'];
   /** Disables the color dialog button */
   disabled?: boolean;
-  /** Modifies [Popper instance](https://popper.js.org/docs/v2/modifiers/) to customize positioning logic */
-  popperModifiers?: ITooltipModalProps['popperModifiers'];
   /** Sets the `z-index` of the color dialog */
   zIndex?: ITooltipModalProps['zIndex'];
   /** Adds an arrow to the color dialog */

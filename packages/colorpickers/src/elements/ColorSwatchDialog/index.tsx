@@ -46,7 +46,6 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
       onSelect,
       hasArrow,
       isAnimated,
-      popperModifiers,
       zIndex,
       isOpen,
       focusInset,
@@ -161,7 +160,6 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
           focusOnMount={false}
           placement={placement}
           isAnimated={isAnimated}
-          popperModifiers={popperModifiers}
           referenceElement={referenceElement}
           onClose={closeDialog}
           aria-label={ariaLabelText}
@@ -192,7 +190,6 @@ ColorSwatchDialog.propTypes = {
   onDialogChange: PropTypes.func,
   disabled: PropTypes.bool,
   buttonProps: PropTypes.object,
-  popperModifiers: PropTypes.any,
   zIndex: PropTypes.number,
   hasArrow: PropTypes.bool,
   isAnimated: PropTypes.bool,

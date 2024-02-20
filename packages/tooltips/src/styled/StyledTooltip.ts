@@ -11,18 +11,18 @@ import {
   retrieveComponentStyles,
   getColor,
   DEFAULT_THEME,
-  getLineHeight
+  getLineHeight,
+  getArrowPosition
 } from '@zendeskgarden/react-theming';
-import { getArrowPosition } from '../utils/gardenPlacements';
-import { ITooltipProps, POPPER_PLACEMENT } from '../types';
+import { Placement } from '@floating-ui/react-dom';
+import { ITooltipProps } from '../types';
 import { StyledParagraph } from './StyledParagraph';
 import { StyledTitle } from './StyledTitle';
 
 const COMPONENT_ID = 'tooltip.tooltip';
 
 interface IStyledTooltipProps extends Pick<ITooltipProps, 'hasArrow' | 'size' | 'zIndex'> {
-  /** All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements) */
-  placement: (typeof POPPER_PLACEMENT)[number];
+  placement: Placement;
   type: NonNullable<ITooltipProps['type']>;
 }
 
@@ -104,7 +104,11 @@ const sizeStyles = ({
     font-size: ${fontSize};
     overflow-wrap: ${overflowWrap};
 
-    ${hasArrow && arrowStyles(getArrowPosition(placement), { size: arrowSize, inset: arrowInset })};
+    ${hasArrow &&
+    arrowStyles(getArrowPosition(theme, placement), {
+      size: arrowSize,
+      inset: arrowInset
+    })};
 
     ${StyledParagraph} {
       margin-top: ${paragraphMarginTop};

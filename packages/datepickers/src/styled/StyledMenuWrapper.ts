@@ -6,9 +6,13 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, menuStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { getMenuPosition } from '../elements/Datepicker/utils/garden-placements';
-import { PopperPlacement } from '../types';
+import {
+  DEFAULT_THEME,
+  getMenuPosition,
+  menuStyles,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
+import { Placement } from '@floating-ui/react-dom';
 
 const COMPONENT_ID = 'datepickers.menu_wrapper';
 
@@ -16,12 +20,18 @@ interface IStyledMenuWrapperProps {
   isHidden?: boolean;
   isAnimated?: boolean;
   zIndex?: number;
-  placement?: PopperPlacement;
+  placement: Placement;
 }
 
+/*
+ * 1. Expected to use https://floating-ui.com/docs/misc#subpixel-and-accelerated-positioning
+ */
 export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
   className: props.isAnimated && 'is-animated'
 }))<IStyledMenuWrapperProps>`
+  top: 0; /* [1] */
+  left: 0; /* [1] */
+
   ${props =>
     menuStyles(getMenuPosition(props.placement), {
       theme: props.theme,

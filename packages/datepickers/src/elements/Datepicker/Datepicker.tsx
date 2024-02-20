@@ -16,15 +16,18 @@ import React, {
   forwardRef
 } from 'react';
 import PropTypes from 'prop-types';
+import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
-import { Manager, Popper, Reference } from 'react-popper';
-import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { IDatepickerProps, PLACEMENT, PopperPlacement, WEEK_STARTS_ON } from '../../types';
-import { getRtlPopperPlacement, getPopperPlacement } from './utils/garden-placements';
+import { autoPlacement, autoUpdate, flip, useFloating } from '@floating-ui/react-dom';
+import { IDatepickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
 import { Calendar } from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
 import { DatepickerContext } from './utils/useDatepickerContext';
 import { StyledMenu, StyledMenuWrapper } from '../../styled';
+import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
+import { Input } from './components/Input';
+
+const PLACEMENT_DEFAULT = 'bottom-start';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -32,9 +35,7 @@ import { StyledMenu, StyledMenuWrapper } from '../../styled';
 export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, calendarRef) => {
   const {
     children,
-    placement,
-    popperModifiers,
-    eventsEnabled,
+    placement: _placement,
     zIndex,
     isAnimated,
     refKey,
@@ -49,32 +50,52 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
     customParseDate,
     ...menuProps
   } = props;
-  const theme = useContext(ThemeContext);
+  const theme = useContext(ThemeContext) || DEFAULT_THEME;
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoizedReducer = useCallback(
     datepickerReducer({ value, formatDate, locale, customParseDate, onChange }),
     [value, formatDate, locale, onChange, customParseDate]
   );
   const [state, dispatch] = useReducer(memoizedReducer, retrieveInitialState(props));
-  const scheduleUpdateRef = useRef<(() => void) | undefined>(undefined);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const isInputMouseDownRef = useRef(false);
+  const triggerRef = useRef<HTMLInputElement>(null);
+  const floatingRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(state.isOpen);
+  const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
+  const [floatingPlacement] = getFloatingPlacements(
+    theme,
+    _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!
+  );
 
-  /**
-   * Recalculate popper placement while open to allow animations to complete.
-   * This must be ran every render to allow for the number of items to change
-   * and still be placed correctly.
-   **/
-  useEffect(() => {
-    if (state.isOpen && scheduleUpdateRef.current) {
-      scheduleUpdateRef.current();
-    }
+  const {
+    refs,
+    placement,
+    update,
+    floatingStyles: { transform }
+  } = useFloating({
+    elements: { reference: triggerRef?.current, floating: floatingRef?.current },
+    placement: floatingPlacement,
+    middleware: [_placement === 'auto' ? autoPlacement() : flip()]
   });
 
-  const [isVisible, setIsVisible] = useState(state.isOpen);
+  const Child = React.Children.only<React.ReactElement & React.RefAttributes<HTMLInputElement>>(
+    children
+  );
 
   useEffect(() => {
-    let timeout: any;
+    // Only allow positioning updates on visible tooltip.
+    let cleanup: () => void;
+
+    if (state.isOpen && refs.reference.current && refs.floating.current) {
+      cleanup = autoUpdate(refs.reference.current, refs.floating.current, update, {
+        elementResize: typeof ResizeObserver === 'function'
+      });
+    }
+
+    return () => cleanup && cleanup();
+  }, [state.isOpen, refs.reference, refs.floating, update]);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
 
     if (state.isOpen) {
       setIsVisible(true);
@@ -99,108 +120,43 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
     dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
   }, [locale]);
 
-  const popperPlacement = theme.rtl
-    ? getRtlPopperPlacement(placement!)
-    : getPopperPlacement(placement!);
-
-  const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
-
   return (
-    <DatepickerContext.Provider value={contextValue}>
-      <Manager>
-        <Reference>
-          {({ ref }) => {
-            const childElement = React.Children.only(children as React.ReactElement);
-
-            return React.cloneElement(childElement, {
-              [refKey!]: (refValue: HTMLElement) => {
-                (ref as any)(refValue);
-                (inputRef as any).current = refValue;
-              },
-              onMouseDown: composeEventHandlers(childElement.props.onMouseDown, () => {
-                isInputMouseDownRef.current = true;
-              }),
-              onMouseUp: composeEventHandlers(childElement.props.onMouseUp, () => {
-                setTimeout(() => {
-                  isInputMouseDownRef.current = false;
-                }, 0);
-              }),
-              onClick: composeEventHandlers(childElement.props.onClick, () => {
-                /** Ensure click/focus events from associated labels are not triggered */
-                if (isInputMouseDownRef.current && !state.isOpen) {
-                  dispatch({ type: 'OPEN' });
-                }
-              }),
-              onBlur: composeEventHandlers(childElement.props.onBlur, () => {
-                dispatch({ type: 'CLOSE' });
-              }),
-              onChange: composeEventHandlers(
-                childElement.props.onChange,
-                (e: React.ChangeEvent<HTMLInputElement>) => {
-                  dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: e.target.value });
-                }
-              ),
-              onKeyDown: composeEventHandlers(
-                childElement.props.onKeyDown,
-                (e: React.KeyboardEvent<HTMLInputElement>) => {
-                  switch (e.key) {
-                    case KEYS.ESCAPE:
-                    case KEYS.ENTER:
-                      dispatch({ type: 'CLOSE' });
-                      break;
-                    case KEYS.UP:
-                    case KEYS.DOWN:
-                    case KEYS.SPACE:
-                      dispatch({ type: 'OPEN' });
-                      break;
-                  }
-                }
-              ),
-              autoComplete: 'off',
-              value: state.inputValue
-            });
-          }}
-        </Reference>
-        <Popper
-          placement={popperPlacement}
-          modifiers={popperModifiers}
-          // Disable position updating on scroll events while menu is closed
-          eventsEnabled={state.isOpen && eventsEnabled}
+    <>
+      <Input
+        element={Child}
+        dispatch={dispatch}
+        state={state}
+        refKey={refKey!}
+        ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
+      />
+      <DatepickerContext.Provider value={contextValue}>
+        <StyledMenuWrapper
+          ref={floatingRef}
+          style={{ transform }}
+          isHidden={!state.isOpen}
+          isAnimated={isAnimated && (state.isOpen || isVisible)}
+          placement={placement}
+          zIndex={zIndex}
+          data-test-id="datepicker-menu"
+          data-test-open={state.isOpen}
+          data-test-rtl={theme.rtl}
         >
-          {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
-            scheduleUpdateRef.current = scheduleUpdate;
-
-            return (
-              <StyledMenuWrapper
-                ref={ref}
-                style={style}
-                isHidden={!state.isOpen}
-                isAnimated={isAnimated && (state.isOpen || isVisible)}
-                placement={currentPlacement as PopperPlacement}
-                zIndex={zIndex}
-                data-test-id="datepicker-menu"
-                data-test-open={state.isOpen}
-                data-test-rtl={theme.rtl}
-              >
-                {(state.isOpen || isVisible) && (
-                  <StyledMenu {...menuProps}>
-                    <Calendar
-                      ref={calendarRef}
-                      isCompact={isCompact}
-                      value={value}
-                      minValue={minValue}
-                      maxValue={maxValue}
-                      locale={locale}
-                      weekStartsOn={weekStartsOn}
-                    />
-                  </StyledMenu>
-                )}
-              </StyledMenuWrapper>
-            );
-          }}
-        </Popper>
-      </Manager>
-    </DatepickerContext.Provider>
+          {(state.isOpen || isVisible) && (
+            <StyledMenu {...menuProps}>
+              <Calendar
+                ref={calendarRef}
+                isCompact={isCompact}
+                value={value}
+                minValue={minValue}
+                maxValue={maxValue}
+                locale={locale}
+                weekStartsOn={weekStartsOn}
+              />
+            </StyledMenu>
+          )}
+        </StyledMenuWrapper>
+      </DatepickerContext.Provider>
+    </>
   );
 });
 
@@ -218,17 +174,14 @@ Datepicker.propTypes = {
   customParseDate: PropTypes.any,
   refKey: PropTypes.string,
   placement: PropTypes.oneOf(PLACEMENT),
-  popperModifiers: PropTypes.any,
   isAnimated: PropTypes.bool,
-  eventsEnabled: PropTypes.bool,
   zIndex: PropTypes.number
 };
 
 Datepicker.defaultProps = {
-  placement: 'bottom-start',
+  placement: PLACEMENT_DEFAULT,
   refKey: 'ref',
   isAnimated: true,
-  eventsEnabled: true,
   zIndex: 1000,
   locale: 'en-US'
 };

@@ -5,14 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useState, useContext, useMemo, useEffect, useRef } from 'react';
+import React, { HTMLAttributes, useState, useContext, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import { usePopper } from 'react-popper';
 import { CSSTransition } from 'react-transition-group';
+import { autoPlacement, autoUpdate, offset, useFloating } from '@floating-ui/react-dom';
 import { useModal } from '@zendeskgarden/container-modal';
 import { mergeRefs } from 'react-merge-refs';
-import { getRtlPopperPlacement, getPopperPlacement } from '../../utils/gardenPlacements';
 import { TooltipModalContext } from '../../utils/useTooltipModalContext';
 import { StyledTooltipWrapper, StyledTooltipModal, StyledTooltipModalBackdrop } from '../../styled';
 import { ITooltipModalProps } from '../../types';
@@ -21,16 +20,17 @@ import { Body } from './Body';
 import { Close } from './Close';
 import { Footer } from './Footer';
 import { FooterItem } from './FooterItem';
-import { useText } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getFloatingPlacements, useText } from '@zendeskgarden/react-theming';
 import { createPortal } from 'react-dom';
+
+const PLACEMENT_DEFAULT = 'top';
 
 const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProps>(
   (
     {
       appendToNode,
       referenceElement,
-      popperModifiers,
-      placement,
+      placement: _placement,
       onClose,
       hasArrow,
       isAnimated,
@@ -43,11 +43,11 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
     },
     ref
   ) => {
-    const theme = useContext(ThemeContext);
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const previousReferenceElementRef = useRef<HTMLElement | null>();
     const modalRef = useRef<HTMLDivElement>(null);
     const transitionRef = useRef<HTMLDivElement>(null);
-    const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
+    const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>();
     const [hasTitle, setHasTitle] = useState<boolean>(false);
     const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
       useModal({
@@ -59,6 +59,38 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
         restoreFocus: false
       });
 
+    const [floatingPlacement] = getFloatingPlacements(
+      theme,
+      _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!
+    );
+
+    const {
+      refs,
+      placement,
+      update,
+      floatingStyles: { transform }
+    } = useFloating({
+      elements: { reference: referenceElement, floating: floatingElement },
+      placement: floatingPlacement,
+      middleware: [
+        offset(theme.space.base * 3),
+        _placement === 'auto' ? autoPlacement() : undefined
+      ]
+    });
+
+    useEffect(() => {
+      // Only allow positioning updates on visible tooltip modal.
+      let cleanup: () => void;
+
+      if (referenceElement && floatingElement && refs.reference.current && refs.floating.current) {
+        cleanup = autoUpdate(refs.reference.current, refs.floating.current, update, {
+          elementResize: typeof ResizeObserver === 'function'
+        });
+      }
+
+      return () => cleanup && cleanup();
+    }, [referenceElement, floatingElement, refs.reference, refs.floating, update]);
+
     useEffect(() => {
       if (!referenceElement && previousReferenceElementRef.current && restoreFocus) {
         previousReferenceElementRef.current.focus();
@@ -66,19 +98,6 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
 
       previousReferenceElementRef.current = referenceElement;
     }, [referenceElement, restoreFocus]);
-
-    const popperPlacement = useMemo(
-      () => (theme.rtl ? getRtlPopperPlacement(placement!) : getPopperPlacement(placement!)),
-      [placement, theme.rtl]
-    );
-
-    const { styles, attributes, state } = usePopper(referenceElement, popperElement, {
-      placement: popperPlacement,
-      modifiers: [
-        { name: 'offset', options: { offset: [0, theme.space.base * 3] } }, // Default Popper offset
-        ...(popperModifiers || [])
-      ]
-    });
 
     // If <TooltipModal.Title /> isn't used, remove aria-labelledby
     const modalProps = getModalProps({
@@ -125,16 +144,15 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
                 ref={transitionRef}
               >
                 <StyledTooltipWrapper
-                  ref={setPopperElement}
-                  style={styles.popper}
-                  placement={state ? state.placement : undefined}
+                  ref={setFloatingElement}
+                  style={{ transform }}
+                  placement={placement}
                   zIndex={zIndex}
                   isAnimated={isAnimated}
-                  {...attributes.popper}
                 >
                   <StyledTooltipModal
                     transitionState={transitionState}
-                    placement={state ? state.placement : 'top'}
+                    placement={placement}
                     hasArrow={hasArrow}
                     isAnimated={isAnimated}
                     {...modalProps}
@@ -166,7 +184,6 @@ TooltipModalComponent.defaultProps = {
 TooltipModalComponent.propTypes = {
   appendToNode: PropTypes.any,
   referenceElement: PropTypes.any,
-  popperModifiers: PropTypes.any,
   placement: PropTypes.any,
   isAnimated: PropTypes.bool,
   hasArrow: PropTypes.bool,
