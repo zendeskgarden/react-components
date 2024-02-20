@@ -7,7 +7,7 @@ import README from '../README.md';
 <Meta
   title="Packages/Colorpickers/ColorSwatch"
   component={ColorSwatch}
-  args={{ colors: COLORS }}
+  args={{ colors: COLORS, name: 'name' }}
   parameters={{
     design: {
       allowFullscreen: true,
@@ -29,8 +29,6 @@ import README from '../README.md';
   <Story
     name="Uncontrolled"
     argTypes={{
-      colIndex: { control: false },
-      rowIndex: { control: false },
       selectedColIndex: { control: false },
       selectedRowIndex: { control: false }
     }}
@@ -44,20 +42,19 @@ import README from '../README.md';
 <Canvas>
   <Story
     name="Controlled"
-    args={{ rowIndex: 0, colIndex: 5, selectedRowIndex: 0, selectedColIndex: 5 }}
+    args={{ selectedRowIndex: 0, selectedColIndex: 5 }}
     argTypes={{
-      defaultColIndex: { control: false },
-      defaultRowIndex: { control: false },
       defaultSelectedColIndex: { control: false },
-      defaultSelectedRowIndex: { control: false }
+      defaultSelectedRowIndex: { control: false },
+      selectedColIndex: { control: { type: 'number' } },
+      selectedRowIndex: { control: { type: 'number' } }
     }}
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleChange = (rowIndex, colIndex) => updateArgs({ rowIndex, colIndex });
       const handleSelect = (selectedRowIndex, selectedColIndex) =>
         updateArgs({ selectedRowIndex, selectedColIndex });
-      return <ColorSwatch {...args} onChange={handleChange} onSelect={handleSelect} />;
+      return <ColorSwatch {...args} onSelect={handleSelect} />;
     }}
   </Story>
 </Canvas>

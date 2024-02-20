@@ -35,17 +35,14 @@ import { IColorSwatchDialogProps } from '../../types';
 export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogProps>(
   (
     {
+      name,
       colors,
-      rowIndex,
-      colIndex,
+      isCheckboxGroup,
       selectedRowIndex,
       selectedColIndex,
-      defaultRowIndex,
-      defaultColIndex,
       defaultSelectedRowIndex,
       defaultSelectedColIndex,
       placement,
-      onChange,
       onSelect,
       hasArrow,
       isAnimated,
@@ -62,26 +59,23 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
     },
     ref
   ) => {
-    const controlledFocus =
-      rowIndex !== null && colIndex !== null && rowIndex !== undefined && colIndex !== undefined;
-    const controlledSelect =
-      selectedRowIndex !== null &&
-      selectedColIndex !== null &&
-      selectedRowIndex !== undefined &&
-      selectedColIndex !== undefined;
-    const isControlled = controlledFocus || controlledSelect;
+    const isControlled = selectedRowIndex !== undefined && selectedColIndex !== undefined;
     const isDialogControlled = isOpen !== undefined && isOpen !== null;
     const buttonRef = useRef<HTMLButtonElement>(null);
     const colorSwatchRef = useRef<HTMLTableElement>(null);
-    const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
-    const [uncontrolledSelectedRowIndex, setUncontrolledSelectedRowIndex] = useState(
-      defaultSelectedRowIndex || 0
-    );
-    const [uncontrolledSelectedColIndex, setUncontrolledSelectedColIndex] = useState(
-      defaultSelectedColIndex || 0
-    );
-    const [uncontrolledRowIndex, setUncontrolledRowIndex] = useState(defaultRowIndex || 0);
-    const [uncontrolledColIndex, setUncontrolledColIndex] = useState(defaultColIndex || 0);
+    const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>(null);
+    const [rowIndex, setRowIndex] = useState<number | undefined>(defaultSelectedRowIndex);
+    const [colIndex, setColIndex] = useState<number | undefined>(defaultSelectedColIndex);
+    let backgroundColor;
+
+    if (isControlled) {
+      if (selectedRowIndex !== null && selectedColIndex !== null) {
+        backgroundColor = colors[selectedRowIndex][selectedColIndex].value;
+      }
+    } else if (rowIndex !== undefined && colIndex !== undefined) {
+      backgroundColor = colors[rowIndex][colIndex].value;
+    }
+
     const ariaLabelText = useText(
       ColorSwatchDialog,
       { 'aria-label': ariaLabel },
@@ -99,31 +93,12 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
       }
     }, [isOpen, isDialogControlled]);
 
-    let uncontrolledSelectedColor;
-    let controlledSelectedColor;
-
-    if (uncontrolledSelectedRowIndex > -1 && uncontrolledSelectedColIndex > -1) {
-      uncontrolledSelectedColor =
-        colors[uncontrolledSelectedRowIndex][uncontrolledSelectedColIndex];
-    }
-
-    if (
-      selectedRowIndex !== undefined &&
-      selectedColIndex !== undefined &&
-      selectedRowIndex > -1 &&
-      selectedColIndex > -1
-    ) {
-      controlledSelectedColor = colors[selectedRowIndex][selectedColIndex];
-    }
-
     const openDialog = () => {
       setReferenceElement(buttonRef.current);
       onDialogChange && onDialogChange({ isOpen: true });
     };
 
     const closeDialog = () => {
-      setUncontrolledRowIndex(uncontrolledSelectedRowIndex);
-      setUncontrolledColIndex(uncontrolledSelectedColIndex);
       setReferenceElement(null);
       onDialogChange && onDialogChange({ isOpen: false });
     };
@@ -138,17 +113,25 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
 
     useEffect(() => {
       if (referenceElement && colorSwatchRef.current) {
-        const focusableButton =
-          colorSwatchRef.current.querySelector<HTMLButtonElement>('[tabindex="0"]');
-        const selectedCell = colorSwatchRef.current.querySelector('[aria-selected="true"]');
+        const input = colorSwatchRef.current.querySelector<HTMLInputElement>('[tabindex="0"]');
 
-        if (selectedCell) {
-          (selectedCell.children[0] as HTMLButtonElement).focus();
-        } else {
-          focusableButton?.focus();
-        }
+        input?.focus();
       }
     }, [referenceElement]);
+
+    const handleSelect = (row: number | null, col: number | null) => {
+      if (isControlled === false) {
+        if (row === null || col === null) {
+          setRowIndex(undefined);
+          setColIndex(undefined);
+        } else {
+          setRowIndex(row);
+          setColIndex(col);
+        }
+      }
+
+      onSelect && onSelect(row, col);
+    };
 
     return (
       <>
@@ -165,13 +148,8 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
             onClick={onClick}
             {...buttonProps}
           >
-            <StyledButtonPreview
-              backgroundColor={
-                isControlled ? controlledSelectedColor?.value : uncontrolledSelectedColor?.value
-              }
-            />
-            {/* eslint-disable-next-line no-eq-null, eqeqeq */}
-            <Button.EndIcon isRotated={referenceElement != null}>
+            <StyledButtonPreview backgroundColor={backgroundColor} />
+            <Button.EndIcon isRotated={referenceElement !== null}>
               <Chevron />
             </Button.EndIcon>
           </StyledButton>
@@ -191,30 +169,15 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
         >
           <StyledTooltipBody>
             <ColorSwatch
+              name={name}
               colors={colors}
               ref={colorSwatchRef}
-              rowIndex={rowIndex}
-              colIndex={colIndex}
+              isCheckboxGroup={isCheckboxGroup}
               selectedRowIndex={selectedRowIndex}
               selectedColIndex={selectedColIndex}
-              defaultRowIndex={uncontrolledRowIndex}
-              defaultColIndex={uncontrolledColIndex}
-              defaultSelectedRowIndex={uncontrolledSelectedRowIndex}
-              defaultSelectedColIndex={uncontrolledSelectedColIndex}
-              onChange={(rowIdx, colIdx) => {
-                if (isControlled === false) {
-                  setUncontrolledRowIndex(rowIdx);
-                  setUncontrolledColIndex(colIdx);
-                }
-                onChange && onChange(rowIdx, colIdx);
-              }}
-              onSelect={(rowIdx, colIdx) => {
-                if (isControlled === false) {
-                  setUncontrolledSelectedRowIndex(rowIdx);
-                  setUncontrolledSelectedColIndex(colIdx);
-                }
-                onSelect && onSelect(rowIdx, colIdx);
-              }}
+              defaultSelectedRowIndex={rowIndex}
+              defaultSelectedColIndex={colIndex}
+              onSelect={handleSelect}
             />
           </StyledTooltipBody>
         </StyledTooltipModal>
