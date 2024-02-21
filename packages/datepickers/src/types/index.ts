@@ -14,7 +14,7 @@ export const PLACEMENT = ['auto', ...BASE_PLACEMENT] as const;
 
 export type GardenPlacement = (typeof PLACEMENT)[number];
 
-export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /**
    * Sets the selected date
    */
@@ -80,9 +80,9 @@ export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   children: ReactElement;
 }
 
-export interface IDatepickerRangeProps
+export interface IDatePickerRangeProps
   extends Pick<
-    IDatepickerProps,
+    IDatePickerProps,
     'locale' | 'weekStartsOn' | 'minValue' | 'maxValue' | 'formatDate' | 'isCompact'
   > {
   /**

@@ -19,10 +19,10 @@ import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import { autoPlacement, autoUpdate, flip, useFloating } from '@floating-ui/react-dom';
-import { IDatepickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
+import { IDatePickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
 import { Calendar } from './components/Calendar';
-import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
-import { DatepickerContext } from './utils/useDatepickerContext';
+import { datepickerReducer, retrieveInitialState } from './utils/date-picker-reducer';
+import { DatePickerContext } from './utils/useDatePickerContext';
 import { StyledMenu, StyledMenuWrapper } from '../../styled';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import { Input } from './components/Input';
@@ -32,7 +32,7 @@ const PLACEMENT_DEFAULT = 'bottom-start';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, calendarRef) => {
+export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, calendarRef) => {
   const {
     children,
     placement: _placement,
@@ -129,7 +129,7 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
         refKey={refKey!}
         ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
       />
-      <DatepickerContext.Provider value={contextValue}>
+      <DatePickerContext.Provider value={contextValue}>
         <StyledMenuWrapper
           ref={floatingRef}
           style={{ transform }}
@@ -155,14 +155,14 @@ export const Datepicker = forwardRef<HTMLDivElement, IDatepickerProps>((props, c
             </StyledMenu>
           )}
         </StyledMenuWrapper>
-      </DatepickerContext.Provider>
+      </DatePickerContext.Provider>
     </>
   );
 });
 
-Datepicker.displayName = 'Datepicker';
+DatePicker.displayName = 'DatePicker';
 
-Datepicker.propTypes = {
+DatePicker.propTypes = {
   value: PropTypes.any,
   onChange: PropTypes.any,
   formatDate: PropTypes.func,
@@ -178,7 +178,7 @@ Datepicker.propTypes = {
   zIndex: PropTypes.number
 };
 
-Datepicker.defaultProps = {
+DatePicker.defaultProps = {
   placement: PLACEMENT_DEFAULT,
   refKey: 'ref',
   isAnimated: true,

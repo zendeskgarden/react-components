@@ -9,14 +9,14 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import { addMonths } from 'date-fns/addMonths';
 
 import { StyledRangeCalendar } from '../../../styled';
-import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
+import useDatePickerContext from '../utils/useDatePickerRangeContext';
 import { Month } from './Month';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { state } = useDatepickerRangeContext();
+  const { state } = useDatePickerContext();
 
   return (
     <StyledRangeCalendar
@@ -32,4 +32,4 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
   );
 });
 
-Calendar.displayName = 'DatepickerRange.Calendar';
+Calendar.displayName = 'DatePickerRange.Calendar';

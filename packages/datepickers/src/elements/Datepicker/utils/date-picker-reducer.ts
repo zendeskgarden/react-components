@@ -11,9 +11,9 @@ import { isValid } from 'date-fns/isValid';
 import { parse } from 'date-fns/parse';
 import { isBefore } from 'date-fns/isBefore';
 import { isSameDay } from 'date-fns/isSameDay';
-import { IDatepickerProps } from '../../../types';
+import { IDatePickerProps } from '../../../types';
 
-export interface IDatepickerState {
+export interface IDatePickerState {
   isOpen: boolean;
   previewDate: Date;
   inputValue: string;
@@ -82,7 +82,7 @@ function formatInputValue({
   }).format(date);
 }
 
-export type DatepickerAction =
+export type DatePickerAction =
   | { type: 'OPEN' }
   | { type: 'CLOSE' }
   | { type: 'PREVIEW_NEXT_MONTH' }
@@ -106,7 +106,7 @@ export const datepickerReducer =
     customParseDate?: (inputValue: string) => Date;
     onChange?: (date: Date) => void;
   }) =>
-  (state: IDatepickerState, action: DatepickerAction): IDatepickerState => {
+  (state: IDatePickerState, action: DatePickerAction): IDatePickerState => {
     switch (action.type) {
       case 'OPEN':
         return { ...state, isOpen: true, previewDate: value || new Date() };
@@ -162,9 +162,9 @@ export const datepickerReducer =
   };
 
 /**
- * Retrieve initial state for the Datepicker reducer
+ * Retrieve initial state for the DatePicker reducer
  */
-export function retrieveInitialState(initialProps: IDatepickerProps): IDatepickerState {
+export function retrieveInitialState(initialProps: IDatePickerProps): IDatePickerState {
   let previewDate = initialProps.value;
 
   if (previewDate === undefined || !isValid(previewDate)) {

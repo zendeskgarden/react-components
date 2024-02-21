@@ -6,20 +6,20 @@
  */
 
 import { useContext, createContext } from 'react';
-import { IDatepickerState, DatepickerAction } from './datepicker-reducer';
+import { IDatePickerState, DatePickerAction } from './date-picker-reducer';
 
-export interface IDatepickerContext {
-  state: IDatepickerState;
-  dispatch: React.Dispatch<DatepickerAction>;
+export interface IDatePickerContext {
+  state: IDatePickerState;
+  dispatch: React.Dispatch<DatePickerAction>;
 }
 
-export const DatepickerContext = createContext<IDatepickerContext | undefined>(undefined);
+export const DatePickerContext = createContext<IDatePickerContext | undefined>(undefined);
 
 /**
  * Retrieve Dropdown component context
  */
-const useDatepickerContext = () => {
-  return useContext<IDatepickerContext>(DatepickerContext as any);
+const useDatePickerContext = () => {
+  return useContext<IDatePickerContext>(DatePickerContext as any);
 };
 
-export default useDatepickerContext;
+export default useDatePickerContext;

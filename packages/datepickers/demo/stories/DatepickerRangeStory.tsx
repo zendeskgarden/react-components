@@ -9,44 +9,44 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { Field, Input, Label } from '@zendeskgarden/react-forms';
-import { DatepickerRange, IDatepickerRangeProps } from '@zendeskgarden/react-datepickers';
+import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { DATE_STYLE } from './types';
 
-interface IArgs extends IDatepickerRangeProps {
+interface IArgs extends IDatePickerRangeProps {
   dateStyle: DATE_STYLE;
 }
 
-export const DatepickerRangeStory: Story<IArgs> = ({ dateStyle, isCompact, ...args }) => {
+export const DatePickerRangeStory: Story<IArgs> = ({ dateStyle, isCompact, ...args }) => {
   const formatDate = (date: Date) =>
     new Intl.DateTimeFormat(args.locale, { dateStyle }).format(date);
 
   return (
-    <DatepickerRange {...args} formatDate={formatDate} isCompact={isCompact}>
+    <DatePickerRange {...args} formatDate={formatDate} isCompact={isCompact}>
       <Grid>
         <Row>
           <Col size="auto">
             <Field>
-              <Label hidden>{(DatepickerRange.Start as any).displayName}</Label>
-              <DatepickerRange.Start>
+              <Label hidden>{(DatePickerRange.Start as any).displayName}</Label>
+              <DatePickerRange.Start>
                 <Input isCompact={isCompact} style={{ width: isCompact ? 224 : 280 }} />
-              </DatepickerRange.Start>
+              </DatePickerRange.Start>
             </Field>
           </Col>
           <Col size="auto">
             <Field>
-              <Label hidden>{(DatepickerRange.End as any).displayName}</Label>
-              <DatepickerRange.End>
+              <Label hidden>{(DatePickerRange.End as any).displayName}</Label>
+              <DatePickerRange.End>
                 <Input isCompact={isCompact} style={{ width: isCompact ? 224 : 280 }} />
-              </DatepickerRange.End>
+              </DatePickerRange.End>
             </Field>
           </Col>
         </Row>
         <Row>
           <Col>
-            <DatepickerRange.Calendar />
+            <DatePickerRange.Calendar />
           </Col>
         </Row>
       </Grid>
-    </DatepickerRange>
+    </DatePickerRange>
   );
 };

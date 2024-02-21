@@ -22,7 +22,7 @@ import { compareAsc } from 'date-fns/compareAsc';
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import {
-  StyledDatepicker,
+  StyledDatePicker,
   StyledCalendar,
   StyledCalendarItem,
   StyledDayLabel,
@@ -33,7 +33,7 @@ import {
   StyledHighlight
 } from '../../../styled';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
-import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
+import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
 interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   displayDate: Date;
@@ -54,7 +54,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       startValue,
       endValue,
       onChange
-    } = useDatepickerRangeContext();
+    } = useDatePickerContext();
 
     const headerLabelFormatter = useCallback<(date: Date) => string>(
       date => {
@@ -273,7 +273,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
     });
 
     return (
-      <StyledDatepicker
+      <StyledDatePicker
         ref={ref}
         isCompact={isCompact!}
         data-test-id="calendar-wrapper"
@@ -322,7 +322,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           {dayLabels}
           {items}
         </StyledCalendar>
-      </StyledDatepicker>
+      </StyledDatePicker>
     );
   }
 );

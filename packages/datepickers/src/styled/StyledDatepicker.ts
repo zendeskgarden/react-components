@@ -13,7 +13,7 @@ const COMPONENT_ID = 'datepickers.datepicker';
 const retrievePadding = ({
   isCompact,
   theme
-}: IStyledDatepickerProps & ThemeProps<DefaultTheme>) => {
+}: IStyledDatePickerProps & ThemeProps<DefaultTheme>) => {
   let value = theme.space.base * 5;
 
   if (isCompact) {
@@ -23,13 +23,13 @@ const retrievePadding = ({
   return `margin: ${value}px;`;
 };
 
-interface IStyledDatepickerProps {
+interface IStyledDatePickerProps {
   isCompact: boolean;
 }
 
-export const StyledDatepicker = styled.div.attrs({
+export const StyledDatePicker = styled.div.attrs({
   'data-garden-id': COMPONENT_ID
-})<IStyledDatepickerProps>`
+})<IStyledDatePickerProps>`
   direction: ${props => props.theme.rtl && 'rtl'};
 
   ${retrievePadding}
@@ -40,6 +40,6 @@ export const StyledDatepicker = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledDatepicker.defaultProps = {
+StyledDatePicker.defaultProps = {
   theme: DEFAULT_THEME
 };

@@ -12,25 +12,25 @@ import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import { Datepicker } from './Datepicker';
-import { IDatepickerProps } from '../../types';
+import { DatePicker } from './DatePicker';
+import { IDatePickerProps } from '../../types';
 
 const DEFAULT_DATE = new Date(2019, 1, 5);
 
-const Example = (props: Omit<IDatepickerProps, 'children'>) => (
+const Example = (props: Omit<IDatePickerProps, 'children'>) => (
   <>
     <label data-test-id="label" htmlFor="input">
       Label
     </label>
-    <Datepicker {...props}>
+    <DatePicker {...props}>
       <input data-test-id="input" id="input" />
-    </Datepicker>
+    </DatePicker>
   </>
 );
 
 jest.useFakeTimers();
 
-describe('Datepicker', () => {
+describe('DatePicker', () => {
   const user = userEvent.setup({ delay: null });
 
   let onChangeSpy: (date: Date) => void;

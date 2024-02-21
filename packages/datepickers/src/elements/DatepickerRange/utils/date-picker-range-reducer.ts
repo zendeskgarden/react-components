@@ -15,9 +15,9 @@ import { parse } from 'date-fns/parse';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { compareAsc } from 'date-fns/compareAsc';
 import { isAfter } from 'date-fns/isAfter';
-import { IDatepickerRangeProps } from '../../../types';
+import { IDatePickerRangeProps } from '../../../types';
 
-export interface IDatepickerRangeState {
+export interface IDatePickerRangeState {
   previewDate: Date;
   hoverDate?: Date;
   isStartFocused: boolean;
@@ -81,7 +81,7 @@ export function parseInputValue({ inputValue }: { inputValue?: string }): Date {
   return new Date(NaN);
 }
 
-export type DatepickerRangeAction =
+export type DatePickerRangeAction =
   | { type: 'HOVER_DATE'; value?: Date }
   | { type: 'CLICK_DATE'; value: Date }
   | { type: 'PREVIEW_NEXT_MONTH' }
@@ -109,7 +109,7 @@ export const datepickerRangeReducer =
     formatDate?: any;
     customParseDate?: (inputValue?: string) => Date;
   }) =>
-  (state: IDatepickerRangeState, action: DatepickerRangeAction): IDatepickerRangeState => {
+  (state: IDatePickerRangeState, action: DatePickerRangeAction): IDatePickerRangeState => {
     switch (action.type) {
       case 'START_FOCUS': {
         let previewDate = state.previewDate;
@@ -300,9 +300,9 @@ export const datepickerRangeReducer =
   };
 
 /**
- * Retrieve initial state for the Datepicker reducer
+ * Retrieve initial state for the DatePicker reducer
  */
-export function retrieveInitialState(initialProps: IDatepickerRangeProps): IDatepickerRangeState {
+export function retrieveInitialState(initialProps: IDatePickerRangeProps): IDatePickerRangeState {
   let previewDate = initialProps.startValue!;
 
   if (previewDate === undefined || !isValid(previewDate)) {

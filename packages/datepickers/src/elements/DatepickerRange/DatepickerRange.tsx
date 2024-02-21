@@ -14,14 +14,14 @@ import React, {
   useMemo
 } from 'react';
 import PropTypes from 'prop-types';
-import { IDatepickerRangeProps } from '../../types';
-import { datepickerRangeReducer, retrieveInitialState } from './utils/datepicker-range-reducer';
-import { DatepickerRangeContext } from './utils/useDatepickerRangeContext';
+import { IDatePickerRangeProps } from '../../types';
+import { datepickerRangeReducer, retrieveInitialState } from './utils/date-picker-range-reducer';
+import { DatePickerRangeContext } from './utils/useDatePickerRangeContext';
 import { Start } from './components/Start';
 import { End } from './components/End';
 import { Calendar } from './components/Calendar';
 
-const DatepickerRangeComponent = (props: PropsWithChildren<IDatepickerRangeProps>) => {
+const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps>) => {
   const {
     startValue,
     locale,
@@ -118,11 +118,11 @@ const DatepickerRangeComponent = (props: PropsWithChildren<IDatepickerRangeProps
   );
 
   return (
-    <DatepickerRangeContext.Provider value={value}>{children}</DatepickerRangeContext.Provider>
+    <DatePickerRangeContext.Provider value={value}>{children}</DatePickerRangeContext.Provider>
   );
 };
 
-DatepickerRangeComponent.propTypes = {
+DatePickerRangeComponent.propTypes = {
   locale: PropTypes.string,
   weekStartsOn: PropTypes.number,
   startValue: PropTypes.instanceOf(Date),
@@ -135,17 +135,17 @@ DatepickerRangeComponent.propTypes = {
   isCompact: PropTypes.bool
 };
 
-DatepickerRangeComponent.defaultProps = {
+DatePickerRangeComponent.defaultProps = {
   locale: 'en-US',
   isCompact: false
 };
 
-export const DatepickerRange = DatepickerRangeComponent as typeof DatepickerRangeComponent & {
+export const DatePickerRange = DatePickerRangeComponent as typeof DatePickerRangeComponent & {
   Calendar: typeof Calendar;
   End: typeof End;
   Start: typeof Start;
 };
 
-DatepickerRange.Calendar = Calendar;
-DatepickerRange.End = End;
-DatepickerRange.Start = Start;
+DatePickerRange.Calendar = Calendar;
+DatePickerRange.End = End;
+DatePickerRange.Start = Start;

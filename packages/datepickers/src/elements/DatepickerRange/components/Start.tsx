@@ -6,15 +6,15 @@
  */
 
 import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
-import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
+import useDatePickerContext from '../utils/useDatePickerRangeContext';
 import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { isValid } from 'date-fns/isValid';
 import { isSameDay } from 'date-fns/isSameDay';
-import { parseInputValue } from '../utils/datepicker-range-reducer';
+import { parseInputValue } from '../utils/date-picker-range-reducer';
 
 export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
   const { state, dispatch, onChange, startValue, endValue, startInputRef, customParseDate } =
-    useDatepickerRangeContext();
+    useDatePickerContext();
 
   const onChangeCallback = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -85,4 +85,4 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
   });
 };
 
-Start.displayName = 'DatepickerRange.Start';
+Start.displayName = 'DatePickerRange.Start';
