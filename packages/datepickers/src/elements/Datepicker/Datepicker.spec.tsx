@@ -17,7 +17,7 @@ import { IDatepickerProps } from '../../types';
 
 const DEFAULT_DATE = new Date(2019, 1, 5);
 
-const Example = (props: IDatepickerProps) => (
+const Example = (props: Omit<IDatepickerProps, 'children'>) => (
   <>
     <label data-test-id="label" htmlFor="input">
       Label
@@ -440,7 +440,7 @@ describe('Datepicker', () => {
     });
   });
 
-  describe('Popper', () => {
+  describe('Calendar', () => {
     it('applies LTR classes by default', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 

@@ -79,10 +79,6 @@ export interface IColorpickerDialogProps extends IColorpickerProps {
   /** Disables the color dialog button */
   disabled?: boolean;
   /**
-   * Modifies [Popper instance](https://popper.js.org/docs/v2/modifiers/) to customize positioning logic
-   */
-  popperModifiers?: ITooltipModalProps['popperModifiers'];
-  /**
    * Sets the `z-index` of the color dialog
    */
   zIndex?: ITooltipModalProps['zIndex'];
@@ -119,38 +115,23 @@ export interface ILabeledColor {
   label: string;
 }
 
-export interface IColorSwatchProps
-  extends Omit<HTMLAttributes<HTMLTableElement>, 'onChange' | 'onSelect'> {
+export interface IColorSwatchProps extends Omit<HTMLAttributes<HTMLTableElement>, 'onSelect'> {
+  /** Sets the name used to reference the value of the control */
+  name: string;
   /** Sets the two-dimension array of labeled HEX and RGB/A string colors */
   colors: { value: string; label: string }[][];
-  /** Sets the focused row index in a controlled color swatch */
-  rowIndex?: number;
-  /** Sets the focused column index in a controlled color swatch.
-   * Can be set to `-1` to clear the row focus.
-   */
-  colIndex?: number;
-  /** Sets the selected row index in a controlled color swatch.
-   * Can be set to `-1` to clear the column focus.
-   */
-  selectedRowIndex?: number;
-  /** Sets the selected column index in a controlled color swatch.
-   * Can be set to `-1` to clear the row selection.
-   */
-  selectedColIndex?: number;
-  /** Sets the default focused row index in an uncontrolled color swatch.
-   * Can be set to `-1` to clear the column selection.
-   */
-  defaultRowIndex?: number;
-  /** Sets the default focused column index in an uncontrolled color swatch */
-  defaultColIndex?: number;
+  /** Determines if the color swatch is backed by radio (default) or checkbox inputs */
+  isCheckboxGroup?: boolean;
+  /** Sets the selected row index in a controlled color swatch */
+  selectedRowIndex?: number | null;
+  /** Sets the selected column index in a controlled color swatch */
+  selectedColIndex?: number | null;
   /** Sets the default selected row index in an uncontrolled color swatch */
   defaultSelectedRowIndex?: number;
   /** Sets the default selected column index in an uncontrolled color swatch */
   defaultSelectedColIndex?: number;
-  /** Handles color swatch changes */
-  onChange?: (rowIndex: number, colIndex: number) => void;
   /** Handles color swatch select event */
-  onSelect?: (rowIndex: number, colIndex: number) => void;
+  onSelect?: (rowIndex: number | null, colIndex: number | null) => void;
 }
 
 export interface IColorSwatchDialogProps extends IColorSwatchProps {
@@ -158,8 +139,6 @@ export interface IColorSwatchDialogProps extends IColorSwatchProps {
   placement?: ITooltipModalProps['placement'];
   /** Disables the color dialog button */
   disabled?: boolean;
-  /** Modifies [Popper instance](https://popper.js.org/docs/v2/modifiers/) to customize positioning logic */
-  popperModifiers?: ITooltipModalProps['popperModifiers'];
   /** Sets the `z-index` of the color dialog */
   zIndex?: ITooltipModalProps['zIndex'];
   /** Adds an arrow to the color dialog */

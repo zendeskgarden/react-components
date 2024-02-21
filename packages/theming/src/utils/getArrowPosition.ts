@@ -6,8 +6,9 @@
  */
 
 import { Placement } from '@floating-ui/react-dom';
-import { ArrowPosition } from '../types';
+import { ArrowPosition, IGardenTheme } from '../types';
 
+/* Map Floating-UI placement to Garden arrow position */
 export const POSITION_MAP: Record<Placement, ArrowPosition> = {
   top: 'bottom',
   'top-start': 'bottom-left',
@@ -23,13 +24,28 @@ export const POSITION_MAP: Record<Placement, ArrowPosition> = {
   'left-end': 'right-bottom'
 };
 
+/* Map Garden arrow position to RTL position */
+export const RTL_POSITION_MAP: Record<string, ArrowPosition> = {
+  'bottom-left': 'bottom-right',
+  'bottom-right': 'bottom-left',
+  'top-left': 'top-right',
+  'top-right': 'top-left'
+};
+
 /**
  * Convert Floating-UI placement to a valid `arrowStyles` position.
  *
+ * @param {Object} theme Context `theme` object used to determine if layout is right-to-left.
  * @param {string} placement A Floating-UI placement.
  *
  * @returns An `arrowStyles` position.
  */
-export const getArrowPosition = (placement: Placement): ArrowPosition => {
-  return POSITION_MAP[placement];
+export const getArrowPosition = (theme: IGardenTheme, placement: Placement): ArrowPosition => {
+  let retVal = POSITION_MAP[placement];
+
+  if (theme.rtl) {
+    retVal = RTL_POSITION_MAP[retVal] || retVal;
+  }
+
+  return retVal;
 };

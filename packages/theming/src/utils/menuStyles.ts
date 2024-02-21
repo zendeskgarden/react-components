@@ -62,8 +62,8 @@ const hiddenStyles = (options: MenuOptions) => {
 
 /**
  * CSS for a `wrapper > menu` at the given position. The wrapper provides
- * absolute positioning (e.g. via Popper). The menu provides basic styling and
- * optional animation.
+ * absolute positioning (e.g. via Floating-UI). The menu provides basic styling
+ * and optional animation.
  *
  * @param {string} position One of:
  *  - `'top'`

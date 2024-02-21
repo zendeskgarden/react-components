@@ -17,7 +17,6 @@ import README from '../README.md';
     focusInset: { control: 'boolean' },
     hasArrow: { control: 'boolean' },
     isOpaque: { control: 'boolean' },
-    popperModifiers: { control: 'array' },
     zIndex: { control: 'number' }
   }}
   parameters={{
@@ -48,13 +47,20 @@ import README from '../README.md';
 <Canvas>
   <Story
     name="Controlled"
-    args={{ color: PALETTE.blue[600] }}
+    args={{ color: PALETTE.blue[600], isOpen: false }}
     argTypes={{ defaultColor: { control: false } }}
   >
     {args => {
       const updateArgs = useArgs()[1];
+      const handleDialogChange = ({ isOpen }) => updateArgs({ isOpen });
       const handleChange = color => updateArgs({ color });
-      return <ColorpickerDialogStory {...args} onChange={handleChange} />;
+      return (
+        <ColorpickerDialogStory
+          {...args}
+          onDialogChange={handleDialogChange}
+          onChange={handleChange}
+        />
+      );
     }}
   </Story>
 </Canvas>

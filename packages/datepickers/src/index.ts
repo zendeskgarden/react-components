@@ -8,9 +8,4 @@
 export { Datepicker } from './elements/Datepicker/Datepicker';
 export { DatepickerRange } from './elements/DatepickerRange/DatepickerRange';
 
-export type {
-  IDatepickerProps,
-  IDatepickerRangeProps,
-  /** @deprecated type can be dereferenced via IDatePickerProps['placement'] */
-  GardenPlacement as GARDEN_PLACEMENT
-} from './types';
+export type { IDatepickerProps, IDatepickerRangeProps } from './types';
