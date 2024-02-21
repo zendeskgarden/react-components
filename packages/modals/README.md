@@ -14,6 +14,8 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ## Usage
 
+### Modal
+
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Modal, Header, Body, Footer, FooterItem, Close } from '@zendeskgarden/react-modals';
@@ -36,5 +38,61 @@ import { Button } from '@zendeskgarden/react-buttons';
     </Footer>
     <Close aria-label="Close modal" />
   </Modal>
+</ThemeProvider>;
+```
+
+### Drawer
+
+```jsx
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Drawer } from '@zendeskgarden/react-modals';
+import { Button } from '@zendeskgarden/react-buttons';
+
+const [isOpen, setIsOpen] = useState(false)
+
+<ThemeProvider>
+  <Button onClick={() => setIsOpen(true)}>
+    Open
+  </Button>
+  <Drawer isOpen={state.isOpen} onClose={() => setIsOpen(false)}>
+    <Drawer.Header>Example Title</Drawer.Header>
+    <Drawer.Body>Some content</Drawer.Body>
+    <Drawer.Footer>
+      <Drawer.FooterItem>
+        <Button>Click</Button>
+      </Drawer.FooterItem>
+    </Drawer.Footer>
+    <Drawer.Close aria-Label="Close" />
+  </Drawer>
+</ThemeProvider>
+```
+
+### TooltipModal
+
+```jsx
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { TooltipModal } from '@zendeskgarden/react-modals';
+import { Button } from '@zendeskgarden/react-buttons';
+
+const [isOpen, setIsOpen] = useState(false);
+const buttonRef = useRef(null);
+
+<ThemeProvider>
+  <Button ref={buttonRef} onClick={() => setIsOpen(!isOpen)}>
+    Open
+  </Button>
+  <TooltipModal
+    onClose={() => setIsOpen(false)}
+    referenceElement={isOpen && buttonRef.current ? buttonRef.current : undefined}
+  >
+    <TooltipModal.Title>Example Title</TooltipModal.Title>
+    <TooltipModal.Body>Some content</TooltipModal.Body>
+    <TooltipModal.Footer>
+      <TooltipModal.FooterItem>
+        <Button>Click</Button>
+      </TooltipModal.FooterItem>
+    </TooltipModal.Footer>
+    <TooltipModal.Close aria-label="Close" />
+  </TooltipModal>
 </ThemeProvider>;
 ```
