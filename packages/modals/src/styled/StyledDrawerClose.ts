@@ -17,7 +17,7 @@ export const BASE_MULTIPLIERS = {
   size: styledCloseBaseMultipliers.size
 };
 
-export const StyledDrawerModalClose = styled(StyledClose).attrs({
+export const StyledDrawerClose = styled(StyledClose).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -27,6 +27,6 @@ export const StyledDrawerModalClose = styled(StyledClose).attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledDrawerModalClose.defaultProps = {
+StyledDrawerClose.defaultProps = {
   theme: DEFAULT_THEME
 };

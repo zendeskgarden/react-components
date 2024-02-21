@@ -7,19 +7,17 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledBody } from './StyledBody';
+import { StyledFooterItem } from './StyledFooterItem';
 
-const COMPONENT_ID = 'modals.drawer_modal.body';
+const COMPONENT_ID = 'modals.drawer_modal.footer_item';
 
-export const StyledDrawerModalBody = styled(StyledBody).attrs({
+export const StyledDrawerFooterItem = styled(StyledFooterItem as 'span').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  padding: ${props => props.theme.space.base * 5}px;
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledDrawerModalBody.defaultProps = {
+StyledDrawerFooterItem.defaultProps = {
   theme: DEFAULT_THEME
 };

@@ -7,15 +7,15 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { DrawerModal } from './DrawerModal';
+import { Drawer } from './Drawer';
 
-describe('DrawerModal.Close', () => {
+describe('Drawer.Close', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLButtonElement>();
     const { getByRole } = render(
-      <DrawerModal isOpen>
-        <DrawerModal.Close ref={ref} />
-      </DrawerModal>
+      <Drawer isOpen>
+        <Drawer.Close ref={ref} />
+      </Drawer>
     );
 
     expect(getByRole('button')).toBe(ref.current);

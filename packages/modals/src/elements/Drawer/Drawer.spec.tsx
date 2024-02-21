@@ -8,17 +8,17 @@
 import React, { useRef, useState, createRef, forwardRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { screen, render, waitFor } from 'garden-test-utils';
-import { DrawerModal } from './DrawerModal';
-import { IDrawerModalProps } from '../../types';
+import { Drawer } from './Drawer';
+import { IDrawerProps } from '../../types';
 
-describe('DrawerModal', () => {
+describe('Drawer', () => {
   const user = userEvent.setup();
 
   const DRAWER_MODAL_ID = 'TEST_ID';
 
   type FixtureProps = {
     noHeader?: boolean;
-  } & IDrawerModalProps;
+  } & IDrawerProps;
 
   const Example = forwardRef<HTMLDivElement, FixtureProps>(({ noHeader, ...props }, ref) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -29,16 +29,16 @@ describe('DrawerModal', () => {
         <button ref={buttonRef} onClick={() => setIsOpen(true)}>
           Open Drawer
         </button>
-        <DrawerModal ref={ref} isOpen={isOpen} onClose={() => setIsOpen(false)} {...props}>
-          {!noHeader && <DrawerModal.Header>title</DrawerModal.Header>}
-          <DrawerModal.Close />
-          <DrawerModal.Body>body</DrawerModal.Body>
-          <DrawerModal.Footer>
-            <DrawerModal.FooterItem>
+        <Drawer ref={ref} isOpen={isOpen} onClose={() => setIsOpen(false)} {...props}>
+          {!noHeader && <Drawer.Header>title</Drawer.Header>}
+          <Drawer.Close />
+          <Drawer.Body>body</Drawer.Body>
+          <Drawer.Footer>
+            <Drawer.FooterItem>
               <button>Click</button>
-            </DrawerModal.FooterItem>
-          </DrawerModal.Footer>
-        </DrawerModal>
+            </Drawer.FooterItem>
+          </Drawer.Footer>
+        </Drawer>
       </>
     );
   });

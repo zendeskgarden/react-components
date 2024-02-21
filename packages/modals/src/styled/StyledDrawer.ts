@@ -25,7 +25,7 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
 /**
  * 1. Smooth iOS scrolling.
  */
-export const StyledDrawerModal = styled.div.attrs({
+export const StyledDrawer = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -65,6 +65,6 @@ export const StyledDrawerModal = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledDrawerModal.defaultProps = {
+StyledDrawer.defaultProps = {
   theme: DEFAULT_THEME
 };

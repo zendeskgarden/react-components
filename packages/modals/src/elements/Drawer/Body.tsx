@@ -7,22 +7,19 @@
 
 import React, { HTMLAttributes, forwardRef } from 'react';
 import { useModalContext } from '../../utils/useModalContext';
-import { StyledDrawerModalBody } from '../../styled';
+import { StyledDrawerBody } from '../../styled';
 
 const BodyComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { getContentProps } = useModalContext();
 
   return (
-    <StyledDrawerModalBody
-      {...(getContentProps(props) as HTMLAttributes<HTMLDivElement>)}
-      ref={ref}
-    >
+    <StyledDrawerBody {...(getContentProps(props) as HTMLAttributes<HTMLDivElement>)} ref={ref}>
       {props.children}
-    </StyledDrawerModalBody>
+    </StyledDrawerBody>
   );
 });
 
-BodyComponent.displayName = 'DrawerModal.Body';
+BodyComponent.displayName = 'Drawer.Body';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

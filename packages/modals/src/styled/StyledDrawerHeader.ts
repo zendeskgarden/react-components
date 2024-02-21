@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledHeader } from './StyledHeader';
-import { BASE_MULTIPLIERS } from './StyledDrawerModalClose';
+import { BASE_MULTIPLIERS } from './StyledDrawerClose';
 
 const COMPONENT_ID = 'modals.drawer_modal.header';
 
@@ -16,7 +16,7 @@ const COMPONENT_ID = 'modals.drawer_modal.header';
  * 1. the padding added to the Header is based on the close button size and spacing,
  *    with additional padding (+ 2) between the Header content and Close button
  */
-export const StyledDrawerModalHeader = styled(StyledHeader).attrs({
+export const StyledDrawerHeader = styled(StyledHeader).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -30,6 +30,6 @@ export const StyledDrawerModalHeader = styled(StyledHeader).attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledDrawerModalHeader.defaultProps = {
+StyledDrawerHeader.defaultProps = {
   theme: DEFAULT_THEME
 };

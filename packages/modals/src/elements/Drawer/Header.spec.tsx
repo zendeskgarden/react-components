@@ -9,26 +9,26 @@ import React from 'react';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl, screen } from 'garden-test-utils';
 
-import { DrawerModal } from './DrawerModal';
+import { Drawer } from './Drawer';
 
-describe('DrawerModal.Header', () => {
+describe('Drawer.Header', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByText } = render(
-      <DrawerModal isOpen>
-        <DrawerModal.Header ref={ref}>title</DrawerModal.Header>
-      </DrawerModal>
+      <Drawer isOpen>
+        <Drawer.Header ref={ref}>title</Drawer.Header>
+      </Drawer>
     );
 
     expect(getByText('title')).toBe(ref.current);
   });
 
-  it('has horizontal padding when DrawerModal.Close is present', () => {
+  it('has horizontal padding when Drawer.Close is present', () => {
     render(
-      <DrawerModal isOpen>
-        <DrawerModal.Header>Header</DrawerModal.Header>
-        <DrawerModal.Close />
-      </DrawerModal>
+      <Drawer isOpen>
+        <Drawer.Header>Header</Drawer.Header>
+        <Drawer.Close />
+      </Drawer>
     );
 
     expect(screen.getByText('Header')).toHaveStyleRule(
@@ -37,12 +37,12 @@ describe('DrawerModal.Header', () => {
     );
   });
 
-  it('renders horizontal padding in rtl mode when DrawerModal.Close is present', () => {
+  it('renders horizontal padding in rtl mode when Drawer.Close is present', () => {
     renderRtl(
-      <DrawerModal isOpen>
-        <DrawerModal.Header>Header</DrawerModal.Header>
-        <DrawerModal.Close />
-      </DrawerModal>
+      <Drawer isOpen>
+        <Drawer.Header>Header</Drawer.Header>
+        <Drawer.Close />
+      </Drawer>
     );
 
     expect(screen.getByText('Header')).toHaveStyleRule(
@@ -51,11 +51,11 @@ describe('DrawerModal.Header', () => {
     );
   });
 
-  it('does not have horizontal padding when DrawerModal.Close is absent', () => {
+  it('does not have horizontal padding when Drawer.Close is absent', () => {
     render(
-      <DrawerModal isOpen>
-        <DrawerModal.Header>Header</DrawerModal.Header>
-      </DrawerModal>
+      <Drawer isOpen>
+        <Drawer.Header>Header</Drawer.Header>
+      </Drawer>
     );
 
     expect(screen.getByText('Header')).not.toHaveStyleRule('padding-right');
@@ -63,9 +63,9 @@ describe('DrawerModal.Header', () => {
 
   it('renders as a <div> by default', () => {
     render(
-      <DrawerModal isOpen>
-        <DrawerModal.Header>Header</DrawerModal.Header>
-      </DrawerModal>
+      <Drawer isOpen>
+        <Drawer.Header>Header</Drawer.Header>
+      </Drawer>
     );
 
     expect(screen.getByText('Header').tagName).toBe('DIV');
@@ -73,9 +73,9 @@ describe('DrawerModal.Header', () => {
 
   it('renders as a custom element, when passed a tag', () => {
     render(
-      <DrawerModal isOpen>
-        <DrawerModal.Header tag="h1">Header</DrawerModal.Header>
-      </DrawerModal>
+      <Drawer isOpen>
+        <Drawer.Header tag="h1">Header</Drawer.Header>
+      </Drawer>
     );
 
     expect(screen.getByText('Header').tagName).not.toBe('DIV');

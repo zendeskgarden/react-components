@@ -7,15 +7,15 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { DrawerModal } from './DrawerModal';
+import { Drawer } from './Drawer';
 
-describe('DrawerModal.Body', () => {
+describe('Drawer.Body', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByText } = render(
-      <DrawerModal isOpen>
-        <DrawerModal.Body ref={ref}>content</DrawerModal.Body>
-      </DrawerModal>
+      <Drawer isOpen>
+        <Drawer.Body ref={ref}>content</Drawer.Body>
+      </Drawer>
     );
 
     expect(getByText('content')).toBe(ref.current);
