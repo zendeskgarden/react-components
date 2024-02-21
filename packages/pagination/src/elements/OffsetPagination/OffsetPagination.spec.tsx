@@ -40,7 +40,11 @@ describe('OffsetPagination', () => {
     onChange = jest.fn();
   });
 
-  describe('labels', () => {
+  afterEach(() => {
+    onChange.mockReset();
+  });
+
+  describe('Accessibility', () => {
     it('applies labels to elements', () => {
       const containerLabel = 'container label';
       const labels = {
@@ -59,7 +63,7 @@ describe('OffsetPagination', () => {
           pageGap={1}
         />
       );
-      const children = container.firstElementChild!.firstElementChild!.children;
+      const children = container.querySelector('ul')!.children;
 
       expect(container.firstElementChild!).toHaveAttribute('aria-label', containerLabel);
       expect(children[0].firstChild).toHaveAttribute('aria-label', labels.previous);
@@ -72,28 +76,31 @@ describe('OffsetPagination', () => {
       expect(children[7]).toHaveAttribute('aria-label', labels.gap);
       expect(children[8].firstChild).toHaveAttribute('aria-label', labels.next);
     });
+
+    it('sets aria-current to currently selected page', () => {
+      const { getByText } = render(<BasicExample currentPage={3} totalPages={5} />);
+
+      expect(getByText('3')).toHaveAttribute('aria-current', 'page');
+    });
   });
 
   describe('Previous Page', () => {
     it('is visible if currentPage is not first page', () => {
       const { container } = render(<BasicExample currentPage={4} totalPages={5} />);
-      const paginationWrapper = container.firstElementChild!.firstElementChild!;
 
-      expect(paginationWrapper.firstElementChild!.firstChild).not.toHaveAttribute('hidden');
+      expect(container.querySelector('button')).not.toHaveAttribute('hidden');
     });
 
     it('is invisible if currentPage is first page', () => {
       const { container } = render(<BasicExample currentPage={1} totalPages={5} />);
-      const paginationWrapper = container.firstElementChild!.firstElementChild!;
 
-      expect(paginationWrapper.firstElementChild!.firstChild).toHaveAttribute('hidden');
+      expect(container.querySelector('button')).toHaveAttribute('hidden');
     });
 
     it('decrements currentPage when selected', async () => {
       const { container } = render(<BasicExample currentPage={3} />);
-      const paginationWrapper = container.firstElementChild!.firstElementChild!;
 
-      await user.click(paginationWrapper.firstElementChild!.firstChild! as HTMLButtonElement);
+      await user.click(container.querySelector('button')!);
 
       expect(onChange).toHaveBeenCalledWith(2);
     });
@@ -102,37 +109,26 @@ describe('OffsetPagination', () => {
   describe('Next Page', () => {
     it('is visible if currentPage is not final page', () => {
       const { container } = render(<BasicExample currentPage={4} totalPages={5} />);
-      const paginationWrapper = container.firstElementChild!.firstElementChild!;
 
-      expect(paginationWrapper.lastElementChild!.firstChild).not.toHaveAttribute('hidden');
+      expect(container.querySelector('li:last-child > button')).not.toHaveAttribute('hidden');
     });
 
     it('is invisible if currentPage is final page', () => {
       const { container } = render(<BasicExample currentPage={5} totalPages={5} />);
-      const paginationWrapper = container.firstElementChild!.firstElementChild!;
 
-      expect(paginationWrapper.lastElementChild!.firstChild).toHaveAttribute('hidden');
+      expect(container.querySelector('li:last-child > button')).toHaveAttribute('hidden');
     });
 
     it('increments currentPage when selected', async () => {
       const { container } = render(<BasicExample currentPage={3} totalPages={5} />);
-      const paginationWrapper = container.firstElementChild!.firstElementChild!;
 
-      await user.click(paginationWrapper.lastElementChild!.firstChild! as HTMLButtonElement);
+      await user.click(container.querySelector('li:last-child > button')!);
 
       expect(onChange).toHaveBeenCalledWith(4);
     });
   });
 
   describe('Pages', () => {
-    it('updates onStateChange with currentPage when selected', async () => {
-      const { getByText } = render(<BasicExample currentPage={1} totalPages={5} />);
-
-      await user.click(getByText('2'));
-
-      expect(onChange).toHaveBeenCalledWith(2);
-    });
-
     it('updates onChange with currentPage when selected', async () => {
       const { getByText } = render(<BasicExample currentPage={1} totalPages={5} />);
 
@@ -143,7 +139,7 @@ describe('OffsetPagination', () => {
 
     it('hides front gap when currentPage is within padding range', () => {
       const { container } = render(<BasicExample currentPage={1} totalPages={25} />);
-      const children = container.firstElementChild!.firstElementChild!.children;
+      const children = container.querySelector('ul')!.children;
 
       expect(children[0].firstChild).toHaveAttribute('data-garden-id', 'pagination.navigation');
       expect(children[1].firstChild).toHaveAttribute('data-garden-id', 'pagination.page');
@@ -160,7 +156,7 @@ describe('OffsetPagination', () => {
 
     it('hides back gap when currentPage is within padding range', () => {
       const { container } = render(<BasicExample currentPage={25} totalPages={25} />);
-      const children = container.firstElementChild!.firstElementChild!.children;
+      const children = container.querySelector('ul')!.children;
 
       expect(children[0].firstChild).toHaveAttribute('data-garden-id', 'pagination.navigation');
       expect(children[1].firstChild).toHaveAttribute('data-garden-id', 'pagination.page');
@@ -177,7 +173,7 @@ describe('OffsetPagination', () => {
 
     it('displays both gaps if not within padding range and totalPages is greater than padding limit', () => {
       const { container } = render(<BasicExample currentPage={15} totalPages={25} />);
-      const children = container.firstElementChild!.firstElementChild!.children;
+      const children = container.querySelector('ul')!.children;
 
       expect(children[0].firstChild).toHaveAttribute('data-garden-id', 'pagination.navigation');
       expect(children[1].firstChild).toHaveAttribute('data-garden-id', 'pagination.page');
@@ -194,7 +190,7 @@ describe('OffsetPagination', () => {
 
     it('displays no gaps if less than padding limit', () => {
       const { container } = render(<BasicExample currentPage={1} totalPages={9} />);
-      const children = container.firstElementChild!.firstElementChild!.children;
+      const children = container.querySelector('ul')!.children;
 
       expect(children[0].firstChild).toHaveAttribute('data-garden-id', 'pagination.navigation');
       expect(children[1].firstChild).toHaveAttribute('data-garden-id', 'pagination.page');
@@ -211,7 +207,7 @@ describe('OffsetPagination', () => {
 
     it('displays previous and next with zero total pages', () => {
       const { container } = render(<BasicExample totalPages={0} />);
-      const children = container.firstElementChild!.firstElementChild!.children;
+      const children = container.querySelector('ul')!.children;
 
       expect(children[0].firstChild).toHaveAttribute('data-garden-id', 'pagination.navigation');
       expect(children[1].firstChild).toHaveAttribute('data-garden-id', 'pagination.navigation');
@@ -221,7 +217,7 @@ describe('OffsetPagination', () => {
   describe('Padding', () => {
     it('renders as expected with reduced page padding', () => {
       const { container } = render(<BasicExample totalPages={9} currentPage={5} pagePadding={1} />);
-      const children = container.firstElementChild!.firstElementChild!.children;
+      const children = container.querySelector('ul')!.children;
 
       expect(children[0].firstChild).toHaveAttribute('data-garden-id', 'pagination.navigation');
       expect(children[1].firstChild).toHaveAttribute('data-garden-id', 'pagination.page');
@@ -238,7 +234,7 @@ describe('OffsetPagination', () => {
       const { container } = render(
         <BasicExample totalPages={20} currentPage={10} pagePadding={3} />
       );
-      const children = container.firstElementChild!.firstElementChild!.children;
+      const children = container.querySelector('ul')!.children;
 
       expect(children[0].firstChild).toHaveAttribute('data-garden-id', 'pagination.navigation');
       expect(children[1].firstChild).toHaveAttribute('data-garden-id', 'pagination.page');
@@ -259,7 +255,7 @@ describe('OffsetPagination', () => {
   describe('Gap', () => {
     it('renders as expected with greater gap positioning', () => {
       const { container } = render(<BasicExample totalPages={20} currentPage={10} pageGap={3} />);
-      const children = container.firstElementChild!.firstElementChild!.children;
+      const children = container.querySelector('ul')!.children;
 
       expect(children[0].firstChild).toHaveAttribute('data-garden-id', 'pagination.navigation');
       expect(children[1].firstChild).toHaveAttribute('data-garden-id', 'pagination.page');
@@ -278,7 +274,7 @@ describe('OffsetPagination', () => {
 
     it('renders with lesser gap positioning', () => {
       const { container } = render(<BasicExample totalPages={9} currentPage={5} pageGap={1} />);
-      const children = container.firstElementChild!.firstElementChild!.children;
+      const children = container.querySelector('ul')!.children;
 
       expect(children[0].firstChild).toHaveAttribute('data-garden-id', 'pagination.navigation');
       expect(children[1]).toHaveAttribute('data-garden-id', 'pagination.gap');
