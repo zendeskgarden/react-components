@@ -7,18 +7,18 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledDrawerModalClose } from './StyledDrawerModalClose';
+import { StyledDrawerClose } from './StyledDrawerClose';
 
-describe('StyledDrawerModalClose', () => {
+describe('StyledDrawerClose', () => {
   it('renders default styling', () => {
-    const { container } = render(<StyledDrawerModalClose />);
+    const { container } = render(<StyledDrawerClose />);
 
     expect(container.firstChild).toHaveStyleRule('top', '10px');
     expect(container.firstChild).toHaveStyleRule('right', '8px');
   });
 
   it('renders RTL styling if provided', () => {
-    const { container } = renderRtl(<StyledDrawerModalClose />);
+    const { container } = renderRtl(<StyledDrawerClose />);
 
     expect(container.firstChild).toHaveStyleRule('top', '10px');
     expect(container.firstChild).toHaveStyleRule('left', '8px');

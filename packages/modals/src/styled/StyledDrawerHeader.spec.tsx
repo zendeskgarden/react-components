@@ -9,17 +9,17 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
-import { StyledDrawerModalHeader } from './StyledDrawerModalHeader';
+import { StyledDrawerHeader } from './StyledDrawerHeader';
 
-describe('StyledDrawerModalHeader', () => {
+describe('StyledDrawerHeader', () => {
   it('renders default styling', () => {
-    const { container } = render(<StyledDrawerModalHeader />);
+    const { container } = render(<StyledDrawerHeader />);
 
     expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground);
   });
 
   it('renders danger styling if provided', () => {
-    const { container } = render(<StyledDrawerModalHeader isDanger />);
+    const { container } = render(<StyledDrawerHeader isDanger />);
 
     expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[600]);
   });

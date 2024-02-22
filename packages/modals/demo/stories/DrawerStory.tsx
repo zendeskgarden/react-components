@@ -9,11 +9,11 @@ import React, { MouseEventHandler } from 'react';
 import { Story } from '@storybook/react';
 import { useTheme } from 'styled-components';
 import Icon from '@zendeskgarden/svg-icons/src/16/arrow-left-stroke.svg';
-import { DrawerModal, IDrawerModalProps } from '@zendeskgarden/react-modals';
+import { Drawer, IDrawerProps } from '@zendeskgarden/react-modals';
 import { Button } from '@zendeskgarden/react-buttons';
 import { IFooterItem } from './types';
 
-interface IArgs extends IDrawerModalProps {
+interface IArgs extends IDrawerProps {
   onClick: MouseEventHandler<HTMLElement>;
   hasBody: boolean;
   body: string;
@@ -27,7 +27,7 @@ interface IArgs extends IDrawerModalProps {
   closeAriaLabel: string;
 }
 
-export const DrawerModalStory: Story<IArgs> = ({
+export const DrawerStory: Story<IArgs> = ({
   onClick,
   onClose,
   hasBody,
@@ -60,22 +60,22 @@ export const DrawerModalStory: Story<IArgs> = ({
           <Icon />
         </Button.EndIcon>
       </Button>
-      <DrawerModal {...args} onClose={onClose} {...ariaProp}>
-        {hasHeader && <DrawerModal.Header tag={tag}>{header}</DrawerModal.Header>}
-        {hasBody ? <DrawerModal.Body>{body}</DrawerModal.Body> : body}
+      <Drawer {...args} onClose={onClose} {...ariaProp}>
+        {hasHeader && <Drawer.Header tag={tag}>{header}</Drawer.Header>}
+        {hasBody ? <Drawer.Body>{body}</Drawer.Body> : body}
         {hasFooter && (
-          <DrawerModal.Footer>
+          <Drawer.Footer>
             {footerItems.map(({ text, type }, index) => (
-              <DrawerModal.FooterItem key={index}>
+              <Drawer.FooterItem key={index}>
                 <Button isBasic={type === 'basic'} isPrimary={type === 'primary'} onClick={onClose}>
                   {text}
                 </Button>
-              </DrawerModal.FooterItem>
+              </Drawer.FooterItem>
             ))}
-          </DrawerModal.Footer>
+          </Drawer.Footer>
         )}
-        {hasClose && <DrawerModal.Close aria-label={closeAriaLabel} />}
-      </DrawerModal>
+        {hasClose && <Drawer.Close aria-label={closeAriaLabel} />}
+      </Drawer>
     </>
   );
 };

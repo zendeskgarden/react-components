@@ -6,13 +6,13 @@
  */
 
 import React, { HTMLAttributes, forwardRef } from 'react';
-import { StyledDrawerModalFooter } from '../../styled';
+import { StyledDrawerFooter } from '../../styled';
 
 const FooterComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
-  <StyledDrawerModalFooter ref={ref} {...props} />
+  <StyledDrawerFooter ref={ref} {...props} />
 ));
 
-FooterComponent.displayName = 'DrawerModal.Footer';
+FooterComponent.displayName = 'Drawer.Footer';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

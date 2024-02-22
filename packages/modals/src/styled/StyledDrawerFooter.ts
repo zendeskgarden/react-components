@@ -10,7 +10,7 @@ import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden
 
 const COMPONENT_ID = 'modals.drawer_modal.footer';
 
-export const StyledDrawerModalFooter = styled.div.attrs({
+export const StyledDrawerFooter = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -23,6 +23,6 @@ export const StyledDrawerModalFooter = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledDrawerModalFooter.defaultProps = {
+StyledDrawerFooter.defaultProps = {
   theme: DEFAULT_THEME
 };

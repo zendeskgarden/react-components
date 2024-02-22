@@ -6,7 +6,7 @@
  */
 
 import React, { ButtonHTMLAttributes, useEffect, forwardRef } from 'react';
-import { StyledDrawerModalClose } from '../../styled';
+import { StyledDrawerClose } from '../../styled';
 import { useText } from '@zendeskgarden/react-theming';
 import { useModalContext } from '../../utils/useModalContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
@@ -24,7 +24,7 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
     const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Close drawer');
 
     return (
-      <StyledDrawerModalClose
+      <StyledDrawerClose
         {...(getCloseProps({
           ...props,
           'aria-label': ariaLabel!
@@ -32,12 +32,12 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
         ref={ref}
       >
         <XStrokeIcon />
-      </StyledDrawerModalClose>
+      </StyledDrawerClose>
     );
   }
 );
 
-CloseComponent.displayName = 'DrawerModal.Close';
+CloseComponent.displayName = 'Drawer.Close';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>

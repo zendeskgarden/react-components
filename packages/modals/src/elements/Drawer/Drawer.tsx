@@ -24,8 +24,8 @@ import { useDocument, useText } from '@zendeskgarden/react-theming';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import activeElement from 'dom-helpers/activeElement';
 import { ModalsContext } from '../../utils/useModalContext';
-import { StyledBackdrop, StyledDrawerModal } from '../../styled';
-import { IDrawerModalProps } from '../../types';
+import { StyledBackdrop, StyledDrawer } from '../../styled';
+import { IDrawerProps } from '../../types';
 import { Header } from './Header';
 import { Body } from './Body';
 import { Close } from './Close';
@@ -40,7 +40,7 @@ import { FooterItem } from './FooterItem';
  *     - (1:d) set default props to match useFocusJail behavior
  */
 
-const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
+const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
   (
     { id, isOpen, onClose, backdropProps, appendToNode, focusOnMount, restoreFocus, ...props },
     ref
@@ -147,12 +147,7 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
     const labelValue = hasHeader ? modalProps['aria-labelledby'] : props['aria-label'];
 
     const ariaProps = {
-      [attribute]: useText(
-        DrawerModalComponent,
-        { [attribute]: labelValue },
-        attribute,
-        defaultValue!
-      )
+      [attribute]: useText(DrawerComponent, { [attribute]: labelValue }, attribute, defaultValue!)
     };
 
     if (!rootNode) {
@@ -172,7 +167,7 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
             isAnimated
             {...(getBackdropProps(backdropProps) as HTMLAttributes<HTMLDivElement>)}
           >
-            <StyledDrawerModal
+            <StyledDrawer
               {...modalProps}
               {...ariaProps}
               {...props}
@@ -186,9 +181,9 @@ const DrawerModalComponent = forwardRef<HTMLDivElement, IDrawerModalProps>(
   }
 );
 
-DrawerModalComponent.displayName = 'DrawerModal';
+DrawerComponent.displayName = 'Drawer';
 
-DrawerModalComponent.propTypes = {
+DrawerComponent.propTypes = {
   backdropProps: PropTypes.object,
   focusOnMount: PropTypes.bool,
   restoreFocus: PropTypes.bool,
@@ -197,7 +192,7 @@ DrawerModalComponent.propTypes = {
   isOpen: PropTypes.bool
 };
 
-DrawerModalComponent.defaultProps = {
+DrawerComponent.defaultProps = {
   focusOnMount: true /* [1:d] */,
   restoreFocus: true /* [1:d] */
 };
@@ -205,7 +200,7 @@ DrawerModalComponent.defaultProps = {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const DrawerModal = DrawerModalComponent as typeof DrawerModalComponent & {
+export const Drawer = DrawerComponent as typeof DrawerComponent & {
   Body: typeof Body;
   Close: typeof Close;
   Footer: typeof Footer;
@@ -213,8 +208,8 @@ export const DrawerModal = DrawerModalComponent as typeof DrawerModalComponent &
   Header: typeof Header;
 };
 
-DrawerModal.Body = Body;
-DrawerModal.Close = Close;
-DrawerModal.Footer = Footer;
-DrawerModal.FooterItem = FooterItem;
-DrawerModal.Header = Header;
+Drawer.Body = Body;
+Drawer.Close = Close;
+Drawer.Footer = Footer;
+Drawer.FooterItem = FooterItem;
+Drawer.Header = Header;

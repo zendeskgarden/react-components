@@ -60,15 +60,14 @@ export interface IHeaderProps extends HTMLAttributes<HTMLDivElement> {
   tag?: any;
 }
 
-export interface IDrawerModalProps
-  extends Omit<IModalProps, 'isAnimated' | 'isCentered' | 'isLarge'> {
+export interface IDrawerProps extends Omit<IModalProps, 'isAnimated' | 'isCentered' | 'isLarge'> {
   /**
    * Opens the modal
    */
   isOpen?: boolean;
 }
 
-export interface IDrawerModalHeaderProps extends HTMLAttributes<HTMLDivElement> {
+export interface IDrawerHeaderProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Updates the element's HTML tag
    */
