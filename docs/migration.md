@@ -50,7 +50,7 @@ consider additional positioning prop support on a case-by-case basis.
 - `Datepicker`: renamed to `DatePicker`
   - removed `eventsEnabled` prop (no longer exposed by Floating UI)
   - removed `popperModifiers` prop (see [note](#breaking-changes))
-- `DatepickerRange`: renaemd to `DatePickerRange`
+- `DatepickerRange`: renamed to `DatePickerRange`
 
 #### @zendeskgarden/react-dropdowns
 
