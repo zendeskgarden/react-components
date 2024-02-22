@@ -25,7 +25,7 @@ import {
   StyledDayLabel,
   StyledDay
 } from '../../../styled';
-import useDatePickerContext from '../utils/useDatePickerContext';
+import useDatePickerContext from '../utils/useDate_PickerContext';
 import { DateFnsIndex, getStartOfWeek } from '../../../utils/calendar-utils';
 import { MonthSelector } from './MonthSelector';
 

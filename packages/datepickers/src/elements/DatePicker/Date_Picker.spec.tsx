@@ -12,7 +12,7 @@ import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import { DatePicker } from './DatePicker';
+import { DatePicker } from './Date_Picker';
 import { IDatePickerProps } from '../../types';
 
 const DEFAULT_DATE = new Date(2019, 1, 5);

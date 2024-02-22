@@ -11,7 +11,7 @@ import { fireEvent, render } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import { KEYS } from '@zendeskgarden/container-utilities';
 
-import { DatePickerRange } from '../DatePickerRange';
+import { DatePickerRange } from '../Date_PickerRange';
 import { IDatePickerRangeProps } from '../../../types';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
@@ -43,7 +43,7 @@ describe('DatePickerRange', () => {
     mockDate.reset();
   });
 
-  describe('End Input', () => {
+  describe('Start Input', () => {
     it('displays provided value', () => {
       const { getByTestId } = render(
         <Example
@@ -53,13 +53,13 @@ describe('DatePickerRange', () => {
         />
       );
 
-      expect(getByTestId('end')).toHaveValue('March 5, 2019');
+      expect(getByTestId('start')).toHaveValue('February 5, 2019');
     });
 
     it('displays empty string if no value provided', () => {
       const { getByTestId } = render(<Example onChange={onChangeSpy} />);
 
-      expect(getByTestId('end')).toHaveValue('');
+      expect(getByTestId('start')).toHaveValue('');
     });
 
     it('calls onChange with provided date if manually added in short format', async () => {
@@ -70,15 +70,15 @@ describe('DatePickerRange', () => {
           onChange={onChangeSpy}
         />
       );
-      const endInput = getByTestId('end');
+      const startInput = getByTestId('start');
 
-      await user.clear(endInput);
-      await user.type(endInput, '3/4/2019');
+      await user.clear(startInput);
+      await user.type(startInput, '1/4/2019');
       await user.tab();
 
       expect(onChangeSpy).toHaveBeenCalledWith({
-        startValue: DEFAULT_START_VALUE,
-        endValue: new Date(2019, 2, 4)
+        startValue: new Date(2019, 0, 4),
+        endValue: DEFAULT_END_VALUE
       });
     });
 
@@ -90,15 +90,15 @@ describe('DatePickerRange', () => {
           onChange={onChangeSpy}
         />
       );
-      const endInput = getByTestId('end');
+      const startInput = getByTestId('start');
 
-      await user.clear(endInput);
-      await user.type(endInput, 'March 4, 2019');
+      await user.clear(startInput);
+      await user.type(startInput, 'Jan 4, 2019');
       await user.tab();
 
       expect(onChangeSpy).toHaveBeenCalledWith({
-        startValue: DEFAULT_START_VALUE,
-        endValue: new Date(2019, 2, 4)
+        startValue: new Date(2019, 0, 4),
+        endValue: DEFAULT_END_VALUE
       });
     });
 
@@ -110,15 +110,15 @@ describe('DatePickerRange', () => {
           onChange={onChangeSpy}
         />
       );
-      const endInput = getByTestId('end');
+      const startInput = getByTestId('start');
 
-      await user.clear(endInput);
-      await user.type(endInput, 'March 4th, 2019');
+      await user.clear(startInput);
+      await user.type(startInput, 'January 4th, 2019');
       await user.tab();
 
       expect(onChangeSpy).toHaveBeenCalledWith({
-        startValue: DEFAULT_START_VALUE,
-        endValue: new Date(2019, 2, 4)
+        startValue: new Date(2019, 0, 4),
+        endValue: DEFAULT_END_VALUE
       });
     });
 
@@ -130,15 +130,15 @@ describe('DatePickerRange', () => {
           onChange={onChangeSpy}
         />
       );
-      const endInput = getByTestId('end');
+      const startInput = getByTestId('start');
 
-      await user.clear(endInput);
-      await user.type(endInput, 'January 4th, 2019');
-      fireEvent.keyDown(endInput, { key: KEYS.ENTER });
+      await user.clear(startInput);
+      await user.type(startInput, 'January 4th, 2019');
+      fireEvent.keyDown(startInput, { key: KEYS.ENTER });
 
       expect(onChangeSpy).toHaveBeenCalledWith({
-        startValue: DEFAULT_START_VALUE,
-        endValue: new Date(2019, 0, 4)
+        startValue: new Date(2019, 0, 4),
+        endValue: DEFAULT_END_VALUE
       });
     });
 
@@ -150,10 +150,10 @@ describe('DatePickerRange', () => {
           onChange={onChangeSpy}
         />
       );
-      const endInput = getByTestId('end');
+      const startInput = getByTestId('start');
 
-      await user.clear(endInput);
-      await user.type(endInput, 'invalid date');
+      await user.clear(startInput);
+      await user.type(startInput, 'invalid date');
       await user.tab();
 
       expect(onChangeSpy).not.toHaveBeenCalled();
@@ -165,16 +165,18 @@ describe('DatePickerRange', () => {
       const { getByTestId } = render(
         <DatePickerRange>
           <DatePickerRange.Start>
-            <input data-test-id="start" />
+            <input data-test-id="start" onChange={onInputChangeSpy} />
           </DatePickerRange.Start>
           <DatePickerRange.End>
-            <input data-test-id="end" onChange={onInputChangeSpy} />
+            <input data-test-id="end" />
           </DatePickerRange.End>
           <DatePickerRange.Calendar />
         </DatePickerRange>
       );
+      const startInput = getByTestId('start');
 
-      await user.type(getByTestId('end'), 'hello');
+      await user.clear(startInput);
+      await user.type(startInput, 'hello');
 
       expect(onInputChangeSpy).toHaveBeenCalled();
     });
@@ -185,16 +187,16 @@ describe('DatePickerRange', () => {
       const { getByTestId } = render(
         <DatePickerRange>
           <DatePickerRange.Start>
-            <input data-test-id="start" />
+            <input data-test-id="start" onBlur={onBlurSpy} />
           </DatePickerRange.Start>
           <DatePickerRange.End>
-            <input data-test-id="end" onBlur={onBlurSpy} />
+            <input data-test-id="end" />
           </DatePickerRange.End>
           <DatePickerRange.Calendar />
         </DatePickerRange>
       );
 
-      await user.click(getByTestId('end'));
+      await user.click(getByTestId('start'));
       await user.tab();
 
       expect(onBlurSpy).toHaveBeenCalled();
@@ -206,16 +208,16 @@ describe('DatePickerRange', () => {
       const { getByTestId } = render(
         <DatePickerRange>
           <DatePickerRange.Start>
-            <input data-test-id="start" />
+            <input data-test-id="start" onFocus={onFocusSpy} />
           </DatePickerRange.Start>
           <DatePickerRange.End>
-            <input data-test-id="end" onFocus={onFocusSpy} />
+            <input data-test-id="end" />
           </DatePickerRange.End>
           <DatePickerRange.Calendar />
         </DatePickerRange>
       );
 
-      await user.click(getByTestId('end'));
+      await user.click(getByTestId('start'));
 
       expect(onFocusSpy).toHaveBeenCalled();
     });
@@ -226,16 +228,16 @@ describe('DatePickerRange', () => {
       const { getByTestId } = render(
         <DatePickerRange>
           <DatePickerRange.Start>
-            <input data-test-id="start" />
+            <input data-test-id="start" onKeyDown={onKeyDownSpy} />
           </DatePickerRange.Start>
           <DatePickerRange.End>
-            <input data-test-id="end" onKeyDown={onKeyDownSpy} />
+            <input data-test-id="end" />
           </DatePickerRange.End>
           <DatePickerRange.Calendar />
         </DatePickerRange>
       );
 
-      await user.type(getByTestId('end'), 'hello');
+      await user.type(getByTestId('start'), 'hello');
 
       expect(onKeyDownSpy).toHaveBeenCalled();
     });

@@ -22,7 +22,7 @@ import { autoPlacement, autoUpdate, flip, useFloating } from '@floating-ui/react
 import { IDatePickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
 import { Calendar } from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/date-picker-reducer';
-import { DatePickerContext } from './utils/useDatePickerContext';
+import { DatePickerContext } from './utils/useDate_PickerContext';
 import { StyledMenu, StyledMenuWrapper } from '../../styled';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import { Input } from './components/Input';

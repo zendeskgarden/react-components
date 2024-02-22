@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { DatePicker } from './elements/Date_Picker/DatePicker';
-export { DatePickerRange } from './elements/Date_PickerRange/DatePickerRange';
+export { DatePicker } from './elements/DatePicker/Date_Picker';
+export { DatePickerRange } from './elements/DatePickerRange/Date_PickerRange';
 
 export type { IDatePickerProps, IDatePickerRangeProps } from './types';

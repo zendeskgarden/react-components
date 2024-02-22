@@ -13,7 +13,7 @@ import { subDays } from 'date-fns/subDays';
 import { addMonths } from 'date-fns/addMonths';
 import { subMonths } from 'date-fns/subMonths';
 import mockDate from 'mockdate';
-import { DatePickerRange } from './DatePickerRange';
+import { DatePickerRange } from './Date_PickerRange';
 import { IDatePickerRangeProps } from '../../types';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
