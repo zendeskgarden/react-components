@@ -17,13 +17,17 @@ import README from '../README.md';
     args={{
       currentPage: 1,
       totalPages: 11,
-      labels: {
-        gap: 'Ellipsis indicating non-visible pages',
-        page: p => `Page ${p}`,
-        next: 'Next page',
-        previous: 'Previous page'
-      },
-      'aria-label': 'Pagination'
+      'aria-label': 'Pagination',
+      gap: 'Ellipsis indicating non-visible pages',
+      page: 'Page',
+      next: 'Next page',
+      previous: 'Previous page'
+    }}
+    argTypes={{
+      gap: { table: { category: 'Label' } },
+      page: { table: { category: 'Label' } },
+      next: { table: { category: 'Label' } },
+      previous: { table: { category: 'Label' } }
     }}
     parameters={{
       design: {
@@ -34,9 +38,15 @@ import README from '../README.md';
     }}
   >
     {args => {
+      const labels = {
+        renderPage: n => `${args.page} ${n}`,
+        gap: args.gap,
+        next: args.next,
+        previous: args.previous
+      };
       const updateArgs = useArgs()[1];
       const handleChange = currentPage => updateArgs({ currentPage });
-      return <OffsetPagination {...args} onChange={handleChange} />;
+      return <OffsetPagination {...args} labels={labels} onChange={handleChange} />;
     }}
   </Story>
 </Canvas>

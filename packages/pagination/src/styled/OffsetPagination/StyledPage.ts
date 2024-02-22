@@ -6,18 +6,17 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledPageBase } from './StyledPageBase';
 
 const COMPONENT_ID = 'pagination.page';
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const height = `${props.theme.space.base * 8}px`;
+  const height = props.theme.space.base * 8;
 
   return css`
-    min-width: ${height};
-    max-width: ${math(`${height} * 2`)};
+    min-width: ${height}px;
+    max-width: ${height * 2}px;
 
     &[aria-current='true'] {
       max-width: none;

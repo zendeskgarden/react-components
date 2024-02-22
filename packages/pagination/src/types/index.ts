@@ -13,7 +13,7 @@ export type PageType = (typeof PAGE_TYPE)[number];
 
 export interface IPaginationProps extends Omit<HTMLAttributes<HTMLElement>, 'onChange'> {
   /**
-   * Sets the current page. Pages start at 1.
+   * Sets the current page. Pages start at 1
    */
   currentPage: number;
   /**
@@ -36,7 +36,7 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLElement>, 'onC
    */
   onChange?: (currentPage: number) => void;
   /**
-   * Provides localized labels to pagination elements.
+   * Provides localized labels to pagination elements
    */
   labels?: Record<Exclude<PageType, 'page'>, string> & { renderPage: (p: number) => string };
 }
