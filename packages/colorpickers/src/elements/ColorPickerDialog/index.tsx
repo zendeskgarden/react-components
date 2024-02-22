@@ -19,7 +19,7 @@ import { Button } from '@zendeskgarden/react-buttons';
 import { PLACEMENT } from '@zendeskgarden/react-modals';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { ColorPicker } from '../_ColorPicker';
+import { ColorPicker } from '../ColorPicker';
 import {
   StyledButton,
   StyledButtonPreview,

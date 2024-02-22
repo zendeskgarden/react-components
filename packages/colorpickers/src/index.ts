@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { ColorPicker } from './elements/_ColorPicker';
-export { ColorPickerDialog } from './elements/_ColorPickerDialog';
+export { ColorPicker } from './elements/ColorPicker';
+export { ColorPickerDialog } from './elements/ColorPickerDialog';
 export { ColorSwatch } from './elements/ColorSwatch';
 export { ColorSwatchDialog } from './elements/ColorSwatchDialog';
 

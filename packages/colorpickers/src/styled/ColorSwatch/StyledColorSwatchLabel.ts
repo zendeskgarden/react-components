@@ -8,7 +8,7 @@
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { parseToRgb, readableColor } from 'polished';
 import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { StyledButtonPreview } from '../_ColorPickerDialog/StyledButtonPreview';
+import { StyledButtonPreview } from '../ColorPickerDialog/StyledButtonPreview';
 import { IRGBColor } from '../../types';
 
 const COMPONENT_ID = 'colorpickers.color_swatch_label';
