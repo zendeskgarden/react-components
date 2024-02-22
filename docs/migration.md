@@ -62,6 +62,7 @@ consider additional positioning prop support on a case-by-case basis.
 #### @zendeskgarden/react-pagination
 
 - `Pagination`: renamed to `OffsetPagination`
+  - changed type export to `HTMLAttributes<HTMLElement>`
   - removed `transformPageProps` prop
   - added `labels` prop
 
