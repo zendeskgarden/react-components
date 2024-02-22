@@ -57,8 +57,8 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-modals
 
-- `TooltipModal`: removed `popperModifiers` prop (see [note](#breaking-changes))
 - `DrawerModal`: renamed to `Drawer`
+- `TooltipModal`: removed `popperModifiers` prop (see [note](#breaking-changes))
 
 #### @zendeskgarden/react-theming
 
