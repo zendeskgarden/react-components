@@ -39,7 +39,7 @@ export interface IRGBColor {
   alpha?: number;
 }
 
-export interface IColorpickerProps
+export interface IColorPickerProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'onChange'> {
   /** Sets the color for an uncontrolled color picker */
   defaultColor?: string | IColor;
@@ -67,7 +67,7 @@ export interface IColorpickerProps
   autofocus?: boolean;
 }
 
-export interface IColorpickerDialogProps extends IColorpickerProps {
+export interface IColorPickerDialogProps extends IColorPickerProps {
   /**
    * Handles close actions. Can be triggered from the backdrop.
    *

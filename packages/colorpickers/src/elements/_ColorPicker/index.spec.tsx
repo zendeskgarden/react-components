@@ -7,24 +7,24 @@
 
 import React, { useState, createRef } from 'react';
 import { render, renderRtl, fireEvent, screen } from 'garden-test-utils';
-import { Colorpicker } from './index';
+import { ColorPicker } from './index';
 import userEvent from '@testing-library/user-event';
 import { IColor } from '../../types';
 
-describe('Colorpicker', () => {
+describe('ColorPicker', () => {
   const user = userEvent.setup();
 
   it('passes ref to underlying DOM element', () => {
     const ref = createRef<HTMLDivElement>();
     const { getByTestId } = render(
-      <Colorpicker ref={ref} color="#17494D" data-test-id="colorpicker" />
+      <ColorPicker ref={ref} color="#17494D" data-test-id="colorpicker" />
     );
 
     expect(getByTestId('colorpicker')).toBe(ref.current);
   });
 
   it('focuses on the hex input when autofocus is on', () => {
-    render(<Colorpicker color="#17494D" autofocus />);
+    render(<ColorPicker color="#17494D" autofocus />);
 
     const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
 
@@ -42,7 +42,7 @@ describe('Colorpicker', () => {
       alpha: 'ألفا'
     };
 
-    renderRtl(<Colorpicker defaultColor="#17494d" labels={labels} />);
+    renderRtl(<ColorPicker defaultColor="#17494d" labels={labels} />);
 
     const hueSlider = screen.getByLabelText(labels.hueSlider) as HTMLInputElement;
     const alphaSlider = screen.getByLabelText(labels.alphaSlider) as HTMLInputElement;
@@ -63,7 +63,7 @@ describe('Colorpicker', () => {
 
   describe('Opaque layout', () => {
     it('hides alpha', () => {
-      render(<Colorpicker isOpaque />);
+      render(<ColorPicker isOpaque />);
 
       const findAlphaSlider = () => screen.getByLabelText('Alpha slider');
       const findAlphaInput = () => screen.getByLabelText('A');
@@ -75,7 +75,7 @@ describe('Colorpicker', () => {
 
   describe('Uncontrolled usage', () => {
     it('updates the color picker when the hue slider is changed', () => {
-      render(<Colorpicker defaultColor="#17494D" />);
+      render(<ColorPicker defaultColor="#17494D" />);
 
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
       const redInput = screen.getByLabelText('R') as HTMLInputElement;
@@ -98,7 +98,7 @@ describe('Colorpicker', () => {
     });
 
     it('updates the color picker when the alpha slider is changed', () => {
-      render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
       const alphaInput = screen.getByLabelText('A') as HTMLInputElement;
 
@@ -108,7 +108,7 @@ describe('Colorpicker', () => {
     });
 
     it('updates the rgb/a inputs correctly when one is cleared and user types into another', async () => {
-      render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
@@ -134,7 +134,7 @@ describe('Colorpicker', () => {
     });
 
     it('resets the hex input to the last valid hex string', async () => {
-      render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
@@ -167,7 +167,7 @@ describe('Colorpicker', () => {
     });
 
     it('updates the color picker when the hex input is changed', async () => {
-      render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex');
@@ -198,7 +198,7 @@ describe('Colorpicker', () => {
     });
 
     it('updates the color picker when the R input is changed', async () => {
-      render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
@@ -219,7 +219,7 @@ describe('Colorpicker', () => {
     });
 
     it('updates the color picker when the G input is changed', async () => {
-      render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
@@ -240,7 +240,7 @@ describe('Colorpicker', () => {
     });
 
     it('updates the color picker when the B input is changed', async () => {
-      render(<Colorpicker defaultColor="rgb(23, 73, 77)" />);
+      render(<ColorPicker defaultColor="rgb(23, 73, 77)" />);
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
       const hexInput = screen.getByLabelText('Hex') as HTMLInputElement;
@@ -261,7 +261,7 @@ describe('Colorpicker', () => {
     });
 
     it('updates with correct alpha when the A input is changed', async () => {
-      render(<Colorpicker defaultColor="rgba(23, 73, 77, 1)" />);
+      render(<ColorPicker defaultColor="rgba(23, 73, 77, 1)" />);
 
       const alphaSlider = screen.getByLabelText('Alpha slider') as HTMLInputElement;
       const alphaInput = screen.getByLabelText('A') as HTMLInputElement;
@@ -277,7 +277,7 @@ describe('Colorpicker', () => {
     });
 
     it('keeps current color when user changes RGB/A inputs to invalid values', async () => {
-      render(<Colorpicker defaultColor="rgba(23, 73, 77, 50)" />);
+      render(<ColorPicker defaultColor="rgba(23, 73, 77, 50)" />);
 
       const redInput = screen.getByLabelText('R') as HTMLInputElement;
       const greenInput = screen.getByLabelText('G') as HTMLInputElement;
@@ -302,7 +302,7 @@ describe('Colorpicker', () => {
     });
 
     it('updates the color only if the hex input is a valid hex color', async () => {
-      render(<Colorpicker defaultColor="#17494d" />);
+      render(<ColorPicker defaultColor="#17494d" />);
 
       const colorWellThumb = screen.getByTestId('colorwell-thumb');
       const hueSlider = screen.getByLabelText('Hue slider') as HTMLInputElement;
@@ -334,7 +334,7 @@ describe('Colorpicker', () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('#17494D');
 
-        return <Colorpicker color={color} onChange={setColor} />;
+        return <ColorPicker color={color} onChange={setColor} />;
       };
 
       render(<Basic />);
@@ -363,7 +363,7 @@ describe('Colorpicker', () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
-        return <Colorpicker color={color} onChange={setColor} />;
+        return <ColorPicker color={color} onChange={setColor} />;
       };
 
       render(<Basic />);
@@ -380,7 +380,7 @@ describe('Colorpicker', () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
-        return <Colorpicker color={color} onChange={setColor} />;
+        return <ColorPicker color={color} onChange={setColor} />;
       };
 
       render(<Basic />);
@@ -412,7 +412,7 @@ describe('Colorpicker', () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
-        return <Colorpicker color={color} onChange={setColor} />;
+        return <ColorPicker color={color} onChange={setColor} />;
       };
 
       render(<Basic />);
@@ -451,7 +451,7 @@ describe('Colorpicker', () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
-        return <Colorpicker color={color} onChange={setColor} />;
+        return <ColorPicker color={color} onChange={setColor} />;
       };
 
       render(<Basic />);
@@ -489,7 +489,7 @@ describe('Colorpicker', () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
-        return <Colorpicker color={color} onChange={setColor} />;
+        return <ColorPicker color={color} onChange={setColor} />;
       };
 
       render(<Basic />);
@@ -517,7 +517,7 @@ describe('Colorpicker', () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
-        return <Colorpicker color={color} onChange={setColor} />;
+        return <ColorPicker color={color} onChange={setColor} />;
       };
 
       render(<Basic />);
@@ -545,7 +545,7 @@ describe('Colorpicker', () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgb(23,73,77)');
 
-        return <Colorpicker color={color} onChange={setColor} />;
+        return <ColorPicker color={color} onChange={setColor} />;
       };
 
       render(<Basic />);
@@ -573,7 +573,7 @@ describe('Colorpicker', () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('rgba(23,73,77,1)');
 
-        return <Colorpicker color={color} onChange={setColor} />;
+        return <ColorPicker color={color} onChange={setColor} />;
       };
 
       render(<Basic />);
@@ -604,7 +604,7 @@ describe('Colorpicker', () => {
           alpha: 50
         });
 
-        return <Colorpicker color={color} onChange={setColor} />;
+        return <ColorPicker color={color} onChange={setColor} />;
       };
 
       render(<Basic />);
@@ -635,7 +635,7 @@ describe('Colorpicker', () => {
       const Basic = () => {
         const [color, setColor] = useState<string | IColor>('#17494d');
 
-        return <Colorpicker color={color} onChange={setColor} />;
+        return <ColorPicker color={color} onChange={setColor} />;
       };
 
       render(<Basic />);
@@ -670,7 +670,7 @@ describe('Colorpicker', () => {
 
         return (
           <>
-            <Colorpicker color={color} onChange={setColor} />
+            <ColorPicker color={color} onChange={setColor} />
             <button onClick={() => setColor('#b4da55')}>Change #b4da55</button>
             <button onClick={() => setColor('#b!da5!')}>Change #b!da5!</button>
             <button onClick={() => setColor('rgb(85, 211, 218)')}>Change rgb(85, 211, 218)</button>

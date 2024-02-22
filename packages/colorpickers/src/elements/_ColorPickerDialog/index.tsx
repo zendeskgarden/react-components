@@ -19,20 +19,20 @@ import { Button } from '@zendeskgarden/react-buttons';
 import { PLACEMENT } from '@zendeskgarden/react-modals';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { Colorpicker } from '../Colorpicker';
+import { ColorPicker } from '../_ColorPicker';
 import {
   StyledButton,
   StyledButtonPreview,
   StyledTooltipModal,
   StyledTooltipBody
 } from '../../styled';
-import { IColor, IColorpickerDialogProps } from '../../types';
+import { IColor, IColorPickerDialogProps } from '../../types';
 import { useText } from '@zendeskgarden/react-theming';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogProps>(
+export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogProps>(
   (
     {
       color,
@@ -65,7 +65,7 @@ export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogPr
       defaultColor
     );
     const ariaLabelText = useText(
-      ColorpickerDialog,
+      ColorPickerDialog,
       { 'aria-label': ariaLabel },
       'aria-label',
       'Color picker'
@@ -138,7 +138,7 @@ export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogPr
           {...props}
         >
           <StyledTooltipBody>
-            <Colorpicker
+            <ColorPicker
               autofocus
               color={color}
               isOpaque={isOpaque}
@@ -154,8 +154,8 @@ export const ColorpickerDialog = forwardRef<HTMLDivElement, IColorpickerDialogPr
   }
 );
 
-ColorpickerDialog.propTypes = {
-  ...Colorpicker.propTypes,
+ColorPickerDialog.propTypes = {
+  ...ColorPicker.propTypes,
   placement: PropTypes.oneOf(PLACEMENT),
   onClose: PropTypes.func,
   onDialogChange: PropTypes.func,
@@ -169,11 +169,11 @@ ColorpickerDialog.propTypes = {
   focusInset: PropTypes.bool
 };
 
-ColorpickerDialog.defaultProps = {
+ColorPickerDialog.defaultProps = {
   placement: 'bottom-start',
   isAnimated: true,
   zIndex: 1000,
   hasArrow: false /* TooltipModal override */
 };
 
-ColorpickerDialog.displayName = 'ColorpickerDialog';
+ColorPickerDialog.displayName = 'ColorPickerDialog';

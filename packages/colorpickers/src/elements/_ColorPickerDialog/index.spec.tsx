@@ -8,16 +8,16 @@
 import React, { useState, createRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent, screen, waitForElementToBeRemoved, act } from 'garden-test-utils';
-import { ColorpickerDialog } from '.';
+import { ColorPickerDialog } from '.';
 import { IColor } from '../../types';
 
-describe('ColorpickerDialog', () => {
+describe('ColorPickerDialog', () => {
   const user = userEvent.setup();
 
   it('passes ref to underlying DOM element', async () => {
     const ref = createRef<HTMLDivElement>();
 
-    render(<ColorpickerDialog defaultColor="#17494D" ref={ref} data-test-id="colordialog" />);
+    render(<ColorPickerDialog defaultColor="#17494D" ref={ref} data-test-id="colordialog" />);
 
     await act(async () => {
       await user.click(screen.getByRole('button'));
@@ -31,7 +31,7 @@ describe('ColorpickerDialog', () => {
     const label = 'Choose your favorite color';
 
     render(
-      <ColorpickerDialog
+      <ColorPickerDialog
         defaultColor="#17494D"
         onDialogChange={onDialogChange}
         buttonProps={{ 'aria-label': label }}
@@ -55,7 +55,7 @@ describe('ColorpickerDialog', () => {
 
   it('applies buttonProps to the button element', () => {
     render(
-      <ColorpickerDialog
+      <ColorPickerDialog
         defaultColor="rgba(23,73,77,1)"
         buttonProps={{
           'aria-label': 'Choose your favorite color'
@@ -69,7 +69,7 @@ describe('ColorpickerDialog', () => {
   });
 
   it('focuses on the hex input and trigger when the color dialog is opened and closed', async () => {
-    const Basic = () => <ColorpickerDialog defaultColor="rgba(23,73,77,1)" />;
+    const Basic = () => <ColorPickerDialog defaultColor="rgba(23,73,77,1)" />;
 
     render(<Basic />);
 
@@ -90,7 +90,7 @@ describe('ColorpickerDialog', () => {
     const Basic = () => {
       const [color, setColor] = useState<string | IColor>('rgba(23,73,77,1)');
 
-      return <ColorpickerDialog defaultColor={color} onClose={setColor} />;
+      return <ColorPickerDialog defaultColor={color} onClose={setColor} />;
     };
 
     render(<Basic />);
@@ -116,7 +116,7 @@ describe('ColorpickerDialog', () => {
   });
 
   it('opens a controlled color dialog', async () => {
-    render(<ColorpickerDialog color="rgba(23,73,77,1)" isOpen />);
+    render(<ColorPickerDialog color="rgba(23,73,77,1)" isOpen />);
 
     await act(async () => {
       const dialog = await screen.queryByRole('dialog');
@@ -126,7 +126,7 @@ describe('ColorpickerDialog', () => {
   });
 
   it('closes a controlled color dialog', () => {
-    render(<ColorpickerDialog color="rgba(23,73,77,1)" isOpen={false} />);
+    render(<ColorPickerDialog color="rgba(23,73,77,1)" isOpen={false} />);
 
     const dialog = screen.queryByRole('dialog');
 

@@ -23,12 +23,12 @@ import {
   StyledColorPicker
 } from '../../styled';
 import { areColorsEqual, convertStringToColor, getInitialState, reducer } from './reducer';
-import { IColor, IColorpickerProps, IHSVColor } from '../../types';
+import { IColor, IColorPickerProps, IHSVColor } from '../../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
+export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
   ({ color, defaultColor, isOpaque, labels = {}, autofocus, onChange, ...props }, ref) => {
     const [state, dispatch] = useReducer(reducer, getInitialState(color || defaultColor));
     const previousComputedColorRef = useRef<IColor>(state.color);
@@ -232,13 +232,13 @@ export const Colorpicker = forwardRef<HTMLDivElement, IColorpickerProps>(
   }
 );
 
-Colorpicker.defaultProps = {
+ColorPicker.defaultProps = {
   defaultColor: '#fff'
 };
 
-Colorpicker.displayName = 'Colorpicker';
+ColorPicker.displayName = 'ColorPicker';
 
-Colorpicker.propTypes = {
+ColorPicker.propTypes = {
   color: PropTypes.oneOfType<any>([PropTypes.object, PropTypes.string]),
   isOpaque: PropTypes.bool,
   onChange: PropTypes.func,
