@@ -1,11 +1,19 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Datepicker } from '@zendeskgarden/react-datepickers';
-import { DatepickerStory } from './stories/DatepickerStory';
+import { DatePickerRange } from '@zendeskgarden/react-datepickers';
+import { DatePickerRangeStory } from './stories/DatePickerRangeStory';
 import { DATE_STYLE_OPTIONS } from './stories/data';
 import README from '../README.md';
 
-<Meta title="Packages/Datepickers/Datepicker" component={Datepicker} />
+<Meta
+  title="Packages/DatePickers/DatePickerRange"
+  component={DatePickerRange}
+  subcomponents={{
+    'DatePickerRange.Calendar': DatePickerRange.Calendar,
+    'DatePickerRange.End': DatePickerRange.End,
+    'DatePickerRange.Start': DatePickerRange.Start
+  }}
+/>
 
 # API
 
@@ -15,10 +23,11 @@ import README from '../README.md';
 
 <Canvas>
   <Story
-    name="Datepicker"
-    args={{ dateStyle: DATE_STYLE_OPTIONS[1], isAnimated: true }}
+    name="DatePickerRange"
+    args={{ dateStyle: DATE_STYLE_OPTIONS[1] }}
     argTypes={{
-      value: { control: 'date' },
+      startValue: { control: 'date' },
+      endValue: { control: 'date' },
       minValue: { control: 'date' },
       maxValue: { control: 'date' },
       dateStyle: {
@@ -37,8 +46,8 @@ import README from '../README.md';
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleChange = value => updateArgs({ value });
-      return <DatepickerStory {...args} onChange={handleChange} />;
+      const handleChange = ({ endValue, startValue }) => updateArgs({ endValue, startValue });
+      return <DatePickerRangeStory {...args} onChange={handleChange} />;
     }}
   </Story>
 </Canvas>

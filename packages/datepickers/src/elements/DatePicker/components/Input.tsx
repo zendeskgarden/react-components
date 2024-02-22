@@ -7,13 +7,13 @@
 
 import { Dispatch, ReactElement, RefAttributes, cloneElement, forwardRef, useRef } from 'react';
 import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { DatepickerAction, IDatepickerState } from '../utils/datepicker-reducer';
+import { DatePickerAction, IDatePickerState } from '../utils/date-picker-reducer';
 
 interface IInputProps {
-  dispatch: Dispatch<DatepickerAction>;
+  dispatch: Dispatch<DatePickerAction>;
   element: ReactElement & RefAttributes<HTMLInputElement>;
   refKey: string;
-  state: IDatepickerState;
+  state: IDatePickerState;
 }
 
 export const Input = forwardRef<HTMLInputElement, IInputProps>(

@@ -13,25 +13,25 @@ import { subDays } from 'date-fns/subDays';
 import { addMonths } from 'date-fns/addMonths';
 import { subMonths } from 'date-fns/subMonths';
 import mockDate from 'mockdate';
-import { DatepickerRange } from './DatepickerRange';
-import { IDatepickerRangeProps } from '../../types';
+import { DatePickerRange } from './DatePickerRange';
+import { IDatePickerRangeProps } from '../../types';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
 const DEFAULT_END_VALUE = new Date(2019, 2, 5);
 
-const Example = (props: IDatepickerRangeProps) => (
-  <DatepickerRange {...props}>
-    <DatepickerRange.Start>
+const Example = (props: IDatePickerRangeProps) => (
+  <DatePickerRange {...props}>
+    <DatePickerRange.Start>
       <input data-test-id="start" />
-    </DatepickerRange.Start>
-    <DatepickerRange.End>
+    </DatePickerRange.Start>
+    <DatePickerRange.End>
       <input data-test-id="end" />
-    </DatepickerRange.End>
-    <DatepickerRange.Calendar />
-  </DatepickerRange>
+    </DatePickerRange.End>
+    <DatePickerRange.Calendar />
+  </DatePickerRange>
 );
 
-describe('DatepickerRange', () => {
+describe('DatePickerRange', () => {
   const user = userEvent.setup();
 
   let onChangeSpy: (values: { startValue?: Date; endValue?: Date }) => void;

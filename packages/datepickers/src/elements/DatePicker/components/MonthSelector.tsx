@@ -7,7 +7,7 @@
 
 import React, { useCallback } from 'react';
 import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../../../styled';
-import useDatepickerContext from '../utils/useDatepickerContext';
+import useDatePickerContext from '../utils/useDatePickerContext';
 
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
@@ -21,7 +21,7 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
   locale,
   isCompact
 }) => {
-  const { state, dispatch } = useDatepickerContext();
+  const { state, dispatch } = useDatePickerContext();
 
   const headerLabelFormatter = useCallback<(date: Date) => string>(
     date => {

@@ -7,11 +7,11 @@
 
 import { useContext, createContext, MutableRefObject } from 'react';
 import { DateFnsIndex } from '../../../utils/calendar-utils';
-import { IDatepickerRangeState, DatepickerRangeAction } from './datepicker-range-reducer';
+import { IDatePickerRangeState, DatePickerRangeAction } from './date-picker-range-reducer';
 
-export interface IDatepickerRangeContext {
-  state: IDatepickerRangeState;
-  dispatch: React.Dispatch<DatepickerRangeAction>;
+export interface IDatePickerRangeContext {
+  state: IDatePickerRangeState;
+  dispatch: React.Dispatch<DatePickerRangeAction>;
   locale?: string;
   weekStartsOn?: DateFnsIndex;
   isCompact?: boolean;
@@ -25,13 +25,13 @@ export interface IDatepickerRangeContext {
   customParseDate?: (inputValue?: string) => Date;
 }
 
-export const DatepickerRangeContext = createContext<IDatepickerRangeContext | undefined>(undefined);
+export const DatePickerRangeContext = createContext<IDatePickerRangeContext | undefined>(undefined);
 
 /**
  * Retrieve Dropdown component context
  */
-const useDatepickerContext = () => {
-  return useContext<IDatepickerRangeContext>(DatepickerRangeContext as any);
+const useDatePickerContext = () => {
+  return useContext<IDatePickerRangeContext>(DatePickerRangeContext as any);
 };
 
-export default useDatepickerContext;
+export default useDatePickerContext;

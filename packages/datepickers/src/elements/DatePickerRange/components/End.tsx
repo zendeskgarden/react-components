@@ -6,19 +6,19 @@
  */
 
 import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
-import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { isValid } from 'date-fns/isValid';
 import { isSameDay } from 'date-fns/isSameDay';
-import { parseInputValue } from '../utils/datepicker-range-reducer';
+import { parseInputValue } from '../utils/date-picker-range-reducer';
+import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
-export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
-  const { state, dispatch, onChange, startValue, endValue, startInputRef, customParseDate } =
-    useDatepickerRangeContext();
+export const End = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
+  const { state, dispatch, onChange, startValue, endValue, endInputRef, customParseDate } =
+    useDatePickerContext();
 
   const onChangeCallback = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch({ type: 'START_INPUT_ONCHANGE', value: e.target.value });
+      dispatch({ type: 'END_INPUT_ONCHANGE', value: e.target.value });
 
       (props.children as any).props.onChange && (props.children as any).props.onChange(e);
     },
@@ -27,7 +27,7 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
 
   const onFocusCallback = useCallback(
     (e: React.FocusEvent<HTMLInputElement>) => {
-      dispatch({ type: 'START_FOCUS' });
+      dispatch({ type: 'END_FOCUS' });
 
       (props.children as any).props.onFocus && (props.children as any).props.onFocus(e);
     },
@@ -35,28 +35,28 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
   );
 
   const handleBlur = useCallback(() => {
+    dispatch({ type: 'END_BLUR' });
     let parsedDate;
 
     if (customParseDate) {
-      parsedDate = customParseDate(state.startInputValue);
+      parsedDate = customParseDate(state.endInputValue);
     } else {
       parsedDate = parseInputValue({
-        inputValue: state.startInputValue
+        inputValue: state.endInputValue
       });
     }
 
-    dispatch({ type: 'START_BLUR' });
-
-    if (parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, startValue!)) {
-      onChange && onChange({ startValue: parsedDate, endValue });
+    if (onChange && parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, endValue!)) {
+      onChange && onChange({ startValue, endValue: parsedDate });
     }
-  }, [dispatch, onChange, startValue, endValue, customParseDate, state.startInputValue]);
+  }, [dispatch, onChange, startValue, endValue, customParseDate, state.endInputValue]);
 
-  const onKeyDownCallback = useCallback(
+  const onKeydownCallback = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === KEYS.ENTER) {
-        e.preventDefault();
         handleBlur();
+
+        e.preventDefault();
       }
 
       (props.children as any).props.onKeyDown && (props.children as any).props.onKeyDown(e);
@@ -76,13 +76,13 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
   const childElement = React.Children.only(props.children as React.ReactElement);
 
   return React.cloneElement(childElement, {
-    value: state.startInputValue || '',
-    ref: startInputRef,
+    value: state.endInputValue || '',
+    ref: endInputRef,
     onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
     onFocus: composeEventHandlers(childElement.props.onFocus, onFocusCallback),
-    onKeyDown: composeEventHandlers(childElement.props.onKeyDown, onKeyDownCallback),
+    onKeyDown: composeEventHandlers(childElement.props.onKeyDown, onKeydownCallback),
     onBlur: composeEventHandlers(childElement.props.onBlur, onBlurCallback)
   });
 };
 
-Start.displayName = 'DatepickerRange.Start';
+End.displayName = 'DatePickerRange.End';

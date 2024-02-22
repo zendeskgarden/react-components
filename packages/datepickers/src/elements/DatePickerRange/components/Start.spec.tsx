@@ -11,25 +11,25 @@ import { fireEvent, render } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import { KEYS } from '@zendeskgarden/container-utilities';
 
-import { DatepickerRange } from '../DatepickerRange';
-import { IDatepickerRangeProps } from '../../../types';
+import { DatePickerRange } from '../DatePickerRange';
+import { IDatePickerRangeProps } from '../../../types';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
 const DEFAULT_END_VALUE = new Date(2019, 2, 5);
 
-const Example = (props: IDatepickerRangeProps) => (
-  <DatepickerRange {...props}>
-    <DatepickerRange.Start>
+const Example = (props: IDatePickerRangeProps) => (
+  <DatePickerRange {...props}>
+    <DatePickerRange.Start>
       <input data-test-id="start" />
-    </DatepickerRange.Start>
-    <DatepickerRange.End>
+    </DatePickerRange.Start>
+    <DatePickerRange.End>
       <input data-test-id="end" />
-    </DatepickerRange.End>
-    <DatepickerRange.Calendar />
-  </DatepickerRange>
+    </DatePickerRange.End>
+    <DatePickerRange.Calendar />
+  </DatePickerRange>
 );
 
-describe('DatepickerRange', () => {
+describe('DatePickerRange', () => {
   const user = userEvent.setup();
 
   let onChangeSpy: (values: { startValue?: Date; endValue?: Date }) => void;
@@ -163,15 +163,15 @@ describe('DatepickerRange', () => {
       const onInputChangeSpy = jest.fn();
 
       const { getByTestId } = render(
-        <DatepickerRange>
-          <DatepickerRange.Start>
+        <DatePickerRange>
+          <DatePickerRange.Start>
             <input data-test-id="start" onChange={onInputChangeSpy} />
-          </DatepickerRange.Start>
-          <DatepickerRange.End>
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
             <input data-test-id="end" />
-          </DatepickerRange.End>
-          <DatepickerRange.Calendar />
-        </DatepickerRange>
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
       );
       const startInput = getByTestId('start');
 
@@ -185,15 +185,15 @@ describe('DatepickerRange', () => {
       const onBlurSpy = jest.fn();
 
       const { getByTestId } = render(
-        <DatepickerRange>
-          <DatepickerRange.Start>
+        <DatePickerRange>
+          <DatePickerRange.Start>
             <input data-test-id="start" onBlur={onBlurSpy} />
-          </DatepickerRange.Start>
-          <DatepickerRange.End>
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
             <input data-test-id="end" />
-          </DatepickerRange.End>
-          <DatepickerRange.Calendar />
-        </DatepickerRange>
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
       );
 
       await user.click(getByTestId('start'));
@@ -206,15 +206,15 @@ describe('DatepickerRange', () => {
       const onFocusSpy = jest.fn();
 
       const { getByTestId } = render(
-        <DatepickerRange>
-          <DatepickerRange.Start>
+        <DatePickerRange>
+          <DatePickerRange.Start>
             <input data-test-id="start" onFocus={onFocusSpy} />
-          </DatepickerRange.Start>
-          <DatepickerRange.End>
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
             <input data-test-id="end" />
-          </DatepickerRange.End>
-          <DatepickerRange.Calendar />
-        </DatepickerRange>
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
       );
 
       await user.click(getByTestId('start'));
@@ -226,15 +226,15 @@ describe('DatepickerRange', () => {
       const onKeyDownSpy = jest.fn();
 
       const { getByTestId } = render(
-        <DatepickerRange>
-          <DatepickerRange.Start>
+        <DatePickerRange>
+          <DatePickerRange.Start>
             <input data-test-id="start" onKeyDown={onKeyDownSpy} />
-          </DatepickerRange.Start>
-          <DatepickerRange.End>
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
             <input data-test-id="end" />
-          </DatepickerRange.End>
-          <DatepickerRange.Calendar />
-        </DatepickerRange>
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
       );
 
       await user.type(getByTestId('start'), 'hello');

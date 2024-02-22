@@ -19,13 +19,13 @@ import { isBefore } from 'date-fns/isBefore';
 import { isAfter } from 'date-fns/isAfter';
 import { getDate } from 'date-fns/getDate';
 import {
-  StyledDatepicker,
+  StyledDatePicker,
   StyledCalendar,
   StyledCalendarItem,
   StyledDayLabel,
   StyledDay
 } from '../../../styled';
-import useDatepickerContext from '../utils/useDatepickerContext';
+import useDatePickerContext from '../utils/useDatePickerContext';
 import { DateFnsIndex, getStartOfWeek } from '../../../utils/calendar-utils';
 import { MonthSelector } from './MonthSelector';
 
@@ -40,7 +40,7 @@ interface ICalendarProps extends HTMLAttributes<HTMLDivElement> {
 
 export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
   ({ value, minValue, maxValue, isCompact, locale, weekStartsOn }, ref) => {
-    const { state, dispatch } = useDatepickerContext();
+    const { state, dispatch } = useDatePickerContext();
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
     const monthStartDate = startOfMonth(state.previewDate);
@@ -119,7 +119,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
     });
 
     return (
-      <StyledDatepicker
+      <StyledDatePicker
         ref={ref}
         isCompact={isCompact!}
         data-test-id="calendar-wrapper"
@@ -133,7 +133,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           {dayLabels}
           {items}
         </StyledCalendar>
-      </StyledDatepicker>
+      </StyledDatePicker>
     );
   }
 );
