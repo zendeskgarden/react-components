@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { StyledDatePicker } from './StyledDatePicker';
+import { StyledDatePicker } from './StyledDate_Picker';
 import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.range_calendar';
