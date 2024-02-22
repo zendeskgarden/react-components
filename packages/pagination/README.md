@@ -18,7 +18,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Pagination } from '@zendeskgarden/react-pagination';
+import { OffsetPagination } from '@zendeskgarden/react-pagination';
 
 initialState = {
   currentPage: 1
@@ -28,7 +28,7 @@ initialState = {
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Pagination
+  <OffsetPagination
     totalPages={11}
     currentPage={state.currentPage}
     onChange={currentPage => setState({ currentPage })}

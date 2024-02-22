@@ -7,23 +7,23 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledPagination } from './StyledPagination';
+import { StyledList } from './StyledList';
 
-describe('StyledPagination', () => {
+describe('StyledList', () => {
   it('renders the expected element', () => {
-    const { container } = render(<StyledPagination />);
+    const { container } = render(<StyledList />);
 
     expect(container.firstChild!.nodeName).toBe('UL');
   });
 
   it('renders default styling', () => {
-    const { container } = render(<StyledPagination />);
+    const { container } = render(<StyledList />);
 
     expect(container.firstChild).toHaveStyleRule('display', 'flex');
   });
 
   it('renders RTL styling', () => {
-    const { container } = renderRtl(<StyledPagination />);
+    const { container } = renderRtl(<StyledList />);
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });

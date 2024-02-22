@@ -15,13 +15,7 @@ describe('StyledPage', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledPage />);
 
-    expect(container.firstChild!.nodeName).toBe('LI');
-  });
-
-  it('renders default styling', () => {
-    const { container } = render(<StyledPage />);
-
-    expect(container.firstChild).toHaveStyleRule('display', 'inline-block');
+    expect(container.firstChild!.nodeName).toBe('BUTTON');
   });
 
   it('renders hidden styling if provided', () => {
@@ -31,12 +25,12 @@ describe('StyledPage', () => {
   });
 
   it('renders expected current styling', () => {
-    const { container } = render(<StyledPage aria-current="true" />);
+    const { container } = render(<StyledPage aria-current="page" />);
 
     expect(container.firstChild).toHaveStyleRule(
       'font-weight',
       DEFAULT_THEME.fontWeights.semibold.toString(),
-      { modifier: '[aria-current="true"]' }
+      { modifier: '[aria-current="page"]' }
     );
   });
 });

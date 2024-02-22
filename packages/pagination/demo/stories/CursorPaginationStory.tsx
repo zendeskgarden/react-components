@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { CursorPagination, IPaginationProps } from '@zendeskgarden/react-pagination';
 
 interface IArgs extends IPaginationProps {
@@ -16,7 +16,7 @@ interface IArgs extends IPaginationProps {
   last: string;
 }
 
-export const CursorPaginationStory: Story<IArgs> = ({
+export const CursorPaginationStory: StoryFn<IArgs> = ({
   currentPage,
   totalPages,
   onChange,

@@ -7,13 +7,13 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { Next } from './Next';
+import { Gap } from './Gap';
 
-describe('Next', () => {
+describe('Gap', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLLIElement>();
-    const { getByRole } = render(<Next ref={ref} />);
+    const { container } = render(<Gap ref={ref} />);
 
-    expect(getByRole('listitem')).toBe(ref.current);
+    expect(container.firstElementChild).toBe(ref.current);
   });
 });

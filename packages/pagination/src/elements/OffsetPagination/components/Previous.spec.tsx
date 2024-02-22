@@ -11,9 +11,9 @@ import { Previous } from './Previous';
 
 describe('Previous', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLLIElement>();
-    const { getByRole } = render(<Previous ref={ref} />);
+    const ref = React.createRef<HTMLButtonElement>();
+    const { container } = render(<Previous ref={ref} />);
 
-    expect(getByRole('listitem')).toBe(ref.current);
+    expect(container.firstElementChild).toBe(ref.current);
   });
 });

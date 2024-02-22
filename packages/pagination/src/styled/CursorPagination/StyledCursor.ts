@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledPageBase } from '../Pagination/StyledPageBase';
+import { StyledPageBase } from '../OffsetPagination/StyledPageBase';
 
 const COMPONENT_ID = 'cursor_pagination.cursor';
 

@@ -7,13 +7,13 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { Page } from './Page';
+import { Next } from './Next';
 
-describe('Page', () => {
+describe('Next', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLLIElement>();
-    const { getByRole } = render(<Page ref={ref} />);
+    const ref = React.createRef<HTMLButtonElement>();
+    const { container } = render(<Next ref={ref} />);
 
-    expect(getByRole('listitem')).toBe(ref.current);
+    expect(container.firstElementChild).toBe(ref.current);
   });
 });

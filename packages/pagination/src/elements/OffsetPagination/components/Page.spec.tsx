@@ -7,13 +7,13 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { Gap } from './Gap';
+import { Page } from './Page';
 
-describe('Gap', () => {
+describe('Page', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLLIElement>();
-    const { getByRole } = render(<Gap ref={ref} />);
+    const ref = React.createRef<HTMLButtonElement>();
+    const { container } = render(<Page ref={ref} />);
 
-    expect(getByRole('listitem')).toBe(ref.current);
+    expect(container.firstElementChild).toBe(ref.current);
   });
 });

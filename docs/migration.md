@@ -59,6 +59,13 @@ consider additional positioning prop support on a case-by-case basis.
 
 - `TooltipModal`: removed `popperModifiers` prop (see [note](#breaking-changes))
 
+#### @zendeskgarden/react-pagination
+
+- `Pagination`: renamed to `OffsetPagination`
+  - changed type export from `HTMLAttributes<HTMLUListElement>` to `HTMLAttributes<HTMLElement>`
+  - removed `transformPageProps` prop
+  - added `labels` prop
+
 #### @zendeskgarden/react-theming
 
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.

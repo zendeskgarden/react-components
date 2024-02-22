@@ -13,7 +13,7 @@ describe('StyledNavigation', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledNavigation />);
 
-    expect(container.firstChild!.nodeName).toBe('LI');
+    expect(container.firstChild!.nodeName).toBe('BUTTON');
   });
 
   it('renders default styling', () => {

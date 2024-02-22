@@ -11,9 +11,9 @@ export const PAGE_TYPE = ['next', 'page', 'gap', 'previous'] as const;
 
 export type PageType = (typeof PAGE_TYPE)[number];
 
-export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onChange'> {
+export interface IPaginationProps extends Omit<HTMLAttributes<HTMLElement>, 'onChange'> {
   /**
-   * Sets the current page. Pages start at 1.
+   * Sets the current page. Pages start at 1
    */
   currentPage: number;
   /**
@@ -36,11 +36,7 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
    */
   onChange?: (currentPage: number) => void;
   /**
-   * Applies localized labels, test attributes, etc. to individual pages
-   *
-   * @param {string} pageType The type of the page accepting the props
-   * @param {any} props Default page props to transform
-   * @param {number} pageNumber The page number
+   * Provides localized labels to pagination elements
    */
-  transformPageProps?: (pageType: PageType, props: any, pageNumber?: number) => any;
+  labels?: Record<Exclude<PageType, 'page'>, string> & { renderPage: (p: number) => string };
 }
