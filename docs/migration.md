@@ -34,7 +34,9 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-colorpickers
 
-- `ColorPickerDialog`: removed `popperModifiers` prop (see [note](#breaking-changes))
+- `Colorpicker`: renamed to `ColorPicker`
+- `ColorpickerDialog`: renamed to `ColorPickerDialog`
+  - removed `popperModifiers` prop (see [note](#breaking-changes))
 - `ColorSwatch`
   - The new `name` prop is required because the refactored component is now
     backed by a native radio or checkbox group.
