@@ -1,13 +1,13 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { ColorpickerDialog } from '@zendeskgarden/react-colorpickers';
-import { ColorpickerDialogStory } from './stories/ColorpickerDialogStory';
+import { ColorPickerDialog } from '@zendeskgarden/react-colorpickers';
+import { ColorPickerDialogStory } from './stories/ColorPickerDialogStory';
 import README from '../README.md';
 
 <Meta
-  title="Packages/Colorpickers/ColorpickerDialog"
-  component={ColorpickerDialog}
+  title="Packages/Colorpickers/ColorPickerDialog"
+  component={ColorPickerDialog}
   args={{
     buttonProps: { 'aria-label': 'Label' },
     'aria-label': 'Title',
@@ -38,7 +38,7 @@ import README from '../README.md';
 
 <Canvas>
   <Story name="Uncontrolled" argTypes={{ color: { control: false } }}>
-    {args => <ColorpickerDialogStory {...args} />}
+    {args => <ColorPickerDialogStory {...args} />}
   </Story>
 </Canvas>
 
@@ -55,7 +55,7 @@ import README from '../README.md';
       const handleDialogChange = ({ isOpen }) => updateArgs({ isOpen });
       const handleChange = color => updateArgs({ color });
       return (
-        <ColorpickerDialogStory
+        <ColorPickerDialogStory
           {...args}
           onDialogChange={handleDialogChange}
           onChange={handleChange}

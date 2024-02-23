@@ -8,13 +8,13 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import { ColorpickerDialog, IColorpickerDialogProps } from '@zendeskgarden/react-colorpickers';
+import { ColorPickerDialog, IColorPickerDialogProps } from '@zendeskgarden/react-colorpickers';
 
-export const ColorpickerDialogStory: Story<IColorpickerDialogProps> = args => (
+export const ColorPickerDialogStory: Story<IColorPickerDialogProps> = args => (
   <Grid>
     <Row style={{ height: 'calc(100vh - 80px)' }}>
       <Col textAlign="center" alignSelf="center">
-        <ColorpickerDialog {...args} />
+        <ColorPickerDialog {...args} />
       </Col>
     </Row>
   </Grid>
