@@ -53,10 +53,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
   let hue;
 
-  if (
-    props.disabled ||
-    (props.isNeutral && (props.isPrimary || props.isSelected) && !props.isDanger)
-  ) {
+  if (props.disabled || (props.isNeutral && props.isPrimary && !props.isDanger)) {
     hue = 'neutralHue';
   } else if (props.isDanger) {
     hue = 'dangerHue';
@@ -104,10 +101,10 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
         color: ${disabledForegroundColor};
       }
     `;
-  } else if (props.isPrimary || props.isSelected) {
+  } else if (props.isPrimary) {
     retVal = css`
       outline-color: transparent; /* [4] */
-      background-color: ${props.isPrimary && props.isSelected ? activeColor : baseColor};
+      background-color: ${baseColor};
       color: ${props.theme.palette.white};
 
       &:hover {
@@ -209,7 +206,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
  * 2. reset icon button with border
  */
 const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  const { theme, isPrimary, isBasic, isSelected, isPill, focusInset } = props;
+  const { theme, isPrimary, isBasic, isPill, focusInset } = props;
   const { rtl, borderWidths, borders } = theme;
   const startPosition = rtl ? 'right' : 'left';
   const endPosition = rtl ? 'left' : 'right';
@@ -221,7 +218,6 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const focusColor = getColor('primaryHue', 600, theme);
   const focusBoxShadow =
     isBasic &&
-    !isSelected &&
     !isPrimary &&
     getFocusBoxShadow({
       theme,

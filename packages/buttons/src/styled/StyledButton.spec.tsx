@@ -66,12 +66,6 @@ describe('StyledButton', () => {
     expect(container.firstChild).toHaveStyleRule('border-radius', '100px');
   });
 
-  it('renders selected styling if provided', () => {
-    const { container } = render(<StyledButton isSelected />);
-
-    expect(container.firstChild).toHaveStyleRule('background-color', getColor('primaryHue'));
-  });
-
   it('renders stretched styling if provided', () => {
     const { container } = render(<StyledButton isStretched />);
 

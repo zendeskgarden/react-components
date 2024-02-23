@@ -42,7 +42,6 @@ ButtonComponent.propTypes = {
   focusInset: PropTypes.bool,
   isLink: PropTypes.bool,
   isStretched: PropTypes.bool,
-  isSelected: PropTypes.bool,
   size: PropTypes.oneOf(SIZE)
 };
 
