@@ -16,7 +16,7 @@ import {
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
 import { IButtonProps } from '../types';
-import { StyledButtonGroup } from './StyledButtonGroup';
+import { StyledSplitButton } from './StyledSplitButton';
 import { StyledIcon } from './StyledIcon';
 
 const COMPONENT_ID = 'buttons.button';
@@ -427,7 +427,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     ${props => iconStyles(props)}
   }
 
-  ${StyledButtonGroup} && {
+  ${StyledSplitButton} && {
     ${props => groupStyles(props)}
   }
   /* stylelint-enable */

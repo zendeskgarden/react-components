@@ -13,7 +13,7 @@ const COMPONENT_ID = 'buttons.button_group_view';
 /**
  * Accepts all `<div>` props
  */
-export const StyledButtonGroup = styled.div.attrs({
+export const StyledSplitButton = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -26,6 +26,6 @@ export const StyledButtonGroup = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledButtonGroup.defaultProps = {
+StyledSplitButton.defaultProps = {
   theme: DEFAULT_THEME
 };
