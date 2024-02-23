@@ -7,7 +7,6 @@
 
 export { Button, type IIconProps } from './elements/Button';
 export { Anchor } from './elements/Anchor';
-export { ButtonGroup } from './elements/ButtonGroup';
 export { ChevronButton } from './elements/ChevronButton';
 export { IconButton } from './elements/IconButton';
 export { SplitButton } from './elements/SplitButton';
@@ -22,6 +21,5 @@ export type {
   IIconButtonProps,
   IIconButtonProps as IChevronButtonProps,
   IToggleButtonProps,
-  IToggleIconButtonProps,
-  IButtonGroupProps
+  IToggleIconButtonProps
 } from './types';

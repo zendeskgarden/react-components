@@ -7,51 +7,51 @@
 
 import React from 'react';
 import { render, renderRtl, screen } from 'garden-test-utils';
-import { StyledButtonGroup } from './StyledButtonGroup';
+import { StyledSplitButton } from './StyledSplitButton';
 import { StyledButton } from './StyledButton';
 import { StyledIconButton } from './StyledIconButton';
 import { PALETTE } from '@zendeskgarden/react-theming';
 
-describe('StyledButtonGroup', () => {
+describe('StyledSplitButton', () => {
   it('renders the expected element', () => {
-    const { container } = render(<StyledButtonGroup />);
+    const { container } = render(<StyledSplitButton />);
 
     expect(container.firstChild!.nodeName).toBe('DIV');
   });
 
   it('renders default styling', () => {
-    const { container } = render(<StyledButtonGroup />);
+    const { container } = render(<StyledSplitButton />);
 
     expect(container.firstChild).toHaveStyleRule('z-index', '0');
   });
 
   it('renders expected RTL styling', () => {
-    const { container } = renderRtl(<StyledButtonGroup />);
+    const { container } = renderRtl(<StyledSplitButton />);
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 
   it('renders expected child button styling', () => {
     render(
-      <StyledButtonGroup>
+      <StyledSplitButton>
         <StyledButton>test</StyledButton>
-      </StyledButtonGroup>
+      </StyledSplitButton>
     );
 
     expect(screen.getByText('test')).toHaveStyleRule('position', 'relative', {
-      modifier: `${StyledButtonGroup} &&`
+      modifier: `${StyledSplitButton} &&`
     });
   });
 
   it('renders expected disabled icon button styling', () => {
     render(
-      <StyledButtonGroup>
+      <StyledSplitButton>
         <StyledIconButton>test</StyledIconButton>
-      </StyledButtonGroup>
+      </StyledSplitButton>
     );
 
     expect(screen.getByText('test')).toHaveStyleRule('background-color', PALETTE.grey[200], {
-      modifier: `${StyledButtonGroup} &&:disabled`
+      modifier: `${StyledSplitButton} &&:disabled`
     });
   });
 });

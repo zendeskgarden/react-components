@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext, MutableRefObject } from 'react';
+import { createContext, useContext } from 'react';
 import { IUseFieldReturnValue } from '@zendeskgarden/container-field';
 
 interface IFieldContext extends IUseFieldReturnValue {
@@ -14,7 +14,6 @@ interface IFieldContext extends IUseFieldReturnValue {
   isLabelHovered: boolean;
   setIsLabelHovered: (isLabelHovered: boolean) => void;
   setIsLabelActive: (isLabelActive: boolean) => void;
-  multiThumbRangeRef: MutableRefObject<HTMLDivElement | null>;
   setHasHint: (hintPresent: boolean) => void;
   hasHint: boolean;
   setHasMessage: (messagePresent: boolean) => void;

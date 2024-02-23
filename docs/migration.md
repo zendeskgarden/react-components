@@ -32,6 +32,10 @@ consider additional positioning prop support on a case-by-case basis.
     [jest.config.js](https://github.com/zendeskgarden/react-components/blob/c2aa97d1edccfa0578ee5655b543ca6635767fb9/utils/test/jest.config.js#L28-L30)
     for details.
 
+#### @zendeskgarden/react-buttons
+
+- Removed `ButtonGroup`: UI no longer recommended by Garden
+
 #### @zendeskgarden/react-colorpickers
 
 - `Colorpicker`: renamed to `ColorPicker`
@@ -57,6 +61,10 @@ consider additional positioning prop support on a case-by-case basis.
 #### @zendeskgarden/react-dropdowns
 
 - `Menu`: value `auto` is no longer valid for the `fallbackPlacements` prop.
+
+#### @zendeskgarden/react-forms
+
+- Removed `MultiThumbRange`: UI no longer recommended by Garden
 
 #### @zendeskgarden/react-modals
 
