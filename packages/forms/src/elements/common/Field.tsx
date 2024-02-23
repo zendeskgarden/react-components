@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, HTMLAttributes, useMemo } from 'react';
+import React, { useState, HTMLAttributes, useMemo } from 'react';
 import { useField } from '@zendeskgarden/container-field';
 import { FieldContext } from '../../utils/useFieldContext';
 import { StyledField } from '../../styled';
@@ -27,7 +27,6 @@ export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
     const [hasMessage, setHasMessage] = useState(false);
     const [isLabelActive, setIsLabelActive] = useState(false);
     const [isLabelHovered, setIsLabelHovered] = useState(false);
-    const multiThumbRangeRef = useRef<HTMLDivElement>(null);
     const { getInputProps, getMessageProps, ...propGetters } = useField({
       idPrefix: props.id,
       hasHint,
@@ -45,8 +44,7 @@ export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
         hasHint,
         setHasHint,
         hasMessage,
-        setHasMessage,
-        multiThumbRangeRef
+        setHasMessage
       }),
       [
         propGetters,

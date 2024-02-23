@@ -21,7 +21,6 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-selection": "^3.0.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7",
