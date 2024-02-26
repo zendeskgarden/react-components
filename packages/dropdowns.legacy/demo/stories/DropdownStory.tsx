@@ -8,7 +8,7 @@
 import React, { ReactNode } from 'react';
 import { Story } from '@storybook/react';
 import { Col, Grid, IColProps, Row } from '@zendeskgarden/react-grid';
-import { Dropdown, IDropdownProps, IMenuProps } from '@zendeskgarden/react-dropdowns';
+import { Dropdown, IDropdownProps, IMenuProps } from '@zendeskgarden/react-dropdowns.legacy';
 import { IMenuItemProps, MenuStory } from './MenuStory';
 import { IMenuItem, ITEM } from './types';
 

@@ -2,21 +2,21 @@ import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs'
 import { useArgs } from '@storybook/client-api';
 import Downshift from 'downshift';
 import {
-  Combobox,
+  Autocomplete,
   Dropdown,
   Field,
   Hint,
   Label,
   Menu,
   Message
-} from '@zendeskgarden/react-dropdowns';
-import { ComboboxStory } from './stories/ComboboxStory';
-import { COMBOBOX_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
+} from '@zendeskgarden/react-dropdowns.legacy';
+import { AutocompleteStory } from './stories/AutocompleteStory';
+import { AUTOCOMPLETE_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
 import README from '../README.md';
 
 <Meta
-  title="Packages/Dropdowns/Combobox"
-  component={Combobox}
+  title="Packages/Dropdowns.Legacy/Autocomplete"
+  component={Autocomplete}
   subcomponents={{ Dropdown, Field, Hint, Label, Menu, Message }}
 />
 
@@ -32,7 +32,7 @@ instead.
 
 <Canvas>
   <Story
-    name="Combobox"
+    name="Autocomplete"
     args={{
       label: 'Label',
       isLabelRegular: false,
@@ -41,15 +41,15 @@ instead.
       hint: 'Hint',
       hasMessage: true,
       message: 'Message',
-      hasStartIcon: false,
-      hasEndIcon: false,
+      hasIcon: false,
       items: ITEMS,
-      inputValue: '',
-      isOpen: false
+      selectedItem: ITEMS[1],
+      inputValue: ITEMS[1].text,
+      isOpen: false,
+      downshiftProps: { defaultHighlightedIndex: 0 }
     }}
     argTypes={{
-      hasStartIcon: { name: 'start' },
-      hasEndIcon: { name: 'end' },
+      hasIcon: { name: 'start' },
       label: { name: 'children', table: { category: 'Label' } },
       isLabelRegular: { name: 'isRegular', table: { category: 'Label' } },
       isLabelHidden: { name: 'hidden', table: { category: 'Label' } },
@@ -62,7 +62,8 @@ instead.
       hasHint: { name: 'Hint', table: { category: 'Story' } },
       hasMessage: { name: 'Message', table: { category: 'Story' } },
       items: { name: 'Item[]', table: { category: 'Story' } },
-      downshiftProps: { control: 'object', table: { category: 'Dropdown' } },
+      downshiftProps: { table: { category: 'Dropdown' } },
+      selectedItem: { table: { category: 'Dropdown' } },
       inputValue: { table: { category: 'Dropdown' } },
       isOpen: { table: { category: 'Dropdown' } },
       placement: {
@@ -80,19 +81,19 @@ instead.
   >
     {args => {
       const updateArgs = useArgs()[1];
+      const handleSelect = selectedItem =>
+        updateArgs({ selectedItem, inputValue: selectedItem.text });
       const handleInputValueChange = inputValue => updateArgs({ inputValue });
-      const handleStateChange = ({ highlightedIndex, ...changes }) => {
-        Number.isInteger(highlightedIndex) &&
-          updateArgs({ inputValue: args.items[highlightedIndex].text });
+      const handleStateChange = changes =>
         changes.hasOwnProperty('isOpen') &&
-          ![Downshift.stateChangeTypes.blurButton, Downshift.stateChangeTypes.blurInput].includes(
-            changes.type
-          ) /*account for Storybook control*/ &&
-          updateArgs({ isOpen: changes.isOpen });
-      };
+        ![Downshift.stateChangeTypes.blurButton, Downshift.stateChangeTypes.blurInput].includes(
+          changes.type
+        ) /*account for Storybook control*/ &&
+        updateArgs({ isOpen: changes.isOpen });
       return (
-        <ComboboxStory
+        <AutocompleteStory
           {...args}
+          onSelect={handleSelect}
           onInputValueChange={handleInputValueChange}
           onStateChange={handleStateChange}
         />

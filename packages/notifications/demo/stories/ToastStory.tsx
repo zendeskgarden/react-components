@@ -20,7 +20,7 @@ import {
   MediaItem,
   Menu,
   Trigger
-} from '@zendeskgarden/react-dropdowns';
+} from '@zendeskgarden/react-dropdowns.legacy';
 import {
   Close,
   IToastOptions,

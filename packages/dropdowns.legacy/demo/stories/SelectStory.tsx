@@ -7,30 +7,27 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
-import EndIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import {
-  Combobox,
-  IComboboxProps,
   IDropdownProps,
-  IMenuProps
-} from '@zendeskgarden/react-dropdowns';
+  IMenuProps,
+  ISelectProps,
+  Select
+} from '@zendeskgarden/react-dropdowns.legacy';
 import { DropdownFieldStory } from './DropdownFieldStory';
-import { IMenuItem, ICommonArgs } from './types';
+import { ICommonArgs, IMenuItem } from './types';
 
-interface IArgs extends IComboboxProps, ICommonArgs {
+interface IArgs extends ISelectProps, ICommonArgs {
   downshiftProps?: IDropdownProps['downshiftProps'];
-  inputValue: IDropdownProps['inputValue'];
-  onInputValueChange: IDropdownProps['onInputValueChange'];
+  selectedItem: IDropdownProps['selectedItem'];
   onStateChange: IDropdownProps['onStateChange'];
   isOpen?: IDropdownProps['isOpen'];
-  hasStartIcon: boolean;
-  hasEndIcon: boolean;
+  hasIcon: boolean;
   items: IMenuItem[];
   placement: IMenuProps['placement'];
 }
 
-export const ComboboxStory: Story<IArgs> = ({
+export const SelectStory: Story<IArgs> = ({
   label,
   isLabelRegular,
   isLabelHidden,
@@ -39,23 +36,20 @@ export const ComboboxStory: Story<IArgs> = ({
   hasMessage,
   message,
   downshiftProps,
+  selectedItem,
   onSelect,
-  inputValue,
-  onInputValueChange,
   onStateChange,
   isOpen,
   placement,
-  hasStartIcon,
-  hasEndIcon,
+  hasIcon,
   items,
   ...args
 }) => (
   <DropdownFieldStory
     dropdownProps={{
       downshiftProps,
-      inputValue,
+      selectedItem,
       onSelect,
-      onInputValueChange,
       onStateChange,
       isOpen
     }}
@@ -67,14 +61,13 @@ export const ComboboxStory: Story<IArgs> = ({
     hasMessage={hasMessage}
     message={message}
     validation={args.validation}
+    validationLabel={args.validationLabel}
     menuProps={{ isCompact: args.isCompact, placement }}
     items={items}
-    itemProps={{ disabled: args.disabled }}
+    itemProps={{ hasIcon, disabled: args.disabled }}
   >
-    <Combobox
-      {...args}
-      start={hasStartIcon ? <StartIcon /> : undefined}
-      end={hasEndIcon ? <EndIcon /> : undefined}
-    />
+    <Select {...args} start={hasIcon ? <Icon /> : undefined}>
+      {selectedItem.text}
+    </Select>
   </DropdownFieldStory>
 );

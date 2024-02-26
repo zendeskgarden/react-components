@@ -14,7 +14,7 @@ import {
   IMenuProps,
   Label,
   Message
-} from '@zendeskgarden/react-dropdowns';
+} from '@zendeskgarden/react-dropdowns.legacy';
 import { DropdownStory } from './DropdownStory';
 import { ITEM, ICommonArgs } from './types';
 import { IMenuItemProps } from './MenuStory';

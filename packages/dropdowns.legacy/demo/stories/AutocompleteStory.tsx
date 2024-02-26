@@ -9,29 +9,27 @@ import React, { useEffect, useState } from 'react';
 import { Story } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import {
-  Multiselect,
-  IMultiselectProps,
+  Autocomplete,
+  IAutocompleteProps,
   IDropdownProps,
   IMenuProps
-} from '@zendeskgarden/react-dropdowns';
+} from '@zendeskgarden/react-dropdowns.legacy';
 import { DropdownFieldStory } from './DropdownFieldStory';
 import { ICommonArgs, IMenuItem } from './types';
-import { Tag } from '@zendeskgarden/react-tags';
 
-interface IArgs extends IMultiselectProps, ICommonArgs {
+interface IArgs extends IAutocompleteProps, ICommonArgs {
   downshiftProps?: IDropdownProps['downshiftProps'];
-  selectedItems: IDropdownProps['selectedItems'];
+  selectedItem: IDropdownProps['selectedItem'];
   inputValue: IDropdownProps['inputValue'];
   onInputValueChange: IDropdownProps['onInputValueChange'];
   onStateChange: IDropdownProps['onStateChange'];
   isOpen?: IDropdownProps['isOpen'];
   hasIcon: boolean;
   items: IMenuItem[];
-  showMore: string;
   placement: IMenuProps['placement'];
 }
 
-export const MultiselectStory: Story<IArgs> = ({
+export const AutocompleteStory: Story<IArgs> = ({
   label,
   isLabelRegular,
   isLabelHidden,
@@ -40,7 +38,7 @@ export const MultiselectStory: Story<IArgs> = ({
   hasMessage,
   message,
   downshiftProps,
-  selectedItems,
+  selectedItem,
   onSelect,
   inputValue,
   onInputValueChange,
@@ -49,7 +47,6 @@ export const MultiselectStory: Story<IArgs> = ({
   placement,
   hasIcon,
   items,
-  showMore,
   ...args
 }) => {
   const [filteredItems, setFilteredItems] = useState(items);
@@ -63,7 +60,7 @@ export const MultiselectStory: Story<IArgs> = ({
     <DropdownFieldStory
       dropdownProps={{
         downshiftProps,
-        selectedItems,
+        selectedItem,
         inputValue,
         onSelect,
         onInputValueChange,
@@ -87,17 +84,9 @@ export const MultiselectStory: Story<IArgs> = ({
       }
       itemProps={{ hasIcon, disabled: args.disabled }}
     >
-      <Multiselect
-        {...args}
-        start={hasIcon ? <Icon /> : undefined}
-        renderItem={({ value, removeValue }) => (
-          <Tag>
-            <span>{value.text}</span>
-            <Tag.Close onClick={removeValue} />
-          </Tag>
-        )}
-        renderShowMore={showMore ? value => `+ ${value} ${showMore}` : undefined}
-      />
+      <Autocomplete {...args} start={hasIcon ? <Icon /> : undefined}>
+        {selectedItem.text}
+      </Autocomplete>
     </DropdownFieldStory>
   );
 };

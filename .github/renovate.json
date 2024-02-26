@@ -1,7 +1,7 @@
 {
   "extends": ["config:base"],
   "rebaseStalePrs": true,
-  "ignorePaths": ["**/node_modules/**", "packages/dropdowns/**"],
+  "ignorePaths": ["**/node_modules/**", "packages/dropdowns.legacy/**"],
   "schedule": ["on Monday every 9 weeks of the year starting on the 5th week"],
   "labels": ["PR: Internal :seedling:"],
   "postUpdateOptions": ["npmDedupe"],

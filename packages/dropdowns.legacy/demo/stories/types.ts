@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IItemProps, IMessageProps } from '@zendeskgarden/react-dropdowns';
+import { IItemProps, IMessageProps } from '@zendeskgarden/react-dropdowns.legacy';
 
 export type MENU_SEPARATOR = '---';
 
