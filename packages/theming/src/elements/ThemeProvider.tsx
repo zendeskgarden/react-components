@@ -9,7 +9,7 @@ import React, { PropsWithChildren, useRef } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
-import { IThemeProviderProps } from '../types';
+import { IGardenTheme, IThemeProviderProps } from '../types';
 import DEFAULT_THEME from './theme';
 import { useDocument } from '../utils/useDocument';
 
@@ -20,7 +20,7 @@ export const ThemeProvider = ({
   ...other
 }: PropsWithChildren<IThemeProviderProps>) => {
   const scopeRef = useRef<HTMLDivElement>(null);
-  const relativeDocument = useDocument(theme);
+  const relativeDocument = useDocument(theme as IGardenTheme);
   const controlledScopeRef =
     focusVisibleRef === null
       ? React.createRef<HTMLElement>()
