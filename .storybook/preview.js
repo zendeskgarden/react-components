@@ -8,13 +8,16 @@
 import React, { StrictMode } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { create } from '@storybook/theming/create';
-import { ThemeProvider, DEFAULT_THEME } from '../packages/theming/src';
+import { ThemeProvider, DEFAULT_THEME, getColor } from '../packages/theming/src';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: {
-    disable: true,
-    grid: { disable: true }
+    grid: { disable: true },
+    values: [
+      { name: 'light', value: DEFAULT_THEME.colors.background },
+      { name: 'dark', value: DEFAULT_THEME.colors.foreground }
+    ]
   },
   controls: {
     hideNoControlsWarning: true,
@@ -50,11 +53,19 @@ const withThemeProvider = (story, context) => {
     document.querySelector('link[href$="bedrock/dist/index.css"]').setAttribute('disabled', true);
   }
 
-  const theme = {
-    ...DEFAULT_THEME,
-    colors: { ...DEFAULT_THEME.colors, primaryHue: context.globals.primaryHue },
-    rtl
-  };
+  const colors = { ...DEFAULT_THEME.colors, primaryHue: context.globals.primaryHue };
+
+  if (
+    context.globals.backgrounds && context.globals.backgrounds.value !== 'transparent'
+      ? context.globals.backgrounds.value === DEFAULT_THEME.colors.foreground
+      : context.parameters.backgrounds.default === 'dark'
+  ) {
+    colors.base = 'dark';
+    colors.background = getColor('neutralHue', 900, DEFAULT_THEME);
+    colors.foreground = getColor('neutralHue', 200, DEFAULT_THEME);
+  }
+
+  const theme = { ...DEFAULT_THEME, colors, rtl };
 
   return (
     <ThemeProvider theme={theme}>
