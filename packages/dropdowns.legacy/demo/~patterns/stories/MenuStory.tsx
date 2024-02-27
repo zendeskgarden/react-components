@@ -14,7 +14,7 @@ import {
   Item,
   Menu,
   Trigger
-} from '@zendeskgarden/react-dropdowns';
+} from '@zendeskgarden/react-dropdowns.legacy';
 import { IMenuItem } from '../../stories/types';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';

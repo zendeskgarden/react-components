@@ -5,28 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useState } from 'react';
-import { Story } from '@storybook/react';
+import React, { useCallback } from 'react';
+import { StoryFn } from '@storybook/react';
 import IconAdd from '@zendeskgarden/svg-icons/src/16/notification-stroke.svg';
 import IconRemove from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 import IconRemoveAll from '@zendeskgarden/svg-icons/src/16/x-circle-stroke.svg';
-import IconChevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
-import {
-  Dropdown,
-  MediaBody,
-  MediaFigure,
-  MediaItem,
-  Menu,
-  Trigger
-} from '@zendeskgarden/react-dropdowns';
+import { Item, Menu } from '@zendeskgarden/react-dropdowns.next';
 import {
   Close,
   IToastOptions,
   Notification,
   Title,
-  ToastContent,
+  IToast,
   useToast
 } from '@zendeskgarden/react-notifications';
 
@@ -34,7 +26,7 @@ interface IArgs extends IToastOptions {
   children: string;
 }
 
-export const ToastStory: Story<IArgs> = ({ children, ...args }) => {
+export const ToastStory: StoryFn<IArgs> = ({ children, ...args }) => {
   const {
     addToast,
     removeToast,
@@ -42,11 +34,10 @@ export const ToastStory: Story<IArgs> = ({ children, ...args }) => {
     updateToast,
     toasts
   } = useToast();
-  const [removeRotated, setRemoveRotated] = useState<boolean | undefined>();
 
   const handleAdd = useCallback(() => {
     const getToast = (id?: string) => {
-      const retVal: ToastContent = ({ close }) => (
+      const retVal: IToast['content'] = ({ close }) => (
         <Notification>
           {id && <Title>{id}</Title>}
           {children}
@@ -62,6 +53,13 @@ export const ToastStory: Story<IArgs> = ({ children, ...args }) => {
     updateToast(id, { content: getToast(id) });
   }, [addToast, updateToast, children, args]);
 
+  const handleChange = useCallback(
+    ({ value }: { value?: string }) => {
+      value && removeToast(value);
+    },
+    [removeToast]
+  );
+
   return (
     <Grid>
       <Row style={{ height: 'calc(100vh - 80px)' }}>
@@ -74,32 +72,20 @@ export const ToastStory: Story<IArgs> = ({ children, ...args }) => {
           </Button>
         </Col>
         <Col sm={4} textAlign="center" alignSelf="center">
-          <Dropdown
-            onSelect={id => removeToast(id)}
-            onStateChange={options =>
-              Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
-              setRemoveRotated(options.isOpen)
-            }
+          <Menu
+            onChange={handleChange}
+            buttonProps={{
+              disabled: toasts.length === 0,
+              isDanger: true
+            }}
+            button="Remove"
           >
-            <Trigger>
-              <Button disabled={toasts.length === 0} isDanger>
-                Remove
-                <Button.EndIcon isRotated={removeRotated && toasts.length > 0}>
-                  <IconChevron />
-                </Button.EndIcon>
-              </Button>
-            </Trigger>
-            <Menu>
-              {toasts.map(toast => (
-                <MediaItem key={toast.id} value={toast.id} isDanger>
-                  <MediaFigure>
-                    <IconRemove />
-                  </MediaFigure>
-                  <MediaBody>{toast.id}</MediaBody>
-                </MediaItem>
-              ))}
-            </Menu>
-          </Dropdown>
+            {toasts.map(toast => (
+              <Item key={toast.id} value={toast.id} type="danger" icon={<IconRemove />}>
+                {toast.id}
+              </Item>
+            ))}
+          </Menu>
         </Col>
         <Col sm={4} textAlign="center" textAlignSm="start" alignSelf="center">
           <Button isDanger disabled={toasts.length === 0} onClick={handleRemoveAll}>

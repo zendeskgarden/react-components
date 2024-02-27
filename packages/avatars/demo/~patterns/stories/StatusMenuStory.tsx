@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
+import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns.legacy';
 import { Avatar, IStatusIndicatorProps, StatusIndicator } from '@zendeskgarden/react-avatars';
 import { IconButton } from '@zendeskgarden/react-buttons';
 

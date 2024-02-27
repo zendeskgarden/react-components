@@ -2,21 +2,21 @@ import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs'
 import { useArgs } from '@storybook/client-api';
 import Downshift from 'downshift';
 import {
-  Autocomplete,
   Dropdown,
   Field,
   Hint,
   Label,
   Menu,
-  Message
-} from '@zendeskgarden/react-dropdowns';
-import { AutocompleteStory } from './stories/AutocompleteStory';
-import { AUTOCOMPLETE_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
+  Message,
+  Select
+} from '@zendeskgarden/react-dropdowns.legacy';
+import { SelectStory } from './stories/SelectStory';
+import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
 import README from '../README.md';
 
 <Meta
-  title="Packages/Dropdowns/Autocomplete"
-  component={Autocomplete}
+  title="Packages/Dropdowns.Legacy/Select"
+  component={Select}
   subcomponents={{ Dropdown, Field, Hint, Label, Menu, Message }}
 />
 
@@ -32,7 +32,7 @@ instead.
 
 <Canvas>
   <Story
-    name="Autocomplete"
+    name="Select"
     args={{
       label: 'Label',
       isLabelRegular: false,
@@ -44,9 +44,7 @@ instead.
       hasIcon: false,
       items: ITEMS,
       selectedItem: ITEMS[1],
-      inputValue: ITEMS[1].text,
-      isOpen: false,
-      downshiftProps: { defaultHighlightedIndex: 0 }
+      isOpen: false
     }}
     argTypes={{
       hasIcon: { name: 'start' },
@@ -62,9 +60,8 @@ instead.
       hasHint: { name: 'Hint', table: { category: 'Story' } },
       hasMessage: { name: 'Message', table: { category: 'Story' } },
       items: { name: 'Item[]', table: { category: 'Story' } },
-      downshiftProps: { table: { category: 'Dropdown' } },
+      downshiftProps: { control: 'object', table: { category: 'Dropdown' } },
       selectedItem: { table: { category: 'Dropdown' } },
-      inputValue: { table: { category: 'Dropdown' } },
       isOpen: { table: { category: 'Dropdown' } },
       placement: {
         control: { type: 'radio', options: PLACEMENT },
@@ -81,23 +78,14 @@ instead.
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleSelect = selectedItem =>
-        updateArgs({ selectedItem, inputValue: selectedItem.text });
-      const handleInputValueChange = inputValue => updateArgs({ inputValue });
+      const handleSelect = selectedItem => updateArgs({ selectedItem });
       const handleStateChange = changes =>
         changes.hasOwnProperty('isOpen') &&
         ![Downshift.stateChangeTypes.blurButton, Downshift.stateChangeTypes.blurInput].includes(
           changes.type
         ) /*account for Storybook control*/ &&
         updateArgs({ isOpen: changes.isOpen });
-      return (
-        <AutocompleteStory
-          {...args}
-          onSelect={handleSelect}
-          onInputValueChange={handleInputValueChange}
-          onStateChange={handleStateChange}
-        />
-      );
+      return <SelectStory {...args} onSelect={handleSelect} onStateChange={handleStateChange} />;
     }}
   </Story>
 </Canvas>

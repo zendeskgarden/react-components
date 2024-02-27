@@ -23,7 +23,7 @@ import {
   NextItem,
   PreviousItem,
   Separator
-} from '@zendeskgarden/react-dropdowns';
+} from '@zendeskgarden/react-dropdowns.legacy';
 import { IMenuItem, ITEM } from './types';
 
 export interface IMenuItemProps extends IItemProps, Omit<IMenuItem, 'text' | 'value'> {}

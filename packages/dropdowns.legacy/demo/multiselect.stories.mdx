@@ -2,21 +2,21 @@ import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs'
 import { useArgs } from '@storybook/client-api';
 import Downshift from 'downshift';
 import {
+  Multiselect,
   Dropdown,
   Field,
   Hint,
   Label,
   Menu,
-  Message,
-  Select
-} from '@zendeskgarden/react-dropdowns';
-import { SelectStory } from './stories/SelectStory';
-import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
+  Message
+} from '@zendeskgarden/react-dropdowns.legacy';
+import { MultiselectStory } from './stories/MultiselectStory';
+import { MULTISELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
 import README from '../README.md';
 
 <Meta
-  title="Packages/Dropdowns/Select"
-  component={Select}
+  title="Packages/Dropdowns.Legacy/Multiselect"
+  component={Multiselect}
   subcomponents={{ Dropdown, Field, Hint, Label, Menu, Message }}
 />
 
@@ -32,7 +32,7 @@ instead.
 
 <Canvas>
   <Story
-    name="Select"
+    name="Multiselect"
     args={{
       label: 'Label',
       isLabelRegular: false,
@@ -42,12 +42,17 @@ instead.
       hasMessage: true,
       message: 'Message',
       hasIcon: false,
+      maxItems: 4,
       items: ITEMS,
-      selectedItem: ITEMS[1],
-      isOpen: false
+      selectedItems: [ITEMS[0], ITEMS[1], ITEMS[2], ITEMS[3], ITEMS[4], ITEMS[5]],
+      inputValue: '',
+      isOpen: false,
+      downshiftProps: { defaultHighlightedIndex: 0 }
     }}
     argTypes={{
       hasIcon: { name: 'start' },
+      placeholder: { control: 'text' },
+      showMore: { name: 'renderShowMore', control: 'text' },
       label: { name: 'children', table: { category: 'Label' } },
       isLabelRegular: { name: 'isRegular', table: { category: 'Label' } },
       isLabelHidden: { name: 'hidden', table: { category: 'Label' } },
@@ -60,8 +65,9 @@ instead.
       hasHint: { name: 'Hint', table: { category: 'Story' } },
       hasMessage: { name: 'Message', table: { category: 'Story' } },
       items: { name: 'Item[]', table: { category: 'Story' } },
-      downshiftProps: { control: 'object', table: { category: 'Dropdown' } },
-      selectedItem: { table: { category: 'Dropdown' } },
+      downshiftProps: { table: { category: 'Dropdown' } },
+      selectedItems: { table: { category: 'Dropdown' } },
+      inputValue: { table: { category: 'Dropdown' } },
       isOpen: { table: { category: 'Dropdown' } },
       placement: {
         control: { type: 'radio', options: PLACEMENT },
@@ -72,20 +78,28 @@ instead.
       design: {
         allowFullscreen: true,
         type: 'figma',
-        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A24482'
+        url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=1512%3A29763'
       }
     }}
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleSelect = selectedItem => updateArgs({ selectedItem });
+      const handleSelect = selectedItems => updateArgs({ selectedItems });
+      const handleInputValueChange = inputValue => updateArgs({ inputValue });
       const handleStateChange = changes =>
         changes.hasOwnProperty('isOpen') &&
         ![Downshift.stateChangeTypes.blurButton, Downshift.stateChangeTypes.blurInput].includes(
           changes.type
         ) /*account for Storybook control*/ &&
         updateArgs({ isOpen: changes.isOpen });
-      return <SelectStory {...args} onSelect={handleSelect} onStateChange={handleStateChange} />;
+      return (
+        <MultiselectStory
+          {...args}
+          onSelect={handleSelect}
+          onInputValueChange={handleInputValueChange}
+          onStateChange={handleStateChange}
+        />
+      );
     }}
   </Story>
 </Canvas>

@@ -1,5 +1,5 @@
 {
-  "name": "@zendeskgarden/react-dropdowns",
+  "name": "@zendeskgarden/react-dropdowns.legacy",
   "version": "9.0.0-next.2",
   "description": "Components relating to dropdowns in the Garden Design System",
   "license": "Apache-2.0",

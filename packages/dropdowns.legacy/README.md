@@ -1,12 +1,16 @@
-# @zendeskgarden/react-dropdowns [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns)](https://www.npmjs.com/package/@zendeskgarden/react-dropdowns)
+# @zendeskgarden/react-dropdowns.legacy [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns.legacy)](https://www.npmjs.com/package/@zendeskgarden/react-dropdowns.legacy)
 
-This package includes components relating to dropdowns in the
+This package includes components relating to legacy dropdowns in the
 [Garden Design System](https://zendeskgarden.github.io/).
+
+| ⚠️ **DEPRECATED**                                                                          |
+| :----------------------------------------------------------------------------------------- |
+| Use `@zendeskgarden/react-dropdowns@^9.0.0` to continue using the latest Garden Dropdowns. |
 
 ## Installation
 
 ```sh
-npm install @zendeskgarden/react-dropdowns
+npm install @zendeskgarden/react-dropdowns.legacy
 
 # Peer Dependencies - Also Required
 npm install react react-dom styled-components @zendeskgarden/react-theming
@@ -16,7 +20,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
+import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns.legacy';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
@@ -35,7 +39,7 @@ import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
 </ThemeProvider>;
 ```
 
-For all components within the `react-dropdowns` package, the menu layouts and
+For all components within the `react-dropdowns.legacy` package, the menu layouts and
 implementations are interchangeable.
 
 Whether you're making a `Select`, `Autocomplete`, or a traditional `Menu` the `<Menu>` implementation
@@ -45,7 +49,7 @@ will adapted to its consumer.
 
 ### Overview
 
-The `react-dropdowns` package abstracts the common concepts of `Menus`, `Selects`, and `Autocompletes`
+The `react-dropdowns.legacy` package abstracts the common concepts of `Menus`, `Selects`, and `Autocompletes`
 into a common API. This includes consistent visuals, common keyboard interaction, and a fully accessible
 experience for sighted and non-sighted users.
 

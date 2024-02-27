@@ -18,7 +18,7 @@ import {
   MediaFigure,
   MediaBody,
   ItemMeta
-} from '@zendeskgarden/react-dropdowns';
+} from '@zendeskgarden/react-dropdowns.legacy';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Avatar } from '@zendeskgarden/react-avatars';
 

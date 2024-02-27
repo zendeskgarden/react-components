@@ -60,6 +60,8 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-dropdowns
 
+- The `v8` version of this package is no longer maintained and is
+  renamed to `@zendeskgarden/react-dropdowns.legacy` in `v9`
 - `Menu`: value `auto` is no longer valid for the `fallbackPlacements` prop.
 
 #### @zendeskgarden/react-forms

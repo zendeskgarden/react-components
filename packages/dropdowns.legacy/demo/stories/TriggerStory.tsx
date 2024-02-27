@@ -10,7 +10,12 @@ import { Story } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import IconChevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { Button } from '@zendeskgarden/react-buttons';
-import { IDropdownProps, IItemProps, IMenuProps, Trigger } from '@zendeskgarden/react-dropdowns';
+import {
+  IDropdownProps,
+  IItemProps,
+  IMenuProps,
+  Trigger
+} from '@zendeskgarden/react-dropdowns.legacy';
 import { ITEM } from './types';
 import { DropdownStory } from './DropdownStory';
 
