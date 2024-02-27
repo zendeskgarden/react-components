@@ -43,7 +43,5 @@ export {
   type ISubNavItemProps,
   type ICollapsibleSubNavItemProps,
   type ISheetProps,
-  type ISheetFooterProps,
-  /** @deprecated can be accessed via IHeaderItemProps['product'] */
-  type Product as PRODUCT
+  type ISheetFooterProps
 } from './types';

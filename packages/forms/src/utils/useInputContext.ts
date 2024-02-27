@@ -7,9 +7,9 @@
 
 import { createContext, useContext } from 'react';
 
-type INPUT_CONTEXT_VALUE = 'checkbox' | 'radio' | 'toggle' | undefined;
+type InputContextValue = 'checkbox' | 'radio' | 'toggle' | undefined;
 
-export const InputContext = createContext<INPUT_CONTEXT_VALUE>(undefined);
+export const InputContext = createContext<InputContextValue>(undefined);
 
 /**
  * Retrieve input component context

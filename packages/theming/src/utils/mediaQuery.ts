@@ -9,15 +9,15 @@ import DEFAULT_THEME from '../elements/theme';
 import { DefaultTheme } from 'styled-components';
 import { getValueAndUnit } from 'polished';
 
-type QUERY = 'up' | 'down' | 'only' | 'between';
-type BREAKPOINT = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type Query = 'up' | 'down' | 'only' | 'between';
+type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-const maxWidth = (breakpoints: DefaultTheme['breakpoints'], breakpoint: BREAKPOINT) => {
+const maxWidth = (breakpoints: DefaultTheme['breakpoints'], breakpoint: Breakpoint) => {
   const keys = Object.keys(breakpoints);
   const index = keys.indexOf(breakpoint) + 1;
 
   if (keys[index]) {
-    const dimension = getValueAndUnit(breakpoints[keys[index] as BREAKPOINT]);
+    const dimension = getValueAndUnit(breakpoints[keys[index] as Breakpoint]);
     const value = dimension[0] - 0.02;
     const unit = dimension[1];
 
@@ -42,8 +42,8 @@ const maxWidth = (breakpoints: DefaultTheme['breakpoints'], breakpoint: BREAKPOI
  * @param {Object} theme Context `theme` object.
  */
 export default function mediaQuery(
-  query: QUERY,
-  breakpoint: BREAKPOINT | [BREAKPOINT, BREAKPOINT],
+  query: Query,
+  breakpoint: Breakpoint | [Breakpoint, Breakpoint],
   theme?: DefaultTheme
 ) {
   let retVal;

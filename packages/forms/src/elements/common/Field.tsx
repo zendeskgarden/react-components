@@ -11,14 +11,6 @@ import { FieldContext } from '../../utils/useFieldContext';
 import { StyledField } from '../../styled';
 
 /**
- * @deprecated
- */
-export interface IFieldProps extends HTMLAttributes<HTMLDivElement> {
-  /** Sets the field ID and the prefix for the generated label, input, and hint IDs */
-  id?: string;
-}
-
-/**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(

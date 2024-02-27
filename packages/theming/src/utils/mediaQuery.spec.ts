@@ -8,9 +8,9 @@
 import mediaQuery from './mediaQuery';
 import DEFAULT_THEME from '../elements/theme';
 
-type TYPE_QUERY = 'up' | 'down' | 'only' | 'between';
-type TYPE_BREAKPOINT = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-type TYPE_MAX_WIDTH = 'xs' | 'sm' | 'md' | 'lg';
+type TypeQuery = 'up' | 'down' | 'only' | 'between';
+type TypeBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type TypeMaxWidth = 'xs' | 'sm' | 'md' | 'lg';
 
 const BREAKPOINTS = DEFAULT_THEME.breakpoints;
 const MAX_WIDTHS = {
@@ -24,8 +24,8 @@ describe('mediaQuery', () => {
   describe('query = "up"', () => {
     it('applies the media query for the given breakpoint', () => {
       Object.keys(BREAKPOINTS).forEach(breakpoint => {
-        const actual = mediaQuery('up', breakpoint as TYPE_BREAKPOINT);
-        const expected = `@media (min-width: ${BREAKPOINTS[breakpoint as TYPE_BREAKPOINT]})`;
+        const actual = mediaQuery('up', breakpoint as TypeBreakpoint);
+        const expected = `@media (min-width: ${BREAKPOINTS[breakpoint as TypeBreakpoint]})`;
 
         expect(actual).toBe(expected);
       });
@@ -35,8 +35,8 @@ describe('mediaQuery', () => {
   describe('query = "down"', () => {
     it('applies the media query for the given breakpoint', () => {
       Object.keys(MAX_WIDTHS).forEach(breakpoint => {
-        const actual = mediaQuery('down', breakpoint as TYPE_BREAKPOINT);
-        const expected = `@media (max-width: ${MAX_WIDTHS[breakpoint as TYPE_MAX_WIDTH]})`;
+        const actual = mediaQuery('down', breakpoint as TypeBreakpoint);
+        const expected = `@media (max-width: ${MAX_WIDTHS[breakpoint as TypeMaxWidth]})`;
 
         expect(actual).toBe(expected);
       });
@@ -53,10 +53,10 @@ describe('mediaQuery', () => {
   describe('query = "only"', () => {
     it('applies the media query for the given breakpoint', () => {
       Object.keys(MAX_WIDTHS).forEach(breakpoint => {
-        const actual = mediaQuery('only', breakpoint as TYPE_BREAKPOINT);
+        const actual = mediaQuery('only', breakpoint as TypeBreakpoint);
         const expected = `@media (min-width: ${
-          BREAKPOINTS[breakpoint as TYPE_BREAKPOINT]
-        }) and (max-width: ${MAX_WIDTHS[breakpoint as TYPE_MAX_WIDTH]})`;
+          BREAKPOINTS[breakpoint as TypeBreakpoint]
+        }) and (max-width: ${MAX_WIDTHS[breakpoint as TypeMaxWidth]})`;
 
         expect(actual).toBe(expected);
       });
@@ -103,7 +103,7 @@ describe('mediaQuery', () => {
       console.error = jest.fn();
 
       ['up', 'down', 'only'].forEach(query =>
-        expect(() => mediaQuery(query as TYPE_QUERY, ['sm', 'lg'])).toThrow()
+        expect(() => mediaQuery(query as TypeQuery, ['sm', 'lg'])).toThrow()
       );
 
       console.error = originalError;

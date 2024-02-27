@@ -25,15 +25,5 @@ export {
   type ISplitterButtonProps,
   type IColProps,
   type IGridProps,
-  type IRowProps,
-  /* @deprecated these types can be dereferenced on the exported interfaces */
-  type AlignItems as ALIGN_ITEMS,
-  type AlignSelf as ALIGN_SELF,
-  type Direction as DIRECTION,
-  type JustifyContent as JUSTIFY_CONTENT,
-  type TextAlign as TEXT_ALIGN,
-  type GridNumber as GRID_NUMBER,
-  type Breakpoint as BREAKPOINT,
-  type Space as SPACE,
-  type Wrap as WRAP
+  type IRowProps
 } from './types';
