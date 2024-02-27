@@ -8,7 +8,7 @@
 import React, { useRef } from 'react';
 import { Story } from '@storybook/react';
 import styled from 'styled-components';
-import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns.next';
+import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Paragraph } from '@zendeskgarden/react-typography';
 

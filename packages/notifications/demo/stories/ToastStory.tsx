@@ -12,7 +12,7 @@ import IconRemove from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 import IconRemoveAll from '@zendeskgarden/svg-icons/src/16/x-circle-stroke.svg';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Item, Menu } from '@zendeskgarden/react-dropdowns.next';
+import { Item, Menu } from '@zendeskgarden/react-dropdowns';
 import {
   Close,
   IToastOptions,

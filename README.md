@@ -30,7 +30,7 @@ to install.
 | [`@zendeskgarden/react-datepickers`](packages/datepickers)           | [![npm version][datepickers npm version]][datepickers npm link]           | [![Bundle Size][datepickers size bundle]][datepickers size link]           |
 | [`@zendeskgarden/react-drag-drop`](packages/drag-drop)               | [![npm version][drag-drop npm version]][drag-drop npm link]               | [![Bundle Size][drag-drop size bundle]][drag-drop size link]               |
 | [`@zendeskgarden/react-dropdowns.legacy`](packages/dropdowns.legacy) | [![npm version][dropdowns.legacy npm version]][dropdowns.legacy npm link] | [![Bundle Size][dropdowns.legacy size bundle]][dropdowns.legacy size link] |
-| [`@zendeskgarden/react-dropdowns.next`](packages/dropdowns.next)     | [![npm version][dropdowns.next npm version]][dropdowns.next npm link]     | [![Bundle Size][dropdowns.next size bundle]][dropdowns.next size link]     |
+| [`@zendeskgarden/react-dropdowns`](packages/dropdowns)               | [![npm version][dropdowns npm version]][dropdowns npm link]               | [![Bundle Size][dropdowns size bundle]][dropdowns size link]               |
 | [`@zendeskgarden/react-forms`](packages/forms)                       | [![npm version][forms npm version]][forms npm link]                       | [![Bundle Size][forms size bundle]][forms size link]                       |
 | [`@zendeskgarden/react-grid`](packages/grid)                         | [![npm version][grid npm version]][grid npm link]                         | [![Bundle Size][grid size bundle]][grid size link]                         |
 | [`@zendeskgarden/react-loaders`](packages/loaders)                   | [![npm version][loaders npm version]][loaders npm link]                   | [![Bundle Size][loaders size bundle]][loaders size link]                   |
@@ -80,10 +80,10 @@ to install.
 [dropdowns.legacy npm link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns.legacy
 [dropdowns.legacy size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-dropdowns.legacy
 [dropdowns.legacy size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-dropdowns.legacy
-[dropdowns.next npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns.next
-[dropdowns.next npm link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns.next
-[dropdowns.next size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-dropdowns.next
-[dropdowns.next size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-dropdowns.next
+[dropdowns npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns
+[dropdowns npm link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns
+[dropdowns size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-dropdowns
+[dropdowns size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-dropdowns
 [forms npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-forms
 [forms npm link]: https://www.npmjs.com/package/@zendeskgarden/react-forms
 [forms size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-forms

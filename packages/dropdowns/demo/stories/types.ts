@@ -10,7 +10,7 @@ import {
   IItemGroupProps,
   IOptGroupProps,
   IOptionProps
-} from '@zendeskgarden/react-dropdowns.next';
+} from '@zendeskgarden/react-dropdowns';
 
 export interface IOption extends Omit<IOptionProps, 'icon'> {
   icon?: boolean;

@@ -19,7 +19,7 @@
       "@zendeskgarden/react-datepickers": ["./packages/datepickers/src/index.ts"],
       "@zendeskgarden/react-drag-drop": ["./packages/drag-drop/src/index.ts"],
       "@zendeskgarden/react-dropdowns.legacy": ["./packages/dropdowns.legacy/src/index.ts"],
-      "@zendeskgarden/react-dropdowns.next": ["./packages/dropdowns.next/src/index.ts"],
+      "@zendeskgarden/react-dropdowns": ["./packages/dropdowns/src/index.ts"],
       "@zendeskgarden/react-forms": ["./packages/forms/src/index.ts"],
       "@zendeskgarden/react-grid": ["./packages/grid/src/index.ts"],
       "@zendeskgarden/react-loaders": ["./packages/loaders/src/index.ts"],

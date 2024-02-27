@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { hideVisually } from 'polished';
 import { StoryFn } from '@storybook/react';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import { IItemProps, Item, Menu, Separator } from '@zendeskgarden/react-dropdowns.next';
+import { IItemProps, Item, Menu, Separator } from '@zendeskgarden/react-dropdowns';
 
 type IArgs = {
   items: IItemProps[];

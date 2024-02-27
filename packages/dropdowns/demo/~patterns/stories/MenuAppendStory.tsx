@@ -7,7 +7,7 @@
 
 import React, { useRef } from 'react';
 import { StoryFn } from '@storybook/react';
-import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { Paragraph } from '@zendeskgarden/react-typography';
 import { StyledContainer } from './ListboxStory';
 

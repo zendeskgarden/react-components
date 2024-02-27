@@ -23,7 +23,7 @@ import {
   OptGroup,
   Option,
   Tag
-} from '@zendeskgarden/react-dropdowns.next';
+} from '@zendeskgarden/react-dropdowns';
 import { IOption, Options } from './types';
 import { toString } from '../../src/elements/combobox/utils';
 

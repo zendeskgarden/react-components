@@ -1,7 +1,7 @@
-# @zendeskgarden/react-dropdowns.next [![npm version][npm version badge]][npm version link]
+# @zendeskgarden/react-dropdowns [![npm version][npm version badge]][npm version link]
 
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns.next
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns.next
+[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns
+[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns
 
 This package includes components related to dropdowns in the
 [Garden Design System](https://zendeskgarden.github.io/).
@@ -9,7 +9,7 @@ This package includes components related to dropdowns in the
 ## Installation
 
 ```sh
-npm install @zendeskgarden/react-dropdowns.next
+npm install @zendeskgarden/react-dropdowns
 
 # Peer Dependencies - Also Required
 npm install react react-dom styled-components @zendeskgarden/react-theming
@@ -21,7 +21,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Field, Label, Combobox, Option } from '@zendeskgarden/react-dropdowns.next';
+import { Field, Label, Combobox, Option } from '@zendeskgarden/react-dropdowns';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
@@ -83,7 +83,7 @@ WAI-ARIA compliant combobox features. Key capabilities include:
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
