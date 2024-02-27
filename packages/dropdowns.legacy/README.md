@@ -3,7 +3,9 @@
 This package includes components relating to legacy dropdowns in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
-:warning: **DEPRECATED:** use `@zendeskgarden/react-dropdowns@^9.0.0` to continue using the latest Garden Dropdowns.
+| ⚠️ **DEPRECATED**                                                                          |
+| ------------------------------------------------------------------------------------------ |
+| Use `@zendeskgarden/react-dropdowns@^9.0.0` to continue using the latest Garden Dropdowns. |
 
 ## Installation
 
