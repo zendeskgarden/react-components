@@ -32,6 +32,10 @@ consider additional positioning prop support on a case-by-case basis.
     [jest.config.js](https://github.com/zendeskgarden/react-components/blob/c2aa97d1edccfa0578ee5655b543ca6635767fb9/utils/test/jest.config.js#L28-L30)
     for details.
 
+#### @zendeskgarden/react-accordions
+
+- Removed `IItem` type export. Use `ITimelineItemProps` instead.
+
 #### @zendeskgarden/react-buttons
 
 - Removed `ButtonGroup`: UI no longer recommended by Garden
