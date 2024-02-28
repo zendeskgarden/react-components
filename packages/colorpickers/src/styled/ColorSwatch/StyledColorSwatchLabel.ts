@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { parseToRgb, readableColor } from 'polished';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, focusStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledButtonPreview } from '../ColorPickerDialog/StyledButtonPreview';
 import { IRGBColor } from '../../types';
 
@@ -18,7 +18,6 @@ interface IStyledColorSwatchLabelProps extends ThemeProps<DefaultTheme> {
 }
 
 const colorStyles = (props: IStyledColorSwatchLabelProps) => {
-  const boxShadow = props.theme.shadows.md(getColor('primaryHue', 600, props.theme, 0.35)!);
   const { alpha } = parseToRgb(props.backgroundColor) as IRGBColor;
   let foregroundColor;
 
@@ -34,9 +33,6 @@ const colorStyles = (props: IStyledColorSwatchLabelProps) => {
 
   return `
     color: ${foregroundColor};
-
-    &[data-garden-focus-visible] {
-      box-shadow: ${boxShadow};
   `;
 };
 
@@ -47,9 +43,10 @@ export const StyledColorSwatchLabel = styled(StyledButtonPreview).attrs({
 })`
   position: relative;
   border-radius: ${props => props.theme.borderRadii.md};
-  cursor: pointer;
 
   ${colorStyles};
+
+  ${props => focusStyles({ theme: props.theme, selector: '&:has(:focus-visible)' })}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
