@@ -69,6 +69,12 @@ consider additional positioning prop support on a case-by-case basis.
 
 - Removed `MultiThumbRange`: UI no longer recommended by Garden
 
+#### @zendeskgarden/react-grid
+
+- Exported constants prefixed with `ARRAY_` no longer have a prefix.
+- The following types have been removed: `ALIGN_ITEMS`, `ALIGN_SELF`, `DIRECTION`,
+  `JUSTIFY_CONTENT`, `TEXT_ALIGN`, `GRID_NUMBER`, `BREAKPOINT`, `SPACE`, and `WRAP`
+
 #### @zendeskgarden/react-modals
 
 - `DrawerModal`: renamed to `Drawer`
@@ -97,9 +103,8 @@ consider additional positioning prop support on a case-by-case basis.
 - Utility function `getDocument` has been removed. Use `useDocument` instead.
 - The following exports have changed:
   - removed `retrieveTheme`. Use `retriveComponentStyles` instead.
+  - constants prefixed with `ARRAY_` no longer have a prefix.
 - The following types have changed:
-  - `ARRAY_ARROW_POSITION` renamed to `ARROW_POSITION`
-  - `ARRAY_MENU_POSITION` renamed to `MENU_POSITION`
   - `ARROW_POSITION` renamed to `ArrowPosition`
   - `MENU_POSITION` renamed to `MenuPosition`
 
