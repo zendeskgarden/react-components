@@ -73,6 +73,14 @@ consider additional positioning prop support on a case-by-case basis.
 
 - `DrawerModal`: renamed to `Drawer`
 - `TooltipModal`: removed `popperModifiers` prop (see [note](#breaking-changes))
+- The following types have changed:
+  - removed `GARDEN_PLACEMENT`. Use `ITooltipModalProps['placement']` instead.
+
+#### @zendeskgarden/react-notification
+
+- The following types have changed:
+  - removed `ToastPlacement`. Use `IToastOptions['placement']` instead.
+  - removed `ToastContent`. Use `IToast['content']` instead.
 
 #### @zendeskgarden/react-pagination
 
@@ -88,7 +96,7 @@ consider additional positioning prop support on a case-by-case basis.
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
 - Utility function `getDocument` has been removed. Use `useDocument` instead.
 - The following exports have changed:
-  - removed `retrieveTheme`
+  - removed `retrieveTheme`. Use `retriveComponentStyles` instead.
 - The following types have changed:
   - `ARRAY_ARROW_POSITION` renamed to `ARROW_POSITION`
   - `ARRAY_MENU_POSITION` renamed to `MENU_POSITION`
