@@ -21,6 +21,7 @@ export const StyledColorSwatchInput = styled.input.attrs({
   opacity: 0;
   z-index: 1;
   margin: 0;
+  cursor: pointer;
   width: 100%;
   height: 100%;
 
