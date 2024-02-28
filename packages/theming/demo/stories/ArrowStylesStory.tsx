@@ -8,12 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Story } from '@storybook/react';
-import {
-  arrowStyles,
-  getColor,
-  DEFAULT_THEME,
-  ARROW_POSITION as ArrowPosition
-} from '@zendeskgarden/react-theming';
+import { arrowStyles, getColor, DEFAULT_THEME, ArrowPosition } from '@zendeskgarden/react-theming';
 
 interface IArgs {
   position: ArrowPosition;

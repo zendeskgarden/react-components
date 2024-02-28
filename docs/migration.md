@@ -32,9 +32,18 @@ consider additional positioning prop support on a case-by-case basis.
     [jest.config.js](https://github.com/zendeskgarden/react-components/blob/c2aa97d1edccfa0578ee5655b543ca6635767fb9/utils/test/jest.config.js#L28-L30)
     for details.
 
+#### @zendeskgarden/react-accordions
+
+- Removed `IItem` type export. Use `ITimelineItemProps` instead.
+
 #### @zendeskgarden/react-buttons
 
 - Removed `ButtonGroup`: UI no longer recommended by Garden
+- Removed `IIconProps` type export. Use `IButtonStartIconProps` or `IButtonEndIconProps` instead.
+
+#### @zendeskgarden/react-chrome
+
+- Removed `PRODUCT` type export. Use `IHeaderItemProps['product']` instead.
 
 #### @zendeskgarden/react-colorpickers
 
@@ -68,11 +77,27 @@ consider additional positioning prop support on a case-by-case basis.
 #### @zendeskgarden/react-forms
 
 - Removed `MultiThumbRange`: UI no longer recommended by Garden
+- The following types have changed:
+  - removed `IFieldProps`
+  - removed `IIconProps`. Use `IFauxInputStartIconProps` or `IFauxInputEndIconProps` instead.
+
+#### @zendeskgarden/react-grid
+
+- Exported constants prefixed with `ARRAY_` no longer have a prefix.
+- The following types have been removed: `ALIGN_ITEMS`, `ALIGN_SELF`, `DIRECTION`,
+  `JUSTIFY_CONTENT`, `TEXT_ALIGN`, `GRID_NUMBER`, `BREAKPOINT`, `SPACE`, and `WRAP`
 
 #### @zendeskgarden/react-modals
 
 - `DrawerModal`: renamed to `Drawer`
 - `TooltipModal`: removed `popperModifiers` prop (see [note](#breaking-changes))
+- Removed `GARDEN_PLACEMENT` type export. Use `ITooltipModalProps['placement']` instead.
+
+#### @zendeskgarden/react-notification
+
+- The following types have changed:
+  - removed `ToastPlacement`. Use `IToastOptions['placement']` instead.
+  - removed `ToastContent`. Use `IToast['content']` instead.
 
 #### @zendeskgarden/react-pagination
 
@@ -80,11 +105,18 @@ consider additional positioning prop support on a case-by-case basis.
   - changed type export from `HTMLAttributes<HTMLUListElement>` to `HTMLAttributes<HTMLElement>`
   - removed `transformPageProps` prop
   - added `labels` prop
+- Renamed `PAGE_TYPE` type export to `PageType`
 
 #### @zendeskgarden/react-theming
 
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
 - Utility function `getDocument` has been removed. Use `useDocument` instead.
+- The following exports have changed:
+  - removed `retrieveTheme`. Use `retriveComponentStyles` instead.
+  - constants prefixed with `ARRAY_` no longer have a prefix.
+- The following types have changed:
+  - renamed `ARROW_POSITION` to `ArrowPosition`
+  - renamed `MENU_POSITION` to `MenuPosition`
 
 #### @zendeskgarden/react-tooltips
 

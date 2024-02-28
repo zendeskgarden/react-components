@@ -29,7 +29,7 @@ export { CollapsibleSubNavItem } from './elements/subnav/CollapsibleSubNavItem';
 export { Sheet } from './elements/sheet/Sheet';
 
 export {
-  PRODUCT as PRODUCTS,
+  PRODUCTS,
   type IChromeProps,
   type ISkipNavProps,
   type IBodyProps,
@@ -43,7 +43,5 @@ export {
   type ISubNavItemProps,
   type ICollapsibleSubNavItemProps,
   type ISheetProps,
-  type ISheetFooterProps,
-  /** @deprecated can be accessed via IHeaderItemProps['product'] */
-  type Product as PRODUCT
+  type ISheetFooterProps
 } from './types';

@@ -6,7 +6,7 @@
  */
 
 /** Common */
-export { Field, type IFieldProps } from './elements/common/Field';
+export { Field } from './elements/common/Field';
 export { Fieldset } from './elements/common/Fieldset';
 export { Hint } from './elements/common/Hint';
 export { Label } from './elements/common/Label';
@@ -35,7 +35,7 @@ export { FileList } from './elements/file-list/FileList';
 export { File } from './elements/file-list/components/File';
 
 /** Other */
-export { FauxInput, type IIconProps } from './elements/faux-input/FauxInput';
+export { FauxInput } from './elements/faux-input/FauxInput';
 export { MediaInput } from './elements/MediaInput';
 
 /** types */

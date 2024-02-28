@@ -10,7 +10,7 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   arrowStyles,
-  ARROW_POSITION as ArrowPosition
+  ArrowPosition
 } from '@zendeskgarden/react-theming';
 import { IStyledListboxProps, StyledListbox } from '../combobox/StyledListbox';
 

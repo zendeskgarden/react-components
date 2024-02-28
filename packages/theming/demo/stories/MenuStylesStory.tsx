@@ -10,12 +10,7 @@ import styled from 'styled-components';
 import { Story } from '@storybook/react';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { ToggleButton } from '@zendeskgarden/react-buttons';
-import {
-  menuStyles,
-  arrowStyles,
-  MENU_POSITION as MenuPosition,
-  ARROW_POSITION as ArrowPosition
-} from '@zendeskgarden/react-theming';
+import { menuStyles, arrowStyles, MenuPosition, ArrowPosition } from '@zendeskgarden/react-theming';
 
 const TOP: Record<string, string> = {
   right: 'calc(-50% - 8px)',

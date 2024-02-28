@@ -9,7 +9,7 @@ import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode }
 
 export const PLACEMENT = ['end', 'start'] as const;
 
-export const PRODUCT = [
+export const PRODUCTS = [
   'chat',
   'connect',
   'explore',
@@ -19,7 +19,7 @@ export const PRODUCT = [
   'talk'
 ] as const;
 
-export type Product = (typeof PRODUCT)[number];
+export type Product = (typeof PRODUCTS)[number];
 
 export interface IChromeProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies a custom hue to the chrome navigation */

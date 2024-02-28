@@ -48,7 +48,6 @@ import {
   NavItem,
   NavItemIcon,
   NavItemText,
-  PRODUCT,
   Sidebar,
   SkipNav,
   SubNav,
@@ -58,6 +57,7 @@ import {
 import { Button } from '@zendeskgarden/react-buttons';
 import { IFooterItem, IHeaderItem, INavItem, ISubNavItem } from './types';
 import { SheetComponent } from './SheetStory';
+import { Product } from '../../src/types';
 
 const HEADER_ICONS = [
   <HeaderIcon1 key={1} />,
@@ -75,7 +75,7 @@ const NAV_ICONS = [
   <NavIcon6 key={6} />
 ];
 
-const PRODUCT_ICONS: Record<PRODUCT, ReactElement<SVGElement>> = {
+const PRODUCT_ICONS: Record<Product, ReactElement<SVGElement>> = {
   chat: <ChatIcon />,
   connect: <ConnectIcon />,
   explore: <ExploreIcon />,

@@ -12,16 +12,7 @@ export { Close } from './elements/Close';
 export { Footer } from './elements/Footer';
 export { FooterItem } from './elements/FooterItem';
 export { Header } from './elements/Header';
-
 export { TooltipModal } from './elements/TooltipModal/TooltipModal';
-
 export { Drawer } from './elements/Drawer/Drawer';
 
-export {
-  PLACEMENT,
-  type IModalProps,
-  type IDrawerProps,
-  type ITooltipModalProps,
-  /* @deprecated type can be dereferenced from the exported interfaces */
-  type Placement as GARDEN_PLACEMENT
-} from './types';
+export { PLACEMENT, type IModalProps, type IDrawerProps, type ITooltipModalProps } from './types';
