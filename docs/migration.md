@@ -68,6 +68,9 @@ consider additional positioning prop support on a case-by-case basis.
 #### @zendeskgarden/react-forms
 
 - Removed `MultiThumbRange`: UI no longer recommended by Garden
+- The following types have changed:
+  - removed `IFieldProps`
+  - removed `IIconProps`. Use `IFauxInputStartIconProps` or `IFauxInputEndIconProps` instead.
 
 #### @zendeskgarden/react-grid
 
