@@ -80,11 +80,20 @@ consider additional positioning prop support on a case-by-case basis.
   - changed type export from `HTMLAttributes<HTMLUListElement>` to `HTMLAttributes<HTMLElement>`
   - removed `transformPageProps` prop
   - added `labels` prop
+- The following types have changed:
+  - `PAGE_TYPE` renamed to `PageType`
 
 #### @zendeskgarden/react-theming
 
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
 - Utility function `getDocument` has been removed. Use `useDocument` instead.
+- The following exports have changed:
+  - removed `retrieveTheme`
+- The following types have changed:
+  - `ARRAY_ARROW_POSITION` renamed to `ARROW_POSITION`
+  - `ARRAY_MENU_POSITION` renamed to `MENU_POSITION`
+  - `ARROW_POSITION` renamed to `ArrowPosition`
+  - `MENU_POSITION` renamed to `MenuPosition`
 
 #### @zendeskgarden/react-tooltips
 
