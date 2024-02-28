@@ -5,10 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  ARROW_POSITION as ArrowPosition,
-  MENU_POSITION as MenuPosition
-} from '@zendeskgarden/react-theming';
+import { ArrowPosition, MenuPosition } from '@zendeskgarden/react-theming';
 import { GardenPlacement, PopperPlacement } from '../types';
 
 /**

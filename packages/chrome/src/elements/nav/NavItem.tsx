@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { INavItemProps, PRODUCT } from '../../types';
+import { INavItemProps, PRODUCTS } from '../../types';
 import { StyledNavItem, StyledLogoNavItem, StyledBrandmarkNavItem } from '../../styled';
 import { useNavContext } from '../../utils/useNavContext';
 import { useChromeContext } from '../../utils/useChromeContext';
@@ -56,7 +56,7 @@ export const NavItem = React.forwardRef<HTMLButtonElement, INavItemProps>(
 NavItem.displayName = 'NavItem';
 
 NavItem.propTypes = {
-  product: PropTypes.oneOf(PRODUCT),
+  product: PropTypes.oneOf(PRODUCTS),
   hasLogo: PropTypes.bool,
   hasBrandmark: PropTypes.bool
 };

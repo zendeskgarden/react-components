@@ -29,7 +29,7 @@ export { CollapsibleSubNavItem } from './elements/subnav/CollapsibleSubNavItem';
 export { Sheet } from './elements/sheet/Sheet';
 
 export {
-  PRODUCT as PRODUCTS,
+  PRODUCTS,
   type IChromeProps,
   type ISkipNavProps,
   type IBodyProps,

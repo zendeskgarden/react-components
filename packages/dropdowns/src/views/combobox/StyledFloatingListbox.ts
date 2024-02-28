@@ -9,7 +9,7 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  MENU_POSITION as MenuPosition,
+  MenuPosition,
   menuStyles
 } from '@zendeskgarden/react-theming';
 import { IListboxProps } from '../../types';
