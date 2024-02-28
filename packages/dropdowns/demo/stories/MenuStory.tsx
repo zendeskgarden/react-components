@@ -10,7 +10,7 @@ import { StoryFn } from '@storybook/react';
 import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import CartIcon from '@zendeskgarden/svg-icons/src/16/shopping-cart-stroke.svg';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import { IMenuProps, Item, ItemGroup, Separator, Menu } from '@zendeskgarden/react-dropdowns.next';
+import { IMenuProps, Item, ItemGroup, Separator, Menu } from '@zendeskgarden/react-dropdowns';
 import { IItem, Items } from './types';
 
 const MenuItem = ({ icon, meta, ...item }: IItem) => {

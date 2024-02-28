@@ -9,7 +9,7 @@ import React from 'react';
 import { StoryFn } from '@storybook/react';
 import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import { Item, Menu } from '@zendeskgarden/react-dropdowns.next';
+import { Item, Menu } from '@zendeskgarden/react-dropdowns';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
 export const MenuButtonStory: StoryFn = () => {
