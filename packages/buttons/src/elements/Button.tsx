@@ -5,20 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, SVGAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { IButtonProps, SIZE } from '../types';
 import { StyledButton } from '../styled';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 import { StartIcon } from './components/StartIcon';
 import { EndIcon } from './components/EndIcon';
-
-/**
- * @deprecated use IButtonStartIconProps or IButtonEndIconProps instead
- */
-export interface IIconProps extends SVGAttributes<SVGSVGElement> {
-  isRotated?: boolean;
-}
 
 const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
   const splitButtonContext = useSplitButtonContext();

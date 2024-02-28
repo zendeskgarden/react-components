@@ -35,6 +35,11 @@ consider additional positioning prop support on a case-by-case basis.
 #### @zendeskgarden/react-buttons
 
 - Removed `ButtonGroup`: UI no longer recommended by Garden
+- Removed `IIconProps` type export. Use `IButtonStartIconProps` or `IButtonEndIconProps` instead.
+
+#### @zendeskgarden/react-chrome
+
+- Removed `PRODUCT` type export. Use `IHeaderItemProps['product']` instead.
 
 #### @zendeskgarden/react-colorpickers
 
@@ -82,8 +87,7 @@ consider additional positioning prop support on a case-by-case basis.
 
 - `DrawerModal`: renamed to `Drawer`
 - `TooltipModal`: removed `popperModifiers` prop (see [note](#breaking-changes))
-- The following types have changed:
-  - removed `GARDEN_PLACEMENT`. Use `ITooltipModalProps['placement']` instead.
+- Removed `GARDEN_PLACEMENT` type export. Use `ITooltipModalProps['placement']` instead.
 
 #### @zendeskgarden/react-notification
 
@@ -97,8 +101,7 @@ consider additional positioning prop support on a case-by-case basis.
   - changed type export from `HTMLAttributes<HTMLUListElement>` to `HTMLAttributes<HTMLElement>`
   - removed `transformPageProps` prop
   - added `labels` prop
-- The following types have changed:
-  - `PAGE_TYPE` renamed to `PageType`
+- Renamed `PAGE_TYPE` type export to `PageType`
 
 #### @zendeskgarden/react-theming
 
@@ -108,8 +111,8 @@ consider additional positioning prop support on a case-by-case basis.
   - removed `retrieveTheme`. Use `retriveComponentStyles` instead.
   - constants prefixed with `ARRAY_` no longer have a prefix.
 - The following types have changed:
-  - `ARROW_POSITION` renamed to `ArrowPosition`
-  - `MENU_POSITION` renamed to `MenuPosition`
+  - renamed `ARROW_POSITION` to `ArrowPosition`
+  - renamed `MENU_POSITION` to `MenuPosition`
 
 #### @zendeskgarden/react-tooltips
 
