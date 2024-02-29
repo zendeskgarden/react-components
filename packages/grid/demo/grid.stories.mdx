@@ -1,12 +1,5 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import {
-  Grid,
-  Row,
-  Col,
-  ARRAY_ALIGN_ITEMS,
-  ARRAY_JUSTIFY_CONTENT,
-  ARRAY_WRAP
-} from '@zendeskgarden/react-grid';
+import { Grid, Row, Col, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '@zendeskgarden/react-grid';
 import { GridStory } from './stories/GridStory';
 import { GRID_ROWS as ROWS } from './stories/data';
 import README from '../README.md';
@@ -32,75 +25,75 @@ set any related `Col` prop along with `children` text for display.
     argTypes={{
       rows: { name: 'children' },
       alignItems: {
-        control: { type: 'select', options: ARRAY_ALIGN_ITEMS },
+        control: { type: 'select', options: ALIGN_ITEMS },
         table: { category: 'Row' }
       },
       alignItemsXs: {
-        control: { type: 'select', options: ARRAY_ALIGN_ITEMS },
+        control: { type: 'select', options: ALIGN_ITEMS },
         table: { category: 'Row' }
       },
       alignItemsSm: {
-        control: { type: 'select', options: ARRAY_ALIGN_ITEMS },
+        control: { type: 'select', options: ALIGN_ITEMS },
         table: { category: 'Row' }
       },
       alignItemsMd: {
-        control: { type: 'select', options: ARRAY_ALIGN_ITEMS },
+        control: { type: 'select', options: ALIGN_ITEMS },
         table: { category: 'Row' }
       },
       alignItemsLg: {
-        control: { type: 'select', options: ARRAY_ALIGN_ITEMS },
+        control: { type: 'select', options: ALIGN_ITEMS },
         table: { category: 'Row' }
       },
       alignItemsXl: {
-        control: { type: 'select', options: ARRAY_ALIGN_ITEMS },
+        control: { type: 'select', options: ALIGN_ITEMS },
         table: { category: 'Row' }
       },
       justifyContent: {
-        control: { type: 'select', options: ARRAY_JUSTIFY_CONTENT },
+        control: { type: 'select', options: JUSTIFY_CONTENT },
         table: { category: 'Row' }
       },
       justifyContentXs: {
-        control: { type: 'select', options: ARRAY_JUSTIFY_CONTENT },
+        control: { type: 'select', options: JUSTIFY_CONTENT },
         table: { category: 'Row' }
       },
       justifyContentSm: {
-        control: { type: 'select', options: ARRAY_JUSTIFY_CONTENT },
+        control: { type: 'select', options: JUSTIFY_CONTENT },
         table: { category: 'Row' }
       },
       justifyContentMd: {
-        control: { type: 'select', options: ARRAY_JUSTIFY_CONTENT },
+        control: { type: 'select', options: JUSTIFY_CONTENT },
         table: { category: 'Row' }
       },
       justifyContentLg: {
-        control: { type: 'select', options: ARRAY_JUSTIFY_CONTENT },
+        control: { type: 'select', options: JUSTIFY_CONTENT },
         table: { category: 'Row' }
       },
       justifyContentXl: {
-        control: { type: 'select', options: ARRAY_JUSTIFY_CONTENT },
+        control: { type: 'select', options: JUSTIFY_CONTENT },
         table: { category: 'Row' }
       },
       wrap: {
-        control: { type: 'select', options: ARRAY_WRAP },
+        control: { type: 'select', options: WRAP },
         table: { category: 'Row' }
       },
       wrapXs: {
-        control: { type: 'select', options: ARRAY_WRAP },
+        control: { type: 'select', options: WRAP },
         table: { category: 'Row' }
       },
       wrapSm: {
-        control: { type: 'select', options: ARRAY_WRAP },
+        control: { type: 'select', options: WRAP },
         table: { category: 'Row' }
       },
       wrapMd: {
-        control: { type: 'select', options: ARRAY_WRAP },
+        control: { type: 'select', options: WRAP },
         table: { category: 'Row' }
       },
       wrapLg: {
-        control: { type: 'select', options: ARRAY_WRAP },
+        control: { type: 'select', options: WRAP },
         table: { category: 'Row' }
       },
       wrapXl: {
-        control: { type: 'select', options: ARRAY_WRAP },
+        control: { type: 'select', options: WRAP },
         table: { category: 'Row' }
       }
     }}
