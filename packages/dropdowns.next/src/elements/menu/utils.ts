@@ -70,12 +70,16 @@ export const toFloatingPlacement = (
   if (isRtl) {
     /* Map Floating-UI to RTL placements */
     const placementMapRtl: Record<string, FloatingPlacement> = {
+      'top-start': 'top-end',
+      'top-end': 'top-start',
       left: 'right',
       'left-start': 'right-start',
       'left-end': 'right-end',
       right: 'left',
       'right-start': 'left-start',
-      'right-end': 'left-end'
+      'right-end': 'left-end',
+      'bottom-start': 'bottom-end',
+      'bottom-end': 'bottom-start'
     };
 
     retVal = placementMapRtl[retVal] || retVal;
