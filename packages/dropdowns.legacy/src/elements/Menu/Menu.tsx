@@ -17,7 +17,7 @@ import { getPopperPlacement, getRtlPopperPlacement } from '../../utils/garden-pl
 import { MenuContext } from '../../utils/useMenuContext';
 
 /**
- * @deprecated use `@zendeskgarden/react-dropdowns.next` Menu instead
+ * @deprecated use `@zendeskgarden/react-dropdowns` Menu instead
  *
  * @extends HTMLAttributes<HTMLUListElement>
  */
