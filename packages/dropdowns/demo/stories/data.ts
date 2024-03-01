@@ -73,7 +73,7 @@ export const ITEMS: Items = [
 
 export const OPTIONS: Options = [
   {
-    label: 'Flowers',
+    legend: 'Flowers',
     icon: true,
     options: [
       {
@@ -135,7 +135,7 @@ export const OPTIONS: Options = [
     ]
   },
   {
-    label: 'Fruits',
+    legend: 'Fruits',
     icon: true,
     options: [
       {
@@ -185,7 +185,7 @@ export const OPTIONS: Options = [
     ]
   },
   {
-    label: 'Herbs',
+    legend: 'Herbs',
     icon: true,
     options: [
       {
@@ -235,7 +235,7 @@ export const OPTIONS: Options = [
     ]
   },
   {
-    label: 'Trees',
+    legend: 'Trees',
     icon: true,
     options: [
       {
