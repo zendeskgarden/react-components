@@ -15,7 +15,15 @@ import {
   toFloatingPlacement,
   toMenuPosition
 } from './utils';
-import { Placement, autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
+import {
+  Placement,
+  autoUpdate,
+  platform,
+  flip,
+  offset,
+  size,
+  useFloating
+} from '@floating-ui/react-dom';
 import { IMenuListProps, PLACEMENT } from '../../types';
 import { StyledFloatingMenu, StyledMenu } from '../../views';
 import { createPortal } from 'react-dom';
@@ -58,6 +66,14 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
       update,
       floatingStyles: { transform }
     } = useFloating<HTMLElement>({
+      platform: {
+        ...platform,
+        // Defers RTL to Garden
+        // References:
+        // - https://github.com/floating-ui/floating-ui/issues/1530
+        // - https://github.com/floating-ui/floating-ui/blob/master/packages/dom/src/platform/isRTL.ts#L3
+        isRTL: () => theme.rtl
+      },
       elements: { reference: triggerRef?.current, floating: floatingRef?.current },
       placement: floatingPlacement as Placement,
       middleware: [
