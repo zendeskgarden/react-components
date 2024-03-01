@@ -1,0 +1,14 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { PaletteStory } from './stories/PaletteStory';
+
+<Meta title="Packages/Chrome/[patterns]" />
+
+# Patterns
+
+## Palette
+
+<Canvas>
+  <Story name="Palette" argTypes={{ hue: { control: 'color' } }}>
+    {args => <PaletteStory {...args} />}
+  </Story>
+</Canvas>
