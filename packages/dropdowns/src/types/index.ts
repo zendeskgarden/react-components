@@ -185,7 +185,7 @@ export interface IOptGroupProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'c
   /** Accepts an icon to display */
   icon?: ReactElement;
   /** Sets the text label of the option group */
-  label?: string;
+  legend?: string;
 }
 
 export interface ITagProps extends Omit<IBaseTagProps, 'isRound' | 'size'> {
