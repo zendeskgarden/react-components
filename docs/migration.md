@@ -107,6 +107,10 @@ consider additional positioning prop support on a case-by-case basis.
   - added `labels` prop
 - Renamed `PAGE_TYPE` type export to `PageType`
 
+#### @zendeskgarden/react-tables
+
+- All sub-component exports have been deprecated. Use them as properties on `Table` instead.
+
 #### @zendeskgarden/react-theming
 
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
