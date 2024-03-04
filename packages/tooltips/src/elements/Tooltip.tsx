@@ -17,13 +17,12 @@ import { ITooltipProps, PLACEMENT, SIZE, TYPE } from '../types';
 import { autoPlacement, autoUpdate, useFloating } from '@floating-ui/react-dom';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import { toSize } from './utils';
+import { Paragraph } from './Paragraph';
+import { Title } from './Title';
 
 export const PLACEMENT_DEFAULT = 'top';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Tooltip = ({
+export const TooltipComponent = ({
   id,
   delayMS,
   isInitialVisible,
@@ -123,9 +122,9 @@ export const Tooltip = ({
   );
 };
 
-Tooltip.displayName = 'Tooltip';
+TooltipComponent.displayName = 'Tooltip';
 
-Tooltip.propTypes = {
+TooltipComponent.propTypes = {
   appendToNode: PropTypes.any,
   hasArrow: PropTypes.bool,
   delayMS: PropTypes.number,
@@ -139,10 +138,21 @@ Tooltip.propTypes = {
   refKey: PropTypes.string
 };
 
-Tooltip.defaultProps = {
+TooltipComponent.defaultProps = {
   hasArrow: true,
   type: 'dark',
   placement: PLACEMENT_DEFAULT,
   delayMS: 500,
   refKey: 'ref'
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Tooltip = TooltipComponent as typeof TooltipComponent & {
+  Paragraph: typeof Paragraph;
+  Title: typeof Title;
+};
+
+Tooltip.Paragraph = Paragraph;
+Tooltip.Title = Title;

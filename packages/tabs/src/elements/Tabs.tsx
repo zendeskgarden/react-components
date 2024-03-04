@@ -15,11 +15,11 @@ import { ITabsProps } from '../types';
 import { toTabs } from '../utils/toTabs';
 import { TabsContext } from '../utils/useTabsContext';
 import { StyledTabs } from '../styled/StyledTabs';
+import { Tab } from './Tab';
+import { TabList } from './TabList';
+import { TabPanel } from './TabPanel';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Tabs = forwardRef<HTMLDivElement, ITabsProps>(
+export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
   (
     { isVertical, children, onChange, selectedItem: controlledSelectedItem, ...otherProps },
     ref
@@ -55,14 +55,27 @@ export const Tabs = forwardRef<HTMLDivElement, ITabsProps>(
   }
 );
 
-Tabs.propTypes = {
+TabsComponent.propTypes = {
   isVertical: PropTypes.bool,
   selectedItem: PropTypes.any,
   onChange: PropTypes.func
 };
 
-Tabs.defaultProps = {
+TabsComponent.defaultProps = {
   isVertical: false
 };
 
-Tabs.displayName = 'Tabs';
+TabsComponent.displayName = 'Tabs';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Tabs = TabsComponent as typeof TabsComponent & {
+  Tab: typeof Tab;
+  TabList: typeof TabList;
+  TabPanel: typeof TabPanel;
+};
+
+Tabs.Tab = Tab;
+Tabs.TabList = TabList;
+Tabs.TabPanel = TabPanel;
