@@ -17,9 +17,9 @@ import {
 import {
   autoPlacement,
   autoUpdate,
-  platform,
   flip,
   offset,
+  platform,
   size,
   useFloating
 } from '@floating-ui/react-dom';

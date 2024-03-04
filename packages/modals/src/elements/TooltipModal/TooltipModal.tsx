@@ -9,7 +9,7 @@ import React, { HTMLAttributes, useState, useContext, useEffect, useRef } from '
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
-import { autoPlacement, autoUpdate, offset, useFloating } from '@floating-ui/react-dom';
+import { autoPlacement, autoUpdate, offset, platform, useFloating } from '@floating-ui/react-dom';
 import { useModal } from '@zendeskgarden/container-modal';
 import { mergeRefs } from 'react-merge-refs';
 import { TooltipModalContext } from '../../utils/useTooltipModalContext';
@@ -70,6 +70,10 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
       update,
       floatingStyles: { transform }
     } = useFloating({
+      platform: {
+        ...platform,
+        isRTL: () => theme.rtl
+      },
       elements: { reference: referenceElement, floating: floatingElement },
       placement: floatingPlacement,
       middleware: [

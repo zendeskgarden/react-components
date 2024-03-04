@@ -14,7 +14,7 @@ import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers, getControlledValue } from '@zendeskgarden/container-utilities';
 import { StyledTooltipWrapper, StyledTooltip } from '../styled';
 import { ITooltipProps, PLACEMENT, SIZE, TYPE } from '../types';
-import { autoPlacement, autoUpdate, useFloating } from '@floating-ui/react-dom';
+import { autoPlacement, autoUpdate, platform, useFloating } from '@floating-ui/react-dom';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import { toSize } from './utils';
 
@@ -63,6 +63,10 @@ export const Tooltip = ({
     update,
     floatingStyles: { transform }
   } = useFloating({
+    platform: {
+      ...platform,
+      isRTL: () => theme.rtl
+    },
     elements: { reference: triggerRef?.current, floating: floatingRef?.current },
     placement: floatingPlacement,
     middleware: _placement === 'auto' ? [autoPlacement()] : undefined
