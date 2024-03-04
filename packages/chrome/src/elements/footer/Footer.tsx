@@ -7,12 +7,22 @@
 
 import React, { HTMLAttributes } from 'react';
 import { StyledFooter } from '../../styled';
+import { FooterItem } from './FooterItem';
 
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-export const Footer = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (
-  <StyledFooter ref={ref} {...props} />
-));
+export const FooterComponent = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
+  (props, ref) => <StyledFooter ref={ref} {...props} />
+);
 
-Footer.displayName = 'Footer';
+FooterComponent.displayName = 'Footer';
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+export const Footer = FooterComponent as typeof FooterComponent & {
+  Item: typeof FooterItem;
+};
+
+Footer.Item = FooterItem;

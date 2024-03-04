@@ -32,27 +32,16 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import {
   Body,
   Chrome,
-  CollapsibleSubNavItem,
   Content,
   Footer,
-  FooterItem,
   Header,
-  HeaderItem,
-  HeaderItemIcon,
-  HeaderItemText,
-  HeaderItemWrapper,
   IChromeProps,
   INavItemProps,
   Main,
   Nav,
-  NavItem,
-  NavItemIcon,
-  NavItemText,
   Sidebar,
   SkipNav,
-  SubNav,
-  SubNavItem,
-  SubNavItemText
+  SubNav
 } from '@zendeskgarden/react-chrome';
 import { Button } from '@zendeskgarden/react-buttons';
 import { IFooterItem, IHeaderItem, INavItem, ISubNavItem } from './types';
@@ -150,13 +139,13 @@ export const ChromeStory: Story<IArgs> = ({
       {hasNav && (
         <Nav isExpanded={isExpanded} aria-label="Nav">
           {hasLogo && (
-            <NavItem hasLogo product={product}>
-              <NavItemIcon>{product ? PRODUCT_ICONS[product] : <ProductIcon />}</NavItemIcon>
-              <NavItemText>Nav Logo</NavItemText>
-            </NavItem>
+            <Nav.Item hasLogo product={product}>
+              <Nav.ItemIcon>{product ? PRODUCT_ICONS[product] : <ProductIcon />}</Nav.ItemIcon>
+              <Nav.ItemText>Nav Logo</Nav.ItemText>
+            </Nav.Item>
           )}
           {navItems.map((item, index) => (
-            <NavItem
+            <Nav.Item
               key={index}
               isCurrent={currentNav === index}
               onClick={() => {
@@ -165,17 +154,17 @@ export const ChromeStory: Story<IArgs> = ({
                 onNavClick({ hasSubNav: item.hasSubNav, hasSidebar: item.hasSidebar });
               }}
             >
-              <NavItemIcon>{NAV_ICONS[index] || <NavIcon />}</NavItemIcon>
-              <NavItemText isWrapped={isWrapped}>{item.text}</NavItemText>
-            </NavItem>
+              <Nav.ItemIcon>{NAV_ICONS[index] || <NavIcon />}</Nav.ItemIcon>
+              <Nav.ItemText isWrapped={isWrapped}>{item.text}</Nav.ItemText>
+            </Nav.Item>
           ))}
           {hasBrandmark && (
-            <NavItem hasBrandmark>
-              <NavItemIcon>
+            <Nav.Item hasBrandmark>
+              <Nav.ItemIcon>
                 <BrandmarkIcon />
-              </NavItemIcon>
-              <NavItemText>Brandmark</NavItemText>
-            </NavItem>
+              </Nav.ItemIcon>
+              <Nav.ItemText>Brandmark</Nav.ItemText>
+            </Nav.Item>
           )}
         </Nav>
       )}
@@ -183,25 +172,25 @@ export const ChromeStory: Story<IArgs> = ({
         <SubNav style={{ maxWidth: subNavMaxWidth }}>
           {subNavItems.map((item, index) =>
             item.items ? (
-              <CollapsibleSubNavItem key={index} header={item.text}>
+              <SubNav.CollapsibleItem key={index} header={item.text}>
                 {item.items.map((subItem, subIndex) => (
-                  <SubNavItem
+                  <SubNav.Item
                     key={subIndex}
                     isCurrent={currentSubNav === parseFloat(`${index}.${subIndex}`)}
                     onClick={() => setCurrentSubNav(parseFloat(`${index}.${subIndex}`))}
                   >
-                    <SubNavItemText isWrapped={isWrapped}>{subItem}</SubNavItemText>
-                  </SubNavItem>
+                    <SubNav.ItemText isWrapped={isWrapped}>{subItem}</SubNav.ItemText>
+                  </SubNav.Item>
                 ))}
-              </CollapsibleSubNavItem>
+              </SubNav.CollapsibleItem>
             ) : (
-              <SubNavItem
+              <SubNav.Item
                 key={index}
                 isCurrent={currentSubNav === index}
                 onClick={() => setCurrentSubNav(index)}
               >
-                <SubNavItemText isWrapped={isWrapped}>{item.text}</SubNavItemText>
-              </SubNavItem>
+                <SubNav.ItemText isWrapped={isWrapped}>{item.text}</SubNav.ItemText>
+              </SubNav.Item>
             )
           )}
         </SubNav>
@@ -210,41 +199,41 @@ export const ChromeStory: Story<IArgs> = ({
         {hasHeader && (
           <Header isStandalone={!(hasNav || hasSubNav)}>
             {hasLogo && (
-              <HeaderItem hasLogo product={product}>
-                <HeaderItemIcon>
+              <Header.Item hasLogo product={product}>
+                <Header.ItemIcon>
                   <SupportIcon />
-                </HeaderItemIcon>
-                <HeaderItemText>Header Logo</HeaderItemText>
-              </HeaderItem>
+                </Header.ItemIcon>
+                <Header.ItemText>Header Logo</Header.ItemText>
+              </Header.Item>
             )}
             {headerItems.map((item, index) =>
               item.isWrapper ? (
-                <HeaderItemWrapper
+                <Header.ItemWrapper
                   key={index}
                   maxX={item.maxX}
                   maxY={item.maxY}
                   isRound={item.isRound}
                 >
                   {item.hasIcon && (
-                    <HeaderItemIcon>
+                    <Header.ItemIcon>
                       {HEADER_ICONS[HEADER_ICONS.length - headerItems.length + index] || (
                         <HeaderIcon />
                       )}
-                    </HeaderItemIcon>
+                    </Header.ItemIcon>
                   )}
-                  <HeaderItemText isClipped={item.isClipped}>{item.text}</HeaderItemText>
-                </HeaderItemWrapper>
+                  <Header.ItemText isClipped={item.isClipped}>{item.text}</Header.ItemText>
+                </Header.ItemWrapper>
               ) : (
-                <HeaderItem key={index} maxX={item.maxX} maxY={item.maxY} isRound={item.isRound}>
+                <Header.Item key={index} maxX={item.maxX} maxY={item.maxY} isRound={item.isRound}>
                   {item.hasIcon && (
-                    <HeaderItemIcon>
+                    <Header.ItemIcon>
                       {HEADER_ICONS[HEADER_ICONS.length - headerItems.length + index] || (
                         <HeaderIcon />
                       )}
-                    </HeaderItemIcon>
+                    </Header.ItemIcon>
                   )}
-                  <HeaderItemText isClipped={item.isClipped}>{item.text}</HeaderItemText>
-                </HeaderItem>
+                  <Header.ItemText isClipped={item.isClipped}>{item.text}</Header.ItemText>
+                </Header.Item>
               )
             )}
           </Header>
@@ -271,11 +260,11 @@ export const ChromeStory: Story<IArgs> = ({
           <Footer>
             {footerItems &&
               footerItems.map(({ text, type }, index) => (
-                <FooterItem key={index}>
+                <Footer.Item key={index}>
                   <Button isBasic={type === 'basic'} isPrimary={type === 'primary'}>
                     {text}
                   </Button>
-                </FooterItem>
+                </Footer.Item>
               ))}
           </Footer>
         )}
