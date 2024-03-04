@@ -113,6 +113,10 @@ consider additional positioning prop support on a case-by-case basis.
 - All subcomponent exports have been deprecated and will be removed in a future major version.
   Update to subcomponent properties (e.g., `Table.Body`).
 
+#### @zendeskgarden/react-tabs
+
+- All sub-component exports have been deprecated. Use them as properties on `Tabs` instead.
+
 #### @zendeskgarden/react-theming
 
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
@@ -129,6 +133,7 @@ consider additional positioning prop support on a case-by-case basis.
 - `Tooltip`
   - removed `eventsEnabled` prop (no longer exposed by Floating UI)
   - removed `popperModifiers` prop (see [note](#breaking-changes))
+- All sub-component exports have been deprecated. Use them as properties on `Tooltip` instead.
 
 #### @zendeskgarden/react-utilities
 
