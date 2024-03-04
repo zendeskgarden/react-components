@@ -186,8 +186,6 @@ export interface IOptGroupProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'c
   icon?: ReactElement;
   /** Sets the text label of the option group */
   legend?: string;
-  /** @deprecated use `IOptGroupProps['legend']` instead */
-  label?: string;
 }
 
 export interface ITagProps extends Omit<IBaseTagProps, 'isRound' | 'size'> {

@@ -77,8 +77,8 @@ describe('OptGroup', () => {
     expect(separator).not.toBeVisible();
   });
 
-  it('renders separator when first Combobox child with label', () => {
-    const { getByTestId } = render(<TestOptGroup label="Group" />);
+  it('renders separator when first Combobox child with legend', () => {
+    const { getByTestId } = render(<TestOptGroup legend="Group" />);
     const option = getByTestId('optgroup');
     const optGroup = option.querySelector('[aria-label="Group"]');
     const separator = optGroup?.firstChild;

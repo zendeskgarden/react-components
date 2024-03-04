@@ -23,19 +23,7 @@ import {
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
 export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
-  (
-    {
-      children,
-      content,
-      icon,
-      label,
-      legend = label,
-      'aria-label': ariaLabel,
-      onMouseDown,
-      ...props
-    },
-    ref
-  ) => {
+  ({ children, content, icon, legend, 'aria-label': ariaLabel, onMouseDown, ...props }, ref) => {
     const { getOptGroupProps, isCompact } = useComboboxContext();
     /* Prevent listbox collapse */
     const handleMouseDown: MouseEventHandler = event => event.preventDefault();
@@ -87,6 +75,5 @@ OptGroup.displayName = 'OptGroup';
 OptGroup.propTypes = {
   content: PropTypes.any,
   icon: PropTypes.any,
-  legend: PropTypes.string,
-  label: PropTypes.string
+  legend: PropTypes.string
 };
