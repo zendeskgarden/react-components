@@ -49,11 +49,11 @@ TableComponent.propTypes = {
  * @extends TableHTMLAttributes<HTMLTableElement>
  */
 export const Table = TableComponent as typeof TableComponent & {
-  Head: typeof Head;
+  Body: typeof Body;
   Caption: typeof Caption;
   Cell: typeof Cell;
   GroupRow: typeof GroupRow;
-  Body: typeof Body;
+  Head: typeof Head;
   HeaderCell: typeof HeaderCell;
   HeaderRow: typeof HeaderRow;
   OverflowButton: typeof OverflowButton;
@@ -61,11 +61,11 @@ export const Table = TableComponent as typeof TableComponent & {
   SortableCell: typeof SortableCell;
 };
 
-Table.Head = Head;
+Table.Body = Body;
 Table.Caption = Caption;
 Table.Cell = Cell;
 Table.GroupRow = GroupRow;
-Table.Body = Body;
+Table.Head = Head;
 Table.HeaderCell = HeaderCell;
 Table.HeaderRow = HeaderRow;
 Table.OverflowButton = OverflowButton;
