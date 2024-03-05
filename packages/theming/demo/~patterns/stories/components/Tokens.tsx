@@ -10,9 +10,16 @@ import styled from 'styled-components';
 import { IGardenTheme, PALETTE, mediaQuery } from '@zendeskgarden/react-theming';
 import { Field, Hint, ITextareaProps, Label, Message, Textarea } from '@zendeskgarden/react-forms';
 import { Code, CodeBlock } from '@zendeskgarden/react-typography';
-import { Close, Notification, Title, Well, useToast } from '@zendeskgarden/react-notifications';
+import {
+  Close,
+  Notification,
+  Paragraph,
+  Title,
+  Well,
+  useToast
+} from '@zendeskgarden/react-notifications';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import { Paragraph, Tooltip } from '@zendeskgarden/react-tooltips';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import CopyIcon from '@zendeskgarden/svg-icons/src/16/copy-stroke.svg';
 
