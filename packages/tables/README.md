@@ -16,45 +16,36 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import {
-  Table,
-  Caption,
-  Head,
-  HeaderRow,
-  HeaderCell,
-  Body,
-  Row,
-  Cell
-} from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
   <Table>
-    <Caption>Your Unsolved Tickets</Caption>
-    <Head>
-      <HeaderRow>
-        <HeaderCell>Subject</HeaderCell>
-        <HeaderCell>Requester</HeaderCell>
-        <HeaderCell>Requested</HeaderCell>
-        <HeaderCell>Type</HeaderCell>
-      </HeaderRow>
-    </Head>
-    <Body>
-      <Row>
-        <Cell>Where are my shoes?</Cell>
-        <Cell>John Smith</Cell>
-        <Cell>15 minutes ago</Cell>
-        <Cell>Ticket</Cell>
-      </Row>
-      <Row>
-        <Cell>I was charged twice!</Cell>
-        <Cell>Jane Doe</Cell>
-        <Cell>25 minutes ago</Cell>
-        <Cell>Call</Cell>
-      </Row>
-    </Body>
+    <Table.Caption>Your Unsolved Tickets</Table.Caption>
+    <Table.Head>
+      <Table.HeaderRow>
+        <Table.HeaderCell>Subject</Table.HeaderCell>
+        <Table.HeaderCell>Requester</Table.HeaderCell>
+        <Table.HeaderCell>Requested</Table.HeaderCell>
+        <Table.HeaderCell>Type</Table.HeaderCell>
+      </Table.HeaderRow>
+    </Table.Head>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>Where are my shoes?</Table.Cell>
+        <Table.Cell>John Smith</Table.Cell>
+        <Table.Cell>15 minutes ago</Table.Cell>
+        <Table.Cell>Ticket</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>I was charged twice!</Table.Cell>
+        <Table.Cell>Jane Doe</Table.Cell>
+        <Table.Cell>25 minutes ago</Table.Cell>
+        <Table.Cell>Call</Table.Cell>
+      </Table.Row>
+    </Table.Body>
   </Table>
 </ThemeProvider>;
 ```

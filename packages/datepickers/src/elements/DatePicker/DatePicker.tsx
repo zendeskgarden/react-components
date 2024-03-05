@@ -18,7 +18,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
-import { autoPlacement, autoUpdate, flip, useFloating } from '@floating-ui/react-dom';
+import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floating-ui/react-dom';
 import { IDatePickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
 import { Calendar } from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/date-picker-reducer';
@@ -72,6 +72,10 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     update,
     floatingStyles: { transform }
   } = useFloating({
+    platform: {
+      ...platform,
+      isRTL: () => theme.rtl
+    },
     elements: { reference: triggerRef?.current, floating: floatingRef?.current },
     placement: floatingPlacement,
     middleware: [_placement === 'auto' ? autoPlacement() : flip()]

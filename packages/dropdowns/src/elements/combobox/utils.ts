@@ -60,7 +60,7 @@ export const toOptions = (
         const props: IOptGroupProps = option.props;
         const groupOptions = toOptions(props.children, optionTagProps) as IOption[];
 
-        retVal.push({ label: props.label, options: groupOptions });
+        retVal.push({ label: props.legend, options: groupOptions });
       }
     }
 

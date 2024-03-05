@@ -10,11 +10,18 @@ import PropTypes from 'prop-types';
 import { ITableProps, SIZE } from '../types';
 import { StyledTable } from '../styled';
 import { TableContext } from '../utils/useTableContext';
+import { Head } from './Head';
+import { Body } from './Body';
+import { Caption } from './Caption';
+import { Cell } from './Cell';
+import { GroupRow } from './GroupRow';
+import { HeaderCell } from './HeaderCell';
+import { HeaderRow } from './HeaderRow';
+import { OverflowButton } from './OverflowButton';
+import { Row } from './Row';
+import { SortableCell } from './SortableCell';
 
-/**
- * @extends TableHTMLAttributes<HTMLTableElement>
- */
-export const Table = React.forwardRef<HTMLTableElement, ITableProps>((props, ref) => {
+export const TableComponent = React.forwardRef<HTMLTableElement, ITableProps>((props, ref) => {
   const tableContextValue = useMemo(
     () => ({ size: props.size!, isReadOnly: props.isReadOnly! }),
     [props.size, props.isReadOnly]
@@ -27,13 +34,40 @@ export const Table = React.forwardRef<HTMLTableElement, ITableProps>((props, ref
   );
 });
 
-Table.displayName = 'Table';
+TableComponent.displayName = 'Table';
 
-Table.defaultProps = {
+TableComponent.defaultProps = {
   size: 'medium'
 };
 
-Table.propTypes = {
+TableComponent.propTypes = {
   size: PropTypes.oneOf(SIZE),
   isReadOnly: PropTypes.bool
 };
+
+/**
+ * @extends TableHTMLAttributes<HTMLTableElement>
+ */
+export const Table = TableComponent as typeof TableComponent & {
+  Body: typeof Body;
+  Caption: typeof Caption;
+  Cell: typeof Cell;
+  GroupRow: typeof GroupRow;
+  Head: typeof Head;
+  HeaderCell: typeof HeaderCell;
+  HeaderRow: typeof HeaderRow;
+  OverflowButton: typeof OverflowButton;
+  Row: typeof Row;
+  SortableCell: typeof SortableCell;
+};
+
+Table.Body = Body;
+Table.Caption = Caption;
+Table.Cell = Cell;
+Table.GroupRow = GroupRow;
+Table.Head = Head;
+Table.HeaderCell = HeaderCell;
+Table.HeaderRow = HeaderRow;
+Table.OverflowButton = OverflowButton;
+Table.Row = Row;
+Table.SortableCell = SortableCell;

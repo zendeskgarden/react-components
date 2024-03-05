@@ -15,7 +15,7 @@ import { IComboboxProps } from '../../types';
 import useDropdownContext from '../../utils/useDropdownContext';
 
 /**
- * @deprecated use `@zendeskgarden/react-dropdowns.next` Combobox instead
+ * @deprecated use `@zendeskgarden/react-dropdowns` Combobox instead
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */

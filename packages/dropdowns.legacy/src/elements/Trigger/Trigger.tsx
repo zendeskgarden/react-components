@@ -14,7 +14,7 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import { ITriggerProps } from '../../types';
 
 /**
- * @deprecated use `@zendeskgarden/react-dropdowns.next` Menu instead
+ * @deprecated use `@zendeskgarden/react-dropdowns` Menu instead
  *
  * @extends HTMLAttributes<HTMLElement>
  */

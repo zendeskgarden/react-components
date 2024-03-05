@@ -73,6 +73,7 @@ consider additional positioning prop support on a case-by-case basis.
   - The `v8` version of `@zendeskgarden/react-dropdowns` is no longer maintained and is
     renamed to `@zendeskgarden/react-dropdowns.legacy` in `v9`
 - `Menu`: value `auto` is no longer valid for the `fallbackPlacements` prop.
+- Removed `label` prop from `OptGroup`. Use `legend` instead.
 
 #### @zendeskgarden/react-forms
 
@@ -106,6 +107,11 @@ consider additional positioning prop support on a case-by-case basis.
   - removed `transformPageProps` prop
   - added `labels` prop
 - Renamed `PAGE_TYPE` type export to `PageType`
+
+#### @zendeskgarden/react-tables
+
+- All subcomponent exports have been deprecated and will be removed in a future major version.
+  Update to subcomponent properties (e.g., `Table.Body`).
 
 #### @zendeskgarden/react-theming
 

@@ -18,7 +18,7 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 /**
- * @deprecated use `@zendeskgarden/react-dropdowns.next` Combobox instead
+ * @deprecated use `@zendeskgarden/react-dropdowns` Combobox instead
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */

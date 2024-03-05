@@ -77,8 +77,8 @@ describe('OptGroup', () => {
     expect(separator).not.toBeVisible();
   });
 
-  it('renders separator when first Combobox child with label', () => {
-    const { getByTestId } = render(<TestOptGroup label="Group" />);
+  it('renders separator when first Combobox child with legend', () => {
+    const { getByTestId } = render(<TestOptGroup legend="Group" />);
     const option = getByTestId('optgroup');
     const optGroup = option.querySelector('[aria-label="Group"]');
     const separator = optGroup?.firstChild;
@@ -86,15 +86,15 @@ describe('OptGroup', () => {
     expect(separator).toBeVisible();
   });
 
-  it('renders a label if provided', () => {
-    const { getByTestId } = render(<TestOptGroup label="test" />);
+  it('renders a legend if provided', () => {
+    const { getByTestId } = render(<TestOptGroup legend="test" />);
     const optGroup = getByTestId('optgroup');
 
     expect(optGroup).toHaveTextContent('test');
   });
 
-  it('overrides the label with content if provided', () => {
-    const { getByTestId } = render(<TestOptGroup label="test" content="content" />);
+  it('overrides the legend with content if provided', () => {
+    const { getByTestId } = render(<TestOptGroup legend="test" content="content" />);
     const optGroup = getByTestId('optgroup');
 
     expect(optGroup).toHaveTextContent('content');
@@ -111,7 +111,7 @@ describe('OptGroup', () => {
 
     it('does render with content', () => {
       const { getByTestId } = render(
-        <TestOptGroup icon={<svg data-test-id="icon" />} label="label" />
+        <TestOptGroup icon={<svg data-test-id="icon" />} legend="label" />
       );
       const icon = getByTestId('icon');
 

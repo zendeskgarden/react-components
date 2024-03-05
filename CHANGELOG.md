@@ -13,6 +13,30 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.3 (2024-02-29)
+
+#### :boom: Breaking Change
+* `accordions`, `avatars`, `buttons`, `chrome`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `theming`
+  * [#1725](https://github.com/zendeskgarden/react-components/pull/1725) feat!: renames and prunes type/constant exports from packages ([@geotrev](https://github.com/geotrev))
+* `dropdowns`, `notifications`
+  * [#1723](https://github.com/zendeskgarden/react-components/pull/1723) feat!: renames react-dropdowns.next to react-dropdowns ([@geotrev](https://github.com/geotrev))
+* `avatars`, `dropdowns.legacy`, `notifications`, `typography`
+  * [#1722](https://github.com/zendeskgarden/react-components/pull/1722) feat!: renames `react-dropdowns` to `react-dropdowns.legacy` ([@geotrev](https://github.com/geotrev))
+* `buttons`, `forms`
+  * [#1720](https://github.com/zendeskgarden/react-components/pull/1720) chore!: remove `ButtonGroup` and `MultiThumbRange` components ([@jzempel](https://github.com/jzempel))
+* `colorpickers`
+  * [#1719](https://github.com/zendeskgarden/react-components/pull/1719) feat!: renames Colorpicker(Dialog) to ColorPicker(Dialog) ([@geotrev](https://github.com/geotrev))
+
+#### :bug: Bug Fix
+* `dropdowns.legacy`, `grid`
+  * [#1727](https://github.com/zendeskgarden/react-components/pull/1727) fix: updates constant imports in grid story and lingering dropdowns.next references ([@geotrev](https://github.com/geotrev))
+* `colorpickers`
+  * [#1726](https://github.com/zendeskgarden/react-components/pull/1726) fix(colorpickers): `ColorSwatch` focus styling ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `theming`
+  * [#1721](https://github.com/zendeskgarden/react-components/pull/1721) chore: add Storybook tool for dark mode ([@jzempel](https://github.com/jzempel))
+
 ## v9.0.0-next.2 (2024-02-22)
 
 #### :boom: Breaking Change
