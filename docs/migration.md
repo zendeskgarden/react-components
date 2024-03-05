@@ -44,6 +44,8 @@ consider additional positioning prop support on a case-by-case basis.
 #### @zendeskgarden/react-chrome
 
 - Removed `PRODUCT` type export. Use `IHeaderItemProps['product']` instead.
+- Some subcomponent exports have been deprecated and will be removed in a future major version.
+  Update to subcomponent properties.
 
 #### @zendeskgarden/react-colorpickers
 

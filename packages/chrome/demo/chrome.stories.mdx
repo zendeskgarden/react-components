@@ -1,28 +1,17 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import {
-  Chrome,
-  CollapsibleSubNavItem,
   Body,
+  Chrome,
   Content,
   Footer,
-  FooterItem,
   Header,
-  HeaderItem,
-  HeaderItemIcon,
-  HeaderItemText,
-  HeaderItemWrapper,
   Main,
   Nav,
-  NavItem,
-  NavItemIcon,
-  NavItemText,
   Sheet,
   Sidebar,
   SkipNav,
   SubNav,
-  SubNavItem,
-  SubNavItemText,
   PRODUCTS
 } from '@zendeskgarden/react-chrome';
 import { ChromeStory } from './stories/ChromeStory';
@@ -44,27 +33,27 @@ import README from '../README.md';
   title="Packages/Chrome/Chrome"
   component={Chrome}
   subcomponents={{
-    CollapsibleSubNavItem,
     Body,
     Content,
     Footer,
-    FooterItem,
+    'Footer.Item': Footer.Item,
     Header,
-    HeaderItem,
-    HeaderItemIcon,
-    HeaderItemText,
-    HeaderItemWrapper,
+    'Item.HeaderItem': Header.Item,
+    'Item.HeaderItemIcon': Header.ItemIcon,
+    'Item.HeaderItemText': Header.ItemText,
+    'Item.HeaderItemWrapper': Header.ItemWrapper,
     Main,
     Nav,
-    NavItem,
-    NavItemIcon,
-    NavItemText,
+    'Nav.Item': Nav.Item,
+    'Nav.ItemIcon': Nav.ItemIcon,
+    'Nav.ItemText': Nav.ItemText,
     Sheet,
     Sidebar,
     SkipNav,
     SubNav,
-    SubNavItem,
-    SubNavItemText
+    'SubNav.CollapsibleItem': SubNav.CollapsibleItem,
+    'Sub.NavItem': Sub.NavItem,
+    'Sub.NavItemText': Sub.NavItemText
   }}
 />
 
