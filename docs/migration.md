@@ -110,8 +110,8 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-tables
 
-- All sub-component exports have been deprecated and will be removed in a future major version.
-  Update to sub-component properties (e.g., `Table.Body`).
+- All subcomponent exports have been deprecated and will be removed in a future major version.
+  Update to subcomponent properties (e.g., `Table.Body`).
 
 #### @zendeskgarden/react-theming
 
