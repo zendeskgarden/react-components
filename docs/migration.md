@@ -115,8 +115,8 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-tabs
 
-- All sub-component exports have been deprecated and will be removed in a future major version.
-  Update to sub-component properties (e.g., `Tabs.TabList`).
+- All subcomponent exports have been deprecated and will be removed in a future major version.
+  Update to subcomponent properties (e.g., `Tabs.TabList`).
 
 #### @zendeskgarden/react-theming
 
