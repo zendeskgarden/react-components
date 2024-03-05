@@ -1,6 +1,6 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Tabs, Tab, TabList, TabPanel } from '@zendeskgarden/react-tabs';
+import { Tabs } from '@zendeskgarden/react-tabs';
 import { TabsStory } from './stories/TabsStory';
 import { TABS } from './stories/data';
 import README from '../README.md';
@@ -8,7 +8,11 @@ import README from '../README.md';
 <Meta
   title="Packages/Tabs/Tabs"
   component={Tabs}
-  subcomponents={{ Tab, TabList, TabPanel }}
+  subcomponents={{
+    'Tabs.Tab': Tabs.Tab,
+    'Tabs.TabList': Tabs.TabList,
+    'Tabs.TabPanel': Tabs.TabPanel
+  }}
   args={{ tabs: TABS }}
   argTypes={{ tabs: { table: { category: 'Story' } } }}
   parameters={{

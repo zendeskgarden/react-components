@@ -17,7 +17,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 ```jsx
 import React, { useState } from 'react';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Tabs, TabList, Tab, TabPanel } from '@zendeskgarden/react-tabs';
+import { Tabs } from '@zendeskgarden/react-tabs';
 
 const Example = () => {
   const [selectedTab, setSelectedTab] = useState('tab-1');
@@ -28,15 +28,15 @@ const Example = () => {
   return (
     <ThemeProvider>
       <Tabs selectedItem={selectedTab} onChange={setSelectedTab}>
-        <TabList>
-          <Tab item="tab-1">Tab 1</Tab>
-          <Tab item="tab-2">Tab 2</Tab>
-          <Tab disabled>Disabled Tab</Tab>
-          <Tab item="tab-3">Tab 3</Tab>
-        </TabList>
-        <TabPanel item="tab-1">Tab 1 content</TabPanel>
-        <TabPanel item="tab-2">Tab 2 content</TabPanel>
-        <TabPanel item="tab-3">Tab 3 content</TabPanel>
+        <Tabs.TabList>
+          <Tabs.Tab item="tab-1">Tab 1</Tabs.Tab>
+          <Tabs.Tab item="tab-2">Tab 2</Tabs.Tab>
+          <Tabs.Tab disabled>Disabled Tab</Tabs.Tab>
+          <Tabs.Tab item="tab-3">Tab 3</Tabs.Tab>
+        </Tabs.TabList>
+        <Tabs.TabPanel item="tab-1">Tab 1 content</Tabs.TabPanel>
+        <Tabs.TabPanel item="tab-2">Tab 2 content</Tabs.TabPanel>
+        <Tabs.TabPanel item="tab-3">Tab 3 content</Tabs.TabPanel>
       </Tabs>
     </ThemeProvider>
   );
