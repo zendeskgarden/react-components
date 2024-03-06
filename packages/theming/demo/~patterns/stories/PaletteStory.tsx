@@ -5,34 +5,52 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import { StoryFn } from '@storybook/react';
-import { ThemeContext } from 'styled-components';
-import { ToastProvider } from '@zendeskgarden/react-notifications';
-import { Chrome, Body, Content } from '@zendeskgarden/react-chrome';
+import { Tab, TabList, TabPanel, Tabs } from '@zendeskgarden/react-tabs';
+import { Chrome, Body, Content, IChromeProps } from '@zendeskgarden/react-chrome';
 import { Nav } from './components/Nav';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
 import { Tokens } from './components/Tokens';
+import { IGardenTheme, ThemeProvider } from '@zendeskgarden/react-theming';
 
-export const PaletteStory: StoryFn = args => {
-  const theme = useContext(ThemeContext);
-  const toastPlacement = {
-    'top-end': { style: { top: theme.space.base * 3 } }
-  };
+interface IArgs {
+  hue?: IChromeProps['hue'];
+  palette: IGardenTheme['palette'];
+}
+
+export const PaletteStory: StoryFn<IArgs> = ({ hue, palette }) => {
+  const theme = (parentTheme: IGardenTheme) => ({
+    ...parentTheme,
+    palette: {
+      ...parentTheme.palette,
+      ...palette
+    }
+  });
 
   return (
-    <ToastProvider placementProps={toastPlacement} zIndex={1}>
-      <Tokens />
-      <Chrome {...args} isFluid>
-        <Nav />
-        <Body>
-          <Header />
-          <Content>
-            <Main />
-          </Content>
-        </Body>
-      </Chrome>
-    </ToastProvider>
+    <ThemeProvider theme={theme}>
+      <Tabs>
+        <TabList>
+          <Tab item="components">Components</Tab>
+          <Tab item="palette">Palette</Tab>
+        </TabList>
+        <TabPanel item="components">
+          <Chrome hue={hue} isFluid style={{ height: 'calc(100vh - 140px)' }}>
+            <Nav />
+            <Body>
+              <Header />
+              <Content>
+                <Main />
+              </Content>
+            </Body>
+          </Chrome>
+        </TabPanel>
+        <TabPanel item="palette">
+          <Tokens />
+        </TabPanel>
+      </Tabs>
+    </ThemeProvider>
   );
 };

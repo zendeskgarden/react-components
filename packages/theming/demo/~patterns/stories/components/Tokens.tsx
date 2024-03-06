@@ -5,35 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ChangeEventHandler, useState } from 'react';
-import styled from 'styled-components';
+import React, { ChangeEventHandler, useContext, useState } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 import { IGardenTheme, PALETTE, mediaQuery } from '@zendeskgarden/react-theming';
-import { Field, Hint, ITextareaProps, Label, Message, Textarea } from '@zendeskgarden/react-forms';
-import { Code, CodeBlock } from '@zendeskgarden/react-typography';
-import {
-  Close,
-  Notification,
-  Paragraph,
-  Title,
-  Well,
-  useToast
-} from '@zendeskgarden/react-notifications';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
-import { IconButton } from '@zendeskgarden/react-buttons';
-import CopyIcon from '@zendeskgarden/svg-icons/src/16/copy-stroke.svg';
-
-const copyToClipboard = (content: string) => {
-  const proxyElement = document.createElement('textarea');
-
-  proxyElement.style.cssText = `border:none;outline:none;boxShadow:none;
-  position:absolute;top:0;left:-9999px;`;
-  document.body.appendChild(proxyElement);
-  proxyElement.value = content;
-  proxyElement.select();
-  document.execCommand('copy');
-  proxyElement.remove();
-};
+import { Field, Hint, ITextareaProps, Label, Message, Textarea } from '@zendeskgarden/react-forms';
+import { ToastProvider } from '@zendeskgarden/react-notifications';
+import { Palette } from './Palette';
 
 const StyledCol = styled(Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
@@ -46,9 +24,10 @@ export const Tokens = () => {
   const [validation, setValidation] = useState<ITextareaProps['validation']>();
   const [message, setMessage] = useState<string | undefined>();
   const [palette, setPalette] = useState<IGardenTheme['palette']>(PALETTE);
-  const { addToast } = useToast();
-
-  const paletteText = JSON.stringify(palette, null /* replacer */, '  ');
+  const theme = useContext(ThemeContext);
+  const toastPlacement = {
+    'top-end': { style: { top: theme.space.base * 3 } }
+  };
 
   const handleChange: ChangeEventHandler<HTMLTextAreaElement> = event => {
     const text = event.target.value.trim();
@@ -90,49 +69,27 @@ export const Tokens = () => {
     }
   };
 
-  const handleCopy = () => {
-    copyToClipboard(paletteText);
-    addToast(({ close }) => (
-      <Notification type="success">
-        <Title>JSON copied</Title>
-        <Close aria-label="Close" onClick={close} />
-      </Notification>
-    ));
-  };
-
   return (
     <Grid>
       <Row>
-        <Col sm={5}>
+        <Col sm={6}>
           <Field>
             <Label>Design tokens</Label>
             <Hint>from Leonardo</Hint>
             <Textarea
-              minRows={3}
-              maxRows={9}
+              maxRows={38}
               onChange={handleChange}
+              placeholder="Paste JSON here"
               validation={validation}
               value={value}
             />
             {validation && <Message validation={validation}>{message}</Message>}
           </Field>
         </Col>
-        <StyledCol sm={7}>
-          <Well isRecessed>
-            <Title>
-              Garden <Code>PALETTE</Code>{' '}
-              <Tooltip content="Copy JSON">
-                <IconButton onClick={handleCopy} size="small">
-                  <CopyIcon />
-                </IconButton>
-              </Tooltip>
-            </Title>
-            <Paragraph>
-              <CodeBlock isLight language="json" containerProps={{ style: { maxHeight: 200 } }}>
-                {paletteText}
-              </CodeBlock>
-            </Paragraph>
-          </Well>
+        <StyledCol sm={6}>
+          <ToastProvider placementProps={toastPlacement} zIndex={1}>
+            <Palette palette={palette} />
+          </ToastProvider>
         </StyledCol>
       </Row>
     </Grid>

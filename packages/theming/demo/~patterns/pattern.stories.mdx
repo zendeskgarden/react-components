@@ -1,4 +1,5 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { PaletteStory } from './stories/PaletteStory';
 
 <Meta title="Packages/Theming/[patterns]" />
@@ -8,7 +9,14 @@ import { PaletteStory } from './stories/PaletteStory';
 ## Palette
 
 <Canvas>
-  <Story name="Palette" argTypes={{ hue: { control: 'color' } }}>
+  <Story
+    name="Palette"
+    args={{ palette: PALETTE }}
+    argTypes={{
+      hue: { control: 'color', name: 'Chrome hue' },
+      palette: { name: 'Theme palette' }
+    }}
+  >
     {args => <PaletteStory {...args} />}
   </Story>
 </Canvas>
