@@ -10,15 +10,9 @@ import { render } from 'garden-test-utils';
 import { ThemeProvider } from './ThemeProvider';
 
 describe('ThemeProvider', () => {
-  it('renders a :focus-visible scoping <div> by default', () => {
-    const { container } = render(<ThemeProvider />);
-
-    expect(container.firstChild!.nodeName).toBe('DIV');
-  });
-
-  it('only renders children when focusVisibleRef is null', () => {
+  it('only renders children', () => {
     const { container } = render(
-      <ThemeProvider focusVisibleRef={null}>
+      <ThemeProvider>
         <button />
       </ThemeProvider>
     );

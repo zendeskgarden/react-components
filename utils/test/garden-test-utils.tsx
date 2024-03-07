@@ -5,27 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { render, configure } from '@testing-library/react';
 import { ThemeProvider, DEFAULT_THEME } from '../../packages/theming/src';
 
 configure({ testIdAttribute: 'data-test-id' });
 
-const LtrProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const bodyRef = useRef(document.body);
+const LtrProvider: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <ThemeProvider>{children}</ThemeProvider>
+);
 
-  return <ThemeProvider focusVisibleRef={bodyRef}>{children}</ThemeProvider>;
-};
-
-const RtlProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const bodyRef = useRef(document.body);
-
-  return (
-    <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: true }} focusVisibleRef={bodyRef}>
-      {children}
-    </ThemeProvider>
-  );
-};
+const RtlProvider: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: true }}>{children}</ThemeProvider>
+);
 
 const customLtrRender = (ui: React.ReactElement, options?: any) =>
   render(ui, { wrapper: LtrProvider, ...options });

@@ -94,7 +94,6 @@ export const SheetStory: Story<IArgs> = ({
 }) => (
   <>
     <ThemeProvider
-      focusVisibleRef={null}
       theme={
         ((parentTheme: DefaultTheme) => ({
           ...parentTheme,
