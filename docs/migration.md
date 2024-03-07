@@ -44,6 +44,20 @@ consider additional positioning prop support on a case-by-case basis.
 #### @zendeskgarden/react-chrome
 
 - Removed `PRODUCT` type export. Use `IHeaderItemProps['product']` instead.
+- Renamed `ICollapsibleSubNavItemProps` type export to `ISubNavCollapsibleItemProps`.
+- Subcomponent exports have been deprecated and will be removed in a future major version. Update
+  to subcomponent properties:
+  - `FooterItem` -> `Footer.Item`
+  - `HeaderItem` -> `Header.Item`
+  - `HeaderItemIcon` -> `Header.ItemIcon`
+  - `HeaderItemText` -> `Header.ItemText`
+  - `HeaderItemWrapper` -> `Header.ItemWrapper`
+  - `NavItem` -> `Nav.Item`
+  - `NavItemIcon` -> `Nav.ItemIcon`
+  - `NavItemText` -> `Nav.ItemText`
+  - `CollapsibleSubNavItem` -> `SubNav.CollapsibleItem`
+  - `SubNavItem` -> `SubNav.Item`
+  - `SubNavItemText` -> `SubNav.ItemText`
 
 #### @zendeskgarden/react-colorpickers
 
@@ -113,6 +127,11 @@ consider additional positioning prop support on a case-by-case basis.
 - All subcomponent exports have been deprecated and will be removed in a future major version.
   Update to subcomponent properties (e.g., `Table.Body`).
 
+#### @zendeskgarden/react-tabs
+
+- All subcomponent exports have been deprecated and will be removed in a future major version.
+  Update to subcomponent properties (e.g., `Tabs.TabList`).
+
 #### @zendeskgarden/react-theming
 
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
@@ -129,6 +148,8 @@ consider additional positioning prop support on a case-by-case basis.
 - `Tooltip`
   - removed `eventsEnabled` prop (no longer exposed by Floating UI)
   - removed `popperModifiers` prop (see [note](#breaking-changes))
+- All subcomponent exports have been deprecated and will be removed in a future major version.
+  Update to subcomponent properties (e.g., `Tooltip.Title`).
 
 #### @zendeskgarden/react-utilities
 

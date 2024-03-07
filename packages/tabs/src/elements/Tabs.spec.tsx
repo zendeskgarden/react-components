@@ -10,30 +10,30 @@ import userEvent from '@testing-library/user-event';
 import { render as baseRender } from '@testing-library/react';
 import { render } from 'garden-test-utils';
 
-import { Tabs, ITabsProps, TabList, TabPanel, Tab, ITabProps } from '../';
+import { Tabs, ITabsProps, ITabProps } from '../';
 
 describe('Tabs', () => {
   const user = userEvent.setup();
 
   /* Validates `Tab` component extension works as expected with `toTabs` */
-  const TestTab = (props: ITabProps) => <Tab {...props} />;
+  const TestTab = (props: ITabProps) => <Tabs.Tab {...props} />;
 
   const BasicExample = (props: ITabsProps) => (
     <Tabs data-test-id="container" {...props}>
-      <TabList>
-        <Tab item="tab-1" data-test-id="tab">
+      <Tabs.TabList>
+        <Tabs.Tab item="tab-1" data-test-id="tab">
           Tab 1
-        </Tab>
+        </Tabs.Tab>
         <TestTab item="tab-2" data-test-id="tab">
           Tab 2
         </TestTab>
-      </TabList>
-      <TabPanel item="tab-1" data-test-id="panel">
+      </Tabs.TabList>
+      <Tabs.TabPanel item="tab-1" data-test-id="panel">
         Tab 1 content
-      </TabPanel>
-      <TabPanel item="tab-2" data-test-id="panel">
+      </Tabs.TabPanel>
+      <Tabs.TabPanel item="tab-2" data-test-id="panel">
         Tab 2 content
-      </TabPanel>
+      </Tabs.TabPanel>
     </Tabs>
   );
 
@@ -62,10 +62,10 @@ describe('Tabs', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(
       <Tabs ref={ref}>
-        <TabList>
-          <Tab item="tab-1">Tab 1</Tab>
-        </TabList>
-        <TabPanel item="tab-1">Tab 1 content</TabPanel>
+        <Tabs.TabList>
+          <Tabs.Tab item="tab-1">Tab 1</Tabs.Tab>
+        </Tabs.TabList>
+        <Tabs.TabPanel item="tab-1">Tab 1 content</Tabs.TabPanel>
       </Tabs>
     );
 
@@ -91,15 +91,15 @@ describe('Tabs', () => {
     it('applies disabled styling if provided', () => {
       const { getAllByTestId } = render(
         <Tabs>
-          <TabList>
-            <Tab data-test-id="tab" item="tab-1">
+          <Tabs.TabList>
+            <Tabs.Tab data-test-id="tab" item="tab-1">
               Tab 1
-            </Tab>
-            <Tab data-test-id="tab" disabled>
+            </Tabs.Tab>
+            <Tabs.Tab data-test-id="tab" disabled>
               Disabled Tab
-            </Tab>
-          </TabList>
-          <TabPanel item="tab-1">Tab 1 content</TabPanel>
+            </Tabs.Tab>
+          </Tabs.TabList>
+          <Tabs.TabPanel item="tab-1">Tab 1 content</Tabs.TabPanel>
         </Tabs>
       );
 
@@ -109,12 +109,12 @@ describe('Tabs', () => {
     it('applies custom props if provided', () => {
       const { getByTestId } = render(
         <Tabs>
-          <TabList>
-            <Tab item="custom" data-test-id="custom-tab">
+          <Tabs.TabList>
+            <Tabs.Tab item="custom" data-test-id="custom-tab">
               Custom Tab
-            </Tab>
-          </TabList>
-          <TabPanel item="custom">Custom Tab content</TabPanel>
+            </Tabs.Tab>
+          </Tabs.TabList>
+          <Tabs.TabPanel item="custom">Custom Tab content</Tabs.TabPanel>
         </Tabs>
       );
 
@@ -128,15 +128,15 @@ describe('Tabs', () => {
     });
   });
 
-  describe('TabPanel', () => {
-    it('does not throw if a item is provided to TabPanel', () => {
+  describe('Tabs.TabPanel', () => {
+    it('does not throw if a item is provided to Tabs.TabPanel', () => {
       expect(() => {
         render(
           <Tabs>
-            <TabList>
-              <Tab item="valid-panel">Panel</Tab>
-            </TabList>
-            <TabPanel item="valid-panel">Valid panel</TabPanel>
+            <Tabs.TabList>
+              <Tabs.Tab item="valid-panel">Panel</Tabs.Tab>
+            </Tabs.TabList>
+            <Tabs.TabPanel item="valid-panel">Valid panel</Tabs.TabPanel>
           </Tabs>
         );
       }).not.toThrow();

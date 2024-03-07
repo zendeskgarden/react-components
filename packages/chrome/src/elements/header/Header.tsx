@@ -9,16 +9,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { IHeaderProps } from '../../types';
 import { StyledHeader } from '../../styled';
+import { HeaderItem } from './HeaderItem';
+import { HeaderItemIcon } from './HeaderItemIcon';
+import { HeaderItemText } from './HeaderItemText';
+import { HeaderItemWrapper } from './HeaderItemWrapper';
+
+export const HeaderComponent = React.forwardRef<HTMLElement, IHeaderProps>((props, ref) => (
+  <StyledHeader ref={ref} {...props} />
+));
+
+HeaderComponent.displayName = 'Header';
+
+HeaderComponent.propTypes = {
+  isStandalone: PropTypes.bool
+};
 
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-export const Header = React.forwardRef<HTMLElement, IHeaderProps>((props, ref) => (
-  <StyledHeader ref={ref} {...props} />
-));
-
-Header.displayName = 'Header';
-
-Header.propTypes = {
-  isStandalone: PropTypes.bool
+export const Header = HeaderComponent as typeof HeaderComponent & {
+  Item: typeof HeaderItem;
+  ItemIcon: typeof HeaderItemIcon;
+  ItemText: typeof HeaderItemText;
+  ItemWrapper: typeof HeaderItemWrapper;
 };
+
+Header.Item = HeaderItem;
+Header.ItemIcon = HeaderItemIcon;
+Header.ItemText = HeaderItemText;
+Header.ItemWrapper = HeaderItemWrapper;
