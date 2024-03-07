@@ -134,8 +134,8 @@ consider additional positioning prop support on a case-by-case basis.
 - `Tooltip`
   - removed `eventsEnabled` prop (no longer exposed by Floating UI)
   - removed `popperModifiers` prop (see [note](#breaking-changes))
-- All sub-component exports have been deprecated and will be removed in a future major version.
-  Update to sub-component properties (e.g., `Tooltip.Title`).
+- All subcomponent exports have been deprecated and will be removed in a future major version.
+  Update to subcomponent properties (e.g., `Tooltip.Title`).
 
 #### @zendeskgarden/react-utilities
 
