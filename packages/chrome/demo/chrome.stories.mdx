@@ -1,28 +1,17 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import {
-  Chrome,
-  CollapsibleSubNavItem,
   Body,
+  Chrome,
   Content,
   Footer,
-  FooterItem,
   Header,
-  HeaderItem,
-  HeaderItemIcon,
-  HeaderItemText,
-  HeaderItemWrapper,
   Main,
   Nav,
-  NavItem,
-  NavItemIcon,
-  NavItemText,
   Sheet,
   Sidebar,
   SkipNav,
   SubNav,
-  SubNavItem,
-  SubNavItemText,
   PRODUCTS
 } from '@zendeskgarden/react-chrome';
 import { ChromeStory } from './stories/ChromeStory';
@@ -44,27 +33,27 @@ import README from '../README.md';
   title="Packages/Chrome/Chrome"
   component={Chrome}
   subcomponents={{
-    CollapsibleSubNavItem,
     Body,
     Content,
     Footer,
-    FooterItem,
+    'Footer.Item': Footer.Item,
     Header,
-    HeaderItem,
-    HeaderItemIcon,
-    HeaderItemText,
-    HeaderItemWrapper,
+    'Item.HeaderItem': Header.Item,
+    'Item.HeaderItemIcon': Header.ItemIcon,
+    'Item.HeaderItemText': Header.ItemText,
+    'Item.HeaderItemWrapper': Header.ItemWrapper,
     Main,
     Nav,
-    NavItem,
-    NavItemIcon,
-    NavItemText,
+    'Nav.Item': Nav.Item,
+    'Nav.ItemIcon': Nav.ItemIcon,
+    'Nav.ItemText': Nav.ItemText,
     Sheet,
     Sidebar,
     SkipNav,
     SubNav,
-    SubNavItem,
-    SubNavItemText
+    'SubNav.CollapsibleItem': SubNav.CollapsibleItem,
+    'SubNav.Item': SubNav.Item,
+    'SubNav.ItemText': SubNav.ItemText
   }}
 />
 
@@ -108,17 +97,17 @@ import README from '../README.md';
       isExpanded: { name: 'Nav isExpanded', table: { category: 'Story' } },
       isWrapped: { name: 'Nav/SubNav isWrapped', table: { category: 'Story' } },
       hasNav: { name: 'Nav', table: { category: 'Story' } },
-      navItems: { name: 'NavItem[]', table: { category: 'Story' } },
+      navItems: { name: 'Nav.Item[]', table: { category: 'Story' } },
       hasLogo: { name: 'Nav hasLogo', table: { category: 'Story' } },
       hasBrandmark: { name: 'Nav hasBrandmark', table: { category: 'Story' } },
       hasSubNav: { name: 'SubNav', table: { category: 'Story' } },
-      subNavItems: { name: 'SubNavItem[]', table: { category: 'Story' } },
+      subNavItems: { name: 'SubNav.Item[]', table: { category: 'Story' } },
       subNavMaxWidth: { name: 'SubNav max-width', control: 'number', table: { category: 'Story' } },
       hasHeader: { name: 'Header', table: { category: 'Story' } },
-      headerItems: { name: 'HeaderItem[]', table: { category: 'Story' } },
+      headerItems: { name: 'Header.Item[]', table: { category: 'Story' } },
       hasSidebar: { name: 'Sidebar', table: { category: 'Story' } },
       hasFooter: { name: 'Footer', table: { category: 'Story' } },
-      footerItems: { name: 'FooterItem[]', table: { category: 'Story' } },
+      footerItems: { name: 'Footer.Item[]', table: { category: 'Story' } },
       product: {
         name: 'Nav product',
         control: { type: 'select', options: PRODUCTS },

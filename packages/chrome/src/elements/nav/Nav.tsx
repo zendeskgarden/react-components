@@ -11,11 +11,11 @@ import { INavProps } from '../../types';
 import { useChromeContext } from '../../utils/useChromeContext';
 import { NavContext } from '../../utils/useNavContext';
 import { StyledNav } from '../../styled';
+import { NavItem } from './NavItem';
+import { NavItemIcon } from './NavItemIcon';
+import { NavItemText } from './NavItemText';
 
-/**
- * @extends HTMLAttributes<HTMLElement>
- */
-export const Nav = React.forwardRef<HTMLElement, INavProps>((props, ref) => {
+export const NavComponent = React.forwardRef<HTMLElement, INavProps>((props, ref) => {
   const { hue, isLight, isDark } = useChromeContext();
   const navContextValue = useMemo(() => ({ isExpanded: !!props.isExpanded }), [props.isExpanded]);
 
@@ -26,8 +26,21 @@ export const Nav = React.forwardRef<HTMLElement, INavProps>((props, ref) => {
   );
 });
 
-Nav.displayName = 'Nav';
+NavComponent.displayName = 'Nav';
 
-Nav.propTypes = {
+NavComponent.propTypes = {
   isExpanded: PropTypes.bool
 };
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+export const Nav = NavComponent as typeof NavComponent & {
+  Item: typeof NavItem;
+  ItemIcon: typeof NavItemIcon;
+  ItemText: typeof NavItemText;
+};
+
+Nav.Item = NavItem;
+Nav.ItemIcon = NavItemIcon;
+Nav.ItemText = NavItemText;

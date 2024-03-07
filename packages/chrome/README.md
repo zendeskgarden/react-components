@@ -15,41 +15,37 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Chrome, Nav, NavItem, ... } from '@zendeskgarden/react-chrome';
+import { Chrome, Nav, SubNav, Body, Header, Content, Main } from '@zendeskgarden/react-chrome';
 import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';
 
 <ThemeProvider>
   <Chrome>
     <Nav isExpanded>
-      <NavItem hasLogo product="connect" title="Zendesk Connect">
-        <NavItemIcon>
+      <Nav.Item hasLogo product="connect" title="Zendesk Connect">
+        <Nav.ItemIcon>
           <ConnectIcon />
-        </NavItemIcon>
+        </Nav.ItemIcon>
         <NavItemText>Zendesk Connect</NavItemText>
-      </NavItem>
-      <NavItem isCurrent>
-        <NavItemIcon>
+      </Nav.Item>
+      <Nav.Item isCurrent>
+        <Nav.ItemIcon>
           <HomeIcon />
-        </NavItemIcon>
+        </Nav.ItemIcon>
         <NavItemText>Home</NavItemText>
-      </NavItem>
+      </Nav.Item>
     </Nav>
     <SubNav>
-      <SubNavItem isCurrent>
-        <SubNavItemText>Subnav 1</SubNavItemText>
-      </SubNavItem>
+      <SubNav.Item isCurrent>
+        <SubNav.ItemText>Subnav 1</SubNav.ItemText>
+      </SubNav.Item>
       ...
     </SubNav>
     <Body>
-      <Header>
-        ...
-      </Header>
+      <Header>...</Header>
       <Content>
-        <Main>
-          Lorem ipsum...
-        </Main>
+        <Main>Lorem ipsum...</Main>
       </Content>
     </Body>
   </Chrome>
-</ThemeProvider>
+</ThemeProvider>;
 ```

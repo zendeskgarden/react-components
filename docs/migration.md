@@ -44,6 +44,20 @@ consider additional positioning prop support on a case-by-case basis.
 #### @zendeskgarden/react-chrome
 
 - Removed `PRODUCT` type export. Use `IHeaderItemProps['product']` instead.
+- Renamed `ICollapsibleSubNavItemProps` type export to `ISubNavCollapsibleItemProps`.
+- Subcomponent exports have been deprecated and will be removed in a future major version. Update
+  to subcomponent properties:
+  - `FooterItem` -> `Footer.Item`
+  - `HeaderItem` -> `Header.Item`
+  - `HeaderItemIcon` -> `Header.ItemIcon`
+  - `HeaderItemText` -> `Header.ItemText`
+  - `HeaderItemWrapper` -> `Header.ItemWrapper`
+  - `NavItem` -> `Nav.Item`
+  - `NavItemIcon` -> `Nav.ItemIcon`
+  - `NavItemText` -> `Nav.ItemText`
+  - `CollapsibleSubNavItem` -> `SubNav.CollapsibleItem`
+  - `SubNavItem` -> `SubNav.Item`
+  - `SubNavItemText` -> `SubNav.ItemText`
 
 #### @zendeskgarden/react-colorpickers
 
