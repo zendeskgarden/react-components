@@ -15,7 +15,7 @@ interface IArgs extends ICollapsibleSubNavItemProps {
   items: COLLAPSIBLE_SUB_NAV_ITEM[];
 }
 
-export const CollapsibleSubNavItemStory: StoryFn<IArgs> = ({ items, ...args }) => {
+export const SubNavCollapsibleItem: StoryFn<IArgs> = ({ items, ...args }) => {
   const [current, setCurrent] = useState<number | undefined>();
 
   return (

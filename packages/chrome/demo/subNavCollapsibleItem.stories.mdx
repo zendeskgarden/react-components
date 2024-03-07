@@ -1,11 +1,11 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { CollapsibleSubNavItem } from '@zendeskgarden/react-chrome';
-import { CollapsibleSubNavItemStory } from './stories/CollapsibleSubNavItemStory';
+import { SubNavCollapsibleItem } from './stories/SubNavCollapsibleItem';
 import { COLLAPSIBLE_SUB_NAV_ITEMS as ITEMS } from './stories/data';
 import README from '../README.md';
 
-<Meta title="Packages/Chrome/CollapsibleSubNavItem" component={CollapsibleSubNavItem} />
+<Meta title="Packages/Chrome/SubNav.CollapsibleItem" component={CollapsibleSubNavItem} />
 
 # API
 
@@ -21,7 +21,7 @@ import README from '../README.md';
     args={{ header: 'Header', items: ITEMS }}
     argTypes={{ items: { name: 'children' }, isExpanded: { control: false } }}
   >
-    {({ onChange, ...args }) => <CollapsibleSubNavItemStory {...args} />}
+    {({ onChange, ...args }) => <SubNavCollapsibleItem {...args} />}
   </Story>
 </Canvas>
 
@@ -36,7 +36,7 @@ import README from '../README.md';
     {args => {
       const updateArgs = useArgs()[1];
       const handleChange = () => updateArgs({ isExpanded: !args.isExpanded });
-      return <CollapsibleSubNavItemStory {...args} onChange={handleChange} />;
+      return <SubNavCollapsibleItem {...args} onChange={handleChange} />;
     }}
   </Story>
 </Canvas>
