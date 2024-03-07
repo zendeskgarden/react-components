@@ -165,4 +165,28 @@ describe('Tooltip', () => {
       expect(tooltip).toHaveStyleRule('max-width', '140px');
     });
   });
+
+  describe('React node content', () => {
+    it('renders with Title and Paragraph', async () => {
+      const { getByTestId } = renderRtl(
+        <BasicExample
+          data-test-id="tooltip"
+          content={
+            <>
+              <Tooltip.Title>Title</Tooltip.Title>
+              <Tooltip.Paragraph>Paragraph</Tooltip.Paragraph>
+            </>
+          }
+        />
+      );
+
+      await act(async () => {
+        await user.tab();
+        jest.runOnlyPendingTimers();
+      });
+
+      expect(getByTestId('tooltip')).toHaveTextContent('Title');
+      expect(getByTestId('tooltip')).toHaveTextContent('Paragraph');
+    });
+  });
 });
