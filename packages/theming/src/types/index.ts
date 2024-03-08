@@ -122,6 +122,7 @@ export interface IGardenTheme {
     xxl: string;
     xxxl: string;
   };
+  palette: Record<string, Hue>;
   shadowWidths: {
     xs: string;
     sm: string;
@@ -143,7 +144,12 @@ export interface IGardenTheme {
     xl: string;
     xxl: string;
   };
-  palette: Record<string, Hue>;
+  variables: {
+    colors: {
+      dark: Record<string, Hue>;
+      light: Record<string, Hue>;
+    };
+  };
 }
 
 export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenTheme>> {

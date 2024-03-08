@@ -139,6 +139,14 @@ const space = {
   xxl: `${BASE * 12}px`
 };
 
+const variables = {
+  colors: {
+    background: {},
+    border: {},
+    foreground: {}
+  }
+};
+
 const DEFAULT_THEME: IGardenTheme = {
   borders,
   borderRadii,
@@ -159,7 +167,8 @@ const DEFAULT_THEME: IGardenTheme = {
   rtl: false,
   shadowWidths,
   shadows,
-  space
+  space,
+  variables
 };
 
 /** @component */
