@@ -37,7 +37,7 @@
     "@zendeskgarden/react-theming": "^8.67.0",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
     "@types/lodash.isequal": "4.5.8",
