@@ -13,6 +13,8 @@ import { useNavContext } from '../../utils/useNavContext';
 import { useChromeContext } from '../../utils/useChromeContext';
 
 /**
+ * @deprecated use `Nav.Item` instead
+ *
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const NavItem = React.forwardRef<HTMLButtonElement, INavItemProps>(

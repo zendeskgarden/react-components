@@ -11,6 +11,8 @@ import { ISubNavItemTextProps } from '../../types';
 import { StyledSubNavItemText } from '../../styled';
 
 /**
+ * @deprecated use `SubNav.ItemText` instead
+ *
  * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const SubNavItemText = React.forwardRef<HTMLElement, ISubNavItemTextProps>((props, ref) => (

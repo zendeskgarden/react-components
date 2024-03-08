@@ -9,6 +9,8 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledTitle } from '../styled';
 
 /**
+ * @deprecated use `Tooltip.Title` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Title = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (

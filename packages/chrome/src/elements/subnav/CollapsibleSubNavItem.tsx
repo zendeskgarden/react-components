@@ -19,6 +19,8 @@ import {
 import { useChromeContext } from '../../utils/useChromeContext';
 
 /**
+ * @deprecated use `SubNav.CollapsibleItem` instead
+ *
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsibleSubNavItemProps>(

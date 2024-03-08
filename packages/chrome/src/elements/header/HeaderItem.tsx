@@ -11,6 +11,8 @@ import { IHeaderItemProps, PRODUCTS } from '../../types';
 import { StyledHeaderItem, StyledLogoHeaderItem } from '../../styled';
 
 /**
+ * @deprecated use `Header.Item` instead
+ *
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const HeaderItem = React.forwardRef<HTMLButtonElement, IHeaderItemProps>(

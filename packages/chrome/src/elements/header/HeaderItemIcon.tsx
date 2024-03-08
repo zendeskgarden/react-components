@@ -17,6 +17,8 @@ import { DefaultTheme, ThemeProps } from 'styled-components';
 import { StyledHeaderItemIcon } from '../../styled';
 
 /**
+ * @deprecated use `Header.ItemIcon` instead
+ *
  * @extends HTMLAttributes<HTMLElement>
  */
 export const HeaderItemIcon = ({

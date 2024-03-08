@@ -9,6 +9,8 @@ import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledParagraph } from '../styled';
 
 /**
+ * @deprecated use `Tooltip.Paragraph` instead
+ *
  * @extends HTMLAttributes<HTMLParagraphElement>
  */
 export const Paragraph = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>(

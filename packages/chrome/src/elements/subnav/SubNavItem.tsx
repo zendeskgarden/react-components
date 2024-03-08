@@ -12,6 +12,8 @@ import { StyledSubNavItem } from '../../styled';
 import { useChromeContext } from '../../utils/useChromeContext';
 
 /**
+ * @deprecated use `SubNav.Item` instead
+ *
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const SubNavItem = React.forwardRef<HTMLButtonElement, ISubNavItemProps>((props, ref) => {
