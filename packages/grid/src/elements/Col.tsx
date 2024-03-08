@@ -12,6 +12,8 @@ import { StyledCol } from '../styled';
 import useGridContext from '../utils/useGridContext';
 
 /**
+ * @deprecated use `Grid.Col` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Col = React.forwardRef<HTMLDivElement, IColProps>(({ size, ...props }, ref) => {

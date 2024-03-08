@@ -12,6 +12,8 @@ import useGridContext from '../utils/useGridContext';
 import { StyledRow } from '../styled';
 
 /**
+ * @deprecated use `Grid.Row` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Row = React.forwardRef<HTMLDivElement, IRowProps>(({ wrap, ...props }, ref) => {
