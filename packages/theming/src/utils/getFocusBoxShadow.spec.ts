@@ -8,7 +8,7 @@
 import { getFocusBoxShadow } from './getFocusBoxShadow';
 import DEFAULT_THEME from '../elements/theme';
 import PALETTE from '../elements/palette';
-import { getColor } from './getColor';
+import { getColor } from './_getColor';
 
 describe('getFocusBoxShadow', () => {
   it('defaults as expected', () => {

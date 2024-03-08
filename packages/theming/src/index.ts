@@ -10,7 +10,7 @@ export { default as DEFAULT_THEME } from './elements/theme';
 export { default as PALETTE } from './elements/palette';
 export { default as retrieveComponentStyles } from './utils/retrieveComponentStyles';
 export { getArrowPosition } from './utils/getArrowPosition';
-export { getColor } from './utils/getColor';
+export { getColor } from './utils/_getColor';
 export { getFloatingPlacements } from './utils/getFloatingPlacements';
 export { getFocusBoxShadow } from './utils/getFocusBoxShadow';
 export { default as getLineHeight } from './utils/getLineHeight';
