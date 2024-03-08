@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Col, Grid, IGridProps, IRowProps, Row } from '@zendeskgarden/react-grid';
+import { Grid, IGridProps, IRowProps } from '@zendeskgarden/react-grid';
 import { IGridRow } from './types';
 
 interface IArgs extends IGridProps, IRowProps {
@@ -41,7 +41,7 @@ export const GridStory: Story<IArgs> = ({
       const { cols, ...props } = row;
 
       return (
-        <Row
+        <Grid.Row
           key={rowIndex}
           {...props}
           alignItems={alignItems}
@@ -64,9 +64,9 @@ export const GridStory: Story<IArgs> = ({
           wrapXl={wrapXl}
         >
           {cols.map((col, colIndex) => (
-            <Col key={colIndex} {...col} />
+            <Grid.Col key={colIndex} {...col} />
           ))}
-        </Row>
+        </Grid.Row>
       );
     })}
   </Grid>
