@@ -5,11 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-/** @deprecated use `Tooltip.Paragraph` instead */
 export { Paragraph } from './elements/Paragraph';
-/** @deprecated use `Tooltip.Title` instead */
 export { Title } from './elements/Title';
-
 export { Tooltip } from './elements/Tooltip';
 
 export type { ITooltipProps } from './types';

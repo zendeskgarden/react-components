@@ -32,7 +32,7 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
-    "styled-components": "^4.2.0 || ^5.1.0"
+    "styled-components": "^4.2.0 || ^5.3.1"
   },
   "devDependencies": {
     "@types/chroma-js": "2.4.4",

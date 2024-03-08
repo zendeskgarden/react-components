@@ -12,6 +12,8 @@ import { StyledTabPanel } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
 
 /**
+ * @deprecated use `Tabs.TabPanel` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(

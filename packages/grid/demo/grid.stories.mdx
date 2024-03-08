@@ -1,10 +1,17 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import { Grid, Row, Col, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '@zendeskgarden/react-grid';
+import { Grid, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '@zendeskgarden/react-grid';
 import { GridStory } from './stories/GridStory';
 import { GRID_ROWS as ROWS } from './stories/data';
 import README from '../README.md';
 
-<Meta title="Packages/Grid/Grid" component={Grid} subcomponents={{ Col, Row }} />
+<Meta
+  title="Packages/Grid/Grid"
+  component={Grid}
+  subcomponents={{
+    'Grid.Col': Grid.Col,
+    'Grid.Row': Grid.Row
+  }}
+/>
 
 # API
 
@@ -15,8 +22,8 @@ import README from '../README.md';
 > Visualize the Grid component using the `debug` toggle in the Controls panel.
 
 The `children` control receives an array of objects that permit all related
-`Row` prop values along with a `cols` array. Each object in the `cols` array can
-set any related `Col` prop along with `children` text for display.
+`Grid.Row` prop values along with a `cols` array. Each object in the `cols` array can
+set any related `Grid.Col` prop along with `children` text for display.
 
 <Canvas>
   <Story
@@ -26,75 +33,75 @@ set any related `Col` prop along with `children` text for display.
       rows: { name: 'children' },
       alignItems: {
         control: { type: 'select', options: ALIGN_ITEMS },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       alignItemsXs: {
         control: { type: 'select', options: ALIGN_ITEMS },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       alignItemsSm: {
         control: { type: 'select', options: ALIGN_ITEMS },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       alignItemsMd: {
         control: { type: 'select', options: ALIGN_ITEMS },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       alignItemsLg: {
         control: { type: 'select', options: ALIGN_ITEMS },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       alignItemsXl: {
         control: { type: 'select', options: ALIGN_ITEMS },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       justifyContent: {
         control: { type: 'select', options: JUSTIFY_CONTENT },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       justifyContentXs: {
         control: { type: 'select', options: JUSTIFY_CONTENT },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       justifyContentSm: {
         control: { type: 'select', options: JUSTIFY_CONTENT },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       justifyContentMd: {
         control: { type: 'select', options: JUSTIFY_CONTENT },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       justifyContentLg: {
         control: { type: 'select', options: JUSTIFY_CONTENT },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       justifyContentXl: {
         control: { type: 'select', options: JUSTIFY_CONTENT },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       wrap: {
         control: { type: 'select', options: WRAP },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       wrapXs: {
         control: { type: 'select', options: WRAP },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       wrapSm: {
         control: { type: 'select', options: WRAP },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       wrapMd: {
         control: { type: 'select', options: WRAP },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       wrapLg: {
         control: { type: 'select', options: WRAP },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       },
       wrapXl: {
         control: { type: 'select', options: WRAP },
-        table: { category: 'Row' }
+        table: { category: 'Grid.Row' }
       }
     }}
     parameters={{
