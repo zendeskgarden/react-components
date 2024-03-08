@@ -13,6 +13,8 @@ import { StyledTab } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
 
 /**
+ * @deprecated use `Tabs.Tab` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(

@@ -17,6 +17,8 @@ import { DefaultTheme, ThemeProps } from 'styled-components';
 import { StyledNavItemIcon } from '../../styled';
 
 /**
+ * @deprecated use `Nav.ItemIcon` instead
+ *
  * @extends HTMLAttributes<HTMLElement>
  */
 export const NavItemIcon = ({

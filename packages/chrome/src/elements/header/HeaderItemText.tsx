@@ -11,6 +11,8 @@ import { IHeaderItemTextProps } from '../../types';
 import { StyledHeaderItemText } from '../../styled';
 
 /**
+ * @deprecated use `Header.ItemText` instead
+ *
  * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const HeaderItemText = React.forwardRef<HTMLElement, IHeaderItemTextProps>((props, ref) => (
