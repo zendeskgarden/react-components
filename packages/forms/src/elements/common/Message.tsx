@@ -21,6 +21,8 @@ import {
 } from '../../styled';
 
 /**
+ * @deprecated use `Field.Message` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(

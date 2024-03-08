@@ -22,7 +22,7 @@ for localization support.
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Field, Label, Input } from '@zendeskgarden/react-forms';
+import { Field, Input } from '@zendeskgarden/react-forms';
 import { DatePicker } from '@zendeskgarden/react-datepickers';
 
 /**
@@ -30,7 +30,7 @@ import { DatePicker } from '@zendeskgarden/react-datepickers';
  */
 <ThemeProvider>
   <Field>
-    <Label>Example datepicker</Label>
+    <Field.Label>Example datepicker</Field.Label>
     <DatePicker value={new Date()} onChange={selectedDate => console.log(selectedDate)}>
       <Input />
     </DatePicker>

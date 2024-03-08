@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
-import { Checkbox, Field, Label } from '@zendeskgarden/react-forms';
+import { Checkbox, Field } from '@zendeskgarden/react-forms';
 import {
   Table,
   ITableProps,
@@ -72,7 +72,7 @@ export const TableStory: Story<IArgs> = ({
             <Table.HeaderCell isMinimum hidden={isHidden}>
               <Field>
                 <Checkbox>
-                  <Label hidden>Select all</Label>
+                  <Field.Label hidden>Select all</Field.Label>
                 </Checkbox>
               </Field>
             </Table.HeaderCell>
@@ -133,7 +133,7 @@ export const TableStory: Story<IArgs> = ({
                   <Table.Cell isMinimum>
                     <Field>
                       <Checkbox>
-                        <Label hidden>Select all</Label>
+                        <Field.Label hidden>Select all</Field.Label>
                       </Checkbox>
                     </Field>
                   </Table.Cell>

@@ -1,14 +1,14 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import { InputGroup, Input, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { InputGroup, Input } from '@zendeskgarden/react-forms';
 import { InputGroupStory } from './stories/InputGroupStory';
 import { INPUT_GROUP_ITEMS as ITEMS } from './stories/data';
-import { commonArgs, commonArgTypes } from './stories/common';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
 
 <Meta
   title="Packages/Forms/InputGroup"
   component={InputGroup}
-  subcomponents={{ Field, Input, Label, Hint, Message }}
+  subcomponents={{ Input, ...fieldSubcomponents }}
 />
 
 # API

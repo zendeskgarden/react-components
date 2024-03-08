@@ -6,7 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { FileList } from '@zendeskgarden/react-forms';
 import { IFileListItem } from './types';
 import { FileStory } from './FileStory';
@@ -20,7 +20,7 @@ interface IArgs extends HTMLAttributes<HTMLUListElement> {
 
 const ARIA_LABEL = 'Press backspace to delete';
 
-export const FileListStory: Story<IArgs> = ({ items, isCompact, ...args }) => (
+export const FileListStory: StoryFn<IArgs> = ({ items, isCompact, ...args }) => (
   <FileList {...args}>
     {items.map((item, index) => (
       <FileList.Item key={index}>

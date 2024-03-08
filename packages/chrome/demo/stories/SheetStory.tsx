@@ -9,7 +9,7 @@ import React, { ChangeEventHandler } from 'react';
 import { Story } from '@storybook/react';
 import { DefaultTheme } from 'styled-components';
 import { ThemeProvider, IGardenTheme } from '@zendeskgarden/react-theming';
-import { Field, Label, Toggle } from '@zendeskgarden/react-forms';
+import { Field, Toggle } from '@zendeskgarden/react-forms';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { ISheetProps, Sheet } from '@zendeskgarden/react-chrome';
@@ -104,7 +104,7 @@ export const SheetStory: Story<IArgs> = ({
     >
       <Field>
         <Toggle checked={args.isOpen} onChange={onChange}>
-          <Label hidden>Sheet</Label>
+          <Field.Label hidden>Sheet</Field.Label>
         </Toggle>
       </Field>
     </ThemeProvider>

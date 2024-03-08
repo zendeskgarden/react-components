@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { IInputGroupProps, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { FieldStory, IFieldArgs } from './FieldStory';
 import { IInputGroupItem } from './types';
@@ -21,7 +21,7 @@ interface IArgs extends IInputGroupProps, IFieldArgs {
   readOnly?: boolean;
 }
 
-export const InputGroupStory: Story<IArgs> = ({
+export const InputGroupStory: StoryFn<IArgs> = ({
   label,
   isLabelRegular,
   isLabelHidden,

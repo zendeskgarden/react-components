@@ -16,7 +16,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Field, Label, Hint, Input, Message } from '@zendeskgarden/react-forms';
+import { Field, Input } from '@zendeskgarden/react-forms';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
@@ -24,10 +24,10 @@ import { Field, Label, Hint, Input, Message } from '@zendeskgarden/react-forms';
 <ThemeProvider>
   <form>
     <Field>
-      <Label>Example Text Input</Label>
-      <Hint>Hint text</Hint>
+      <Field.Label>Example Text Input</Field.Label>
+      <Field.Hint>Hint text</Field.Hint>
       <Input placeholder="Accepts all native input props" />
-      <Message>Default message styling</Message>
+      <Field.Message>Default message styling</Field.Message>
     </Field>
   </form>
 </ThemeProvider>;

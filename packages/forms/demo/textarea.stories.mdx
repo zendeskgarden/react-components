@@ -1,14 +1,14 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Textarea, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { Textarea } from '@zendeskgarden/react-forms';
 import { TextareaStory } from './stories/TextareaStory';
-import { commonArgs, commonArgTypes } from './stories/common';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
 
 <Meta
   title="Packages/Forms/Textarea"
   component={Textarea}
-  subcomponents={{ Field, Label, Hint, Message }}
+  subcomponents={{ ...fieldSubcomponents }}
   args={{
     ...commonArgs
   }}

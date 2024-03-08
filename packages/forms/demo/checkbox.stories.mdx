@@ -1,14 +1,14 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Checkbox, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { Checkbox } from '@zendeskgarden/react-forms';
 import { CheckboxStory } from './stories/CheckboxStory';
-import { commonArgs, commonArgTypes } from './stories/common';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
 
 <Meta
   title="Packages/Forms/Checkbox"
   component={Checkbox}
-  subcomponents={{ Field, Label, Hint, Message }}
+  subcomponents={{ ...fieldSubcomponents }}
   args={{
     ...commonArgs,
     hasHint: false
@@ -50,4 +50,4 @@ import README from '../README.md';
   </Story>
 </Canvas>
 
-<Markdown>{README}</Markdown>
+<Markdown>{README}</Markdown>, subcomponents
