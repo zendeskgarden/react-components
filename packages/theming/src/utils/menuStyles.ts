@@ -6,7 +6,7 @@
  */
 
 import { css, DefaultTheme, keyframes } from 'styled-components';
-import { getColor } from './getColor';
+import { getColor } from './_getColor';
 import DEFAULT_THEME from '../elements/theme';
 import { MenuPosition } from '../types';
 
