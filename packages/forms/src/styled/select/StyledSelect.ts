@@ -7,14 +7,14 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledTextInput, IStyledTextInputProps } from '../text/StyledTextInput';
 import { StyledTextMediaFigure } from '../text/StyledTextMediaFigure';
 
 const COMPONENT_ID = 'forms.select';
 
 const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
-  const color = getColor('neutralHue', 700, props.theme);
+  const color = getColorV8('neutralHue', 700, props.theme);
 
   /* prettier-ignore */
   return css`

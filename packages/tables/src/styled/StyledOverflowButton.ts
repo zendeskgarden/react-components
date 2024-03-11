@@ -10,7 +10,7 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   focusStyles
 } from '@zendeskgarden/react-theming';
 import { ITableProps } from '../types';
@@ -28,10 +28,10 @@ interface IStyledOverflowButtonProps {
 const OVERFLOW_BUTTON_SIZE = '2em';
 
 const colorStyles = (props: IStyledOverflowButtonProps & ThemeProps<DefaultTheme>) => {
-  const hoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
-  const hoverForegroundColor = getColor('neutralHue', 700, props.theme);
-  const activeBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
-  const activeForegroundColor = getColor('neutralHue', 800, props.theme);
+  const hoverBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.08);
+  const hoverForegroundColor = getColorV8('neutralHue', 700, props.theme);
+  const activeBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.2);
+  const activeForegroundColor = getColorV8('neutralHue', 800, props.theme);
   let foregroundColor;
 
   if (props.isHovered) {
@@ -39,7 +39,7 @@ const colorStyles = (props: IStyledOverflowButtonProps & ThemeProps<DefaultTheme
   } else if (props.isActive) {
     foregroundColor = activeForegroundColor;
   } else {
-    foregroundColor = getColor('neutralHue', 600, props.theme);
+    foregroundColor = getColorV8('neutralHue', 600, props.theme);
   }
 
   return css`

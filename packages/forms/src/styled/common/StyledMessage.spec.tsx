@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import { StyledMessage } from './StyledMessage';
 import { StyledLabel } from './StyledLabel';
 
@@ -28,19 +28,19 @@ describe('StyledMessage', () => {
     it('renders "success" styling if provided', () => {
       const { container } = render(<StyledMessage validation="success" />);
 
-      expect(container.firstChild).toHaveStyleRule('color', getColor('successHue', 600));
+      expect(container.firstChild).toHaveStyleRule('color', getColorV8('successHue', 600));
     });
 
     it('renders "warning" styling if provided', () => {
       const { container } = render(<StyledMessage validation="warning" />);
 
-      expect(container.firstChild).toHaveStyleRule('color', getColor('warningHue', 700));
+      expect(container.firstChild).toHaveStyleRule('color', getColorV8('warningHue', 700));
     });
 
     it('renders "error" styling if provided', () => {
       const { container } = render(<StyledMessage validation="error" />);
 
-      expect(container.firstChild).toHaveStyleRule('color', getColor('dangerHue', 600));
+      expect(container.firstChild).toHaveStyleRule('color', getColorV8('dangerHue', 600));
     });
   });
 

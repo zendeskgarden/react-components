@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   mediaQuery,
   retrieveComponentStyles,
   DEFAULT_THEME
@@ -52,7 +52,7 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
   const { space, shadows } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColor('neutralHue', 800, theme, 0.35);
+  const color = getColorV8('neutralHue', 800, theme, 0.35);
 
   return shadows.lg(offsetY, blurRadius, color as string);
 };

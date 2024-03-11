@@ -7,7 +7,7 @@
 
 import styled, { css } from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   getLineHeight,
   retrieveComponentStyles,
   DEFAULT_THEME
@@ -48,7 +48,7 @@ export const StyledBreadcrumbItem = styled.li.attrs({
 })<IStyledBreadcrumbItemProps>`
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   white-space: nowrap;
-  color: ${props => (props.isCurrent ? getColor(props.theme.colors.neutralHue, 600) : 'inherit')};
+  color: ${props => (props.isCurrent ? getColorV8(props.theme.colors.neutralHue, 600) : 'inherit')};
   font-size: inherit;
 
   ${linkStyles};

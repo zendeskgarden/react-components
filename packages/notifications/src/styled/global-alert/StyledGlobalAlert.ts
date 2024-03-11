@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   DEFAULT_THEME,
   retrieveComponentStyles,
   getLineHeight,
@@ -35,38 +35,38 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
 
   switch (props.alertType) {
     case 'success':
-      borderColor = getColor('successHue', 700, props.theme);
-      backgroundColor = getColor('successHue', 600, props.theme);
-      foregroundColor = getColor('successHue', 100, props.theme);
+      borderColor = getColorV8('successHue', 700, props.theme);
+      backgroundColor = getColorV8('successHue', 600, props.theme);
+      foregroundColor = getColorV8('successHue', 100, props.theme);
       anchorHoverColor = props.theme.palette.white;
       anchorActiveColor = props.theme.palette.white;
       focusColor = 'successHue';
       break;
 
     case 'error':
-      borderColor = getColor('dangerHue', 700, props.theme);
-      backgroundColor = getColor('dangerHue', 600, props.theme);
-      foregroundColor = getColor('dangerHue', 100, props.theme);
+      borderColor = getColorV8('dangerHue', 700, props.theme);
+      backgroundColor = getColorV8('dangerHue', 600, props.theme);
+      foregroundColor = getColorV8('dangerHue', 100, props.theme);
       anchorHoverColor = props.theme.palette.white;
       anchorActiveColor = props.theme.palette.white;
       focusColor = 'dangerHue';
       break;
 
     case 'warning':
-      borderColor = getColor('warningHue', 400, props.theme);
-      backgroundColor = getColor('warningHue', 300, props.theme);
-      foregroundColor = getColor('warningHue', 800, props.theme);
-      anchorHoverColor = getColor('warningHue', 900, props.theme);
-      anchorActiveColor = getColor('warningHue', 1000, props.theme);
+      borderColor = getColorV8('warningHue', 400, props.theme);
+      backgroundColor = getColorV8('warningHue', 300, props.theme);
+      foregroundColor = getColorV8('warningHue', 800, props.theme);
+      anchorHoverColor = getColorV8('warningHue', 900, props.theme);
+      anchorActiveColor = getColorV8('warningHue', 1000, props.theme);
       focusColor = 'warningHue';
       break;
 
     case 'info':
-      borderColor = getColor('primaryHue', 300, props.theme);
-      backgroundColor = getColor('primaryHue', 200, props.theme);
-      foregroundColor = getColor('primaryHue', 700, props.theme);
-      anchorHoverColor = getColor('primaryHue', 800, props.theme);
-      anchorActiveColor = getColor('primaryHue', 900, props.theme);
+      borderColor = getColorV8('primaryHue', 300, props.theme);
+      backgroundColor = getColorV8('primaryHue', 200, props.theme);
+      foregroundColor = getColorV8('primaryHue', 700, props.theme);
+      anchorHoverColor = getColorV8('primaryHue', 800, props.theme);
+      anchorActiveColor = getColorV8('primaryHue', 900, props.theme);
       focusColor = 'primaryHue';
       break;
   }

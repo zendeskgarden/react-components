@@ -9,7 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, rgba } from 'polished';
 import {
   retrieveComponentStyles,
-  getColor,
+  getColorV8,
   focusStyles,
   DEFAULT_THEME,
   SELECTOR_FOCUS_VISIBLE
@@ -37,7 +37,7 @@ const colorStyles = (props: IStyledNavItemProps) => {
     } else if (isDark) {
       currentColor = rgba(LIGHT, 0.4);
     } else {
-      currentColor = getColor(hue, 500, theme);
+      currentColor = getColorV8(hue, 500, theme);
     }
   } else {
     hoverColor = rgba(isLight ? LIGHT : DARK, 0.1);

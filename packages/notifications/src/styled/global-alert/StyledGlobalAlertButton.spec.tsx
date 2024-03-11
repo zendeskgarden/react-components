@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 import { TYPE } from '../../types';
 import { StyledGlobalAlertButton } from './StyledGlobalAlertButton';
@@ -28,10 +28,10 @@ describe('StyledGlobalAlertButton', () => {
     expect(getByRole('button')).toHaveStyleRule(
       'background-color',
       {
-        success: getColor('successHue', 800, DEFAULT_THEME),
-        warning: getColor('warningHue', 800, DEFAULT_THEME),
-        error: getColor('dangerHue', 800, DEFAULT_THEME),
-        info: getColor('primaryHue', 600, DEFAULT_THEME)
+        success: getColorV8('successHue', 800, DEFAULT_THEME),
+        warning: getColorV8('warningHue', 800, DEFAULT_THEME),
+        error: getColorV8('dangerHue', 800, DEFAULT_THEME),
+        info: getColorV8('primaryHue', 600, DEFAULT_THEME)
       }[type]
     );
   });

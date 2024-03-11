@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { BASE_MULTIPLIERS } from './StyledSheetClose';
 
@@ -25,7 +25,7 @@ export const StyledSheetHeader = styled.header.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledSheetHeaderProps & ThemeProps<DefaultTheme>>`
   border-bottom: ${props =>
-    `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}}`};
+    `${props.theme.borders.sm} ${getColorV8('neutralHue', 300, props.theme)}}`};
   padding: ${props => props.theme.space.base * 5}px;
   ${props =>
     props.isCloseButtonPresent &&

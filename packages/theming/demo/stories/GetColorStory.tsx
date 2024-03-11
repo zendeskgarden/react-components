@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Story } from '@storybook/react';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 interface IArgs {
   hue: string;
@@ -18,7 +18,7 @@ interface IArgs {
 
 const StyledDiv = styled.div<IArgs>`
   background-color: ${props =>
-    getColor(
+    getColorV8(
       props.hue,
       props.shade,
       DEFAULT_THEME,
