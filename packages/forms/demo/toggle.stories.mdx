@@ -1,14 +1,14 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Toggle, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { Toggle } from '@zendeskgarden/react-forms';
 import { ToggleStory } from './stories/ToggleStory';
-import { commonArgs, commonArgTypes } from './stories/common';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
 
 <Meta
   title="Packages/Forms/Toggle"
   component={Toggle}
-  subcomponents={{ Field, Label, Hint, Message }}
+  subcomponents={{ ...fieldSubcomponents }}
   args={{
     ...commonArgs,
     hasHint: false

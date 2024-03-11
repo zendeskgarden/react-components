@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/location-stroke.svg';
 import { IMediaInputProps, MediaInput } from '@zendeskgarden/react-forms';
@@ -14,7 +14,7 @@ import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IMediaInputProps, IFieldArgs {}
 
-export const MediaInputStory: Story<IArgs> = ({
+export const MediaInputStory: StoryFn<IArgs> = ({
   start,
   end,
   label,

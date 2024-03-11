@@ -6,7 +6,7 @@
  */
 
 import React, { ButtonHTMLAttributes } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { File, IFileProps } from '@zendeskgarden/react-forms';
 
@@ -20,7 +20,7 @@ interface IArgs extends Omit<IFileProps, 'onClick'> {
   deleteAriaLabel: string;
 }
 
-export const FileStory: Story<IArgs> = ({
+export const FileStory: StoryFn<IArgs> = ({
   children,
   hasClose,
   hasDelete,

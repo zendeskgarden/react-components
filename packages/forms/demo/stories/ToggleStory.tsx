@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { IToggleProps, Toggle } from '@zendeskgarden/react-forms';
 
 import { FieldStory, IFieldArgs } from './FieldStory';
@@ -14,7 +14,7 @@ import { renderHint, renderLabel, renderMessage } from './common';
 
 interface IArgs extends IToggleProps, IFieldArgs {}
 
-export const ToggleStory: Story<IArgs> = ({ hasLabel = true, ...args }) => (
+export const ToggleStory: StoryFn<IArgs> = ({ hasLabel = true, ...args }) => (
   <FieldStory hasLabel={false} hasHint={false} hasMessage={false}>
     <Toggle {...args}>
       {renderLabel({ hasLabel, ...args })}

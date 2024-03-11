@@ -10,6 +10,8 @@ import { StyledGroupRow } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 
 /**
+ * @deprecated use `Table.GroupRow` instead
+ *
  * @extends HTMLAttributes<HTMLTableRowElement>
  */
 export const GroupRow = forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>>(

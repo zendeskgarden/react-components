@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/box-3d-stroke.svg';
 import Icon01 from '@zendeskgarden/svg-icons/src/16/chevron-box-stroke.svg';
 import Icon02 from '@zendeskgarden/svg-icons/src/16/check-box-double-stroke.svg';
@@ -40,7 +40,7 @@ interface IArgs extends ITilesProps {
   hasDescription: boolean;
 }
 
-export const TilesStory: Story<IArgs> = ({ tiles, hasDescription, ...args }) => (
+export const TilesStory: StoryFn<IArgs> = ({ tiles, hasDescription, ...args }) => (
   <Tiles {...args}>
     <Grid gutters={false}>
       <Row>

@@ -95,6 +95,11 @@ consider additional positioning prop support on a case-by-case basis.
 - The following types have changed:
   - removed `IFieldProps`
   - removed `IIconProps`. Use `IFauxInputStartIconProps` or `IFauxInputEndIconProps` instead.
+- Subcomponent exports have been deprecated and will be removed in a future major version. Update
+  to subcomponent properties:
+  - `Hint` -> `Field.Hint`
+  - `Label` -> `Field.Label`
+  - `Message` -> `Field.Message`
 
 #### @zendeskgarden/react-grid
 

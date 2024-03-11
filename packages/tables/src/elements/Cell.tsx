@@ -12,6 +12,8 @@ import { useTableContext } from '../utils/useTableContext';
 import { ICellProps } from '../types';
 
 /**
+ * @deprecated use `Table.Cell` instead
+ *
  * @extends TdHTMLAttributes<HTMLTableCellElement>
  */
 export const Cell = React.forwardRef<HTMLTableCellElement, ICellProps>(

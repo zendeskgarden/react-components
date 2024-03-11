@@ -9,11 +9,11 @@ import React, { useState, HTMLAttributes, useMemo } from 'react';
 import { useField } from '@zendeskgarden/container-field';
 import { FieldContext } from '../../utils/useFieldContext';
 import { StyledField } from '../../styled';
+import { Hint } from './Hint';
+import { Message } from './Message';
+import { Label } from './Label';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+export const FieldComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const [hasHint, setHasHint] = useState(false);
     const [hasMessage, setHasMessage] = useState(false);
@@ -57,4 +57,17 @@ export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
   }
 );
 
-Field.displayName = 'Field';
+FieldComponent.displayName = 'Field';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Field = FieldComponent as typeof FieldComponent & {
+  Hint: typeof Hint;
+  Label: typeof Label;
+  Message: typeof Message;
+};
+
+Field.Hint = Hint;
+Field.Label = Label;
+Field.Message = Message;

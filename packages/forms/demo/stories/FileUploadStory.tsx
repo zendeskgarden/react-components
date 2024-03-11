@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { FileUpload, IFileUploadProps } from '@zendeskgarden/react-forms';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IFileUploadProps, IFieldArgs {}
 
-export const FileUploadStory: Story<IArgs> = ({
+export const FileUploadStory: StoryFn<IArgs> = ({
   label,
   isLabelRegular,
   isLabelHidden,

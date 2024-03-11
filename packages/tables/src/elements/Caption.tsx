@@ -9,6 +9,8 @@ import React, { HTMLAttributes, forwardRef } from 'react';
 import { StyledCaption } from '../styled';
 
 /**
+ * @deprecated use `Table.Caption` instead
+ *
  * @extends HTMLAttributes<HTMLTableCaptionElement>
  */
 export const Caption = forwardRef<HTMLTableCaptionElement, HTMLAttributes<HTMLTableCaptionElement>>(

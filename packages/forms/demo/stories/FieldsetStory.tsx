@@ -6,13 +6,12 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import {
   Checkbox,
   Fieldset,
-  Hint,
+  Field,
   IFieldsetProps,
-  Label,
   Radio,
   Toggle
 } from '@zendeskgarden/react-forms';
@@ -25,7 +24,7 @@ interface IArgs extends IFieldsetProps, IFieldArgs {
   type: 'radio' | 'checkbox' | 'toggle';
 }
 
-export const FieldsetStory: Story<IArgs> = ({
+export const FieldsetStory: StoryFn<IArgs> = ({
   legend,
   isLegendHidden,
   hasHint,
@@ -40,7 +39,7 @@ export const FieldsetStory: Story<IArgs> = ({
 }) => (
   <Fieldset {...args}>
     <Fieldset.Legend hidden={isLegendHidden}>{legend}</Fieldset.Legend>
-    {hasHint && <Hint>{hint}</Hint>}
+    {hasHint && <Field.Hint>{hint}</Field.Hint>}
     {fields.map((field, index) => (
       <FieldStory
         key={index}
@@ -55,17 +54,17 @@ export const FieldsetStory: Story<IArgs> = ({
           {
             radio: (
               <Radio name="name" value={index}>
-                <Label isRegular>{field}</Label>
+                <Field.Label isRegular>{field}</Field.Label>
               </Radio>
             ),
             checkbox: (
               <Checkbox value={index}>
-                <Label isRegular>{field}</Label>
+                <Field.Label isRegular>{field}</Field.Label>
               </Checkbox>
             ),
             toggle: (
               <Toggle value={index}>
-                <Label isRegular>{field}</Label>
+                <Field.Label isRegular>{field}</Field.Label>
               </Toggle>
             )
           }[type]

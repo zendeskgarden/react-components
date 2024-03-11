@@ -6,7 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Field } from '@zendeskgarden/react-forms';
 import { ICommonArgs, renderHint, renderLabel, renderMessage } from './common';
 
@@ -15,7 +15,7 @@ export type { ICommonArgs as IFieldArgs } from './common';
 
 interface IArgs extends HTMLAttributes<HTMLDivElement>, ICommonArgs {}
 
-export const FieldStory: Story<IArgs> = ({
+export const FieldStory: StoryFn<IArgs> = ({
   hasLabel = true,
   label = 'Label',
   isLabelRegular,

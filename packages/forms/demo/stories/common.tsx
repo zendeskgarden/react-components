@@ -6,30 +6,37 @@
  */
 
 import React from 'react';
-import { Label, Hint, Message, IMessageProps } from '@zendeskgarden/react-forms';
+import { IMessageProps, Field } from '@zendeskgarden/react-forms';
+
+export const fieldSubcomponents = {
+  Field,
+  'Field.Label': Field.Label,
+  'Field.Hint': Field.Hint,
+  'Field.Message': Field.Message
+};
 
 export const labelArgTypes = {
-  label: { name: 'children', table: { category: 'Label' } },
-  isLabelRegular: { name: 'isRegular', table: { category: 'Label' } },
-  isLabelHidden: { name: 'hidden', table: { category: 'Label' } }
+  label: { name: 'children', table: { category: 'Field.Label' } },
+  isLabelRegular: { name: 'isRegular', table: { category: 'Field.Label' } },
+  isLabelHidden: { name: 'hidden', table: { category: 'Field.Label' } }
 };
 
 export const hintArgTypes = {
-  hasHint: { name: 'Hint', table: { category: 'Story' } },
-  hint: { name: 'children', table: { category: 'Hint' } }
+  hasHint: { name: 'Field.Hint', table: { category: 'Story' } },
+  hint: { name: 'children', table: { category: 'Field.Hint' } }
 };
 
 export const messageArgTypes = {
-  hasMessage: { name: 'Message', table: { category: 'Story' } },
-  message: { name: 'children', table: { category: 'Message' } },
+  hasMessage: { name: 'Field.Message', table: { category: 'Story' } },
+  message: { name: 'children', table: { category: 'Field.Message' } },
   validationLabel: {
     control: { type: 'text' },
-    table: { category: 'Message' }
+    table: { category: 'Field.Message' }
   },
   validation: {
     options: ['success', 'warning', 'error'],
     control: { type: 'radio' },
-    table: { category: 'Message' }
+    table: { category: 'Field.Message' }
   }
 };
 
@@ -72,9 +79,9 @@ export interface ILabelArgs {
 
 export const renderLabel = ({ hasLabel, isLabelHidden, isLabelRegular, label }: ILabelArgs) =>
   hasLabel && (
-    <Label hidden={isLabelHidden} isRegular={isLabelRegular}>
+    <Field.Label hidden={isLabelHidden} isRegular={isLabelRegular}>
       {label}
-    </Label>
+    </Field.Label>
   );
 
 export interface IHintArgs {
@@ -82,7 +89,8 @@ export interface IHintArgs {
   hint?: string;
 }
 
-export const renderHint = ({ hasHint, hint }: IHintArgs) => hasHint && <Hint>{hint}</Hint>;
+export const renderHint = ({ hasHint, hint }: IHintArgs) =>
+  hasHint && <Field.Hint>{hint}</Field.Hint>;
 
 export interface IMessageArgs {
   hasMessage?: boolean;
@@ -93,7 +101,7 @@ export interface IMessageArgs {
 
 export const renderMessage = ({ hasMessage, validation, validationLabel, message }: IMessageArgs) =>
   hasMessage && (
-    <Message validation={validation} validationLabel={validationLabel}>
+    <Field.Message validation={validation} validationLabel={validationLabel}>
       {message}
-    </Message>
+    </Field.Message>
   );

@@ -11,6 +11,8 @@ import useInputContext from '../../utils/useInputContext';
 import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '../../styled';
 
 /**
+ * @deprecated use `Field.Hint` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(

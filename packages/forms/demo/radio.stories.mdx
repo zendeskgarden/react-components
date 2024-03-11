@@ -1,14 +1,14 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Radio, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { Radio } from '@zendeskgarden/react-forms';
 import { RadioStory } from './stories/RadioStory';
-import { commonArgs, commonArgTypes } from './stories/common';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
 
 <Meta
   title="Packages/Forms/Radio"
   component={Radio}
-  subcomponents={{ Field, Label, Hint, Message }}
+  subcomponents={{ ...fieldSubcomponents }}
   args={{
     ...commonArgs,
     hasHint: false

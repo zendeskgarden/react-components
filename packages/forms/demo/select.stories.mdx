@@ -1,15 +1,15 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Select, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { Select } from '@zendeskgarden/react-forms';
 import { SelectStory } from './stories/SelectStory';
 import { SELECT_OPTIONS as OPTIONS } from './stories/data';
-import { commonArgs, commonArgTypes } from './stories/common';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
 
 <Meta
   title="Packages/Forms/Select"
   component={Select}
-  subcomponents={{ Field, Label, Hint, Message }}
+  subcomponents={{ ...fieldSubcomponents }}
   args={{
     options: OPTIONS,
     ...commonArgs

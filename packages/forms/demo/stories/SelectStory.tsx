@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { ISelectProps, Select } from '@zendeskgarden/react-forms';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
@@ -14,7 +14,7 @@ interface IArgs extends ISelectProps, IFieldArgs {
   options: string[];
 }
 
-export const SelectStory: Story<IArgs> = ({
+export const SelectStory: StoryFn<IArgs> = ({
   options,
   label,
   isLabelRegular,
