@@ -13,6 +13,8 @@ import { StyledRow } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 
 /**
+ * @deprecated use `Table.Row` instead
+ *
  * @extends HTMLAttributes<HTMLTableRowElement>
  */
 

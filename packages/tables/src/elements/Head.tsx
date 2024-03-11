@@ -10,6 +10,8 @@ import { StyledHead } from '../styled';
 import { IHeadProps } from '../types';
 
 /**
+ * @deprecated use `Table.Head` instead
+ *
  * @extends HTMLAttributes<HTMLTableSectionElement>
  */
 export const Head = forwardRef<HTMLTableSectionElement, IHeadProps>((props, ref) => (
