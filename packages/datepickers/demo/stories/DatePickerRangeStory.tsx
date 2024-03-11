@@ -7,8 +7,8 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { Field, Input } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { DATE_STYLE } from './types';
 
@@ -23,29 +23,29 @@ export const DatePickerRangeStory: Story<IArgs> = ({ dateStyle, isCompact, ...ar
   return (
     <DatePickerRange {...args} formatDate={formatDate} isCompact={isCompact}>
       <Grid>
-        <Row>
-          <Col size="auto">
+        <Grid.Row>
+          <Grid.Col size="auto">
             <Field>
               <Field.Label hidden>{(DatePickerRange.Start as any).displayName}</Field.Label>
               <DatePickerRange.Start>
                 <Input isCompact={isCompact} style={{ width: isCompact ? 224 : 280 }} />
               </DatePickerRange.Start>
             </Field>
-          </Col>
-          <Col size="auto">
+          </Grid.Col>
+          <Grid.Col size="auto">
             <Field>
               <Field.Label hidden>{(DatePickerRange.End as any).displayName}</Field.Label>
               <DatePickerRange.End>
                 <Input isCompact={isCompact} style={{ width: isCompact ? 224 : 280 }} />
               </DatePickerRange.End>
             </Field>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
+          </Grid.Col>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Col>
             <DatePickerRange.Calendar />
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
       </Grid>
     </DatePickerRange>
   );

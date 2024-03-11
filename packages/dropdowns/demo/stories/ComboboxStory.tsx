@@ -11,7 +11,7 @@ import Avatar from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import {
   Combobox,
   Field,
@@ -124,8 +124,8 @@ export const ComboboxStory: Story<IArgs> = ({
 
   return (
     <Grid>
-      <Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
-        <Col alignSelf="center">
+      <Grid.Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
+        <Grid.Col alignSelf="center">
           <Field>
             <Label hidden={isLabelHidden} isRegular={isLabelRegular}>
               {label}
@@ -184,8 +184,8 @@ export const ComboboxStory: Story<IArgs> = ({
               </Message>
             )}
           </Field>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   );
 };

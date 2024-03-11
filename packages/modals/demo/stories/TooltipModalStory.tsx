@@ -8,7 +8,7 @@
 import React, { useRef } from 'react';
 import { Story } from '@storybook/react';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button, IconButton } from '@zendeskgarden/react-buttons';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { ITooltipModalProps, TooltipModal } from '@zendeskgarden/react-modals';
@@ -88,9 +88,9 @@ export const TooltipModalStory: Story<IArgs> = ({
         {hasClose && <TooltipModal.Close aria-label={closeAriaLabel} />}
       </TooltipModal>
       <Grid>
-        <Row style={{ height: 'calc(100vh - 80px)' }}>
+        <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
           {[...Array(count)].map((_, index) => (
-            <Col key={index} md={4} textAlign="center" alignSelf="center">
+            <Grid.Col key={index} md={4} textAlign="center" alignSelf="center">
               <IconButton
                 ref={element => {
                   refs.current[index] = element;
@@ -101,9 +101,9 @@ export const TooltipModalStory: Story<IArgs> = ({
                   <Avatar.Text>{index + 1}</Avatar.Text>
                 </Avatar>
               </IconButton>
-            </Col>
+            </Grid.Col>
           ))}
-        </Row>
+        </Grid.Row>
       </Grid>
     </>
   );

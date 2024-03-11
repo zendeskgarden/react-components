@@ -17,7 +17,7 @@ import {
 } from '@zendeskgarden/react-dropdowns.legacy';
 import { IMenuItem } from '../../stories/types';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 export interface IMenuItemProps extends IItemProps, Omit<IMenuItem, 'text' | 'value'> {}
 
@@ -46,14 +46,14 @@ export const MenuStory: Story<IArgs> = ({ items, appendToNode, ...rest }) => {
     >
       {isReady && (
         <Grid>
-          <Row
+          <Grid.Row
             style={{
               position: 'relative',
               overflow: 'hidden',
               height: '200px'
             }}
           >
-            <Col>
+            <Grid.Col>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam doloremque
                 ducimus, hic molestias perferendis quia recusandae repellat sequi unde voluptas!
@@ -100,8 +100,8 @@ export const MenuStory: Story<IArgs> = ({ items, appendToNode, ...rest }) => {
                 ullam. Asperiores distinctio hic optio porro quisquam sint vel voluptates?
                 Consequuntur expedita ipsa mollitia provident quos repudiandae.
               </p>
-            </Col>
-          </Row>
+            </Grid.Col>
+          </Grid.Row>
         </Grid>
       )}
       <div ref={portalsRef} />

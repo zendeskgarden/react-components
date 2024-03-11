@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import { Story } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import {
   Dropdown,
   Trigger,
@@ -28,8 +28,8 @@ export const MenuStory: Story = ({ isCompact }) => {
 
   return (
     <Grid>
-      <Row style={{ height: 'calc(100vh - 80px)' }}>
-        <Col textAlign="center" alignSelf="center">
+      <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
+        <Grid.Col textAlign="center" alignSelf="center">
           <Dropdown
             onStateChange={changes => {
               setHighlightedItem(changes.highlightedIndex);
@@ -92,8 +92,8 @@ export const MenuStory: Story = ({ isCompact }) => {
               </MediaItem>
             </Menu>
           </Dropdown>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   );
 };

@@ -7,7 +7,7 @@
 
 import React, { ReactNode } from 'react';
 import { Story } from '@storybook/react';
-import { Col, Grid, IColProps, Row } from '@zendeskgarden/react-grid';
+import { Grid, IColProps } from '@zendeskgarden/react-grid';
 import { Dropdown, IDropdownProps, IMenuProps } from '@zendeskgarden/react-dropdowns.legacy';
 import { IMenuItemProps, MenuStory } from './MenuStory';
 import { IMenuItem, ITEM } from './types';
@@ -29,8 +29,8 @@ export const DropdownStory: Story<IArgs> = ({
   ...args
 }) => (
   <Grid>
-    <Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
-      <Col alignSelf="center" {...colProps}>
+    <Grid.Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
+      <Grid.Col alignSelf="center" {...colProps}>
         <Dropdown
           {...args}
           downshiftProps={{
@@ -41,7 +41,7 @@ export const DropdownStory: Story<IArgs> = ({
           {children}
           <MenuStory items={items} itemProps={itemProps} {...menuProps} />
         </Dropdown>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   </Grid>
 );

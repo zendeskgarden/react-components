@@ -10,7 +10,7 @@ import { Story } from '@storybook/react';
 import { DefaultTheme } from 'styled-components';
 import { ThemeProvider, IGardenTheme } from '@zendeskgarden/react-theming';
 import { Field, Toggle } from '@zendeskgarden/react-forms';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { ISheetProps, Sheet } from '@zendeskgarden/react-chrome';
 import { IFooterItem } from './types';
@@ -109,8 +109,8 @@ export const SheetStory: Story<IArgs> = ({
       </Field>
     </ThemeProvider>
     <Grid debug={debug} gutters={false} style={{ marginTop: 20 }}>
-      <Row style={{ height: 'calc(100vh - 120px)' }} justifyContent={args.placement || 'end'}>
-        <Col size="auto" style={{ maxHeight: '100%' }}>
+      <Grid.Row style={{ height: 'calc(100vh - 120px)' }} justifyContent={args.placement || 'end'}>
+        <Grid.Col size="auto" style={{ maxHeight: '100%' }}>
           <SheetComponent
             hasHeader={hasHeader}
             title={title}
@@ -123,8 +123,8 @@ export const SheetStory: Story<IArgs> = ({
             hasClose={hasClose}
             {...args}
           />
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   </>
 );

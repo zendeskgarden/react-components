@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
 import { StoryFn } from '@storybook/react';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { IItemProps, Item, Menu, Separator } from '@zendeskgarden/react-dropdowns';
 
 type IArgs = {
@@ -21,8 +21,8 @@ const StyledHiddenText = styled.span(hideVisually);
 export const MenuNestedStory: StoryFn<IArgs> = ({ items, ...args }) => {
   return (
     <Grid>
-      <Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
-        <Col alignSelf="center" textAlign="center">
+      <Grid.Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
+        <Grid.Col alignSelf="center" textAlign="center">
           <div style={{ display: 'inline-block', position: 'relative', width: 300 }}>
             <Menu button="Menu" {...args}>
               {items.map(item => {
@@ -46,8 +46,8 @@ export const MenuNestedStory: StoryFn<IArgs> = ({ items, ...args }) => {
               })}
             </Menu>
           </div>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   );
 };

@@ -9,7 +9,7 @@ import React from 'react';
 import { StoryFn } from '@storybook/react';
 import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import CartIcon from '@zendeskgarden/svg-icons/src/16/shopping-cart-stroke.svg';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { IMenuProps, Item, ItemGroup, Separator, Menu } from '@zendeskgarden/react-dropdowns';
 import { IItem, Items } from './types';
 
@@ -29,8 +29,8 @@ interface IArgs extends IMenuProps {
 export const MenuStory: StoryFn<IArgs> = ({ items, ...args }) => {
   return (
     <Grid>
-      <Row justifyContent="center" style={{ height: 800 }}>
-        <Col alignSelf="center" textAlign="center">
+      <Grid.Row justifyContent="center" style={{ height: 800 }}>
+        <Grid.Col alignSelf="center" textAlign="center">
           <div style={{ display: 'inline-block', position: 'relative', width: 200 }}>
             <Menu {...args}>
               {items.map(item => {
@@ -58,8 +58,8 @@ export const MenuStory: StoryFn<IArgs> = ({ items, ...args }) => {
               })}
             </Menu>
           </div>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   );
 };
