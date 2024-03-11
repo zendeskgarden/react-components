@@ -8,12 +8,12 @@
 import React, { ChangeEventHandler, useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { IGardenTheme, PALETTE, mediaQuery } from '@zendeskgarden/react-theming';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Field, Hint, ITextareaProps, Label, Message, Textarea } from '@zendeskgarden/react-forms';
 import { ToastProvider } from '@zendeskgarden/react-notifications';
 import { Palette } from './Palette';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.md};
   }
@@ -71,8 +71,8 @@ export const Tokens = () => {
 
   return (
     <Grid>
-      <Row>
-        <Col sm={6}>
+      <Grid.Row>
+        <Grid.Col sm={6}>
           <Field>
             <Label>Design tokens</Label>
             <Hint>from Leonardo</Hint>
@@ -85,13 +85,13 @@ export const Tokens = () => {
             />
             {validation && <Message validation={validation}>{message}</Message>}
           </Field>
-        </Col>
+        </Grid.Col>
         <StyledCol sm={6}>
           <ToastProvider placementProps={toastPlacement} zIndex={1}>
             <Palette palette={palette} />
           </ToastProvider>
         </StyledCol>
-      </Row>
+      </Grid.Row>
     </Grid>
   );
 };

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Nav as ChromeNav, NavItem, NavItemIcon, NavItemText } from '@zendeskgarden/react-chrome';
+import { Nav as ChromeNav } from '@zendeskgarden/react-chrome';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import ProductIcon from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import HomeIcon from '@zendeskgarden/svg-icons/src/26/home-fill.svg';
@@ -15,29 +15,29 @@ import ZendeskIcon from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 
 export const Nav = () => (
   <ChromeNav>
-    <NavItem hasLogo style={{ color: PALETTE.green[400] }} title="Zendesk Product">
-      <NavItemIcon>
+    <ChromeNav.Item hasLogo style={{ color: PALETTE.green[400] }} title="Zendesk Product">
+      <ChromeNav.ItemIcon>
         <ProductIcon />
-      </NavItemIcon>
-      <NavItemText>Zendesk Product</NavItemText>
-    </NavItem>
-    <NavItem isCurrent title="Home">
-      <NavItemIcon>
+      </ChromeNav.ItemIcon>
+      <ChromeNav.ItemText>Zendesk Product</ChromeNav.ItemText>
+    </ChromeNav.Item>
+    <ChromeNav.Item isCurrent title="Home">
+      <ChromeNav.ItemIcon>
         <HomeIcon />
-      </NavItemIcon>
-      <NavItemText>Home</NavItemText>
-    </NavItem>
-    <NavItem title="Settings">
-      <NavItemIcon>
+      </ChromeNav.ItemIcon>
+      <ChromeNav.ItemText>Home</ChromeNav.ItemText>
+    </ChromeNav.Item>
+    <ChromeNav.Item title="Settings">
+      <ChromeNav.ItemIcon>
         <SettingsIcon />
-      </NavItemIcon>
-      <NavItemText>Settings</NavItemText>
-    </NavItem>
-    <NavItem hasBrandmark title="Zendesk">
-      <NavItemIcon>
+      </ChromeNav.ItemIcon>
+      <ChromeNav.ItemText>Settings</ChromeNav.ItemText>
+    </ChromeNav.Item>
+    <ChromeNav.Item hasBrandmark title="Zendesk">
+      <ChromeNav.ItemIcon>
         <ZendeskIcon />
-      </NavItemIcon>
-      <NavItemText>&copy;Zendesk</NavItemText>
-    </NavItem>
+      </ChromeNav.ItemIcon>
+      <ChromeNav.ItemText>&copy;Zendesk</ChromeNav.ItemText>
+    </ChromeNav.Item>
   </ChromeNav>
 );

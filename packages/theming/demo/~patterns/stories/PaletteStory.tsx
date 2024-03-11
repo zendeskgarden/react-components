@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { StoryFn } from '@storybook/react';
-import { Tab, TabList, TabPanel, Tabs } from '@zendeskgarden/react-tabs';
+import { Tabs } from '@zendeskgarden/react-tabs';
 import { Chrome, Body, Content, IChromeProps } from '@zendeskgarden/react-chrome';
 import { Nav } from './components/Nav';
 import { Header } from './components/Header';
@@ -32,11 +32,11 @@ export const PaletteStory: StoryFn<IArgs> = ({ hue, palette }) => {
   return (
     <ThemeProvider theme={theme}>
       <Tabs>
-        <TabList>
-          <Tab item="components">Components</Tab>
-          <Tab item="palette">Palette</Tab>
-        </TabList>
-        <TabPanel item="components">
+        <Tabs.TabList>
+          <Tabs.Tab item="components">Components</Tabs.Tab>
+          <Tabs.Tab item="palette">Palette</Tabs.Tab>
+        </Tabs.TabList>
+        <Tabs.TabPanel item="components">
           <Chrome hue={hue} isFluid style={{ height: 'calc(100vh - 140px)' }}>
             <Nav />
             <Body>
@@ -46,10 +46,10 @@ export const PaletteStory: StoryFn<IArgs> = ({ hue, palette }) => {
               </Content>
             </Body>
           </Chrome>
-        </TabPanel>
-        <TabPanel item="palette">
+        </Tabs.TabPanel>
+        <Tabs.TabPanel item="palette">
           <Tokens />
-        </TabPanel>
+        </Tabs.TabPanel>
       </Tabs>
     </ThemeProvider>
   );

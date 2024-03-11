@@ -6,12 +6,7 @@
  */
 
 import React from 'react';
-import {
-  Header as ChromeHeader,
-  HeaderItem,
-  HeaderItemIcon,
-  HeaderItemText
-} from '@zendeskgarden/react-chrome';
+import { Header as ChromeHeader } from '@zendeskgarden/react-chrome';
 import { Menu, Item, Separator } from '@zendeskgarden/react-dropdowns';
 import MenuIcon from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
 
@@ -19,12 +14,12 @@ export const Header = () => (
   <ChromeHeader>
     <Menu
       button={props => (
-        <HeaderItem {...props}>
-          <HeaderItemIcon>
+        <ChromeHeader.Item {...props}>
+          <ChromeHeader.ItemIcon>
             <MenuIcon />
-          </HeaderItemIcon>
-          <HeaderItemText isClipped>Products</HeaderItemText>
-        </HeaderItem>
+          </ChromeHeader.ItemIcon>
+          <ChromeHeader.ItemText isClipped>Products</ChromeHeader.ItemText>
+        </ChromeHeader.Item>
       )}
     >
       <Item value="item-one">One</Item>
