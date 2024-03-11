@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { StoryFn } from '@storybook/react';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { SubNav, ICollapsibleSubNavItemProps } from '@zendeskgarden/react-chrome';
 import { COLLAPSIBLE_SUB_NAV_ITEM } from './types';
 
@@ -20,8 +20,8 @@ export const SubNavCollapsibleItem: StoryFn<IArgs> = ({ items, ...args }) => {
 
   return (
     <Grid>
-      <Row>
-        <Col sm={6}>
+      <Grid.Row>
+        <Grid.Col sm={6}>
           <SubNav.CollapsibleItem {...args}>
             {items.map((item, index) => (
               <SubNav.Item
@@ -33,8 +33,8 @@ export const SubNavCollapsibleItem: StoryFn<IArgs> = ({ items, ...args }) => {
               </SubNav.Item>
             ))}
           </SubNav.CollapsibleItem>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   );
 };
