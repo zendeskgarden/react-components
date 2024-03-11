@@ -18,6 +18,8 @@ import {
 } from '../styled';
 
 /**
+ * @deprecated use `Table.SortableCell` instead
+ *
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(

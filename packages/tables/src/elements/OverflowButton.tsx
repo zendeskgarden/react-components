@@ -22,6 +22,8 @@ export interface IOverflowButtonProps extends ButtonHTMLAttributes<HTMLButtonEle
 }
 
 /**
+ * @deprecated use `Table.OverflowButton` instead
+ *
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const OverflowButton = forwardRef<HTMLButtonElement, IOverflowButtonProps>(

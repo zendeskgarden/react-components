@@ -12,6 +12,8 @@ import { useTableContext } from '../utils/useTableContext';
 import { Cell } from './Cell';
 
 /**
+ * @deprecated use `Table.HeaderCell` instead
+ *
  * @extends ThHTMLAttributes<HTMLTableCellElement>
  */
 export const HeaderCell = forwardRef<HTMLTableCellElement, IHeaderCellProps>(
