@@ -8,7 +8,7 @@
 import { Children, cloneElement } from 'react';
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
 import { OptionType } from '../../types';
 
@@ -26,9 +26,9 @@ const colorStyles = (props: IStyledOptionTypeIconProps) => {
   if (props.type === 'add' || props.type === 'danger') {
     color = 'inherit';
   } else if (props.type === 'header' || props.type === 'next' || props.type === 'previous') {
-    color = getColor('neutralHue', 600, props.theme);
+    color = getColorV8('neutralHue', 600, props.theme);
   } else {
-    color = getColor('primaryHue', 600, props.theme);
+    color = getColorV8('primaryHue', 600, props.theme);
   }
 
   return css`

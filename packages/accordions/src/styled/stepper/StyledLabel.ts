@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   getLineHeight,
   retrieveComponentStyles,
   DEFAULT_THEME
@@ -32,7 +32,7 @@ export const StyledLabel = styled.div.attrs<IStyledLabelProps>({
   text-align: ${props => props.isHorizontal && 'center'};
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   color: ${props =>
-    props.isActive ? props.theme.colors.foreground : getColor('neutralHue', 600, props.theme)};
+    props.isActive ? props.theme.colors.foreground : getColorV8('neutralHue', 600, props.theme)};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.isActive && 600};
 

@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { Language } from 'prism-react-renderer';
-import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles, getColorV8 } from '@zendeskgarden/react-theming';
 import { Diff, Size } from '../types';
 import { StyledFont, THEME_SIZES } from './StyledFont';
 
@@ -37,11 +37,11 @@ const colorStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>
         break;
     }
 
-    backgroundColor = getColor(hue, 400, props.theme, 0.2);
+    backgroundColor = getColorV8(hue, 400, props.theme, 0.2);
   } else if (props.isHighlighted) {
     const hue = props.isLight ? props.theme.palette.black : props.theme.palette.white;
 
-    backgroundColor = getColor(hue, 600, props.theme, 0.1);
+    backgroundColor = getColorV8(hue, 600, props.theme, 0.1);
   }
 
   return css`
@@ -50,7 +50,7 @@ const colorStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>
 };
 
 const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
-  const color = getColor('neutralHue', props.isLight ? 600 : 500, props.theme);
+  const color = getColorV8('neutralHue', props.isLight ? 600 : 500, props.theme);
   let padding;
 
   if (props.language && props.language === 'diff') {

@@ -10,7 +10,7 @@ import { math, stripUnit } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   focusStyles,
   SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
@@ -53,7 +53,7 @@ const colorStyles = ({ theme }: IStyledSplitterButtonProps & ThemeProps<DefaultT
   const boxShadow = theme.shadows.lg(
     `${theme.space.base}px`,
     `${theme.space.base * 2}px`,
-    getColor('chromeHue', 600, theme, 0.15)!
+    getColorV8('chromeHue', 600, theme, 0.15)!
   );
 
   return css`

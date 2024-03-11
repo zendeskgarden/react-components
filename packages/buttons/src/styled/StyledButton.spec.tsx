@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColor, PALETTE } from '@zendeskgarden/react-theming';
+import { getColorV8, PALETTE } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 describe('StyledButton', () => {
@@ -32,13 +32,13 @@ describe('StyledButton', () => {
   it('renders danger styling if provided', () => {
     const { container } = render(<StyledButton isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule('color', getColor('dangerHue'));
+    expect(container.firstChild).toHaveStyleRule('color', getColorV8('dangerHue'));
   });
 
   it('renders disabled styling if provided', () => {
     const { container } = render(<StyledButton disabled />);
 
-    expect(container.firstChild).toHaveStyleRule('color', getColor('neutralHue'));
+    expect(container.firstChild).toHaveStyleRule('color', getColorV8('neutralHue'));
   });
 
   it('renders link styling if provided', () => {
@@ -51,7 +51,7 @@ describe('StyledButton', () => {
   it('renders primary styling if provided', () => {
     const { container } = render(<StyledButton isPrimary />);
 
-    expect(container.firstChild).toHaveStyleRule('background-color', getColor('primaryHue'));
+    expect(container.firstChild).toHaveStyleRule('background-color', getColorV8('primaryHue'));
   });
 
   it('renders neutral styling if provided', () => {

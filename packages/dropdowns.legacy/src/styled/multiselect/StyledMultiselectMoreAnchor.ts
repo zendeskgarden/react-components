@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   getLineHeight,
   DEFAULT_THEME,
   retrieveComponentStyles
@@ -35,8 +35,8 @@ export const StyledMultiselectMoreAnchor = styled.div.attrs({
   white-space: nowrap;
   color: ${props =>
     props.isDisabled
-      ? getColor('neutralHue', 400, props.theme)
-      : getColor('primaryHue', 600, props.theme)};
+      ? getColorV8('neutralHue', 400, props.theme)
+      : getColorV8('primaryHue', 600, props.theme)};
 
   :hover {
     text-decoration: ${props => !props.isDisabled && 'underline'};
