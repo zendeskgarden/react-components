@@ -6,22 +6,22 @@
  */
 
 import React from 'react';
-import { Checkbox, Field, Label, Input } from '@zendeskgarden/react-forms';
+import { Checkbox, Field, Input } from '@zendeskgarden/react-forms';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export const Fields = () => (
   <>
     <Field>
-      <Label>Email</Label>
+      <Field.Label>Email</Field.Label>
       <Input style={{ marginBottom: DEFAULT_THEME.space.sm }} type="email" />
     </Field>
     <Field>
-      <Label>Password</Label>
+      <Field.Label>Password</Field.Label>
       <Input style={{ marginBottom: DEFAULT_THEME.space.md }} type="password" />
     </Field>
     <Field>
       <Checkbox>
-        <Label>Remember me</Label>
+        <Field.Label>Remember me</Field.Label>
       </Checkbox>
     </Field>
   </>

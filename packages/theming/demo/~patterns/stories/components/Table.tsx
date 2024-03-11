@@ -6,16 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import {
-  Body,
-  Cell,
-  Head,
-  HeaderCell,
-  HeaderRow,
-  Row,
-  Table as GardenTable,
-  ITableProps
-} from '@zendeskgarden/react-tables';
+import { Table as GardenTable, ITableProps } from '@zendeskgarden/react-tables';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { Field, Checkbox, Label } from '@zendeskgarden/react-forms';
 
@@ -56,9 +47,9 @@ export const Table = (props: ITableProps) => {
 
   return (
     <GardenTable {...props}>
-      <Head>
-        <HeaderRow>
-          <HeaderCell isMinimum>
+      <GardenTable.Head>
+        <GardenTable.HeaderRow>
+          <GardenTable.HeaderCell isMinimum>
             <Field>
               <Checkbox
                 indeterminate={isSelectAllIndeterminate(data)}
@@ -78,16 +69,16 @@ export const Table = (props: ITableProps) => {
                 <Label hidden>Select all tickets</Label>
               </Checkbox>
             </Field>
-          </HeaderCell>
-          <HeaderCell>Fruit</HeaderCell>
-          <HeaderCell>Sun exposure</HeaderCell>
-          <HeaderCell>Soil type</HeaderCell>
-        </HeaderRow>
-      </Head>
-      <Body>
+          </GardenTable.HeaderCell>
+          <GardenTable.HeaderCell>Fruit</GardenTable.HeaderCell>
+          <GardenTable.HeaderCell>Sun exposure</GardenTable.HeaderCell>
+          <GardenTable.HeaderCell>Soil type</GardenTable.HeaderCell>
+        </GardenTable.HeaderRow>
+      </GardenTable.Head>
+      <GardenTable.Body>
         {data.map((row, index) => (
-          <Row key={row.id} isSelected={row.selected}>
-            <Cell isMinimum>
+          <GardenTable.Row key={row.id} isSelected={row.selected}>
+            <GardenTable.Cell isMinimum>
               <Field>
                 <Checkbox
                   checked={row.selected}
@@ -131,13 +122,13 @@ export const Table = (props: ITableProps) => {
                   <Label hidden>Select ticket for {row.fruit}</Label>
                 </Checkbox>
               </Field>
-            </Cell>
-            <Cell>{row.fruit}</Cell>
-            <Cell>{row.sun}</Cell>
-            <Cell>{row.soil}</Cell>
-          </Row>
+            </GardenTable.Cell>
+            <GardenTable.Cell>{row.fruit}</GardenTable.Cell>
+            <GardenTable.Cell>{row.sun}</GardenTable.Cell>
+            <GardenTable.Cell>{row.soil}</GardenTable.Cell>
+          </GardenTable.Row>
         ))}
-      </Body>
+      </GardenTable.Body>
     </GardenTable>
   );
 };

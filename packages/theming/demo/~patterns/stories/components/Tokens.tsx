@@ -9,7 +9,7 @@ import React, { ChangeEventHandler, useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { IGardenTheme, PALETTE, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Hint, ITextareaProps, Label, Message, Textarea } from '@zendeskgarden/react-forms';
+import { Field, ITextareaProps, Textarea } from '@zendeskgarden/react-forms';
 import { ToastProvider } from '@zendeskgarden/react-notifications';
 import { Palette } from './Palette';
 
@@ -74,8 +74,8 @@ export const Tokens = () => {
       <Grid.Row>
         <Grid.Col sm={6}>
           <Field>
-            <Label>Design tokens</Label>
-            <Hint>from Leonardo</Hint>
+            <Field.Label>Design tokens</Field.Label>
+            <Field.Hint>from Leonardo</Field.Hint>
             <Textarea
               maxRows={38}
               onChange={handleChange}
@@ -83,7 +83,7 @@ export const Tokens = () => {
               validation={validation}
               value={value}
             />
-            {validation && <Message validation={validation}>{message}</Message>}
+            {validation && <Field.Message validation={validation}>{message}</Field.Message>}
           </Field>
         </Grid.Col>
         <StyledCol sm={6}>
