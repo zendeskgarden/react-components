@@ -14,7 +14,7 @@ interface IStyledColorPickerProps {
   isOpaque?: boolean;
 }
 
-export const getColorV8PickerWidth = (props: IStyledColorPickerProps) => {
+export const getColorPickerWidth = (props: IStyledColorPickerProps) => {
   return props.isOpaque ? 268 : 312;
 };
 
@@ -22,8 +22,8 @@ export const StyledColorPicker = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledColorPickerProps>`
-  width: ${getColorV8PickerWidth}px;
-  min-width: ${getColorV8PickerWidth}px;
+  width: ${getColorPickerWidth}px;
+  min-width: ${getColorPickerWidth}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -27,7 +27,7 @@ export const getItemPaddingVertical = (props: IStyledItemProps & ThemeProps<Defa
   return `${props.theme.space.base * 2}px`;
 };
 
-const getColorV8Styles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
+const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
   let foregroundColor;
   let backgroundColor;
 
@@ -95,7 +95,7 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
     text-decoration: none;
   }
 
-  ${props => getColorV8Styles(props)};
+  ${props => getColorStyles(props)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
