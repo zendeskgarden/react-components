@@ -15,11 +15,8 @@ import { Grid } from '@zendeskgarden/react-grid';
 import {
   Combobox,
   Field,
-  Hint,
   IComboboxProps,
   IOptionProps,
-  Label,
-  Message,
   OptGroup,
   Option,
   Tag
@@ -127,10 +124,10 @@ export const ComboboxStory: Story<IArgs> = ({
       <Grid.Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
         <Grid.Col alignSelf="center">
           <Field>
-            <Label hidden={isLabelHidden} isRegular={isLabelRegular}>
+            <Field.Label hidden={isLabelHidden} isRegular={isLabelRegular}>
               {label}
-            </Label>
-            {hint && <Hint>{hint}</Hint>}
+            </Field.Label>
+            {hint && <Field.Hint>{hint}</Field.Hint>}
             <Combobox
               validation={validation}
               {...args}
@@ -179,9 +176,9 @@ export const ComboboxStory: Story<IArgs> = ({
               )}
             </Combobox>
             {message && (
-              <Message validation={validation} validationLabel={validationLabel}>
+              <Field.Message validation={validation} validationLabel={validationLabel}>
                 {message}
-              </Message>
+              </Field.Message>
             )}
           </Field>
         </Grid.Col>

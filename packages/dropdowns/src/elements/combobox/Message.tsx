@@ -13,6 +13,8 @@ import useFieldContext from '../../context/useFieldContext';
 import { StyledMessage } from '../../views';
 
 /**
+ * @deprecated use `Field.Message` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Message = forwardRef<HTMLDivElement, IMessageProps>((props, ref) => {
