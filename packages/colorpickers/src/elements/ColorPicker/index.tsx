@@ -7,7 +7,7 @@
 
 import React, { useEffect, useCallback, useReducer, forwardRef, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Field, Label } from '@zendeskgarden/react-forms';
+import { Field } from '@zendeskgarden/react-forms';
 import { ColorWell } from './ColorWell';
 import {
   StyledHueRange,
@@ -134,7 +134,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
           />
           <StyledSliders isOpaque={isOpaque}>
             <Field>
-              <Label hidden>{labels.hueSlider || 'Hue slider'}</Label>
+              <Field.Label hidden>{labels.hueSlider || 'Hue slider'}</Field.Label>
               <StyledHueRange
                 step={1}
                 max={360}
@@ -145,7 +145,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             </Field>
             {!isOpaque && (
               <Field>
-                <Label hidden>{labels.alphaSlider || 'Alpha slider'}</Label>
+                <Field.Label hidden>{labels.alphaSlider || 'Alpha slider'}</Field.Label>
                 <StyledAlphaRange
                   max={1}
                   step={0.01}

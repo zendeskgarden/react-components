@@ -1,7 +1,7 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import { FauxInput, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { FauxInput } from '@zendeskgarden/react-forms';
 import { FauxInputStory } from './stories/FauxInputStory';
-import { commonArgs, commonArgTypes } from './stories/common';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
 
 <Meta
@@ -10,10 +10,7 @@ import README from '../README.md';
   subcomponents={{
     'FauxInput.EndIcon': FauxInput.EndIcon,
     'FauxInput.StartIcon': FauxInput.StartIcon,
-    Field,
-    Label,
-    Hint,
-    Message
+    ...fieldSubcomponents
   }}
 />
 

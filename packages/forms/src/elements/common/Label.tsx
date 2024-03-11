@@ -24,6 +24,8 @@ import {
 import { ILabelProps } from '../../types';
 
 /**
+ * @deprecated use `Field.Label` instead
+ *
  * @extends LabelHTMLAttributes<HTMLLabelElement>
  */
 export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref) => {
