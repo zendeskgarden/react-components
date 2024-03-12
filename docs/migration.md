@@ -141,6 +141,9 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-theming
 
+- The `focusVisibleRef` prop (and the resulting scoping `<div>`) has been
+  removed from `<ThemeProvider>`. Current browser support obviates the need for a
+  `:focus-visible` polyfill.
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
 - Utility function `getDocument` has been removed. Use `useDocument` instead.
 - The following exports have changed:
