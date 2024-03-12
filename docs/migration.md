@@ -88,6 +88,11 @@ consider additional positioning prop support on a case-by-case basis.
     renamed to `@zendeskgarden/react-dropdowns.legacy` in `v9`
 - `Menu`: value `auto` is no longer valid for the `fallbackPlacements` prop.
 - Removed `label` prop from `OptGroup`. Use `legend` instead.
+- Subcomponent exports have been deprecated and will be removed in a future major version. Update
+  to subcomponent properties:
+  - `Hint` -> `Field.Hint`
+  - `Label` -> `Field.Label`
+  - `Message` -> `Field.Message`
 
 #### @zendeskgarden/react-forms
 

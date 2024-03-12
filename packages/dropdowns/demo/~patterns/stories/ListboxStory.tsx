@@ -8,7 +8,7 @@
 import React, { useRef } from 'react';
 import { Story } from '@storybook/react';
 import styled from 'styled-components';
-import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns';
+import { Combobox, Field, Option } from '@zendeskgarden/react-dropdowns';
 import { getColorV8 } from '@zendeskgarden/react-theming';
 import { Paragraph } from '@zendeskgarden/react-typography';
 
@@ -34,7 +34,7 @@ export const ListboxStory: Story<IArgs> = ({ listboxAppendToNode }) => {
       <div ref={portalNode} />
       <StyledContainer>
         <Field>
-          <Label>Listbox portal pattern</Label>
+          <Field.Label>Listbox portal pattern</Field.Label>
           <Combobox
             isAutocomplete
             isEditable={false}

@@ -13,6 +13,8 @@ import { ILabelProps } from '../../types';
 import { StyledLabel } from '../../views';
 
 /**
+ * @deprecated use `Field.Label` instead
+ *
  * @extends LabelHTMLAttributes<HTMLLabelElement>
  */
 export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
