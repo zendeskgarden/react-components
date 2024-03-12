@@ -27,7 +27,9 @@ interface IPaletteProps {
 export const Palette = ({ palette }: IPaletteProps) => {
   const { addToast } = useToast();
 
-  const paletteText = JSON.stringify(palette, null /* replacer */, '  ');
+  const paletteText = JSON.stringify(palette, null /* replacer */, '  ')
+    .replaceAll('"', "'")
+    .replace(/'(?<shade>\d*)'/gmu, '$<shade>');
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(paletteText);
