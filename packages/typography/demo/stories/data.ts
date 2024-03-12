@@ -287,7 +287,7 @@ if __name__ == '__main__':
 
 import React from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Label, Option, Tag } from '@zendeskgarden/react-dropdowns.next';
+import { Combobox, Field, Option, Tag } from '@zendeskgarden/react-dropdowns.next';
 import { ReactComponent as AvatarIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const OPTIONS = [
@@ -330,7 +330,7 @@ const Example = () => {
     <Row justifyContent="center">
       <Col sm={5}>
         <Field>
-          <Label>Horticulturalists</Label>
+          <Field.Label>Horticulturalists</Field.Label>
           <Combobox isMultiselectable maxHeight="auto">
             {OPTIONS.map(option => (
               <Option
