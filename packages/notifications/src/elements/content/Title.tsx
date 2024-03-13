@@ -10,6 +10,8 @@ import { ITitleProps } from '../../types';
 import { StyledTitle } from '../../styled';
 
 /**
+ * @deprecated use `Alert.Title`, `Notification.Title`, or `Well.Title` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Title = React.forwardRef<HTMLDivElement, ITitleProps>((props, ref) => (

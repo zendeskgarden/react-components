@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Alert, Close, IAlertProps, Paragraph, Title } from '@zendeskgarden/react-notifications';
+import { Alert, IAlertProps } from '@zendeskgarden/react-notifications';
 
 interface IArgs extends IAlertProps {
   title?: string;
@@ -26,8 +26,8 @@ export const AlertStory: Story<IArgs> = ({
   ...args
 }) => (
   <Alert {...args}>
-    {title && <Title isRegular={isRegular}>{title}</Title>}
-    {hasParagraph ? <Paragraph>{children}</Paragraph> : children}
-    {hasClose && <Close aria-label={ariaLabel} />}
+    {title && <Alert.Title isRegular={isRegular}>{title}</Alert.Title>}
+    {hasParagraph ? <Alert.Paragraph>{children}</Alert.Paragraph> : children}
+    {hasClose && <Alert.Close aria-label={ariaLabel} />}
   </Alert>
 );

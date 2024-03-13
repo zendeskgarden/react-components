@@ -11,11 +11,11 @@ import InfoStrokeIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import { INotificationProps, TYPE } from '../types';
 import { StyledNotification, StyledIcon } from '../styled';
 import { validationIcons, validationHues } from '../utils/icons';
+import { Title } from './content/Title';
+import { Paragraph } from './content/Paragraph';
+import { Close } from './content/Close';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Notification = forwardRef<HTMLDivElement, INotificationProps>(
+export const NotificationComponent = forwardRef<HTMLDivElement, INotificationProps>(
   ({ role, ...props }, ref) => {
     const Icon = props.type ? validationIcons[props.type] : InfoStrokeIcon;
     const hue = props.type && validationHues[props.type];
@@ -40,8 +40,21 @@ export const Notification = forwardRef<HTMLDivElement, INotificationProps>(
   }
 );
 
-Notification.displayName = 'Notification';
+NotificationComponent.displayName = 'Notification';
 
-Notification.propTypes = {
+NotificationComponent.propTypes = {
   type: PropTypes.oneOf(TYPE)
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Notification = NotificationComponent as typeof NotificationComponent & {
+  Close: typeof Close;
+  Paragraph: typeof Paragraph;
+  Title: typeof Title;
+};
+
+Notification.Close = Close;
+Notification.Paragraph = Paragraph;
+Notification.Title = Title;
