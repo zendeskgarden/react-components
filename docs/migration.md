@@ -125,6 +125,11 @@ consider additional positioning prop support on a case-by-case basis.
 - The following types have changed:
   - removed `ToastPlacement`. Use `IToastOptions['placement']` instead.
   - removed `ToastContent`. Use `IToast['content']` instead.
+- Subcomponent exports have been deprecated and will be removed in a future major version. Update
+  to subcomponent properties:
+  - `Close` -> `Alert.Close`, `Notification.Close`
+  - `Paragraph` -> `Alert.Paragraph`, `Notification.Paragraph`, `Well.Paragraph`
+  - `Title` -> `Alert.Title`, `Notification.Title`, `Well.Title`
 
 #### @zendeskgarden/react-pagination
 

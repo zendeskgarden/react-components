@@ -12,6 +12,8 @@ import { useText } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 
 /**
+ * @deprecated use `Alert.Close` or `Notification.Close` instead
+ *
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const Close = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
