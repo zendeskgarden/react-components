@@ -1,6 +1,6 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Modal, Body, Close, Footer, FooterItem, Header } from '@zendeskgarden/react-modals';
+import { Modal } from '@zendeskgarden/react-modals';
 import { ModalStory } from './stories/ModalStory';
 import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';
 import README from '../README.md';
@@ -8,7 +8,13 @@ import README from '../README.md';
 <Meta
   title="Packages/Modals/Modal"
   component={Modal}
-  subcomponents={{ Body, Close, Footer, FooterItem, Header }}
+  subcomponents={{
+    'Footer.Body': Footer.Body,
+    'Footer.Close': Footer.Close,
+    'Footer.Footer': Footer.Footer,
+    'Footer.FooterItem': Footer.FooterItem,
+    'Footer.Header': Footer.Header
+  }}
 />
 
 # API

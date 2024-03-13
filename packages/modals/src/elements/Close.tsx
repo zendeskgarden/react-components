@@ -12,6 +12,8 @@ import { useModalContext } from '../utils/useModalContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 /**
+ * @deprecated use `Modal.Close` instead
+ *
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(

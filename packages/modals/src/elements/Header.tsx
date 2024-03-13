@@ -12,6 +12,8 @@ import { StyledDangerIcon, StyledHeader } from '../styled';
 import { IHeaderProps } from '../types';
 
 /**
+ * @deprecated use `Modal.Header` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Header = forwardRef<HTMLDivElement, IHeaderProps>(

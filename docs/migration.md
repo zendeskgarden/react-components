@@ -119,6 +119,8 @@ consider additional positioning prop support on a case-by-case basis.
 - `DrawerModal`: renamed to `Drawer`
 - `TooltipModal`: removed `popperModifiers` prop (see [note](#breaking-changes))
 - Removed `GARDEN_PLACEMENT` type export. Use `ITooltipModalProps['placement']` instead.
+- Subcomponent exports for `Modal` have been deprecated and will be removed in a future major version.
+  Update to subcomponent properties (e.g., `Modal.Body`).
 
 #### @zendeskgarden/react-notification
 
