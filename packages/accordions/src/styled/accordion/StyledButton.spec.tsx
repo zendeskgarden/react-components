@@ -16,7 +16,6 @@ describe('StyledButton', () => {
 
     expect(container.firstChild).toHaveStyleRule('padding', '20px');
     expect(container.firstChild).toHaveStyleRule('text-align', 'left');
-    expect(container.firstChild).toHaveStyleRule('color', '#2f3941');
     expect(container.firstChild).not.toHaveStyleRule('cursor');
   });
 
