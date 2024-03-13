@@ -39,7 +39,7 @@ const breakpoints = {
 
 const colors = {
   background: PALETTE.white,
-  foreground: PALETTE.grey[800],
+  foreground: PALETTE.grey[900],
   primaryHue: 'blue',
   dangerHue: 'red',
   warningHue: 'yellow',

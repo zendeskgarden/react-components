@@ -32,10 +32,14 @@ export const parameters = {
 
 const GlobalPreviewStyling = createGlobalStyle`
   body {
-    background-color: ${p => p.theme.colors.background};
     /* stylelint-disable-next-line declaration-no-important */
     padding: 0 !important;
     font-family: ${p => p.theme.fonts.system};
+  }
+
+  .sb-show-main.sb-show-main {
+    /* stylelint-disable-next-line declaration-no-important */
+    background-color: ${p => p.theme.colors.background} !important;
   }
 `;
 
@@ -61,8 +65,8 @@ const withThemeProvider = (story, context) => {
       : context.parameters.backgrounds.default === 'dark'
   ) {
     colors.base = 'dark';
-    colors.background = getColorV8('neutralHue', 900, DEFAULT_THEME);
-    colors.foreground = getColorV8('neutralHue', 200, DEFAULT_THEME);
+    colors.background = getColorV8('neutralHue', 1100, DEFAULT_THEME);
+    colors.foreground = getColorV8('neutralHue', 300, DEFAULT_THEME);
   }
 
   const theme = { ...DEFAULT_THEME, colors, rtl };

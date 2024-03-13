@@ -29,7 +29,7 @@ exports[`DEFAULT_THEME matches snapshot 1`] = `
     "base": "light",
     "chromeHue": "kale",
     "dangerHue": "red",
-    "foreground": "#4b565f",
+    "foreground": "#2e373f",
     "neutralHue": "grey",
     "primaryHue": "blue",
     "successHue": "green",
