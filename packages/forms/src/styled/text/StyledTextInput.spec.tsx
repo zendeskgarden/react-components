@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from './StyledTextInput';
 
 describe('StyledTextInput', () => {
@@ -38,7 +38,7 @@ describe('StyledTextInput', () => {
   it('renders expected disabled styling', () => {
     const { container } = render(<StyledTextInput disabled />);
 
-    expect(container.firstChild).toHaveStyleRule('color', getColorV8('neutralHue', 800));
+    expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground);
   });
 
   it('renders expected RTL styling', () => {

@@ -36,8 +36,8 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     } else {
       foregroundColor = readableColor(
         backgroundColor!,
-        props.theme.palette.grey[800],
-        props.theme.palette.white as string
+        props.theme.colors.foreground,
+        props.theme.colors.background
       );
     }
   } else {

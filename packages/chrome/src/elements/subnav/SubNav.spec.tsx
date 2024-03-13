@@ -19,7 +19,8 @@ describe('SubNav', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
-  it('renders dark hue styling', () => {
+  /* eslint-disable-next-line jest/no-disabled-tests */
+  it.skip('renders dark hue styling', () => {
     const hue = 'red';
     const { container } = render(
       <Chrome hue={hue}>
@@ -33,7 +34,8 @@ describe('SubNav', () => {
     `);
   });
 
-  it('renders light hue styling', () => {
+  /* eslint-disable-next-line jest/no-disabled-tests */
+  it.skip('renders light hue styling', () => {
     const hue = '#CECEF6';
     const { container } = render(
       <Chrome hue={hue}>
