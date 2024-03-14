@@ -9,6 +9,8 @@ import React from 'react';
 import { StyledFooterItem } from '../styled';
 
 /**
+ * @deprecated use `Modal.FooterItem` instead
+ *
  * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const FooterItem = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(
