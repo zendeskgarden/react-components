@@ -53,9 +53,6 @@ const isOverflowing = (element: Element) => {
   return marginLeft + doc.body.clientWidth + marginRight < win.innerWidth;
 };
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
 export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
   (
     {
@@ -216,6 +213,9 @@ ModalComponent.defaultProps = {
   isCentered: true
 };
 
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 export const Modal = ModalComponent as typeof ModalComponent & {
   Body: typeof Body;
   Close: typeof Close;
