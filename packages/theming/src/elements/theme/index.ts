@@ -139,6 +139,33 @@ const space = {
   xxl: `${BASE * 12}px`
 };
 
+const variables = {
+  colors: {
+    dark: {
+      background: {
+        default: 'neutralHue.1100'
+      },
+      border: {
+        default: 'neutralHue.700'
+      },
+      foreground: {
+        default: 'neutralHue.300'
+      }
+    },
+    light: {
+      background: {
+        default: 'palette.white'
+      },
+      border: {
+        default: 'neutralHue.400'
+      },
+      foreground: {
+        default: 'neutralHue.900'
+      }
+    }
+  }
+};
+
 const DEFAULT_THEME: IGardenTheme = {
   borders,
   borderRadii,
@@ -159,8 +186,8 @@ const DEFAULT_THEME: IGardenTheme = {
   rtl: false,
   shadowWidths,
   shadows,
-  space
+  space,
+  variables
 };
 
-/** @component */
 export default DEFAULT_THEME;

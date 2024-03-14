@@ -48,10 +48,15 @@ import README from '../README.md';
     name="getColor()"
     args={{
       hue: 'primaryHue',
-      shade: 600
+      offset: 0,
+      shade: 700,
+      theme: DEFAULT_THEME,
     }}
     argTypes={{
-      transparency: { control: { type: 'range', min: 1 } }
+      dark: { control: { type: 'object' } },
+      light: { control: { type: 'object' } },
+      transparency: { control: { type: 'range', min: 1 } },
+      variable: { control: { type: 'text' } }
     }}
   >
     {args => <GetColorStory {...args} />}
