@@ -29,6 +29,11 @@ import getScrollbarSize from 'dom-helpers/scrollbarSize';
 import { StyledModal, StyledBackdrop } from '../styled';
 import { IModalProps } from '../types';
 import { ModalsContext } from '../utils/useModalContext';
+import { Body } from './Body';
+import { Close } from './Close';
+import { Footer } from './Footer';
+import { FooterItem } from './FooterItem';
+import { Header } from './Header';
 
 const isOverflowing = (element: Element) => {
   const doc = ownerDocument(element);
@@ -48,10 +53,7 @@ const isOverflowing = (element: Element) => {
   return marginLeft + doc.body.clientWidth + marginRight < win.innerWidth;
 };
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Modal = forwardRef<HTMLDivElement, IModalProps>(
+export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
   (
     {
       backdropProps,
@@ -161,7 +163,7 @@ export const Modal = forwardRef<HTMLDivElement, IModalProps>(
       : modalProps['aria-label'];
 
     const ariaProps = {
-      [attribute]: useText(Modal, { [attribute]: labelValue }, attribute, defaultValue!)
+      [attribute]: useText(ModalComponent, { [attribute]: labelValue }, attribute, defaultValue!)
     };
 
     if (!rootNode) {
@@ -193,9 +195,9 @@ export const Modal = forwardRef<HTMLDivElement, IModalProps>(
   }
 );
 
-Modal.displayName = 'Modal';
+ModalComponent.displayName = 'Modal';
 
-Modal.propTypes = {
+ModalComponent.propTypes = {
   backdropProps: PropTypes.object,
   isLarge: PropTypes.bool,
   isAnimated: PropTypes.bool,
@@ -206,7 +208,24 @@ Modal.propTypes = {
   appendToNode: PropTypes.any
 };
 
-Modal.defaultProps = {
+ModalComponent.defaultProps = {
   isAnimated: true,
   isCentered: true
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Modal = ModalComponent as typeof ModalComponent & {
+  Body: typeof Body;
+  Close: typeof Close;
+  Footer: typeof Footer;
+  FooterItem: typeof FooterItem;
+  Header: typeof Header;
+};
+
+Modal.Body = Body;
+Modal.Close = Close;
+Modal.Footer = Footer;
+Modal.FooterItem = FooterItem;
+Modal.Header = Header;

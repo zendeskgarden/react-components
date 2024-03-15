@@ -9,10 +9,6 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
 import { Modal } from './Modal';
-import { Body } from './Body';
-import { Footer } from './Footer';
-import { Header } from './Header';
-import { Close } from './Close';
 import { IModalProps } from '../types';
 
 describe('Modal', () => {
@@ -33,12 +29,12 @@ describe('Modal', () => {
       data-test-id="modal"
       backdropProps={{ 'data-test-id': 'backdrop' } as any}
     >
-      {!noHeader && <Header data-test-id="header">Example Header</Header>}
-      <Body data-test-id="body">Body content</Body>
-      <Footer data-test-id="footer">
+      {!noHeader && <Modal.Header data-test-id="header">Example Header</Modal.Header>}
+      <Modal.Body data-test-id="body">Body content</Modal.Body>
+      <Modal.Footer data-test-id="footer">
         <button onClick={() => onClose}>Confirm</button>
-      </Footer>
-      <Close data-test-id="close" />
+      </Modal.Footer>
+      <Modal.Close data-test-id="close" />
     </Modal>
   );
 
@@ -120,19 +116,19 @@ describe('Modal', () => {
     expect(getByTestId('modal')).toHaveAttribute('aria-modal', 'true');
   });
 
-  it('applies title props to Header element', () => {
+  it('applies title props to Modal.Header element', () => {
     const { getByTestId } = render(<BasicExample />);
 
     expect(getByTestId('header')).toHaveAttribute('id', `${MODAL_ID}__title`);
   });
 
-  it('applies content props to Body element', () => {
+  it('applies content props to Modal.Body element', () => {
     const { getByTestId } = render(<BasicExample />);
 
     expect(getByTestId('body')).toHaveAttribute('id', `${MODAL_ID}__content`);
   });
 
-  it('applies close props to Close element', () => {
+  it('applies close props to Modal.Close element', () => {
     const { getByTestId } = render(<BasicExample />);
 
     expect(getByTestId('close')).toHaveAttribute('aria-label', 'Close modal');
@@ -146,7 +142,7 @@ describe('Modal', () => {
       expect(onCloseSpy).toHaveBeenCalled();
     });
 
-    it('is triggered by Close element click', async () => {
+    it('is triggered by Modal.Close element click', async () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
       await user.click(getByTestId('close'));
