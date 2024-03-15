@@ -18,7 +18,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Modal, Header, Body, Footer, FooterItem, Close } from '@zendeskgarden/react-modals';
+import { Modal } from '@zendeskgarden/react-modals';
 import { Button } from '@zendeskgarden/react-buttons';
 
 /**
@@ -26,17 +26,17 @@ import { Button } from '@zendeskgarden/react-buttons';
  */
 <ThemeProvider>
   <Modal onClose={() => alert('modal closing')}>
-    <Header>Example Header</Header>
-    <Body>Some content</Body>
-    <Footer>
-      <FooterItem>
+    <Modal.Header>Example Header</Modal.Header>
+    <Modal.Body>Some content</Modal.Body>
+    <Modal.Footer>
+      <Modal.FooterItem>
         <Button isBasic>Cancel</Button>
-      </FooterItem>
-      <FooterItem>
+      </Modal.FooterItem>
+      <Modal.FooterItem>
         <Button isPrimary>Confirm</Button>
-      </FooterItem>
-    </Footer>
-    <Close aria-label="Close modal" />
+      </Modal.FooterItem>
+    </Modal.Footer>
+    <Modal.Close aria-label="Close modal" />
   </Modal>
 </ThemeProvider>;
 ```
