@@ -1,4 +1,5 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
 import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { ArrowStylesStory } from './stories/ArrowStylesStory';
 import { MenuStylesStory } from './stories/MenuStylesStory';
@@ -48,18 +49,22 @@ import README from '../README.md';
     name="getColor()"
     args={{
       hue: 'primaryHue',
-      offset: 0,
-      shade: 700,
-      theme: DEFAULT_THEME,
+      theme: DEFAULT_THEME
     }}
     argTypes={{
       dark: { control: { type: 'object' } },
       light: { control: { type: 'object' } },
+      offset: { control: { type: 'number' } },
+      shade: { control: { type: 'number' } },
       transparency: { control: { type: 'range', min: 1 } },
       variable: { control: { type: 'text' } }
     }}
   >
-    {args => <GetColorStory {...args} />}
+    {args => {
+      const updateArgs = useArgs()[1];
+      const handleThemeChange = theme => updateArgs({ theme });
+      return <GetColorStory {...args} onThemeChange={handleThemeChange} />;
+    }}
   </Story>
 </Canvas>
 

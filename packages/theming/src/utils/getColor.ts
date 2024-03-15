@@ -23,25 +23,31 @@ const adjust = (color: string, expected: number, actual: number) => {
   return color;
 };
 
-/* convert the given object + path to a string value */
-const toValue = (object: object, path: string) => {
-  const value = get(object, path);
+/* convert the optional shade + offset to a shade for the given scheme */
+const toShade = (shade?: number | string, offset?: number, scheme?: 'dark' | 'light') => {
+  let _shade;
 
-  if (typeof value === 'string') {
-    return value;
-  } else if (value === undefined) {
-    throw new ReferenceError(`Error: color variable "${path}" is not defined`);
+  if (shade === undefined) {
+    _shade = scheme === 'dark' ? 500 : 700;
   } else {
-    throw new TypeError(`Error: unexpected '${typeof value}' type for color variable "${path}"`);
+    _shade = parseInt(shade.toString(), 10);
+
+    if (isNaN(_shade)) {
+      throw new TypeError(`Error: unexpected '${typeof shade}' type for color shade "${shade}"`);
+    }
   }
+
+  return _shade + (offset || 0);
 };
 
 /* convert the given hue + shade to a color */
 const toColor = (
   colors: IGardenTheme['colors'],
   palette: IGardenTheme['palette'],
+  scheme: 'dark' | 'light',
   hue: string,
-  shade: number
+  shade?: number | string,
+  offset?: number
 ) => {
   let retVal;
   let _hue: Hue =
@@ -53,24 +59,39 @@ const toColor = (
   }
 
   if (typeof _hue === 'object') {
-    retVal = _hue[shade];
+    const _shade = toShade(shade, offset, scheme);
+
+    retVal = _hue[_shade];
 
     if (!retVal) {
-      const _shade = Object.keys(_hue)
+      const closestShade = Object.keys(_hue)
         .map(hueShade => parseInt(hueShade, 10))
         .reduce((previous, current) => {
           // Find the closest available shade within the given hue
-          return Math.abs(current - shade) < Math.abs(previous - shade) ? current : previous;
+          return Math.abs(current - _shade) < Math.abs(previous - _shade) ? current : previous;
         });
 
-      retVal = adjust(_hue[_shade], shade, _shade);
+      retVal = adjust(_hue[closestShade], _shade, closestShade);
     }
   } else {
     // TODO adjust for shade
-    retVal = _hue;
+    retVal = undefined;
   }
 
   return retVal;
+};
+
+/* convert the given object + path to a string value */
+const toValue = (object: object, path: string) => {
+  const value = get(object, path);
+
+  if (typeof value === 'string') {
+    return value;
+  } else if (value === undefined) {
+    throw new ReferenceError(`Error: color variable "${path}" is not defined`);
+  } else {
+    throw new TypeError(`Error: unexpected '${typeof value}' type for color variable "${path}"`);
+  }
 };
 
 type ColorParameters = {
@@ -96,8 +117,8 @@ export const getColor = ({
   dark,
   hue,
   light,
-  offset = 0,
-  shade = 700,
+  offset,
+  shade,
   theme,
   transparency,
   variable
@@ -120,40 +141,34 @@ export const getColor = ({
     if (_hue === 'palette') {
       retVal = toValue(palette, _shade); /* ex. `variable` = 'palette.white' */
     } else {
-      let shadeValue = parseInt(_shade, 10);
+      let _offset;
 
       if (scheme === 'dark' && dark?.offset) {
-        shadeValue += dark.offset;
+        _offset = dark.offset;
       } else if (scheme === 'light' && light?.offset) {
-        shadeValue += light.offset;
+        _offset = light.offset;
       } else {
-        shadeValue += offset;
+        _offset = offset;
       }
 
-      retVal = toColor(colors, palette, _hue, shadeValue);
+      retVal = toColor(colors, palette, scheme, _hue, _shade, _offset);
     }
   } else if ((dark && scheme === 'dark') || (light && scheme === 'light')) {
-    // next lookup is light/dark scheme
+    // penultimate lookup is light/dark scheme
     const mode = (scheme === 'dark' ? dark : light)!;
     const _hue = mode.hue || hue;
 
     if (_hue) {
-      const _shade = mode.shade || shade;
-      const _offset = mode.offset || offset;
-
-      retVal = toColor(colors, palette, _hue, _shade + _offset);
+      retVal = toColor(colors, palette, scheme, _hue, mode.shade || shade, mode.offset || offset);
     }
   } else if (hue) {
     // last lookup is schemeless
-    retVal = toColor(colors, palette, hue, shade + offset);
+    retVal = toColor(colors, palette, scheme, hue, shade, offset);
   }
 
   if (retVal === undefined) {
-    // TODO
-    throw new Error();
-  }
-
-  if (transparency) {
+    throw new Error('Error: invalid `getColor` parameters');
+  } else if (transparency) {
     retVal = rgba(retVal, transparency);
   }
 

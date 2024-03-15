@@ -6,48 +6,38 @@
  */
 
 import React from 'react';
-import styled, { DefaultTheme, useTheme } from 'styled-components';
 import { StoryFn } from '@storybook/react';
 import { readableColor } from 'polished';
+import styled, { DefaultTheme, useTheme } from 'styled-components';
 import { IGardenTheme, getColor, getColorV8 } from '@zendeskgarden/react-theming';
 
-export const checkeredBackground = (
-  theme: DefaultTheme,
-  size: number,
-  positionY = 0,
-  repeat = 'repeat'
-) => {
+const toBackground = (theme: DefaultTheme, backgroundColor: string) => {
   const color = getColorV8('neutralHue', 300, theme);
+  const size = 26;
   const dimensions = `${size}px ${size}px`;
   const positionX1 = theme.rtl ? '100%' : '0';
   const positionX2 = theme.rtl ? `calc(100% - ${size / 2}px)` : `${size / 2}px`;
-  const position1 = `${positionX1} ${positionY}px`;
-  const position2 = `${positionX2} ${size / 2 + positionY}px`;
-  const position3 = `${positionX2} ${positionY}px`;
-  const position4 = `${positionX1} ${size / -2 + positionY}px`;
+  const position1 = `${positionX1} 0`;
+  const position2 = `${positionX2} ${size / 2}px`;
+  const position3 = `${positionX2} 0`;
+  const position4 = `${positionX1} ${size / -2}px`;
 
   return `
-    linear-gradient(45deg, ${color} 25%, transparent 25%) ${position1} / ${dimensions} ${repeat},
-    linear-gradient(45deg, transparent 75%, ${color} 75%) ${position2} / ${dimensions} ${repeat},
-    linear-gradient(135deg, ${color} 25%, transparent 25%) ${position3} / ${dimensions} ${repeat},
-    linear-gradient(135deg, transparent 75%, ${color} 75%) ${position4} / ${dimensions} ${repeat}
+    linear-gradient(${backgroundColor}, ${backgroundColor}), 
+    linear-gradient(45deg, ${color} 25%, transparent 25%) ${position1} / ${dimensions} repeat,
+    linear-gradient(45deg, transparent 75%, ${color} 75%) ${position2} / ${dimensions} repeat,
+    linear-gradient(135deg, ${color} 25%, transparent 25%) ${position3} / ${dimensions} repeat,
+    linear-gradient(135deg, transparent 75%, ${color} 75%) ${position4} / ${dimensions} repeat
   `;
 };
 
-const background = (theme: DefaultTheme, color: string) => {
-  return `linear-gradient(${color}, ${color}), ${checkeredBackground(theme, 26)}`;
-};
-
-const StyledDiv = styled.div<{ backgroundColor: string }>`
+const StyledDiv = styled.div<{ background: string; foreground?: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${p => background(p.theme, p.backgroundColor)};
-  color: ${p =>
-    p.backgroundColor === 'transparent'
-      ? p.theme.colors.foreground
-      : readableColor(p.backgroundColor)};
+  background: ${p => p.background};
   height: 208px;
+  color: ${p => p.foreground || 'inherit'};
 `;
 
 interface IArgs {
@@ -55,6 +45,7 @@ interface IArgs {
   hue?: string;
   light?: object;
   offset?: number;
+  onThemeChange: (theme: IGardenTheme) => void;
   shade?: number;
   theme: IGardenTheme;
   transparency?: number;
@@ -66,15 +57,19 @@ export const GetColorStory: StoryFn<IArgs> = ({
   hue,
   light,
   offset,
+  onThemeChange,
   shade,
   theme: _theme,
   transparency,
   variable
 }) => {
   const parentTheme = useTheme();
-  const theme = { ..._theme, colors: { ..._theme.colors, base: parentTheme.colors.base } };
 
   try {
+    const theme = { ..._theme, colors: { ..._theme.colors, base: parentTheme.colors.base } };
+
+    onThemeChange(theme);
+
     const _transparency = transparency ? transparency / 100 : undefined;
     const backgroundColor = getColor({
       dark,
@@ -86,13 +81,17 @@ export const GetColorStory: StoryFn<IArgs> = ({
       transparency: _transparency,
       variable
     });
+    const background = toBackground(theme, backgroundColor);
+    const foreground = (transparency || 100) < 65 ? 'inherit' : readableColor(backgroundColor);
 
     return (
-      <StyledDiv backgroundColor={backgroundColor || 'transparent'}>{backgroundColor}</StyledDiv>
+      <StyledDiv background={background} foreground={foreground}>
+        {backgroundColor}
+      </StyledDiv>
     );
   } catch (error) {
     return (
-      <StyledDiv backgroundColor="transparent">
+      <StyledDiv background="transparent">
         {error instanceof Error ? error.message : String(error)}
       </StyledDiv>
     );
