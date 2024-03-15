@@ -37,7 +37,7 @@ const StyledDiv = styled.div<{ background: string; foreground?: string }>`
   justify-content: center;
   background: ${p => p.background};
   height: 208px;
-  color: ${p => p.foreground || 'inherit'};
+  color: ${p => p.foreground};
 `;
 
 interface IArgs {
