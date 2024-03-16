@@ -8,9 +8,12 @@
 import { scale } from 'chroma-js';
 import { darken, lighten, rgba } from 'polished';
 import get from 'lodash.get';
+import memoize from 'lodash.memoize';
 import DEFAULT_THEME from '../elements/theme';
 import PALETTE from '../elements/palette';
 import { Hue, IGardenTheme } from '../types';
+
+const PALETTE_SIZE = Object.keys(PALETTE.blue).length;
 
 const adjust = (color: string, expected: number, actual: number) => {
   if (expected !== actual) {
@@ -40,6 +43,30 @@ const toShade = (shade?: number | string, offset?: number, scheme?: 'dark' | 'li
   return _shade + (offset || 0);
 };
 
+/* convert the given hue object to a hex color */
+const toHex = (
+  hue: Record<string | number, string>,
+  shade?: number | string,
+  offset?: number,
+  scheme?: 'dark' | 'light'
+) => {
+  const _shade = toShade(shade, offset, scheme);
+  let retVal = hue[_shade];
+
+  if (!retVal) {
+    const closestShade = Object.keys(hue)
+      .map(hueShade => parseInt(hueShade, 10))
+      .reduce((previous, current) => {
+        // Find the closest available shade within the given hue
+        return Math.abs(current - _shade) < Math.abs(previous - _shade) ? current : previous;
+      });
+
+    retVal = adjust(hue[closestShade], _shade, closestShade);
+  }
+
+  return retVal;
+};
+
 /* convert the given hue + shade to a color */
 const toColor = (
   colors: IGardenTheme['colors'],
@@ -59,23 +86,23 @@ const toColor = (
   }
 
   if (typeof _hue === 'object') {
-    const _shade = toShade(shade, offset, scheme);
-
-    retVal = _hue[_shade];
-
-    if (!retVal) {
-      const closestShade = Object.keys(_hue)
-        .map(hueShade => parseInt(hueShade, 10))
-        .reduce((previous, current) => {
-          // Find the closest available shade within the given hue
-          return Math.abs(current - _shade) < Math.abs(previous - _shade) ? current : previous;
-        });
-
-      retVal = adjust(_hue[closestShade], _shade, closestShade);
-    }
+    retVal = toHex(_hue, shade, offset, scheme);
+  } else if (shade === undefined) {
+    retVal = _hue;
   } else {
-    // TODO adjust for shade
-    retVal = undefined;
+    const _colors = scale([PALETTE.white, _hue, PALETTE.black])
+      .correctLightness()
+      .colors(PALETTE_SIZE + 2);
+
+    _hue = _colors.reduce<Record<number, string>>((_retVal, color, index) => {
+      if (index > 0 && index <= PALETTE_SIZE) {
+        _retVal[index * 100] = color;
+      }
+
+      return _retVal;
+    }, {});
+
+    retVal = toHex(_hue, shade, offset, scheme);
   }
 
   return retVal;
@@ -113,66 +140,70 @@ type ColorParameters = {
   variable?: string;
 };
 
-export const getColor = ({
-  dark,
-  hue,
-  light,
-  offset,
-  shade,
-  theme,
-  transparency,
-  variable
-}: ColorParameters) => {
-  let retVal;
+export const getColor = memoize(
+  ({ dark, hue, light, offset, shade, theme, transparency, variable }: ColorParameters) => {
+    let retVal;
 
-  // bulletproof object references for potential non-typed usage
-  const colors = theme.colors ? theme.colors : DEFAULT_THEME.colors;
-  const palette = theme.palette ? theme.palette : DEFAULT_THEME.palette;
-  const scheme = colors.base === 'dark' ? 'dark' : 'light';
+    // bulletproof object references for potential non-typed usage
+    const colors = theme.colors ? theme.colors : DEFAULT_THEME.colors;
+    const palette = theme.palette ? theme.palette : DEFAULT_THEME.palette;
+    const scheme = colors.base === 'dark' ? 'dark' : 'light';
 
-  if (variable) {
-    // variable lookup takes precedence
-    const variables = theme.variables?.colors?.[scheme]
-      ? theme.variables.colors[scheme]
-      : DEFAULT_THEME.variables.colors[scheme];
-    const value = toValue(variables, variable);
-    const [_hue, _shade] = value.split(/\.(?<shade>.*)/u) as [string, string];
+    if (variable) {
+      // variable lookup takes precedence
+      const variables = theme.variables?.colors?.[scheme]
+        ? theme.variables.colors[scheme]
+        : DEFAULT_THEME.variables.colors[scheme];
+      const value = toValue(variables, variable);
+      const [_hue, _shade] = value.split(/\.(?<shade>.*)/u) as [string, string];
 
-    if (_hue === 'palette') {
-      retVal = toValue(palette, _shade); /* ex. `variable` = 'palette.white' */
-    } else {
-      let _offset;
-
-      if (scheme === 'dark' && dark?.offset) {
-        _offset = dark.offset;
-      } else if (scheme === 'light' && light?.offset) {
-        _offset = light.offset;
+      if (_hue === 'palette') {
+        retVal = toValue(palette, _shade); /* ex. `variable` = 'palette.white' */
       } else {
-        _offset = offset;
+        let _offset;
+
+        if (scheme === 'dark' && dark?.offset) {
+          _offset = dark.offset;
+        } else if (scheme === 'light' && light?.offset) {
+          _offset = light.offset;
+        } else {
+          _offset = offset;
+        }
+
+        retVal = toColor(colors, palette, scheme, _hue, _shade, _offset);
       }
+    } else if ((dark && scheme === 'dark') || (light && scheme === 'light')) {
+      // penultimate lookup is light/dark scheme
+      const mode = (scheme === 'dark' ? dark : light)!;
+      const _hue = mode.hue || hue;
 
-      retVal = toColor(colors, palette, scheme, _hue, _shade, _offset);
+      if (_hue) {
+        retVal = toColor(colors, palette, scheme, _hue, mode.shade || shade, mode.offset || offset);
+      }
+    } else if (hue) {
+      // last lookup is schemeless
+      retVal = toColor(colors, palette, scheme, hue, shade, offset);
     }
-  } else if ((dark && scheme === 'dark') || (light && scheme === 'light')) {
-    // penultimate lookup is light/dark scheme
-    const mode = (scheme === 'dark' ? dark : light)!;
-    const _hue = mode.hue || hue;
 
-    if (_hue) {
-      retVal = toColor(colors, palette, scheme, _hue, mode.shade || shade, mode.offset || offset);
+    if (retVal === undefined) {
+      throw new Error('Error: invalid `getColor` parameters');
+    } else if (transparency) {
+      retVal = rgba(retVal, transparency);
     }
-  } else if (hue) {
-    // last lookup is schemeless
-    retVal = toColor(colors, palette, scheme, hue, shade, offset);
-  }
 
-  if (retVal === undefined) {
-    throw new Error('Error: invalid `getColor` parameters');
-  } else if (transparency) {
-    retVal = rgba(retVal, transparency);
-  }
-
-  return retVal;
-};
-
-scale([PALETTE.white, PALETTE.black]).correctLightness().colors(12);
+    return retVal;
+  },
+  ({ dark, hue, light, offset, shade, theme, transparency, variable }) =>
+    JSON.stringify({
+      dark,
+      hue,
+      light,
+      offset,
+      shade,
+      colors: theme.colors,
+      palette: theme.palette,
+      variables: theme.variables,
+      transparency,
+      variable
+    })
+);

@@ -359,5 +359,31 @@ exports[`DEFAULT_THEME matches snapshot 1`] = `
     "xxl": "48px",
     "xxs": "4px",
   },
+  "variables": {
+    "colors": {
+      "dark": {
+        "background": {
+          "default": "neutralHue.1100",
+        },
+        "border": {
+          "default": "neutralHue.700",
+        },
+        "foreground": {
+          "default": "neutralHue.300",
+        },
+      },
+      "light": {
+        "background": {
+          "default": "palette.white",
+        },
+        "border": {
+          "default": "neutralHue.400",
+        },
+        "foreground": {
+          "default": "neutralHue.900",
+        },
+      },
+    },
+  },
 }
 `;

@@ -7,12 +7,12 @@
 
 import React from 'react';
 import { StoryFn } from '@storybook/react';
-import { readableColor } from 'polished';
 import styled, { DefaultTheme, useTheme } from 'styled-components';
-import { IGardenTheme, getColor, getColorV8 } from '@zendeskgarden/react-theming';
+import { IGardenTheme, getColor } from '@zendeskgarden/react-theming';
+import { Tag } from '@zendeskgarden/react-tags';
 
 const toBackground = (theme: DefaultTheme, backgroundColor: string) => {
-  const color = getColorV8('neutralHue', 300, theme);
+  const color = getColor({ hue: 'neutralHue', shade: 300, theme });
   const size = 26;
   const dimensions = `${size}px ${size}px`;
   const positionX1 = theme.rtl ? '100%' : '0';
@@ -31,13 +31,12 @@ const toBackground = (theme: DefaultTheme, backgroundColor: string) => {
   `;
 };
 
-const StyledDiv = styled.div<{ background: string; foreground?: string }>`
+const StyledDiv = styled.div<{ background: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
   background: ${p => p.background};
   height: 208px;
-  color: ${p => p.foreground};
 `;
 
 interface IArgs {
@@ -45,7 +44,6 @@ interface IArgs {
   hue?: string;
   light?: object;
   offset?: number;
-  onThemeChange: (theme: IGardenTheme) => void;
   shade?: number;
   theme: IGardenTheme;
   transparency?: number;
@@ -57,43 +55,38 @@ export const GetColorStory: StoryFn<IArgs> = ({
   hue,
   light,
   offset,
-  onThemeChange,
   shade,
   theme: _theme,
   transparency,
   variable
 }) => {
+  let background;
+  let content;
   const parentTheme = useTheme();
+  const theme = { ..._theme, colors: { ..._theme.colors, base: parentTheme.colors.base } };
 
   try {
-    const theme = { ..._theme, colors: { ..._theme.colors, base: parentTheme.colors.base } };
-
-    onThemeChange(theme);
-
-    const _transparency = transparency ? transparency / 100 : undefined;
-    const backgroundColor = getColor({
+    content = getColor({
       dark,
       hue,
       light,
       offset,
       shade,
       theme,
-      transparency: _transparency,
+      transparency: transparency ? transparency / 100 : undefined,
       variable
     });
-    const background = toBackground(theme, backgroundColor);
-    const foreground = (transparency || 100) < 65 ? 'inherit' : readableColor(backgroundColor);
-
-    return (
-      <StyledDiv background={background} foreground={foreground}>
-        {backgroundColor}
-      </StyledDiv>
-    );
+    background = toBackground(theme, content);
   } catch (error) {
-    return (
-      <StyledDiv background="transparent">
-        {error instanceof Error ? error.message : String(error)}
-      </StyledDiv>
-    );
+    background = 'transparent';
+    content = error instanceof Error ? error.message : String(error);
   }
+
+  return (
+    <StyledDiv background={background}>
+      <Tag hue={getColor({ theme, variable: 'background.default' })} size="large">
+        {content}
+      </Tag>
+    </StyledDiv>
+  );
 };
