@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { scale } from 'chroma-js';
+import { scale, valid } from 'chroma-js';
 import { darken, lighten, rgba } from 'polished';
 import get from 'lodash.get';
 import memoize from 'lodash.memoize';
@@ -87,22 +87,24 @@ const toColor = (
 
   if (typeof _hue === 'object') {
     retVal = toHex(_hue, shade, offset, scheme);
-  } else if (shade === undefined) {
-    retVal = _hue;
-  } else {
-    const _colors = scale([PALETTE.white, _hue, PALETTE.black])
-      .correctLightness()
-      .colors(PALETTE_SIZE + 2);
+  } else if (valid(_hue)) {
+    if (shade === undefined) {
+      retVal = _hue;
+    } else {
+      const _colors = scale([PALETTE.white, _hue, PALETTE.black])
+        .correctLightness()
+        .colors(PALETTE_SIZE + 2);
 
-    _hue = _colors.reduce<Record<number, string>>((_retVal, color, index) => {
-      if (index > 0 && index <= PALETTE_SIZE) {
-        _retVal[index * 100] = color;
-      }
+      _hue = _colors.reduce<Record<number, string>>((_retVal, color, index) => {
+        if (index > 0 && index <= PALETTE_SIZE) {
+          _retVal[index * 100] = color;
+        }
 
-      return _retVal;
-    }, {});
+        return _retVal;
+      }, {});
 
-    retVal = toHex(_hue, shade, offset, scheme);
+      retVal = toHex(_hue, shade, offset, scheme);
+    }
   }
 
   return retVal;
@@ -126,12 +128,14 @@ type ColorParameters = {
     hue?: string;
     offset?: number;
     shade?: number;
+    transparency?: number;
   };
   hue?: string;
   light?: {
     hue?: string;
     offset?: number;
     shade?: number;
+    transparency?: number;
   };
   offset?: number;
   shade?: number;
@@ -179,16 +183,24 @@ export const getColor = memoize(
 
       if (_hue) {
         retVal = toColor(colors, palette, scheme, _hue, mode.shade || shade, mode.offset || offset);
+
+        const _transparency = mode.transparency || transparency;
+
+        if (retVal && _transparency) {
+          retVal = rgba(retVal, _transparency);
+        }
       }
     } else if (hue) {
       // last lookup is schemeless
       retVal = toColor(colors, palette, scheme, hue, shade, offset);
+
+      if (retVal && transparency) {
+        retVal = rgba(retVal, transparency);
+      }
     }
 
     if (retVal === undefined) {
       throw new Error('Error: invalid `getColor` parameters');
-    } else if (transparency) {
-      retVal = rgba(retVal, transparency);
     }
 
     return retVal;

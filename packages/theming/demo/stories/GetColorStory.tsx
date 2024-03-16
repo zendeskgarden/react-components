@@ -61,12 +61,12 @@ export const GetColorStory: StoryFn<IArgs> = ({
   variable
 }) => {
   let background;
-  let content;
+  let tag;
   const parentTheme = useTheme();
   const theme = { ..._theme, colors: { ..._theme.colors, base: parentTheme.colors.base } };
 
   try {
-    content = getColor({
+    const backgroundColor = getColor({
       dark,
       hue,
       light,
@@ -76,17 +76,21 @@ export const GetColorStory: StoryFn<IArgs> = ({
       transparency: transparency ? transparency / 100 : undefined,
       variable
     });
-    background = toBackground(theme, content);
+
+    background = toBackground(theme, backgroundColor);
+    tag = (
+      <Tag hue={getColor({ theme, variable: 'background.default' })} size="large">
+        {backgroundColor}
+      </Tag>
+    );
   } catch (error) {
     background = 'transparent';
-    content = error instanceof Error ? error.message : String(error);
+    tag = (
+      <Tag hue="red" size="large">
+        {error instanceof Error ? error.message : String(error)}
+      </Tag>
+    );
   }
 
-  return (
-    <StyledDiv background={background}>
-      <Tag hue={getColor({ theme, variable: 'background.default' })} size="large">
-        {content}
-      </Tag>
-    </StyledDiv>
-  );
+  return <StyledDiv background={background}>{tag}</StyledDiv>;
 };
