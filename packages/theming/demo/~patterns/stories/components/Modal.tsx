@@ -6,36 +6,29 @@
  */
 
 import React, { DOMAttributes } from 'react';
-import {
-  Modal as GardenModal,
-  Header,
-  Body,
-  Footer,
-  FooterItem,
-  IModalProps
-} from '@zendeskgarden/react-modals';
+import { Modal as GardenModal, IModalProps } from '@zendeskgarden/react-modals';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Fields } from './Fields';
 
 export const Modal = ({ onClose, ...props }: IModalProps) => (
   <GardenModal onClose={onClose} {...props}>
     <form autoComplete="off" onSubmit={onClose as DOMAttributes<HTMLFormElement>['onSubmit']}>
-      <Header>Sign in</Header>
-      <Body>
+      <GardenModal.Header>Sign in</GardenModal.Header>
+      <GardenModal.Body>
         <Fields />
-      </Body>
-      <Footer>
-        <FooterItem>
+      </GardenModal.Body>
+      <GardenModal.Footer>
+        <GardenModal.FooterItem>
           <Button isBasic onClick={onClose}>
             Cancel
           </Button>
-        </FooterItem>
-        <FooterItem>
+        </GardenModal.FooterItem>
+        <GardenModal.FooterItem>
           <Button isPrimary type="submit">
             Sign in
           </Button>
-        </FooterItem>
-      </Footer>
+        </GardenModal.FooterItem>
+      </GardenModal.Footer>
     </form>
   </GardenModal>
 );

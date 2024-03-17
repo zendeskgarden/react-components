@@ -7,14 +7,7 @@
 
 import React from 'react';
 import { IGardenTheme } from '@zendeskgarden/react-theming';
-import {
-  Close,
-  Notification,
-  Paragraph,
-  Title,
-  Well,
-  useToast
-} from '@zendeskgarden/react-notifications';
+import { Notification, Well, useToast } from '@zendeskgarden/react-notifications';
 import { Code, CodeBlock } from '@zendeskgarden/react-typography';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton } from '@zendeskgarden/react-buttons';
@@ -36,23 +29,23 @@ export const Palette = ({ palette }: IPaletteProps) => {
 
     addToast(({ close }) => (
       <Notification type="success">
-        <Title>JSON copied</Title>
-        <Close aria-label="Close" onClick={close} />
+        <Notification.Title>JSON copied</Notification.Title>
+        <Notification.Close aria-label="Close" onClick={close} />
       </Notification>
     ));
   };
 
   return (
     <Well isRecessed>
-      <Title>
+      <Well.Title>
         Garden <Code>PALETTE</Code>{' '}
         <Tooltip content="Copy JSON">
           <IconButton onClick={handleCopy} size="small">
             <CopyIcon />
           </IconButton>
         </Tooltip>
-      </Title>
-      <Paragraph>
+      </Well.Title>
+      <Well.Paragraph>
         <CodeBlock
           isLight
           language="json"
@@ -60,7 +53,7 @@ export const Palette = ({ palette }: IPaletteProps) => {
         >
           {paletteText}
         </CodeBlock>
-      </Paragraph>
+      </Well.Paragraph>
     </Well>
   );
 };
