@@ -23,7 +23,7 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
-    "chroma-js": "2.4.2",
+    "chroma-js": "^2.4.2",
     "lodash.get": "^4.4.2",
     "lodash.memoize": "^4.1.2",
     "polished": "^4.0.0",

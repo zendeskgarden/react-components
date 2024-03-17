@@ -45,7 +45,7 @@ export const PLACEMENT = [
 
 export type Placement = (typeof PLACEMENT)[number];
 
-type Hue = Record<number | string, string> | string;
+export type Hue = Record<number | string, string> | string;
 
 export interface IGardenTheme {
   rtl: boolean;
@@ -146,8 +146,16 @@ export interface IGardenTheme {
   };
   variables: {
     colors: {
-      dark: Record<string, Hue>;
-      light: Record<string, Hue>;
+      dark: {
+        background: Record<string, string>;
+        border: Record<string, string>;
+        foreground: Record<string, string>;
+      };
+      light: {
+        background: Record<string, string>;
+        border: Record<string, string>;
+        foreground: Record<string, string>;
+      };
     };
   };
 }

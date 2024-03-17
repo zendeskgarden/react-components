@@ -141,9 +141,28 @@ const space = {
 
 const variables = {
   colors: {
-    background: {},
-    border: {},
-    foreground: {}
+    dark: {
+      background: {
+        default: 'neutralHue.1100'
+      },
+      border: {
+        default: 'neutralHue.700'
+      },
+      foreground: {
+        default: 'neutralHue.300'
+      }
+    },
+    light: {
+      background: {
+        default: 'palette.white'
+      },
+      border: {
+        default: 'neutralHue.400'
+      },
+      foreground: {
+        default: 'neutralHue.900'
+      }
+    }
   }
 };
 
@@ -171,5 +190,4 @@ const DEFAULT_THEME: IGardenTheme = {
   variables
 };
 
-/** @component */
 export default DEFAULT_THEME;
