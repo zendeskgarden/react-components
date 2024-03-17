@@ -143,24 +143,32 @@ const variables = {
   colors: {
     dark: {
       background: {
-        default: 'neutralHue.1100'
+        danger: 'dangerHue.600',
+        default: 'neutralHue.1100',
+        neutral: 'neutralHue.600',
+        primary: 'primaryHue.600'
       },
       border: {
         default: 'neutralHue.700'
       },
       foreground: {
-        default: 'neutralHue.300'
+        default: 'neutralHue.300',
+        primary: 'primaryHue.600'
       }
     },
     light: {
       background: {
-        default: 'palette.white'
+        danger: 'dangerHue.700',
+        default: 'palette.white',
+        neutral: 'neutralHue.700',
+        primary: 'primaryHue.700'
       },
       border: {
         default: 'neutralHue.400'
       },
       foreground: {
-        default: 'neutralHue.900'
+        default: 'neutralHue.900',
+        primary: 'primaryHue.700'
       }
     }
   }

@@ -8,9 +8,9 @@
 import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
 import {
   DEFAULT_THEME,
-  getColorV8,
   focusStyles,
-  retrieveComponentStyles
+  retrieveComponentStyles,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { stripUnit } from 'polished';
 
@@ -24,10 +24,11 @@ interface IStyledTabProps {
  * 1. A high specificity is needed to apply the border-color in vertical orientations
  */
 const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<DefaultTheme>) => {
-  const selectedColor = getColorV8('primaryHue', 600, theme);
+  const borderColor = isSelected ? 'currentcolor !important' /* [1] */ : 'transparent';
+  const selectedColor = getColor({ theme, variable: 'background.primary' });
 
   return css`
-    border-color: ${isSelected && 'currentcolor !important'}; /* [1] */
+    border-color: ${borderColor};
     color: ${isSelected ? selectedColor : 'inherit'};
 
     &:hover {
@@ -50,20 +51,20 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
 
     &[aria-disabled='true'] {
       border-color: transparent;
-      color: ${props => getColorV8('neutralHue', 400, props.theme)};
+      color: ${getColor({ theme, variable: 'border.default' })};
     }
   `;
 };
 
 const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const borderWidth = theme.borderWidths.md;
   const paddingTop = theme.space.base * 2.5;
   const paddingHorizontal = theme.space.base * 7;
   const paddingBottom =
-    paddingTop -
-    (stripUnit(theme.borderWidths.md) as number) -
-    (stripUnit(theme.borderWidths.sm) as number);
+    paddingTop - (stripUnit(borderWidth) as number) - (stripUnit(theme.borderWidths.sm) as number);
 
   return css`
+    border-width: ${borderWidth};
     padding: ${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px;
   `;
 };
@@ -80,8 +81,7 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>({
   display: inline-block;
   position: relative;
   transition: color 0.25s ease-in-out;
-  border-bottom: ${props => props.theme.borderStyles.solid} transparent;
-  border-width: ${props => props.theme.borderWidths.md};
+  border-bottom: ${props => props.theme.borderStyles.solid};
   cursor: pointer;
   overflow: hidden; /* [1] */
   vertical-align: top; /* [2] */
@@ -91,6 +91,7 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>({
   text-overflow: ellipsis; /* [1] */
 
   ${sizeStyles}
+
   ${colorStyles}
 
   &:focus {

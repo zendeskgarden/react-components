@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { useTheme } from 'styled-components';
 import { IGardenTheme } from '@zendeskgarden/react-theming';
 import { Notification, Well, useToast } from '@zendeskgarden/react-notifications';
 import { Code, CodeBlock } from '@zendeskgarden/react-typography';
@@ -18,6 +19,7 @@ interface IPaletteProps {
 }
 
 export const Palette = ({ palette }: IPaletteProps) => {
+  const theme = useTheme();
   const { addToast } = useToast();
 
   const paletteText = JSON.stringify(palette, null /* replacer */, '  ')
@@ -47,7 +49,7 @@ export const Palette = ({ palette }: IPaletteProps) => {
       </Well.Title>
       <Well.Paragraph>
         <CodeBlock
-          isLight
+          isLight={theme.colors.base === 'light'}
           language="json"
           containerProps={{ style: { maxHeight: 'calc(100vh - 222px)' } }}
         >

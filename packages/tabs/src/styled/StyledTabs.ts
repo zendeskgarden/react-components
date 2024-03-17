@@ -21,6 +21,8 @@ interface IStyledTabsProps {
 }
 
 const verticalStyling = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const side = theme.rtl ? 'right' : 'left';
+
   return css`
     display: table;
 
@@ -38,11 +40,11 @@ const verticalStyling = ({ theme }: ThemeProps<DefaultTheme>) => {
       border-left: ${theme.rtl && '0'};
       border-bottom-style: none;
       /* stylelint-disable property-case, property-no-unknown */
-      border-${theme.rtl ? 'right' : 'left'}-style: ${theme.borderStyles.solid};
-      border-${theme.rtl ? 'right' : 'left'}-color: transparent;
+      border-${side}-style: ${theme.borderStyles.solid};
+      border-${side}-color: transparent;
       /* stylelint-enable property-case, property-no-unknown */
       padding: ${theme.space.base}px ${theme.space.base * 2}px;
-      text-align: ${theme.rtl ? 'right' : 'left'};
+      text-align: ${side};
 
       &:last-of-type {
         margin-bottom: 0;
@@ -58,7 +60,7 @@ const verticalStyling = ({ theme }: ThemeProps<DefaultTheme>) => {
 
     ${StyledTabPanel} {
       /* stylelint-disable-next-line property-no-unknown */
-      margin-${theme.rtl ? 'right' : 'left'}: ${theme.space.base * 8}px;
+      margin-${side}: ${theme.space.base * 8}px;
       vertical-align: top;
     }
   `;

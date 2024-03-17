@@ -5,28 +5,55 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  getLineHeight
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tabs.tablist';
+
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const border = getColor({ theme, variable: 'border.default' });
+  const color = getColor({ theme, variable: 'background.neutral' });
+
+  return css`
+    border-bottom-color: ${border};
+    color: ${color};
+  `;
+};
 
 /**
  * 1. List element reset.
  */
+const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const margin = `${theme.space.base * 5}px`;
+  const border = theme.borders.sm;
+  const fontSize = theme.fontSizes.md;
+  const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
+
+  return css`
+    margin-top: 0; /* [1] */
+    margin-bottom: ${margin};
+    border-bottom: ${border};
+    padding: 0; /* [1] */
+    line-height: ${lineHeight};
+    font-size: ${fontSize};
+  `;
+};
+
 export const StyledTabList = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   display: block;
-  margin-top: 0; /* [1] */
-  margin-bottom: ${props => props.theme.space.base * 5}px;
-  border-bottom: ${props => props.theme.borderWidths.sm} ${props => props.theme.borderStyles.solid}
-    ${props => getColorV8('neutralHue', 300, props.theme)};
-  padding: 0; /* [1] */
-  line-height: ${props => props.theme.space.base * 5}px;
   white-space: nowrap;
-  color: ${props => getColorV8('neutralHue', 600, props.theme)};
-  font-size: ${props => props.theme.fontSizes.md};
+
+  ${sizeStyles};
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tabs.tabpanel';
 
@@ -18,6 +18,7 @@ export const StyledTabPanel = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   display: block;
+  color: ${props => getColor({ theme: props.theme, variable: 'foreground.default' })};
 
   &[aria-hidden='true'] {
     display: none;

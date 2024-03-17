@@ -11,6 +11,7 @@ import {
   DEFAULT_THEME,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
+  getColor,
   getColorV8,
   getFocusBoxShadow,
   retrieveComponentStyles
@@ -51,23 +52,33 @@ export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
  */
 const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
-  let hue;
+  let variable;
 
   if (props.disabled || (props.isNeutral && props.isPrimary && !props.isDanger)) {
-    hue = 'neutralHue';
+    variable = 'background.neutral';
   } else if (props.isDanger) {
-    hue = 'dangerHue';
+    variable = 'background.danger';
   } else {
-    hue = 'primaryHue';
+    variable = 'background.primary';
   }
 
   const shade = 600;
-  const baseColor = getColorV8(hue, shade, props.theme);
-  const hoverColor = getColorV8(hue, shade + 100, props.theme);
-  const activeColor = getColorV8(hue, shade + 200, props.theme);
+  const baseColor = getColor({ theme: props.theme, variable });
+  const hoverColor = getColor({
+    theme: props.theme,
+    variable,
+    light: { offset: 100 },
+    dark: { offset: -100 }
+  });
+  const activeColor = getColor({
+    theme: props.theme,
+    variable,
+    light: { offset: 200 },
+    dark: { offset: -200 }
+  });
   const focusColor = getColorV8('primaryHue', shade, props.theme);
   const disabledBackgroundColor = getDisabledBackgroundColor(props);
-  const disabledForegroundColor = getColorV8(hue, shade - 200, props.theme);
+  const disabledForegroundColor = getColorV8('neutralHue', shade - 200, props.theme);
 
   if (props.isLink) {
     retVal = css`
