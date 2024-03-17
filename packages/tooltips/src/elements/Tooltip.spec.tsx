@@ -8,7 +8,7 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, act, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { Tooltip } from './Tooltip';
 import { ITooltipProps } from '../types';
 
@@ -109,7 +109,7 @@ describe('Tooltip', () => {
 
       expect(getByTestId('tooltip')).toHaveStyleRule(
         'color',
-        getColor('neutralHue', 700, DEFAULT_THEME)
+        getColorV8('neutralHue', 700, DEFAULT_THEME)
       );
     });
 

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { IBlockquoteProps } from '../types';
 import { THEME_SIZES } from './StyledFont';
 
@@ -20,7 +20,7 @@ export const StyledBlockquote = styled.blockquote.attrs({
   /* stylelint-disable property-no-unknown */
   border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     props.theme.shadowWidths.sm} solid;
-  border-color: ${props => getColor('neutralHue', 400, props.theme)};
+  border-color: ${props => getColorV8('neutralHue', 400, props.theme)};
   padding: 0;
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     props.theme.space.base * 4}px;

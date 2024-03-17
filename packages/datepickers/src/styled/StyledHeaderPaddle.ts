@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const retrieveSizing = ({
   isCompact,
@@ -27,16 +27,16 @@ const retrieveSizing = ({
 const retrieveColor = ({ theme }: ThemeProps<DefaultTheme>) => {
   return css`
     :hover {
-      background-color: ${getColor('primaryHue', 600, theme, 0.08)};
+      background-color: ${getColorV8('primaryHue', 600, theme, 0.08)};
       color: ${theme.colors.foreground};
     }
 
     :active {
-      background-color: ${getColor('primaryHue', 600, theme, 0.2)};
+      background-color: ${getColorV8('primaryHue', 600, theme, 0.2)};
       color: ${theme.colors.foreground};
     }
 
-    color: ${getColor('neutralHue', 600, theme)};
+    color: ${getColorV8('neutralHue', 600, theme)};
   `;
 };
 

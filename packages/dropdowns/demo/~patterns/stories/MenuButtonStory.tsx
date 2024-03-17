@@ -8,15 +8,15 @@
 import React from 'react';
 import { StoryFn } from '@storybook/react';
 import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Item, Menu } from '@zendeskgarden/react-dropdowns';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
 export const MenuButtonStory: StoryFn = () => {
   return (
     <Grid>
-      <Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
-        <Col alignSelf="center" textAlign="center">
+      <Grid.Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
+        <Grid.Col alignSelf="center" textAlign="center">
           <div style={{ display: 'inline-block', position: 'relative', width: 300 }}>
             <Menu
               hasArrow
@@ -32,8 +32,8 @@ export const MenuButtonStory: StoryFn = () => {
               <Item value="Three" />
             </Menu>
           </div>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   );
 };

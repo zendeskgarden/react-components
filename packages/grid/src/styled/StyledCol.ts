@@ -7,13 +7,13 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { AlignSelf, Breakpoint, GridNumber, IColProps, IGridProps, TextAlign } from '../types';
 
 const COMPONENT_ID = 'grid.col';
 
 const colorStyles = (props: IStyledColProps) => {
-  const backgroundColor = getColor('primaryHue', 600, props.theme, 0.1);
+  const backgroundColor = getColorV8('primaryHue', 600, props.theme, 0.1);
 
   return css`
     background-clip: content-box;

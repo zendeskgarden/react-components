@@ -7,15 +7,15 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ColorPickerDialog, IColorPickerDialogProps } from '@zendeskgarden/react-colorpickers';
 
 export const ColorPickerDialogStory: Story<IColorPickerDialogProps> = args => (
   <Grid>
-    <Row style={{ height: 'calc(100vh - 80px)' }}>
-      <Col textAlign="center" alignSelf="center">
+    <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
+      <Grid.Col textAlign="center" alignSelf="center">
         <ColorPickerDialog {...args} />
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   </Grid>
 );

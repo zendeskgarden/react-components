@@ -1,9 +1,16 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import { Well, Close, Paragraph, Title } from '@zendeskgarden/react-notifications';
+import { Well } from '@zendeskgarden/react-notifications';
 import { WellStory } from './stories/WellStory';
 import README from '../README.md';
 
-<Meta title="Packages/Notifications/Well" component={Well} subcomponents={{ Paragraph, Title }} />
+<Meta
+  title="Packages/Notifications/Well"
+  component={Well}
+  subcomponents={{
+    'Well.Paragraph': Well.Paragraph,
+    'Well.Title': Well.Title
+  }}
+/>
 
 # API
 
@@ -16,9 +23,9 @@ import README from '../README.md';
     name="Well"
     args={{ children: 'Text', title: 'Title', hasParagraph: false }}
     argTypes={{
-      title: { name: 'children', table: { category: 'Title' } },
-      isRegular: { control: { type: 'boolean' }, table: { category: 'Title' } },
-      hasParagraph: { name: 'Paragraph', table: { category: 'Story' } }
+      title: { name: 'children', table: { category: 'Well.Title' } },
+      isRegular: { control: { type: 'boolean' }, table: { category: 'Well.Title' } },
+      hasParagraph: { name: 'Well.Paragraph', table: { category: 'Story' } }
     }}
     parameters={{
       design: {

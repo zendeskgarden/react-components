@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sidebar';
 
@@ -19,7 +19,7 @@ export const StyledSidebar = styled.aside.attrs({
   box-sizing: border-box;
   /* stylelint-disable-next-line property-no-unknown */
   border-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-    `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
+    `${props.theme.borders.sm} ${getColorV8('neutralHue', 300, props.theme)}`};
   width: 330px;
   overflow: auto;
 

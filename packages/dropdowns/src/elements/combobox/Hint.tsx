@@ -10,6 +10,8 @@ import useFieldContext from '../../context/useFieldContext';
 import { StyledHint } from '../../views';
 
 /**
+ * @deprecated use `Field.Hint` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Hint = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {

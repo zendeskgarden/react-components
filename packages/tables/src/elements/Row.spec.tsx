@@ -9,7 +9,7 @@ import React from 'react';
 import { css } from 'styled-components';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { Table } from './Table';
 import { Body } from './Body';
@@ -58,7 +58,7 @@ describe('Row', () => {
 
     expect(row).toHaveStyleRule(
       'box-shadow',
-      `inset 3px 0 0 0 ${getColor('primaryHue', 600, DEFAULT_THEME)}`,
+      `inset 3px 0 0 0 ${getColorV8('primaryHue', 600, DEFAULT_THEME)}`,
       {
         /* prettier-ignore */
         /* stylelint-disable */
@@ -82,7 +82,7 @@ describe('Row', () => {
 
     expect(row).not.toHaveStyleRule(
       'box-shadow',
-      `inset 3px 0 0 0 ${getColor('primaryHue', 600, DEFAULT_THEME)}`,
+      `inset 3px 0 0 0 ${getColorV8('primaryHue', 600, DEFAULT_THEME)}`,
       {
         /* prettier-ignore */
         /* stylelint-disable */
@@ -107,7 +107,7 @@ describe('Row', () => {
 
     expect(row).not.toHaveStyleRule(
       'box-shadow',
-      `inset 3px 0 0 0 ${getColor('primaryHue', 600, DEFAULT_THEME)}`,
+      `inset 3px 0 0 0 ${getColorV8('primaryHue', 600, DEFAULT_THEME)}`,
       {
         /* prettier-ignore */
         modifier: css`${StyledCell}:first-of-type` as any
@@ -126,7 +126,7 @@ describe('Row', () => {
 
     expect(getByTestId('row')).toHaveStyleRule(
       'background-color',
-      getColor('neutralHue', 100, DEFAULT_THEME)
+      getColorV8('neutralHue', 100, DEFAULT_THEME)
     );
   });
 
@@ -141,7 +141,7 @@ describe('Row', () => {
 
     expect(getByTestId('row')).toHaveStyleRule(
       'background-color',
-      getColor('primaryHue', 600, DEFAULT_THEME, 0.08)
+      getColorV8('primaryHue', 600, DEFAULT_THEME, 0.08)
     );
   });
 
@@ -157,7 +157,7 @@ describe('Row', () => {
 
       expect(getByTestId('row')).toHaveStyleRule(
         'background-color',
-        getColor('primaryHue', 600, DEFAULT_THEME, 0.28)
+        getColorV8('primaryHue', 600, DEFAULT_THEME, 0.28)
       );
     });
 
@@ -172,7 +172,7 @@ describe('Row', () => {
 
       expect(getByTestId('row')).toHaveStyleRule(
         'background-color',
-        getColor('primaryHue', 600, DEFAULT_THEME, 0.2)
+        getColorV8('primaryHue', 600, DEFAULT_THEME, 0.2)
       );
     });
   });

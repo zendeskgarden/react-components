@@ -14,9 +14,6 @@ import { Combobox } from './Combobox';
 import { OptGroup } from './OptGroup';
 import { Option } from './Option';
 import { Field } from './Field';
-import { Label } from './Label';
-import { Hint } from './Hint';
-import { Message } from './Message';
 
 interface ITestComboboxProps extends IComboboxProps {
   fieldTestId?: string;
@@ -46,8 +43,8 @@ const TestCombobox = forwardRef<HTMLDivElement, ITestComboboxProps>(
     ref
   ) => (
     <Field data-test-id={fieldTestId}>
-      <Label data-test-id={labelTestId}>Label</Label>
-      <Hint data-test-id={hintTestId}>Hint</Hint>
+      <Field.Label data-test-id={labelTestId}>Label</Field.Label>
+      <Field.Hint data-test-id={hintTestId}>Hint</Field.Hint>
       <Combobox
         data-test-id={comboboxTestId}
         inputProps={
@@ -59,13 +56,13 @@ const TestCombobox = forwardRef<HTMLDivElement, ITestComboboxProps>(
       >
         {children}
       </Combobox>
-      <Message
+      <Field.Message
         data-test-id={messageTestId}
         validation={validation}
         validationLabel={validationLabel}
       >
         Message
-      </Message>
+      </Field.Message>
     </Field>
   )
 );

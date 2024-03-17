@@ -10,7 +10,7 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   focusStyles,
   SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
@@ -91,18 +91,18 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
     opacity: ${props => props.sort !== undefined && 1};
     color: ${props => {
       if (props.sort === 'asc') {
-        return getColor('neutralHue', 600, props.theme);
+        return getColorV8('neutralHue', 600, props.theme);
       } else if (props.sort === 'desc') {
-        return getColor('neutralHue', 400, props.theme);
+        return getColorV8('neutralHue', 400, props.theme);
       }
 
       return undefined;
     }};
     fill: ${props => {
       if (props.sort === 'asc') {
-        return getColor('neutralHue', 400, props.theme);
+        return getColorV8('neutralHue', 400, props.theme);
       } else if (props.sort === 'desc') {
-        return getColor('neutralHue', 600, props.theme);
+        return getColorV8('neutralHue', 600, props.theme);
       }
 
       return undefined;
@@ -112,15 +112,15 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   &:hover,
   ${SELECTOR_FOCUS_VISIBLE} {
     text-decoration: none;
-    color: ${props => getColor('primaryHue', 600, props.theme)};
+    color: ${props => getColorV8('primaryHue', 600, props.theme)};
 
     ${props =>
       props.sort === undefined &&
       `
       ${StyledSortableFillIconWrapper} {
         opacity: 1;
-        color: ${getColor('primaryHue', 600, props.theme)};
-        fill: ${getColor('primaryHue', 600, props.theme)};
+        color: ${getColorV8('primaryHue', 600, props.theme)};
+        fill: ${getColorV8('primaryHue', 600, props.theme)};
       }
 
       ${StyledSortableStrokeIconWrapper} {
@@ -132,8 +132,8 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
       props.sort === 'asc' &&
       `
       ${StyledSortableFillIconWrapper} {
-        color: ${getColor('primaryHue', 600, props.theme)};
-        fill: ${getColor('primaryHue', 600, props.theme, 0.25)};
+        color: ${getColorV8('primaryHue', 600, props.theme)};
+        fill: ${getColorV8('primaryHue', 600, props.theme, 0.25)};
       }
     `}
 
@@ -141,8 +141,8 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
       props.sort === 'desc' &&
       `
       ${StyledSortableFillIconWrapper} {
-        color: ${getColor('primaryHue', 600, props.theme, 0.25)};
-        fill: ${getColor('primaryHue', 600, props.theme)};
+        color: ${getColorV8('primaryHue', 600, props.theme, 0.25)};
+        fill: ${getColorV8('primaryHue', 600, props.theme)};
       }
     `}
   }

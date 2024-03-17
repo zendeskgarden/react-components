@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledLabel } from './StyledLabel';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledLabel', () => {
   it('renders default styles', () => {
@@ -20,7 +20,7 @@ describe('StyledLabel', () => {
     expect(container.firstChild).toHaveStyleRule('align-items', 'center');
     expect(container.firstChild).toHaveStyleRule(
       'color',
-      getColor('neutralHue', 600, DEFAULT_THEME)
+      getColorV8('neutralHue', 600, DEFAULT_THEME)
     );
   });
 

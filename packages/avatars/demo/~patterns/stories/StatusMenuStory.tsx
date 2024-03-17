@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns.legacy';
 import { Avatar, IStatusIndicatorProps, StatusIndicator } from '@zendeskgarden/react-avatars';
 import { IconButton } from '@zendeskgarden/react-buttons';
@@ -17,8 +17,8 @@ export const StatusMenuStory: Story = ({ isCompact }) => {
 
   return (
     <Grid>
-      <Row style={{ height: 'calc(100vh - 80px)' }}>
-        <Col textAlign="center" alignSelf="center">
+      <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
+        <Grid.Col textAlign="center" alignSelf="center">
           <Dropdown selectedItem={selectedType} onSelect={value => setSelectedType(value)}>
             <Trigger>
               <IconButton>
@@ -50,8 +50,8 @@ export const StatusMenuStory: Story = ({ isCompact }) => {
               </Item>
             </Menu>
           </Dropdown>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   );
 };

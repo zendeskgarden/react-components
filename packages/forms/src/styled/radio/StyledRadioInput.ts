@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import {
-  getColor,
+  getColorV8,
   retrieveComponentStyles,
   DEFAULT_THEME,
   focusStyles
@@ -21,21 +21,21 @@ const COMPONENT_ID = 'forms.radio';
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
 
-  const borderColor = getColor('neutralHue', SHADE - 300, props.theme);
+  const borderColor = getColorV8('neutralHue', SHADE - 300, props.theme);
   const backgroundColor = props.theme.colors.background;
   const iconColor = backgroundColor;
-  const hoverBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.08);
-  const hoverBorderColor = getColor('primaryHue', SHADE, props.theme);
+  const hoverBackgroundColor = getColorV8('primaryHue', SHADE, props.theme, 0.08);
+  const hoverBorderColor = getColorV8('primaryHue', SHADE, props.theme);
   const focusBorderColor = hoverBorderColor;
-  const activeBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.2);
+  const activeBackgroundColor = getColorV8('primaryHue', SHADE, props.theme, 0.2);
   const activeBorderColor = focusBorderColor;
   const checkedBorderColor = focusBorderColor;
   const checkedBackgroundColor = checkedBorderColor;
-  const checkedHoverBorderColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const checkedHoverBorderColor = getColorV8('primaryHue', SHADE + 100, props.theme);
   const checkedHoverBackgroundColor = checkedHoverBorderColor;
-  const checkedActiveBorderColor = getColor('primaryHue', SHADE + 200, props.theme);
+  const checkedActiveBorderColor = getColorV8('primaryHue', SHADE + 200, props.theme);
   const checkedActiveBackgroundColor = checkedActiveBorderColor;
-  const disabledBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
+  const disabledBackgroundColor = getColorV8('neutralHue', SHADE - 400, props.theme);
 
   return css`
     & ~ ${StyledRadioLabel}::before {

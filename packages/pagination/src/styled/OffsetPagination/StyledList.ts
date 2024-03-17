@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pagination.list';
 
@@ -25,7 +25,7 @@ export const StyledList = styled.ul.attrs({
   padding: 0; /* [1] */
   list-style: none; /* [1] */
   white-space: nowrap; /* [2] */
-  color: ${props => getColor('neutralHue', 600, props.theme)};
+  color: ${props => getColorV8('neutralHue', 600, props.theme)};
 
   :focus {
     outline: none;

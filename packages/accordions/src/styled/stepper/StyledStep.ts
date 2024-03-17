@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledContent } from './StyledContent';
 import { StyledLine } from './StyledLine';
 
@@ -35,7 +35,7 @@ export const StyledStep = styled.li.attrs<IStyledStep>({
   &:not(:last-of-type) ${StyledContent} {
     /* stylelint-disable-next-line property-no-unknown */
     border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.borders.sm};
-    border-color: ${props => getColor('neutralHue', 300, props.theme)};
+    border-color: ${props => getColorV8('neutralHue', 300, props.theme)};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

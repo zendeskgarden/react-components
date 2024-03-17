@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 import { TYPE } from '../../types';
@@ -24,10 +24,10 @@ describe('StyledGlobalAlertClose', () => {
     expect(getByRole('button')).toHaveStyleRule(
       'background-color',
       {
-        success: getColor(DEFAULT_THEME.colors.successHue, 100, DEFAULT_THEME, 0.08),
-        warning: getColor(DEFAULT_THEME.colors.warningHue, 800, DEFAULT_THEME, 0.08),
-        error: getColor(DEFAULT_THEME.colors.dangerHue, 100, DEFAULT_THEME, 0.08),
-        info: getColor(DEFAULT_THEME.colors.primaryHue, 700, DEFAULT_THEME, 0.08)
+        success: getColorV8(DEFAULT_THEME.colors.successHue, 100, DEFAULT_THEME, 0.08),
+        warning: getColorV8(DEFAULT_THEME.colors.warningHue, 800, DEFAULT_THEME, 0.08),
+        error: getColorV8(DEFAULT_THEME.colors.dangerHue, 100, DEFAULT_THEME, 0.08),
+        info: getColorV8(DEFAULT_THEME.colors.primaryHue, 700, DEFAULT_THEME, 0.08)
       }[type] as string,
       { modifier: '&:hover' }
     );

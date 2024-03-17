@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { StyledTag } from './StyledTag';
 
 describe('StyledTag', () => {
@@ -84,14 +84,14 @@ describe('StyledTag', () => {
   describe('hue', () => {
     it('renders using a default neutral hue', () => {
       const { container } = render(<StyledTag />);
-      const color = getColor('neutralHue', 200);
+      const color = getColorV8('neutralHue', 200);
 
       expect(container.firstChild).toHaveStyleRule('background-color', color);
     });
 
     it('renders using a custom hue', () => {
       const { container } = render(<StyledTag hue="azure" />);
-      const color = getColor('azure', 600);
+      const color = getColorV8('azure', 600);
 
       expect(container.firstChild).toHaveStyleRule('background-color', color);
     });

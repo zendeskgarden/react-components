@@ -8,7 +8,7 @@
 import React, { StrictMode } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { create } from '@storybook/theming/create';
-import { ThemeProvider, DEFAULT_THEME, getColor } from '../packages/theming/src';
+import { ThemeProvider, DEFAULT_THEME, getColorV8 } from '../packages/theming/src';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -32,10 +32,14 @@ export const parameters = {
 
 const GlobalPreviewStyling = createGlobalStyle`
   body {
-    background-color: ${p => p.theme.colors.background};
     /* stylelint-disable-next-line declaration-no-important */
     padding: 0 !important;
     font-family: ${p => p.theme.fonts.system};
+  }
+
+  .sb-show-main.sb-show-main {
+    /* stylelint-disable-next-line declaration-no-important */
+    background-color: ${p => p.theme.colors.background} !important;
   }
 `;
 
@@ -61,8 +65,8 @@ const withThemeProvider = (story, context) => {
       : context.parameters.backgrounds.default === 'dark'
   ) {
     colors.base = 'dark';
-    colors.background = getColor('neutralHue', 900, DEFAULT_THEME);
-    colors.foreground = getColor('neutralHue', 200, DEFAULT_THEME);
+    colors.background = getColorV8('neutralHue', 1100, DEFAULT_THEME);
+    colors.foreground = getColorV8('neutralHue', 300, DEFAULT_THEME);
   }
 
   const theme = { ...DEFAULT_THEME, colors, rtl };

@@ -9,7 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { em, math } from 'polished';
 import {
   retrieveComponentStyles,
-  getColor,
+  getColorV8,
   getLineHeight,
   DEFAULT_THEME,
   focusStyles
@@ -28,7 +28,7 @@ const isInvalid = (validation?: Validation) => {
 const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
   const HUE = 'primaryHue';
   const SHADE = 600;
-  const placeholderColor = getColor('neutralHue', SHADE - 200, props.theme);
+  const placeholderColor = getColorV8('neutralHue', SHADE - 200, props.theme);
   let borderColor: string | undefined;
   let hoverBorderColor: string | undefined;
   let focusBorderColor: string;
@@ -47,21 +47,21 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
       hue = 'dangerHue';
     }
 
-    borderColor = getColor(hue as string, SHADE, props.theme)!;
+    borderColor = getColorV8(hue as string, SHADE, props.theme)!;
     hoverBorderColor = borderColor;
     focusBorderColor = borderColor;
     focusRingHue = hue;
   } else {
-    borderColor = getColor('neutralHue', SHADE - 300, props.theme);
-    hoverBorderColor = getColor('primaryHue', SHADE, props.theme);
+    borderColor = getColorV8('neutralHue', SHADE - 300, props.theme);
+    hoverBorderColor = getColorV8('primaryHue', SHADE, props.theme);
     focusBorderColor = hoverBorderColor!;
   }
 
-  const readOnlyBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);
-  const readOnlyBorderColor = getColor('neutralHue', SHADE - 300, props.theme);
+  const readOnlyBackgroundColor = getColorV8('neutralHue', SHADE - 500, props.theme);
+  const readOnlyBorderColor = getColorV8('neutralHue', SHADE - 300, props.theme);
   const disabledBackgroundColor = readOnlyBackgroundColor;
-  const disabledBorderColor = getColor('neutralHue', SHADE - 400, props.theme);
-  const disabledForegroundColor = getColor('neutralHue', SHADE - 200, props.theme);
+  const disabledBorderColor = getColorV8('neutralHue', SHADE - 400, props.theme);
+  const disabledForegroundColor = getColorV8('neutralHue', SHADE - 200, props.theme);
 
   let controlledBorderColor = borderColor;
 

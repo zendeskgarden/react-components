@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledFont, IStyledFontProps } from './StyledFont';
 import { ICodeProps } from '../types';
 
@@ -14,9 +14,9 @@ const COMPONENT_ID = 'typography.code';
 
 const colorStyles = (props: IStyledCodeProps & ThemeProps<DefaultTheme>) => {
   const hue = props.hue || 'neutralHue';
-  const backgroundColor = getColor(hue, 200, props.theme);
+  const backgroundColor = getColorV8(hue, 200, props.theme);
   const shade = hue === 'yellow' ? 800 : 700;
-  const foregroundColor = getColor(hue, shade, props.theme);
+  const foregroundColor = getColorV8(hue, shade, props.theme);
 
   return css`
     background-color: ${backgroundColor};

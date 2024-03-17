@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.footer';
 
@@ -23,7 +23,7 @@ export const StyledFooter = styled.div.attrs<IStyledFooter>({
   align-items: center;
   justify-content: flex-end;
   border-top: ${props =>
-    props.isLarge && `${props.theme.borders.sm} ${getColor('neutralHue', 200, props.theme)}`};
+    props.isLarge && `${props.theme.borders.sm} ${getColorV8('neutralHue', 200, props.theme)}`};
   padding: ${props =>
     props.isLarge
       ? `${props.theme.space.base * 8}px ${props.theme.space.base * 10}px`

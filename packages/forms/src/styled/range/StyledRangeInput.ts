@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import {
-  getColor,
+  getColorV8,
   getFocusBoxShadow,
   retrieveComponentStyles,
   DEFAULT_THEME
@@ -65,21 +65,21 @@ const trackLowerStyles = (styles: string, modifier = '') => {
 
 const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) => {
   const SHADE = 600;
-  const thumbBackgroundColor = getColor('primaryHue', SHADE, props.theme);
+  const thumbBackgroundColor = getColorV8('primaryHue', SHADE, props.theme);
   const thumbBorderColor = thumbBackgroundColor;
   const thumbBoxShadow = props.theme.shadows.lg(
     math(`${props.theme.space.base} * 1px`),
     math(`${props.theme.space.base} * 2px`),
-    getColor('neutralHue', SHADE + 200, props.theme, 0.24)!
+    getColorV8('neutralHue', SHADE + 200, props.theme, 0.24)!
   );
   const thumbFocusBoxShadow = getFocusBoxShadow({ theme: props.theme });
-  const thumbActiveBackgroundColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const thumbActiveBackgroundColor = getColorV8('primaryHue', SHADE + 100, props.theme);
   const thumbActiveBorderColor = thumbBorderColor;
-  const thumbDisabledBackgroundColor = getColor('neutralHue', SHADE - 300, props.theme);
+  const thumbDisabledBackgroundColor = getColorV8('neutralHue', SHADE - 300, props.theme);
   const thumbDisabledBorderColor = thumbDisabledBackgroundColor;
   const thumbHoverBackgroundColor = thumbActiveBackgroundColor;
   const thumbHoverBorderColor = thumbHoverBackgroundColor;
-  const trackBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
+  const trackBackgroundColor = getColorV8('neutralHue', SHADE - 400, props.theme);
   const trackLowerBackgroundColor = props.hasLowerTrack ? thumbBackgroundColor : '';
   const trackBackgroundImage = props.hasLowerTrack
     ? `linear-gradient(${trackLowerBackgroundColor}, ${trackLowerBackgroundColor})`

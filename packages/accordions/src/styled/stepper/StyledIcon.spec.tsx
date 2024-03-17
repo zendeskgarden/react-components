@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledIcon } from './StyledIcon';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledIcon', () => {
   it('renders default styles', () => {
@@ -17,7 +17,7 @@ describe('StyledIcon', () => {
     expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground);
     expect(container.firstChild).toHaveStyleRule(
       'background',
-      getColor('neutralHue', 200, DEFAULT_THEME)
+      getColorV8('neutralHue', 200, DEFAULT_THEME)
     );
     expect(container.firstChild).toHaveStyleRule('margin-right', '12px');
     expect(container.firstChild).not.toHaveStyleRule('margin-bottom');
@@ -28,7 +28,7 @@ describe('StyledIcon', () => {
     expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.background);
     expect(container.firstChild).toHaveStyleRule(
       'background',
-      getColor('neutralHue', 600, DEFAULT_THEME)
+      getColorV8('neutralHue', 600, DEFAULT_THEME)
     );
   });
 

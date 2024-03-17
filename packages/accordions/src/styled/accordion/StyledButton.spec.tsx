@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 describe('StyledButton', () => {
@@ -16,7 +16,6 @@ describe('StyledButton', () => {
 
     expect(container.firstChild).toHaveStyleRule('padding', '20px');
     expect(container.firstChild).toHaveStyleRule('text-align', 'left');
-    expect(container.firstChild).toHaveStyleRule('color', '#2f3941');
     expect(container.firstChild).not.toHaveStyleRule('cursor');
   });
 
@@ -37,7 +36,7 @@ describe('StyledButton', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'color',
-      getColor('primaryHue', 600, DEFAULT_THEME)
+      getColorV8('primaryHue', 600, DEFAULT_THEME)
     );
 
     expect(container.firstChild).toHaveStyleRule('cursor', 'pointer', {

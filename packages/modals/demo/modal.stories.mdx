@@ -1,6 +1,6 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Modal, Body, Close, Footer, FooterItem, Header } from '@zendeskgarden/react-modals';
+import { Modal } from '@zendeskgarden/react-modals';
 import { ModalStory } from './stories/ModalStory';
 import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';
 import README from '../README.md';
@@ -8,7 +8,13 @@ import README from '../README.md';
 <Meta
   title="Packages/Modals/Modal"
   component={Modal}
-  subcomponents={{ Body, Close, Footer, FooterItem, Header }}
+  subcomponents={{
+    'Modal.Body': Modal.Body,
+    'Modal.Close': Modal.Close,
+    'Modal.Footer': Modal.Footer,
+    'Modal.FooterItem': Modal.FooterItem,
+    'Modal.Header': Modal.Header
+  }}
 />
 
 # API
@@ -37,16 +43,16 @@ import README from '../README.md';
     argTypes={{
       appendToNode: { control: false },
       isVisible: { table: { category: 'Story' } },
-      hasBody: { name: 'Body', table: { category: 'Story' } },
-      hasClose: { name: 'Close', table: { category: 'Story' } },
-      hasFooter: { name: 'Footer', table: { category: 'Story' } },
-      hasHeader: { name: 'Header', table: { category: 'Story' } },
-      footerItems: { name: 'FooterItem[]', table: { category: 'Story' } },
-      body: { name: 'children', table: { category: 'Body' } },
-      isDanger: { control: 'boolean', table: { category: 'Header' } },
-      tag: { control: 'text', table: { category: 'Header' } },
-      header: { name: 'children', table: { category: 'Header' } },
-      closeAriaLabel: { name: 'aria-label', table: { category: 'Close' } },
+      hasBody: { name: 'Modal.Body', table: { category: 'Story' } },
+      hasClose: { name: 'Modal.Close', table: { category: 'Story' } },
+      hasFooter: { name: 'Modal.Footer', table: { category: 'Story' } },
+      hasHeader: { name: 'Modal.Header', table: { category: 'Story' } },
+      footerItems: { name: 'Modal.FooterItem[]', table: { category: 'Story' } },
+      body: { name: 'children', table: { category: 'Modal.Body' } },
+      isDanger: { control: 'boolean', table: { category: 'Modal.Header' } },
+      tag: { control: 'text', table: { category: 'Modal.Header' } },
+      header: { name: 'children', table: { category: 'Modal.Header' } },
+      closeAriaLabel: { name: 'aria-label', table: { category: 'Modal.Close' } },
       dialogAriaLabel: { name: 'aria-label' }
     }}
     parameters={{

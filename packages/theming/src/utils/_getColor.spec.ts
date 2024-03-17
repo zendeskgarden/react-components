@@ -12,7 +12,7 @@ import { darken, lighten, rgba } from 'polished';
 
 const DEFAULT_SHADE = 600;
 
-describe('getColor', () => {
+describe('_getColor', () => {
   describe('by hue', () => {
     it('gets the hue specified by string', () => {
       const color = getColor('red');
@@ -103,8 +103,8 @@ describe('getColor', () => {
     });
 
     it('darkens the color if shade is greater than what exists within the hue', () => {
-      const color = getColor('blue', 900);
-      const expected = darken(0.05, PALETTE.blue[800]);
+      const color = getColor('blue', 1300);
+      const expected = darken(0.05, PALETTE.blue[1200]);
 
       expect(color).toBe(expected);
     });

@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'draggable_list.drop_indicator';
 
@@ -16,8 +16,8 @@ export interface IStyledDropIndicatorProps extends ThemeProps<DefaultTheme> {
 
 const colorStyles = (props: IStyledDropIndicatorProps) => {
   const { theme } = props;
-  const backgroundColor = getColor('primaryHue', 600, theme);
-  const color = getColor('primaryHue', 600, theme);
+  const backgroundColor = getColorV8('primaryHue', 600, theme);
+  const color = getColorV8('primaryHue', 600, theme);
 
   return css`
     box-shadow: ${`0 0 0 ${theme.borderWidths.sm} ${color}`};

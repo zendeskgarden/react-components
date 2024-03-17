@@ -7,13 +7,7 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import {
-  Notification,
-  Close,
-  INotificationProps,
-  Title,
-  Paragraph
-} from '@zendeskgarden/react-notifications';
+import { Notification, INotificationProps } from '@zendeskgarden/react-notifications';
 
 interface IArgs extends INotificationProps {
   title?: string;
@@ -32,8 +26,8 @@ export const NotificationStory: Story<IArgs> = ({
   ...args
 }) => (
   <Notification {...args}>
-    {title && <Title isRegular={isRegular}>{title}</Title>}
-    {hasParagraph ? <Paragraph>{children}</Paragraph> : children}
-    {hasClose && <Close aria-label={ariaLabel} />}
+    {title && <Notification.Title isRegular={isRegular}>{title}</Notification.Title>}
+    {hasParagraph ? <Notification.Paragraph>{children}</Notification.Paragraph> : children}
+    {hasClose && <Notification.Close aria-label={ariaLabel} />}
   </Notification>
 );

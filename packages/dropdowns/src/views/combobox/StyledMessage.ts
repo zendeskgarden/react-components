@@ -7,11 +7,11 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { Message } from '@zendeskgarden/react-forms';
+import { Field } from '@zendeskgarden/react-forms';
 
 const COMPONENT_ID = 'dropdowns.combobox.message';
 
-export const StyledMessage = styled(Message).attrs({
+export const StyledMessage = styled(Field.Message).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

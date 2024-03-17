@@ -28,7 +28,7 @@ import { Field, Label, Combobox, Option } from '@zendeskgarden/react-dropdowns';
  */
 <ThemeProvider>
   <Field>
-    <Label>Combobox</Label>
+    <Field.Label>Label</Field.Label>
     <Combobox>
       <Option value="One" />
       <Option value="Two" />

@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 interface IStyledDayProps extends ThemeProps<DefaultTheme> {
   isPreviousMonth?: boolean;
@@ -24,17 +24,17 @@ const retrieveStyledDayColors = ({
   theme
 }: IStyledDayProps) => {
   let backgroundColor = 'inherit';
-  let color = getColor('primaryHue', 600, theme);
+  let color = getColorV8('primaryHue', 600, theme);
 
   if (isSelected && !isDisabled) {
-    backgroundColor = getColor('primaryHue', 600, theme)!;
+    backgroundColor = getColorV8('primaryHue', 600, theme)!;
     color = theme.colors.background;
   } else if (isDisabled) {
-    color = getColor('neutralHue', 400, theme);
+    color = getColorV8('neutralHue', 400, theme);
   } else if (isToday) {
     color = 'inherit';
   } else if (isPreviousMonth) {
-    color = getColor('neutralHue', 600, theme);
+    color = getColorV8('neutralHue', 600, theme);
   }
 
   return css`
@@ -45,13 +45,13 @@ const retrieveStyledDayColors = ({
     !isDisabled &&
     `
       :hover {
-        background-color: ${getColor('primaryHue', 600, theme, 0.08)};
-        color: ${getColor('primaryHue', 800, theme)};
+        background-color: ${getColorV8('primaryHue', 600, theme, 0.08)};
+        color: ${getColorV8('primaryHue', 800, theme)};
       }
 
       :active {
-        background-color: ${getColor('primaryHue', 600, theme, 0.2)};
-        color: ${getColor('primaryHue', 800, theme)};
+        background-color: ${getColorV8('primaryHue', 600, theme, 0.2)};
+        color: ${getColorV8('primaryHue', 800, theme)};
       }
   `}
   `;

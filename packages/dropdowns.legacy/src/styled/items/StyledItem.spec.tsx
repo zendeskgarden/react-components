@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledItem } from './StyledItem';
 
 describe('StyledItem', () => {
@@ -26,7 +26,7 @@ describe('StyledItem', () => {
   it('renders danger styling if provided', () => {
     const { container } = render(<StyledItem isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule('color', getColor('dangerHue'));
+    expect(container.firstChild).toHaveStyleRule('color', getColorV8('dangerHue'));
   });
 
   it('render danger focus styling if provided', () => {
@@ -34,7 +34,7 @@ describe('StyledItem', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'background-color',
-      getColor('dangerHue', 600, DEFAULT_THEME, 0.08)
+      getColorV8('dangerHue', 600, DEFAULT_THEME, 0.08)
     );
   });
 });

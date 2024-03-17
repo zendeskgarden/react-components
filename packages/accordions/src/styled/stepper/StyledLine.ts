@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_line';
 
@@ -21,7 +21,7 @@ export const StyledLine = styled.div.attrs({
   left: ${props => `calc(-50% + ${props.theme.space.base * 6}px)`};
   flex: 1;
   border-top: ${props => props.theme.borders.sm};
-  border-color: ${props => getColor('neutralHue', 300, props.theme)};
+  border-color: ${props => getColorV8('neutralHue', 300, props.theme)};
 `;
 
 StyledLine.defaultProps = {

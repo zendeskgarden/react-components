@@ -10,7 +10,7 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   getLineHeight
 } from '@zendeskgarden/react-theming';
 import { Validation } from '../../types';
@@ -27,13 +27,13 @@ const validationStyles = (props: IStyledMessageProps & ThemeProps<DefaultTheme>)
   let color;
 
   if (props.validation === 'error') {
-    color = getColor('dangerHue', 600, props.theme);
+    color = getColorV8('dangerHue', 600, props.theme);
   } else if (props.validation === 'success') {
-    color = getColor('successHue', 600, props.theme);
+    color = getColorV8('successHue', 600, props.theme);
   } else if (props.validation === 'warning') {
-    color = getColor('warningHue', 700, props.theme);
+    color = getColorV8('warningHue', 700, props.theme);
   } else {
-    color = getColor('neutralHue', 700, props.theme);
+    color = getColorV8('neutralHue', 700, props.theme);
   }
 
   return css`

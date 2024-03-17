@@ -9,7 +9,7 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import {
   retrieveComponentStyles,
   getLineHeight,
-  getColor,
+  getColorV8,
   DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
 
@@ -20,7 +20,7 @@ export const StyledSheetDescription = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<ThemeProps<DefaultTheme>>`
   line-height: ${props => getLineHeight(props.theme.space.base * 4, props.theme.fontSizes.md)};
-  color: ${props => getColor('neutralHue', 600, props.theme)};
+  color: ${props => getColorV8('neutralHue', 600, props.theme)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

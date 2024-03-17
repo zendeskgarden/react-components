@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledSubNavItem } from './StyledSubNavItem';
 
 const COMPONENT_ID = 'chrome.subnav';
@@ -20,7 +20,7 @@ const colorStyles = (props: IStyledSubNavProps) => {
     shade = props.isDark ? 700 : 800;
   }
 
-  const backgroundColor = getColor(props.hue, shade, props.theme);
+  const backgroundColor = getColorV8(props.hue, shade, props.theme);
   const foregroundColor = props.isLight ? props.theme.palette.grey[800] : props.theme.palette.white;
 
   return css`

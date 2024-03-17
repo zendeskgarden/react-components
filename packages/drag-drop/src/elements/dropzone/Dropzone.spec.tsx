@@ -9,7 +9,7 @@ import React from 'react';
 import { rgba } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
 import { Dropzone } from './Dropzone';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 describe('Dropzone', () => {
   it('passes ref to underlying DOM element', () => {
@@ -156,20 +156,20 @@ describe('Dropzone', () => {
   });
 
   const STATES = ['default', 'danger', 'disabled'];
-  const dangerColor = getColor('dangerHue', 600, DEFAULT_THEME);
-  const dangerDarkColor = getColor('dangerHue', 800, DEFAULT_THEME);
-  const dangerBgColor = rgba(getColor('dangerHue', 600, DEFAULT_THEME) as string, 0.08);
-  const primaryColor = getColor('primaryHue', 600, DEFAULT_THEME);
-  const primaryDarkColor = getColor('primaryHue', 800, DEFAULT_THEME);
-  const primaryBgColor = rgba(getColor('primaryHue', 600, DEFAULT_THEME) as string, 0.08);
-  const neutralColor = getColor('neutralHue', 600, DEFAULT_THEME);
+  const dangerColor = getColorV8('dangerHue', 600, DEFAULT_THEME);
+  const dangerDarkColor = getColorV8('dangerHue', 800, DEFAULT_THEME);
+  const dangerBgColor = rgba(getColorV8('dangerHue', 600, DEFAULT_THEME) as string, 0.08);
+  const primaryColor = getColorV8('primaryHue', 600, DEFAULT_THEME);
+  const primaryDarkColor = getColorV8('primaryHue', 800, DEFAULT_THEME);
+  const primaryBgColor = rgba(getColorV8('primaryHue', 600, DEFAULT_THEME) as string, 0.08);
+  const neutralColor = getColorV8('neutralHue', 600, DEFAULT_THEME);
 
   const StateMap: Record<string, any> = {
     disabled: {
       base: `
-        background-color: ${getColor('neutralHue', 200, DEFAULT_THEME)};
-        color: ${getColor('neutralHue', 400, DEFAULT_THEME)};
-        border-color: ${getColor('neutralHue', 300, DEFAULT_THEME)};
+        background-color: ${getColorV8('neutralHue', 200, DEFAULT_THEME)};
+        color: ${getColorV8('neutralHue', 400, DEFAULT_THEME)};
+        border-color: ${getColorV8('neutralHue', 300, DEFAULT_THEME)};
       `
     },
     default: {

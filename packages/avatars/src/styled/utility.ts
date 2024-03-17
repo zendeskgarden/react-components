@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 
@@ -26,15 +26,15 @@ export function getStatusColor(
 ): string {
   switch (type) {
     case 'active':
-      return getColor('crimson', 400, theme)!;
+      return getColorV8('crimson', 400, theme)!;
     case 'available':
-      return getColor('mint', 400, theme)!;
+      return getColorV8('mint', 400, theme)!;
     case 'away':
-      return getColor('orange', 400, theme)!;
+      return getColorV8('orange', 400, theme)!;
     case 'transfers':
-      return getColor('azure', 400, theme)!;
+      return getColorV8('azure', 400, theme)!;
     case 'offline':
-      return getColor('grey', 500, theme)!;
+      return getColorV8('grey', 500, theme)!;
     default:
       return 'transparent';
   }

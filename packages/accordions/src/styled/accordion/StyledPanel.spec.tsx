@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledPanel } from './StyledPanel';
 
 describe('StyledPanel', () => {
@@ -19,7 +19,7 @@ describe('StyledPanel', () => {
     expect(container.firstChild).toHaveStyleRule('border-bottom', `${DEFAULT_THEME.borders.sm}`);
     expect(container.firstChild).toHaveStyleRule(
       'border-bottom-color',
-      `${getColor('neutralHue', 300, DEFAULT_THEME)}`
+      `${getColorV8('neutralHue', 300, DEFAULT_THEME)}`
     );
     expect(container.firstChild).toHaveStyleRule(
       'transition',

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.item_meta';
 
@@ -24,7 +24,7 @@ export const StyledItemMeta = styled.span.attrs({
 })<IStyledItemMetaProps>`
   display: block;
   line-height: ${props => props.theme.space.base * (props.isCompact ? 3 : 4)}px;
-  color: ${props => getColor('neutralHue', props.isDisabled ? 400 : 600, props.theme)};
+  color: ${props => getColorV8('neutralHue', props.isDisabled ? 400 : 600, props.theme)};
   font-size: ${props => props.theme.fontSizes.sm};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

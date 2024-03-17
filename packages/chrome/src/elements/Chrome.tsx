@@ -9,7 +9,7 @@ import React, { useMemo, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { readableColor } from 'polished';
-import { getColor, useDocument } from '@zendeskgarden/react-theming';
+import { getColorV8, useDocument } from '@zendeskgarden/react-theming';
 import { IChromeProps } from '../types';
 import { ChromeContext } from '../utils/useChromeContext';
 import { StyledChrome } from '../styled';
@@ -22,7 +22,7 @@ export const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(
     const theme = useContext(ThemeContext);
     const isLightMemoized = useMemo(() => {
       if (hue) {
-        const backgroundColor = getColor(hue, 600, theme);
+        const backgroundColor = getColorV8(hue, 600, theme);
         const LIGHT_COLOR = 'white';
 
         /* prevent this expensive computation on every render */

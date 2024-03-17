@@ -11,7 +11,7 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getLineHeight,
-  getColor
+  getColorV8
 } from '@zendeskgarden/react-theming';
 import { StyledListItem } from './StyledListItem';
 
@@ -40,7 +40,7 @@ export const StyledGapListItem = styled(StyledListItem).attrs({
 })`
   display: inline-block;
   text-align: center;
-  color: ${p => getColor('neutralHue', 600, p.theme)};
+  color: ${p => getColorV8('neutralHue', 600, p.theme)};
 
   ${props => sizeStyles(props)};
 

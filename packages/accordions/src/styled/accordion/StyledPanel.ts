@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   getLineHeight,
   retrieveComponentStyles,
   DEFAULT_THEME
@@ -27,7 +27,7 @@ const colorStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
   const { theme, isBare } = props;
 
   return css`
-    border-bottom-color: ${isBare ? 'transparent' : getColor('neutralHue', 300, theme)};
+    border-bottom-color: ${isBare ? 'transparent' : getColorV8('neutralHue', 300, theme)};
   `;
 };
 

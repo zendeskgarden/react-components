@@ -11,7 +11,7 @@ import {
   DEFAULT_THEME,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
-  getColor
+  getColorV8
 } from '@zendeskgarden/react-theming';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
@@ -52,7 +52,7 @@ const colorStyles = (props: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>
       hue: getValidationHue(validation),
       shade: validation === 'warning' ? 700 : 600,
       selector: isFocused ? '&' : '&:focus-within',
-      styles: { borderColor: getColor(getValidationHue(validation), 600, theme) }
+      styles: { borderColor: getColorV8(getValidationHue(validation), 600, theme) }
     })}
   `;
 };

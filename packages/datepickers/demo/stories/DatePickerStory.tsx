@@ -7,8 +7,8 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { Field, Input } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 import { DatePicker, IDatePickerProps } from '@zendeskgarden/react-datepickers';
 import { DATE_STYLE } from './types';
 
@@ -22,16 +22,16 @@ export const DatePickerStory: Story<IArgs> = ({ dateStyle, isCompact, ...args })
 
   return (
     <Grid>
-      <Row style={{ height: 'calc(100vh - 80px)' }}>
-        <Col textAlign="center" alignSelf="center">
+      <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
+        <Grid.Col textAlign="center" alignSelf="center">
           <Field>
             <Field.Label hidden>{DatePicker.displayName}</Field.Label>
             <DatePicker {...args} formatDate={formatDate} isCompact={isCompact}>
               <Input isCompact={isCompact} style={{ width: isCompact ? 256 : 320 }} />
             </DatePicker>
           </Field>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   );
 };

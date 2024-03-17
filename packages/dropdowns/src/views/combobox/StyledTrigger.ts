@@ -10,7 +10,7 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   focusStyles
 } from '@zendeskgarden/react-theming';
 import { Validation } from '../../types';
@@ -49,26 +49,26 @@ const colorStyles = (props: IStyledTriggerProps) => {
   let focusShade: number | undefined;
 
   if (props.validation) {
-    borderColor = getColor(hue, SHADE, props.theme);
+    borderColor = getColorV8(hue, SHADE, props.theme);
     hoverBorderColor = borderColor;
 
     if (props.validation === 'warning') {
-      focusBorderColor = getColor(hue, SHADE + 100, props.theme);
+      focusBorderColor = getColorV8(hue, SHADE + 100, props.theme);
       focusShade = SHADE + 100;
     } else {
       focusBorderColor = borderColor;
     }
   } else {
-    borderColor = getColor('neutralHue', SHADE - 300, props.theme);
-    hoverBorderColor = getColor('primaryHue', SHADE, props.theme);
+    borderColor = getColorV8('neutralHue', SHADE - 300, props.theme);
+    hoverBorderColor = getColorV8('primaryHue', SHADE, props.theme);
     focusBorderColor = hoverBorderColor;
   }
 
   const disabledBackgroundColor = props.isBare
     ? undefined
-    : getColor('neutralHue', SHADE - 500, props.theme);
-  const disabledBorderColor = getColor('neutralHue', SHADE - 400, props.theme);
-  const disabledForegroundColor = getColor('neutralHue', SHADE - 200, props.theme);
+    : getColorV8('neutralHue', SHADE - 500, props.theme);
+  const disabledBorderColor = getColorV8('neutralHue', SHADE - 400, props.theme);
+  const disabledForegroundColor = getColorV8('neutralHue', SHADE - 200, props.theme);
   const focusSelector = `
     &:focus-within:not([aria-disabled='true']),
     &:focus-visible

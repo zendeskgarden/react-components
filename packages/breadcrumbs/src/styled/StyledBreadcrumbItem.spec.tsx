@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColor, DEFAULT_THEME, getLineHeight } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME, getLineHeight } from '@zendeskgarden/react-theming';
 import { StyledBreadcrumbItem } from './StyledBreadcrumbItem';
 
 describe('StyledBreadcrumbItem', () => {
@@ -25,7 +25,7 @@ describe('StyledBreadcrumbItem', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'color',
-      getColor(DEFAULT_THEME.colors.neutralHue, 600)
+      getColorV8(DEFAULT_THEME.colors.neutralHue, 600)
     );
   });
 });

@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { rgba, math } from 'polished';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropzone';
 
@@ -25,19 +25,19 @@ const colorStyles = (props: IStyledDropzoneProps) => {
   const { isDanger, isDisabled, isActive, isHighlighted, theme } = props;
 
   const hue = isDanger ? 'dangerHue' : 'primaryHue';
-  const baseColor = getColor(hue, 600, theme);
-  const neutralColor = getColor('neutralHue', 600, theme);
+  const baseColor = getColorV8(hue, 600, theme);
+  const neutralColor = getColorV8('neutralHue', 600, theme);
 
   let backgroundColor = 'transparent';
   let borderColor = neutralColor;
   let color = neutralColor;
 
   if (isDisabled) {
-    backgroundColor = getColor('neutralHue', 200, theme) as string;
-    borderColor = getColor('neutralHue', 300, theme);
-    color = getColor('neutralHue', 400, theme);
+    backgroundColor = getColorV8('neutralHue', 200, theme) as string;
+    borderColor = getColorV8('neutralHue', 300, theme);
+    color = getColorV8('neutralHue', 400, theme);
   } else if (isActive || isHighlighted) {
-    color = isHighlighted ? getColor(hue, 800, theme) : baseColor;
+    color = isHighlighted ? getColorV8(hue, 800, theme) : baseColor;
     backgroundColor = rgba(baseColor as string, 0.08);
     borderColor = baseColor;
   } else if (isDanger) {

@@ -10,7 +10,7 @@ import { StoryFn } from '@storybook/react';
 import IconAdd from '@zendeskgarden/svg-icons/src/16/notification-stroke.svg';
 import IconRemove from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 import IconRemoveAll from '@zendeskgarden/svg-icons/src/16/x-circle-stroke.svg';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Item, Menu } from '@zendeskgarden/react-dropdowns';
 import {
@@ -62,16 +62,16 @@ export const ToastStory: StoryFn<IArgs> = ({ children, ...args }) => {
 
   return (
     <Grid>
-      <Row style={{ height: 'calc(100vh - 80px)' }}>
-        <Col sm={4} textAlign="center" textAlignSm="end" alignSelf="center">
+      <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
+        <Grid.Col sm={4} textAlign="center" textAlignSm="end" alignSelf="center">
           <Button onClick={handleAdd}>
             <Button.StartIcon>
               <IconAdd />
             </Button.StartIcon>
             Add
           </Button>
-        </Col>
-        <Col sm={4} textAlign="center" alignSelf="center">
+        </Grid.Col>
+        <Grid.Col sm={4} textAlign="center" alignSelf="center">
           <Menu
             onChange={handleChange}
             buttonProps={{
@@ -86,16 +86,16 @@ export const ToastStory: StoryFn<IArgs> = ({ children, ...args }) => {
               </Item>
             ))}
           </Menu>
-        </Col>
-        <Col sm={4} textAlign="center" textAlignSm="start" alignSelf="center">
+        </Grid.Col>
+        <Grid.Col sm={4} textAlign="center" textAlignSm="start" alignSelf="center">
           <Button isDanger disabled={toasts.length === 0} onClick={handleRemoveAll}>
             <Button.StartIcon>
               <IconRemoveAll />
             </Button.StartIcon>
             Remove all
           </Button>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   );
 };

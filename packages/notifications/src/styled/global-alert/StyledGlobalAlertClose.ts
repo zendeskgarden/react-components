@@ -7,7 +7,7 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   DEFAULT_THEME,
   retrieveComponentStyles,
   focusStyles
@@ -31,34 +31,34 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
 
   switch (props.alertType) {
     case 'success':
-      hoverBackgroundColor = getColor('successHue', 100, props.theme, 0.08);
+      hoverBackgroundColor = getColorV8('successHue', 100, props.theme, 0.08);
       hoverForegroundColor = props.theme.palette.white;
-      activeBackgroundColor = getColor('successHue', 100, props.theme, 0.2);
+      activeBackgroundColor = getColorV8('successHue', 100, props.theme, 0.2);
       activeForegroundColor = props.theme.palette.white;
       focusColor = 'successHue';
       break;
 
     case 'error':
-      hoverBackgroundColor = getColor('dangerHue', 100, props.theme, 0.08);
+      hoverBackgroundColor = getColorV8('dangerHue', 100, props.theme, 0.08);
       hoverForegroundColor = props.theme.palette.white;
-      activeBackgroundColor = getColor('dangerHue', 100, props.theme, 0.2);
+      activeBackgroundColor = getColorV8('dangerHue', 100, props.theme, 0.2);
       activeForegroundColor = props.theme.palette.white;
       focusColor = 'dangerHue';
       break;
 
     case 'warning':
-      hoverBackgroundColor = getColor('warningHue', 800, props.theme, 0.08);
-      hoverForegroundColor = getColor('warningHue', 900, props.theme);
-      activeBackgroundColor = getColor('warningHue', 800, props.theme, 0.2);
-      activeForegroundColor = getColor('warningHue', 1000, props.theme);
+      hoverBackgroundColor = getColorV8('warningHue', 800, props.theme, 0.08);
+      hoverForegroundColor = getColorV8('warningHue', 900, props.theme);
+      activeBackgroundColor = getColorV8('warningHue', 800, props.theme, 0.2);
+      activeForegroundColor = getColorV8('warningHue', 1000, props.theme);
       focusColor = 'warningHue';
       break;
 
     case 'info':
-      hoverBackgroundColor = getColor('primaryHue', 700, props.theme, 0.08);
-      hoverForegroundColor = getColor('primaryHue', 800, props.theme);
-      activeBackgroundColor = getColor('primaryHue', 700, props.theme, 0.2);
-      activeForegroundColor = getColor('primaryHue', 900, props.theme);
+      hoverBackgroundColor = getColorV8('primaryHue', 700, props.theme, 0.08);
+      hoverForegroundColor = getColorV8('primaryHue', 800, props.theme);
+      activeBackgroundColor = getColorV8('primaryHue', 700, props.theme, 0.2);
+      activeForegroundColor = getColorV8('primaryHue', 900, props.theme);
       focusColor = 'primaryHue';
       break;
   }

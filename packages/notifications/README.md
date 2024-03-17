@@ -14,16 +14,18 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ## Usage
 
+## Notifications
+
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Notification, Title } from '@zendeskgarden/react-notifications';
+import { Notification } from '@zendeskgarden/react-notifications';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
   <Notification>
-    <Title>Example Title</Title>
+    <Notification.Title>Example Title</Notification.Title>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit...
   </Notification>
 </ThemeProvider>;
@@ -34,7 +36,7 @@ import { Notification, Title } from '@zendeskgarden/react-notifications';
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Notification, Close, ToastProvider, useToast } from '@zendeskgarden/react-notifications';
+import { Notification, ToastProvider, useToast } from '@zendeskgarden/react-notifications';
 
 const ToastExample = () => {
   const { addToast } = useToast();
@@ -45,7 +47,7 @@ const ToastExample = () => {
         addToast(({ close }) => (
           <Notification>
             Example notification
-            <Close onClick={close} aria-label="Close" />
+            <Notification.Close onClick={close} aria-label="Close" />
           </Notification>
         ))
       }

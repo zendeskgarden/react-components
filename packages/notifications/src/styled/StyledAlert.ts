@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledTitle } from './content/StyledTitle';
 import { StyledBase } from './StyledBase';
 
@@ -18,7 +18,7 @@ export interface IStyledAlertProps {
 
 const colorStyles = (props: IStyledAlertProps & ThemeProps<DefaultTheme>) => css`
   ${StyledTitle} {
-    color: ${props.hue && getColor(props.hue, 800, props.theme)};
+    color: ${props.hue && getColorV8(props.hue, 800, props.theme)};
   }
 `;
 

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 import { TYPE } from '../../types';
 
@@ -51,9 +51,9 @@ describe('StyledGlobalAlertTitle', () => {
       'color',
       {
         success: DEFAULT_THEME.palette.white as string,
-        warning: getColor('warningHue', 900, DEFAULT_THEME),
+        warning: getColorV8('warningHue', 900, DEFAULT_THEME),
         error: DEFAULT_THEME.palette.white as string,
-        info: getColor('primaryHue', 800, DEFAULT_THEME)
+        info: getColorV8('primaryHue', 800, DEFAULT_THEME)
       }[type]
     );
   });

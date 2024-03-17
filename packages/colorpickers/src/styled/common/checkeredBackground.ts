@@ -6,7 +6,7 @@
  */
 
 import { DefaultTheme } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 
 export const checkeredBackground = (
   theme: DefaultTheme,
@@ -14,7 +14,7 @@ export const checkeredBackground = (
   positionY = 0,
   repeat = 'repeat'
 ) => {
-  const color = getColor('neutralHue', 400, theme);
+  const color = getColorV8('neutralHue', 400, theme);
   const dimensions = `${size}px ${size}px`;
   const positionX1 = theme.rtl ? '100%' : '0';
   const positionX2 = theme.rtl ? `calc(100% - ${size / 2}px)` : `${size / 2}px`;

@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   DEFAULT_THEME,
   retrieveComponentStyles,
   focusStyles
@@ -36,23 +36,23 @@ function colorStyles(props: ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonP
 
   switch (props.alertType) {
     case 'success':
-      backgroundColor = getColor('successHue', 800, props.theme);
-      hoverBackgroundColor = getColor('successHue', 900, props.theme);
-      activeBackgroundColor = getColor('successHue', 1000, props.theme);
+      backgroundColor = getColorV8('successHue', 800, props.theme);
+      hoverBackgroundColor = getColorV8('successHue', 900, props.theme);
+      activeBackgroundColor = getColorV8('successHue', 1000, props.theme);
       focusColor = 'successHue';
       break;
 
     case 'error':
-      backgroundColor = getColor('dangerHue', 800, props.theme);
-      hoverBackgroundColor = getColor('dangerHue', 900, props.theme);
-      activeBackgroundColor = getColor('dangerHue', 1000, props.theme);
+      backgroundColor = getColorV8('dangerHue', 800, props.theme);
+      hoverBackgroundColor = getColorV8('dangerHue', 900, props.theme);
+      activeBackgroundColor = getColorV8('dangerHue', 1000, props.theme);
       focusColor = 'dangerHue';
       break;
 
     case 'warning':
-      backgroundColor = getColor('warningHue', 800, props.theme);
-      hoverBackgroundColor = getColor('warningHue', 900, props.theme);
-      activeBackgroundColor = getColor('warningHue', 1000, props.theme);
+      backgroundColor = getColorV8('warningHue', 800, props.theme);
+      hoverBackgroundColor = getColorV8('warningHue', 900, props.theme);
+      activeBackgroundColor = getColorV8('warningHue', 1000, props.theme);
       focusColor = 'warningHue';
       break;
 

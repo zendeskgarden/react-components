@@ -88,6 +88,11 @@ consider additional positioning prop support on a case-by-case basis.
     renamed to `@zendeskgarden/react-dropdowns.legacy` in `v9`
 - `Menu`: value `auto` is no longer valid for the `fallbackPlacements` prop.
 - Removed `label` prop from `OptGroup`. Use `legend` instead.
+- Subcomponent exports have been deprecated and will be removed in a future major version. Update
+  to subcomponent properties:
+  - `Hint` -> `Field.Hint`
+  - `Label` -> `Field.Label`
+  - `Message` -> `Field.Message`
 
 #### @zendeskgarden/react-forms
 
@@ -114,12 +119,19 @@ consider additional positioning prop support on a case-by-case basis.
 - `DrawerModal`: renamed to `Drawer`
 - `TooltipModal`: removed `popperModifiers` prop (see [note](#breaking-changes))
 - Removed `GARDEN_PLACEMENT` type export. Use `ITooltipModalProps['placement']` instead.
+- Subcomponent exports for `Modal` have been deprecated and will be removed in a future major version.
+  Update to subcomponent properties (e.g., `Modal.Body`).
 
 #### @zendeskgarden/react-notification
 
 - The following types have changed:
   - removed `ToastPlacement`. Use `IToastOptions['placement']` instead.
   - removed `ToastContent`. Use `IToast['content']` instead.
+- Subcomponent exports have been deprecated and will be removed in a future major version. Update
+  to subcomponent properties:
+  - `Close` -> `Alert.Close`, `Notification.Close`
+  - `Paragraph` -> `Alert.Paragraph`, `Notification.Paragraph`, `Well.Paragraph`
+  - `Title` -> `Alert.Title`, `Notification.Title`, `Well.Title`
 
 #### @zendeskgarden/react-pagination
 
@@ -141,6 +153,9 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-theming
 
+- The `focusVisibleRef` prop (and the resulting scoping `<div>`) has been
+  removed from `<ThemeProvider>`. Current browser support obviates the need for a
+  `:focus-visible` polyfill.
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
 - Utility function `getDocument` has been removed. Use `useDocument` instead.
 - The following exports have changed:

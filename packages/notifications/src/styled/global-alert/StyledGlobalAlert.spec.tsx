@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 import { TYPE } from '../../types';
 import { StyledGlobalAlert } from './StyledGlobalAlert';
@@ -19,10 +19,10 @@ describe('StyledGlobalAlert', () => {
     expect(container.firstChild).toHaveStyleRule(
       'background-color',
       {
-        success: getColor(DEFAULT_THEME.colors.successHue, 600, DEFAULT_THEME),
-        error: getColor(DEFAULT_THEME.colors.dangerHue, 600, DEFAULT_THEME),
-        warning: getColor(DEFAULT_THEME.colors.warningHue, 300, DEFAULT_THEME),
-        info: getColor(DEFAULT_THEME.colors.primaryHue, 200, DEFAULT_THEME)
+        success: getColorV8(DEFAULT_THEME.colors.successHue, 600, DEFAULT_THEME),
+        error: getColorV8(DEFAULT_THEME.colors.dangerHue, 600, DEFAULT_THEME),
+        warning: getColorV8(DEFAULT_THEME.colors.warningHue, 300, DEFAULT_THEME),
+        info: getColorV8(DEFAULT_THEME.colors.primaryHue, 200, DEFAULT_THEME)
       }[type]
     );
   });

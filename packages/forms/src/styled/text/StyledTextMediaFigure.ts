@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import React, { Children } from 'react';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.media_figure';
 
@@ -29,7 +29,7 @@ const colorStyles = (props: IStyledTextMediaFigureProps & ThemeProps<DefaultThem
   }
 
   return css`
-    color: ${getColor('neutralHue', shade, props.theme)};
+    color: ${getColorV8('neutralHue', shade, props.theme)};
   `;
 };
 

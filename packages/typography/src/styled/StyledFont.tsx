@@ -7,7 +7,7 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { hideVisually, math } from 'polished';
-import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles, getColorV8 } from '@zendeskgarden/react-theming';
 import { SIZE } from '../types';
 
 const COMPONENT_ID = 'typography.font';
@@ -65,7 +65,7 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
   if (props.hue) {
     const shade = props.hue === 'yellow' ? 700 : 600;
 
-    color = getColor(props.hue, shade, props.theme);
+    color = getColorV8(props.hue, shade, props.theme);
   }
 
   return css`

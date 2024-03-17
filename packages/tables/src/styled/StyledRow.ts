@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { ITableProps } from '../types';
 import { StyledCell } from './StyledCell';
 import { StyledOverflowButton } from './StyledOverflowButton';
@@ -27,8 +27,8 @@ export const StyledBaseRow = styled.tr<IStyledRowProps>`
   display: table-row;
   transition: background-color 0.1s ease-in-out;
   border-bottom: ${props =>
-    `${props.theme.borders.sm} ${getColor('neutralHue', 200, props.theme)}`};
-  background-color: ${props => props.isStriped && getColor('neutralHue', 100, props.theme)};
+    `${props.theme.borders.sm} ${getColorV8('neutralHue', 200, props.theme)}`};
+  background-color: ${props => props.isStriped && getColorV8('neutralHue', 100, props.theme)};
   vertical-align: top;
   box-sizing: border-box;
 `;
@@ -40,12 +40,12 @@ StyledBaseRow.defaultProps = {
 const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
   const boxShadow = `inset ${props.theme.rtl ? '-' : ''}${
     props.theme.shadowWidths.md
-  } 0 0 0 ${getColor('primaryHue', 600, props.theme)}`;
-  const hoveredBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
-  const hoveredBorderColor = getColor('primaryHue', 200, props.theme);
-  const selectedBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
-  const selectedBorderColor = getColor('primaryHue', 300, props.theme);
-  const hoveredSelectedBackgroundColor = getColor('primaryHue', 600, props.theme, 0.28);
+  } 0 0 0 ${getColorV8('primaryHue', 600, props.theme)}`;
+  const hoveredBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.08);
+  const hoveredBorderColor = getColorV8('primaryHue', 200, props.theme);
+  const selectedBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.2);
+  const selectedBorderColor = getColorV8('primaryHue', 300, props.theme);
+  const hoveredSelectedBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.28);
   let backgroundColor = undefined;
   let borderColor = undefined;
   let hoverBorderBottomColor = undefined;

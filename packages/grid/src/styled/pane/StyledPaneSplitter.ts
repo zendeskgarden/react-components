@@ -10,7 +10,7 @@ import { math } from 'polished';
 import {
   DEFAULT_THEME,
   focusStyles,
-  getColor,
+  getColorV8,
   retrieveComponentStyles,
   SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
@@ -25,9 +25,9 @@ interface IStyledPaneSplitterProps {
 }
 
 const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
-  const color = getColor('neutralHue', 300, props.theme);
-  const hoverColor = getColor('primaryHue', 600, props.theme);
-  const activeColor = getColor('primaryHue', 800, props.theme);
+  const color = getColorV8('neutralHue', 300, props.theme);
+  const hoverColor = getColorV8('primaryHue', 600, props.theme);
+  const activeColor = getColorV8('primaryHue', 800, props.theme);
 
   return css`
     &::before {

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';
 import { StyledMessage } from '../common/StyledMessage';
@@ -32,9 +32,13 @@ describe('StyledRadioInput', () => {
   it('renders expected checked styling', () => {
     const { container } = render(<StyledRadioInput defaultChecked />);
 
-    expect(container.firstChild).toHaveStyleRule('background-color', getColor('primaryHue', 600), {
-      modifier: `:checked ~ ${StyledRadioLabel}::before`
-    });
+    expect(container.firstChild).toHaveStyleRule(
+      'background-color',
+      getColorV8('primaryHue', 600),
+      {
+        modifier: `:checked ~ ${StyledRadioLabel}::before`
+      }
+    );
   });
 
   it('renders compact styling if provided', () => {
@@ -48,9 +52,13 @@ describe('StyledRadioInput', () => {
   it('renders expected disabled styling', () => {
     const { container } = render(<StyledRadioInput disabled />);
 
-    expect(container.firstChild).toHaveStyleRule('background-color', getColor('neutralHue', 200), {
-      modifier: `:disabled ~ ${StyledRadioLabel}::before`
-    });
+    expect(container.firstChild).toHaveStyleRule(
+      'background-color',
+      getColorV8('neutralHue', 200),
+      {
+        modifier: `:disabled ~ ${StyledRadioLabel}::before`
+      }
+    );
   });
 
   it('renders expected RTL styling', () => {

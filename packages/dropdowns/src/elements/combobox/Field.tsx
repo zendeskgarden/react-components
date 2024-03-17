@@ -8,11 +8,11 @@
 import React, { HTMLAttributes, LabelHTMLAttributes, forwardRef, useMemo, useState } from 'react';
 import { FieldContext } from '../../context/useFieldContext';
 import { StyledField } from '../../views';
+import { Hint } from './Hint';
+import { Label } from './Label';
+import { Message } from './Message';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Field = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+const FieldComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const [labelProps, setLabelProps] = useState<LabelHTMLAttributes<HTMLLabelElement> | undefined>(
     undefined
   );
@@ -56,4 +56,17 @@ export const Field = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   );
 });
 
-Field.displayName = 'Field';
+FieldComponent.displayName = 'Field';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Field = FieldComponent as typeof FieldComponent & {
+  Hint: typeof Hint;
+  Label: typeof Label;
+  Message: typeof Message;
+};
+
+Field.Hint = Hint;
+Field.Label = Label;
+Field.Message = Message;

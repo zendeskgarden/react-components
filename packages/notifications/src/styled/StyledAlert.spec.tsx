@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { css } from 'styled-components';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { render } from 'garden-test-utils';
 import { StyledAlert, StyledTitle } from '../styled';
 import { Type } from '../types';
@@ -24,7 +24,7 @@ describe('StyledAlert', () => {
     Object.values(validationHues).forEach(hue => {
       const { container } = render(<StyledAlert hue={hue} />);
 
-      expect(container.firstChild).toHaveStyleRule('color', getColor(hue, 800, DEFAULT_THEME), {
+      expect(container.firstChild).toHaveStyleRule('color', getColorV8(hue, 800, DEFAULT_THEME), {
         modifier: css`
           ${StyledTitle}
         ` as any
