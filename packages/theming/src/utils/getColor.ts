@@ -74,7 +74,8 @@ const toColor = (
   scheme: 'dark' | 'light',
   hue: string,
   shade?: number | string,
-  offset?: number
+  offset?: number,
+  transparency?: number
 ) => {
   let retVal;
   let _hue: Hue =
@@ -107,19 +108,23 @@ const toColor = (
     }
   }
 
+  if (retVal && transparency) {
+    retVal = rgba(retVal, transparency);
+  }
+
   return retVal;
 };
 
 /* convert the given object + path to a string value */
-const toValue = (object: object, path: string) => {
-  const value = get(object, path);
+const toProperty = (object: object, path: string) => {
+  const retVal = get(object, path);
 
-  if (typeof value === 'string') {
-    return value;
-  } else if (value === undefined) {
+  if (typeof retVal === 'string') {
+    return retVal;
+  } else if (retVal === undefined) {
     throw new ReferenceError(`Error: color variable "${path}" is not defined`);
   } else {
-    throw new TypeError(`Error: unexpected '${typeof value}' type for color variable "${path}"`);
+    throw new TypeError(`Error: unexpected '${typeof retVal}' type for color variable "${path}"`);
   }
 };
 
@@ -149,54 +154,33 @@ export const getColor = memoize(
     let retVal;
 
     // bulletproof object references for potential non-typed usage
-    const colors = theme.colors ? theme.colors : DEFAULT_THEME.colors;
     const palette = theme.palette ? theme.palette : DEFAULT_THEME.palette;
+    const colors = theme.colors ? theme.colors : DEFAULT_THEME.colors;
     const scheme = colors.base === 'dark' ? 'dark' : 'light';
+    const mode = (scheme === 'dark' ? dark : light)!;
+    let _hue = mode?.hue || hue;
+    let _shade = mode?.shade || shade;
+    const _offset = mode?.offset || offset;
+    const _transparency = mode?.transparency || transparency;
 
     if (variable) {
       // variable lookup takes precedence
       const variables = theme.variables?.colors?.[scheme]
         ? theme.variables.colors[scheme]
         : DEFAULT_THEME.variables.colors[scheme];
-      const value = toValue(variables, variable);
-      const [_hue, _shade] = value.split(/\.(?<shade>.*)/u) as [string, string];
+      const property = toProperty(variables, variable);
+      const [key, value] = property.split(/\.(?<value>.*)/u);
 
-      if (_hue === 'palette') {
-        retVal = toValue(palette, _shade); /* ex. `variable` = 'palette.white' */
+      if (key === 'palette') {
+        _hue = toProperty(palette, value); /* ex. `variable` = 'palette.white' */
       } else {
-        let _offset;
-
-        if (scheme === 'dark' && dark?.offset) {
-          _offset = dark.offset;
-        } else if (scheme === 'light' && light?.offset) {
-          _offset = light.offset;
-        } else {
-          _offset = offset;
-        }
-
-        retVal = toColor(colors, palette, scheme, _hue, _shade, _offset);
+        _hue = key;
+        _shade = parseInt(value, 10);
       }
-    } else if ((dark && scheme === 'dark') || (light && scheme === 'light')) {
-      // penultimate lookup is light/dark scheme
-      const mode = (scheme === 'dark' ? dark : light)!;
-      const _hue = mode.hue || hue;
+    }
 
-      if (_hue) {
-        retVal = toColor(colors, palette, scheme, _hue, mode.shade || shade, mode.offset || offset);
-
-        const _transparency = mode.transparency || transparency;
-
-        if (retVal && _transparency) {
-          retVal = rgba(retVal, _transparency);
-        }
-      }
-    } else if (hue) {
-      // last lookup is schemeless
-      retVal = toColor(colors, palette, scheme, hue, shade, offset);
-
-      if (retVal && transparency) {
-        retVal = rgba(retVal, transparency);
-      }
+    if (_hue) {
+      retVal = toColor(colors, palette, scheme, _hue, _shade, _offset, _transparency);
     }
 
     if (retVal === undefined) {

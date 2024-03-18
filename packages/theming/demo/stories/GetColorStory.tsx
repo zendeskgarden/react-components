@@ -8,7 +8,7 @@
 import React from 'react';
 import { StoryFn } from '@storybook/react';
 import styled, { DefaultTheme, useTheme } from 'styled-components';
-import { IGardenTheme, getColor } from '@zendeskgarden/react-theming';
+import { IGardenTheme, ThemeProvider, getColor } from '@zendeskgarden/react-theming';
 import { Tag } from '@zendeskgarden/react-tags';
 
 const toBackground = (theme: DefaultTheme, backgroundColor: string) => {
@@ -39,31 +39,20 @@ const StyledDiv = styled.div<{ background: string }>`
   height: 208px;
 `;
 
-interface IArgs {
+interface IColorProps {
   dark?: object;
   hue?: string;
   light?: object;
   offset?: number;
   shade?: number;
-  theme: IGardenTheme;
   transparency?: number;
   variable?: string;
 }
 
-export const GetColorStory: StoryFn<IArgs> = ({
-  dark,
-  hue,
-  light,
-  offset,
-  shade,
-  theme: _theme,
-  transparency,
-  variable
-}) => {
+const Color = ({ dark, hue, light, offset, shade, transparency, variable }: IColorProps) => {
+  const theme = useTheme();
   let background;
   let tag;
-  const parentTheme = useTheme();
-  const theme = { ..._theme, colors: { ..._theme.colors, base: parentTheme.colors.base } };
 
   try {
     const backgroundColor = getColor({
@@ -94,3 +83,42 @@ export const GetColorStory: StoryFn<IArgs> = ({
 
   return <StyledDiv background={background}>{tag}</StyledDiv>;
 };
+
+interface IArgs extends IColorProps {
+  theme: IGardenTheme;
+}
+
+export const GetColorStory: StoryFn<IArgs> = ({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}) => (
+  <ThemeProvider
+    theme={parentTheme => ({
+      ...theme,
+      /* Prefer Storybook toolbar controls and retain `shadows` functions */
+      colors: {
+        ...theme.colors,
+        base: parentTheme.colors.base,
+        successHue: parentTheme.colors.successHue
+      },
+      rtl: parentTheme.rtl,
+      shadows: parentTheme.shadows
+    })}
+  >
+    <Color
+      dark={dark}
+      hue={hue}
+      light={light}
+      offset={offset}
+      shade={shade}
+      transparency={transparency}
+      variable={variable}
+    />
+  </ThemeProvider>
+);
