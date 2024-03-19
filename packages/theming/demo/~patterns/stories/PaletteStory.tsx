@@ -59,26 +59,26 @@ export const PaletteStory: StoryFn<IArgs> = ({ hue, palette }) => {
         <Tabs.TabPanel item="components">
           <Grid>
             <Grid.Row>
-              <Grid.Col>
+              <Grid.Col textAlign="center">
                 <Button>default</Button>
               </Grid.Col>
-              <Grid.Col>
+              <Grid.Col textAlign="center">
                 <Button isDanger>danger</Button>
               </Grid.Col>
-              <Grid.Col>
+              <Grid.Col textAlign="center">
                 <Button isNeutral>neutral</Button>
               </Grid.Col>
             </Grid.Row>
             <Grid.Row style={{ marginTop: 20 }}>
-              <Grid.Col>
+              <Grid.Col textAlign="center">
                 <Button isPrimary>primary</Button>
               </Grid.Col>
-              <Grid.Col>
+              <Grid.Col textAlign="center">
                 <Button isDanger isPrimary>
                   danger
                 </Button>
               </Grid.Col>
-              <Grid.Col>
+              <Grid.Col textAlign="center">
                 <Button isNeutral isPrimary>
                   neutral
                 </Button>
