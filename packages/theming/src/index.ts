@@ -16,7 +16,7 @@ export {
 } from './utils/retrieveComponentStyles';
 export { default as withTheme } from './utils/withTheme';
 export { default as getDocument } from './utils/getDocument';
-export { getColorV8 } from './utils/getColorV8';
+export { getColorV8 as getColor, getColorV8 } from './utils/getColorV8';
 export { getFocusBoxShadow } from './utils/getFocusBoxShadow';
 export { default as getLineHeight } from './utils/getLineHeight';
 export { default as mediaQuery } from './utils/mediaQuery';
