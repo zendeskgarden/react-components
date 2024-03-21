@@ -7,7 +7,7 @@
 
 import { IUseAccordionProps } from '@zendeskgarden/container-accordion';
 import {
-  ReactElement,
+  ReactNode,
   SVGAttributes,
   HTMLAttributes,
   LiHTMLAttributes,
@@ -49,7 +49,7 @@ export interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {
 
 export interface IStepperLabelProps extends HTMLAttributes<HTMLDivElement> {
   /** Replaces the label number with an icon */
-  icon?: ReactElement;
+  icon?: ReactNode;
   /** Passes props to the default check icon */
   iconProps?: SVGAttributes<SVGElement>;
   /** Hides the label text */
@@ -63,7 +63,7 @@ export interface ITimelineProps extends OlHTMLAttributes<HTMLOListElement> {
 
 export interface ITimelineItemProps extends LiHTMLAttributes<HTMLLIElement> {
   /** Replaces the dot with an icon */
-  icon?: ReactElement;
+  icon?: ReactNode;
   /** Provides surface color for an icon placed on a non-white background */
   surfaceColor?: string;
 }
