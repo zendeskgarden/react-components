@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme } from 'styled-components';
 import { stripUnit } from 'polished';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_colorwell_thumb';
 
@@ -46,7 +46,7 @@ export const StyledColorWellThumb = styled.div.attrs<IStyledSaturationPointerPro
     props.theme.shadows.lg(
       `${props.theme.space.base}px`,
       `${props.theme.space.base * 2}px`,
-      getColor('neutralHue', 800, props.theme, 0.24)!
+      getColorV8('neutralHue', 800, props.theme, 0.24)!
     )};
 
   ${props => sizeStyles(props.theme)};

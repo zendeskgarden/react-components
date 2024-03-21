@@ -9,7 +9,7 @@ import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
 import {
   retrieveComponentStyles,
-  getColor,
+  getColorV8,
   focusStyles,
   DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
@@ -65,7 +65,7 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem as 'button').attrs({
   &:hover ${/* sc-selector */ StyledHeaderItemText},
   &:active ${/* sc-selector */ StyledHeaderItemIcon},
   &:active ${/* sc-selector */ StyledHeaderItemText} {
-    color: ${props => getColor('chromeHue', 700, props.theme)};
+    color: ${props => getColorV8('chromeHue', 700, props.theme)};
   }
 
   ${imgStyles}

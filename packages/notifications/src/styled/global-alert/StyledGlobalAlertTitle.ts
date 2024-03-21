@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { IGlobalAlertProps, IGlobalAlertTitleProps } from '../../types';
 
 const COMPONENT_ID = 'notifications.global-alert.title';
@@ -26,11 +26,11 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertTitlePr
       break;
 
     case 'warning':
-      color = getColor('warningHue', 900, props.theme);
+      color = getColorV8('warningHue', 900, props.theme);
       break;
 
     case 'info':
-      color = getColor('primaryHue', 800, props.theme);
+      color = getColorV8('primaryHue', 800, props.theme);
       break;
   }
 

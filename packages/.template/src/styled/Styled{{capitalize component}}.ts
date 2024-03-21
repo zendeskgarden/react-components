@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = '{{pluralize (lowercase component)}}.{{lowercase component}}';
 
@@ -15,12 +15,12 @@ export interface IStyled{{capitalize component}}Props extends ThemeProps<Default
 }
 
 const colorStyles = (props: IStyled{{capitalize component}}Props) => {
-  const backgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
-  const borderColor = getColor('primaryHue', 600, props.theme);
+  const backgroundColor = getColorV8('primaryHue', 600, props.theme, 0.08);
+  const borderColor = getColorV8('primaryHue', 600, props.theme);
   const foregroundColor = props.theme.colors.foreground;
-  const hoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
+  const hoverBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.2);
   const focusBoxShadow = props.theme.shadows.md(
-    getColor('primaryHue', 600, props.theme, 0.35) as string
+    getColorV8('primaryHue', 600, props.theme, 0.35) as string
   );
 
   return css`

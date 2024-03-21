@@ -8,7 +8,7 @@
 import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
 import {
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   focusStyles,
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
@@ -24,7 +24,7 @@ interface IStyledTabProps {
  * 1. A high specificity is needed to apply the border-color in vertical orientations
  */
 const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<DefaultTheme>) => {
-  const selectedColor = getColor('primaryHue', 600, theme);
+  const selectedColor = getColorV8('primaryHue', 600, theme);
 
   return css`
     border-color: ${isSelected && 'currentcolor !important'}; /* [1] */
@@ -50,7 +50,7 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
 
     &[aria-disabled='true'] {
       border-color: transparent;
-      color: ${props => getColor('neutralHue', 400, props.theme)};
+      color: ${props => getColorV8('neutralHue', 400, props.theme)};
     }
   `;
 };

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { StyledItem } from './StyledItem';
 
@@ -19,7 +19,7 @@ export const StyledAddItem = styled(StyledItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  color: ${props => !props.disabled && getColor('primaryHue', 600, props.theme)};
+  color: ${props => !props.disabled && getColorV8('primaryHue', 600, props.theme)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -9,7 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, readableColor } from 'polished';
 import {
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   retrieveComponentStyles,
   getLineHeight,
   SELECTOR_FOCUS_VISIBLE,
@@ -29,10 +29,10 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
   if (props.hue) {
     const shade = props.hue === 'yellow' ? 400 : 600;
 
-    backgroundColor = getColor(props.hue, shade, props.theme);
+    backgroundColor = getColorV8(props.hue, shade, props.theme);
 
     if (props.hue === 'yellow' || props.hue === 'lemon') {
-      foregroundColor = getColor('yellow', 800, props.theme);
+      foregroundColor = getColorV8('yellow', 800, props.theme);
     } else {
       foregroundColor = readableColor(
         backgroundColor!,
@@ -41,9 +41,9 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
       );
     }
   } else {
-    backgroundColor = getColor('neutralHue', 200, props.theme);
-    foregroundColor = getColor('neutralHue', 700, props.theme);
-    closeColor = getColor('neutralHue', 600, props.theme);
+    backgroundColor = getColorV8('neutralHue', 200, props.theme);
+    foregroundColor = getColorV8('neutralHue', 700, props.theme);
+    closeColor = getColorV8('neutralHue', 600, props.theme);
   }
 
   return css`

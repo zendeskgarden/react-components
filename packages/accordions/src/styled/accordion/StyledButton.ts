@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   getLineHeight,
-  getColor,
+  getColorV8,
   retrieveComponentStyles,
   DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
@@ -27,7 +27,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledButton) => {
   let color = props.theme.colors.foreground;
 
   if (showColor && props.isHovered) {
-    color = getColor('primaryHue', 600, props.theme)!;
+    color = getColorV8('primaryHue', 600, props.theme)!;
   }
 
   return css`

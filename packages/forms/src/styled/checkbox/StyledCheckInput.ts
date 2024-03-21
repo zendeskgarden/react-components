@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from '../radio/StyledRadioInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 
@@ -15,11 +15,11 @@ const COMPONENT_ID = 'forms.checkbox';
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
 
-  const indeterminateBorderColor = getColor('primaryHue', SHADE, props.theme);
+  const indeterminateBorderColor = getColorV8('primaryHue', SHADE, props.theme);
   const indeterminateBackgroundColor = indeterminateBorderColor;
-  const indeterminateActiveBorderColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const indeterminateActiveBorderColor = getColorV8('primaryHue', SHADE + 100, props.theme);
   const indeterminateActiveBackgroundColor = indeterminateActiveBorderColor;
-  const indeterminateDisabledBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
+  const indeterminateDisabledBackgroundColor = getColorV8('neutralHue', SHADE - 400, props.theme);
 
   return css`
     &:indeterminate ~ ${StyledCheckLabel}::before {

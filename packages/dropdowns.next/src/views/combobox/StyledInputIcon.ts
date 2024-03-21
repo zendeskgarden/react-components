@@ -8,7 +8,7 @@
 import { Children, cloneElement } from 'react';
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { getHeight as getInputHeight } from './StyledInput';
 import { StyledTrigger } from './StyledTrigger';
 
@@ -23,9 +23,9 @@ interface IStyledInputIconProps extends ThemeProps<DefaultTheme> {
 }
 
 const colorStyles = (props: IStyledInputIconProps) => {
-  const color = getColor('neutralHue', 600, props.theme);
-  const focusColor = getColor('neutralHue', 700, props.theme);
-  const disabledColor = getColor('neutralHue', 400, props.theme);
+  const color = getColorV8('neutralHue', 600, props.theme);
+  const focusColor = getColorV8('neutralHue', 700, props.theme);
+  const disabledColor = getColorV8('neutralHue', 400, props.theme);
 
   return css`
     color: ${props.isLabelHovered ? focusColor : color};

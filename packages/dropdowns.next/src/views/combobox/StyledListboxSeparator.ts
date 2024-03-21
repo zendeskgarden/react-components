@@ -6,12 +6,12 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.combobox.separator';
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const backgroundColor = getColor('neutralHue', 200, props.theme);
+  const backgroundColor = getColorV8('neutralHue', 200, props.theme);
 
   return css`
     background-color: ${backgroundColor};

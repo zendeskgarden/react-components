@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
-import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.highlight';
 
@@ -40,7 +40,7 @@ const retrieveColor = ({
   theme
 }: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
   return css`
-    background-color: ${isHighlighted && getColor('primaryHue', 600, theme, 0.08)};
+    background-color: ${isHighlighted && getColorV8('primaryHue', 600, theme, 0.08)};
   `;
 };
 

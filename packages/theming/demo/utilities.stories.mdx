@@ -2,7 +2,7 @@ import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs'
 import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { ArrowStylesStory } from './stories/ArrowStylesStory';
 import { MenuStylesStory } from './stories/MenuStylesStory';
-import { GetColorStory } from './stories/GetColorStory';
+import { getColorV8Story } from './stories/getColorV8Story';
 import { ARROW_POSITIONS, MENU_POSITIONS } from './stories/data';
 import README from '../README.md';
 
@@ -41,11 +41,11 @@ import README from '../README.md';
   </Story>
 </Canvas>
 
-## getColor()
+## getColorV8()
 
 <Canvas>
   <Story
-    name="getColor()"
+    name="getColorV8()"
     args={{
       hue: 'primaryHue',
       shade: 600
@@ -54,7 +54,7 @@ import README from '../README.md';
       transparency: { control: { type: 'range', min: 1 } }
     }}
   >
-    {args => <GetColorStory {...args} />}
+    {args => <getColorV8Story {...args} />}
   </Story>
 </Canvas>
 

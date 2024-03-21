@@ -7,7 +7,7 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { render, fireEvent } from 'garden-test-utils';
 import { StyledDraggable, getDragShadow } from './StyledDraggable';
 
@@ -67,7 +67,7 @@ describe('StyledDraggable', () => {
 
       expect(draggable).toHaveStyleRule(
         'background-color',
-        getColor('primaryHue', 600, DEFAULT_THEME, 0.08),
+        getColorV8('primaryHue', 600, DEFAULT_THEME, 0.08),
         { modifier: ':hover' }
       );
     });
@@ -114,11 +114,11 @@ describe('StyledDraggable', () => {
       const { container } = render(<StyledDraggable isDisabled />);
 
       expect(container.firstChild).toHaveStyle(
-        `background-color: ${getColor('neutralHue', 200, DEFAULT_THEME)}`
+        `background-color: ${getColorV8('neutralHue', 200, DEFAULT_THEME)}`
       );
       expect(container.firstChild).toHaveStyleRule(
         'color',
-        getColor('neutralHue', 400, DEFAULT_THEME)
+        getColorV8('neutralHue', 400, DEFAULT_THEME)
       );
     });
 
@@ -126,7 +126,7 @@ describe('StyledDraggable', () => {
       const { container } = render(<StyledDraggable isPlaceholder />);
 
       expect(container.firstChild).toHaveStyle(
-        `background-color: ${getColor('neutralHue', 800, DEFAULT_THEME, 0.1)}`
+        `background-color: ${getColorV8('neutralHue', 800, DEFAULT_THEME, 0.1)}`
       );
       expect(container.firstChild).toHaveStyleRule('visibility', 'hidden', { modifier: '> *' });
     });
