@@ -67,20 +67,29 @@ const colorStyles = ({ theme }: IStyledSplitterButtonProps & ThemeProps<DefaultT
 };
 
 const sizeStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>) => {
-  const size = `${props.theme.space.base * 6}px`;
+  const _size = props.theme.space.base * 6;
+  const size = `${_size}px`;
   const display =
     props.splitterSize <=
-      (stripUnit(math(`${props.theme.shadowWidths.md} * 2 + ${size}`)) as number) && 'none';
+      (stripUnit(math(`${props.theme.shadowWidths.md} * 2 + ${_size}`)) as number) && 'none';
   const isVertical = props.orientation === 'start' || props.orientation === 'end';
   let top;
   let left;
   let right;
   let bottom;
 
-  if (props.splitterSize >= (stripUnit(math(`${size} * 3`)) as number)) {
+  if (props.splitterSize >= _size * 3) {
+    const position = `${_size / 2}px`;
+
     if (props.placement === 'start') {
       if (isVertical) {
         top = size;
+
+        if (props.theme.rtl) {
+          left = `-${position}`;
+        } else {
+          right = `-${position}`;
+        }
       } else if (props.theme.rtl) {
         right = size;
       } else {
@@ -93,6 +102,15 @@ const sizeStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>
         left = size;
       } else {
         right = size;
+      }
+    } /* center */ else {
+      const center = `${props.splitterSize / 2 - _size / 2}px`;
+
+      if (isVertical) {
+        //
+      } else {
+        top = `-${_size / 2}px`;
+        left = center;
       }
     }
   }
@@ -111,7 +129,8 @@ const sizeStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>
 };
 
 /**
- * 1. Opaque "dish" behind transparent button
+ * 1. Match focused `Splitter` z-index
+ * 2. Opaque "dish" behind transparent button
  */
 export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplitterButtonProps>({
   'data-garden-id': COMPONENT_ID,
@@ -127,11 +146,12 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
     background-color 0.25s ease-in-out,
     opacity 0.25s ease-in-out 0.1s;
   opacity: 0;
+  z-index: 2; /* [1] */
 
   ${sizeStyles};
   ${transformStyles};
 
-  /* [1] */
+  /* [2] */
   &::before {
     position: absolute;
     z-index: -1;
@@ -144,9 +164,9 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   ${colorStyles};
 
   /* stylelint-disable selector-no-qualifying-type */
-  ${StyledPaneSplitter}:hover &,
-  ${StyledPaneSplitter}:focus-visible &,
-  ${StyledPaneSplitter}[data-garden-focus-visible] &,
+  ${StyledPaneSplitter}:hover ~ &,
+  ${StyledPaneSplitter}:focus-visible ~ &,
+  ${StyledPaneSplitter}[data-garden-focus-visible] ~ &,
   ${SELECTOR_FOCUS_VISIBLE} {
     opacity: 1;
   }

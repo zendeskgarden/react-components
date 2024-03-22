@@ -43,6 +43,7 @@ const orientationToDimension: Record<string, 'columns' | 'rows'> = {
 const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
   (
     {
+      children,
       providerId,
       layoutKey,
       min,
@@ -155,6 +156,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
           onMouseOver={onMouseOver}
           ref={mergeRefs([separatorRef, ref])}
         />
+        {children /* Splitter.Button is the only valid child */}
       </PaneSplitterContext.Provider>
     );
   }

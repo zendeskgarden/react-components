@@ -62,7 +62,12 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
     );
 
     return (
-      <Tooltip content={label} style={{ cursor: 'default' }} onMouseDown={e => e.stopPropagation()}>
+      <Tooltip
+        content={label}
+        zIndex={2}
+        style={{ cursor: 'default' }}
+        onMouseDown={e => e.stopPropagation()}
+      >
         <StyledPaneSplitterButton
           aria-label={label}
           {...props}
