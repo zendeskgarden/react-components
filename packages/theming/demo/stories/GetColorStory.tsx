@@ -27,4 +27,4 @@ const StyledDiv = styled.div<IArgs>`
   height: 208px;
 `;
 
-export const getColorV8Story: Story<IArgs> = args => <StyledDiv {...args} />;
+export const GetColorStory: Story<IArgs> = args => <StyledDiv {...args} />;
