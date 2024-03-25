@@ -7,7 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { hideVisually, math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { OptionType } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.option';
@@ -25,19 +25,19 @@ const colorStyles = (props: IStyledOptionProps) => {
   if (props.isActive && props.$type !== 'group' && props.$type !== 'header') {
     const hue = props.$type === 'danger' ? 'dangerHue' : 'primaryHue';
 
-    backgroundColor = getColor(hue, 600, props.theme, 0.08);
+    backgroundColor = getColorV8(hue, 600, props.theme, 0.08);
     boxShadow = `inset ${
       props.theme.rtl ? `-${props.theme.shadowWidths.md}` : props.theme.shadowWidths.md
-    } 0 ${getColor(hue, 600, props.theme)}`;
+    } 0 ${getColorV8(hue, 600, props.theme)}`;
   }
 
-  const disabledForegroundColor = getColor('neutralHue', 400, props.theme);
+  const disabledForegroundColor = getColorV8('neutralHue', 400, props.theme);
   let foregroundColor = props.theme.colors.foreground;
 
   if (props.$type === 'add') {
-    foregroundColor = getColor('primaryHue', 600, props.theme)!;
+    foregroundColor = getColorV8('primaryHue', 600, props.theme)!;
   } else if (props.$type === 'danger') {
-    foregroundColor = getColor('dangerHue', 600, props.theme)!;
+    foregroundColor = getColorV8('dangerHue', 600, props.theme)!;
   }
 
   return css`

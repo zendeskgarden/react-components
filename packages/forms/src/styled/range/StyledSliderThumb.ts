@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import {
-  getColor,
+  getColorV8,
   retrieveComponentStyles,
   DEFAULT_THEME,
   focusStyles
@@ -23,18 +23,18 @@ interface IStyledSliderThumbProps {
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
-  const backgroundColor = getColor('primaryHue', SHADE, props.theme);
+  const backgroundColor = getColorV8('primaryHue', SHADE, props.theme);
   const borderColor = backgroundColor;
   const boxShadow = props.theme.shadows.lg(
     math(`${props.theme.space.base} * 1px`),
     math(`${props.theme.space.base} * 2px`),
-    getColor('neutralHue', SHADE + 200, props.theme, 0.24)!
+    getColorV8('neutralHue', SHADE + 200, props.theme, 0.24)!
   );
-  const activeBackgroundColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const activeBackgroundColor = getColorV8('primaryHue', SHADE + 100, props.theme);
   const activeBorderColor = borderColor;
   const hoverBackgroundColor = activeBackgroundColor;
   const hoverBorderColor = hoverBackgroundColor;
-  const disabledBackgroundColor = getColor('neutralHue', SHADE - 300, props.theme);
+  const disabledBackgroundColor = getColorV8('neutralHue', SHADE - 300, props.theme);
   const disabledBorderColor = disabledBackgroundColor;
 
   return css`

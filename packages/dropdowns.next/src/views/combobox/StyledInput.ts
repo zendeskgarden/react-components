@@ -10,7 +10,7 @@ import { hideVisually, math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   getLineHeight
 } from '@zendeskgarden/react-theming';
 
@@ -24,7 +24,7 @@ interface IStyledInputProps extends ThemeProps<DefaultTheme> {
 }
 
 const colorStyles = (props: IStyledInputProps) => {
-  const placeholderColor = getColor('neutralHue', 400, props.theme);
+  const placeholderColor = getColorV8('neutralHue', 400, props.theme);
 
   return css`
     background-color: inherit;

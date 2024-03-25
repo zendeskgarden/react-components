@@ -10,22 +10,22 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getLineHeight,
-  getColor,
+  getColorV8,
   focusStyles
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pagination.page';
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const defaultColor = getColor('neutralHue', 600, props.theme);
-  const hoverForegroundColor = getColor('neutralHue', 700, props.theme);
-  const hoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
-  const activeForegroundColor = getColor('neutralHue', 800, props.theme);
-  const activeBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
+  const defaultColor = getColorV8('neutralHue', 600, props.theme);
+  const hoverForegroundColor = getColorV8('neutralHue', 700, props.theme);
+  const hoverBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.08);
+  const activeForegroundColor = getColorV8('neutralHue', 800, props.theme);
+  const activeBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.2);
   const currentForegroundColor = activeForegroundColor;
   const currentBackgroundColor = hoverBackgroundColor;
-  const currentHoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.16);
-  const currentActiveBackgroundColor = getColor('primaryHue', 600, props.theme, 0.28);
+  const currentHoverBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.16);
+  const currentActiveBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.28);
 
   return css`
     color: ${defaultColor};
@@ -63,7 +63,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     :disabled,
     [aria-disabled='true'] {
       background-color: transparent;
-      color: ${getColor('grey', 300, props.theme)};
+      color: ${getColorV8('grey', 300, props.theme)};
     }
   `;
 };

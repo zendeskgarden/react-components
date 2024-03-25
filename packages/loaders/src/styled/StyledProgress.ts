@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Size } from '../types';
 
 const sizeToHeight = (size: Size, theme: DefaultTheme) => {
@@ -37,8 +37,8 @@ export const StyledProgressBackground = styled.div.attrs<IStyledProgressBackgrou
 }))<IStyledProgressBackgroundProps>`
   margin: ${props => props.theme.space.base * 2}px 0;
   border-radius: ${props => props.borderRadius}px;
-  background-color: ${props => getColor('neutralHue', 200, props.theme)};
-  color: ${props => props.color || getColor('successHue', 600, props.theme)};
+  background-color: ${props => getColorV8('neutralHue', 200, props.theme)};
+  color: ${props => props.color || getColorV8('successHue', 600, props.theme)};
 
   ${props => retrieveComponentStyles(PROGRESS_BACKGROUND_COMPONENT_ID, props)}
 `;

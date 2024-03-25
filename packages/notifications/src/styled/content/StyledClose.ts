@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import {
   retrieveComponentStyles,
-  getColor,
+  getColorV8,
   DEFAULT_THEME,
   focusStyles
 } from '@zendeskgarden/react-theming';
@@ -49,8 +49,8 @@ export const StyledClose = styled.button.attrs({
   overflow: hidden;
   color: ${props =>
     props.hue
-      ? getColor(props.hue, props.hue === 'warningHue' ? 700 : 600, props.theme)
-      : getColor('neutralHue', 600, props.theme)};
+      ? getColorV8(props.hue, props.hue === 'warningHue' ? 700 : 600, props.theme)
+      : getColorV8('neutralHue', 600, props.theme)};
   font-size: 0; /* [1] */
   user-select: none;
 
@@ -60,7 +60,9 @@ export const StyledClose = styled.button.attrs({
 
   &:hover {
     color: ${props =>
-      props.hue ? getColor(props.hue, 800, props.theme) : getColor('neutralHue', 800, props.theme)};
+      props.hue
+        ? getColorV8(props.hue, 800, props.theme)
+        : getColorV8('neutralHue', 800, props.theme)};
   }
 
   ${props =>

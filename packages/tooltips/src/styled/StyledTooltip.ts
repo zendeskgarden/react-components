@@ -9,7 +9,7 @@ import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import {
   arrowStyles,
   retrieveComponentStyles,
-  getColor,
+  getColorV8,
   DEFAULT_THEME,
   getLineHeight
 } from '@zendeskgarden/react-theming';
@@ -121,9 +121,9 @@ const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTh
   let boxShadow = theme.shadows.lg(
     `${theme.space.base}px`,
     `${theme.space.base * 2}px`,
-    getColor('chromeHue', 600, theme, 0.15)!
+    getColorV8('chromeHue', 600, theme, 0.15)!
   );
-  let backgroundColor = getColor('chromeHue', 700, theme);
+  let backgroundColor = getColorV8('chromeHue', 700, theme);
   let color = theme.colors.background;
   let titleColor;
 
@@ -131,11 +131,11 @@ const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTh
     boxShadow = theme.shadows.lg(
       `${theme.space.base * 3}px`,
       `${theme.space.base * 5}px`,
-      getColor('chromeHue', 600, theme, 0.15)!
+      getColorV8('chromeHue', 600, theme, 0.15)!
     );
-    border = `${theme.borders.sm} ${getColor('neutralHue', 300, theme)}`;
+    border = `${theme.borders.sm} ${getColorV8('neutralHue', 300, theme)}`;
     backgroundColor = theme.colors.background;
-    color = getColor('neutralHue', 700, theme)!;
+    color = getColorV8('neutralHue', 700, theme)!;
     titleColor = theme.colors.foreground;
   }
 

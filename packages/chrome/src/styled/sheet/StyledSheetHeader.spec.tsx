@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { renderRtl, render, screen } from 'garden-test-utils';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 import { StyledSheetHeader } from './StyledSheetHeader';
 
@@ -17,7 +17,7 @@ describe('StyledSheetHeader', () => {
 
     expect(screen.getByText('Header')).toHaveStyleRule(
       'border-bottom',
-      `${DEFAULT_THEME.borders.sm} ${getColor('neutralHue', 300, DEFAULT_THEME)}`
+      `${DEFAULT_THEME.borders.sm} ${getColorV8('neutralHue', 300, DEFAULT_THEME)}`
     );
   });
 

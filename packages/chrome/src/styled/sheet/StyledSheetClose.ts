@@ -7,7 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   retrieveComponentStyles,
   DEFAULT_THEME,
   focusStyles
@@ -27,11 +27,11 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 
   return css`
     background-color: transparent;
-    color: ${getColor(foregroundColor, 600, props.theme)};
+    color: ${getColorV8(foregroundColor, 600, props.theme)};
 
     &:hover {
-      background-color: ${getColor(backgroundColor, 600, props.theme, 0.08)};
-      color: ${getColor(foregroundColor, 700, props.theme)};
+      background-color: ${getColorV8(backgroundColor, 600, props.theme, 0.08)};
+      color: ${getColorV8(foregroundColor, 700, props.theme)};
     }
 
     ${focusStyles({
@@ -43,8 +43,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       transition:
         background-color 0.1s ease-in-out,
         color 0.1s ease-in-out;
-      background-color: ${getColor(backgroundColor, 600, props.theme, 0.2)};
-      color: ${getColor(foregroundColor, 800, props.theme)};
+      background-color: ${getColorV8(backgroundColor, 600, props.theme, 0.2)};
+      color: ${getColorV8(foregroundColor, 800, props.theme)};
     }
   `;
 };

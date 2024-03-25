@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.slider_track';
 
@@ -19,9 +19,9 @@ interface IStyledSliderTrackProps {
 
 const colorStyles = (props: IStyledSliderTrackProps & ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
-  const backgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
-  const backgroundImageColor = getColor('primaryHue', SHADE, props.theme);
-  const disabledBackgroundColor = getColor('neutralHue', SHADE - 300, props.theme);
+  const backgroundColor = getColorV8('neutralHue', SHADE - 400, props.theme);
+  const backgroundImageColor = getColorV8('primaryHue', SHADE, props.theme);
+  const disabledBackgroundColor = getColorV8('neutralHue', SHADE - 300, props.theme);
 
   return css`
     background-color: ${backgroundColor};

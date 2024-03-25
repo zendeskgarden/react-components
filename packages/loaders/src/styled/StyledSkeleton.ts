@@ -10,7 +10,7 @@ import { rgba } from 'polished';
 import {
   DEFAULT_THEME,
   retrieveComponentStyles,
-  getColor,
+  getColorV8,
   getLineHeight
 } from '@zendeskgarden/react-theming';
 
@@ -55,7 +55,7 @@ const retrieveSkeletonBackgroundColor = ({
   }
 
   return css`
-    background-color: ${getColor('neutralHue', 800, theme, 0.1)};
+    background-color: ${getColorV8('neutralHue', 800, theme, 0.1)};
   `;
 };
 
@@ -89,7 +89,7 @@ const retrieveSkeletonGradient = ({
     background-image: linear-gradient(
       ${theme.rtl ? '-45deg' : '45deg'},
       transparent,
-      ${isLight ? getColor('chromeHue', 700, theme, 0.4) : rgba(theme.colors.background, 0.6)},
+      ${isLight ? getColorV8('chromeHue', 700, theme, 0.4) : rgba(theme.colors.background, 0.6)},
       transparent
     );
     /* stylelint-enable */

@@ -8,7 +8,7 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent, createEvent } from 'garden-test-utils';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import { KEYS } from '@zendeskgarden/container-utilities';
 
 import { MultiThumbRange } from './MultiThumbRange';
@@ -111,13 +111,13 @@ describe('MultiThumbRange', () => {
       const label = getByText('MultiThumbRange');
       const minThumb = getAllByRole('slider')[0];
 
-      expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600));
-      expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 600));
+      expect(minThumb).toHaveStyleRule('border-color', getColorV8('blue', 600));
+      expect(minThumb).toHaveStyleRule('background-color', getColorV8('blue', 600));
 
       await user.hover(label);
 
       ['border-color', 'background-color'].forEach(color => {
-        expect(minThumb).toHaveStyleRule(color, getColor('blue', 700), {
+        expect(minThumb).toHaveStyleRule(color, getColorV8('blue', 700), {
           modifier: ':hover'
         });
       });
@@ -133,15 +133,15 @@ describe('MultiThumbRange', () => {
       const label = getByText('MultiThumbRange');
       const minThumb = getAllByRole('slider')[0];
 
-      expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600));
-      expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 600));
+      expect(minThumb).toHaveStyleRule('border-color', getColorV8('blue', 600));
+      expect(minThumb).toHaveStyleRule('background-color', getColorV8('blue', 600));
 
       await user.click(label);
 
-      expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600), {
+      expect(minThumb).toHaveStyleRule('border-color', getColorV8('blue', 600), {
         modifier: ':active'
       });
-      expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 700), {
+      expect(minThumb).toHaveStyleRule('background-color', getColorV8('blue', 700), {
         modifier: ':active'
       });
     });

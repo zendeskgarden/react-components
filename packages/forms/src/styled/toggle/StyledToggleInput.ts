@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from '../checkbox/StyledCheckInput';
 import { StyledToggleLabel } from './StyledToggleLabel';
 
@@ -16,9 +16,9 @@ const COMPONENT_ID = 'forms.toggle';
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
 
-  const backgroundColor = getColor('neutralHue', SHADE - 100, props.theme);
-  const hoverBackgroundColor = getColor('neutralHue', SHADE, props.theme);
-  const activeBackgroundColor = getColor('neutralHue', SHADE + 100, props.theme);
+  const backgroundColor = getColorV8('neutralHue', SHADE - 100, props.theme);
+  const hoverBackgroundColor = getColorV8('neutralHue', SHADE, props.theme);
+  const activeBackgroundColor = getColorV8('neutralHue', SHADE + 100, props.theme);
 
   return css`
     & ~ ${StyledToggleLabel}::before {
