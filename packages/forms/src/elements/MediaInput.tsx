@@ -133,8 +133,8 @@ MediaInput.propTypes = {
   isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
   validation: PropTypes.oneOf(VALIDATION),
-  start: PropTypes.node,
-  end: PropTypes.node,
+  start: PropTypes.any,
+  end: PropTypes.any,
   wrapperProps: PropTypes.object,
   wrapperRef: PropTypes.any
 };
