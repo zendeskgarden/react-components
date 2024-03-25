@@ -9,7 +9,7 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { Chrome } from '../Chrome';
 import { SubNav } from './SubNav';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
 describe('SubNav', () => {
   it('passes ref to underlying DOM element', () => {
@@ -29,7 +29,7 @@ describe('SubNav', () => {
 
     expect(container.firstChild!.firstChild).toHaveStyle(`
       background-color: ${getColorV8(hue, 700, DEFAULT_THEME)};
-      color: ${DEFAULT_THEME.colors.background};
+      color: ${PALETTE.white};
     `);
   });
 
@@ -43,7 +43,7 @@ describe('SubNav', () => {
 
     expect(container.firstChild!.firstChild).toHaveStyle(`
       background-color: ${getColorV8(hue, 500, DEFAULT_THEME)};
-      color: ${DEFAULT_THEME.colors.foreground};
+      color: ${PALETTE.grey[800]};
     `);
   });
 });

@@ -13,7 +13,7 @@ const COMPONENT_ID = 'typography.codeblock';
 const colorStyles = (props: IStyledCodeBlockProps & ThemeProps<DefaultTheme>) => {
   const backgroundColor = getColorV8('neutralHue', props.isLight ? 100 : 1000, props.theme);
   const foregroundColor = props.isLight
-    ? props.theme.colors.foreground
+    ? getColorV8('foreground', 600 /* default shade */, props.theme)
     : getColorV8('neutralHue', 300, props.theme);
 
   return css`

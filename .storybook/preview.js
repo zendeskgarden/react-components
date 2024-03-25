@@ -8,7 +8,7 @@
 import React, { StrictMode } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { create } from '@storybook/theming/create';
-import { ThemeProvider, DEFAULT_THEME } from '../packages/theming/src';
+import { ThemeProvider, DEFAULT_THEME, getColorV8 } from '../packages/theming/src';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -29,7 +29,7 @@ export const parameters = {
 
 const GlobalPreviewStyling = createGlobalStyle`
   body {
-    background-color: ${p => p.theme.colors.background};
+    background-color: ${p => getColorV8('background', 600 /* default shade */, p.theme)};
     /* stylelint-disable-next-line declaration-no-important */
     padding: 0 !important;
     font-family: ${p => p.theme.fonts.system};

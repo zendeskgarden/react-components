@@ -54,7 +54,7 @@ const colorStyles = (theme: DefaultTheme) => {
   return css`
     border-color: ${borderColor};
     box-shadow: ${boxShadow};
-    background-color: ${theme.colors.background};
+    background-color: ${getColorV8('background', 600 /* default shade */, theme)};
     color: ${color};
 
     &:hover,

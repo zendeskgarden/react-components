@@ -17,7 +17,7 @@ export interface IStyled{{capitalize component}}Props extends ThemeProps<Default
 const colorStyles = (props: IStyled{{capitalize component}}Props) => {
   const backgroundColor = getColorV8('primaryHue', 600, props.theme, 0.08);
   const borderColor = getColorV8('primaryHue', 600, props.theme);
-  const foregroundColor = props.theme.colors.foreground;
+  const foregroundColor = getColorV8('foreground', 600 /* default shade */, props.theme);
   const hoverBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.2);
   const focusBoxShadow = props.theme.shadows.md(
     getColorV8('primaryHue', 600, props.theme, 0.35) as string

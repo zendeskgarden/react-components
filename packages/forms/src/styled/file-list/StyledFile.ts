@@ -34,7 +34,7 @@ const colorStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
   } else {
     borderColor = getColorV8('neutralHue', 300, props.theme);
     focusBorderColor = getColorV8('primaryHue', 600, props.theme);
-    foregroundColor = props.theme.colors.foreground;
+    foregroundColor = getColorV8('foreground', 600 /* default shade */, props.theme);
   }
 
   return css`

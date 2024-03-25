@@ -27,7 +27,7 @@ const stickyStyles = (props: ThemeProps<DefaultTheme>) => {
     top: 0;
     z-index: 1; /* [1] */
     box-shadow: inset 0 -${props.theme.borderWidths.sm} 0 ${borderColor}; /* [2] */
-    background-color: ${props.theme.colors.background};
+    background-color: ${getColorV8('background', 600 /* default shade */, props.theme)};
 
     & > ${StyledHeaderRow}:last-child {
       border-bottom-color: transparent; /* [2] */

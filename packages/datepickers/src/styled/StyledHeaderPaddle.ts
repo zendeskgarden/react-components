@@ -28,12 +28,12 @@ const retrieveColor = ({ theme }: ThemeProps<DefaultTheme>) => {
   return css`
     :hover {
       background-color: ${getColorV8('primaryHue', 600, theme, 0.08)};
-      color: ${theme.colors.foreground};
+      color: ${getColorV8('foreground', 600 /* default shade */, theme)};
     }
 
     :active {
       background-color: ${getColorV8('primaryHue', 600, theme, 0.2)};
-      color: ${theme.colors.foreground};
+      color: ${getColorV8('foreground', 600 /* default shade */, theme)};
     }
 
     color: ${getColorV8('neutralHue', 600, theme)};
