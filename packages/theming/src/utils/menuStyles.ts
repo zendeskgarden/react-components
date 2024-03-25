@@ -6,7 +6,7 @@
  */
 
 import { css, DefaultTheme, keyframes } from 'styled-components';
-import { getColor } from './_getColor';
+import { getColorV8 } from './getColorV8';
 import DEFAULT_THEME from '../elements/theme';
 import { MenuPosition } from '../types';
 
@@ -112,12 +112,12 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
       position: relative; /* [2] */
       margin: 0; /* [3] */
       box-sizing: border-box;
-      border: ${theme.borders.sm} ${getColor('neutralHue', 300, theme)};
+      border: ${theme.borders.sm} ${getColorV8('neutralHue', 300, theme)};
       border-radius: ${theme.borderRadii.md};
       box-shadow: ${theme.shadows.lg(
         `${theme.space.base * 5}px`,
         `${theme.space.base * 7.5}px`,
-        getColor('chromeHue', 600, theme, 0.15)!
+        getColorV8('chromeHue', 600, theme, 0.15)!
       )};
       background-color: ${theme.colors.background};
       cursor: default; /* [4] */
