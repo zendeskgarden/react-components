@@ -25,14 +25,36 @@ exports[`DEFAULT_THEME matches snapshot 1`] = `
     "xs": "0px",
   },
   "colors": {
-    "background": "#fff",
     "base": "light",
     "chromeHue": "kale",
     "dangerHue": "red",
-    "foreground": "#2f3941",
     "neutralHue": "grey",
     "primaryHue": "blue",
     "successHue": "green",
+    "variables": {
+      "dark": {
+        "background": {
+          "default": "neutralHue.1100",
+        },
+        "border": {
+          "default": "neutralHue.700",
+        },
+        "foreground": {
+          "default": "neutralHue.300",
+        },
+      },
+      "light": {
+        "background": {
+          "default": "palette.white",
+        },
+        "border": {
+          "default": "neutralHue.400",
+        },
+        "foreground": {
+          "default": "neutralHue.900",
+        },
+      },
+    },
     "warningHue": "yellow",
   },
   "components": {},

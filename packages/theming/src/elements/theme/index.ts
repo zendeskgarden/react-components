@@ -38,14 +38,36 @@ const breakpoints = {
 };
 
 const colors = {
-  background: PALETTE.white,
-  foreground: PALETTE.grey[800],
   primaryHue: 'blue',
   dangerHue: 'red',
   warningHue: 'yellow',
   successHue: 'green',
   neutralHue: 'grey',
-  chromeHue: 'kale'
+  chromeHue: 'kale',
+  variables: {
+    dark: {
+      background: {
+        default: 'neutralHue.1100'
+      },
+      border: {
+        default: 'neutralHue.700'
+      },
+      foreground: {
+        default: 'neutralHue.300'
+      }
+    },
+    light: {
+      background: {
+        default: 'palette.white'
+      },
+      border: {
+        default: 'neutralHue.400'
+      },
+      foreground: {
+        default: 'neutralHue.900'
+      }
+    }
+  }
 };
 
 const fonts = {
@@ -162,5 +184,4 @@ const DEFAULT_THEME: IGardenTheme = {
   space
 };
 
-/** @component */
 export default DEFAULT_THEME;
