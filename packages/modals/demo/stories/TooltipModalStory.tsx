@@ -7,7 +7,7 @@
 
 import React, { useRef } from 'react';
 import { Story } from '@storybook/react';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { Button, IconButton } from '@zendeskgarden/react-buttons';
 import { Avatar } from '@zendeskgarden/react-avatars';
@@ -97,7 +97,9 @@ export const TooltipModalStory: Story<IArgs> = ({
                 }}
                 onClick={event => handleClick(event.currentTarget)}
               >
-                <Avatar foregroundColor={DEFAULT_THEME.colors.foreground}>
+                <Avatar
+                  foregroundColor={getColorV8('foreground', 600 /* default shade */, DEFAULT_THEME)}
+                >
                   <Avatar.Text>{index + 1}</Avatar.Text>
                 </Avatar>
               </IconButton>

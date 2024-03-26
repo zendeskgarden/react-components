@@ -28,7 +28,8 @@ export const StyledItemIcon = styled(({ surfaceColor, children, ...props }) =>
 })<IStyledItemIcon>`
   z-index: 1;
   box-sizing: content-box;
-  background-color: ${props => props.surfaceColor || props.theme.colors.background};
+  background-color: ${props =>
+    props.surfaceColor || getColorV8('background', 600 /* default shade */, props.theme)};
   padding: ${props => props.theme.space.base}px 0;
   width: ${props => math(`${props.theme.iconSizes.sm} + 1`)}; /* [1] */
   height: ${props => math(`${props.theme.iconSizes.sm} + 1`)}; /* [1] */

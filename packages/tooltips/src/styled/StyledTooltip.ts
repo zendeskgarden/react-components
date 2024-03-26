@@ -124,7 +124,7 @@ const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTh
     getColorV8('chromeHue', 600, theme, 0.15)!
   );
   let backgroundColor = getColorV8('chromeHue', 700, theme);
-  let color = theme.colors.background;
+  let color = getColorV8('background', 600 /* default shade */, theme);
   let titleColor;
 
   if (type === 'light') {
@@ -134,9 +134,9 @@ const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTh
       getColorV8('chromeHue', 600, theme, 0.15)!
     );
     border = `${theme.borders.sm} ${getColorV8('neutralHue', 300, theme)}`;
-    backgroundColor = theme.colors.background;
+    backgroundColor = getColorV8('background', 600 /* default shade */, theme);
     color = getColorV8('neutralHue', 700, theme)!;
-    titleColor = theme.colors.foreground;
+    titleColor = getColorV8('foreground', 600 /* default shade */, theme);
   }
 
   return css`

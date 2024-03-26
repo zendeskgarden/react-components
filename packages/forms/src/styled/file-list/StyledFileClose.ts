@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.file.close';
 
@@ -23,7 +23,7 @@ export const StyledFileClose = styled.button.attrs({
   border: none;
   background: transparent;
   cursor: pointer;
-  color: ${props => props.theme.colors.foreground};
+  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
   appearance: none;
 
   &:hover {

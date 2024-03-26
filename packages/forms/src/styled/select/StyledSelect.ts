@@ -69,7 +69,7 @@ export const StyledSelect = styled(StyledTextInput).attrs({
 
   &:-moz-focusring {
     transition: none;
-    text-shadow: 0 0 0 ${props => props.theme.colors.foreground}; /* [1] */
+    text-shadow: 0 0 0 ${props => getColorV8('foreground', 600 /* default shade */, props.theme)}; /* [1] */
     color: transparent; /* [1] */
   }
 

@@ -42,7 +42,9 @@ const colorStyles = (props: IStyledTriggerProps) => {
     hue = 'dangerHue';
   }
 
-  const backgroundColor = props.isBare ? 'transparent' : props.theme.colors.background;
+  const backgroundColor = props.isBare
+    ? 'transparent'
+    : getColorV8('background', 600 /* default shade */, props.theme);
   let borderColor: string | undefined;
   let hoverBorderColor: string | undefined;
   let focusBorderColor: string | undefined;
@@ -77,7 +79,7 @@ const colorStyles = (props: IStyledTriggerProps) => {
   return css`
     border-color: ${props.isLabelHovered ? hoverBorderColor : borderColor};
     background-color: ${backgroundColor};
-    color: ${props.theme.colors.foreground};
+    color: ${getColorV8('foreground', 600 /* default shade */, props.theme)};
 
     &:hover {
       border-color: ${hoverBorderColor};

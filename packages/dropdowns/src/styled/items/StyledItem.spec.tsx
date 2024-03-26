@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { StyledItem } from './StyledItem';
 
 describe('StyledItem', () => {
@@ -20,7 +20,7 @@ describe('StyledItem', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledItem />);
 
-    expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
   });
 
   it('renders danger styling if provided', () => {

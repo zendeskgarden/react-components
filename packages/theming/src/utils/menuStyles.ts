@@ -119,7 +119,7 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
         `${theme.space.base * 7.5}px`,
         getColorV8('chromeHue', 600, theme, 0.15)!
       )};
-      background-color: ${theme.colors.background};
+      background-color: ${getColorV8('background', 600 /* default shade */, theme)};
       cursor: default; /* [4] */
       padding: 0; /* [3] */
       text-align: ${theme.rtl ? 'right' : 'left'};

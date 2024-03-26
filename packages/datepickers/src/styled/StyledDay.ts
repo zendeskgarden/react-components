@@ -28,7 +28,7 @@ const retrieveStyledDayColors = ({
 
   if (isSelected && !isDisabled) {
     backgroundColor = getColorV8('primaryHue', 600, theme)!;
-    color = theme.colors.background;
+    color = getColorV8('background', 600 /* default shade */, theme);
   } else if (isDisabled) {
     color = getColorV8('neutralHue', 400, theme);
   } else if (isToday) {

@@ -23,7 +23,7 @@ export const StyledFooter = styled.footer.attrs({
   justify-content: flex-end;
   box-sizing: border-box;
   border-top: ${props => `${props.theme.borders.sm} ${getColorV8('neutralHue', 300, props.theme)}`};
-  background-color: ${props => props.theme.colors.background};
+  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
   padding: 0 ${props => props.theme.space.base * 9}px;
   height: ${getFooterHeight};
 
