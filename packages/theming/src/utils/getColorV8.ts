@@ -53,7 +53,7 @@ export const getColorV8 = memoize(
       background: PALETTE.white,
       foreground: PALETTE.grey[800],
       ...(theme && theme.palette ? theme.palette : DEFAULT_THEME.palette)
-    };
+    } as Record<string, Hue>;
     const colors = theme && theme.colors ? theme.colors : DEFAULT_THEME.colors;
 
     let _hue: Hue;
