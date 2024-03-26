@@ -23,7 +23,11 @@ export const TimelineStory: Story<IArgs> = ({ items, ...args }) => (
   <div style={{ backgroundColor: args.surfaceColor }}>
     <Timeline {...args}>
       {items.map((item, index) => (
-        <Timeline.Item key={index} icon={args.hasIcon && <Icon />} surfaceColor={args.surfaceColor}>
+        <Timeline.Item
+          key={index}
+          icon={args.hasIcon ? <Icon /> : undefined}
+          surfaceColor={args.surfaceColor}
+        >
           {args.hasOppositeContent && (
             <Timeline.OppositeContent>
               <Span hue="grey">{item.description}</Span>

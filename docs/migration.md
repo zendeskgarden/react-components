@@ -34,7 +34,10 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-accordions
 
-- Removed `IItem` type export. Use `ITimelineItemProps` instead.
+- The following React component prop types have changed:
+  - Removed `IItem` type export. Use `ITimelineItemProps` instead.
+  - `IStepperLabelProps['icon']`: `ReactNode` -> `ReactElement`
+  - `ITimelineItemProps['icon']`: `ReactNode` -> `ReactElement`
 
 #### @zendeskgarden/react-buttons
 
@@ -44,7 +47,10 @@ consider additional positioning prop support on a case-by-case basis.
 #### @zendeskgarden/react-chrome
 
 - Removed `PRODUCT` type export. Use `IHeaderItemProps['product']` instead.
-- Renamed `ICollapsibleSubNavItemProps` type export to `ISubNavCollapsibleItemProps`.
+- The following React component types have changed:
+  - Renamed `ICollapsibleSubNavItemProps` type export to `ISubNavCollapsibleItemProps`.
+  - `Header.ItemIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
+  - `Nav.ItemIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
 - Subcomponent exports have been deprecated and will be removed in a future major version. Update
   to subcomponent properties:
   - `FooterItem` -> `Footer.Item`
@@ -100,6 +106,8 @@ consider additional positioning prop support on a case-by-case basis.
 - The following types have changed:
   - removed `IFieldProps`
   - removed `IIconProps`. Use `IFauxInputStartIconProps` or `IFauxInputEndIconProps` instead.
+  - `IMediaInputProps['start']`: `any` -> `ReactElement`
+  - `IMediaInputProps['end']`: `any` -> `ReactElement`
 - Subcomponent exports have been deprecated and will be removed in a future major version. Update
   to subcomponent properties:
   - `Hint` -> `Field.Hint`
@@ -169,6 +177,12 @@ consider additional positioning prop support on a case-by-case basis.
   - removed `popperModifiers` prop (see [note](#breaking-changes))
 - All subcomponent exports have been deprecated and will be removed in a future major version.
   Update to subcomponent properties (e.g., `Tooltip.Title`).
+
+#### @zendeskgarden/react-typography
+
+- The following React component types have changed:
+  - `Span.Icon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
+  - `Span.StartIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
 
 #### @zendeskgarden/react-utilities
 

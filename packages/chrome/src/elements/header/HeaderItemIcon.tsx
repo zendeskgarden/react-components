@@ -8,10 +8,10 @@
 import React, {
   Children,
   cloneElement,
-  HTMLAttributes,
   isValidElement,
   PropsWithChildren,
-  ReactHTMLElement
+  SVGAttributes,
+  ReactSVGElement
 } from 'react';
 import { DefaultTheme, ThemeProps } from 'styled-components';
 import { StyledHeaderItemIcon } from '../../styled';
@@ -19,21 +19,21 @@ import { StyledHeaderItemIcon } from '../../styled';
 /**
  * @deprecated use `Header.ItemIcon` instead
  *
- * @extends HTMLAttributes<HTMLElement>
+ * @extends SVGAttributes<SVGElement>
  */
 export const HeaderItemIcon = ({
   children,
   ...props
-}: PropsWithChildren<HTMLAttributes<HTMLElement>>) => {
-  const element = Children.only(children) as ReactHTMLElement<HTMLElement>;
+}: PropsWithChildren<SVGAttributes<SVGElement>>) => {
+  const element = Children.only(children) as ReactSVGElement;
 
   if (isValidElement(element)) {
     const Icon = ({
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       theme,
       ...iconProps
-    }: ThemeProps<DefaultTheme> & HTMLAttributes<HTMLElement>) =>
-      cloneElement<HTMLAttributes<HTMLElement>, HTMLElement>(element, { ...props, ...iconProps });
+    }: ThemeProps<DefaultTheme> & SVGAttributes<SVGElement>) =>
+      cloneElement<SVGAttributes<SVGElement>, SVGElement>(element, { ...props, ...iconProps });
 
     return <StyledHeaderItemIcon as={Icon} {...props} />;
   }
