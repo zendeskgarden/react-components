@@ -9,7 +9,8 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import {
   getLineHeight,
   retrieveComponentStyles,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColorV8
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.tooltip_modal.title';
@@ -26,7 +27,7 @@ export const StyledTooltipModalTitle = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   margin: 0;
-  color: ${props => props.theme.colors.foreground};
+  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
   font-weight: ${props => props.theme.fontWeights.semibold};
 
   ${props => sizeStyles(props)};

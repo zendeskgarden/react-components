@@ -24,7 +24,7 @@ interface IStyledButton {
 
 const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledButton) => {
   const showColor = props.isCollapsible || !props.isExpanded;
-  let color = props.theme.colors.foreground;
+  let color = getColorV8('foreground', 600 /* default shade */, props.theme);
 
   if (showColor && props.isHovered) {
     color = getColorV8('primaryHue', 600, props.theme)!;

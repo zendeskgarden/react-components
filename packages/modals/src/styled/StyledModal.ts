@@ -79,7 +79,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   margin: ${props => (props.isCentered ? '0' : `${props.theme.space.base * 12}px`)};
   border-radius: ${props => props.theme.borderRadii.md};
   box-shadow: ${boxShadow};
-  background-color: ${props => props.theme.colors.background};
+  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
   min-height: 60px;
   max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
   overflow: auto;

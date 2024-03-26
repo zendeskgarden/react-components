@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, keyframes, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IAvatarProps, SIZE } from '../types';
@@ -57,7 +57,7 @@ const colorStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   const backgroundColor = props.backgroundColor || 'transparent';
   const foregroundColor = props.foregroundColor || props.theme.palette.white;
   const surfaceColor = props.status
-    ? props.surfaceColor || props.theme.colors.background
+    ? props.surfaceColor || getColorV8('background', 600 /* default shade */, props.theme)
     : 'transparent';
 
   return css`

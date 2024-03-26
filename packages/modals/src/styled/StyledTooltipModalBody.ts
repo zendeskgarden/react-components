@@ -9,7 +9,8 @@ import styled from 'styled-components';
 import {
   getLineHeight,
   retrieveComponentStyles,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColorV8
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.tooltip_modal.body';
@@ -22,7 +23,7 @@ export const StyledTooltipModalBody = styled.div.attrs({
   margin: 0;
   padding-top: ${props => props.theme.space.base * 1.5}px;
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
-  color: ${props => props.theme.colors.foreground};
+  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
   font-size: ${props => props.theme.fontSizes.md};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

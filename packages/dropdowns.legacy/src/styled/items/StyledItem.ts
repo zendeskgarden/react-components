@@ -37,7 +37,7 @@ const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
     foregroundColor = getColorV8('dangerHue', 600, props.theme);
     backgroundColor = props.isFocused ? rgba(foregroundColor as string, 0.08) : 'inherit';
   } else {
-    foregroundColor = props.theme.colors.foreground;
+    foregroundColor = getColorV8('foreground', 600 /* default shade */, props.theme);
     backgroundColor = props.isFocused
       ? getColorV8('primaryHue', 600, props.theme, 0.08)
       : 'inherit';

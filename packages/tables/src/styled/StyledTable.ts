@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { ITableProps } from '../types';
 
 const COMPONENT_ID = 'tables.table';
@@ -33,7 +33,7 @@ export const StyledTable = styled.table.attrs<IStyledTableProps>({
   border-collapse: collapse; /* [1] */
   border-spacing: 0; /* [1] */
   line-height: ${props => getLineHeight(props)};
-  color: ${props => props.theme.colors.foreground};
+  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
   font-size: ${props => props.theme.fontSizes.md};
   direction: ${props => props.theme.rtl && 'rtl'};
 

@@ -36,7 +36,7 @@ export const StyledDrawer = styled.div.attrs({
   flex-direction: column;
   z-index: 500;
   box-shadow: ${boxShadow};
-  background: ${props => props.theme.colors.background};
+  background: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
   width: ${DRAWER_WIDTH}px;
   height: 100%;
   overflow: auto;

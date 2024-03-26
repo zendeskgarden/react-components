@@ -38,14 +38,14 @@ describe('getColorV8', () => {
     describe('by `color` key', () => {
       it('gets the default background color', () => {
         const color = getColorV8('background');
-        const expected = DEFAULT_THEME.colors.background;
+        const expected = PALETTE.white;
 
         expect(color).toBe(expected);
       });
 
       it('gets the default foreground color', () => {
         const color = getColorV8('foreground');
-        const expected = DEFAULT_THEME.colors.foreground;
+        const expected = PALETTE.grey[800];
 
         expect(color).toBe(expected);
       });

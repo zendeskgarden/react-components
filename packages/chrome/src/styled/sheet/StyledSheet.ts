@@ -47,7 +47,7 @@ export const StyledSheet = styled.aside.attrs({
   display: flex;
   order: 1;
   transition: ${props => props.isAnimated && 'width 250ms ease-in-out'};
-  background-color: ${props => props.theme.colors.background};
+  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
   width: ${props => (props.isOpen ? props.size : '0px')};
   height: 100%;
   overflow: hidden;

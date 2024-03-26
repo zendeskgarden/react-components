@@ -141,7 +141,9 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   } else {
     const borderColor =
       props.isNeutral && !props.isDanger ? getColorV8('neutralHue', 300, props.theme) : baseColor;
-    const foregroundColor = props.isNeutral ? props.theme.colors.foreground : baseColor;
+    const foregroundColor = props.isNeutral
+      ? getColorV8('foreground', 600 /* default shade */, props.theme)
+      : baseColor;
     const hoverBorderColor = props.isNeutral && !props.isDanger ? baseColor : hoverColor;
     const hoverForegroundColor = props.isNeutral ? foregroundColor : hoverColor;
 
