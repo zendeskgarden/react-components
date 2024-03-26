@@ -10,6 +10,7 @@ import {
   HTMLAttributes,
   InputHTMLAttributes,
   LabelHTMLAttributes,
+  ReactElement,
   SelectHTMLAttributes,
   SVGAttributes,
   TextareaHTMLAttributes
@@ -85,9 +86,9 @@ export interface IInputProps extends IRadioProps {
 
 export interface IMediaInputProps extends IInputProps {
   /** Accepts a "start" icon to display */
-  start?: any;
+  start?: ReactElement;
   /** Accepts an "end" icon to display */
-  end?: any;
+  end?: ReactElement;
   /** Applies props to the wrapping [FauxInput](#fauxinput) element */
   wrapperProps?: any;
   /** Applies a ref to the wrapping [FauxInput](#fauxinput) element */

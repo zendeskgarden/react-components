@@ -5,16 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { SVGAttributes } from 'react';
 import { StyledIcon } from '../../styled';
 
-const StartIconComponent = (props: HTMLAttributes<HTMLElement>) => (
-  <StyledIcon isStart {...props} />
-);
+const StartIconComponent = (props: SVGAttributes<SVGElement>) => <StyledIcon isStart {...props} />;
 
 StartIconComponent.displayName = 'Span.StartIcon';
 
 /**
- * @extends HTMLAttributes<HTMLElement>
+ * @extends SVGAttributes<SVGElement>
  */
 export const StartIcon = StartIconComponent;

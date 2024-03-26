@@ -35,7 +35,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledBaseProps) => {
     borderColor = getColorV8(props.hue, 300, props.theme);
     foregroundColor = getColorV8(props.hue, props.type === 'info' ? 600 : 700, props.theme);
   } else {
-    backgroundColor = props.theme.colors.background;
+    backgroundColor = getColorV8('background', 600 /* default shade */, props.theme);
     borderColor = getColorV8('neutralHue', 300, props.theme);
     foregroundColor = getColorV8('neutralHue', 800, props.theme);
   }

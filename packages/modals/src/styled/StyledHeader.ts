@@ -42,7 +42,9 @@ export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
     }px;`} /* [1] */
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
   color: ${props =>
-    props.isDanger ? getColorV8('dangerHue', 600, props.theme) : props.theme.colors.foreground};
+    props.isDanger
+      ? getColorV8('dangerHue', 600, props.theme)
+      : getColorV8('foreground', 600 /* default shade */, props.theme)};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
 

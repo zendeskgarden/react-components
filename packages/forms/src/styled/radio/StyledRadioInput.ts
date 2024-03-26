@@ -22,7 +22,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
 
   const borderColor = getColorV8('neutralHue', SHADE - 300, props.theme);
-  const backgroundColor = props.theme.colors.background;
+  const backgroundColor = getColorV8('background', 600 /* default shade */, props.theme);
   const iconColor = backgroundColor;
   const hoverBackgroundColor = getColorV8('primaryHue', SHADE, props.theme, 0.08);
   const hoverBorderColor = getColorV8('primaryHue', SHADE, props.theme);

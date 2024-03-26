@@ -47,7 +47,7 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
   return css`
     border: ${props.theme.borders.sm} ${getColorV8('neutralHue', SHADE - 300, props.theme)};
     border-color: ${borderColor};
-    background-color: ${props.theme.colors.background};
+    background-color: ${getColorV8('background', 600 /* default shade */, props.theme)};
     color: ${color};
 
     ${StyledTileIcon} {
@@ -86,10 +86,10 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
     &[data-garden-selected='true'] {
       border-color: ${selectedBorderColor};
       background-color: ${selectedBackgroundColor};
-      color: ${props.theme.colors.background};
+      color: ${getColorV8('background', 600 /* default shade */, props.theme)};
 
       ${StyledTileIcon} {
-        color: ${props.theme.colors.background};
+        color: ${getColorV8('background', 600 /* default shade */, props.theme)};
       }
     }
 
@@ -97,20 +97,20 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
     &[data-garden-selected='true']:not([aria-disabled='true']):hover {
       border-color: ${selectedHoverBorderColor};
       background-color: ${selectedHoverBackgroundColor};
-      color: ${props.theme.colors.background};
+      color: ${getColorV8('background', 600 /* default shade */, props.theme)};
 
       ${StyledTileIcon} {
-        color: ${props.theme.colors.background};
+        color: ${getColorV8('background', 600 /* default shade */, props.theme)};
       }
     }
 
     &[data-garden-selected='true']:not([aria-disabled='true']):active {
       border-color: ${selectedActiveBorderColor};
       background-color: ${selectedActiveBackgroundColor};
-      color: ${props.theme.colors.background};
+      color: ${getColorV8('background', 600 /* default shade */, props.theme)};
 
       ${StyledTileIcon} {
-        color: ${props.theme.colors.background};
+        color: ${getColorV8('background', 600 /* default shade */, props.theme)};
       }
     }
     /* stylelint-enable selector-max-specificity */

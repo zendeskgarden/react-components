@@ -17,7 +17,7 @@ const COMPONENT_ID = 'notifications.notification';
 const colorStyles = (props: INotificationProps & ThemeProps<DefaultTheme>) => {
   const { type, theme } = props;
   const { colors } = theme;
-  const { successHue, dangerHue, warningHue, foreground } = colors;
+  const { successHue, dangerHue, warningHue } = colors;
 
   let color;
 
@@ -32,7 +32,7 @@ const colorStyles = (props: INotificationProps & ThemeProps<DefaultTheme>) => {
       color = getColorV8(warningHue, 700, theme);
       break;
     case 'info':
-      color = foreground;
+      color = getColorV8('foreground', 600 /* default shade */, theme);
       break;
     default:
       color = 'inherit';

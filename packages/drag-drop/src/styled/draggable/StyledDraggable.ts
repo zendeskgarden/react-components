@@ -42,7 +42,7 @@ const colorStyles = (props: IStyledDraggableProps) => {
 
   const baseColor = getColorV8('primaryHue', 600, theme);
   const dragShadow = getDragShadow(theme);
-  const baseBgColor = theme.colors.background;
+  const baseBgColor = getColorV8('background', 600 /* default shade */, theme);
   const disabledColor = getColorV8('neutralHue', 400, theme);
 
   let color;
@@ -57,7 +57,7 @@ const colorStyles = (props: IStyledDraggableProps) => {
   } else if (isPlaceholder) {
     backgroundColor = getColorV8('neutralHue', 800, theme, 0.1)!;
   } else {
-    color = theme.colors.foreground;
+    color = getColorV8('foreground', 600 /* default shade */, theme);
     borderColor = isBare ? 'transparent' : (getColorV8('neutralHue', 300, theme) as string);
     hoverBackgroundColor = isGrabbed ? baseBgColor : rgba(baseColor as string, 0.08);
     boxShadow = dragShadow;

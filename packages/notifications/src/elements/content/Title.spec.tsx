@@ -8,7 +8,7 @@
 import React from 'react';
 import { css } from 'styled-components';
 import { render } from 'garden-test-utils';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { Notification } from '../Notification';
 import { Title } from './Title';
 import { StyledTitle } from '../../styled';
@@ -114,7 +114,7 @@ describe('Title', () => {
         </Notification>
       );
 
-      expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground, {
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800], {
         modifier: css`
           ${StyledTitle}
         ` as any

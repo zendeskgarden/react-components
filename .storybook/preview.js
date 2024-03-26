@@ -32,7 +32,7 @@ export const parameters = {
 
 const GlobalPreviewStyling = createGlobalStyle`
   body {
-    background-color: ${p => p.theme.colors.background};
+    background-color: ${p => getColorV8('background', 600 /* default shade */, p.theme)};
     /* stylelint-disable-next-line declaration-no-important */
     padding: 0 !important;
     font-family: ${p => p.theme.fonts.system};

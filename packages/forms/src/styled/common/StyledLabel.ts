@@ -10,7 +10,8 @@ import { hideVisually } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getLineHeight
+  getLineHeight,
+  getColorV8
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_label';
@@ -30,7 +31,7 @@ export const StyledLabel = styled.label.attrs(props => ({
   direction: ${props => props.theme.rtl && 'rtl'};
   vertical-align: middle; /* support label inline with input layout */
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-  color: ${props => props.theme.colors.foreground};
+  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props =>
     props.isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};

@@ -32,7 +32,7 @@ const colorStyles = (props: IStyledOptionProps) => {
   }
 
   const disabledForegroundColor = getColorV8('neutralHue', 400, props.theme);
-  let foregroundColor = props.theme.colors.foreground;
+  let foregroundColor = getColorV8('foreground', 600 /* default shade */, props.theme);
 
   if (props.$type === 'add') {
     foregroundColor = getColorV8('primaryHue', 600, props.theme)!;

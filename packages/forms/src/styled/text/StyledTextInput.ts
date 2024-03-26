@@ -75,8 +75,10 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
 
   return css`
     border-color: ${controlledBorderColor};
-    background-color: ${props.isBare ? 'transparent' : props.theme.colors.background};
-    color: ${props.theme.colors.foreground};
+    background-color: ${props.isBare
+      ? 'transparent'
+      : getColorV8('background', 600 /* default shade */, props.theme)};
+    color: ${getColorV8('foreground', 600 /* default shade */, props.theme)};
 
     &::placeholder {
       color: ${placeholderColor};

@@ -51,7 +51,9 @@ const colorStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
     background: ${props.isActive
       ? getColorV8('neutralHue', 600, props.theme)
       : getColorV8('neutralHue', 200, props.theme)};
-    color: ${props.isActive ? props.theme.colors.background : props.theme.colors.foreground};
+    color: ${props.isActive
+      ? getColorV8('background', 600 /* default shade */, props.theme)
+      : getColorV8('foreground', 600 /* default shade */, props.theme)};
   `;
 };
 
