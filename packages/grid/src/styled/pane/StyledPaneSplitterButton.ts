@@ -135,7 +135,7 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   &::before {
     position: absolute;
     z-index: -1;
-    background-color: ${props => props.theme.colors.background};
+    background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
     width: 100%;
     height: 100%;
     content: '';

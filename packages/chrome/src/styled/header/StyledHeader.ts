@@ -34,7 +34,7 @@ export const StyledHeader = styled.header.attrs<IStyledHeaderProps>({
   box-shadow: ${props =>
     props.isStandalone &&
     props.theme.shadows.lg('0', '10px', getColorV8('chromeHue', 600, props.theme, 0.15)!)};
-  background-color: ${props => props.theme.colors.background};
+  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
   padding: 0 ${props => props.theme.space.base}px;
   height: ${getHeaderHeight};
   color: ${props => getColorV8('neutralHue', 600, props.theme)};

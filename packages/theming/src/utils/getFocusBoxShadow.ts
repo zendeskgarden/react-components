@@ -7,7 +7,7 @@
 
 import DEFAULT_THEME from '../elements/theme';
 import { IGardenTheme } from '../types';
-import { DEFAULT_SHADE, Hue, getColor } from './_getColor';
+import { DEFAULT_SHADE, Hue, getColorV8 } from './getColorV8';
 
 export type FocusBoxShadowParameters = {
   boxShadow?: string;
@@ -49,14 +49,14 @@ export const getFocusBoxShadow = ({
   spacerWidth = 'xs',
   theme = DEFAULT_THEME
 }: FocusBoxShadowParameters) => {
-  const color = getColor(hue, shade, theme);
+  const color = getColorV8(hue, shade, theme);
   const shadow = theme.shadows[shadowWidth](color!);
 
   if (spacerWidth === null) {
     return `${inset ? 'inset' : ''} ${shadow}`;
   }
 
-  const spacerColor = getColor(spacerHue, spacerShade, theme);
+  const spacerColor = getColorV8(spacerHue, spacerShade, theme);
 
   const retVal = `
     ${inset ? 'inset' : ''} ${theme.shadows[spacerWidth](spacerColor!)},

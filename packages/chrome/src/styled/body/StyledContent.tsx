@@ -10,7 +10,8 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getLineHeight
+  getLineHeight,
+  getColorV8
 } from '@zendeskgarden/react-theming';
 import { getHeaderHeight } from '../header/StyledHeader';
 import { getFooterHeight } from '../footer/StyledFooter';
@@ -31,7 +32,7 @@ export const StyledContent = styled.div.attrs({
       ? `calc(100% - ${math(`${getHeaderHeight(props)} + ${getFooterHeight(props)}`)})`
       : `calc(100% - ${getHeaderHeight(props)})`};
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
-  color: ${props => props.theme.colors.foreground};
+  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
   font-size: ${props => props.theme.fontSizes.md};
 
   &:focus {

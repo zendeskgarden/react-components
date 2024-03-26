@@ -7,7 +7,7 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE, getColorV8 } from '@zendeskgarden/react-theming';
 import { render, fireEvent } from 'garden-test-utils';
 import { StyledDraggable, getDragShadow } from './StyledDraggable';
 
@@ -52,9 +52,7 @@ describe('StyledDraggable', () => {
     it('applies correct styles when grabbed', () => {
       const { container } = render(<StyledDraggable isGrabbed />);
 
-      expect(container.firstChild).toHaveStyle(
-        `background-color: ${DEFAULT_THEME.colors.background}`
-      );
+      expect(container.firstChild).toHaveStyle(`background-color: ${PALETTE.white}`);
       expect(container.firstChild).toHaveStyle(`box-shadow: ${getDragShadow(DEFAULT_THEME)}`);
     });
 
@@ -78,7 +76,7 @@ describe('StyledDraggable', () => {
 
       await user.hover(draggable);
 
-      expect(draggable).toHaveStyle(`background-color: ${DEFAULT_THEME.colors.background}`);
+      expect(draggable).toHaveStyle(`background-color: ${PALETTE.white}`);
     });
 
     it('applies correct styles when focused', () => {

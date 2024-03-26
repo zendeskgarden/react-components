@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledLabel } from './StyledLabel';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
 describe('StyledLabel', () => {
   it('renders default styles', () => {
@@ -36,7 +36,7 @@ describe('StyledLabel', () => {
   it('renders styles for active label', () => {
     const { container } = render(<StyledLabel isActive />);
 
-    expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
     expect(container.firstChild).toHaveStyleRule('font-weight', '600');
   });
 });

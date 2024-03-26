@@ -70,7 +70,7 @@ const colorStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
   const thumbHoverBorderColor = thumbHoverBackgroundColor;
 
   return `
-    border-color: ${props.isOpaque && props.theme.colors.background};
+    border-color: ${props.isOpaque && getColorV8('background', 600 /* default shade */, props.theme)};
 
     ${trackStyles(`
       background-color: transparent;

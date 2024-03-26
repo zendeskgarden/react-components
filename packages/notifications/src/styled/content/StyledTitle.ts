@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'notifications.title';
 
@@ -22,7 +22,7 @@ export const StyledTitle = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTitleProps>`
   margin: 0; /* [1] */
-  color: ${props => props.theme.colors.foreground};
+  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
   font-weight: ${props =>
     props.isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

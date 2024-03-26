@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 
 import { StyledDrawerHeader } from './StyledDrawerHeader';
 
@@ -15,7 +15,7 @@ describe('StyledDrawerHeader', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledDrawerHeader />);
 
-    expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
   });
 
   it('renders danger styling if provided', () => {
