@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-/** @ignore */
 const PALETTE = {
   black: '#000',
   white: '#fff',
@@ -152,5 +151,4 @@ const PALETTE = {
   }
 };
 
-/** @component */
 export default PALETTE;

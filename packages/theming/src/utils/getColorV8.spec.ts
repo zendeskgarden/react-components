@@ -157,7 +157,7 @@ describe('getColorV8', () => {
     });
 
     it('falls back when hue is off palette', () => {
-      const expected = 'blue';
+      const expected = 'missing';
       const color = getColorV8(expected, undefined, theme);
 
       expect(color).toBe(expected);
