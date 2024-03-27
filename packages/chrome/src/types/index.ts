@@ -35,11 +35,6 @@ export interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   zIndex?: number;
 }
 
-export interface IBodyProps extends HTMLAttributes<HTMLDivElement> {
-  /** Adjusts the body content height to allow space for a footer component */
-  hasFooter?: boolean;
-}
-
 export interface IHeaderProps extends HTMLAttributes<HTMLElement> {
   /** Displays logo for standlone usage  */
   isStandalone?: boolean;

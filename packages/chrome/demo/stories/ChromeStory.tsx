@@ -195,7 +195,7 @@ export const ChromeStory: Story<IArgs> = ({
           )}
         </SubNav>
       )}
-      <Body hasFooter={hasFooter}>
+      <Body>
         {hasHeader && (
           <Header isStandalone={!(hasNav || hasSubNav)}>
             {hasLogo && (

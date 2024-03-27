@@ -47,6 +47,7 @@ consider additional positioning prop support on a case-by-case basis.
 #### @zendeskgarden/react-chrome
 
 - Removed `PRODUCT` type export. Use `IHeaderItemProps['product']` instead.
+- Removed `hasFooter` prop for `Body` (no replacement needed)
 - The following React component types have changed:
   - Renamed `ICollapsibleSubNavItemProps` type export to `ISubNavCollapsibleItemProps`.
   - `Header.ItemIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
