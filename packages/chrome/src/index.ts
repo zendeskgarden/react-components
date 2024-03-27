@@ -33,7 +33,6 @@ export {
   PRODUCTS,
   type IChromeProps,
   type ISkipNavProps,
-  type IBodyProps,
   type IHeaderProps,
   type IHeaderItemProps,
   type IHeaderItemTextProps,
