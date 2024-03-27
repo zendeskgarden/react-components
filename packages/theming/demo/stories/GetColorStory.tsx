@@ -8,7 +8,7 @@
 import React from 'react';
 import { StoryFn } from '@storybook/react';
 import styled, { DefaultTheme, useTheme } from 'styled-components';
-import { DEFAULT_THEME, IGardenTheme, getColor } from '@zendeskgarden/react-theming';
+import { IGardenTheme, getColor } from '@zendeskgarden/react-theming';
 import { Tag } from '@zendeskgarden/react-tags';
 
 const toBackground = (theme: DefaultTheme, backgroundColor: string) => {
@@ -102,14 +102,9 @@ export const GetColorStory: StoryFn<IArgs> = ({
   variable
 }) => {
   const parentTheme = useTheme();
-  /* prefer Storybook primary hue toolbar control */
-  const primaryHue =
-    parentTheme.colors.primaryHue === DEFAULT_THEME.colors.primaryHue
-      ? _theme.colors.primaryHue
-      : parentTheme.colors.primaryHue;
   const theme = {
     ...parentTheme,
-    colors: { ..._theme.colors, base: parentTheme.colors.base, primaryHue },
+    colors: { ..._theme.colors, base: parentTheme.colors.base },
     palette: _theme.palette
   };
 

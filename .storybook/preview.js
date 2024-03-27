@@ -8,15 +8,19 @@
 import React, { StrictMode } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { create } from '@storybook/theming/create';
-import { ThemeProvider, DEFAULT_THEME, getColorV8 } from '../packages/theming/src';
+import { ThemeProvider, DEFAULT_THEME, getColor } from '../packages/theming/src';
+
+const DARK_THEME = { ...DEFAULT_THEME, colors: { ...DEFAULT_THEME.colors, base: 'dark' } };
+const DARK = getColor({ theme: DARK_THEME, variable: 'background.default' });
+const LIGHT = getColor({ theme: DEFAULT_THEME, variable: 'background.default' });
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: {
     grid: { disable: true },
     values: [
-      { name: 'light', value: DEFAULT_THEME.colors.background },
-      { name: 'dark', value: DEFAULT_THEME.colors.foreground }
+      { name: 'light', value: LIGHT },
+      { name: 'dark', value: DARK }
     ]
   },
   controls: {
@@ -32,7 +36,7 @@ export const parameters = {
 
 const GlobalPreviewStyling = createGlobalStyle`
   body {
-    background-color: ${p => getColorV8('background', 600 /* default shade */, p.theme)};
+    background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
     /* stylelint-disable-next-line declaration-no-important */
     padding: 0 !important;
     font-family: ${p => p.theme.fonts.system};
@@ -57,12 +61,10 @@ const withThemeProvider = (story, context) => {
 
   if (
     context.globals.backgrounds && context.globals.backgrounds.value !== 'transparent'
-      ? context.globals.backgrounds.value === DEFAULT_THEME.colors.foreground
+      ? context.globals.backgrounds.value === DARK
       : context.parameters.backgrounds.default === 'dark'
   ) {
     colors.base = 'dark';
-    colors.background = getColorV8('neutralHue', 900, DEFAULT_THEME);
-    colors.foreground = getColorV8('neutralHue', 200, DEFAULT_THEME);
   }
 
   const theme = { ...DEFAULT_THEME, colors, rtl };
