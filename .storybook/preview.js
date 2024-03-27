@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { StrictMode } from 'react';
+import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { create } from '@storybook/theming/create';
 import { ThemeProvider, DEFAULT_THEME, getColor } from '../packages/theming/src';
@@ -79,10 +79,7 @@ const withThemeProvider = (story, context) => {
   );
 };
 
-const withStrictMode = (story, context) =>
-  context.globals.strictMode === 'enabled' ? <StrictMode>{story()}</StrictMode> : <>{story()}</>;
-
-export const decorators = [withThemeProvider, withStrictMode];
+export const decorators = [withThemeProvider];
 
 export const globalTypes = {
   locale: {
@@ -120,19 +117,5 @@ export const globalTypes = {
         { value: 'fuschia', title: 'Custom primary hue' }
       ]
     }
-  },
-  ...(process.env.NODE_ENV === 'development' && {
-    strictMode: {
-      name: 'strictMode',
-      description: 'Strict mode',
-      defaultValue: 'disabled',
-      toolbar: {
-        icon: 'alert',
-        items: [
-          { value: 'disabled', title: 'Strict mode disabled' },
-          { value: 'enabled', title: 'Strict mode enabled' }
-        ]
-      }
-    }
-  })
+  }
 };
