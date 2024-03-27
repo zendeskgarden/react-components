@@ -48,10 +48,22 @@ import README from '../README.md';
     name="getColor()"
     args={{
       hue: 'primaryHue',
-      shade: 600
+      theme: {
+        colors: Object.fromEntries(
+          Object.entries(DEFAULT_THEME.colors).filter(([key]) => key !== 'base')
+        ),
+        palette: DEFAULT_THEME.palette
+      }
     }}
     argTypes={{
-      transparency: { control: { type: 'range', min: 1 } }
+      colors: { name: 'colors', table: { category: 'theme' } },
+      dark: { control: { type: 'object' } },
+      light: { control: { type: 'object' } },
+      offset: { control: { type: 'number' } },
+      palette: { name: 'palette', table: { category: 'theme' } },
+      shade: { control: { type: 'number' } },
+      transparency: { control: { type: 'range', min: 1 } },
+      variable: { control: { type: 'text' } }
     }}
   >
     {args => <GetColorStory {...args} />}

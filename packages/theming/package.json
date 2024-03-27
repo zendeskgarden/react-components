@@ -24,6 +24,8 @@
     "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-focusvisible": "^2.0.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
+    "chroma-js": "^2.4.2",
+    "lodash.get": "^4.4.2",
     "lodash.memoize": "^4.1.2",
     "polished": "^4.0.0",
     "prop-types": "^15.5.7"
@@ -34,6 +36,8 @@
     "styled-components": "^4.2.0 || ^5.3.1"
   },
   "devDependencies": {
+    "@types/chroma-js": "2.4.4",
+    "@types/lodash.get": "4.4.9",
     "@types/lodash.memoize": "4.1.9"
   },
   "keywords": [
