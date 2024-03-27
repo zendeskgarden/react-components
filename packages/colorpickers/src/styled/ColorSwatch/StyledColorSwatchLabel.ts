@@ -7,7 +7,12 @@
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { parseToRgb, readableColor } from 'polished';
-import { DEFAULT_THEME, focusStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  focusStyles,
+  getColorV8,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 import { StyledButtonPreview } from '../ColorPickerDialog/StyledButtonPreview';
 import { IRGBColor } from '../../types';
 
@@ -19,15 +24,14 @@ interface IStyledColorSwatchLabelProps extends ThemeProps<DefaultTheme> {
 
 const colorStyles = (props: IStyledColorSwatchLabelProps) => {
   const { alpha } = parseToRgb(props.backgroundColor) as IRGBColor;
-  let foregroundColor;
+  let foregroundColor = getColorV8('foreground', 600 /* default shade */, props.theme);
 
-  if (alpha && alpha < 0.4) {
-    foregroundColor = props.theme.colors.foreground;
-  } else {
+  if (alpha === undefined || alpha >= 0.4) {
     foregroundColor = readableColor(
       props.backgroundColor,
-      props.theme.colors.foreground,
-      props.theme.colors.background
+      foregroundColor,
+      getColorV8('background', 600 /* default shade */, props.theme),
+      false /* turn off strict mode to prevent black */
     );
   }
 

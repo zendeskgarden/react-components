@@ -4,6 +4,15 @@
 
 ### Breaking Changes
 
+The theme object, along with its utility functions, introduce a minimal set of
+breaking changes for Garden version 9. It is important to proceed with caution
+when upgrading each Garden package individually. All existing v8 packages must
+be
+[v8.75.0](https://github.com/zendeskgarden/react-components/releases/tag/v8.75.0)
+or higher in order to complete a successful individual package migration to v9.
+Detailed theming change instructions are provided under the
+[@zendeskgarden/react-theming](#zendeskgardenreact-theming) package.
+
 Garden has transitioned from utilizing [Popper](https://popper.js.org/docs/) to
 adopting the enhanced [Floating UI](https://floating-ui.com/) library. In the
 past, Popper's [modifiers](https://popper.js.org/docs/v2/modifiers/) were
@@ -161,8 +170,11 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-theming
 
-- Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
+- The default `theme` object has removed values for `colors.background` and
+  `colors.foreground`. Use the `'background.default'` and `'foreground.default'`
+  variables together with the v9 `getColor` utility instead.
 - Utility function `getDocument` has been removed. Use `useDocument` instead.
+- Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
 - The following exports have changed:
   - removed `retrieveTheme`. Use `retriveComponentStyles` instead.
   - constants prefixed with `ARRAY_` no longer have a prefix.

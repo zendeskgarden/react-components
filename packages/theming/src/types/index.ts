@@ -75,14 +75,24 @@ export interface IGardenTheme {
   };
   colors: {
     base: 'light' | 'dark';
-    background: string;
-    foreground: string;
     primaryHue: string;
     dangerHue: string;
     warningHue: string;
     successHue: string;
     neutralHue: string;
     chromeHue: string;
+    variables: {
+      dark: {
+        background: Record<string, string>;
+        border: Record<string, string>;
+        foreground: Record<string, string>;
+      };
+      light: {
+        background: Record<string, string>;
+        border: Record<string, string>;
+        foreground: Record<string, string>;
+      };
+    };
   };
   components: Record<string, any>;
   fonts: {
@@ -122,6 +132,7 @@ export interface IGardenTheme {
     xxl: string;
     xxxl: string;
   };
+  palette: Record<string, Hue>;
   shadowWidths: {
     xs: string;
     sm: string;
@@ -143,7 +154,6 @@ export interface IGardenTheme {
     xl: string;
     xxl: string;
   };
-  palette: Record<string, Hue>;
 }
 
 export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenTheme>> {
