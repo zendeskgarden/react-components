@@ -173,6 +173,13 @@ consider additional positioning prop support on a case-by-case basis.
 - The default `theme` object has removed values for `colors.background` and
   `colors.foreground`. Use the `'background.default'` and `'foreground.default'`
   variables together with the v9 `getColor` utility instead.
+- The theming `palette` has undergone a comprehensive redesign and now includes
+  enhanced support for both light and dark modes. To facilitate a smoother
+  transition, we have introduced a temporary utility, `getColorV8`, which is
+  deprecated. This utility enables the application of the legacy version 8 color
+  scheme to custom components that are not part of the Garden framework. It is
+  recommended to utilize this stopgap measure until such components can be updated
+  to leverage the full capabilities of v9 `getColor`.
 - Utility function `getDocument` has been removed. Use `useDocument` instead.
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
 - The following exports have changed:

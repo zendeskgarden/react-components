@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { StyledWell } from '../styled';
 
 describe('StyledWell', () => {
@@ -32,9 +32,6 @@ describe('StyledWell', () => {
   it('renders recessed styling correctly', () => {
     const { container } = render(<StyledWell isRecessed />);
 
-    expect(container.firstChild).toHaveStyleRule(
-      'background-color',
-      DEFAULT_THEME.palette.grey[100]
-    );
+    expect(container.firstChild).toHaveStyleRule('background-color', PALETTE_V8.grey[100]);
   });
 });

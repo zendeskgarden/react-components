@@ -10,13 +10,17 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { create } from '@storybook/theming/create';
 import { ThemeProvider, DEFAULT_THEME, getColorV8 } from '../packages/theming/src';
 
+const DARK_THEME = { ...DEFAULT_THEME, colors: { ...DEFAULT_THEME.colors, base: 'dark' } };
+const DARK = getColorV8('foreground', 600 /* default shade */, DARK_THEME);
+const LIGHT = getColorV8('background', 600 /* default shade */, DEFAULT_THEME);
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: {
     grid: { disable: true },
     values: [
-      { name: 'light', value: DEFAULT_THEME.colors.background },
-      { name: 'dark', value: DEFAULT_THEME.colors.foreground }
+      { name: 'light', value: LIGHT },
+      { name: 'dark', value: DARK }
     ]
   },
   controls: {
@@ -57,7 +61,7 @@ const withThemeProvider = (story, context) => {
 
   if (
     context.globals.backgrounds && context.globals.backgrounds.value !== 'transparent'
-      ? context.globals.backgrounds.value === DEFAULT_THEME.colors.foreground
+      ? context.globals.backgrounds.value === DARK
       : context.parameters.backgrounds.default === 'dark'
   ) {
     colors.base = 'dark';
