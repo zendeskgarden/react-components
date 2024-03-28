@@ -7,6 +7,7 @@
 
 import DEFAULT_THEME from '../elements/theme';
 import PALETTE from '../elements/palette';
+import PALETTE_V8 from '../elements/palette/v8';
 import { darken, lighten, rgba } from 'polished';
 import { DefaultTheme } from 'styled-components';
 import memoize from 'lodash.memoize';
@@ -52,7 +53,10 @@ export const getColorV8 = memoize(
       /* provide background and foreground fallback for legacy theme usage */
       background: PALETTE.white,
       foreground: PALETTE.grey[800],
-      ...(theme && theme.palette ? theme.palette : DEFAULT_THEME.palette)
+      /* provide palette fallback for legacy theme usage */
+      ...(theme && theme.palette
+        ? { ...theme.palette, ...PALETTE_V8 }
+        : { ...DEFAULT_THEME.palette, ...PALETTE_V8 })
     } as Record<string, Hue>;
     const colors = theme && theme.colors ? theme.colors : DEFAULT_THEME.colors;
 
