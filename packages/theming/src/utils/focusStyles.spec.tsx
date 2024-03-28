@@ -9,7 +9,7 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import styled, { ThemeProps, DefaultTheme, CSSObject } from 'styled-components';
 import { focusStyles } from './focusStyles';
-import { Hue } from './getColorV8';
+import { Hue } from '../types';
 import DEFAULT_THEME from '../elements/theme';
 import PALETTE_V8 from '../elements/palette/v8';
 

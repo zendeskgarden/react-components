@@ -6,8 +6,8 @@
  */
 
 import DEFAULT_THEME from '../elements/theme';
-import { IGardenTheme } from '../types';
-import { DEFAULT_SHADE, Hue, getColorV8 } from './getColorV8';
+import { Hue, IGardenTheme } from '../types';
+import { DEFAULT_SHADE, getColorV8 } from './getColorV8';
 
 export type FocusBoxShadowParameters = {
   boxShadow?: string;

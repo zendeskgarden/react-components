@@ -45,7 +45,7 @@ export const PLACEMENT = [
 
 export type Placement = (typeof PLACEMENT)[number];
 
-type Hue = Record<number | string, string> | string;
+export type Hue = Record<number | string, string> | string;
 
 export interface IGardenTheme {
   rtl: boolean;
