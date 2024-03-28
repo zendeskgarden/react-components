@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledFooter } from './StyledFooter';
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE_V8 } from '@zendeskgarden/react-theming';
 
 describe('StyledFooter', () => {
   it('renders default styling', () => {
@@ -23,7 +23,7 @@ describe('StyledFooter', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'border-top',
-      `${DEFAULT_THEME.borders.sm} ${PALETTE.grey[200]}`
+      `${DEFAULT_THEME.borders.sm} ${PALETTE_V8.grey[200]}`
     );
     expect(container.firstChild).toHaveStyleRule('padding', '32px 40px');
   });

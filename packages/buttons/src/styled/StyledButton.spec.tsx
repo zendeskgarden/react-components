@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColorV8, PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 describe('StyledButton', () => {
@@ -32,13 +32,13 @@ describe('StyledButton', () => {
   it('renders danger styling if provided', () => {
     const { container } = render(<StyledButton isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule('color', getColorV8('dangerHue'));
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.red[600]);
   });
 
   it('renders disabled styling if provided', () => {
     const { container } = render(<StyledButton disabled />);
 
-    expect(container.firstChild).toHaveStyleRule('color', getColorV8('neutralHue'));
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[600]);
   });
 
   it('renders link styling if provided', () => {
@@ -51,13 +51,13 @@ describe('StyledButton', () => {
   it('renders primary styling if provided', () => {
     const { container } = render(<StyledButton isPrimary />);
 
-    expect(container.firstChild).toHaveStyleRule('background-color', getColorV8('primaryHue'));
+    expect(container.firstChild).toHaveStyleRule('background-color', PALETTE_V8.blue[600]);
   });
 
   it('renders neutral styling if provided', () => {
     const { container } = render(<StyledButton isNeutral />);
 
-    expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.grey[300]);
+    expect(container.firstChild).toHaveStyleRule('border-color', PALETTE_V8.grey[300]);
   });
 
   it('renders pill styling if provided', () => {

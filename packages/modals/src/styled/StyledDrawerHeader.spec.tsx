@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 
 import { StyledDrawerHeader } from './StyledDrawerHeader';
 
@@ -15,12 +15,12 @@ describe('StyledDrawerHeader', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledDrawerHeader />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[800]);
   });
 
   it('renders danger styling if provided', () => {
     const { container } = render(<StyledDrawerHeader isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[600]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.red[600]);
   });
 });

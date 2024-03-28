@@ -6,24 +6,22 @@
  */
 
 import { getColorV8 } from './getColorV8';
-import PALETTE from '../elements/palette';
+import PALETTE_V8 from '../elements/palette/v8';
 import DEFAULT_THEME from '../elements/theme';
 import { darken, lighten, rgba } from 'polished';
-
-const DEFAULT_SHADE = 600;
 
 describe('getColorV8', () => {
   describe('by hue', () => {
     it('gets the hue specified by string', () => {
       const color = getColorV8('red');
-      const expected = PALETTE.red[DEFAULT_SHADE];
+      const expected = PALETTE_V8.red[600];
 
       expect(color).toBe(expected);
     });
 
     it('gets the hue specified by object', () => {
-      const color = getColorV8(PALETTE.green);
-      const expected = PALETTE.green[DEFAULT_SHADE];
+      const color = getColorV8(PALETTE_V8.green);
+      const expected = PALETTE_V8.green[600];
 
       expect(color).toBe(expected);
     });
@@ -38,56 +36,56 @@ describe('getColorV8', () => {
     describe('by `color` key', () => {
       it('gets the default background color', () => {
         const color = getColorV8('background');
-        const expected = PALETTE.white;
+        const expected = PALETTE_V8.white;
 
         expect(color).toBe(expected);
       });
 
       it('gets the default foreground color', () => {
         const color = getColorV8('foreground');
-        const expected = PALETTE.grey[800];
+        const expected = PALETTE_V8.grey[800];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default primary color', () => {
         const color = getColorV8('primaryHue');
-        const expected = (PALETTE as any)[DEFAULT_THEME.colors.primaryHue][DEFAULT_SHADE];
+        const expected = (PALETTE_V8 as any)[DEFAULT_THEME.colors.primaryHue][600];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default danger color', () => {
         const color = getColorV8('dangerHue');
-        const expected = (PALETTE as any)[DEFAULT_THEME.colors.dangerHue][DEFAULT_SHADE];
+        const expected = (PALETTE_V8 as any)[DEFAULT_THEME.colors.dangerHue][600];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default warning color', () => {
         const color = getColorV8('warningHue');
-        const expected = (PALETTE as any)[DEFAULT_THEME.colors.warningHue][DEFAULT_SHADE];
+        const expected = (PALETTE_V8 as any)[DEFAULT_THEME.colors.warningHue][600];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default success color', () => {
         const color = getColorV8('successHue');
-        const expected = (PALETTE as any)[DEFAULT_THEME.colors.successHue][DEFAULT_SHADE];
+        const expected = (PALETTE_V8 as any)[DEFAULT_THEME.colors.successHue][600];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default neutral color', () => {
         const color = getColorV8('neutralHue');
-        const expected = (PALETTE as any)[DEFAULT_THEME.colors.neutralHue][DEFAULT_SHADE];
+        const expected = (PALETTE_V8 as any)[DEFAULT_THEME.colors.neutralHue][600];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default chrome color', () => {
         const color = getColorV8('chromeHue');
-        const expected = (PALETTE as any)[DEFAULT_THEME.colors.chromeHue][DEFAULT_SHADE];
+        const expected = (PALETTE_V8 as any)[DEFAULT_THEME.colors.chromeHue][600];
 
         expect(color).toBe(expected);
       });
@@ -97,21 +95,21 @@ describe('getColorV8', () => {
   describe('by shade', () => {
     it('gets the specified shade of hue', () => {
       const color = getColorV8('red', 100);
-      const expected = PALETTE.red[100];
+      const expected = PALETTE_V8.red[100];
 
       expect(color).toBe(expected);
     });
 
     it('darkens the color if shade is greater than what exists within the hue', () => {
       const color = getColorV8('blue', 900);
-      const expected = darken(0.05, PALETTE.blue[800]);
+      const expected = darken(0.05, PALETTE_V8.blue[800]);
 
       expect(color).toBe(expected);
     });
 
     it('darkens a non-hue color if shade is greater than the default', () => {
       const hex = '#fd5a1e';
-      const color = getColorV8(hex, DEFAULT_SHADE + 100);
+      const color = getColorV8(hex, 700);
       const expected = darken(0.05, hex);
 
       expect(color).toBe(expected);
@@ -119,14 +117,14 @@ describe('getColorV8', () => {
 
     it('lightens the color if shade is lesser than what what exists within the hue', () => {
       const color = getColorV8('blue', 0);
-      const expected = lighten(0.05, PALETTE.blue[100]);
+      const expected = lighten(0.05, PALETTE_V8.blue[100]);
 
       expect(color).toBe(expected);
     });
 
     it('lightens a non-hue color if shade is greater than the default', () => {
       const hex = '#fd5a1e';
-      const color = getColorV8(hex, DEFAULT_SHADE - 100);
+      const color = getColorV8(hex, 500);
       const expected = lighten(0.05, hex);
 
       expect(color).toBe(expected);
@@ -175,7 +173,7 @@ describe('getColorV8', () => {
     it('resolves when only hue and transparency is specified', () => {
       const transparency = 0.5;
       const expected = rgba(
-        (PALETTE as any)[DEFAULT_THEME.colors.primaryHue][DEFAULT_SHADE],
+        (PALETTE_V8 as any)[DEFAULT_THEME.colors.primaryHue][600],
         transparency
       );
       const color = getColorV8('primaryHue', undefined, undefined, transparency);

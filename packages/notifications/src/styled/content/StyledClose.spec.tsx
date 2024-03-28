@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { StyledClose } from './StyledClose';
 
 describe('StyledClose', () => {
@@ -27,24 +27,20 @@ describe('StyledClose', () => {
 
   it('should render neutral fallback hue when hue prop is not provided', () => {
     const { container } = render(<StyledClose />);
-    const { colors, palette } = DEFAULT_THEME;
-    const { neutralHue } = colors;
 
-    expect(container.firstChild).toHaveStyleRule('color', palette[neutralHue][600]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[600]);
 
-    expect(container.firstChild).toHaveStyleRule('color', palette[neutralHue][800], {
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[800], {
       modifier: ':hover'
     });
   });
 
   it('should render the correct styling for a given hue', () => {
     const { container } = render(<StyledClose hue="successHue" />);
-    const { colors, palette } = DEFAULT_THEME;
-    const { successHue } = colors;
 
-    expect(container.firstChild).toHaveStyleRule('color', palette[successHue][600]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.green[600]);
 
-    expect(container.firstChild).toHaveStyleRule('color', palette[successHue][800], {
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.green[800], {
       modifier: ':hover'
     });
   });
@@ -52,12 +48,10 @@ describe('StyledClose', () => {
   // The color yellow requires a darker shade for legibility
   it('should render the correct styling for a warning hue', () => {
     const { container } = render(<StyledClose hue="warningHue" />);
-    const { colors, palette } = DEFAULT_THEME;
-    const { warningHue } = colors;
 
-    expect(container.firstChild).toHaveStyleRule('color', palette[warningHue][700]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.yellow[700]);
 
-    expect(container.firstChild).toHaveStyleRule('color', palette[warningHue][800], {
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.yellow[800], {
       modifier: ':hover'
     });
   });

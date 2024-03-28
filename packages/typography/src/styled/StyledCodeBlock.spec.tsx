@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { StyledCodeBlock } from './StyledCodeBlock';
 
 describe('StyledCodeBlock', () => {
@@ -26,6 +26,6 @@ describe('StyledCodeBlock', () => {
   it('renders as expected in light mode', () => {
     const { container } = render(<StyledCodeBlock isLight />);
 
-    expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.grey[100]);
+    expect(container.firstChild).toHaveStyleRule('background-color', PALETTE_V8.grey[100]);
   });
 });

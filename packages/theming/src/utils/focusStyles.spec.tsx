@@ -11,7 +11,7 @@ import styled, { ThemeProps, DefaultTheme, CSSObject } from 'styled-components';
 import { focusStyles } from './focusStyles';
 import { Hue } from './getColorV8';
 import DEFAULT_THEME from '../elements/theme';
-import PALETTE from '../elements/palette';
+import PALETTE_V8 from '../elements/palette/v8';
 
 interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   condition?: boolean;
@@ -33,7 +33,7 @@ const StyledDiv = styled.div<IStyledDivProps>`
 describe('focusStyles', () => {
   it('renders with expected defaults', () => {
     const { container } = render(<StyledDiv />);
-    const expected = `${DEFAULT_THEME.shadowWidths.md} ${PALETTE.blue[600]}`;
+    const expected = `${DEFAULT_THEME.shadowWidths.md} ${PALETTE_V8.blue[600]}`;
 
     expect(container.firstChild).toHaveStyleRule('outline', 'none', { modifier: '&:focus' });
     expect(container.firstChild).toHaveStyleRule('box-shadow', expect.stringContaining(expected), {
@@ -71,7 +71,7 @@ describe('focusStyles', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.md} ${PALETTE.red[400]}`),
+      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.md} ${PALETTE_V8.red[400]}`),
       {
         modifier: '&:focus-visible'
       }
@@ -83,7 +83,7 @@ describe('focusStyles', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE.red[400]}`),
+      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE_V8.red[400]}`),
       {
         modifier: '&:focus-visible'
       }
@@ -95,7 +95,7 @@ describe('focusStyles', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      expect.stringContaining(`${PALETTE.blue[600]}`),
+      expect.stringContaining(`${PALETTE_V8.blue[600]}`),
       {
         modifier: '&:focus-within'
       }
@@ -107,14 +107,14 @@ describe('focusStyles', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE.blue[600]}`),
+      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE_V8.blue[600]}`),
       {
         modifier: '&:focus-visible'
       }
     );
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE.white}`),
+      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE_V8.white}`),
       {
         modifier: '&:focus-visible'
       }
@@ -138,7 +138,7 @@ describe('focusStyles', () => {
   });
 
   it('renders user provided styles', () => {
-    const dropShadow = DEFAULT_THEME.shadows.lg('4px', '8px', PALETTE.black);
+    const dropShadow = DEFAULT_THEME.shadows.lg('4px', '8px', PALETTE_V8.black);
     const { container } = render(
       <StyledDiv styles={{ backgroundColor: 'black', boxShadow: dropShadow, color: 'white' }} />
     );

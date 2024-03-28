@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { StyledFile } from './StyledFile';
 
 describe('StyledFile', () => {
@@ -28,13 +28,13 @@ describe('StyledFile', () => {
     it('renders expected success styling', () => {
       const { container } = render(<StyledFile validation="success" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.green[600]);
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE_V8.green[600]);
     });
 
     it('renders expected error styling', () => {
       const { container } = render(<StyledFile validation="error" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.red[600]);
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE_V8.red[600]);
     });
   });
 });
