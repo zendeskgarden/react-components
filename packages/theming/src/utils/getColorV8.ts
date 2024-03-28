@@ -6,7 +6,6 @@
  */
 
 import DEFAULT_THEME from '../elements/theme';
-import PALETTE from '../elements/palette';
 import PALETTE_V8 from '../elements/palette/v8';
 import { darken, lighten, rgba } from 'polished';
 import { DefaultTheme } from 'styled-components';
@@ -51,8 +50,8 @@ export const getColorV8 = memoize(
 
     const palette = {
       /* provide background and foreground fallback for legacy theme usage */
-      background: PALETTE.white,
-      foreground: PALETTE.grey[800],
+      background: PALETTE_V8.white,
+      foreground: PALETTE_V8.grey[800],
       /* provide palette fallback for legacy theme usage */
       ...(theme && theme.palette
         ? { ...theme.palette, ...PALETTE_V8 }

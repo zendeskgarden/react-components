@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledLabel } from './StyledLabel';
-import { getColorV8, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 
 describe('StyledLabel', () => {
   it('renders default styles', () => {
@@ -18,10 +18,7 @@ describe('StyledLabel', () => {
     expect(container.firstChild).not.toHaveStyleRule('text-align');
     expect(container.firstChild).toHaveStyleRule('display', 'flex');
     expect(container.firstChild).toHaveStyleRule('align-items', 'center');
-    expect(container.firstChild).toHaveStyleRule(
-      'color',
-      getColorV8('neutralHue', 600, DEFAULT_THEME)
-    );
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[600]);
   });
 
   it('renders styles for horizontal label', () => {
@@ -36,7 +33,7 @@ describe('StyledLabel', () => {
   it('renders styles for active label', () => {
     const { container } = render(<StyledLabel isActive />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[800]);
     expect(container.firstChild).toHaveStyleRule('font-weight', '600');
   });
 });

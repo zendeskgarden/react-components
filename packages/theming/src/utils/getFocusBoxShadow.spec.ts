@@ -7,15 +7,15 @@
 
 import { getFocusBoxShadow } from './getFocusBoxShadow';
 import DEFAULT_THEME from '../elements/theme';
-import PALETTE from '../elements/palette';
+import PALETTE_V8 from '../elements/palette/v8';
 import { getColorV8 } from './getColorV8';
 
 describe('getFocusBoxShadow', () => {
   it('defaults as expected', () => {
     const boxShadow = getFocusBoxShadow({ theme: DEFAULT_THEME });
 
-    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.md} ${PALETTE.blue[600]}`);
-    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE.white}`);
+    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.md} ${PALETTE_V8.blue[600]}`);
+    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE_V8.white}`);
   });
 
   it('resizes as expected', () => {
@@ -25,8 +25,8 @@ describe('getFocusBoxShadow', () => {
       spacerWidth: 'sm'
     });
 
-    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE.blue[600]}`);
-    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE.white}`);
+    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE_V8.blue[600]}`);
+    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE_V8.white}`);
   });
 
   it('insets as expected', () => {
@@ -62,11 +62,11 @@ describe('getFocusBoxShadow', () => {
   it('knocks out spacer as expected', () => {
     const boxShadow = getFocusBoxShadow({ theme: DEFAULT_THEME, spacerWidth: null });
 
-    expect(boxShadow).not.toContain(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE.white}`);
+    expect(boxShadow).not.toContain(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE_V8.white}`);
   });
 
   it('combines with existing box-shadow as expected', () => {
-    const dropShadow = DEFAULT_THEME.shadows.lg('4px', '8px', PALETTE.black);
+    const dropShadow = DEFAULT_THEME.shadows.lg('4px', '8px', PALETTE_V8.black);
     const boxShadow = getFocusBoxShadow({
       theme: DEFAULT_THEME,
       boxShadow: dropShadow

@@ -8,11 +8,11 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { create } from '@storybook/theming/create';
-import { ThemeProvider, DEFAULT_THEME, getColor } from '../packages/theming/src';
+import { ThemeProvider, DEFAULT_THEME, getColorV8 } from '../packages/theming/src';
 
 const DARK_THEME = { ...DEFAULT_THEME, colors: { ...DEFAULT_THEME.colors, base: 'dark' } };
-const DARK = getColor({ theme: DARK_THEME, variable: 'background.default' });
-const LIGHT = getColor({ theme: DEFAULT_THEME, variable: 'background.default' });
+const DARK = getColorV8('foreground', 600 /* default shade */, DARK_THEME);
+const LIGHT = getColorV8('background', 600 /* default shade */, DEFAULT_THEME);
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -36,7 +36,7 @@ export const parameters = {
 
 const GlobalPreviewStyling = createGlobalStyle`
   body {
-    background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
+    background-color: ${p => getColorV8('background', 600 /* default shade */, p.theme)};
     /* stylelint-disable-next-line declaration-no-important */
     padding: 0 !important;
     font-family: ${p => p.theme.fonts.system};
@@ -65,6 +65,8 @@ const withThemeProvider = (story, context) => {
       : context.parameters.backgrounds.default === 'dark'
   ) {
     colors.base = 'dark';
+    colors.background = getColorV8('neutralHue', 900, DEFAULT_THEME);
+    colors.foreground = getColorV8('neutralHue', 200, DEFAULT_THEME);
   }
 
   const theme = { ...DEFAULT_THEME, colors, rtl };
