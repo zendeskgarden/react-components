@@ -8,7 +8,7 @@
 import React from 'react';
 import { rgba } from 'polished';
 import { render } from 'garden-test-utils';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { CodeBlock } from './CodeBlock';
 
 describe('CodeBlock', () => {
@@ -49,7 +49,7 @@ describe('CodeBlock', () => {
 
     expect(container.getElementsByTagName('pre')[0]).toHaveStyleRule(
       'background-color',
-      PALETTE.grey[100]
+      PALETTE_V8.grey[100]
     );
   });
 
@@ -74,10 +74,10 @@ describe('CodeBlock', () => {
     const { container } = render(<CodeBlock language="diff">{code}</CodeBlock>);
     const codeElements = container.getElementsByTagName('code');
 
-    expect(codeElements[0]).toHaveStyleRule('background-color', rgba(PALETTE.royal[400], 0.2));
-    expect(codeElements[1]).toHaveStyleRule('background-color', rgba(PALETTE.lime[400], 0.2));
-    expect(codeElements[2]).toHaveStyleRule('background-color', rgba(PALETTE.crimson[400], 0.2));
-    expect(codeElements[3]).toHaveStyleRule('background-color', rgba(PALETTE.lemon[400], 0.2));
+    expect(codeElements[0]).toHaveStyleRule('background-color', rgba(PALETTE_V8.royal[400], 0.2));
+    expect(codeElements[1]).toHaveStyleRule('background-color', rgba(PALETTE_V8.lime[400], 0.2));
+    expect(codeElements[2]).toHaveStyleRule('background-color', rgba(PALETTE_V8.crimson[400], 0.2));
+    expect(codeElements[3]).toHaveStyleRule('background-color', rgba(PALETTE_V8.lemon[400], 0.2));
     expect(codeElements[4]).not.toHaveStyleRule('background-color');
   });
 
@@ -87,7 +87,7 @@ describe('CodeBlock', () => {
     const { container } = render(<CodeBlock highlightLines={[1]}>{code}</CodeBlock>);
     const codeElements = container.getElementsByTagName('code');
 
-    expect(codeElements[0]).toHaveStyleRule('background-color', rgba(PALETTE.white, 0.1));
+    expect(codeElements[0]).toHaveStyleRule('background-color', rgba(PALETTE_V8.white, 0.1));
     expect(codeElements[1]).not.toHaveStyleRule('background-color');
   });
 

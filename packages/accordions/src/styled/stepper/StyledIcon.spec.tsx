@@ -8,28 +8,23 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledIcon } from './StyledIcon';
-import { getColorV8, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 
 describe('StyledIcon', () => {
   it('renders default styles', () => {
     const { container } = render(<StyledIcon />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
-    expect(container.firstChild).toHaveStyleRule(
-      'background',
-      getColorV8('neutralHue', 200, DEFAULT_THEME)
-    );
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[800]);
+    expect(container.firstChild).toHaveStyleRule('background', PALETTE_V8.grey[200]);
     expect(container.firstChild).toHaveStyleRule('margin-right', '12px');
     expect(container.firstChild).not.toHaveStyleRule('margin-bottom');
   });
+
   it('renders active color styles', () => {
     const { container } = render(<StyledIcon isActive />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.white);
-    expect(container.firstChild).toHaveStyleRule(
-      'background',
-      getColorV8('neutralHue', 600, DEFAULT_THEME)
-    );
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.white);
+    expect(container.firstChild).toHaveStyleRule('background', PALETTE_V8.grey[600]);
   });
 
   it('renders correct icon styles for horizontal stepper', () => {

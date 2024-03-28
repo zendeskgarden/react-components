@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
 import { Span } from './Span';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
@@ -68,14 +68,14 @@ describe('Span', () => {
       ].forEach(color => {
         const { container } = render(<Span hue={color as any} />);
 
-        expect(container.firstChild).toHaveStyleRule('color', (PALETTE as any)[color][600]);
+        expect(container.firstChild).toHaveStyleRule('color', (PALETTE_V8 as any)[color][600]);
       });
     });
 
     it('handles yellow hue with specialized shading', () => {
       const { container } = render(<Span hue="yellow" />);
 
-      expect(container.firstChild).toHaveStyleRule('color', PALETTE.yellow[700]);
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.yellow[700]);
     });
   });
 

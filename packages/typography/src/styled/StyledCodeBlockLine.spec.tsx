@@ -8,7 +8,7 @@
 import React from 'react';
 import { rgba } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { StyledCodeBlockLine } from './StyledCodeBlockLine';
 
 describe('StyledCodeBlockLine', () => {
@@ -28,13 +28,13 @@ describe('StyledCodeBlockLine', () => {
     it('renders highlight as expected', () => {
       const { container } = render(<StyledCodeBlockLine isHighlighted />);
 
-      expect(container.firstChild).toHaveStyleRule('background-color', rgba(PALETTE.white, 0.1));
+      expect(container.firstChild).toHaveStyleRule('background-color', rgba(PALETTE_V8.white, 0.1));
     });
 
     it('renders as expected in light mode', () => {
       const { container } = render(<StyledCodeBlockLine isHighlighted isLight />);
 
-      expect(container.firstChild).toHaveStyleRule('background-color', rgba(PALETTE.black, 0.1));
+      expect(container.firstChild).toHaveStyleRule('background-color', rgba(PALETTE_V8.black, 0.1));
     });
   });
 
@@ -50,7 +50,7 @@ describe('StyledCodeBlockLine', () => {
     it('renders as expected in light mode', () => {
       const { container } = render(<StyledCodeBlockLine isLight isNumbered />);
 
-      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[600], {
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[600], {
         modifier: '&::before'
       });
     });
@@ -82,7 +82,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.lime[400], 0.2)
+        rgba(PALETTE_V8.lime[400], 0.2)
       );
     });
 
@@ -91,7 +91,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.crimson[400], 0.2)
+        rgba(PALETTE_V8.crimson[400], 0.2)
       );
     });
 
@@ -100,7 +100,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.lemon[400], 0.2)
+        rgba(PALETTE_V8.lemon[400], 0.2)
       );
     });
 
@@ -109,7 +109,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.royal[400], 0.2)
+        rgba(PALETTE_V8.royal[400], 0.2)
       );
     });
   });

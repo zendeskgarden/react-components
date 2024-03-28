@@ -9,7 +9,7 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
 import { OverflowButton } from './OverflowButton';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 
 describe('OverflowButton', () => {
   const user = userEvent.setup();
@@ -24,14 +24,14 @@ describe('OverflowButton', () => {
   it('applies isHovered styling', () => {
     const { container } = render(<OverflowButton isHovered />);
 
-    expect(container.firstElementChild).toHaveStyleRule('color', PALETTE.grey[700]);
+    expect(container.firstElementChild).toHaveStyleRule('color', PALETTE_V8.grey[700]);
   });
 
   it('applies isActive styling', () => {
     const { container } = render(<OverflowButton isActive />);
 
     expect(container.firstElementChild).toHaveStyleRule('z-index', '1');
-    expect(container.firstElementChild).toHaveStyleRule('color', PALETTE.grey[800]);
+    expect(container.firstElementChild).toHaveStyleRule('color', PALETTE_V8.grey[800]);
   });
 
   describe('onFocus', () => {

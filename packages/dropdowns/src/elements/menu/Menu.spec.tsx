@@ -14,7 +14,7 @@ import { Menu } from './Menu';
 import { ItemGroup } from './ItemGroup';
 import { Item } from './Item';
 import { Separator } from './Separator';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 
 interface TestMenuProps extends Omit<IMenuProps, 'button'> {
   button?: IMenuProps['button'];
@@ -311,7 +311,7 @@ describe('Menu', () => {
       const item = getByTestId('item');
       const icon = item.querySelector('svg')!;
 
-      expect(item).toHaveStyleRule('color', PALETTE.red[600]);
+      expect(item).toHaveStyleRule('color', PALETTE_V8.red[600]);
       expect(icon).not.toBeVisible();
     });
 

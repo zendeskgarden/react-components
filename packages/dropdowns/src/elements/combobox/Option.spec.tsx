@@ -7,7 +7,7 @@
 
 import React, { HTMLAttributes, forwardRef } from 'react';
 import { render } from 'garden-test-utils';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { IOptionProps } from '../../types';
 import { Field } from './Field';
 import { Combobox } from './Combobox';
@@ -84,7 +84,7 @@ describe('Option', () => {
     const tag = getByTestId('tag');
 
     expect(option).toHaveAttribute('aria-disabled', 'true');
-    expect(option).toHaveStyleRule('color', PALETTE.grey[400], {
+    expect(option).toHaveStyleRule('color', PALETTE_V8.grey[400], {
       modifier: '[aria-disabled="true"]'
     });
     expect(tag).not.toHaveAttribute('tabindex');
@@ -127,7 +127,7 @@ describe('Option', () => {
       const option = getByTestId('option');
 
       expect(option.firstChild).toHaveStyleRule('opacity', '1');
-      expect(option.firstChild).toHaveStyleRule('color', PALETTE.grey[600]);
+      expect(option.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[600]);
       expect(option.firstChild).toHaveStyleRule('left', '12px');
     });
 
@@ -136,7 +136,7 @@ describe('Option', () => {
       const option = getByTestId('option');
 
       expect(option.firstChild).toHaveStyleRule('opacity', '1');
-      expect(option.firstChild).toHaveStyleRule('color', PALETTE.grey[600]);
+      expect(option.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[600]);
       expect(option.firstChild).toHaveStyleRule('right', '12px');
     });
 
@@ -144,14 +144,14 @@ describe('Option', () => {
       const { getByTestId } = render(<TestOption type="add" />);
       const option = getByTestId('option');
 
-      expect(option).toHaveStyleRule('color', PALETTE.blue[600]);
+      expect(option).toHaveStyleRule('color', PALETTE_V8.blue[600]);
     });
 
     it('renders "danger" as expected', () => {
       const { getByTestId } = render(<TestOption type="danger" />);
       const option = getByTestId('option');
 
-      expect(option).toHaveStyleRule('color', PALETTE.red[600]);
+      expect(option).toHaveStyleRule('color', PALETTE_V8.red[600]);
     });
   });
 
@@ -176,7 +176,7 @@ describe('Option', () => {
       );
       const meta = getByTestId('meta');
 
-      expect(meta).toHaveStyleRule('color', PALETTE.grey[600]);
+      expect(meta).toHaveStyleRule('color', PALETTE_V8.grey[600]);
     });
   });
 });

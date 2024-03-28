@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { Tag } from './Tag';
 
 describe('Tag', () => {
@@ -48,7 +48,7 @@ describe('Tag', () => {
 
         expect(container.firstChild).toHaveStyleRule(
           'background-color',
-          (PALETTE as any)[color][600]
+          (PALETTE_V8 as any)[color][600]
         );
       });
     });
@@ -56,7 +56,7 @@ describe('Tag', () => {
     it('handles yellow hue with specialized shading', () => {
       const { container } = render(<Tag hue="yellow" />);
 
-      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.yellow[400]);
+      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE_V8.yellow[400]);
     });
   });
 });

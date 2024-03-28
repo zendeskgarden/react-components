@@ -8,7 +8,7 @@
 import React from 'react';
 import { css } from 'styled-components';
 import { render } from 'garden-test-utils';
-import { getColorV8, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { Notification } from '../Notification';
 import { Title } from './Title';
 import { StyledTitle } from '../../styled';
@@ -60,15 +60,11 @@ describe('Title', () => {
         </Notification>
       );
 
-      expect(container.firstChild).toHaveStyleRule(
-        'color',
-        getColorV8('successHue', 600, DEFAULT_THEME),
-        {
-          modifier: css`
-            ${StyledTitle}
-          ` as any
-        }
-      );
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.green[600], {
+        modifier: css`
+          ${StyledTitle}
+        ` as any
+      });
     });
 
     it('renders error styling', () => {
@@ -78,15 +74,11 @@ describe('Title', () => {
         </Notification>
       );
 
-      expect(container.firstChild).toHaveStyleRule(
-        'color',
-        getColorV8('dangerHue', 600, DEFAULT_THEME),
-        {
-          modifier: css`
-            ${StyledTitle}
-          ` as any
-        }
-      );
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.red[600], {
+        modifier: css`
+          ${StyledTitle}
+        ` as any
+      });
     });
 
     it('renders warning styling', () => {
@@ -96,15 +88,11 @@ describe('Title', () => {
         </Notification>
       );
 
-      expect(container.firstChild).toHaveStyleRule(
-        'color',
-        getColorV8('warningHue', 700, DEFAULT_THEME),
-        {
-          modifier: css`
-            ${StyledTitle}
-          ` as any
-        }
-      );
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.yellow[700], {
+        modifier: css`
+          ${StyledTitle}
+        ` as any
+      });
     });
 
     it('renders info styling', () => {
@@ -114,7 +102,7 @@ describe('Title', () => {
         </Notification>
       );
 
-      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800], {
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[800], {
         modifier: css`
           ${StyledTitle}
         ` as any

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 describe('StyledButton', () => {
@@ -16,7 +16,7 @@ describe('StyledButton', () => {
 
     expect(container.firstChild).toHaveStyleRule('padding', '20px');
     expect(container.firstChild).toHaveStyleRule('text-align', 'left');
-    expect(container.firstChild).toHaveStyleRule('color', '#2f3941');
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[800]);
     expect(container.firstChild).not.toHaveStyleRule('cursor');
   });
 
@@ -35,10 +35,7 @@ describe('StyledButton', () => {
   it('renders isHovered styling correctly', () => {
     const { container } = render(<StyledButton isHovered />);
 
-    expect(container.firstChild).toHaveStyleRule(
-      'color',
-      getColorV8('primaryHue', 600, DEFAULT_THEME)
-    );
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.blue[600]);
 
     expect(container.firstChild).toHaveStyleRule('cursor', 'pointer', {
       modifier: '&:hover'

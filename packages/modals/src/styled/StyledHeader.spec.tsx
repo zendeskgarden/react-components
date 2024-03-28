@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { render } from 'garden-test-utils';
 
 import { StyledHeader } from './StyledHeader';
@@ -15,12 +15,12 @@ describe('StyledHeader', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledHeader />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[800]);
   });
 
   it('renders danger styling if provided', () => {
     const { container } = render(<StyledHeader isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[600]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.red[600]);
   });
 });
