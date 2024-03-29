@@ -9,11 +9,10 @@ import React, { useContext } from 'react';
 
 interface IBodyContext {
   hasFooter: boolean;
+  setHasFooter: (footerPresent: boolean) => void;
 }
 
-export const BodyContext = React.createContext<IBodyContext>({
-  hasFooter: true
-});
+export const BodyContext = React.createContext<IBodyContext | undefined>(undefined);
 
 export const useBodyContext = () => {
   return useContext(BodyContext);
