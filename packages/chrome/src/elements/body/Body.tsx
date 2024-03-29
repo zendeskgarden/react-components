@@ -14,7 +14,7 @@ import { BodyContext } from '../../utils/useBodyContext';
  */
 export const Body = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
-    const [hasFooter, setHasFooter] = useState(true);
+    const [hasFooter, setHasFooter] = useState(false);
     const bodyContextValue = useMemo(
       () => ({ hasFooter, setHasFooter }),
       [hasFooter, setHasFooter]
