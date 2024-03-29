@@ -94,7 +94,7 @@ const toColor = (
     } else {
       const _colors = scale([PALETTE.white, _hue, PALETTE.black])
         .correctLightness()
-        .colors(PALETTE_SIZE + 2);
+        .colors(PALETTE_SIZE + 2); // add 2 to account for the white and black endpoints removed below
 
       _hue = _colors.reduce<Record<number, string>>((_retVal, color, index) => {
         if (index > 0 && index <= PALETTE_SIZE) {
@@ -122,7 +122,7 @@ const toProperty = (object: object, path: string) => {
   if (typeof retVal === 'string') {
     return retVal;
   } else if (retVal === undefined) {
-    throw new ReferenceError(`Error: color variable "${path}" is not defined`);
+    throw new ReferenceError(`Error: color variable '${path}' is not defined`);
   } else {
     throw new TypeError(`Error: unexpected '${typeof retVal}' type for color variable "${path}"`);
   }
@@ -175,14 +175,18 @@ export const getColor = memoize(
     let retVal;
 
     // bulletproof object references for potential non-typed usage
-    const palette = theme.palette ? theme.palette : DEFAULT_THEME.palette;
-    const { base, variables, ...colors } = theme.colors ? theme.colors : DEFAULT_THEME.colors;
+    const palette =
+      theme.palette && Object.keys(theme.palette).length > 0
+        ? theme.palette
+        : DEFAULT_THEME.palette;
+    const { base, variables, ...colors } =
+      theme.colors && Object.keys(theme.colors).length > 0 ? theme.colors : DEFAULT_THEME.colors;
     const scheme = base === 'dark' ? 'dark' : 'light';
     const mode = (scheme === 'dark' ? dark : light)!;
     let _hue = mode?.hue || hue;
-    let _shade = mode?.shade || shade;
-    const _offset = mode?.offset || offset;
-    const _transparency = mode?.transparency || transparency;
+    let _shade = mode?.shade === undefined ? shade : mode.shade;
+    const _offset = mode?.offset === undefined ? offset : mode.offset;
+    const _transparency = mode?.transparency === undefined ? transparency : mode.transparency;
 
     if (variable) {
       // variable lookup takes precedence

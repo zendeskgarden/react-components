@@ -48,7 +48,9 @@ on your system. After you clone this repo, run `npm install` to install
 dependencies needed for development. After installation, the following
 commands are available:
 
-- `npm start` to launch Storybook with live reload.
+- `npm start` to launch Storybook with live reload. Use `PACKAGE=dirname npm start`
+  (where `dirname` is a package directory name) to limit Storybook launch to the
+  given Garden package.
 - `npm test` to run Jest testing.
 - `npm run lint` to enforce consistent JavaScript, CSS, and
   markdown code conventions across all component packages. Note this is
