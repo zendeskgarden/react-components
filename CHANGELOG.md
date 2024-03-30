@@ -13,6 +13,30 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.6 (2024-03-29)
+
+#### :boom: Breaking Change
+* `chrome`
+  * [#1761](https://github.com/zendeskgarden/react-components/pull/1761) feat(chrome)!: detect Footer automatically with Context ([@geotrev](https://github.com/geotrev))
+* `accordions`, `buttons`, `dropdowns.legacy`, `dropdowns`, `forms`, `loaders`, `modals`, `notifications`, `tables`, `tags`, `theming`, `typography`
+  * [#1762](https://github.com/zendeskgarden/react-components/pull/1762) feat(theming)!: update `PALETTE` with redesigned 100-1200 shades ([@jzempel](https://github.com/jzempel))
+* `colorpickers`, `theming`
+  * [#1755](https://github.com/zendeskgarden/react-components/pull/1755) feat(theming)!: add `variables` to theme `colors` ([@jzempel](https://github.com/jzempel))
+* `accordions`, `breadcrumbs`, `chrome`, `forms`, `typography`
+  * [#1752](https://github.com/zendeskgarden/react-components/pull/1752) feat: updates icon component and prop types for cross-package consistency ([@geotrev](https://github.com/geotrev))
+
+#### :rocket: New Feature
+* `theming`
+  * [#1763](https://github.com/zendeskgarden/react-components/pull/1763) feat: add refactored `getColor` utility ([@jzempel](https://github.com/jzempel))
+* Other
+  * [#1759](https://github.com/zendeskgarden/react-components/pull/1759) feat: use strict mode as storybook default ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* Other
+  * [#1760](https://github.com/zendeskgarden/react-components/pull/1760) chore(deps): update non-major shared dependencies from main ([@geotrev](https://github.com/geotrev))
+* `.template`, `accordions`, `avatars`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `tables`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1757](https://github.com/zendeskgarden/react-components/pull/1757) chore(next): updates from `main` ([@jzempel](https://github.com/jzempel))
+
 ## v9.0.0-next.5 (2024-03-14)
 
 #### :rocket: New Feature
