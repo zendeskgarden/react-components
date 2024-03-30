@@ -7,11 +7,10 @@
 
 import DEFAULT_THEME from '../elements/theme';
 import PALETTE_V8 from '../elements/palette/v8';
+import { Hue } from '../types';
 import { darken, lighten, rgba } from 'polished';
 import { DefaultTheme } from 'styled-components';
 import memoize from 'lodash.memoize';
-
-export type Hue = Record<number | string, string> | string;
 
 export const DEFAULT_SHADE = 600;
 
@@ -27,6 +26,8 @@ const adjust = (color: string, expected: number, actual: number) => {
 };
 
 /**
+ * @deprecated Use `getColor` instead.
+ *
  * Get the palette color for the given hue, shade, and theme.
  *
  * @param {string|Object} hue A `theme.palette` hue or one of the following `theme.colors` keys:

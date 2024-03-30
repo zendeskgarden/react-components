@@ -182,6 +182,9 @@ consider additional positioning prop support on a case-by-case basis.
   scheme to custom components that are not part of the Garden framework. It is
   recommended to utilize this stopgap measure until such components can be updated
   to leverage the full capabilities of v9 `getColor`.
+- Utility function `getColor` has been refactored with a signature that supports
+  v9 light/dark modes. Replace usage with `getColorV8` until custom components can
+  be upgraded to utilize the new `getColor` function.
 - Utility function `getDocument` has been removed. Use `useDocument` instead.
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
 - The following exports have changed:
