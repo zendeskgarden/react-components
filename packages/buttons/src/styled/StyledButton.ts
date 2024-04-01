@@ -185,8 +185,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 
       /* prettier-ignore */
       &:hover ${StyledIcon},
-      &:focus-visible ${StyledIcon},
-      &[data-garden-focus-visible] ${StyledIcon} {
+      &:focus-visible ${StyledIcon} {
         color: ${props.isNeutral && getColorV8('neutralHue', shade + 100, props.theme)};
       }
 

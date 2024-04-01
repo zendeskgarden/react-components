@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, FocusEvent, forwardRef, HTMLAttributes, useMemo } from 'react';
+import React, { useState, forwardRef, HTMLAttributes, useMemo } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { useAccordionContext, useSectionContext, HeaderContext } from '../../../utils';
-import { StyledHeader, StyledRotateIcon, COMPONENT_ID as buttonGardenId } from '../../../styled';
+import { StyledHeader, StyledRotateIcon } from '../../../styled';
 
 const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { onClick, onFocus, onBlur, onMouseOver, onMouseOut, role, children, ...other } = props;
+  const { onClick, onMouseOver, onMouseOut, role, children, ...other } = props;
   const {
     level: ariaLevel,
     isCompact,
@@ -22,7 +22,6 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
     expandedSections
   } = useAccordionContext();
   const sectionValue = useSectionContext();
-  const [isFocused, setIsFocused] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const isExpanded = expandedSections.includes(sectionValue);
   /**
@@ -39,18 +38,6 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
     type: 'button',
     value: sectionValue
   });
-  const onHeaderFocus = (e: FocusEvent) => {
-    e.persist();
-
-    setTimeout(() => {
-      const isAccordionButton = e.target.getAttribute('data-garden-id') === buttonGardenId;
-      const isFocusVisible = e.target.getAttribute('data-garden-focus-visible');
-
-      if (isAccordionButton && isFocusVisible) {
-        setIsFocused(true);
-      }
-    }, 0);
-  };
 
   const value = useMemo(
     () => ({
@@ -65,14 +52,11 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
       <StyledHeader
         isCollapsible={isCollapsible}
         isExpanded={isExpanded}
-        isFocused={isFocused}
         {...(getHeaderProps({
           ref,
           'aria-level': ariaLevel,
           role: role === undefined || role === null ? role : 'heading',
           onClick: composeEventHandlers(onClick, onTriggerClick),
-          onFocus: composeEventHandlers(onFocus, onHeaderFocus),
-          onBlur: composeEventHandlers(onBlur, () => setIsFocused(false)),
           onMouseOver: composeEventHandlers(onMouseOver, () => setIsHovered(true)),
           onMouseOut: composeEventHandlers(onMouseOut, () => setIsHovered(false)),
           ...other

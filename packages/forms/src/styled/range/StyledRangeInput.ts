@@ -120,7 +120,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) =
       `
         box-shadow: ${thumbFocusBoxShadow};
       `,
-      '[data-garden-focus-visible="true"]'
+      ':focus-visible'
     )}
 
     ${thumbStyles(

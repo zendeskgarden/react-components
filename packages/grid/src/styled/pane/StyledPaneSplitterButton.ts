@@ -146,7 +146,6 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   /* stylelint-disable selector-no-qualifying-type */
   ${StyledPaneSplitter}:hover &,
   ${StyledPaneSplitter}:focus-visible &,
-  ${StyledPaneSplitter}[data-garden-focus-visible] &,
   ${SELECTOR_FOCUS_VISIBLE} {
     opacity: 1;
   }

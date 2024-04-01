@@ -137,6 +137,14 @@ consider additional positioning prop support on a case-by-case basis.
 
 - `DrawerModal`: renamed to `Drawer`
 - `TooltipModal`: removed `popperModifiers` prop (see [note](#breaking-changes))
+- Removed internal `useFocusVisible` hook for both `Modal` and `Drawer`. For
+  non-Garden modal content that still depends on the polyfill for focus styling,
+  either:
+  1. Use updated `:focus-visible` styling provided by the `focusStyles` and
+     `getFocusBoxShadow` theming utilities, or
+  1. Use
+     [@zendeskgarden/container-focusvisible](https://www.npmjs.com/package/@zendeskgarden/container-focusvisible)
+     to restore the polyfill
 - Removed `GARDEN_PLACEMENT` type export. Use `ITooltipModalProps['placement']` instead.
 - Subcomponent exports for `Modal` have been deprecated and will be removed in a future major version.
   Update to subcomponent properties (e.g., `Modal.Body`).
@@ -182,6 +190,9 @@ consider additional positioning prop support on a case-by-case basis.
   scheme to custom components that are not part of the Garden framework. It is
   recommended to utilize this stopgap measure until such components can be updated
   to leverage the full capabilities of v9 `getColor`.
+- The `focusVisibleRef` prop (and the resulting scoping `<div>`) has been
+  removed from `<ThemeProvider>`. Current browser support obviates the need for a
+  `:focus-visible` polyfill.
 - Utility function `getColor` has been refactored with a signature that supports
   v9 light/dark modes. Replace usage with `getColorV8` until custom components can
   be upgraded to utilize the new `getColor` function.

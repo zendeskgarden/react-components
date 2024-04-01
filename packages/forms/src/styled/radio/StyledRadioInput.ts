@@ -55,7 +55,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     ${focusStyles({
       theme: props.theme,
       styles: { borderColor: focusBorderColor },
-      selector: `&:focus-visible ~ ${StyledRadioLabel}::before, &[data-garden-focus-visible='true'] ~ ${StyledRadioLabel}::before`
+      selector: `&:focus-visible ~ ${StyledRadioLabel}::before`
     })}
 
     & ~ ${StyledRadioLabel}:active::before {

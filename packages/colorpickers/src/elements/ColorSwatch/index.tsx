@@ -7,7 +7,6 @@
 
 import React, {
   ChangeEventHandler,
-  FocusEvent,
   FocusEventHandler,
   InputHTMLAttributes,
   forwardRef,
@@ -19,7 +18,7 @@ import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import { useGrid } from '@zendeskgarden/container-grid';
-import { composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
+import { useId } from '@zendeskgarden/container-utilities';
 import { DEFAULT_THEME, useDocument } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import {
@@ -82,7 +81,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
             <tr key={row[0].value}>
               {row.map((color: ILabeledColor, _colIndex: number) => {
                 const { label, value } = color;
-                const { role, onFocus, ...gridCellProps } = getGridCellProps({
+                const { role, ...gridCellProps } = getGridCellProps({
                   colIndex: _colIndex,
                   rowIndex: _rowIndex
                 });
@@ -114,8 +113,6 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                 };
 
                 const handleBlur: FocusEventHandler<HTMLInputElement> = event => {
-                  event.target.parentElement?.removeAttribute('data-garden-focus-visible');
-
                   if (!(isCheckboxGroup || gridRef.current?.contains(event.relatedTarget))) {
                     /*
                      * When the ColorSwatch loses focus, reset the roving tab
@@ -136,10 +133,6 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                   }
                 };
 
-                const handleFocus = composeEventHandlers(onFocus, (event: FocusEvent) =>
-                  event.target.parentElement?.setAttribute('data-garden-focus-visible', 'true')
-                );
-
                 return (
                   <StyledCell key={value} role={role}>
                     <StyledColorSwatchLabel backgroundColor={value}>
@@ -151,7 +144,6 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                           value={value}
                           defaultChecked={defaultChecked}
                           checked={checked}
-                          onFocus={handleFocus}
                           onBlur={handleBlur}
                           onChange={handleChange}
                           {...(gridCellProps as InputHTMLAttributes<HTMLInputElement>)}

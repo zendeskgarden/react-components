@@ -7,11 +7,11 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, focusStyles } from '@zendeskgarden/react-theming';
+import { StyledButton } from './StyledButton';
 
 const COMPONENT_ID = 'accordions.header';
 
 interface IStyledHeader {
-  isFocused?: boolean;
   isExpanded?: boolean;
   isCollapsible?: boolean;
 }
@@ -33,8 +33,7 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
     focusStyles({
       theme: props.theme,
       inset: true,
-      condition: props.isFocused,
-      selector: '&:focus-within'
+      selector: `&:has(${StyledButton}:focus-visible)`
     })}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

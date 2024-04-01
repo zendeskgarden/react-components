@@ -44,7 +44,7 @@ const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>)
       styles: {
         backgroundColor: hoverColor
       },
-      selector: '&:focus-visible::before, &[data-garden-focus-visible="true"]::before'
+      selector: '&:focus-visible::before'
     })}
 
     &:active::before {
@@ -144,13 +144,11 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
     }
 
     &:focus::before,
-    &:focus-visible::before,
-    &[data-garden-focus-visible]::before {
+    &:focus-visible::before {
       ${dimensionProperty}: ${separatorSize};
     }
 
-    &:focus-visible::before,
-    &[data-garden-focus-visible]::before {
+    &:focus-visible::before {
       border-radius: ${props.theme.borderRadii.md};
     }
   `;
