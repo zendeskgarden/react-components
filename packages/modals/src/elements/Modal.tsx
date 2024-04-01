@@ -19,7 +19,6 @@ import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import { useDocument, useText } from '@zendeskgarden/react-theming';
 import { useModal } from '@zendeskgarden/container-modal';
-import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { mergeRefs } from 'react-merge-refs';
 import isWindow from 'dom-helpers/isWindow';
 import ownerDocument from 'dom-helpers/ownerDocument';
@@ -84,8 +83,6 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
         focusOnMount,
         restoreFocus
       });
-
-    useFocusVisible({ scope: modalRef, relativeDocument: environment });
 
     useEffect(() => {
       if (!environment) {

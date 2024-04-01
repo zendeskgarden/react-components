@@ -21,7 +21,6 @@ import { CSSTransition } from 'react-transition-group';
 import { ThemeContext } from 'styled-components';
 import { useModal } from '@zendeskgarden/container-modal';
 import { useDocument, useText } from '@zendeskgarden/react-theming';
-import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import activeElement from 'dom-helpers/activeElement';
 import { ModalsContext } from '../../utils/useModalContext';
 import { StyledBackdrop, StyledDrawer } from '../../styled';
@@ -52,8 +51,6 @@ const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
     const environment = useDocument(theme);
     const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
     const [hasHeader, setHasHeader] = useState<boolean>(false);
-
-    useFocusVisible({ scope: modalRef, relativeDocument: modalRef.current });
 
     const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
       useModal({
