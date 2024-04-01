@@ -5,19 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useContext,
-  useEffect,
-  forwardRef,
-  useMemo,
-  useState,
-  useRef,
-  HTMLAttributes
-} from 'react';
+import React, { useContext, useEffect, forwardRef, useMemo, useRef, HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { useSplitter } from '@zendeskgarden/container-splitter';
 import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext';
 import usePaneContext from '../../../utils/usePaneContext';
@@ -62,7 +53,6 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
     const paneContext = usePaneContext();
     const themeContext = useContext(ThemeContext);
     const environment = useDocument(themeContext);
-    const [isHovered, setIsHovered] = useState(false);
     const isRow = orientationToDimension[orientation!] === 'rows';
     const separatorRef = useRef<HTMLDivElement>(null);
 
@@ -132,14 +122,6 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
 
     const size = isRow ? separatorRef.current?.clientWidth : separatorRef.current?.clientHeight;
 
-    const onMouseOver = useMemo(
-      () =>
-        composeEventHandlers(props.onMouseOver, (event: MouseEvent) =>
-          setIsHovered(event.target === separatorRef.current)
-        ),
-      [props.onMouseOver, separatorRef]
-    );
-
     return (
       <PaneSplitterContext.Provider
         value={useMemo(
@@ -148,12 +130,10 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
         )}
       >
         <StyledPaneSplitter
-          isHovered={isHovered}
           isFixed={isFixed}
           orientation={orientation}
           {...separatorProps}
           {...props}
-          onMouseOver={onMouseOver}
           ref={mergeRefs([separatorRef, ref])}
         />
         {children /* Splitter.Button is the only valid child */}
