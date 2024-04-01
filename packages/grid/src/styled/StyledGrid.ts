@@ -7,13 +7,13 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IGridProps } from '../types';
 
 const COMPONENT_ID = 'grid.grid';
 
 const colorStyles = (props: IStyledGridProps) => {
-  const borderColor = getColor(props.theme.palette.crimson, 400, props.theme, 0.5);
+  const borderColor = getColorV8(props.theme.palette.crimson, 400, props.theme, 0.5);
   const borderWidth = math(`${props.theme.borderWidths.sm} * 2`);
 
   return css`

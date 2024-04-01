@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { PALETTE, getColorV8 } from '@zendeskgarden/react-theming';
 import { StyledTag } from './StyledTag';
 
 describe('StyledTag', () => {
@@ -84,28 +84,28 @@ describe('StyledTag', () => {
   describe('hue', () => {
     it('renders using a default neutral hue', () => {
       const { container } = render(<StyledTag />);
-      const color = getColor('neutralHue', 200);
+      const color = getColorV8('neutralHue', 200);
 
       expect(container.firstChild).toHaveStyleRule('background-color', color);
     });
 
     it('renders using a custom hue', () => {
       const { container } = render(<StyledTag hue="azure" />);
-      const color = getColor('azure', 600);
+      const color = getColorV8('azure', 600);
 
       expect(container.firstChild).toHaveStyleRule('background-color', color);
     });
 
     it('renders a dark foreground on a light background', () => {
       const { container } = render(<StyledTag hue="white" />);
-      const color = DEFAULT_THEME.colors.foreground;
+      const color = PALETTE.grey[800];
 
       expect(container.firstChild).toHaveStyleRule('color', color);
     });
 
     it('renders a light foreground on a dark background', () => {
       const { container } = render(<StyledTag hue="black" />);
-      const color = DEFAULT_THEME.colors.background;
+      const color = PALETTE.white;
 
       expect(container.firstChild).toHaveStyleRule('color', color);
     });

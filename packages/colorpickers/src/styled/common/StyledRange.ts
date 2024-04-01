@@ -8,7 +8,7 @@
 import { Range } from '@zendeskgarden/react-forms';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { math, stripUnit } from 'polished';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export interface IStyledRangeProps {
   isOpaque?: boolean;
@@ -61,16 +61,16 @@ const trackLowerStyles = (styles: string, modifier = '') => {
 };
 
 const colorStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
-  const thumbBackgroundColor = getColor('neutralHue', 100, props.theme);
+  const thumbBackgroundColor = getColorV8('neutralHue', 100, props.theme);
   const thumbBorderColor = thumbBackgroundColor;
-  const thumbActiveBackgroundColor = getColor('neutralHue', 200, props.theme);
-  const thumbActiveBorderColor = getColor('primaryHue', 600, props.theme);
-  const thumbFocusBorderColor = getColor('primaryHue', 400, props.theme);
+  const thumbActiveBackgroundColor = getColorV8('neutralHue', 200, props.theme);
+  const thumbActiveBorderColor = getColorV8('primaryHue', 600, props.theme);
+  const thumbFocusBorderColor = getColorV8('primaryHue', 400, props.theme);
   const thumbHoverBackgroundColor = thumbActiveBackgroundColor;
   const thumbHoverBorderColor = thumbHoverBackgroundColor;
 
   return `
-    border-color: ${props.isOpaque && props.theme.colors.background};
+    border-color: ${props.isOpaque && getColorV8('background', 600 /* default shade */, props.theme)};
 
     ${trackStyles(`
       background-color: transparent;

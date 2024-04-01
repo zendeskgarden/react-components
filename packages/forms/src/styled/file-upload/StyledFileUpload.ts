@@ -10,7 +10,7 @@ import { math, rgba } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   getLineHeight,
   focusStyles
 } from '@zendeskgarden/react-theming';
@@ -26,14 +26,14 @@ interface IStyledFileUploadProps {
 }
 
 const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
-  const baseColor = getColor('primaryHue', 600, props.theme);
-  const hoverColor = getColor('primaryHue', 700, props.theme);
-  const activeColor = getColor('primaryHue', 800, props.theme);
-  const disabledBackgroundColor = getColor('neutralHue', 200, props.theme);
-  const disabledForegroundColor = getColor('neutralHue', 400, props.theme);
+  const baseColor = getColorV8('primaryHue', 600, props.theme);
+  const hoverColor = getColorV8('primaryHue', 700, props.theme);
+  const activeColor = getColorV8('primaryHue', 800, props.theme);
+  const disabledBackgroundColor = getColorV8('neutralHue', 200, props.theme);
+  const disabledForegroundColor = getColorV8('neutralHue', 400, props.theme);
 
   return css`
-    border-color: ${props.isDragging ? activeColor : getColor('neutralHue', 600, props.theme)};
+    border-color: ${props.isDragging ? activeColor : getColorV8('neutralHue', 600, props.theme)};
     /* stylelint-disable-next-line color-function-notation */
     background-color: ${props.isDragging && rgba(baseColor as string, 0.2)};
     color: ${props.isDragging ? activeColor : baseColor};

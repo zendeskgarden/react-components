@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.drawer_modal';
 
@@ -17,7 +17,7 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
   const { space, shadows } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColor('neutralHue', 800, theme, 0.35);
+  const color = getColorV8('neutralHue', 800, theme, 0.35);
 
   return shadows.lg(offsetY, blurRadius, color as string);
 };
@@ -36,7 +36,7 @@ export const StyledDrawerModal = styled.div.attrs({
   flex-direction: column;
   z-index: 500;
   box-shadow: ${boxShadow};
-  background: ${props => props.theme.colors.background};
+  background: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
   width: ${DRAWER_WIDTH}px;
   height: 100%;
   overflow: auto;

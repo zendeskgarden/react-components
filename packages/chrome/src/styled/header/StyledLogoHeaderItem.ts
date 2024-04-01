@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import {
   retrieveComponentStyles,
-  getColor,
+  getColorV8,
   PALETTE,
   DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
@@ -59,13 +59,13 @@ export const StyledLogoHeaderItem = styled(StyledBaseHeaderItem).attrs({
   margin-left: ${props => (props.theme.rtl ? 'auto' : `-${props.theme.space.base}px`)};
   /* stylelint-disable-next-line property-no-unknown */
   border-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-    `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
+    `${props.theme.borders.sm} ${getColorV8('neutralHue', 300, props.theme)}`};
   border-radius: 0;
   padding: 0;
   width: ${props => getNavWidth(props)};
   height: 100%;
   overflow: hidden;
-  fill: ${props => getColor('chromeHue', 700, props.theme)};
+  fill: ${props => getColorV8('chromeHue', 700, props.theme)};
   text-decoration: none; /* [1] */
   color: ${props => retrieveProductColor(props)}; /* [1] */
 

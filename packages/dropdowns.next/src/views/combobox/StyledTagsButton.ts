@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledValue } from './StyledValue';
 
 const COMPONENT_ID = 'dropdowns.combobox.tags_button';
@@ -16,7 +16,7 @@ interface IStyledTagsButtonProps extends ThemeProps<DefaultTheme> {
 }
 
 const colorStyles = (props: IStyledTagsButtonProps) => {
-  const color = getColor('primaryHue', 600, props.theme);
+  const color = getColorV8('primaryHue', 600, props.theme);
 
   return css`
     color: ${color};

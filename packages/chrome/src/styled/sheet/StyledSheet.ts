@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ISheetProps } from '../../types';
 
 const COMPONENT_ID = 'chrome.sheet';
@@ -23,7 +23,7 @@ const borderStyle = ({
   placement,
   isOpen
 }: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
-  const borderColor = isOpen ? getColor('neutralHue', 300, theme) : 'transparent';
+  const borderColor = isOpen ? getColorV8('neutralHue', 300, theme) : 'transparent';
   const borderSides = ['-left', '-right'];
   let borderSide = '';
 
@@ -47,7 +47,7 @@ export const StyledSheet = styled.aside.attrs({
   display: flex;
   order: 1;
   transition: ${props => props.isAnimated && 'width 250ms ease-in-out'};
-  background-color: ${props => props.theme.colors.background};
+  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
   width: ${props => (props.isOpen ? props.size : '0px')};
   height: 100%;
   overflow: hidden;

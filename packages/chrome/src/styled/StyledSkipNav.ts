@@ -10,7 +10,7 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   getLineHeight,
   focusStyles,
   SELECTOR_FOCUS_VISIBLE
@@ -43,18 +43,18 @@ const animationStyles = () => {
 };
 
 const colorStyles = (theme: DefaultTheme) => {
-  const color = getColor('primaryHue', 600, theme);
-  const borderColor = getColor('neutralHue', 300, theme);
+  const color = getColorV8('primaryHue', 600, theme);
+  const borderColor = getColorV8('neutralHue', 300, theme);
   const boxShadow = theme.shadows.lg(
     `${theme.space.base * 5}px`,
     `${theme.space.base * 7}px`,
-    getColor('chromeHue', 600, theme, 0.15) as string
+    getColorV8('chromeHue', 600, theme, 0.15) as string
   );
 
   return css`
     border-color: ${borderColor};
     box-shadow: ${boxShadow};
-    background-color: ${theme.colors.background};
+    background-color: ${getColorV8('background', 600 /* default shade */, theme)};
     color: ${color};
 
     &:hover,

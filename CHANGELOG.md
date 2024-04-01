@@ -12,6 +12,20 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.75.0 (2024-03-28)
+
+#### :rocket: New Feature
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1754](https://github.com/zendeskgarden/react-components/pull/1754) feat: adds an internal `getColorV8` utility ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1758](https://github.com/zendeskgarden/react-components/pull/1758) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1753](https://github.com/zendeskgarden/react-components/pull/1753) chore(deps-dev): bump webpack-dev-middleware from 6.1.1 to 6.1.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1751](https://github.com/zendeskgarden/react-components/pull/1751) chore(deps): bump follow-redirects ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `.template`, `accordions`, `avatars`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `tables`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1756](https://github.com/zendeskgarden/react-components/pull/1756) chore: remove all `colors.background` and `colors.foreground` theme object references ([@jzempel](https://github.com/jzempel))
+
 ## v8.74.3 (2024-03-07)
 
 #### :bug: Bug Fix

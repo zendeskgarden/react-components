@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   mediaQuery,
   retrieveComponentStyles,
   DEFAULT_THEME
@@ -52,7 +52,7 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
   const { space, shadows } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColor('neutralHue', 800, theme, 0.35);
+  const color = getColorV8('neutralHue', 800, theme, 0.35);
 
   return shadows.lg(offsetY, blurRadius, color as string);
 };
@@ -79,7 +79,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   margin: ${props => (props.isCentered ? '0' : `${props.theme.space.base * 12}px`)};
   border-radius: ${props => props.theme.borderRadii.md};
   box-shadow: ${boxShadow};
-  background-color: ${props => props.theme.colors.background};
+  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
   min-height: 60px;
   max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
   overflow: auto;

@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledLogoHeaderItem } from './StyledLogoHeaderItem';
 import { getNavItemHeight } from '../nav/StyledBaseNavItem';
 
@@ -30,14 +30,14 @@ export const StyledHeader = styled.header.attrs<IStyledHeaderProps>({
   justify-content: flex-end;
   box-sizing: border-box;
   border-bottom: ${props =>
-    `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
+    `${props.theme.borders.sm} ${getColorV8('neutralHue', 300, props.theme)}`};
   box-shadow: ${props =>
     props.isStandalone &&
-    props.theme.shadows.lg('0', '10px', getColor('chromeHue', 600, props.theme, 0.15)!)};
-  background-color: ${props => props.theme.colors.background};
+    props.theme.shadows.lg('0', '10px', getColorV8('chromeHue', 600, props.theme, 0.15)!)};
+  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
   padding: 0 ${props => props.theme.space.base}px;
   height: ${getHeaderHeight};
-  color: ${props => getColor('neutralHue', 600, props.theme)};
+  color: ${props => getColorV8('neutralHue', 600, props.theme)};
   font-size: ${props => props.theme.fontSizes.md};
 
   ${props =>

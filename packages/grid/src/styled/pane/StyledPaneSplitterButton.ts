@@ -10,7 +10,7 @@ import { math, stripUnit } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   focusStyles,
   SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
@@ -53,7 +53,7 @@ const colorStyles = ({ theme }: IStyledSplitterButtonProps & ThemeProps<DefaultT
   const boxShadow = theme.shadows.lg(
     `${theme.space.base}px`,
     `${theme.space.base * 2}px`,
-    getColor('chromeHue', 600, theme, 0.15)!
+    getColorV8('chromeHue', 600, theme, 0.15)!
   );
 
   return css`
@@ -155,7 +155,7 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   &::before {
     position: absolute;
     z-index: -1;
-    background-color: ${props => props.theme.colors.background};
+    background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
     width: 100%;
     height: 100%;
     content: '';

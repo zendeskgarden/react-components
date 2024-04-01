@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import {
   getLineHeight,
-  getColor,
+  getColorV8,
   retrieveComponentStyles,
   DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
@@ -33,7 +33,7 @@ export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
   display: block;
   position: ${props => props.isDanger && 'relative'};
   margin: 0;
-  border-bottom: ${props => props.theme.borders.sm} ${getColor('neutralHue', 200)};
+  border-bottom: ${props => props.theme.borders.sm} ${getColorV8('neutralHue', 200)};
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`};
   ${props =>
     props.isCloseButtonPresent &&
@@ -42,7 +42,9 @@ export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
     }px;`} /* [1] */
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
   color: ${props =>
-    props.isDanger ? getColor('dangerHue', 600, props.theme) : props.theme.colors.foreground};
+    props.isDanger
+      ? getColorV8('dangerHue', 600, props.theme)
+      : getColorV8('foreground', 600 /* default shade */, props.theme)};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
 

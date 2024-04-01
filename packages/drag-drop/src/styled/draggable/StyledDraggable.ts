@@ -10,7 +10,7 @@ import { rgba } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   IGardenTheme,
   getLineHeight,
   focusStyles
@@ -32,7 +32,7 @@ export function getDragShadow(theme: IGardenTheme) {
   const { space, shadows } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColor('neutralHue', 600, theme, 0.35) as string;
+  const color = getColorV8('neutralHue', 600, theme, 0.35) as string;
 
   return shadows.lg(offsetY, blurRadius, color);
 }
@@ -40,10 +40,10 @@ export function getDragShadow(theme: IGardenTheme) {
 const colorStyles = (props: IStyledDraggableProps) => {
   const { isBare, isGrabbed, isDisabled, isPlaceholder, focusInset, theme } = props;
 
-  const baseColor = getColor('primaryHue', 600, theme);
+  const baseColor = getColorV8('primaryHue', 600, theme);
   const dragShadow = getDragShadow(theme);
-  const baseBgColor = theme.colors.background;
-  const disabledColor = getColor('neutralHue', 400, theme);
+  const baseBgColor = getColorV8('background', 600 /* default shade */, theme);
+  const disabledColor = getColorV8('neutralHue', 400, theme);
 
   let color;
   let hoverBackgroundColor;
@@ -52,13 +52,13 @@ const colorStyles = (props: IStyledDraggableProps) => {
   let backgroundColor = baseBgColor;
 
   if (isDisabled) {
-    backgroundColor = getColor('neutralHue', 200, theme)!;
+    backgroundColor = getColorV8('neutralHue', 200, theme)!;
     color = disabledColor;
   } else if (isPlaceholder) {
-    backgroundColor = getColor('neutralHue', 800, theme, 0.1)!;
+    backgroundColor = getColorV8('neutralHue', 800, theme, 0.1)!;
   } else {
-    color = theme.colors.foreground;
-    borderColor = isBare ? 'transparent' : (getColor('neutralHue', 300, theme) as string);
+    color = getColorV8('foreground', 600 /* default shade */, theme);
+    borderColor = isBare ? 'transparent' : (getColorV8('neutralHue', 300, theme) as string);
     hoverBackgroundColor = isGrabbed ? baseBgColor : rgba(baseColor as string, 0.08);
     boxShadow = dragShadow;
   }

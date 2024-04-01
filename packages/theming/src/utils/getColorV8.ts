@@ -39,7 +39,7 @@ const adjust = (color: string, expected: number, actual: number) => {
  * @param {Object} theme Context `theme` object.
  * @param {Number} [transparency] An alpha-channel value between 0 and 1.
  */
-export const getColor = memoize(
+export const getColorV8 = memoize(
   (hue: Hue, shade: number = DEFAULT_SHADE, theme?: DefaultTheme, transparency?: number) => {
     let retVal;
 

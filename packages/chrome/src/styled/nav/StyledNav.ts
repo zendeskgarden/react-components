@@ -6,13 +6,13 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav';
 
 const colorStyles = (props: IStyledNavProps) => {
   const shade = props.isDark || props.isLight ? 600 : 700;
-  const backgroundColor = getColor(props.hue, shade, props.theme);
+  const backgroundColor = getColorV8(props.hue, shade, props.theme);
   const foregroundColor = props.isLight ? props.theme.palette.black : props.theme.palette.white;
 
   return css`

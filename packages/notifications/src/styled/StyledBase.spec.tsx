@@ -29,7 +29,7 @@ describe('StyledBase', () => {
 
     expect(container.firstChild).toHaveStyleRule('color', palette[colors.neutralHue][800]);
     expect(container.firstChild).toHaveStyleRule('border-color', palette[colors.neutralHue][300]);
-    expect(container.firstChild).toHaveStyleRule('background-color', colors.background);
+    expect(container.firstChild).toHaveStyleRule('background-color', palette.white as string);
   });
 
   it('renders floating styling correctly', () => {

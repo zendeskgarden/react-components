@@ -8,7 +8,7 @@
 import { getFocusBoxShadow } from './getFocusBoxShadow';
 import DEFAULT_THEME from '../elements/theme';
 import PALETTE from '../elements/palette';
-import { getColor } from './getColor';
+import { getColorV8 } from './getColorV8';
 
 describe('getFocusBoxShadow', () => {
   it('defaults as expected', () => {
@@ -41,7 +41,7 @@ describe('getFocusBoxShadow', () => {
     const boxShadow = getFocusBoxShadow({ theme: DEFAULT_THEME, hue, shade });
 
     expect(boxShadow).toContain(
-      `${DEFAULT_THEME.shadowWidths.md} ${getColor(hue, shade, DEFAULT_THEME)}`
+      `${DEFAULT_THEME.shadowWidths.md} ${getColorV8(hue, shade, DEFAULT_THEME)}`
     );
   });
 
@@ -55,7 +55,7 @@ describe('getFocusBoxShadow', () => {
     });
 
     expect(boxShadow).toContain(
-      `${DEFAULT_THEME.shadowWidths.xs} ${getColor(spacerHue, spacerShade, DEFAULT_THEME)}`
+      `${DEFAULT_THEME.shadowWidths.xs} ${getColorV8(spacerHue, spacerShade, DEFAULT_THEME)}`
     );
   });
 

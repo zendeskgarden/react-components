@@ -6,15 +6,15 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColorV8, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.codeblock';
 
 const colorStyles = (props: IStyledCodeBlockProps & ThemeProps<DefaultTheme>) => {
-  const backgroundColor = getColor('neutralHue', props.isLight ? 100 : 1000, props.theme);
+  const backgroundColor = getColorV8('neutralHue', props.isLight ? 100 : 1000, props.theme);
   const foregroundColor = props.isLight
-    ? props.theme.colors.foreground
-    : getColor('neutralHue', 300, props.theme);
+    ? getColorV8('foreground', 600 /* default shade */, props.theme)
+    : getColorV8('neutralHue', 300, props.theme);
 
   return css`
     background-color: ${backgroundColor};

@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { INotificationProps, TYPE } from '../types';
 import { StyledTitle } from './content/StyledTitle';
 import { StyledBase } from './StyledBase';
@@ -17,22 +17,22 @@ const COMPONENT_ID = 'notifications.notification';
 const colorStyles = (props: INotificationProps & ThemeProps<DefaultTheme>) => {
   const { type, theme } = props;
   const { colors } = theme;
-  const { successHue, dangerHue, warningHue, foreground } = colors;
+  const { successHue, dangerHue, warningHue } = colors;
 
   let color;
 
   switch (type) {
     case 'success':
-      color = getColor(successHue, 600, theme);
+      color = getColorV8(successHue, 600, theme);
       break;
     case 'error':
-      color = getColor(dangerHue, 600, theme);
+      color = getColorV8(dangerHue, 600, theme);
       break;
     case 'warning':
-      color = getColor(warningHue, 700, theme);
+      color = getColorV8(warningHue, 700, theme);
       break;
     case 'info':
-      color = foreground;
+      color = getColorV8('foreground', 600 /* default shade */, theme);
       break;
     default:
       color = 'inherit';

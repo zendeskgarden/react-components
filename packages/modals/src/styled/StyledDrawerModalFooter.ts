@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.drawer_modal.footer';
 
@@ -17,7 +17,7 @@ export const StyledDrawerModalFooter = styled.div.attrs({
   display: flex;
   flex-shrink: 0;
   justify-content: flex-end;
-  border-top: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 200, props.theme)}`};
+  border-top: ${props => `${props.theme.borders.sm} ${getColorV8('neutralHue', 200, props.theme)}`};
   padding: ${props => props.theme.space.base * 5}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

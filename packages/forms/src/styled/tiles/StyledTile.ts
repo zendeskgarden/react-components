@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   DEFAULT_THEME,
   retrieveComponentStyles,
   focusStyles
@@ -25,29 +25,29 @@ interface IStyledTileProps {
 const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
 
-  const iconColor = getColor('neutralHue', SHADE, props.theme);
-  const color = getColor('neutralHue', SHADE + 200, props.theme);
-  const borderColor = getColor('neutralHue', SHADE - 300, props.theme);
-  const hoverBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.08);
-  const hoverBorderColor = getColor('primaryHue', SHADE, props.theme);
+  const iconColor = getColorV8('neutralHue', SHADE, props.theme);
+  const color = getColorV8('neutralHue', SHADE + 200, props.theme);
+  const borderColor = getColorV8('neutralHue', SHADE - 300, props.theme);
+  const hoverBackgroundColor = getColorV8('primaryHue', SHADE, props.theme, 0.08);
+  const hoverBorderColor = getColorV8('primaryHue', SHADE, props.theme);
   const focusBorderColor = hoverBorderColor;
-  const activeBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.2);
+  const activeBackgroundColor = getColorV8('primaryHue', SHADE, props.theme, 0.2);
   const activeBorderColor = focusBorderColor;
-  const disabledBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);
-  const disabledBorderColor = getColor('neutralHue', SHADE - 400, props.theme);
-  const disabledColor = getColor('neutralHue', SHADE - 200, props.theme);
+  const disabledBackgroundColor = getColorV8('neutralHue', SHADE - 500, props.theme);
+  const disabledBorderColor = getColorV8('neutralHue', SHADE - 400, props.theme);
+  const disabledColor = getColorV8('neutralHue', SHADE - 200, props.theme);
   const selectedBorderColor = focusBorderColor;
   const selectedBackgroundColor = selectedBorderColor;
-  const selectedHoverBorderColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const selectedHoverBorderColor = getColorV8('primaryHue', SHADE + 100, props.theme);
   const selectedHoverBackgroundColor = selectedHoverBorderColor;
-  const selectedActiveBorderColor = getColor('primaryHue', SHADE + 200, props.theme);
+  const selectedActiveBorderColor = getColorV8('primaryHue', SHADE + 200, props.theme);
   const selectedActiveBackgroundColor = selectedActiveBorderColor;
   const selectedDisabledBackgroundColor = disabledBorderColor;
 
   return css`
-    border: ${props.theme.borders.sm} ${getColor('neutralHue', SHADE - 300, props.theme)};
+    border: ${props.theme.borders.sm} ${getColorV8('neutralHue', SHADE - 300, props.theme)};
     border-color: ${borderColor};
-    background-color: ${props.theme.colors.background};
+    background-color: ${getColorV8('background', 600 /* default shade */, props.theme)};
     color: ${color};
 
     ${StyledTileIcon} {
@@ -86,10 +86,10 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
     &[data-garden-selected='true'] {
       border-color: ${selectedBorderColor};
       background-color: ${selectedBackgroundColor};
-      color: ${props.theme.colors.background};
+      color: ${getColorV8('background', 600 /* default shade */, props.theme)};
 
       ${StyledTileIcon} {
-        color: ${props.theme.colors.background};
+        color: ${getColorV8('background', 600 /* default shade */, props.theme)};
       }
     }
 
@@ -97,20 +97,20 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
     &[data-garden-selected='true']:not([aria-disabled='true']):hover {
       border-color: ${selectedHoverBorderColor};
       background-color: ${selectedHoverBackgroundColor};
-      color: ${props.theme.colors.background};
+      color: ${getColorV8('background', 600 /* default shade */, props.theme)};
 
       ${StyledTileIcon} {
-        color: ${props.theme.colors.background};
+        color: ${getColorV8('background', 600 /* default shade */, props.theme)};
       }
     }
 
     &[data-garden-selected='true']:not([aria-disabled='true']):active {
       border-color: ${selectedActiveBorderColor};
       background-color: ${selectedActiveBackgroundColor};
-      color: ${props.theme.colors.background};
+      color: ${getColorV8('background', 600 /* default shade */, props.theme)};
 
       ${StyledTileIcon} {
-        color: ${props.theme.colors.background};
+        color: ${getColorV8('background', 600 /* default shade */, props.theme)};
       }
     }
     /* stylelint-enable selector-max-specificity */

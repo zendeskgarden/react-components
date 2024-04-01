@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import { StyledHeaderRow } from './StyledHeaderRow';
 
 const COMPONENT_ID = 'tables.head';
@@ -20,14 +20,14 @@ interface IStyledHeadProps {
  * 2. Replace header row border with a box-shadow that maintains position
  */
 const stickyStyles = (props: ThemeProps<DefaultTheme>) => {
-  const borderColor = getColor('neutralHue', 300, props.theme);
+  const borderColor = getColorV8('neutralHue', 300, props.theme);
 
   return css`
     position: sticky;
     top: 0;
     z-index: 1; /* [1] */
     box-shadow: inset 0 -${props.theme.borderWidths.sm} 0 ${borderColor}; /* [2] */
-    background-color: ${props.theme.colors.background};
+    background-color: ${getColorV8('background', 600 /* default shade */, props.theme)};
 
     & > ${StyledHeaderRow}:last-child {
       border-bottom-color: transparent; /* [2] */

@@ -11,7 +11,7 @@ import {
   DEFAULT_THEME,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
-  getColor,
+  getColorV8,
   getFocusBoxShadow,
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
@@ -30,7 +30,7 @@ const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
 };
 
 const getDisabledBackgroundColor = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  return getColor('neutralHue', 200, props.theme);
+  return getColorV8('neutralHue', 200, props.theme);
 };
 
 export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
@@ -65,12 +65,12 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   }
 
   const shade = 600;
-  const baseColor = getColor(hue, shade, props.theme);
-  const hoverColor = getColor(hue, shade + 100, props.theme);
-  const activeColor = getColor(hue, shade + 200, props.theme);
-  const focusColor = getColor('primaryHue', shade, props.theme);
+  const baseColor = getColorV8(hue, shade, props.theme);
+  const hoverColor = getColorV8(hue, shade + 100, props.theme);
+  const activeColor = getColorV8(hue, shade + 200, props.theme);
+  const focusColor = getColorV8('primaryHue', shade, props.theme);
   const disabledBackgroundColor = getDisabledBackgroundColor(props);
-  const disabledForegroundColor = getColor(hue, shade - 200, props.theme);
+  const disabledForegroundColor = getColorV8(hue, shade - 200, props.theme);
 
   if (props.isLink) {
     retVal = css`
@@ -143,8 +143,10 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
     `;
   } else {
     const borderColor =
-      props.isNeutral && !props.isDanger ? getColor('neutralHue', 300, props.theme) : baseColor;
-    const foregroundColor = props.isNeutral ? props.theme.colors.foreground : baseColor;
+      props.isNeutral && !props.isDanger ? getColorV8('neutralHue', 300, props.theme) : baseColor;
+    const foregroundColor = props.isNeutral
+      ? getColorV8('foreground', 600 /* default shade */, props.theme)
+      : baseColor;
     const hoverBorderColor = props.isNeutral && !props.isDanger ? baseColor : hoverColor;
     const hoverForegroundColor = props.isNeutral ? foregroundColor : hoverColor;
 
@@ -181,14 +183,14 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
       }
 
       & ${StyledIcon} {
-        color: ${props.isNeutral && getColor('neutralHue', shade, props.theme)};
+        color: ${props.isNeutral && getColorV8('neutralHue', shade, props.theme)};
       }
 
       /* prettier-ignore */
       &:hover ${StyledIcon},
       &:focus-visible ${StyledIcon},
       &[data-garden-focus-visible] ${StyledIcon} {
-        color: ${props.isNeutral && getColor('neutralHue', shade + 100, props.theme)};
+        color: ${props.isNeutral && getColorV8('neutralHue', shade + 100, props.theme)};
       }
 
       &:active ${StyledIcon} {
@@ -218,7 +220,7 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   const iconMarginDisplacement = isPill && '-2px';
   const disabledBackgroundColor = !isPrimary && getDisabledBackgroundColor(props);
   const borderColor = isBasic ? 'transparent' : 'revert';
-  const focusColor = getColor('primaryHue', 600, theme);
+  const focusColor = getColorV8('primaryHue', 600, theme);
   const focusBoxShadow =
     isBasic &&
     !isSelected &&

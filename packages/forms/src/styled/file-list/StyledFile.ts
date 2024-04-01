@@ -9,7 +9,7 @@ import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
+  getColorV8,
   getLineHeight,
   focusStyles
 } from '@zendeskgarden/react-theming';
@@ -24,17 +24,17 @@ const colorStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
   let foregroundColor;
 
   if (props.validation === 'success') {
-    borderColor = getColor('successHue', 600, props.theme);
+    borderColor = getColorV8('successHue', 600, props.theme);
     focusBorderColor = borderColor;
     foregroundColor = borderColor;
   } else if (props.validation === 'error') {
-    borderColor = getColor('dangerHue', 600, props.theme);
+    borderColor = getColorV8('dangerHue', 600, props.theme);
     focusBorderColor = borderColor;
     foregroundColor = borderColor;
   } else {
-    borderColor = getColor('neutralHue', 300, props.theme);
-    focusBorderColor = getColor('primaryHue', 600, props.theme);
-    foregroundColor = props.theme.colors.foreground;
+    borderColor = getColorV8('neutralHue', 300, props.theme);
+    focusBorderColor = getColorV8('primaryHue', 600, props.theme);
+    foregroundColor = getColorV8('foreground', 600 /* default shade */, props.theme);
   }
 
   return css`

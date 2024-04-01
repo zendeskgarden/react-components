@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledIcon } from './StyledIcon';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
 
 describe('StyledCheckIcon', () => {
@@ -19,7 +19,7 @@ describe('StyledCheckIcon', () => {
       </StyledIcon>
     );
 
-    expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.background);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.white);
   });
 
   it('renders a dark check icon on a light background', () => {

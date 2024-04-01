@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColor,
+  getColorV8,
   getLineHeight,
   retrieveComponentStyles,
   DEFAULT_THEME
@@ -49,9 +49,11 @@ const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
 const colorStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
   return css`
     background: ${props.isActive
-      ? getColor('neutralHue', 600, props.theme)
-      : getColor('neutralHue', 200, props.theme)};
-    color: ${props.isActive ? props.theme.colors.background : props.theme.colors.foreground};
+      ? getColorV8('neutralHue', 600, props.theme)
+      : getColorV8('neutralHue', 200, props.theme)};
+    color: ${props.isActive
+      ? getColorV8('background', 600 /* default shade */, props.theme)
+      : getColorV8('foreground', 600 /* default shade */, props.theme)};
   `;
 };
 

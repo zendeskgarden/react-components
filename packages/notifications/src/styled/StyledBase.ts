@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, getLineHeight, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, getLineHeight, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Type } from '../types';
 
 export interface IStyledBaseProps {
@@ -20,7 +20,7 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
   const { space, shadows } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColor('chromeHue', 600, theme, 0.15);
+  const color = getColorV8('chromeHue', 600, theme, 0.15);
 
   return shadows.lg(offsetY, blurRadius, color as string);
 };
@@ -31,13 +31,13 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledBaseProps) => {
   let foregroundColor;
 
   if (props.hue) {
-    backgroundColor = getColor(props.hue, 100, props.theme);
-    borderColor = getColor(props.hue, 300, props.theme);
-    foregroundColor = getColor(props.hue, props.type === 'info' ? 600 : 700, props.theme);
+    backgroundColor = getColorV8(props.hue, 100, props.theme);
+    borderColor = getColorV8(props.hue, 300, props.theme);
+    foregroundColor = getColorV8(props.hue, props.type === 'info' ? 600 : 700, props.theme);
   } else {
-    backgroundColor = props.theme.colors.background;
-    borderColor = getColor('neutralHue', 300, props.theme);
-    foregroundColor = getColor('neutralHue', 800, props.theme);
+    backgroundColor = getColorV8('background', 600 /* default shade */, props.theme);
+    borderColor = getColorV8('neutralHue', 300, props.theme);
+    foregroundColor = getColorV8('neutralHue', 800, props.theme);
   }
 
   return css`

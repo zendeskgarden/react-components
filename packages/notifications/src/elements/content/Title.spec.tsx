@@ -8,7 +8,7 @@
 import React from 'react';
 import { css } from 'styled-components';
 import { render } from 'garden-test-utils';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { Notification } from '../Notification';
 import { Title } from './Title';
 import { StyledTitle } from '../../styled';
@@ -62,7 +62,7 @@ describe('Title', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'color',
-        getColor('successHue', 600, DEFAULT_THEME),
+        getColorV8('successHue', 600, DEFAULT_THEME),
         {
           modifier: css`
             ${StyledTitle}
@@ -80,7 +80,7 @@ describe('Title', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'color',
-        getColor('dangerHue', 600, DEFAULT_THEME),
+        getColorV8('dangerHue', 600, DEFAULT_THEME),
         {
           modifier: css`
             ${StyledTitle}
@@ -98,7 +98,7 @@ describe('Title', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'color',
-        getColor('warningHue', 700, DEFAULT_THEME),
+        getColorV8('warningHue', 700, DEFAULT_THEME),
         {
           modifier: css`
             ${StyledTitle}
@@ -114,7 +114,7 @@ describe('Title', () => {
         </Notification>
       );
 
-      expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground, {
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800], {
         modifier: css`
           ${StyledTitle}
         ` as any
