@@ -163,11 +163,4 @@ export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenT
    * for details.
    */
   theme?: IGardenTheme | ((theme: IGardenTheme) => IGardenTheme);
-  /**
-   * Provides a reference to the DOM node used to scope a `:focus-visible`
-   * polyfill. If left `undefined`, a scoping `<div>` will be rendered.
-   * Assigning `null` (on a nested `ThemeProvider`, for example) prevents the
-   * added polyfill and scoping `<div>`.
-   */
-  focusVisibleRef?: React.RefObject<HTMLElement> | null;
 }

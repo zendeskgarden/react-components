@@ -182,6 +182,9 @@ consider additional positioning prop support on a case-by-case basis.
   scheme to custom components that are not part of the Garden framework. It is
   recommended to utilize this stopgap measure until such components can be updated
   to leverage the full capabilities of v9 `getColor`.
+- The `focusVisibleRef` prop (and the resulting scoping `<div>`) has been
+  removed from `<ThemeProvider>`. Current browser support obviates the need for a
+  `:focus-visible` polyfill.
 - Utility function `getColor` has been refactored with a signature that supports
   v9 light/dark modes. Replace usage with `getColorV8` until custom components can
   be upgraded to utilize the new `getColor` function.
