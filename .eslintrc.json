@@ -14,7 +14,7 @@
     {
       "files": ["*.mjs"],
       "rules": {
-        "node/no-unsupported-features/node-builtins": ["error", { "version": ">=18.0.0" }]
+        "n/no-unsupported-features/node-builtins": ["error", { "version": ">=18.0.0" }]
       }
     },
     {
