@@ -55,8 +55,7 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem as 'button').attrs({
       inset: props.maxY
     })}
 
-  &:focus-visible:active,
-  &[data-garden-focus-visible]:active {
+  &:focus-visible:active {
     box-shadow: none;
   }
 

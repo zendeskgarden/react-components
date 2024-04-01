@@ -98,7 +98,7 @@ const colorStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
         background-color: ${thumbBackgroundColor};
         border-color: ${thumbFocusBorderColor};
       `,
-      '[data-garden-focus-visible="true"]'
+      ':focus-visible'
     )}
 
     ${thumbStyles(

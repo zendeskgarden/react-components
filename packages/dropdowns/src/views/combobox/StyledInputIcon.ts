@@ -33,8 +33,7 @@ const colorStyles = (props: IStyledInputIconProps) => {
     /* stylelint-disable selector-no-qualifying-type */
     ${StyledTrigger}:hover &,
     ${StyledTrigger}:focus-within &,
-    ${StyledTrigger}:focus &,
-    ${StyledTrigger}[data-garden-focus-visible='true'] & {
+    ${StyledTrigger}:focus & {
       color: ${focusColor};
     }
     /* stylelint-enable selector-no-qualifying-type */

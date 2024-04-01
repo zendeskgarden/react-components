@@ -43,8 +43,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     })}
 
     &:active,
-    &:focus-visible:active,
-    &[data-garden-focus-visible]:active {
+    &:focus-visible:active {
       background-color: ${activeBackgroundColor};
       color: ${activeForegroundColor};
     }

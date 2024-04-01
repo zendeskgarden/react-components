@@ -9,7 +9,7 @@ import { css, CSSObject } from 'styled-components';
 import { math } from 'polished';
 import { FocusBoxShadowParameters, getFocusBoxShadow } from './getFocusBoxShadow';
 
-export const SELECTOR_FOCUS_VISIBLE = '&:focus-visible, &[data-garden-focus-visible="true"]';
+export const SELECTOR_FOCUS_VISIBLE = '&:focus-visible';
 
 type FocusStylesParameters = FocusBoxShadowParameters & {
   condition?: boolean;
@@ -38,8 +38,7 @@ type FocusStylesParameters = FocusBoxShadowParameters & {
  *   outline: none;
  * }
  *
- * :focus-visible,
- * [data-garden-focus-visible='true'] {
+ * :focus-visible {
  *   box-shadow: 0 0 0 {1px} #fff,
  *               0 0 0 {3px} {blue};
  *   outline: {2px} solid transparent;

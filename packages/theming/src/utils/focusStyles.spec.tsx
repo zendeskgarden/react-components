@@ -39,9 +39,6 @@ describe('focusStyles', () => {
     expect(container.firstChild).toHaveStyleRule('box-shadow', expect.stringContaining(expected), {
       modifier: '&:focus-visible'
     });
-    expect(container.firstChild).toHaveStyleRule('box-shadow', expect.stringContaining(expected), {
-      modifier: "&[data-garden-focus-visible='true']"
-    });
     expect(container.firstChild).toHaveStyleRule(
       'outline',
       expect.stringContaining('2px solid transparent'),
