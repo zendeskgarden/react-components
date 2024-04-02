@@ -176,7 +176,7 @@ export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'val
   /** Determines the option type */
   type?: OptionType;
   /** Sets the unique value that is returned upon selection */
-  value: string | object;
+  value: string;
 }
 
 export interface IOptGroupProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'content'> {

@@ -13,13 +13,12 @@ import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { ITagProps } from '../../types';
 import useComboboxContext from '../../context/useComboboxContext';
 import { StyledTag } from '../../views';
-import { toString } from './utils';
 import { TagAvatar } from './TagAvatar';
 
 const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
   ({ children, option, removeLabel, tooltipZIndex, ...props }, ref) => {
     const { getTagProps, isCompact, removeSelection } = useComboboxContext();
-    const text = option.label || toString(option);
+    const text = option.label || option.value;
     const ariaLabel = useText(
       /* eslint-disable-next-line @typescript-eslint/no-use-before-define */
       Tag,
