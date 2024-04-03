@@ -74,7 +74,7 @@ export default [
         babelrc: false,
         exclude: 'node_modules/**', // only transpile our source code
         ...babelOptions,
-        extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
+        extensions: ['.tsx', '.ts', ...DEFAULT_EXTENSIONS]
       }),
       /**
        * Replace PACKAGE_VERSION constant with the current package version
