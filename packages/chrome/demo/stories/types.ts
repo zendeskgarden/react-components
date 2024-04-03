@@ -25,7 +25,6 @@ export interface IHeaderItem {
 export interface INavItem {
   text: string;
   hasSubNav?: boolean;
-  hasSidebar?: boolean;
 }
 
 export interface ISubNavItem {

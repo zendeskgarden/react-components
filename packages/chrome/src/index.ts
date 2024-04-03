@@ -22,7 +22,6 @@ export { SkipNav } from './elements/SkipNav';
 export { Body } from './elements/body/Body';
 export { Content } from './elements/body/Content';
 export { Main } from './elements/body/Main';
-export { Sidebar } from './elements/body/Sidebar';
 export { Header } from './elements/header/Header';
 export { Footer } from './elements/footer/Footer';
 export { Nav } from './elements/nav/Nav';
