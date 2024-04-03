@@ -99,8 +99,18 @@ export default [
       !!process.env.ANALYZE_BUNDLE && analyze({ summaryOnly: true })
     ],
     output: [
-      { file: pkg.main, format: 'cjs', interop: 'auto' },
-      { file: pkg.module, format: 'es' }
+      {
+        file: pkg.main,
+        format: 'cjs',
+        interop: 'auto'
+      },
+      {
+        dir: path.dirname(pkg.module),
+        format: 'es',
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+        entryFileNames: '[name].js'
+      }
     ]
   }
 ];
