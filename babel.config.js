@@ -10,7 +10,8 @@ module.exports = {
     [
       '@babel/preset-env',
       {
-        targets: '> 0.5%, last 2 versions, Firefox ESR, not dead'
+        // https://browsersl.ist/#q=%3E0.3%25%2C+last+4+versions%2C+not+dead%2C+Firefox+ESR%2C+not+and_qq+13-14%2C+not+kaios+2-5%0A
+        targets: '>0.3%, last 4 versions, not dead, Firefox ESR, not and_qq 13-14, not kaios 2-5'
       }
     ],
     [
