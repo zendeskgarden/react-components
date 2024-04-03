@@ -10,15 +10,6 @@ import { IOption, IUseComboboxProps } from '@zendeskgarden/container-combobox';
 import { IOptGroupProps, IOptionProps } from '../../types';
 
 /**
- * Convert an option object to a string.
- *
- * @param option An option of type `IOption`.
- *
- * @returns A string based on `option.value`.
- */
-export const toString = (option: IOption) => option.value;
-
-/**
  * Convert `Option` props to a valid object for `useCombobox`.
  *
  * @param props `Option` props.
