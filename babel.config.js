@@ -14,15 +14,16 @@ module.exports = {
         targets: '>0.3%, last 4 versions, not dead, Firefox ESR, not and_qq 13-14, not kaios 2-5'
       }
     ],
-    [
-      '@babel/preset-react',
-      {
-        useBuiltIns: true // https://babeljs.io/docs/babel-preset-react#usebuiltins
-      }
-    ], // https://babeljs.io/docs/babel-preset-react#usebuiltins
+    '@babel/preset-react',
     ['@babel/preset-typescript', { onlyRemoveTypeImports: true }]
   ],
-  plugins: ['babel-plugin-styled-components'],
+  plugins: [
+    '@babel/plugin-transform-object-assign',
+    ['@babel/plugin-transform-class-properties', { loose: true }],
+    'babel-plugin-styled-components',
+    ['@babel/plugin-transform-private-property-in-object', { loose: true }],
+    ['@babel/plugin-transform-private-methods', { loose: true }]
+  ],
   env: {
     production: {
       plugins: [['react-remove-properties', { properties: [/data-test/u] }]]
