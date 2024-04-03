@@ -6,7 +6,6 @@
  */
 
 import React, { PropsWithChildren } from 'react';
-import { toString } from './utils';
 import { Tag } from './Tag';
 import { ITagGroupProps } from '../../types';
 
@@ -21,16 +20,15 @@ export const TagGroup = ({
 }: PropsWithChildren<ITagGroupProps>) => (
   <>
     {selection.map((option, index) => {
-      const key = toString(option);
       const disabled = isDisabled || option.disabled;
 
       return (
         <Tag
-          key={key}
+          key={option.value}
           hidden={!isExpanded && index >= maxTags}
           option={{ ...option, disabled }}
           tooltipZIndex={listboxZIndex ? listboxZIndex + 1 : undefined}
-          {...optionTagProps[key]}
+          {...optionTagProps[option.value]}
         />
       );
     })}

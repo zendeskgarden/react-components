@@ -22,9 +22,8 @@ import {
   Tag
 } from '@zendeskgarden/react-dropdowns';
 import { IOption, Options } from './types';
-import { toString } from '../../src/elements/combobox/utils';
 
-const toLabel = (option: IOption) => option.label || toString(option);
+const toLabel = (option: IOption) => option.label || option.value;
 
 const ComboboxOption = ({ icon, meta, ...props }: IOption) => {
   const Svg = props.tagProps?.isPill ? Avatar : Icon;
@@ -157,7 +156,7 @@ export const ComboboxStory: Story<IArgs> = ({
                     <OptGroup key={index} icon={icon ? <Icon /> : undefined} {...option}>
                       {option.options.map(({ icon: groupIcon, ...groupOption }) => (
                         <ComboboxOption
-                          key={toString(groupOption)}
+                          key={groupOption.value}
                           icon={groupIcon}
                           {...groupOption}
                           tagProps={getTagProps({ icon: groupIcon, ...groupOption })}
@@ -166,7 +165,7 @@ export const ComboboxStory: Story<IArgs> = ({
                     </OptGroup>
                   ) : (
                     <ComboboxOption
-                      key={toString(option)}
+                      key={option.value}
                       icon={icon}
                       {...option}
                       tagProps={getTagProps({ icon, ...option })}
