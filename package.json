@@ -110,6 +110,7 @@
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-cleanup": "3.2.1",
     "rollup-plugin-delete": "2.0.0",
+    "rollup-plugin-license": "3.3.1",
     "rollup-plugin-typescript2": "0.36.0",
     "storybook": "7.6.17",
     "styled-components": "5.3.11",
