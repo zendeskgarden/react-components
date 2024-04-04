@@ -1,5 +1,5 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import { InputGroup, Input } from '@zendeskgarden/react-forms';
+import { InputGroup, Input, VALIDATION } from '@zendeskgarden/react-forms';
 import { InputGroupStory } from './stories/InputGroupStory';
 import { INPUT_GROUP_ITEMS as ITEMS } from './stories/data';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
@@ -32,7 +32,14 @@ import README from '../README.md';
       isNeutral: { table: { category: 'Button' } },
       isPrimary: { control: 'boolean', table: { category: 'Button' } },
       isDanger: { control: 'boolean', table: { category: 'Button' } },
-      readOnly: { control: 'boolean', table: { category: 'Input' } }
+      isToggle: { control: 'boolean', name: 'ToggleButton', table: { category: 'Button' } },
+      readOnly: { control: 'boolean', table: { category: 'Input' } },
+      inputValidation: {
+        control: 'radio',
+        name: 'validation',
+        options: VALIDATION,
+        table: { category: 'Input' }
+      }
     }}
     parameters={{
       design: {

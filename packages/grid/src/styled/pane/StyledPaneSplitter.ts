@@ -19,7 +19,6 @@ import { Orientation } from '../../types';
 const COMPONENT_ID = 'pane.splitter';
 
 interface IStyledPaneSplitterProps {
-  isHovered: boolean;
   orientation?: Orientation;
   isFixed?: boolean;
 }
@@ -35,7 +34,7 @@ const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>)
     }
 
     &:hover::before {
-      background-color: ${props.isHovered && hoverColor};
+      background-color: ${hoverColor};
     }
 
     ${focusStyles({
@@ -48,7 +47,7 @@ const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>)
     })}
 
     &:active::before {
-      background-color: ${props.isHovered && activeColor};
+      background-color: ${activeColor};
     }
   `;
 };
@@ -140,7 +139,7 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
     }
 
     &:hover::before {
-      ${dimensionProperty}: ${props.isHovered && separatorSize};
+      ${dimensionProperty}: ${separatorSize};
     }
 
     &:focus::before,

@@ -5,12 +5,36 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 import { StoryFn } from '@storybook/react';
-import { IInputGroupProps, Input, InputGroup } from '@zendeskgarden/react-forms';
+import { IInputGroupProps, IInputProps, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { FieldStory, IFieldArgs } from './FieldStory';
 import { IInputGroupItem } from './types';
-import { Button } from '@zendeskgarden/react-buttons';
+import { Button, IButtonProps, ToggleButton } from '@zendeskgarden/react-buttons';
+
+interface IGroupButtonProps extends PropsWithChildren {
+  disabled?: boolean;
+  isNeutral: boolean;
+  isPrimary?: boolean;
+  isDanger?: boolean;
+  isToggle?: boolean;
+  size?: IButtonProps['size'];
+}
+
+const GroupButton = ({ isToggle, ...props }: IGroupButtonProps) => {
+  const [isPressed, setIsPressed] = useState(false);
+
+  return isToggle ? (
+    <ToggleButton
+      focusInset
+      {...props}
+      isPressed={isPressed}
+      onClick={() => setIsPressed(!isPressed)}
+    />
+  ) : (
+    <Button focusInset {...props} />
+  );
+};
 
 interface IArgs extends IInputGroupProps, IFieldArgs {
   items: IInputGroupItem[];
@@ -18,7 +42,9 @@ interface IArgs extends IInputGroupProps, IFieldArgs {
   isNeutral: boolean;
   isPrimary?: boolean;
   isDanger?: boolean;
+  isToggle?: boolean;
   readOnly?: boolean;
+  inputValidation?: IInputProps['validation'];
 }
 
 export const InputGroupStory: StoryFn<IArgs> = ({
@@ -35,7 +61,9 @@ export const InputGroupStory: StoryFn<IArgs> = ({
   isNeutral,
   isPrimary,
   isDanger,
+  isToggle,
   readOnly,
+  inputValidation,
   ...args
 }) => (
   <FieldStory
@@ -52,17 +80,17 @@ export const InputGroupStory: StoryFn<IArgs> = ({
     <InputGroup {...args}>
       {items.map((item, index) =>
         item.isButton ? (
-          <Button
+          <GroupButton
             key={index}
-            focusInset
             disabled={disabled}
             isNeutral={isNeutral}
             isPrimary={isPrimary}
             isDanger={isDanger}
+            isToggle={isToggle}
             size={args.isCompact ? 'small' : undefined}
           >
             {item.text}
-          </Button>
+          </GroupButton>
         ) : (
           <Input
             key={index}
@@ -70,6 +98,7 @@ export const InputGroupStory: StoryFn<IArgs> = ({
             readOnly={readOnly}
             disabled={disabled}
             isCompact={args.isCompact}
+            validation={inputValidation}
           />
         )
       )}
