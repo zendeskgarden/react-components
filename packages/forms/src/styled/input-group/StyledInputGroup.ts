@@ -78,7 +78,9 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
     & > ${StyledTextInput}[data-garden-focus-visible],
     & > button[data-garden-focus-visible],
     & > ${StyledTextInput}:active,
-    & > button:active {
+    & > button:active,
+    & > button[aria-pressed='true'],
+    & > button[aria-pressed='mixed'] {
       z-index: 1;
     }
 
