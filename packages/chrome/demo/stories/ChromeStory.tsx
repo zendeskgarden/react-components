@@ -39,7 +39,6 @@ import {
   INavItemProps,
   Main,
   Nav,
-  Sidebar,
   SkipNav,
   SubNav
 } from '@zendeskgarden/react-chrome';
@@ -79,7 +78,7 @@ interface IArgs extends IChromeProps {
   skipNav: string;
   hasNav: boolean;
   navItems: INavItem[];
-  onNavClick: ({ hasSubNav, hasSidebar }: Record<string, boolean | undefined>) => void;
+  onNavClick: ({ hasSubNav }: Record<string, boolean | undefined>) => void;
   hasLogo: boolean;
   hasBrandmark: boolean;
   hasSubNav: boolean;
@@ -87,12 +86,10 @@ interface IArgs extends IChromeProps {
   subNavMaxWidth: number;
   hasHeader: boolean;
   headerItems: IHeaderItem[];
-  hasSidebar: boolean;
   hasFooter: boolean;
   footerItems: IFooterItem[];
   isExpanded: boolean;
   isWrapped: boolean;
-  sidebar: string;
   main: string;
   isSheetOpen: boolean;
   isSheetCompact: boolean;
@@ -115,12 +112,10 @@ export const ChromeStory: Story<IArgs> = ({
   subNavMaxWidth,
   hasHeader,
   headerItems,
-  hasSidebar,
   hasFooter,
   footerItems,
   isExpanded,
   isWrapped,
-  sidebar,
   main,
   isSheetOpen,
   isSheetCompact,
@@ -151,7 +146,7 @@ export const ChromeStory: Story<IArgs> = ({
               onClick={() => {
                 setCurrentNav(index);
                 setCurrentSubNav(0);
-                onNavClick({ hasSubNav: item.hasSubNav, hasSidebar: item.hasSidebar });
+                onNavClick({ hasSubNav: item.hasSubNav });
               }}
             >
               <Nav.ItemIcon>{NAV_ICONS[index] || <NavIcon />}</Nav.ItemIcon>
@@ -239,7 +234,6 @@ export const ChromeStory: Story<IArgs> = ({
           </Header>
         )}
         <Content id="main-content">
-          {hasSidebar && <Sidebar>{sidebar}</Sidebar>}
           <Main>{main}</Main>
           <SheetComponent
             hasHeader

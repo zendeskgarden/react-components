@@ -9,7 +9,6 @@ import {
   Main,
   Nav,
   Sheet,
-  Sidebar,
   SkipNav,
   SubNav,
   PRODUCTS
@@ -20,7 +19,6 @@ import {
   CHROME_HEADER_ITEMS as HEADER_ITEMS,
   CHROME_MAIN as MAIN,
   CHROME_NAV_ITEMS as NAV_ITEMS,
-  CHROME_SIDEBAR as SIDEBAR,
   CHROME_SKIP_NAV as SKIP_NAV,
   CHROME_SUB_NAV_ITEMS as SUB_NAV_ITEMS,
   SHEET_BODY,
@@ -48,7 +46,6 @@ import README from '../README.md';
     'Nav.ItemIcon': Nav.ItemIcon,
     'Nav.ItemText': Nav.ItemText,
     Sheet,
-    Sidebar,
     SkipNav,
     SubNav,
     'SubNav.CollapsibleItem': SubNav.CollapsibleItem,
@@ -78,11 +75,9 @@ import README from '../README.md';
       subNavItems: SUB_NAV_ITEMS,
       hasHeader: true,
       headerItems: HEADER_ITEMS,
-      hasSidebar: false,
       hasFooter: true,
       footerItems: FOOTER_ITEMS,
       skipNav: SKIP_NAV,
-      sidebar: SIDEBAR,
       main: MAIN,
       isSheetOpen: true,
       isSheetCompact: false,
@@ -105,7 +100,6 @@ import README from '../README.md';
       subNavMaxWidth: { name: 'SubNav max-width', control: 'number', table: { category: 'Story' } },
       hasHeader: { name: 'Header', table: { category: 'Story' } },
       headerItems: { name: 'Header.Item[]', table: { category: 'Story' } },
-      hasSidebar: { name: 'Sidebar', table: { category: 'Story' } },
       hasFooter: { name: 'Footer', table: { category: 'Story' } },
       footerItems: { name: 'Footer.Item[]', table: { category: 'Story' } },
       product: {
@@ -122,8 +116,7 @@ import README from '../README.md';
       sheetBody: { name: 'Sheet.Body', table: { category: 'Sheet' } },
       sheetTitle: { name: 'Sheet.Title', table: { category: 'Sheet' } },
       sheetDescription: { name: 'Sheet.Description', table: { category: 'Sheet' } },
-      main: { name: 'children', table: { category: 'Main' } },
-      sidebar: { name: 'children', table: { category: 'Sidebar' } }
+      main: { name: 'children', table: { category: 'Main' } }
     }}
     parameters={{
       design: {
@@ -135,8 +128,7 @@ import README from '../README.md';
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleNavClick = ({ hasSubNav, hasSidebar }) =>
-        updateArgs({ hasSubNav: hasSubNav || false, hasSidebar: hasSidebar || false });
+      const handleNavClick = ({ hasSubNav }) => updateArgs({ hasSubNav: hasSubNav || false });
       const handleSheetClick = () => updateArgs({ isSheetOpen: false });
       return <ChromeStory {...args} onSheetClick={handleSheetClick} onNavClick={handleNavClick} />;
     }}

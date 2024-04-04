@@ -11,7 +11,6 @@ export { StyledSkipNavIcon } from './StyledSkipNavIcon';
 export { StyledBody } from './body/StyledBody';
 export { StyledContent } from './body/StyledContent';
 export { StyledMain } from './body/StyledMain';
-export { StyledSidebar } from './body/StyledSidebar';
 export { StyledFooter } from './footer/StyledFooter';
 export { StyledFooterItem } from './footer/StyledFooterItem';
 export { StyledHeader } from './header/StyledHeader';

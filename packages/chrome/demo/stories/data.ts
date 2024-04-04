@@ -73,8 +73,7 @@ export const CHROME_NAV_ITEMS: INavItem[] = [
     text: 'Email'
   },
   {
-    text: 'User access control lists',
-    hasSidebar: true
+    text: 'User access control lists'
   },
   {
     text: 'Chat'
@@ -87,8 +86,6 @@ export const CHROME_NAV_ITEMS: INavItem[] = [
     hasSubNav: true
   }
 ];
-
-export const CHROME_SIDEBAR = 'Sidebar content';
 
 export const CHROME_SKIP_NAV = 'Skip to main content';
 
