@@ -13,6 +13,24 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.7 (2024-04-04)
+
+#### :boom: Breaking Change
+* `chrome`
+  * [#1774](https://github.com/zendeskgarden/react-components/pull/1774) feat(chrome)!: removes `Sidebar` component ([@geotrev](https://github.com/geotrev))
+* `dropdowns`
+  * [#1773](https://github.com/zendeskgarden/react-components/pull/1773) feat(dropdowns)!: removes object type from Option `value` prop ([@geotrev](https://github.com/geotrev))
+* `accordions`, `buttons`, `chrome`, `colorpickers`, `dropdowns`, `forms`, `grid`, `modals`, `pagination`, `tabs`, `theming`
+  * [#1771](https://github.com/zendeskgarden/react-components/pull/1771) feat(theming)!: remove focusVisibleRef prop and polyfill scoping element ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `.template`, `accordions`, `buttons`, `chrome`, `colorpickers`, `drag-drop`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `typography`
+  * [#1779](https://github.com/zendeskgarden/react-components/pull/1779) fix: update theming peer dependencies to ^9.0.0 ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `dropdowns`, `forms`, `grid`
+  * [#1781](https://github.com/zendeskgarden/react-components/pull/1781) chore(next): updates from `main` ([@jzempel](https://github.com/jzempel))
+
 ## v9.0.0-next.6 (2024-03-29)
 
 #### :boom: Breaking Change
