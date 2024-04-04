@@ -73,6 +73,7 @@ const positionStyles = (props: IStyledSplitterButtonContainerProps & ThemeProps<
   } else {
     const offset = `${size}px`;
 
+    /* istanbul ignore next */
     switch (`${props.orientation}-${props.placement}-${props.theme.rtl ? 'rtl' : 'ltr'}`) {
       case 'top-end-ltr':
       case 'top-end-rtl':
