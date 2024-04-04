@@ -29,8 +29,8 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   );
 
   return css`
-    background-color: ${backgroundColor};
     box-shadow: ${boxShadow};
+    background-color: ${backgroundColor};
   `;
 };
 
@@ -40,40 +40,45 @@ const positionStyles = (props: IStyledSplitterButtonContainerProps & ThemeProps<
   let right;
   let bottom;
   const size = getSize(props.theme);
+  const inset = `-${size / 2}px`;
 
-  if (props.splitterSize >= size * 3) {
-    const isVertical = props.orientation === 'start' || props.orientation === 'end';
-    const offset = `${size}px`;
-    const inset = `-${size / 2}px`;
+  if (props.placement === 'center' || props.splitterSize < size * 3) {
+    const center = `${props.splitterSize / 2 - size / 2}px`;
 
-    switch (`${props.orientation}-${props.placement}-${props.theme.rtl ? 'rtl' : 'ltr'}`) {
-      case 'start-start-ltr':
-      case 'end-start-rtl':
-        top = offset;
+    switch (`${props.orientation}-${props.theme.rtl ? 'rtl' : 'ltr'}`) {
+      case 'top-ltr':
+      case 'top-rtl':
+        top = inset;
+        left = center;
+        break;
+
+      case 'start-ltr':
+      case 'end-rtl':
+        top = center;
         left = inset;
         break;
 
-      case 'end-start-ltr':
-      case 'start-start-rtl':
-        top = offset;
+      case 'end-ltr':
+      case 'start-rtl':
+        top = center;
         right = inset;
         break;
 
-      case 'top-start-ltr':
-        top = inset;
-        left = offset;
+      case 'bottom-ltr':
+      case 'bottom-rtl':
+        bottom = inset;
+        right = center;
         break;
+    }
+  } else {
+    const offset = `${size}px`;
 
+    switch (`${props.orientation}-${props.placement}-${props.theme.rtl ? 'rtl' : 'ltr'}`) {
       case 'top-end-ltr':
       case 'top-end-rtl':
       case 'top-start-rtl':
         top = inset;
         right = offset;
-        break;
-
-      case 'bottom-start-ltr':
-        bottom = inset;
-        left = offset;
         break;
 
       case 'bottom-end-ltr':
@@ -83,10 +88,22 @@ const positionStyles = (props: IStyledSplitterButtonContainerProps & ThemeProps<
         right = offset;
         break;
 
+      case 'start-start-ltr':
+      case 'end-start-rtl':
+        top = offset;
+        left = inset;
+        break;
+
       case 'start-end-ltr':
       case 'end-end-rtl':
         bottom = offset;
         left = inset;
+        break;
+
+      case 'end-start-ltr':
+      case 'start-start-rtl':
+        top = offset;
+        right = inset;
         break;
 
       case 'end-end-ltr':
@@ -94,47 +111,18 @@ const positionStyles = (props: IStyledSplitterButtonContainerProps & ThemeProps<
         bottom = offset;
         right = inset;
         break;
+
+      case 'top-start-ltr':
+        top = inset;
+        left = offset;
+        break;
+
+      case 'bottom-start-ltr':
+        bottom = inset;
+        left = offset;
+        break;
     }
-  } else {
-    // position on center
   }
-
-  // if (props.splitterSize >= _size * 3) {
-  //   const position = `${_size / 2}px`;
-
-  //   if (props.placement === 'start') {
-  //     if (isVertical) {
-  //       top = size;
-
-  //       if (props.theme.rtl) {
-  //         left = `-${position}`;
-  //       } else {
-  //         right = `-${position}`;
-  //       }
-  //     } else if (props.theme.rtl) {
-  //       right = size;
-  //     } else {
-  //       left = size;
-  //     }
-  //   } else if (props.placement === 'end') {
-  //     if (isVertical) {
-  //       bottom = size;
-  //     } else if (props.theme.rtl) {
-  //       left = size;
-  //     } else {
-  //       right = size;
-  //     }
-  //   } /* center */ else {
-  //     const center = `${props.splitterSize / 2 - _size / 2}px`;
-
-  //     if (isVertical) {
-  //       //
-  //     } else {
-  //       top = `-${_size / 2}px`;
-  //       left = center;
-  //     }
-  //   }
-  // }
 
   return css`
     /* stylelint-disable declaration-block-no-redundant-longhand-properties */
@@ -149,9 +137,9 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const size = getSize(theme);
 
   return css`
+    border-radius: ${size}px;
     width: ${size}px;
     height: ${size}px;
-    border-radius: ${size}px;
   `;
 };
 
@@ -168,7 +156,6 @@ export const StyledPaneSplitterButtonContainer = styled.div<IStyledSplitterButto
   /* prettier-ignore */
   transition:
     box-shadow 0.1s ease-in-out,
-    background-color 0.25s ease-in-out,
     opacity 0.25s ease-in-out 0.1s;
   opacity: 0;
   z-index: 2; /* [1] */
