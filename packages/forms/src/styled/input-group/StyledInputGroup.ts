@@ -76,7 +76,9 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
     & > ${StyledTextInput}:focus-visible,
     & > button:focus-visible,
     & > ${StyledTextInput}:active,
-    & > button:active {
+    & > button:active,
+    & > button[aria-pressed='true'],
+    & > button[aria-pressed='mixed'] {
       z-index: 1;
     }
 
