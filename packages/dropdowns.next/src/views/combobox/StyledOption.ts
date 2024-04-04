@@ -80,7 +80,7 @@ export const StyledOption = styled.li.attrs({
   position: relative;
   transition: color 0.25s ease-in-out;
   cursor: ${props => (props.$type === 'group' || props.$type === 'header' ? 'default' : 'pointer')};
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
   font-weight: ${props =>
     props.$type === 'header' || props.$type === 'previous'
       ? props.theme.fontWeights.semibold
