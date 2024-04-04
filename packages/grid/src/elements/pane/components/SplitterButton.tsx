@@ -8,7 +8,7 @@
 import React, { forwardRef, useCallback } from 'react';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { StyledPaneSplitterButton } from '../../../styled';
+import { StyledPaneSplitterButton, StyledPaneSplitterButtonContainer } from '../../../styled';
 import { ISplitterButtonProps } from '../../../types';
 import usePaneSplitterContext from '../../../utils/usePaneSplitterContext';
 import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext';
@@ -62,25 +62,29 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
     );
 
     return (
-      <Tooltip
-        content={label}
-        zIndex={2}
-        style={{ cursor: 'default' }}
-        onMouseDown={e => e.stopPropagation()}
+      <StyledPaneSplitterButtonContainer
+        orientation={orientation!}
+        placement={placement!}
+        splitterSize={size || 0}
       >
-        <StyledPaneSplitterButton
-          aria-label={label}
-          {...props}
-          placement={placement!}
-          orientation={orientation!}
-          isRotated={isMin}
-          splitterSize={size || 0}
-          ref={ref}
-          onClick={onClick}
-          onKeyDown={onKeyDown}
-          onMouseDown={onMouseDown}
-        />
-      </Tooltip>
+        <Tooltip
+          content={label}
+          zIndex={2}
+          style={{ cursor: 'default' }}
+          onMouseDown={e => e.stopPropagation()}
+        >
+          <StyledPaneSplitterButton
+            aria-label={label}
+            {...props}
+            orientation={orientation!}
+            isRotated={isMin}
+            ref={ref}
+            onClick={onClick}
+            onKeyDown={onKeyDown}
+            onMouseDown={onMouseDown}
+          />
+        </Tooltip>
+      </StyledPaneSplitterButtonContainer>
     );
   }
 );
