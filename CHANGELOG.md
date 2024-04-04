@@ -12,6 +12,23 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.75.1 (2024-04-04)
+
+#### :bug: Bug Fix
+* `grid`
+  * [#1776](https://github.com/zendeskgarden/react-components/pull/1776) fix(grid): ensure `Pane.SplitterButton` is rendered as a sibling, rather than child, of `Pane.Splitter` ([@jzempel](https://github.com/jzempel))
+* `forms`
+  * [#1778](https://github.com/zendeskgarden/react-components/pull/1778) fix(forms): `InputGroup` toggle button stacking ([@jzempel](https://github.com/jzempel))
+* `dropdowns.next`
+  * [#1777](https://github.com/zendeskgarden/react-components/pull/1777) fix(dropdowns.next): prevent combobox `Option` and menu `Item` overflow ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* [#1772](https://github.com/zendeskgarden/react-components/pull/1772) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* [#1767](https://github.com/zendeskgarden/react-components/pull/1767) chore(deps): update dependency @zendeskgarden/eslint-config to v39 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#1766](https://github.com/zendeskgarden/react-components/pull/1766) chore(deps): update dependency @storybook/addon-designs to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#1769](https://github.com/zendeskgarden/react-components/pull/1769) chore(deps): update typescript-eslint monorepo to v7 (major) ([@renovate[bot]](https://github.com/apps/renovate))
+* [#1765](https://github.com/zendeskgarden/react-components/pull/1765) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.75.0 (2024-03-28)
 
 #### :rocket: New Feature
