@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "lerna run build --stream",
-    "build:demo": "storybook build -o ./demo",
+    "build:demo": "npm run build && storybook build -o ./demo",
     "format": "prettier-package-json --write && npm run -- format:package_json --write && npm run -- format:js --write && npm run -- format:md --write",
     "format:all": "prettier-package-json --list-different && npm run -- format:package_json --list-different && npm run -- format:js --check && npm run -- format:md --check",
     "format:js": "prettier --log-level warn '{packages,utils}/**/*.{js,mjs,ts,tsx}' '!packages/.template' '!packages/**/dist/**'",
@@ -17,7 +17,7 @@
     "lint:md": "markdownlint README.md packages/*/README.md packages/*/demo/**/*.mdx",
     "new": "utils/scripts/new.mjs",
     "prepare": "npm run build",
-    "start": "storybook dev --no-version-updates -p 6006",
+    "start": "npm run build && storybook dev --no-version-updates -p 6006",
     "tag": "utils/scripts/tag.mjs",
     "test": "jest --config=utils/test/jest.config.js",
     "test:ci": "npm run lint && npm run format:all && npm exec tsc && npm test -- --coverage",

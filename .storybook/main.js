@@ -53,7 +53,7 @@ module.exports = {
       PACKAGE_NAMES.reduce((previousValue, packageName) => {
         previousValue[`@zendeskgarden/react-${packageName}`] = path.resolve(
           __dirname,
-          `../packages/${packageName}/src`
+          `../packages/${packageName}/dist/esm/index.js`
         );
 
         return previousValue;
