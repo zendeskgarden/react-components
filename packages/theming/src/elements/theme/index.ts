@@ -47,24 +47,84 @@ const colors = {
   variables: {
     dark: {
       background: {
-        default: 'neutralHue.1100'
+        default: 'neutralHue.1100',
+        raised: 'neutralHue.1000',
+        recessed: 'neutralHue.1200',
+        subtle: 'neutralHue.1000',
+        emphasis: 'neutralHue.600',
+        primary: 'primaryHue.900',
+        success: 'successHue.1000',
+        warning: 'warningHue.1000',
+        danger: 'dangerHue.1000',
+        primaryEmphasis: 'primaryHue.600',
+        successEmphasis: 'successHue.600',
+        warningEmphasis: 'warningHue.600',
+        dangerEmphasis: 'dangerHue.600'
       },
       border: {
-        default: 'neutralHue.700'
+        default: 'neutralHue.800',
+        emphasis: 'neutralHue.600',
+        subtle: 'neutralHue.900',
+        success: 'successHue.800',
+        warning: 'warningHue.800',
+        danger: 'dangerHue.800',
+        primaryEmphasis: 'primaryHue.600',
+        successEmphasis: 'successHue.600',
+        warningEmphasis: 'warningHue.600',
+        dangerEmphasis: 'dangerHue.600'
       },
       foreground: {
-        default: 'neutralHue.300'
+        default: 'neutralHue.300',
+        subtle: 'neutralHue.500',
+        onEmphasis: 'neutralHue.1100',
+        primary: 'primaryHue.600',
+        success: 'successHue.400',
+        warning: 'warningHue.400',
+        danger: 'dangerHue.400',
+        successEmphasis: 'successHue.300',
+        warningEmphasis: 'warningHue.300',
+        dangerEmphasis: 'dangerHue.300'
       }
     },
     light: {
       background: {
-        default: 'palette.white'
+        default: 'palette.white',
+        raised: 'palette.white',
+        recessed: 'neutralHue.100',
+        subtle: 'neutralHue.100',
+        emphasis: 'neutralHue.700',
+        primary: 'primaryHue.100',
+        success: 'successHue.100',
+        warning: 'warningHue.100',
+        danger: 'dangerHue.100',
+        primaryEmphasis: 'primaryHue.700',
+        successEmphasis: 'successHue.700',
+        warningEmphasis: 'warningHue.700',
+        dangerEmphasis: 'dangerHue.700'
       },
       border: {
-        default: 'neutralHue.400'
+        default: 'neutralHue.300',
+        emphasis: 'neutralHue.600',
+        subtle: 'neutralHue.200',
+        success: 'successHue.300',
+        warning: 'warningHue.300',
+        danger: 'dangerHue.300',
+        primaryEmphasis: 'primaryHue.700',
+        successEmphasis: 'successHue.700',
+        warningEmphasis: 'warningHue.700',
+        dangerEmphasis: 'dangerHue.700'
       },
       foreground: {
-        default: 'neutralHue.900'
+        default: 'neutralHue.900',
+        subtle: 'neutralHue.700',
+        onEmphasis: 'palette.white',
+        primary: 'primaryHue.700',
+        success: 'successHue.700',
+        warning: 'warningHue.700',
+        danger: 'dangerHue.700',
+        successEmphasis: 'successHue.900',
+        warningEmphasis: 'warningHue.900',
+        dangerEmphasis: 'dangerHue.900'
       }
     }
   }

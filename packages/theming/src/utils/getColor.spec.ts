@@ -306,7 +306,7 @@ describe('getColor', () => {
           light: { offset: 0, transparency: 0 },
           dark: { offset: -100, transparency: 0 }
         });
-        const expected = mode === 'dark' ? PALETTE.grey[600] : PALETTE.grey[400];
+        const expected = mode === 'dark' ? PALETTE.grey[700] : PALETTE.grey[300];
 
         expect(color).toBe(expected);
       }
