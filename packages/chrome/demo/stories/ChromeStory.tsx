@@ -133,34 +133,36 @@ export const ChromeStory: Story<IArgs> = ({
       <SkipNav targetId="main-content">{skipNav}</SkipNav>
       {hasNav && (
         <Nav isExpanded={isExpanded} aria-label="Nav">
-          {hasLogo && (
-            <Nav.Item hasLogo product={product}>
-              <Nav.ItemIcon>{product ? PRODUCT_ICONS[product] : <ProductIcon />}</Nav.ItemIcon>
-              <Nav.ItemText>Nav Logo</Nav.ItemText>
-            </Nav.Item>
-          )}
-          {navItems.map((item, index) => (
-            <Nav.Item
-              key={index}
-              isCurrent={currentNav === index}
-              onClick={() => {
-                setCurrentNav(index);
-                setCurrentSubNav(0);
-                onNavClick({ hasSubNav: item.hasSubNav });
-              }}
-            >
-              <Nav.ItemIcon>{NAV_ICONS[index] || <NavIcon />}</Nav.ItemIcon>
-              <Nav.ItemText isWrapped={isWrapped}>{item.text}</Nav.ItemText>
-            </Nav.Item>
-          ))}
-          {hasBrandmark && (
-            <Nav.Item hasBrandmark>
-              <Nav.ItemIcon>
-                <BrandmarkIcon />
-              </Nav.ItemIcon>
-              <Nav.ItemText>Brandmark</Nav.ItemText>
-            </Nav.Item>
-          )}
+          <Nav.List>
+            {hasLogo && (
+              <Nav.Item hasLogo product={product}>
+                <Nav.ItemIcon>{product ? PRODUCT_ICONS[product] : <ProductIcon />}</Nav.ItemIcon>
+                <Nav.ItemText>Nav Logo</Nav.ItemText>
+              </Nav.Item>
+            )}
+            {navItems.map((item, index) => (
+              <Nav.Item
+                key={index}
+                isCurrent={currentNav === index}
+                onClick={() => {
+                  setCurrentNav(index);
+                  setCurrentSubNav(0);
+                  onNavClick({ hasSubNav: item.hasSubNav });
+                }}
+              >
+                <Nav.ItemIcon>{NAV_ICONS[index] || <NavIcon />}</Nav.ItemIcon>
+                <Nav.ItemText isWrapped={isWrapped}>{item.text}</Nav.ItemText>
+              </Nav.Item>
+            ))}
+            {hasBrandmark && (
+              <Nav.Item hasBrandmark>
+                <Nav.ItemIcon>
+                  <BrandmarkIcon />
+                </Nav.ItemIcon>
+                <Nav.ItemText>Brandmark</Nav.ItemText>
+              </Nav.Item>
+            )}
+          </Nav.List>
         </Nav>
       )}
       {hasSubNav && (

@@ -76,6 +76,7 @@ consider additional positioning prop support on a case-by-case basis.
   - `CollapsibleSubNavItem` -> `SubNav.CollapsibleItem`
   - `SubNavItem` -> `SubNav.Item`
   - `SubNavItemText` -> `SubNav.ItemText`
+- Added `Nav.List` as an intemediary `ul` wrapper for `Nav.Item`
 
 #### @zendeskgarden/react-colorpickers
 

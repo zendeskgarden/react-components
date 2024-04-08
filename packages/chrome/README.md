@@ -21,18 +21,20 @@ import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';
 <ThemeProvider>
   <Chrome>
     <Nav isExpanded>
-      <Nav.Item hasLogo product="connect" title="Zendesk Connect">
-        <Nav.ItemIcon>
-          <ConnectIcon />
-        </Nav.ItemIcon>
-        <NavItemText>Zendesk Connect</NavItemText>
-      </Nav.Item>
-      <Nav.Item isCurrent>
-        <Nav.ItemIcon>
-          <HomeIcon />
-        </Nav.ItemIcon>
-        <NavItemText>Home</NavItemText>
-      </Nav.Item>
+      <Nav.List>
+        <Nav.Item hasLogo product="connect" title="Zendesk Connect">
+          <Nav.ItemIcon>
+            <ConnectIcon />
+          </Nav.ItemIcon>
+          <NavItemText>Zendesk Connect</NavItemText>
+        </Nav.Item>
+        <Nav.Item isCurrent>
+          <Nav.ItemIcon>
+            <HomeIcon />
+          </Nav.ItemIcon>
+          <NavItemText>Home</NavItemText>
+        </Nav.Item>
+      </Nav.List>
     </Nav>
     <SubNav>
       <SubNav.Item isCurrent>

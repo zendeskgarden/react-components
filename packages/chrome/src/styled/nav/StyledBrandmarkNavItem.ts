@@ -9,13 +9,14 @@ import styled from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 
-const COMPONENT_ID = 'chrome.brandmark_nav_item';
+const COMPONENT_ID = 'chrome.brandmark_nav_list_item';
 
 export const StyledBrandmarkNavItem = styled(StyledBaseNavItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  as: 'div'
+  as: 'li'
 })`
+  flex: 1;
   order: 1;
   opacity: 0.3;
   margin-top: auto;

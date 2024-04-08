@@ -10,7 +10,7 @@ import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { Product } from '../../types';
 
-const COMPONENT_ID = 'chrome.logo_nav_item';
+const COMPONENT_ID = 'chrome.logo_nav_list_item';
 
 const retrieveProductColor = (product?: Product) => {
   switch (product) {
@@ -52,8 +52,9 @@ export interface IStyledLogoNavItemProps extends ThemeProps<DefaultTheme> {
 export const StyledLogoNavItem = styled(StyledBaseNavItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  as: 'div'
+  as: 'li'
 })<IStyledLogoNavItemProps>`
+  flex: 1;
   order: 0;
   opacity: 1;
   cursor: default;

@@ -8,7 +8,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { INavItemProps, PRODUCTS } from '../../types';
-import { StyledNavItem, StyledLogoNavItem, StyledBrandmarkNavItem } from '../../styled';
+import {
+  StyledNavButton,
+  StyledLogoNavItem,
+  StyledBrandmarkNavItem,
+  StyledNavListItem
+} from '../../styled';
 import { useNavContext } from '../../utils/useNavContext';
 import { useChromeContext } from '../../utils/useChromeContext';
 
@@ -41,16 +46,18 @@ export const NavItem = React.forwardRef<HTMLButtonElement, INavItemProps>(
     }
 
     return (
-      <StyledNavItem
-        tabIndex={0}
-        ref={ref}
-        isExpanded={isExpanded}
-        hue={hue}
-        isDark={isDark}
-        isLight={isLight}
-        aria-current={ariaCurrent}
-        {...other}
-      />
+      <StyledNavListItem>
+        <StyledNavButton
+          tabIndex={0}
+          ref={ref}
+          isExpanded={isExpanded}
+          hue={hue}
+          isDark={isDark}
+          isLight={isLight}
+          aria-current={ariaCurrent}
+          {...other}
+        />
+      </StyledNavListItem>
     );
   }
 );

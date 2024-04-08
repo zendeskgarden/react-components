@@ -18,7 +18,7 @@ import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';
 import { getNavWidth } from './StyledNav';
 
-const COMPONENT_ID = 'chrome.nav_item';
+const COMPONENT_ID = 'chrome.nav_button';
 
 /**
  * 1. Use outline for focus styling to work with transparent backgrounds
@@ -82,13 +82,13 @@ interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
  * 3. Override `focusStyles` outline (in `colorStyles`)
  * 4. Use of negative offset to create an inset outline
  */
-export const StyledNavItem = styled(StyledBaseNavItem as 'button').attrs({
+export const StyledNavButton = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'button'
 })<IStyledNavItemProps>`
+  flex: 1;
   justify-content: ${props => props.isExpanded && 'start'};
-  order: 1;
   margin: 0; /* [2] */
   cursor: ${props => (props.isCurrent ? 'default' : 'pointer')};
   text-align: ${props => props.isExpanded && 'inherit'};
@@ -119,6 +119,6 @@ export const StyledNavItem = styled(StyledBaseNavItem as 'button').attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledNavItem.defaultProps = {
+StyledNavButton.defaultProps = {
   theme: DEFAULT_THEME
 };
