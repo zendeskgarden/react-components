@@ -15,7 +15,6 @@ import typescript from 'rollup-plugin-typescript2';
 import { babel } from '@rollup/plugin-babel';
 // import { sizeSnapshot } from '@brodybits/rollup-plugin-size-snapshot';
 import analyze from 'rollup-plugin-analyzer';
-import license from 'rollup-plugin-license';
 import cleanup from 'rollup-plugin-cleanup';
 import del from 'rollup-plugin-delete';
 import svgr from '@svgr/rollup';
@@ -35,6 +34,13 @@ const externalPackages = [
   '@zendeskgarden/react-theming',
   ...Object.keys(pkg.dependencies || {})
 ].map(external => new RegExp(`^${external}/?.*`, 'u'));
+
+const BANNER = `/**
+* Copyright Zendesk, Inc.
+*
+* Use of this source code is governed under the Apache License, Version 2.0
+* found at http://www.apache.org/licenses/LICENSE-2.0.
+*/`;
 
 export default [
   {
@@ -68,7 +74,7 @@ export default [
         babelrc: false,
         exclude: 'node_modules/**', // only transpile our source code
         ...babelOptions,
-        extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
+        extensions: ['.tsx', '.ts', ...DEFAULT_EXTENSIONS]
       }),
       /**
        * Replace PACKAGE_VERSION constant with the current package version
@@ -79,17 +85,6 @@ export default [
        */
       cleanup({ extensions: ['js', 'jsx', 'ts', 'tsx'] }),
       /**
-       * Apply global Zendesk license
-       */
-      license({
-        banner: `
-      Copyright Zendesk, Inc.
-
-      Use of this source code is governed under the Apache License, Version 2.0
-      found at http://www.apache.org/licenses/LICENSE-2.0.
-          `.trim()
-      }),
-      /**
        * Only enforce matching size snapshot files in CI environments
        */
       // sizeSnapshot({
@@ -99,8 +94,20 @@ export default [
       !!process.env.ANALYZE_BUNDLE && analyze({ summaryOnly: true })
     ],
     output: [
-      { file: pkg.main, format: 'cjs', interop: 'auto' },
-      { file: pkg.module, format: 'es' }
+      {
+        file: pkg.main,
+        format: 'cjs',
+        interop: 'auto',
+        banner: BANNER // Apply global Zendesk license
+      },
+      {
+        dir: path.dirname(pkg.module),
+        format: 'es',
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+        entryFileNames: '[name].js',
+        banner: BANNER // Apply global Zendesk license
+      }
     ]
   }
 ];
