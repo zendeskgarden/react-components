@@ -49,7 +49,7 @@ export interface IStyledLogoNavItemProps extends ThemeProps<DefaultTheme> {
   isLight?: boolean;
 }
 
-export const StyledLogoNavItem = styled(StyledBaseNavItem).attrs({
+export const StyledLogoNavItem = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledLogoNavItemProps>`

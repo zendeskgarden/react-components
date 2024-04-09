@@ -83,7 +83,7 @@ interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
  * 4. Use of negative offset to create an inset outline
  * 5. Overrides flex default `min-width: auto`
  */
-export const StyledNavButton = styled(StyledBaseNavItem).attrs({
+export const StyledNavButton = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'button'

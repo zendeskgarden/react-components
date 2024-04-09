@@ -11,7 +11,7 @@ import { StyledBaseNavItem } from './StyledBaseNavItem';
 
 const COMPONENT_ID = 'chrome.brandmark_nav_list_item';
 
-export const StyledBrandmarkNavItem = styled(StyledBaseNavItem).attrs({
+export const StyledBrandmarkNavItem = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
