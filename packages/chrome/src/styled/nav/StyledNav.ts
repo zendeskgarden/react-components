@@ -40,7 +40,9 @@ export const StyledNav = styled.nav.attrs<IStyledNavProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledNavProps>`
+  display: flex;
   position: relative;
+  flex-direction: column;
   width: ${props => (props.isExpanded ? getExpandedNavWidth : getNavWidth)};
   font-size: ${props => props.theme.fontSizes.md};
 

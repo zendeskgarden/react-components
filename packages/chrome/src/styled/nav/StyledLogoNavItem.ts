@@ -54,7 +54,7 @@ export const StyledLogoNavItem = styled(StyledBaseNavItem).attrs({
   'data-garden-version': PACKAGE_VERSION,
   as: 'li'
 })<IStyledLogoNavItemProps>`
-  flex: 1;
+  flex: 0;
   order: 0;
   opacity: 1;
   cursor: default;

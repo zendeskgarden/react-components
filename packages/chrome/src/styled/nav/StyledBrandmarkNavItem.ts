@@ -16,7 +16,7 @@ export const StyledBrandmarkNavItem = styled(StyledBaseNavItem).attrs({
   'data-garden-version': PACKAGE_VERSION,
   as: 'li'
 })`
-  flex: 1;
+  flex: 0;
   order: 1;
   opacity: 0.3;
   margin-top: auto;

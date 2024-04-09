@@ -81,8 +81,9 @@ interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
  * 2. Button reset
  * 3. Override `focusStyles` outline (in `colorStyles`)
  * 4. Use of negative offset to create an inset outline
+ * 5. Overrides flex default `min-width: auto`
  */
-export const StyledNavButton = styled(StyledBaseNavItem as 'button').attrs({
+export const StyledNavButton = styled(StyledBaseNavItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'button'
@@ -91,6 +92,7 @@ export const StyledNavButton = styled(StyledBaseNavItem as 'button').attrs({
   justify-content: ${props => props.isExpanded && 'start'};
   margin: 0; /* [2] */
   cursor: ${props => (props.isCurrent ? 'default' : 'pointer')};
+  min-width: 0; /* [5] */
   text-align: ${props => props.isExpanded && 'inherit'};
 
   &:hover,
