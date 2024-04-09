@@ -43,6 +43,8 @@ export const StyledNav = styled.nav.attrs<IStyledNavProps>({
   display: flex;
   position: relative;
   flex-direction: column;
+  flex-shrink: 0;
+  order: -1;
   width: ${props => (props.isExpanded ? getExpandedNavWidth : getNavWidth)};
   font-size: ${props => props.theme.fontSizes.md};
 
