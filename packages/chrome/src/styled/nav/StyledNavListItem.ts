@@ -7,10 +7,11 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledBaseNavItem } from './StyledBaseNavItem';
 
 const COMPONENT_ID = 'chrome.nav_list_item';
 
-export const StyledNavListItem = styled.li.attrs({
+export const StyledNavListItem = styled(StyledBaseNavItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

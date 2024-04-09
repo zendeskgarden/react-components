@@ -91,9 +91,14 @@ export const StyledNavButton = styled(StyledBaseNavItem).attrs({
   flex: 1;
   justify-content: ${props => props.isExpanded && 'start'};
   margin: 0; /* [2] */
+  border: none; /* [2] */
+  background: transparent; /* [2] */
   cursor: ${props => (props.isCurrent ? 'default' : 'pointer')};
   min-width: 0; /* [5] */
   text-align: ${props => props.isExpanded && 'inherit'};
+  text-decoration: none; /* [1] */
+  color: inherit; /* [1] */
+  font-size: inherit; /* [2] */
 
   &:hover,
   &:focus {

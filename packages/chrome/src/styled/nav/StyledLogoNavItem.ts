@@ -51,8 +51,7 @@ export interface IStyledLogoNavItemProps extends ThemeProps<DefaultTheme> {
 
 export const StyledLogoNavItem = styled(StyledBaseNavItem).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'li'
+  'data-garden-version': PACKAGE_VERSION
 })<IStyledLogoNavItemProps>`
   flex: 0;
   order: 0;
