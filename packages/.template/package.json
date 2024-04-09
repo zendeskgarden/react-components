@@ -10,7 +10,7 @@
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
   "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/esm/index.js",
   "files": [
     "dist"
   ],
