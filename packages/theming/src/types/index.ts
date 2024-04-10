@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ThemeProviderProps } from 'styled-components';
+import { CSSObject, ThemeProviderProps } from 'styled-components';
 
 export const ARROW_POSITION = [
   'top',
@@ -44,6 +44,43 @@ export const PLACEMENT = [
 ] as const;
 
 export type Placement = (typeof PLACEMENT)[number];
+
+export type ColorParameters = {
+  dark?: {
+    hue?: string;
+    offset?: number;
+    shade?: number;
+    transparency?: number;
+  };
+  hue?: string;
+  light?: {
+    hue?: string;
+    offset?: number;
+    shade?: number;
+    transparency?: number;
+  };
+  offset?: number;
+  shade?: number;
+  theme: IGardenTheme;
+  transparency?: number;
+  variable?: string;
+};
+
+export type FocusStylesParameters = FocusBoxShadowParameters & {
+  condition?: boolean;
+  selector?: string;
+  styles?: CSSObject;
+};
+
+export type FocusBoxShadowParameters = {
+  boxShadow?: string;
+  inset?: boolean;
+  color?: Omit<ColorParameters, 'theme'>;
+  shadowWidth?: 'sm' | 'md';
+  spacerColor?: Omit<ColorParameters, 'theme'>;
+  spacerWidth?: null | 'xs' | 'sm';
+  theme: IGardenTheme;
+};
 
 export type Hue = Record<number | string, string> | string;
 

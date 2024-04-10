@@ -6,8 +6,8 @@
  */
 
 import { css, DefaultTheme, keyframes } from 'styled-components';
-import { getColorV8 } from './getColorV8';
 import DEFAULT_THEME from '../elements/theme';
+import { getColor } from './getColor';
 import { MenuPosition } from '../types';
 
 type MenuOptions = {
@@ -112,18 +112,19 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
       position: relative; /* [2] */
       margin: 0; /* [3] */
       box-sizing: border-box;
-      border: ${theme.borders.sm} ${getColorV8('neutralHue', 300, theme)};
+      border: ${theme.borders.sm} ${getColor({ theme, variable: 'border.default' })};
       border-radius: ${theme.borderRadii.md};
       box-shadow: ${theme.shadows.lg(
         `${theme.space.base * 5}px`,
         `${theme.space.base * 7.5}px`,
-        getColorV8('chromeHue', 600, theme, 0.15)!
+        getColor({ theme, hue: 'chromeHue', shade: 600, transparency: 0.15 })
       )};
-      background-color: ${getColorV8('background', 600 /* default shade */, theme)};
+      background-color: ${getColor({ theme, variable: 'background.raised' })};
       cursor: default; /* [4] */
       padding: 0; /* [3] */
       text-align: ${theme.rtl ? 'right' : 'left'};
       white-space: normal; /* [5] */
+      color: ${getColor({ theme, variable: 'foreground.default' })};
       font-size: ${theme.fontSizes.md};
       font-weight: ${theme.fontWeights.regular};
       direction: ${theme.rtl && 'rtl'};

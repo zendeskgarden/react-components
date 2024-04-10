@@ -99,8 +99,7 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
       theme: props.theme,
       inset: props.focusInset,
       condition: !props.isBare,
-      hue: focusRingHue,
-      shade: focusRingShade,
+      color: { hue: focusRingHue, shade: focusRingShade },
       styles: {
         borderColor: focusBorderColor
       }

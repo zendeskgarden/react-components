@@ -41,7 +41,7 @@ const colorStyles = (props: IStyledSubNavItemProps) => {
 
     ${focusStyles({
       theme,
-      hue: isLight ? DARK : LIGHT,
+      color: { hue: isLight ? DARK : LIGHT },
       spacerWidth: null,
       styles: { opacity: 1 }
     })}

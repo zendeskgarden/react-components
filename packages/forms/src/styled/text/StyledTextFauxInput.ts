@@ -49,8 +49,7 @@ const colorStyles = (props: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>
       theme,
       inset: focusInset,
       condition: !isBare,
-      hue: getValidationHue(validation),
-      shade: validation === 'warning' ? 700 : 600,
+      color: { hue: getValidationHue(validation), shade: validation === 'warning' ? 700 : 600 },
       selector: isFocused ? '&' : '&:focus-within',
       styles: { borderColor: getColorV8(getValidationHue(validation), 600, theme) }
     })}

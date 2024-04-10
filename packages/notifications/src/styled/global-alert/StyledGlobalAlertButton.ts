@@ -70,8 +70,7 @@ function colorStyles(props: ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonP
 
     ${focusStyles({
       theme: props.theme,
-      hue: focusColor,
-      shade: props.alertType === 'info' ? 600 : 800
+      color: { hue: focusColor, shade: props.alertType === 'info' ? 600 : 800 }
     })}
 
     &:active {

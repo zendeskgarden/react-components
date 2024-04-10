@@ -88,8 +88,7 @@ const colorStyles = (props: IStyledTriggerProps) => {
     ${focusStyles({
       theme: props.theme,
       inset: props.focusInset,
-      hue: focusBorderColor,
-      shade: focusShade,
+      color: { hue: focusBorderColor, shade: focusShade },
       selector: focusSelector,
       styles: { borderColor: focusBorderColor },
       condition: !props.isBare
