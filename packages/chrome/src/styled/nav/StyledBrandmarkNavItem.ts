@@ -9,16 +9,19 @@ import styled from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 
-const COMPONENT_ID = 'chrome.brandmark_nav_item';
+const COMPONENT_ID = 'chrome.brandmark_nav_list_item';
 
-export const StyledBrandmarkNavItem = styled(StyledBaseNavItem).attrs({
+/**
+ * 1. Overrides flex default `min-height: auto`
+ */
+export const StyledBrandmarkNavItem = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'div'
+  'data-garden-version': PACKAGE_VERSION
 })`
   order: 1;
   opacity: 0.3;
   margin-top: auto;
+  min-height: 0; /* [1] */
 `;
 
 StyledBrandmarkNavItem.defaultProps = {

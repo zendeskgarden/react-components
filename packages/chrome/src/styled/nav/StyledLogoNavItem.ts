@@ -10,7 +10,7 @@ import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { Product } from '../../types';
 
-const COMPONENT_ID = 'chrome.logo_nav_item';
+const COMPONENT_ID = 'chrome.logo_nav_list_item';
 
 const retrieveProductColor = (product?: Product) => {
   switch (product) {
@@ -49,14 +49,17 @@ export interface IStyledLogoNavItemProps extends ThemeProps<DefaultTheme> {
   isLight?: boolean;
 }
 
-export const StyledLogoNavItem = styled(StyledBaseNavItem).attrs({
+/**
+ * 1. Overrides flex default `min-height: auto`
+ */
+export const StyledLogoNavItem = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'div'
+  'data-garden-version': PACKAGE_VERSION
 })<IStyledLogoNavItemProps>`
-  order: 0;
+  order: -1;
   opacity: 1;
   cursor: default;
+  min-height: 0; /* [1] */
 
   ${props => colorStyles(props)};
 `;

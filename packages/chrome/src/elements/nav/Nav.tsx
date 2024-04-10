@@ -14,6 +14,7 @@ import { StyledNav } from '../../styled';
 import { NavItem } from './NavItem';
 import { NavItemIcon } from './NavItemIcon';
 import { NavItemText } from './NavItemText';
+import { NavList } from './NavList';
 
 export const NavComponent = React.forwardRef<HTMLElement, INavProps>((props, ref) => {
   const { hue, isLight, isDark } = useChromeContext();
@@ -36,11 +37,13 @@ NavComponent.propTypes = {
  * @extends HTMLAttributes<HTMLElement>
  */
 export const Nav = NavComponent as typeof NavComponent & {
+  List: typeof NavList;
   Item: typeof NavItem;
   ItemIcon: typeof NavItemIcon;
   ItemText: typeof NavItemText;
 };
 
+Nav.List = NavList;
 Nav.Item = NavItem;
 Nav.ItemIcon = NavItemIcon;
 Nav.ItemText = NavItemText;

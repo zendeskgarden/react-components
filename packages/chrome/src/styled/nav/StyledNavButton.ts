@@ -18,7 +18,7 @@ import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';
 import { getNavWidth } from './StyledNav';
 
-const COMPONENT_ID = 'chrome.nav_item';
+const COMPONENT_ID = 'chrome.nav_button';
 
 /**
  * 1. Use outline for focus styling to work with transparent backgrounds
@@ -81,17 +81,26 @@ interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
  * 2. Button reset
  * 3. Override `focusStyles` outline (in `colorStyles`)
  * 4. Use of negative offset to create an inset outline
+ * 5. Overrides flex default `min-width: auto`
+ *    https://ishadeed.com/article/min-max-css/#setting-min-width-to-zero-with-flexbox
  */
-export const StyledNavItem = styled(StyledBaseNavItem as 'button').attrs({
+export const StyledNavButton = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'button'
 })<IStyledNavItemProps>`
+  flex: 1;
   justify-content: ${props => props.isExpanded && 'start'};
-  order: 1;
   margin: 0; /* [2] */
+  border: none; /* [2] */
+  box-sizing: border-box;
+  background: transparent; /* [2] */
   cursor: ${props => (props.isCurrent ? 'default' : 'pointer')};
+  min-width: 0; /* [5] */
   text-align: ${props => props.isExpanded && 'inherit'};
+  text-decoration: none; /* [1] */
+  color: inherit; /* [1] */
+  font-size: inherit; /* [2] */
 
   &:hover,
   &:focus {
@@ -119,6 +128,6 @@ export const StyledNavItem = styled(StyledBaseNavItem as 'button').attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledNavItem.defaultProps = {
+StyledNavButton.defaultProps = {
   theme: DEFAULT_THEME
 };

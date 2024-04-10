@@ -12,7 +12,7 @@ import {
   DEFAULT_THEME,
   getLineHeight
 } from '@zendeskgarden/react-theming';
-import { StyledNavItem } from './StyledNavItem';
+import { StyledNavButton } from './StyledNavButton';
 import { getNavWidth } from './StyledNav';
 
 const COMPONENT_ID = 'chrome.nav_item_text';
@@ -40,7 +40,7 @@ export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>({
   ${props =>
     props.isExpanded &&
     `
-    ${StyledNavItem} > && {
+    ${StyledNavButton} > && {
       position: static;
       flex: 1;
       clip: auto;

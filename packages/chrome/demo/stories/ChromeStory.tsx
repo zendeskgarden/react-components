@@ -139,20 +139,22 @@ export const ChromeStory: Story<IArgs> = ({
               <Nav.ItemText>Nav Logo</Nav.ItemText>
             </Nav.Item>
           )}
-          {navItems.map((item, index) => (
-            <Nav.Item
-              key={index}
-              isCurrent={currentNav === index}
-              onClick={() => {
-                setCurrentNav(index);
-                setCurrentSubNav(0);
-                onNavClick({ hasSubNav: item.hasSubNav });
-              }}
-            >
-              <Nav.ItemIcon>{NAV_ICONS[index] || <NavIcon />}</Nav.ItemIcon>
-              <Nav.ItemText isWrapped={isWrapped}>{item.text}</Nav.ItemText>
-            </Nav.Item>
-          ))}
+          <Nav.List>
+            {navItems.map((item, index) => (
+              <Nav.Item
+                key={index}
+                isCurrent={currentNav === index}
+                onClick={() => {
+                  setCurrentNav(index);
+                  setCurrentSubNav(0);
+                  onNavClick({ hasSubNav: item.hasSubNav });
+                }}
+              >
+                <Nav.ItemIcon>{NAV_ICONS[index] || <NavIcon />}</Nav.ItemIcon>
+                <Nav.ItemText isWrapped={isWrapped}>{item.text}</Nav.ItemText>
+              </Nav.Item>
+            ))}
+          </Nav.List>
           {hasBrandmark && (
             <Nav.Item hasBrandmark>
               <Nav.ItemIcon>

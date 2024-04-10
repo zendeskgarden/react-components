@@ -26,11 +26,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-/**
- * 1. Button reset.
- * 2. Anchor reset.
- */
-export const StyledBaseNavItem = styled.button.attrs({
+export const StyledBaseNavItem = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -44,12 +40,6 @@ export const StyledBaseNavItem = styled.button.attrs({
     box-shadow 0.1s ease-in-out,
     background-color 0.1s ease-in-out,
     opacity 0.1s ease-in-out;
-  border: none; /* [1] */
-  box-sizing: border-box;
-  background: transparent; /* [1] */
-  text-decoration: none; /* [2] */
-  color: inherit; /* [2] */
-  font-size: inherit; /* [1] */
 
   ${props => sizeStyles(props)}
 `;
