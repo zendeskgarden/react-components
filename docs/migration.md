@@ -197,6 +197,10 @@ consider additional positioning prop support on a case-by-case basis.
 - Utility function `getColor` has been refactored with a signature that supports
   v9 light/dark modes. Replace usage with `getColorV8` until custom components can
   be upgraded to utilize the new `getColor` function.
+- Utility functions `getFocusBoxShadow` and `focusStyles` no longer take `hue`,
+  `shade`, `spacerHue`, or `spacerShade` parameters. Use the `color` or
+  `shadeColor` parameters instead. The new object parameters take the shape of
+  refactored `getColor`.
 - Utility function `getDocument` has been removed. Use `useDocument` instead.
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
 - The following exports have changed:

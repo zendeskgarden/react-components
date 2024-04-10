@@ -223,7 +223,7 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
     getFocusBoxShadow({
       theme,
       inset: focusInset,
-      spacerColor: { hue: 'primaryHue', shade: 700 },
+      spacerColor: { hue: focusColor },
       color: { hue: 'transparent' }
     });
 
