@@ -86,8 +86,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
       /* [1] */
       ${focusStyles({
         theme: props.theme,
-        hue: focusColor,
-        shade: props.alertType === 'info' ? 600 : 800,
+        color: { hue: focusColor, shade: props.alertType === 'info' ? 600 : 800 },
         styles: { color: 'inherit' }
       })}
 

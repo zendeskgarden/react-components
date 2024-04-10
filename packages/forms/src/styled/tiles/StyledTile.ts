@@ -66,7 +66,7 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
 
     ${focusStyles({
       theme: props.theme,
-      hue: focusBorderColor,
+      color: { hue: focusBorderColor },
       styles: {
         borderColor: focusBorderColor
       },

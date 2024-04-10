@@ -6,60 +6,50 @@
  */
 
 import DEFAULT_THEME from '../elements/theme';
-import { Hue, IGardenTheme } from '../types';
-import { DEFAULT_SHADE, getColorV8 } from './getColorV8';
-
-export type FocusBoxShadowParameters = {
-  boxShadow?: string;
-  inset?: boolean;
-  hue?: Hue;
-  shade?: number;
-  shadowWidth?: 'sm' | 'md';
-  spacerHue?: Hue;
-  spacerShade?: number;
-  spacerWidth?: null | 'xs' | 'sm';
-  theme: IGardenTheme;
-};
+import { FocusBoxShadowParameters } from '../types';
+import { getColorV8 } from './getColorV8';
+import { getColor } from './getColor';
 
 /**
- * Get a CSS `box-shadow` property value for focus state styling. The `hue` and
- * `shade` are used to determine the color of the focus ring.
+ * Get a CSS `box-shadow` property value for focus state styling.
  *
  * @param {string} [options.boxShadow] Provides an existing `box-shadow` (a drop shadow, for example) to be retained along with the focus ring
  * @param {boolean} [options.inset=false] Determines whether the `box-shadow` is inset
- * @param {string|Object} [options.hue='primaryHue'] Provides a theme object `palette` hue or `color` key, or any valid CSS color notation
- * @param {number} [options.shade=600] Selects a shade for the given `hue`
+ * @param {Object} [options.color={ variable: 'border.primaryEmphasis' }] Provides an object with `getColor` parameters used to determine the focus ring color
  * @param {string} [options.shadowWidth='md'] Provides a theme object `shadowWidth` key for the cumulative width of the `box-shadow`
- * @param {string|Object} [options.spacerHue='background'] Provides a theme object `palette` hue or `color` key, or any valid CSS color notation
- * @param {number} [options.spacerShade=600] Selects a shade for the given `spacerHue`
+ * @param {Object} [options.spacerColor={ variable: 'background.default' }] Provides an object with `getColor` parameters used to determine the spacer color
  * @param {string} [options.spacerWidth='xs'] Provides a theme object `shadowWidth` for the white spacer, or `null` to remove
  * @param {Object} options.theme Provides values used to resolve the desired color
  *
  * @returns A `box-shadow` property value for the given options. Default is a
- * 3px `blue[600]` ring with a 1px white spacer overlay.
+ * 3px blue ring with a 1px spacer overlay that matches the background.
  */
 export const getFocusBoxShadow = ({
   boxShadow,
   inset = false,
-  hue = 'primaryHue',
-  shade = DEFAULT_SHADE,
+  color = { variable: 'border.primaryEmphasis' },
   shadowWidth = 'md',
-  spacerHue = 'background',
-  spacerShade = DEFAULT_SHADE,
+  spacerColor = { variable: 'background.default' },
   spacerWidth = 'xs',
-  theme = DEFAULT_THEME
+  theme = DEFAULT_THEME,
+  ...args // fallback catch for v8 parameters to be removed in v10
 }: FocusBoxShadowParameters) => {
-  const color = getColorV8(hue, shade, theme);
-  const shadow = theme.shadows[shadowWidth](color!);
+  const _args = args as any;
+  const _color = _args.hue
+    ? getColorV8(_args.hue, _args.shade, theme)!
+    : getColor({ ...color, theme });
+  const shadow = theme.shadows[shadowWidth](_color);
 
   if (spacerWidth === null) {
     return `${inset ? 'inset' : ''} ${shadow}`;
   }
 
-  const spacerColor = getColorV8(spacerHue, spacerShade, theme);
+  const _spacerColor = _args.spacerHue
+    ? getColorV8(_args.spacerHue, _args.spacerShade, theme)!
+    : getColor({ ...spacerColor, theme });
 
   const retVal = `
-    ${inset ? 'inset' : ''} ${theme.shadows[spacerWidth](spacerColor!)},
+    ${inset ? 'inset' : ''} ${theme.shadows[spacerWidth](_spacerColor)},
     ${inset ? 'inset' : ''} ${shadow}`;
 
   return boxShadow ? `${retVal}, ${boxShadow}` : retVal;

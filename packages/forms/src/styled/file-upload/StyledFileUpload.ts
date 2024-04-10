@@ -46,7 +46,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) =
 
     ${focusStyles({
       theme: props.theme,
-      hue: baseColor
+      color: { hue: baseColor }
     })}
 
     &:active {

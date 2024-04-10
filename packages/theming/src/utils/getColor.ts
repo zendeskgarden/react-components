@@ -11,7 +11,7 @@ import get from 'lodash.get';
 import memoize from 'lodash.memoize';
 import DEFAULT_THEME from '../elements/theme';
 import PALETTE from '../elements/palette';
-import { Hue, IGardenTheme } from '../types';
+import { ColorParameters, Hue, IGardenTheme } from '../types';
 
 const PALETTE_SIZE = Object.keys(PALETTE.blue).length;
 
@@ -88,7 +88,7 @@ const toColor = (
 
   if (typeof _hue === 'object') {
     retVal = toHex(_hue, shade, offset, scheme);
-  } else if (valid(_hue)) {
+  } else if (_hue === 'transparent' || valid(_hue)) {
     if (shade === undefined) {
       retVal = _hue;
     } else {
@@ -126,27 +126,6 @@ const toProperty = (object: object, path: string) => {
   } else {
     throw new TypeError(`Error: unexpected '${typeof retVal}' type for color variable "${path}"`);
   }
-};
-
-type ColorParameters = {
-  dark?: {
-    hue?: string;
-    offset?: number;
-    shade?: number;
-    transparency?: number;
-  };
-  hue?: string;
-  light?: {
-    hue?: string;
-    offset?: number;
-    shade?: number;
-    transparency?: number;
-  };
-  offset?: number;
-  shade?: number;
-  theme: IGardenTheme;
-  transparency?: number;
-  variable?: string;
 };
 
 /**

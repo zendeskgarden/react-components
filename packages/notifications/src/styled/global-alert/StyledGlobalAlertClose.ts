@@ -73,8 +73,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
 
     ${focusStyles({
       theme: props.theme,
-      hue: focusColor,
-      shade: props.alertType === 'info' ? 600 : 800
+      color: { hue: focusColor, shade: props.alertType === 'info' ? 600 : 800 }
     })}
 
     &:active {

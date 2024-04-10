@@ -32,9 +32,10 @@ import README from '../README.md';
       inset: 0
     }}
     argTypes={{
-      position: { control: { type: 'select', options: ARROW_POSITIONS } },
+      position: { control: 'select', options: ARROW_POSITIONS },
       size: { control: { type: 'range', min: 2, max: 10, step: 1 } },
-      inset: { control: { type: 'range', min: -4, max: 4, step: 1 } }
+      inset: { control: { type: 'range', min: -4, max: 4, step: 1 } },
+      theme: { control: false }
     }}
   >
     {args => <ArrowStylesStory {...args} />}
@@ -78,7 +79,8 @@ import README from '../README.md';
       isAnimated: true
     }}
     argTypes={{
-      position: { control: { type: 'radio', options: MENU_POSITIONS } }
+      position: { control: 'radio', options: MENU_POSITIONS },
+      theme: { control: false }
     }}
   >
     {args => <MenuStylesStory {...args} />}

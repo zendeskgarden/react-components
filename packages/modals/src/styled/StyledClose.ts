@@ -30,7 +30,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 
     ${focusStyles({
       theme: props.theme,
-      hue: backgroundColor
+      color: { hue: backgroundColor }
     })}
 
     &:active {

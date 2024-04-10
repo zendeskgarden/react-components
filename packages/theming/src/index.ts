@@ -32,6 +32,9 @@ export {
   type IGardenTheme,
   type IThemeProviderProps,
   type ArrowPosition,
+  type ColorParameters,
+  type FocusBoxShadowParameters,
+  type FocusStylesParameters,
   type MenuPosition,
   type Placement
 } from './types';

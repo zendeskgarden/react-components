@@ -39,7 +39,7 @@ const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>)
 
     ${focusStyles({
       theme: props.theme,
-      hue: hoverColor,
+      color: { hue: hoverColor },
       styles: {
         backgroundColor: hoverColor
       },
