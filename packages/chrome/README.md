@@ -17,17 +17,18 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Chrome, Nav, SubNav, Body, Header, Content, Main } from '@zendeskgarden/react-chrome';
 import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';
+import BrandmarkIcon from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 
 <ThemeProvider>
   <Chrome>
     <Nav isExpanded>
+      <Nav.Item hasLogo product="connect" title="Zendesk Connect">
+        <Nav.ItemIcon>
+          <ConnectIcon />
+        </Nav.ItemIcon>
+        <NavItemText>Zendesk Connect</NavItemText>
+      </Nav.Item>
       <Nav.List>
-        <Nav.Item hasLogo product="connect" title="Zendesk Connect">
-          <Nav.ItemIcon>
-            <ConnectIcon />
-          </Nav.ItemIcon>
-          <NavItemText>Zendesk Connect</NavItemText>
-        </Nav.Item>
         <Nav.Item isCurrent>
           <Nav.ItemIcon>
             <HomeIcon />
@@ -35,6 +36,12 @@ import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';
           <NavItemText>Home</NavItemText>
         </Nav.Item>
       </Nav.List>
+      <Nav.Item hasBrandmark>
+        <Nav.ItemIcon>
+          <BrandmarkIcon />
+        </Nav.ItemIcon>
+        <Nav.ItemText>Brandmark</Nav.ItemText>
+      </Nav.Item>
     </Nav>
     <SubNav>
       <SubNav.Item isCurrent>
