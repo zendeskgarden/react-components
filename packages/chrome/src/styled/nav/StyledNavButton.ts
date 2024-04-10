@@ -82,6 +82,7 @@ interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
  * 3. Override `focusStyles` outline (in `colorStyles`)
  * 4. Use of negative offset to create an inset outline
  * 5. Overrides flex default `min-width: auto`
+ *    https://ishadeed.com/article/min-max-css/#setting-min-width-to-zero-with-flexbox
  */
 export const StyledNavButton = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
@@ -92,6 +93,7 @@ export const StyledNavButton = styled(StyledBaseNavItem as 'button').attrs({
   justify-content: ${props => props.isExpanded && 'start'};
   margin: 0; /* [2] */
   border: none; /* [2] */
+  box-sizing: border-box;
   background: transparent; /* [2] */
   cursor: ${props => (props.isCurrent ? 'default' : 'pointer')};
   min-width: 0; /* [5] */

@@ -49,14 +49,17 @@ export interface IStyledLogoNavItemProps extends ThemeProps<DefaultTheme> {
   isLight?: boolean;
 }
 
+/**
+ * 1. Overrides flex default `min-height: auto`
+ */
 export const StyledLogoNavItem = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledLogoNavItemProps>`
-  flex: 0;
-  order: 0;
+  order: -1;
   opacity: 1;
   cursor: default;
+  min-height: 0; /* [1] */
 
   ${props => colorStyles(props)};
 `;

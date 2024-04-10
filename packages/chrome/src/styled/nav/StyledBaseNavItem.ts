@@ -26,7 +26,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledBaseNavItem = styled.li.attrs({
+export const StyledBaseNavItem = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -40,7 +40,6 @@ export const StyledBaseNavItem = styled.li.attrs({
     box-shadow 0.1s ease-in-out,
     background-color 0.1s ease-in-out,
     opacity 0.1s ease-in-out;
-  box-sizing: border-box;
 
   ${props => sizeStyles(props)}
 `;

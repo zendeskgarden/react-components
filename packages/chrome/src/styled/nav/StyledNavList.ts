@@ -17,6 +17,7 @@ export const StyledNavList = styled.ul.attrs({
   display: flex;
   flex: 1;
   flex-direction: column;
+  order: 0;
   margin: 0;
   padding: 0;
   list-style: none;
