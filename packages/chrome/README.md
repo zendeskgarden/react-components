@@ -15,7 +15,7 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Chrome, Nav, SubNav, Body, Header, Content, Main } from '@zendeskgarden/react-chrome';
+import { Chrome, Nav, Body, Header, Content, Main } from '@zendeskgarden/react-chrome';
 import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';
 import BrandmarkIcon from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 
@@ -43,12 +43,6 @@ import BrandmarkIcon from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
         <Nav.ItemText>Brandmark</Nav.ItemText>
       </Nav.Item>
     </Nav>
-    <SubNav>
-      <SubNav.Item isCurrent>
-        <SubNav.ItemText>Subnav 1</SubNav.ItemText>
-      </SubNav.Item>
-      ...
-    </SubNav>
     <Body>
       <Header>...</Header>
       <Content>

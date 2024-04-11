@@ -77,16 +77,13 @@ interface IArgs extends IChromeProps {
   skipNav: string;
   hasNav: boolean;
   navItems: INavItem[];
-  onNavClick: ({ hasSubNav }: Record<string, boolean | undefined>) => void;
   hasLogo: boolean;
   hasBrandmark: boolean;
-  hasSubNav: boolean;
   hasHeader: boolean;
   headerItems: IHeaderItem[];
   hasFooter: boolean;
   footerItems: IFooterItem[];
   isExpanded: boolean;
-  isWrapped: boolean;
   main: string;
   isSheetOpen: boolean;
   isSheetCompact: boolean;
@@ -108,7 +105,6 @@ export const ChromeStory: Story<IArgs> = ({
   hasFooter,
   footerItems,
   isExpanded,
-  isWrapped,
   main,
   isSheetOpen,
   isSheetCompact,
@@ -141,7 +137,7 @@ export const ChromeStory: Story<IArgs> = ({
                 }}
               >
                 <Nav.ItemIcon>{NAV_ICONS[index] || <NavIcon />}</Nav.ItemIcon>
-                <Nav.ItemText isWrapped={isWrapped}>{item.text}</Nav.ItemText>
+                <Nav.ItemText>{item.text}</Nav.ItemText>
               </Nav.Item>
             ))}
           </Nav.List>
