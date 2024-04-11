@@ -10,7 +10,6 @@ import {
   Nav,
   Sheet,
   SkipNav,
-  SubNav,
   PRODUCTS
 } from '@zendeskgarden/react-chrome';
 import { ChromeStory } from './stories/ChromeStory';
@@ -46,11 +45,7 @@ import README from '../README.md';
     'Nav.ItemIcon': Nav.ItemIcon,
     'Nav.ItemText': Nav.ItemText,
     Sheet,
-    SkipNav,
-    SubNav,
-    'SubNav.CollapsibleItem': SubNav.CollapsibleItem,
-    'SubNav.Item': SubNav.Item,
-    'SubNav.ItemText': SubNav.ItemText
+    SkipNav
   }}
 />
 
@@ -71,8 +66,6 @@ import README from '../README.md';
       isWrapped: false,
       hasLogo: true,
       hasBrandmark: true,
-      hasSubNav: false,
-      subNavItems: SUB_NAV_ITEMS,
       hasHeader: true,
       headerItems: HEADER_ITEMS,
       hasFooter: true,
@@ -95,9 +88,6 @@ import README from '../README.md';
       navItems: { name: 'Nav.Item[]', table: { category: 'Story' } },
       hasLogo: { name: 'Nav hasLogo', table: { category: 'Story' } },
       hasBrandmark: { name: 'Nav hasBrandmark', table: { category: 'Story' } },
-      hasSubNav: { name: 'SubNav', table: { category: 'Story' } },
-      subNavItems: { name: 'SubNav.Item[]', table: { category: 'Story' } },
-      subNavMaxWidth: { name: 'SubNav max-width', control: 'number', table: { category: 'Story' } },
       hasHeader: { name: 'Header', table: { category: 'Story' } },
       headerItems: { name: 'Header.Item[]', table: { category: 'Story' } },
       hasFooter: { name: 'Footer', table: { category: 'Story' } },
@@ -128,9 +118,8 @@ import README from '../README.md';
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleNavClick = ({ hasSubNav }) => updateArgs({ hasSubNav: hasSubNav || false });
       const handleSheetClick = () => updateArgs({ isSheetOpen: false });
-      return <ChromeStory {...args} onSheetClick={handleSheetClick} onNavClick={handleNavClick} />;
+      return <ChromeStory {...args} onSheetClick={handleSheetClick} />;
     }}
   </Story>
 </Canvas>

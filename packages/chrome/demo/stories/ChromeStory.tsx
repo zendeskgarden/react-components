@@ -39,11 +39,10 @@ import {
   INavItemProps,
   Main,
   Nav,
-  SkipNav,
-  SubNav
+  SkipNav
 } from '@zendeskgarden/react-chrome';
 import { Button } from '@zendeskgarden/react-buttons';
-import { IFooterItem, IHeaderItem, INavItem, ISubNavItem } from './types';
+import { IFooterItem, IHeaderItem, INavItem } from './types';
 import { SheetComponent } from './SheetStory';
 import { Product } from '../../src/types';
 
@@ -82,8 +81,6 @@ interface IArgs extends IChromeProps {
   hasLogo: boolean;
   hasBrandmark: boolean;
   hasSubNav: boolean;
-  subNavItems: ISubNavItem[];
-  subNavMaxWidth: number;
   hasHeader: boolean;
   headerItems: IHeaderItem[];
   hasFooter: boolean;
@@ -104,12 +101,8 @@ export const ChromeStory: Story<IArgs> = ({
   skipNav,
   hasNav,
   navItems,
-  onNavClick,
   hasLogo,
   hasBrandmark,
-  hasSubNav,
-  subNavItems,
-  subNavMaxWidth,
   hasHeader,
   headerItems,
   hasFooter,
@@ -126,7 +119,6 @@ export const ChromeStory: Story<IArgs> = ({
   ...args
 }) => {
   const [currentNav, setCurrentNav] = useState(0);
-  const [currentSubNav, setCurrentSubNav] = useState(0);
 
   return (
     <Chrome {...args} style={{ margin: `-${DEFAULT_THEME.space.xl}` }}>
@@ -146,8 +138,6 @@ export const ChromeStory: Story<IArgs> = ({
                 isCurrent={currentNav === index}
                 onClick={() => {
                   setCurrentNav(index);
-                  setCurrentSubNav(0);
-                  onNavClick({ hasSubNav: item.hasSubNav });
                 }}
               >
                 <Nav.ItemIcon>{NAV_ICONS[index] || <NavIcon />}</Nav.ItemIcon>
@@ -165,36 +155,10 @@ export const ChromeStory: Story<IArgs> = ({
           )}
         </Nav>
       )}
-      {hasSubNav && (
-        <SubNav style={{ maxWidth: subNavMaxWidth }}>
-          {subNavItems.map((item, index) =>
-            item.items ? (
-              <SubNav.CollapsibleItem key={index} header={item.text}>
-                {item.items.map((subItem, subIndex) => (
-                  <SubNav.Item
-                    key={subIndex}
-                    isCurrent={currentSubNav === parseFloat(`${index}.${subIndex}`)}
-                    onClick={() => setCurrentSubNav(parseFloat(`${index}.${subIndex}`))}
-                  >
-                    <SubNav.ItemText isWrapped={isWrapped}>{subItem}</SubNav.ItemText>
-                  </SubNav.Item>
-                ))}
-              </SubNav.CollapsibleItem>
-            ) : (
-              <SubNav.Item
-                key={index}
-                isCurrent={currentSubNav === index}
-                onClick={() => setCurrentSubNav(index)}
-              >
-                <SubNav.ItemText isWrapped={isWrapped}>{item.text}</SubNav.ItemText>
-              </SubNav.Item>
-            )
-          )}
-        </SubNav>
-      )}
+
       <Body>
         {hasHeader && (
-          <Header isStandalone={!(hasNav || hasSubNav)}>
+          <Header isStandalone={!hasNav}>
             {hasLogo && (
               <Header.Item hasLogo product={product}>
                 <Header.ItemIcon>
