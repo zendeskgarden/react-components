@@ -55,7 +55,7 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-chrome
 
-- Removed `Sidebar`: UI no longer recommended by Garden
+- Removed `Sidebar` and `Subnav`: UI no longer recommended by Garden
 - Removed `PRODUCT` type export. Use `IHeaderItemProps['product']` instead.
 - Removed `hasFooter` prop for `Body` (no replacement needed)
 - The following React component types have changed:
