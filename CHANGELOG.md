@@ -13,6 +13,28 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.8 (2024-04-12)
+
+#### :boom: Breaking Change
+* `chrome`
+  * [#1787](https://github.com/zendeskgarden/react-components/pull/1787) feat(chrome)!: removes Subnav component ([@ze-flo](https://github.com/ze-flo))
+* `avatars`, `chrome`
+  * [#1784](https://github.com/zendeskgarden/react-components/pull/1784) feat(chrome)!: improves markup structure for `Nav` items ([@geotrev](https://github.com/geotrev))
+* `buttons`, `chrome`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `theming`
+  * [#1785](https://github.com/zendeskgarden/react-components/pull/1785) fix(theming)!: update utilities for refactored `getColor` ([@jzempel](https://github.com/jzempel))
+
+#### :rocket: New Feature
+* `theming`
+  * [#1782](https://github.com/zendeskgarden/react-components/pull/1782) feat(theming): fill out color variables ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#1789](https://github.com/zendeskgarden/react-components/pull/1789) fix(deps): use -next versions for react-theming peer dep ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1788](https://github.com/zendeskgarden/react-components/pull/1788) chore: update with `main` ([@geotrev](https://github.com/geotrev))
+
 ## v9.0.0-next.7 (2024-04-04)
 
 #### :boom: Breaking Change
