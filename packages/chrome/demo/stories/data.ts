@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { COLLAPSIBLE_SUB_NAV_ITEM, IFooterItem, IHeaderItem, INavItem, ISubNavItem } from './types';
+import { IFooterItem, IHeaderItem, INavItem } from './types';
 
 export const CHROME_FOOTER_ITEMS: IFooterItem[] = [
   {
@@ -82,36 +82,11 @@ export const CHROME_NAV_ITEMS: INavItem[] = [
     text: 'Dashboard'
   },
   {
-    text: 'Settings',
-    hasSubNav: true
+    text: 'Settings'
   }
 ];
 
 export const CHROME_SKIP_NAV = 'Skip to main content';
-
-export const CHROME_SUB_NAV_ITEMS: ISubNavItem[] = [
-  {
-    text: 'Recently viewed'
-  },
-  {
-    text: 'Account',
-    items: ['Billing', 'Security', 'Sandbox', 'Tools']
-  },
-  {
-    text: 'Workspaces'
-  },
-  {
-    text: 'Apps and integrations',
-    items: ['Apps', 'Integrations', 'APIs', 'Webhooks']
-  }
-];
-
-export const COLLAPSIBLE_SUB_NAV_ITEMS: COLLAPSIBLE_SUB_NAV_ITEM[] = [
-  'Item 1',
-  'Item 2',
-  'Item 3',
-  'Item 4'
-];
 
 export const SHEET_BODY = `Onion cherry bomb pepper summertime raspberry fizz
 spiced peppermint blast kale caesar salad hearts of palm a delicious meal

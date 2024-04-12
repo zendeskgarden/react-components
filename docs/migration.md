@@ -55,12 +55,11 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-chrome
 
-- Removed `Sidebar`: UI no longer recommended by Garden
+- Removed `Sidebar` and `Subnav`: UI no longer recommended by Garden
 - Removed `PRODUCT` type export. Use `IHeaderItemProps['product']` instead.
 - Removed `hasFooter` prop for `Body` (no replacement needed)
 - The following React component types have changed:
   - Removed `IBodyProps` type export.
-  - Renamed `ICollapsibleSubNavItemProps` type export to `ISubNavCollapsibleItemProps`.
   - `Header.ItemIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
   - `Nav.ItemIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
 - Subcomponent exports have been deprecated and will be removed in a future major version. Update
@@ -73,9 +72,6 @@ consider additional positioning prop support on a case-by-case basis.
   - `NavItem` -> `Nav.Item`
   - `NavItemIcon` -> `Nav.ItemIcon`
   - `NavItemText` -> `Nav.ItemText`
-  - `CollapsibleSubNavItem` -> `SubNav.CollapsibleItem`
-  - `SubNavItem` -> `SubNav.Item`
-  - `SubNavItemText` -> `SubNav.ItemText`
 - Added `Nav.List` as a semantic wrapper for `Nav.Item`. See the
   [README](../packages/chrome/README.md#usages) for details.
 

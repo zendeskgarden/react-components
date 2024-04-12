@@ -13,9 +13,6 @@ export { FooterItem } from './elements/footer/FooterItem';
 export { NavItem } from './elements/nav/NavItem';
 export { NavItemIcon } from './elements/nav/NavItemIcon';
 export { NavItemText } from './elements/nav/NavItemText';
-export { SubNavItem } from './elements/subnav/SubNavItem';
-export { SubNavItemText } from './elements/subnav/SubNavItemText';
-export { CollapsibleSubNavItem } from './elements/subnav/CollapsibleSubNavItem';
 
 export { Chrome } from './elements/Chrome';
 export { SkipNav } from './elements/SkipNav';
@@ -25,7 +22,6 @@ export { Main } from './elements/body/Main';
 export { Header } from './elements/header/Header';
 export { Footer } from './elements/footer/Footer';
 export { Nav } from './elements/nav/Nav';
-export { SubNav } from './elements/subnav/SubNav';
 export { Sheet } from './elements/sheet/Sheet';
 
 export {
@@ -39,8 +35,6 @@ export {
   type INavProps,
   type INavItemProps,
   type INavItemTextProps,
-  type ISubNavItemProps,
-  type ICollapsibleSubNavItemProps,
   type ISheetProps,
   type ISheetFooterProps
 } from './types';
