@@ -84,6 +84,7 @@ interface IArgs extends IChromeProps {
   hasFooter: boolean;
   footerItems: IFooterItem[];
   isExpanded: boolean;
+  isWrapped: boolean;
   main: string;
   isSheetOpen: boolean;
   isSheetCompact: boolean;
@@ -105,6 +106,7 @@ export const ChromeStory: Story<IArgs> = ({
   hasFooter,
   footerItems,
   isExpanded,
+  isWrapped,
   main,
   isSheetOpen,
   isSheetCompact,
@@ -137,7 +139,7 @@ export const ChromeStory: Story<IArgs> = ({
                 }}
               >
                 <Nav.ItemIcon>{NAV_ICONS[index] || <NavIcon />}</Nav.ItemIcon>
-                <Nav.ItemText>{item.text}</Nav.ItemText>
+                <Nav.ItemText isWrapped={isWrapped}>{item.text}</Nav.ItemText>
               </Nav.Item>
             ))}
           </Nav.List>
