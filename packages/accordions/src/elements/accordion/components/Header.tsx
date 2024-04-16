@@ -64,10 +64,10 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
       >
         {children}
         <StyledRotateIcon
-          isCompact={isCompact}
-          isHovered={isHovered}
-          isRotated={isExpanded}
-          isCollapsible={isCollapsible}
+          $isCompact={isCompact}
+          $isHovered={isHovered}
+          $isRotated={isExpanded}
+          $isCollapsible={isCollapsible}
           onMouseOver={composeEventHandlers(onMouseOver, () => setIsHovered(true))}
           onMouseOut={composeEventHandlers(onMouseOut, () => setIsHovered(false))}
         >

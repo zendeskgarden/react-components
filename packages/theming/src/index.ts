@@ -24,6 +24,7 @@ export { useWindow } from './utils/useWindow';
 export { useText } from './utils/useText';
 export { default as menuStyles } from './utils/menuStyles';
 export { focusStyles, SELECTOR_FOCUS_VISIBLE } from './utils/focusStyles';
+export { StyledBaseIcon } from './styled/StyledBaseIcon';
 
 export {
   ARROW_POSITION,

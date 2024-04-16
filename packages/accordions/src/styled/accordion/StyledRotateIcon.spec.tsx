@@ -26,9 +26,9 @@ describe('StyledRotateIcon', () => {
     );
   });
 
-  it('renders isRotated styling correctly', () => {
+  it('renders $isRotated styling correctly', () => {
     const { container } = render(
-      <StyledRotateIcon isRotated>
+      <StyledRotateIcon $isRotated>
         <svg />
       </StyledRotateIcon>
     );
@@ -36,9 +36,9 @@ describe('StyledRotateIcon', () => {
     expect(container.firstChild).toHaveStyleRule('transform', 'rotate(+180deg)');
   });
 
-  it('renders isCompact styling correctly', () => {
+  it('renders $isCompact styling correctly', () => {
     const { container } = render(
-      <StyledRotateIcon isCompact>
+      <StyledRotateIcon $isCompact>
         <svg />
       </StyledRotateIcon>
     );
@@ -46,9 +46,9 @@ describe('StyledRotateIcon', () => {
     expect(container.firstChild).toHaveStyleRule('padding', '6px 12px');
   });
 
-  it('renders isRotated styling correctly for RTL', () => {
+  it('renders $isRotated styling correctly for RTL', () => {
     const { container } = renderRtl(
-      <StyledRotateIcon isRotated>
+      <StyledRotateIcon $isRotated>
         <svg />
       </StyledRotateIcon>
     );
@@ -56,9 +56,9 @@ describe('StyledRotateIcon', () => {
     expect(container.firstChild).toHaveStyleRule('transform', 'rotate(-180deg)');
   });
 
-  it('renders isHovered styling correctly', () => {
+  it('renders $isHovered styling correctly', () => {
     const { container } = render(
-      <StyledRotateIcon isHovered>
+      <StyledRotateIcon $isHovered>
         <svg />
       </StyledRotateIcon>
     );

@@ -5,21 +5,28 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { cloneElement, Children } from 'react';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getColorV8,
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  StyledBaseIcon
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.rotate_icon';
 
 interface IStyledRotateIcon {
-  isCompact?: boolean;
+  $isCompact?: boolean;
+  $isRotated?: boolean;
+  $isHovered?: boolean;
+  $isCollapsible?: boolean;
 }
 
 const colorStyles = (props: ThemeProps<DefaultTheme> & any) => {
-  const showColor = props.isCollapsible || !props.isRotated;
+  const showColor = props.$isCollapsible || !props.$isRotated;
   let color = getColorV8('neutralHue', 600, props.theme);
 
-  if (showColor && props.isHovered) {
+  if (showColor && props.$isHovered) {
     color = getColorV8('primaryHue', 600, props.theme);
   }
 
@@ -32,21 +39,17 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & any) => {
   `;
 };
 
-export const StyledRotateIcon = styled(
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  ({ children, isRotated, isHovered, isCompact, isCollapsible, ...props }) =>
-    cloneElement(Children.only(children), props)
-).attrs({
+export const StyledRotateIcon = styled(StyledBaseIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledRotateIcon>`
-  transform: ${props => props.isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
+  transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   transition:
     transform 0.25s ease-in-out,
     color 0.1s ease-in-out;
   box-sizing: content-box;
   padding: ${props =>
-    props.isCompact
+    props.$isCompact
       ? `${props.theme.space.base * 1.5}px ${props.theme.space.base * 3}px`
       : `${props.theme.space.base * 5}px`};
   width: ${props => props.theme.iconSizes.md};
