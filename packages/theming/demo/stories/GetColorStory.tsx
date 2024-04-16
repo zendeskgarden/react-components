@@ -7,29 +7,9 @@
 
 import React from 'react';
 import { StoryFn } from '@storybook/react';
-import styled, { DefaultTheme, useTheme } from 'styled-components';
-import { IGardenTheme, getColor } from '@zendeskgarden/react-theming';
+import styled, { useTheme } from 'styled-components';
+import { IGardenTheme, getCheckeredBackground, getColor } from '@zendeskgarden/react-theming';
 import { Tag } from '@zendeskgarden/react-tags';
-
-const toBackground = (theme: DefaultTheme, backgroundColor: string) => {
-  const color = getColor({ hue: 'neutralHue', shade: 300, theme });
-  const size = 26;
-  const dimensions = `${size}px ${size}px`;
-  const positionX1 = theme.rtl ? '100%' : '0';
-  const positionX2 = theme.rtl ? `calc(100% - ${size / 2}px)` : `${size / 2}px`;
-  const position1 = `${positionX1} 0`;
-  const position2 = `${positionX2} ${size / 2}px`;
-  const position3 = `${positionX2} 0`;
-  const position4 = `${positionX1} ${size / -2}px`;
-
-  return `
-    linear-gradient(${backgroundColor}, ${backgroundColor}), 
-    linear-gradient(45deg, ${color} 25%, transparent 25%) ${position1} / ${dimensions} repeat,
-    linear-gradient(45deg, transparent 75%, ${color} 75%) ${position2} / ${dimensions} repeat,
-    linear-gradient(135deg, ${color} 25%, transparent 25%) ${position3} / ${dimensions} repeat,
-    linear-gradient(135deg, transparent 75%, ${color} 75%) ${position4} / ${dimensions} repeat
-  `;
-};
 
 const StyledDiv = styled.div<{ background: string }>`
   display: flex;
@@ -66,7 +46,11 @@ const Color = ({ dark, hue, light, offset, shade, theme, transparency, variable 
       variable
     });
 
-    background = toBackground(theme, backgroundColor);
+    background = getCheckeredBackground({
+      theme,
+      size: 26,
+      overlay: backgroundColor
+    });
     tag = (
       <Tag hue={getColor({ theme, variable: 'background.default' })} size="large">
         {backgroundColor}

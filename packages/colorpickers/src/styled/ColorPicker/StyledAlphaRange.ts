@@ -6,9 +6,8 @@
  */
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getCheckeredBackground } from '@zendeskgarden/react-theming';
 import { getTrackHeight, getTrackMargin, StyledRange } from '../common/StyledRange';
-import { checkeredBackground } from '../common/checkeredBackground';
 import { IRGBColor } from '../../types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
@@ -19,14 +18,15 @@ const background = (props: IRGBColor & ThemeProps<DefaultTheme>) => {
   const toColor = `rgb(${props.red}, ${props.green}, ${props.blue})`;
   const positionY = getTrackMargin(props);
   const height = getTrackHeight(props);
-  const gradientBackground = `linear-gradient(${direction}, ${fromColor}, ${toColor}) 0 ${positionY}px / 100% ${height}px no-repeat`;
+  const overlay = `linear-gradient(${direction}, ${fromColor}, ${toColor}) 0 ${positionY}px / 100% ${height}px no-repeat`;
 
-  return `${gradientBackground}, ${checkeredBackground(
-    props.theme,
-    height,
+  return getCheckeredBackground({
+    theme: props.theme,
+    size: height,
     positionY,
-    'repeat-x'
-  )}`;
+    repeat: 'repeat-x',
+    overlay
+  });
 };
 
 export const StyledAlphaRange = styled(StyledRange as 'input').attrs<IRGBColor>(props => ({
