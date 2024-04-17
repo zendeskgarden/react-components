@@ -20,7 +20,7 @@ export const Close = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HT
     const hue = useNotificationsContext();
 
     return (
-      <StyledClose ref={ref} hue={hue} aria-label={ariaLabel} {...props}>
+      <StyledClose ref={ref} hue={hue} aria-label={ariaLabel} {...props} aria-hidden>
         <XStrokeIcon />
       </StyledClose>
     );
