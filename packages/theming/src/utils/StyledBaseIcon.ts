@@ -7,21 +7,15 @@
 
 import styled from 'styled-components';
 import React, { Children } from 'react';
-import retrieveComponentStyles from '../utils/retrieveComponentStyles';
-import DEFAULT_THEME from '../elements/theme';
 
 const COMPONENT_ID = 'icon.base';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars,garden-local/require-default-theme
 export const StyledBaseIcon = styled(({ children, theme, ...props }) =>
   React.cloneElement(Children.only(children), props)
 ).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  /* stylelint-disable no-empty-block */
 `;
-
-StyledBaseIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};
