@@ -20,18 +20,19 @@ describe('Notification', () => {
   it('has a default role attribute', () => {
     const { container } = render(<Notification type="success" />);
 
-    expect(container.firstChild).toHaveAttribute('role', 'status');
+    expect(container.firstChild).toHaveAttribute('role', 'alert');
   });
 
-  it('can have its role attribute modified', () => {
-    const { container } = render(<Notification type="error" role="alert" />);
+  it('cannot have its role attribute modified', () => {
+    // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
+    const { container } = render(<Notification type="error" role="status" />);
 
     expect(container.firstChild).toHaveAttribute('role', 'alert');
   });
 
-  it('can have its role attribute removed', () => {
+  it('cannot have its role attribute removed', () => {
     const { container } = render(<Notification role={null as any} />);
 
-    expect(container.firstChild).not.toHaveAttribute('role');
+    expect(container.firstChild).toHaveAttribute('role', 'alert');
   });
 });
