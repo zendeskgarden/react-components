@@ -134,7 +134,7 @@ const toProperty = (object: object, path: string) => {
  * `shade`, `offset`, and `transparency` are used as fallbacks to determine the
  * color.
  *
- * @param {Object} [options.theme] Provides values used to resolve the desired color
+ * @param {Object} options.theme Provides values used to resolve the desired color
  * @param {string} [options.variable] A variable key (i.e. `'background.default'`) used to resolve a color value for the theme color base
  * @param {Object} [options.dark] An object with `hue`, `shade`, `offset`, and `transparency` values to be used in dark mode
  * @param {Object} [options.light] An object with `hue`, `shade`, `offset`, and `transparency` values to be used in light mode
