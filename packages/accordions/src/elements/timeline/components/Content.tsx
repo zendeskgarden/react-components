@@ -17,7 +17,7 @@ const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElemen
     return (
       <>
         <StyledSeparator>
-          <StyledItemIcon surfaceColor={surfaceColor}>{icon || <CircleIcon />}</StyledItemIcon>
+          <StyledItemIcon $surfaceColor={surfaceColor}>{icon || <CircleIcon />}</StyledItemIcon>
         </StyledSeparator>
         <StyledTimelineContent ref={ref} {...props} />
       </>
