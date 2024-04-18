@@ -13,7 +13,7 @@ const FirstComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
   ({ children, ...other }, ref) => {
     return (
       <StyledCursor ref={ref} {...other}>
-        <StyledIcon type="first">
+        <StyledIcon $type="first">
           <ChevronDoubleLeft />
         </StyledIcon>
         <span>{children}</span>
