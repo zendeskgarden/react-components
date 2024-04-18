@@ -33,7 +33,7 @@ describe('StyledIcon', () => {
 
   it('renders start styling if provided', () => {
     const { container } = render(
-      <StyledIcon isStart>
+      <StyledIcon $isStart>
         <TestIcon />
       </StyledIcon>
     );
@@ -43,7 +43,7 @@ describe('StyledIcon', () => {
 
   it('renders expected RTL styling', () => {
     const { container } = renderRtl(
-      <StyledIcon isStart>
+      <StyledIcon $isStart>
         <TestIcon />
       </StyledIcon>
     );
