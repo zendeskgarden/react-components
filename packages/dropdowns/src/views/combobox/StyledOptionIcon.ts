@@ -7,8 +7,11 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { Children, cloneElement } from 'react';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  StyledBaseIcon
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.combobox.option.icon';
 
@@ -26,14 +29,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledOptionIcon = styled(
-  ({
-    children,
-    /* eslint-disable @typescript-eslint/no-unused-vars */
-    theme,
-    ...props
-  }) => cloneElement<SVGElement>(Children.only(children), props)
-).attrs({
+export const StyledOptionIcon = styled(StyledBaseIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

@@ -49,7 +49,7 @@ export const ItemGroup = forwardRef<HTMLLIElement, IItemGroupProps>(
             {(content || legend) && (
               <StyledItem as="div" isCompact={isCompact} $type="header">
                 {icon && (
-                  <StyledItemTypeIcon isCompact={isCompact} type="header">
+                  <StyledItemTypeIcon $isCompact={isCompact} $type="header">
                     {icon}
                   </StyledItemTypeIcon>
                 )}
