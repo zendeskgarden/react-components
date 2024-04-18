@@ -23,7 +23,7 @@ export const AlertComponent = React.forwardRef<HTMLDivElement, IAlertProps>(
     return (
       <NotificationsContext.Provider value={hue as Hue}>
         <StyledAlert ref={ref} hue={hue} role={role === undefined ? 'alert' : role} {...props}>
-          <StyledIcon hue={hue}>
+          <StyledIcon $hue={hue}>
             <Icon />
           </StyledIcon>
           {props.children}

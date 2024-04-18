@@ -26,39 +26,25 @@ import { GlobalAlertTitle } from './GlobalAlertTitle';
  */
 
 const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>(
-  ({ type, ...props }, ref) => (
-    <GlobalAlertContext.Provider value={useMemo(() => ({ type }), [type])}>
-      {/* [1] */}
-      {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
-      <StyledGlobalAlert ref={ref} role="status" alertType={type} {...props}>
-        {
-          {
-            success: (
-              <StyledGlobalAlertIcon>
-                <SuccessIcon />
-              </StyledGlobalAlertIcon>
-            ),
-            error: (
-              <StyledGlobalAlertIcon>
-                <ErrorIcon />
-              </StyledGlobalAlertIcon>
-            ),
-            warning: (
-              <StyledGlobalAlertIcon>
-                <WarningIcon />
-              </StyledGlobalAlertIcon>
-            ),
-            info: (
-              <StyledGlobalAlertIcon>
-                <InfoIcon />
-              </StyledGlobalAlertIcon>
-            )
-          }[type]
-        }
-        {props.children}
-      </StyledGlobalAlert>
-    </GlobalAlertContext.Provider>
-  )
+  ({ type, ...props }, ref) => {
+    const icon = {
+      success: <SuccessIcon />,
+      error: <ErrorIcon />,
+      warning: <WarningIcon />,
+      info: <InfoIcon />
+    }[type];
+
+    return (
+      <GlobalAlertContext.Provider value={useMemo(() => ({ type }), [type])}>
+        {/* [1] */}
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
+        <StyledGlobalAlert ref={ref} role="status" alertType={type} {...props}>
+          <StyledGlobalAlertIcon>{icon}</StyledGlobalAlertIcon>
+          {props.children}
+        </StyledGlobalAlert>
+      </GlobalAlertContext.Provider>
+    );
+  }
 );
 
 GlobalAlertComponent.displayName = 'GlobalAlert';
