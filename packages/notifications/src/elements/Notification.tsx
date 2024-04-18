@@ -16,25 +16,19 @@ import { validationIcons, validationHues } from '../utils/icons';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Notification = forwardRef<HTMLDivElement, INotificationProps>(
-  ({ role, ...props }, ref) => {
-    const Icon = props.type ? validationIcons[props.type] : InfoStrokeIcon;
-    const hue = props.type && validationHues[props.type];
+  ({ children, type, ...props }, ref) => {
+    const Icon = type ? validationIcons[type] : InfoStrokeIcon;
+    const hue = type && validationHues[type];
 
     return (
-      <StyledNotification
-        ref={ref}
-        type={props.type}
-        isFloating
-        {...props}
-        role={role === undefined ? 'status' : role}
-      >
-        {props.type && (
+      <StyledNotification ref={ref} type={type} isFloating role="alert" {...props}>
+        {type && (
           <StyledIcon hue={hue}>
             <Icon />
           </StyledIcon>
         )}
 
-        {props.children}
+        {children}
       </StyledNotification>
     );
   }
