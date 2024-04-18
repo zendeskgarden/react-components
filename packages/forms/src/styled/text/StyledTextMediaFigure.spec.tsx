@@ -26,7 +26,7 @@ describe('StyledTextMediaFigure', () => {
 
   it('renders expected hovered styling', () => {
     const { container } = render(
-      <StyledTextMediaFigure isHovered>
+      <StyledTextMediaFigure $isHovered>
         <TestIcon />
       </StyledTextMediaFigure>
     );
@@ -36,7 +36,7 @@ describe('StyledTextMediaFigure', () => {
 
   it('renders rotated styling if provided', () => {
     const { container } = render(
-      <StyledTextMediaFigure isRotated>
+      <StyledTextMediaFigure $isRotated>
         <TestIcon />
       </StyledTextMediaFigure>
     );
@@ -46,7 +46,7 @@ describe('StyledTextMediaFigure', () => {
 
   it('renders expected RTL styling', () => {
     const { container } = renderRtl(
-      <StyledTextMediaFigure isRotated>
+      <StyledTextMediaFigure $isRotated>
         <TestIcon />
       </StyledTextMediaFigure>
     );

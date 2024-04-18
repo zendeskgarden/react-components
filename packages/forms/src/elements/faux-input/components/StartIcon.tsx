@@ -9,8 +9,13 @@ import React from 'react';
 import { IFauxInputIconProps } from '../../../types';
 import { StyledTextMediaFigure } from '../../../styled';
 
-const StartIconComponent = (props: IFauxInputIconProps) => (
-  <StyledTextMediaFigure position="start" {...props} />
+const StartIconComponent = ({ isDisabled, isRotated, ...props }: IFauxInputIconProps) => (
+  <StyledTextMediaFigure
+    $position="start"
+    $isDisabled={isDisabled}
+    $isRotated={isRotated}
+    {...props}
+  />
 );
 
 StartIconComponent.displayName = 'FauxInput.StartIcon';

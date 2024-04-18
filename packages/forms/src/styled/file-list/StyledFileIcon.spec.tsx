@@ -26,7 +26,7 @@ describe('StyledFileIcon', () => {
 
   it('renders expected compact styling', () => {
     const { container } = render(
-      <StyledFileIcon isCompact>
+      <StyledFileIcon $isCompact>
         <TestIcon />
       </StyledFileIcon>
     );
