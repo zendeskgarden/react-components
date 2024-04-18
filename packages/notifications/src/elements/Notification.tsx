@@ -15,22 +15,24 @@ import { validationIcons, validationHues } from '../utils/icons';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Notification = forwardRef<HTMLDivElement, INotificationProps>((props, ref) => {
-  const Icon = props.type ? validationIcons[props.type] : InfoStrokeIcon;
-  const hue = props.type && validationHues[props.type];
+export const Notification = forwardRef<HTMLDivElement, INotificationProps>(
+  ({ children, type, ...props }, ref) => {
+    const Icon = type ? validationIcons[type] : InfoStrokeIcon;
+    const hue = type && validationHues[type];
 
-  return (
-    <StyledNotification ref={ref} type={props.type} isFloating role="alert" {...props}>
-      {props.type && (
-        <StyledIcon hue={hue}>
-          <Icon />
-        </StyledIcon>
-      )}
+    return (
+      <StyledNotification ref={ref} type={type} isFloating role="alert" {...props}>
+        {type && (
+          <StyledIcon hue={hue}>
+            <Icon />
+          </StyledIcon>
+        )}
 
-      {props.children}
-    </StyledNotification>
-  );
-});
+        {children}
+      </StyledNotification>
+    );
+  }
+);
 
 Notification.displayName = 'Notification';
 
