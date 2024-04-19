@@ -9,8 +9,13 @@ import React from 'react';
 import { IFauxInputIconProps } from '../../../types';
 import { StyledTextMediaFigure } from '../../../styled';
 
-const EndIconComponent = (props: IFauxInputIconProps) => (
-  <StyledTextMediaFigure position="end" {...props} />
+const EndIconComponent = ({ isDisabled, isRotated, ...props }: IFauxInputIconProps) => (
+  <StyledTextMediaFigure
+    $position="end"
+    $isDisabled={isDisabled}
+    $isRotated={isRotated}
+    {...props}
+  />
 );
 
 EndIconComponent.displayName = 'FauxInput.EndIcon';

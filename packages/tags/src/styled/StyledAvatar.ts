@@ -6,14 +6,15 @@
  */
 
 import styled from 'styled-components';
-import React, { Children } from 'react';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  StyledBaseIcon,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tags.avatar';
 
-export const StyledAvatar = styled(({ children, ...props }) =>
-  React.cloneElement(Children.only(children), props)
-).attrs({
+export const StyledAvatar = styled(StyledBaseIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

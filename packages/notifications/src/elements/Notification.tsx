@@ -29,7 +29,7 @@ export const NotificationComponent = forwardRef<HTMLDivElement, INotificationPro
         role={role === undefined ? 'status' : role}
       >
         {props.type && (
-          <StyledIcon hue={hue}>
+          <StyledIcon $hue={hue}>
             <Icon />
           </StyledIcon>
         )}

@@ -90,7 +90,7 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
           {...itemProps}
           ref={mergeRefs([_itemRef, ref])}
         >
-          <StyledItemTypeIcon isCompact={isCompact} type={type}>
+          <StyledItemTypeIcon $isCompact={isCompact} $type={type}>
             {renderActionIcon(type)}
           </StyledItemTypeIcon>
           {icon && <StyledItemIcon>{icon}</StyledItemIcon>}

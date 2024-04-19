@@ -5,19 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children } from 'react';
 import styled from 'styled-components';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME, StyledBaseIcon } from '@zendeskgarden/react-theming';
 
-export const StyledIcon = styled(({ children, ...props }) =>
-  React.cloneElement(Children.only(children), props)
-)`
+export const StyledIcon = styled(StyledBaseIcon)`
   position: absolute;
   right: ${props => props.theme.rtl && `${props.theme.space.base * 4}px`};
   left: ${props => !props.theme.rtl && `${props.theme.space.base * 4}px`};
   margin-top: ${props => props.theme.space.base / 2}px;
   color: ${props =>
-    props.hue && getColorV8(props.hue, props.hue === 'warningHue' ? 700 : 600, props.theme)};
+    props.$hue && getColorV8(props.$hue, props.$hue === 'warningHue' ? 700 : 600, props.theme)};
 `;
 
 StyledIcon.defaultProps = {

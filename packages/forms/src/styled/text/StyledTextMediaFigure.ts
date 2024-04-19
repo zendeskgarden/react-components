@@ -6,25 +6,29 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import React, { Children } from 'react';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColorV8,
+  StyledBaseIcon
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.media_figure';
 
 interface IStyledTextMediaFigureProps {
-  isRotated?: boolean;
-  isHovered?: boolean;
-  isFocused?: boolean;
-  isDisabled?: boolean;
-  position: 'start' | 'end';
+  $isRotated?: boolean;
+  $isHovered?: boolean;
+  $isFocused?: boolean;
+  $isDisabled?: boolean;
+  $position: 'start' | 'end';
 }
 
 const colorStyles = (props: IStyledTextMediaFigureProps & ThemeProps<DefaultTheme>) => {
   let shade = 600;
 
-  if (props.isDisabled) {
+  if (props.$isDisabled) {
     shade = 400;
-  } else if (props.isHovered || props.isFocused) {
+  } else if (props.$isHovered || props.$isFocused) {
     shade = 700;
   }
 
@@ -39,7 +43,7 @@ const sizeStyles = (props: IStyledTextMediaFigureProps & ThemeProps<DefaultTheme
   const marginLast = `1px 0 auto ${props.theme.space.base * 2}px`;
   let margin;
 
-  if (props.position === 'start') {
+  if (props.$position === 'start') {
     margin = props.theme.rtl ? marginLast : marginFirst;
   } else {
     margin = props.theme.rtl ? marginFirst : marginLast;
@@ -52,15 +56,11 @@ const sizeStyles = (props: IStyledTextMediaFigureProps & ThemeProps<DefaultTheme
   `;
 };
 
-export const StyledTextMediaFigure = styled(
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  ({ children, position, isHovered, isFocused, isDisabled, isRotated, theme, ...props }) =>
-    React.cloneElement(Children.only(children), props)
-).attrs({
+export const StyledTextMediaFigure = styled(StyledBaseIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTextMediaFigureProps>`
-  transform: ${props => props.isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
+  transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   /* prettier-ignore */
   transition:
     transform 0.25s ease-in-out,

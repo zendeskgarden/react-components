@@ -73,7 +73,7 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
           {...props}
           {...optionProps}
         >
-          <StyledOptionTypeIcon isCompact={isCompact} type={type}>
+          <StyledOptionTypeIcon $isCompact={isCompact} $type={type}>
             {renderActionIcon(type)}
           </StyledOptionTypeIcon>
           {icon && <StyledOptionIcon>{icon}</StyledOptionIcon>}

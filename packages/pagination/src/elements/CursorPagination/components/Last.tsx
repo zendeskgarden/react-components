@@ -14,7 +14,7 @@ const LastComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBut
     return (
       <StyledCursor ref={ref} as="button" {...other}>
         <span>{children}</span>
-        <StyledIcon type="last">
+        <StyledIcon $type="last">
           <ChevronDoubleRight />
         </StyledIcon>
       </StyledCursor>

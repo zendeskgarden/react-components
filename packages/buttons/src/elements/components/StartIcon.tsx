@@ -9,7 +9,9 @@ import React from 'react';
 import { IButtonIconProps } from '../../types';
 import { StyledIcon } from '../../styled';
 
-const StartIconComponent = (props: IButtonIconProps) => <StyledIcon position="start" {...props} />;
+const StartIconComponent = ({ isRotated, ...props }: IButtonIconProps) => (
+  <StyledIcon $position="start" $isRotated={isRotated} {...props} />
+);
 
 StartIconComponent.displayName = 'Button.StartIcon';
 

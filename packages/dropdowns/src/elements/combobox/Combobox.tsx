@@ -274,7 +274,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
           <StyledTrigger {...triggerProps}>
             <StyledContainer>
               {startIcon && (
-                <StyledInputIcon isLabelHovered={isLabelHovered} isCompact={isCompact}>
+                <StyledInputIcon $isLabelHovered={isLabelHovered} $isCompact={isCompact}>
                   {startIcon}
                 </StyledInputIcon>
               )}
@@ -322,10 +322,10 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
               </StyledInputGroup>
               {(hasChevron || endIcon) && (
                 <StyledInputIcon
-                  isCompact={isCompact}
-                  isEnd
-                  isLabelHovered={isLabelHovered}
-                  isRotated={hasChevron && isExpanded}
+                  $isCompact={isCompact}
+                  $isEnd
+                  $isLabelHovered={isLabelHovered}
+                  $isRotated={hasChevron && isExpanded}
                 >
                   {hasChevron ? <ChevronIcon /> : endIcon}
                 </StyledInputIcon>
