@@ -9,15 +9,7 @@ import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes } from 'reac
 
 export const PLACEMENT = ['end', 'start'] as const;
 
-export const PRODUCTS = [
-  'chat',
-  'connect',
-  'explore',
-  'guide',
-  'message',
-  'support',
-  'talk'
-] as const;
+export const PRODUCTS = ['chat', 'explore', 'guide', 'support', 'talk'] as const;
 
 export type Product = (typeof PRODUCTS)[number];
 

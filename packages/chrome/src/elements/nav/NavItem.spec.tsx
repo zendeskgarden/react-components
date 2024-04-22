@@ -177,10 +177,8 @@ describe('NavItem', () => {
   describe('Products', () => {
     const VALID_COLOR_MAP: Record<Product, string> = {
       chat: PALETTE.product.chat,
-      connect: PALETTE.product.connect,
       explore: PALETTE.product.explore,
       guide: PALETTE.product.guide,
-      message: PALETTE.product.message,
       support: PALETTE.product.support,
       talk: PALETTE.product.talk
     };

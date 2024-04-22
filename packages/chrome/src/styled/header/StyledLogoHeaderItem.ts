@@ -28,14 +28,10 @@ const retrieveProductColor = (props: IStyledLogoHeaderItemProps) => {
   switch (props.product) {
     case 'chat':
       return PALETTE.product.chat;
-    case 'connect':
-      return PALETTE.product.connect;
     case 'explore':
       return PALETTE.product.explore;
     case 'guide':
       return PALETTE.product.guide;
-    case 'message':
-      return PALETTE.product.message;
     case 'support':
       return PALETTE.product.support;
     case 'talk':
