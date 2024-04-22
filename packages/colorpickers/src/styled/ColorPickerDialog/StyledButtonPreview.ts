@@ -7,8 +7,11 @@
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { rgba } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { checkeredBackground } from '../common/checkeredBackground';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getCheckeredBackground
+} from '@zendeskgarden/react-theming';
 import { IColorPickerDialogProps } from '../../types';
 
 const COMPONENT_ID = 'colorpickers.colordialog_preview';
@@ -19,24 +22,28 @@ export interface IStyleButtonPreviewProps extends ThemeProps<DefaultTheme> {
 
 const background = (props: IStyleButtonPreviewProps) => {
   const { backgroundColor } = props;
-  let color;
+  let retVal;
 
   if (typeof backgroundColor === 'string') {
-    color = backgroundColor;
+    retVal = backgroundColor;
   } else if (backgroundColor === undefined) {
-    color = props.theme.palette.white;
+    retVal = props.theme.palette.white as string;
   } else {
     const { red, green, blue, alpha = 1 } = backgroundColor;
 
-    color = `rgba(${red}, ${green}, ${blue}, ${alpha ? alpha / 100 : 0})`;
+    retVal = `rgba(${red}, ${green}, ${blue}, ${alpha ? alpha / 100 : 0})`;
   }
 
-  return `linear-gradient(${color}, ${color})`;
+  return retVal;
 };
 
 export const StyledButtonPreview = styled.span.attrs<IStyleButtonPreviewProps>(props => ({
   style: {
-    background: `${background(props)}, ${checkeredBackground(props.theme, 8)}`
+    background: getCheckeredBackground({
+      theme: props.theme,
+      size: 8,
+      overlay: background(props)
+    })
   },
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

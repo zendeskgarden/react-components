@@ -7,8 +7,11 @@
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { rgba } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { checkeredBackground } from '../common/checkeredBackground';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getCheckeredBackground
+} from '@zendeskgarden/react-theming';
 import { IRGBColor } from '../../types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_preview_box';
@@ -19,11 +22,14 @@ interface IStyledColorPreviewProps extends IRGBColor {
 
 const background = (props: IStyledColorPreviewProps & ThemeProps<DefaultTheme>) => {
   const alpha = props.alpha ? props.alpha / 100 : 0;
-  const color = `rgba(${props.red}, ${props.green}, ${props.blue}, ${alpha})`;
-  let retVal = `linear-gradient(${color}, ${color})`;
+  let retVal = `rgba(${props.red}, ${props.green}, ${props.blue}, ${alpha})`;
 
   if (!props.isOpaque) {
-    retVal = `${retVal}, ${checkeredBackground(props.theme, 13)}`;
+    retVal = getCheckeredBackground({
+      theme: props.theme,
+      size: 13,
+      overlay: retVal
+    });
   }
 
   return retVal;

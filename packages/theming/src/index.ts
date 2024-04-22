@@ -11,6 +11,7 @@ export { default as PALETTE } from './elements/palette';
 export { default as PALETTE_V8 } from './elements/palette/v8';
 export { default as retrieveComponentStyles } from './utils/retrieveComponentStyles';
 export { getArrowPosition } from './utils/getArrowPosition';
+export { getCheckeredBackground } from './utils/getCheckeredBackground';
 export { getColor } from './utils/getColor';
 export { getColorV8 } from './utils/getColorV8';
 export { getFloatingPlacements } from './utils/getFloatingPlacements';
@@ -33,6 +34,7 @@ export {
   type IGardenTheme,
   type IThemeProviderProps,
   type ArrowPosition,
+  type CheckeredBackgroundParameters,
   type ColorParameters,
   type FocusBoxShadowParameters,
   type FocusStylesParameters,

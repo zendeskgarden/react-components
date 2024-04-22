@@ -45,6 +45,14 @@ export const PLACEMENT = [
 
 export type Placement = (typeof PLACEMENT)[number];
 
+export type CheckeredBackgroundParameters = {
+  overlay?: string;
+  positionY?: number;
+  repeat?: 'repeat' | 'repeat-x';
+  size: number;
+  theme: IGardenTheme;
+};
+
 export type ColorParameters = {
   dark?: {
     hue?: string;
