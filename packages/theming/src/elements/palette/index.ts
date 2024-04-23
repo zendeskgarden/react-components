@@ -10,11 +10,9 @@ const PALETTE = {
   white: '#fff',
   product: {
     support: '#00a656',
-    message: '#37b8af',
     explore: '#30aabc',
     gather: '#f6c8be',
     guide: '#eb4962',
-    connect: '#ff6224',
     chat: '#f79a3e',
     talk: '#efc93d',
     sell: '#c38f00'

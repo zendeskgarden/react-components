@@ -58,6 +58,8 @@ consider additional positioning prop support on a case-by-case basis.
 - Removed `Sidebar` and `Subnav`: UI no longer recommended by Garden
 - Removed `PRODUCT` type export. Use `IHeaderItemProps['product']` instead.
 - Removed `hasFooter` prop for `Body` (no replacement needed)
+- Removed `message` and `connect` values from `product` prop in `Header.Item` and `Nav.Item`
+  Typings have been updated accordingly
 - The following React component types have changed:
   - Removed `IBodyProps` type export.
   - `Header.ItemIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
@@ -192,6 +194,7 @@ consider additional positioning prop support on a case-by-case basis.
 - The `focusVisibleRef` prop (and the resulting scoping `<div>`) has been
   removed from `<ThemeProvider>`. Current browser support obviates the need for a
   `:focus-visible` polyfill.
+- Removed `message` and `connect` values from `PALETTE.product`
 - Utility function `getColor` has been refactored with a signature that supports
   v9 light/dark modes. Replace usage with `getColorV8` until custom components can
   be upgraded to utilize the new `getColor` function.

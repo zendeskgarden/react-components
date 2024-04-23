@@ -8,10 +8,8 @@
 import React, { MouseEventHandler, ReactElement, useState } from 'react';
 import { Story } from '@storybook/react';
 import ChatIcon from '@zendeskgarden/svg-icons/src/26/relationshape-chat.svg';
-import ConnectIcon from '@zendeskgarden/svg-icons/src/26/relationshape-connect.svg';
 import ExploreIcon from '@zendeskgarden/svg-icons/src/26/relationshape-explore.svg';
 import GuideIcon from '@zendeskgarden/svg-icons/src/26/relationshape-guide.svg';
-import MessageIcon from '@zendeskgarden/svg-icons/src/26/relationshape-message.svg';
 import SupportIcon from '@zendeskgarden/svg-icons/src/26/relationshape-support.svg';
 import TalkIcon from '@zendeskgarden/svg-icons/src/26/relationshape-talk.svg';
 import ProductIcon from '@zendeskgarden/svg-icons/src/26/garden.svg';
@@ -64,10 +62,8 @@ const NAV_ICONS = [
 
 const PRODUCT_ICONS: Record<Product, ReactElement<SVGElement>> = {
   chat: <ChatIcon />,
-  connect: <ConnectIcon />,
   explore: <ExploreIcon />,
   guide: <GuideIcon />,
-  message: <MessageIcon />,
   support: <SupportIcon />,
   talk: <TalkIcon />
 };

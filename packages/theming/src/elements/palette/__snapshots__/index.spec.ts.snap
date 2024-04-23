@@ -173,11 +173,9 @@ exports[`PALETTE matches snapshot 1`] = `
   },
   "product": {
     "chat": "#f79a3e",
-    "connect": "#ff6224",
     "explore": "#30aabc",
     "gather": "#f6c8be",
     "guide": "#eb4962",
-    "message": "#37b8af",
     "sell": "#c38f00",
     "support": "#00a656",
     "talk": "#efc93d",
