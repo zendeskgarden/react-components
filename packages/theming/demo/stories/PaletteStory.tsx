@@ -7,9 +7,9 @@
 
 import React, { FC } from 'react';
 import { StoryFn } from '@storybook/react';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 import { readableColor } from 'polished';
-import { IGardenTheme, getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import { IGardenTheme, PALETTE, getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 
 const StyledColorHex = styled.figcaption`
@@ -70,14 +70,13 @@ const StyledList = styled.ul`
 `;
 
 const Hue: FC<{ hue: string }> = ({ hue }) => {
-  const theme = useTheme();
-  const colors = theme.palette[hue];
+  const colors = (PALETTE as any)[hue];
 
   return (
     <StyledList>
       {Object.keys(colors).map(shade => {
         const color = colors[shade as any];
-        const title = hue === 'product' ? shade : `${hue}-${shade}`;
+        const title = `${hue}-${shade}`;
 
         return (
           <li key={shade}>
@@ -123,7 +122,7 @@ export const PaletteStory: StoryFn<IArgs> = ({ palette }) => {
               <Grid.Col sm>
                 <Hue hue={hue1} />
               </Grid.Col>
-              {hue1 !== 'product' && <StyledCol sm>{hue2 && <Hue hue={hue2} />}</StyledCol>}
+              <StyledCol sm>{hue2 && <Hue hue={hue2} />}</StyledCol>
             </StyledRow>
           );
         })}
