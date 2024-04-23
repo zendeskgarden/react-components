@@ -1,5 +1,6 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { PaletteStory } from './stories/PaletteStory';
 import { ArrowStylesStory } from './stories/ArrowStylesStory';
 import { MenuStylesStory } from './stories/MenuStylesStory';
 import { GetColorStory } from './stories/GetColorStory';
@@ -17,6 +18,21 @@ import README from '../README.md';
 <ArgsTable />
 
 # Demo
+
+## PALETTE
+
+<Canvas>
+  <Story
+    name="PALETTE"
+    args={{ palette: PALETTE }}
+    argTypes={{
+      palette: { control: { type: 'object' }, name: 'PALETTE' },
+      theme: { control: false }
+    }}
+  >
+    {args => <PaletteStory {...args} />}
+  </Story>
+</Canvas>
 
 ## arrowStyles()
 
