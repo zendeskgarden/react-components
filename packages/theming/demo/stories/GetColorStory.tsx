@@ -42,7 +42,7 @@ const Color = ({ dark, hue, light, offset, shade, theme, transparency, variable 
       offset,
       shade,
       theme,
-      transparency: transparency ? transparency / 100 : undefined,
+      transparency,
       variable
     });
 
@@ -71,6 +71,7 @@ const Color = ({ dark, hue, light, offset, shade, theme, transparency, variable 
 interface IArgs extends Omit<IColorProps, 'theme'> {
   theme: {
     colors: Omit<IGardenTheme['colors'], 'base'>;
+    opacity: IGardenTheme['opacity'];
     palette: IGardenTheme['palette'];
   };
 }
@@ -89,6 +90,7 @@ export const GetColorStory: StoryFn<IArgs> = ({
   const theme = {
     ...parentTheme,
     colors: { ..._theme.colors, base: parentTheme.colors.base },
+    opacity: _theme.opacity,
     palette: _theme.palette
   };
 
