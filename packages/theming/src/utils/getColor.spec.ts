@@ -197,6 +197,15 @@ describe('getColor', () => {
       expect(color).toBe(expected);
     });
 
+    it('applies transparency via theme `opacity` as expected', () => {
+      const hue = 'blue';
+      const transparency = 1000;
+      const color = getColor({ theme: DEFAULT_THEME, hue, transparency });
+      const expected = rgba(PALETTE[hue][700], DEFAULT_THEME.opacity[1000]);
+
+      expect(color).toBe(expected);
+    });
+
     it('applies mode transparency as expected', () => {
       const hue = 'blue';
       const transparency = 0.5;

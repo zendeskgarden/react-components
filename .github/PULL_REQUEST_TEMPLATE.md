@@ -25,6 +25,7 @@
 - [ ] :ok_hand: design updates will be Garden Designer approved (add the designer as a reviewer)
 - [ ] :globe_with_meridians: demo is up-to-date (`npm start`)
 - [ ] :arrow_left: renders as expected with reversed (RTL) direction
+- [ ] :black_circle: renders as expected in dark mode
 - [ ] :metal: renders as expected with Bedrock CSS (`?bedrock`)
 - [ ] :guardsman: includes new unit tests. Maintain existing coverage (always >= 96%)
 - [ ] :wheelchair: tested for WCAG 2.1 AA accessibility compliance
