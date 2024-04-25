@@ -112,6 +112,10 @@ const toColor = (
   if (retVal && transparency) {
     const alpha = transparency > 1 ? opacity[transparency] : transparency;
 
+    if (alpha === undefined) {
+      throw new Error('Error: invalid `transparency` parameter');
+    }
+
     retVal = rgba(retVal, alpha);
   }
 

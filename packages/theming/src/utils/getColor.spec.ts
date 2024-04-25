@@ -354,5 +354,13 @@ describe('getColor', () => {
     it('throws an error if shade is invalid', () => {
       expect(() => getColor({ theme: DEFAULT_THEME, hue: 'blue', shade: NaN })).toThrow(TypeError);
     });
+
+    it('throws an error if transparency is invalid', () => {
+      const invalid = DEFAULT_THEME.opacity[100] + 1;
+
+      expect(() => getColor({ theme: DEFAULT_THEME, hue: 'blue', transparency: invalid })).toThrow(
+        Error
+      );
+    });
   });
 });
