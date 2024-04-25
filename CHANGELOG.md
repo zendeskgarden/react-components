@@ -13,6 +13,30 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.9 (2024-04-25)
+
+#### :boom: Breaking Change
+* `chrome`, `theming`
+  * [#1794](https://github.com/zendeskgarden/react-components/pull/1794) feat!: removes stale product colors from palette ([@geotrev](https://github.com/geotrev))
+
+#### :rocket: New Feature
+* `theming`
+  * [#1797](https://github.com/zendeskgarden/react-components/pull/1797) feat(theming): add system `opacity` values to the theme ([@jzempel](https://github.com/jzempel))
+* `colorpickers`, `theming`
+  * [#1793](https://github.com/zendeskgarden/react-components/pull/1793) feat(theming): add new `getCheckeredBackground` utility ([@jzempel](https://github.com/jzempel))
+* `buttons`, `dropdowns`, `forms`, `notifications`, `pagination`, `tags`, `typography`
+  * [#1792](https://github.com/zendeskgarden/react-components/pull/1792) feat: adds StyledBaseIcon to various icon components ([@geotrev](https://github.com/geotrev))
+* `accordions`, `theming`
+  * [#1791](https://github.com/zendeskgarden/react-components/pull/1791) feat: adds styled icon base component ([@geotrev](https://github.com/geotrev))
+
+#### :bug: Bug Fix
+* `theming`
+  * [#1795](https://github.com/zendeskgarden/react-components/pull/1795) fix(theming): update palette color values ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `notifications`
+  * [#1796](https://github.com/zendeskgarden/react-components/pull/1796) chore(next): updates from `main` ([@jzempel](https://github.com/jzempel))
+
 ## v9.0.0-next.8 (2024-04-12)
 
 #### :boom: Breaking Change
