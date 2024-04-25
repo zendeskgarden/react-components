@@ -71,6 +71,7 @@ const toHex = (
 const toColor = (
   colors: Omit<IGardenTheme['colors'], 'base' | 'variables'>,
   palette: IGardenTheme['palette'],
+  opacity: IGardenTheme['opacity'],
   scheme: 'dark' | 'light',
   hue: string,
   shade?: number | string,
@@ -109,7 +110,13 @@ const toColor = (
   }
 
   if (retVal && transparency) {
-    retVal = rgba(retVal, transparency);
+    const alpha = transparency > 1 ? opacity[transparency] : transparency;
+
+    if (alpha === undefined) {
+      throw new Error('Error: invalid `transparency` parameter');
+    }
+
+    retVal = rgba(retVal, alpha);
   }
 
   return retVal;
@@ -147,7 +154,7 @@ const toProperty = (object: object, path: string) => {
  *  - `'chromeHue'` = `theme.colors.chromeHue`
  * @param {number} [options.shade] A hue shade
  * @param {number} [options.offset] A positive or negative value to adjust the shade
- * @param {number} [options.transparency] An alpha-channel value between 0 and 1
+ * @param {number} [options.transparency] A `theme.opacity` key or an alpha-channel value between 0 and 1
  */
 export const getColor = memoize(
   ({ dark, hue, light, offset, shade, theme, transparency, variable }: ColorParameters) => {
@@ -184,7 +191,12 @@ export const getColor = memoize(
     }
 
     if (_hue) {
-      retVal = toColor(colors, palette, scheme, _hue, _shade, _offset, _transparency);
+      const opacity =
+        theme.opacity && Object.keys(theme.opacity).length > 0
+          ? theme.opacity
+          : DEFAULT_THEME.opacity;
+
+      retVal = toColor(colors, palette, opacity, scheme, _hue, _shade, _offset, _transparency);
     }
 
     if (retVal === undefined) {

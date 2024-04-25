@@ -177,6 +177,7 @@ export interface IGardenTheme {
     xxl: string;
     xxxl: string;
   };
+  opacity: Record<number, number>;
   palette: Record<string, Hue>;
   shadowWidths: {
     xs: string;

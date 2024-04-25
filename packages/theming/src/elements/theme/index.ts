@@ -191,6 +191,21 @@ const lineHeights = {
   xxxl: `${BASE * 11}px`
 };
 
+const opacity = {
+  100: 0.08,
+  200: 0.16,
+  300: 0.24,
+  400: 0.32,
+  500: 0.4,
+  600: 0.48,
+  700: 0.56,
+  800: 0.64,
+  900: 0.72,
+  1000: 0.8,
+  1100: 0.88,
+  1200: 0.96
+};
+
 const palette = { ...PALETTE };
 
 /* Exclude product palette from the theme */
@@ -237,6 +252,7 @@ const DEFAULT_THEME: IGardenTheme = {
   fontWeights,
   iconSizes,
   lineHeights,
+  opacity,
   palette,
   rtl: false,
   shadowWidths,
