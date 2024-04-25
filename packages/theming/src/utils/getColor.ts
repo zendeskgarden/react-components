@@ -5,15 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { scale, valid } from 'chroma-js';
+import { getCustomColorScale, isValidColor } from './colors';
 import { darken, lighten, rgba } from 'polished';
 import get from 'lodash.get';
 import memoize from 'lodash.memoize';
 import DEFAULT_THEME from '../elements/theme';
-import PALETTE from '../elements/palette';
 import { ColorParameters, Hue, IGardenTheme } from '../types';
-
-const PALETTE_SIZE = Object.keys(PALETTE.blue).length;
 
 const adjust = (color: string, expected: number, actual: number) => {
   if (expected !== actual) {
@@ -89,21 +86,11 @@ const toColor = (
 
   if (typeof _hue === 'object') {
     retVal = toHex(_hue, shade, offset, scheme);
-  } else if (_hue === 'transparent' || valid(_hue)) {
+  } else if (_hue === 'transparent' || isValidColor(_hue)) {
     if (shade === undefined) {
       retVal = _hue;
     } else {
-      const _colors = scale([PALETTE.white, _hue, PALETTE.black])
-        .correctLightness()
-        .colors(PALETTE_SIZE + 2); // add 2 to account for the white and black endpoints removed below
-
-      _hue = _colors.reduce<Record<number, string>>((_retVal, color, index) => {
-        if (index > 0 && index <= PALETTE_SIZE) {
-          _retVal[index * 100] = color;
-        }
-
-        return _retVal;
-      }, {});
+      _hue = getCustomColorScale(_hue);
 
       retVal = toHex(_hue, shade, offset, scheme);
     }
