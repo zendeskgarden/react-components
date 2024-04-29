@@ -32,21 +32,19 @@ export const DatepickerStory: Story<IArgs> = ({
 
   return (
     <Grid>
-      <Row style={{ height: 'calc(100vh - 80px)' }}>
-        <Col alignSelf="center">
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Field style={{ width: isCompact ? 256 : 320 }}>
-              <Label hidden>{Datepicker.displayName}</Label>
-              <Datepicker {...args} formatDate={formatDate} isCompact={isCompact}>
-                <Input isCompact={isCompact} />
-              </Datepicker>
-              {message && (
-                <Message validation={validation} validationLabel={validationLabel}>
-                  {message}
-                </Message>
-              )}
-            </Field>
-          </div>
+      <Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
+        <Col alignSelf="center" xs={12} md={4}>
+          <Field>
+            <Label hidden>{Datepicker.displayName}</Label>
+            <Datepicker {...args} formatDate={formatDate} isCompact={isCompact}>
+              <Input isCompact={isCompact} />
+            </Datepicker>
+            {message && (
+              <Message validation={validation} validationLabel={validationLabel}>
+                {message}
+              </Message>
+            )}
+          </Field>
         </Col>
       </Row>
     </Grid>
