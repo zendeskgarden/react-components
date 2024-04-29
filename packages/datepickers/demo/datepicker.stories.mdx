@@ -25,6 +25,16 @@ import README from '../README.md';
         control: 'radio',
         options: DATE_STYLE_OPTIONS,
         table: { category: 'Story' }
+      },
+      message: { name: 'children', control: { type: 'text' }, table: { category: 'Message' } },
+      validation: {
+        options: ['success', 'warning', 'error'],
+        control: { type: 'radio' },
+        table: { category: 'Message' }
+      },
+      validationLabel: {
+        control: { type: 'text' },
+        table: { category: 'Message' }
       }
     }}
     parameters={{
