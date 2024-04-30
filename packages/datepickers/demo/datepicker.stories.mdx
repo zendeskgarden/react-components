@@ -16,7 +16,12 @@ import README from '../README.md';
 <Canvas>
   <Story
     name="Datepicker"
-    args={{ dateStyle: DATE_STYLE_OPTIONS[1], eventsEnabled: true, isAnimated: true }}
+    args={{
+      dateStyle: DATE_STYLE_OPTIONS[1],
+      eventsEnabled: true,
+      isAnimated: true,
+      message: 'Message'
+    }}
     argTypes={{
       value: { control: 'date' },
       minValue: { control: 'date' },
@@ -26,15 +31,16 @@ import README from '../README.md';
         options: DATE_STYLE_OPTIONS,
         table: { category: 'Story' }
       },
+      hasMessage: { name: 'Message', control: { type: 'boolean' }, table: 'Story' },
       message: { name: 'children', control: { type: 'text' }, table: { category: 'Message' } },
       validation: {
         options: ['success', 'warning', 'error'],
         control: { type: 'radio' },
-        table: { category: 'Message' }
+        table: { category: 'Input' }
       },
       validationLabel: {
         control: { type: 'text' },
-        table: { category: 'Message' }
+        table: { category: 'Input' }
       }
     }}
     parameters={{

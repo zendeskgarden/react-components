@@ -14,6 +14,7 @@ import { DATE_STYLE } from './types';
 
 interface IArgs extends IDatepickerProps {
   dateStyle: DATE_STYLE;
+  hasMessage?: boolean;
   message?: string;
   validation?: 'success' | 'warning' | 'error';
   validationLabel?: string;
@@ -22,6 +23,7 @@ interface IArgs extends IDatepickerProps {
 export const DatepickerStory: Story<IArgs> = ({
   dateStyle,
   isCompact,
+  hasMessage,
   message,
   validation,
   validationLabel,
@@ -33,13 +35,13 @@ export const DatepickerStory: Story<IArgs> = ({
   return (
     <Grid>
       <Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
-        <Col alignSelf="center" xs={12} md={4}>
+        <Col alignSelf="center">
           <Field>
             <Label hidden>{Datepicker.displayName}</Label>
             <Datepicker {...args} formatDate={formatDate} isCompact={isCompact}>
-              <Input isCompact={isCompact} />
+              <Input isCompact={isCompact} validation={validation} />
             </Datepicker>
-            {message && (
+            {hasMessage && (
               <Message validation={validation} validationLabel={validationLabel}>
                 {message}
               </Message>
