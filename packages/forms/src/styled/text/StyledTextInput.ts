@@ -193,7 +193,7 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
     ${StyledHint} + &&,
     ${StyledMessage} + &&,
     && + ${StyledHint},
-    && + ${StyledMessage} {
+    && ~ ${StyledMessage} {
       margin-top: ${props.theme.space.base * (props.isCompact ? 1 : 2)}px;
     }
     /* stylelint-enable */

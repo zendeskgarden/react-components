@@ -8,27 +8,44 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import { Field, Input, Label } from '@zendeskgarden/react-forms';
+import { Field, Input, Label, Message } from '@zendeskgarden/react-forms';
 import { Datepicker, IDatepickerProps } from '@zendeskgarden/react-datepickers';
 import { DATE_STYLE } from './types';
 
 interface IArgs extends IDatepickerProps {
   dateStyle: DATE_STYLE;
+  hasMessage?: boolean;
+  message?: string;
+  validation?: 'success' | 'warning' | 'error';
+  validationLabel?: string;
 }
 
-export const DatepickerStory: Story<IArgs> = ({ dateStyle, isCompact, ...args }) => {
+export const DatepickerStory: Story<IArgs> = ({
+  dateStyle,
+  isCompact,
+  hasMessage,
+  message,
+  validation,
+  validationLabel,
+  ...args
+}) => {
   const formatDate = (date: Date) =>
     new Intl.DateTimeFormat(args.locale, { dateStyle }).format(date);
 
   return (
     <Grid>
-      <Row style={{ height: 'calc(100vh - 80px)' }}>
-        <Col textAlign="center" alignSelf="center">
+      <Row justifyContent="center" style={{ height: 'calc(100vh - 80px)' }}>
+        <Col alignSelf="center">
           <Field>
             <Label hidden>{Datepicker.displayName}</Label>
             <Datepicker {...args} formatDate={formatDate} isCompact={isCompact}>
-              <Input isCompact={isCompact} style={{ width: isCompact ? 256 : 320 }} />
+              <Input isCompact={isCompact} validation={validation} />
             </Datepicker>
+            {hasMessage && (
+              <Message validation={validation} validationLabel={validationLabel}>
+                {message}
+              </Message>
+            )}
           </Field>
         </Col>
       </Row>
