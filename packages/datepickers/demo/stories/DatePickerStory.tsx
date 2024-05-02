@@ -20,7 +20,7 @@ interface IArgs extends IDatePickerProps {
   validationLabel?: string;
 }
 
-export const DatepickerStory: Story<IArgs> = ({
+export const DatePickerStory: Story<IArgs> = ({
   dateStyle,
   isCompact,
   hasMessage,
