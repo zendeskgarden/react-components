@@ -12,6 +12,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.76.2 (2024-05-02)
+
+#### :bug: Bug Fix
+* `datepickers`, `forms`
+  * [#1799](https://github.com/zendeskgarden/react-components/pull/1799) fix(forms): updates Message to receive margin when intermediaries are present ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* [#1800](https://github.com/zendeskgarden/react-components/pull/1800) chore(deps-dev): bump ejs from 3.1.9 to 3.1.10 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## v8.76.1 (2024-04-18)
 
 #### :bug: Bug Fix
