@@ -64,17 +64,18 @@ import README from '../README.md';
   <Story
     name="getColor()"
     args={{
-      hue: 'primaryHue',
       theme: {
         colors: Object.fromEntries(
           Object.entries(DEFAULT_THEME.colors).filter(([key]) => key !== 'base')
         ),
         opacity: DEFAULT_THEME.opacity,
         palette: DEFAULT_THEME.palette
-      }
+      },
+      variable: 'background.primaryEmphasis'
     }}
     argTypes={{
       dark: { control: { type: 'object' } },
+      hue: { control: { type: 'text' } },
       light: { control: { type: 'object' } },
       offset: { control: { type: 'number' } },
       shade: { control: { type: 'number' } },
