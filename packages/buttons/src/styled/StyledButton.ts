@@ -11,6 +11,7 @@ import {
   DEFAULT_THEME,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
+  getColor,
   getColorV8,
   getFocusBoxShadow,
   retrieveComponentStyles
@@ -49,7 +50,200 @@ export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
  * 3. shifting :focus-visible from LVHFA order to preserve `color` on hover
  * 4. set default outline-color for smooth transition without artifacts
  */
-const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({
+  theme,
+  isLink,
+  isBasic,
+  isDanger,
+  isNeutral,
+  isPrimary,
+  focusInset
+}: IButtonProps & ThemeProps<DefaultTheme>) => {
+  let retVal;
+
+  if (isLink) {
+    const options = { theme, variable: 'foreground.primary' };
+    const foregroundColor = getColor(options);
+    const hoverForegroundColor = getColor({
+      ...options,
+      dark: { offset: -100 },
+      light: { offset: +100 }
+    });
+    const activeForegroundColor = getColor({
+      ...options,
+      dark: { offset: -200 },
+      light: { offset: +200 }
+    });
+    const focusOutlineColor = getColor({ theme, variable: 'border.primaryEmphasis' });
+    const disabledForegroundColor = getColor({
+      theme,
+      variable: 'foreground.subtle',
+      dark: { offset: +200 },
+      light: { offset: -100 }
+    });
+
+    retVal = css`
+      outline-color: transparent; /* [4] */
+      background-color: transparent;
+      color: ${foregroundColor};
+
+      ${focusStyles({
+        theme,
+        condition: false,
+        styles: {
+          color: foregroundColor /* [1] */,
+          outlineColor: focusOutlineColor /* [2] */
+        }
+      })}
+
+      /* [3] */
+      &:hover {
+        color: ${hoverForegroundColor};
+      }
+
+      &:active,
+      &[aria-pressed='true'],
+      &[aria-pressed='mixed'] {
+        color: ${activeForegroundColor};
+      }
+
+      &:disabled {
+        color: ${disabledForegroundColor};
+      }
+    `;
+  } else if (isPrimary) {
+    let variable;
+
+    if (isDanger) {
+      variable = 'background.dangerEmphasis';
+    } else if (isNeutral) {
+      variable = 'background.emphasis';
+    } else {
+      variable = 'background.primaryEmphasis';
+    }
+
+    const options = { theme, variable };
+    const backgroundColor = getColor(options);
+    const hoverBackgroundColor = getColor({
+      ...options,
+      dark: { offset: -100 },
+      light: { offset: +100 }
+    });
+    const activeBackgroundColor = getColor({
+      ...options,
+      dark: { offset: -200 },
+      light: { offset: +200 }
+    });
+    const foregroundColor = getColor({ theme, variable: 'foreground.onEmphasis' });
+    const disabledBackgroundColor = getColor({
+      theme,
+      variable: 'background.emphasis',
+      dark: { offset: -100 },
+      transparency: theme.opacity[100]
+    });
+    const disabledForegroundColor = getColor({
+      theme,
+      variable: 'foreground.subtle',
+      dark: { offset: +200 },
+      light: { offset: -100 }
+    });
+
+    retVal = css`
+      outline-color: transparent; /* [4] */
+      background-color: ${backgroundColor};
+      color: ${foregroundColor};
+
+      &:hover {
+        background-color: ${hoverBackgroundColor};
+      }
+
+      ${focusStyles({
+        theme,
+        inset: focusInset,
+        shadowWidth: focusInset ? 'sm' : 'md',
+        spacerWidth: focusInset ? 'sm' : 'xs',
+        styles:
+          (isDanger || isNeutral) && focusInset
+            ? {
+                borderColor: getColor({ theme, variable: 'border.primaryEmphasis' })
+              }
+            : undefined
+      })}
+
+      &:active,
+      &[aria-pressed='true'],
+      &[aria-pressed='mixed'] {
+        background-color: ${activeBackgroundColor};
+      }
+
+      &:disabled {
+        background-color: ${disabledBackgroundColor};
+        color: ${disabledForegroundColor};
+      }
+    `;
+  } else {
+    retVal = css`
+      outline-color: transparent; /* [4] */
+      border-color: ${!isBasic && borderColor};
+      background-color: transparent;
+      color: ${foregroundColor};
+
+      &:hover {
+        border-color: ${!isBasic && hoverBorderColor};
+        background-color: ${rgba(baseColor as string, 0.08)};
+        color: ${hoverForegroundColor};
+      }
+
+      ${focusStyles({
+        theme,
+        inset: focusInset,
+        styles: isNeutral ? { borderColor: baseColor } : undefined
+      })}
+
+      &:active,
+      &[aria-pressed='true'],
+      &[aria-pressed='mixed'] {
+        border-color: ${!isBasic && activeColor};
+        background-color: ${rgba(baseColor as string, 0.2)};
+        color: ${!isNeutral && activeColor};
+      }
+
+      &:disabled {
+        border-color: transparent;
+        background-color: ${disabledBackgroundColor};
+        color: ${disabledForegroundColor};
+      }
+
+      & ${StyledIcon} {
+        color: ${isNeutral && getColorV8('neutralHue', shade, theme)};
+      }
+
+      /* prettier-ignore */
+      &:hover ${StyledIcon},
+      &:focus-visible ${StyledIcon} {
+        color: ${isNeutral && getColorV8('neutralHue', shade + 100, theme)};
+      }
+
+      &:active ${StyledIcon} {
+        color: ${isNeutral && foregroundColor};
+      }
+
+      &:disabled ${StyledIcon} {
+        color: ${disabledForegroundColor};
+      }
+    `;
+  }
+
+  return retVal;
+};
+
+/**
+ * 1. override CSS bedrock
+ * 2. focus shadow outline replaces box-shadow for links, to contain outline on line breaks
+ * 3. shifting :focus-visible from LVHFA order to preserve `color` on hover
+ * 4. set default outline-color for smooth transition without artifacts
+ */
+const colorStylesV8 = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
   let hue;
 
@@ -62,7 +256,7 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   }
 
   const shade = 600;
-  const baseColor = getColorV8(hue, shade, props.theme);
+  const baseColor = getColor({ theme: props.theme, variable: 'foreground.primary' });
   const hoverColor = getColorV8(hue, shade + 100, props.theme);
   const activeColor = getColorV8(hue, shade + 200, props.theme);
   const focusColor = getColorV8('primaryHue', shade, props.theme);
@@ -141,9 +335,10 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   } else {
     const borderColor =
       props.isNeutral && !props.isDanger ? getColorV8('neutralHue', 300, props.theme) : baseColor;
-    const foregroundColor = props.isNeutral
-      ? getColorV8('foreground', 600 /* default shade */, props.theme)
-      : baseColor;
+    const foregroundColor = getColor({
+      theme: props.theme,
+      variable: `foreground.${props.isNeutral ? 'default' : 'primary'}`
+    });
     const hoverBorderColor = props.isNeutral && !props.isDanger ? baseColor : hoverColor;
     const hoverForegroundColor = props.isNeutral ? foregroundColor : hoverColor;
 
