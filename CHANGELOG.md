@@ -13,6 +13,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.10 (2024-05-02)
+
+#### :seedling: Internal
+* Other
+  * [#1802](https://github.com/zendeskgarden/react-components/pull/1802) chore(CHANGELOG): remove extra lines ([@ze-flo](https://github.com/ze-flo))
+* `datepickers`, `forms`
+  * [#1801](https://github.com/zendeskgarden/react-components/pull/1801) chore(next): update from `main@8.76.2` ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.0.0-next.9 (2024-04-25)
 
 #### :boom: Breaking Change

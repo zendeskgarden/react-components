@@ -214,6 +214,7 @@ export const getColor = memoize(
       shade,
       colors: theme.colors,
       palette: theme.palette,
+      opacity: theme.opacity,
       transparency,
       variable
     })
