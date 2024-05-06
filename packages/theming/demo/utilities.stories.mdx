@@ -78,7 +78,9 @@ import README from '../README.md';
       offset: { control: { type: 'number' } },
       shade: { control: { type: 'number' } },
       transparency: { control: { type: 'range', min: 100, max: 1200, step: 100 } },
-      variable: { control: { type: 'text' } }
+      variable: { control: { type: 'text' } },
+      'colors.dark': { control: false, table: { disable: true } },
+      'colors.light': { control: false, table: { disable: true } }
     }}
   >
     {args => <GetColorStory {...args} />}
