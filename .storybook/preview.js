@@ -14,6 +14,16 @@ const DARK_THEME = { ...DEFAULT_THEME, colors: { ...DEFAULT_THEME.colors, base: 
 const DARK = getColor({ theme: DARK_THEME, variable: 'background.default' });
 const LIGHT = getColor({ theme: DEFAULT_THEME, variable: 'background.default' });
 
+export const args = {
+  'colors.dark': DEFAULT_THEME.colors.variables.dark,
+  'colors.light': DEFAULT_THEME.colors.variables.light
+};
+
+export const argTypes = {
+  'colors.dark': { table: { category: 'Variables' } },
+  'colors.light': { table: { category: 'Variables' } }
+};
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: {
@@ -57,7 +67,15 @@ const withThemeProvider = (story, context) => {
     document.querySelector('link[href$="bedrock/dist/index.css"]').setAttribute('disabled', true);
   }
 
-  const colors = { ...DEFAULT_THEME.colors, primaryHue: context.globals.primaryHue };
+  const colors = {
+    ...DEFAULT_THEME.colors,
+    primaryHue: context.globals.primaryHue,
+    variables: {
+      ...DEFAULT_THEME.colors.variables,
+      dark: context.args['colors.dark'],
+      light: context.args['colors.light']
+    }
+  };
 
   if (
     context.globals.backgrounds && context.globals.backgrounds.value !== 'transparent'
