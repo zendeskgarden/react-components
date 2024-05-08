@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { em, math, rgba } from 'polished';
+import { em, math } from 'polished';
 import {
   DEFAULT_THEME,
   SELECTOR_FOCUS_VISIBLE,
@@ -60,9 +60,21 @@ const colorStyles = ({
   focusInset
 }: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
+  const disabledBackgroundColor = getColor({
+    theme,
+    variable: 'background.emphasis',
+    dark: { offset: -100 },
+    transparency: theme.opacity[100]
+  });
+  const disabledForegroundColor = getColor({
+    theme,
+    variable: 'foreground.subtle',
+    dark: { offset: +200 },
+    light: { offset: -100 }
+  });
 
   if (isLink) {
-    const options = { theme, variable: 'foreground.primary' };
+    const options = { theme, variable: `foreground.${isDanger ? 'danger' : 'primary'}` };
     const foregroundColor = getColor(options);
     const hoverForegroundColor = getColor({
       ...options,
@@ -75,12 +87,6 @@ const colorStyles = ({
       light: { offset: +200 }
     });
     const focusOutlineColor = getColor({ theme, variable: 'border.primaryEmphasis' });
-    const disabledForegroundColor = getColor({
-      theme,
-      variable: 'foreground.subtle',
-      dark: { offset: +200 },
-      light: { offset: -100 }
-    });
 
     retVal = css`
       outline-color: transparent; /* [4] */
@@ -135,18 +141,6 @@ const colorStyles = ({
       light: { offset: +200 }
     });
     const foregroundColor = getColor({ theme, variable: 'foreground.onEmphasis' });
-    const disabledBackgroundColor = getColor({
-      theme,
-      variable: 'background.emphasis',
-      dark: { offset: -100 },
-      transparency: theme.opacity[100]
-    });
-    const disabledForegroundColor = getColor({
-      theme,
-      variable: 'foreground.subtle',
-      dark: { offset: +200 },
-      light: { offset: -100 }
-    });
 
     retVal = css`
       outline-color: transparent; /* [4] */
@@ -182,30 +176,106 @@ const colorStyles = ({
       }
     `;
   } else {
+    let borderVariable;
+    let backgroundVariable;
+    let foregroundVariable;
+
+    if (isDanger) {
+      borderVariable = 'border.dangerEmphasis';
+      backgroundVariable = 'background.dangerEmphasis';
+      foregroundVariable = isNeutral ? 'foreground.default' : 'foreground.danger';
+    } else {
+      borderVariable = 'border.primaryEmphasis';
+      backgroundVariable = 'background.primaryEmphasis';
+      foregroundVariable = isNeutral ? 'foreground.default' : 'foreground.primary';
+    }
+
+    const borderColor = isBasic
+      ? undefined
+      : getColor({ theme, variable: isNeutral && !isDanger ? 'border.default' : borderVariable });
+    const hoverBorderColor = isBasic
+      ? undefined
+      : getColor({
+          theme,
+          variable: borderVariable,
+          dark: { offset: -100 },
+          light: { offset: +100 }
+        });
+    const activeBorderColor = isBasic
+      ? undefined
+      : getColor({
+          theme,
+          variable: borderVariable,
+          dark: { offset: -200 },
+          light: { offset: +200 }
+        });
+    const focusBorderColor = isBasic ? undefined : getColor({ theme, variable: borderVariable });
+    const foregroundOptions = { theme, variable: foregroundVariable };
+    const foregroundColor = getColor(foregroundOptions);
+    const hoverForegroundColor = isNeutral
+      ? undefined
+      : getColor({
+          ...foregroundOptions,
+          dark: { offset: -100 },
+          light: { offset: +100 }
+        });
+    const activeForegroundColor = isNeutral
+      ? undefined
+      : getColor({
+          ...foregroundOptions,
+          dark: { offset: -200 },
+          light: { offset: +200 }
+        });
+    const backgroundOptions = { theme, variable: backgroundVariable };
+    const hoverBackgroundColor = getColor({
+      ...backgroundOptions,
+      transparency: theme.opacity[100]
+    });
+    const activeBackgroundColor = getColor({
+      ...backgroundOptions,
+      transparency: theme.opacity[200]
+    });
+    const iconOptions = { theme, variable: 'foreground.subtle' };
+    const iconForegroundColor = isNeutral ? getColor(iconOptions) : undefined;
+    const hoverIconForegroundColor = isNeutral
+      ? getColor({
+          ...iconOptions,
+          dark: { offset: -100 },
+          light: { offset: +100 }
+        })
+      : undefined;
+    const activeIconForegroundColor = isNeutral
+      ? getColor({
+          ...iconOptions,
+          dark: { offset: -200 },
+          light: { offset: +200 }
+        })
+      : undefined;
+
     retVal = css`
       outline-color: transparent; /* [4] */
-      border-color: ${!isBasic && borderColor};
+      border-color: ${borderColor};
       background-color: transparent;
       color: ${foregroundColor};
 
       &:hover {
-        border-color: ${!isBasic && hoverBorderColor};
-        background-color: ${rgba(baseColor as string, 0.08)};
+        border-color: ${hoverBorderColor};
+        background-color: ${hoverBackgroundColor};
         color: ${hoverForegroundColor};
       }
 
       ${focusStyles({
         theme,
         inset: focusInset,
-        styles: isNeutral ? { borderColor: baseColor } : undefined
+        styles: isNeutral ? { borderColor: focusBorderColor } : undefined
       })}
 
       &:active,
       &[aria-pressed='true'],
       &[aria-pressed='mixed'] {
-        border-color: ${!isBasic && activeColor};
-        background-color: ${rgba(baseColor as string, 0.2)};
-        color: ${!isNeutral && activeColor};
+        border-color: ${activeBorderColor};
+        background-color: ${activeBackgroundColor};
+        color: ${activeForegroundColor};
       }
 
       &:disabled {
@@ -214,178 +284,17 @@ const colorStyles = ({
         color: ${disabledForegroundColor};
       }
 
+      /* prettier-ignore */
       & ${StyledIcon} {
-        color: ${isNeutral && getColorV8('neutralHue', shade, theme)};
+        color: ${iconForegroundColor};
       }
 
-      /* prettier-ignore */
-      &:hover ${StyledIcon},
-      &:focus-visible ${StyledIcon} {
-        color: ${isNeutral && getColorV8('neutralHue', shade + 100, theme)};
+      &:hover ${StyledIcon}, &:focus-visible ${StyledIcon} {
+        color: ${hoverIconForegroundColor};
       }
 
       &:active ${StyledIcon} {
-        color: ${isNeutral && foregroundColor};
-      }
-
-      &:disabled ${StyledIcon} {
-        color: ${disabledForegroundColor};
-      }
-    `;
-  }
-
-  return retVal;
-};
-
-/**
- * 1. override CSS bedrock
- * 2. focus shadow outline replaces box-shadow for links, to contain outline on line breaks
- * 3. shifting :focus-visible from LVHFA order to preserve `color` on hover
- * 4. set default outline-color for smooth transition without artifacts
- */
-const colorStylesV8 = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  let retVal;
-  let hue;
-
-  if (props.disabled || (props.isNeutral && props.isPrimary && !props.isDanger)) {
-    hue = 'neutralHue';
-  } else if (props.isDanger) {
-    hue = 'dangerHue';
-  } else {
-    hue = 'primaryHue';
-  }
-
-  const shade = 600;
-  const baseColor = getColor({ theme: props.theme, variable: 'foreground.primary' });
-  const hoverColor = getColorV8(hue, shade + 100, props.theme);
-  const activeColor = getColorV8(hue, shade + 200, props.theme);
-  const focusColor = getColorV8('primaryHue', shade, props.theme);
-  const disabledBackgroundColor = getDisabledBackgroundColor(props);
-  const disabledForegroundColor = getColorV8(hue, shade - 200, props.theme);
-
-  if (props.isLink) {
-    retVal = css`
-      outline-color: transparent; /* [4] */
-      background-color: transparent;
-      color: ${baseColor};
-
-      ${focusStyles({
-        theme: props.theme,
-        condition: false,
-        styles: {
-          /* [1] */
-          color: baseColor,
-          /* [2] */
-          outlineColor: focusColor
-        }
-      })}
-
-      /* [3] */
-      &:hover {
-        color: ${hoverColor};
-      }
-
-      &:active,
-      &[aria-pressed='true'],
-      &[aria-pressed='mixed'] {
-        color: ${activeColor};
-      }
-
-      &:disabled {
-        color: ${disabledForegroundColor};
-      }
-    `;
-  } else if (props.isPrimary) {
-    retVal = css`
-      outline-color: transparent; /* [4] */
-      background-color: ${baseColor};
-      color: ${props.theme.palette.white};
-
-      &:hover {
-        background-color: ${hoverColor};
-      }
-
-      ${focusStyles({
-        theme: props.theme,
-        inset: props.focusInset,
-        shadowWidth: props.focusInset ? 'sm' : 'md',
-        spacerWidth: props.focusInset ? 'sm' : 'xs',
-        styles:
-          props.isDanger && props.focusInset
-            ? {
-                borderColor: focusColor
-              }
-            : undefined
-      })}
-
-      &:active {
-        background-color: ${activeColor};
-      }
-
-      &[aria-pressed='true'],
-      &[aria-pressed='mixed'] {
-        background-color: ${props.isPrimary && activeColor};
-      }
-
-      &:disabled {
-        background-color: ${disabledBackgroundColor};
-        color: ${disabledForegroundColor};
-      }
-    `;
-  } else {
-    const borderColor =
-      props.isNeutral && !props.isDanger ? getColorV8('neutralHue', 300, props.theme) : baseColor;
-    const foregroundColor = getColor({
-      theme: props.theme,
-      variable: `foreground.${props.isNeutral ? 'default' : 'primary'}`
-    });
-    const hoverBorderColor = props.isNeutral && !props.isDanger ? baseColor : hoverColor;
-    const hoverForegroundColor = props.isNeutral ? foregroundColor : hoverColor;
-
-    retVal = css`
-      outline-color: transparent; /* [4] */
-      border-color: ${!props.isBasic && borderColor};
-      background-color: transparent;
-      color: ${foregroundColor};
-
-      &:hover {
-        border-color: ${!props.isBasic && hoverBorderColor};
-        background-color: ${rgba(baseColor as string, 0.08)};
-        color: ${hoverForegroundColor};
-      }
-
-      ${focusStyles({
-        theme: props.theme,
-        inset: props.focusInset,
-        styles: props.isNeutral ? { borderColor: baseColor } : undefined
-      })}
-
-      &:active,
-      &[aria-pressed='true'],
-      &[aria-pressed='mixed'] {
-        border-color: ${!props.isBasic && activeColor};
-        background-color: ${rgba(baseColor as string, 0.2)};
-        color: ${!props.isNeutral && activeColor};
-      }
-
-      &:disabled {
-        border-color: transparent;
-        background-color: ${disabledBackgroundColor};
-        color: ${disabledForegroundColor};
-      }
-
-      & ${StyledIcon} {
-        color: ${props.isNeutral && getColorV8('neutralHue', shade, props.theme)};
-      }
-
-      /* prettier-ignore */
-      &:hover ${StyledIcon},
-      &:focus-visible ${StyledIcon} {
-        color: ${props.isNeutral && getColorV8('neutralHue', shade + 100, props.theme)};
-      }
-
-      &:active ${StyledIcon} {
-        color: ${props.isNeutral && foregroundColor};
+        color: ${activeIconForegroundColor};
       }
 
       &:disabled ${StyledIcon} {
