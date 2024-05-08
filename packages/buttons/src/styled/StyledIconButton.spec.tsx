@@ -10,7 +10,7 @@ import { css } from 'styled-components';
 import { render } from 'garden-test-utils';
 import { StyledIconButton } from './StyledIconButton';
 import { StyledIcon } from './StyledIcon';
-import { PALETTE, PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { rgba } from 'polished';
 
 describe('StyledIconButton', () => {
@@ -29,7 +29,7 @@ describe('StyledIconButton', () => {
   it('renders basic color styling', () => {
     const { container } = render(<StyledIconButton isBasic />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[600]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[900]);
   });
 
   describe('disabled', () => {

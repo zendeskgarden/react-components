@@ -12,7 +12,6 @@ import {
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
   getColor,
-  getColorV8,
   getFocusBoxShadow,
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
@@ -30,8 +29,13 @@ const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   return props.theme.borderRadii.md;
 };
 
-const getDisabledBackgroundColor = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  return getColorV8('neutralHue', 200, props.theme);
+const getDisabledBackgroundColor = (theme: DefaultTheme) => {
+  return getColor({
+    theme,
+    variable: 'background.emphasis',
+    dark: { offset: -100 },
+    transparency: theme.opacity[100]
+  });
 };
 
 export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
@@ -60,32 +64,24 @@ const colorStyles = ({
   focusInset
 }: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
-  const disabledBackgroundColor = getColor({
-    theme,
-    variable: 'background.emphasis',
-    dark: { offset: -100 },
-    transparency: theme.opacity[100]
-  });
+  const disabledBackgroundColor = getDisabledBackgroundColor(theme);
   const disabledForegroundColor = getColor({
     theme,
     variable: 'foreground.subtle',
     dark: { offset: +200 },
     light: { offset: -100 }
   });
+  const offset100 = { dark: { offset: -100 }, light: { offset: +100 } };
+  const offset200 = { dark: { offset: -200 }, light: { offset: +200 } };
 
   if (isLink) {
+    /*
+     * Anchor / link button styling
+     */
     const options = { theme, variable: `foreground.${isDanger ? 'danger' : 'primary'}` };
     const foregroundColor = getColor(options);
-    const hoverForegroundColor = getColor({
-      ...options,
-      dark: { offset: -100 },
-      light: { offset: +100 }
-    });
-    const activeForegroundColor = getColor({
-      ...options,
-      dark: { offset: -200 },
-      light: { offset: +200 }
-    });
+    const hoverForegroundColor = getColor({ ...options, ...offset100 });
+    const activeForegroundColor = getColor({ ...options, ...offset200 });
     const focusOutlineColor = getColor({ theme, variable: 'border.primaryEmphasis' });
 
     retVal = css`
@@ -118,28 +114,23 @@ const colorStyles = ({
       }
     `;
   } else if (isPrimary) {
-    let variable;
+    /*
+     * Primary button styling
+     */
+    let backgroundVariable;
 
     if (isDanger) {
-      variable = 'background.dangerEmphasis';
+      backgroundVariable = 'background.dangerEmphasis';
     } else if (isNeutral) {
-      variable = 'background.emphasis';
+      backgroundVariable = 'background.emphasis';
     } else {
-      variable = 'background.primaryEmphasis';
+      backgroundVariable = 'background.primaryEmphasis';
     }
 
-    const options = { theme, variable };
+    const options = { theme, variable: backgroundVariable };
     const backgroundColor = getColor(options);
-    const hoverBackgroundColor = getColor({
-      ...options,
-      dark: { offset: -100 },
-      light: { offset: +100 }
-    });
-    const activeBackgroundColor = getColor({
-      ...options,
-      dark: { offset: -200 },
-      light: { offset: +200 }
-    });
+    const hoverBackgroundColor = getColor({ ...options, ...offset100 });
+    const activeBackgroundColor = getColor({ ...options, ...offset200 });
     const foregroundColor = getColor({ theme, variable: 'foreground.onEmphasis' });
 
     retVal = css`
@@ -156,12 +147,7 @@ const colorStyles = ({
         inset: focusInset,
         shadowWidth: focusInset ? 'sm' : 'md',
         spacerWidth: focusInset ? 'sm' : 'xs',
-        styles:
-          (isDanger || isNeutral) && focusInset
-            ? {
-                borderColor: getColor({ theme, variable: 'border.primaryEmphasis' })
-              }
-            : undefined
+        styles: (isDanger || isNeutral) && focusInset ? { borderColor: backgroundColor } : undefined
       })}
 
       &:active,
@@ -176,81 +162,78 @@ const colorStyles = ({
       }
     `;
   } else {
-    let borderVariable;
+    /*
+     * Default button styling
+     */
+    let borderColor;
+    let hoverBorderColor;
+    let activeBorderColor;
+    let focusBorderColor;
     let backgroundVariable;
     let foregroundVariable;
 
     if (isDanger) {
-      borderVariable = 'border.dangerEmphasis';
+      if (!isBasic) {
+        const borderOptions = { theme, variable: 'border.dangerEmphasis' };
+
+        borderColor = getColor(borderOptions);
+        hoverBorderColor = getColor({ ...borderOptions, ...offset100 });
+        activeBorderColor = getColor({ ...borderOptions, ...offset200 });
+
+        if (isNeutral) {
+          focusBorderColor = getColor(borderOptions);
+        }
+      }
+
       backgroundVariable = 'background.dangerEmphasis';
       foregroundVariable = isNeutral ? 'foreground.default' : 'foreground.danger';
     } else {
-      borderVariable = 'border.primaryEmphasis';
+      if (!isBasic) {
+        const borderOptions = { theme, variable: 'border.primaryEmphasis' };
+
+        if (isNeutral) {
+          borderColor = getColor({ theme, variable: 'border.default', ...offset100 });
+          focusBorderColor = getColor(borderOptions);
+        } else {
+          borderColor = getColor(borderOptions);
+        }
+
+        hoverBorderColor = getColor({ ...borderOptions, ...offset100 });
+        activeBorderColor = getColor({ ...borderOptions, ...offset200 });
+      }
+
       backgroundVariable = 'background.primaryEmphasis';
       foregroundVariable = isNeutral ? 'foreground.default' : 'foreground.primary';
     }
 
-    const borderColor = isBasic
-      ? undefined
-      : getColor({ theme, variable: isNeutral && !isDanger ? 'border.default' : borderVariable });
-    const hoverBorderColor = isBasic
-      ? undefined
-      : getColor({
-          theme,
-          variable: borderVariable,
-          dark: { offset: -100 },
-          light: { offset: +100 }
-        });
-    const activeBorderColor = isBasic
-      ? undefined
-      : getColor({
-          theme,
-          variable: borderVariable,
-          dark: { offset: -200 },
-          light: { offset: +200 }
-        });
-    const focusBorderColor = isBasic ? undefined : getColor({ theme, variable: borderVariable });
-    const foregroundOptions = { theme, variable: foregroundVariable };
-    const foregroundColor = getColor(foregroundOptions);
-    const hoverForegroundColor = isNeutral
-      ? undefined
-      : getColor({
-          ...foregroundOptions,
-          dark: { offset: -100 },
-          light: { offset: +100 }
-        });
-    const activeForegroundColor = isNeutral
-      ? undefined
-      : getColor({
-          ...foregroundOptions,
-          dark: { offset: -200 },
-          light: { offset: +200 }
-        });
-    const backgroundOptions = { theme, variable: backgroundVariable };
     const hoverBackgroundColor = getColor({
-      ...backgroundOptions,
+      theme,
+      variable: backgroundVariable,
       transparency: theme.opacity[100]
     });
     const activeBackgroundColor = getColor({
-      ...backgroundOptions,
+      theme,
+      variable: backgroundVariable,
       transparency: theme.opacity[200]
     });
-    const iconOptions = { theme, variable: 'foreground.subtle' };
-    const iconForegroundColor = isNeutral ? getColor(iconOptions) : undefined;
-    const hoverIconForegroundColor = isNeutral
-      ? getColor({
-          ...iconOptions,
-          dark: { offset: -100 },
-          light: { offset: +100 }
-        })
-      : undefined;
-    const activeIconForegroundColor = isNeutral
-      ? getColor({
-          ...iconOptions,
-          dark: { offset: -200 },
-          light: { offset: +200 }
-        })
-      : undefined;
+    const foregroundOptions = { theme, variable: foregroundVariable };
+    const foregroundColor = getColor(foregroundOptions);
+    let hoverForegroundColor;
+    let activeForegroundColor;
+    let iconForegroundColor;
+    let hoverIconForegroundColor;
+    let activeIconForegroundColor;
+
+    if (isNeutral) {
+      const iconOptions = { theme, variable: 'foreground.subtle' };
+
+      iconForegroundColor = getColor(iconOptions);
+      hoverIconForegroundColor = getColor({ ...iconOptions, ...offset100 });
+      activeIconForegroundColor = getColor({ ...iconOptions, ...offset200 });
+    } else {
+      hoverForegroundColor = getColor({ ...foregroundOptions, ...offset100 });
+      activeForegroundColor = getColor({ ...foregroundOptions, ...offset200 });
+    }
 
     retVal = css`
       outline-color: transparent; /* [4] */
@@ -267,7 +250,7 @@ const colorStyles = ({
       ${focusStyles({
         theme,
         inset: focusInset,
-        styles: isNeutral ? { borderColor: focusBorderColor } : undefined
+        styles: { borderColor: focusBorderColor }
       })}
 
       &:active,
@@ -310,17 +293,22 @@ const colorStyles = ({
  * 1. Icon button override.
  * 2. reset icon button with border
  */
-const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  const { theme, isPrimary, isBasic, isPill, focusInset } = props;
+const groupStyles = ({
+  theme,
+  isPrimary,
+  isBasic,
+  isPill,
+  focusInset
+}: IButtonProps & ThemeProps<DefaultTheme>) => {
   const { rtl, borderWidths, borders } = theme;
   const startPosition = rtl ? 'right' : 'left';
   const endPosition = rtl ? 'left' : 'right';
   const marginOffset = borderWidths.sm;
   const marginDisplacement = `${isPrimary || isBasic ? '' : '-'}${marginOffset}`;
   const iconMarginDisplacement = isPill && '-2px';
-  const disabledBackgroundColor = !isPrimary && getDisabledBackgroundColor(props);
+  const disabledBackgroundColor = !isPrimary && getDisabledBackgroundColor(theme);
   const borderColor = isBasic ? 'transparent' : 'revert';
-  const focusColor = getColorV8('primaryHue', 600, theme);
+  const focusColor = getColor({ theme, variable: 'border.primaryEmphasis' });
   const focusBoxShadow =
     isBasic &&
     !isPrimary &&

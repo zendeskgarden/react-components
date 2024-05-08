@@ -59,7 +59,7 @@ describe('StyledButton', () => {
   it('renders neutral styling if provided', () => {
     const { container } = render(<StyledButton isNeutral />);
 
-    expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.grey[300]);
+    expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.grey[400]);
   });
 
   it('renders pill styling if provided', () => {
