@@ -19,7 +19,7 @@ const colorStyles = (props: IStyledDropIndicatorProps) => {
   const color = getColor({ variable: 'foreground.primary', theme });
 
   return css`
-    box-shadow: ${`0 0 0 ${theme.borderWidths.sm} ${color}`};
+    box-shadow: 0 0 0 ${theme.borderWidths.sm} ${color};
 
     &::before,
     &::after {

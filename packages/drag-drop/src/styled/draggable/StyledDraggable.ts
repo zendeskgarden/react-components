@@ -34,7 +34,8 @@ export function getDragShadow(theme: IGardenTheme) {
   const color = getColor({
     hue: 'neutralHue',
     shade: 1200,
-    transparency: opacity[200],
+    light: { transparency: opacity[200] },
+    dark: { transparency: opacity[1000] },
     theme
   }) as string;
 
