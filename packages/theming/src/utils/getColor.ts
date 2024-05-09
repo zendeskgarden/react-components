@@ -233,7 +233,10 @@ export const getColor = memoize(
 
       _hue = value.hue;
       _shade = value.shade;
-      _transparency = value.transparency || _transparency;
+
+      if (value.transparency !== undefined) {
+        _transparency = value.transparency;
+      }
     }
 
     if (_hue) {
