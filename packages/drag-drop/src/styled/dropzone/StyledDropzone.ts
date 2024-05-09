@@ -24,8 +24,8 @@ export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
 const colorStyles = (props: IStyledDropzoneProps) => {
   const { isDanger, isDisabled, isActive, isHighlighted, theme } = props;
 
-  // active states
-  const fgActive = getColor({ variable: `foreground.${isDanger ? 'danger' : 'primary'}`, theme });
+  const variable = `foreground.${isDanger ? 'danger' : 'primary'}`;
+  const fgActive = getColor({ variable, theme });
   const bgActive = getColor({
     variable: `background.${isDanger ? 'danger' : 'primary'}Emphasis`,
     transparency: theme.opacity[100],
@@ -57,7 +57,12 @@ const colorStyles = (props: IStyledDropzoneProps) => {
     });
   } else if (isActive || isHighlighted) {
     color = isHighlighted
-      ? getColor({ variable: 'foreground.primary', light: { offset: 300 }, theme })
+      ? getColor({
+          variable,
+          light: { offset: 200 },
+          dark: { offset: -200 },
+          theme
+        })
       : fgActive;
     backgroundColor = bgActive;
     borderColor = borderActive;
