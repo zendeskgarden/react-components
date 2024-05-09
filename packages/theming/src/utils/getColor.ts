@@ -135,6 +135,56 @@ const toProperty = (object: object, path: string) => {
   }
 };
 
+/* derive the property + transparency from the given rgba variable value */
+const fromRgba = (value: string) => {
+  let retVal;
+  const regex =
+    /rgba\s*\(\s*(?<property>[#\w.]+)\s*,\s*(?<alpha>[\w.]+)\s*\)/gu; /* ex. 'rgba(primaryHue.700, 600)' */
+  const _rgba = regex.exec(value);
+
+  if (_rgba && _rgba.groups) {
+    const property = _rgba.groups.property;
+    const transparency = parseFloat(_rgba.groups.alpha);
+
+    retVal = { property, transparency };
+  } else {
+    throw new Error(`Error: invalid \`rgba\` value "${value}"`);
+  }
+
+  return retVal;
+};
+
+/* derive the hue + shade + transparency from the given variable */
+const fromVariable = (
+  variable: string,
+  variables: IGardenTheme['colors']['variables']['dark' | 'light'],
+  palette: IGardenTheme['palette']
+) => {
+  const retVal: { hue?: string; shade?: number; transparency?: number } = {};
+  let property = toProperty(variables, variable);
+
+  if (property.startsWith('rgba')) {
+    const value = fromRgba(property);
+
+    property = value.property;
+    retVal.transparency = value.transparency;
+  }
+
+  const [key, value] = property.split(/\.(?<value>.*)/u);
+
+  if (key === 'palette') {
+    retVal.hue = toProperty(palette, value); /* ex. `variable` = 'palette.white' */
+  } else {
+    retVal.hue = key; /* ex. `variable` = '#fd5a1e' */
+
+    if (value !== undefined) {
+      retVal.shade = parseInt(value, 10); /* ex. `variable` = 'primaryHue.700' */
+    }
+  }
+
+  return retVal;
+};
+
 /**
  * Get a color value from the theme. Variable lookup takes precedence, followed
  * by `dark` and `light` object values. If none of these are provided, `hue`,
@@ -172,22 +222,18 @@ export const getColor = memoize(
     let _hue = mode?.hue || hue;
     let _shade = mode?.shade === undefined ? shade : mode.shade;
     const _offset = mode?.offset === undefined ? offset : mode.offset;
-    const _transparency = mode?.transparency === undefined ? transparency : mode.transparency;
+    let _transparency = mode?.transparency === undefined ? transparency : mode.transparency;
 
     if (variable) {
       // variable lookup takes precedence
       const _variables = variables?.[scheme]
         ? variables[scheme]
         : DEFAULT_THEME.colors.variables[scheme];
-      const property = toProperty(_variables, variable);
-      const [key, value] = property.split(/\.(?<value>.*)/u);
+      const value = fromVariable(variable, _variables, palette);
 
-      if (key === 'palette') {
-        _hue = toProperty(palette, value); /* ex. `variable` = 'palette.white' */
-      } else {
-        _hue = key;
-        _shade = parseInt(value, 10);
-      }
+      _hue = value.hue;
+      _shade = value.shade;
+      _transparency = value.transparency || _transparency;
     }
 
     if (_hue) {

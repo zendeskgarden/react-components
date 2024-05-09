@@ -59,7 +59,8 @@ const colors = {
         primaryEmphasis: 'primaryHue.600',
         successEmphasis: 'successHue.600',
         warningEmphasis: 'warningHue.600',
-        dangerEmphasis: 'dangerHue.600'
+        dangerEmphasis: 'dangerHue.600',
+        disabled: 'rgba(neutralHue.500, 100)'
       },
       border: {
         default: 'neutralHue.800',
@@ -100,7 +101,8 @@ const colors = {
         primaryEmphasis: 'primaryHue.700',
         successEmphasis: 'successHue.700',
         warningEmphasis: 'warningHue.700',
-        dangerEmphasis: 'dangerHue.700'
+        dangerEmphasis: 'dangerHue.700',
+        disabled: 'rgba(neutralHue.700, 100)'
       },
       border: {
         default: 'neutralHue.300',
