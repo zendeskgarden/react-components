@@ -24,6 +24,20 @@ describe('Button', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
+  describe('`data-garden-id` attribute', () => {
+    it('sets a default data-garden-id attribute', () => {
+      const { getByRole } = render(<Button />);
+
+      expect(getByRole('button')).toHaveAttribute('data-garden-id', 'buttons.button');
+    });
+
+    it('supports overriding the data-garden-id attribute', () => {
+      const { getByRole } = render(<Button data-garden-id="myCoolButton" />);
+
+      expect(getByRole('button')).toHaveAttribute('data-garden-id', 'myCoolButton');
+    });
+  });
+
   describe('Icons', () => {
     it('successfully renders start and end icons', () => {
       const { getByTestId } = render(

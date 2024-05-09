@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, SVGAttributes } from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, SVGAttributes, HTMLAttributes } from 'react';
 
 export const SIZE = ['small', 'medium', 'large'] as const;
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** @ignore Set identifier to retrieve component styles */
+  'data-garden-id'?: string;
   /** Applies danger styling */
   isDanger?: boolean;
   /** Specifies the button size */
@@ -52,7 +54,7 @@ export interface IButtonIconProps
     SVGAttributes<SVGElement> {}
 
 export interface IAnchorProps
-  extends Pick<IButtonProps, 'isDanger'>,
+  extends Pick<IButtonProps, 'isDanger' | 'data-garden-id'>,
     AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * Attaches `target="_blank"` and `rel="noopener noreferrer"` to an anchor that
@@ -66,3 +68,7 @@ export interface IAnchorProps
    **/
   externalIconLabel?: string;
 }
+
+export interface ISplitButtonProps
+  extends HTMLAttributes<HTMLDivElement>,
+    Pick<IButtonProps, 'data-garden-id'> {}

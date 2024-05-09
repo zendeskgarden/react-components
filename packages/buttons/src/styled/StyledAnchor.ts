@@ -8,14 +8,15 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
+import { IAnchorProps } from './../types';
 
 const COMPONENT_ID = 'buttons.anchor';
 
 /**
  * Accepts all `<a>` props
  */
-export const StyledAnchor = styled(StyledButton).attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+export const StyledAnchor = styled(StyledButton).attrs<IAnchorProps>(props => ({
+  'data-garden-id': props['data-garden-id'] || COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'a',
   dir: props.theme.rtl ? 'rtl' : undefined,
@@ -24,7 +25,7 @@ export const StyledAnchor = styled(StyledButton).attrs(props => ({
 }))`
   direction: ${props => props.theme.rtl && 'rtl'};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(props['data-garden-id'], props)};
 `;
 
 StyledAnchor.defaultProps = {
