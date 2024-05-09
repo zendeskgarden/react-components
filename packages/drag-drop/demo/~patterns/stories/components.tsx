@@ -19,6 +19,8 @@ import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-dr
 
 import { animateLayoutChanges } from './utils';
 import type { IDraggableItemProps, IDropIndicatorProps, ISortableColumnProps } from './types';
+import styled from 'styled-components';
+import { getColor } from '@zendeskgarden/react-theming';
 
 export const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((props, ref) => {
   const { isOverlay, data, tabIndex, ...restProps } = props;
@@ -216,6 +218,10 @@ export const DraggableListItem = ({
   );
 };
 
+const StyledTitle = styled.strong`
+  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
+`;
+
 export const DraggablesColumn = ({
   items,
   hasPlaceholder,
@@ -226,7 +232,7 @@ export const DraggablesColumn = ({
   return (
     <div style={isHorizontal ? { minHeight: '100px' } : { width: '250px' }}>
       <p>
-        <strong>Produce</strong>
+        <StyledTitle>Produce</StyledTitle>
       </p>
       {items.length > 0 && (
         <DraggableList isHorizontal={isHorizontal}>
@@ -253,7 +259,7 @@ export const DroppablesColumn = (props: ISortableColumnProps) => {
   return (
     <div style={isHorizontal ? { minHeight: '100px' } : { width: '284px' }}>
       <p>
-        <strong>Favorites</strong>
+        <StyledTitle>Favorites</StyledTitle>
       </p>
       <SortablesColumn {...props} />
     </div>

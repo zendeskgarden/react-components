@@ -28,12 +28,13 @@ export interface IStyledDraggableProps extends ThemeProps<DefaultTheme> {
 }
 
 export function getDragShadow(theme: IGardenTheme) {
-  const { space, shadows } = theme;
+  const { space, shadows, opacity } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
   const color = getColor({
     hue: 'neutralHue',
     shade: 1200,
+    transparency: opacity[200],
     theme
   }) as string;
 
@@ -73,9 +74,8 @@ const colorStyles = (props: IStyledDraggableProps) => {
     color = getColor({ variable: 'foreground.default', theme });
     borderColor = isBare ? 'transparent' : getColor({ variable: 'border.default', theme });
     hoverBackgroundColor = getColor({
-      variable: isGrabbed ? 'background.raised' : 'background.primaryEmphasis',
-      transparency: theme.opacity[100],
-      ...(!isGrabbed && { dark: { offset: -100 } }),
+      variable: `background.${isGrabbed ? 'raised' : 'primaryEmphasis'}`,
+      ...(!isGrabbed && { transparency: theme.opacity[100], dark: { offset: -100 } }),
       theme
     });
     boxShadow = dragShadow;

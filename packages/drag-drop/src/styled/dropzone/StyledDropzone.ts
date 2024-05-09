@@ -6,8 +6,8 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { rgba, math } from 'polished';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropzone';
 
@@ -24,25 +24,46 @@ export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
 const colorStyles = (props: IStyledDropzoneProps) => {
   const { isDanger, isDisabled, isActive, isHighlighted, theme } = props;
 
-  const hue = isDanger ? 'dangerHue' : 'primaryHue';
-  const baseColor = getColorV8(hue, 600, theme);
-  const neutralColor = getColorV8('neutralHue', 600, theme);
+  // active states
+  const fgActive = getColor({ variable: `foreground.${isDanger ? 'danger' : 'primary'}`, theme });
+  const bgActive = getColor({
+    variable: `background.${isDanger ? 'danger' : 'primary'}Emphasis`,
+    transparency: theme.opacity[100],
+    dark: { offset: -100 },
+    theme
+  });
+  const borderActive = getColor({
+    variable: `border.${isDanger ? 'danger' : 'primary'}Emphasis`,
+    theme
+  });
 
   let backgroundColor = 'transparent';
-  let borderColor = neutralColor;
-  let color = neutralColor;
+  let borderColor = getColor({ variable: `border.emphasis`, theme });
+  let color = getColor({ variable: `foreground.subtle`, theme });
 
   if (isDisabled) {
-    backgroundColor = getColorV8('neutralHue', 200, theme) as string;
-    borderColor = getColorV8('neutralHue', 300, theme);
-    color = getColorV8('neutralHue', 400, theme);
+    backgroundColor = getColor({
+      variable: 'background.emphasis',
+      transparency: theme.opacity[100],
+      dark: { offset: -100 },
+      theme
+    });
+    borderColor = getColor({ variable: `border.default`, theme });
+    color = getColor({
+      variable: 'foreground.subtle',
+      light: { offset: -100 },
+      dark: { offset: 200 },
+      theme
+    });
   } else if (isActive || isHighlighted) {
-    color = isHighlighted ? getColorV8(hue, 800, theme) : baseColor;
-    backgroundColor = rgba(baseColor as string, 0.08);
-    borderColor = baseColor;
+    color = isHighlighted
+      ? getColor({ variable: 'foreground.primary', light: { offset: 300 }, theme })
+      : fgActive;
+    backgroundColor = bgActive;
+    borderColor = borderActive;
   } else if (isDanger) {
-    borderColor = baseColor;
-    color = baseColor;
+    borderColor = borderActive;
+    color = fgActive;
   }
 
   return css`
