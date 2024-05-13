@@ -29,15 +29,6 @@ const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   return props.theme.borderRadii.md;
 };
 
-const getDisabledBackgroundColor = (theme: DefaultTheme) => {
-  return getColor({
-    theme,
-    variable: 'background.emphasis',
-    dark: { offset: -100 },
-    transparency: theme.opacity[100]
-  });
-};
-
 export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.size === 'small') {
     return `${props.theme.space.base * 8}px`;
@@ -64,13 +55,8 @@ const colorStyles = ({
   focusInset
 }: IButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
-  const disabledBackgroundColor = getDisabledBackgroundColor(theme);
-  const disabledForegroundColor = getColor({
-    theme,
-    variable: 'foreground.subtle',
-    dark: { offset: +200 },
-    light: { offset: -100 }
-  });
+  const disabledBackgroundColor = getColor({ theme, variable: 'background.disabled' });
+  const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
   const offset100 = { dark: { offset: -100 }, light: { offset: +100 } };
   const offset200 = { dark: { offset: -200 }, light: { offset: +200 } };
 
@@ -309,7 +295,8 @@ const groupStyles = ({
   const marginOffset = borderWidths.sm;
   const marginDisplacement = `${isPrimary || isBasic ? '' : '-'}${marginOffset}`;
   const iconMarginDisplacement = isPill && '-2px';
-  const disabledBackgroundColor = !isPrimary && getDisabledBackgroundColor(theme);
+  const disabledBackgroundColor =
+    !isPrimary && getColor({ theme, variable: 'background.disabled' });
   const borderColor = isBasic ? 'transparent' : 'revert';
   const focusColor = getColor({ theme, variable: 'border.primaryEmphasis' });
   const focusBoxShadow =
