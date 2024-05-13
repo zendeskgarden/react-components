@@ -41,16 +41,13 @@ const colorStyles = (props: IStyledDropzoneProps) => {
 
   if (isDisabled) {
     backgroundColor = getColor({
-      variable: 'background.emphasis',
+      variable: 'background.disabled',
       transparency: theme.opacity[100],
-      dark: { offset: -100 },
       theme
     });
-    borderColor = getColor({ variable: `border.default`, theme });
+    borderColor = getColor({ variable: `border.disabled`, theme });
     color = getColor({
-      variable: 'foreground.subtle',
-      light: { offset: -100 },
-      dark: { offset: 200 },
+      variable: 'foreground.disabled',
       theme
     });
   } else if (isActive || isHighlighted) {

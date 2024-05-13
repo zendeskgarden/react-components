@@ -47,18 +47,18 @@ const colorStyles = (props: IStyledDraggableProps) => {
 
   const dragShadow = getDragShadow(theme);
   const baseBgColor = getColor({ variable: 'background.default', theme });
-  const subtleBgColor = getColor({
+  const placeholderBgColor = getColor({
     variable: 'background.emphasis',
     transparency: theme.opacity[100],
     dark: { offset: -100 },
     theme
   });
-  const disabledColor = getColor({
-    variable: 'foreground.subtle',
-    light: { offset: -100 },
-    dark: { offset: 200 },
+  const disabledBgColor = getColor({
+    variable: 'background.disabled',
+    transparency: theme.opacity[100],
     theme
   });
+  const disabledColor = getColor({ variable: 'foreground.disabled', theme });
 
   let color;
   let hoverBackgroundColor;
@@ -67,10 +67,10 @@ const colorStyles = (props: IStyledDraggableProps) => {
   let backgroundColor = baseBgColor;
 
   if (isDisabled) {
-    backgroundColor = subtleBgColor;
+    backgroundColor = disabledBgColor;
     color = disabledColor;
   } else if (isPlaceholder) {
-    backgroundColor = subtleBgColor;
+    backgroundColor = placeholderBgColor;
   } else {
     color = getColor({ variable: 'foreground.default', theme });
     borderColor = isBare ? 'transparent' : getColor({ variable: 'border.default', theme });
