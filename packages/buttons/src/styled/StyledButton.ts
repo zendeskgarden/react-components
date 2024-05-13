@@ -147,7 +147,10 @@ const colorStyles = ({
         inset: focusInset,
         shadowWidth: focusInset ? 'sm' : 'md',
         spacerWidth: focusInset ? 'sm' : 'xs',
-        styles: (isDanger || isNeutral) && focusInset ? { borderColor: backgroundColor } : undefined
+        styles:
+          (isDanger || isNeutral) && focusInset
+            ? { borderColor: getColor({ theme, variable: 'border.primaryEmphasis' }) }
+            : undefined
       })}
 
       &:active,
