@@ -37,7 +37,7 @@ export function getDragShadow(theme: IGardenTheme) {
     light: { transparency: opacity[200] },
     dark: { transparency: opacity[1000] },
     theme
-  }) as string;
+  });
 
   return shadows.lg(offsetY, blurRadius, color);
 }
@@ -47,15 +47,9 @@ const colorStyles = (props: IStyledDraggableProps) => {
 
   const dragShadow = getDragShadow(theme);
   const baseBgColor = getColor({ variable: 'background.default', theme });
-  const placeholderBgColor = getColor({
-    variable: 'background.emphasis',
-    transparency: theme.opacity[100],
-    dark: { offset: -100 },
-    theme
-  });
+  const placeholderBgColor = getColor({ variable: 'background.disabled', theme });
   const disabledBgColor = getColor({
     variable: 'background.disabled',
-    transparency: theme.opacity[100],
     theme
   });
   const disabledColor = getColor({ variable: 'foreground.disabled', theme });
@@ -75,7 +69,7 @@ const colorStyles = (props: IStyledDraggableProps) => {
     color = getColor({ variable: 'foreground.default', theme });
     borderColor = isBare ? 'transparent' : getColor({ variable: 'border.default', theme });
     hoverBackgroundColor = getColor({
-      variable: `background.${isGrabbed ? 'raised' : 'primaryEmphasis'}`,
+      variable: isGrabbed ? 'background.raised' : 'background.primaryEmphasis',
       ...(!isGrabbed && { transparency: theme.opacity[100], dark: { offset: -100 } }),
       theme
     });

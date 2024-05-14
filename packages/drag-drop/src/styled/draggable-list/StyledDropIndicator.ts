@@ -16,7 +16,7 @@ export interface IStyledDropIndicatorProps extends ThemeProps<DefaultTheme> {
 
 const colorStyles = (props: IStyledDropIndicatorProps) => {
   const { theme } = props;
-  const color = getColor({ variable: 'foreground.primary', theme });
+  const color = getColor({ variable: 'border.primaryEmphasis', theme });
 
   return css`
     box-shadow: ${theme.shadows.xs(color)};

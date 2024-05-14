@@ -218,8 +218,15 @@ export const DraggableListItem = ({
   );
 };
 
-const StyledTitle = styled.strong`
+const StyledTitle = styled.h2`
+  margin: 0 0 ${p => p.theme.space.sm} 0;
   color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
+  font-size: ${p => p.theme.fontSizes.lg};
+`;
+
+const StyledEmptyMessage = styled.p`
+  color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
+  font-size: ${p => p.theme.fontSizes.sm};
 `;
 
 export const DraggablesColumn = ({
@@ -231,9 +238,7 @@ export const DraggablesColumn = ({
 }: ISortableColumnProps) => {
   return (
     <div style={isHorizontal ? { minHeight: '100px' } : { width: '250px' }}>
-      <p>
-        <StyledTitle>Produce</StyledTitle>
-      </p>
+      <StyledTitle>Produce</StyledTitle>
       {items.length > 0 && (
         <DraggableList isHorizontal={isHorizontal}>
           {items.map(item => (
@@ -248,7 +253,7 @@ export const DraggablesColumn = ({
           ))}
         </DraggableList>
       )}
-      {items.length === 0 && <small>You picked every fruit!</small>}
+      {items.length === 0 && <StyledEmptyMessage>No more produce!</StyledEmptyMessage>}
     </div>
   );
 };
@@ -258,9 +263,7 @@ export const DroppablesColumn = (props: ISortableColumnProps) => {
 
   return (
     <div style={isHorizontal ? { minHeight: '100px' } : { width: '284px' }}>
-      <p>
-        <StyledTitle>Favorites</StyledTitle>
-      </p>
+      <StyledTitle>Favorites</StyledTitle>
       <SortablesColumn {...props} />
     </div>
   );
