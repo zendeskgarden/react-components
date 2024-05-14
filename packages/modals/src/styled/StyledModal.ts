@@ -8,10 +8,10 @@
 import PropTypes from 'prop-types';
 import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColorV8,
   mediaQuery,
   retrieveComponentStyles,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.modal';
@@ -52,7 +52,13 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
   const { space, shadows } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColorV8('neutralHue', 800, theme, 0.35);
+  const color = getColor({
+    theme,
+    hue: 'neutralHue',
+    shade: 1200,
+    light: { transparency: 0.15 },
+    dark: { transparency: theme.opacity['800'] }
+  });
 
   return shadows.lg(offsetY, blurRadius, color as string);
 };
@@ -66,7 +72,7 @@ const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
 };
 
 /**
- * 1. IE11 centering hack.
+ * 1 IE11 centering hack.
  */
 export const StyledModal = styled.div.attrs<IStyledModalProps>({
   'data-garden-id': COMPONENT_ID,
@@ -77,9 +83,11 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   flex-direction: column;
   animation-delay: 0.01s;
   margin: ${props => (props.isCentered ? '0' : `${props.theme.space.base * 12}px`)};
+  border: ${({ theme }) =>
+    `${theme.borders.sm} ${getColor({ theme, variable: 'border.default' })}`};
   border-radius: ${props => props.theme.borderRadii.md};
   box-shadow: ${boxShadow};
-  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
+  background-color: ${({ theme }) => getColor({ theme, variable: 'background.raised' })};
   min-height: 60px;
   max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
   overflow: auto;

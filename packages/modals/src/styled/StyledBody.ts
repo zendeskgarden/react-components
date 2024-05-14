@@ -10,7 +10,7 @@ import {
   getLineHeight,
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.body';
@@ -25,9 +25,9 @@ export const StyledBody = styled.div.attrs({
   height: 100%;
   overflow: auto;
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
-  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
+  color: ${({ theme }) => getColor({ theme, variable: 'foreground.default' })};
   font-size: ${props => props.theme.fontSizes.md};
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(props['data-garden-id'], props)};
 `;
 
 StyledBody.defaultProps = {

@@ -8,9 +8,9 @@
 import styled from 'styled-components';
 import {
   getLineHeight,
-  getColorV8,
   retrieveComponentStyles,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 import { BASE_MULTIPLIERS } from './StyledClose';
@@ -33,7 +33,8 @@ export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
   display: block;
   position: ${props => props.isDanger && 'relative'};
   margin: 0;
-  border-bottom: ${props => props.theme.borders.sm} ${getColorV8('neutralHue', 200)};
+  border-bottom: ${({ theme }) =>
+    `${theme.borders.sm} ${getColor({ theme, variable: 'border.subtle' })}`};
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`};
   ${props =>
     props.isCloseButtonPresent &&
@@ -41,10 +42,8 @@ export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
       props.theme.space.base * (BASE_MULTIPLIERS.size + BASE_MULTIPLIERS.side + 2)
     }px;`} /* [1] */
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
-  color: ${props =>
-    props.isDanger
-      ? getColorV8('dangerHue', 600, props.theme)
-      : getColorV8('foreground', 600 /* default shade */, props.theme)};
+  color: ${({ isDanger, theme }) =>
+    getColor({ theme, variable: isDanger ? 'foreground.danger' : 'foreground.default' })};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
 
