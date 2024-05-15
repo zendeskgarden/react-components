@@ -12,7 +12,7 @@ import {
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'buttons.icon';
+export const COMPONENT_ID = 'buttons.icon';
 
 interface IStyledIconProps {
   'data-garden-id'?: string;

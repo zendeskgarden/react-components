@@ -7,16 +7,19 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledButton } from './StyledButton';
+import { COMPONENT_ID as BTN_COMPONENT_ID, StyledButton } from './StyledButton';
 import { IAnchorProps } from './../types';
 
-const COMPONENT_ID = 'buttons.anchor';
+export const COMPONENT_ID = 'buttons.anchor';
 
 /**
  * Accepts all `<a>` props
  */
 export const StyledAnchor = styled(StyledButton).attrs<IAnchorProps>(props => ({
-  'data-garden-id': props['data-garden-id'] || COMPONENT_ID,
+  'data-garden-id':
+    props['data-garden-id'] && props['data-garden-id'] !== BTN_COMPONENT_ID
+      ? props['data-garden-id']
+      : COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'a',
   dir: props.theme.rtl ? 'rtl' : undefined,

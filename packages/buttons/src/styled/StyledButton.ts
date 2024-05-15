@@ -19,7 +19,7 @@ import { IButtonProps } from '../types';
 import { StyledSplitButton } from './StyledSplitButton';
 import { StyledIcon } from './StyledIcon';
 
-const COMPONENT_ID = 'buttons.button';
+export const COMPONENT_ID = 'buttons.button';
 
 const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.isPill) {

@@ -9,6 +9,7 @@ import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { Button } from './Button';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
+import { COMPONENT_ID } from '../styled/StyledButton';
 
 describe('Button', () => {
   it('is rendered as a button', () => {
@@ -28,7 +29,7 @@ describe('Button', () => {
     it('sets a default data-garden-id attribute', () => {
       const { getByRole } = render(<Button />);
 
-      expect(getByRole('button')).toHaveAttribute('data-garden-id', 'buttons.button');
+      expect(getByRole('button')).toHaveAttribute('data-garden-id', COMPONENT_ID);
     });
 
     it('supports overriding the data-garden-id attribute', () => {
