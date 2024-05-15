@@ -16,8 +16,8 @@ const COMPONENT_ID = 'buttons.icon_button';
 const iconColorStyles = ({ theme }: IButtonProps & ThemeProps<DefaultTheme>) => {
   const options = { theme, variable: 'foreground.default' };
   const baseColor = getColor(options);
-  const hoverColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: +100 } });
-  const activeColor = getColor({ ...options, dark: { offset: -200 }, light: { offset: +200 } });
+  const hoverColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
+  const activeColor = getColor({ ...options, dark: { offset: -200 }, light: { offset: 200 } });
 
   return css`
     color: ${baseColor};

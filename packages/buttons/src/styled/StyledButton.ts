@@ -57,14 +57,14 @@ const colorStyles = ({
   let retVal;
   const disabledBackgroundColor = getColor({ theme, variable: 'background.disabled' });
   const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
-  const offset100 = { dark: { offset: -100 }, light: { offset: +100 } };
-  const offset200 = { dark: { offset: -200 }, light: { offset: +200 } };
+  const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
+  const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
 
   if (isLink) {
     /*
      * Anchor / link button styling
      */
-    const options = { theme, variable: `foreground.${isDanger ? 'danger' : 'primary'}` };
+    const options = { theme, variable: isDanger ? 'foreground.danger' : 'foreground.primary' };
     const foregroundColor = getColor(options);
     const hoverForegroundColor = getColor({ ...options, ...offset100 });
     const activeForegroundColor = getColor({ ...options, ...offset200 });
