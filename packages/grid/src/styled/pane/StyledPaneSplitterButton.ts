@@ -10,7 +10,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 import { ChevronButton } from '@zendeskgarden/react-buttons';
 import { Orientation } from '../../types';
 
-const COMPONENT_ID = 'pane.splitter_button';
+export const COMPONENT_ID = 'pane.splitter_button';
 
 interface IStyledSplitterButtonProps {
   orientation: Orientation;

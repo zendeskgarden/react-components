@@ -18,7 +18,7 @@ import { toItems } from './utils';
 import { MenuList } from './MenuList';
 import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
-const BTN_COMPONENT_ID = 'dropdowns.menu.button';
+export const BTN_COMPONENT_ID = 'dropdowns.menu.button';
 
 /**
  * @extends HTMLAttributes<HTMLUListElement>

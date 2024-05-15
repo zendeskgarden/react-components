@@ -17,7 +17,7 @@ import { Button } from '@zendeskgarden/react-buttons';
 import { IGlobalAlertProps } from '../../types';
 import { colorStyles as basicColorStyles } from './StyledGlobalAlertClose';
 
-const COMPONENT_ID = 'notifications.global-alert.button';
+export const COMPONENT_ID = 'notifications.global-alert.button';
 
 interface IStyledGlobalAlertButtonProps {
   alertType: IGlobalAlertProps['type'];

@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
-const COMPONENT_ID = 'colorpickers.colordialog_button';
+export const COMPONENT_ID = 'colorpickers.colordialog_button';
 
 /**
  * 1. IE11 group width override.

@@ -10,7 +10,7 @@ import { render, renderRtl } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
 import { act } from '@testing-library/react';
 import { IMenuProps } from '../../types';
-import { Menu } from './Menu';
+import { BTN_COMPONENT_ID, Menu } from './Menu';
 import { ItemGroup } from './ItemGroup';
 import { Item } from './Item';
 import { Separator } from './Separator';
@@ -657,6 +657,17 @@ describe('Menu', () => {
       await floating();
       expect(getByTestId('apple')).toHaveAttribute('aria-checked', 'true');
       expect(getByTestId('grape')).toHaveAttribute('aria-checked', 'true');
+    });
+  });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', async () => {
+      const { getByRole } = render(<TestMenu button="click me" />);
+
+      await floating();
+      const button = getByRole('button');
+
+      expect(button).toHaveAttribute('data-garden-id', BTN_COMPONENT_ID);
     });
   });
 });

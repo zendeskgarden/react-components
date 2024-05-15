@@ -9,6 +9,7 @@ import React, { createRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, screen, act, waitFor } from 'garden-test-utils';
 import { ColorSwatchDialog } from './index';
+import { COMPONENT_ID } from '../../styled/ColorPickerDialog/StyledButton';
 
 const colors = [
   [
@@ -245,6 +246,22 @@ describe('ColorSwatchDialog', () => {
       const dialog = screen.queryByRole('dialog');
 
       expect(dialog).toBeNull();
+    });
+  });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', () => {
+      const { getByRole } = render(
+        <ColorSwatchDialog
+          name="test"
+          colors={colors}
+          buttonProps={{
+            'aria-label': 'Choose your favorite color'
+          }}
+        />
+      );
+
+      expect(getByRole('button')).toHaveAttribute('data-garden-id', COMPONENT_ID);
     });
   });
 });

@@ -12,6 +12,8 @@ import { Pane } from '../Pane';
 import { Splitter } from './Splitter';
 import { SplitterButton } from './SplitterButton';
 
+import { COMPONENT_ID } from '../../../styled/pane/StyledPaneSplitterButton';
+
 const UncontrolledTestSplitter = ({ buttonRef }: { buttonRef?: RefObject<HTMLButtonElement> }) => {
   return (
     <PaneProvider
@@ -49,5 +51,13 @@ describe('SplitterButton', () => {
     const { getByLabelText } = renderRtl(<UncontrolledTestSplitter />);
 
     expect(getByLabelText('toggle a').querySelector('svg')).toBeDefined();
+  });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', () => {
+      const { getByLabelText } = render(<UncontrolledTestSplitter />);
+
+      expect(getByLabelText('toggle a')).toHaveAttribute('data-garden-id', COMPONENT_ID);
+    });
   });
 });
