@@ -82,14 +82,18 @@ consider additional positioning prop support on a case-by-case basis.
 - `Colorpicker`: renamed to `ColorPicker`
 - `ColorpickerDialog`: renamed to `ColorPickerDialog`
   - removed `popperModifiers` prop (see [note](#breaking-changes))
+  - the `data-garden-id` for the rendered button is now
+    'colorpickers.colordialog_button' (previously 'buttons.button')
 - `ColorSwatch`
   - The new `name` prop is required because the refactored component is now
     backed by a native radio or checkbox group.
   - Removed `rowIndex`, `colIndex`, `defaultRowIndex`, and `defaultColIndex`.
     For the sake of accessibility, focus state should not be exposed or controlled.
 - `ColorSwatchDialog`
-  - same breaking changes as `ColorSwatch`.
+  - same breaking changes as `ColorSwatch`
   - `popperModifiers` prop (see [note](#breaking-changes))
+  - the `data-garden-id` for the rendered button is now
+    'colorpickers.colordialog_button' (previously 'buttons.button')
 
 #### @zendeskgarden/react-datepickers
 
@@ -104,7 +108,10 @@ consider additional positioning prop support on a case-by-case basis.
 - Use this package if you were using `@zendeskgarden/react-dropdowns.next` in `v8`
   - The `v8` version of `@zendeskgarden/react-dropdowns` is no longer maintained and is
     renamed to `@zendeskgarden/react-dropdowns.legacy` in `v9`
-- `Menu`: value `auto` is no longer valid for the `fallbackPlacements` prop.
+- `Menu`
+  - value `auto` is no longer valid for the `fallbackPlacements` prop
+  - the `data-garden-id` for the rendered button is now
+    'dropdowns.menu.button' (previously 'buttons.button')
 - Removed `label` prop from `OptGroup`. Use `legend` instead.
 - Subcomponent exports have been deprecated and will be removed in a future major version. Update
   to subcomponent properties:
@@ -133,6 +140,8 @@ consider additional positioning prop support on a case-by-case basis.
   `JUSTIFY_CONTENT`, `TEXT_ALIGN`, `GRID_NUMBER`, `BREAKPOINT`, `SPACE`, and `WRAP`
 - Subcomponent exports for `Grid` have been deprecated and will be removed in a future major version.
   Update to subcomponent properties (e.g., `Grid.Row`).
+- `Pane.SplitterButton`: the `data-garden-id` is now 'pane.splitter_button'
+  (previously 'buttons.icon_button')
 
 #### @zendeskgarden/react-modals
 
@@ -160,6 +169,10 @@ consider additional positioning prop support on a case-by-case basis.
   - `Close` -> `Alert.Close`, `Notification.Close`
   - `Paragraph` -> `Alert.Paragraph`, `Notification.Paragraph`, `Well.Paragraph`
   - `Title` -> `Alert.Title`, `Notification.Title`, `Well.Title`
+- `GlobalAlert.Button`: the `data-garden-id` is now
+  'notifications.global-alert.button' (previously 'buttons.button')
+- `GlobalAlert.Close`: the `data-garden-id` is now
+  'notifications.global-alert.close' (previously 'buttons.icon_button')
 
 #### @zendeskgarden/react-pagination
 
