@@ -15,7 +15,6 @@ import {
 export const COMPONENT_ID = 'buttons.icon';
 
 interface IStyledIconProps {
-  'data-garden-id'?: string;
   $isRotated: boolean;
   $position?: 'start' | 'end';
 }
@@ -37,10 +36,10 @@ const sizeStyles = (props: IStyledIconProps & ThemeProps<DefaultTheme>) => {
   );
 };
 
-export const StyledIcon = styled(StyledBaseIcon).attrs<IStyledIconProps>(props => ({
-  'data-garden-id': props['data-garden-id'] || COMPONENT_ID,
+export const StyledIcon = styled(StyledBaseIcon).attrs({
+  'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-}))<IStyledIconProps>`
+})<IStyledIconProps>`
   transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   transition:
     transform 0.25s ease-in-out,
@@ -48,7 +47,7 @@ export const StyledIcon = styled(StyledBaseIcon).attrs<IStyledIconProps>(props =
 
   ${props => sizeStyles(props)};
 
-  ${props => retrieveComponentStyles(props['data-garden-id'], props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledIcon.defaultProps = {
