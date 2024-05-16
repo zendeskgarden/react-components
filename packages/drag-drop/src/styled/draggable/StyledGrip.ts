@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'draggable.grip';
 
@@ -26,7 +26,7 @@ export const StyledGrip = styled.div.attrs({
   /* prettier-ignore */
   transition: color 0.1s ease-in-out;
   box-sizing: border-box;
-  color: ${p => getColorV8('neutralHue', 600, p.theme)};
+  color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
 
   ${sizeStyles}
 

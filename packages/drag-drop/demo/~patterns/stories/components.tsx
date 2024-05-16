@@ -19,6 +19,7 @@ import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-dr
 
 import { animateLayoutChanges } from './utils';
 import type { IDraggableItemProps, IDropIndicatorProps, ISortableColumnProps } from './types';
+import { LG, MD } from '@zendeskgarden/react-typography';
 
 export const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((props, ref) => {
   const { isOverlay, data, tabIndex, ...restProps } = props;
@@ -225,9 +226,7 @@ export const DraggablesColumn = ({
 }: ISortableColumnProps) => {
   return (
     <div style={isHorizontal ? { minHeight: '100px' } : { width: '250px' }}>
-      <p>
-        <strong>Produce</strong>
-      </p>
+      <LG tag="h2">Produce</LG>
       {items.length > 0 && (
         <DraggableList isHorizontal={isHorizontal}>
           {items.map(item => (
@@ -242,7 +241,7 @@ export const DraggablesColumn = ({
           ))}
         </DraggableList>
       )}
-      {items.length === 0 && <small>You picked every fruit!</small>}
+      {items.length === 0 && <MD tag="p">No more produce!</MD>}
     </div>
   );
 };
@@ -252,9 +251,7 @@ export const DroppablesColumn = (props: ISortableColumnProps) => {
 
   return (
     <div style={isHorizontal ? { minHeight: '100px' } : { width: '284px' }}>
-      <p>
-        <strong>Favorites</strong>
-      </p>
+      <LG tag="h2">Favorites</LG>
       <SortablesColumn {...props} />
     </div>
   );

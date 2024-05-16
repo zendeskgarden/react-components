@@ -6,8 +6,8 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { rgba, math } from 'polished';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropzone';
 
@@ -24,25 +24,40 @@ export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
 const colorStyles = (props: IStyledDropzoneProps) => {
   const { isDanger, isDisabled, isActive, isHighlighted, theme } = props;
 
-  const hue = isDanger ? 'dangerHue' : 'primaryHue';
-  const baseColor = getColorV8(hue, 600, theme);
-  const neutralColor = getColorV8('neutralHue', 600, theme);
+  const fgVariable = isDanger ? 'foreground.danger' : 'foreground.primary';
+  const fgActive = getColor({ variable: fgVariable, theme });
+  const borderActive = getColor({
+    variable: isDanger ? `border.dangerEmphasis` : 'border.primaryEmphasis',
+    theme
+  });
 
   let backgroundColor = 'transparent';
-  let borderColor = neutralColor;
-  let color = neutralColor;
+  let borderColor = getColor({ variable: `border.emphasis`, theme });
+  let color = getColor({ variable: `foreground.subtle`, theme });
 
   if (isDisabled) {
-    backgroundColor = getColorV8('neutralHue', 200, theme) as string;
-    borderColor = getColorV8('neutralHue', 300, theme);
-    color = getColorV8('neutralHue', 400, theme);
+    backgroundColor = getColor({ variable: 'background.disabled', theme });
+    borderColor = getColor({ variable: `border.disabled`, theme });
+    color = getColor({ variable: 'foreground.disabled', theme });
   } else if (isActive || isHighlighted) {
-    color = isHighlighted ? getColorV8(hue, 800, theme) : baseColor;
-    backgroundColor = rgba(baseColor as string, 0.08);
-    borderColor = baseColor;
+    color = isHighlighted
+      ? getColor({
+          variable: fgVariable,
+          light: { offset: 200 },
+          dark: { offset: -200 },
+          theme
+        })
+      : fgActive;
+    backgroundColor = getColor({
+      variable: isDanger ? 'background.dangerEmphasis' : 'background.primaryEmphasis',
+      transparency: theme.opacity[100],
+      dark: { offset: -100 },
+      theme
+    });
+    borderColor = borderActive;
   } else if (isDanger) {
-    borderColor = baseColor;
-    color = baseColor;
+    borderColor = borderActive;
+    color = fgActive;
   }
 
   return css`

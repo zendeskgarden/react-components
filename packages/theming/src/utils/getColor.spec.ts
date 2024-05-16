@@ -29,6 +29,26 @@ describe('getColor', () => {
       expect(color).toBe(expected);
     });
 
+    it('accepts literal color values', () => {
+      const expected = '#fd5a1e';
+      const theme: IGardenTheme = {
+        ...DEFAULT_THEME,
+        colors: {
+          ...DEFAULT_THEME.colors,
+          variables: {
+            ...DEFAULT_THEME.colors.variables,
+            light: {
+              ...DEFAULT_THEME.colors.variables.light,
+              background: { test: expected }
+            }
+          }
+        }
+      };
+      const color = getColor({ theme, variable: 'background.test' });
+
+      expect(color).toBe(expected);
+    });
+
     it('uses `DEFAULT_THEME` fallback for malformed variables', () => {
       const theme: IGardenTheme = {
         ...DEFAULT_THEME,
@@ -37,6 +57,38 @@ describe('getColor', () => {
       const color = getColor({ theme, variable: 'background.default' });
 
       expect(color).toBe(PALETTE.white);
+    });
+
+    describe('with rbga', () => {
+      it.each([['light'], ['dark']])('gets the expected %s mode color with opacity', mode => {
+        const color = getColor({
+          theme: mode === 'dark' ? DARK_THEME : DEFAULT_THEME,
+          variable: 'background.disabled'
+        });
+        const transparency = 0.08;
+        const expected = rgba(PALETTE.grey[mode === 'dark' ? 500 : 700], transparency);
+
+        expect(color).toBe(expected);
+      });
+
+      it('accepts a literal color parameter', () => {
+        const theme: IGardenTheme = {
+          ...DEFAULT_THEME,
+          colors: {
+            ...DEFAULT_THEME.colors,
+            variables: {
+              ...DEFAULT_THEME.colors.variables,
+              light: {
+                ...DEFAULT_THEME.colors.variables.light,
+                background: { test: 'rgba(#fd5a1e, 0.5)' }
+              }
+            }
+          }
+        };
+        const color = getColor({ theme, variable: 'background.test' });
+
+        expect(color).toBe(rgba('#fd5a1e', 0.5));
+      });
     });
   });
 
@@ -361,6 +413,23 @@ describe('getColor', () => {
       expect(() => getColor({ theme: DEFAULT_THEME, hue: 'blue', transparency: invalid })).toThrow(
         Error
       );
+    });
+
+    it('throws an error if rgba is invalid', () => {
+      const theme: IGardenTheme = {
+        ...DEFAULT_THEME,
+        colors: {
+          ...DEFAULT_THEME.colors,
+          variables: {
+            ...DEFAULT_THEME.colors.variables,
+            light: {
+              ...DEFAULT_THEME.colors.variables.light,
+              background: { test: 'rgba(invalid)' }
+            }
+          }
+        }
+      };
+      expect(() => getColor({ theme, variable: 'background.test' })).toThrow(Error);
     });
   });
 });

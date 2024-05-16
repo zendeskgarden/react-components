@@ -13,6 +13,20 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.11 (2024-05-16)
+
+#### :rocket: New Feature
+* `drag-drop`
+  * [#1805](https://github.com/zendeskgarden/react-components/pull/1805) feat(drag-drop): adds light/dark mode colors ([@geotrev](https://github.com/geotrev))
+* `buttons`
+  * [#1807](https://github.com/zendeskgarden/react-components/pull/1807) feat(buttons): new light/dark mode colors ([@jzempel](https://github.com/jzempel))
+* `theming`
+  * [#1806](https://github.com/zendeskgarden/react-components/pull/1806) feat(theming): enhance `getColor` to accept rgba and literal color variables ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `theming`
+  * [#1803](https://github.com/zendeskgarden/react-components/pull/1803) chore(storybook): add global dark/light color variables control ([@jzempel](https://github.com/jzempel))
+
 ## v9.0.0-next.10 (2024-05-02)
 
 #### :seedling: Internal
