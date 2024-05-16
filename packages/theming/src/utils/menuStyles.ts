@@ -50,6 +50,30 @@ const animationStyles = (position: MenuPosition, options: MenuOptions) => {
   `;
 };
 
+const colorStyles = (theme: DefaultTheme) => {
+  const backgroundColor = getColor({ theme, variable: 'background.raised' });
+  const borderColor = getColor({ theme, variable: 'border.default' });
+  const boxShadowColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    shade: 1200,
+    dark: { transparency: theme.opacity[800] },
+    light: { transparency: theme.opacity[200] }
+  });
+  const foregroundColor = getColor({ theme, variable: 'foreground.default' });
+
+  return css`
+    border-color: ${borderColor};
+    box-shadow: ${theme.shadows.lg(
+      `${theme.space.base * 5}px`,
+      `${theme.space.base * 7.5}px`,
+      boxShadowColor
+    )};
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
+  `;
+};
+
 const hiddenStyles = (options: MenuOptions) => {
   const transition = 'opacity 0.2s ease-in-out, 0.2s visibility 0s linear';
 
@@ -112,22 +136,17 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
       position: relative; /* [2] */
       margin: 0; /* [3] */
       box-sizing: border-box;
-      border: ${theme.borders.sm} ${getColor({ theme, variable: 'border.default' })};
+      border: ${theme.borders.sm};
       border-radius: ${theme.borderRadii.md};
-      box-shadow: ${theme.shadows.lg(
-        `${theme.space.base * 5}px`,
-        `${theme.space.base * 7.5}px`,
-        getColor({ theme, hue: 'chromeHue', shade: 600, transparency: 0.15 })
-      )};
-      background-color: ${getColor({ theme, variable: 'background.raised' })};
       cursor: default; /* [4] */
       padding: 0; /* [3] */
       text-align: ${theme.rtl ? 'right' : 'left'};
       white-space: normal; /* [5] */
-      color: ${getColor({ theme, variable: 'foreground.default' })};
       font-size: ${theme.fontSizes.md};
       font-weight: ${theme.fontWeights.regular};
       direction: ${theme.rtl && 'rtl'};
+
+      ${colorStyles(theme)};
 
       /* stylelint-disable-next-line selector-max-compound-selectors */
       :focus {
