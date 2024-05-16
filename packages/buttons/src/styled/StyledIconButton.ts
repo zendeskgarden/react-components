@@ -69,10 +69,10 @@ const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledIconButton = styled(StyledButton as 'button').attrs(props => ({
-  'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
+export const StyledIconButton = styled(StyledButton as 'button').attrs({
+  'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-}))<IButtonProps>`
+})<IButtonProps>`
   ${props => iconButtonStyles(props)};
 
   & ${StyledIcon} {
