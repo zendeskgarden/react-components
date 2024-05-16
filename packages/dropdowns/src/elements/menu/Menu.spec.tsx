@@ -10,7 +10,7 @@ import { render, renderRtl } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
 import { act } from '@testing-library/react';
 import { IMenuProps } from '../../types';
-import { BTN_COMPONENT_ID, Menu } from './Menu';
+import { Menu } from './Menu';
 import { ItemGroup } from './ItemGroup';
 import { Item } from './Item';
 import { Separator } from './Separator';
@@ -667,7 +667,7 @@ describe('Menu', () => {
       await floating();
       const button = getByRole('button');
 
-      expect(button).toHaveAttribute('data-garden-id', BTN_COMPONENT_ID);
+      expect(button).toHaveAttribute('data-garden-id', 'buttons.button');
     });
   });
 });

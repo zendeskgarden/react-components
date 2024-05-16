@@ -6,10 +6,8 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
-
-export const COMPONENT_ID = 'colorpickers.colordialog_button';
 
 /**
  * 1. IE11 group width override.
@@ -17,7 +15,6 @@ export const COMPONENT_ID = 'colorpickers.colordialog_button';
  */
 export const StyledButton = styled(Button as any).attrs({
   isNeutral: true,
-  'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   padding: 0;
@@ -32,8 +29,6 @@ export const StyledButton = styled(Button as any).attrs({
       ${props => props.theme.borderRadii.md} !important; /* [2] */
     /* stylelint-enable */
   }
-
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledButton.defaultProps = {

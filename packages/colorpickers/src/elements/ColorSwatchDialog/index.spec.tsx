@@ -9,7 +9,6 @@ import React, { createRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, screen, act, waitFor } from 'garden-test-utils';
 import { ColorSwatchDialog } from './index';
-import { COMPONENT_ID } from '../../styled/ColorPickerDialog/StyledButton';
 
 const colors = [
   [
@@ -261,7 +260,7 @@ describe('ColorSwatchDialog', () => {
         />
       );
 
-      expect(getByRole('button')).toHaveAttribute('data-garden-id', COMPONENT_ID);
+      expect(getByRole('button')).toHaveAttribute('data-garden-id', 'buttons.button');
     });
   });
 });

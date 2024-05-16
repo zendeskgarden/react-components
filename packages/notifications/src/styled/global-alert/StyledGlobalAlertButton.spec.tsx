@@ -10,7 +10,7 @@ import { render } from 'garden-test-utils';
 import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 import { TYPE } from '../../types';
-import { COMPONENT_ID, StyledGlobalAlertButton } from './StyledGlobalAlertButton';
+import { StyledGlobalAlertButton } from './StyledGlobalAlertButton';
 import { colorStyles } from './StyledGlobalAlertClose';
 
 jest.mock('./StyledGlobalAlertClose');
@@ -40,7 +40,7 @@ describe('StyledGlobalAlertButton', () => {
     it('has the correct `data-garden-id`', () => {
       const { container } = render(<StyledGlobalAlertButton alertType="info" />);
 
-      expect(container.firstChild).toHaveAttribute('data-garden-id', COMPONENT_ID);
+      expect(container.firstChild).toHaveAttribute('data-garden-id', 'buttons.button');
     });
   });
 });

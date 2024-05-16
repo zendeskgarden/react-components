@@ -11,7 +11,7 @@ import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 import { TYPE } from '../../types';
-import { COMPONENT_ID, StyledGlobalAlertClose } from './StyledGlobalAlertClose';
+import { StyledGlobalAlertClose } from './StyledGlobalAlertClose';
 
 describe('StyledGlobalAlertClose', () => {
   it.each(TYPE)('renders "%s" type', type => {
@@ -41,7 +41,7 @@ describe('StyledGlobalAlertClose', () => {
         </StyledGlobalAlertClose>
       );
 
-      expect(container.firstChild).toHaveAttribute('data-garden-id', COMPONENT_ID);
+      expect(container.firstChild).toHaveAttribute('data-garden-id', 'buttons.icon_button');
     });
   });
 });

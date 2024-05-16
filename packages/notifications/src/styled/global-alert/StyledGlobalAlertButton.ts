@@ -6,18 +6,11 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  getColorV8,
-  DEFAULT_THEME,
-  retrieveComponentStyles,
-  focusStyles
-} from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME, focusStyles } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
 import { IGlobalAlertProps } from '../../types';
 import { colorStyles as basicColorStyles } from './StyledGlobalAlertClose';
-
-export const COMPONENT_ID = 'notifications.global-alert.button';
 
 interface IStyledGlobalAlertButtonProps {
   alertType: IGlobalAlertProps['type'];
@@ -91,7 +84,6 @@ function sizeStyles(props: ThemeProps<DefaultTheme>) {
 }
 
 export const StyledGlobalAlertButton = styled(Button).attrs({
-  'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   focusInset: false,
   isDanger: false,
@@ -105,8 +97,6 @@ export const StyledGlobalAlertButton = styled(Button).attrs({
 
   ${sizeStyles};
   ${colorStyles};
-
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledGlobalAlertButton.defaultProps = {
