@@ -43,6 +43,7 @@ export const StyledListbox = styled.ul.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  color-scheme: ${props => `only ${props.theme.colors.base}`};
   overflow-y: auto;
   list-style-type: none;
 

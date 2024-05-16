@@ -8,7 +8,7 @@
 import React, { HTMLAttributes, InputHTMLAttributes, forwardRef } from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
-import { DEFAULT_THEME, PALETTE, PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { IComboboxProps, ISelectedOption } from '../../types';
 import { Combobox } from './Combobox';
 import { OptGroup } from './OptGroup';
@@ -457,7 +457,7 @@ describe('Combobox', () => {
       const message = getByTestId('message');
 
       expect(combobox.firstChild).toHaveStyleRule('border-color', PALETTE.green[700]);
-      expect(message).toHaveStyleRule('color', PALETTE_V8.green[600]);
+      expect(message).toHaveStyleRule('color', PALETTE.green[700]);
       expect(message.firstChild).not.toBeNull();
     });
 
@@ -467,7 +467,7 @@ describe('Combobox', () => {
       const message = getByTestId('message');
 
       expect(combobox.firstChild).toHaveStyleRule('border-color', PALETTE.yellow[700]);
-      expect(message).toHaveStyleRule('color', PALETTE_V8.yellow[700]);
+      expect(message).toHaveStyleRule('color', PALETTE.yellow[700]);
       expect(message.firstChild).not.toBeNull();
     });
 
@@ -477,7 +477,7 @@ describe('Combobox', () => {
       const message = getByTestId('message');
 
       expect(combobox.firstChild).toHaveStyleRule('border-color', PALETTE.red[700]);
-      expect(message).toHaveStyleRule('color', PALETTE_V8.red[600]);
+      expect(message).toHaveStyleRule('color', PALETTE.red[700]);
       expect(message.firstChild).not.toBeNull();
     });
   });
