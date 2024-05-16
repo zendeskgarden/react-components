@@ -349,7 +349,7 @@ const sizeStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
  * 3. Shifting :focus-visible from LVHFA order to preserve `text-decoration` on hover
  */
 export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
-  'data-garden-id': props['data-garden-id'] || COMPONENT_ID,
+  'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: props.type || 'button'
 }))<IButtonProps>`
