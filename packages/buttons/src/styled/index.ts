@@ -6,8 +6,8 @@
  */
 
 export * from './StyledAnchor';
-export { COMPONENT_ID as BTN_COMPONENT_ID, StyledButton } from './StyledButton';
+export { StyledButton } from './StyledButton';
 export * from './StyledSplitButton';
 export * from './StyledExternalIcon';
-export { COMPONENT_ID as ICON_COMPONENT_ID, StyledIcon } from './StyledIcon';
-export { COMPONENT_ID as ICON_BTN_COMPONENT_ID, StyledIconButton } from './StyledIconButton';
+export { StyledIcon } from './StyledIcon';
+export { StyledIconButton } from './StyledIconButton';

@@ -69,20 +69,21 @@ const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledIconButton = styled(StyledButton).attrs<IButtonProps>(props => ({
-  'data-garden-id':
-    props['data-garden-id'] && props['data-garden-id'] !== BTN_COMPONENT_ID
-      ? props['data-garden-id']
-      : COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))`
+export const StyledIconButton = styled(StyledButton).attrs<IButtonProps>(props => {
+  const externalId: string = (props as any)['data-garden-id'];
+
+  return {
+    'data-garden-id': externalId && externalId !== BTN_COMPONENT_ID ? externalId : COMPONENT_ID,
+    'data-garden-version': PACKAGE_VERSION
+  };
+})`
   ${props => iconButtonStyles(props)};
 
   & ${StyledIcon} {
     ${props => iconStyles(props)}
   }
 
-  ${props => retrieveComponentStyles(props['data-garden-id'], props)};
+  ${props => retrieveComponentStyles((props as any)['data-garden-id'], props)};
 `;
 
 StyledIconButton.defaultProps = {

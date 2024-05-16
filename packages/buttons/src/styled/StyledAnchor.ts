@@ -15,20 +15,21 @@ export const COMPONENT_ID = 'buttons.anchor';
 /**
  * Accepts all `<a>` props
  */
-export const StyledAnchor = styled(StyledButton).attrs<IAnchorProps>(props => ({
-  'data-garden-id':
-    props['data-garden-id'] && props['data-garden-id'] !== BTN_COMPONENT_ID
-      ? props['data-garden-id']
-      : COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'a',
-  dir: props.theme.rtl ? 'rtl' : undefined,
-  isLink: true,
-  type: undefined
-}))`
+export const StyledAnchor = styled(StyledButton).attrs<IAnchorProps>(props => {
+  const externalId: string = (props as any)['data-garden-id'];
+
+  return {
+    'data-garden-id': externalId && externalId !== BTN_COMPONENT_ID ? externalId : COMPONENT_ID,
+    'data-garden-version': PACKAGE_VERSION,
+    as: 'a',
+    dir: props.theme.rtl ? 'rtl' : undefined,
+    isLink: true,
+    type: undefined
+  };
+})`
   direction: ${props => props.theme.rtl && 'rtl'};
 
-  ${props => retrieveComponentStyles(props['data-garden-id'], props)};
+  ${props => retrieveComponentStyles((props as any)['data-garden-id'], props)};
 `;
 
 StyledAnchor.defaultProps = {
