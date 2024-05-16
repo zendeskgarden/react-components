@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledAnchor } from './StyledAnchor';
 
 describe('StyledAnchor', () => {
@@ -26,7 +26,7 @@ describe('StyledAnchor', () => {
   it('renders danger styling if provided', () => {
     const { container } = render(<StyledAnchor isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule('color', getColorV8('dangerHue'));
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);
   });
 
   it('renders expected RTL direction', () => {

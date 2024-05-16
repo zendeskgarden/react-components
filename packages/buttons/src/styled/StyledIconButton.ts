@@ -6,18 +6,18 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { IButtonProps } from '../types';
 import { StyledButton, getHeight } from './StyledButton';
 import { StyledIcon } from './StyledIcon';
 
 const COMPONENT_ID = 'buttons.icon_button';
 
-const iconColorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  const shade = 600;
-  const baseColor = getColorV8('neutralHue', shade, props.theme);
-  const hoverColor = getColorV8('neutralHue', shade + 100, props.theme);
-  const activeColor = getColorV8('neutralHue', shade + 200, props.theme);
+const iconColorStyles = ({ theme }: IButtonProps & ThemeProps<DefaultTheme>) => {
+  const options = { theme, variable: 'foreground.default' };
+  const baseColor = getColor(options);
+  const hoverColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
+  const activeColor = getColor({ ...options, dark: { offset: -200 }, light: { offset: 200 } });
 
   return css`
     color: ${baseColor};
