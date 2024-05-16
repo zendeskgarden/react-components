@@ -19,8 +19,7 @@ import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-dr
 
 import { animateLayoutChanges } from './utils';
 import type { IDraggableItemProps, IDropIndicatorProps, ISortableColumnProps } from './types';
-import styled from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
+import { LG, MD } from '@zendeskgarden/react-typography';
 
 export const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((props, ref) => {
   const { isOverlay, data, tabIndex, ...restProps } = props;
@@ -218,17 +217,6 @@ export const DraggableListItem = ({
   );
 };
 
-const StyledTitle = styled.h2`
-  margin: 0 0 ${p => p.theme.space.sm} 0;
-  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
-  font-size: ${p => p.theme.fontSizes.lg};
-`;
-
-const StyledEmptyMessage = styled.p`
-  color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
-  font-size: ${p => p.theme.fontSizes.sm};
-`;
-
 export const DraggablesColumn = ({
   items,
   hasPlaceholder,
@@ -238,7 +226,7 @@ export const DraggablesColumn = ({
 }: ISortableColumnProps) => {
   return (
     <div style={isHorizontal ? { minHeight: '100px' } : { width: '250px' }}>
-      <StyledTitle>Produce</StyledTitle>
+      <LG tag="h2">Produce</LG>
       {items.length > 0 && (
         <DraggableList isHorizontal={isHorizontal}>
           {items.map(item => (
@@ -253,7 +241,7 @@ export const DraggablesColumn = ({
           ))}
         </DraggableList>
       )}
-      {items.length === 0 && <StyledEmptyMessage>No more produce!</StyledEmptyMessage>}
+      {items.length === 0 && <MD tag="p">No more produce!</MD>}
     </div>
   );
 };
@@ -263,7 +251,7 @@ export const DroppablesColumn = (props: ISortableColumnProps) => {
 
   return (
     <div style={isHorizontal ? { minHeight: '100px' } : { width: '284px' }}>
-      <StyledTitle>Favorites</StyledTitle>
+      <LG tag="h2">Favorites</LG>
       <SortablesColumn {...props} />
     </div>
   );
