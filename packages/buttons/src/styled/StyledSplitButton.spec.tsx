@@ -10,7 +10,8 @@ import { render, renderRtl, screen } from 'garden-test-utils';
 import { StyledSplitButton } from './StyledSplitButton';
 import { StyledButton } from './StyledButton';
 import { StyledIconButton } from './StyledIconButton';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { rgba } from 'polished';
 
 describe('StyledSplitButton', () => {
   it('renders the expected element', () => {
@@ -50,8 +51,12 @@ describe('StyledSplitButton', () => {
       </StyledSplitButton>
     );
 
-    expect(screen.getByText('test')).toHaveStyleRule('background-color', PALETTE_V8.grey[200], {
-      modifier: `${StyledSplitButton} &&:disabled`
-    });
+    expect(screen.getByText('test')).toHaveStyleRule(
+      'background-color',
+      rgba(PALETTE.grey[700], 0.08),
+      {
+        modifier: `${StyledSplitButton} &&:disabled`
+      }
+    );
   });
 });

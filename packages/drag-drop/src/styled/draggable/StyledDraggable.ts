@@ -6,11 +6,10 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { rgba } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8,
+  getColor,
   IGardenTheme,
   getLineHeight,
   focusStyles
@@ -29,10 +28,16 @@ export interface IStyledDraggableProps extends ThemeProps<DefaultTheme> {
 }
 
 export function getDragShadow(theme: IGardenTheme) {
-  const { space, shadows } = theme;
+  const { space, shadows, opacity } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColorV8('neutralHue', 600, theme, 0.35) as string;
+  const color = getColor({
+    hue: 'neutralHue',
+    shade: 1200,
+    light: { transparency: opacity[200] },
+    dark: { transparency: opacity[1000] },
+    theme
+  });
 
   return shadows.lg(offsetY, blurRadius, color);
 }
@@ -40,10 +45,14 @@ export function getDragShadow(theme: IGardenTheme) {
 const colorStyles = (props: IStyledDraggableProps) => {
   const { isBare, isGrabbed, isDisabled, isPlaceholder, focusInset, theme } = props;
 
-  const baseColor = getColorV8('primaryHue', 600, theme);
   const dragShadow = getDragShadow(theme);
-  const baseBgColor = getColorV8('background', 600 /* default shade */, theme);
-  const disabledColor = getColorV8('neutralHue', 400, theme);
+  const baseBgColor = getColor({ variable: 'background.default', theme });
+  const placeholderBgColor = getColor({ variable: 'background.disabled', theme });
+  const disabledBgColor = getColor({
+    variable: 'background.disabled',
+    theme
+  });
+  const disabledColor = getColor({ variable: 'foreground.disabled', theme });
 
   let color;
   let hoverBackgroundColor;
@@ -52,14 +61,18 @@ const colorStyles = (props: IStyledDraggableProps) => {
   let backgroundColor = baseBgColor;
 
   if (isDisabled) {
-    backgroundColor = getColorV8('neutralHue', 200, theme)!;
+    backgroundColor = disabledBgColor;
     color = disabledColor;
   } else if (isPlaceholder) {
-    backgroundColor = getColorV8('neutralHue', 800, theme, 0.1)!;
+    backgroundColor = placeholderBgColor;
   } else {
-    color = getColorV8('foreground', 600 /* default shade */, theme);
-    borderColor = isBare ? 'transparent' : (getColorV8('neutralHue', 300, theme) as string);
-    hoverBackgroundColor = isGrabbed ? baseBgColor : rgba(baseColor as string, 0.08);
+    color = getColor({ variable: 'foreground.default', theme });
+    borderColor = isBare ? 'transparent' : getColor({ variable: 'border.default', theme });
+    hoverBackgroundColor = getColor({
+      variable: isGrabbed ? 'background.raised' : 'background.primaryEmphasis',
+      ...(!isGrabbed && { transparency: theme.opacity[100], dark: { offset: -100 } }),
+      theme
+    });
     boxShadow = dragShadow;
   }
 
