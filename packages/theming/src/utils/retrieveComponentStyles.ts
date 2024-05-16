@@ -9,12 +9,12 @@ import { ThemeProps, DefaultTheme } from 'styled-components';
 
 /** @component */
 export default function retrieveComponentStyles(
-  componentId: string | undefined,
+  componentId: string,
   props: Partial<ThemeProps<Partial<DefaultTheme>>>
 ) {
   const components = props.theme && props.theme.components;
 
-  if (!components || !componentId) {
+  if (!components) {
     return undefined;
   }
 

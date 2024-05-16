@@ -17,17 +17,6 @@ describe('retrieveComponentStyles', () => {
     expect(styles).toBeUndefined();
   });
 
-  it('returns undefined if no component id is provided', () => {
-    const componentStyles = jest.fn().mockReturnValue(EXAMPLE_STYLE);
-
-    const styles = retrieveComponentStyles(undefined, {
-      theme: { components: { [COMPONENT_ID]: componentStyles } }
-    });
-
-    expect(componentStyles).not.toHaveBeenCalled();
-    expect(styles).toBeUndefined();
-  });
-
   it('calls style as method if provided as a function', () => {
     const componentStyles = jest.fn().mockReturnValue(EXAMPLE_STYLE);
 
