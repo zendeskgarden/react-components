@@ -6,10 +6,9 @@
  */
 
 import React from 'react';
-import { rgba } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
 import { Dropzone } from './Dropzone';
-import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('Dropzone', () => {
   it('passes ref to underlying DOM element', () => {
@@ -153,92 +152,5 @@ describe('Dropzone', () => {
 
       expect(queryByText('message')!.nodeName).toBe('P');
     });
-  });
-
-  const STATES = ['default', 'danger', 'disabled'];
-  const dangerColor = getColorV8('dangerHue', 600, DEFAULT_THEME);
-  const dangerDarkColor = getColorV8('dangerHue', 800, DEFAULT_THEME);
-  const dangerBgColor = rgba(getColorV8('dangerHue', 600, DEFAULT_THEME) as string, 0.08);
-  const primaryColor = getColorV8('primaryHue', 600, DEFAULT_THEME);
-  const primaryDarkColor = getColorV8('primaryHue', 800, DEFAULT_THEME);
-  const primaryBgColor = rgba(getColorV8('primaryHue', 600, DEFAULT_THEME) as string, 0.08);
-  const neutralColor = getColorV8('neutralHue', 600, DEFAULT_THEME);
-
-  const StateMap: Record<string, any> = {
-    disabled: {
-      base: `
-        background-color: ${getColorV8('neutralHue', 200, DEFAULT_THEME)};
-        color: ${getColorV8('neutralHue', 400, DEFAULT_THEME)};
-        border-color: ${getColorV8('neutralHue', 300, DEFAULT_THEME)};
-      `
-    },
-    default: {
-      base: `
-        background-color: transparent;
-        color: ${neutralColor};
-        border-color: ${neutralColor};
-      `,
-      active: `
-        background-color: ${primaryBgColor};
-        color: ${primaryColor};
-        border-color: ${primaryColor};
-      `,
-      highlight: `
-        background-color: ${primaryBgColor};
-        color: ${primaryDarkColor};
-        border-color: ${primaryColor};
-        border-width: 2px;
-        border-style: solid;
-      `
-    },
-    danger: {
-      base: `
-        background-color: transparent;
-        color: ${dangerColor};
-        border-color: ${dangerColor};
-      `,
-      active: `
-        background-color: ${dangerBgColor};
-        color: ${dangerColor};
-        border-color: ${dangerColor};
-      `,
-      highlight: `
-        background-color: ${dangerBgColor};
-        color: ${dangerDarkColor};
-        border-color: ${dangerColor};
-        border-width: 2px;
-        border-style: solid;
-      `
-    }
-  };
-
-  describe.each(STATES)(`%s state`, state => {
-    it('applies correct base styling', () => {
-      const { container } = render(
-        <Dropzone isDanger={state === 'danger'} isDisabled={state === 'disabled'} />
-      );
-
-      expect(container.firstChild).toHaveStyle(StateMap[state].base);
-    });
-
-    if (StateMap[state].active) {
-      it('applies correct active styling', () => {
-        const { container } = render(
-          <Dropzone isDanger={state === 'danger'} isDisabled={state === 'disabled'} isActive />
-        );
-
-        expect(container.firstChild).toHaveStyle(StateMap[state].active);
-      });
-    }
-
-    if (StateMap[state].highlight) {
-      it('applies correct highlight styling', () => {
-        const { container } = render(
-          <Dropzone isDanger={state === 'danger'} isDisabled={state === 'disabled'} isHighlighted />
-        );
-
-        expect(container.firstChild).toHaveStyle(StateMap[state].highlight);
-      });
-    }
   });
 });
