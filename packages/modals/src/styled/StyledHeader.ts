@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import {
   getLineHeight,
   retrieveComponentStyles,
@@ -22,6 +22,13 @@ export interface IStyledHeaderProps {
   isCloseButtonPresent?: boolean;
 }
 
+const colorStyles = ({ isDanger, theme }: IStyledHeaderProps & ThemeProps<DefaultTheme>) => {
+  return css`
+    border-bottom-color: ${getColor({ theme, variable: 'border.subtle' })};
+    color: ${getColor({ theme, variable: isDanger ? 'foreground.danger' : 'foreground.default' })};
+  `;
+};
+
 /**
  * 1. the padding added to the Header is based on the close button size and spacing,
  *    with additional padding (+ 2) between the Header content and Close button
@@ -33,8 +40,7 @@ export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
   display: block;
   position: ${props => props.isDanger && 'relative'};
   margin: 0;
-  border-bottom: ${({ theme }) =>
-    `${theme.borders.sm} ${getColor({ theme, variable: 'border.subtle' })}`};
+  border-bottom: ${props => props.theme.borders.sm};
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`};
   ${props =>
     props.isCloseButtonPresent &&
@@ -42,10 +48,10 @@ export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
       props.theme.space.base * (BASE_MULTIPLIERS.size + BASE_MULTIPLIERS.side + 2)
     }px;`} /* [1] */
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
-  color: ${({ isDanger, theme }) =>
-    getColor({ theme, variable: isDanger ? 'foreground.danger' : 'foreground.default' })};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

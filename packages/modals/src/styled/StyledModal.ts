@@ -56,11 +56,18 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
     theme,
     hue: 'neutralHue',
     shade: 1200,
-    light: { transparency: 0.15 },
-    dark: { transparency: theme.opacity['800'] }
+    light: { transparency: theme.opacity[200] },
+    dark: { transparency: theme.opacity[800] }
   });
 
-  return shadows.lg(offsetY, blurRadius, color as string);
+  return shadows.lg(offsetY, blurRadius, color);
+};
+
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  return css`
+    border-color: ${getColor({ theme, variable: 'border.default' })};
+    background-color: ${getColor({ theme, variable: 'background.raised' })};
+  `;
 };
 
 const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
@@ -72,7 +79,7 @@ const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
 };
 
 /**
- * 1 IE11 centering hack.
+ * 1. IE11 centering hack.
  */
 export const StyledModal = styled.div.attrs<IStyledModalProps>({
   'data-garden-id': COMPONENT_ID,
@@ -83,17 +90,17 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   flex-direction: column;
   animation-delay: 0.01s;
   margin: ${props => (props.isCentered ? '0' : `${props.theme.space.base * 12}px`)};
-  border: ${({ theme }) =>
-    `${theme.borders.sm} ${getColor({ theme, variable: 'border.default' })}`};
+  border: ${props => props.theme.borders.sm};
   border-radius: ${props => props.theme.borderRadii.md};
   box-shadow: ${boxShadow};
-  background-color: ${({ theme }) => getColor({ theme, variable: 'background.raised' })};
   min-height: 60px;
   max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
   overflow: auto;
   direction: ${props => props.theme.rtl && 'rtl'};
 
   ${animationStyles};
+
+  ${colorStyles};
 
   ${sizeStyles};
 
