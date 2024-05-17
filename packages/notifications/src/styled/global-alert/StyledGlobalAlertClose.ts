@@ -6,17 +6,10 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import {
-  getColorV8,
-  DEFAULT_THEME,
-  retrieveComponentStyles,
-  focusStyles
-} from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME, focusStyles } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
 import { IGlobalAlertProps } from '../../types';
-
-const COMPONENT_ID = 'notifications.global-alert.close';
 
 interface IStyledGlobalAlertCloseProps {
   alertType: IGlobalAlertProps['type'];
@@ -97,14 +90,11 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 };
 
 export const StyledGlobalAlertClose = styled(IconButton).attrs({
-  'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   size: 'small'
 })<IStyledGlobalAlertCloseProps>`
   ${sizeStyles};
   ${colorStyles};
-
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledGlobalAlertClose.defaultProps = {

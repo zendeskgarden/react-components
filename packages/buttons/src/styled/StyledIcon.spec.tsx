@@ -79,4 +79,16 @@ describe('StyledIcon', () => {
       }).toThrow();
     });
   });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', () => {
+      const { container } = render(
+        <StyledIcon>
+          <TestIcon />
+        </StyledIcon>
+      );
+
+      expect(container.firstChild).toHaveAttribute('data-garden-id', 'buttons.icon');
+    });
+  });
 });
