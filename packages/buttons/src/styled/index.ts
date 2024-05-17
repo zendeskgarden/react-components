@@ -9,5 +9,5 @@ export * from './StyledAnchor';
 export { StyledButton } from './StyledButton';
 export * from './StyledSplitButton';
 export * from './StyledExternalIcon';
-export { StyledIcon } from './StyledIcon';
+export * from './StyledIcon';
 export { StyledIconButton } from './StyledIconButton';

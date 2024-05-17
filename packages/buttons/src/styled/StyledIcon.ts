@@ -12,7 +12,7 @@ import {
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
 
-export const COMPONENT_ID = 'buttons.icon';
+const COMPONENT_ID = 'buttons.icon';
 
 interface IStyledIconProps {
   $isRotated: boolean;

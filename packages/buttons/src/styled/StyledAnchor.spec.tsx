@@ -7,8 +7,9 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
+
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { COMPONENT_ID, StyledAnchor } from './StyledAnchor';
+import { StyledAnchor } from './StyledAnchor';
 
 describe('StyledAnchor', () => {
   it('renders the expected element', () => {
@@ -39,7 +40,7 @@ describe('StyledAnchor', () => {
     it('has the correct `data-garden-id`', () => {
       const { container } = render(<StyledAnchor />);
 
-      expect(container.firstChild).toHaveAttribute('data-garden-id', COMPONENT_ID);
+      expect(container.firstChild).toHaveAttribute('data-garden-id', 'buttons.anchor');
     });
   });
 });
