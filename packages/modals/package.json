@@ -24,14 +24,13 @@
     "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-modal": "^1.0.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
-    "@zendeskgarden/react-buttons": "^9.0.0-next.10",
+    "@zendeskgarden/react-buttons": "^9.0.0-next.11",
     "dom-helpers": "^5.1.0",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^2.0.0",
     "react-transition-group": "^4.4.2"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-buttons": ">=9.0.0-next",
     "@zendeskgarden/react-theming": ">=9.0.0-next",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",

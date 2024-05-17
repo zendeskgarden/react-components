@@ -27,7 +27,7 @@ export const StyledBody = styled.div.attrs({
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
   color: ${({ theme }) => getColor({ theme, variable: 'foreground.default' })};
   font-size: ${props => props.theme.fontSizes.md};
-  ${props => retrieveComponentStyles(props['data-garden-id'], props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledBody.defaultProps = {
