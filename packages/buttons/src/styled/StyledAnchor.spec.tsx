@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
+
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledAnchor } from './StyledAnchor';
 
@@ -33,5 +34,13 @@ describe('StyledAnchor', () => {
     const { container } = renderRtl(<StyledAnchor />);
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
+  });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', () => {
+      const { container } = render(<StyledAnchor />);
+
+      expect(container.firstChild).toHaveAttribute('data-garden-id', 'buttons.anchor');
+    });
   });
 });

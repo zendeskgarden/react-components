@@ -8,7 +8,7 @@
 import React from 'react';
 import { css } from 'styled-components';
 import { render } from 'garden-test-utils';
-import { StyledIconButton } from './StyledIconButton';
+import { COMPONENT_ID, StyledIconButton } from './StyledIconButton';
 import { StyledIcon } from './StyledIcon';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { rgba } from 'polished';
@@ -86,6 +86,14 @@ describe('StyledIconButton', () => {
           ${StyledIcon}
         ` as unknown as string
       });
+    });
+  });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', () => {
+      const { container } = render(<StyledIconButton />);
+
+      expect(container.firstChild).toHaveAttribute('data-garden-id', COMPONENT_ID);
     });
   });
 });

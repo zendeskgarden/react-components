@@ -19,7 +19,7 @@ import { IButtonProps } from '../types';
 import { StyledSplitButton } from './StyledSplitButton';
 import { StyledIcon } from './StyledIcon';
 
-const COMPONENT_ID = 'buttons.button';
+export const COMPONENT_ID = 'buttons.button';
 
 const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.isPill) {
@@ -431,7 +431,7 @@ const sizeStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
  * 3. Shifting :focus-visible from LVHFA order to preserve `text-decoration` on hover
  */
 export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: props.type || 'button'
 }))<IButtonProps>`
