@@ -10,10 +10,19 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  StyledBaseIcon
+  StyledBaseIcon,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.combobox.option.icon';
+
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const color = getColor({ theme, variable: 'foreground.subtle' });
+
+  return css`
+    color: ${color};
+  `;
+};
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const size = props.theme.iconSizes.md;
@@ -36,6 +45,8 @@ export const StyledOptionIcon = styled(StyledBaseIcon).attrs({
   flex-shrink: 0;
 
   ${sizeStyles};
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

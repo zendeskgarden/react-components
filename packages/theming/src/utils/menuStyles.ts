@@ -65,8 +65,8 @@ const colorStyles = (theme: DefaultTheme) => {
   return css`
     border-color: ${borderColor};
     box-shadow: ${theme.shadows.lg(
-      `${theme.space.base * 5}px`,
-      `${theme.space.base * 7.5}px`,
+      `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`,
+      `${theme.space.base * (theme.colors.base === 'dark' ? 5 : 6)}px`,
       boxShadowColor
     )};
     background-color: ${backgroundColor};

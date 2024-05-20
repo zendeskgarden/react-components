@@ -29,22 +29,22 @@ interface IStyledInputIconProps extends ThemeProps<DefaultTheme> {
 const colorStyles = ({ theme, $isLabelHovered }: IStyledInputIconProps) => {
   const options = { theme, variable: 'foreground.subtle' };
   const color = getColor(options);
-  const focusColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: +100 } });
+  const focusColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
   const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
     color: ${$isLabelHovered ? focusColor : color};
 
     /* stylelint-disable selector-no-qualifying-type */
-    ${StyledTrigger}:hover &,
-    ${StyledTrigger}:focus-within &,
-    ${StyledTrigger}:focus & {
+    ${StyledTrigger}:hover &&,
+    ${StyledTrigger}:focus-within &&,
+    ${StyledTrigger}:focus && {
       color: ${focusColor};
     }
     /* stylelint-enable selector-no-qualifying-type */
 
     /* stylelint-disable-next-line */
-    ${StyledTrigger}[aria-disabled='true'] & {
+    ${StyledTrigger}[aria-disabled='true'] && {
       color: ${disabledColor};
     }
   `;
