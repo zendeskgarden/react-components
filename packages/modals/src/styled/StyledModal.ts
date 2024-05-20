@@ -48,8 +48,8 @@ const animationStyles = (props: IStyledModalProps) => {
 };
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const offsetY = `${theme.space.base * 5}px`;
-  const blurRadius = `${theme.space.base * 7}px`;
+  const offsetY = `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`;
+  const blurRadius = `${theme.space.base * (theme.colors.base === 'dark' ? 6 : 7)}px`;
   const shadowColor = getColor({
     theme,
     hue: 'neutralHue',
