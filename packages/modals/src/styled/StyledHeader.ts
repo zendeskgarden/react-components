@@ -23,9 +23,15 @@ export interface IStyledHeaderProps {
 }
 
 const colorStyles = ({ isDanger, theme }: IStyledHeaderProps & ThemeProps<DefaultTheme>) => {
+  const bottomBorderColor = getColor({ theme, variable: 'border.subtle' });
+  const color = getColor({
+    theme,
+    variable: isDanger ? 'foreground.danger' : 'foreground.default'
+  });
+
   return css`
-    border-bottom-color: ${getColor({ theme, variable: 'border.subtle' })};
-    color: ${getColor({ theme, variable: isDanger ? 'foreground.danger' : 'foreground.default' })};
+    border-bottom-color: ${bottomBorderColor};
+    color: ${color};
   `;
 };
 

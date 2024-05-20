@@ -47,26 +47,25 @@ const animationStyles = (props: IStyledModalProps) => {
   return '';
 };
 
-const boxShadow = (props: ThemeProps<DefaultTheme>) => {
-  const { theme } = props;
-  const { space, shadows } = theme;
-  const offsetY = `${space.base * 5}px`;
-  const blurRadius = `${space.base * 7}px`;
-  const color = getColor({
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const offsetY = `${theme.space.base * 5}px`;
+  const blurRadius = `${theme.space.base * 7}px`;
+  const shadowColor = getColor({
     theme,
     hue: 'neutralHue',
     shade: 1200,
     light: { transparency: theme.opacity[200] },
     dark: { transparency: theme.opacity[800] }
   });
+  const shadow = theme.shadows.lg(offsetY, blurRadius, shadowColor);
 
-  return shadows.lg(offsetY, blurRadius, color);
-};
+  const borderColor = getColor({ theme, variable: 'border.default' });
+  const backgroundColor = getColor({ theme, variable: 'background.raised' });
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   return css`
-    border-color: ${getColor({ theme, variable: 'border.default' })};
-    background-color: ${getColor({ theme, variable: 'background.raised' })};
+    border-color: ${borderColor};
+    box-shadow: ${shadow};
+    background-color: ${backgroundColor};
   `;
 };
 
@@ -92,7 +91,6 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   margin: ${props => (props.isCentered ? '0' : `${props.theme.space.base * 12}px`)};
   border: ${props => props.theme.borders.sm};
   border-radius: ${props => props.theme.borderRadii.md};
-  box-shadow: ${boxShadow};
   min-height: 60px;
   max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
   overflow: auto;
