@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
-import { PALETTE, getColorV8 } from '@zendeskgarden/react-theming';
+import { render, renderDark, renderRtl } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledTag } from './StyledTag';
 
 describe('StyledTag', () => {
@@ -82,32 +82,93 @@ describe('StyledTag', () => {
   });
 
   describe('hue', () => {
-    it('renders using a default neutral hue', () => {
-      const { container } = render(<StyledTag />);
-      const color = getColorV8('neutralHue', 200);
+    it.each([['light'], ['dark']])('renders using a default hue for %s mode', mode => {
+      const renderFn = mode === 'light' ? render : renderDark;
+      const { container } = renderFn(<StyledTag />);
+      const backgroundColor = mode === 'dark' ? PALETTE.grey[800] : PALETTE.grey[200];
+      const foregroundColor = mode === 'dark' ? PALETTE.grey[300] : PALETTE.grey[900];
 
-      expect(container.firstChild).toHaveStyleRule('background-color', color);
+      expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor);
+      expect(container.firstChild).toHaveStyleRule('color', foregroundColor);
     });
 
-    it('renders using a custom hue', () => {
-      const { container } = render(<StyledTag hue="azure" />);
-      const color = getColorV8('azure', 600);
+    it.each([['light'], ['dark']])('renders using a "grey" hue in %s mode', mode => {
+      const renderFn = mode === 'light' ? render : renderDark;
+      const { container } = renderFn(<StyledTag hue="grey" />);
+      const backgroundColor = mode === 'dark' ? PALETTE.grey[600] : PALETTE.grey[700];
+      const foregroundColor = mode === 'dark' ? PALETTE.grey[1100] : PALETTE.white;
 
-      expect(container.firstChild).toHaveStyleRule('background-color', color);
+      expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor);
+      expect(container.firstChild).toHaveStyleRule('color', foregroundColor);
+    });
+
+    it.each([['light'], ['dark']])('renders using a "blue" hue in %s mode', mode => {
+      const renderFn = mode === 'light' ? render : renderDark;
+      const { container } = renderFn(<StyledTag hue="blue" />);
+      const backgroundColor = mode === 'dark' ? PALETTE.blue[600] : PALETTE.blue[700];
+      const foregroundColor = mode === 'dark' ? PALETTE.grey[1100] : PALETTE.white;
+
+      expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor);
+      expect(container.firstChild).toHaveStyleRule('color', foregroundColor);
+    });
+
+    it.each([['light'], ['dark']])('renders using a "red" hue in %s mode', mode => {
+      const renderFn = mode === 'light' ? render : renderDark;
+      const { container } = renderFn(<StyledTag hue="red" />);
+      const backgroundColor = mode === 'dark' ? PALETTE.red[600] : PALETTE.red[700];
+      const foregroundColor = mode === 'dark' ? PALETTE.grey[1100] : PALETTE.white;
+
+      expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor);
+      expect(container.firstChild).toHaveStyleRule('color', foregroundColor);
+    });
+
+    it.each([['light'], ['dark']])('renders using a "green" hue in %s mode', mode => {
+      const renderFn = mode === 'light' ? render : renderDark;
+      const { container } = renderFn(<StyledTag hue="green" />);
+      const backgroundColor = mode === 'dark' ? PALETTE.green[600] : PALETTE.green[700];
+      const foregroundColor = mode === 'dark' ? PALETTE.grey[1100] : PALETTE.white;
+
+      expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor);
+      expect(container.firstChild).toHaveStyleRule('color', foregroundColor);
+    });
+
+    it.each([['light'], ['dark']])('renders using a "yellow" hue in %s mode', mode => {
+      const renderFn = mode === 'light' ? render : renderDark;
+      const { container } = renderFn(<StyledTag hue="yellow" />);
+      const foregroundColor = mode === 'dark' ? PALETTE.grey[1100] : PALETTE.yellow[900];
+
+      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.yellow[400]);
+      expect(container.firstChild).toHaveStyleRule('color', foregroundColor);
+    });
+
+    it.each([['light'], ['dark']])('renders using a "kale" hue in %s mode', mode => {
+      const renderFn = mode === 'light' ? render : renderDark;
+      const { container } = renderFn(<StyledTag hue="kale" />);
+      const backgroundColor = mode === 'dark' ? PALETTE.kale[500] : PALETTE.kale[800];
+      const foregroundColor = mode === 'dark' ? PALETTE.grey[1100] : PALETTE.white;
+
+      expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor);
+      expect(container.firstChild).toHaveStyleRule('color', foregroundColor);
+    });
+
+    it.each([['light'], ['dark']])('renders using a custom hue for %s mode', mode => {
+      const renderFn = mode === 'light' ? render : renderDark;
+      const { container } = renderFn(<StyledTag hue="azure" />);
+      const backgroundColor = mode === 'dark' ? PALETTE.azure[500] : PALETTE.azure[700];
+
+      expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor);
     });
 
     it('renders a dark foreground on a light background', () => {
       const { container } = render(<StyledTag hue="white" />);
-      const color = PALETTE.grey[800];
 
-      expect(container.firstChild).toHaveStyleRule('color', color);
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[1100]);
     });
 
     it('renders a light foreground on a dark background', () => {
       const { container } = render(<StyledTag hue="black" />);
-      const color = PALETTE.white;
 
-      expect(container.firstChild).toHaveStyleRule('color', color);
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.white);
     });
   });
 });
