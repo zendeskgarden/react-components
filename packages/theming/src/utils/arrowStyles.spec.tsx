@@ -8,8 +8,8 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
-import arrowStyles, { exponentialSymbols } from './arrowStyles';
+import { math, stripUnit } from 'polished';
+import arrowStyles from './arrowStyles';
 import { ArrowPosition } from '../types';
 
 interface IStyledDivProps extends ThemeProps<DefaultTheme> {
@@ -29,11 +29,11 @@ const StyledDiv = styled.div<IStyledDivProps>`
 `;
 
 const getArrowSize = (size = '6px') => {
-  return math(`${size} * 2 / sqrt(2)`, exponentialSymbols);
+  return `${Math.round(((stripUnit(size) as number) * 2) / Math.sqrt(2))}px`;
 };
 
 const getArrowInset = (inset: string, size?: string) => {
-  return math(`${getArrowSize(size)} / -2 + ${inset}`);
+  return math(`${getArrowSize(size)} / -2 + ${inset} - 1`);
 };
 
 describe('arrowStyles', () => {
@@ -55,7 +55,7 @@ describe('arrowStyles', () => {
 
       POSITION.forEach(position => {
         const { container } = render(<StyledDiv arrowPosition={position} />);
-        const value = math(`${getArrowSize()} / -2`);
+        const value = math(`${getArrowSize()} / -2 - 1`);
 
         expect(container.firstChild).toHaveStyleRule(position, value, { modifier: '::before' });
       });
