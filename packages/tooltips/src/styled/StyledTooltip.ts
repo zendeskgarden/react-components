@@ -77,19 +77,16 @@ const sizeStyles = ({
   let arrowInset;
 
   if (hasArrow) {
-    if (size === 'small' || size === 'medium') {
-      arrowSize = margin;
-      arrowInset = type === 'dark' ? '1px' : '0';
-    } else {
-      arrowInset = type === 'dark' ? '2px' : '1px';
+    arrowInset = type === 'dark' ? '1px' : '0.5px';
 
-      if (size === 'large') {
-        margin = `${theme.space.base * 2}px`;
-        arrowSize = margin;
-      } else if (size === 'extra-large') {
-        margin = `${theme.space.base * 3}px`;
-        arrowSize = `${theme.space.base * 2.5}px`;
-      }
+    if (size === 'small' || size === 'medium') {
+      arrowSize = `${theme.space.base * 1.25}px`;
+    } else if (size === 'large') {
+      margin = `${theme.space.base * 2}px`;
+      arrowSize = `${theme.space.base * 1.5}px`;
+    } else if (size === 'extra-large') {
+      margin = `${theme.space.base * 3}px`;
+      arrowSize = `${theme.space.base * 2}px`;
     }
   }
 

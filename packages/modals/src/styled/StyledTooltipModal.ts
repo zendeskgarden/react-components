@@ -34,8 +34,7 @@ export const StyledTooltipModal = styled.div.attrs<IStyledTooltipModalProps>(pro
 
   ${props => {
     const computedArrowStyles = arrowStyles(getArrowPosition(props.theme, props.placement), {
-      size: `${props.theme.space.base * 2}px`,
-      inset: '1px',
+      inset: '0.5px',
       animationModifier: '.is-animated'
     });
 

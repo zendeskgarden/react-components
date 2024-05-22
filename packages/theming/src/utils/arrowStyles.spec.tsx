@@ -29,7 +29,7 @@ const StyledDiv = styled.div<IStyledDivProps>`
 `;
 
 const getArrowSize = (size = '6px') => {
-  return `${Math.round(((stripUnit(size) as number) * 2) / Math.sqrt(2))}px`;
+  return `${Math.floor(((stripUnit(size) as number) * 2) / Math.sqrt(2)) + 1}px`;
 };
 
 const getArrowInset = (inset: string, size?: string) => {

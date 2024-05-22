@@ -37,6 +37,7 @@ const animationStyles = (position: ArrowPosition, modifier: string) => {
 const positionStyles = (position: ArrowPosition, size: string, inset: string) => {
   const margin = math(`${size} / -2`);
   const placement = math(`${margin} + ${inset} - 1`);
+  const _position = math(`${size} + 4`);
   let clipPath;
   let borderCss;
   let positionCss;
@@ -49,8 +50,8 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
     `;
     positionCss = css`
       top: ${placement};
-      right: ${position === 'top-right' && size};
-      left: ${position === 'top' ? '50%' : position === 'top-left' && size};
+      right: ${position === 'top-right' && _position};
+      left: ${position === 'top' ? '50%' : position === 'top-left' && _position};
       margin-left: ${position === 'top' && margin};
     `;
   } else if (position.startsWith('right')) {
@@ -60,9 +61,9 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
       border-left: none;
     `;
     positionCss = css`
-      top: ${position === 'right' ? '50%' : position === 'right-top' && size};
+      top: ${position === 'right' ? '50%' : position === 'right-top' && _position};
       right: ${placement};
-      bottom: ${position === 'right-bottom' && size};
+      bottom: ${position === 'right-bottom' && _position};
       margin-top: ${position === 'right' && margin};
     `;
   } else if (position.startsWith('bottom')) {
@@ -72,9 +73,9 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
       border-left: none;
     `;
     positionCss = css`
-      right: ${position === 'bottom-right' && size};
+      right: ${position === 'bottom-right' && _position};
       bottom: ${placement};
-      left: ${position === 'bottom' ? '50%' : position === 'bottom-left' && size};
+      left: ${position === 'bottom' ? '50%' : position === 'bottom-left' && _position};
       margin-left: ${position === 'bottom' && margin};
     `;
   } else if (position.startsWith('left')) {
@@ -84,8 +85,8 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
       border-right: none;
     `;
     positionCss = css`
-      top: ${position === 'left' ? '50%' : position === 'left-top' && size};
-      bottom: ${size};
+      top: ${position === 'left' ? '50%' : position === 'left-top' && _position};
+      bottom: ${_position};
       left: ${placement};
       margin-top: ${position === 'left' && margin};
     `;
@@ -145,7 +146,7 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
 export default function arrowStyles(position: ArrowPosition, options: ArrowOptions = {}) {
   const size = options.size === undefined ? 6 : (stripUnit(options.size) as number);
   const inset = options.inset || '0';
-  const squareSize = `${Math.round((size * 2) / Math.sqrt(2))}px`;
+  const squareSize = `${Math.floor((size * 2) / Math.sqrt(2)) + 1}px`;
 
   /**
    * 1. Set base positioning for an element with an arrow.
