@@ -98,9 +98,9 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
 
   ${animationStyles};
 
-  ${colorStyles};
-
   ${sizeStyles};
+
+  ${colorStyles};
 
   &:focus {
     outline: none;
