@@ -8,10 +8,10 @@
 import PropTypes from 'prop-types';
 import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColorV8,
   mediaQuery,
   retrieveComponentStyles,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.modal';
@@ -47,14 +47,26 @@ const animationStyles = (props: IStyledModalProps) => {
   return '';
 };
 
-const boxShadow = (props: ThemeProps<DefaultTheme>) => {
-  const { theme } = props;
-  const { space, shadows } = theme;
-  const offsetY = `${space.base * 5}px`;
-  const blurRadius = `${space.base * 7}px`;
-  const color = getColorV8('neutralHue', 800, theme, 0.35);
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const offsetY = `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`;
+  const blurRadius = `${theme.space.base * (theme.colors.base === 'dark' ? 6 : 7)}px`;
+  const shadowColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    shade: 1200,
+    light: { transparency: theme.opacity[200] },
+    dark: { transparency: theme.opacity[800] }
+  });
+  const shadow = theme.shadows.lg(offsetY, blurRadius, shadowColor);
 
-  return shadows.lg(offsetY, blurRadius, color as string);
+  const borderColor = getColor({ theme, variable: 'border.default' });
+  const backgroundColor = getColor({ theme, variable: 'background.raised' });
+
+  return css`
+    border-color: ${borderColor};
+    box-shadow: ${shadow};
+    background-color: ${backgroundColor};
+  `;
 };
 
 const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
@@ -77,9 +89,8 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   flex-direction: column;
   animation-delay: 0.01s;
   margin: ${props => (props.isCentered ? '0' : `${props.theme.space.base * 12}px`)};
+  border: ${props => props.theme.borders.sm};
   border-radius: ${props => props.theme.borderRadii.md};
-  box-shadow: ${boxShadow};
-  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
   min-height: 60px;
   max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
   overflow: auto;
@@ -88,6 +99,8 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   ${animationStyles};
 
   ${sizeStyles};
+
+  ${colorStyles};
 
   &:focus {
     outline: none;
