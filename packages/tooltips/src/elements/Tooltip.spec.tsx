@@ -8,7 +8,7 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, act, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME, PALETTE, getColorV8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Tooltip } from './Tooltip';
 import { ITooltipProps } from '../types';
 
@@ -107,10 +107,7 @@ describe('Tooltip', () => {
         jest.runOnlyPendingTimers();
       });
 
-      expect(getByTestId('tooltip')).toHaveStyleRule(
-        'color',
-        getColorV8('neutralHue', 700, DEFAULT_THEME)
-      );
+      expect(getByTestId('tooltip')).toHaveStyleRule('color', PALETTE.grey[700]);
     });
 
     it('renders dark tooltip if provided', async () => {

@@ -9,10 +9,10 @@ import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import {
   arrowStyles,
   retrieveComponentStyles,
-  getColorV8,
   DEFAULT_THEME,
   getLineHeight,
-  getArrowPosition
+  getArrowPosition,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { Placement } from '@floating-ui/react-dom';
 import { ITooltipProps } from '../types';
@@ -121,30 +121,49 @@ const sizeStyles = ({
 };
 
 const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
-  let border;
   let boxShadow = theme.shadows.lg(
     `${theme.space.base}px`,
     `${theme.space.base * 2}px`,
-    getColorV8('chromeHue', 600, theme, 0.15)!
+    getColor({
+      theme,
+      hue: 'neutralHue',
+      shade: 1200,
+      light: { transparency: theme.opacity[200] },
+      dark: { transparency: theme.opacity[1100] }
+    })
   );
-  let backgroundColor = getColorV8('chromeHue', 700, theme);
-  let color = getColorV8('background', 600 /* default shade */, theme);
+
+  let backgroundColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    light: { offset: 900 },
+    dark: { offset: 700 }
+  });
+  let borderColor = backgroundColor;
+  let color = theme.palette.white;
   let titleColor;
 
   if (type === 'light') {
     boxShadow = theme.shadows.lg(
-      `${theme.space.base * 3}px`,
-      `${theme.space.base * 5}px`,
-      getColorV8('chromeHue', 600, theme, 0.15)!
+      `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`,
+      `${theme.space.base * (theme.colors.base === 'dark' ? 6 : 7)}px`,
+      getColor({
+        theme,
+        hue: 'neutralHue',
+        shade: 1200,
+        light: { transparency: theme.opacity[200] },
+        // light: { transparency: theme.opacity[500] },
+        dark: { transparency: theme.opacity[800] }
+      })
     );
-    border = `${theme.borders.sm} ${getColorV8('neutralHue', 300, theme)}`;
-    backgroundColor = getColorV8('background', 600 /* default shade */, theme);
-    color = getColorV8('neutralHue', 700, theme)!;
-    titleColor = getColorV8('foreground', 600 /* default shade */, theme);
+    borderColor = getColor({ theme, variable: 'border.default' });
+    backgroundColor = getColor({ theme, variable: 'background.raised' });
+    color = getColor({ theme, variable: 'foreground.subtle' });
+    titleColor = getColor({ theme, variable: 'foreground.default' });
   }
 
   return css`
-    border: ${border};
+    border-color: ${borderColor};
     box-shadow: ${boxShadow};
     background-color: ${backgroundColor};
     color: ${color};
@@ -163,6 +182,7 @@ export const StyledTooltip = styled.div.attrs<IStyledTooltipProps>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTooltipProps>`
   display: inline-block;
+  border: ${props => props.theme.borders.sm};
   box-sizing: border-box;
   direction: ${props => props.theme.rtl && 'rtl'};
   text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
