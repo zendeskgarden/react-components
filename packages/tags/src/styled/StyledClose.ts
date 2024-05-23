@@ -34,11 +34,15 @@ export const StyledClose = styled.button.attrs<unknown>({
   appearance: none; /* [1] */
 
   &:hover {
-    opacity: 1;
+    opacity: ${props => props.theme.opacity[1100]};
   }
 
   &:focus {
     outline: none;
+  }
+
+  &:active {
+    opacity: ${props => props.theme.opacity[1200]};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

@@ -95,7 +95,7 @@ describe('StyledTag', () => {
     it.each([['light'], ['dark']])('renders using a "grey" hue in %s mode', mode => {
       const renderFn = mode === 'light' ? render : renderDark;
       const { container } = renderFn(<StyledTag hue="grey" />);
-      const backgroundColor = mode === 'dark' ? PALETTE.grey[600] : PALETTE.grey[700];
+      const backgroundColor = mode === 'dark' ? PALETTE.grey[300] : PALETTE.grey[700];
       const foregroundColor = mode === 'dark' ? PALETTE.grey[1100] : PALETTE.white;
 
       expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor);

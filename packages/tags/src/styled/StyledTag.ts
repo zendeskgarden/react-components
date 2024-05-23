@@ -36,7 +36,11 @@ const colorStyles = ({ theme, hue }: ITagProps & ThemeProps<DefaultTheme>) => {
     switch (hue) {
       case 'grey':
       case 'neutralHue':
-        backgroundColor = getColor({ theme, variable: 'background.emphasis' });
+        backgroundColor = getColor({
+          theme,
+          variable: 'background.emphasis',
+          dark: { offset: -300 }
+        });
         break;
 
       case 'blue':
