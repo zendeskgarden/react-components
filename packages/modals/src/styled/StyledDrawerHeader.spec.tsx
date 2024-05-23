@@ -6,21 +6,29 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { render, renderDark } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
 
 import { StyledDrawerHeader } from './StyledDrawerHeader';
 
 describe('StyledDrawerHeader', () => {
-  it('renders default styling', () => {
-    const { container } = render(<StyledDrawerHeader />);
+  it.each([['light'], ['dark']])('gets the correct %s mode default color', mode => {
+    const renderFn = mode === 'light' ? render : renderDark;
+    const { container } = renderFn(<StyledDrawerHeader />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[800]);
+    expect(container.firstChild).toHaveStyleRule(
+      'color',
+      mode === 'light' ? PALETTE.grey[900] : PALETTE.grey[300]
+    );
   });
 
-  it('renders danger styling if provided', () => {
-    const { container } = render(<StyledDrawerHeader isDanger />);
+  it.each([['light'], ['dark']])('gets the correct %s mode danger color', mode => {
+    const renderFn = mode === 'light' ? render : renderDark;
+    const { container } = renderFn(<StyledDrawerHeader isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.red[600]);
+    expect(container.firstChild).toHaveStyleRule(
+      'color',
+      mode === 'light' ? PALETTE.red[700] : PALETTE.red[400]
+    );
   });
 });

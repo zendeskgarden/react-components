@@ -24,6 +24,7 @@
     "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-modal": "^1.0.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
+    "@zendeskgarden/react-buttons": "^9.0.0-next.11",
     "dom-helpers": "^5.1.0",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^2.0.0",

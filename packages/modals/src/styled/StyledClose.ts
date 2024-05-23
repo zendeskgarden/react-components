@@ -5,44 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import {
-  getColorV8,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  focusStyles
-} from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { IconButton } from '@zendeskgarden/react-buttons';
 
 const COMPONENT_ID = 'modals.close';
-
-const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const backgroundColor = 'primaryHue';
-  const foregroundColor = 'neutralHue';
-
-  return css`
-    background-color: transparent;
-    color: ${getColorV8(foregroundColor, 600, props.theme)};
-
-    &:hover {
-      background-color: ${getColorV8(backgroundColor, 600, props.theme, 0.08)};
-      color: ${getColorV8(foregroundColor, 700, props.theme)};
-    }
-
-    ${focusStyles({
-      theme: props.theme,
-      color: { hue: backgroundColor }
-    })}
-
-    &:active {
-      /* prettier-ignore */
-      transition:
-        background-color 0.1s ease-in-out,
-        color 0.1s ease-in-out;
-      background-color: ${getColorV8(backgroundColor, 600, props.theme, 0.2)};
-      color: ${getColorV8(foregroundColor, 800, props.theme)};
-    }
-  `;
-};
 
 export const BASE_MULTIPLIERS = {
   top: 2.5,
@@ -50,44 +17,14 @@ export const BASE_MULTIPLIERS = {
   size: 10
 };
 
-/**
- * 1. Remove dotted outline from Firefox on focus.
- */
-export const StyledClose = styled.button.attrs({
+export const StyledClose = styled(IconButton).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  display: block;
   position: absolute;
   top: ${props => props.theme.space.base * BASE_MULTIPLIERS.top}px;
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
     `${props.theme.space.base * BASE_MULTIPLIERS.side}px`};
-  /* prettier-ignore */
-  transition:
-    box-shadow 0.1s ease-in-out,
-    background-color 0.25s ease-in-out,
-    color 0.25s ease-in-out;
-  border: none;
-  border-radius: 50%;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 0;
-  width: ${props => props.theme.space.base * BASE_MULTIPLIERS.size}px;
-  height: ${props => props.theme.space.base * BASE_MULTIPLIERS.size}px;
-  overflow: hidden;
-  text-decoration: none;
-  font-size: 0;
-  user-select: none;
-
-  &::-moz-focus-inner {
-    border: 0; /* [1] */
-  }
-
-  ${props => colorStyles(props)}
-
-  & > svg {
-    vertical-align: middle;
-  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
