@@ -37,7 +37,7 @@ const animationStyles = (position: ArrowPosition, modifier: string) => {
 const positionStyles = (position: ArrowPosition, size: string, inset: string) => {
   const margin = math(`${size} / -2`);
   const placement = math(`${margin} + ${inset} - 1`);
-  const _position = math(`${size} + 4`);
+  const offset = math(`${size} + 4`);
   let clipPath;
   let borderCss;
   let positionCss;
@@ -50,8 +50,8 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
     `;
     positionCss = css`
       top: ${placement};
-      right: ${position === 'top-right' && _position};
-      left: ${position === 'top' ? '50%' : position === 'top-left' && _position};
+      right: ${position === 'top-right' && offset};
+      left: ${position === 'top' ? '50%' : position === 'top-left' && offset};
       margin-left: ${position === 'top' && margin};
     `;
   } else if (position.startsWith('right')) {
@@ -61,9 +61,9 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
       border-left: none;
     `;
     positionCss = css`
-      top: ${position === 'right' ? '50%' : position === 'right-top' && _position};
+      top: ${position === 'right' ? '50%' : position === 'right-top' && offset};
       right: ${placement};
-      bottom: ${position === 'right-bottom' && _position};
+      bottom: ${position === 'right-bottom' && offset};
       margin-top: ${position === 'right' && margin};
     `;
   } else if (position.startsWith('bottom')) {
@@ -73,9 +73,9 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
       border-left: none;
     `;
     positionCss = css`
-      right: ${position === 'bottom-right' && _position};
+      right: ${position === 'bottom-right' && offset};
       bottom: ${placement};
-      left: ${position === 'bottom' ? '50%' : position === 'bottom-left' && _position};
+      left: ${position === 'bottom' ? '50%' : position === 'bottom-left' && offset};
       margin-left: ${position === 'bottom' && margin};
     `;
   } else if (position.startsWith('left')) {
@@ -85,8 +85,8 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
       border-right: none;
     `;
     positionCss = css`
-      top: ${position === 'left' ? '50%' : position === 'left-top' && _position};
-      bottom: ${_position};
+      top: ${position === 'left' ? '50%' : position === 'left-top' && offset};
+      bottom: ${offset};
       left: ${placement};
       margin-top: ${position === 'left' && margin};
     `;
