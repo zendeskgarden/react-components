@@ -55,7 +55,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     hue: 'neutralHue',
     shade: 1200,
     light: { transparency: theme.opacity[200] },
-    dark: { transparency: theme.opacity[800] }
+    dark: { transparency: theme.opacity[1000] }
   });
   const shadow = theme.shadows.lg(offsetY, blurRadius, shadowColor);
 
