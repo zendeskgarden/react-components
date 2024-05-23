@@ -7,7 +7,7 @@
 
 import React, { HTMLAttributes, forwardRef } from 'react';
 import { render } from 'garden-test-utils';
-import { PALETTE, PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { IOptionProps } from '../../types';
 import { Field } from './Field';
 import { Combobox } from './Combobox';
@@ -144,7 +144,7 @@ describe('Option', () => {
       const { getByTestId } = render(<TestOption type="add" />);
       const option = getByTestId('option');
 
-      expect(option).toHaveStyleRule('color', PALETTE_V8.blue[600]);
+      expect(option).toHaveStyleRule('color', PALETTE.blue[700]);
     });
 
     it('renders "danger" as expected', () => {

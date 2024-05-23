@@ -6,10 +6,10 @@
  */
 
 import React, { useRef } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import styled from 'styled-components';
 import { Combobox, Field, Option } from '@zendeskgarden/react-dropdowns';
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Paragraph } from '@zendeskgarden/react-typography';
 
 interface IArgs {
@@ -20,13 +20,13 @@ export const StyledContainer = styled.div`
   position: relative;
   border: ${p => p.theme.borders.sm};
   border-radius: ${p => p.theme.borderRadii.md};
-  border-color: ${p => getColorV8('neutralHue', 300, p.theme)};
+  border-color: ${p => getColor({ theme: p.theme, variable: 'border.default' })};
   padding: ${p => p.theme.space.md};
   max-height: 300px;
   overflow: clip;
 `;
 
-export const ListboxStory: Story<IArgs> = ({ listboxAppendToNode }) => {
+export const ListboxStory: StoryFn<IArgs> = ({ listboxAppendToNode }) => {
   const portalNode = useRef<HTMLDivElement>(null);
 
   return (
