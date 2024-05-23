@@ -24,7 +24,7 @@ export const StyledClose = styled.button.attrs<unknown>({
   align-items: center;
   justify-content: center;
   transition: opacity 0.25s ease-in-out;
-  opacity: 0.8;
+  opacity: ${props => props.theme.opacity[1000]};
   border: 0; /* [1] */
   background: transparent; /* [1] */
   cursor: pointer;
@@ -34,11 +34,15 @@ export const StyledClose = styled.button.attrs<unknown>({
   appearance: none; /* [1] */
 
   &:hover {
-    opacity: 0.9;
+    opacity: ${props => props.theme.opacity[1100]};
   }
 
   &:focus {
     outline: none;
+  }
+
+  &:active {
+    opacity: ${props => props.theme.opacity[1200]};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

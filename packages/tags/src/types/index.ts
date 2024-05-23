@@ -14,7 +14,8 @@ export interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   size?: (typeof SIZE)[number];
   /**
    * Sets the color of the tag. Refer to
-   * [PALETTE](/components/palette#palette)
+   * theming [colors](components/theme-object#colors)
+   * or [PALETTE](/components/palette#palette)
    * for available colors. Accepts any hex value.
    */
   hue?: string;
