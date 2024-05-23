@@ -35,4 +35,12 @@ describe('StyledGlobalAlertButton', () => {
       }[type]
     );
   });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', () => {
+      const { container } = render(<StyledGlobalAlertButton alertType="info" />);
+
+      expect(container.firstChild).toHaveAttribute('data-garden-id', 'buttons.button');
+    });
+  });
 });

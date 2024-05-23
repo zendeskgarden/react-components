@@ -659,4 +659,15 @@ describe('Menu', () => {
       expect(getByTestId('grape')).toHaveAttribute('aria-checked', 'true');
     });
   });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', async () => {
+      const { getByRole } = render(<TestMenu button="click me" />);
+
+      await floating();
+      const button = getByRole('button');
+
+      expect(button).toHaveAttribute('data-garden-id', 'buttons.button');
+    });
+  });
 });

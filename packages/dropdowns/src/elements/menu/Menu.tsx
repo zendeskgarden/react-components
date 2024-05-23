@@ -11,12 +11,11 @@ import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import { useMenu } from '@zendeskgarden/container-menu';
 import { DEFAULT_THEME, useWindow } from '@zendeskgarden/react-theming';
-import { IButtonProps } from '@zendeskgarden/react-buttons';
+import { Button, IButtonProps } from '@zendeskgarden/react-buttons';
 import { IMenuProps, PLACEMENT } from '../../types';
 import { MenuContext } from '../../context/useMenuContext';
 import { toItems } from './utils';
 import { MenuList } from './MenuList';
-import { StyledButton } from '../../views';
 import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 /**
@@ -87,12 +86,12 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
       typeof button === 'function' ? (
         button(triggerProps)
       ) : (
-        <StyledButton {...triggerProps}>
+        <Button {...triggerProps}>
           {button}
-          <StyledButton.EndIcon isRotated={isExpanded}>
+          <Button.EndIcon isRotated={isExpanded}>
             <ChevronIcon />
-          </StyledButton.EndIcon>
-        </StyledButton>
+          </Button.EndIcon>
+        </Button>
       );
 
     const contextValue = useMemo(

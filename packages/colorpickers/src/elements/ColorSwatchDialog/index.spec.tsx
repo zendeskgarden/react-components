@@ -247,4 +247,20 @@ describe('ColorSwatchDialog', () => {
       expect(dialog).toBeNull();
     });
   });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', () => {
+      const { getByRole } = render(
+        <ColorSwatchDialog
+          name="test"
+          colors={colors}
+          buttonProps={{
+            'aria-label': 'Choose your favorite color'
+          }}
+        />
+      );
+
+      expect(getByRole('button')).toHaveAttribute('data-garden-id', 'buttons.button');
+    });
+  });
 });
