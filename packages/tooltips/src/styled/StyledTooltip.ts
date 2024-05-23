@@ -136,9 +136,10 @@ const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTh
   let backgroundColor = getColor({
     theme,
     hue: 'neutralHue',
-    light: { offset: 900 },
-    dark: { offset: 700 }
+    light: { shade: 900 },
+    dark: { shade: 700 }
   });
+
   let borderColor = backgroundColor;
   let color = theme.palette.white;
   let titleColor;
@@ -152,7 +153,6 @@ const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTh
         hue: 'neutralHue',
         shade: 1200,
         light: { transparency: theme.opacity[200] },
-        // light: { transparency: theme.opacity[500] },
         dark: { transparency: theme.opacity[800] }
       })
     );
