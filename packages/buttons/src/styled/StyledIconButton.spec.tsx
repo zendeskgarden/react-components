@@ -29,7 +29,7 @@ describe('StyledIconButton', () => {
   it('renders basic color styling', () => {
     const { container } = render(<StyledIconButton isBasic />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[900]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700]);
   });
 
   describe('disabled', () => {
