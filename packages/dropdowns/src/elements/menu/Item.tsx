@@ -78,7 +78,7 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
       }
     };
 
-    const contextValue = useMemo(() => ({ isDisabled }), [isDisabled]);
+    const contextValue = useMemo(() => ({ isDisabled, type }), [isDisabled, type]);
 
     return (
       <ItemContext.Provider value={contextValue}>
@@ -93,7 +93,7 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
           <StyledItemTypeIcon $isCompact={isCompact} $type={type}>
             {renderActionIcon(type)}
           </StyledItemTypeIcon>
-          {icon && <StyledItemIcon>{icon}</StyledItemIcon>}
+          {icon && <StyledItemIcon $type={type}>{icon}</StyledItemIcon>}
           <StyledItemContent>{children || label}</StyledItemContent>
         </StyledItem>
       </ItemContext.Provider>

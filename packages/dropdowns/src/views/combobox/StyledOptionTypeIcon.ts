@@ -27,7 +27,7 @@ const colorStyles = ({ theme, $type }: IStyledOptionTypeIconProps) => {
   const opacity = $type && $type !== 'danger' ? 1 : 0;
   let color;
 
-  if ($type === 'add' || $type === 'danger') {
+  if ($type === 'add') {
     color = 'inherit';
   } else if ($type === 'header' || $type === 'next' || $type === 'previous') {
     color = getColor({ theme, variable: 'foreground.subtle' });

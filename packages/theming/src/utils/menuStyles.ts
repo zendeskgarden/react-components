@@ -60,15 +60,13 @@ const colorStyles = (theme: DefaultTheme) => {
     dark: { transparency: theme.opacity[800] },
     light: { transparency: theme.opacity[200] }
   });
+  const boxShadowBlurRadius = `${theme.space.base * (theme.colors.base === 'dark' ? 5 : 6)}px`;
+  const boxShadowOffsetY = `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`;
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
 
   return css`
     border-color: ${borderColor};
-    box-shadow: ${theme.shadows.lg(
-      `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`,
-      `${theme.space.base * (theme.colors.base === 'dark' ? 5 : 6)}px`,
-      boxShadowColor
-    )};
+    box-shadow: ${theme.shadows.lg(boxShadowOffsetY, boxShadowBlurRadius, boxShadowColor)};
     background-color: ${backgroundColor};
     color: ${foregroundColor};
   `;

@@ -23,8 +23,7 @@ const colorStyles = ({ theme, isActive, $type }: IStyledOptionProps) => {
   let boxShadow;
 
   if (isActive && $type !== 'group' && $type !== 'header') {
-    const variable =
-      $type === 'danger' ? 'background.dangerEmphasis' : 'background.primaryEmphasis';
+    const variable = 'background.primaryEmphasis';
 
     backgroundColor = getColor({ theme, variable, transparency: theme.opacity[100] });
     boxShadow = `inset ${

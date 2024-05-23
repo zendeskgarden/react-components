@@ -24,25 +24,22 @@ export interface IStyledMessageProps {
 const COMPONENT_ID = 'forms.input_message';
 
 const colorStyles = ({ theme, validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
-  let color;
+  let variable;
 
   if (validation === 'error') {
-    color = getColor({ theme, variable: 'foreground.danger' });
+    variable = 'foreground.danger';
   } else if (validation === 'success') {
-    color = getColor({ theme, variable: 'foreground.success' });
+    variable = 'foreground.success';
   } else if (validation === 'warning') {
-    color = getColor({ theme, variable: 'foreground.warning' });
+    variable = 'foreground.warning';
   } else {
-    color = getColor({
-      theme,
-      variable: 'foreground.default',
-      dark: { offset: 100 },
-      light: { offset: -100 }
-    });
+    variable = 'foreground.subtle';
   }
 
+  const foregroundColor = getColor({ theme, variable });
+
   return css`
-    color: ${color};
+    color: ${foregroundColor};
   `;
 };
 

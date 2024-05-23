@@ -6,8 +6,11 @@
  */
 
 import { createContext, useContext } from 'react';
+import { OptionType } from '../types';
 
-export const ItemContext = createContext<{ isDisabled?: boolean } | undefined>(undefined);
+export const ItemContext = createContext<{ isDisabled?: boolean; type?: OptionType } | undefined>(
+  undefined
+);
 
 const useItemContext = () => {
   const context = useContext(ItemContext);

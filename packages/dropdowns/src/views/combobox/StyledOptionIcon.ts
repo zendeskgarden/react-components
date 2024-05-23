@@ -13,11 +13,17 @@ import {
   StyledBaseIcon,
   getColor
 } from '@zendeskgarden/react-theming';
+import { OptionType } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.option.icon';
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const color = getColor({ theme, variable: 'foreground.subtle' });
+export interface IStyledOptionIconProps extends ThemeProps<DefaultTheme> {
+  $type?: OptionType;
+}
+
+const colorStyles = ({ theme, $type }: IStyledOptionIconProps) => {
+  const variable = $type === 'danger' ? 'foreground.danger' : 'foreground.subtle';
+  const color = getColor({ theme, variable });
 
   return css`
     color: ${color};
@@ -41,7 +47,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 export const StyledOptionIcon = styled(StyledBaseIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledOptionIconProps>`
   flex-shrink: 0;
 
   ${sizeStyles};
