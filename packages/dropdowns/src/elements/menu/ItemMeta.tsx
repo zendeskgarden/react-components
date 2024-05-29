@@ -11,9 +11,9 @@ import { StyledItemMeta } from '../../views';
 
 const ItemMetaComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
-    const { isDisabled, type } = useItemContext();
+    const { isDisabled } = useItemContext();
 
-    return <StyledItemMeta isDisabled={isDisabled} $type={type} {...props} ref={ref} />;
+    return <StyledItemMeta isDisabled={isDisabled} {...props} ref={ref} />;
   }
 );
 

@@ -18,11 +18,23 @@ import { OptionType } from '../../types';
 const COMPONENT_ID = 'dropdowns.combobox.option.icon';
 
 export interface IStyledOptionIconProps extends ThemeProps<DefaultTheme> {
+  $isDisabled?: boolean;
   $type?: OptionType;
 }
 
-const colorStyles = ({ theme, $type }: IStyledOptionIconProps) => {
-  const variable = $type === 'danger' ? 'foreground.danger' : 'foreground.subtle';
+const colorStyles = ({ theme, $isDisabled, $type }: IStyledOptionIconProps) => {
+  let variable;
+
+  if ($isDisabled) {
+    variable = 'foreground.disabled';
+  } else if ($type === 'danger') {
+    variable = 'foreground.danger';
+  } else if ($type === 'add') {
+    variable = 'foreground.primary';
+  } else {
+    variable = 'foreground.subtle';
+  }
+
   const color = getColor({ theme, variable });
 
   return css`

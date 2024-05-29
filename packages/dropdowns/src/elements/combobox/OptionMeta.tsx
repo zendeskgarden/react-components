@@ -11,9 +11,9 @@ import { StyledOptionMeta } from '../../views';
 
 const OptionMetaComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
-    const { isDisabled, type } = useOptionContext();
+    const { isDisabled } = useOptionContext();
 
-    return <StyledOptionMeta isDisabled={isDisabled} $type={type} {...props} ref={ref} />;
+    return <StyledOptionMeta isDisabled={isDisabled} {...props} ref={ref} />;
   }
 );
 
