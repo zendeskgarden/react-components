@@ -6,8 +6,15 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, renderDark } from 'garden-test-utils';
 import { StyledSVG } from '.';
+import { PALETTE } from '@zendeskgarden/react-theming';
+
+type Args = ['light' | 'dark', string];
+
+function getRenderFn(mode: 'dark' | 'light') {
+  return mode === 'dark' ? renderDark : render;
+}
 
 describe('StyledSVG', () => {
   it('applies font-size if provided', () => {
@@ -32,10 +39,15 @@ describe('StyledSVG', () => {
     expect(container.firstChild).toHaveStyleRule('color', 'red');
   });
 
-  it('defaults color to inherit if not provided', () => {
-    const { container } = render(<StyledSVG width="0" height="0" dataGardenId="StyledSVG" />);
+  it.each<Args>([
+    ['light', PALETTE.grey[700]],
+    ['dark', PALETTE.grey[500]]
+  ])('applies the default color in "%s" mode if none is provided', (mode, color) => {
+    const { container } = getRenderFn(mode)(
+      <StyledSVG width="0" height="0" dataGardenId="StyledSVG" />
+    );
 
-    expect(container.firstChild).toHaveStyleRule('color', 'inherit');
+    expect(container.firstChild).toHaveStyleRule('color', color);
   });
 
   it('applies width and height if provided', () => {

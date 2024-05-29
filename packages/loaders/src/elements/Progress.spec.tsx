@@ -6,9 +6,14 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, renderDark } from 'garden-test-utils';
 import { Progress } from './Progress';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { rgba } from 'polished';
+
+function getRenderFn(mode: 'dark' | 'light') {
+  return mode === 'dark' ? renderDark : render;
+}
 
 describe('Progress', () => {
   describe('without a value', () => {
@@ -77,10 +82,14 @@ describe('Progress', () => {
   });
 
   describe('without a color set', () => {
-    it('renders a blue progress bar by default', () => {
-      const { getByRole } = render(<Progress value={42} />);
+    it.each<['light' | 'dark', string, string]>([
+      ['light', rgba(PALETTE.grey[700], DEFAULT_THEME.opacity[200]), PALETTE.green[700]],
+      ['dark', rgba(PALETTE.grey[500], DEFAULT_THEME.opacity[200]), PALETTE.green[600]]
+    ])('applies the default colors in "%s mode', (mode, bgColor, fgColor) => {
+      const { container } = getRenderFn(mode)(<Progress value={42} />);
 
-      expect(getByRole('progressbar')).toHaveStyleRule('color', PALETTE_V8.green[600]);
+      expect(container.firstChild).toHaveStyleRule('color', fgColor);
+      expect(container.firstChild).toHaveStyleRule('background-color', bgColor);
     });
   });
 

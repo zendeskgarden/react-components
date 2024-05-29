@@ -106,6 +106,5 @@ Spinner.propTypes = {
 Spinner.defaultProps = {
   size: 'inherit',
   duration: 1250,
-  color: 'inherit',
   delayMS: 750
 };

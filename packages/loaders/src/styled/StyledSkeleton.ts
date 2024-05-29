@@ -6,12 +6,11 @@
  */
 
 import styled, { keyframes, css, ThemeProps, DefaultTheme } from 'styled-components';
-import { rgba } from 'polished';
 import {
   DEFAULT_THEME,
   retrieveComponentStyles,
-  getColorV8,
-  getLineHeight
+  getLineHeight,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.skeleton';
@@ -48,14 +47,16 @@ const retrieveSkeletonBackgroundColor = ({
   theme,
   isLight
 }: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
-  if (isLight) {
-    return css`
-      background-color: ${rgba(getColorV8('background', 600 /* default shade */, theme)!, 0.2)};
-    `;
-  }
+  const backgroundColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    transparency: theme.opacity[200],
+    light: { shade: isLight ? 500 : 700 },
+    dark: { shade: isLight ? 700 : 500 }
+  });
 
   return css`
-    background-color: ${getColorV8('neutralHue', 800, theme, 0.1)};
+    background-color: ${backgroundColor};
   `;
 };
 
@@ -89,9 +90,13 @@ const retrieveSkeletonGradient = ({
     background-image: linear-gradient(
       ${theme.rtl ? '-45deg' : '45deg'},
       transparent,
-      ${isLight
-        ? getColorV8('chromeHue', 700, theme, 0.4)
-        : rgba(getColorV8('background', 600 /* default shade */, theme)!, 0.6)},
+      ${getColor({
+        theme,
+        hue: 'neutralHue',
+        transparency: theme.opacity[200],
+        light: { shade: isLight ? 500 : 700 },
+        dark: { shade: isLight ? 700 : 500 }
+      })},
       transparent
     );
     /* stylelint-enable */
