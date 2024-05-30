@@ -34,7 +34,7 @@ export const StyledMenu = styled(StyledListbox).attrs({
     props.arrowPosition &&
     arrowStyles(props.arrowPosition, {
       size: `${props.theme.space.base * 2}px`,
-      inset: '2px',
+      inset: '1.5px', // More consistent cross-browser positioning with 1.5px
       animationModifier: '[data-garden-animate-arrow="true"]'
     })};
 
