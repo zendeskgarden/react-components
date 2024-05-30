@@ -38,7 +38,7 @@ export const StyledMenu = styled.ul.attrs<IStyledMenuProps>(props => ({
     props.hasArrow &&
     arrowStyles(getArrowPosition(props.placement), {
       size: `${props.theme.space.base * 2}px`,
-      inset: '2px',
+      inset: '1.5px', // More consistent cross-browser positioning with 1.5px
       animationModifier: props.isAnimated ? '.is-animated' : undefined
     })};
 

@@ -13,6 +13,24 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.12 (2024-05-23)
+
+#### :rocket: New Feature
+* `tags`
+  * [#1809](https://github.com/zendeskgarden/react-components/pull/1809) feat(tags): new light/dark mode colors ([@jzempel](https://github.com/jzempel))
+* `modals`
+  * [#1808](https://github.com/zendeskgarden/react-components/pull/1808) feat(Modal): new light/dark mode colors ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* `buttons`
+  * [#1815](https://github.com/zendeskgarden/react-components/pull/1815) fix(buttons): update `IconButton` foreground color ([@jzempel](https://github.com/jzempel))
+* `modals`
+  * [#1813](https://github.com/zendeskgarden/react-components/pull/1813) fix(modals): increase `box-shadow` opacity in dark mode  ([@ze-flo](https://github.com/ze-flo))
+
+#### :seedling: Internal
+* `buttons`, `colorpickers`, `dropdowns`, `grid`, `notifications`
+  * [#1804](https://github.com/zendeskgarden/react-components/pull/1804) fix(Buttons): correctly support overriding default `data-garden-id` attribute ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.0.0-next.11 (2024-05-16)
 
 #### :rocket: New Feature

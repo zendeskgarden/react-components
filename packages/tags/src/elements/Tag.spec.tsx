@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { Tag } from './Tag';
 
 describe('Tag', () => {
@@ -22,41 +21,5 @@ describe('Tag', () => {
     const { container } = render(<Tag ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
-  });
-
-  describe('hue', () => {
-    it('renders the hue provided', () => {
-      [
-        'grey',
-        'blue',
-        'kale',
-        'red',
-        'green',
-        'fuschia',
-        'pink',
-        'crimson',
-        'orange',
-        'lemon',
-        'lime',
-        'mint',
-        'teal',
-        'azure',
-        'royal',
-        'purple'
-      ].forEach(color => {
-        const { container } = render(<Tag hue={color as any} />);
-
-        expect(container.firstChild).toHaveStyleRule(
-          'background-color',
-          (PALETTE_V8 as any)[color][600]
-        );
-      });
-    });
-
-    it('handles yellow hue with specialized shading', () => {
-      const { container } = render(<Tag hue="yellow" />);
-
-      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE_V8.yellow[400]);
-    });
   });
 });
