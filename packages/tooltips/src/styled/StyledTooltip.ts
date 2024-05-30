@@ -121,30 +121,14 @@ const sizeStyles = ({
 };
 
 const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
-  let boxShadow = theme.shadows.lg(
-    `${theme.space.base}px`,
-    `${theme.space.base * 2}px`,
-    getColor({
-      theme,
-      hue: 'neutralHue',
-      shade: 1200,
-      light: { transparency: theme.opacity[200] },
-      dark: { transparency: theme.opacity[1100] }
-    })
-  );
-
-  let backgroundColor = getColor({
-    theme,
-    hue: 'neutralHue',
-    light: { shade: 900 },
-    dark: { shade: 700 }
-  });
-
-  let borderColor = backgroundColor;
-  let color = theme.palette.white;
+  let borderColor;
+  let boxShadow;
+  let backgroundColor;
+  let color;
   let titleColor;
 
   if (type === 'light') {
+    borderColor = getColor({ theme, variable: 'border.default' });
     boxShadow = theme.shadows.lg(
       `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`,
       `${theme.space.base * (theme.colors.base === 'dark' ? 6 : 7)}px`,
@@ -156,10 +140,29 @@ const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTh
         dark: { transparency: theme.opacity[800] }
       })
     );
-    borderColor = getColor({ theme, variable: 'border.default' });
     backgroundColor = getColor({ theme, variable: 'background.raised' });
     color = getColor({ theme, variable: 'foreground.subtle' });
     titleColor = getColor({ theme, variable: 'foreground.default' });
+  } else {
+    borderColor = 'transparent';
+    boxShadow = theme.shadows.lg(
+      `${theme.space.base}px`,
+      `${theme.space.base * 2}px`,
+      getColor({
+        theme,
+        hue: 'neutralHue',
+        shade: 1200,
+        light: { transparency: theme.opacity[200] },
+        dark: { transparency: theme.opacity[1100] }
+      })
+    );
+    backgroundColor = getColor({
+      theme,
+      hue: 'neutralHue',
+      light: { shade: 900 },
+      dark: { shade: 700 }
+    });
+    color = getColor({ theme, hue: 'white' });
   }
 
   return css`
