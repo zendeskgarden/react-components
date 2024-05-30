@@ -75,14 +75,14 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
   }
 
   /**
-   * 1. Arrow positioning on the base element.
-   * 2. Rotate the clipping mask depending on arrow position.
+   * 1. Rotate the clipping mask depending on arrow position.
+   * 2. Arrow positioning on the base element.
    */
   return css`
     &::before,
     &::after {
-      transform: ${transform}; /* [2] */
-      ${positionCss}; /* [1] */
+      transform: ${transform}; /* [1] */
+      ${positionCss}; /* [2] */
     }
   `;
 };
@@ -130,10 +130,10 @@ export default function arrowStyles(position: ArrowPosition, options: ArrowOptio
    * 1. Set base positioning for an element with an arrow.
    * 2. Apply shared properties to ::before and ::after.
    * 3. Display border with inherited border-color
-   * 4. Clip the inner square forming the arrow body into a triangle so that it
-   *    doesn't interfere with container content.
-   * 5. Clip the outer square forming the arrow border into a triangle so that the
+   * 4. Clip the outer square forming the arrow border into a triangle so that the
    *    border merge with the container's.
+   * 5. Clip the inner square forming the arrow body into a triangle so that it
+   *    doesn't interfere with container content.
    */
   return css`
     position: relative; /* [1] */
@@ -153,14 +153,14 @@ export default function arrowStyles(position: ArrowPosition, options: ArrowOptio
     &::before {
       border-color: inherit; /* [3] */
       background-color: transparent;
-      clip-path: polygon(100% ${beforeOffset}px, ${beforeOffset}px 100%, 100% 100%); /* [5] */
+      clip-path: polygon(100% ${beforeOffset}px, ${beforeOffset}px 100%, 100% 100%); /* [4] */
     }
 
     &::after {
       border-color: transparent;
       background-clip: content-box;
       background-color: inherit;
-      clip-path: polygon(100% ${afterOffset}px, ${afterOffset}px 100%, 100% 100%); /* [4] */
+      clip-path: polygon(100% ${afterOffset}px, ${afterOffset}px 100%, 100% 100%); /* [5] */
     }
 
     ${positionStyles(position, squareSize, inset)};
