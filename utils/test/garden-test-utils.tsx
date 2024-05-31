@@ -34,6 +34,29 @@ const customRtlRender = (ui: React.ReactElement, options?: any) =>
 const customDarkRender = (ui: React.ReactElement, options?: any) =>
   render(ui, { wrapper: DarkThemeWrapper, ...options });
 
+const MODE_TO_RENDER_FN_MAP = {
+  dark: customDarkRender,
+  light: customRender
+};
+/**
+ * A utility fn that returns the correct render function
+ * for the mode. Useful when using `it.each()`.
+ *
+ * @throws Throws an error if mode is not recognized.
+ *
+ * @param mode {string} The color mode.
+ * @returns {Function} Render function associated with the mode.
+ */
+export function getRenderFn(mode: string) {
+  const renderFn = (MODE_TO_RENDER_FN_MAP as any)[mode];
+
+  if (!renderFn) {
+    throw new Error(`There is no render function for mode: ${mode}`);
+  }
+
+  return renderFn;
+}
+
 export * from '@testing-library/react';
 export { customRender as render };
 export { customRtlRender as renderRtl };
