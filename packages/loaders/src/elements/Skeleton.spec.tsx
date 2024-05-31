@@ -35,8 +35,8 @@ describe('Skeleton', () => {
   });
 
   it.each<Args>([
-    ['light', rgba(PALETTE.grey[500], DEFAULT_THEME.opacity[200])],
-    ['dark', rgba(PALETTE.grey[700], DEFAULT_THEME.opacity[200])]
+    ['light', rgba(PALETTE.white, DEFAULT_THEME.opacity[200])],
+    ['dark', rgba(PALETTE.white, DEFAULT_THEME.opacity[200])]
   ])('renders a `isLight` Skeleton in "%s" mode', (mode, color) => {
     const { container } = getRenderFn(mode)(<Skeleton isLight />);
 

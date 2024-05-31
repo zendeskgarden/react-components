@@ -43,23 +43,6 @@ const skeletonRtlAnimation = keyframes`
   }
 `;
 
-const retrieveSkeletonBackgroundColor = ({
-  theme,
-  isLight
-}: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
-  const backgroundColor = getColor({
-    theme,
-    hue: 'neutralHue',
-    transparency: theme.opacity[200],
-    light: { shade: isLight ? 500 : 700 },
-    dark: { shade: isLight ? 700 : 500 }
-  });
-
-  return css`
-    background-color: ${backgroundColor};
-  `;
-};
-
 interface IStyledSkeletonProps {
   width?: string;
   height?: string;
@@ -68,7 +51,31 @@ interface IStyledSkeletonProps {
   customHeight?: string;
 }
 
-const retrieveSkeletonAnimation = ({ theme }: ThemeProps<DefaultTheme>) => {
+const getBackgroundColor = ({
+  theme,
+  isLight
+}: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
+  let backgroundColor;
+
+  if (isLight) {
+    backgroundColor = getColor({
+      theme,
+      hue: 'white',
+      transparency: theme.opacity[200]
+    });
+  } else {
+    backgroundColor = getColor({
+      theme,
+      hue: 'neutralHue',
+      transparency: theme.opacity[200],
+      light: { shade: 700 },
+      dark: { shade: 500 }
+    });
+  }
+  return backgroundColor;
+};
+
+const animationStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   if (theme.rtl) {
     return css`
       animation: ${skeletonRtlAnimation} 1.5s ease-in-out 300ms infinite;
@@ -80,26 +87,14 @@ const retrieveSkeletonAnimation = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const retrieveSkeletonGradient = ({
-  theme,
-  isLight
-}: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
-  // Disabling stylelint due to conflicts with prettier and linear-gradient formatting
+const gradienStyles = (props: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
   return css`
-    /* stylelint-disable */
     background-image: linear-gradient(
-      ${theme.rtl ? '-45deg' : '45deg'},
+      ${props.theme.rtl ? '-45deg' : '45deg'},
       transparent,
-      ${getColor({
-        theme,
-        hue: 'neutralHue',
-        transparency: theme.opacity[200],
-        light: { shade: isLight ? 500 : 700 },
-        dark: { shade: isLight ? 700 : 500 }
-      })},
+      ${getBackgroundColor},
       transparent
     );
-    /* stylelint-enable */
   `;
 };
 
@@ -111,12 +106,11 @@ export const StyledSkeleton = styled.div.attrs({
   position: relative;
   animation: ${fadeInAnimation} 750ms linear;
   border-radius: ${props => props.theme.borderRadii.md};
+  background-color: ${getBackgroundColor};
   width: ${props => props.customWidth};
   height: ${props => props.customHeight};
   overflow: hidden;
   line-height: ${props => getLineHeight(props.theme.fontSizes.sm, props.theme.space.base * 5)};
-
-  ${retrieveSkeletonBackgroundColor}
 
   &::before {
     position: absolute;
@@ -125,8 +119,8 @@ export const StyledSkeleton = styled.div.attrs({
     height: 100%;
     content: '';
 
-    ${retrieveSkeletonAnimation}
-    ${retrieveSkeletonGradient}
+    ${animationStyles}
+    ${gradienStyles}
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
