@@ -6,31 +6,13 @@
  */
 
 import { css, keyframes } from 'styled-components';
-import { math } from 'polished';
+import { math, stripUnit } from 'polished';
 import { ArrowPosition } from '../types';
 
 type ArrowOptions = {
   size?: string;
   inset?: string;
   animationModifier?: string;
-};
-
-// Workaround for https://github.com/styled-components/polished/issues/550
-export const exponentialSymbols = {
-  symbols: {
-    sqrt: {
-      func: {
-        symbol: 'sqrt',
-        f: (a: number) => Math.sqrt(a),
-        notation: 'func',
-        precedence: 0,
-        rightToLeft: 0,
-        argCount: 1
-      },
-      symbol: 'sqrt',
-      regSymbol: 'sqrt\\b'
-    }
-  }
 };
 
 const animationStyles = (position: ArrowPosition, modifier: string) => {
@@ -55,13 +37,11 @@ const animationStyles = (position: ArrowPosition, modifier: string) => {
 const positionStyles = (position: ArrowPosition, size: string, inset: string) => {
   const margin = math(`${size} / -2`);
   const placement = math(`${margin} + ${inset}`);
-  let clipPath;
+  let transform;
   let positionCss;
-  let propertyRadius: string;
 
   if (position.startsWith('top')) {
-    propertyRadius = 'border-bottom-right-radius';
-    clipPath = 'polygon(100% 0, 100% 1px, 1px 100%, 0 100%, 0 0)';
+    transform = 'rotate(-135deg)';
     positionCss = css`
       top: ${placement};
       right: ${position === 'top-right' && size};
@@ -69,8 +49,7 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
       margin-left: ${position === 'top' && margin};
     `;
   } else if (position.startsWith('right')) {
-    propertyRadius = 'border-bottom-left-radius';
-    clipPath = 'polygon(100% 0, 100% 100%, calc(100% - 1px) 100%, 0 1px, 0 0)';
+    transform = 'rotate(-45deg)';
     positionCss = css`
       top: ${position === 'right' ? '50%' : position === 'right-top' && size};
       right: ${placement};
@@ -78,8 +57,7 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
       margin-top: ${position === 'right' && margin};
     `;
   } else if (position.startsWith('bottom')) {
-    propertyRadius = 'border-top-left-radius';
-    clipPath = 'polygon(100% 0, calc(100% - 1px) 0, 0 calc(100% - 1px), 0 100%, 100% 100%)';
+    transform = 'rotate(45deg)';
     positionCss = css`
       right: ${position === 'bottom-right' && size};
       bottom: ${placement};
@@ -87,8 +65,7 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
       margin-left: ${position === 'bottom' && margin};
     `;
   } else if (position.startsWith('left')) {
-    propertyRadius = 'border-top-right-radius';
-    clipPath = 'polygon(0 100%, 100% 100%, 100% calc(100% - 1px), 1px 0, 0 0)';
+    transform = 'rotate(135deg)';
     positionCss = css`
       top: ${position === 'left' ? '50%' : position === 'left-top' && size};
       bottom: ${size};
@@ -98,21 +75,14 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
   }
 
   /**
-   * 1. Round-off portion of the foreground square opposite the arrow tip
-   *    (improved layout for IE which doesn't support 'clip-path').
-   * 2. Clip portion of the foreground square opposite the arrow tip so that it
-   *    doesn't interfere with container content.
-   * 3. Arrow positioning on the base element.
+   * 1. Rotate the clipping mask depending on arrow position.
+   * 2. Arrow positioning on the base element.
    */
   return css`
-    &::before {
-      ${propertyRadius!}: 100%; /* [1] */
-      clip-path: ${clipPath}; /* [2] */
-    }
-
     &::before,
     &::after {
-      ${positionCss}/* [3] */
+      transform: ${transform}; /* [1] */
+      ${positionCss}; /* [2] */
     }
   `;
 };
@@ -150,45 +120,47 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
  * @component
  */
 export default function arrowStyles(position: ArrowPosition, options: ArrowOptions = {}) {
-  const size = options.size || '6px';
   const inset = options.inset || '0';
-  const squareSize = math(`${size} * 2 / sqrt(2)`, exponentialSymbols);
+  const size = options.size === undefined ? 6 : (stripUnit(options.size) as number);
+  const squareSize = `${Math.round((size * 2) / Math.sqrt(2))}px`;
+  const afterOffset = 0;
+  const beforeOffset = afterOffset + 2;
 
   /**
    * 1. Set base positioning for an element with an arrow.
-   * 2. Allow any border inherited by `::after` to show through.
-   * 3. Border styling and box-shadow will be automatically inherited from the
-   *    parent element.
-   * 4. Apply shared sizing properties to ::before and ::after.
+   * 2. Apply shared properties to ::before and ::after.
+   * 3. Display border with inherited border-color
+   * 4. Clip the outer square forming the arrow border into a triangle so that the
+   *    border merge with the container's.
+   * 5. Clip the inner square forming the arrow body into a triangle so that it
+   *    doesn't interfere with container content.
    */
   return css`
     position: relative; /* [1] */
 
-    &::before {
-      /* [2] */
-      border-width: inherit;
-      border-style: inherit;
-      border-color: transparent;
-      background-clip: content-box;
-    }
-
-    &::after {
-      /* [3] */
-      z-index: -1;
-      border: inherit;
-      box-shadow: inherit;
-    }
-
     &::before,
     &::after {
-      /* [4] */
+      /* [2] */
       position: absolute;
-      transform: rotate(45deg);
-      background-color: inherit;
-      box-sizing: inherit;
+      border-width: inherit;
+      border-style: inherit;
       width: ${squareSize};
       height: ${squareSize};
       content: '';
+      box-sizing: inherit;
+    }
+
+    &::before {
+      border-color: inherit; /* [3] */
+      background-color: transparent;
+      clip-path: polygon(100% ${beforeOffset}px, ${beforeOffset}px 100%, 100% 100%); /* [4] */
+    }
+
+    &::after {
+      border-color: transparent;
+      background-clip: content-box;
+      background-color: inherit;
+      clip-path: polygon(100% ${afterOffset}px, ${afterOffset}px 100%, 100% 100%); /* [5] */
     }
 
     ${positionStyles(position, squareSize, inset)};
