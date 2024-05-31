@@ -12,6 +12,7 @@ import { PALETTE } from '@zendeskgarden/react-theming';
 import { Tooltip } from './Tooltip';
 import { ITooltipProps } from '../types';
 
+// TODO: remove once `getRenderFn` is in `garden-test-utils`
 function getRenderFn(mode: 'dark' | 'light') {
   return mode === 'dark' ? renderDark : render;
 }
