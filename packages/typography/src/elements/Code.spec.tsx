@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { Code } from './Code';
 
 describe('Code', () => {
@@ -43,32 +42,6 @@ describe('Code', () => {
       const { container } = render(<Code size="large" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', '17px');
-    });
-  });
-
-  describe('hue', () => {
-    it('renders grey hue if provided', () => {
-      const { container } = render(<Code hue="grey" />);
-
-      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE_V8.grey[200]);
-    });
-
-    it('renders green hue if provided', () => {
-      const { container } = render(<Code hue="green" />);
-
-      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE_V8.green[200]);
-    });
-
-    it('renders red hue if provided', () => {
-      const { container } = render(<Code hue="red" />);
-
-      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE_V8.red[200]);
-    });
-
-    it('renders yellow hue if provided', () => {
-      const { container } = render(<Code hue="yellow" />);
-
-      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE_V8.yellow[200]);
     });
   });
 });
