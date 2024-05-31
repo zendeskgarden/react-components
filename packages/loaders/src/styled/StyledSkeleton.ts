@@ -44,20 +44,18 @@ const skeletonRtlAnimation = keyframes`
 `;
 
 interface IStyledSkeletonProps {
-  width?: string;
-  height?: string;
-  isLight?: boolean;
-  customWidth?: string;
-  customHeight?: string;
+  $height?: string;
+  $width?: string;
+  $isLight?: boolean;
 }
 
 const getBackgroundColor = ({
   theme,
-  isLight
+  $isLight
 }: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
   let backgroundColor;
 
-  if (isLight) {
+  if ($isLight) {
     backgroundColor = getColor({
       theme,
       hue: 'white',
@@ -107,8 +105,8 @@ export const StyledSkeleton = styled.div.attrs({
   animation: ${fadeInAnimation} 750ms linear;
   border-radius: ${props => props.theme.borderRadii.md};
   background-color: ${getBackgroundColor};
-  width: ${props => props.customWidth};
-  height: ${props => props.customHeight};
+  width: ${props => props.$width};
+  height: ${props => props.$height};
   overflow: hidden;
   line-height: ${props => getLineHeight(props.theme.fontSizes.sm, props.theme.space.base * 5)};
 
