@@ -7,15 +7,10 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, act, renderRtl, renderDark } from 'garden-test-utils';
+import { render, act, renderRtl, getRenderFn } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Tooltip } from './Tooltip';
 import { ITooltipProps } from '../types';
-
-// TODO: remove once `getRenderFn` is in `garden-test-utils`
-function getRenderFn(mode: 'dark' | 'light') {
-  return mode === 'dark' ? renderDark : render;
-}
 
 jest.useFakeTimers();
 
