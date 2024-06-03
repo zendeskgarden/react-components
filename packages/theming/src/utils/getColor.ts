@@ -5,15 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { scale, valid } from 'chroma-js';
-import { darken, lighten, rgba } from 'polished';
+import { getScale, parseToRgba } from 'color2k';
+import { darken, getContrast, lighten, rgba } from 'polished';
 import get from 'lodash.get';
 import memoize from 'lodash.memoize';
 import DEFAULT_THEME from '../elements/theme';
-import PALETTE from '../elements/palette';
 import { ColorParameters, Hue, IGardenTheme } from '../types';
-
-const PALETTE_SIZE = Object.keys(PALETTE.blue).length;
 
 const adjust = (color: string, expected: number, actual: number) => {
   if (expected !== actual) {
@@ -67,6 +64,101 @@ const toHex = (
   return retVal;
 };
 
+/* Validates color */
+const isValidColor = (maybeColor: any) => {
+  try {
+    return !!parseToRgba(maybeColor);
+  } catch {
+    return false;
+  }
+};
+
+/**
+ *
+ * Finds the index of the nearest element to a given target value in a sorted array using a binary search approach.
+ */
+function findNearestIndex(target: number, arr: number[], startIndex = 0) {
+  if (typeof target !== 'number' || isNaN(target)) {
+    throw new Error('Target must be a number.');
+  }
+  if (!Array.isArray(arr)) {
+    throw new Error('Second argument must be an array.');
+  }
+
+  let left = startIndex;
+  let right = arr.length - 1;
+
+  if (target < arr[left]) return left;
+  if (target > arr[right]) return right;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (arr[mid] === target) {
+      return mid;
+    } else if (arr[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return arr[left] - target < target - arr[right] ? left : right;
+}
+
+const OFFSET_TO_TARGET_RATIO = {
+  100: 1.08,
+  200: 1.2,
+  300: 1.35,
+  400: 2,
+  500: 2.8,
+  600: 3.3,
+  700: 5,
+  800: 10,
+  900: 13,
+  1000: 16,
+  1100: 17.5,
+  1200: 19
+};
+
+/**
+ * Generates a 12-step offset-based color scale.
+ * Each key is an offset value and the corresponding value
+ * is the color that best matches the target contrast ratio for that offset.
+ */
+const generateColorScale = memoize((color: string) => {
+  /**
+   * Based on empirical research, a scale of 200 colors
+   * provided the best precision to size ratio.
+   */
+  const scaleSize = 200;
+  const _scale = getScale('#FFF', color, '#000');
+  const scale = (x: number) => _scale(x / scaleSize);
+
+  const colors = [];
+  const contrastRatios = [];
+
+  for (let i = 0; i <= scaleSize; i++) {
+    const _color = scale(i);
+    colors.push(_color);
+    contrastRatios.push(getContrast('#FFF', _color));
+  }
+
+  const palette: Record<string, string> = {};
+  let startIndex = 0;
+
+  for (const offset in OFFSET_TO_TARGET_RATIO) {
+    if (Object.prototype.hasOwnProperty.call(OFFSET_TO_TARGET_RATIO, offset)) {
+      const ratio = (OFFSET_TO_TARGET_RATIO as any)[offset];
+
+      const nearestIndex = findNearestIndex(ratio, contrastRatios, startIndex);
+      startIndex = nearestIndex + 1;
+
+      palette[offset] = colors[nearestIndex];
+    }
+  }
+
+  return palette;
+});
+
 /* convert the given hue + shade to a color */
 const toColor = (
   colors: Omit<IGardenTheme['colors'], 'base' | 'variables'>,
@@ -89,21 +181,11 @@ const toColor = (
 
   if (typeof _hue === 'object') {
     retVal = toHex(_hue, shade, offset, scheme);
-  } else if (_hue === 'transparent' || valid(_hue)) {
+  } else if (_hue === 'transparent' || isValidColor(_hue)) {
     if (shade === undefined) {
       retVal = _hue;
     } else {
-      const _colors = scale([PALETTE.white, _hue, PALETTE.black])
-        .correctLightness()
-        .colors(PALETTE_SIZE + 2); // add 2 to account for the white and black endpoints removed below
-
-      _hue = _colors.reduce<Record<number, string>>((_retVal, color, index) => {
-        if (index > 0 && index <= PALETTE_SIZE) {
-          _retVal[index * 100] = color;
-        }
-
-        return _retVal;
-      }, {});
+      _hue = generateColorScale(_hue);
 
       retVal = toHex(_hue, shade, offset, scheme);
     }
