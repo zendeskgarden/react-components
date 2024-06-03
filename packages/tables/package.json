@@ -23,7 +23,7 @@
   "dependencies": {
     "@zendeskgarden/container-utilities": "^2.0.0",
     "dom-helpers": "^5.1.0",
-    "polished": "^4.0.0",
+    "polished": "^4.3.1",
     "prop-types": "^15.5.7"
   },
   "peerDependencies": {
