@@ -6,14 +6,9 @@
  */
 
 import React from 'react';
-import { render, renderDark } from 'garden-test-utils';
+import { getRenderFn, render } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledCode } from './StyledCode';
-
-// TODO: remove once `getRenderFn` is in `garden-test-utils`
-function getRenderFn(mode: 'dark' | 'light') {
-  return mode === 'dark' ? renderDark : render;
-}
 
 describe('StyledCode', () => {
   it('renders the expected element', () => {

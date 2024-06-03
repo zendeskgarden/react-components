@@ -7,14 +7,9 @@
 
 import React from 'react';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { render, renderDark, renderRtl } from 'garden-test-utils';
+import { getRenderFn, render, renderRtl } from 'garden-test-utils';
 import { Span } from './Span';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-
-// TODO: remove once `getRenderFn` is in `garden-test-utils`
-function getRenderFn(mode: 'dark' | 'light') {
-  return mode === 'dark' ? renderDark : render;
-}
 
 describe('Span', () => {
   it('passes ref to underlying DOM element', () => {
