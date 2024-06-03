@@ -6,14 +6,10 @@
  */
 
 import React from 'react';
-import { render, renderDark, renderRtl } from 'garden-test-utils';
+import { getRenderFn, render, renderRtl } from 'garden-test-utils';
 import { Skeleton } from './Skeleton';
 import { rgba } from 'polished';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-
-function getRenderFn(mode: 'dark' | 'light') {
-  return mode === 'dark' ? renderDark : render;
-}
 
 describe('Skeleton', () => {
   type Args = ['light' | 'dark', string];

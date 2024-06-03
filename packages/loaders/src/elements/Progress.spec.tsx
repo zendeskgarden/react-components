@@ -6,14 +6,10 @@
  */
 
 import React from 'react';
-import { render, renderDark } from 'garden-test-utils';
+import { getRenderFn, render } from 'garden-test-utils';
 import { Progress } from './Progress';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { rgba } from 'polished';
-
-function getRenderFn(mode: 'dark' | 'light') {
-  return mode === 'dark' ? renderDark : render;
-}
 
 describe('Progress', () => {
   describe('without a value', () => {

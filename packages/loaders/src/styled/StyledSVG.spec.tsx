@@ -6,15 +6,11 @@
  */
 
 import React from 'react';
-import { render, renderDark } from 'garden-test-utils';
+import { getRenderFn, render } from 'garden-test-utils';
 import { StyledSVG } from '.';
 import { PALETTE } from '@zendeskgarden/react-theming';
 
 type Args = ['light' | 'dark', string];
-
-function getRenderFn(mode: 'dark' | 'light') {
-  return mode === 'dark' ? renderDark : render;
-}
 
 describe('StyledSVG', () => {
   it('applies font-size if provided', () => {
