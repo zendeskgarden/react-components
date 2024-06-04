@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { IParagraphProps } from '../types';
 import { THEME_SIZES } from './StyledFont';
 
@@ -19,7 +19,6 @@ export const StyledParagraph = styled.p.attrs({
   margin: 0;
   padding: 0;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
-  color: ${props => getColor({ theme: props.theme, variable: 'foreground.default' })};
 
   & + &,
   blockquote + & {
