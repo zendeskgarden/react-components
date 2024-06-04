@@ -22,9 +22,9 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
-    "@zendeskgarden/container-tooltip": "^1.0.0",
+    "@zendeskgarden/container-tooltip": "^1.0.16",
     "@zendeskgarden/container-utilities": "^2.0.0",
-    "polished": "^4.0.0",
+    "polished": "^4.3.1",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^2.0.0"
   },

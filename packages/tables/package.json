@@ -23,7 +23,7 @@
   "dependencies": {
     "@zendeskgarden/container-utilities": "^2.0.0",
     "dom-helpers": "^5.1.0",
-    "polished": "^4.0.0",
+    "polished": "^4.3.1",
     "prop-types": "^15.5.7"
   },
   "peerDependencies": {
@@ -36,7 +36,7 @@
     "@types/react-beautiful-dnd": "13.1.8",
     "@types/react-window": "1.8.8",
     "@zendeskgarden/react-theming": "^9.0.0-next.12",
-    "@zendeskgarden/svg-icons": "7.0.0",
+    "@zendeskgarden/svg-icons": "7.1.1",
     "react-beautiful-dnd": "13.1.1",
     "react-window": "1.8.10"
   },
