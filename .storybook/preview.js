@@ -49,6 +49,7 @@ const GlobalPreviewStyling = createGlobalStyle`
     background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
     /* stylelint-disable-next-line declaration-no-important */
     padding: 0 !important;
+    color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
     font-family: ${p => p.theme.fonts.system};
   }
 `;
