@@ -22,7 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-utilities": "^2.0.0",
-    "date-fns": "^3.0.0",
+    "date-fns": "^3.6.0",
     "prop-types": "^15.5.7",
     "react-popper": "^1.3.4"
   },
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/react-theming": "^8.76.2",
-    "@zendeskgarden/svg-icons": "7.0.0"
+    "@zendeskgarden/svg-icons": "7.1.1"
   },
   "keywords": [
     "components",

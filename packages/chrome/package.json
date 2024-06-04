@@ -24,7 +24,7 @@
     "@zendeskgarden/container-accordion": "^3.0.4",
     "@zendeskgarden/container-utilities": "^2.0.0",
     "dom-helpers": "^5.2.1",
-    "polished": "^4.0.0",
+    "polished": "^4.3.1",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^1.1.0"
   },
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/react-theming": "^8.76.2",
-    "@zendeskgarden/svg-icons": "7.0.0"
+    "@zendeskgarden/svg-icons": "7.1.1"
   },
   "keywords": [
     "components",

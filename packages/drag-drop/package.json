@@ -21,7 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "polished": "^4.0.0",
+    "polished": "^4.3.1",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
@@ -35,7 +35,7 @@
     "@dnd-kit/sortable": "8.0.0",
     "@dnd-kit/utilities": "3.2.2",
     "@zendeskgarden/react-theming": "^8.76.2",
-    "@zendeskgarden/svg-icons": "7.0.0"
+    "@zendeskgarden/svg-icons": "7.1.1"
   },
   "keywords": [
     "components",
