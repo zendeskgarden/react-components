@@ -45,8 +45,13 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
       }
     });
 
+    const contextValue = useMemo(
+      () => ({ isVertical, ...tabsContextValue }),
+      [isVertical, tabsContextValue]
+    );
+
     return (
-      <TabsContext.Provider value={tabsContextValue}>
+      <TabsContext.Provider value={contextValue}>
         <StyledTabs isVertical={isVertical} {...otherProps} ref={ref}>
           {children}
         </StyledTabs>

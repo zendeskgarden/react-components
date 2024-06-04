@@ -31,6 +31,7 @@ export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
     return (
       <StyledTabPanel
         aria-hidden={tabsPropGetters.selectedValue !== item}
+        isVertical={tabsPropGetters.isVertical}
         {...tabPanelProps}
         {...otherProps}
         ref={ref}
