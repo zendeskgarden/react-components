@@ -20,7 +20,15 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
     const tabsPropGetters = useTabsContext();
 
     if (disabled || !tabsPropGetters) {
-      return <StyledTab role="tab" aria-disabled={disabled} ref={ref} {...otherProps} />;
+      return (
+        <StyledTab
+          role="tab"
+          aria-disabled={disabled}
+          ref={ref}
+          isVertical={tabsPropGetters?.isVertical}
+          {...otherProps}
+        />
+      );
     }
 
     const { ref: tabRef, ...tabProps } = tabsPropGetters.getTabProps<HTMLDivElement>({
@@ -30,6 +38,7 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
     return (
       <StyledTab
         isSelected={item === tabsPropGetters.selectedValue}
+        isVertical={tabsPropGetters.isVertical}
         {...tabProps}
         {...otherProps}
         ref={mergeRefs([tabRef, ref])}

@@ -18,16 +18,20 @@ const COMPONENT_ID = 'tabs.tab';
 
 interface IStyledTabProps {
   isSelected?: boolean;
+  isVertical?: boolean;
 }
 
-/**
- * 1. A high specificity is needed to apply the border-color in vertical orientations
- */
-const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({
+  theme,
+  isSelected,
+  isVertical
+}: IStyledTabProps & ThemeProps<DefaultTheme>) => {
+  const borderColor = isSelected ? 'currentcolor' : 'transparent';
   const selectedColor = getColorV8('primaryHue', 600, theme);
 
   return css`
-    border-color: ${isSelected && 'currentcolor !important'}; /* [1] */
+    border-bottom-color: ${isVertical ? undefined : borderColor};
+    border-${theme.rtl ? 'right' : 'left'}-color: ${isVertical ? borderColor : undefined};
     color: ${isSelected ? selectedColor : 'inherit'};
 
     &:hover {
@@ -55,43 +59,73 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
   `;
 };
 
-const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const paddingTop = theme.space.base * 2.5;
-  const paddingHorizontal = theme.space.base * 7;
-  const paddingBottom =
-    paddingTop -
-    (stripUnit(theme.borderWidths.md) as number) -
-    (stripUnit(theme.borderWidths.sm) as number);
+const sizeStyles = ({ theme, isVertical }: IStyledTabProps & ThemeProps<DefaultTheme>) => {
+  const borderWidth = theme.borderWidths.md;
+  const focusHeight = `${theme.space.base * 5}px`;
+  let marginBottom;
+  let padding;
+
+  if (isVertical) {
+    marginBottom = `${theme.space.base * 5}px`;
+    padding = `${theme.space.base}px ${theme.space.base * 2}px`;
+  } else {
+    const paddingTop = theme.space.base * 2.5;
+    const paddingHorizontal = theme.space.base * 7;
+    const paddingBottom =
+      paddingTop -
+      (stripUnit(theme.borderWidths.md) as number) -
+      (stripUnit(theme.borderWidths.sm) as number);
+
+    padding = `${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px`;
+  }
 
   return css`
-    padding: ${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px;
+    margin-bottom: ${marginBottom};
+    border-width: ${borderWidth};
+    padding: ${padding};
+
+    &:focus-visible::before,
+    &[data-garden-focus-visible]::before {
+      height: ${focusHeight};
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   `;
 };
 
-/**
+/*
  * 1. Text truncation (requires `max-width`).
  * 2. Overflow compensation.
  * 3. Override default anchor styling
  */
-export const StyledTab = styled.div.attrs<IStyledTabProps>({
+export const StyledTab = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTabProps>`
-  display: inline-block;
+  display: ${props => (props.isVertical ? 'block' : 'inline-block')};
   position: relative;
   transition: color 0.25s ease-in-out;
-  border-bottom: ${props => props.theme.borderStyles.solid} transparent;
-  border-width: ${props => props.theme.borderWidths.md};
+  border-bottom: ${props => (props.isVertical ? undefined : props.theme.borderStyles.solid)};
+  border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => (props.isVertical ? props.theme.borderStyles.solid : undefined)};
   cursor: pointer;
   overflow: hidden; /* [1] */
   vertical-align: top; /* [2] */
   user-select: none;
-  text-align: center;
+  text-align: ${props => {
+    if (props.isVertical) {
+      return props.theme.rtl ? 'right' : 'left';
+    }
+
+    return 'center';
+  }};
   text-decoration: none; /* [3] */
   text-overflow: ellipsis; /* [1] */
 
-  ${sizeStyles}
-  ${colorStyles}
+  ${sizeStyles};
+
+  ${colorStyles};
 
   &:focus {
     text-decoration: none;
@@ -105,11 +139,10 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>({
   &:focus-visible::before,
   &[data-garden-focus-visible]::before {
     position: absolute;
-    top: ${props => props.theme.space.base * 2.5}px;
-    right: ${props => props.theme.space.base * 6}px;
-    left: ${props => props.theme.space.base * 6}px;
+    top: ${props => props.theme.space.base * (props.isVertical ? 1 : 2.5)}px;
+    right: ${props => props.theme.space.base * (props.isVertical ? 1 : 6)}px;
+    left: ${props => props.theme.space.base * (props.isVertical ? 1 : 6)}px;
     border-radius: ${props => props.theme.borderRadii.md};
-    height: ${props => props.theme.space.base * 5}px;
     pointer-events: none;
   }
 

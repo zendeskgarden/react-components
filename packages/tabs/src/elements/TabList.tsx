@@ -23,7 +23,14 @@ export const TabList = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
     const tabListProps =
       tabsPropGetters.getTabListProps<HTMLDivElement>() as HTMLAttributes<HTMLDivElement>;
 
-    return <StyledTabList {...tabListProps} {...props} ref={ref} />;
+    return (
+      <StyledTabList
+        isVertical={tabsPropGetters.isVertical}
+        {...tabListProps}
+        {...props}
+        ref={ref}
+      />
+    );
   }
 );
 
