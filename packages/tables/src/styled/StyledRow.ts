@@ -6,12 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getColorV8,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { ITableProps } from '../types';
 import { StyledCell } from './StyledCell';
 import { StyledOverflowButton } from './StyledOverflowButton';
@@ -54,32 +49,53 @@ StyledBaseRow.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
-  const boxShadow = `inset ${props.theme.rtl ? '-' : ''}${
-    props.theme.shadowWidths.md
-  } 0 0 0 ${getColorV8('primaryHue', 600, props.theme)}`;
+const colorStyles = ({
+  theme,
+  isFocused,
+  isSelected,
+  isHovered,
+  isReadOnly
+}: IStyledRowProps & ThemeProps<DefaultTheme>) => {
+  const boxShadow = `inset ${theme.rtl ? '-' : ''}${
+    theme.shadowWidths.md
+  } 0 0 0 ${getColor({ variable: 'border.primaryEmphasis', theme })}`;
   const hoveredBackgroundColor = getColor({
     variable: 'background.primaryEmphasis',
-    transparency: props.theme.opacity[100],
+    transparency: theme.opacity[100],
     dark: { offset: -100 },
-    theme: props.theme
+    theme
   });
   const hoveredBorderColor = getColor({
     variable: 'border.primaryEmphasis',
-    transparency: props.theme.opacity[100],
+    transparency: theme.opacity[100],
     dark: { offset: -100 },
-    theme: props.theme
+    theme
   });
-  const selectedBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.2);
-  const selectedBorderColor = getColorV8('primaryHue', 300, props.theme);
-  const hoveredSelectedBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.28);
+  const selectedBackgroundColor = getColor({
+    variable: 'background.primaryEmphasis',
+    transparency: theme.opacity[200],
+    dark: { offset: -100 },
+    theme
+  });
+  const selectedBorderColor = getColor({
+    variable: 'border.primaryEmphasis',
+    transparency: theme.opacity[200],
+    dark: { offset: -100 },
+    theme
+  });
+  const hoveredSelectedBackgroundColor = getColor({
+    variable: 'background.primaryEmphasis',
+    transparency: theme.opacity[300], // needs validation from design
+    dark: { offset: -100 },
+    theme
+  });
   let backgroundColor = undefined;
   let borderColor = undefined;
   let hoverBorderBottomColor = undefined;
   let hoverBackgroundColor = undefined;
 
-  if (props.isSelected) {
-    if (props.isHovered) {
+  if (isSelected) {
+    if (isHovered) {
       backgroundColor = hoveredSelectedBackgroundColor;
     } else {
       backgroundColor = selectedBackgroundColor;
@@ -88,10 +104,10 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     borderColor = selectedBorderColor;
     hoverBorderBottomColor = selectedBorderColor;
     hoverBackgroundColor = hoveredSelectedBackgroundColor;
-  } else if (props.isHovered) {
+  } else if (isHovered) {
     backgroundColor = hoveredBackgroundColor;
     borderColor = hoveredBorderColor;
-  } else if (!props.isReadOnly) {
+  } else if (!isReadOnly) {
     hoverBorderBottomColor = hoveredBorderColor;
     hoverBackgroundColor = hoveredBackgroundColor;
   }
@@ -114,7 +130,7 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     }
 
     ${StyledCell}:first-of-type {
-      box-shadow: ${props.isFocused && boxShadow};
+      box-shadow: ${isFocused && boxShadow};
 
       &:focus {
         box-shadow: ${boxShadow};
