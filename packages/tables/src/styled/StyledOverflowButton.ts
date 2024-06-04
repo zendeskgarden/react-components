@@ -5,109 +5,37 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
+import styled from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getColorV8,
-  focusStyles
-} from '@zendeskgarden/react-theming';
-import { ITableProps } from '../types';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { getRowHeight } from './style-utils';
+import { IconButton } from '@zendeskgarden/react-buttons';
 
 const COMPONENT_ID = 'tables.overflow_button';
 
-interface IStyledOverflowButtonProps {
-  isHovered?: boolean;
-  isActive?: boolean;
-  isFocused?: boolean;
-  size?: ITableProps['size'];
-}
-
 const OVERFLOW_BUTTON_SIZE = '2em';
 
-const colorStyles = (props: IStyledOverflowButtonProps & ThemeProps<DefaultTheme>) => {
-  const hoverBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.08);
-  const hoverForegroundColor = getColorV8('neutralHue', 700, props.theme);
-  const activeBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.2);
-  const activeForegroundColor = getColorV8('neutralHue', 800, props.theme);
-  let foregroundColor;
-
-  if (props.isHovered) {
-    foregroundColor = hoverForegroundColor;
-  } else if (props.isActive) {
-    foregroundColor = activeForegroundColor;
-  } else {
-    foregroundColor = getColorV8('neutralHue', 600, props.theme);
-  }
-
-  return css`
-    color: ${foregroundColor};
-
-    &:hover {
-      background-color: ${hoverBackgroundColor};
-      color: ${hoverForegroundColor};
-    }
-
-    ${focusStyles({
-      theme: props.theme,
-      inset: true
-    })}
-
-    &:active {
-      background-color: ${activeBackgroundColor};
-      color: ${activeForegroundColor};
-    }
-  `;
-};
-
 /**
- * 1. Reset for <button> element
- * 2. Reset for <a>nchor element
+ * 1. Overrides IconButton sizing
  */
-export const StyledOverflowButton = styled.button.attrs<IStyledOverflowButtonProps>({
+export const StyledOverflowButton = styled(IconButton).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  type: 'button'
-})<IStyledOverflowButtonProps>`
-  display: block;
-  /* prettier-ignore */
-  transition:
-    background-color 0.1s ease-in-out,
-    box-shadow 0.1s ease-in-out;
-  z-index: ${props => (props.isActive ? '1' : '0')};
+  'data-garden-version': PACKAGE_VERSION
+})`
+  z-index: 0;
   margin-top: calc(${props => math(`${getRowHeight(props)} / 2`)} - 1em);
-  border: none; /* [1] */
-  border-radius: 50%;
-  background-color: transparent; /* [1] */
-  cursor: pointer;
-  padding: 0; /* [1] */
-  width: 100%;
-  height: ${OVERFLOW_BUTTON_SIZE};
-  text-decoration: none; /* [2] */
-  font-size: inherit; /* [1] */
+  min-width: unset; /* [1] */
+  height: ${OVERFLOW_BUTTON_SIZE}; /* [1] */
+  width: 100%; /* [1] */
+  font-size: inherit;
 
-  ${props => colorStyles(props)}
+  &:active {
+    z-index: 1;
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledOverflowButton.defaultProps = {
-  theme: DEFAULT_THEME
-};
-
-export const StyledOverflowButtonIconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: rotate(90deg);
-  transition: background-color 0.1s ease-in-out;
-
-  width: ${OVERFLOW_BUTTON_SIZE};
-  height: ${OVERFLOW_BUTTON_SIZE};
-`;
-
-StyledOverflowButtonIconWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
