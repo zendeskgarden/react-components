@@ -52,14 +52,15 @@ const colorStyles = ({ hue, theme }: IStyledCodeProps & ThemeProps<DefaultTheme>
 };
 
 interface IStyledCodeProps extends Omit<IStyledFontProps, 'size'> {
-  hue?: string;
+  hue?: ICodeProps['hue'];
   size?: ICodeProps['size'];
 }
 
 export const StyledCode = styled(StyledFont as 'code').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  as: 'code'
+  as: 'code',
+  isMonospace: true
 })<IStyledCodeProps>`
   border-radius: ${props => props.theme.borderRadii.sm};
   padding: 1.5px;
@@ -71,7 +72,6 @@ export const StyledCode = styled(StyledFont as 'code').attrs({
 
 StyledCode.defaultProps = {
   theme: DEFAULT_THEME,
-  isMonospace: true,
-  hue: 'neutralHue',
+  hue: 'grey',
   size: 'inherit'
 };
