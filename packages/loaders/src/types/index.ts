@@ -14,7 +14,7 @@ export type Size = (typeof SIZE)[number];
 export interface IDotsProps extends SVGAttributes<SVGSVGElement> {
   /** Sets the height and width in pixels. Inherits the parent's font size by default. */
   size?: string | number;
-  /** Overrides the default fill color. */
+  /** Sets the fill color. Inherits the parent's `color` by default. */
   color?: string;
   /** Sets the length of the animation cycle in milliseconds **/
   duration?: number;
@@ -25,7 +25,7 @@ export interface IDotsProps extends SVGAttributes<SVGSVGElement> {
 export interface IInlineProps extends SVGAttributes<SVGSVGElement> {
   /** Sets the width in pixels and scales the loader proportionally */
   size?: number;
-  /** Overrides the default fill color. */
+  /** Sets the fill color. Inherits the parent's `color` by default. */
   color?: string;
 }
 
@@ -60,7 +60,7 @@ export interface ISpinnerProps extends SVGAttributes<SVGSVGElement> {
    **/
   duration?: number;
   /**
-   * Overrides the default fill color.
+   * Sets the fill color. Inherits the parent's `color` by default.
    **/
   color?: string;
   /**
