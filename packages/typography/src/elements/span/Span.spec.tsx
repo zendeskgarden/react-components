@@ -81,14 +81,14 @@ describe('Span', () => {
       );
     });
 
-    it.each<['light' | 'dark', string]>([
-      ['light', PALETTE.grey[900]],
-      ['dark', PALETTE.grey[300]]
-    ])('renders with a default hue in "%s" mode', (mode, color) => {
-      const { container } = getRenderFn(mode)(<Span />);
+    it.each<['light' | 'dark']>([['light'], ['dark']])(
+      'inherits the parent color in "%s" mode',
+      mode => {
+        const { container } = getRenderFn(mode)(<Span />);
 
-      expect(container.firstChild).toHaveStyleRule('color', color);
-    });
+        expect(container.firstChild).toHaveStyleRule('color', undefined);
+      }
+    );
   });
 
   it('applies expected styling with RTL locale', () => {

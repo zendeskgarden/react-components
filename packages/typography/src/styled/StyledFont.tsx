@@ -42,7 +42,7 @@ const fontStyles = ({
   let fontSize;
   let fontWeight;
   let lineHeight;
-  let color = getColor({ theme, variable: 'foreground.default' });
+  let color;
 
   if (monospace) {
     if (size === 'inherit') {
