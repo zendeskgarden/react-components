@@ -78,7 +78,7 @@
     "eslint-plugin-garden-local": "file:./utils/eslint",
     "eslint-plugin-jest": "28.5.0",
     "eslint-plugin-jsx-a11y": "6.8.0",
-    "eslint-plugin-n": "16.6.2",
+    "eslint-plugin-n": "17.7.0",
     "eslint-plugin-notice": "0.9.10",
     "eslint-plugin-react": "7.34.2",
     "eslint-plugin-react-hooks": "4.6.2",
