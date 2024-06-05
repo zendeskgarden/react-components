@@ -22,16 +22,11 @@ export const StyledOverflowButton = styled(IconButton).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  z-index: 0;
   margin-top: calc(${props => math(`${getRowHeight(props)} / 2`)} - 1em);
+  width: 100%; /* [1] */
   min-width: unset; /* [1] */
   height: ${OVERFLOW_BUTTON_SIZE}; /* [1] */
-  width: 100%; /* [1] */
   font-size: inherit;
-
-  &:active {
-    z-index: 1;
-  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
