@@ -80,7 +80,8 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
      * See: https://bugzilla.mozilla.org/show_bug.cgi?id=559506
      */
     const onLabelSelect = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+      // eslint-disable-next-line n/no-unsupported-features/node-builtins
+      const isFirefox = navigator?.userAgent.toLowerCase().indexOf('firefox') > -1;
 
       if (fieldContext && isFirefox && e.target instanceof Element) {
         const inputId = e.target.getAttribute('for');
