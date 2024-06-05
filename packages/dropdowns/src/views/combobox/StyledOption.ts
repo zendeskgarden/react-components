@@ -7,7 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { hideVisually, math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { OptionType } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.option';
@@ -18,27 +18,31 @@ export interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
   $type?: OptionType | 'header' | 'group';
 }
 
-const colorStyles = (props: IStyledOptionProps) => {
+const colorStyles = ({ theme, isActive, $type }: IStyledOptionProps) => {
   let backgroundColor;
   let boxShadow;
 
-  if (props.isActive && props.$type !== 'group' && props.$type !== 'header') {
-    const hue = props.$type === 'danger' ? 'dangerHue' : 'primaryHue';
+  if (isActive && $type !== 'group' && $type !== 'header') {
+    const variable = 'background.primaryEmphasis';
 
-    backgroundColor = getColorV8(hue, 600, props.theme, 0.08);
+    backgroundColor = getColor({ theme, variable, transparency: theme.opacity[100] });
     boxShadow = `inset ${
-      props.theme.rtl ? `-${props.theme.shadowWidths.md}` : props.theme.shadowWidths.md
-    } 0 ${getColorV8(hue, 600, props.theme)}`;
+      theme.rtl ? `-${theme.shadowWidths.md}` : theme.shadowWidths.md
+    } 0 ${getColor({ theme, variable })}`;
   }
 
-  const disabledForegroundColor = getColorV8('neutralHue', 400, props.theme);
-  let foregroundColor = getColorV8('foreground', 600 /* default shade */, props.theme);
+  let foregroundVariable;
 
-  if (props.$type === 'add') {
-    foregroundColor = getColorV8('primaryHue', 600, props.theme)!;
-  } else if (props.$type === 'danger') {
-    foregroundColor = getColorV8('dangerHue', 600, props.theme)!;
+  if ($type === 'add') {
+    foregroundVariable = 'foreground.primary';
+  } else if ($type === 'danger') {
+    foregroundVariable = 'foreground.danger';
+  } else {
+    foregroundVariable = 'foreground.default';
   }
+
+  const foregroundColor = getColor({ theme, variable: foregroundVariable });
+  const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
     box-shadow: ${boxShadow};

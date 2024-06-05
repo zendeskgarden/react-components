@@ -10,8 +10,8 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8,
-  focusStyles
+  focusStyles,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { Validation } from '../../types';
 import { getHeight as getInputHeight } from './StyledInput';
@@ -30,68 +30,72 @@ interface IStyledTriggerProps extends ThemeProps<DefaultTheme> {
   validation?: Validation;
 }
 
-const colorStyles = (props: IStyledTriggerProps) => {
-  const SHADE = 600;
-  let hue = 'neutralHue';
-
-  if (props.validation === 'success') {
-    hue = 'successHue';
-  } else if (props.validation === 'warning') {
-    hue = 'warningHue';
-  } else if (props.validation === 'error') {
-    hue = 'dangerHue';
-  }
-
-  const backgroundColor = props.isBare
+const colorStyles = ({
+  theme,
+  validation,
+  isBare,
+  isLabelHovered,
+  focusInset
+}: IStyledTriggerProps) => {
+  const foregroundColor = getColor({ theme, variable: 'foreground.default' });
+  const backgroundColor = isBare
     ? 'transparent'
-    : getColorV8('background', 600 /* default shade */, props.theme);
+    : getColor({ theme, variable: 'background.default' });
   let borderColor: string | undefined;
+  let borderVariable: string | undefined;
   let hoverBorderColor: string | undefined;
   let focusBorderColor: string | undefined;
-  let focusShade: number | undefined;
 
-  if (props.validation) {
-    borderColor = getColorV8(hue, SHADE, props.theme);
-    hoverBorderColor = borderColor;
-
-    if (props.validation === 'warning') {
-      focusBorderColor = getColorV8(hue, SHADE + 100, props.theme);
-      focusShade = SHADE + 100;
-    } else {
-      focusBorderColor = borderColor;
+  if (validation) {
+    if (validation === 'success') {
+      borderVariable = 'border.successEmphasis';
+    } else if (validation === 'warning') {
+      borderVariable = 'border.warningEmphasis';
+    } else if (validation === 'error') {
+      borderVariable = 'border.dangerEmphasis';
     }
+
+    borderColor = getColor({ theme, variable: borderVariable });
+    hoverBorderColor = borderColor;
+    focusBorderColor = borderColor;
   } else {
-    borderColor = getColorV8('neutralHue', SHADE - 300, props.theme);
-    hoverBorderColor = getColorV8('primaryHue', SHADE, props.theme);
+    borderColor = getColor({
+      theme,
+      variable: 'border.default',
+      dark: { offset: -100 },
+      light: { offset: 100 }
+    });
+    borderVariable = 'border.primaryEmphasis';
+    hoverBorderColor = getColor({ theme, variable: borderVariable });
     focusBorderColor = hoverBorderColor;
   }
 
-  const disabledBackgroundColor = props.isBare
+  const disabledBackgroundColor = isBare
     ? undefined
-    : getColorV8('neutralHue', SHADE - 500, props.theme);
-  const disabledBorderColor = getColorV8('neutralHue', SHADE - 400, props.theme);
-  const disabledForegroundColor = getColorV8('neutralHue', SHADE - 200, props.theme);
+    : getColor({ theme, variable: 'background.disabled' });
+  const disabledBorderColor = getColor({ theme, variable: 'border.disabled' });
+  const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
   const focusSelector = `
     &:focus-within:not([aria-disabled='true']),
     &:focus-visible
   `;
 
   return css`
-    border-color: ${props.isLabelHovered ? hoverBorderColor : borderColor};
+    border-color: ${isLabelHovered ? hoverBorderColor : borderColor};
     background-color: ${backgroundColor};
-    color: ${getColorV8('foreground', 600 /* default shade */, props.theme)};
+    color: ${foregroundColor};
 
     &:hover {
       border-color: ${hoverBorderColor};
     }
 
     ${focusStyles({
-      theme: props.theme,
-      inset: props.focusInset,
-      color: { hue: focusBorderColor, shade: focusShade },
+      theme,
+      inset: focusInset,
+      color: { variable: borderVariable },
       selector: focusSelector,
       styles: { borderColor: focusBorderColor },
-      condition: !props.isBare
+      condition: !isBare
     })}
 
     &[aria-disabled='true'] {

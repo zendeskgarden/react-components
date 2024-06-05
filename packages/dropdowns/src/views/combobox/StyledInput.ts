@@ -10,8 +10,8 @@ import { hideVisually, math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8,
-  getLineHeight
+  getLineHeight,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.combobox.input';
@@ -23,8 +23,8 @@ interface IStyledInputProps extends ThemeProps<DefaultTheme> {
   isMultiselectable?: boolean;
 }
 
-const colorStyles = (props: IStyledInputProps) => {
-  const placeholderColor = getColorV8('neutralHue', 400, props.theme);
+const colorStyles = ({ theme }: IStyledInputProps) => {
+  const placeholderColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
     background-color: inherit;

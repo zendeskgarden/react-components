@@ -9,9 +9,9 @@ import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
 import {
   retrieveComponentStyles,
-  getColorV8,
   DEFAULT_THEME,
-  StyledBaseIcon
+  StyledBaseIcon,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
 import { OptionType } from '../../types';
@@ -23,16 +23,16 @@ export interface IStyledOptionTypeIconProps extends ThemeProps<DefaultTheme> {
   $type?: OptionType | 'header';
 }
 
-const colorStyles = (props: IStyledOptionTypeIconProps) => {
-  const opacity = props.$type && props.$type !== 'danger' ? 1 : 0;
+const colorStyles = ({ theme, $type }: IStyledOptionTypeIconProps) => {
+  const opacity = $type && $type !== 'danger' ? 1 : 0;
   let color;
 
-  if (props.$type === 'add' || props.$type === 'danger') {
+  if ($type === 'add') {
     color = 'inherit';
-  } else if (props.$type === 'header' || props.$type === 'next' || props.$type === 'previous') {
-    color = getColorV8('neutralHue', 600, props.theme);
+  } else if ($type === 'header' || $type === 'next' || $type === 'previous') {
+    color = getColor({ theme, variable: 'foreground.subtle' });
   } else {
-    color = getColorV8('primaryHue', 600, props.theme);
+    color = getColor({ theme, variable: 'foreground.primary' });
   }
 
   return css`

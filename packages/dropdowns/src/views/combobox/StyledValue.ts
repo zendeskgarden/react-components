@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { sizeStyles } from './StyledInput';
 
 const COMPONENT_ID = 'dropdowns.combobox.value';
@@ -21,8 +21,8 @@ interface IStyledValueProps extends ThemeProps<DefaultTheme> {
   isPlaceholder?: boolean;
 }
 
-const colorStyles = (props: IStyledValueProps) => {
-  const foregroundColor = props.isPlaceholder && getColorV8('neutralHue', 400, props.theme);
+const colorStyles = ({ theme, isPlaceholder }: IStyledValueProps) => {
+  const foregroundColor = isPlaceholder && getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
     color: ${foregroundColor};

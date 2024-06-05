@@ -10,10 +10,37 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  StyledBaseIcon
+  StyledBaseIcon,
+  getColor
 } from '@zendeskgarden/react-theming';
+import { OptionType } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.option.icon';
+
+export interface IStyledOptionIconProps extends ThemeProps<DefaultTheme> {
+  $isDisabled?: boolean;
+  $type?: OptionType;
+}
+
+const colorStyles = ({ theme, $isDisabled, $type }: IStyledOptionIconProps) => {
+  let variable;
+
+  if ($isDisabled) {
+    variable = 'foreground.disabled';
+  } else if ($type === 'danger') {
+    variable = 'foreground.danger';
+  } else if ($type === 'add') {
+    variable = 'foreground.primary';
+  } else {
+    variable = 'foreground.subtle';
+  }
+
+  const color = getColor({ theme, variable });
+
+  return css`
+    color: ${color};
+  `;
+};
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const size = props.theme.iconSizes.md;
@@ -32,10 +59,12 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 export const StyledOptionIcon = styled(StyledBaseIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledOptionIconProps>`
   flex-shrink: 0;
 
   ${sizeStyles};
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

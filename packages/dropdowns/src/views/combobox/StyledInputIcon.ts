@@ -10,8 +10,8 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8,
-  StyledBaseIcon
+  StyledBaseIcon,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { getHeight as getInputHeight } from './StyledInput';
 import { StyledTrigger } from './StyledTrigger';
@@ -26,24 +26,25 @@ interface IStyledInputIconProps extends ThemeProps<DefaultTheme> {
   $isRotated?: boolean;
 }
 
-const colorStyles = (props: IStyledInputIconProps) => {
-  const color = getColorV8('neutralHue', 600, props.theme);
-  const focusColor = getColorV8('neutralHue', 700, props.theme);
-  const disabledColor = getColorV8('neutralHue', 400, props.theme);
+const colorStyles = ({ theme, $isLabelHovered }: IStyledInputIconProps) => {
+  const options = { theme, variable: 'foreground.subtle' };
+  const color = getColor(options);
+  const focusColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
+  const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
-    color: ${props.$isLabelHovered ? focusColor : color};
+    color: ${$isLabelHovered ? focusColor : color};
 
     /* stylelint-disable selector-no-qualifying-type */
-    ${StyledTrigger}:hover &,
-    ${StyledTrigger}:focus-within &,
-    ${StyledTrigger}:focus & {
+    ${StyledTrigger}:hover &&,
+    ${StyledTrigger}:focus-within &&,
+    ${StyledTrigger}:focus && {
       color: ${focusColor};
     }
     /* stylelint-enable selector-no-qualifying-type */
 
     /* stylelint-disable-next-line */
-    ${StyledTrigger}[aria-disabled='true'] & {
+    ${StyledTrigger}[aria-disabled='true'] && {
       color: ${disabledColor};
     }
   `;

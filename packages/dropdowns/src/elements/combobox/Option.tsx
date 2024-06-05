@@ -26,7 +26,7 @@ import { toOption } from './utils';
 
 const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
   ({ children, icon, isDisabled, isHidden, isSelected, label, type, value, ...props }, ref) => {
-    const contextValue = useMemo(() => ({ isDisabled }), [isDisabled]);
+    const contextValue = useMemo(() => ({ isDisabled, type }), [isDisabled, type]);
     const { activeValue, getOptionProps, isCompact } = useComboboxContext();
     const isActive = value === activeValue;
     const optionRef = useRef<HTMLLIElement>(null);
@@ -76,7 +76,11 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
           <StyledOptionTypeIcon $isCompact={isCompact} $type={type}>
             {renderActionIcon(type)}
           </StyledOptionTypeIcon>
-          {icon && <StyledOptionIcon>{icon}</StyledOptionIcon>}
+          {icon && (
+            <StyledOptionIcon $isDisabled={isDisabled} $type={type}>
+              {icon}
+            </StyledOptionIcon>
+          )}
           <StyledOptionContent>{children || label || value}</StyledOptionContent>
         </StyledOption>
       </OptionContext.Provider>
