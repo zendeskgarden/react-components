@@ -13,7 +13,11 @@ import { ICodeProps } from '../types';
 const COMPONENT_ID = 'typography.code';
 
 const colorStyles = ({ hue, theme }: IStyledCodeProps & ThemeProps<DefaultTheme>) => {
-  const bgColorArgs: Parameters<typeof getColor>[0] = { theme };
+  const bgColorArgs: Parameters<typeof getColor>[0] = {
+    theme,
+    light: { offset: 100 },
+    dark: { offset: -100 }
+  };
   const fgColorArgs: Parameters<typeof getColor>[0] = { theme };
 
   switch (hue) {
@@ -32,9 +36,7 @@ const colorStyles = ({ hue, theme }: IStyledCodeProps & ThemeProps<DefaultTheme>
     // includes grey
     default:
       fgColorArgs.variable = 'foreground.default';
-      bgColorArgs.hue = 'neutralHue';
-      bgColorArgs.dark = { shade: 900 };
-      bgColorArgs.light = { shade: 200 };
+      bgColorArgs.variable = 'background.subtle';
       break;
   }
 

@@ -82,14 +82,14 @@ describe('Code', () => {
     >([
       // light mode
       ['grey', 'light', { color: PALETTE.grey[900], bgColor: PALETTE.grey[200] }],
-      ['green', 'light', { color: PALETTE.green[900], bgColor: PALETTE.green[100] }],
-      ['red', 'light', { color: PALETTE.red[900], bgColor: PALETTE.red[100] }],
-      ['yellow', 'light', { color: PALETTE.yellow[900], bgColor: PALETTE.yellow[100] }],
+      ['green', 'light', { color: PALETTE.green[900], bgColor: PALETTE.green[200] }],
+      ['red', 'light', { color: PALETTE.red[900], bgColor: PALETTE.red[200] }],
+      ['yellow', 'light', { color: PALETTE.yellow[900], bgColor: PALETTE.yellow[200] }],
       // dark mode
       ['grey', 'dark', { color: PALETTE.grey[300], bgColor: PALETTE.grey[900] }],
-      ['green', 'dark', { color: PALETTE.green[300], bgColor: PALETTE.green[1000] }],
-      ['red', 'dark', { color: PALETTE.red[300], bgColor: PALETTE.red[1000] }],
-      ['yellow', 'dark', { color: PALETTE.yellow[300], bgColor: PALETTE.yellow[1000] }]
+      ['green', 'dark', { color: PALETTE.green[300], bgColor: PALETTE.green[900] }],
+      ['red', 'dark', { color: PALETTE.red[300], bgColor: PALETTE.red[900] }],
+      ['yellow', 'dark', { color: PALETTE.yellow[300], bgColor: PALETTE.yellow[900] }]
     ])('renders with a "%s" hue in "%s" mode', (hue, mode, { color, bgColor }) => {
       const { container } = getRenderFn(mode)(<Code hue={hue} />);
 
