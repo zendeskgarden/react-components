@@ -6,22 +6,22 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, keyframes } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.inline';
 
 const retrieveAnimation = ({ theme }: ThemeProps<DefaultTheme>) => keyframes`
-0% {
-  opacity: 1;
-}
+  0% {
+    opacity: 1;
+  }
 
-50% {
-  opacity: ${theme.opacity[600]};
-}
+  50% {
+    opacity: ${theme.opacity[600]};
+  }
 
-100% {
-  opacity: ${theme.opacity[200]};
-}
+  100% {
+    opacity: ${theme.opacity[200]};
+  }
 `;
 
 export const StyledCircle = styled.circle.attrs({
@@ -48,7 +48,7 @@ export const StyledInline = styled.svg.attrs<IStyledInlineProps>(props => ({
   width: props.size,
   height: props.size * 0.25
 }))<IStyledInlineProps>`
-  color: ${props => props.color || getColor({ theme: props.theme, variable: 'foreground.subtle' })};
+  color: ${props => props.color};
 
   ${StyledCircle} {
     opacity: 0.2;

@@ -90,6 +90,7 @@ Dots.propTypes = {
 
 Dots.defaultProps = {
   size: 'inherit',
+  color: 'inherit',
   duration: 1250,
   delayMS: 750
 };

@@ -49,5 +49,6 @@ Inline.propTypes = {
 };
 
 Inline.defaultProps = {
-  size: 16
+  size: 16,
+  color: 'inherit'
 };

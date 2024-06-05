@@ -8,7 +8,6 @@
 import React from 'react';
 import { getRenderFn, render } from 'garden-test-utils';
 import { StyledSVG } from '.';
-import { PALETTE } from '@zendeskgarden/react-theming';
 
 type Args = ['light' | 'dark', string];
 
@@ -36,8 +35,8 @@ describe('StyledSVG', () => {
   });
 
   it.each<Args>([
-    ['light', PALETTE.grey[700]],
-    ['dark', PALETTE.grey[500]]
+    ['light', 'inherit'],
+    ['dark', 'inherit']
   ])('applies the default color in "%s" mode if none is provided', (mode, color) => {
     const { container } = getRenderFn(mode)(
       <StyledSVG width="0" height="0" dataGardenId="StyledSVG" />
