@@ -15,23 +15,25 @@ interface IStyledHeadProps {
   isSticky?: boolean;
 }
 
+/*
+ * 1. Replace header row border with a box-shadow that maintains position
+ */
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const borderColor = getColor({ variable: 'border.default', theme });
   const backgroundColor = getColor({ variable: 'background.default', theme });
 
   return css`
-    box-shadow: inset 0 -${theme.borderWidths.sm} 0 ${borderColor}; /* [2] */
+    box-shadow: inset 0 -${theme.borderWidths.sm} 0 ${borderColor}; /* [1] */
     background-color: ${backgroundColor};
 
     & > ${StyledHeaderRow}:last-child {
-      border-bottom-color: transparent; /* [2] */
+      border-bottom-color: transparent; /* [1] */
     }
   `;
 };
 
 /*
  * 1. Prevent <Checkbox> or <OverflowButton> from leaking over the sticky header
- * 2. Replace header row border with a box-shadow that maintains position
  */
 const stickyStyles = () => {
   return css`

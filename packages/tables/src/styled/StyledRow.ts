@@ -85,7 +85,7 @@ const colorStyles = ({
   });
   const hoveredSelectedBackgroundColor = getColor({
     variable: 'background.primaryEmphasis',
-    transparency: theme.opacity[300], // needs validation from design
+    transparency: theme.opacity[300],
     dark: { offset: -100 },
     theme
   });
