@@ -10,7 +10,7 @@ import DEFAULT_THEME from '../elements/theme';
 import PALETTE from '../elements/palette';
 import { IGardenTheme } from '../types';
 import { darken, lighten, rgba } from 'polished';
-import { valid } from 'chroma-js';
+import { parseToRgba } from 'color2k';
 
 const DARK_THEME: IGardenTheme = {
   ...DEFAULT_THEME,
@@ -201,7 +201,7 @@ describe('getColor', () => {
       const theme = { ...DEFAULT_THEME, palette: { custom: '#fd5a1e' } };
       const adjustedColor = getColor({ theme, hue: 'custom', shade: 600 });
 
-      expect(valid(adjustedColor)).toBe(true);
+      expect(!!parseToRgba(adjustedColor)).toBe(true);
 
       theme.palette.custom = adjustedColor;
 
