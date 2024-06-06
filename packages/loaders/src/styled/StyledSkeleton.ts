@@ -85,7 +85,7 @@ const animationStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const gradienStyles = (props: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
+const gradientStyles = (props: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
   return css`
     background-image: linear-gradient(
       ${props.theme.rtl ? '-45deg' : '45deg'},
@@ -118,7 +118,7 @@ export const StyledSkeleton = styled.div.attrs({
     content: '';
 
     ${animationStyles}
-    ${gradienStyles}
+    ${gradientStyles}
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
