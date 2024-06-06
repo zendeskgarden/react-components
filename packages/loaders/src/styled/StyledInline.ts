@@ -11,16 +11,12 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'loaders.inline';
 
 const retrieveAnimation = ({ theme }: ThemeProps<DefaultTheme>) => keyframes`
-  0% {
-    opacity: 1;
+  0%, 100% {
+    opacity: ${theme.opacity[200]};
   }
 
   50% {
     opacity: ${theme.opacity[600]};
-  }
-
-  100% {
-    opacity: ${theme.opacity[200]};
   }
 `;
 
