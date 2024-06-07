@@ -13,6 +13,32 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.13 (2024-06-07)
+
+#### :rocket: New Feature
+* `typography`
+  * [#1820](https://github.com/zendeskgarden/react-components/pull/1820) feat(typography): new light/dark mode colors (excluding CodeBlock) ([@ze-flo](https://github.com/ze-flo))
+* `loaders`
+  * [#1818](https://github.com/zendeskgarden/react-components/pull/1818) feat(loaders): new light/dark mode colors ([@ze-flo](https://github.com/ze-flo))
+* `dropdowns`, `forms`, `theming`
+  * [#1816](https://github.com/zendeskgarden/react-components/pull/1816) feat(dropdowns): new light/dark mode colors ([@jzempel](https://github.com/jzempel))
+* `tooltips`
+  * [#1811](https://github.com/zendeskgarden/react-components/pull/1811) feat(tooltips): new light/dark mode colors ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* Other
+  * [#1835](https://github.com/zendeskgarden/react-components/pull/1835) fix: package and package-lock JSON ([@jzempel](https://github.com/jzempel))
+* `dropdowns.legacy`, `dropdowns`, `theming`
+  * [#1814](https://github.com/zendeskgarden/react-components/pull/1814) fix: refine `arrowStyles` CSS to avoid overcast issues with drop shadows ([@ze-flo](https://github.com/ze-flo))
+
+#### :seedling: Internal
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1834](https://github.com/zendeskgarden/react-components/pull/1834) fix(deps): sync `main` to `next` ([@geotrev](https://github.com/geotrev))
+* `theming`
+  * [#1832](https://github.com/zendeskgarden/react-components/pull/1832) refactor(theming): improves custom color scale generation ([@ze-flo](https://github.com/ze-flo))
+* `tooltips`
+  * [#1819](https://github.com/zendeskgarden/react-components/pull/1819) test: add `getRenderFn` utility ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.0.0-next.12 (2024-05-23)
 
 #### :rocket: New Feature
