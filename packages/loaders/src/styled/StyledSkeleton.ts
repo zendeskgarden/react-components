@@ -6,12 +6,11 @@
  */
 
 import styled, { keyframes, css, ThemeProps, DefaultTheme } from 'styled-components';
-import { rgba } from 'polished';
 import {
   DEFAULT_THEME,
   retrieveComponentStyles,
-  getColorV8,
-  getLineHeight
+  getLineHeight,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.skeleton';
@@ -44,30 +43,37 @@ const skeletonRtlAnimation = keyframes`
   }
 `;
 
-const retrieveSkeletonBackgroundColor = ({
-  theme,
-  isLight
-}: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
-  if (isLight) {
-    return css`
-      background-color: ${rgba(getColorV8('background', 600 /* default shade */, theme)!, 0.2)};
-    `;
-  }
-
-  return css`
-    background-color: ${getColorV8('neutralHue', 800, theme, 0.1)};
-  `;
-};
-
 interface IStyledSkeletonProps {
-  width?: string;
-  height?: string;
-  isLight?: boolean;
-  customWidth?: string;
-  customHeight?: string;
+  $height?: string;
+  $width?: string;
+  $isLight?: boolean;
 }
 
-const retrieveSkeletonAnimation = ({ theme }: ThemeProps<DefaultTheme>) => {
+const getBackgroundColor = ({
+  theme,
+  $isLight
+}: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
+  let backgroundColor;
+
+  if ($isLight) {
+    backgroundColor = getColor({
+      theme,
+      hue: 'white',
+      transparency: theme.opacity[200]
+    });
+  } else {
+    backgroundColor = getColor({
+      theme,
+      hue: 'neutralHue',
+      transparency: theme.opacity[200],
+      light: { shade: 700 },
+      dark: { shade: 500 }
+    });
+  }
+  return backgroundColor;
+};
+
+const animationStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   if (theme.rtl) {
     return css`
       animation: ${skeletonRtlAnimation} 1.5s ease-in-out 300ms infinite;
@@ -79,22 +85,14 @@ const retrieveSkeletonAnimation = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const retrieveSkeletonGradient = ({
-  theme,
-  isLight
-}: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
-  // Disabling stylelint due to conflicts with prettier and linear-gradient formatting
+const gradientStyles = (props: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
   return css`
-    /* stylelint-disable */
     background-image: linear-gradient(
-      ${theme.rtl ? '-45deg' : '45deg'},
+      ${props.theme.rtl ? '-45deg' : '45deg'},
       transparent,
-      ${isLight
-        ? getColorV8('chromeHue', 700, theme, 0.4)
-        : rgba(getColorV8('background', 600 /* default shade */, theme)!, 0.6)},
+      ${getBackgroundColor},
       transparent
     );
-    /* stylelint-enable */
   `;
 };
 
@@ -106,12 +104,11 @@ export const StyledSkeleton = styled.div.attrs({
   position: relative;
   animation: ${fadeInAnimation} 750ms linear;
   border-radius: ${props => props.theme.borderRadii.md};
-  width: ${props => props.customWidth};
-  height: ${props => props.customHeight};
+  background-color: ${getBackgroundColor};
+  width: ${props => props.$width};
+  height: ${props => props.$height};
   overflow: hidden;
   line-height: ${props => getLineHeight(props.theme.fontSizes.sm, props.theme.space.base * 5)};
-
-  ${retrieveSkeletonBackgroundColor}
 
   &::before {
     position: absolute;
@@ -120,8 +117,8 @@ export const StyledSkeleton = styled.div.attrs({
     height: 100%;
     content: '';
 
-    ${retrieveSkeletonAnimation}
-    ${retrieveSkeletonGradient}
+    ${animationStyles}
+    ${gradientStyles}
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

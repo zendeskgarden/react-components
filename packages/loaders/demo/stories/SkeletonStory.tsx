@@ -50,7 +50,7 @@ export const SkeletonStory: Story<IArgs> = ({ backgroundColor, count = 1, typesc
   return (
     <div
       style={{
-        backgroundColor: backgroundColor || (args.isLight ? PALETTE.kale[600] : undefined),
+        backgroundColor: backgroundColor || (args.isLight ? PALETTE.kale[800] : undefined),
         padding: DEFAULT_THEME.space.md
       }}
     >
