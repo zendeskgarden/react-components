@@ -16,13 +16,7 @@ import { StyledSkeleton } from '../styled';
 export const Skeleton = forwardRef<HTMLDivElement, ISkeletonProps>(
   ({ width, height, isLight, ...other }, ref) => {
     return (
-      <StyledSkeleton
-        ref={ref}
-        isLight={isLight}
-        customWidth={width}
-        customHeight={height}
-        {...other}
-      >
+      <StyledSkeleton ref={ref} $isLight={isLight} $width={width} $height={height} {...other}>
         &nbsp;
       </StyledSkeleton>
     );

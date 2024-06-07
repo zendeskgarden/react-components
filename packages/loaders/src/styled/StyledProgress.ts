@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Size } from '../types';
 
 const sizeToHeight = (size: Size, theme: DefaultTheme) => {
@@ -30,6 +30,25 @@ interface IStyledProgressBackgroundProps {
 
 const PROGRESS_BACKGROUND_COMPONENT_ID = 'loaders.progress_background';
 
+const colorStyles = ({
+  theme,
+  color
+}: IStyledProgressBackgroundProps & ThemeProps<DefaultTheme>) => {
+  const backgroundColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    transparency: theme.opacity[200],
+    light: { shade: 700 },
+    dark: { shade: 500 }
+  });
+  const foregroundColor = color || getColor({ theme, variable: 'border.successEmphasis' });
+
+  return css`
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
+  `;
+};
+
 export const StyledProgressBackground = styled.div.attrs<IStyledProgressBackgroundProps>(props => ({
   'data-garden-id': PROGRESS_BACKGROUND_COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
@@ -37,8 +56,8 @@ export const StyledProgressBackground = styled.div.attrs<IStyledProgressBackgrou
 }))<IStyledProgressBackgroundProps>`
   margin: ${props => props.theme.space.base * 2}px 0;
   border-radius: ${props => props.borderRadius}px;
-  background-color: ${props => getColorV8('neutralHue', 200, props.theme)};
-  color: ${props => props.color || getColorV8('successHue', 600, props.theme)};
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(PROGRESS_BACKGROUND_COMPONENT_ID, props)}
 `;

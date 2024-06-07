@@ -8,7 +8,11 @@
 import { createContext, useContext } from 'react';
 import { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
 
-export const TabsContext = createContext<IUseTabsReturnValue<any> | undefined>(undefined);
+interface ITabsContext extends IUseTabsReturnValue<any> {
+  isVertical?: boolean;
+}
+
+export const TabsContext = createContext<ITabsContext | undefined>(undefined);
 
 export const useTabsContext = () => {
   return useContext(TabsContext);

@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-tooltips",
-  "version": "9.0.0-next.12",
+  "version": "9.0.0-next.13",
   "description": "Collection of components and render prop containers relating to Tooltips in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -22,9 +22,9 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
-    "@zendeskgarden/container-tooltip": "^1.0.0",
+    "@zendeskgarden/container-tooltip": "^1.0.16",
     "@zendeskgarden/container-utilities": "^2.0.0",
-    "polished": "^4.0.0",
+    "polished": "^4.3.1",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^2.0.0"
   },
@@ -35,7 +35,7 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^9.0.0-next.12"
+    "@zendeskgarden/react-theming": "^9.0.0-next.13"
   },
   "keywords": [
     "components",

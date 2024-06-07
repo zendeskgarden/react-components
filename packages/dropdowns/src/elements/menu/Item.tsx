@@ -39,7 +39,7 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
     ref
   ) => {
     const { type: selectionType } = useItemGroupContext();
-    const { focusedValue, getItemProps } = useMenuContext();
+    const { focusedValue, getItemProps, isCompact } = useMenuContext();
     const item = {
       ...toItem({
         value,
@@ -60,7 +60,6 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
     }) as LiHTMLAttributes<HTMLLIElement> & { ref: MutableRefObject<HTMLLIElement> };
 
     const isActive = value === focusedValue;
-    const { isCompact } = useMenuContext();
 
     const renderActionIcon = (iconType?: ItemType) => {
       switch (iconType) {

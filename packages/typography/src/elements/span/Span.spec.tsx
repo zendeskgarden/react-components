@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import { DEFAULT_THEME, PALETTE_V8 } from '@zendeskgarden/react-theming';
-import { render, renderRtl } from 'garden-test-utils';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { getRenderFn, render, renderRtl } from 'garden-test-utils';
 import { Span } from './Span';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 
@@ -47,36 +47,48 @@ describe('Span', () => {
   });
 
   describe('hue', () => {
-    it('renders the hue provided', () => {
-      [
-        'grey',
-        'blue',
-        'kale',
-        'red',
-        'green',
-        'fuschia',
-        'pink',
-        'crimson',
-        'orange',
-        'lemon',
-        'lime',
-        'mint',
-        'teal',
-        'azure',
-        'royal',
-        'purple'
-      ].forEach(color => {
-        const { container } = render(<Span hue={color as any} />);
+    const cases = [
+      'grey',
+      'blue',
+      'kale',
+      'red',
+      'green',
+      'fuschia',
+      'pink',
+      'crimson',
+      'orange',
+      'lemon',
+      'lime',
+      'mint',
+      'teal',
+      'azure',
+      'royal',
+      'purple',
+      'yellow'
+    ].reduce<[string, 'light' | 'dark'][]>((arr, hue) => {
+      arr.push([hue, 'light']);
+      arr.push([hue, 'dark']);
 
-        expect(container.firstChild).toHaveStyleRule('color', (PALETTE_V8 as any)[color][600]);
-      });
+      return arr;
+    }, []);
+
+    it.each(cases)('renders with a "%s" hue in "%s" mode', (hue, mode) => {
+      const { container } = getRenderFn(mode)(<Span hue={hue} />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        (PALETTE as any)[hue][mode === 'light' ? 700 : 500]
+      );
     });
 
-    it('handles yellow hue with specialized shading', () => {
-      const { container } = render(<Span hue="yellow" />);
+    it.each<['light' | 'dark']>([['light'], ['dark']])(
+      'inherits the parent color in "%s" mode',
+      mode => {
+        const { container } = getRenderFn(mode)(<Span />);
 
-      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.yellow[700]);
-    });
+        expect(container.firstChild).toHaveStyleRule('color', undefined);
+      }
+    );
   });
 
   it('applies expected styling with RTL locale', () => {
