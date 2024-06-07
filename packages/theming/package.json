@@ -25,7 +25,7 @@
     "color2k": "^2.0.3",
     "lodash.get": "^4.4.2",
     "lodash.memoize": "^4.1.2",
-    "polished": "^4.0.0",
+    "polished": "^4.3.1",
     "prop-types": "^15.5.7"
   },
   "peerDependencies": {
