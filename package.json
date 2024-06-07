@@ -66,7 +66,6 @@
     "@zendeskgarden/scripts": "2.0.4",
     "@zendeskgarden/stylelint-config": "21.0.0",
     "@zendeskgarden/svg-icons": "7.1.1",
-    "ajv": "8.8.2",
     "babel-plugin-module-resolver": "5.0.2",
     "babel-plugin-react-remove-properties": "0.3.0",
     "babel-plugin-styled-components": "2.1.4",
