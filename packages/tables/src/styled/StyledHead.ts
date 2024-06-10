@@ -12,7 +12,7 @@ import { StyledHeaderRow } from './StyledHeaderRow';
 const COMPONENT_ID = 'tables.head';
 
 interface IStyledHeadProps {
-  isSticky?: boolean;
+  $isSticky?: boolean;
 }
 
 /*
@@ -47,7 +47,7 @@ export const StyledHead = styled.thead.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledHeadProps>`
-  ${props => props.isSticky && stickyStyles()}
+  ${props => props.$isSticky && stickyStyles()}
 
   ${colorStyles}
 

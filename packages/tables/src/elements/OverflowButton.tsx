@@ -22,7 +22,7 @@ export const OverflowButton = forwardRef<
   const { size } = useTableContext();
 
   return (
-    <StyledOverflowButton type="button" size={size} ref={ref} {...props}>
+    <StyledOverflowButton type="button" $size={size} ref={ref} {...props} focusInset>
       <OverflowStrokeIcon />
     </StyledOverflowButton>
   );

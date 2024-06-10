@@ -8,12 +8,13 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledBaseRow, IStyledRowProps } from './StyledRow';
+import { StyledBaseRow } from './StyledBaseRow';
 import { StyledOverflowButton } from './StyledOverflowButton';
+import { ITableProps } from '../types';
 
 const COMPONENT_ID = 'tables.header_row';
 
-const getHeaderRowHeight = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
+const getHeaderRowHeight = (props: { size?: ITableProps['size'] } & ThemeProps<DefaultTheme>) => {
   if (props.size === 'large') {
     return `${props.theme.space.base * 18}px`;
   } else if (props.size === 'small') {

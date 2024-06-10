@@ -10,8 +10,13 @@ import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { getRowHeight } from './style-utils';
 import { IconButton } from '@zendeskgarden/react-buttons';
+import { ITableProps } from '../types';
 
 const COMPONENT_ID = 'tables.overflow_button';
+
+interface IStyledOverflowButtonProps {
+  $size?: ITableProps['size'];
+}
 
 const OVERFLOW_BUTTON_SIZE = '2em';
 
@@ -21,8 +26,8 @@ const OVERFLOW_BUTTON_SIZE = '2em';
 export const StyledOverflowButton = styled(IconButton).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
-  margin-top: calc(${props => math(`${getRowHeight(props)} / 2`)} - 1em);
+})<IStyledOverflowButtonProps>`
+  margin-top: calc(${props => math(`${getRowHeight({ ...props, size: props.$size })} / 2`)} - 1em);
   width: 100%; /* [1] */
   min-width: unset; /* [1] */
   height: ${OVERFLOW_BUTTON_SIZE}; /* [1] */

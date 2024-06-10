@@ -8,11 +8,17 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { StyledBaseRow, IStyledRowProps } from './StyledRow';
+import { StyledBaseRow } from './StyledBaseRow';
+import { IStyledRowProps } from './StyledRow';
 import { StyledCell } from './StyledCell';
 import { getLineHeight } from './StyledTable';
+import { ITableProps } from '../types';
 
 const COMPONENT_ID = 'tables.group_row';
+
+interface IStyledGroupRowProps {
+  $size?: ITableProps['size'];
+}
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   return css`
@@ -43,10 +49,10 @@ const sizeStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
 export const StyledGroupRow = styled(StyledBaseRow).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
-  ${colorStyles}
-
+})<IStyledGroupRowProps>`
   ${sizeStyles}
+
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

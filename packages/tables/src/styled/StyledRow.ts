@@ -9,56 +9,28 @@ import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { ITableProps } from '../types';
 import { StyledCell } from './StyledCell';
+import { StyledBaseRow } from './StyledBaseRow';
 import { StyledOverflowButton } from './StyledOverflowButton';
 import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.row';
 
 export interface IStyledRowProps {
-  isStriped?: boolean;
-  isFocused?: boolean;
-  isHovered?: boolean;
-  isSelected?: boolean;
-  isReadOnly?: ITableProps['isReadOnly'];
-  size?: ITableProps['size'];
+  $isStriped?: boolean;
+  $isFocused?: boolean;
+  $isHovered?: boolean;
+  $isSelected?: boolean;
+  $isReadOnly?: ITableProps['isReadOnly'];
+  $size?: ITableProps['size'];
 }
-
-const baseRowColorStyles = ({ theme, isStriped }: IStyledRowProps & ThemeProps<DefaultTheme>) => {
-  return css`
-    border-bottom: ${theme.borders.sm} ${getColor({ variable: 'border.subtle', theme })};
-    background-color: ${isStriped &&
-    getColor({
-      variable: 'background.emphasis',
-      transparency: theme.opacity[100],
-      light: { offset: -300 },
-      theme
-    })};
-  `;
-};
-
-export const StyledBaseRow = styled.tr<IStyledRowProps>`
-  display: table-row;
-  transition: background-color 0.1s ease-in-out;
-  vertical-align: top;
-  box-sizing: border-box;
-
-  ${baseRowColorStyles}
-`;
-
-StyledBaseRow.defaultProps = {
-  theme: DEFAULT_THEME
-};
 
 const colorStyles = ({
   theme,
-  isFocused,
-  isSelected,
-  isHovered,
-  isReadOnly
+  $isFocused,
+  $isSelected,
+  $isHovered,
+  $isReadOnly
 }: IStyledRowProps & ThemeProps<DefaultTheme>) => {
-  const boxShadow = `inset ${theme.rtl ? '-' : ''}${
-    theme.shadowWidths.md
-  } 0 0 0 ${getColor({ variable: 'border.primaryEmphasis', theme })}`;
   const hoveredBackgroundColor = getColor({
     variable: 'background.primaryEmphasis',
     transparency: theme.opacity[100],
@@ -67,7 +39,7 @@ const colorStyles = ({
   });
   const hoveredBorderColor = getColor({
     variable: 'border.primaryEmphasis',
-    transparency: theme.opacity[100],
+    transparency: theme.opacity[200],
     dark: { offset: -100 },
     theme
   });
@@ -89,13 +61,15 @@ const colorStyles = ({
     dark: { offset: -100 },
     theme
   });
+  const boxShadowColor = getColor({ variable: 'border.primaryEmphasis', theme });
+  const boxShadow = `inset ${theme.rtl ? '-' : ''}${theme.shadowWidths.md} 0 0 0 ${boxShadowColor}`;
   let backgroundColor = undefined;
   let borderColor = undefined;
   let hoverBorderBottomColor = undefined;
   let hoverBackgroundColor = undefined;
 
-  if (isSelected) {
-    if (isHovered) {
+  if ($isSelected) {
+    if ($isHovered) {
       backgroundColor = hoveredSelectedBackgroundColor;
     } else {
       backgroundColor = selectedBackgroundColor;
@@ -104,10 +78,10 @@ const colorStyles = ({
     borderColor = selectedBorderColor;
     hoverBorderBottomColor = selectedBorderColor;
     hoverBackgroundColor = hoveredSelectedBackgroundColor;
-  } else if (isHovered) {
+  } else if ($isHovered) {
     backgroundColor = hoveredBackgroundColor;
     borderColor = hoveredBorderColor;
-  } else if (!isReadOnly) {
+  } else if (!$isReadOnly) {
     hoverBorderBottomColor = hoveredBorderColor;
     hoverBackgroundColor = hoveredBackgroundColor;
   }
@@ -130,7 +104,7 @@ const colorStyles = ({
     }
 
     ${StyledCell}:first-of-type {
-      box-shadow: ${isFocused && boxShadow};
+      box-shadow: ${$isFocused && boxShadow};
 
       &:focus {
         box-shadow: ${boxShadow};
@@ -139,14 +113,19 @@ const colorStyles = ({
   `;
 };
 
-export const StyledRow = styled(StyledBaseRow).attrs<IStyledRowProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  tabIndex: props.isReadOnly ? undefined : (-1 as number)
-}))<IStyledRowProps>`
-  height: ${getRowHeight};
+const sizeStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
+  return css`
+    height: ${getRowHeight({ ...props, size: props.$size })};
+  `;
+};
 
-  ${props => colorStyles(props)}
+export const StyledRow = styled(StyledBaseRow).attrs<IStyledRowProps>({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledRowProps>`
+  ${sizeStyles}
+
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

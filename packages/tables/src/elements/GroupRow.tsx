@@ -18,7 +18,7 @@ export const GroupRow = forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTable
   (props, ref) => {
     const { size } = useTableContext();
 
-    return <StyledGroupRow ref={ref} size={size} {...props} />;
+    return <StyledGroupRow ref={ref} $size={size} {...props} />;
   }
 );
 
