@@ -9,12 +9,13 @@ import React from 'react';
 import { css } from 'styled-components';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
-import { DEFAULT_THEME, PALETTE, getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
 import { Table } from './Table';
 import { Body } from './Body';
 import { Row } from './Row';
 import { StyledCell } from '../styled';
+import { rgba } from 'polished';
 
 describe('Row', () => {
   const user = userEvent.setup();
@@ -114,12 +115,7 @@ describe('Row', () => {
 
     expect(getByTestId('row')).toHaveStyleRule(
       'background-color',
-      getColor({
-        variable: 'background.emphasis',
-        transparency: DEFAULT_THEME.opacity[100],
-        light: { offset: -300 },
-        theme: DEFAULT_THEME
-      })
+      rgba(PALETTE.grey[400], DEFAULT_THEME.opacity[100])
     );
   });
 
@@ -134,11 +130,7 @@ describe('Row', () => {
 
     expect(getByTestId('row')).toHaveStyleRule(
       'background-color',
-      getColor({
-        variable: 'background.primaryEmphasis',
-        transparency: DEFAULT_THEME.opacity[100],
-        theme: DEFAULT_THEME
-      })
+      rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[100])
     );
   });
 
@@ -154,11 +146,7 @@ describe('Row', () => {
 
       expect(getByTestId('row')).toHaveStyleRule(
         'background-color',
-        getColor({
-          variable: 'background.primaryEmphasis',
-          transparency: DEFAULT_THEME.opacity[300],
-          theme: DEFAULT_THEME
-        })
+        rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[300])
       );
     });
 
@@ -173,11 +161,7 @@ describe('Row', () => {
 
       expect(getByTestId('row')).toHaveStyleRule(
         'background-color',
-        getColor({
-          variable: 'background.primaryEmphasis',
-          transparency: DEFAULT_THEME.opacity[200],
-          theme: DEFAULT_THEME
-        })
+        rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[200])
       );
     });
   });
