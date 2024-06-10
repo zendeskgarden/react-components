@@ -27,7 +27,7 @@ export const StyledOverflowButton = styled(IconButton).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledOverflowButtonProps>`
-  margin-top: calc(${props => math(`${getRowHeight({ ...props, size: props.$size })} / 2`)} - 1em);
+  margin-top: calc(${props => math(`${getRowHeight(props)} / 2`)} - 1em);
   width: 100%; /* [1] */
   min-width: unset; /* [1] */
   height: ${OVERFLOW_BUTTON_SIZE}; /* [1] */

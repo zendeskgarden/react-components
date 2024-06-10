@@ -16,7 +16,7 @@ const COMPONENT_ID = 'tables.cell';
 
 export interface IStyledCellProps
   extends Pick<ICellProps, 'isMinimum' | 'isTruncated' | 'hasOverflow' | 'width'> {
-  size?: ITableProps['size'];
+  $size?: ITableProps['size'];
 }
 
 const truncatedStyling = css`

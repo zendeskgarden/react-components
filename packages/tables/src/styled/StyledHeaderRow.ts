@@ -14,10 +14,14 @@ import { ITableProps } from '../types';
 
 const COMPONENT_ID = 'tables.header_row';
 
-const getHeaderRowHeight = (props: { size?: ITableProps['size'] } & ThemeProps<DefaultTheme>) => {
-  if (props.size === 'large') {
+interface IStyledHeaderRowProps {
+  $size?: ITableProps['size'];
+}
+
+const getHeaderRowHeight = (props: IStyledHeaderRowProps & ThemeProps<DefaultTheme>) => {
+  if (props.$size === 'large') {
     return `${props.theme.space.base * 18}px`;
-  } else if (props.size === 'small') {
+  } else if (props.$size === 'small') {
     return `${props.theme.space.base * 10}px`;
   }
 
@@ -47,7 +51,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 export const StyledHeaderRow = styled(StyledBaseRow).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledHeaderRowProps>`
   font-weight: ${props => props.theme.fontWeights.semibold};
 
   ${colorStyles}

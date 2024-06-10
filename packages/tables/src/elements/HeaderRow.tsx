@@ -18,7 +18,7 @@ export const HeaderRow = React.forwardRef<HTMLTableRowElement, HTMLAttributes<HT
   (props, ref) => {
     const { size } = useTableContext();
 
-    return <StyledHeaderRow ref={ref} size={size} {...props} />;
+    return <StyledHeaderRow ref={ref} $size={size} {...props} />;
   }
 );
 

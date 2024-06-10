@@ -21,7 +21,7 @@ export const Cell = React.forwardRef<HTMLTableCellElement, ICellProps>(
     const { size } = useTableContext();
 
     return (
-      <StyledCell ref={ref} size={size} {...props}>
+      <StyledCell ref={ref} $size={size} {...props}>
         {hidden && props.children ? (
           <StyledHiddenCell>{props.children}</StyledHiddenCell>
         ) : (

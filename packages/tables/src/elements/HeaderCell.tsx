@@ -21,7 +21,7 @@ export const HeaderCell = forwardRef<HTMLTableCellElement, IHeaderCellProps>(
     const { size } = useTableContext();
 
     return (
-      <StyledHeaderCell ref={ref} size={size} {...props}>
+      <StyledHeaderCell ref={ref} $size={size} {...props}>
         {hidden && props.children ? (
           <StyledHiddenCell>{props.children}</StyledHiddenCell>
         ) : (

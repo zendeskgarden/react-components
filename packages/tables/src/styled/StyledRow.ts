@@ -115,7 +115,7 @@ const colorStyles = ({
 
 const sizeStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
   return css`
-    height: ${getRowHeight({ ...props, size: props.$size })};
+    height: ${getRowHeight(props)};
   `;
 };
 
