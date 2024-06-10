@@ -23,9 +23,10 @@ interface IStyledGroupRowProps {
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   return css`
     background-color: ${getColor({
-      variable: 'background.emphasis',
+      variable: 'background.subtle',
       transparency: theme.opacity[100],
-      light: { offset: -300 },
+      light: { offset: 300 },
+      dark: { offset: -600 },
       theme
     })};
   `;
