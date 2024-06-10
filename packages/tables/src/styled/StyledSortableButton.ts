@@ -74,8 +74,8 @@ const colorStyles = ({ theme, sort }: IStyledSortableButtonProps & ThemeProps<De
     dark: { offset: -100 },
     transparency: theme.opacity[200]
   });
-  let color;
-  let fill;
+  let color = fgActive;
+  let fill = fgActive;
 
   if (sort === 'asc') {
     color = fgActive;
@@ -86,6 +86,11 @@ const colorStyles = ({ theme, sort }: IStyledSortableButtonProps & ThemeProps<De
   }
 
   return css`
+    ${StyledSortableStrokeIconWrapper} {
+      color: ${fgActive};
+      fill: ${fgActive};
+    }
+
     ${StyledSortableFillIconWrapper} {
       color: ${color};
       fill: ${fill};
