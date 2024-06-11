@@ -11,10 +11,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version-file: .nvmrc
+          cache: npm
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci --ignore-scripts
 
       - name: Build
@@ -34,10 +34,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version-file: .nvmrc
+          cache: npm
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci --ignore-scripts
 
       - name: Build Demo
@@ -57,10 +57,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version-file: .nvmrc
+          cache: npm
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci --ignore-scripts
 
       - name: Lint
@@ -75,10 +75,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version-file: .nvmrc
+          cache: npm
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci --ignore-scripts
 
       - name: Download dist artifacts
@@ -105,10 +105,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version-file: .nvmrc
+          cache: npm
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci --ignore-scripts
 
       - name: Download demo artifacts
@@ -131,19 +131,20 @@ jobs:
   publish:
     needs: [build, lint, test]
     runs-on: ubuntu-latest
-    # if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Lerna needs full history for all branches and tags
+          fetch-depth: 0 # Lerna requires the full history, including tags
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version-file: .nvmrc
+          cache: npm
+          registry-url: https://registry.npmjs.org # Sets the registry in the project level .npmrc
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci --ignore-scripts
 
       - name: Download dist artifacts
@@ -151,9 +152,6 @@ jobs:
         with:
           name: dist-artifact
           path: packages
-
-      - name: Check dist button artifact
-        run: ls -Rla ./packages/buttons/dist
 
       # - name: Publish to npm
       #   run: npm exec -- lerna publish from-git --ignore-scripts --yes
