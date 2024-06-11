@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 
@@ -21,7 +21,7 @@ describe('StyledTextMediaFigure', () => {
 
     expect(container.firstChild!.nodeName).toBe('svg');
     expect(container.firstChild).toHaveStyleRule('width', '16px');
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[600]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700]);
   });
 
   it('renders expected hovered styling', () => {
@@ -31,7 +31,7 @@ describe('StyledTextMediaFigure', () => {
       </StyledTextMediaFigure>
     );
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[700]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
   });
 
   it('renders rotated styling if provided', () => {

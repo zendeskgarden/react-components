@@ -6,8 +6,9 @@
  */
 
 import React from 'react';
+import { rgba } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from './StyledTextInput';
 
 describe('StyledTextInput', () => {
@@ -32,13 +33,17 @@ describe('StyledTextInput', () => {
   it('renders expected readonly styling', () => {
     const { container } = render(<StyledTextInput readOnly />);
 
-    expect(container.firstChild).toHaveStyleRule('border-color', PALETTE_V8.grey[300]);
+    expect(container.firstChild).toHaveStyleRule(
+      'background-color',
+      rgba(PALETTE.grey[700], 0.08),
+      { modifier: '&[readonly]' }
+    );
   });
 
   it('renders expected disabled styling', () => {
     const { container } = render(<StyledTextInput disabled />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[400], {
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[600], {
       modifier: '&:disabled'
     });
   });
@@ -53,19 +58,19 @@ describe('StyledTextInput', () => {
     it('renders "success" styling if provided', () => {
       const { container } = render(<StyledTextInput validation="success" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE_V8.green[600]);
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.green[700]);
     });
 
     it('renders "warning" styling if provided', () => {
       const { container } = render(<StyledTextInput validation="warning" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE_V8.yellow[600]);
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.yellow[700]);
     });
 
     it('renders "error" styling if provided', () => {
       const { container } = render(<StyledTextInput validation="error" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE_V8.red[600]);
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.red[700]);
     });
   });
 });
