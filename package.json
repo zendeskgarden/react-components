@@ -12,6 +12,7 @@
     "format:package_json": "lerna exec -- prettier-package-json",
     "postinstall": "husky",
     "lint": "npm run lint:css && npm run lint:js && npm run lint:md",
+    "lint:ci": "npm run lint && npm run format:all && npm exec tsc",
     "lint:css": "stylelint '{packages,utils}/**/*.{js,ts,tsx}'",
     "lint:js": "eslint .storybook/ packages/ utils/ --ext js,mjs,ts,tsx --max-warnings 0",
     "lint:md": "markdownlint README.md packages/*/README.md packages/*/demo/**/*.mdx",
@@ -20,7 +21,7 @@
     "start": "storybook dev --no-version-updates -p 6006",
     "tag": "utils/scripts/tag.mjs",
     "test": "jest --config=utils/test/jest.config.js",
-    "test:ci": "npm run lint && npm run format:all && npm exec tsc && npm test -- --coverage",
+    "test:ci": "npm test -- --coverage --runInBand",
     "test:watch": "npm test -- --watch",
     "preversion": "npm run test:ci",
     "version": "npm run build && git add -A"
