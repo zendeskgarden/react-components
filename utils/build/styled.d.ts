@@ -6,7 +6,7 @@
  */
 
 import 'styled-components';
-import { IGardenTheme } from '../../packages/theming';
+import type { IGardenTheme } from '../../packages/theming/src/index';
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
