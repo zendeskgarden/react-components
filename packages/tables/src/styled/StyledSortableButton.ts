@@ -53,11 +53,11 @@ StyledSortableFillIconWrapper.defaultProps = {
 };
 
 interface IStyledSortableButtonProps {
-  sort?: ISortableCellProps['sort'];
+  $sort?: ISortableCellProps['sort'];
   width?: ISortableCellProps['width'];
 }
 
-const colorStyles = ({ theme, sort }: IStyledSortableButtonProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & ThemeProps<DefaultTheme>) => {
   const fgInactive = getColor({
     variable: 'foreground.subtle',
     transparency: theme.opacity[200],
@@ -77,10 +77,10 @@ const colorStyles = ({ theme, sort }: IStyledSortableButtonProps & ThemeProps<De
   let color = fgActive;
   let fill = fgActive;
 
-  if (sort === 'asc') {
+  if ($sort === 'asc') {
     color = fgActive;
     fill = fgInactive;
-  } else if (sort === 'desc') {
+  } else if ($sort === 'desc') {
     color = fgInactive;
     fill = fgActive;
   }
@@ -100,7 +100,7 @@ const colorStyles = ({ theme, sort }: IStyledSortableButtonProps & ThemeProps<De
     ${SELECTOR_FOCUS_VISIBLE} {
       color: ${fgPrimaryActive};
 
-      ${sort === undefined &&
+      ${$sort === undefined &&
       `
         ${StyledSortableFillIconWrapper} {
           opacity: 1;
@@ -113,7 +113,7 @@ const colorStyles = ({ theme, sort }: IStyledSortableButtonProps & ThemeProps<De
         }
       `};
 
-      ${sort === 'asc' &&
+      ${$sort === 'asc' &&
       `
         ${StyledSortableFillIconWrapper} {
           color: ${fgPrimaryActive};
@@ -121,7 +121,7 @@ const colorStyles = ({ theme, sort }: IStyledSortableButtonProps & ThemeProps<De
         }
       `}
 
-      ${sort === 'desc' &&
+      ${$sort === 'desc' &&
       `
         ${StyledSortableFillIconWrapper} {
           color: ${fgPrimaryInactive};
@@ -161,11 +161,11 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   font-weight: ${props => props.theme.fontWeights.semibold};
 
   ${StyledSortableStrokeIconWrapper} {
-    opacity: ${props => props.sort === undefined && 1};
+    opacity: ${props => props.$sort === undefined && 1};
   }
 
   ${StyledSortableFillIconWrapper} {
-    opacity: ${props => props.sort !== undefined && 1};
+    opacity: ${props => props.$sort !== undefined && 1};
   }
 
   &:hover,

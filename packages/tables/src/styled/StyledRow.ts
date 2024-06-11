@@ -119,7 +119,7 @@ const sizeStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledRow = styled(StyledBaseRow).attrs<IStyledRowProps>({
+export const StyledRow = styled(StyledBaseRow).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledRowProps>`

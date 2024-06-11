@@ -64,8 +64,8 @@ export const Row = forwardRef<HTMLTableRowElement, IRowProps>(
         $isStriped={isStriped}
         $isSelected={isSelected}
         ref={ref}
-        tabIndex={isReadOnly ? undefined : -1}
         {...otherProps}
+        tabIndex={isReadOnly ? undefined : -1}
       />
     );
   }

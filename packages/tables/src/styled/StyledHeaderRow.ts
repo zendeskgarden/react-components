@@ -54,9 +54,9 @@ export const StyledHeaderRow = styled(StyledBaseRow).attrs({
 })<IStyledHeaderRowProps>`
   font-weight: ${props => props.theme.fontWeights.semibold};
 
-  ${colorStyles}
-
   ${sizeStyles}
+
+  ${colorStyles}
 
   ${StyledOverflowButton} {
     opacity: 1;
