@@ -67,6 +67,7 @@ jobs:
         run: npm run lint:ci
 
   test:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -80,6 +81,12 @@ jobs:
       - name: Install Dependencies
         run: npm ci --ignore-scripts
 
+      - name: Download dist artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-artifact
+          path: packages
+
       - name: Test
         run: npm run test:ci
 
@@ -90,7 +97,7 @@ jobs:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
   deploy:
-    needs: [test, build-demo]
+    needs: [build-demo, lint, test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -118,7 +125,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
   publish:
-    needs: [test, build]
+    needs: [build, lint, test]
     runs-on: ubuntu-latest
     # if: github.ref == 'refs/heads/main'
     steps:
