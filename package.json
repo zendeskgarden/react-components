@@ -21,7 +21,7 @@
     "start": "storybook dev --no-version-updates -p 6006",
     "tag": "utils/scripts/tag.mjs",
     "test": "jest --config=utils/test/jest.config.js",
-    "test:ci": "npm test -- --coverage --runInBand",
+    "test:ci": "npm test -- --coverage --runInBand --silent",
     "test:watch": "npm test -- --watch",
     "preversion": "npm run test:ci",
     "version": "npm run build && git add -A"
