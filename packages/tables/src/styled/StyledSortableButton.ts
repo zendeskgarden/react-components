@@ -60,7 +60,7 @@ interface IStyledSortableButtonProps {
 const colorStyles = ({ theme, sort }: IStyledSortableButtonProps & ThemeProps<DefaultTheme>) => {
   const fgInactive = getColor({
     variable: 'foreground.subtle',
-    transparency: theme.opacity[400],
+    transparency: theme.opacity[200],
     theme
   });
   const fgActive = getColor({
