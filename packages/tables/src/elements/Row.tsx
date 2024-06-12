@@ -57,13 +57,13 @@ export const Row = forwardRef<HTMLTableRowElement, IRowProps>(
       <StyledRow
         onFocus={onFocusCallback}
         onBlur={onBlurCallback}
+        ref={ref}
         $size={size}
         $isReadOnly={isReadOnly}
         $isFocused={computedFocused}
         $isHovered={isHovered}
         $isStriped={isStriped}
         $isSelected={isSelected}
-        ref={ref}
         {...otherProps}
         tabIndex={isReadOnly ? undefined : -1}
       />

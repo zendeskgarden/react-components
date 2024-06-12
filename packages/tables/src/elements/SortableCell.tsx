@@ -23,7 +23,7 @@ import {
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
-  ({ sort, cellProps = {}, width, children, ...otherProps }, ref) => {
+  ({ sort, cellProps = {}, width, children, ...sortableButtonProps }, ref) => {
     const { isMinimum, isTruncated, hasOverflow } = cellProps;
     let ariaSortValue = 'none';
 
@@ -44,7 +44,7 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
         $hasOverflow={hasOverflow}
         {...cellProps}
       >
-        <StyledSortableButton $sort={sort} ref={ref} {...otherProps}>
+        <StyledSortableButton $sort={sort} ref={ref} {...sortableButtonProps}>
           {children}
           <StyledSortableStrokeIconWrapper>
             <SortIcon />

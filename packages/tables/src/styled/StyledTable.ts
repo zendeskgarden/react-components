@@ -7,13 +7,8 @@
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { ITableProps } from '../types';
 
 const COMPONENT_ID = 'tables.table';
-
-interface IStyledTableProps {
-  size?: ITableProps['size'];
-}
 
 export const getLineHeight = (props: ThemeProps<DefaultTheme>) => {
   return `${props.theme.space.base * 5}px`;
@@ -22,10 +17,10 @@ export const getLineHeight = (props: ThemeProps<DefaultTheme>) => {
 /**
  * 1. <table> reset
  */
-export const StyledTable = styled.table.attrs<IStyledTableProps>({
+export const StyledTable = styled.table.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledTableProps>`
+})`
   display: table;
   border: none; /* [1] */
   width: 100%; /* [1] */
