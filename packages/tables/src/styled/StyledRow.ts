@@ -51,14 +51,20 @@ const colorStyles = ({
   });
   const selectedBorderColor = getColor({
     variable: 'border.primaryEmphasis',
-    transparency: theme.opacity[200],
-    dark: { offset: -100 },
+    light: { offset: -400 },
+    dark: { offset: 300 },
     theme
   });
   const hoveredSelectedBackgroundColor = getColor({
     variable: 'background.primaryEmphasis',
     transparency: theme.opacity[300],
     dark: { offset: -100 },
+    theme
+  });
+  const hoveredSelectedBorderColor = getColor({
+    variable: 'border.primaryEmphasis',
+    light: { offset: -300 },
+    dark: { offset: 200 },
     theme
   });
   const boxShadowColor = getColor({ variable: 'border.primaryEmphasis', theme });
@@ -71,12 +77,13 @@ const colorStyles = ({
   if ($isSelected) {
     if ($isHovered) {
       backgroundColor = hoveredSelectedBackgroundColor;
+      borderColor = hoveredSelectedBorderColor;
     } else {
       backgroundColor = selectedBackgroundColor;
+      borderColor = selectedBorderColor;
     }
 
-    borderColor = selectedBorderColor;
-    hoverBorderBottomColor = selectedBorderColor;
+    hoverBorderBottomColor = hoveredSelectedBorderColor;
     hoverBackgroundColor = hoveredSelectedBackgroundColor;
   } else if ($isHovered) {
     backgroundColor = hoveredBackgroundColor;
