@@ -7,14 +7,19 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColorV8, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledTextInput, IStyledTextInputProps } from '../text/StyledTextInput';
 import { StyledTextMediaFigure } from '../text/StyledTextMediaFigure';
 
 const COMPONENT_ID = 'forms.select';
 
-const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
-  const color = getColorV8('neutralHue', 700, props.theme);
+const colorStyles = ({ theme }: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
+  const color = getColor({
+    theme,
+    variable: 'foreground.subtle',
+    dark: { offset: -100 },
+    light: { offset: 100 }
+  });
 
   /* prettier-ignore */
   return css`
@@ -54,8 +59,9 @@ export const StyledSelect = styled(StyledTextInput).attrs({
   cursor: pointer;
   text-overflow: ellipsis;
 
-  ${props => sizeStyles(props)};
-  ${props => colorStyles(props)};
+  ${sizeStyles};
+
+  ${colorStyles};
 
   &::-ms-expand {
     display: none; /* [1] */

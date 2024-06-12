@@ -7,11 +7,11 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { getColorV8 } from '@zendeskgarden/react-theming';
 import { StyledRangeInput } from './StyledRangeInput';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledHint } from '../common/StyledHint';
 import { StyledMessage } from '../common/StyledMessage';
+import { PALETTE } from '@zendeskgarden/react-theming';
 
 describe('StyledRangeInput', () => {
   it('renders the expected element', () => {
@@ -30,13 +30,9 @@ describe('StyledRangeInput', () => {
   it('renders disabled styling as expected', () => {
     const { container } = render(<StyledRangeInput disabled />);
 
-    expect(container.firstChild).toHaveStyleRule(
-      'background-color',
-      getColorV8('neutralHue', 300),
-      {
-        modifier: ':disabled::-webkit-slider-thumb'
-      }
-    );
+    expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.grey[600], {
+      modifier: ':disabled::-webkit-slider-thumb'
+    });
   });
 
   it('renders expected RTL styling', () => {
