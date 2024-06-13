@@ -52,7 +52,7 @@ const colorStyles = ({
   const selectedBorderColor = getColor({
     variable: 'border.primaryEmphasis',
     light: { offset: -400 },
-    dark: { offset: 300 },
+    dark: { offset: 200 },
     theme
   });
   const hoveredSelectedBackgroundColor = getColor({
@@ -64,7 +64,7 @@ const colorStyles = ({
   const hoveredSelectedBorderColor = getColor({
     variable: 'border.primaryEmphasis',
     light: { offset: -300 },
-    dark: { offset: 200 },
+    dark: { offset: 100 },
     theme
   });
   const boxShadowColor = getColor({ variable: 'border.primaryEmphasis', theme });
