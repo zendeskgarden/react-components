@@ -5,6 +5,7 @@
   "scripts": {
     "build": "lerna run build --stream",
     "build:demo": "storybook build -o ./demo",
+    "fix-dist-tags": "utils/scripts/fix-dist-tags.mjs",
     "format": "prettier-package-json --write && npm run -- format:package_json --write && npm run -- format:js --write && npm run -- format:md --write",
     "format:all": "prettier-package-json --list-different && npm run -- format:package_json --list-different && npm run -- format:js --check && npm run -- format:md --check",
     "format:js": "prettier --log-level warn '{packages,utils}/**/*.{js,mjs,ts,tsx}' '!packages/.template' '!packages/**/dist/**'",
