@@ -76,7 +76,13 @@ const colorStyles = ({
   const thumbBoxShadow = theme.shadows.lg(
     `${theme.space.base}px`,
     `${theme.space.base * 2}px`,
-    getColor({ theme, hue: 'neutralHue', shade: 900, transparency: theme.opacity[300] })
+    getColor({
+      theme,
+      hue: 'neutralHue',
+      shade: 1200,
+      dark: { transparency: theme.opacity[1100] },
+      light: { transparency: theme.opacity[200] }
+    })
   );
   const thumbFocusBoxShadow = getFocusBoxShadow({ theme });
   const thumbActiveBackgroundColor = getColor({

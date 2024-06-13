@@ -6,13 +6,13 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math, rgba } from 'polished';
+import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8,
   getLineHeight,
-  focusStyles
+  focusStyles,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledHint } from '../common/StyledHint';
@@ -25,52 +25,62 @@ interface IStyledFileUploadProps {
   isCompact?: boolean;
 }
 
-const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
-  const baseColor = getColorV8('primaryHue', 600, props.theme);
-  const hoverColor = getColorV8('primaryHue', 700, props.theme);
-  const activeColor = getColorV8('primaryHue', 800, props.theme);
-  const disabledBackgroundColor = getColorV8('neutralHue', 200, props.theme);
-  const disabledForegroundColor = getColorV8('neutralHue', 400, props.theme);
+const colorStyles = ({ theme, isDragging }: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
+  const borderOptions = { theme, variable: 'border.primaryEmphasis' };
+  const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
+  const foregroundOptions = { theme, variable: 'foreground.primary' };
+  const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
+  const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
+  const borderColor = getColor({ theme, variable: 'border.emphasis' });
+  const foregroundColor = getColor(foregroundOptions);
+  const hoverBorderColor = getColor({ ...borderOptions, ...offset100 });
+  const hoverBackgroundColor = getColor({ ...backgroundOptions, transparency: theme.opacity[100] });
+  const hoverForegroundColor = getColor({ ...foregroundOptions, ...offset100 });
+  const activeBorderColor = getColor({ ...borderOptions, ...offset200 });
+  const activeBackgroundColor = getColor({
+    ...backgroundOptions,
+    transparency: theme.opacity[200]
+  });
+  const activeForegroundColor = getColor({ ...foregroundOptions, ...offset200 });
+  const disabledBorderColor = getColor({ theme, variable: 'border.disabled' });
+  const disabledBackgroundColor = getColor({ theme, variable: 'background.disabled' });
+  const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
-    border-color: ${props.isDragging ? activeColor : getColorV8('neutralHue', 600, props.theme)};
-    /* stylelint-disable-next-line color-function-notation */
-    background-color: ${props.isDragging && rgba(baseColor as string, 0.2)};
-    color: ${props.isDragging ? activeColor : baseColor};
+    border-color: ${isDragging ? activeBorderColor : borderColor};
+    background-color: ${isDragging ? activeBackgroundColor : undefined};
+    color: ${isDragging ? activeForegroundColor : foregroundColor};
 
     &:hover {
-      border-color: ${hoverColor};
-      background-color: ${rgba(baseColor as string, 0.08)};
-      color: ${hoverColor};
+      border-color: ${hoverBorderColor};
+      background-color: ${hoverBackgroundColor};
+      color: ${hoverForegroundColor};
     }
 
-    ${focusStyles({
-      theme: props.theme,
-      color: { hue: baseColor }
-    })}
+    ${focusStyles({ theme })}
 
     &:active {
-      border-color: ${activeColor};
-      background-color: ${rgba(baseColor as string, 0.2)};
-      color: ${activeColor};
+      border-color: ${activeBorderColor};
+      background-color: ${activeBackgroundColor};
+      color: ${activeForegroundColor};
     }
 
     &[aria-disabled='true'] {
-      border-color: ${disabledForegroundColor};
+      border-color: ${disabledBorderColor};
       background-color: ${disabledBackgroundColor};
       color: ${disabledForegroundColor};
     }
   `;
 };
 
-const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
-  const marginTop = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
-  const paddingHorizontal = `${props.isCompact ? 2 : 4}em`;
+const sizeStyles = ({ theme, isCompact }: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
+  const marginTop = `${theme.space.base * (isCompact ? 1 : 2)}px`;
+  const paddingHorizontal = `${isCompact ? 2 : 4}em`;
   const paddingVertical = math(
-    `${props.theme.space.base * (props.isCompact ? 2.5 : 5)} - ${props.theme.borderWidths.sm}`
+    `${theme.space.base * (isCompact ? 2.5 : 5)} - ${theme.borderWidths.sm}`
   );
-  const fontSize = props.theme.fontSizes.md;
-  const lineHeight = getLineHeight(props.theme.space.base * 5, fontSize);
+  const fontSize = theme.fontSizes.md;
+  const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
 
   return css`
     padding: ${paddingVertical} ${paddingHorizontal};

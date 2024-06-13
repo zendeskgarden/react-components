@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledFileDelete } from './StyledFileDelete';
 
 describe('StyledFileDelete', () => {
@@ -15,6 +15,6 @@ describe('StyledFileDelete', () => {
     const { container } = render(<StyledFileDelete />);
 
     expect(container.firstChild!.nodeName).toBe('BUTTON');
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.red[600]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);
   });
 });
