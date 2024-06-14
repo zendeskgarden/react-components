@@ -5,12 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { DEFAULT_THEME, SELECTOR_FOCUS_VISIBLE } from '@zendeskgarden/react-theming';
-import { StyledTextFauxInput } from '../text/StyledTextFauxInput';
+import { IStyledTextFauxInputProps, StyledTextFauxInput } from '../text/StyledTextFauxInput';
 import { StyledSelect } from './StyledSelect';
 
 const COMPONENT_ID = 'forms.select_wrapper';
+
+const sizeStyles = ({ theme, isCompact }: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>) => {
+  const height = `${theme.space.base * (isCompact ? 8 : 10)}px`;
+
+  return css`
+    max-height: ${height};
+  `;
+};
 
 export const StyledSelectWrapper = styled(StyledTextFauxInput).attrs({
   'data-garden-id': COMPONENT_ID,
@@ -19,6 +27,8 @@ export const StyledSelectWrapper = styled(StyledTextFauxInput).attrs({
   position: relative;
   padding: 0;
   overflow: visible;
+
+  ${sizeStyles};
 
   & > ${StyledSelect} {
     border-color: transparent;
