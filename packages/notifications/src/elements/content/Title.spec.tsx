@@ -7,11 +7,12 @@
 
 import React from 'react';
 import { css } from 'styled-components';
-import { render } from 'garden-test-utils';
-import { DEFAULT_THEME, PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { getRenderFn, render } from 'garden-test-utils';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { Notification } from '../Notification';
 import { Title } from './Title';
 import { StyledTitle } from '../../styled';
+import { Type } from '../../types';
 
 describe('Title', () => {
   it('passes ref to underlying DOM element', () => {
@@ -53,56 +54,23 @@ describe('Title', () => {
       );
     });
 
-    it('renders success styling', () => {
-      const { container } = render(
-        <Notification type="success">
+    it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([
+      { mode: 'light', type: 'success', color: PALETTE.green[700] },
+      { mode: 'dark', type: 'success', color: PALETTE.green[400] },
+      { mode: 'light', type: 'error', color: PALETTE.red[700] },
+      { mode: 'dark', type: 'error', color: PALETTE.red[400] },
+      { mode: 'light', type: 'warning', color: PALETTE.yellow[700] },
+      { mode: 'dark', type: 'warning', color: PALETTE.yellow[400] },
+      { mode: 'light', type: 'info', color: PALETTE.grey[900] },
+      { mode: 'dark', type: 'info', color: PALETTE.grey[300] }
+    ])('renders $mode mode $type color', ({ mode, type, color }) => {
+      const { container } = getRenderFn(mode)(
+        <Notification type={type}>
           <Title>title</Title>
         </Notification>
       );
 
-      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.green[600], {
-        modifier: css`
-          ${StyledTitle}
-        ` as any
-      });
-    });
-
-    it('renders error styling', () => {
-      const { container } = render(
-        <Notification type="error">
-          <Title>title</Title>
-        </Notification>
-      );
-
-      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.red[600], {
-        modifier: css`
-          ${StyledTitle}
-        ` as any
-      });
-    });
-
-    it('renders warning styling', () => {
-      const { container } = render(
-        <Notification type="warning">
-          <Title>title</Title>
-        </Notification>
-      );
-
-      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.yellow[700], {
-        modifier: css`
-          ${StyledTitle}
-        ` as any
-      });
-    });
-
-    it('renders info styling', () => {
-      const { container } = render(
-        <Notification type="info">
-          <Title>title</Title>
-        </Notification>
-      );
-
-      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[800], {
+      expect(container.firstChild).toHaveStyleRule('color', color, {
         modifier: css`
           ${StyledTitle}
         ` as any

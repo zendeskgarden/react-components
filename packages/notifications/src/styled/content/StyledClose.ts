@@ -28,8 +28,8 @@ const sizeStyles = ({ theme: { space } }: ThemeProps<DefaultTheme>) => {
     height: ${space.base * 7}px;
 
     && > svg {
-      width: 12px; /* [1] */
-      height: 12px; /* [1] */
+      width: unset; /* [1] */
+      height: unset; /* [1] */
     }
   `;
 };
@@ -49,29 +49,19 @@ const colorStyles = ({ theme, $type }: IStyledCloseProps & ThemeProps<DefaultThe
         variable = 'foreground.warning';
         break;
       case validationTypes.error:
-        variable = 'foreground.error';
+        variable = 'foreground.danger';
         break;
       case validationTypes.success:
         variable = 'foreground.success';
         break;
-      case validationTypes.info:
-        variable = 'foreground.info';
+      default:
+        variable = 'foreground.subtle';
         break;
     }
 
     color = getColor({ variable, theme });
-    hoverColor = getColor({
-      variable,
-      light: { offset: 100 },
-      dark: { offset: -100 },
-      theme
-    });
-    activeColor = getColor({
-      variable,
-      light: { offset: 200 },
-      dark: { offset: -200 },
-      theme
-    });
+    hoverColor = getColor({ variable, light: { offset: 100 }, dark: { offset: -100 }, theme });
+    activeColor = getColor({ variable, light: { offset: 200 }, dark: { offset: -200 }, theme });
   }
 
   return css`

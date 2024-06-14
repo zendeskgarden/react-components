@@ -17,12 +17,12 @@ import { validationTypes } from '../utils/icons';
 
 const COMPONENT_ID = 'notifications.base_container';
 
-export interface IStyledBaseProps {
+export interface IStyledBaseProps extends ThemeProps<DefaultTheme> {
   $isFloating?: boolean;
   $type?: Type;
 }
 
-const boxShadow = (props: ThemeProps<DefaultTheme>) => {
+const boxShadow = (props: IStyledBaseProps) => {
   const { theme } = props;
   const { space, shadows, opacity } = theme;
   const offsetY = `${space.base * 5}px`;
@@ -38,11 +38,7 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
   return shadows.lg(offsetY, blurRadius, color as string);
 };
 
-const colorStyles = ({
-  theme,
-  $type,
-  $isFloating
-}: ThemeProps<DefaultTheme> & IStyledBaseProps) => {
+const colorStyles = ({ theme, $type, $isFloating }: IStyledBaseProps) => {
   let bgVariable;
   let borderVariable;
   let fgVariable;
@@ -98,7 +94,7 @@ const padding = (props: ThemeProps<DefaultTheme>) => {
 export const StyledBase = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledBaseProps>`
   position: relative;
   border: ${props => props.theme.borders.sm};
   border-radius: ${props => props.theme.borderRadii.md};

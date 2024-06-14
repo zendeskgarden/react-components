@@ -14,8 +14,8 @@ import { StyledTitle } from '../../styled';
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Title = React.forwardRef<HTMLDivElement, ITitleProps>((props, ref) => (
-  <StyledTitle ref={ref} {...props} />
-));
+export const Title = React.forwardRef<HTMLDivElement, ITitleProps>(
+  ({ isRegular, ...props }, ref) => <StyledTitle ref={ref} $isRegular={isRegular} {...props} />
+);
 
 Title.displayName = 'Title';
