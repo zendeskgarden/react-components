@@ -27,13 +27,7 @@ const TileComponent = React.forwardRef<HTMLLabelElement, ITilesTileProps>(
     }
 
     return (
-      <StyledTile
-        ref={ref}
-        aria-disabled={disabled}
-        isDisabled={disabled}
-        isSelected={tilesContext && tilesContext.value === value}
-        {...props}
-      >
+      <StyledTile ref={ref} aria-disabled={disabled} {...props}>
         {children}
         <StyledTileInput
           {...inputProps}

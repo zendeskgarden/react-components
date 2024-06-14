@@ -156,9 +156,9 @@ export interface IRangeProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
-  /** Sets the value of the selected radio button */
+  /** Sets the selected value in a controlled tiles component */
   value?: IRadioProps['value'];
-  /** Handles radio selection */
+  /** Handles selection change event */
   onChange?: IRadioProps['onChange'];
   /** Sets the name used to reference the value of the control */
   name: NonNullable<IRadioProps['name']>;
@@ -167,7 +167,7 @@ export interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface ITilesTileProps extends HTMLAttributes<HTMLLabelElement> {
-  /** Sets the value of the input */
+  /** Sets the value of the tile */
   value?: IRadioProps['value'];
   /** Indicates that the element is not interactive */
   disabled?: IRadioProps['disabled'];
