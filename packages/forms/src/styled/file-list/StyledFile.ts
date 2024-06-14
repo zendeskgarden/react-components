@@ -18,6 +18,12 @@ import { StyledFileClose } from './StyledFileClose';
 
 const COMPONENT_ID = 'forms.file';
 
+interface IStyledFileProps {
+  isCompact?: boolean;
+  focusInset?: boolean;
+  validation?: FileValidation;
+}
+
 const colorStyles = ({
   theme,
   focusInset,
@@ -84,12 +90,6 @@ const sizeStyles = ({ theme, isCompact }: IStyledFileProps & ThemeProps<DefaultT
     }
   `;
 };
-
-interface IStyledFileProps {
-  isCompact?: boolean;
-  focusInset?: boolean;
-  validation?: FileValidation;
-}
 
 export const StyledFile = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,

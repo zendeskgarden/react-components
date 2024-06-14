@@ -12,15 +12,17 @@ import {
   getColor,
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
+import { FileValidation } from '../../types';
 
 const COMPONENT_ID = 'forms.file.icon';
 
 export interface IStyledFileIconProps {
   $isCompact?: boolean;
+  $validation?: FileValidation;
 }
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const color = getColor({ theme, variable: 'foreground.subtle' });
+const colorStyles = ({ theme, $validation }: IStyledFileIconProps & ThemeProps<DefaultTheme>) => {
+  const color = $validation ? undefined : getColor({ theme, variable: 'foreground.subtle' });
 
   return css`
     color: ${color};
