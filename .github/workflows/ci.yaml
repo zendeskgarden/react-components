@@ -128,6 +128,37 @@ jobs:
           CIRCLE_PROJECT_REPONAME: react-components
           CIRCLECI: true
 
+  # TODO: remove
+  smoke-test:
+    needs: [build, lint, test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          registry-url: https://registry.npmjs.org # Sets the registry in the project level .npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Who am i?
+        run: npm whoami
+
+      - name: Download dist artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-artifact
+          path: packages
+
+      - name: Check dist theming artifact
+        run: ls -Rla ./packages/theming
+
   publish:
     needs: [build, lint, test]
     runs-on: ubuntu-latest
