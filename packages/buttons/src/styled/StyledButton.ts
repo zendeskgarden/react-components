@@ -182,13 +182,14 @@ const colorStyles = ({
 
         if (isNeutral) {
           borderColor = getColor({ theme, variable: 'border.default', ...offset100 });
-          focusBorderColor = getColor(borderOptions);
+          hoverBorderColor = getColor(borderOptions);
+          focusBorderColor = hoverBorderColor;
+          activeBorderColor = getColor({ ...borderOptions, ...offset100 });
         } else {
           borderColor = getColor(borderOptions);
+          hoverBorderColor = getColor({ ...borderOptions, ...offset100 });
+          activeBorderColor = getColor({ ...borderOptions, ...offset200 });
         }
-
-        hoverBorderColor = getColor({ ...borderOptions, ...offset100 });
-        activeBorderColor = getColor({ ...borderOptions, ...offset200 });
       }
 
       backgroundVariable = 'background.primaryEmphasis';
