@@ -5,16 +5,63 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import { getColorV8, DEFAULT_THEME, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import {
+  getColor,
+  DEFAULT_THEME,
+  StyledBaseIcon,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
+import { Type } from '../types';
+import { validationTypes } from '../utils/icons';
 
-export const StyledIcon = styled(StyledBaseIcon)`
+const COMPONENT_ID = 'notifications.icon';
+
+interface IStyledIconProps extends ThemeProps<DefaultTheme> {
+  $type?: Type;
+}
+
+const sizeStyles = ({ theme: { rtl, space } }: IStyledIconProps) => {
+  return css`
+    right: ${rtl && `${space.base * 4}px`};
+    left: ${!rtl && `${space.base * 4}px`};
+    margin-top: ${space.base / 2}px;
+  `;
+};
+
+const colorStyles = ({ theme, $type }: IStyledIconProps) => {
+  let color;
+
+  switch ($type) {
+    case validationTypes.success:
+      color = getColor({ variable: 'foreground.success', theme });
+      break;
+    case validationTypes.error:
+      color = getColor({ variable: 'foreground.danger', theme });
+      break;
+    case validationTypes.warning:
+      color = getColor({ variable: 'foreground.warning', theme });
+      break;
+    case validationTypes.info:
+      color = getColor({ variable: 'foreground.subtle', theme });
+      break;
+  }
+
+  return css`
+    color: ${color};
+  `;
+};
+
+export const StyledIcon = styled(StyledBaseIcon).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledIconProps>`
   position: absolute;
-  right: ${props => props.theme.rtl && `${props.theme.space.base * 4}px`};
-  left: ${props => !props.theme.rtl && `${props.theme.space.base * 4}px`};
-  margin-top: ${props => props.theme.space.base / 2}px;
-  color: ${props =>
-    props.$hue && getColorV8(props.$hue, props.$hue === 'warningHue' ? 700 : 600, props.theme)};
+
+  ${sizeStyles}
+  ${colorStyles}
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)}
 `;
 
 StyledIcon.defaultProps = {

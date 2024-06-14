@@ -8,11 +8,11 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledTitle } from './content/StyledTitle';
-import { StyledBase } from './StyledBase';
+import { IStyledBaseProps, StyledBase } from './StyledBase';
 
 const COMPONENT_ID = 'notifications.alert';
 
-export interface IStyledAlertProps {
+export interface IStyledAlertProps extends IStyledBaseProps {
   hue?: string;
 }
 

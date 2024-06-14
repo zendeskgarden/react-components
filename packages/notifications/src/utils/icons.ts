@@ -19,8 +19,15 @@ export const validationIcons: Record<Type, Record<string, unknown>> = {
 };
 
 export const validationHues: Record<Type, string> = {
-  success: 'successHue',
-  error: 'dangerHue',
-  warning: 'warningHue',
-  info: 'neutralHue'
+  success: 'success',
+  error: 'danger',
+  warning: 'warning',
+  info: 'default'
+};
+
+export const validationTypes: Record<Type, string> = {
+  success: 'success',
+  error: 'error',
+  warning: 'warning',
+  info: 'info'
 };

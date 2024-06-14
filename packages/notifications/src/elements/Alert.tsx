@@ -7,23 +7,23 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IAlertProps, TYPE } from '../types';
+import { IAlertProps, TYPE, Type } from '../types';
 import { StyledAlert, StyledIcon } from '../styled';
 import { validationIcons, validationHues } from '../utils/icons';
-import { Hue, NotificationsContext } from '../utils/useNotificationsContext';
+import { NotificationsContext } from '../utils/useNotificationsContext';
 import { Title } from './content/Title';
 import { Paragraph } from './content/Paragraph';
 import { Close } from './content/Close';
 
 export const AlertComponent = React.forwardRef<HTMLDivElement, IAlertProps>(
   ({ role, ...props }, ref) => {
-    const hue = validationHues[props.type];
+    const type = validationHues[props.type];
     const Icon = validationIcons[props.type] as any;
 
     return (
-      <NotificationsContext.Provider value={hue as Hue}>
-        <StyledAlert ref={ref} hue={hue} role={role === undefined ? 'alert' : role} {...props}>
-          <StyledIcon $hue={hue}>
+      <NotificationsContext.Provider value={type as Type}>
+        <StyledAlert ref={ref} $type={type} role={role === undefined ? 'alert' : role} {...props}>
+          <StyledIcon $type={type}>
             <Icon />
           </StyledIcon>
           {props.children}

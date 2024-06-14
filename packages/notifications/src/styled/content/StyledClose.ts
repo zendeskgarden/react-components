@@ -5,20 +5,89 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import {
-  retrieveComponentStyles,
-  getColorV8,
-  DEFAULT_THEME,
-  focusStyles
-} from '@zendeskgarden/react-theming';
-import { Hue } from '../../utils/useNotificationsContext';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { Type } from '../../types';
+import { validationTypes } from '../../utils/icons';
+import { IconButton } from '@zendeskgarden/react-buttons';
 
 const COMPONENT_ID = 'notifications.close';
 
 interface IStyledCloseProps {
-  hue?: Hue;
+  $type?: Type;
 }
+
+/**
+ * 1. IconButton reset
+ */
+const sizeStyles = ({ theme: { space } }: ThemeProps<DefaultTheme>) => {
+  return css`
+    padding: 0;
+    width: ${space.base * 7}px;
+    min-width: unset; /* [1] */
+    height: ${space.base * 7}px;
+
+    && > svg {
+      width: 12px; /* [1] */
+      height: 12px; /* [1] */
+    }
+  `;
+};
+
+/**
+ * 1. IconButton reset
+ */
+const colorStyles = ({ theme, $type }: IStyledCloseProps & ThemeProps<DefaultTheme>) => {
+  let variable;
+  let color;
+  let hoverColor;
+  let activeColor;
+
+  if ($type) {
+    switch ($type) {
+      case validationTypes.warning:
+        variable = 'foreground.warning';
+        break;
+      case validationTypes.error:
+        variable = 'foreground.error';
+        break;
+      case validationTypes.success:
+        variable = 'foreground.success';
+        break;
+      case validationTypes.info:
+        variable = 'foreground.info';
+        break;
+    }
+
+    color = getColor({ variable, theme });
+    hoverColor = getColor({
+      variable,
+      light: { offset: 100 },
+      dark: { offset: -100 },
+      theme
+    });
+    activeColor = getColor({
+      variable,
+      light: { offset: 200 },
+      dark: { offset: -200 },
+      theme
+    });
+  }
+
+  return css`
+    color: ${color};
+
+    &:hover {
+      background-color: transparent; /* [1] */
+      color: ${hoverColor};
+    }
+
+    &:active {
+      background-color: transparent; /* [1] */
+      color: ${activeColor};
+    }
+  `;
+};
 
 /**
  * Used to close a Notification. Supports all `<button>` props
@@ -26,50 +95,18 @@ interface IStyledCloseProps {
  * 1. Reset for <button> element.
  * 2. Remove dotted outline from Firefox on focus.
  */
-export const StyledClose = styled.button.attrs({
+export const StyledClose = styled(IconButton).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledCloseProps>`
-  display: block;
   position: absolute;
   top: ${props => props.theme.space.base}px;
-  ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base}px`};
-  /* prettier-ignore */
-  transition:
-    background-color 0.1s ease-in-out,
-    color 0.25s ease-in-out,
-    box-shadow 0.1s ease-in-out;
-  border: none; /* [1] */
-  border-radius: 50%;
-  background-color: transparent; /* [1] */
-  cursor: pointer;
-  padding: 0;
-  width: ${props => props.theme.space.base * 7}px;
-  height: ${props => props.theme.space.base * 7}px;
-  overflow: hidden;
-  color: ${props =>
-    props.hue
-      ? getColorV8(props.hue, props.hue === 'warningHue' ? 700 : 600, props.theme)
-      : getColorV8('neutralHue', 600, props.theme)};
-  font-size: 0; /* [1] */
-  user-select: none;
+  right: ${p => !p.theme.rtl && `${p.theme.space.base}px`};
+  left: ${p => p.theme.rtl && `${p.theme.space.base}px`};
 
-  &::-moz-focus-inner {
-    border: 0; /* [2] */
-  }
+  ${sizeStyles}
 
-  &:hover {
-    color: ${props =>
-      props.hue
-        ? getColorV8(props.hue, 800, props.theme)
-        : getColorV8('neutralHue', 800, props.theme)};
-  }
-
-  ${props =>
-    focusStyles({
-      theme: props.theme,
-      inset: true
-    })}
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

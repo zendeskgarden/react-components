@@ -19,10 +19,10 @@ import XStrokeIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 export const Close = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const ariaLabel = useText(Close, props, 'aria-label', 'Close');
-    const hue = useNotificationsContext();
+    const type = useNotificationsContext();
 
     return (
-      <StyledClose ref={ref} hue={hue} aria-label={ariaLabel} {...props}>
+      <StyledClose ref={ref} $type={type} aria-label={ariaLabel} {...props} focusInset size="small">
         <XStrokeIcon />
       </StyledClose>
     );

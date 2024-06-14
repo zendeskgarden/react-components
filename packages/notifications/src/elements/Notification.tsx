@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import InfoStrokeIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import { INotificationProps, TYPE } from '../types';
 import { StyledNotification, StyledIcon } from '../styled';
-import { validationIcons, validationHues } from '../utils/icons';
+import { validationIcons } from '../utils/icons';
 import { Title } from './content/Title';
 import { Paragraph } from './content/Paragraph';
 import { Close } from './content/Close';
@@ -18,16 +18,14 @@ import { Close } from './content/Close';
 export const NotificationComponent = forwardRef<HTMLDivElement, INotificationProps>(
   ({ children, type, ...props }, ref) => {
     const Icon = type ? validationIcons[type] : InfoStrokeIcon;
-    const hue = type && validationHues[type];
 
     return (
-      <StyledNotification ref={ref} type={type} isFloating role="alert" {...props}>
+      <StyledNotification ref={ref} $type={type} $isFloating role="alert" {...props}>
         {type && (
-          <StyledIcon $hue={hue}>
+          <StyledIcon $type={type}>
             <Icon />
           </StyledIcon>
         )}
-
         {children}
       </StyledNotification>
     );
