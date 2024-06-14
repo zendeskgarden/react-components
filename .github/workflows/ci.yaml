@@ -91,7 +91,6 @@ jobs:
         run: npm run test:ci
 
       - name: Coveralls
-        if: env.COVERALLS_REPO_TOKEN != ''
         run: npm exec -- coveralls < .cache/coverage/lcov.info
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
