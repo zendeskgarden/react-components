@@ -50,6 +50,7 @@ jobs:
           path: ./demo
 
   lint:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -122,11 +123,6 @@ jobs:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          REPO_SLUG: ${{ github.repository }}
-          # TODO: remove once zdg/scripts are updated
-          CIRCLE_PROJECT_USERNAME: zendeskgarden
-          CIRCLE_PROJECT_REPONAME: react-components
-          CIRCLECI: true
 
   # TODO: remove
   smoke-test:
