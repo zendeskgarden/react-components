@@ -20,23 +20,6 @@ interface IStyledCloseProps {
 /**
  * 1. IconButton reset
  */
-const sizeStyles = ({ theme: { space } }: ThemeProps<DefaultTheme>) => {
-  return css`
-    padding: 0;
-    width: ${space.base * 7}px;
-    min-width: unset; /* [1] */
-    height: ${space.base * 7}px;
-
-    && > svg {
-      width: unset; /* [1] */
-      height: unset; /* [1] */
-    }
-  `;
-};
-
-/**
- * 1. IconButton reset
- */
 const colorStyles = ({ theme, $type }: IStyledCloseProps & ThemeProps<DefaultTheme>) => {
   let variable;
   let color;
@@ -93,8 +76,6 @@ export const StyledClose = styled(IconButton).attrs({
   top: ${props => props.theme.space.base}px;
   right: ${p => !p.theme.rtl && `${p.theme.space.base}px`};
   left: ${p => p.theme.rtl && `${p.theme.space.base}px`};
-
-  ${sizeStyles}
 
   ${colorStyles}
 

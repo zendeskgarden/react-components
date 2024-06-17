@@ -61,7 +61,7 @@ const colorStyles = ({ theme, $type, $isFloating }: IStyledBaseProps) => {
         fgVariable = 'foreground.warning';
         break;
       case validationTypes.info:
-        bgVariable = 'background.raised';
+        bgVariable = 'background.subtle';
         borderVariable = 'border.default';
         fgVariable = 'foreground.subtle';
         break;
