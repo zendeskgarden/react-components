@@ -2,15 +2,61 @@ version: 2.1
 orbs:
   node: circleci/node@5.2.0
 
-jobs:
-  check:
+references:
+  executor: &executor
     executor:
       name: node/default
       tag: lts
+
+  workspace_root: &workspace_root ~/project
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+  persist_to_workspace: &persist_to_workspace
+    persist_to_workspace:
+      root: *workspace_root
+      paths: .
+
+jobs:
+  build:
+    <<: *executor
     steps:
-      - run: echo "PASSED"
+      - checkout
+      - node/install-packages:
+          override-ci-command: npm ci --ignore-scripts
+          cache-version: '{{ .Environment.CACHE_VERSION }}'
+      - run: npm exec -- lerna run build --concurrency=2 # prevent out-of-memory
+      - *persist_to_workspace
+
+  test:
+    <<: *executor
+    steps:
+      - *attach_workspace
+      - run: npm run lint:ci
+      - run: npm run test:ci -- --runInBand
+      - run: '[ $COVERALLS_REPO_TOKEN ] && npm exec -- coveralls < .cache/coverage/lcov.info || true'
+      - *persist_to_workspace
+
+  publish:
+    <<: *executor
+    steps:
+      - *attach_workspace
+      - run: npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+      - run: npm exec -- lerna publish from-git --ignore-scripts --yes
 
 workflows:
   main:
     jobs:
-      - check
+      - build
+      - test:
+          requires:
+            - build
+      - publish:
+          requires:
+            - test
+          context: maintainer
+          filters:
+            branches:
+              only: main
