@@ -6,13 +6,13 @@
  */
 
 import styled from 'styled-components';
-import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledBase } from './StyledBase';
 
 const COMPONENT_ID = 'notifications.well';
 
 export interface IStyledWellProps {
-  isRecessed?: boolean;
+  $isRecessed?: boolean;
 }
 
 /**
@@ -22,9 +22,11 @@ export const StyledWell = styled(StyledBase).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledWellProps>`
-  background-color: ${props => props.isRecessed && getColorV8('neutralHue', 100, props.theme)};
-  color: ${props => getColorV8('neutralHue', 600, props.theme)}
-    ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  background-color: ${p =>
+    p.$isRecessed && getColor({ variable: 'background.recessed', theme: p.theme })};
+  color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
+
+  ${p => retrieveComponentStyles(COMPONENT_ID, p)};
 `;
 
 StyledWell.defaultProps = {
