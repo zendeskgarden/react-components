@@ -10,6 +10,7 @@ import { getRenderFn, render } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledGlobalAlertButton } from './StyledGlobalAlertButton';
 import { colorStyles } from './StyledGlobalAlertClose';
+import { Type } from '../../types';
 
 jest.mock('./StyledGlobalAlertClose');
 
