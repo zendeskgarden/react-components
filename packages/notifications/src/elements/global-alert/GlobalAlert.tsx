@@ -14,7 +14,7 @@ import SuccessIcon from '@zendeskgarden/svg-icons/src/16/check-circle-stroke.svg
 
 import { TYPE, IGlobalAlertProps } from '../../types';
 import { StyledGlobalAlert, StyledGlobalAlertIcon } from '../../styled';
-import { GlobalAlertContext } from './utility';
+import { GlobalAlertContext } from '../../utils/useGlobalAlertContext';
 import { GlobalAlertButton } from './GlobalAlertButton';
 import { GlobalAlertClose } from './GlobalAlertClose';
 import { GlobalAlertContent } from './GlobalAlertContent';
@@ -38,8 +38,8 @@ const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>(
       <GlobalAlertContext.Provider value={useMemo(() => ({ type }), [type])}>
         {/* [1] */}
         {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
-        <StyledGlobalAlert ref={ref} role="status" alertType={type} {...props}>
-          <StyledGlobalAlertIcon>{icon}</StyledGlobalAlertIcon>
+        <StyledGlobalAlert ref={ref} role="status" $alertType={type} {...props}>
+          <StyledGlobalAlertIcon $alertType={type}>{icon}</StyledGlobalAlertIcon>
           {props.children}
         </StyledGlobalAlert>
       </GlobalAlertContext.Provider>

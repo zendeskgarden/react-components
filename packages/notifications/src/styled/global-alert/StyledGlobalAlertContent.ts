@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'notifications.global-alert.content';
+const COMPONENT_ID = 'notifications.global_alert.content';
 
 export const StyledGlobalAlertContent = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,

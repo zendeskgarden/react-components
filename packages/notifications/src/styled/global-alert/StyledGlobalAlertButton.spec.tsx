@@ -6,10 +6,8 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
-import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
-
-import { TYPE } from '../../types';
+import { getRenderFn, render } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledGlobalAlertButton } from './StyledGlobalAlertButton';
 import { colorStyles } from './StyledGlobalAlertClose';
 
@@ -17,30 +15,36 @@ jest.mock('./StyledGlobalAlertClose');
 
 describe('StyledGlobalAlertButton', () => {
   it('uses basic styles', () => {
-    render(<StyledGlobalAlertButton isBasic alertType="info" />);
+    render(<StyledGlobalAlertButton isBasic $alertType="info" />);
 
     expect(colorStyles).toHaveBeenCalledTimes(1);
   });
 
-  it.each(TYPE)('renders "%s" type', type => {
-    const { getByRole } = render(<StyledGlobalAlertButton isPrimary alertType={type} />);
-
-    expect(getByRole('button')).toHaveStyleRule(
-      'background-color',
-      {
-        success: getColorV8('successHue', 800, DEFAULT_THEME),
-        warning: getColorV8('warningHue', 800, DEFAULT_THEME),
-        error: getColorV8('dangerHue', 800, DEFAULT_THEME),
-        info: getColorV8('primaryHue', 600, DEFAULT_THEME)
-      }[type]
+  it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([
+    { mode: 'light', type: 'success', color: PALETTE.green[900] },
+    { mode: 'dark', type: 'success', color: PALETTE.green[900] },
+    { mode: 'light', type: 'error', color: PALETTE.red[900] },
+    { mode: 'dark', type: 'error', color: PALETTE.red[900] },
+    { mode: 'light', type: 'warning', color: PALETTE.yellow[900] },
+    { mode: 'dark', type: 'warning', color: PALETTE.yellow[900] },
+    { mode: 'light', type: 'info', color: PALETTE.blue[700] },
+    { mode: 'dark', type: 'info', color: PALETTE.blue[600] }
+  ])('renders $mode mode $type background color', ({ mode, type, color }) => {
+    const { getByRole } = getRenderFn(mode)(
+      <StyledGlobalAlertButton isPrimary $alertType={type} />
     );
+
+    expect(getByRole('button')).toHaveStyleRule('background-color', color);
   });
 
   describe('`data-garden-id` attribute', () => {
     it('has the correct `data-garden-id`', () => {
-      const { container } = render(<StyledGlobalAlertButton alertType="info" />);
+      const { container } = render(<StyledGlobalAlertButton $alertType="info" />);
 
-      expect(container.firstChild).toHaveAttribute('data-garden-id', 'buttons.button');
+      expect(container.firstChild).toHaveAttribute(
+        'data-garden-id',
+        'notifications.global_alert.button'
+      );
     });
   });
 });

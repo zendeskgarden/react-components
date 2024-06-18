@@ -6,17 +6,15 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
-
-import { TYPE } from '../../types';
-
+import { getRenderFn, render, renderRtl } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { Type } from '../../types';
 import { StyledGlobalAlertTitle } from './StyledGlobalAlertTitle';
 
 describe('StyledGlobalAlertTitle', () => {
   it('renders default styles', () => {
     const { getByText } = render(
-      <StyledGlobalAlertTitle alertType="info">title</StyledGlobalAlertTitle>
+      <StyledGlobalAlertTitle $alertType="info">title</StyledGlobalAlertTitle>
     );
 
     expect(getByText('title')).toHaveStyleRule('font-weight', '600');
@@ -25,7 +23,7 @@ describe('StyledGlobalAlertTitle', () => {
 
   it('renders in RTL mode', () => {
     const { getByText } = renderRtl(
-      <StyledGlobalAlertTitle alertType="info">title</StyledGlobalAlertTitle>
+      <StyledGlobalAlertTitle $alertType="info">title</StyledGlobalAlertTitle>
     );
 
     expect(getByText('title')).toHaveStyleRule('font-weight', '600');
@@ -34,7 +32,7 @@ describe('StyledGlobalAlertTitle', () => {
 
   it('renders "isRegular" styles', () => {
     const { getByText } = render(
-      <StyledGlobalAlertTitle isRegular alertType="info">
+      <StyledGlobalAlertTitle $isRegular $alertType="info">
         title
       </StyledGlobalAlertTitle>
     );
@@ -42,19 +40,20 @@ describe('StyledGlobalAlertTitle', () => {
     expect(getByText('title')).toHaveStyleRule('font-weight', '400');
   });
 
-  it.each(TYPE)('renders "%s" type', type => {
-    const { getByText } = render(
-      <StyledGlobalAlertTitle alertType={type}>title</StyledGlobalAlertTitle>
+  it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([
+    { mode: 'light', type: 'success', color: PALETTE.white },
+    { mode: 'dark', type: 'success', color: PALETTE.white },
+    { mode: 'light', type: 'error', color: PALETTE.white },
+    { mode: 'dark', type: 'error', color: PALETTE.white },
+    { mode: 'light', type: 'warning', color: PALETTE.yellow[900] },
+    { mode: 'dark', type: 'warning', color: PALETTE.yellow[900] },
+    { mode: 'light', type: 'info', color: PALETTE.blue[900] },
+    { mode: 'dark', type: 'info', color: PALETTE.blue[900] }
+  ])('renders $mode mode $type color', ({ mode, type, color }) => {
+    const { getByText } = getRenderFn(mode)(
+      <StyledGlobalAlertTitle $alertType={type}>title</StyledGlobalAlertTitle>
     );
 
-    expect(getByText('title')).toHaveStyleRule(
-      'color',
-      {
-        success: DEFAULT_THEME.palette.white as string,
-        warning: getColorV8('warningHue', 900, DEFAULT_THEME),
-        error: DEFAULT_THEME.palette.white as string,
-        info: getColorV8('primaryHue', 800, DEFAULT_THEME)
-      }[type]
-    );
+    expect(getByText('title')).toHaveStyleRule('color', color);
   });
 });

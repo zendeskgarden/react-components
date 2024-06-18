@@ -7,10 +7,9 @@
 
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-
 import { IGlobalAlertButtonProps } from '../../types';
 import { StyledGlobalAlertButton } from '../../styled';
-import { useGlobalAlertContext } from './utility';
+import { useGlobalAlertContext } from '../../utils/useGlobalAlertContext';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
@@ -22,8 +21,15 @@ export const GlobalAlertButton = forwardRef<HTMLButtonElement, IGlobalAlertButto
     return (
       <StyledGlobalAlertButton
         ref={ref}
-        alertType={type}
+        $alertType={type}
         {...props}
+        focusInset={false}
+        isDanger={false}
+        isLink={false}
+        isNeutral={false}
+        isPill={false}
+        isStretched={false}
+        size="small"
         isPrimary={!isBasic}
         isBasic={isBasic}
       />

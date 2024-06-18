@@ -6,53 +6,91 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { getColorV8, DEFAULT_THEME, focusStyles } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  focusStyles,
+  retrieveComponentStyles,
+  getColor
+} from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
-
 import { IGlobalAlertProps } from '../../types';
 
+const COMPONENT_ID = 'notifications.global_alert.close';
+
 interface IStyledGlobalAlertCloseProps {
-  alertType: IGlobalAlertProps['type'];
+  $alertType: IGlobalAlertProps['type'];
 }
 
 export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertCloseProps) => {
+  const { $alertType, theme } = props;
+
   let hoverBackgroundColor;
   let hoverForegroundColor;
   let activeBackgroundColor;
   let activeForegroundColor;
   let focusColor;
 
-  switch (props.alertType) {
+  switch ($alertType) {
     case 'success':
-      hoverBackgroundColor = getColorV8('successHue', 100, props.theme, 0.08);
-      hoverForegroundColor = props.theme.palette.white;
-      activeBackgroundColor = getColorV8('successHue', 100, props.theme, 0.2);
-      activeForegroundColor = props.theme.palette.white;
-      focusColor = 'successHue';
+      hoverBackgroundColor = getColor({
+        variable: 'background.success',
+        theme,
+        transparency: theme.opacity[100]
+      });
+      hoverForegroundColor = theme.palette.white;
+      activeBackgroundColor = getColor({
+        variable: 'background.success',
+        theme,
+        transparency: theme.opacity[200]
+      });
+      activeForegroundColor = theme.palette.white;
+      focusColor = 'foreground.successEmphasis';
       break;
 
     case 'error':
-      hoverBackgroundColor = getColorV8('dangerHue', 100, props.theme, 0.08);
-      hoverForegroundColor = props.theme.palette.white;
-      activeBackgroundColor = getColorV8('dangerHue', 100, props.theme, 0.2);
-      activeForegroundColor = props.theme.palette.white;
-      focusColor = 'dangerHue';
+      hoverBackgroundColor = getColor({
+        variable: 'background.danger',
+        theme,
+        transparency: theme.opacity[100]
+      });
+      hoverForegroundColor = theme.palette.white;
+      activeBackgroundColor = getColor({
+        variable: 'background.danger',
+        theme,
+        transparency: theme.opacity[200]
+      });
+      activeForegroundColor = theme.palette.white;
+      focusColor = 'foreground.dangerEmphasis';
       break;
 
     case 'warning':
-      hoverBackgroundColor = getColorV8('warningHue', 800, props.theme, 0.08);
-      hoverForegroundColor = getColorV8('warningHue', 900, props.theme);
-      activeBackgroundColor = getColorV8('warningHue', 800, props.theme, 0.2);
-      activeForegroundColor = getColorV8('warningHue', 1000, props.theme);
-      focusColor = 'warningHue';
+      hoverBackgroundColor = getColor({
+        variable: 'background.warningEmphasis',
+        transparency: theme.opacity[100],
+        theme
+      });
+      hoverForegroundColor = getColor({
+        variable: 'foreground.warningEmphasis',
+        light: { offset: 200 },
+        dark: { offset: 500 },
+        theme
+      });
+      activeBackgroundColor = getColor({
+        variable: 'background.warningEmphasis',
+        transparency: theme.opacity[200],
+        theme
+      });
+      activeForegroundColor = getColor({
+        variable: 'foreground.warningEmphasis',
+        light: { offset: 300 },
+        dark: { offset: 600 },
+        theme
+      });
+      focusColor = 'foreground.warning';
       break;
 
     case 'info':
-      hoverBackgroundColor = getColorV8('primaryHue', 700, props.theme, 0.08);
-      hoverForegroundColor = getColorV8('primaryHue', 800, props.theme);
-      activeBackgroundColor = getColorV8('primaryHue', 700, props.theme, 0.2);
-      activeForegroundColor = getColorV8('primaryHue', 900, props.theme);
-      focusColor = 'primaryHue';
+      focusColor = 'foreground.primary';
       break;
   }
 
@@ -65,8 +103,8 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
     }
 
     ${focusStyles({
-      theme: props.theme,
-      color: { hue: focusColor, shade: props.alertType === 'info' ? 600 : 800 }
+      theme,
+      color: { variable: focusColor }
     })}
 
     &:active {
@@ -90,11 +128,14 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 };
 
 export const StyledGlobalAlertClose = styled(IconButton).attrs({
-  'data-garden-version': PACKAGE_VERSION,
-  size: 'small'
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
 })<IStyledGlobalAlertCloseProps>`
   ${sizeStyles};
+
   ${colorStyles};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledGlobalAlertClose.defaultProps = {
