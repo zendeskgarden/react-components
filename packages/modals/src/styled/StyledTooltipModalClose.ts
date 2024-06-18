@@ -13,13 +13,11 @@ const COMPONENT_ID = 'modals.tooltip_modal.close';
 
 export const StyledTooltipModalClose = styled(StyledClose).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  size: 'small'
 })`
   top: ${props => props.theme.space.base * 3.5}px;
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base * 3}px`};
-  width: ${props => props.theme.space.base * 8}px;
-  height: ${props => props.theme.space.base * 8}px;
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

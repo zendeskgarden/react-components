@@ -10,7 +10,7 @@ import {
   getLineHeight,
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.tooltip_modal.body';
@@ -23,7 +23,7 @@ export const StyledTooltipModalBody = styled.div.attrs({
   margin: 0;
   padding-top: ${props => props.theme.space.base * 1.5}px;
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
-  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
+  color: ${({ theme }) => getColor({ variable: 'foreground.default', theme })};
   font-size: ${props => props.theme.fontSizes.md};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
