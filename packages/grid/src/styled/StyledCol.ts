@@ -7,13 +7,25 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { AlignSelf, Breakpoint, GridNumber, IColProps, IGridProps, TextAlign } from '../types';
 
 const COMPONENT_ID = 'grid.col';
 
-const colorStyles = (props: IStyledColProps) => {
-  const backgroundColor = getColorV8('primaryHue', 600, props.theme, 0.1);
+interface IStyledColProps extends Omit<IColProps, 'size'>, ThemeProps<DefaultTheme> {
+  columns?: IGridProps['columns'];
+  gutters?: IGridProps['gutters'];
+  sizeAll?: IColProps['size'];
+  debug?: IGridProps['debug'];
+}
+
+const colorStyles = ({ theme }: IStyledColProps) => {
+  const backgroundColor = getColor({
+    theme,
+    variable: 'background.primaryEmphasis',
+    dark: { transparency: theme.opacity[200] },
+    light: { transparency: theme.opacity[100] }
+  });
 
   return css`
     background-clip: content-box;
@@ -101,21 +113,14 @@ const mediaStyles = (
   `;
 };
 
-const sizeStyles = (props: IStyledColProps) => {
-  const padding = props.gutters ? math(`${props.theme.space[props.gutters!]} / 2`) : 0;
+const sizeStyles = ({ theme, gutters }: IStyledColProps) => {
+  const padding = gutters ? math(`${theme.space[gutters!]} / 2`) : 0;
 
   return css`
     padding-right: ${padding};
     padding-left: ${padding};
   `;
 };
-
-interface IStyledColProps extends Omit<IColProps, 'size'>, ThemeProps<DefaultTheme> {
-  columns?: IGridProps['columns'];
-  gutters?: IGridProps['gutters'];
-  sizeAll?: IColProps['size'];
-  debug?: IGridProps['debug'];
-}
 
 export const StyledCol = styled.div.attrs<IStyledColProps>({
   'data-garden-id': COMPONENT_ID,
@@ -135,7 +140,9 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
       props.order,
       props
     )};
-  ${props => sizeStyles(props)};
+
+  ${sizeStyles};
+
   ${props => props.debug && colorStyles(props)};
 
   ${props =>
