@@ -21,18 +21,20 @@ import { OverflowButton } from './OverflowButton';
 import { Row } from './Row';
 import { SortableCell } from './SortableCell';
 
-export const TableComponent = React.forwardRef<HTMLTableElement, ITableProps>((props, ref) => {
-  const tableContextValue = useMemo(
-    () => ({ size: props.size!, isReadOnly: props.isReadOnly! }),
-    [props.size, props.isReadOnly]
-  );
+export const TableComponent = React.forwardRef<HTMLTableElement, ITableProps>(
+  ({ isReadOnly, size, ...props }, ref) => {
+    const tableContextValue = useMemo(
+      () => ({ size: size!, isReadOnly: isReadOnly! }),
+      [size, isReadOnly]
+    );
 
-  return (
-    <TableContext.Provider value={tableContextValue}>
-      <StyledTable ref={ref} {...props} />
-    </TableContext.Provider>
-  );
-});
+    return (
+      <TableContext.Provider value={tableContextValue}>
+        <StyledTable ref={ref} {...props} />
+      </TableContext.Provider>
+    );
+  }
+);
 
 TableComponent.displayName = 'Table';
 

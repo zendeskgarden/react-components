@@ -14,9 +14,11 @@ import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.cell';
 
-export interface IStyledCellProps
-  extends Pick<ICellProps, 'isMinimum' | 'isTruncated' | 'hasOverflow' | 'width'> {
-  size?: ITableProps['size'];
+export interface IStyledCellProps extends Pick<ICellProps, 'width'> {
+  $size?: ITableProps['size'];
+  $isMinimum?: boolean;
+  $isTruncated?: boolean;
+  $hasOverflow?: boolean;
 }
 
 const truncatedStyling = css`
@@ -31,7 +33,7 @@ const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
   let width = props.width;
   let height;
 
-  if (props.hasOverflow) {
+  if (props.$hasOverflow) {
     boxSizing = 'content-box';
     width = '2em';
     height = 'inherit';
@@ -45,7 +47,7 @@ const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
     padding = `${paddingVertical} ${paddingHorizontal}`;
   }
 
-  if (props.isMinimum) {
+  if (props.$isMinimum) {
     boxSizing = 'content-box';
     width = '1em';
   }
@@ -68,7 +70,7 @@ export const StyledCell = styled.td.attrs<IStyledCellProps>({
     box-shadow 0.1s ease-in-out;
 
   ${props => sizeStyling(props)};
-  ${props => props.isTruncated && truncatedStyling};
+  ${props => props.$isTruncated && truncatedStyling};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

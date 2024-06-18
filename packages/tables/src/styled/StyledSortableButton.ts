@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8,
   focusStyles,
-  SELECTOR_FOCUS_VISIBLE
+  SELECTOR_FOCUS_VISIBLE,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { ISortableCellProps } from '../types';
 
@@ -53,9 +53,86 @@ StyledSortableFillIconWrapper.defaultProps = {
 };
 
 interface IStyledSortableButtonProps {
-  sort?: ISortableCellProps['sort'];
+  $sort?: ISortableCellProps['sort'];
   width?: ISortableCellProps['width'];
 }
+
+const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & ThemeProps<DefaultTheme>) => {
+  const fgInactive = getColor({
+    variable: 'foreground.subtle',
+    transparency: theme.opacity[200],
+    theme
+  });
+  const fgActive = getColor({
+    variable: 'foreground.subtle',
+    theme
+  });
+  const fgPrimaryActive = getColor({ variable: 'foreground.primary', theme });
+  const fgPrimaryInactive = getColor({
+    variable: 'foreground.primary',
+    theme,
+    dark: { offset: -100 },
+    transparency: theme.opacity[200]
+  });
+  let color = fgActive;
+  let fill = fgActive;
+
+  if ($sort === 'asc') {
+    color = fgActive;
+    fill = fgInactive;
+  } else if ($sort === 'desc') {
+    color = fgInactive;
+    fill = fgActive;
+  }
+
+  return css`
+    ${StyledSortableStrokeIconWrapper} {
+      color: ${fgActive};
+      fill: ${fgActive};
+    }
+
+    ${StyledSortableFillIconWrapper} {
+      color: ${color};
+      fill: ${fill};
+    }
+
+    &:hover,
+    ${SELECTOR_FOCUS_VISIBLE} {
+      color: ${fgPrimaryActive};
+
+      ${$sort === undefined &&
+      `
+        ${StyledSortableFillIconWrapper} {
+          opacity: 1;
+          color: ${fgPrimaryActive};
+          fill: ${fgPrimaryActive};
+        }
+
+        ${StyledSortableStrokeIconWrapper} {
+          opacity: 0;
+        }
+      `};
+
+      ${$sort === 'asc' &&
+      `
+        ${StyledSortableFillIconWrapper} {
+          color: ${fgPrimaryActive};
+          fill: ${fgPrimaryInactive};
+        }
+      `}
+
+      ${$sort === 'desc' &&
+      `
+        ${StyledSortableFillIconWrapper} {
+          color: ${fgPrimaryInactive};
+          fill: ${fgPrimaryActive};
+        }
+      `}
+    }
+
+    ${focusStyles({ theme })}
+  `;
+};
 
 /**
  * 1. Reset for <button> element
@@ -84,73 +161,19 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   font-weight: ${props => props.theme.fontWeights.semibold};
 
   ${StyledSortableStrokeIconWrapper} {
-    opacity: ${props => props.sort === undefined && 1};
+    opacity: ${props => props.$sort === undefined && 1};
   }
 
   ${StyledSortableFillIconWrapper} {
-    opacity: ${props => props.sort !== undefined && 1};
-    color: ${props => {
-      if (props.sort === 'asc') {
-        return getColorV8('neutralHue', 600, props.theme);
-      } else if (props.sort === 'desc') {
-        return getColorV8('neutralHue', 400, props.theme);
-      }
-
-      return undefined;
-    }};
-    fill: ${props => {
-      if (props.sort === 'asc') {
-        return getColorV8('neutralHue', 400, props.theme);
-      } else if (props.sort === 'desc') {
-        return getColorV8('neutralHue', 600, props.theme);
-      }
-
-      return undefined;
-    }};
+    opacity: ${props => props.$sort !== undefined && 1};
   }
 
   &:hover,
   ${SELECTOR_FOCUS_VISIBLE} {
     text-decoration: none;
-    color: ${props => getColorV8('primaryHue', 600, props.theme)};
-
-    ${props =>
-      props.sort === undefined &&
-      `
-      ${StyledSortableFillIconWrapper} {
-        opacity: 1;
-        color: ${getColorV8('primaryHue', 600, props.theme)};
-        fill: ${getColorV8('primaryHue', 600, props.theme)};
-      }
-
-      ${StyledSortableStrokeIconWrapper} {
-        opacity: 0;
-      }
-    `};
-
-    ${props =>
-      props.sort === 'asc' &&
-      `
-      ${StyledSortableFillIconWrapper} {
-        color: ${getColorV8('primaryHue', 600, props.theme)};
-        fill: ${getColorV8('primaryHue', 600, props.theme, 0.25)};
-      }
-    `}
-
-    ${props =>
-      props.sort === 'desc' &&
-      `
-      ${StyledSortableFillIconWrapper} {
-        color: ${getColorV8('primaryHue', 600, props.theme, 0.25)};
-        fill: ${getColorV8('primaryHue', 600, props.theme)};
-      }
-    `}
   }
 
-  ${props =>
-    focusStyles({
-      theme: props.theme
-    })}
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

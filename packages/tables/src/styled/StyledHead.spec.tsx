@@ -25,7 +25,7 @@ describe('StyledHead', () => {
   it('renders sticky head styles', () => {
     const { getByTestId } = render(
       <table>
-        <StyledHead isSticky data-test-id="head">
+        <StyledHead $isSticky data-test-id="head">
           <StyledHeaderRow data-test-id="header" />
         </StyledHead>
       </table>

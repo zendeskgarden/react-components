@@ -6,53 +6,70 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { ITableProps } from '../types';
 import { StyledCell } from './StyledCell';
+import { StyledBaseRow } from './StyledBaseRow';
 import { StyledOverflowButton } from './StyledOverflowButton';
 import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.row';
 
 export interface IStyledRowProps {
-  isStriped?: boolean;
-  isFocused?: boolean;
-  isHovered?: boolean;
-  isSelected?: boolean;
-  isReadOnly?: ITableProps['isReadOnly'];
-  size?: ITableProps['size'];
+  $isStriped?: boolean;
+  $isFocused?: boolean;
+  $isHovered?: boolean;
+  $isSelected?: boolean;
+  $isReadOnly?: ITableProps['isReadOnly'];
+  $size?: ITableProps['size'];
 }
 
-export const StyledBaseRow = styled.tr<IStyledRowProps>`
-  display: table-row;
-  transition: background-color 0.1s ease-in-out;
-  border-bottom: ${props =>
-    `${props.theme.borders.sm} ${getColorV8('neutralHue', 200, props.theme)}`};
-  background-color: ${props => props.isStriped && getColorV8('neutralHue', 100, props.theme)};
-  vertical-align: top;
-  box-sizing: border-box;
-`;
-
-StyledBaseRow.defaultProps = {
-  theme: DEFAULT_THEME
-};
-
-const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
-  const boxShadow = `inset ${props.theme.rtl ? '-' : ''}${
-    props.theme.shadowWidths.md
-  } 0 0 0 ${getColorV8('primaryHue', 600, props.theme)}`;
-  const hoveredBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.08);
-  const hoveredBorderColor = getColorV8('primaryHue', 200, props.theme);
-  const selectedBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.2);
-  const selectedBorderColor = getColorV8('primaryHue', 300, props.theme);
-  const hoveredSelectedBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.28);
+const colorStyles = ({
+  theme,
+  $isFocused,
+  $isSelected,
+  $isHovered,
+  $isReadOnly
+}: IStyledRowProps & ThemeProps<DefaultTheme>) => {
+  const hoveredBackgroundColor = getColor({
+    variable: 'background.primaryEmphasis',
+    transparency: theme.opacity[100],
+    dark: { offset: -100 },
+    theme
+  });
+  const hoveredBorderColor = getColor({
+    variable: 'border.primaryEmphasis',
+    transparency: theme.opacity[200],
+    dark: { offset: -100 },
+    theme
+  });
+  const selectedBackgroundColor = getColor({
+    variable: 'background.primaryEmphasis',
+    transparency: theme.opacity[200],
+    dark: { offset: -100 },
+    theme
+  });
+  const selectedBorderColor = getColor({
+    variable: 'border.primaryEmphasis',
+    light: { offset: -400 },
+    dark: { offset: 300 },
+    theme
+  });
+  const hoveredSelectedBackgroundColor = getColor({
+    variable: 'background.primaryEmphasis',
+    transparency: theme.opacity[300],
+    dark: { offset: -100 },
+    theme
+  });
+  const boxShadowColor = getColor({ variable: 'border.primaryEmphasis', theme });
+  const boxShadow = `inset ${theme.rtl ? '-' : ''}${theme.shadowWidths.md} 0 0 0 ${boxShadowColor}`;
   let backgroundColor = undefined;
   let borderColor = undefined;
   let hoverBorderBottomColor = undefined;
   let hoverBackgroundColor = undefined;
 
-  if (props.isSelected) {
-    if (props.isHovered) {
+  if ($isSelected) {
+    if ($isHovered) {
       backgroundColor = hoveredSelectedBackgroundColor;
     } else {
       backgroundColor = selectedBackgroundColor;
@@ -61,10 +78,10 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     borderColor = selectedBorderColor;
     hoverBorderBottomColor = selectedBorderColor;
     hoverBackgroundColor = hoveredSelectedBackgroundColor;
-  } else if (props.isHovered) {
+  } else if ($isHovered) {
     backgroundColor = hoveredBackgroundColor;
     borderColor = hoveredBorderColor;
-  } else if (!props.isReadOnly) {
+  } else if (!$isReadOnly) {
     hoverBorderBottomColor = hoveredBorderColor;
     hoverBackgroundColor = hoveredBackgroundColor;
   }
@@ -87,7 +104,7 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     }
 
     ${StyledCell}:first-of-type {
-      box-shadow: ${props.isFocused && boxShadow};
+      box-shadow: ${$isFocused && boxShadow};
 
       &:focus {
         box-shadow: ${boxShadow};
@@ -96,14 +113,19 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledRow = styled(StyledBaseRow).attrs<IStyledRowProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  tabIndex: props.isReadOnly ? undefined : (-1 as number)
-}))<IStyledRowProps>`
-  height: ${getRowHeight};
+const sizeStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
+  return css`
+    height: ${getRowHeight(props)};
+  `;
+};
 
-  ${props => colorStyles(props)}
+export const StyledRow = styled(StyledBaseRow).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledRowProps>`
+  ${sizeStyles}
+
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

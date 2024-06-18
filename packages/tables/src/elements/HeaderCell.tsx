@@ -17,11 +17,18 @@ import { Cell } from './Cell';
  * @extends ThHTMLAttributes<HTMLTableCellElement>
  */
 export const HeaderCell = forwardRef<HTMLTableCellElement, IHeaderCellProps>(
-  ({ hidden, ...props }, ref) => {
+  ({ hidden, isMinimum, isTruncated, hasOverflow, ...props }, ref) => {
     const { size } = useTableContext();
 
     return (
-      <StyledHeaderCell ref={ref} size={size} {...props}>
+      <StyledHeaderCell
+        ref={ref}
+        $size={size}
+        $isMinimum={isMinimum}
+        $isTruncated={isTruncated}
+        $hasOverflow={hasOverflow}
+        {...props}
+      >
         {hidden && props.children ? (
           <StyledHiddenCell>{props.children}</StyledHiddenCell>
         ) : (

@@ -8,10 +8,10 @@
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { ITableProps } from '../types';
 
-export const getRowHeight = (props: { size?: ITableProps['size'] } & ThemeProps<DefaultTheme>) => {
-  if (props.size === 'large') {
+export const getRowHeight = (props: { $size?: ITableProps['size'] } & ThemeProps<DefaultTheme>) => {
+  if (props.$size === 'large') {
     return `${props.theme.space.base * 16}px`;
-  } else if (props.size === 'small') {
+  } else if (props.$size === 'small') {
     return `${props.theme.space.base * 8}px`;
   }
 

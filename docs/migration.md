@@ -173,6 +173,7 @@ consider additional positioning prop support on a case-by-case basis.
 
 - All subcomponent exports have been deprecated and will be removed in a future major version.
   Update to subcomponent properties (e.g., `Table.Body`).
+- Removed `isHovered`, `isActive`, and `isFocused` props from `Table.OverflowButton`
 
 #### @zendeskgarden/react-tabs
 

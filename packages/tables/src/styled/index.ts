@@ -19,5 +19,5 @@ export {
   StyledSortableFillIconWrapper,
   StyledSortableStrokeIconWrapper
 } from './StyledSortableButton';
-export { StyledOverflowButton, StyledOverflowButtonIconWrapper } from './StyledOverflowButton';
+export { StyledOverflowButton } from './StyledOverflowButton';
 export { StyledRow } from './StyledRow';

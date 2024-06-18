@@ -22,6 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-utilities": "^2.0.0",
+    "@zendeskgarden/react-buttons": "^9.0.0-next.13",
     "dom-helpers": "^5.1.0",
     "polished": "^4.3.1",
     "prop-types": "^15.5.7"
