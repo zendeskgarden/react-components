@@ -21,7 +21,7 @@ describe('StyledBase', () => {
     { mode: 'dark', type: 'warning', color: PALETTE.yellow[1000] },
     { mode: 'light', type: 'info', color: PALETTE.grey[100] },
     { mode: 'dark', type: 'info', color: PALETTE.grey[1000] }
-  ])('renders $mode mode $type background colors', ({ mode, type, color }) => {
+  ])('renders $mode mode $type background color', ({ mode, type, color }) => {
     const { container } = getRenderFn(mode)(<StyledBase $type={type} />);
 
     expect(container.firstChild).toHaveStyleRule('background-color', color);
@@ -36,7 +36,7 @@ describe('StyledBase', () => {
     { mode: 'dark', type: 'warning', color: PALETTE.yellow[800] },
     { mode: 'light', type: 'info', color: PALETTE.grey[300] },
     { mode: 'dark', type: 'info', color: PALETTE.grey[800] }
-  ])('renders $mode mode $type border colors', ({ mode, type, color }) => {
+  ])('renders $mode mode $type border color', ({ mode, type, color }) => {
     const { container } = getRenderFn(mode)(<StyledBase $type={type} />);
 
     expect(container.firstChild).toHaveStyleRule('border-color', color);
@@ -51,7 +51,7 @@ describe('StyledBase', () => {
     { mode: 'dark', type: 'warning', color: PALETTE.yellow[400] },
     { mode: 'light', type: 'info', color: PALETTE.grey[700] },
     { mode: 'dark', type: 'info', color: PALETTE.grey[500] }
-  ])('renders $mode mode $type foreground colors', ({ mode, type, color }) => {
+  ])('renders $mode mode $type foreground color', ({ mode, type, color }) => {
     const { container } = getRenderFn(mode)(<StyledBase $type={type} />);
 
     expect(container.firstChild).toHaveStyleRule('color', color);
