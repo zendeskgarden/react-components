@@ -13,6 +13,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.14 (2024-06-20)
+
+#### :rocket: New Feature
+* `buttons`, `forms`, `theming`
+  * [#1838](https://github.com/zendeskgarden/react-components/pull/1838) feat(forms): new light/dark mode colors ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1839](https://github.com/zendeskgarden/react-components/pull/1839) feat(grid): new light/dark mode colors ([@jzempel](https://github.com/jzempel))
+* `tables`
+  * [#1833](https://github.com/zendeskgarden/react-components/pull/1833) feat(tables): new light/dark mode colors ([@geotrev](https://github.com/geotrev))
+
 ## v9.0.0-next.13 (2024-06-07)
 
 #### :rocket: New Feature
