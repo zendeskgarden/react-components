@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { rgba } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
 import { FileUpload } from './FileUpload';
@@ -34,11 +34,8 @@ describe('FileUpload', () => {
   it('renders correct styling when isDragging is active', () => {
     const { container } = render(<FileUpload isDragging />);
 
-    const activeColor = getColorV8('primaryHue', 800, DEFAULT_THEME);
-    const activeBackgroundColor = rgba(getColorV8('primaryHue', 600, DEFAULT_THEME) as string, 0.2);
-
-    expect(container.firstChild).toHaveStyleRule('color', activeColor);
-    expect(container.firstChild).toHaveStyleRule('background-color', activeBackgroundColor);
-    expect(container.firstChild).toHaveStyleRule('border-color', activeColor);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[900]);
+    expect(container.firstChild).toHaveStyleRule('background-color', rgba(PALETTE.blue[700], 0.16));
+    expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.blue[900]);
   });
 });

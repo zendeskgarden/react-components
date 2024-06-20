@@ -9,10 +9,18 @@ import React from 'react';
 import { IFauxInputIconProps } from '../../../types';
 import { StyledTextMediaFigure } from '../../../styled';
 
-const StartIconComponent = ({ isDisabled, isRotated, ...props }: IFauxInputIconProps) => (
+const StartIconComponent = ({
+  isDisabled,
+  isFocused,
+  isHovered,
+  isRotated,
+  ...props
+}: IFauxInputIconProps) => (
   <StyledTextMediaFigure
     $position="start"
     $isDisabled={isDisabled}
+    $isFocused={isFocused}
+    $isHovered={isHovered}
     $isRotated={isRotated}
     {...props}
   />

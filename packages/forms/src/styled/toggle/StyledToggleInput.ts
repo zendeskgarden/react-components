@@ -7,18 +7,25 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from '../checkbox/StyledCheckInput';
 import { StyledToggleLabel } from './StyledToggleLabel';
 
 const COMPONENT_ID = 'forms.toggle';
 
-const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const SHADE = 600;
-
-  const backgroundColor = getColorV8('neutralHue', SHADE - 100, props.theme);
-  const hoverBackgroundColor = getColorV8('neutralHue', SHADE, props.theme);
-  const activeBackgroundColor = getColorV8('neutralHue', SHADE + 100, props.theme);
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const backgroundOptions = { theme, variable: 'background.emphasis' };
+  const backgroundColor = getColor(backgroundOptions);
+  const hoverBackgroundColor = getColor({
+    ...backgroundOptions,
+    dark: { offset: -100 },
+    light: { offset: 100 }
+  });
+  const activeBackgroundColor = getColor({
+    ...backgroundOptions,
+    dark: { offset: -200 },
+    light: { offset: 200 }
+  });
 
   return css`
     & ~ ${StyledToggleLabel}::before {
@@ -37,10 +44,10 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const height = `${props.theme.space.base * 5}px`;
-  const width = `${props.theme.space.base * 10}px`;
-  const iconSize = props.theme.iconSizes.md;
+const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const height = `${theme.space.base * 5}px`;
+  const width = `${theme.space.base * 10}px`;
+  const iconSize = theme.iconSizes.md;
   const iconPosition = math(`(${height} - ${iconSize}) / 2`);
   const checkedIconPosition = math(`${width} - ${iconSize} - ${iconPosition}`);
 
@@ -56,13 +63,13 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 
     & ~ ${StyledToggleLabel} > svg {
       top: ${iconPosition};
-      ${props.theme.rtl ? 'right' : 'left'}: ${iconPosition};
+      ${theme.rtl ? 'right' : 'left'}: ${iconPosition};
       width: ${iconSize};
       height: ${iconSize};
     }
 
     &:checked ~ ${StyledToggleLabel} > svg {
-      ${props.theme.rtl ? 'right' : 'left'}: ${checkedIconPosition};
+      ${theme.rtl ? 'right' : 'left'}: ${checkedIconPosition};
     }
   `;
 };
@@ -82,9 +89,9 @@ export const StyledToggleInput = styled(StyledCheckInput).attrs({
     border-radius: 100px;
   }
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
 
-  ${props => colorStyles(props)};
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

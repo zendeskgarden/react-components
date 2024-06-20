@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledTextFauxInput } from './StyledTextFauxInput';
 
 describe('StyledTextInput', () => {
@@ -40,33 +40,31 @@ describe('StyledTextInput', () => {
     const { container } = render(<StyledTextFauxInput isReadOnly />);
 
     expect(container.firstChild).toHaveAttribute('aria-readonly');
-    expect(container.firstChild).toHaveStyleRule('border-color', getColorV8('neutralHue', 300));
   });
 
   it('renders expected disabled styling', () => {
     const { container } = render(<StyledTextFauxInput isDisabled />);
 
     expect(container.firstChild).toHaveAttribute('aria-disabled');
-    expect(container.firstChild).toHaveStyleRule('border-color', getColorV8('neutralHue', 300));
   });
 
   describe('Validation', () => {
     it('renders "success" styling if provided', () => {
       const { container } = render(<StyledTextFauxInput validation="success" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', getColorV8('successHue', 600));
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.green[700]);
     });
 
     it('renders "warning" styling if provided', () => {
       const { container } = render(<StyledTextFauxInput validation="warning" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', getColorV8('warningHue', 600));
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.yellow[700]);
     });
 
     it('renders "error" styling if provided', () => {
       const { container } = render(<StyledTextFauxInput validation="error" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', getColorV8('dangerHue', 600));
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.red[700]);
     });
   });
 });

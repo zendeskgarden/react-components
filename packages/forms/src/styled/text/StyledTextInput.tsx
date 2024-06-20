@@ -5,15 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import React from 'react';
+import { renderToString } from 'react-dom/server';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { em, math } from 'polished';
 import {
   retrieveComponentStyles,
-  getColorV8,
   getLineHeight,
   DEFAULT_THEME,
-  focusStyles
+  focusStyles,
+  getColor
 } from '@zendeskgarden/react-theming';
+import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { Validation } from '../../types';
 import { StyledHint } from '../common/StyledHint';
 import { StyledLabel } from '../common/StyledLabel';
@@ -25,70 +28,78 @@ const isInvalid = (validation?: Validation) => {
   return validation === 'warning' || validation === 'error';
 };
 
-const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
-  const HUE = 'primaryHue';
-  const SHADE = 600;
-  const placeholderColor = getColorV8('neutralHue', SHADE - 200, props.theme);
+const colorStyles = ({
+  theme,
+  isBare,
+  isHovered,
+  focusInset,
+  validation
+}: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
+  const foregroundColor = getColor({ theme, variable: 'foreground.default' });
+  const backgroundColor = isBare
+    ? 'transparent'
+    : getColor({ theme, variable: 'background.default' });
   let borderColor: string | undefined;
   let hoverBorderColor: string | undefined;
-  let focusBorderColor: string;
-  let focusRingHue = HUE;
-  let focusRingShade = SHADE;
+  let borderVariable: string | undefined;
+  let focusBorderColor: string | undefined;
 
-  if (props.validation) {
-    let hue = HUE;
-
-    if (props.validation === 'success') {
-      hue = 'successHue';
-    } else if (props.validation === 'warning') {
-      hue = 'warningHue';
-      focusRingShade = 700;
-    } else if (props.validation === 'error') {
-      hue = 'dangerHue';
+  if (validation) {
+    if (validation === 'success') {
+      borderVariable = 'border.successEmphasis';
+    } else if (validation === 'warning') {
+      borderVariable = 'border.warningEmphasis';
+    } else if (validation === 'error') {
+      borderVariable = 'border.dangerEmphasis';
     }
 
-    borderColor = getColorV8(hue as string, SHADE, props.theme)!;
+    borderColor = getColor({ theme, variable: borderVariable });
     hoverBorderColor = borderColor;
     focusBorderColor = borderColor;
-    focusRingHue = hue;
   } else {
-    borderColor = getColorV8('neutralHue', SHADE - 300, props.theme);
-    hoverBorderColor = getColorV8('primaryHue', SHADE, props.theme);
-    focusBorderColor = hoverBorderColor!;
+    borderColor = getColor({
+      theme,
+      variable: 'border.default',
+      dark: { offset: -100 },
+      light: { offset: 100 }
+    });
+    borderVariable = 'border.primaryEmphasis';
+    hoverBorderColor = getColor({ theme, variable: borderVariable });
+    focusBorderColor = hoverBorderColor;
   }
 
-  const readOnlyBackgroundColor = getColorV8('neutralHue', SHADE - 500, props.theme);
-  const readOnlyBorderColor = getColorV8('neutralHue', SHADE - 300, props.theme);
-  const disabledBackgroundColor = readOnlyBackgroundColor;
-  const disabledBorderColor = getColorV8('neutralHue', SHADE - 400, props.theme);
-  const disabledForegroundColor = getColorV8('neutralHue', SHADE - 200, props.theme);
-
-  let controlledBorderColor = borderColor;
-
-  if (props.isFocused) {
-    controlledBorderColor = focusBorderColor;
-  }
-
-  if (props.isHovered) {
-    controlledBorderColor = hoverBorderColor;
-  }
+  const disabledBackgroundColor = isBare
+    ? undefined
+    : getColor({ theme, variable: 'background.disabled' });
+  const disabledBorderColor = getColor({ theme, variable: 'border.disabled' });
+  const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
+  const placeholderColor = disabledForegroundColor;
+  const readOnlyBackgroundColor = disabledBackgroundColor;
+  const calendarPickerColor = getColor({ theme, variable: 'foreground.subtle' });
+  const calendarPickerIcon = renderToString(<ChevronIcon color={calendarPickerColor} />);
+  const calendarPickerBackgroundImage = `url("data:image/svg+xml,${encodeURIComponent(calendarPickerIcon)}")`;
 
   return css`
-    border-color: ${controlledBorderColor};
-    background-color: ${props.isBare
-      ? 'transparent'
-      : getColorV8('background', 600 /* default shade */, props.theme)};
-    color: ${getColorV8('foreground', 600 /* default shade */, props.theme)};
+    border-color: ${isHovered ? hoverBorderColor : borderColor};
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
 
     &::placeholder {
+      opacity: 1;
       color: ${placeholderColor};
     }
 
+    &::-webkit-datetime-edit {
+      color: ${placeholderColor};
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      background-image: ${calendarPickerBackgroundImage};
+    }
+
     &[readonly],
-    /* apply to faux input */
     &[aria-readonly='true'] {
-      border-color: ${readOnlyBorderColor};
-      background-color: ${!props.isBare && readOnlyBackgroundColor};
+      background-color: ${readOnlyBackgroundColor};
     }
 
     &:hover {
@@ -96,59 +107,64 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
     }
 
     ${focusStyles({
-      theme: props.theme,
-      inset: props.focusInset,
-      condition: !props.isBare,
-      color: { hue: focusRingHue, shade: focusRingShade },
-      styles: {
-        borderColor: focusBorderColor
-      }
+      theme,
+      inset: focusInset,
+      color: { variable: borderVariable },
+      styles: { borderColor: focusBorderColor },
+      condition: !isBare
     })}
 
+    &::-webkit-calendar-picker-indicator:focus-visible {
+      ${focusStyles({ theme })}
+    }
+
     &:disabled,
-    /* apply to faux input */
     &[aria-disabled='true'] {
       border-color: ${disabledBorderColor};
-      background-color: ${!props.isBare && disabledBackgroundColor};
+      background-color: ${disabledBackgroundColor};
       color: ${disabledForegroundColor};
     }
   `;
 };
 
-const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
-  const fontSize = props.theme.fontSizes.md;
-  const paddingHorizontal = `${props.theme.space.base * 3}px`;
+const sizeStyles = ({
+  theme,
+  isBare,
+  isCompact
+}: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
+  const fontSize = theme.fontSizes.md;
+  const paddingHorizontal = `${theme.space.base * 3}px`;
   let height;
   let paddingVertical;
   let browseFontSize;
   let swatchHeight;
 
-  if (props.isCompact) {
-    height = `${props.theme.space.base * 8}px`;
-    paddingVertical = `${props.theme.space.base * 1.5}px`;
-    browseFontSize = math(`${props.theme.fontSizes.sm} - 1`);
-    swatchHeight = `${props.theme.space.base * 6}px`;
+  if (isCompact) {
+    height = `${theme.space.base * 8}px`;
+    paddingVertical = `${theme.space.base * 1.5}px`;
+    browseFontSize = math(`${theme.fontSizes.sm} - 1`);
+    swatchHeight = `${theme.space.base * 6}px`;
   } else {
-    height = `${props.theme.space.base * 10}px`;
-    paddingVertical = `${props.theme.space.base * 2.5}px`;
-    browseFontSize = props.theme.fontSizes.sm;
-    swatchHeight = `${props.theme.space.base * 7}px`;
+    height = `${theme.space.base * 10}px`;
+    paddingVertical = `${theme.space.base * 2.5}px`;
+    browseFontSize = theme.fontSizes.sm;
+    swatchHeight = `${theme.space.base * 7}px`;
   }
 
-  const lineHeight = math(
-    `${height} - (${paddingVertical} * 2) - (${props.theme.borderWidths.sm} * 2)`
-  );
-  const padding = props.isBare
+  const lineHeight = math(`${height} - (${paddingVertical} * 2) - (${theme.borderWidths.sm} * 2)`);
+  const padding = isBare
     ? '0'
     : `${em(paddingVertical, fontSize)} ${em(paddingHorizontal, fontSize)}`;
   const swatchMarginVertical = math(`(${lineHeight} - ${swatchHeight}) / 2`);
   const swatchMarginHorizontal = math(
     `${paddingVertical} + ${swatchMarginVertical} - ${paddingHorizontal}`
   );
+  const calendarPickerSize = `${theme.space.base * 5}px`;
+  const calendarPickerBackgroundSize = theme.iconSizes.md;
 
   return css`
     padding: ${padding};
-    min-height: ${props.isBare ? '1em' : height};
+    min-height: ${isBare ? '1em' : height};
     line-height: ${getLineHeight(lineHeight, fontSize)};
     font-size: ${fontSize};
 
@@ -172,7 +188,7 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
     /* stylelint-disable-next-line at-rule-empty-line-before */
     @supports (-ms-ime-align: auto) {
       &[type='color'] {
-        padding: ${props.isCompact ? '0 2px' : '1px 3px'}; /* correct color swatch size for Edge */
+        padding: ${isCompact ? '0 2px' : '1px 3px'}; /* correct color swatch size for Edge */
       }
     }
 
@@ -181,6 +197,14 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
       margin-left: ${swatchMarginHorizontal};
       width: calc(100% + ${math(`${swatchMarginHorizontal} * -2`)});
       height: ${swatchHeight};
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      background-position: center;
+      background-size: ${calendarPickerBackgroundSize};
+      padding: 0;
+      width: ${calendarPickerSize};
+      height: ${calendarPickerSize};
     }
 
     &::-webkit-color-swatch {
@@ -193,7 +217,7 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
     ${StyledMessage} + &&,
     && + ${StyledHint},
     && ~ ${StyledMessage} {
-      margin-top: ${props.theme.space.base * (props.isCompact ? 1 : 2)}px;
+      margin-top: ${theme.space.base * (isCompact ? 1 : 2)}px;
     }
     /* stylelint-enable */
   `;
@@ -264,8 +288,8 @@ export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props =
     line-height: 1;
   }
 
-  &::placeholder {
-    opacity: 1;
+  &::-webkit-calendar-picker-indicator {
+    border-radius: 100%;
   }
 
   &:invalid {
@@ -283,10 +307,9 @@ export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props =
     }
   }
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
 
-  /* Color (default and validation) styling */
-  ${props => colorStyles(props)};
+  ${colorStyles};
 
   &:disabled {
     cursor: default;

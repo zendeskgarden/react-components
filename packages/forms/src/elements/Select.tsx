@@ -38,6 +38,7 @@ export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
       <StyledSelectWrapper
         isCompact={isCompact}
         isBare={isBare}
+        isDisabled={disabled}
         validation={validation}
         focusInset={focusInset}
       >

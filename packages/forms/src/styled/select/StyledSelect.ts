@@ -7,14 +7,20 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledTextInput, IStyledTextInputProps } from '../text/StyledTextInput';
 import { StyledTextMediaFigure } from '../text/StyledTextMediaFigure';
 
 const COMPONENT_ID = 'forms.select';
 
-const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
-  const color = getColorV8('neutralHue', 700, props.theme);
+const colorStyles = ({ theme }: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
+  const color = getColor({
+    theme,
+    variable: 'foreground.subtle',
+    dark: { offset: -100 },
+    light: { offset: 100 }
+  });
+  const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
 
   /* prettier-ignore */
   return css`
@@ -24,26 +30,34 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
     &:focus-visible + ${StyledTextMediaFigure} {
       color: ${color};
     }
-  `;
-};
 
-const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
-  const padding = math(`${props.theme.iconSizes.md} + ${props.theme.space.base * 5}`);
-  const iconVerticalPosition = `${props.theme.space.base * (props.isCompact ? 1.5 : 2.5) + 1}px`;
-  const iconHorizontalPosition = `${props.theme.space.base * 3}px`;
-
-  return css`
-    /* stylelint-disable-next-line property-no-unknown */
-    padding-${props.theme.rtl ? 'left' : 'right'}: ${!props.isBare && padding};
-
-    & + ${StyledTextMediaFigure} {
-      top: ${iconVerticalPosition};
-      ${props.theme.rtl ? 'left' : 'right'}: ${iconHorizontalPosition};
+    &:disabled + ${StyledTextMediaFigure} {
+      color: ${disabledColor};
     }
   `;
 };
 
-/**
+const sizeStyles = ({
+  theme,
+  isBare,
+  isCompact
+}: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
+  const padding = isBare ? undefined : math(`${theme.iconSizes.md} + ${theme.space.base * 5}`);
+  const iconVerticalPosition = `${theme.space.base * (isCompact ? 1.5 : 2.5) + 1}px`;
+  const iconHorizontalPosition = `${theme.space.base * 3}px`;
+
+  return css`
+    /* stylelint-disable-next-line property-no-unknown */
+    padding-${theme.rtl ? 'left' : 'right'}: ${padding};
+
+    & + ${StyledTextMediaFigure} {
+      top: ${iconVerticalPosition};
+      ${theme.rtl ? 'left' : 'right'}: ${iconHorizontalPosition};
+    }
+  `;
+};
+
+/*
  * 1. Select reset.
  */
 export const StyledSelect = styled(StyledTextInput).attrs({
@@ -54,8 +68,9 @@ export const StyledSelect = styled(StyledTextInput).attrs({
   cursor: pointer;
   text-overflow: ellipsis;
 
-  ${props => sizeStyles(props)};
-  ${props => colorStyles(props)};
+  ${sizeStyles};
+
+  ${colorStyles};
 
   &::-ms-expand {
     display: none; /* [1] */
@@ -68,7 +83,7 @@ export const StyledSelect = styled(StyledTextInput).attrs({
 
   &:-moz-focusring {
     transition: none;
-    text-shadow: 0 0 0 ${props => getColorV8('foreground', 600 /* default shade */, props.theme)}; /* [1] */
+    text-shadow: 0 0 0 ${props => getColor({ theme: props.theme, variable: 'foreground.default' })}; /* [1] */
     color: transparent; /* [1] */
   }
 

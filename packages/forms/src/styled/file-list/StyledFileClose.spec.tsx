@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledFileClose } from './StyledFileClose';
 
 describe('StyledFileClose', () => {
@@ -15,6 +15,6 @@ describe('StyledFileClose', () => {
     const { container } = render(<StyledFileClose />);
 
     expect(container.firstChild!.nodeName).toBe('BUTTON');
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[800]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700]);
   });
 });

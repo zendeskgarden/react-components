@@ -9,8 +9,8 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8,
-  StyledBaseIcon
+  StyledBaseIcon,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.media_figure';
@@ -23,17 +23,28 @@ interface IStyledTextMediaFigureProps {
   $position: 'start' | 'end';
 }
 
-const colorStyles = (props: IStyledTextMediaFigureProps & ThemeProps<DefaultTheme>) => {
-  let shade = 600;
+const colorStyles = ({
+  theme,
+  $isDisabled,
+  $isHovered,
+  $isFocused
+}: IStyledTextMediaFigureProps & ThemeProps<DefaultTheme>) => {
+  let color;
 
-  if (props.$isDisabled) {
-    shade = 400;
-  } else if (props.$isHovered || props.$isFocused) {
-    shade = 700;
+  if ($isDisabled) {
+    color = getColor({ theme, variable: 'foreground.disabled' });
+  } else {
+    const options = { theme, variable: 'foreground.subtle' };
+
+    if ($isHovered || $isFocused) {
+      color = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
+    } else {
+      color = getColor(options);
+    }
   }
 
   return css`
-    color: ${getColorV8('neutralHue', shade, props.theme)};
+    color: ${color};
   `;
 };
 
@@ -66,9 +77,9 @@ export const StyledTextMediaFigure = styled(StyledBaseIcon).attrs({
     transform 0.25s ease-in-out,
     color 0.25s ease-in-out;
 
-  ${props => colorStyles(props)};
+  ${sizeStyles};
 
-  ${props => sizeStyles(props)}
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

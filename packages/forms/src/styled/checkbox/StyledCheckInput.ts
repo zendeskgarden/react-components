@@ -6,20 +6,31 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from '../radio/StyledRadioInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 
 const COMPONENT_ID = 'forms.checkbox';
 
-const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const SHADE = 600;
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
+  const borderOptions = { theme, variable: 'border.primaryEmphasis' };
 
-  const indeterminateBorderColor = getColorV8('primaryHue', SHADE, props.theme);
-  const indeterminateBackgroundColor = indeterminateBorderColor;
-  const indeterminateActiveBorderColor = getColorV8('primaryHue', SHADE + 100, props.theme);
-  const indeterminateActiveBackgroundColor = indeterminateActiveBorderColor;
-  const indeterminateDisabledBackgroundColor = getColorV8('neutralHue', SHADE - 400, props.theme);
+  const indeterminateBackgroundColor = getColor(backgroundOptions);
+  const indeterminateBorderColor = getColor(borderOptions);
+
+  const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
+  const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
+
+  const indeterminateHoverBackgroundColor = getColor({ ...backgroundOptions, ...offset100 });
+  const indeterminateHoverBorderColor = getColor({ ...borderOptions, ...offset100 });
+  const indeterminateActiveBackgroundColor = getColor({ ...backgroundOptions, ...offset200 });
+  const indeterminateActiveBorderColor = getColor({ ...borderOptions, ...offset200 });
+  const indeterminateDisabledBackgroundColor = getColor({
+    theme,
+    variable: 'background.disabled',
+    transparency: theme.opacity[300]
+  });
 
   return css`
     &:indeterminate ~ ${StyledCheckLabel}::before {
@@ -28,6 +39,11 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     }
 
     /* stylelint-disable selector-max-specificity */
+    &:enabled:indeterminate ~ ${StyledCheckLabel}:hover::before {
+      border-color: ${indeterminateHoverBorderColor};
+      background-color: ${indeterminateHoverBackgroundColor};
+    }
+
     &:enabled:indeterminate ~ ${StyledCheckLabel}:active::before {
       border-color: ${indeterminateActiveBorderColor};
       background-color: ${indeterminateActiveBackgroundColor};
@@ -51,7 +67,7 @@ export const StyledCheckInput = styled(StyledRadioInput).attrs({
     border-radius: ${props => props.theme.borderRadii.md};
   }
 
-  ${props => colorStyles(props)};
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -9,57 +9,71 @@ import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8,
   getLineHeight,
-  focusStyles
+  focusStyles,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { FileValidation } from '../../types';
 import { StyledFileClose } from './StyledFileClose';
 
 const COMPONENT_ID = 'forms.file';
 
-const colorStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
-  let borderColor;
-  let focusBorderColor;
-  let foregroundColor;
+interface IStyledFileProps {
+  isCompact?: boolean;
+  focusInset?: boolean;
+  validation?: FileValidation;
+}
 
-  if (props.validation === 'success') {
-    borderColor = getColorV8('successHue', 600, props.theme);
-    focusBorderColor = borderColor;
-    foregroundColor = borderColor;
-  } else if (props.validation === 'error') {
-    borderColor = getColorV8('dangerHue', 600, props.theme);
-    focusBorderColor = borderColor;
-    foregroundColor = borderColor;
+const colorStyles = ({
+  theme,
+  focusInset,
+  validation
+}: IStyledFileProps & ThemeProps<DefaultTheme>) => {
+  let borderVariable;
+  let focusBorderVariable;
+  let foregroundVariable;
+
+  if (validation === 'success') {
+    borderVariable = 'border.successEmphasis';
+    focusBorderVariable = borderVariable;
+    foregroundVariable = 'foreground.success';
+  } else if (validation === 'error') {
+    borderVariable = 'border.dangerEmphasis';
+    focusBorderVariable = borderVariable;
+    foregroundVariable = 'foreground.danger';
   } else {
-    borderColor = getColorV8('neutralHue', 300, props.theme);
-    focusBorderColor = getColorV8('primaryHue', 600, props.theme);
-    foregroundColor = getColorV8('foreground', 600 /* default shade */, props.theme);
+    borderVariable = 'border.default';
+    focusBorderVariable = 'border.primaryEmphasis';
+    foregroundVariable = 'foreground.default';
   }
+
+  const borderColor = getColor({ theme, variable: borderVariable });
+  const focusBorderColor = getColor({ theme, variable: focusBorderVariable });
+  const foregroundColor = getColor({ theme, variable: foregroundVariable });
 
   return css`
     border-color: ${borderColor};
     color: ${foregroundColor};
 
     ${focusStyles({
-      theme: props.theme,
-      inset: props.focusInset,
-      color: { hue: focusBorderColor },
+      theme,
+      inset: focusInset,
+      color: { variable: focusBorderVariable },
       styles: { borderColor: focusBorderColor }
     })}
   `;
 };
 
-const sizeStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
-  const size = `${props.theme.space.base * (props.isCompact ? 7 : 10)}px`;
-  const spacing = `${props.theme.space.base * (props.isCompact ? 2 : 3)}px`;
-  const fontSize = props.theme.fontSizes.md;
-  const lineHeight = getLineHeight(props.theme.space.base * 5, fontSize);
+const sizeStyles = ({ theme, isCompact }: IStyledFileProps & ThemeProps<DefaultTheme>) => {
+  const size = `${theme.space.base * (isCompact ? 7 : 10)}px`;
+  const spacing = `${theme.space.base * (isCompact ? 2 : 3)}px`;
+  const fontSize = theme.fontSizes.md;
+  const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
 
   return `
     box-sizing: border-box;
-    border: ${props.theme.borders.sm};
-    border-radius: ${props.theme.borderRadii.md};
+    border: ${theme.borders.sm};
+    border-radius: ${theme.borderRadii.md};
     padding: 0 ${spacing};
     height: ${size};
     line-height: ${lineHeight};
@@ -72,16 +86,10 @@ const sizeStyles = (props: IStyledFileProps & ThemeProps<DefaultTheme>) => {
     & > ${StyledFileClose} {
       width: ${size};
       height: ${size};
-      margin-${props.theme.rtl ? 'left' : 'right'}: -${spacing};
+      margin-${theme.rtl ? 'left' : 'right'}: -${spacing};
     }
   `;
 };
-
-interface IStyledFileProps {
-  isCompact?: boolean;
-  focusInset?: boolean;
-  validation?: FileValidation;
-}
 
 export const StyledFile = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,

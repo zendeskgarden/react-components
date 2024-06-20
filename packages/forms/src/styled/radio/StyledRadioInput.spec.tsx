@@ -7,10 +7,11 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';
 import { StyledMessage } from '../common/StyledMessage';
+import { rgba } from 'polished';
 
 describe('StyledRadioInput', () => {
   it('renders the expected element', () => {
@@ -32,13 +33,9 @@ describe('StyledRadioInput', () => {
   it('renders expected checked styling', () => {
     const { container } = render(<StyledRadioInput defaultChecked />);
 
-    expect(container.firstChild).toHaveStyleRule(
-      'background-color',
-      getColorV8('primaryHue', 600),
-      {
-        modifier: `:checked ~ ${StyledRadioLabel}::before`
-      }
-    );
+    expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.blue[700], {
+      modifier: `:checked ~ ${StyledRadioLabel}::before`
+    });
   });
 
   it('renders compact styling if provided', () => {
@@ -54,9 +51,9 @@ describe('StyledRadioInput', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'background-color',
-      getColorV8('neutralHue', 200),
+      rgba(PALETTE.grey[700], 0.24),
       {
-        modifier: `:disabled ~ ${StyledRadioLabel}::before`
+        modifier: `&:disabled ~ ${StyledRadioLabel}::before`
       }
     );
   });
