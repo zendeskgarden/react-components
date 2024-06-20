@@ -26,10 +26,10 @@ describe('StyledGlobalAlertButton', () => {
     { mode: 'dark', type: 'success', color: PALETTE.green[900] },
     { mode: 'light', type: 'error', color: PALETTE.red[900] },
     { mode: 'dark', type: 'error', color: PALETTE.red[900] },
-    { mode: 'light', type: 'warning', color: PALETTE.yellow[900] },
-    { mode: 'dark', type: 'warning', color: PALETTE.yellow[900] },
+    { mode: 'light', type: 'warning', color: PALETTE.yellow[700] },
+    { mode: 'dark', type: 'warning', color: PALETTE.yellow[700] },
     { mode: 'light', type: 'info', color: PALETTE.blue[700] },
-    { mode: 'dark', type: 'info', color: PALETTE.blue[600] }
+    { mode: 'dark', type: 'info', color: PALETTE.blue[700] }
   ])('renders $mode mode $type background color', ({ mode, type, color }) => {
     const { getByRole } = getRenderFn(mode)(
       <StyledGlobalAlertButton isPrimary $alertType={type} />

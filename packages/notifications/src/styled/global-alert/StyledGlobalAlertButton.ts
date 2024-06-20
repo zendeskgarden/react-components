@@ -53,12 +53,15 @@ function colorStyles(
     case 'warning':
       bgVariable = 'background.warningEmphasis';
       focusVariable = 'foreground.warningEmphasis';
+      offsetOptions = { dark: { offset: 100 } };
+      offsetHoverOptions = { light: { offset: 100 }, dark: { offset: 200 } };
+      offsetActiveOptions = { light: { offset: 200 }, dark: { offset: 300 } };
       break;
     case 'info':
       bgVariable = 'background.primaryEmphasis';
-      offsetOptions = {};
-      offsetHoverOptions = { light: { offset: 100 }, dark: { offset: 100 } };
-      offsetActiveOptions = { light: { offset: 200 }, dark: { offset: 200 } };
+      offsetOptions = { dark: { offset: 100 } };
+      offsetHoverOptions = { light: { offset: 100 }, dark: { offset: 200 } };
+      offsetActiveOptions = { light: { offset: 200 }, dark: { offset: 300 } };
       focusVariable = 'foreground.primary';
       break;
   }
