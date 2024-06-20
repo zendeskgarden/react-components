@@ -20,6 +20,7 @@ const colorStyles = ({ theme }: IStyledTextInputProps & ThemeProps<DefaultTheme>
     dark: { offset: -100 },
     light: { offset: 100 }
   });
+  const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
 
   /* prettier-ignore */
   return css`
@@ -28,6 +29,10 @@ const colorStyles = ({ theme }: IStyledTextInputProps & ThemeProps<DefaultTheme>
     &:focus + ${StyledTextMediaFigure},
     &:focus-visible + ${StyledTextMediaFigure} {
       color: ${color};
+    }
+
+    &:disabled + ${StyledTextMediaFigure} {
+      color: ${disabledColor};
     }
   `;
 };
