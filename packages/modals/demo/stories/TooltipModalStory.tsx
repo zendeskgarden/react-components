@@ -7,7 +7,8 @@
 
 import React, { useRef } from 'react';
 import { Story } from '@storybook/react';
-import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { useTheme } from 'styled-components';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Button, IconButton } from '@zendeskgarden/react-buttons';
 import { Avatar } from '@zendeskgarden/react-avatars';
@@ -45,6 +46,7 @@ export const TooltipModalStory: Story<IArgs> = ({
 }) => {
   const refs = useRef<(HTMLElement | null | undefined)[]>([]);
   const current = refs.current.indexOf(args.referenceElement);
+  const theme = useTheme();
 
   // Using `aria-label={undefined}` when `hasTitle` is `true` appears to
   // void the fallback value in Storybook, resulting in no rendered attribute
@@ -97,9 +99,7 @@ export const TooltipModalStory: Story<IArgs> = ({
                 }}
                 onClick={event => handleClick(event.currentTarget)}
               >
-                <Avatar
-                  foregroundColor={getColorV8('foreground', 600 /* default shade */, DEFAULT_THEME)}
-                >
+                <Avatar foregroundColor={getColor({ variable: 'foreground.default', theme })}>
                   <Avatar.Text>{index + 1}</Avatar.Text>
                 </Avatar>
               </IconButton>
