@@ -9,7 +9,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 import { StyledClose } from '../../styled';
 import { useNotificationsContext } from '../../utils/useNotificationsContext';
 import { useText } from '@zendeskgarden/react-theming';
-import XStrokeIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
+import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 /**
  * @deprecated use `Alert.Close` or `Notification.Close` instead

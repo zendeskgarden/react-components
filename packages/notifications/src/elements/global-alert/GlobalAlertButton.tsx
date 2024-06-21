@@ -23,12 +23,6 @@ export const GlobalAlertButton = forwardRef<HTMLButtonElement, IGlobalAlertButto
         ref={ref}
         $alertType={type}
         {...props}
-        focusInset={false}
-        isDanger={false}
-        isLink={false}
-        isNeutral={false}
-        isPill={false}
-        isStretched={false}
         size="small"
         isPrimary={!isBasic}
         isBasic={isBasic}

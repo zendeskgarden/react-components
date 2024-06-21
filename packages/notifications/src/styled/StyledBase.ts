@@ -22,23 +22,8 @@ export interface IStyledBaseProps extends ThemeProps<DefaultTheme> {
   $type?: Type;
 }
 
-const boxShadow = (props: IStyledBaseProps) => {
-  const { theme } = props;
-  const { space, shadows, opacity } = theme;
-  const offsetY = `${space.base * 5}px`;
-  const blurRadius = `${space.base * 7}px`;
-  const color = getColor({
-    hue: 'neutralHue',
-    shade: 1200,
-    light: { transparency: opacity[200] },
-    dark: { transparency: opacity[1000] },
-    theme
-  });
-
-  return shadows.lg(offsetY, blurRadius, color as string);
-};
-
 const colorStyles = ({ theme, $type, $isFloating }: IStyledBaseProps) => {
+  const { space, shadows, opacity } = theme;
   let bgVariable;
   let borderVariable;
   let fgVariable;
@@ -76,8 +61,21 @@ const colorStyles = ({ theme, $type, $isFloating }: IStyledBaseProps) => {
   const borderColor = getColor({ variable: borderVariable, theme });
   const foregroundColor = getColor({ variable: fgVariable, theme });
 
+  const offsetY = `${space.base * 5}px`;
+  const blurRadius = `${space.base * 7}px`;
+  const color = getColor({
+    hue: 'neutralHue',
+    shade: 1200,
+    light: { transparency: opacity[200] },
+    dark: { transparency: opacity[1000] },
+    theme
+  });
+
+  const boxShadow = shadows.lg(offsetY, blurRadius, color);
+
   return css`
     border-color: ${borderColor};
+    box-shadow: ${$isFloating && boxShadow};
     background-color: ${backgroundColor};
     color: ${foregroundColor};
   `;
@@ -98,7 +96,6 @@ export const StyledBase = styled.div.attrs({
   position: relative;
   border: ${props => props.theme.borders.sm};
   border-radius: ${props => props.theme.borderRadii.md};
-  box-shadow: ${props => props.$isFloating && boxShadow};
   padding: ${padding};
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   font-size: ${props => props.theme.fontSizes.md};

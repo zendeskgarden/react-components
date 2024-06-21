@@ -30,22 +30,27 @@ const sizeStyles = ({ theme: { rtl, space } }: IStyledIconProps) => {
 };
 
 const colorStyles = ({ theme, $type }: IStyledIconProps) => {
-  let color;
+  let variable;
 
   switch ($type) {
     case validationTypes.success:
-      color = getColor({ variable: 'foreground.success', theme });
+      variable = 'foreground.success';
       break;
     case validationTypes.error:
-      color = getColor({ variable: 'foreground.danger', theme });
+      variable = 'foreground.danger';
       break;
     case validationTypes.warning:
-      color = getColor({ variable: 'foreground.warning', theme });
+      variable = 'foreground.warning';
       break;
     case validationTypes.info:
-      color = getColor({ variable: 'foreground.subtle', theme });
+      variable = 'foreground.subtle';
+      break;
+    default:
+      variable = 'foreground.default';
       break;
   }
+
+  const color = getColor({ variable, theme });
 
   return css`
     color: ${color};

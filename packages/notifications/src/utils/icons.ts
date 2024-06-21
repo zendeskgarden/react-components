@@ -18,7 +18,7 @@ export const validationIcons: Record<Type, Record<string, unknown>> = {
   info: InfoStrokeIcon
 };
 
-export const validationTypes: Record<Type, string> = {
+export const validationTypes: Record<Type, Type> = {
   success: 'success',
   error: 'error',
   warning: 'warning',

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledBase } from './StyledBase';
 
@@ -15,6 +15,16 @@ export interface IStyledWellProps {
   $isRecessed?: boolean;
 }
 
+const colorStyles = ({ theme, $isRecessed }: IStyledWellProps & ThemeProps<DefaultTheme>) => {
+  const foreground = getColor({ variable: 'foreground.subtle', theme });
+  const background = $isRecessed && getColor({ variable: 'background.recessed', theme });
+
+  return css`
+    background-color: ${background};
+    color: ${foreground};
+  `;
+};
+
 /**
  * Supports all `<div>` props
  */
@@ -22,9 +32,7 @@ export const StyledWell = styled(StyledBase).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledWellProps>`
-  background-color: ${p =>
-    p.$isRecessed && getColor({ variable: 'background.recessed', theme: p.theme })};
-  color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
+  ${colorStyles}
 
   ${p => retrieveComponentStyles(COMPONENT_ID, p)};
 `;
