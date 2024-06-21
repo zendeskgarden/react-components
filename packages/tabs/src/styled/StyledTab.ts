@@ -8,9 +8,9 @@
 import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
 import {
   DEFAULT_THEME,
-  getColorV8,
   focusStyles,
-  retrieveComponentStyles
+  retrieveComponentStyles,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { stripUnit } from 'polished';
 
@@ -26,13 +26,18 @@ const colorStyles = ({
   isSelected,
   isVertical
 }: IStyledTabProps & ThemeProps<DefaultTheme>) => {
-  const borderColor = isSelected ? 'currentcolor' : 'transparent';
-  const selectedColor = getColorV8('primaryHue', 600, theme);
+  const borderColor = $isSelected ? 'currentcolor' : 'transparent';
+  const borderBlockEndColor = $isVertical ? undefined : borderColor;
+  const borderInlineColor = $isVertical ? borderColor : undefined;
+
+  const selectedColor = getColor({ theme, variable: 'foreground.primary' });
+  const foregroundColor = $isSelected ? selectedColor : 'inherit';
+  const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
-    border-bottom-color: ${isVertical ? undefined : borderColor};
-    border-${theme.rtl ? 'right' : 'left'}-color: ${isVertical ? borderColor : undefined};
-    color: ${isSelected ? selectedColor : 'inherit'};
+    border-bottom-color: ${borderBlockEndColor};
+    border-${theme.rtl ? 'right' : 'left'}-color: ${borderInlineColor};
+    color: ${foregroundColor};
 
     &:hover {
       color: ${selectedColor};
@@ -55,6 +60,7 @@ const colorStyles = ({
     &[aria-disabled='true'] {
       border-color: transparent;
       color: ${props => getColorV8('neutralHue', 400, props.theme)};
+      color: ${disabledColor};
     }
   `;
 };

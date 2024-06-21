@@ -8,9 +8,9 @@
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import {
   retrieveComponentStyles,
-  getColorV8,
   DEFAULT_THEME,
-  getLineHeight
+  getLineHeight,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tabs.tablist';
@@ -20,8 +20,8 @@ interface IStyledTabListProps {
 }
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const borderColor = getColorV8('neutralHue', 300, theme);
-  const foregroundColor = getColorV8('neutralHue', 600, theme);
+  const borderColor = getColor({ theme, variable: 'border.default' });
+  const foregroundColor = getColor({ theme, variable: 'foreground.default' });
 
   return css`
     border-bottom-color: ${borderColor};
