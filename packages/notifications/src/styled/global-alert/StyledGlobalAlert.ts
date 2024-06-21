@@ -22,14 +22,6 @@ interface IStyledGlobalAlertProps {
   $alertType: IGlobalAlertProps['type'];
 }
 
-const lightDarkOptions = (lightOffset: number, darkOffset: number) => ({
-  light: { offset: lightOffset },
-  dark: { offset: darkOffset }
-});
-
-/**
- * 1. Shifting :focus-visible from LVHFA order to preserve `color` on hover
- */
 const colorStyles = ({ theme, $alertType }: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) => {
   let borderColor;
   let backgroundColor;
@@ -38,116 +30,30 @@ const colorStyles = ({ theme, $alertType }: ThemeProps<DefaultTheme> & IStyledGl
   let anchorActiveColor;
   let focusVariable;
 
-  switch ($alertType) {
-    case 'success': {
-      borderColor = getColor({
-        variable: 'border.successEmphasis',
-        ...lightDarkOptions(100, 200),
-        theme
-      });
-      backgroundColor = getColor({
-        variable: 'background.successEmphasis',
-        dark: { offset: 100 },
-        theme
-      });
-      foregroundColor = getColor({
-        variable: 'foreground.success',
-        ...lightDarkOptions(-600, -300),
-        theme
-      });
-      focusVariable = 'foreground.successEmphasis';
-      break;
-    }
-    case 'error': {
-      borderColor = getColor({
-        variable: 'border.dangerEmphasis',
-        ...lightDarkOptions(100, 200),
-        theme
-      });
-      backgroundColor = getColor({
-        variable: 'background.dangerEmphasis',
-        dark: { offset: 100 },
-        theme
-      });
-      foregroundColor = getColor({
-        variable: 'foreground.danger',
-        ...lightDarkOptions(-600, -300),
-        theme
-      });
-      focusVariable = 'foreground.dangerEmphasis';
-      break;
-    }
-    case 'warning': {
-      borderColor = getColor({
-        variable: 'border.warningEmphasis',
-        ...lightDarkOptions(-300, -200),
-        theme
-      });
-      backgroundColor = getColor({
-        variable: 'background.warningEmphasis',
-        ...lightDarkOptions(-400, -300),
-        theme
-      });
-      const fgVariable = 'foreground.warning';
-      foregroundColor = getColor({
-        variable: fgVariable,
-        ...lightDarkOptions(100, 400),
-        theme
-      });
-      anchorHoverColor = getColor({
-        variable: fgVariable,
-        ...lightDarkOptions(200, 500),
-        theme
-      });
-      anchorActiveColor = getColor({
-        variable: fgVariable,
-        ...lightDarkOptions(300, 600),
-        theme
-      });
-      focusVariable = fgVariable;
-      break;
-    }
-    case 'info': {
-      borderColor = getColor({
-        variable: 'border.primaryEmphasis',
-        ...lightDarkOptions(-300, -200),
-        theme
-      });
-      backgroundColor = getColor({
-        variable: 'background.primaryEmphasis',
-        ...lightDarkOptions(-400, -300),
-        theme
-      });
-      const fgVariable = 'foreground.primary';
-      foregroundColor = getColor({
-        variable: fgVariable,
-        ...lightDarkOptions(100, 200),
-        theme
-      });
-      anchorHoverColor = getColor({
-        variable: fgVariable,
-        ...lightDarkOptions(200, 300),
-        theme
-      });
-      anchorActiveColor = getColor({
-        variable: fgVariable,
-        ...lightDarkOptions(300, 400),
-        theme
-      });
-      focusVariable = fgVariable;
-      break;
-    }
-  }
-
   if (['success', 'error'].includes($alertType)) {
+    const hue = $alertType === 'success' ? 'successHue' : 'dangerHue';
+    focusVariable =
+      $alertType === 'success' ? 'foreground.successEmphasis' : 'foreground.dangerEmphasis';
+
+    borderColor = getColor({ hue, shade: 800, theme });
+    backgroundColor = getColor({ hue, shade: 700, theme });
+    foregroundColor = getColor({ hue, shade: 100, theme });
     anchorHoverColor = theme.palette.white;
     anchorActiveColor = theme.palette.white;
+  } else {
+    const hue = $alertType === 'warning' ? 'warningHue' : 'primaryHue';
+    focusVariable = $alertType === 'warning' ? 'foreground.warning' : 'foreground.primary';
+
+    borderColor = getColor({ hue, shade: 400, theme });
+    backgroundColor = getColor({ hue, shade: 300, theme });
+    foregroundColor = getColor({ hue, shade: 800, theme });
+    anchorHoverColor = getColor({ hue, shade: 900, theme });
+    anchorActiveColor = getColor({ hue, shade: 1000, theme });
   }
 
   // Apply a border without affecting the element's size
   const boxShadow = `0 ${theme.borderWidths.sm} ${theme.borderWidths.sm} ${borderColor}`;
 
-  /* stylelint-disable selector-no-qualifying-type */
   return css`
     box-shadow: ${boxShadow};
     background-color: ${backgroundColor};

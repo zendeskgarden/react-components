@@ -18,7 +18,7 @@ import { Type } from '../../types';
 const COMPONENT_ID = 'notifications.global_alert.icon';
 
 interface IStyledGlobalAlertIconProps {
-  $alertType?: Type;
+  $alertType: Type;
 }
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
@@ -40,45 +40,19 @@ const colorStyles = ({
   theme,
   $alertType
 }: ThemeProps<DefaultTheme> & IStyledGlobalAlertIconProps) => {
-  let color;
-
-  switch ($alertType) {
-    case 'success':
-      // green/300
-      color = getColor({
-        variable: 'foreground.success',
-        light: { offset: -400 },
-        dark: { offset: -100 },
-        theme
-      });
-      break;
-    case 'error':
-      // red/300
-      color = getColor({
-        variable: 'foreground.danger',
-        light: { offset: -400 },
-        dark: { offset: -100 },
-        theme
-      });
-      break;
-
-    case 'warning':
-      // yellow/700
-      color = getColor({ variable: 'foreground.warning', dark: { offset: 300 }, theme });
-      break;
-
-    case 'info':
-      // blue/700
-      color = getColor({
-        variable: 'foreground.primary',
-        dark: { offset: 100 },
-        theme
-      });
-      break;
-  }
+  const hue = {
+    success: 'successHue',
+    error: 'dangerHue',
+    warning: 'warningHue',
+    info: 'primaryHue'
+  }[$alertType];
 
   return css`
-    color: ${color};
+    color: ${getColor({
+      hue,
+      shade: ['success', 'error'].includes($alertType) ? 300 : 700,
+      theme
+    })};
   `;
 };
 

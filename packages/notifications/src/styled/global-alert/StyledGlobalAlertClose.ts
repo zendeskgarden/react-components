@@ -28,70 +28,28 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
   let hoverForegroundColor;
   let activeBackgroundColor;
   let activeForegroundColor;
-  let focusColor;
 
-  switch ($alertType) {
-    case 'success':
-      hoverBackgroundColor = getColor({
-        variable: 'background.success',
-        theme,
-        transparency: theme.opacity[100]
-      });
-      hoverForegroundColor = theme.palette.white;
-      activeBackgroundColor = getColor({
-        variable: 'background.success',
-        theme,
-        transparency: theme.opacity[200]
-      });
-      activeForegroundColor = theme.palette.white;
-      focusColor = 'foreground.successEmphasis';
-      break;
+  let hue;
+  let shade;
+  let focusVariable;
 
-    case 'error':
-      hoverBackgroundColor = getColor({
-        variable: 'background.danger',
-        theme,
-        transparency: theme.opacity[100]
-      });
-      hoverForegroundColor = theme.palette.white;
-      activeBackgroundColor = getColor({
-        variable: 'background.danger',
-        theme,
-        transparency: theme.opacity[200]
-      });
-      activeForegroundColor = theme.palette.white;
-      focusColor = 'foreground.dangerEmphasis';
-      break;
-
-    case 'warning':
-      hoverBackgroundColor = getColor({
-        variable: 'background.warningEmphasis',
-        transparency: theme.opacity[100],
-        theme
-      });
-      hoverForegroundColor = getColor({
-        variable: 'foreground.warningEmphasis',
-        light: { offset: 200 },
-        dark: { offset: 500 },
-        theme
-      });
-      activeBackgroundColor = getColor({
-        variable: 'background.warningEmphasis',
-        transparency: theme.opacity[200],
-        theme
-      });
-      activeForegroundColor = getColor({
-        variable: 'foreground.warningEmphasis',
-        light: { offset: 300 },
-        dark: { offset: 600 },
-        theme
-      });
-      focusColor = 'foreground.warning';
-      break;
-
-    case 'info':
-      focusColor = 'foreground.primary';
-      break;
+  if (['success', 'error'].includes($alertType)) {
+    focusVariable =
+      $alertType === 'success' ? 'foreground.successEmphasis' : 'foreground.dangerEmphasis';
+    hue = $alertType === 'success' ? 'successHue' : 'dangerHue';
+    shade = 100;
+    hoverBackgroundColor = getColor({ hue, shade, theme, transparency: theme.opacity[100] });
+    hoverForegroundColor = theme.palette.white;
+    activeBackgroundColor = getColor({ hue, shade, theme, transparency: theme.opacity[200] });
+    activeForegroundColor = theme.palette.white;
+  } else {
+    focusVariable = $alertType === 'warning' ? 'foreground.warning' : 'foreground.primary';
+    hue = $alertType === 'warning' ? 'warningHue' : 'primaryHue';
+    shade = 800;
+    hoverBackgroundColor = getColor({ hue, shade, transparency: theme.opacity[100], theme });
+    hoverForegroundColor = getColor({ hue, shade: shade + 100, theme });
+    activeBackgroundColor = getColor({ hue, shade, transparency: theme.opacity[200], theme });
+    activeForegroundColor = getColor({ hue, shade: shade + 200, theme });
   }
 
   return css`
@@ -104,7 +62,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
 
     ${focusStyles({
       theme,
-      color: { variable: focusColor }
+      color: { variable: focusVariable }
     })}
 
     &:active {

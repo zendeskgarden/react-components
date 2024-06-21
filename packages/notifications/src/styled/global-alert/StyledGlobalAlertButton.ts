@@ -24,8 +24,6 @@ interface IStyledGlobalAlertButtonProps {
   isBasic?: boolean;
 }
 
-type OffsetOptions = Record<string, Record<string, number>>;
-
 function colorStyles(
   props: IStyledGlobalAlertButtonProps & ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonProps
 ) {
@@ -35,52 +33,36 @@ function colorStyles(
     return basicColorStyles(props);
   }
 
-  let bgVariable;
-  let offsetOptions: OffsetOptions = { light: { offset: 200 }, dark: { offset: 300 } };
-  let offsetHoverOptions: OffsetOptions = { light: { offset: 300 }, dark: { offset: 400 } };
-  let offsetActiveOptions: OffsetOptions = { light: { offset: 400 }, dark: { offset: 500 } };
+  let hue;
+  let shade;
   let focusVariable;
 
   switch ($alertType) {
     case 'success':
-      bgVariable = 'background.successEmphasis';
+      hue = 'successHue';
       focusVariable = 'foreground.successEmphasis';
+      shade = 900;
       break;
     case 'error':
-      bgVariable = 'background.dangerEmphasis';
+      hue = 'dangerHue';
       focusVariable = 'foreground.dangerEmphasis';
+      shade = 900;
       break;
     case 'warning':
-      bgVariable = 'background.warningEmphasis';
-      focusVariable = 'foreground.warningEmphasis';
-      offsetOptions = { dark: { offset: 100 } };
-      offsetHoverOptions = { light: { offset: 100 }, dark: { offset: 200 } };
-      offsetActiveOptions = { light: { offset: 200 }, dark: { offset: 300 } };
+      hue = 'warningHue';
+      focusVariable = 'foreground.warning';
+      shade = 700;
       break;
     case 'info':
-      bgVariable = 'background.primaryEmphasis';
-      offsetOptions = { dark: { offset: 100 } };
-      offsetHoverOptions = { light: { offset: 100 }, dark: { offset: 200 } };
-      offsetActiveOptions = { light: { offset: 200 }, dark: { offset: 300 } };
+      hue = 'primaryHue';
       focusVariable = 'foreground.primary';
+      shade = 700;
       break;
   }
 
-  const backgroundColor = getColor({
-    variable: bgVariable,
-    ...offsetOptions,
-    theme
-  });
-  const hoverBackgroundColor = getColor({
-    variable: bgVariable,
-    ...offsetHoverOptions,
-    theme
-  });
-  const activeBackgroundColor = getColor({
-    variable: bgVariable,
-    ...offsetActiveOptions,
-    theme
-  });
+  const backgroundColor = getColor({ hue, shade, theme });
+  const hoverBackgroundColor = getColor({ hue, shade, offset: 100, theme });
+  const activeBackgroundColor = getColor({ hue, shade, offset: 200, theme });
 
   return css`
     background-color: ${backgroundColor};
