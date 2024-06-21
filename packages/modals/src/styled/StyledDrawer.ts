@@ -5,21 +5,33 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.drawer_modal';
 
 const DRAWER_WIDTH = 380;
 
-const boxShadow = (props: ThemeProps<DefaultTheme>) => {
-  const { theme } = props;
-  const { space, shadows } = theme;
-  const offsetY = `${space.base * 5}px`;
-  const blurRadius = `${space.base * 7}px`;
-  const color = getColorV8('neutralHue', 800, theme, 0.35);
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const offsetY = `${theme.space.base * 5}px`;
+  const blurRadius = `${theme.space.base * 7}px`;
+  const shadowColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    shade: 1200,
+    light: { transparency: theme.opacity[200] },
+    dark: { transparency: theme.opacity[1000] }
+  });
+  const shadow = theme.shadows.lg(offsetY, blurRadius, shadowColor);
 
-  return shadows.lg(offsetY, blurRadius, color as string);
+  const borderColor = getColor({ theme, variable: 'border.default' });
+  const backgroundColor = getColor({ theme, variable: 'background.raised' });
+
+  return css`
+    border-color: ${borderColor};
+    box-shadow: ${shadow};
+    background-color: ${backgroundColor};
+  `;
 };
 
 /**
@@ -35,8 +47,8 @@ export const StyledDrawer = styled.div.attrs({
   ${props => (props.theme.rtl ? 'left' : 'right')}: 0;
   flex-direction: column;
   z-index: 500;
-  box-shadow: ${boxShadow};
-  background: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
+  ${props => (props.theme.rtl ? 'border-right' : 'border-left')}: ${props =>
+    props.theme.borders.sm};
   width: ${DRAWER_WIDTH}px;
   height: 100%;
   overflow: auto;
@@ -61,6 +73,8 @@ export const StyledDrawer = styled.div.attrs({
   &:focus {
     outline: none;
   }
+
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

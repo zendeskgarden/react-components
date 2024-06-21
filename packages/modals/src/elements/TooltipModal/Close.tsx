@@ -24,6 +24,7 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
           'aria-label': ariaLabel!
         }) as ButtonHTMLAttributes<HTMLButtonElement>)}
         ref={ref}
+        size="small"
       >
         <XStrokeIcon />
       </StyledTooltipModalClose>
