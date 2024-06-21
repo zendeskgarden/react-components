@@ -16,7 +16,7 @@ import {
 const COMPONENT_ID = 'tabs.tablist';
 
 interface IStyledTabListProps {
-  isVertical?: boolean;
+  $isVertical?: boolean;
 }
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
@@ -32,9 +32,9 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 /*
  * 1. List element reset.
  */
-const sizeStyles = ({ theme, isVertical }: IStyledTabListProps & ThemeProps<DefaultTheme>) => {
-  const marginBottom = isVertical ? 0 : `${theme.space.base * 5}px`;
-  const borderBottom = isVertical ? undefined : theme.borderWidths.sm;
+const sizeStyles = ({ theme, $isVertical }: IStyledTabListProps & ThemeProps<DefaultTheme>) => {
+  const marginBottom = $isVertical ? 0 : `${theme.space.base * 5}px`;
+  const borderBottom = $isVertical ? undefined : theme.borderWidths.sm;
   const fontSize = theme.fontSizes.md;
   const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
 
@@ -52,9 +52,9 @@ export const StyledTabList = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTabListProps>`
-  display: ${props => (props.isVertical ? 'table-cell' : 'block')};
-  border-bottom: ${props => (props.isVertical ? 'none' : props.theme.borderStyles.solid)};
-  vertical-align: ${props => (props.isVertical ? 'top' : undefined)};
+  display: ${props => (props.$isVertical ? 'table-cell' : 'block')};
+  border-bottom: ${props => (props.$isVertical ? 'none' : props.theme.borderStyles.solid)};
+  vertical-align: ${props => (props.$isVertical ? 'top' : undefined)};
   white-space: nowrap;
 
   ${sizeStyles};
