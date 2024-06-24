@@ -16,8 +16,10 @@ export interface IStyledWellProps {
 }
 
 const colorStyles = ({ theme, $isRecessed }: IStyledWellProps & ThemeProps<DefaultTheme>) => {
+  const backgroundVariable = $isRecessed ? 'background.recessed' : 'background.default';
+
   const foreground = getColor({ variable: 'foreground.subtle', theme });
-  const background = $isRecessed && getColor({ variable: 'background.recessed', theme });
+  const background = $isRecessed && getColor({ variable: backgroundVariable, theme });
 
   return css`
     background-color: ${background};
