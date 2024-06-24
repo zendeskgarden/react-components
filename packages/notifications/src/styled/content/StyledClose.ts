@@ -22,30 +22,25 @@ interface IStyledCloseProps {
  */
 const colorStyles = ({ theme, $type }: IStyledCloseProps & ThemeProps<DefaultTheme>) => {
   let variable;
-  let color;
-  let hoverColor;
-  let activeColor;
 
-  if ($type) {
-    switch ($type) {
-      case validationTypes.warning:
-        variable = 'foreground.warning';
-        break;
-      case validationTypes.error:
-        variable = 'foreground.danger';
-        break;
-      case validationTypes.success:
-        variable = 'foreground.success';
-        break;
-      default:
-        variable = 'foreground.subtle';
-        break;
-    }
-
-    color = getColor({ variable, theme });
-    hoverColor = getColor({ variable, light: { offset: 100 }, dark: { offset: -100 }, theme });
-    activeColor = getColor({ variable, light: { offset: 200 }, dark: { offset: -200 }, theme });
+  switch ($type) {
+    case validationTypes.warning:
+      variable = 'foreground.warning';
+      break;
+    case validationTypes.error:
+      variable = 'foreground.danger';
+      break;
+    case validationTypes.success:
+      variable = 'foreground.success';
+      break;
+    default:
+      variable = 'foreground.subtle';
+      break;
   }
+
+  const color = getColor({ variable, theme });
+  const hoverColor = getColor({ variable, light: { offset: 100 }, dark: { offset: -100 }, theme });
+  const activeColor = getColor({ variable, light: { offset: 200 }, dark: { offset: -200 }, theme });
 
   return css`
     color: ${color};

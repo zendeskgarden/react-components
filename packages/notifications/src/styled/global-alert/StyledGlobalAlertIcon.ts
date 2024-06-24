@@ -18,7 +18,7 @@ import { Type } from '../../types';
 const COMPONENT_ID = 'notifications.global_alert.icon';
 
 interface IStyledGlobalAlertIconProps {
-  $alertType?: Type;
+  $alertType: Type;
 }
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
