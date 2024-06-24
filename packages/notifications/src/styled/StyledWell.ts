@@ -13,13 +13,26 @@ const COMPONENT_ID = 'notifications.well';
 
 export interface IStyledWellProps {
   $isRecessed?: boolean;
+  $isFloating?: boolean;
 }
 
-const colorStyles = ({ theme, $isRecessed }: IStyledWellProps & ThemeProps<DefaultTheme>) => {
-  const backgroundVariable = $isRecessed ? 'background.recessed' : 'background.default';
+const colorStyles = ({
+  theme,
+  $isFloating,
+  $isRecessed
+}: IStyledWellProps & ThemeProps<DefaultTheme>) => {
+  let backgroundVariable;
+
+  if ($isRecessed) {
+    backgroundVariable = 'background.recessed';
+  } else if ($isFloating) {
+    backgroundVariable = 'background.raised';
+  } else {
+    backgroundVariable = 'background.default';
+  }
 
   const foreground = getColor({ variable: 'foreground.subtle', theme });
-  const background = $isRecessed && getColor({ variable: backgroundVariable, theme });
+  const background = getColor({ variable: backgroundVariable, theme });
 
   return css`
     background-color: ${background};
