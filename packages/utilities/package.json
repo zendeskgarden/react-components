@@ -19,6 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "sideEffects": false,
+  "types": "dist/typings/index.d.ts",
   "devDependencies": {
     "@zendeskgarden/react-theming": "^8.76.3"
   },
