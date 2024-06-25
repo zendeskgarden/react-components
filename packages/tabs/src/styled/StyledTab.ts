@@ -26,7 +26,9 @@ const colorStyles = ({
   $isSelected,
   $isVertical
 }: IStyledTabProps & ThemeProps<DefaultTheme>) => {
-  const borderColor = $isSelected ? 'currentcolor' : 'transparent';
+  const borderColor = $isSelected
+    ? getColor({ theme, variable: 'border.primaryEmphasis' })
+    : 'transparent';
   const borderBlockEndColor = $isVertical ? undefined : borderColor;
   const borderInlineColor = $isVertical ? borderColor : undefined;
 
