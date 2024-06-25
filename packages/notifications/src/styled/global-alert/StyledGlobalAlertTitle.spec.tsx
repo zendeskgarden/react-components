@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { getRenderFn, render, renderRtl } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Type } from '../../types';
 import { StyledGlobalAlertTitle } from './StyledGlobalAlertTitle';
@@ -40,17 +40,13 @@ describe('StyledGlobalAlertTitle', () => {
     expect(getByText('title')).toHaveStyleRule('font-weight', '400');
   });
 
-  it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([
-    { mode: 'light', type: 'success', color: PALETTE.white },
-    { mode: 'dark', type: 'success', color: PALETTE.white },
-    { mode: 'light', type: 'error', color: PALETTE.white },
-    { mode: 'dark', type: 'error', color: PALETTE.white },
-    { mode: 'light', type: 'warning', color: PALETTE.yellow[900] },
-    { mode: 'dark', type: 'warning', color: PALETTE.yellow[900] },
-    { mode: 'light', type: 'info', color: PALETTE.blue[900] },
-    { mode: 'dark', type: 'info', color: PALETTE.blue[900] }
-  ])('renders $mode mode $type color', ({ mode, type, color }) => {
-    const { getByText } = getRenderFn(mode)(
+  it.each<{ type: Type; color: string }>([
+    { type: 'success', color: PALETTE.white },
+    { type: 'error', color: PALETTE.white },
+    { type: 'warning', color: PALETTE.yellow[900] },
+    { type: 'info', color: PALETTE.blue[900] }
+  ])('renders $type color', ({ type, color }) => {
+    const { getByText } = render(
       <StyledGlobalAlertTitle $alertType={type}>title</StyledGlobalAlertTitle>
     );
 

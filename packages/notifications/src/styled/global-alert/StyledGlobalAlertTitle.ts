@@ -29,14 +29,13 @@ const colorStyles = ({
       break;
 
     case 'warning':
-      color = getColor({ variable: 'foreground.warningEmphasis', dark: { offset: 600 }, theme });
+      color = getColor({ variable: 'foreground.warningEmphasis', theme });
       break;
 
     case 'info':
       color = getColor({
         variable: 'foreground.primary',
         light: { offset: 200 },
-        dark: { offset: 300 },
         theme
       });
       break;

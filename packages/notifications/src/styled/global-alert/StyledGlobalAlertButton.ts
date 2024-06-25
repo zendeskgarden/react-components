@@ -10,7 +10,8 @@ import {
   getColor,
   DEFAULT_THEME,
   focusStyles,
-  retrieveComponentStyles
+  retrieveComponentStyles,
+  ColorParameters
 } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
@@ -24,7 +25,7 @@ interface IStyledGlobalAlertButtonProps {
   isBasic?: boolean;
 }
 
-type OffsetOptions = Record<string, Record<string, number>>;
+type OffsetOptions = Record<string, Record<string, ColorParameters['offset']>>;
 
 function colorStyles(
   props: IStyledGlobalAlertButtonProps & ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonProps
@@ -36,32 +37,38 @@ function colorStyles(
   }
 
   let bgVariable;
-  let offsetOptions: OffsetOptions = { light: { offset: 200 }, dark: { offset: 300 } };
-  let offsetHoverOptions: OffsetOptions = { light: { offset: 300 }, dark: { offset: 400 } };
-  let offsetActiveOptions: OffsetOptions = { light: { offset: 400 }, dark: { offset: 500 } };
+  let offsetOptions: OffsetOptions;
+  let offsetHoverOptions: OffsetOptions;
+  let offsetActiveOptions: OffsetOptions;
   let focusVariable;
 
   switch ($alertType) {
     case 'success':
       bgVariable = 'background.successEmphasis';
+      offsetOptions = { light: { offset: 200 } };
+      offsetHoverOptions = { light: { offset: 300 } };
+      offsetActiveOptions = { light: { offset: 400 } };
       focusVariable = 'foreground.successEmphasis';
       break;
     case 'error':
       bgVariable = 'background.dangerEmphasis';
+      offsetOptions = { light: { offset: 200 } };
+      offsetHoverOptions = { light: { offset: 300 } };
+      offsetActiveOptions = { light: { offset: 400 } };
       focusVariable = 'foreground.dangerEmphasis';
       break;
     case 'warning':
       bgVariable = 'background.warningEmphasis';
-      focusVariable = 'foreground.warningEmphasis';
-      offsetOptions = { dark: { offset: 100 } };
-      offsetHoverOptions = { light: { offset: 100 }, dark: { offset: 200 } };
-      offsetActiveOptions = { light: { offset: 200 }, dark: { offset: 300 } };
+      offsetOptions = {};
+      offsetHoverOptions = { light: { offset: 100 } };
+      offsetActiveOptions = { light: { offset: 200 } };
+      focusVariable = 'foreground.warning';
       break;
     case 'info':
       bgVariable = 'background.primaryEmphasis';
-      offsetOptions = { dark: { offset: 100 } };
-      offsetHoverOptions = { light: { offset: 100 }, dark: { offset: 200 } };
-      offsetActiveOptions = { light: { offset: 200 }, dark: { offset: 300 } };
+      offsetOptions = {};
+      offsetHoverOptions = { light: { offset: 100 } };
+      offsetActiveOptions = { light: { offset: 200 } };
       focusVariable = 'foreground.primary';
       break;
   }

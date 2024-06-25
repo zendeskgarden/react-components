@@ -48,7 +48,6 @@ const colorStyles = ({
       color = getColor({
         variable: 'foreground.success',
         light: { offset: -400 },
-        dark: { offset: -100 },
         theme
       });
       break;
@@ -57,21 +56,19 @@ const colorStyles = ({
       color = getColor({
         variable: 'foreground.danger',
         light: { offset: -400 },
-        dark: { offset: -100 },
         theme
       });
       break;
 
     case 'warning':
       // yellow/700
-      color = getColor({ variable: 'foreground.warning', dark: { offset: 300 }, theme });
+      color = getColor({ variable: 'foreground.warning', theme });
       break;
 
     case 'info':
       // blue/700
       color = getColor({
         variable: 'foreground.primary',
-        dark: { offset: 100 },
         theme
       });
       break;

@@ -22,11 +22,6 @@ interface IStyledGlobalAlertProps {
   $alertType: IGlobalAlertProps['type'];
 }
 
-const lightDarkOptions = (lightOffset: number, darkOffset: number) => ({
-  light: { offset: lightOffset },
-  dark: { offset: darkOffset }
-});
-
 /**
  * 1. Shifting :focus-visible from LVHFA order to preserve `color` on hover
  */
@@ -42,17 +37,16 @@ const colorStyles = ({ theme, $alertType }: ThemeProps<DefaultTheme> & IStyledGl
     case 'success': {
       borderColor = getColor({
         variable: 'border.successEmphasis',
-        ...lightDarkOptions(100, 200),
+        light: { offset: 100 },
         theme
       });
       backgroundColor = getColor({
         variable: 'background.successEmphasis',
-        dark: { offset: 100 },
         theme
       });
       foregroundColor = getColor({
         variable: 'foreground.success',
-        ...lightDarkOptions(-600, -300),
+        light: { offset: -600 },
         theme
       });
       focusVariable = 'foreground.successEmphasis';
@@ -61,17 +55,16 @@ const colorStyles = ({ theme, $alertType }: ThemeProps<DefaultTheme> & IStyledGl
     case 'error': {
       borderColor = getColor({
         variable: 'border.dangerEmphasis',
-        ...lightDarkOptions(100, 200),
+        light: { offset: 100 },
         theme
       });
       backgroundColor = getColor({
         variable: 'background.dangerEmphasis',
-        dark: { offset: 100 },
         theme
       });
       foregroundColor = getColor({
         variable: 'foreground.danger',
-        ...lightDarkOptions(-600, -300),
+        light: { offset: -600 },
         theme
       });
       focusVariable = 'foreground.dangerEmphasis';
@@ -80,28 +73,28 @@ const colorStyles = ({ theme, $alertType }: ThemeProps<DefaultTheme> & IStyledGl
     case 'warning': {
       borderColor = getColor({
         variable: 'border.warningEmphasis',
-        ...lightDarkOptions(-300, -200),
+        light: { offset: -300 },
         theme
       });
       backgroundColor = getColor({
         variable: 'background.warningEmphasis',
-        ...lightDarkOptions(-400, -300),
+        light: { offset: -400 },
         theme
       });
       const fgVariable = 'foreground.warning';
       foregroundColor = getColor({
         variable: fgVariable,
-        ...lightDarkOptions(100, 400),
+        light: { offset: 100 },
         theme
       });
       anchorHoverColor = getColor({
         variable: fgVariable,
-        ...lightDarkOptions(200, 500),
+        light: { offset: 200 },
         theme
       });
       anchorActiveColor = getColor({
         variable: fgVariable,
-        ...lightDarkOptions(300, 600),
+        light: { offset: 300 },
         theme
       });
       focusVariable = fgVariable;
@@ -110,28 +103,28 @@ const colorStyles = ({ theme, $alertType }: ThemeProps<DefaultTheme> & IStyledGl
     case 'info': {
       borderColor = getColor({
         variable: 'border.primaryEmphasis',
-        ...lightDarkOptions(-300, -200),
+        light: { offset: -300 },
         theme
       });
       backgroundColor = getColor({
         variable: 'background.primaryEmphasis',
-        ...lightDarkOptions(-400, -300),
+        light: { offset: -400 },
         theme
       });
       const fgVariable = 'foreground.primary';
       foregroundColor = getColor({
         variable: fgVariable,
-        ...lightDarkOptions(100, 200),
+        light: { offset: 100 },
         theme
       });
       anchorHoverColor = getColor({
         variable: fgVariable,
-        ...lightDarkOptions(200, 300),
+        light: { offset: 200 },
         theme
       });
       anchorActiveColor = getColor({
         variable: fgVariable,
-        ...lightDarkOptions(300, 400),
+        light: { offset: 300 },
         theme
       });
       focusVariable = fgVariable;

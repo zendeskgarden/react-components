@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, useContext, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import InfoIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import ErrorIcon from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
@@ -19,9 +19,12 @@ import { GlobalAlertButton } from './GlobalAlertButton';
 import { GlobalAlertClose } from './GlobalAlertClose';
 import { GlobalAlertContent } from './GlobalAlertContent';
 import { GlobalAlertTitle } from './GlobalAlertTitle';
+import { DefaultTheme, ThemeContext, ThemeProvider } from 'styled-components';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 /**
- * 1. role='status' on `div` is valid WAI-ARIA usage in this context.
+ * 1. Global Alert always renders with light theme colors
+ * 2. role='status' on `div` is valid WAI-ARIA usage in this context.
  *    https://www.w3.org/TR/wai-aria-1.1/#status
  */
 
@@ -33,16 +36,24 @@ const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>(
       warning: <WarningIcon />,
       info: <InfoIcon />
     }[type];
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    /* [1] */
+    const lightTheme: DefaultTheme = useMemo(
+      () => ({ ...theme, colors: { ...theme.colors, base: 'light' } }),
+      [theme]
+    );
 
     return (
-      <GlobalAlertContext.Provider value={useMemo(() => ({ type }), [type])}>
-        {/* [1] */}
-        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
-        <StyledGlobalAlert ref={ref} role="status" $alertType={type} {...props}>
-          <StyledGlobalAlertIcon $alertType={type}>{icon}</StyledGlobalAlertIcon>
-          {props.children}
-        </StyledGlobalAlert>
-      </GlobalAlertContext.Provider>
+      <ThemeProvider theme={lightTheme}>
+        <GlobalAlertContext.Provider value={useMemo(() => ({ type }), [type])}>
+          {/* [2] */}
+          {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
+          <StyledGlobalAlert ref={ref} role="status" $alertType={type} {...props}>
+            <StyledGlobalAlertIcon $alertType={type}>{icon}</StyledGlobalAlertIcon>
+            {props.children}
+          </StyledGlobalAlert>
+        </GlobalAlertContext.Provider>
+      </ThemeProvider>
     );
   }
 );
