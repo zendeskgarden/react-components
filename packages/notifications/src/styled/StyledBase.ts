@@ -71,11 +71,11 @@ const colorStyles = ({ theme, $type, $isFloating }: IStyledBaseProps) => {
     theme
   });
 
-  const boxShadow = shadows.lg(offsetY, blurRadius, color);
+  const boxShadow = $isFloating ? shadows.lg(offsetY, blurRadius, color) : undefined;
 
   return css`
     border-color: ${borderColor};
-    box-shadow: ${$isFloating && boxShadow};
+    box-shadow: ${boxShadow};
     background-color: ${backgroundColor};
     color: ${foregroundColor};
   `;
