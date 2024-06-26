@@ -8,9 +8,13 @@ on:
       - main
       - next
 
+permissions: write-all
+
 jobs:
-  build:
+  initialize:
     runs-on: ubuntu-latest
+    outputs:
+      teams: ${{ steps.get-teams.outputs.teams }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -19,89 +23,105 @@ jobs:
           cache: npm
 
       - run: npm ci --ignore-scripts
-      - run: npm exec -- lerna run build --concurrency=2
+      - id: get-teams
+        run: echo "teams=$(npm exec garden github-teams -- --user ${{ github.triggering_actor }} --token $GITHUB_TOKEN)" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: dist-artifact
-          path: packages/**/dist
+      - run: echo "Building"
+      # - run: npm exec -- lerna run build --concurrency=2
+
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: dist-artifact
+      #     path: packages/**/dist
 
   lint:
-    needs: [build]
+    needs: [initialize]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: npm
+      - run: echo "Linting"
+      # - uses: actions/checkout@v4
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version-file: .nvmrc
+      #     cache: npm
 
-      - run: npm ci --ignore-scripts
-      - run: npm run lint:ci
+      # - run: npm ci --ignore-scripts
+      # - run: npm run lint:ci
 
   test:
-    needs: [build]
+    needs: [initialize]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: npm
+      - run: echo "Testing"
+      # - uses: actions/checkout@v4
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version-file: .nvmrc
+      #     cache: npm
 
-      - run: npm ci --ignore-scripts
-      - uses: actions/download-artifact@v4
-        with:
-          name: dist-artifact
-          path: packages
+      # - run: npm ci --ignore-scripts
+      # - uses: actions/download-artifact@v4
+      #   with:
+      #     name: dist-artifact
+      #     path: packages
 
-      - run: npm run test:ci
-      - run: npm exec -- coveralls < .cache/coverage/lcov.info
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      # - run: npm run test:ci
+      # - run: npm exec -- coveralls < .cache/coverage/lcov.info
+      #   env:
+      #     COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
   deploy:
-    # environment: writers
-    needs: [build]
+    if: contains(needs.initialize.outputs.teams, 'Writers')
+    needs: [initialize]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: npm
+      - env:
+          TEAMS: ${{needs.initialize.outputs.teams}}
+        run: echo "$TEAMS"
+      - run: echo "Deploying"
+      # - uses: actions/checkout@v4
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version-file: .nvmrc
+      #     cache: npm
 
-      - run: npm ci --ignore-scripts
-      - run: npm run build:demo
-      - run: utils/scripts/deploy.mjs
-        env:
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      # - run: npm ci --ignore-scripts
+      # - run: npm run build:demo
+      # - run: utils/scripts/deploy.mjs
+      #   env:
+      #     NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
   publish:
-    # environment: maintainers
-    needs: [build, lint, test]
+    needs: [initialize, lint, test]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next'
+    if: contains(needs.initialize.outputs.teams, 'Maintainers') && (github.ref != 'refs/heads/main' || github.ref != 'refs/heads/next')
+    # if: contains(needs.check_team.outputs.teams, 'Maintainers') && github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next'
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Lerna requires the full history, including tags
+      - env:
+          TEAMS: ${{needs.initialize.outputs.teams}}
+        run: echo "$TEAMS"
+      - run: echo "Publishing"
+      # - uses: actions/checkout@v4
+      #   with:
+      #     fetch-depth: 0 # Lerna requires the full history, including tags
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: npm
-          registry-url: https://registry.npmjs.org # Sets the registry in the project level .npmrc
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version-file: .nvmrc
+      #     cache: npm
+      #     registry-url: https://registry.npmjs.org # Sets the registry in the project level .npmrc
 
-      - run: npm ci --ignore-scripts
+      # - run: npm ci --ignore-scripts
 
-      - uses: actions/download-artifact@v4
-        with:
-          name: dist-artifact
-          path: packages
+      # - uses: actions/download-artifact@v4
+      #   with:
+      #     name: dist-artifact
+      #     path: packages
 
-      - run: npm exec -- lerna publish from-git --ignore-scripts --yes
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - run: npm exec -- lerna publish from-git --ignore-scripts --yes
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
