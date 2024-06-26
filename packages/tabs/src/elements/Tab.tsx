@@ -27,7 +27,7 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
           role="tab"
           aria-disabled={disabled}
           ref={ref}
-          isVertical={tabsPropGetters?.isVertical}
+          $isVertical={tabsPropGetters?.isVertical}
           {...otherProps}
         />
       );
@@ -39,8 +39,8 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
 
     return (
       <StyledTab
-        isSelected={item === tabsPropGetters.selectedValue}
-        isVertical={tabsPropGetters.isVertical}
+        $isSelected={item === tabsPropGetters.selectedValue}
+        $isVertical={tabsPropGetters.isVertical}
         {...tabProps}
         {...otherProps}
         ref={mergeRefs([tabRef, ref])}
