@@ -15,10 +15,11 @@ const COMPONENT_ID = 'dropdowns.combobox.option';
 export interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
   isActive?: boolean;
   isCompact?: boolean;
+  $hasAnchor?: boolean;
   $type?: OptionType | 'header' | 'group';
 }
 
-const colorStyles = ({ theme, isActive, $type }: IStyledOptionProps) => {
+const colorStyles = ({ theme, isActive, $type, $hasAnchor }: IStyledOptionProps) => {
   let backgroundColor;
   let boxShadow;
 
@@ -33,7 +34,7 @@ const colorStyles = ({ theme, isActive, $type }: IStyledOptionProps) => {
 
   let foregroundVariable;
 
-  if ($type === 'add') {
+  if ($hasAnchor || $type === 'add') {
     foregroundVariable = 'foreground.primary';
   } else if ($type === 'danger') {
     foregroundVariable = 'foreground.danger';

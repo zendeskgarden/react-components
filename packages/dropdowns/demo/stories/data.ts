@@ -22,6 +22,13 @@ export const ITEMS: Items = [
     isSeparator: true
   },
   {
+    value: 'item-anchor',
+    label: 'Item link',
+    href: 'https://garden.zendesk.com',
+    externalAnchorLabel: '(opens in new window)',
+    isExternal: false
+  },
+  {
     value: 'item-meta',
     label: 'Item',
     meta: 'With meta'

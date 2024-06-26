@@ -7,23 +7,25 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledOptionContent } from '../combobox/StyledOptionContent';
+import { StyledOption } from '../combobox/StyledOption';
 
-const COMPONENT_ID = 'dropdowns.menu.item.content';
+const COMPONENT_ID = 'dropdowns.menu.item_anchor';
 
-interface IStyledItemContentProps {
-  $hasExternalLink?: boolean;
+interface IStyledItemAnchor {
+  $hasAnchor: boolean;
 }
 
-export const StyledItemContent = styled(StyledOptionContent).attrs({
+export const StyledItemAnchor = styled(StyledOption as 'a').attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledItemContentProps>`
-  flex-direction: ${p => p.$hasExternalLink && 'row'};
+  'data-garden-version': PACKAGE_VERSION,
+  as: 'a'
+})<IStyledItemAnchor>`
+  flex: 1;
+  direction: ${props => props.theme.rtl && 'rtl'};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledItemContent.defaultProps = {
+StyledItemAnchor.defaultProps = {
   theme: DEFAULT_THEME
 };

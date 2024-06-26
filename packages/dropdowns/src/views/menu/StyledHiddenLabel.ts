@@ -7,23 +7,19 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledOptionContent } from '../combobox/StyledOptionContent';
+import { hideVisually } from 'polished';
 
-const COMPONENT_ID = 'dropdowns.menu.item.content';
+const COMPONENT_ID = 'dropdowns.menu.item_hidden_label';
 
-interface IStyledItemContentProps {
-  $hasExternalLink?: boolean;
-}
-
-export const StyledItemContent = styled(StyledOptionContent).attrs({
+export const StyledHiddenLabel = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledItemContentProps>`
-  flex-direction: ${p => p.$hasExternalLink && 'row'};
+})`
+  ${hideVisually()}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledItemContent.defaultProps = {
+StyledHiddenLabel.defaultProps = {
   theme: DEFAULT_THEME
 };
