@@ -5,25 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import path from 'path';
-import fs from 'fs';
-import { DEFAULT_EXTENSIONS } from '@babel/core';
+import path from 'node:path';
 import commonjs from '@rollup/plugin-commonjs';
-import replace from '@rollup/plugin-replace';
 import nodeResolve from '@rollup/plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
-import { babel } from '@rollup/plugin-babel';
-// import { sizeSnapshot } from '@brodybits/rollup-plugin-size-snapshot';
+import _esbuild from 'rollup-plugin-esbuild';
 import analyze from 'rollup-plugin-analyzer';
-import cleanup from 'rollup-plugin-cleanup';
 import del from 'rollup-plugin-delete';
 import svgr from '@svgr/rollup';
-import tsc from 'typescript';
+import _dts from 'rollup-plugin-dts';
+import { DEFAULT_EXTENSIONS } from '@babel/core';
+import { babel } from '@rollup/plugin-babel';
 
 const pkg = require(path.resolve('./package.json'));
 const svgoConfig = require(path.resolve('../../.svgo.config.js'));
-const babelOptions = require(path.resolve('../../babel.config.js'));
-const isTSPackage = fs.existsSync(path.resolve('tsconfig.build.json'));
+
+const esbuild = _esbuild.default || _esbuild;
+const dts = _dts.default || _dts;
 
 const externalPackages = [
   'react',
@@ -62,35 +59,31 @@ export default [
         include: 'node_modules/**'
       }),
       svgr({ svgoConfig }),
-      isTSPackage &&
-        typescript({
-          check: false,
-          tsconfig: 'tsconfig.build.json',
-          useTsconfigDeclarationDir: true,
-          typescript: tsc
-        }),
       babel({
         babelHelpers: 'bundled',
         babelrc: false,
-        exclude: 'node_modules/**', // only transpile our source code
-        ...babelOptions,
-        extensions: ['.tsx', '.ts', ...DEFAULT_EXTENSIONS]
+        exclude: 'node_modules/**',
+        extensions: ['.tsx', '.ts', ...DEFAULT_EXTENSIONS],
+        presets: [['@babel/preset-typescript', { onlyRemoveTypeImports: true }]],
+        plugins: [
+          'babel-plugin-styled-components',
+          ['react-remove-properties', { properties: [/data-test/u] }]
+        ]
       }),
-      /**
-       * Replace PACKAGE_VERSION constant with the current package version
-       */
-      replace({ PACKAGE_VERSION: `'${pkg.version}'`, preventAssignment: true }),
-      /**
-       * Remove comments from source files
-       */
-      cleanup({ extensions: ['js', 'jsx', 'ts', 'tsx'] }),
-      /**
-       * Only enforce matching size snapshot files in CI environments
-       */
-      // sizeSnapshot({
-      //   matchSnapshot: !!process.env.CI,
-      //   printInfo: !!process.env.CI || !!process.env.ANALYZE_BUNDLE
-      // }),
+      esbuild({
+        include: /\.[jt]sx?$/u,
+        exclude: /node_modules/u,
+        target: 'es2021',
+        tsconfig: 'tsconfig.build.json',
+        loaders: {
+          '.json': 'json'
+        },
+        define: {
+          PACKAGE_VERSION: `'${pkg.version}'`
+        },
+        jsxFactory: 'React.createElement',
+        jsxFragment: 'React.Fragment'
+      }),
       !!process.env.ANALYZE_BUNDLE && analyze({ summaryOnly: true })
     ],
     output: [
@@ -109,5 +102,19 @@ export default [
         banner: BANNER // Apply global Zendesk license
       }
     ]
+  },
+  // Generates *.d.ts files
+  {
+    input: pkg['zendeskgarden:src'],
+    output: [
+      {
+        dir: path.dirname(pkg.types),
+        format: 'es',
+        preserveModules: true,
+        preserveModulesRoot: 'src'
+      }
+    ],
+    plugins: [dts()],
+    external: externalPackages
   }
 ];
