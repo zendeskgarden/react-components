@@ -33,11 +33,7 @@ const colorStyles = ({
       break;
 
     case 'info':
-      color = getColor({
-        variable: 'foreground.primary',
-        light: { offset: 200 },
-        theme
-      });
+      color = getColor({ variable: 'foreground.primary', offset: 200, theme });
       break;
   }
 

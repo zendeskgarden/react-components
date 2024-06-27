@@ -33,35 +33,45 @@ const colorStyles = ({ theme, $alertType }: ThemeProps<DefaultTheme> & IStyledGl
   let anchorActiveColor;
   let focusVariable;
 
-  if (['error', 'success'].includes($alertType)) {
-    const borderVariable =
-      $alertType === 'success' ? 'border.successEmphasis' : 'border.dangerEmphasis';
-    const backgroundVariable =
-      $alertType === 'success' ? 'background.successEmphasis' : 'background.dangerEmphasis';
-    const foregroundVariable =
-      $alertType === 'success' ? 'foreground.success' : 'foreground.danger';
-
-    borderColor = getColor({ variable: borderVariable, light: { offset: 100 }, theme });
-    backgroundColor = getColor({ variable: backgroundVariable, theme });
-    foregroundColor = getColor({ variable: foregroundVariable, light: { offset: -600 }, theme });
-    focusVariable =
-      $alertType === 'success' ? 'foreground.successEmphasis' : 'foreground.dangerEmphasis';
-    anchorHoverColor = theme.palette.white;
-    anchorActiveColor = theme.palette.white;
-  } else {
-    const borderVariable =
-      $alertType === 'warning' ? 'border.warningEmphasis' : 'border.primaryEmphasis';
-    const backgroundVariable =
-      $alertType === 'warning' ? 'background.warningEmphasis' : 'background.primaryEmphasis';
-    const foregroundVariable =
-      $alertType === 'warning' ? 'foreground.warning' : 'foreground.primary';
-
-    borderColor = getColor({ variable: borderVariable, light: { offset: -300 }, theme });
-    backgroundColor = getColor({ variable: backgroundVariable, light: { offset: -400 }, theme });
-    foregroundColor = getColor({ variable: foregroundVariable, light: { offset: 100 }, theme });
-    anchorHoverColor = getColor({ variable: foregroundVariable, light: { offset: 200 }, theme });
-    anchorActiveColor = getColor({ variable: foregroundVariable, light: { offset: 300 }, theme });
-    focusVariable = foregroundVariable;
+  switch ($alertType) {
+    case 'success': {
+      borderColor = getColor({ variable: 'border.successEmphasis', offset: 100, theme });
+      backgroundColor = getColor({ variable: 'background.successEmphasis', theme });
+      foregroundColor = getColor({ variable: 'foreground.success', offset: -600, theme });
+      anchorHoverColor = theme.palette.white;
+      anchorActiveColor = theme.palette.white;
+      focusVariable = 'foreground.successEmphasis';
+      break;
+    }
+    case 'error': {
+      borderColor = getColor({ variable: 'border.dangerEmphasis', offset: 100, theme });
+      backgroundColor = getColor({ variable: 'background.dangerEmphasis', theme });
+      foregroundColor = getColor({ variable: 'foreground.danger', offset: -600, theme });
+      anchorActiveColor = theme.palette.white;
+      anchorHoverColor = theme.palette.white;
+      focusVariable = 'foreground.dangerEmphasis';
+      break;
+    }
+    case 'warning': {
+      borderColor = getColor({ variable: 'border.warningEmphasis', offset: -300, theme });
+      backgroundColor = getColor({ variable: 'background.warningEmphasis', offset: -400, theme });
+      const fgVariable = 'foreground.warning';
+      foregroundColor = getColor({ variable: fgVariable, offset: 100, theme });
+      anchorHoverColor = getColor({ variable: fgVariable, offset: 200, theme });
+      anchorActiveColor = getColor({ variable: fgVariable, offset: 300, theme });
+      focusVariable = fgVariable;
+      break;
+    }
+    case 'info': {
+      borderColor = getColor({ variable: 'border.primaryEmphasis', offset: -300, theme });
+      backgroundColor = getColor({ variable: 'background.primaryEmphasis', offset: -400, theme });
+      const fgVariable = 'foreground.primary';
+      foregroundColor = getColor({ variable: fgVariable, offset: 100, theme });
+      anchorHoverColor = getColor({ variable: fgVariable, offset: 200, theme });
+      anchorActiveColor = getColor({ variable: fgVariable, offset: 300, theme });
+      focusVariable = fgVariable;
+      break;
+    }
   }
 
   // Apply a border without affecting the element's size

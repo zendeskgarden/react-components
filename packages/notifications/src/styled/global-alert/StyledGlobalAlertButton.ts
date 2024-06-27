@@ -25,7 +25,7 @@ interface IStyledGlobalAlertButtonProps {
   isBasic?: boolean;
 }
 
-type OffsetOptions = Record<string, Record<string, ColorParameters['offset']>>;
+type OffsetOptions = Record<string, ColorParameters['offset']>;
 
 function colorStyles(
   props: IStyledGlobalAlertButtonProps & ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonProps
@@ -45,30 +45,30 @@ function colorStyles(
   switch ($alertType) {
     case 'success':
       bgVariable = 'background.successEmphasis';
-      offsetOptions = { light: { offset: 200 } };
-      offsetHoverOptions = { light: { offset: 300 } };
-      offsetActiveOptions = { light: { offset: 400 } };
+      offsetOptions = { offset: 200 };
+      offsetHoverOptions = { offset: 300 };
+      offsetActiveOptions = { offset: 400 };
       focusVariable = 'foreground.successEmphasis';
       break;
     case 'error':
       bgVariable = 'background.dangerEmphasis';
-      offsetOptions = { light: { offset: 200 } };
-      offsetHoverOptions = { light: { offset: 300 } };
-      offsetActiveOptions = { light: { offset: 400 } };
+      offsetOptions = { offset: 200 };
+      offsetHoverOptions = { offset: 300 };
+      offsetActiveOptions = { offset: 400 };
       focusVariable = 'foreground.dangerEmphasis';
       break;
     case 'warning':
       bgVariable = 'background.warningEmphasis';
       offsetOptions = {};
-      offsetHoverOptions = { light: { offset: 100 } };
-      offsetActiveOptions = { light: { offset: 200 } };
+      offsetHoverOptions = { offset: 100 };
+      offsetActiveOptions = { offset: 200 };
       focusVariable = 'foreground.warning';
       break;
     case 'info':
       bgVariable = 'background.primaryEmphasis';
       offsetOptions = {};
-      offsetHoverOptions = { light: { offset: 100 } };
-      offsetActiveOptions = { light: { offset: 200 } };
+      offsetHoverOptions = { offset: 100 };
+      offsetActiveOptions = { offset: 200 };
       focusVariable = 'foreground.primary';
       break;
   }

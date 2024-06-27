@@ -44,33 +44,18 @@ const colorStyles = ({
 
   switch ($alertType) {
     case 'success':
-      // green/300
-      color = getColor({
-        variable: 'foreground.success',
-        light: { offset: -400 },
-        theme
-      });
+      color = getColor({ variable: 'foreground.success', offset: -400, theme });
       break;
     case 'error':
-      // red/300
-      color = getColor({
-        variable: 'foreground.danger',
-        light: { offset: -400 },
-        theme
-      });
+      color = getColor({ variable: 'foreground.danger', offset: -400, theme });
       break;
 
     case 'warning':
-      // yellow/700
       color = getColor({ variable: 'foreground.warning', theme });
       break;
 
     case 'info':
-      // blue/700
-      color = getColor({
-        variable: 'foreground.primary',
-        theme
-      });
+      color = getColor({ variable: 'foreground.primary', theme });
       break;
   }
 
