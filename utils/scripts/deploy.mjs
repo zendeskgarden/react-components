@@ -29,12 +29,22 @@ envalid.cleanEnv(process.env, {
 
 (async () => {
   try {
-    const branch = await githubBranch();
+    let branch;
+    try {
+      branch = await githubBranch();
+      console.log(branch);
+    } catch (error) {
+      throw new Error(error);
+    }
+
+    if (!branch) throw new Error('no branch');
+
     const currentDir = dirname(fileURLToPath(import.meta.url));
     const dir = resolve(currentDir, '..', '..', 'demo');
     let url;
 
-    if (branch) {
+    // eslint-disable-next-line no-negated-condition
+    if (branch !== 'main') {
       url = await githubPages({ dir });
     } else {
       const bandwidth = await netlifyBandwidth();
