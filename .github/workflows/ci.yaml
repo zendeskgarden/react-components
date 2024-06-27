@@ -24,9 +24,9 @@ jobs:
 
       - run: npm ci --ignore-scripts
       - id: get-teams
-        run: echo "teams=$(npm exec garden github-teams -- --user ${{ github.triggering_actor }} --token $GITHUB_TOKEN)" >> $GITHUB_OUTPUT
+        run: echo "teams=$(npm exec garden github-teams -- --user ${{ github.triggering_actor }} --token $GH_TOKEN)" >> $GITHUB_OUTPUT
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - run: echo "Building"
       # - run: npm exec -- lerna run build --concurrency=2
