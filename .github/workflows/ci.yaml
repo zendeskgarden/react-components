@@ -8,7 +8,9 @@ on:
       - main
       - next
 
-permissions: write-all
+permissions:
+  contents: read
+  deployments: write
 
 jobs:
   deploy:
