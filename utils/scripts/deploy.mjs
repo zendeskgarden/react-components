@@ -45,7 +45,7 @@ envalid.cleanEnv(process.env, {
 
     // eslint-disable-next-line no-negated-condition
     if (branch !== 'main') {
-      url = await githubPages({ dir });
+      url = await githubPages({ dir, disableJekyll: true });
     } else {
       const bandwidth = await netlifyBandwidth();
       const usage = await cmdDu(dir);
