@@ -28,7 +28,7 @@ const colorStyles = ({ theme, $type, $isFloating }: IStyledBaseProps) => {
   let borderVariable;
   let fgVariable;
 
-  if (!$isFloating && $type && Object.keys(validationTypes).includes($type)) {
+  if (!$isFloating && $type && !!(validationTypes as any)[$type]) {
     switch ($type) {
       case validationTypes.success:
         bgVariable = 'background.success';
