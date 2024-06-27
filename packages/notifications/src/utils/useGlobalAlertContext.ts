@@ -7,7 +7,7 @@
 
 import { createContext, useContext } from 'react';
 
-import { IGlobalAlertProps } from '../../types';
+import { IGlobalAlertProps } from '../types';
 
 export type GlobalAlertContextProps = Pick<IGlobalAlertProps, 'type'>;
 

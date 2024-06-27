@@ -12,9 +12,11 @@ import { StyledWell } from '../styled';
 import { Title } from './content/Title';
 import { Paragraph } from './content/Paragraph';
 
-export const WellComponent = React.forwardRef<HTMLDivElement, IWellProps>((props, ref) => (
-  <StyledWell ref={ref} {...props} />
-));
+export const WellComponent = React.forwardRef<HTMLDivElement, IWellProps>(
+  ({ isFloating, isRecessed, ...props }, ref) => (
+    <StyledWell ref={ref} $isFloating={isFloating} $isRecessed={isRecessed} {...props} />
+  )
+);
 
 WellComponent.displayName = 'Well';
 

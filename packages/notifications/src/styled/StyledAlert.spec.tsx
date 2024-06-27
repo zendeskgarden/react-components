@@ -7,28 +7,28 @@
 
 import React from 'react';
 import { css } from 'styled-components';
-import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
-import { render } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { getRenderFn } from 'garden-test-utils';
 import { StyledAlert, StyledTitle } from '../styled';
 import { Type } from '../types';
 
 describe('StyledAlert', () => {
-  it(`should render the styling correctly for a Notification's title`, () => {
-    const validationHues: Record<Type, string> = {
-      success: 'successHue',
-      error: 'dangerHue',
-      warning: 'warningHue',
-      info: 'neutralHue'
-    };
+  it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([
+    { mode: 'light', type: 'success', color: PALETTE.green[900] },
+    { mode: 'dark', type: 'success', color: PALETTE.green[300] },
+    { mode: 'light', type: 'error', color: PALETTE.red[900] },
+    { mode: 'dark', type: 'error', color: PALETTE.red[300] },
+    { mode: 'light', type: 'warning', color: PALETTE.yellow[900] },
+    { mode: 'dark', type: 'warning', color: PALETTE.yellow[300] },
+    { mode: 'light', type: 'info', color: PALETTE.grey[900] },
+    { mode: 'dark', type: 'info', color: PALETTE.grey[300] }
+  ])('renders correct $mode type $type title color', ({ mode, type, color }) => {
+    const { container } = getRenderFn(mode)(<StyledAlert $type={type} />);
 
-    Object.values(validationHues).forEach(hue => {
-      const { container } = render(<StyledAlert hue={hue} />);
-
-      expect(container.firstChild).toHaveStyleRule('color', getColorV8(hue, 800, DEFAULT_THEME), {
-        modifier: css`
-          ${StyledTitle}
-        ` as any
-      });
+    expect(container.firstChild).toHaveStyleRule('color', color, {
+      modifier: css`
+        ${StyledTitle}
+      ` as any
     });
   });
 });

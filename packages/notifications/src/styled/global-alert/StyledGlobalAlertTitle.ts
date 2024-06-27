@@ -6,31 +6,34 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, getColorV8, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { IGlobalAlertProps, IGlobalAlertTitleProps } from '../../types';
 
-const COMPONENT_ID = 'notifications.global-alert.title';
+const COMPONENT_ID = 'notifications.global_alert.title';
 
 interface IStyledGlobalAlertTitleProps {
-  alertType: IGlobalAlertProps['type'];
-  isRegular?: IGlobalAlertTitleProps['isRegular'];
+  $alertType: IGlobalAlertProps['type'];
+  $isRegular?: IGlobalAlertTitleProps['isRegular'];
 }
 
-const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertTitleProps) => {
+const colorStyles = ({
+  theme,
+  $alertType
+}: ThemeProps<DefaultTheme> & IStyledGlobalAlertTitleProps) => {
   let color;
 
-  switch (props.alertType) {
+  switch ($alertType) {
     case 'success':
     case 'error':
-      color = props.theme.palette.white;
+      color = theme.palette.white;
       break;
 
     case 'warning':
-      color = getColorV8('warningHue', 900, props.theme);
+      color = getColor({ variable: 'foreground.warningEmphasis', theme });
       break;
 
     case 'info':
-      color = getColorV8('primaryHue', 800, props.theme);
+      color = getColor({ variable: 'foreground.primary', offset: 200, theme });
       break;
   }
 
@@ -47,7 +50,7 @@ export const StyledGlobalAlertTitle = styled.div.attrs({
   /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.base * 2}px;
   font-weight: ${props =>
-    props.isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};
+    props.$isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};
 
   ${colorStyles};
 
