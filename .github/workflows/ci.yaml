@@ -8,10 +8,7 @@ on:
       - main
       - next
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+permissions: write-all
 
 jobs:
   deploy:
