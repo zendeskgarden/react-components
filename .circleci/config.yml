@@ -38,14 +38,14 @@ jobs:
       - run: '[ $COVERALLS_REPO_TOKEN ] && npm exec -- coveralls < .cache/coverage/lcov.info || true'
       - *persist_to_workspace
 
-  deploy:
-    <<: *executor
-    environment:
-      NODE_DEBUG: gh-pages
-    steps:
-      - *attach_workspace
-      - run: npm run build:demo
-      - run: utils/scripts/deploy.mjs
+  # deploy:
+  #   <<: *executor
+  #   environment:
+  #     NODE_DEBUG: gh-pages
+  #   steps:
+  #     - *attach_workspace
+  #     - run: npm run build:demo
+  #     - run: utils/scripts/deploy.mjs
 
   publish:
     <<: *executor
@@ -61,10 +61,10 @@ workflows:
       - test:
           requires:
             - build
-      - deploy:
-          requires:
-            - test
-          context: writer
+      # - deploy:
+      #     requires:
+      #       - test
+      #     context: writer
       - publish:
           requires:
             - test

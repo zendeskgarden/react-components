@@ -34,7 +34,7 @@ envalid.cleanEnv(process.env, {
     const dir = resolve(currentDir, '..', '..', 'demo');
     let url;
 
-    if (branch === 'main') {
+    if (branch) {
       url = await githubPages({ dir });
     } else {
       const bandwidth = await netlifyBandwidth();
