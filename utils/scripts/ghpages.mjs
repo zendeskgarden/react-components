@@ -6,7 +6,7 @@
  */
 
 import { clean, publish } from 'gh-pages';
-import { getRepository, getToken } from '@zendeskgarden/scripts';
+import { githubRepository, githubToken } from '@zendeskgarden/scripts';
 
 /**
  * Execute the `github-pages` command.
@@ -24,8 +24,8 @@ export const githubPages = async args => {
   let retVal;
 
   try {
-    const token = args.token || (await getToken(args.spinner));
-    const repository = await getRepository(args.path || args.dir, args.spinner);
+    const token = args.token || (await githubToken(args.spinner));
+    const repository = await githubRepository(args.path || args.dir, args.spinner);
     const message = args.message || 'Updates [skip ci]';
 
     if (token && repository) {
