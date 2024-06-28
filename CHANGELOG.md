@@ -13,6 +13,20 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.15 (2024-06-28)
+
+#### :rocket: New Feature
+* `notifications`
+  * [#1842](https://github.com/zendeskgarden/react-components/pull/1842) feat(notifications): new light/dark mode colors ([@geotrev](https://github.com/geotrev))
+* `tabs`
+  * [#1843](https://github.com/zendeskgarden/react-components/pull/1843) feat(tabs): new light/dark mode colors ([@ze-flo](https://github.com/ze-flo))
+* `modals`
+  * [#1840](https://github.com/zendeskgarden/react-components/pull/1840) feat(modals): new light/dark mode colors for `TooltipModal` and `Drawer` ([@ze-flo](https://github.com/ze-flo))
+
+- Florent ([@ze-flo](https://github.com/ze-flo))
+- George Treviranus ([@geotrev](https://github.com/geotrev))
+
+
 ## v9.0.0-next.14 (2024-06-20)
 
 #### :rocket: New Feature
