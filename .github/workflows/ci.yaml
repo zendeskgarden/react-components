@@ -92,6 +92,7 @@ jobs:
 
   deploy-gh-pages:
     # if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
+
     if: contains(needs.initialize.outputs.teams, 'Writers')
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
