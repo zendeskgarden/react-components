@@ -46,10 +46,10 @@ export const githubPages = async args => {
         args.dir,
         {
           repo: `https://${token}@github.com/${owner}/${repo}.git`,
-          // user: {
-          //   name,
-          //   email
-          // },
+          user: {
+            name: 'github-actions[bot]',
+            email: 'github-actions[bot]@users.noreply.github.com'
+          },
           message,
           nojekyll: args.disableJekyll
         },
