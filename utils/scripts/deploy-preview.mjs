@@ -20,6 +20,7 @@ import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
 envalid.cleanEnv(process.env, {
+  GITHUB_TOKEN: envalid.str(),
   NETLIFY_SITE_ID: envalid.str(),
   NETLIFY_TOKEN: envalid.str()
 });
