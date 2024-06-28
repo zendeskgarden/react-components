@@ -29,49 +29,47 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      # - run: echo "Building"
-      # - run: npm exec -- lerna run build --concurrency=2
-
-      # - uses: actions/upload-artifact@v4
-      #   with:
-      #     name: dist-artifact
-      #     path: packages/**/dist
+      - run: npm exec -- lerna run build --concurrency=2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-artifact
+          path: packages/**/dist
 
   lint:
     needs: [initialize]
     runs-on: ubuntu-latest
     steps:
       - run: echo "Linting"
-      # - uses: actions/checkout@v4
-      # - uses: actions/setup-node@v4
-      #   with:
-      #     node-version-file: .nvmrc
-      #     cache: npm
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
 
-      # - run: npm ci --ignore-scripts
-      # - run: npm run lint:ci
+      - run: npm ci --ignore-scripts
+      - run: npm run lint:ci
 
   test:
     needs: [initialize]
     runs-on: ubuntu-latest
     steps:
       - run: echo "Testing"
-      # - uses: actions/checkout@v4
-      # - uses: actions/setup-node@v4
-      #   with:
-      #     node-version-file: .nvmrc
-      #     cache: npm
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
 
-      # - run: npm ci --ignore-scripts
-      # - uses: actions/download-artifact@v4
-      #   with:
-      #     name: dist-artifact
-      #     path: packages
+      - run: npm ci --ignore-scripts
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-artifact
+          path: packages
 
-      # - run: npm run test:ci
-      # - run: npm exec -- coveralls < .cache/coverage/lcov.info
-      #   env:
-      #     COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      - run: npm run test:ci
+      - run: npm exec -- coveralls < .cache/coverage/lcov.info
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
   deploy-preview:
     if: contains(needs.initialize.outputs.teams, 'Writers')
@@ -96,9 +94,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
   deploy-gh-pages:
-    # if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
-
-    if: contains(needs.initialize.outputs.teams, 'Writers')
+    if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
     environment:
@@ -131,12 +127,9 @@ jobs:
   publish:
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
-    # if: contains(needs.initialize.outputs.teams, 'Maintainers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
+    if: contains(needs.initialize.outputs.teams, 'Maintainers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
     steps:
-      - env:
-          TEAMS: ${{needs.initialize.outputs.teams}}
-        run: echo "$TEAMS"
-      - run: echo "Publishing"
+      - run: echo "Publishing" # TODO: REMOVE
       # - uses: actions/checkout@v4
       #   with:
       #     fetch-depth: 0 # Lerna requires the full history, including tags
