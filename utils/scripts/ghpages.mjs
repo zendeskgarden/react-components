@@ -51,8 +51,7 @@ export const githubPages = async args => {
           //   email
           // },
           message,
-          nojekyll: args.disableJekyll,
-          silent: true
+          nojekyll: args.disableJekyll
         },
         error => {
           if (error) {
