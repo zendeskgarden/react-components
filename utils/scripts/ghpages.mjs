@@ -45,7 +45,7 @@ export const githubPages = async args => {
       await publish(
         args.dir,
         {
-          repo: `https://${token}@github.com/${owner}/${repo}.git`,
+          repo: `https://x-access-token:${token}@github.com/${owner}/${repo}.git`,
           user: {
             name: 'Zendesk Garden',
             email: 'garden@zendesk.com'
