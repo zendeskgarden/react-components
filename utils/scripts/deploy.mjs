@@ -13,11 +13,11 @@ import {
   githubBranch,
   githubCommit,
   githubDeploy,
-  githubPages,
   githubRepository,
   netlifyBandwidth,
   netlifyDeploy
 } from '@zendeskgarden/scripts';
+import { githubPages } from './ghpages.mjs';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -29,23 +29,13 @@ envalid.cleanEnv(process.env, {
 
 (async () => {
   try {
-    let branch;
-    try {
-      branch = await githubBranch();
-      console.log(branch);
-    } catch (error) {
-      throw new Error(error);
-    }
-
-    if (!branch) throw new Error('no branch');
-
+    const branch = await githubBranch();
     const currentDir = dirname(fileURLToPath(import.meta.url));
     const dir = resolve(currentDir, '..', '..', 'demo');
     let url;
 
-    // eslint-disable-next-line no-negated-condition
-    if (branch !== 'main') {
-      url = await githubPages({ dir, disableJekyll: true });
+    if (branch) {
+      url = await githubPages({ dir });
     } else {
       const bandwidth = await netlifyBandwidth();
       const usage = await cmdDu(dir);
