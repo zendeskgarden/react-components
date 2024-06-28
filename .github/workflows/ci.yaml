@@ -71,7 +71,7 @@ jobs:
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
-  deploy-preview:
+  deploy-staging:
     if: contains(needs.initialize.outputs.teams, 'Writers')
     needs: [initialize]
     runs-on: ubuntu-latest
@@ -87,13 +87,13 @@ jobs:
 
       - run: npm ci --ignore-scripts
       - run: npm run build:demo
-      - run: utils/scripts/deploy-preview.mjs
+      - run: utils/scripts/deploy-staging.mjs
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
-  deploy-gh-pages:
+  deploy:
     if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
