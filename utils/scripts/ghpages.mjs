@@ -47,8 +47,8 @@ export const githubPages = async args => {
         {
           repo: `https://${token}@github.com/${owner}/${repo}.git`,
           user: {
-            name: 'github-actions-bot',
-            email: 'support+actions@github.com'
+            name: 'Zendesk Garden',
+            email: 'garden@zendesk.com'
           },
           message,
           nojekyll: args.disableJekyll
