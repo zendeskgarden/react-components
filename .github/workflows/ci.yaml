@@ -77,6 +77,9 @@ jobs:
     if: contains(needs.initialize.outputs.teams, 'Writers')
     needs: [initialize]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
