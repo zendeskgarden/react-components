@@ -39,7 +39,6 @@ jobs:
     needs: [initialize]
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Linting"
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -53,7 +52,6 @@ jobs:
     needs: [initialize]
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Testing"
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -87,14 +85,14 @@ jobs:
 
       - run: npm ci --ignore-scripts
       - run: npm run build:demo
-      - run: utils/scripts/deploy-staging.mjs
+      - run: utils/scripts/deploy.mjs
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
   deploy:
-    if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
+    if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main')
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
     environment:
@@ -129,24 +127,23 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(needs.initialize.outputs.teams, 'Maintainers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
     steps:
-      - run: echo "Publishing" # TODO: REMOVE
-      # - uses: actions/checkout@v4
-      #   with:
-      #     fetch-depth: 0 # Lerna requires the full history, including tags
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Lerna requires the full history, including tags
 
-      # - uses: actions/setup-node@v4
-      #   with:
-      #     node-version-file: .nvmrc
-      #     cache: npm
-      #     registry-url: https://registry.npmjs.org # Sets the registry in the project level .npmrc
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          registry-url: https://registry.npmjs.org # Sets the registry in the project level .npmrc
 
-      # - run: npm ci --ignore-scripts
+      - run: npm ci --ignore-scripts
 
-      # - uses: actions/download-artifact@v4
-      #   with:
-      #     name: dist-artifact
-      #     path: packages
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-artifact
+          path: packages
 
-      # - run: npm exec -- lerna publish from-git --ignore-scripts --yes
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm exec -- lerna publish from-git --ignore-scripts --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

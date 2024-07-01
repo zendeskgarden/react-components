@@ -29,10 +29,9 @@ envalid.cleanEnv(process.env, {
   try {
     const currentDir = dirname(fileURLToPath(import.meta.url));
     const dir = resolve(currentDir, '..', '..', 'demo');
-    let url;
-
     const bandwidth = await netlifyBandwidth();
     const usage = await cmdDu(dir);
+    let url;
 
     if (bandwidth.available > usage) {
       const repository = await githubRepository();
