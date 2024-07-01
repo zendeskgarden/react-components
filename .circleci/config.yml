@@ -4,5 +4,8 @@ orbs:
 
 jobs:
   test:
+    executor:
+      name: node/default
+      tag: lts
     steps:
       - run: 'true'
