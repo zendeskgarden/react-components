@@ -4,8 +4,8 @@ orbs:
 
 jobs:
   test:
-    override:
-      - 'true'
+    steps:
+      - run: 'true'
 
 workflows:
   main:
