@@ -3,7 +3,7 @@ orbs:
   node: circleci/node@5.2.0
 
 jobs:
-  test:
+  build:
     executor:
       name: node/default
       tag: lts
