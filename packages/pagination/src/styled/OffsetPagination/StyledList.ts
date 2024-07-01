@@ -5,10 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pagination.list';
+
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  return css`
+    color: ${getColor({ variable: 'foreground.subtle', theme })};
+  `;
+};
 
 /**
  * 1. List reset.
@@ -18,14 +24,15 @@ export const StyledList = styled.ul.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  direction: ${props => props.theme.rtl && 'rtl'};
+  direction: ${p => p.theme.rtl && 'rtl'};
   display: flex;
   justify-content: center;
   margin: 0; /* [1] */
   padding: 0; /* [1] */
   list-style: none; /* [1] */
   white-space: nowrap; /* [2] */
-  color: ${props => getColorV8('neutralHue', 600, props.theme)};
+
+  ${colorStyles}
 
   :focus {
     outline: none;

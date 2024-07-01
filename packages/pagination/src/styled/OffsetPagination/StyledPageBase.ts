@@ -10,22 +10,50 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getLineHeight,
-  getColorV8,
-  focusStyles
+  focusStyles,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pagination.page';
 
-const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const defaultColor = getColorV8('neutralHue', 600, props.theme);
-  const hoverForegroundColor = getColorV8('neutralHue', 700, props.theme);
-  const hoverBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.08);
-  const activeForegroundColor = getColorV8('neutralHue', 800, props.theme);
-  const activeBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.2);
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const disabledColor = getColor({ variable: 'foreground.disabled', theme });
+  const defaultColor = getColor({ variable: 'foreground.subtle', theme });
+  const hoverForegroundColor = getColor({
+    variable: 'foreground.subtle',
+    light: { offset: 100 },
+    dark: { offset: -100 },
+    theme
+  });
+  const hoverBackgroundColor = getColor({
+    variable: 'background.primaryEmphasis',
+    transparency: theme.opacity[100],
+    dark: { offset: -100 },
+    theme
+  });
+  const activeForegroundColor = getColor({
+    variable: 'foreground.subtle',
+    light: { offset: 200 },
+    dark: { offset: -200 },
+    theme
+  });
+  const activeBackgroundColor = getColor({
+    variable: 'background.primaryEmphasis',
+    transparency: theme.opacity[200],
+    dark: { offset: -100 },
+    theme
+  });
+
+  // selected page
   const currentForegroundColor = activeForegroundColor;
   const currentBackgroundColor = hoverBackgroundColor;
-  const currentHoverBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.16);
-  const currentActiveBackgroundColor = getColorV8('primaryHue', 600, props.theme, 0.28);
+  const currentHoverBackgroundColor = activeBackgroundColor;
+  const currentActiveBackgroundColor = getColor({
+    variable: 'background.primaryEmphasis',
+    transparency: theme.opacity[300],
+    dark: { offset: -100 },
+    theme
+  });
 
   return css`
     border: none;
@@ -38,7 +66,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     }
 
     ${focusStyles({
-      theme: props.theme,
+      theme,
       inset: true
     })}
 
@@ -64,7 +92,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     :disabled,
     [aria-disabled='true'] {
       background-color: transparent;
-      color: ${getColorV8('grey', 300, props.theme)};
+      color: ${disabledColor};
     }
   `;
 };
