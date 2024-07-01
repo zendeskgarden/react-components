@@ -70,7 +70,7 @@ jobs:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
   deploy-staging:
-    if: contains(needs.initialize.outputs.teams, 'Writers')
+    if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref != 'refs/heads/main')
     needs: [initialize]
     runs-on: ubuntu-latest
     permissions:
