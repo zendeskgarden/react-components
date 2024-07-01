@@ -6,8 +6,3 @@ jobs:
   test:
     steps:
       - run: 'true'
-
-workflows:
-  main:
-    jobs:
-      - test
