@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.76.4 (2024-07-01)
+
+#### :seedling: Internal
+* [#1836](https://github.com/zendeskgarden/react-components/pull/1836) ci: migrate from CircleCI to Github Actions ([@ze-flo](https://github.com/ze-flo))
+* [#1841](https://github.com/zendeskgarden/react-components/pull/1841) chore(deps-dev): bump ws from 6.2.2 to 6.2.3 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## v8.76.3 (2024-06-06)
 
 #### :bug: Bug Fix
