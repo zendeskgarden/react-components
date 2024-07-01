@@ -10,10 +10,8 @@
 import envalid from 'envalid';
 import {
   cmdDu,
-  githubBranch,
   githubCommit,
   githubDeploy,
-  githubPages,
   githubRepository,
   netlifyBandwidth,
   netlifyDeploy
@@ -29,36 +27,30 @@ envalid.cleanEnv(process.env, {
 
 (async () => {
   try {
-    const branch = await githubBranch();
     const currentDir = dirname(fileURLToPath(import.meta.url));
     const dir = resolve(currentDir, '..', '..', 'demo');
+    const bandwidth = await netlifyBandwidth();
+    const usage = await cmdDu(dir);
     let url;
 
-    if (branch === 'main') {
-      url = await githubPages({ dir });
+    if (bandwidth.available > usage) {
+      const repository = await githubRepository();
+      const commit = await githubCommit();
+      const message = `https://github.com/${repository.owner}/${repository.repo}/commit/${commit}`;
+      const command = async () => {
+        const result = await netlifyDeploy({
+          dir,
+          message
+        });
+
+        return result;
+      };
+
+      url = await githubDeploy({ command });
     } else {
-      const bandwidth = await netlifyBandwidth();
-      const usage = await cmdDu(dir);
-
-      if (bandwidth.available > usage) {
-        const repository = await githubRepository();
-        const commit = await githubCommit();
-        const message = `https://github.com/${repository.owner}/${repository.repo}/commit/${commit}`;
-        const command = async () => {
-          const result = await netlifyDeploy({
-            dir,
-            message
-          });
-
-          return result;
-        };
-
-        url = await githubDeploy({ command });
-      } else {
-        throw new Error(
-          `Insufficient Netlify bandwidth: ${bandwidth.available} bytes available, ${usage} bytes required.`
-        );
-      }
+      throw new Error(
+        `Insufficient Netlify bandwidth: ${bandwidth.available} bytes available, ${usage} bytes required.`
+      );
     }
 
     /* eslint-disable-next-line no-console */
