@@ -11,7 +11,7 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getLineHeight,
-  getColorV8
+  getColor
 } from '@zendeskgarden/react-theming';
 import { StyledListItem } from './StyledListItem';
 
@@ -34,15 +34,22 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  return css`
+    color: ${getColor({ variable: 'foreground.subtle', theme })};
+  `;
+};
+
 export const StyledGapListItem = styled(StyledListItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   display: inline-block;
   text-align: center;
-  color: ${p => getColorV8('neutralHue', 600, p.theme)};
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
+
+  ${colorStyles}
 
   &:hover {
     color: inherit;
