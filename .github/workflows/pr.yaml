@@ -1,4 +1,4 @@
-name: Pull Request Labels
+name: PR
 on:
   pull_request:
     types: [opened, labeled, unlabeled, synchronize]
@@ -10,4 +10,4 @@ jobs:
         with:
           mode: exactly
           count: 1
-          labels: "PR: Breaking Change :boom:, PR: Bug Fix :bug:, PR: Docs :memo:, PR: Internal :seedling:, PR: New Feature :rocket:"
+          labels: 'PR: Breaking Change :boom:, PR: Bug Fix :bug:, PR: Docs :memo:, PR: Internal :seedling:, PR: New Feature :rocket:'
