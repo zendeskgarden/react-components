@@ -13,6 +13,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.16 (2024-07-02)
+
+#### :rocket: New Feature
+* `pagination`
+  * [#1846](https://github.com/zendeskgarden/react-components/pull/1846) feat(pagination): new light/dark mode colors ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* [#1847](https://github.com/zendeskgarden/react-components/pull/1847) chore: sync changes since `v8.76.4` from `main` ([@geotrev](https://github.com/geotrev))
+
 ## v9.0.0-next.15 (2024-06-28)
 
 #### :rocket: New Feature
