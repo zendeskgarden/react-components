@@ -10,7 +10,7 @@ import {
   getLineHeight,
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8
+  getColor
 } from '@zendeskgarden/react-theming';
 import { StyledSeparator } from './StyledSeparator';
 import { StyledTimelineContent } from './StyledContent';
@@ -31,7 +31,7 @@ export const StyledTimelineItem = styled.li.attrs({
   display: flex;
   position: relative;
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
+  color: ${({ theme }) => getColor({ theme, variable: 'foreground.default' })};
   font-size: ${props => props.theme.fontSizes.md};
 
   &:last-of-type ${StyledSeparator}::after {

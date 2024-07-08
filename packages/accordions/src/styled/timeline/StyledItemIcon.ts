@@ -8,10 +8,10 @@
 import styled from 'styled-components';
 import { math } from 'polished';
 import {
-  getColorV8,
   retrieveComponentStyles,
   DEFAULT_THEME,
-  StyledBaseIcon
+  StyledBaseIcon,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'timeline.icon';
@@ -29,12 +29,12 @@ export const StyledItemIcon = styled(StyledBaseIcon).attrs({
 })<IStyledItemIcon>`
   z-index: 1;
   box-sizing: content-box;
-  background-color: ${props =>
-    props.$surfaceColor || getColorV8('background', 600 /* default shade */, props.theme)};
+  background-color: ${({ $surfaceColor, theme }) =>
+    $surfaceColor || getColor({ theme, variable: 'background.default' })};
   padding: ${props => props.theme.space.base}px 0;
   width: ${props => math(`${props.theme.iconSizes.sm} + 1`)}; /* [1] */
   height: ${props => math(`${props.theme.iconSizes.sm} + 1`)}; /* [1] */
-  color: ${props => getColorV8('neutralHue', 600, props.theme)};
+  color: ${({ theme }) => `${getColor({ theme, variable: 'border.emphasis' })}`};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
