@@ -23,11 +23,11 @@ const colorStyles = ({ theme, isStandalone }: IStyledHeaderProps & ThemeProps<De
     hue: 'neutralHue',
     shade: 1200,
     light: { transparency: theme.opacity[200] },
-    dark: { transparency: theme.opacity[1000] },
+    dark: { transparency: theme.opacity[1100] },
     theme
   });
   const boxShadow = isStandalone
-    ? theme.shadows.lg('0', `${theme.space.base * 2.5}px`, boxShadowColor)
+    ? theme.shadows.lg('0', `${theme.space.base * 2}px`, boxShadowColor)
     : undefined;
   const foregroundColor = getColor({ theme, variable: 'foreground.subtle' });
 

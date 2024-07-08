@@ -10,10 +10,10 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8,
   getLineHeight,
   focusStyles,
-  SELECTOR_FOCUS_VISIBLE
+  SELECTOR_FOCUS_VISIBLE,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { getHeaderHeight } from './utils';
 
@@ -43,23 +43,31 @@ const animationStyles = () => {
 };
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const color = getColorV8('primaryHue', 600, theme);
-  const borderColor = getColorV8('neutralHue', 300, theme);
+  const backgroundColor = getColor({ theme, variable: 'background.raised' });
+  const borderColor = getColor({ theme, variable: 'border.default' });
+  const boxShadowColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    shade: 1200,
+    dark: { transparency: theme.opacity[800] },
+    light: { transparency: theme.opacity[200] }
+  });
   const boxShadow = theme.shadows.lg(
-    `${theme.space.base * 5}px`,
-    `${theme.space.base * 7}px`,
-    getColorV8('chromeHue', 600, theme, 0.15) as string
+    `${theme.space.base * 4}px`,
+    `${theme.space.base * 6}px`,
+    boxShadowColor
   );
+  const foregroundColor = getColor({ theme, variable: 'foreground.primary' });
 
   return css`
     border-color: ${borderColor};
     box-shadow: ${boxShadow};
-    background-color: ${getColorV8('background', 600 /* default shade */, theme)};
-    color: ${color};
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
 
     &:hover,
     &:focus {
-      color: ${color};
+      color: ${foregroundColor};
     }
 
     ${focusStyles({
@@ -72,6 +80,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 
 const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const top = math(`${getHeaderHeight(theme)} / 2`);
+  const border = theme.borders.sm;
   const padding = `${theme.space.base * 5}px`;
   const paddingStart = `${theme.space.base * 4}px`;
   const fontSize = theme.fontSizes.md;
@@ -79,6 +88,7 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 
   return css`
     top: ${top};
+    border: ${border};
     padding: ${padding};
     /* stylelint-disable-next-line property-no-unknown */
     padding-${theme.rtl ? 'right' : 'left'}: ${paddingStart};
@@ -108,7 +118,6 @@ export const StyledSkipNav = styled.a.attrs({
   transform: translateX(-50%);
   direction: ${props => props.theme.rtl && 'rtl'};
   z-index: ${props => props.zIndex};
-  border: ${props => props.theme.borders.sm};
   border-radius: ${props => props.theme.borderRadii.md};
   text-decoration: underline;
   white-space: nowrap;

@@ -7,12 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { hideVisually } from 'polished';
-import {
-  retrieveComponentStyles,
-  PALETTE,
-  DEFAULT_THEME,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Product } from '../../types';
 import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
 import { StyledBaseHeaderItem } from './StyledBaseHeaderItem';
@@ -27,8 +22,8 @@ export interface IStyledLogoHeaderItemProps {
 
 const colorStyles = ({ theme, product }: IStyledLogoHeaderItemProps & ThemeProps<DefaultTheme>) => {
   const borderColor = getColor({ theme, variable: 'border.default' });
-  const color = getProductColor(product);
-  const fill = getColor({ theme, hue: 'chromeHue', shade: 900 });
+  const fill = getColor({ theme, variable: 'foreground.default' });
+  const color = getProductColor(product, fill /* fallback */);
 
   return css`
     border-${theme.rtl ? 'left' : 'right'}-color: ${borderColor};

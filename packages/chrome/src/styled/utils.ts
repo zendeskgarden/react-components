@@ -21,5 +21,5 @@ export const getNavWidth = (theme: DefaultTheme) => `${theme.space.base * 15}px`
 
 export const getNavWidthExpanded = () => `200px`;
 
-export const getProductColor = (product?: Product) =>
-  product ? PALETTE.product[product] || 'inherit' : 'inherit';
+export const getProductColor = (product?: Product, fallback = 'inherit') =>
+  product ? PALETTE.product[product] || fallback : fallback;
