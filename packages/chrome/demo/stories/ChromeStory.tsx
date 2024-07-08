@@ -156,7 +156,7 @@ export const ChromeStory: Story<IArgs> = ({
             {hasLogo && (
               <Header.Item hasLogo product={product}>
                 <Header.ItemIcon>
-                  <SupportIcon />
+                  {product ? PRODUCT_ICONS[product] : <ProductIcon />}
                 </Header.ItemIcon>
                 <Header.ItemText>Header Logo</Header.ItemText>
               </Header.Item>

@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledLogoHeaderItem } from './StyledLogoHeaderItem';
-import { getNavItemHeight } from '../nav/StyledBaseNavItem';
+import { getHeaderHeight } from '../utils';
 
 const COMPONENT_ID = 'chrome.header';
 
@@ -16,8 +16,42 @@ export interface IStyledHeaderProps {
   isStandalone?: boolean;
 }
 
-export const getHeaderHeight = (props: ThemeProps<DefaultTheme>) => {
-  return getNavItemHeight(props);
+const colorStyles = ({ theme, isStandalone }: IStyledHeaderProps & ThemeProps<DefaultTheme>) => {
+  const backgroundColor = getColor({ theme, variable: 'background.default' });
+  const borderColor = getColor({ theme, variable: 'border.default' });
+  const boxShadowColor = getColor({
+    hue: 'neutralHue',
+    shade: 1200,
+    light: { transparency: theme.opacity[200] },
+    dark: { transparency: theme.opacity[1000] },
+    theme
+  });
+  const boxShadow = isStandalone
+    ? theme.shadows.lg('0', `${theme.space.base * 2.5}px`, boxShadowColor)
+    : undefined;
+  const foregroundColor = getColor({ theme, variable: 'foreground.subtle' });
+
+  return css`
+    border-bottom-color: ${borderColor};
+    box-shadow: ${boxShadow};
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
+  `;
+};
+
+const sizeStyles = ({ theme }: IStyledHeaderProps & ThemeProps<DefaultTheme>) => {
+  const border = theme.borders.sm;
+  const padding = `0 ${theme.space.base}px`;
+  const fontSize = theme.fontSizes.md;
+  const height = getHeaderHeight(theme);
+
+  return css`
+    box-sizing: border-box;
+    border-bottom: ${border};
+    padding: ${padding};
+    height: ${height};
+    font-size: ${fontSize};
+  `;
 };
 
 export const StyledHeader = styled.header.attrs<IStyledHeaderProps>({
@@ -28,25 +62,14 @@ export const StyledHeader = styled.header.attrs<IStyledHeaderProps>({
   position: ${props => props.isStandalone && 'relative'};
   align-items: center;
   justify-content: flex-end;
-  box-sizing: border-box;
-  border-bottom: ${props =>
-    `${props.theme.borders.sm} ${getColorV8('neutralHue', 300, props.theme)}`};
-  box-shadow: ${props =>
-    props.isStandalone &&
-    props.theme.shadows.lg('0', '10px', getColorV8('chromeHue', 600, props.theme, 0.15)!)};
-  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
-  padding: 0 ${props => props.theme.space.base}px;
-  height: ${getHeaderHeight};
-  color: ${props => getColorV8('neutralHue', 600, props.theme)};
-  font-size: ${props => props.theme.fontSizes.md};
 
-  ${props =>
-    props.isStandalone &&
-    `
-    ${StyledLogoHeaderItem} {
-      display: inline-flex;
-    }
-  `}
+  ${sizeStyles};
+
+  ${colorStyles};
+
+  ${StyledLogoHeaderItem} {
+    display: ${props => props.isStandalone && 'inline-flex'};
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

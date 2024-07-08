@@ -5,15 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  Children,
-  cloneElement,
-  SVGAttributes,
-  isValidElement,
-  PropsWithChildren,
-  ReactSVGElement
-} from 'react';
-import { DefaultTheme, ThemeProps } from 'styled-components';
+import React, { SVGAttributes, PropsWithChildren } from 'react';
 import { StyledNavItemIcon } from '../../styled';
 
 /**
@@ -24,19 +16,6 @@ import { StyledNavItemIcon } from '../../styled';
 export const NavItemIcon = ({
   children,
   ...props
-}: PropsWithChildren<SVGAttributes<SVGElement>>) => {
-  const element = Children.only(children) as ReactSVGElement;
-
-  if (isValidElement(element)) {
-    const Icon = ({
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      theme,
-      ...iconProps
-    }: ThemeProps<DefaultTheme> & SVGAttributes<SVGElement>) =>
-      cloneElement<SVGAttributes<SVGElement>, SVGElement>(element, { ...props, ...iconProps });
-
-    return <StyledNavItemIcon as={Icon} {...props} />;
-  }
-
-  return null;
-};
+}: PropsWithChildren<SVGAttributes<SVGElement>>) => (
+  <StyledNavItemIcon {...props}>{children}</StyledNavItemIcon>
+);

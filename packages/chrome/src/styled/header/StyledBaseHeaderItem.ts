@@ -11,6 +11,7 @@ import {
   retrieveComponentStyles,
   getLineHeight
 } from '@zendeskgarden/react-theming';
+import { getHeaderItemSize } from '../utils';
 
 const COMPONENT_ID = 'chrome.base_header_item';
 
@@ -20,21 +21,41 @@ export interface IStyledBaseHeaderItemProps {
   isRound?: boolean;
 }
 
-export const getHeaderItemSize = (props: ThemeProps<DefaultTheme>) =>
-  `${props.theme.space.base * 7.5}px`;
+/*
+ * 1. Button element reset
+ */
+const sizeStyles = ({
+  theme,
+  maxY,
+  isRound
+}: IStyledBaseHeaderItemProps & ThemeProps<DefaultTheme>) => {
+  const margin = `0 ${theme.space.base * 3}px`;
+  const size = getHeaderItemSize(theme);
+  const height = maxY ? '100%' : size;
+  const lineHeight = getLineHeight(size, theme.fontSizes.md);
+  const padding = `0 ${theme.space.base * 0.75}px`;
+  let borderRadius;
 
-const sizeStyles = (props: IStyledBaseHeaderItemProps & ThemeProps<DefaultTheme>) => {
-  const size = props.theme.space.base * 7.5;
+  if (isRound) {
+    borderRadius = '100%';
+  } else if (maxY) {
+    borderRadius = '0';
+  } else {
+    borderRadius = theme.borderRadii.md;
+  }
 
   return css`
-    padding: 0 3px;
-    min-width: ${size}px;
-    height: ${props.maxY ? '100%' : `${size}px`};
-    line-height: ${getLineHeight(size, props.theme.fontSizes.md)};
+    margin: ${margin};
+    padding: ${padding};
+    min-width: ${size};
+    height: ${height};
+    border-radius: ${borderRadius};
+    line-height: ${lineHeight};
+    font-size: inherit; /* [1] */
   `;
 };
 
-/**
+/*
  * 1. Reset the stacking context for embedded menus
  * 2. Button element reset
  */
@@ -52,26 +73,13 @@ export const StyledBaseHeaderItem = styled.button.attrs({
     box-shadow 0.1s ease-in-out,
     color 0.1s ease-in-out;
   z-index: 0; /* [1] */
-  margin: ${props => `0 ${props.theme.space.base * 3}px`};
   border: none; /* [2] */
-  border-radius: ${props => {
-    if (props.isRound) {
-      return '100%';
-    }
-
-    if (props.maxY) {
-      return '0';
-    }
-
-    return props.theme.borderRadii.md;
-  }};
   background: transparent; /* [2] */
   text-decoration: none;
   white-space: nowrap;
   color: inherit;
-  font-size: inherit; /* [2] */
 
-  ${sizeStyles}
+  ${sizeStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

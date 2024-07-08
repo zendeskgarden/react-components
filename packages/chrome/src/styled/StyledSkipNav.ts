@@ -15,7 +15,7 @@ import {
   focusStyles,
   SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
-import { getHeaderHeight } from './header/StyledHeader';
+import { getHeaderHeight } from './utils';
 
 const COMPONENT_ID = 'chrome.skipnav';
 
@@ -42,7 +42,7 @@ const animationStyles = () => {
   `;
 };
 
-const colorStyles = (theme: DefaultTheme) => {
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const color = getColorV8('primaryHue', 600, theme);
   const borderColor = getColorV8('neutralHue', 300, theme);
   const boxShadow = theme.shadows.lg(
@@ -70,18 +70,18 @@ const colorStyles = (theme: DefaultTheme) => {
   `;
 };
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const top = math(`${getHeaderHeight(props)} / 2`);
-  const padding = `${props.theme.space.base * 5}px`;
-  const paddingStart = `${props.theme.space.base * 4}px`;
-  const fontSize = props.theme.fontSizes.md;
+const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const top = math(`${getHeaderHeight(theme)} / 2`);
+  const padding = `${theme.space.base * 5}px`;
+  const paddingStart = `${theme.space.base * 4}px`;
+  const fontSize = theme.fontSizes.md;
   const lineHeight = getLineHeight(padding, fontSize);
 
   return css`
     top: ${top};
     padding: ${padding};
     /* stylelint-disable-next-line property-no-unknown */
-    padding-${props.theme.rtl ? 'right' : 'left'}: ${paddingStart};
+    padding-${theme.rtl ? 'right' : 'left'}: ${paddingStart};
     line-height: ${lineHeight};
     font-size: ${fontSize};
   `;
@@ -91,7 +91,7 @@ interface IStyledSkipNavProps {
   zIndex?: number;
 }
 
-/**
+/*
  * 1. breaking LVHFA order for `<a>` to underline when focused and hovered
  */
 export const StyledSkipNav = styled.a.attrs({
@@ -113,7 +113,7 @@ export const StyledSkipNav = styled.a.attrs({
   text-decoration: underline;
   white-space: nowrap;
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
 
   ${SELECTOR_FOCUS_VISIBLE} {
     text-decoration: none;
@@ -124,7 +124,7 @@ export const StyledSkipNav = styled.a.attrs({
     text-decoration: underline;
   }
 
-  ${props => colorStyles(props.theme)};
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

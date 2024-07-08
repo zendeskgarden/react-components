@@ -24,26 +24,15 @@ import { useNavListContext } from '../../utils/useNavListContext';
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const NavItem = React.forwardRef<HTMLButtonElement, INavItemProps>(
-  ({ hasLogo, hasBrandmark, product, ...other }, ref) => {
-    const { hue, isLight, isDark } = useChromeContext();
+  ({ hasLogo, hasBrandmark, product, isCurrent, ...other }, ref) => {
+    const { hue } = useChromeContext();
     const { isExpanded } = useNavContext();
     const navListContext = useNavListContext();
-    const ariaCurrent = other.isCurrent || undefined;
-
     const hasList = navListContext?.hasList;
     let retVal;
 
     if (hasLogo) {
-      retVal = (
-        <StyledLogoNavItem
-          ref={ref}
-          isDark={isDark}
-          isLight={isLight}
-          product={product}
-          aria-current={ariaCurrent}
-          {...other}
-        />
-      );
+      retVal = <StyledLogoNavItem ref={ref} hue={hue} product={product} {...other} />;
     } else if (hasBrandmark) {
       retVal = <StyledBrandmarkNavItem ref={ref} {...other} />;
     } else {
@@ -53,9 +42,7 @@ export const NavItem = React.forwardRef<HTMLButtonElement, INavItemProps>(
           ref={ref}
           isExpanded={isExpanded}
           hue={hue}
-          isDark={isDark}
-          isLight={isLight}
-          aria-current={ariaCurrent}
+          aria-current={isCurrent || undefined}
           {...other}
         />
       );
