@@ -7,27 +7,29 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColorV8,
   getLineHeight,
   retrieveComponentStyles,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 interface IStyledPanel {
   inert?: string;
-  isBare?: boolean;
   isCompact?: boolean;
   isExpanded?: boolean;
   isAnimated?: boolean;
+  $isBare?: boolean;
 }
 
 const COMPONENT_ID = 'accordions.panel';
 
 const colorStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
-  const { theme, isBare } = props;
+  const { theme, $isBare } = props;
 
   return css`
-    border-bottom-color: ${isBare ? 'transparent' : getColorV8('neutralHue', 300, theme)};
+    border-bottom-color: ${$isBare
+      ? 'transparent'
+      : getColor({ theme, variable: 'border.default' })};
   `;
 };
 

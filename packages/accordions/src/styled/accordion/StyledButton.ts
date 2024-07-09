@@ -8,26 +8,31 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   getLineHeight,
-  getColorV8,
   retrieveComponentStyles,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 export const COMPONENT_ID = 'accordions.button';
 
 interface IStyledButton {
-  isCompact?: boolean;
-  isHovered?: boolean;
-  isCollapsible?: boolean;
-  isExpanded?: boolean;
+  $isCompact?: boolean;
+  $isHovered?: boolean;
+  $isCollapsible?: boolean;
+  $isExpanded?: boolean;
 }
 
-const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledButton) => {
-  const showColor = props.isCollapsible || !props.isExpanded;
-  let color = getColorV8('foreground', 600 /* default shade */, props.theme);
+const colorStyles = ({
+  $isCollapsible,
+  $isExpanded,
+  $isHovered,
+  theme
+}: ThemeProps<DefaultTheme> & IStyledButton) => {
+  const showColor = $isCollapsible || !$isExpanded;
+  let color = getColor({ theme, variable: 'foreground.default' });
 
-  if (showColor && props.isHovered) {
-    color = getColorV8('primaryHue', 600, props.theme)!;
+  if (showColor && $isHovered) {
+    color = getColor({ theme, variable: 'foreground.primary' });
   }
 
   return css`
