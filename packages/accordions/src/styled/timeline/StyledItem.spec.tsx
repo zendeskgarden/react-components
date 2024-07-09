@@ -33,7 +33,7 @@ describe('StyledItem', () => {
   });
 
   it('renders RTL & alternate styling correctly', () => {
-    renderRtl(<StyledTimelineItem isAlternate />);
+    renderRtl(<StyledTimelineItem $isAlternate />);
 
     const item = screen.getByRole('listitem');
 

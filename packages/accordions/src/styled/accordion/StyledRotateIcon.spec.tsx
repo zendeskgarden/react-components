@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledRotateIcon } from './StyledRotateIcon';
 
 describe('StyledRotateIcon', () => {
@@ -20,10 +20,7 @@ describe('StyledRotateIcon', () => {
 
     expect(container.firstChild).not.toHaveStyleRule('transform');
     expect(container.firstChild).toHaveStyleRule('padding', '20px');
-    expect(container.firstChild).toHaveStyleRule(
-      'color',
-      getColorV8('neutralHue', 600, DEFAULT_THEME)
-    );
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700]);
   });
 
   it('renders $isRotated styling correctly', () => {
@@ -63,9 +60,6 @@ describe('StyledRotateIcon', () => {
       </StyledRotateIcon>
     );
 
-    expect(container.firstChild).toHaveStyleRule(
-      'color',
-      getColorV8('primaryHue', 600, DEFAULT_THEME)
-    );
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[700]);
   });
 });
