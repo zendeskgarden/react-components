@@ -16,8 +16,8 @@ import {
 const COMPONENT_ID = 'accordions.step_icon';
 
 interface IStyledIcon {
-  isHorizontal?: boolean;
   $isActive?: boolean;
+  $isHorizontal?: boolean;
 }
 
 export const StyledIconFlexContainer = styled.div`
@@ -32,10 +32,10 @@ const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
   const fontSize = props.theme.fontSizes.sm;
 
   return css`
-    margin-bottom: ${props.isHorizontal && `${props.theme.space.base * 2}px`};
+    margin-bottom: ${props.$isHorizontal && `${props.theme.space.base * 2}px`};
     /* stylelint-disable-next-line property-no-unknown */
     margin-${props.theme.rtl ? 'left' : 'right'}: ${
-      !props.isHorizontal && `${props.theme.space.base * 3}px`
+      !props.$isHorizontal && `${props.theme.space.base * 3}px`
     };
     width: ${size};
     min-width: ${size};

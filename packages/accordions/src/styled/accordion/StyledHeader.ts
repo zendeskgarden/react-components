@@ -12,8 +12,8 @@ import { StyledButton } from './StyledButton';
 const COMPONENT_ID = 'accordions.header';
 
 interface IStyledHeader {
-  isExpanded?: boolean;
-  isCollapsible?: boolean;
+  $isExpanded?: boolean;
+  $isCollapsible?: boolean;
 }
 
 export const StyledHeader = styled.div.attrs<IStyledHeader>({
@@ -26,7 +26,7 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
   font-size: ${props => props.theme.fontSizes.md};
 
   &:hover {
-    cursor: ${props => (props.isCollapsible || !props.isExpanded) && 'pointer'};
+    cursor: ${props => (props.$isCollapsible || !props.$isExpanded) && 'pointer'};
   }
 
   ${props =>

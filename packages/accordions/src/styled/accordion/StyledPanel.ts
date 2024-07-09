@@ -15,10 +15,10 @@ import {
 
 interface IStyledPanel {
   inert?: string;
-  isCompact?: boolean;
-  isExpanded?: boolean;
-  isAnimated?: boolean;
   $isBare?: boolean;
+  $isCompact?: boolean;
+  $isExpanded?: boolean;
+  $isAnimated?: boolean;
 }
 
 const COMPONENT_ID = 'accordions.panel';
@@ -34,25 +34,25 @@ const colorStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
 };
 
 const sizeStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
-  const { theme, isCompact, isExpanded } = props;
+  const { theme, $isCompact, $isExpanded } = props;
   const { base } = theme.space;
   let paddingTop = base * 2;
   let paddingHorizontal = base * 5;
   let paddingBottom = base * 8;
 
-  if (isCompact) {
+  if ($isCompact) {
     paddingTop = base * 2;
     paddingHorizontal = base * 3;
     paddingBottom = base * 4;
   }
 
-  if (isExpanded === false) {
+  if ($isExpanded === false) {
     paddingTop = 0;
     paddingBottom = 0;
   }
 
   return css`
-    grid-template-rows: ${isExpanded ? 1 : 0}fr;
+    grid-template-rows: ${$isExpanded ? 1 : 0}fr;
     border-bottom: ${theme.borders.sm};
     padding: ${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px;
     line-height: ${getLineHeight(base * 5, theme.fontSizes.md)};
@@ -66,7 +66,7 @@ export const StyledPanel = styled.section.attrs<IStyledPanel>({
 })<IStyledPanel>`
   display: grid;
   transition: ${props =>
-    props.isAnimated && 'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out'};
+    props.$isAnimated && 'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out'};
   overflow: hidden;
 
   ${sizeStyles}
@@ -76,6 +76,6 @@ export const StyledPanel = styled.section.attrs<IStyledPanel>({
 `;
 
 StyledPanel.defaultProps = {
-  isAnimated: true,
+  $isAnimated: true,
   theme: DEFAULT_THEME
 };

@@ -58,7 +58,7 @@ export const StyledButton = styled.button.attrs<IStyledButton>({
   border: none;
   background: transparent;
   padding: ${props =>
-    props.isCompact
+    props.$isCompact
       ? `${props.theme.space.base * 2}px ${props.theme.space.base * 3}px`
       : `${props.theme.space.base * 5}px`};
   width: 100%;
@@ -75,7 +75,7 @@ export const StyledButton = styled.button.attrs<IStyledButton>({
   }
 
   &:hover {
-    cursor: ${props => (props.isCollapsible || !props.isExpanded) && 'pointer'};
+    cursor: ${props => (props.$isCollapsible || !props.$isExpanded) && 'pointer'};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

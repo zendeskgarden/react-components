@@ -14,7 +14,7 @@ const StepComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>
     const { isHorizontal } = useStepperContext();
 
     return (
-      <StyledStep ref={ref} isHorizontal={isHorizontal} {...props}>
+      <StyledStep ref={ref} $isHorizontal={isHorizontal} {...props}>
         {isHorizontal && <StyledLine data-test-id="step-line" />}
         {children}
       </StyledStep>

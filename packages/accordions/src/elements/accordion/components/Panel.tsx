@@ -20,10 +20,10 @@ const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
     return (
       <StyledPanel
         inert={isExpanded ? undefined : ''}
-        isAnimated={isAnimated}
-        isBare={isBare}
-        isCompact={isCompact}
-        isExpanded={isExpanded}
+        $isAnimated={isAnimated}
+        $isBare={isBare}
+        $isCompact={isCompact}
+        $isExpanded={isExpanded}
         {...(getPanelProps({
           role: role === undefined ? null : 'region',
           ref,
@@ -31,7 +31,7 @@ const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
           ...props
         }) as HTMLAttributes<HTMLElement>)}
       >
-        <StyledInnerPanel isAnimated={isAnimated}>{children}</StyledInnerPanel>
+        <StyledInnerPanel $isAnimated={isAnimated}>{children}</StyledInnerPanel>
       </StyledPanel>
     );
   }
