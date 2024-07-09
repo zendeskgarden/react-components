@@ -7,10 +7,10 @@
 
 import styled from 'styled-components';
 import {
-  getColorV8,
   getLineHeight,
   retrieveComponentStyles,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_label';
@@ -31,10 +31,11 @@ export const StyledLabel = styled.div.attrs<IStyledLabelProps>({
     font-weight 0.25s ease-in-out;
   text-align: ${props => props.isHorizontal && 'center'};
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-  color: ${props =>
-    props.isActive
-      ? getColorV8('foreground', 600 /* default shade */, props.theme)
-      : getColorV8('neutralHue', 600, props.theme)};
+  color: ${({ $isActive, theme }) =>
+    getColor({
+      theme,
+      variable: $isActive ? 'foreground.default' : 'foreground.subtle'
+    })};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.isActive && 600};
 

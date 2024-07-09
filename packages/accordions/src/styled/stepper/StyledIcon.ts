@@ -7,17 +7,17 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColorV8,
   getLineHeight,
   retrieveComponentStyles,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_icon';
 
 interface IStyledIcon {
-  isActive?: boolean;
   isHorizontal?: boolean;
+  $isActive?: boolean;
 }
 
 export const StyledIconFlexContainer = styled.div`
@@ -46,14 +46,24 @@ const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const colorStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ $isActive, theme }: IStyledIcon & ThemeProps<DefaultTheme>) => {
+  const foregroundColor = getColor({
+    theme,
+    variable: $isActive ? 'foreground.onEmphasis' : 'foreground.default'
+  });
+
+  const backgroundColor = $isActive
+    ? getColor({ theme, variable: 'background.emphasis', dark: { offset: -300 } })
+    : getColor({
+        theme,
+        variable: 'background.subtle',
+        dark: { offset: -200 },
+        light: { offset: 100 }
+      });
+
   return css`
-    background: ${props.isActive
-      ? getColorV8('neutralHue', 600, props.theme)
-      : getColorV8('neutralHue', 200, props.theme)};
-    color: ${props.isActive
-      ? getColorV8('background', 600 /* default shade */, props.theme)
-      : getColorV8('foreground', 600 /* default shade */, props.theme)};
+    background: ${backgroundColor};
+    color: ${foregroundColor};
   `;
 };
 
