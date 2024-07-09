@@ -24,12 +24,9 @@ const COMPONENT_ID = 'chrome.header_item';
  * 1. Anchor reset.
  */
 const colorStyles = ({ theme, maxY }: IStyledBaseHeaderItemProps & ThemeProps<DefaultTheme>) => {
-  const hoverColor = getColor({
-    theme,
-    variable: 'foreground.subtle',
-    dark: { offset: -100 },
-    light: { offset: 100 }
-  });
+  const options = { theme, variable: 'foreground.subtle' };
+  const hoverColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
+  const activeColor = getColor({ ...options, dark: { offset: -200 }, light: { offset: 200 } });
 
   return css`
     &:hover,
@@ -41,10 +38,14 @@ const colorStyles = ({ theme, maxY }: IStyledBaseHeaderItemProps & ThemeProps<De
 
     /* prettier-ignore */
     &:hover ${StyledHeaderItemIcon},
-    &:hover ${StyledHeaderItemText},
+    &:hover ${StyledHeaderItemText} {
+      color: ${hoverColor};
+    }
+
+    /* prettier-ignore */
     &:active ${StyledHeaderItemIcon},
     &:active ${StyledHeaderItemText} {
-      color: ${hoverColor};
+      color: ${activeColor};
     }
   `;
 };
@@ -75,6 +76,8 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledBaseHeaderItemProps>`
+  cursor: pointer;
+
   &:hover,
   &:focus {
     text-decoration: none; /* [1] */
