@@ -35,7 +35,7 @@ export const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(
       return false;
     }, [hue, theme]);
 
-    const isLight = hue ? isLightMemoized : false;
+    const isLight = hue ? isLightMemoized : undefined;
     const chromeContextValue = useMemo(
       () => ({ hue: hue || 'chromeHue', isLight }),
       [hue, isLight]

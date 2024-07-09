@@ -46,7 +46,7 @@ const sizeStyles = ({
 export const StyledSheetHeader = styled.header.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledSheetHeaderProps>`
   ${sizeStyles};
 
   ${colorStyles};
