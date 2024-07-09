@@ -25,7 +25,7 @@ interface IStyledSheetProps {
 
 const colorStyles = ({ theme, isOpen }: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
   const backgroundColor = getColor({ theme, variable: 'background.default' });
-  const borderColor = isOpen ? getColor({ theme, variable: 'border.subtle' }) : 'transparent';
+  const borderColor = isOpen ? getColor({ theme, variable: 'border.default' }) : 'transparent';
 
   return css`
     border-color: ${borderColor};
