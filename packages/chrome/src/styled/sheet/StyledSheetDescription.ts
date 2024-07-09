@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled from 'styled-components';
 import {
   retrieveComponentStyles,
   getLineHeight,
-  getColorV8,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_description';
@@ -18,9 +18,9 @@ const COMPONENT_ID = 'chrome.sheet_description';
 export const StyledSheetDescription = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<ThemeProps<DefaultTheme>>`
-  line-height: ${props => getLineHeight(props.theme.space.base * 4, props.theme.fontSizes.md)};
-  color: ${props => getColorV8('neutralHue', 600, props.theme)};
+})`
+  line-height: ${p => getLineHeight(p.theme.space.base * 4, p.theme.fontSizes.md)};
+  color: ${p => getColor({ theme: p.theme, variable: 'foreground.subtle' })};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

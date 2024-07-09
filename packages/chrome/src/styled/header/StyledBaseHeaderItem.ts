@@ -46,10 +46,10 @@ const sizeStyles = ({
 
   return css`
     margin: ${margin};
+    border-radius: ${borderRadius};
     padding: ${padding};
     min-width: ${size};
     height: ${height};
-    border-radius: ${borderRadius};
     line-height: ${lineHeight};
     font-size: inherit; /* [1] */
   `;

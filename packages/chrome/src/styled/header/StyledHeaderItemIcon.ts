@@ -19,10 +19,10 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const size = theme.iconSizes.md;
 
   return css`
+    margin: ${margin};
     width: ${size};
     min-width: ${size};
     height: ${size};
-    margin: ${margin};
   `;
 };
 

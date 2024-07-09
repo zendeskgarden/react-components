@@ -7,12 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import LinkIcon from '@zendeskgarden/svg-icons/src/16/link-stroke.svg';
-import {
-  DEFAULT_THEME,
-  getColor,
-  getColorV8,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.skipnav_icon';
 
@@ -31,7 +26,7 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 export const StyledSkipNavIcon = styled(LinkIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<ThemeProps<DefaultTheme>>`
+})`
   transform: ${p => p.theme.rtl && 'scaleX(-1)'};
   color: ${p => getColor({ theme: p.theme, variable: 'foreground.subtle' })};
 
