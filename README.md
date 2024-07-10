@@ -2,8 +2,8 @@
 
 <!-- markdownlint-enable -->
 
-[build status badge]: https://flat.badgen.net/circleci/github/zendeskgarden/react-components/main?label=build
-[build status link]: https://circleci.com/gh/zendeskgarden/react-components/tree/main
+[build status badge]: https://img.shields.io/github/actions/workflow/status/zendeskgarden/react-components/ci.yaml?branch=main&style=flat-square
+[build status link]: https://github.com/zendeskgarden/react-components/actions/workflows/ci.yaml?query=branch%3Amain
 [coverage status badge]: https://flat.badgen.net/coveralls/c/github/zendeskgarden/react-components/main
 [coverage status link]: https://coveralls.io/github/zendeskgarden/react-components
 
