@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IAvatarProps, SIZE } from '../types';
@@ -60,14 +60,16 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
   `;
 };
 
-const colorStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
-  const { theme, type, size, borderColor, surfaceColor } = props;
-
+const colorStyles = ({
+  theme,
+  type,
+  size,
+  borderColor,
+  surfaceColor
+}: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
   let boxShadow = theme.shadows.sm(
     surfaceColor ||
-      (type
-        ? getColorV8('background', 600 /* default shade */, theme)!
-        : (theme.palette.white as string))
+      (type ? getColor({ variable: 'background.default', theme }) : (theme.palette.white as string))
   );
 
   if (size === xxs) {

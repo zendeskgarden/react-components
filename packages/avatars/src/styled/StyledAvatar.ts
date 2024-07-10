@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, keyframes, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IAvatarProps, SIZE } from '../types';
@@ -52,18 +52,31 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const colorStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
-  const statusColor = getStatusColor(props.status, props.theme);
-  const backgroundColor = props.backgroundColor || 'transparent';
-  const foregroundColor = props.foregroundColor || props.theme.palette.white;
-  const surfaceColor = props.status
-    ? props.surfaceColor || getColorV8('background', 600 /* default shade */, props.theme)
+/**
+ * 1. Increased specificity so `StyledBaseIcon` doesn't override in menus
+ */
+const colorStyles = ({
+  theme,
+  foregroundColor: _foregroundColor,
+  surfaceColor: _surfaceColor,
+  backgroundColor: _backgroundColor,
+  status
+}: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
+  const statusColor = getStatusColor(theme, status);
+  const backgroundColor = _backgroundColor || 'transparent';
+  const foregroundColor = _foregroundColor || theme.palette.white;
+  const surfaceColor = status
+    ? _surfaceColor || getColor({ variable: 'background.default', theme })
     : 'transparent';
 
   return css`
-    box-shadow: ${props.theme.shadows.sm(statusColor)};
+    box-shadow: ${theme.shadows.sm(statusColor)};
     background-color: ${backgroundColor};
-    color: ${surfaceColor};
+
+    /* [1] */
+    && {
+      color: ${surfaceColor};
+    }
 
     & > svg,
     & ${StyledText} {

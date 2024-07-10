@@ -7,10 +7,12 @@
 
 import React from 'react';
 import { render, cleanup } from 'garden-test-utils';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Avatar } from './Avatar';
 
-const activeBoxShadow = DEFAULT_THEME.shadows.sm(getColorV8('crimson', 400)!);
+const activeBoxShadow = DEFAULT_THEME.shadows.sm(
+  getColor({ hue: 'crimson', shade: 700, theme: DEFAULT_THEME })!
+);
 
 describe('Avatar', () => {
   afterEach(cleanup);

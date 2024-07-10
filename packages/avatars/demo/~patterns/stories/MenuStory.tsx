@@ -5,93 +5,80 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
-import { Story } from '@storybook/react';
-import Icon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import React, { useCallback, useState } from 'react';
+import { StoryFn } from '@storybook/react';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
-import {
-  Dropdown,
-  Trigger,
-  Menu,
-  MediaItem,
-  MediaFigure,
-  MediaBody,
-  ItemMeta
-} from '@zendeskgarden/react-dropdowns.legacy';
-import { Button } from '@zendeskgarden/react-buttons';
-import { Avatar } from '@zendeskgarden/react-avatars';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns';
+import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
+import { useTheme } from 'styled-components';
 
-export const MenuStory: Story = ({ isCompact }) => {
-  const [highlightedItem, setHighlightedItem] = useState<number | null>();
-  const [isOpen, setIsOpen] = useState<boolean | undefined>();
+const items: {
+  value: string;
+  label: string;
+  avatarProps: IAvatarProps;
+}[] = [
+  {
+    value: 'linden',
+    label: 'Linden',
+    avatarProps: {
+      status: 'away',
+      badge: undefined
+    }
+  },
+  {
+    value: 'reed',
+    label: 'Reed',
+    avatarProps: {
+      status: 'available',
+      badge: undefined
+    }
+  },
+  {
+    value: 'sage',
+    label: 'Sage',
+    avatarProps: {
+      status: undefined,
+      badge: '3'
+    }
+  }
+];
+
+export const MenuStory: StoryFn = ({ isCompact }) => {
+  const [highlightedValue, setHighlightedValue] = useState<string | null>();
+  const theme = useTheme();
+  const surfaceColor = getColor({ variable: 'background.raised', theme });
+  const highlightedColor = getColor({ variable: 'background.primary', theme });
+
+  const onChange = useCallback(({ focusedValue }: { focusedValue?: string | null }) => {
+    focusedValue !== undefined && setHighlightedValue(focusedValue);
+  }, []);
 
   return (
     <Grid>
       <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
         <Grid.Col textAlign="center" alignSelf="center">
-          <Dropdown
-            onStateChange={changes => {
-              setHighlightedItem(changes.highlightedIndex);
-              Object.prototype.hasOwnProperty.call(changes, 'isOpen') && setIsOpen(changes.isOpen);
-            }}
-          >
-            <Trigger>
-              <Button size={isCompact && 'small'}>
-                Demo
-                <Button.EndIcon isRotated={isOpen}>
-                  <Icon />
-                </Button.EndIcon>
-              </Button>
-            </Trigger>
-            <Menu isCompact={isCompact}>
-              <MediaItem value="linden">
-                <MediaFigure>
+          <Menu button="Demo" isCompact={isCompact} onChange={onChange}>
+            {items.map(item => (
+              <Item
+                key={item.value}
+                value={item.value}
+                icon={
                   <Avatar
                     size={isCompact ? 'extraextrasmall' : 'small'}
-                    status="away"
-                    surfaceColor={highlightedItem === 0 ? PALETTE.blue[100] : undefined}
+                    status={item.avatarProps.status}
+                    badge={item.avatarProps.badge}
+                    surfaceColor={highlightedValue === item.value ? highlightedColor : surfaceColor}
                   >
-                    <img alt="Linden" src="images/avatars/linden.png" />
+                    <img alt={item.label} src={`images/avatars/${item.value}.png`} />
                   </Avatar>
-                </MediaFigure>
-                <MediaBody>
-                  Linden
-                  <ItemMeta>linden@zendesk.garden</ItemMeta>
-                </MediaBody>
-              </MediaItem>
-              <MediaItem value="reed">
-                <MediaFigure>
-                  <Avatar
-                    size={isCompact ? 'extraextrasmall' : 'small'}
-                    status="available"
-                    surfaceColor={highlightedItem === 1 ? PALETTE.blue[100] : undefined}
-                  >
-                    <img alt="Reed" src="images/avatars/reed.png" />
-                  </Avatar>
-                </MediaFigure>
-                <MediaBody>
-                  Reed
-                  <ItemMeta>reed@zendesk.garden</ItemMeta>
-                </MediaBody>
-              </MediaItem>
-              <MediaItem value="sage">
-                <MediaFigure>
-                  <Avatar
-                    size={isCompact ? 'extraextrasmall' : 'small'}
-                    badge="3"
-                    surfaceColor={highlightedItem === 2 ? PALETTE.blue[100] : undefined}
-                  >
-                    <img alt="Sage" src="images/avatars/sage.png" />
-                  </Avatar>
-                </MediaFigure>
-                <MediaBody>
-                  Sage
-                  <ItemMeta>sage@zendesk.garden</ItemMeta>
-                </MediaBody>
-              </MediaItem>
-            </Menu>
-          </Dropdown>
+                }
+              >
+                {item.label}
+                <Item.Meta>{item.value}@zendesk.garden</Item.Meta>
+              </Item>
+            ))}
+          </Menu>
         </Grid.Col>
       </Grid.Row>
     </Grid>

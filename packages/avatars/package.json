@@ -31,6 +31,7 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
+    "@zendeskgarden/react-dropdowns": "^9.0.0-next.17",
     "@zendeskgarden/react-theming": "^9.0.0-next.17",
     "@zendeskgarden/svg-icons": "7.1.1"
   },

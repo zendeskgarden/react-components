@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 
@@ -21,20 +21,20 @@ export interface IStyledStatusIndicatorProps extends ThemeProps<DefaultTheme> {
 }
 
 export function getStatusColor(
-  type?: IStyledStatusIndicatorProps['type'],
-  theme?: IStyledStatusIndicatorProps['theme']
+  theme: IStyledStatusIndicatorProps['theme'],
+  type?: IStyledStatusIndicatorProps['type']
 ): string {
   switch (type) {
     case 'active':
-      return getColorV8('crimson', 400, theme)!;
+      return getColor({ hue: 'crimson', light: { shade: 700 }, dark: { shade: 600 }, theme });
     case 'available':
-      return getColorV8('mint', 400, theme)!;
+      return getColor({ hue: 'mint', light: { shade: 500 }, dark: { shade: 400 }, theme });
     case 'away':
-      return getColorV8('orange', 400, theme)!;
+      return getColor({ hue: 'orange', light: { shade: 500 }, dark: { shade: 400 }, theme });
     case 'transfers':
-      return getColorV8('azure', 400, theme)!;
+      return getColor({ hue: 'azure', light: { shade: 500 }, dark: { shade: 400 }, theme });
     case 'offline':
-      return getColorV8('grey', 500, theme)!;
+      return getColor({ hue: 'grey', light: { shade: 500 }, dark: { shade: 400 }, theme });
     default:
       return 'transparent';
   }

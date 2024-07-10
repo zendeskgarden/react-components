@@ -6,7 +6,7 @@
  */
 
 import styled, { css, keyframes } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 import {
   TRANSITION_DURATION,
@@ -67,19 +67,20 @@ const sizeStyles = (props: IStyledStatusIndicatorProps) => {
   `;
 };
 
-const colorStyles = (props: IStyledStatusIndicatorProps) => {
-  let backgroundColor = getStatusColor(props.type, props.theme);
+const colorStyles = ({ theme, type }: IStyledStatusIndicatorProps) => {
+  const foregroundColor = getColor({ light: { hue: 'white' }, dark: { hue: 'black' }, theme });
+  let backgroundColor = getStatusColor(theme, type);
   let borderColor = backgroundColor;
 
-  if (props.type === 'offline') {
-    borderColor = getStatusColor(props.type, props.theme);
-    backgroundColor = props.theme.palette.white as string;
+  if (type === 'offline') {
+    borderColor = getStatusColor(theme, type);
+    backgroundColor = getColor({ variable: 'background.default', theme });
   }
 
   return css`
     border-color: ${borderColor};
     background-color: ${backgroundColor};
-    color: ${props.theme.palette.white};
+    color: ${foregroundColor};
   `;
 };
 
