@@ -6,6 +6,7 @@
  */
 
 import React, { useMemo } from 'react';
+import { ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
 import { INavProps } from '../../types';
 import { useChromeContext } from '../../utils/useChromeContext';
@@ -17,13 +18,20 @@ import { NavItemText } from './NavItemText';
 import { NavList } from './NavList';
 
 export const NavComponent = React.forwardRef<HTMLElement, INavProps>((props, ref) => {
-  const { hue, isLight, isDark } = useChromeContext();
+  const { hue, isLight } = useChromeContext();
   const navContextValue = useMemo(() => ({ isExpanded: !!props.isExpanded }), [props.isExpanded]);
 
   return (
-    <NavContext.Provider value={navContextValue}>
-      <StyledNav ref={ref} {...props} hue={hue} isLight={isLight} isDark={isDark} />
-    </NavContext.Provider>
+    <ThemeProvider
+      theme={parentTheme => ({
+        ...parentTheme,
+        colors: { ...parentTheme.colors, base: isLight ? 'light' : 'dark' }
+      })}
+    >
+      <NavContext.Provider value={navContextValue}>
+        <StyledNav ref={ref} {...props} hue={hue} />
+      </NavContext.Provider>
+    </ThemeProvider>
   );
 });
 

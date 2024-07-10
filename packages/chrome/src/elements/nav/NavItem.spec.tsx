@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { PALETTE, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Chrome } from '../Chrome';
 import { Nav } from './Nav';
 import { PRODUCTS, Product } from '../../types';
@@ -83,7 +83,7 @@ describe('NavItem', () => {
     it('renders correct opacity if used as brandmark', () => {
       const { container } = render(<Nav.Item hasBrandmark />);
 
-      expect(container.firstChild).toHaveStyleRule('opacity', '0.3');
+      expect(container.firstChild).toHaveStyleRule('opacity', '0.32');
     });
 
     it('renders correct opacity if used as logo', () => {
@@ -99,7 +99,9 @@ describe('NavItem', () => {
         </Nav.List>
       );
 
-      expect(getByTestId('item')).toHaveStyleRule('opacity', '1');
+      expect(getByTestId('item')).toHaveStyleRule('opacity', '1', {
+        modifier: '&[aria-current="true"]'
+      });
     });
   });
 
@@ -107,13 +109,15 @@ describe('NavItem', () => {
     it('renders correct color with dark hue', () => {
       const { getByTestId } = render(
         <Chrome hue="black">
-          <Nav.List>
-            <Nav.Item data-test-id="item" />
-          </Nav.List>
+          <Nav>
+            <Nav.List>
+              <Nav.Item data-test-id="item" />
+            </Nav.List>
+          </Nav>
         </Chrome>
       );
 
-      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(0,0,0,0.1)', {
+      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(0,0,0,0.08)', {
         modifier: '&:hover'
       });
     });
@@ -121,13 +125,15 @@ describe('NavItem', () => {
     it('renders correct color with light hue', () => {
       const { getByTestId } = render(
         <Chrome hue="white">
-          <Nav.List>
-            <Nav.Item data-test-id="item" />
-          </Nav.List>
+          <Nav>
+            <Nav.List>
+              <Nav.Item data-test-id="item" />
+            </Nav.List>
+          </Nav>
         </Chrome>
       );
 
-      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(255,255,255,0.1)', {
+      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(255,255,255,0.08)', {
         modifier: '&:hover'
       });
     });
@@ -137,40 +143,49 @@ describe('NavItem', () => {
     it('renders correct color by default', () => {
       const { getByTestId } = render(
         <Chrome>
-          <Nav.List>
-            <Nav.Item isCurrent data-test-id="item" />
-          </Nav.List>
+          <Nav>
+            <Nav.List>
+              <Nav.Item isCurrent data-test-id="item" />
+            </Nav.List>
+          </Nav>
         </Chrome>
       );
 
-      expect(getByTestId('item')).toHaveStyleRule(
-        'background-color',
-        getColorV8('chromeHue', 500, DEFAULT_THEME)
-      );
+      expect(getByTestId('item')).toHaveStyleRule('background-color', PALETTE.kale[700], {
+        modifier: '&[aria-current="true"]'
+      });
     });
 
     it('renders correct color with dark hue', () => {
       const { getByTestId } = render(
         <Chrome hue="black">
-          <Nav.List>
-            <Nav.Item isCurrent data-test-id="item" />
-          </Nav.List>
+          <Nav>
+            <Nav.List>
+              <Nav.Item isCurrent data-test-id="item" />
+            </Nav.List>
+          </Nav>
         </Chrome>
       );
 
-      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(255,255,255,0.4)');
+      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(255,255,255,0.4)', {
+        modifier: '&[aria-current="true"]'
+      });
     });
 
     it('renders correct color with light hue', () => {
       const { getByTestId } = render(
         <Chrome hue="white">
-          <Nav.List>
-            <Nav.Item isCurrent data-test-id="item" />
-          </Nav.List>
+          <Nav>
+            <Nav.List>
+              <Nav.Item isCurrent data-test-id="item" />
+            </Nav.List>
+          </Nav>
         </Chrome>
       );
 
-      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(0,0,0,0.4)');
+      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(0,0,0,0.4)', {
+        modifier: '&[aria-current="true"]'
+      });
     });
   });
 

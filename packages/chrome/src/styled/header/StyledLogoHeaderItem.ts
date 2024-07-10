@@ -5,18 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import {
-  retrieveComponentStyles,
-  getColorV8,
-  PALETTE,
-  DEFAULT_THEME
-} from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import { hideVisually } from 'polished';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Product } from '../../types';
 import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
 import { StyledBaseHeaderItem } from './StyledBaseHeaderItem';
-import { StyledHeaderItemText, clippedStyling } from './StyledHeaderItemText';
-import { getNavWidth } from '../nav/StyledNav';
+import { StyledHeaderItemText } from './StyledHeaderItemText';
+import { getNavWidth, getProductColor } from '../utils';
 
 const COMPONENT_ID = 'chrome.header_item';
 
@@ -24,24 +20,41 @@ export interface IStyledLogoHeaderItemProps {
   product?: Product;
 }
 
-const retrieveProductColor = (props: IStyledLogoHeaderItemProps) => {
-  switch (props.product) {
-    case 'chat':
-      return PALETTE.product.chat;
-    case 'explore':
-      return PALETTE.product.explore;
-    case 'guide':
-      return PALETTE.product.guide;
-    case 'support':
-      return PALETTE.product.support;
-    case 'talk':
-      return PALETTE.product.talk;
-    default:
-      return 'inherit';
-  }
+const colorStyles = ({ theme, product }: IStyledLogoHeaderItemProps & ThemeProps<DefaultTheme>) => {
+  const borderColor = getColor({ theme, variable: 'border.default' });
+  const fill = getColor({ theme, variable: 'foreground.default' });
+  const color = getProductColor(product, fill /* fallback */);
+
+  return css`
+    border-${theme.rtl ? 'left' : 'right'}-color: ${borderColor};
+    color: ${color};
+    fill: ${fill};
+  `;
 };
 
-/**
+const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const border = theme.borders.sm;
+  const iconSize = theme.iconSizes.lg;
+  const marginRight = theme.rtl ? `-${theme.space.base}px` : 'auto';
+  const marginLeft = theme.rtl ? 'auto' : `-${theme.space.base}px`;
+  const width = getNavWidth(theme);
+
+  return css`
+    margin-right: ${marginRight};
+    margin-left: ${marginLeft};
+    border-${theme.rtl ? 'left' : 'right'}: ${border};
+    width: ${width};
+    height: 100%;
+
+    ${StyledHeaderItemIcon} {
+      margin: 0;
+      width: ${iconSize};
+      height: ${iconSize};
+    }
+  `;
+};
+
+/*
  * 1. Anchor reset
  */
 export const StyledLogoHeaderItem = styled(StyledBaseHeaderItem).attrs({
@@ -51,28 +64,17 @@ export const StyledLogoHeaderItem = styled(StyledBaseHeaderItem).attrs({
 })<IStyledLogoHeaderItemProps>`
   display: none;
   order: 0;
-  margin-right: ${props => (props.theme.rtl ? `-${props.theme.space.base}px` : 'auto')};
-  margin-left: ${props => (props.theme.rtl ? 'auto' : `-${props.theme.space.base}px`)};
-  /* stylelint-disable-next-line property-no-unknown */
-  border-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-    `${props.theme.borders.sm} ${getColorV8('neutralHue', 300, props.theme)}`};
   border-radius: 0;
   padding: 0;
-  width: ${props => getNavWidth(props)};
-  height: 100%;
   overflow: hidden;
-  fill: ${props => getColorV8('chromeHue', 700, props.theme)};
   text-decoration: none; /* [1] */
-  color: ${props => retrieveProductColor(props)}; /* [1] */
+
+  ${sizeStyles};
+
+  ${colorStyles};
 
   ${StyledHeaderItemText} {
-    ${clippedStyling}
-  }
-
-  ${StyledHeaderItemIcon} {
-    margin: 0;
-    width: ${props => props.theme.iconSizes.lg};
-    height: ${props => props.theme.iconSizes.lg};
+    ${hideVisually()}
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

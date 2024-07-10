@@ -32,11 +32,11 @@ describe('StyledSheetWrapper', () => {
   });
 
   it('renders default styling correctly', () => {
-    render(<StyledSheetWrapper>{sheetWrapperText}</StyledSheetWrapper>);
+    render(<StyledSheetWrapper isOpen>{sheetWrapperText}</StyledSheetWrapper>);
 
     const div = screen.getByText(sheetWrapperText);
 
-    expect(div).toHaveStyleRule('transform', 'translateX(0%)');
+    expect(div).toHaveStyleRule('transform', 'translateX(0)');
     expect(div).not.toHaveStyleRule('transition', 'transform 250ms ease-in-out');
   });
 
