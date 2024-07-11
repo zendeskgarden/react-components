@@ -13,6 +13,17 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.17 (2024-07-11)
+
+#### :rocket: New Feature
+* `chrome`
+  * [#1849](https://github.com/zendeskgarden/react-components/pull/1849) feat(chrome): new light/dark mode colors ([@jzempel](https://github.com/jzempel))
+* `breadcrumbs`
+  * [#1848](https://github.com/zendeskgarden/react-components/pull/1848) feat(breadcrumbs): adds light/dark mode colors ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* [#1855](https://github.com/zendeskgarden/react-components/pull/1855) chore(next): updates from `main` ([@jzempel](https://github.com/jzempel))
+
 ## v9.0.0-next.16 (2024-07-02)
 
 #### :rocket: New Feature
