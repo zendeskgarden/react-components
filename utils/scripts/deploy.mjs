@@ -142,7 +142,7 @@ async function githubDeploy(args) {
   return retVal;
 }
 
-async function githubCommit(args) {
+async function githubCommit(args = {}) {
   let retVal =
     process.env.CIRCLE_SHA1 || process.env.TRAVIS_PULL_REQUEST_SHA || process.env.TRAVIS_COMMIT;
 
