@@ -68,11 +68,7 @@ const sizeStyles = (props: IStyledStatusIndicatorProps) => {
 };
 
 const colorStyles = ({ theme, $type }: IStyledStatusIndicatorProps) => {
-  const foregroundColor = getColor({
-    light: { hue: 'white' },
-    dark: { hue: 'neutralHue', shade: 1100 },
-    theme
-  });
+  const foregroundColor = getColor({ variable: 'foreground.onEmphasis', theme });
   let backgroundColor = getStatusColor(theme, $type);
   let borderColor = backgroundColor;
 
