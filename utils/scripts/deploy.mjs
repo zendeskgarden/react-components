@@ -11,11 +11,11 @@ import { Octokit } from '@octokit/rest';
 import envalid from 'envalid';
 import {
   cmdDu,
-  githubCommit,
   githubRepository,
   netlifyBandwidth,
   netlifyDeploy,
-  githubToken
+  githubToken,
+  githubBranch
 } from '@zendeskgarden/scripts';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -37,7 +37,8 @@ envalid.cleanEnv(process.env, {
 
     if (bandwidth.available > usage) {
       const repository = await githubRepository();
-      const commit = process.env.COMMIT_SHA;
+      // eslint-disable-next-line no-use-before-define
+      const commit = await githubCommit();
 
       console.log('commit:', commit);
       const message = `https://github.com/${repository.owner}/${repository.repo}/commit/${commit}`;
@@ -63,7 +64,7 @@ envalid.cleanEnv(process.env, {
   } catch (error) {
     /* eslint-disable-next-line no-console */
     console.error(error);
-    // eslint-disable-next-line require-atomic-updates
+
     process.exitCode = 1;
   }
 })();
@@ -136,6 +137,39 @@ async function githubDeploy(args) {
   } catch (error) {
     console.error('github-deploy:', error.message || error);
     throw error;
+  }
+
+  return retVal;
+}
+
+async function githubCommit(args) {
+  let retVal =
+    process.env.CIRCLE_SHA1 || process.env.TRAVIS_PULL_REQUEST_SHA || process.env.TRAVIS_COMMIT;
+
+  if (!retVal) {
+    try {
+      const auth = args.token || (await githubToken(args.spinner));
+      const github = new Octokit({ auth });
+      const repository = await githubRepository(args.path, args.spinner);
+      const sha = args.branch || (await githubBranch(args.path, args.spinner));
+
+      /* https://octokit.github.io/rest.js/v17#repos-list-commits */
+      const commits = await github.repos.listCommits({
+        owner: repository.owner,
+        repo: repository.repo,
+        sha
+      });
+
+      if (commits && commits.data) {
+        retVal = commits.data[0].sha || undefined;
+      }
+    } catch (error) {
+      if (error.status !== 404) {
+        console.error('github-commit:', error.message || error);
+
+        throw error;
+      }
+    }
   }
 
   return retVal;
