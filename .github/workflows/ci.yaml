@@ -88,7 +88,7 @@ jobs:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
+          COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
 
   # deploy:
   #   if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main')
