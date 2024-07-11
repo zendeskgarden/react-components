@@ -76,7 +76,7 @@ async function githubDeploy(args) {
     const auth = args.token || (await githubToken(args.spinner));
     const github = new Octokit({ auth });
     const repository = await githubRepository(args.path, args.spinner);
-    const ref = args.ref || (await githubCommit({ ...args }));
+    const ref = process.env.COMMIT_SHA;
     const environment = args.production ? 'production' : 'staging';
 
     console.log('process.env.GITHUB_SHA:', process.env.GITHUB_SHA);
