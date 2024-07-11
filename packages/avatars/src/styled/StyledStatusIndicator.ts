@@ -14,8 +14,10 @@ import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';
 import { getStatusBorderOffset, includes, IStyledStatusIndicatorProps } from './utility';
 
 export interface IStatusIndicatorProps extends Omit<IAvatarProps, 'badge' | 'isSystem' | 'status'> {
-  readonly type?: IStyledStatusIndicatorProps['type'];
-  borderColor?: string;
+  readonly $type?: IStyledStatusIndicatorProps['$type'];
+  $borderColor?: string;
+  $surfaceColor?: IAvatarProps['surfaceColor'];
+  $size?: IAvatarProps['size'];
 }
 
 const COMPONENT_ID = 'avatars.status_indicator';
@@ -23,14 +25,14 @@ const COMPONENT_ID = 'avatars.status_indicator';
 const [xxs, xs, s, m, l] = SIZE;
 
 const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
-  const isVisible = !includes([xxs, xs], props.size);
+  const isVisible = !includes([xxs, xs], props.$size);
   const borderWidth = getStatusBorderOffset(props);
 
   let padding = '0';
 
-  if (props.size === s) {
+  if (props.$size === s) {
     padding = math(`${props.theme.space.base + 1}px - (${borderWidth} * 2)`);
-  } else if (includes([m, l], props.size)) {
+  } else if (includes([m, l], props.$size)) {
     padding = math(`${props.theme.space.base + 3}px - (${borderWidth} * 2)`);
   }
 
@@ -62,22 +64,24 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
 
 const colorStyles = ({
   theme,
-  type,
-  size,
-  borderColor,
-  surfaceColor
+  $type,
+  $size,
+  $borderColor,
+  $surfaceColor
 }: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
   let boxShadow = theme.shadows.sm(
-    surfaceColor ||
-      (type ? getColor({ variable: 'background.default', theme }) : (theme.palette.white as string))
+    $surfaceColor ||
+      ($type
+        ? getColor({ variable: 'background.default', theme })
+        : (theme.palette.white as string))
   );
 
-  if (size === xxs) {
+  if ($size === xxs) {
     boxShadow = boxShadow.replace(theme.shadowWidths.sm, '1px');
   }
 
   return css`
-    border-color: ${borderColor};
+    border-color: ${$borderColor};
     box-shadow: ${boxShadow};
   `;
 };
@@ -93,6 +97,6 @@ export const StyledStatusIndicator = styled(StyledStatusIndicatorBase).attrs({
 `;
 
 StyledStatusIndicator.defaultProps = {
-  size: 'medium',
+  $size: 'medium',
   theme: DEFAULT_THEME
 };

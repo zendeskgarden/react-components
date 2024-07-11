@@ -16,13 +16,13 @@ const [xxs, xs, s, m, l] = SIZE;
 export const TRANSITION_DURATION = 0.25;
 
 export interface IStyledStatusIndicatorProps extends ThemeProps<DefaultTheme> {
-  readonly size?: IAvatarProps['size'];
-  readonly type?: IAvatarProps['status'] | 'active';
+  readonly $size?: IAvatarProps['size'];
+  readonly $type?: IAvatarProps['status'] | 'active';
 }
 
 export function getStatusColor(
   theme: IStyledStatusIndicatorProps['theme'],
-  type?: IStyledStatusIndicatorProps['type']
+  type?: IStyledStatusIndicatorProps['$type']
 ): string {
   switch (type) {
     case 'active':
@@ -41,15 +41,15 @@ export function getStatusColor(
 }
 
 export function getStatusBorderOffset(props: IStyledStatusIndicatorProps): string {
-  return props.size === xxs
+  return props.$size === xxs
     ? math(`${props.theme.shadowWidths.sm} - 1`)
     : props.theme.shadowWidths.sm;
 }
 
 export function getStatusSize(props: IStyledStatusIndicatorProps, offset: string): string {
-  const isActive = props.type === 'active';
+  const isActive = props.$type === 'active';
 
-  switch (props.size) {
+  switch (props.$size) {
     case xxs:
       return math(`${props.theme.space.base}px - ${offset}`);
     case xs:

@@ -67,17 +67,17 @@ const sizeStyles = (props: IStyledStatusIndicatorProps) => {
   `;
 };
 
-const colorStyles = ({ theme, type }: IStyledStatusIndicatorProps) => {
+const colorStyles = ({ theme, $type }: IStyledStatusIndicatorProps) => {
   const foregroundColor = getColor({
     light: { hue: 'white' },
     dark: { hue: 'neutralHue', shade: 1100 },
     theme
   });
-  let backgroundColor = getStatusColor(theme, type);
+  let backgroundColor = getStatusColor(theme, $type);
   let borderColor = backgroundColor;
 
-  if (type === 'offline') {
-    borderColor = getStatusColor(theme, type);
+  if ($type === 'offline') {
+    borderColor = getStatusColor(theme, $type);
     backgroundColor = getColor({ variable: 'background.default', theme });
   }
 
@@ -102,5 +102,5 @@ export const StyledStatusIndicatorBase = styled.div.attrs({
 
 StyledStatusIndicatorBase.defaultProps = {
   theme: DEFAULT_THEME,
-  size: 'small'
+  $size: 'small'
 };
