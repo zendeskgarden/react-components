@@ -52,7 +52,7 @@ envalid.cleanEnv(process.env, {
       };
 
       // eslint-disable-next-line no-use-before-define
-      url = await githubDeploy({ command });
+      url = await githubDeploy({ command, ref: commit });
     } else {
       throw new Error(
         `Insufficient Netlify bandwidth: ${bandwidth.available} bytes available, ${usage} bytes required.`
@@ -77,14 +77,15 @@ async function githubDeploy(args) {
     const auth = args.token || (await githubToken(args.spinner));
     const github = new Octokit({ auth });
     const repository = await githubRepository(args.path, args.spinner);
-    const ref = process.env.COMMIT_SHA;
+    // eslint-disable-next-line no-use-before-define
+    const ref = args.ref || (await githubCommit({ ...args }));
     const environment = args.production ? 'production' : 'staging';
 
     console.log('process.env.GITHUB_SHA:', process.env.GITHUB_SHA);
     console.log('process.env.COMMIT_SHA:', process.env.COMMIT_SHA);
+    console.log('ref:', ref);
     console.log('environment:', environment);
     console.log('repository:', repository);
-    console.log('ref:', ref);
 
     /* https://octokit.github.io/rest.js/v17#repos-create-deployment */
     const deployment = await github.repos.createDeployment({
@@ -172,5 +173,6 @@ async function githubCommit(args = {}) {
     }
   }
 
+  console.log('githubCommit:', retVal);
   return retVal;
 }

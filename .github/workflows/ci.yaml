@@ -75,17 +75,12 @@ jobs:
     permissions: write-all
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: npm
 
       - run: npm ci --ignore-scripts
-      - run: echo $COMMIT_SHA
-      - run: echo $GITHUB_HEAD_REF
-      # - run: git rev-parse $GITHUB_HEAD_REF
       - run: npm run build:demo
       - run: utils/scripts/deploy.mjs
         env:
