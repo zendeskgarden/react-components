@@ -5,8 +5,7 @@ on:
 
   push:
     branches:
-      - main
-      - next
+      - ze-flo/ci-deploy-fix
 
 permissions:
   contents: read
