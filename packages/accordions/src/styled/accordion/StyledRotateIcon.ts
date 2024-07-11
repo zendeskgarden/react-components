@@ -29,11 +29,10 @@ const colorStyles = ({
   theme
 }: ThemeProps<DefaultTheme> & any) => {
   const showColor = $isCollapsible || !$isRotated;
-  let color = getColor({ theme, variable: 'foreground.subtle' });
-
-  if (showColor && $isHovered) {
-    color = getColor({ theme, variable: 'foreground.primary' });
-  }
+  const color = getColor({
+    theme,
+    variable: showColor && $isHovered ? 'foreground.primary' : 'foreground.subtle'
+  });
 
   return css`
     color: ${color};

@@ -29,11 +29,10 @@ const colorStyles = ({
   theme
 }: ThemeProps<DefaultTheme> & IStyledButton) => {
   const showColor = $isCollapsible || !$isExpanded;
-  let color = getColor({ theme, variable: 'foreground.default' });
-
-  if (showColor && $isHovered) {
-    color = getColor({ theme, variable: 'foreground.primary' });
-  }
+  const color = getColor({
+    theme,
+    variable: showColor && $isHovered ? 'foreground.primary' : 'foreground.default'
+  });
 
   return css`
     color: ${color};

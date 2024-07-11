@@ -23,9 +23,7 @@ interface IStyledPanel {
 
 const COMPONENT_ID = 'accordions.panel';
 
-const colorStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
-  const { theme, $isBare } = props;
-
+const colorStyles = ({ theme, $isBare }: IStyledPanel & ThemeProps<DefaultTheme>) => {
   return css`
     border-bottom-color: ${$isBare
       ? 'transparent'
