@@ -82,6 +82,9 @@ jobs:
           cache: npm
 
       - run: npm ci --ignore-scripts
+      - run: git rev-parse $GITHUB_HEAD_REF
+      - run: echo $COMMIT_SHA
+      - run: echo $GITHUB_HEAD_REF
       - run: npm run build:demo
       - run: utils/scripts/deploy.mjs
         env:
