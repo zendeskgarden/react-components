@@ -10,7 +10,6 @@
 import envalid from 'envalid';
 import {
   cmdDu,
-  githubCommit,
   githubDeploy,
   githubRepository,
   netlifyBandwidth,
@@ -22,7 +21,8 @@ import { fileURLToPath } from 'url';
 envalid.cleanEnv(process.env, {
   GITHUB_TOKEN: envalid.str(),
   NETLIFY_SITE_ID: envalid.str(),
-  NETLIFY_TOKEN: envalid.str()
+  NETLIFY_TOKEN: envalid.str(),
+  DEPLOY_REF: envalid.str()
 });
 
 (async () => {
@@ -35,7 +35,7 @@ envalid.cleanEnv(process.env, {
 
     if (bandwidth.available > usage) {
       const repository = await githubRepository();
-      const commit = await githubCommit();
+      const commit = process.env.DEPLOY_REF;
       const message = `https://github.com/${repository.owner}/${repository.repo}/commit/${commit}`;
       const command = async () => {
         const result = await netlifyDeploy({
@@ -46,7 +46,7 @@ envalid.cleanEnv(process.env, {
         return result;
       };
 
-      url = await githubDeploy({ command });
+      url = await githubDeploy({ command, ref: commit });
     } else {
       throw new Error(
         `Insufficient Netlify bandwidth: ${bandwidth.available} bytes available, ${usage} bytes required.`
@@ -58,6 +58,7 @@ envalid.cleanEnv(process.env, {
   } catch (error) {
     /* eslint-disable-next-line no-console */
     console.error(error);
+    // eslint-disable-next-line require-atomic-updates
     process.exitCode = 1;
   }
 })();
