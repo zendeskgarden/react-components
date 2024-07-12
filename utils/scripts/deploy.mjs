@@ -46,7 +46,7 @@ envalid.cleanEnv(process.env, {
         return result;
       };
 
-      url = await githubDeploy({ command });
+      url = await githubDeploy({ command, ref: commit });
     } else {
       throw new Error(
         `Insufficient Netlify bandwidth: ${bandwidth.available} bytes available, ${usage} bytes required.`
