@@ -27,7 +27,7 @@ const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
 
     return (
       <StepperContext.Provider value={stepperContext}>
-        <StyledStepper ref={ref} isHorizontal={isHorizontal} {...props}>
+        <StyledStepper ref={ref} $isHorizontal={isHorizontal} {...props}>
           {useMemo(
             () =>
               Children.toArray(children)

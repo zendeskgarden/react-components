@@ -50,8 +50,8 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
   return (
     <HeaderContext.Provider value={value}>
       <StyledHeader
-        isCollapsible={isCollapsible}
-        isExpanded={isExpanded}
+        $isCollapsible={isCollapsible}
+        $isExpanded={isExpanded}
         {...(getHeaderProps({
           ref,
           'aria-level': ariaLevel,

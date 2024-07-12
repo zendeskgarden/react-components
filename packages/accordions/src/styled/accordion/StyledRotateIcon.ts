@@ -7,10 +7,10 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColorV8,
   retrieveComponentStyles,
   DEFAULT_THEME,
-  StyledBaseIcon
+  StyledBaseIcon,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.rotate_icon';
@@ -22,13 +22,17 @@ interface IStyledRotateIcon {
   $isCollapsible?: boolean;
 }
 
-const colorStyles = (props: ThemeProps<DefaultTheme> & any) => {
-  const showColor = props.$isCollapsible || !props.$isRotated;
-  let color = getColorV8('neutralHue', 600, props.theme);
-
-  if (showColor && props.$isHovered) {
-    color = getColorV8('primaryHue', 600, props.theme);
-  }
+const colorStyles = ({
+  $isCollapsible,
+  $isHovered,
+  $isRotated,
+  theme
+}: ThemeProps<DefaultTheme> & any) => {
+  const showColor = $isCollapsible || !$isRotated;
+  const color = getColor({
+    theme,
+    variable: showColor && $isHovered ? 'foreground.primary' : 'foreground.subtle'
+  });
 
   return css`
     color: ${color};

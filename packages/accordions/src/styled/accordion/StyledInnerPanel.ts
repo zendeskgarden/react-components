@@ -12,7 +12,7 @@ import { StyledPanel } from './StyledPanel';
 const COMPONENT_ID = 'accordions.step_inner_panel';
 
 interface IStyledInnerPanel {
-  isAnimated?: boolean;
+  $isAnimated?: boolean;
 }
 
 export const StyledInnerPanel = styled.div.attrs({
@@ -24,7 +24,7 @@ export const StyledInnerPanel = styled.div.attrs({
   font-size: inherit;
 
   ${StyledPanel}[aria-hidden='true'] > & {
-    transition: ${props => props.isAnimated && 'visibility 0s 0.25s'};
+    transition: ${props => props.$isAnimated && 'visibility 0s 0.25s'};
     visibility: hidden;
   }
 

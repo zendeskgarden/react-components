@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
 import {
-  getColorV8,
   retrieveComponentStyles,
   DEFAULT_THEME,
-  StyledBaseIcon
+  StyledBaseIcon,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'timeline.icon';
@@ -19,6 +19,16 @@ const COMPONENT_ID = 'timeline.icon';
 interface IStyledItemIcon {
   $surfaceColor?: string;
 }
+
+const colorStyles = ({ $surfaceColor, theme }: IStyledItemIcon & ThemeProps<DefaultTheme>) => {
+  const foregroundColor = getColor({ theme, variable: 'border.emphasis' });
+  const backgroundColor = $surfaceColor || getColor({ theme, variable: 'background.default' });
+
+  return css`
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
+  `;
+};
 
 /**
  * 1. Odd sizing allows the timeline line to center respective of the circle icon.
@@ -29,12 +39,12 @@ export const StyledItemIcon = styled(StyledBaseIcon).attrs({
 })<IStyledItemIcon>`
   z-index: 1;
   box-sizing: content-box;
-  background-color: ${props =>
-    props.$surfaceColor || getColorV8('background', 600 /* default shade */, props.theme)};
+
   padding: ${props => props.theme.space.base}px 0;
   width: ${props => math(`${props.theme.iconSizes.sm} + 1`)}; /* [1] */
   height: ${props => math(`${props.theme.iconSizes.sm} + 1`)}; /* [1] */
-  color: ${props => getColorV8('neutralHue', 600, props.theme)};
+
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -29,8 +29,8 @@ const ItemComponent = forwardRef<HTMLLIElement, ITimelineItemProps>(
       <TimelineItemContext.Provider value={value}>
         <StyledTimelineItem
           ref={ref}
-          isAlternate={isAlternate}
-          hasOppositeContent={hasOppositeContent}
+          $isAlternate={isAlternate}
+          $hasOppositeContent={hasOppositeContent}
           {...props}
         />
       </TimelineItemContext.Provider>
