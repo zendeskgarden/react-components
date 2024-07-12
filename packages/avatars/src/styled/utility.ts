@@ -24,20 +24,15 @@ export function getStatusColor(
   theme: IStyledStatusIndicatorProps['theme'],
   type?: IStyledStatusIndicatorProps['$type']
 ): string {
-  switch (type) {
-    case 'active':
-      return getColor({ hue: 'crimson', light: { shade: 700 }, dark: { shade: 600 }, theme });
-    case 'available':
-      return getColor({ hue: 'mint', light: { shade: 500 }, dark: { shade: 400 }, theme });
-    case 'away':
-      return getColor({ hue: 'orange', light: { shade: 500 }, dark: { shade: 400 }, theme });
-    case 'transfers':
-      return getColor({ hue: 'azure', light: { shade: 500 }, dark: { shade: 400 }, theme });
-    case 'offline':
-      return getColor({ hue: 'grey', light: { shade: 500 }, dark: { shade: 400 }, theme });
-    default:
-      return 'transparent';
-  }
+  return (
+    {
+      active: getColor({ hue: 'crimson', light: { shade: 700 }, dark: { shade: 600 }, theme }),
+      available: getColor({ hue: 'mint', light: { shade: 500 }, dark: { shade: 400 }, theme }),
+      away: getColor({ hue: 'orange', light: { shade: 500 }, dark: { shade: 400 }, theme }),
+      transfers: getColor({ hue: 'azure', light: { shade: 500 }, dark: { shade: 400 }, theme }),
+      offline: getColor({ hue: 'grey', light: { shade: 500 }, dark: { shade: 400 }, theme })
+    }[type as string] || 'transparent'
+  );
 }
 
 export function getStatusBorderOffset(props: IStyledStatusIndicatorProps): string {

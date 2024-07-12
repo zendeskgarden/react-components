@@ -11,7 +11,6 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { StyledAvatar } from './StyledAvatar';
 import { StyledStatusIndicator } from './StyledStatusIndicator';
-import { css } from 'styled-components';
 
 describe('StyledAvatar', () => {
   it('renders the expected element', () => {
@@ -37,7 +36,7 @@ describe('StyledAvatar', () => {
       const { container } = render(<StyledAvatar $status="away" $surfaceColor="red" />);
 
       expect(container.firstChild).toHaveStyleRule('color', 'red', {
-        modifier: css`&&`
+        modifier: '&&'
       });
     });
 
