@@ -38,7 +38,7 @@ export function getStatusColor(
 
   const colorArgs = StatusColorParams[type];
 
-  return getColor({ ...colorArgs, theme });
+  return colorArgs ? getColor({ ...colorArgs, theme }) : 'transparent';
 }
 
 export function getStatusBorderOffset(props: IStyledStatusIndicatorProps): string {
