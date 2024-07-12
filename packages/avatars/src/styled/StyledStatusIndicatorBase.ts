@@ -6,7 +6,7 @@
  */
 
 import styled, { css, keyframes } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 import {
   TRANSITION_DURATION,
@@ -67,19 +67,23 @@ const sizeStyles = (props: IStyledStatusIndicatorProps) => {
   `;
 };
 
-const colorStyles = (props: IStyledStatusIndicatorProps) => {
-  let backgroundColor = getStatusColor(props.type, props.theme);
-  let borderColor = backgroundColor;
+const colorStyles = ({ theme, $type }: IStyledStatusIndicatorProps) => {
+  const foregroundColor = getColor({ variable: 'foreground.onEmphasis', theme });
+  let backgroundColor;
+  let borderColor;
 
-  if (props.type === 'offline') {
-    borderColor = getStatusColor(props.type, props.theme);
-    backgroundColor = props.theme.palette.white as string;
+  if ($type === 'offline') {
+    borderColor = getStatusColor(theme, $type);
+    backgroundColor = getColor({ variable: 'background.default', theme });
+  } else {
+    backgroundColor = getStatusColor(theme, $type);
+    borderColor = backgroundColor;
   }
 
   return css`
     border-color: ${borderColor};
     background-color: ${backgroundColor};
-    color: ${props.theme.palette.white};
+    color: ${foregroundColor};
   `;
 };
 
@@ -97,5 +101,5 @@ export const StyledStatusIndicatorBase = styled.div.attrs({
 
 StyledStatusIndicatorBase.defaultProps = {
   theme: DEFAULT_THEME,
-  size: 'small'
+  $size: 'small'
 };

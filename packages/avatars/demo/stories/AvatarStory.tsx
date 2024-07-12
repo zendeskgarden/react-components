@@ -21,7 +21,7 @@ interface IArgs extends IAvatarProps {
 export const AvatarStory: Story<IArgs> = ({ children, type, ...args }) => (
   <Avatar
     {...args}
-    backgroundColor={args.backgroundColor || (type === 'image' ? undefined : PALETTE.kale[800])}
+    backgroundColor={args.backgroundColor || (type === 'image' ? undefined : PALETTE.kale[1000])}
   >
     {
       {

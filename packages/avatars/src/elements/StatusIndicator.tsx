@@ -51,8 +51,8 @@ export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
         {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <StyledStandaloneStatusIndicator
           role="img"
-          type={type}
-          size={isCompact ? 'small' : 'medium'}
+          $type={type}
+          $size={isCompact ? 'small' : 'medium'}
           aria-label={ariaLabel}
         >
           {type === 'away' ? <ClockIcon data-icon-status={type} aria-hidden="true" /> : null}

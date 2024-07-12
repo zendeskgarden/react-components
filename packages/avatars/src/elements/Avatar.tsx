@@ -69,12 +69,12 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
     return (
       <StyledAvatar
         ref={ref}
-        isSystem={isSystem}
-        size={size}
-        status={computedStatus}
-        surfaceColor={surfaceColor}
-        backgroundColor={backgroundColor}
-        foregroundColor={foregroundColor}
+        $isSystem={isSystem}
+        $size={size}
+        $status={computedStatus}
+        $surfaceColor={surfaceColor}
+        $backgroundColor={backgroundColor}
+        $foregroundColor={foregroundColor}
         aria-atomic="true"
         aria-live="polite"
         {...props}
@@ -82,9 +82,9 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         {Children.only(children)}
         {computedStatus && (
           <StyledStatusIndicator
-            size={size}
-            type={computedStatus}
-            surfaceColor={surfaceColor}
+            $size={size}
+            $type={computedStatus}
+            $surfaceColor={surfaceColor}
             aria-label={statusLabel}
             as="figcaption"
           >
