@@ -69,12 +69,15 @@ const sizeStyles = (props: IStyledStatusIndicatorProps) => {
 
 const colorStyles = ({ theme, $type }: IStyledStatusIndicatorProps) => {
   const foregroundColor = getColor({ variable: 'foreground.onEmphasis', theme });
-  let backgroundColor = getStatusColor(theme, $type);
-  let borderColor = backgroundColor;
+  let backgroundColor;
+  let borderColor;
 
   if ($type === 'offline') {
     borderColor = getStatusColor(theme, $type);
     backgroundColor = getColor({ variable: 'background.default', theme });
+  } else {
+    backgroundColor = getStatusColor(theme, $type);
+    borderColor = backgroundColor;
   }
 
   return css`
