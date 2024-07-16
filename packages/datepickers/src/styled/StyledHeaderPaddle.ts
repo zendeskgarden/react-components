@@ -28,11 +28,22 @@ const sizeStyles = ({ $isCompact, theme }: { $isCompact?: boolean } & ThemeProps
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const foreground = getColor({ variable: 'foreground.subtle', theme });
-  const foregroundStateful = getColor({ variable: 'foreground.default', theme });
+  const foregroundHover = getColor({
+    variable: 'foreground.default',
+    light: { offset: 100 },
+    dark: { offset: -100 },
+    theme
+  });
   const backgroundHover = getColor({
     variable: 'background.primaryEmphasis',
     theme,
     transparency: theme.opacity[100]
+  });
+  const foregroundActive = getColor({
+    variable: 'foreground.default',
+    light: { offset: 200 },
+    dark: { offset: -200 },
+    theme
   });
   const backgroundActive = getColor({
     variable: 'background.primaryEmphasis',
@@ -41,17 +52,17 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   });
 
   return css`
+    color: ${foreground};
+
     :hover {
       background-color: ${backgroundHover};
-      color: ${foregroundStateful};
+      color: ${foregroundHover};
     }
 
     :active {
       background-color: ${backgroundActive};
-      color: ${foregroundStateful};
+      color: ${foregroundActive};
     }
-
-    color: ${foreground};
   `;
 };
 
