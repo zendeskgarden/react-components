@@ -11,11 +11,11 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'colorpickers.colorpicker';
 
 interface IStyledColorPickerProps {
-  isOpaque?: boolean;
+  $isOpaque?: boolean;
 }
 
 export const getColorPickerWidth = (props: IStyledColorPickerProps) => {
-  return props.isOpaque ? 268 : 312;
+  return props.$isOpaque ? 268 : 312;
 };
 
 export const StyledColorPicker = styled.div.attrs({

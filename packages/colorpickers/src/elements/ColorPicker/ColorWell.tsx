@@ -92,7 +92,7 @@ export const ColorWell: React.FC<IColorWellProps> = React.memo(
     return (
       /* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */
       <StyledColorWell
-        hue={hue}
+        $hue={hue}
         ref={containerRef}
         role="presentation"
         onMouseDown={handleMouseDown}

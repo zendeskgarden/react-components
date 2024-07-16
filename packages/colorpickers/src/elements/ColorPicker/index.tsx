@@ -117,7 +117,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
     }, [computedColor]);
 
     return (
-      <StyledColorPicker ref={ref} isOpaque={isOpaque} {...props}>
+      <StyledColorPicker ref={ref} $isOpaque={isOpaque} {...props}>
         <ColorWell
           hue={computedColor.hue}
           saturation={computedColor.saturation}
@@ -126,20 +126,20 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
         />
         <StyledSliderGroup>
           <StyledPreview
-            red={computedColor.red}
-            green={computedColor.green}
-            blue={computedColor.blue}
-            alpha={computedColor.alpha}
-            isOpaque={isOpaque}
+            $red={computedColor.red}
+            $green={computedColor.green}
+            $blue={computedColor.blue}
+            $alpha={computedColor.alpha}
+            $isOpaque={isOpaque}
           />
-          <StyledSliders isOpaque={isOpaque}>
+          <StyledSliders $isOpaque={isOpaque}>
             <Field>
               <Field.Label hidden>{labels.hueSlider || 'Hue slider'}</Field.Label>
               <StyledHueRange
                 step={1}
                 max={360}
                 value={computedColor.hue}
-                isOpaque={isOpaque}
+                $isOpaque={isOpaque}
                 onChange={handleHueChange}
               />
             </Field>
@@ -151,9 +151,9 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                   step={0.01}
                   value={computedColor.alpha / 100}
                   onChange={handleAlphaSliderChange}
-                  red={computedColor.red}
-                  green={computedColor.green}
-                  blue={computedColor.blue}
+                  $red={computedColor.red}
+                  $green={computedColor.green}
+                  $blue={computedColor.blue}
                 />
               </Field>
             )}

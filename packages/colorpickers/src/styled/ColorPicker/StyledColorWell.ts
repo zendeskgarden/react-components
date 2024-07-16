@@ -12,7 +12,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'colorpickers.colorpicker_colorwell';
 
 interface IStyledColorWellProps {
-  hue: number;
+  $hue: number;
 }
 
 const background = (props: IStyledColorWellProps & ThemeProps<DefaultTheme>) => {
@@ -20,7 +20,7 @@ const background = (props: IStyledColorWellProps & ThemeProps<DefaultTheme>) => 
   const black = `linear-gradient(0deg, ${props.theme.palette.black}, ${blackAlpha} 1%, transparent 99%)`;
   const whiteAngle = `${props.theme.rtl ? -90 : 90}deg`;
   const white = `linear-gradient(${whiteAngle}, ${props.theme.palette.white} 1%, transparent)`;
-  const colorValue = hsl(props.hue, 1, 0.5);
+  const colorValue = hsl(props.$hue, 1, 0.5);
   const color = `linear-gradient(${colorValue}, ${colorValue})`;
 
   return `${black}, ${white}, ${color}`;

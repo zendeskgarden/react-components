@@ -135,7 +135,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
 
                 return (
                   <StyledCell key={value} role={role}>
-                    <StyledColorSwatchLabel backgroundColor={value}>
+                    <StyledColorSwatchLabel $backgroundColor={value}>
                       <Tooltip content={label}>
                         <StyledColorSwatchInput
                           aria-label={label}

@@ -114,7 +114,7 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
             onClick={onClick}
             {...buttonProps}
           >
-            <StyledButtonPreview backgroundColor={isControlled ? color : uncontrolledColor} />
+            <StyledButtonPreview $backgroundColor={isControlled ? color : uncontrolledColor} />
             {/* eslint-disable-next-line no-eq-null, eqeqeq */}
             <Button.EndIcon isRotated={referenceElement != null}>
               <Chevron />
@@ -126,7 +126,6 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
           hasArrow={hasArrow}
           zIndex={zIndex}
           isAnimated={isAnimated}
-          isOpaque={isOpaque}
           focusOnMount={false}
           placement={placement}
           referenceElement={referenceElement}

@@ -17,19 +17,18 @@ import { IColorPickerDialogProps } from '../../types';
 const COMPONENT_ID = 'colorpickers.colordialog_preview';
 
 export interface IStyleButtonPreviewProps extends ThemeProps<DefaultTheme> {
-  backgroundColor?: IColorPickerDialogProps['color'];
+  $backgroundColor?: IColorPickerDialogProps['color'];
 }
 
-const background = (props: IStyleButtonPreviewProps) => {
-  const { backgroundColor } = props;
+const background = ({ $backgroundColor, theme }: IStyleButtonPreviewProps) => {
   let retVal;
 
-  if (typeof backgroundColor === 'string') {
-    retVal = backgroundColor;
-  } else if (backgroundColor === undefined) {
-    retVal = props.theme.palette.white as string;
+  if (typeof $backgroundColor === 'string') {
+    retVal = $backgroundColor;
+  } else if ($backgroundColor === undefined) {
+    retVal = theme.palette.white as string;
   } else {
-    const { red, green, blue, alpha = 1 } = backgroundColor;
+    const { red, green, blue, alpha = 1 } = $backgroundColor;
 
     retVal = `rgba(${red}, ${green}, ${blue}, ${alpha ? alpha / 100 : 0})`;
   }

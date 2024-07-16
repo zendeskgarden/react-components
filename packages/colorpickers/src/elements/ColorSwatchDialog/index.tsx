@@ -147,7 +147,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
             onClick={onClick}
             {...buttonProps}
           >
-            <StyledButtonPreview backgroundColor={backgroundColor} />
+            <StyledButtonPreview $backgroundColor={backgroundColor} />
             <Button.EndIcon isRotated={referenceElement !== null}>
               <Chevron />
             </Button.EndIcon>
