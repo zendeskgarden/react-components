@@ -36,9 +36,9 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
   );
 
   return (
-    <StyledHeader isCompact={isCompact}>
+    <StyledHeader $isCompact={isCompact}>
       <StyledHeaderPaddle
-        isCompact={isCompact}
+        $isCompact={isCompact}
         onClick={() => {
           dispatch({
             type: 'PREVIEW_PREVIOUS_MONTH'
@@ -48,11 +48,11 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
       >
         <ChevronLeftStrokeIcon />
       </StyledHeaderPaddle>
-      <StyledHeaderLabel isCompact={isCompact} data-test-id="month-display">
+      <StyledHeaderLabel $isCompact={isCompact} data-test-id="month-display">
         {headerLabelFormatter(state.previewDate)}
       </StyledHeaderLabel>
       <StyledHeaderPaddle
-        isCompact={isCompact}
+        $isCompact={isCompact}
         onClick={() => {
           dispatch({
             type: 'PREVIEW_NEXT_MONTH'

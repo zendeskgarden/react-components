@@ -68,8 +68,8 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
         const formattedDayLabel = dayLabelFormatter(date);
 
         return (
-          <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isCompact={isCompact}>
-            <StyledDayLabel isCompact={isCompact!} data-test-id="day-label">
+          <StyledCalendarItem key={`day-label-${formattedDayLabel}`} $isCompact={isCompact}>
+            <StyledDayLabel $isCompact={isCompact!} data-test-id="day-label">
               {formattedDayLabel}
             </StyledDayLabel>
           </StyledCalendarItem>
@@ -94,13 +94,13 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       }
 
       return (
-        <StyledCalendarItem key={`day-${itemsIndex}`} isCompact={isCompact}>
+        <StyledCalendarItem key={`day-${itemsIndex}`} $isCompact={isCompact}>
           <StyledDay
-            isToday={isCurrentDate}
-            isPreviousMonth={isPreviousMonth}
-            isSelected={isSelected}
-            isDisabled={isDisabled}
-            isCompact={isCompact!}
+            $isToday={isCurrentDate}
+            $isPreviousMonth={isPreviousMonth}
+            $isSelected={isSelected}
+            $isDisabled={isDisabled}
+            $isCompact={isCompact!}
             onClick={() => {
               if (!isDisabled) {
                 dispatch({ type: 'SELECT_DATE', value: date });
@@ -121,7 +121,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
     return (
       <StyledDatePicker
         ref={ref}
-        isCompact={isCompact!}
+        $isCompact={isCompact!}
         data-test-id="calendar-wrapper"
         onMouseDown={e => {
           /** Stop focus from escaping input */
@@ -129,7 +129,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
         }}
       >
         <MonthSelector locale={locale} isCompact={isCompact!} />
-        <StyledCalendar isCompact={isCompact!}>
+        <StyledCalendar $isCompact={isCompact!}>
           {dayLabels}
           {items}
         </StyledCalendar>

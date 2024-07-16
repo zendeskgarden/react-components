@@ -9,11 +9,11 @@ import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 interface IStyledDayProps extends ThemeProps<DefaultTheme> {
-  isPreviousMonth?: boolean;
-  isToday?: boolean;
-  isDisabled?: boolean;
-  isSelected?: boolean;
-  isCompact: boolean;
+  $isPreviousMonth?: boolean;
+  $isToday?: boolean;
+  $isDisabled?: boolean;
+  $isSelected?: boolean;
+  $isCompact: boolean;
 }
 
 const sizeStyles = () => {
@@ -25,10 +25,10 @@ const sizeStyles = () => {
 };
 
 const colorStyles = ({
-  isSelected,
-  isDisabled,
-  isToday,
-  isPreviousMonth,
+  $isSelected,
+  $isDisabled,
+  $isToday,
+  $isPreviousMonth,
   theme
 }: IStyledDayProps) => {
   let backgroundColor = 'inherit';
@@ -46,14 +46,14 @@ const colorStyles = ({
   });
   const foregroundActive = getColor({ variable: 'foreground.primary', theme });
 
-  if (isSelected && !isDisabled) {
+  if ($isSelected && !$isDisabled) {
     backgroundColor = getColor({ variable: 'background.primaryEmphasis', theme });
     foreground = getColor({ variable: 'foreground.onEmphasis', theme });
-  } else if (isDisabled) {
+  } else if ($isDisabled) {
     foreground = getColor({ variable: 'foreground.disabled', theme });
-  } else if (isToday) {
+  } else if ($isToday) {
     foreground = 'inherit';
-  } else if (isPreviousMonth) {
+  } else if ($isPreviousMonth) {
     foreground = getColor({ variable: 'foreground.subtle', theme });
   } else {
     foreground = getColor({ variable: 'foreground.primary', theme });
@@ -63,8 +63,8 @@ const colorStyles = ({
     background-color: ${backgroundColor};
     color: ${foreground};
 
-    ${!isSelected &&
-    !isDisabled &&
+    ${!$isSelected &&
+    !$isDisabled &&
     css`
       :hover {
         background-color: ${backgroundHover};
@@ -83,16 +83,16 @@ const COMPONENT_ID = 'datepickers.day';
 
 export const StyledDay = styled.div.attrs<IStyledDayProps>(props => ({
   'data-garden-id': COMPONENT_ID,
-  'aria-disabled': props.isDisabled ? 'true' : 'false'
+  'aria-disabled': props.$isDisabled ? 'true' : 'false'
 }))<IStyledDayProps>`
   display: flex;
   position: absolute;
   align-items: center;
   justify-content: center;
-  cursor: ${props => (props.isDisabled ? 'inherit' : 'pointer')};
-  font-size: ${props => (props.isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
+  cursor: ${props => (props.$isDisabled ? 'inherit' : 'pointer')};
+  font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props =>
-    props.isToday && !props.isDisabled ? props.theme.fontWeights.semibold : 'inherit'};
+    props.$isToday && !props.$isDisabled ? props.theme.fontWeights.semibold : 'inherit'};
 
   ${sizeStyles}
   ${colorStyles}

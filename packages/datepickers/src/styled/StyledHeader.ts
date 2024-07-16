@@ -12,10 +12,10 @@ const COMPONENT_ID = 'datepickers.header';
 
 export const StyledHeader = styled.div.attrs({
   'data-garden-id': COMPONENT_ID
-})<{ isCompact: boolean }>`
+})<{ $isCompact: boolean }>`
   display: flex;
   width: ${props =>
-    props.isCompact ? props.theme.space.base * 56 : props.theme.space.base * 70}px;
+    props.$isCompact ? props.theme.space.base * 56 : props.theme.space.base * 70}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -12,8 +12,8 @@ const COMPONENT_ID = 'datepickers.highlight';
 
 const sizeStyles = ({
   theme,
-  isEnd,
-  isStart
+  $isEnd,
+  $isStart
 }: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
   let borderRadius;
 
@@ -21,16 +21,16 @@ const sizeStyles = ({
   const endValue = '50% 0 0 50%;';
 
   if (theme.rtl) {
-    if (isStart) {
+    if ($isStart) {
       borderRadius = startValue;
-    } else if (isEnd) {
+    } else if ($isEnd) {
       borderRadius = endValue;
     }
   }
 
-  if (isStart) {
+  if ($isStart) {
     borderRadius = endValue;
-  } else if (isEnd) {
+  } else if ($isEnd) {
     borderRadius = startValue;
   }
 
@@ -42,11 +42,11 @@ const sizeStyles = ({
 };
 
 const colorStyles = ({
-  isHighlighted,
+  $isHighlighted,
   theme
 }: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
   return css`
-    background-color: ${isHighlighted &&
+    background-color: ${$isHighlighted &&
     getColor({
       variable: 'background.primaryEmphasis',
       transparency: theme.opacity[100],
@@ -56,9 +56,9 @@ const colorStyles = ({
 };
 
 interface IStyledHighlightProps {
-  isHighlighted: boolean;
-  isStart: boolean;
-  isEnd: boolean;
+  $isHighlighted: boolean;
+  $isStart: boolean;
+  $isEnd: boolean;
 }
 
 export const StyledHighlight = styled.div.attrs({

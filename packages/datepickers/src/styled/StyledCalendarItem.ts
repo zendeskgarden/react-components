@@ -10,13 +10,13 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'datepickers.calendar_item';
 
-export const retrieveSize = ({
-  isCompact,
+export const sizeStyles = ({
+  $isCompact,
   theme
 }: IStyledCalendarItemProps & ThemeProps<DefaultTheme>) => {
   let size;
 
-  if (isCompact) {
+  if ($isCompact) {
     size = `${theme.space.base * 8}px`;
   } else {
     size = `${theme.space.base * 10}px`;
@@ -29,7 +29,7 @@ export const retrieveSize = ({
 };
 
 interface IStyledCalendarItemProps {
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 export const StyledCalendarItem = styled.div.attrs({
@@ -39,7 +39,7 @@ export const StyledCalendarItem = styled.div.attrs({
   position: relative;
   vertical-align: top;
 
-  ${retrieveSize}
+  ${sizeStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

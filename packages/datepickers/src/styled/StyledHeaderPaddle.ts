@@ -8,10 +8,10 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-const sizeStyles = ({ isCompact, theme }: { isCompact?: boolean } & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ $isCompact, theme }: { $isCompact?: boolean } & ThemeProps<DefaultTheme>) => {
   let size = theme.space.base * 10;
 
-  if (isCompact) {
+  if ($isCompact) {
     size = theme.space.base * 8;
   }
 
@@ -60,14 +60,14 @@ const COMPONENT_ID = 'datepickers.header_paddle';
 export const StyledHeaderPaddle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID
 })<{
-  isCompact: boolean;
-  isHidden?: boolean;
+  $isCompact: boolean;
+  $isHidden?: boolean;
 }>`
   display: flex;
   align-items: center;
   justify-content: center;
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
-  visibility: ${props => props.isHidden && 'hidden'};
+  visibility: ${props => props.$isHidden && 'hidden'};
   border-radius: 50%;
   cursor: pointer;
 

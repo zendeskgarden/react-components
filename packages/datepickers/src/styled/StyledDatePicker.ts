@@ -11,13 +11,13 @@ import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden
 const COMPONENT_ID = 'datepickers.datepicker';
 
 interface IStyledDatePickerProps {
-  isCompact: boolean;
+  $isCompact: boolean;
 }
 
-const sizeStyles = ({ isCompact, theme }: IStyledDatePickerProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ $isCompact, theme }: IStyledDatePickerProps & ThemeProps<DefaultTheme>) => {
   let value = theme.space.base * 5;
 
-  if (isCompact) {
+  if ($isCompact) {
     value = theme.space.base * 4;
   }
 
