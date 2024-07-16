@@ -29,7 +29,7 @@ const sizeStyles = ({ $isCompact, theme }: { $isCompact?: boolean } & ThemeProps
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const foreground = getColor({ variable: 'foreground.subtle', theme });
   const foregroundHover = getColor({
-    variable: 'foreground.default',
+    variable: 'foreground.subtle',
     light: { offset: 100 },
     dark: { offset: -100 },
     theme
@@ -40,7 +40,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     transparency: theme.opacity[100]
   });
   const foregroundActive = getColor({
-    variable: 'foreground.default',
+    variable: 'foreground.subtle',
     light: { offset: 200 },
     dark: { offset: -200 },
     theme
