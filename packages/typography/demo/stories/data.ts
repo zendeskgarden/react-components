@@ -431,7 +431,20 @@ export const execute = async (args: IGitHubPagesArgs): Promise<string | undefine
   }
 
   return retVal;
-};`
+};`,
+  yaml: `name: PR
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, synchronize]
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mheap/github-action-required-labels@v5
+        with:
+          mode: exactly
+          count: 1 # Require exactly 1 label
+          labels: 'PR: Breaking Change :boom:, PR: Bug Fix :bug:, PR: Docs :memo:, PR: Internal :seedling:, PR: New Feature :rocket:'`
 };
 
 export const LIST_ITEMS: IListItem[] = [

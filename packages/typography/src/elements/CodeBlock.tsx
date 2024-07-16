@@ -15,6 +15,7 @@ import {
   StyledCodeBlockLine,
   StyledCodeBlockToken
 } from '../styled';
+import { ThemeProvider } from 'styled-components';
 
 /* prism-react-renderer Token type replica */
 interface IToken {
@@ -28,7 +29,16 @@ interface IToken {
  */
 export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
   (
-    { children, containerProps, highlightLines, isLight, isNumbered, language, size, ...other },
+    {
+      children,
+      containerProps,
+      highlightLines,
+      isLight,
+      isNumbered,
+      language = 'tsx',
+      size = 'medium',
+      ...other
+    },
     ref
   ) => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -66,30 +76,32 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
           language={LANGUAGES.includes(language as Language) ? (language as Language) : 'tsx'}
         >
           {({ className, tokens, getLineProps, getTokenProps }) => (
-            <StyledCodeBlock className={className} ref={ref} isLight={isLight} {...other}>
-              {tokens.map((line, index) => (
-                <StyledCodeBlockLine
-                  {...getLineProps({ line })}
-                  key={index}
-                  language={language}
-                  isHighlighted={highlightLines && highlightLines.includes(index + 1)}
-                  isLight={isLight}
-                  isNumbered={isNumbered}
-                  diff={getDiff(line)}
-                  size={size}
-                >
-                  {line.map((token, tokenKey) => (
-                    <StyledCodeBlockToken
-                      {...getTokenProps({ token })}
-                      key={tokenKey}
-                      isLight={isLight}
-                    >
-                      {token.empty ? '\n' : token.content}
-                    </StyledCodeBlockToken>
-                  ))}
-                </StyledCodeBlockLine>
-              ))}
-            </StyledCodeBlock>
+            <ThemeProvider
+              theme={parentTheme => ({
+                ...parentTheme,
+                colors: { ...parentTheme.colors, base: isLight ? 'light' : 'dark' }
+              })}
+            >
+              <StyledCodeBlock className={className} ref={ref} {...other}>
+                {tokens.map((line, index) => (
+                  <StyledCodeBlockLine
+                    {...getLineProps({ line })}
+                    key={index}
+                    language={language}
+                    isHighlighted={highlightLines && highlightLines.includes(index + 1)}
+                    isNumbered={isNumbered}
+                    diff={getDiff(line)}
+                    size={size}
+                  >
+                    {line.map((token, tokenKey) => (
+                      <StyledCodeBlockToken {...getTokenProps({ token })} key={tokenKey}>
+                        {token.empty ? '\n' : token.content}
+                      </StyledCodeBlockToken>
+                    ))}
+                  </StyledCodeBlockLine>
+                ))}
+              </StyledCodeBlock>
+            </ThemeProvider>
           )}
         </Highlight>
       </StyledCodeBlockContainer>
@@ -98,8 +110,3 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
 );
 
 CodeBlock.displayName = 'CodeBlock';
-
-CodeBlock.defaultProps = {
-  language: 'tsx',
-  size: 'medium'
-};
