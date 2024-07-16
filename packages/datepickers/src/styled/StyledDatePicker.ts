@@ -26,9 +26,9 @@ const sizeStyles = ({ $isCompact, theme }: IStyledDatePickerProps & ThemeProps<D
   `;
 };
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledDatePickerProps & ThemeProps<DefaultTheme>) => {
   return css`
-    background-color: ${getColor({ variable: 'background.default', theme })};
+    background-color: transparent;
     color: ${getColor({ variable: 'foreground.default', theme })};
   `;
 };
