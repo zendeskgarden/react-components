@@ -6,12 +6,9 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-const retrieveSizing = ({
-  isCompact,
-  theme
-}: { isCompact?: boolean } & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ isCompact, theme }: { isCompact?: boolean } & ThemeProps<DefaultTheme>) => {
   let size = theme.space.base * 10;
 
   if (isCompact) {
@@ -21,22 +18,40 @@ const retrieveSizing = ({
   return css`
     width: ${size}px;
     height: ${size}px;
+
+    svg {
+      width: ${props => `${props.theme.iconSizes.md}`};
+      height: ${props => `${props.theme.iconSizes.md}`};
+    }
   `;
 };
 
-const retrieveColor = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const foreground = getColor({ variable: 'foreground.subtle', theme });
+  const foregroundStateful = getColor({ variable: 'foreground.default', theme });
+  const backgroundHover = getColor({
+    variable: 'background.primaryEmphasis',
+    theme,
+    transparency: theme.opacity[100]
+  });
+  const backgroundActive = getColor({
+    variable: 'background.primaryEmphasis',
+    theme,
+    transparency: theme.opacity[200]
+  });
+
   return css`
     :hover {
-      background-color: ${getColorV8('primaryHue', 600, theme, 0.08)};
-      color: ${getColorV8('foreground', 600 /* default shade */, theme)};
+      background-color: ${backgroundHover};
+      color: ${foregroundStateful};
     }
 
     :active {
-      background-color: ${getColorV8('primaryHue', 600, theme, 0.2)};
-      color: ${getColorV8('foreground', 600 /* default shade */, theme)};
+      background-color: ${backgroundActive};
+      color: ${foregroundStateful};
     }
 
-    color: ${getColorV8('neutralHue', 600, theme)};
+    color: ${foreground};
   `;
 };
 
@@ -56,14 +71,8 @@ export const StyledHeaderPaddle = styled.div.attrs({
   border-radius: 50%;
   cursor: pointer;
 
-  ${/* sc-block */ retrieveSizing}
-
-  ${retrieveColor}
-
-  svg {
-    width: ${props => `${props.theme.iconSizes.md}`};
-    height: ${props => `${props.theme.iconSizes.md}`};
-  }
+  ${/* sc-block */ sizeStyles}
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 interface IStyledDayProps extends ThemeProps<DefaultTheme> {
   isPreviousMonth?: boolean;
@@ -16,7 +16,15 @@ interface IStyledDayProps extends ThemeProps<DefaultTheme> {
   isCompact: boolean;
 }
 
-const retrieveStyledDayColors = ({
+const sizeStyles = () => {
+  return css`
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  `;
+};
+
+const colorStyles = ({
   isSelected,
   isDisabled,
   isToday,
@@ -24,36 +32,50 @@ const retrieveStyledDayColors = ({
   theme
 }: IStyledDayProps) => {
   let backgroundColor = 'inherit';
-  let color = getColorV8('primaryHue', 600, theme);
+  let foreground;
+  const backgroundHover = getColor({
+    variable: 'background.primaryEmphasis',
+    theme,
+    transparency: theme.opacity[100]
+  });
+  const foregroundHover = getColor({ variable: 'foreground.primary', theme });
+  const backgroundActive = getColor({
+    variable: 'background.primaryEmphasis',
+    theme,
+    transparency: theme.opacity[200]
+  });
+  const foregroundActive = getColor({ variable: 'foreground.primary', theme });
 
   if (isSelected && !isDisabled) {
-    backgroundColor = getColorV8('primaryHue', 600, theme)!;
-    color = getColorV8('background', 600 /* default shade */, theme);
+    backgroundColor = getColor({ variable: 'background.primaryEmphasis', theme });
+    foreground = getColor({ variable: 'foreground.onEmphasis', theme });
   } else if (isDisabled) {
-    color = getColorV8('neutralHue', 400, theme);
+    foreground = getColor({ variable: 'foreground.disabled', theme });
   } else if (isToday) {
-    color = 'inherit';
+    foreground = 'inherit';
   } else if (isPreviousMonth) {
-    color = getColorV8('neutralHue', 600, theme);
+    foreground = getColor({ variable: 'foreground.subtle', theme });
+  } else {
+    foreground = getColor({ variable: 'foreground.primary', theme });
   }
 
   return css`
     background-color: ${backgroundColor};
-    color: ${color};
+    color: ${foreground};
 
     ${!isSelected &&
     !isDisabled &&
-    `
+    css`
       :hover {
-        background-color: ${getColorV8('primaryHue', 600, theme, 0.08)};
-        color: ${getColorV8('primaryHue', 800, theme)};
+        background-color: ${backgroundHover};
+        color: ${foregroundHover};
       }
 
       :active {
-        background-color: ${getColorV8('primaryHue', 600, theme, 0.2)};
-        color: ${getColorV8('primaryHue', 800, theme)};
+        background-color: ${backgroundActive};
+        color: ${foregroundActive};
       }
-  `}
+    `}
   `;
 };
 
@@ -67,15 +89,13 @@ export const StyledDay = styled.div.attrs<IStyledDayProps>(props => ({
   position: absolute;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   cursor: ${props => (props.isDisabled ? 'inherit' : 'pointer')};
-  width: 100%;
-  height: 100%;
   font-size: ${props => (props.isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props =>
     props.isToday && !props.isDisabled ? props.theme.fontWeights.semibold : 'inherit'};
 
-  ${retrieveStyledDayColors}
+  ${sizeStyles}
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

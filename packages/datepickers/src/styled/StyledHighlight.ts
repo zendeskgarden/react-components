@@ -6,41 +6,52 @@
  */
 
 import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
-import { getColorV8, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.highlight';
 
-const retrieveBorderRadius = ({
+const sizeStyles = ({
   theme,
   isEnd,
   isStart
 }: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
-  const startValue = 'border-radius: 0 50% 50% 0;';
-  const endValue = 'border-radius: 50% 0 0 50%;';
+  let borderRadius;
+
+  const startValue = '0 50% 50% 0;';
+  const endValue = '50% 0 0 50%;';
 
   if (theme.rtl) {
     if (isStart) {
-      return startValue;
+      borderRadius = startValue;
     } else if (isEnd) {
-      return endValue;
+      borderRadius = endValue;
     }
   }
 
   if (isStart) {
-    return endValue;
+    borderRadius = endValue;
   } else if (isEnd) {
-    return startValue;
+    borderRadius = startValue;
   }
 
-  return '';
+  return css`
+    border-radius: ${borderRadius};
+    width: 100%;
+    height: 100%;
+  `;
 };
 
-const retrieveColor = ({
+const colorStyles = ({
   isHighlighted,
   theme
 }: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
   return css`
-    background-color: ${isHighlighted && getColorV8('primaryHue', 600, theme, 0.08)};
+    background-color: ${isHighlighted &&
+    getColor({
+      variable: 'background.primaryEmphasis',
+      transparency: theme.opacity[100],
+      theme
+    })};
   `;
 };
 
@@ -56,12 +67,9 @@ export const StyledHighlight = styled.div.attrs({
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
 
-  ${retrieveBorderRadius}
-
-  ${retrieveColor}
+  ${sizeStyles}
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
