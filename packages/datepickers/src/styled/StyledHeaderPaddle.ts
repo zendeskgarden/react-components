@@ -82,7 +82,7 @@ export const StyledHeaderPaddle = styled.div.attrs({
   border-radius: 50%;
   cursor: pointer;
 
-  ${/* sc-block */ sizeStyles}
+  ${sizeStyles}
   ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
