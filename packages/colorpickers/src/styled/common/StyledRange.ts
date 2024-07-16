@@ -8,10 +8,10 @@
 import { Range } from '@zendeskgarden/react-forms';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { math, stripUnit } from 'polished';
-import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 export interface IStyledRangeProps {
-  isOpaque?: boolean;
+  $isOpaque?: boolean;
 }
 
 const COMPONENT_ID = 'colorpickers.colorpicker_range';
@@ -60,24 +60,40 @@ const trackLowerStyles = (styles: string, modifier = '') => {
   `;
 };
 
-const colorStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
-  const thumbBackgroundColor = getColorV8('neutralHue', 100, props.theme);
+const colorStyles = ({ theme, $isOpaque }: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
+  const thumbBackgroundColor = getColor({ theme, variable: 'background.default' });
   const thumbBorderColor = thumbBackgroundColor;
-  const thumbActiveBackgroundColor = getColorV8('neutralHue', 200, props.theme);
-  const thumbActiveBorderColor = getColorV8('primaryHue', 600, props.theme);
-  const thumbFocusBorderColor = getColorV8('primaryHue', 400, props.theme);
-  const thumbHoverBackgroundColor = thumbActiveBackgroundColor;
+  const thumbActiveBackgroundColor = thumbBackgroundColor;
+  const thumbActiveBorderColor = getColor({
+    theme,
+    variable: 'border.primaryEmphasis'
+  });
+  const thumbFocusBorderColor = thumbActiveBorderColor;
+  const thumbHoverBackgroundColor = getColor({ theme, variable: 'background.subtle' });
   const thumbHoverBorderColor = thumbHoverBackgroundColor;
 
-  return `
-    border-color: ${props.isOpaque && getColorV8('background', 600 /* default shade */, props.theme)};
+  const thumbBoxShadow = theme.shadows.lg(
+    `${theme.space.base}px`,
+    `${theme.space.base * 2}px`,
+    getColor({
+      theme,
+      hue: 'neutralHue',
+      shade: 1200,
+      dark: { transparency: theme.opacity[1100] },
+      light: { transparency: theme.opacity[200] }
+    })
+  );
 
+  return `
+    /* border-color: ${$isOpaque && getColor({ theme, variable: 'background.default' })}; */
+    /* border-color: ${$isOpaque && 'hotpink'}; */
     ${trackStyles(`
       background-color: transparent;
     `)}
 
     ${thumbStyles(`
       border-color: ${thumbBorderColor};
+      box-shadow: ${thumbBoxShadow};
       background-color: ${thumbBackgroundColor};
     `)}
 
@@ -112,10 +128,10 @@ const colorStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
 };
 
 const getThumbSize = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
-  props.theme.space.base * (props.isOpaque ? 6 : 4);
+  props.theme.space.base * (props.$isOpaque ? 6 : 4);
 
 export const getTrackHeight = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
-  props.theme.space.base * (props.isOpaque ? 6 : 3);
+  props.theme.space.base * (props.$isOpaque ? 6 : 3);
 
 export const getTrackMargin = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
   (getThumbSize(props) - getTrackHeight(props)) / 2 +
@@ -130,26 +146,15 @@ const sizeStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
   const trackHeight = getTrackHeight(props);
   const trackMargin = getTrackMargin(props);
   const thumbMargin = (trackHeight - thumbSize) / 2;
-  const trackOffset = props.theme.space.base * (props.isOpaque ? -2 : -1);
-  const height = props.isOpaque ? trackHeight : trackMargin * 2 + trackHeight;
-  let marginHorizontal;
-  let border;
-  let borderRadius;
-
-  if (props.isOpaque) {
-    marginHorizontal = `-${trackMargin}px`;
-    border = `${trackMargin}px ${props.theme.borderStyles.solid}`;
-    borderRadius = `${trackMargin + (stripUnit(props.theme.shadowWidths.md) as number)}px`;
-  }
+  const trackOffset = props.theme.space.base * (props.$isOpaque ? -2 : -1);
+  const height = props.$isOpaque ? trackHeight : trackMargin * 2 + trackHeight;
 
   return `
     /* stylelint-disable-next-line declaration-no-important */
     margin-top: 0 !important;
-    margin-${props.theme.rtl ? 'right' : 'left'}: ${marginHorizontal};
     height: ${height}px; /* [1] */
     box-sizing: content-box; /* [2] */
-    border: ${border};
-    border-radius: ${borderRadius};
+    border-radius: ${props.$isOpaque && props.theme.borderRadii.md};
 
     ${trackStyles(`
       margin: ${trackMargin}px ${trackOffset}px;
