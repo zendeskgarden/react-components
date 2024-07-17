@@ -60,7 +60,7 @@ const trackLowerStyles = (styles: string, modifier = '') => {
   `;
 };
 
-const colorStyles = ({ theme, $isOpaque }: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const thumbBackgroundColor = getColor({ theme, variable: 'background.default' });
   const thumbBorderColor = thumbBackgroundColor;
   const thumbActiveBackgroundColor = thumbBackgroundColor;
@@ -85,8 +85,6 @@ const colorStyles = ({ theme, $isOpaque }: IStyledRangeProps & ThemeProps<Defaul
   );
 
   return `
-    /* border-color: ${$isOpaque && getColor({ theme, variable: 'background.default' })}; */
-    /* border-color: ${$isOpaque && 'hotpink'}; */
     ${trackStyles(`
       background-color: transparent;
     `)}
@@ -174,7 +172,7 @@ export const StyledRange = styled(Range as unknown as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   hasLowerTrack: false
-})`
+})<IStyledRangeProps>`
   ${sizeStyles};
 
   ${trackStyles(`
