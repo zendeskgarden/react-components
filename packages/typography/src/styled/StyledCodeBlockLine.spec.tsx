@@ -7,13 +7,13 @@
 
 import React from 'react';
 import { rgba } from 'polished';
-import { render, renderRtl } from 'garden-test-utils';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { render, renderDark, renderRtl } from 'garden-test-utils';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { StyledCodeBlockLine } from './StyledCodeBlockLine';
 
 describe('StyledCodeBlockLine', () => {
   it('renders the expected element', () => {
-    const { container } = render(<StyledCodeBlockLine />);
+    const { container } = renderDark(<StyledCodeBlockLine />);
 
     expect(container.firstChild!.nodeName).toBe('CODE');
   });
@@ -26,21 +26,27 @@ describe('StyledCodeBlockLine', () => {
 
   describe('highlights', () => {
     it('renders highlight as expected', () => {
-      const { container } = render(<StyledCodeBlockLine isHighlighted />);
+      const { container } = renderDark(<StyledCodeBlockLine isHighlighted />);
 
-      expect(container.firstChild).toHaveStyleRule('background-color', rgba(PALETTE_V8.white, 0.1));
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        rgba(PALETTE.white, DEFAULT_THEME.opacity[100])
+      );
     });
 
     it('renders as expected in light mode', () => {
-      const { container } = render(<StyledCodeBlockLine isHighlighted isLight />);
+      const { container } = render(<StyledCodeBlockLine isHighlighted />);
 
-      expect(container.firstChild).toHaveStyleRule('background-color', rgba(PALETTE_V8.black, 0.1));
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        rgba(PALETTE.black, DEFAULT_THEME.opacity[100])
+      );
     });
   });
 
   describe('line numbers', () => {
     it('renders line numbers as expected', () => {
-      const { container } = render(<StyledCodeBlockLine isNumbered />);
+      const { container } = renderDark(<StyledCodeBlockLine isNumbered />);
 
       expect(container.firstChild).toHaveStyleRule('display', 'table-cell', {
         modifier: '&::before'
@@ -48,9 +54,9 @@ describe('StyledCodeBlockLine', () => {
     });
 
     it('renders as expected in light mode', () => {
-      const { container } = render(<StyledCodeBlockLine isLight isNumbered />);
+      const { container } = render(<StyledCodeBlockLine isNumbered />);
 
-      expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[600], {
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700], {
         modifier: '&::before'
       });
     });
@@ -82,7 +88,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE_V8.lime[400], 0.2)
+        rgba(PALETTE.lime[500], DEFAULT_THEME.opacity[200])
       );
     });
 
@@ -91,7 +97,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE_V8.crimson[400], 0.2)
+        rgba(PALETTE.crimson[700], DEFAULT_THEME.opacity[200])
       );
     });
 
@@ -100,7 +106,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE_V8.lemon[400], 0.2)
+        rgba(PALETTE.lemon[300], DEFAULT_THEME.opacity[200])
       );
     });
 
@@ -109,7 +115,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE_V8.royal[400], 0.2)
+        rgba(PALETTE.royal[600], DEFAULT_THEME.opacity[200])
       );
     });
   });

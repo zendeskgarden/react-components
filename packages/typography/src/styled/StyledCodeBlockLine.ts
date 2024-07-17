@@ -18,7 +18,7 @@ export interface IStyledCodeBlockLineProps {
   isHighlighted?: boolean;
   isNumbered?: boolean;
   diff?: Diff;
-  size: Size;
+  size?: Size;
 }
 
 const colorStyles = ({
@@ -93,7 +93,7 @@ export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
   isMonospace: true
 })<IStyledCodeBlockLineProps>`
   display: table-row;
-  height: ${props => props.theme.lineHeights[THEME_SIZES[props.size]]}; /* [1] */
+  height: ${props => props.theme.lineHeights[THEME_SIZES[props.size!]]}; /* [1] */
   direction: ltr;
 
   ${colorStyles};
