@@ -13,6 +13,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.18 (2024-07-18)
+
+#### :rocket: New Feature
+* `avatars`
+  * [#1852](https://github.com/zendeskgarden/react-components/pull/1852) feat(avatars): adds light/dark mode colors ([@geotrev](https://github.com/geotrev))
+* `accordions`
+  * [#1850](https://github.com/zendeskgarden/react-components/pull/1850) feat(accordions): new light/dark mode colors  ([@ze-flo](https://github.com/ze-flo))
+
+#### :seedling: Internal
+* [#1865](https://github.com/zendeskgarden/react-components/pull/1865) chore: sync `next` with `main` ([@geotrev](https://github.com/geotrev))
+* [#1858](https://github.com/zendeskgarden/react-components/pull/1858) chore: sync `next` with `main` ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.0.0-next.17 (2024-07-11)
 
 #### :rocket: New Feature
