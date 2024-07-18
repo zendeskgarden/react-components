@@ -7,7 +7,7 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { fireEvent, render } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
@@ -45,7 +45,7 @@ describe('Combobox', () => {
 
     await user.hover(label);
 
-    expect(combobox).toHaveStyleRule('border-color', PALETTE_V8.blue[600], { modifier: ':hover' });
+    expect(combobox).toHaveStyleRule('border-color', PALETTE.blue[700], { modifier: ':hover' });
   });
 
   it('focuses input on label click', async () => {

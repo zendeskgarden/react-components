@@ -6,9 +6,8 @@
  */
 
 import React from 'react';
-import { rgba } from 'polished';
 import { render } from 'garden-test-utils';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledItem } from './StyledItem';
 
 describe('StyledItem', () => {
@@ -21,21 +20,12 @@ describe('StyledItem', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledItem />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.grey[800]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[900]);
   });
 
   it('renders danger styling if provided', () => {
     const { container } = render(<StyledItem isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE_V8.red[600]);
-  });
-
-  it('render danger focus styling if provided', () => {
-    const { container } = render(<StyledItem isDanger isFocused />);
-
-    expect(container.firstChild).toHaveStyleRule(
-      'background-color',
-      rgba(PALETTE_V8.red[600], 0.08)
-    );
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);
   });
 });
