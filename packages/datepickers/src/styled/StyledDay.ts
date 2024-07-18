@@ -11,9 +11,9 @@ import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden
 interface IStyledDayProps extends ThemeProps<DefaultTheme> {
   $isPreviousMonth?: boolean;
   $isToday?: boolean;
-  $isDisabled?: boolean;
-  $isSelected?: boolean;
   $isCompact: boolean;
+  'aria-selected'?: boolean;
+  'aria-disabled'?: boolean;
 }
 
 const sizeStyles = () => {
@@ -24,13 +24,10 @@ const sizeStyles = () => {
   `;
 };
 
-const colorStyles = ({
-  $isSelected,
-  $isDisabled,
-  $isToday,
-  $isPreviousMonth,
-  theme
-}: IStyledDayProps) => {
+const colorStyles = ({ $isToday, $isPreviousMonth, theme, ...props }: IStyledDayProps) => {
+  const isSelected = props['aria-selected'];
+  const isDisabled = props['aria-disabled'];
+
   let backgroundColor = 'inherit';
   let foreground;
   const backgroundHover = getColor({
@@ -56,10 +53,10 @@ const colorStyles = ({
     theme
   });
 
-  if ($isSelected && !$isDisabled) {
+  if (isSelected && !isDisabled) {
     backgroundColor = getColor({ variable: 'background.primaryEmphasis', theme });
     foreground = getColor({ variable: 'foreground.onEmphasis', theme });
-  } else if ($isDisabled) {
+  } else if (isDisabled) {
     foreground = getColor({ variable: 'foreground.disabled', theme });
   } else if ($isToday) {
     foreground = 'inherit';
@@ -73,36 +70,32 @@ const colorStyles = ({
     background-color: ${backgroundColor};
     color: ${foreground};
 
-    ${!$isSelected &&
-    !$isDisabled &&
-    css`
-      :hover {
-        background-color: ${backgroundHover};
-        color: ${foregroundHover};
-      }
+    &:not([aria-disabled]):not([aria-selected]):hover {
+      background-color: ${backgroundHover};
+      color: ${foregroundHover};
+    }
 
-      :active {
-        background-color: ${backgroundActive};
-        color: ${foregroundActive};
-      }
-    `}
+    &:not([aria-disabled]):not([aria-selected]):active {
+      background-color: ${backgroundActive};
+      color: ${foregroundActive};
+    }
   `;
 };
 
 const COMPONENT_ID = 'datepickers.day';
 
-export const StyledDay = styled.div.attrs<IStyledDayProps>(props => ({
+export const StyledDay = styled.div.attrs<IStyledDayProps>({
   'data-garden-id': COMPONENT_ID,
-  'aria-disabled': props.$isDisabled ? 'true' : 'false'
-}))<IStyledDayProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledDayProps>`
   display: flex;
   position: absolute;
   align-items: center;
   justify-content: center;
-  cursor: ${props => (props.$isDisabled ? 'inherit' : 'pointer')};
+  cursor: ${props => (props['aria-disabled'] ? 'inherit' : 'pointer')};
   font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props =>
-    props.$isToday && !props.$isDisabled ? props.theme.fontWeights.semibold : 'inherit'};
+    props.$isToday && !props['aria-disabled'] ? props.theme.fontWeights.semibold : 'inherit'};
 
   ${sizeStyles}
   ${colorStyles}

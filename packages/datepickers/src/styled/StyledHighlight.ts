@@ -62,7 +62,8 @@ interface IStyledHighlightProps {
 }
 
 export const StyledHighlight = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
 })<IStyledHighlightProps>`
   position: absolute;
   top: 0;

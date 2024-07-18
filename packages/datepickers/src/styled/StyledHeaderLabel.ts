@@ -11,7 +11,8 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'datepickers.header_label';
 
 export const StyledHeaderLabel = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
 })<{ $isCompact: boolean }>`
   display: flex;
   flex-grow: 1;

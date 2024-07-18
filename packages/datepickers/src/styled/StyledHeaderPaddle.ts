@@ -8,20 +8,22 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-const sizeStyles = ({ $isCompact, theme }: { $isCompact?: boolean } & ThemeProps<DefaultTheme>) => {
-  let size = theme.space.base * 10;
+interface IStyledHeaderPaddleProps {
+  $isCompact: boolean;
+  'aria-hidden'?: boolean;
+}
 
-  if ($isCompact) {
-    size = theme.space.base * 8;
-  }
+const sizeStyles = ({ $isCompact, theme }: { $isCompact?: boolean } & ThemeProps<DefaultTheme>) => {
+  const iconSize = theme.iconSizes.md;
+  const size = theme.space.base * ($isCompact ? 8 : 10);
 
   return css`
     width: ${size}px;
     height: ${size}px;
 
     svg {
-      width: ${props => `${props.theme.iconSizes.md}`};
-      height: ${props => `${props.theme.iconSizes.md}`};
+      width: ${iconSize};
+      height: ${iconSize};
     }
   `;
 };
@@ -69,18 +71,19 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 const COMPONENT_ID = 'datepickers.header_paddle';
 
 export const StyledHeaderPaddle = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
-})<{
-  $isCompact: boolean;
-  $isHidden?: boolean;
-}>`
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledHeaderPaddleProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
-  visibility: ${props => props.$isHidden && 'hidden'};
   border-radius: 50%;
   cursor: pointer;
+
+  &[aria-hidden] {
+    visibility: hidden;
+  }
 
   ${sizeStyles}
   ${colorStyles}

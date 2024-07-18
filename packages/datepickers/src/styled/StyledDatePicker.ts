@@ -15,26 +15,25 @@ interface IStyledDatePickerProps {
 }
 
 const sizeStyles = ({ $isCompact, theme }: IStyledDatePickerProps & ThemeProps<DefaultTheme>) => {
-  let value = theme.space.base * 5;
-
-  if ($isCompact) {
-    value = theme.space.base * 4;
-  }
+  const margin = theme.space.base * ($isCompact ? 4 : 5);
 
   return css`
-    margin: ${value}px;
+    margin: ${margin}px;
   `;
 };
 
 const colorStyles = ({ theme }: IStyledDatePickerProps & ThemeProps<DefaultTheme>) => {
+  const foreground = getColor({ variable: 'foreground.default', theme });
+
   return css`
     background-color: transparent;
-    color: ${getColor({ variable: 'foreground.default', theme })};
+    color: ${foreground};
   `;
 };
 
 export const StyledDatePicker = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
 })<IStyledDatePickerProps>`
   direction: ${p => p.theme.rtl && 'rtl'};
 

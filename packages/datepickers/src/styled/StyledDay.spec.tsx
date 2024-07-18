@@ -36,9 +36,9 @@ describe('StyledDay', () => {
   it.each<{ mode: 'light' | 'dark'; color: string }>([
     { mode: 'light', color: PALETTE.grey[600] },
     { mode: 'dark', color: PALETTE.grey[700] }
-  ])('uses correct $mode mode foreground color given $isDisabled', ({ mode, color }) => {
+  ])('uses correct $mode mode foreground color when disabled', ({ mode, color }) => {
     const { container } = getRenderFn(mode)(
-      <StyledDay $isCompact={false} $isDisabled>
+      <StyledDay $isCompact={false} aria-disabled>
         3
       </StyledDay>
     );
@@ -49,9 +49,9 @@ describe('StyledDay', () => {
   it.each<{ mode: 'light' | 'dark'; color: string }>([
     { mode: 'light', color: PALETTE.white },
     { mode: 'dark', color: PALETTE.grey[1100] }
-  ])('uses correct $mode mode foreground color given $isSelected', ({ mode, color }) => {
+  ])('uses correct $mode mode foreground color when selected', ({ mode, color }) => {
     const { container } = getRenderFn(mode)(
-      <StyledDay $isCompact={false} $isSelected>
+      <StyledDay $isCompact={false} aria-selected>
         3
       </StyledDay>
     );
@@ -70,9 +70,9 @@ describe('StyledDay', () => {
   it.each<{ mode: 'light' | 'dark'; color: string }>([
     { mode: 'light', color: PALETTE.blue[700] },
     { mode: 'dark', color: PALETTE.blue[600] }
-  ])('uses correct $mode mode background given $isSelected', ({ mode, color }) => {
+  ])('uses correct $mode mode background when selected', ({ mode, color }) => {
     const { container } = getRenderFn(mode)(
-      <StyledDay $isCompact={false} $isSelected>
+      <StyledDay $isCompact={false} aria-selected>
         3
       </StyledDay>
     );

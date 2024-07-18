@@ -125,7 +125,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             <StyledDay
               $isCompact={isCompact!}
               $isPreviousMonth
-              $isDisabled
+              aria-disabled
               data-test-id="day"
               data-test-hidden="true"
             >
@@ -215,8 +215,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           <StyledDay
             $isToday={isCurrentDate}
             $isPreviousMonth={isPreviousMonth}
-            $isSelected={!isInvalidDateRange && isSelected}
-            $isDisabled={isDisabled}
+            aria-selected={(!isInvalidDateRange && isSelected) || undefined}
+            aria-disabled={isDisabled || undefined}
             $isCompact={isCompact!}
             onClick={() => {
               if (!isDisabled) {
@@ -291,7 +291,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
                 type: 'PREVIEW_PREVIOUS_MONTH'
               });
             }}
-            $isHidden={isPreviousHidden}
+            aria-hidden={isPreviousHidden || undefined}
             data-test-id="previous-month"
           >
             <ChevronLeftStrokeIcon />
@@ -301,7 +301,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           </StyledHeaderLabel>
           <StyledHeaderPaddle
             $isCompact={isCompact!}
-            $isHidden={isNextHidden}
+            aria-hidden={isNextHidden || undefined}
             onClick={() => {
               dispatch({
                 type: 'PREVIEW_NEXT_MONTH'

@@ -11,7 +11,8 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'datepickers.header';
 
 export const StyledHeader = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
 })<{ $isCompact: boolean }>`
   display: flex;
   width: ${props =>

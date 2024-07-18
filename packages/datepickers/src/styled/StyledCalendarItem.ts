@@ -33,7 +33,8 @@ interface IStyledCalendarItemProps {
 }
 
 export const StyledCalendarItem = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
 })<IStyledCalendarItemProps>`
   display: inline-block;
   position: relative;

@@ -98,9 +98,9 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           <StyledDay
             $isToday={isCurrentDate}
             $isPreviousMonth={isPreviousMonth}
-            $isSelected={isSelected}
-            $isDisabled={isDisabled}
             $isCompact={isCompact!}
+            aria-selected={isSelected || undefined}
+            aria-disabled={isDisabled || undefined}
             onClick={() => {
               if (!isDisabled) {
                 dispatch({ type: 'SELECT_DATE', value: date });

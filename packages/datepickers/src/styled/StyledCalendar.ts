@@ -15,7 +15,8 @@ interface IStyledCalendarProps {
 }
 
 export const StyledCalendar = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
 })<IStyledCalendarProps>`
   width: ${props =>
     props.$isCompact ? props.theme.space.base * 56 : props.theme.space.base * 70}px;
