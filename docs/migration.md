@@ -222,6 +222,12 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-typography
 
+- `CodeBlock`: The `language` set has been reduced from 32 to 12, for a
+  significant decrease in bundle size. If you encounter any essential languages
+  that are missing, please [create an
+  issue](https://github.com/zendeskgarden/react-components/issues). Garden will
+  evaluate incorporating any business-critical
+  [languages](https://prismjs.com/#supported-languages).
 - The following React component types have changed:
   - `Span.Icon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
   - `Span.StartIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
