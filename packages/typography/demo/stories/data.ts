@@ -10,24 +10,6 @@ import { IListItem } from './types';
 export const BLOCKQUOTE_CHILDREN = ['Blockquote one', 'Blockquote two', 'Blockquote three'];
 
 export const CODE_BLOCK_CHILDREN = {
-  bash: `
-#!/bin/sh
-
-# Exports.
-
-export ZSH="$HOME/.oh-my-zsh"
-
-# Aliases.
-
-alias ..="cd .."
-
-# Tools.
-
-if [ -f $(brew --prefix nvm)/nvm.sh ]; then
-    mkdir -p $HOME/.nvm
-    export NVM_DIR="$HOME/.nvm"
-    source $(brew --prefix nvm)/nvm.sh
-fi`,
   css: `
 button,
 .button,
@@ -94,6 +76,14 @@ button,
 +important new additions
 +to this document.
 `,
+  graphql: `query HeroNameAndFriends($episode: Episode) {
+  hero(episode: $episode) {
+    name
+    friends {
+      name
+    }
+  }
+}`,
   javascript: `
 Prism.languages.markup = {
   comment: /<!--[\\s\\S]*?-->/,
@@ -177,6 +167,13 @@ Prism.languages.markup = {
       "updated_at": "2018-01-01T10:20:30Z"
     }
   ]
+}`,
+  jsx: `function getGreeting(user) {
+  if (user) {
+    return <h1>Hello, {formatName(user)}</h1>;
+  }
+
+  return <h1>Hello, stranger</h1>;
 }`,
   markdown: `
 # Title 1
