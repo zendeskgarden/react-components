@@ -12,7 +12,7 @@ import {
   DEFAULT_THEME,
   getCheckeredBackground
 } from '@zendeskgarden/react-theming';
-import { IRGBColorProps } from '../../types';
+import { IRGBColorProps } from '../types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_preview_box';
 
