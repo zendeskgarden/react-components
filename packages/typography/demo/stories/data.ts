@@ -12,11 +12,17 @@ export const BLOCKQUOTE_CHILDREN = ['Blockquote one', 'Blockquote two', 'Blockqu
 export const CODE_BLOCK_CHILDREN = {
   bash: `
 #!/bin/sh
+
 # Exports.
+
 export ZSH="$HOME/.oh-my-zsh"
+
 # Aliases.
+
 alias ..="cd .."
+
 # Tools.
+
 if [ -f $(brew --prefix nvm)/nvm.sh ]; then
     mkdir -p $HOME/.nvm
     export NVM_DIR="$HOME/.nvm"
