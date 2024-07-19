@@ -79,9 +79,9 @@ const sizeStyles = ({
   if (hasArrow) {
     if (size === 'small' || size === 'medium') {
       arrowSize = margin;
-      arrowInset = type === 'dark' ? '1px' : '0';
+      arrowInset = type === 'dark' ? '0px' : '1px';
     } else {
-      arrowInset = type === 'dark' ? '2px' : '1px';
+      arrowInset = type === 'dark' ? '0px' : '1px';
 
       if (size === 'large') {
         margin = `${theme.space.base * 2}px`;
