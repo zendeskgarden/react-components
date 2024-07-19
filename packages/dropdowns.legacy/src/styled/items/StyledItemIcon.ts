@@ -38,7 +38,9 @@ export const StyledItemIcon = styled.div.attrs({
   transition: opacity 0.1s ease-in-out;
   opacity: ${props => (props.isVisible ? '1' : '0')};
   color: ${props =>
-    props.isDisabled ? 'inherit' : getColor({ theme: props.theme, variable: 'foreground.subtle' })};
+    props.isDisabled
+      ? 'inherit'
+      : getColor({ theme: props.theme, variable: 'foreground.primary' })};
 
   ${props => getSizeStyles(props)};
 
