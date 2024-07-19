@@ -26,6 +26,7 @@ export const TYPE_UNORDERED_LIST = ['circle', 'disc', 'square'] as const;
 
 /* until https://github.com/FormidableLabs/prism-react-renderer/pull/127 is available */
 export const LANGUAGES = [
+  'bash',
   'css',
   'diff',
   'graphql',

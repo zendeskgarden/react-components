@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Highlight, Language, Prism } from 'prism-react-renderer';
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
 import { ThemeProvider, useWindow } from '@zendeskgarden/react-theming';
@@ -54,16 +54,22 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
       if (win && !isPrismImported) {
         (win as any).Prism = Prism;
 
-        await Promise.all([
-          import('prismjs/components/prism-diff' as any),
-          import('prismjs/components/prism-json' as any)
-        ]);
-
-        setIsPrismImported(true);
+        try {
+          await import('prismjs/components/prism-bash' as any);
+          await import('prismjs/components/prism-diff' as any);
+          await import('prismjs/components/prism-json' as any);
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.error(error);
+        } finally {
+          // Allows code block to render, whether or not the language can be
+          // successfully tokenized and highlighted
+          setIsPrismImported(true);
+        }
       }
     }, [win, isPrismImported]);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
       // Import languages missing from the vendored `Prism` using a variant of
       // https://github.com/FormidableLabs/prism-react-renderer?tab=readme-ov-file#custom-language-support
       // that is compatible with both React and Jest

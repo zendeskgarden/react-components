@@ -222,7 +222,7 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-typography
 
-- `CodeBlock`: The `language` set has been reduced from 32 to 12, for a
+- `CodeBlock`: The `language` set has been reduced from 32 to 13, for a
   significant decrease in bundle size. If you encounter any essential languages
   that are missing, please [create an
   issue](https://github.com/zendeskgarden/react-components/issues). Garden will
