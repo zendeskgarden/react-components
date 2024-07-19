@@ -61,7 +61,11 @@ const trackLowerStyles = (styles: string, modifier = '') => {
 };
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const thumbBackgroundColor = getColor({ theme, variable: 'background.default' });
+  const thumbBackgroundColor = getColor({
+    theme,
+    variable: 'background.raised',
+    dark: { offset: -100 }
+  });
   const thumbBorderColor = thumbBackgroundColor;
   const thumbActiveBackgroundColor = thumbBackgroundColor;
   const thumbActiveBorderColor = getColor({
