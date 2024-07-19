@@ -28,7 +28,7 @@ to install.
 | [`@zendeskgarden/react-chrome`](packages/chrome)                     | [![npm version][chrome npm version]][chrome npm link]                     | [![Bundle Size][chrome size bundle]][chrome size link]                     |
 | [`@zendeskgarden/react-colorpickers`](packages/colorpickers)         | [![npm version][colorpickers npm version]][colorpickers npm link]         | [![Bundle Size][colorpickers size bundle]][colorpickers size link]         |
 | [`@zendeskgarden/react-datepickers`](packages/datepickers)           | [![npm version][datepickers npm version]][datepickers npm link]           | [![Bundle Size][datepickers size bundle]][datepickers size link]           |
-| [`@zendeskgarden/react-drag-drop`](packages/drag-drop)               | [![npm version][drag-drop npm version]][drag-drop npm link]               | [![Bundle Size][drag-drop size bundle]][drag-drop size link]               |
+| [`@zendeskgarden/react-draggable`](packages/draggable)               | [![npm version][draggable npm version]][draggable npm link]               | [![Bundle Size][draggable size bundle]][draggable size link]               |
 | [`@zendeskgarden/react-dropdowns.legacy`](packages/dropdowns.legacy) | [![npm version][dropdowns.legacy npm version]][dropdowns.legacy npm link] | [![Bundle Size][dropdowns.legacy size bundle]][dropdowns.legacy size link] |
 | [`@zendeskgarden/react-dropdowns`](packages/dropdowns)               | [![npm version][dropdowns npm version]][dropdowns npm link]               | [![Bundle Size][dropdowns size bundle]][dropdowns size link]               |
 | [`@zendeskgarden/react-forms`](packages/forms)                       | [![npm version][forms npm version]][forms npm link]                       | [![Bundle Size][forms size bundle]][forms size link]                       |
@@ -72,10 +72,10 @@ to install.
 [datepickers npm link]: https://www.npmjs.com/package/@zendeskgarden/react-datepickers
 [datepickers size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-datepickers
 [datepickers size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-datepickers
-[drag-drop npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-drag-drop
-[drag-drop npm link]: https://www.npmjs.com/package/@zendeskgarden/react-drag-drop
-[drag-drop size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-drag-drop
-[drag-drop size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-drag-drop
+[draggable npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-draggable
+[draggable npm link]: https://www.npmjs.com/package/@zendeskgarden/react-draggable
+[draggable size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-draggable
+[draggable size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-draggable
 [dropdowns.legacy npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns.legacy
 [dropdowns.legacy npm link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns.legacy
 [dropdowns.legacy size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-dropdowns.legacy

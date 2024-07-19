@@ -15,7 +15,7 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
-import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-drag-drop';
+import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-draggable';
 
 import { animateLayoutChanges } from './utils';
 import type { IDraggableItemProps, IDropIndicatorProps, ISortableColumnProps } from './types';

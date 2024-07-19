@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Dropzone, IDropzoneProps } from '@zendeskgarden/react-drag-drop';
+import { Dropzone, IDropzoneProps } from '@zendeskgarden/react-draggable';
 import ReplaceIcon from '@zendeskgarden/svg-icons/src/16/arrow-retweet-stroke.svg';
 
 interface IArgs extends IDropzoneProps {
