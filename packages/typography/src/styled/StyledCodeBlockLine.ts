@@ -29,19 +29,25 @@ const colorStyles = ({
   let backgroundColor;
 
   if (diff) {
-    const options = {
-      hunk: { hue: 'royal', shade: 600 },
-      add: { hue: 'lime', shade: 500 },
-      delete: { hue: 'crimson', shade: 700 },
-      change: { hue: 'lemon', shade: 300 }
-    }[diff];
+    const hues = {
+      hunk: 'royal',
+      add: 'lime',
+      delete: 'crimson',
+      change: 'lemon'
+    };
 
-    backgroundColor = getColor({ theme, ...options, transparency: theme.opacity[200] });
+    backgroundColor = getColor({
+      theme,
+      hue: hues[diff],
+      dark: { shade: 600 },
+      light: { shade: 400 },
+      transparency: theme.opacity[300]
+    });
   } else if (isHighlighted) {
     backgroundColor = getColor({
       theme,
       dark: { hue: 'white' },
-      light: { hue: 'black' },
+      light: { hue: 'neutralHue', shade: 700 },
       transparency: theme.opacity[100]
     });
   }
@@ -56,7 +62,7 @@ const lineNumberStyles = ({
   language,
   size
 }: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
-  const color = getColor({ theme, variable: 'foreground.subtle' });
+  const color = getColor({ theme, variable: 'foreground.subtle', light: { offset: -100 } });
   let padding;
 
   if (language && language === 'diff') {
