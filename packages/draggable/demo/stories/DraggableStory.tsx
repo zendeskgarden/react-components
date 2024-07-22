@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Draggable, IDraggableProps } from '@zendeskgarden/react-drag-drop';
+import { Draggable, IDraggableProps } from '@zendeskgarden/react-draggable';
 
 interface IArgs extends IDraggableProps {
   hasGrip?: boolean;

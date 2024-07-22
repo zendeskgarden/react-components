@@ -7,7 +7,7 @@
 
 import React, { Fragment } from 'react';
 import { Story } from '@storybook/react';
-import { Draggable, IDraggableListProps, DraggableList } from '@zendeskgarden/react-drag-drop';
+import { Draggable, IDraggableListProps, DraggableList } from '@zendeskgarden/react-draggable';
 
 interface IArgs extends IDraggableListProps {
   items: string[];

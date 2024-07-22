@@ -1,5 +1,5 @@
 {
-  "name": "@zendeskgarden/react-drag-drop",
+  "name": "@zendeskgarden/react-draggable",
   "version": "9.0.0-next.18",
   "description": "Components related to drag and drop in the Garden Design System",
   "license": "Apache-2.0",

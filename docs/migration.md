@@ -99,6 +99,10 @@ consider additional positioning prop support on a case-by-case basis.
   - removed `popperModifiers` prop (see [note](#breaking-changes))
 - `DatepickerRange`: renamed to `DatePickerRange`
 
+#### @zendeskgarden/react-draggable
+
+- Use this package if you were using `@zendeskgarden/react-drag-drop` in `v8`
+
 #### @zendeskgarden/react-dropdowns
 
 - Use this package if you were using `@zendeskgarden/react-dropdowns.next` in `v8`

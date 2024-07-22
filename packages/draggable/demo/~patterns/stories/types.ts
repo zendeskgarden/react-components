@@ -6,7 +6,7 @@
  */
 
 import { UniqueIdentifier } from '@dnd-kit/core';
-import { IDraggableProps } from '@zendeskgarden/react-drag-drop';
+import { IDraggableProps } from '@zendeskgarden/react-draggable';
 import { LiHTMLAttributes } from 'react';
 
 export interface IPresentationalDraggableItem {
