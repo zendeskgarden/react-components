@@ -35,23 +35,27 @@ const colorStyles = ({ $isToday, $isPreviousMonth, theme, ...props }: IStyledDay
     theme,
     transparency: theme.opacity[100]
   });
-  const foregroundHover = getColor({
-    variable: 'foreground.primary',
-    light: { offset: 100 },
-    dark: { offset: -100 },
-    theme
-  });
+  const foregroundHover =
+    !$isToday &&
+    getColor({
+      variable: 'foreground.primary',
+      light: { offset: 100 },
+      dark: { offset: -100 },
+      theme
+    });
   const backgroundActive = getColor({
     variable: 'background.primaryEmphasis',
     theme,
     transparency: theme.opacity[200]
   });
-  const foregroundActive = getColor({
-    variable: 'foreground.primary',
-    light: { offset: 200 },
-    dark: { offset: -200 },
-    theme
-  });
+  const foregroundActive =
+    !$isToday &&
+    getColor({
+      variable: 'foreground.primary',
+      light: { offset: 200 },
+      dark: { offset: -200 },
+      theme
+    });
 
   if (isSelected && !isDisabled) {
     backgroundColor = getColor({ variable: 'background.primaryEmphasis', theme });
