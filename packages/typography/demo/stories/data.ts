@@ -94,6 +94,14 @@ button,
 +important new additions
 +to this document.
 `,
+  graphql: `query HeroNameAndFriends($episode: Episode) {
+  hero(episode: $episode) {
+    name
+    friends {
+      name
+    }
+  }
+}`,
   javascript: `
 Prism.languages.markup = {
   comment: /<!--[\\s\\S]*?-->/,
@@ -177,6 +185,13 @@ Prism.languages.markup = {
       "updated_at": "2018-01-01T10:20:30Z"
     }
   ]
+}`,
+  jsx: `function getGreeting(user) {
+  if (user) {
+    return <h1>Hello, {formatName(user)}</h1>;
+  }
+
+  return <h1>Hello, stranger</h1>;
 }`,
   markdown: `
 # Title 1
@@ -431,7 +446,20 @@ export const execute = async (args: IGitHubPagesArgs): Promise<string | undefine
   }
 
   return retVal;
-};`
+};`,
+  yaml: `name: PR
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, synchronize]
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mheap/github-action-required-labels@v5
+        with:
+          mode: exactly
+          count: 1 # Require exactly 1 label
+          labels: 'PR: Breaking Change :boom:, PR: Bug Fix :bug:, PR: Docs :memo:, PR: Internal :seedling:, PR: New Feature :rocket:'`
 };
 
 export const LIST_ITEMS: IListItem[] = [
