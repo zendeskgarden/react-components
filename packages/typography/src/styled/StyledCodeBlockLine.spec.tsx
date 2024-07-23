@@ -39,7 +39,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.black, DEFAULT_THEME.opacity[100])
+        rgba(PALETTE.grey[700], DEFAULT_THEME.opacity[100])
       );
     });
   });
@@ -56,7 +56,7 @@ describe('StyledCodeBlockLine', () => {
     it('renders as expected in light mode', () => {
       const { container } = render(<StyledCodeBlockLine isNumbered />);
 
-      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700], {
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[600], {
         modifier: '&::before'
       });
     });
@@ -88,7 +88,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.lime[500], DEFAULT_THEME.opacity[200])
+        rgba(PALETTE.lime[400], DEFAULT_THEME.opacity[300])
       );
     });
 
@@ -97,7 +97,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.crimson[700], DEFAULT_THEME.opacity[200])
+        rgba(PALETTE.crimson[400], DEFAULT_THEME.opacity[300])
       );
     });
 
@@ -106,7 +106,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.lemon[300], DEFAULT_THEME.opacity[200])
+        rgba(PALETTE.lemon[400], DEFAULT_THEME.opacity[300])
       );
     });
 
@@ -115,7 +115,7 @@ describe('StyledCodeBlockLine', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.royal[600], DEFAULT_THEME.opacity[200])
+        rgba(PALETTE.royal[400], DEFAULT_THEME.opacity[300])
       );
     });
   });

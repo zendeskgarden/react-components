@@ -34,19 +34,15 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       dark: { hue: 'blue', shade: 600 },
       light: { hue: 'azure', shade: 700 }
     }),
-    coord: getColor({
-      theme,
-      dark: { hue: 'blue', shade: 300 },
-      light: { hue: 'purple', shade: 800 }
-    }),
-    deleted: getColor({ theme, hue: 'red', dark: { shade: 300 }, light: { shade: 800 } }),
-    diff: getColor({ theme, hue: 'yellow', dark: { shade: 100 }, light: { shade: 800 } }),
+    coord: getColor({ theme, hue: 'blue', dark: { shade: 200 }, light: { shade: 800 } }),
+    deleted: getColor({ theme, hue: 'red', dark: { shade: 200 }, light: { shade: 800 } }),
+    diff: getColor({ theme, hue: 'yellow', dark: { shade: 200 }, light: { shade: 800 } }),
     function: getColor({
       theme,
       dark: { hue: 'yellow', shade: 300 },
       light: { hue: 'orange', shade: 700 }
     }),
-    inserted: getColor({ theme, hue: 'green', dark: { shade: 300 }, light: { shade: 800 } }),
+    inserted: getColor({ theme, hue: 'green', dark: { shade: 200 }, light: { shade: 800 } }),
     keyword: getColor({ theme, hue: 'fuschia', dark: { shade: 600 }, light: { shade: 700 } }),
     name: getColor({
       theme,

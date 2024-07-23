@@ -91,19 +91,19 @@ describe('CodeBlock', () => {
     await waitFor(() => {
       expect(codeElements[0]).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.royal[600], DEFAULT_THEME.opacity[200])
+        rgba(PALETTE.royal[600], DEFAULT_THEME.opacity[300])
       );
       expect(codeElements[1]).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.lime[500], DEFAULT_THEME.opacity[200])
+        rgba(PALETTE.lime[600], DEFAULT_THEME.opacity[300])
       );
       expect(codeElements[2]).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.crimson[700], DEFAULT_THEME.opacity[200])
+        rgba(PALETTE.crimson[600], DEFAULT_THEME.opacity[300])
       );
       expect(codeElements[3]).toHaveStyleRule(
         'background-color',
-        rgba(PALETTE.lemon[300], DEFAULT_THEME.opacity[200])
+        rgba(PALETTE.lemon[600], DEFAULT_THEME.opacity[300])
       );
       expect(codeElements[4]).not.toHaveStyleRule('background-color');
     });
