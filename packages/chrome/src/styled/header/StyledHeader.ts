@@ -19,13 +19,7 @@ export interface IStyledHeaderProps {
 const colorStyles = ({ theme, isStandalone }: IStyledHeaderProps & ThemeProps<DefaultTheme>) => {
   const backgroundColor = getColor({ theme, variable: 'background.default' });
   const borderColor = getColor({ theme, variable: 'border.default' });
-  const boxShadowColor = getColor({
-    hue: 'neutralHue',
-    shade: 1200,
-    light: { transparency: theme.opacity[200] },
-    dark: { transparency: theme.opacity[1100] },
-    theme
-  });
+  const boxShadowColor = getColor({ variable: 'shadow.small', theme });
   const boxShadow = isStandalone
     ? theme.shadows.lg('0', `${theme.space.base * 2}px`, boxShadowColor)
     : undefined;

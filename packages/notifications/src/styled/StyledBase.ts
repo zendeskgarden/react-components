@@ -23,7 +23,7 @@ export interface IStyledBaseProps extends ThemeProps<DefaultTheme> {
 }
 
 const colorStyles = ({ theme, $type, $isFloating }: IStyledBaseProps) => {
-  const { space, shadows, opacity } = theme;
+  const { space, shadows } = theme;
   let bgVariable;
   let borderVariable;
   let fgVariable;
@@ -63,15 +63,9 @@ const colorStyles = ({ theme, $type, $isFloating }: IStyledBaseProps) => {
 
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColor({
-    hue: 'neutralHue',
-    shade: 1200,
-    light: { transparency: opacity[200] },
-    dark: { transparency: opacity[1000] },
-    theme
-  });
-
-  const boxShadow = $isFloating ? shadows.lg(offsetY, blurRadius, color) : undefined;
+  const boxShadow = $isFloating
+    ? shadows.lg(offsetY, blurRadius, getColor({ variable: 'shadow.large', theme }))
+    : undefined;
 
   return css`
     border-color: ${borderColor};

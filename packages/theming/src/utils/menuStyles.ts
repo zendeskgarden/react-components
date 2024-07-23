@@ -53,13 +53,7 @@ const animationStyles = (position: MenuPosition, options: MenuOptions) => {
 const colorStyles = (theme: DefaultTheme) => {
   const backgroundColor = getColor({ theme, variable: 'background.raised' });
   const borderColor = getColor({ theme, variable: 'border.default' });
-  const boxShadowColor = getColor({
-    theme,
-    hue: 'neutralHue',
-    shade: 1200,
-    dark: { transparency: theme.opacity[800] },
-    light: { transparency: theme.opacity[200] }
-  });
+  const boxShadowColor = getColor({ variable: 'shadow.medium', theme });
   const boxShadowBlurRadius = `${theme.space.base * (theme.colors.base === 'dark' ? 5 : 6)}px`;
   const boxShadowOffsetY = `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`;
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });

@@ -28,16 +28,10 @@ export interface IStyledDraggableProps extends ThemeProps<DefaultTheme> {
 }
 
 export function getDragShadow(theme: IGardenTheme) {
-  const { space, shadows, opacity } = theme;
+  const { space, shadows } = theme;
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColor({
-    hue: 'neutralHue',
-    shade: 1200,
-    light: { transparency: opacity[200] },
-    dark: { transparency: opacity[1000] },
-    theme
-  });
+  const color = getColor({ variable: 'shadow.large', theme });
 
   return shadows.lg(offsetY, blurRadius, color);
 }
