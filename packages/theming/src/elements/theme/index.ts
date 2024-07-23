@@ -87,6 +87,11 @@ const colors = {
         warningEmphasis: 'warningHue.300',
         dangerEmphasis: 'dangerHue.300',
         disabled: 'neutralHue.700'
+      },
+      shadow: {
+        small: 'rgba(neutralHue.1200, 1100)',
+        medium: 'rgba(neutralHue.1200, 800)',
+        large: 'rgba(neutralHue.1200, 1000)'
       }
     },
     light: {
@@ -131,6 +136,11 @@ const colors = {
         warningEmphasis: 'warningHue.900',
         dangerEmphasis: 'dangerHue.900',
         disabled: 'neutralHue.600'
+      },
+      shadow: {
+        small: 'rgba(neutralHue.1200, 200)',
+        medium: 'rgba(neutralHue.1200, 200)',
+        large: 'rgba(neutralHue.1200, 200)'
       }
     }
   }

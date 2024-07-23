@@ -40,21 +40,29 @@ describe('ThemeProvider', () => {
     expect(dark).toBeDefined();
     expect(light).toBeDefined();
 
-    const { background: darkBackground, border: darkBorder, foreground: darkForeground } = dark!;
+    const {
+      background: darkBackground,
+      border: darkBorder,
+      foreground: darkForeground,
+      shadow: darkShadow
+    } = dark!;
     const {
       background: lightBackground,
       border: lightBorder,
-      foreground: lightForeground
+      foreground: lightForeground,
+      shadow: lightShadow
     } = light!;
     const darkKeys = [
       ...Object.keys(darkBackground),
       ...Object.keys(darkBorder),
-      ...Object.keys(darkForeground)
+      ...Object.keys(darkForeground),
+      ...Object.keys(darkShadow)
     ].join();
     const lightKeys = [
       ...Object.keys(lightBackground),
       ...Object.keys(lightBorder),
-      ...Object.keys(lightForeground)
+      ...Object.keys(lightForeground),
+      ...Object.keys(lightShadow)
     ].join();
 
     expect(darkKeys).toStrictEqual(lightKeys);
