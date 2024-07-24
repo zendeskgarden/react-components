@@ -198,6 +198,7 @@ describe('Combobox', () => {
     const combobox = getByTestId('combobox');
 
     expect(combobox.firstChild).toHaveStyleRule('border', 'none');
+    expect(combobox.firstChild).toHaveStyleRule('overflow-y', 'visible');
   });
 
   it('renders `isCompact` styling as expected', () => {
