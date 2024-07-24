@@ -17,13 +17,8 @@ interface IStyledSaturationPointerProps {
 }
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const borderColor = getColor({ theme, variable: 'background.default' });
-
-  const boxShadow = `${theme.shadows.lg(
-    `${theme.space.base}px`,
-    `${theme.space.base * 2}px`,
-    getColor({ theme, hue: 'neutralHue', shade: 900, transparency: theme.opacity[300] })
-  )}`;
+  const borderColor = getColor({ theme, hue: 'white' });
+  const boxShadow = `${theme.shadows.xs(getColor({ theme, hue: 'black' }))}`;
 
   return css`
     border-color: ${borderColor};

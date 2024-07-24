@@ -16,7 +16,9 @@ interface IStyledSlidersProps {
 }
 
 const sizeStyles = (props: IStyledSlidersProps & ThemeProps<DefaultTheme>) => {
-  if (props.$isOpaque) return undefined;
+  if (props.$isOpaque) {
+    return undefined;
+  }
 
   const trackHeight = getTrackHeight(props);
   const trackMargin = getTrackMargin(props);

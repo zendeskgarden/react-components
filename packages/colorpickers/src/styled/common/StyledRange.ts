@@ -7,7 +7,7 @@
 
 import { Range } from '@zendeskgarden/react-forms';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { math, stripUnit } from 'polished';
+import { stripUnit } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 export interface IStyledRangeProps {
@@ -63,18 +63,27 @@ const trackLowerStyles = (styles: string, modifier = '') => {
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const thumbBackgroundColor = getColor({
     theme,
-    variable: 'background.raised',
-    dark: { offset: -100 }
+    variable: 'background.default'
   });
-  const thumbBorderColor = thumbBackgroundColor;
+  const thumbBorderColor = getColor({
+    theme,
+    variable: 'border.default',
+    dark: { offset: -100 },
+    light: { offset: 100 }
+  });
   const thumbActiveBackgroundColor = thumbBackgroundColor;
   const thumbActiveBorderColor = getColor({
     theme,
     variable: 'border.primaryEmphasis'
   });
   const thumbFocusBorderColor = thumbActiveBorderColor;
-  const thumbHoverBackgroundColor = getColor({ theme, variable: 'background.subtle' });
-  const thumbHoverBorderColor = thumbHoverBackgroundColor;
+  const thumbHoverBackgroundColor = getColor({
+    theme,
+    variable: 'background.subtle'
+  });
+
+  // const thumbHoverBackgroundColor = 'hotpink';
+  const thumbHoverBorderColor = thumbActiveBorderColor;
 
   const thumbBoxShadow = theme.shadows.lg(
     `${theme.space.base}px`,
@@ -165,7 +174,7 @@ const sizeStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
 
     ${thumbStyles(`
       margin: ${thumbMargin}px 0;
-      border-width: ${math(`${props.theme.borderWidths.sm} * 2`)};
+      border-width: ${props.theme.borderWidths.sm};
       height: ${thumbSize}px;
       width: ${thumbSize}px;
     `)};
