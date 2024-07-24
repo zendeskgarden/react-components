@@ -81,21 +81,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     theme,
     variable: 'background.subtle'
   });
-
-  // const thumbHoverBackgroundColor = 'hotpink';
   const thumbHoverBorderColor = thumbActiveBorderColor;
-
-  const thumbBoxShadow = theme.shadows.lg(
-    `${theme.space.base}px`,
-    `${theme.space.base * 2}px`,
-    getColor({
-      theme,
-      hue: 'neutralHue',
-      shade: 1200,
-      dark: { transparency: theme.opacity[1100] },
-      light: { transparency: theme.opacity[200] }
-    })
-  );
 
   return `
     ${trackStyles(`
@@ -104,7 +90,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 
     ${thumbStyles(`
       border-color: ${thumbBorderColor};
-      box-shadow: ${thumbBoxShadow};
       background-color: ${thumbBackgroundColor};
     `)}
 
