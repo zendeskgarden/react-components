@@ -13,7 +13,7 @@ import { PALETTE } from '@zendeskgarden/react-theming';
 describe('StyledRange', () => {
   it.each<['light' | 'dark', string]>([
     ['light', PALETTE.white],
-    ['dark', PALETTE.grey[900]]
+    ['dark', PALETTE.grey[1100]]
   ])('renders %s mode thumb background color', (mode, color) => {
     const { container } = getRenderFn(mode)(<StyledRange />);
 
@@ -35,7 +35,7 @@ describe('StyledRange', () => {
 
   it.each<['light' | 'dark', string]>([
     ['light', PALETTE.white],
-    ['dark', PALETTE.grey[900]]
+    ['dark', PALETTE.grey[1100]]
   ])('renders %s mode thumb active background color', (mode, color) => {
     const { container } = getRenderFn(mode)(<StyledRange />);
 
@@ -46,7 +46,7 @@ describe('StyledRange', () => {
 
   it.each<['light' | 'dark', string]>([
     ['light', PALETTE.white],
-    ['dark', PALETTE.grey[900]]
+    ['dark', PALETTE.grey[1100]]
   ])('renders %s mode thumb focus-visible background color', (mode, color) => {
     const { container } = getRenderFn(mode)(<StyledRange />);
 
