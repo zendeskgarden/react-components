@@ -21,7 +21,7 @@ import { StyledIcon } from './StyledIcon';
 
 export const COMPONENT_ID = 'buttons.button';
 
-interface IStyledButtonProps extends IButtonProps {
+export interface IStyledButtonProps extends IButtonProps {
   $isUnderlined?: boolean;
 }
 
