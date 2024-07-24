@@ -28,13 +28,7 @@ const StyledDiv = styled.div<Omit<IArgs, 'isAnimated'>>`
     p.theme.shadows.lg(
       `${p.theme.space.base * (p.theme.colors.base === 'dark' ? 4 : 5)}px`,
       `${p.theme.space.base * (p.theme.colors.base === 'dark' ? 5 : 6)}px`,
-      getColor({
-        theme: p.theme,
-        hue: 'neutralHue',
-        shade: 1200,
-        dark: { transparency: p.theme.opacity[800] },
-        light: { transparency: p.theme.opacity[200] }
-      })
+      getColor({ variable: 'shadow.medium', theme: p.theme })
     )};
   background-color: ${p => getColor({ theme: p.theme, variable: 'background.primary' })};
   padding: ${p => p.theme.space.xxl};

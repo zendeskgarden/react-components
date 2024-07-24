@@ -45,13 +45,7 @@ const animationStyles = () => {
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const backgroundColor = getColor({ theme, variable: 'background.raised' });
   const borderColor = getColor({ theme, variable: 'border.default' });
-  const boxShadowColor = getColor({
-    theme,
-    hue: 'neutralHue',
-    shade: 1200,
-    dark: { transparency: theme.opacity[800] },
-    light: { transparency: theme.opacity[200] }
-  });
+  const boxShadowColor = getColor({ variable: 'shadow.medium', theme });
   const boxShadow = theme.shadows.lg(
     `${theme.space.base * 4}px`,
     `${theme.space.base * 6}px`,

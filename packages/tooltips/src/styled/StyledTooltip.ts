@@ -132,13 +132,7 @@ const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTh
     boxShadow = theme.shadows.lg(
       `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`,
       `${theme.space.base * (theme.colors.base === 'dark' ? 6 : 7)}px`,
-      getColor({
-        theme,
-        hue: 'neutralHue',
-        shade: 1200,
-        light: { transparency: theme.opacity[200] },
-        dark: { transparency: theme.opacity[800] }
-      })
+      getColor({ variable: 'shadow.medium', theme })
     );
     backgroundColor = getColor({ theme, variable: 'background.raised' });
     color = getColor({ theme, variable: 'foreground.subtle' });
@@ -148,13 +142,7 @@ const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTh
     boxShadow = theme.shadows.lg(
       `${theme.space.base}px`,
       `${theme.space.base * 2}px`,
-      getColor({
-        theme,
-        hue: 'neutralHue',
-        shade: 1200,
-        light: { transparency: theme.opacity[200] },
-        dark: { transparency: theme.opacity[1100] }
-      })
+      getColor({ variable: 'shadow.small', theme })
     );
     backgroundColor = getColor({
       theme,

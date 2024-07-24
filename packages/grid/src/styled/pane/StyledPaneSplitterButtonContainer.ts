@@ -25,13 +25,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const boxShadow = theme.shadows.lg(
     `${theme.space.base}px`,
     `${theme.space.base * 2}px`,
-    getColor({
-      theme,
-      hue: 'neutralHue',
-      shade: 1200,
-      dark: { transparency: theme.opacity[1100] },
-      light: { transparency: theme.opacity[200] }
-    })
+    getColor({ variable: 'shadow.small', theme })
   );
 
   return css`

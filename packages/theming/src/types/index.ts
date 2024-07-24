@@ -131,11 +131,13 @@ export interface IGardenTheme {
         background: Record<string, string>;
         border: Record<string, string>;
         foreground: Record<string, string>;
+        shadow: Record<string, string>;
       };
       light: {
         background: Record<string, string>;
         border: Record<string, string>;
         foreground: Record<string, string>;
+        shadow: Record<string, string>;
       };
     };
   };

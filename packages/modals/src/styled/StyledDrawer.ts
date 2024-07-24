@@ -15,13 +15,7 @@ const DRAWER_WIDTH = 380;
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const offsetY = `${theme.space.base * 5}px`;
   const blurRadius = `${theme.space.base * 7}px`;
-  const shadowColor = getColor({
-    theme,
-    hue: 'neutralHue',
-    shade: 1200,
-    light: { transparency: theme.opacity[200] },
-    dark: { transparency: theme.opacity[1000] }
-  });
+  const shadowColor = getColor({ variable: 'shadow.large', theme });
   const shadow = theme.shadows.lg(offsetY, blurRadius, shadowColor);
 
   const borderColor = getColor({ theme, variable: 'border.default' });
