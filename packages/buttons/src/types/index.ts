@@ -65,4 +65,6 @@ export interface IAnchorProps
    * making that icon accessible to assistive technology
    **/
   externalIconLabel?: string;
+  /** Determines if the anchor has underline styling */
+  isUnderlined?: boolean;
 }

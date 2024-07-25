@@ -20,7 +20,7 @@ import { useText } from '@zendeskgarden/react-theming';
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
-  ({ children, isExternal, externalIconLabel, ...otherProps }, ref) => {
+  ({ children, isExternal, externalIconLabel, isUnderlined = true, ...otherProps }, ref) => {
     let anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = otherProps;
 
     if (isExternal) {
@@ -41,7 +41,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
     );
 
     return (
-      <StyledAnchor ref={ref} {...(anchorProps as any)}>
+      <StyledAnchor ref={ref} $isUnderlined={isUnderlined} {...(anchorProps as any)}>
         {children}
         {isExternal && (
           /* [1] */
@@ -58,5 +58,6 @@ Anchor.displayName = 'Anchor';
 Anchor.propTypes = {
   isExternal: PropTypes.bool,
   isDanger: PropTypes.bool,
+  isUnderlined: PropTypes.bool,
   externalIconLabel: PropTypes.string
 };

@@ -18,7 +18,8 @@ const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>((props, ref)
 
   const computedProps = {
     ...props,
-    focusInset: props.focusInset || splitButtonContext
+    focusInset: props.focusInset || splitButtonContext,
+    $isUnderlined: props.isLink
   };
 
   return <StyledButton {...computedProps} ref={ref} />;

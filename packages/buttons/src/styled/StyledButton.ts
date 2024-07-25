@@ -21,7 +21,11 @@ import { StyledIcon } from './StyledIcon';
 
 export const COMPONENT_ID = 'buttons.button';
 
-const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+export interface IStyledButtonProps extends IButtonProps {
+  $isUnderlined?: boolean;
+}
+
+const getBorderRadius = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.isPill) {
     return '100px';
   }
@@ -29,7 +33,7 @@ const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   return props.theme.borderRadii.md;
 };
 
-export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+export const getHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.size === 'small') {
     return `${props.theme.space.base * 8}px`;
   } else if (props.size === 'large') {
@@ -53,7 +57,7 @@ const colorStyles = ({
   isNeutral,
   isPrimary,
   focusInset
-}: IButtonProps & ThemeProps<DefaultTheme>) => {
+}: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
   const disabledBackgroundColor = getColor({ theme, variable: 'background.disabled' });
   const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
@@ -289,7 +293,7 @@ const groupStyles = ({
   isBasic,
   isPill,
   focusInset
-}: IButtonProps & ThemeProps<DefaultTheme>) => {
+}: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const { rtl, borderWidths, borders } = theme;
   const startPosition = rtl ? 'right' : 'left';
   const endPosition = rtl ? 'left' : 'right';
@@ -377,7 +381,7 @@ const groupStyles = ({
   `;
 };
 
-const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const size = props.size === 'small' ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
 
   return css`
@@ -388,7 +392,7 @@ const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
 
   if (props.isLink) {
@@ -426,16 +430,16 @@ const sizeStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   return retVal;
 };
 
-/**
- * 1. FF <input type="submit"> fix
- * 2. <a> element reset
+/*
+ * 1. <a> element reset
+ * 2. FF <input type="submit"> fix
  * 3. Shifting :focus-visible from LVHFA order to preserve `text-decoration` on hover
  */
-export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
+export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: props.type || 'button'
-}))<IButtonProps>`
+}))<IStyledButtonProps>`
   display: ${props => (props.isLink ? 'inline' : 'inline-flex')};
   align-items: ${props => !props.isLink && 'center'};
   justify-content: ${props => !props.isLink && 'center'};
@@ -453,7 +457,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   cursor: pointer;
   width: ${props => (props.isStretched ? '100%' : '')};
   overflow: hidden;
-  text-decoration: none; /* <a> element reset */
+  text-decoration: ${props => (props.$isUnderlined ? 'underline' : 'none')}; /* [1] */
   text-overflow: ellipsis;
   white-space: ${props => !props.isLink && 'nowrap'};
   font-family: inherit; /* <button> & <input> override */
@@ -466,7 +470,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   ${props => sizeStyles(props)};
 
   &::-moz-focus-inner {
-    /* [1] */
+    /* [2] */
     border: 0;
     padding: 0;
   }

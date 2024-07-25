@@ -52,6 +52,12 @@ consider additional positioning prop support on a case-by-case basis.
 
 - Removed `ButtonGroup`: UI no longer recommended by Garden
 - Removed `IIconProps` type export. Use `IButtonStartIconProps` or `IButtonEndIconProps` instead.
+- `Anchor`: renders with an underline for improved accessibility. The same
+  treatment applies to `<Button isLink>`. The default can be removed with
+  `<Anchor isUnderlined={false}>` for word-wrapped or redundant UI where the
+  underline is considered to be a visual distraction. While technically not a
+  breaking change, the migration guide highlights this change for upgrade cases
+  that may render unexpected styling.
 
 #### @zendeskgarden/react-chrome
 
