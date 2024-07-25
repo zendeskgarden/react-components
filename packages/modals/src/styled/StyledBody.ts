@@ -25,8 +25,10 @@ export const StyledBody = styled.div.attrs({
   height: 100%;
   overflow: auto;
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
+  color-scheme: only ${p => p.theme.colors.base};
   color: ${({ theme }) => getColor({ theme, variable: 'foreground.default' })};
   font-size: ${props => props.theme.fontSizes.md};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

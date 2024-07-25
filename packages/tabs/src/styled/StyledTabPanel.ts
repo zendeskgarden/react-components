@@ -28,6 +28,7 @@ export const StyledTabPanel = styled.div.attrs({
 })<IStyledTabPanelProps>`
   display: block;
   vertical-align: ${props => props.$isVertical && 'top'};
+  color-scheme: only ${p => p.theme.colors.base};
 
   ${sizeStyles};
 
