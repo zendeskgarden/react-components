@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.header_icon';
 
@@ -25,7 +25,7 @@ export const StyledHeaderIcon = styled.div.attrs({
   align-items: center;
   justify-content: center;
   ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 3}px;
-  color: ${props => getColorV8('neutralHue', 600, props.theme)};
+  color: ${props => getColor({ theme: props.theme, variable: 'foreground.subtle' })};
 
   & > * {
     width: ${props => props.theme.iconSizes.md};

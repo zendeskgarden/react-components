@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.separator';
 
@@ -21,7 +21,7 @@ export const StyledSeparator = styled.li.attrs({
   display: block;
   margin: ${props => props.theme.space.base}px 0;
   border-bottom: ${props =>
-    `${props.theme.borders.sm} ${getColorV8('neutralHue', 200, props.theme)}`};
+    `${props.theme.borders.sm} ${getColor({ theme: props.theme, variable: 'border.subtle' })}`};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
