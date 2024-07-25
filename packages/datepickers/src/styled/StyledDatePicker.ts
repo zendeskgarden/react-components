@@ -5,37 +5,40 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.datepicker';
 
-const retrievePadding = ({
-  isCompact,
-  theme
-}: IStyledDatePickerProps & ThemeProps<DefaultTheme>) => {
-  let value = theme.space.base * 5;
-
-  if (isCompact) {
-    value = theme.space.base * 4;
-  }
-
-  return `margin: ${value}px;`;
-};
-
 interface IStyledDatePickerProps {
-  isCompact: boolean;
+  $isCompact: boolean;
 }
 
+const sizeStyles = ({ $isCompact, theme }: IStyledDatePickerProps & ThemeProps<DefaultTheme>) => {
+  const margin = theme.space.base * ($isCompact ? 4 : 5);
+
+  return css`
+    margin: ${margin}px;
+  `;
+};
+
+const colorStyles = ({ theme }: IStyledDatePickerProps & ThemeProps<DefaultTheme>) => {
+  const foreground = getColor({ variable: 'foreground.default', theme });
+
+  return css`
+    background-color: transparent;
+    color: ${foreground};
+  `;
+};
+
 export const StyledDatePicker = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
 })<IStyledDatePickerProps>`
-  direction: ${props => props.theme.rtl && 'rtl'};
+  direction: ${p => p.theme.rtl && 'rtl'};
 
-  ${retrievePadding}
-
-  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
-  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
+  ${sizeStyles}
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

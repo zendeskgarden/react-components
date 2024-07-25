@@ -12,7 +12,8 @@ import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'datepickers.range_calendar';
 
 export const StyledRangeCalendar = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
 })`
   display: flex;
   overflow: auto;

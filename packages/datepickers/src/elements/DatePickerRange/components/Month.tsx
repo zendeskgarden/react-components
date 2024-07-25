@@ -105,8 +105,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         const formattedDayLabel = dayLabelFormatter(date);
 
         return (
-          <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isCompact={isCompact}>
-            <StyledDayLabel isCompact={isCompact!} data-test-id="day-label">
+          <StyledCalendarItem key={`day-label-${formattedDayLabel}`} $isCompact={isCompact}>
+            <StyledDayLabel $isCompact={isCompact!} data-test-id="day-label">
               {formattedDayLabel}
             </StyledDayLabel>
           </StyledCalendarItem>
@@ -121,11 +121,11 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
       if (isPreviousMonth) {
         return (
-          <StyledCalendarItem key={`day-${itemsIndex}`} isCompact={isCompact}>
+          <StyledCalendarItem key={`day-${itemsIndex}`} $isCompact={isCompact}>
             <StyledDay
-              isCompact={isCompact!}
-              isPreviousMonth
-              isDisabled
+              $isCompact={isCompact!}
+              $isPreviousMonth
+              aria-disabled
               data-test-id="day"
               data-test-hidden="true"
             >
@@ -202,22 +202,22 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       }
 
       return (
-        <StyledCalendarItem key={`day-${itemsIndex}`} isCompact={isCompact}>
+        <StyledCalendarItem key={`day-${itemsIndex}`} $isCompact={isCompact}>
           <StyledHighlight
-            isHighlighted={!isInvalidDateRange && isHighlighted && !isDisabled}
-            isStart={!isInvalidDateRange && isHighlightStart}
-            isEnd={!isInvalidDateRange && isHighlightEnd}
+            $isHighlighted={!isInvalidDateRange && isHighlighted && !isDisabled}
+            $isStart={!isInvalidDateRange && isHighlightStart}
+            $isEnd={!isInvalidDateRange && isHighlightEnd}
             data-test-id="highlight"
             data-test-highlighted={!isInvalidDateRange && isHighlighted && !isDisabled}
             data-test-start={!isInvalidDateRange && isHighlightStart}
             data-test-end={!isInvalidDateRange && isHighlightEnd}
           />
           <StyledDay
-            isToday={isCurrentDate}
-            isPreviousMonth={isPreviousMonth}
-            isSelected={!isInvalidDateRange && isSelected}
-            isDisabled={isDisabled}
-            isCompact={isCompact!}
+            $isToday={isCurrentDate}
+            $isPreviousMonth={isPreviousMonth}
+            aria-selected={(!isInvalidDateRange && isSelected) || undefined}
+            aria-disabled={isDisabled || undefined}
+            $isCompact={isCompact!}
             onClick={() => {
               if (!isDisabled) {
                 dispatch({ type: 'CLICK_DATE', value: date });
@@ -275,7 +275,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
     return (
       <StyledDatePicker
         ref={ref}
-        isCompact={isCompact!}
+        $isCompact={isCompact!}
         data-test-id="calendar-wrapper"
         onMouseDown={e => {
           /** Stop focus from escaping input */
@@ -283,25 +283,25 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           e.preventDefault();
         }}
       >
-        <StyledHeader isCompact={isCompact!}>
+        <StyledHeader $isCompact={isCompact!}>
           <StyledHeaderPaddle
-            isCompact={isCompact!}
+            $isCompact={isCompact!}
             onClick={() => {
               dispatch({
                 type: 'PREVIEW_PREVIOUS_MONTH'
               });
             }}
-            isHidden={isPreviousHidden}
+            aria-hidden={isPreviousHidden || undefined}
             data-test-id="previous-month"
           >
             <ChevronLeftStrokeIcon />
           </StyledHeaderPaddle>
-          <StyledHeaderLabel isCompact={isCompact!} data-test-id="month-display">
+          <StyledHeaderLabel $isCompact={isCompact!} data-test-id="month-display">
             {headerLabelFormatter(displayDate)}
           </StyledHeaderLabel>
           <StyledHeaderPaddle
-            isCompact={isCompact!}
-            isHidden={isNextHidden}
+            $isCompact={isCompact!}
+            aria-hidden={isNextHidden || undefined}
             onClick={() => {
               dispatch({
                 type: 'PREVIEW_NEXT_MONTH'
@@ -313,7 +313,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           </StyledHeaderPaddle>
         </StyledHeader>
         <StyledCalendar
-          isCompact={isCompact!}
+          $isCompact={isCompact!}
           data-test-id="calendar-internal-wrapper"
           onMouseLeave={() => {
             dispatch({ type: 'HOVER_DATE', value: undefined });

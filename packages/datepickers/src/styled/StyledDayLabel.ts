@@ -11,14 +11,15 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'datepickers.day_label';
 
 export const StyledDayLabel = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
-})<{ isCompact: boolean }>`
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<{ $isCompact: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: ${props => (props.isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
+  font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props => props.theme.fontWeights.semibold};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
