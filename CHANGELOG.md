@@ -13,6 +13,32 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.19 (2024-07-25)
+
+#### :boom: Breaking Change
+* `draggable`
+  * [#1868](https://github.com/zendeskgarden/react-components/pull/1868) feat(draggable)!: renames drag-drop package to draggable ([@geotrev](https://github.com/geotrev))
+* `typography`
+  * [#1864](https://github.com/zendeskgarden/react-components/pull/1864) feat(typography)!: recolor `CodeBlock` and migrate to `prism-react-renderer` v2 ([@jzempel](https://github.com/jzempel))
+
+#### :rocket: New Feature
+* `datepickers`
+  * [#1860](https://github.com/zendeskgarden/react-components/pull/1860) feat(datepickers): adds light/dark mode colors ([@geotrev](https://github.com/geotrev))
+* `dropdowns.legacy`
+  * [#1867](https://github.com/zendeskgarden/react-components/pull/1867) feat(dropdowns.legacy): new light/dark mode colors ([@jzempel](https://github.com/jzempel))
+* `chrome`, `draggable`, `forms`, `grid`, `modals`, `notifications`, `theming`, `tooltips`
+  * [#1870](https://github.com/zendeskgarden/react-components/pull/1870) feat(theming): adds shadow variables to theme + updates styled components ([@geotrev](https://github.com/geotrev))
+* `colorpickers`
+  * [#1862](https://github.com/zendeskgarden/react-components/pull/1862) feat(colorpickers): adds light/dark mode colors ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* `buttons`
+  * [#1871](https://github.com/zendeskgarden/react-components/pull/1871) feat(buttons): underline `Anchor` by default ([@jzempel](https://github.com/jzempel))
+* `typography`
+  * [#1869](https://github.com/zendeskgarden/react-components/pull/1869) fix(typography): `CodeBlock` colors ([@jzempel](https://github.com/jzempel))
+* `tooltips`
+  * [#1866](https://github.com/zendeskgarden/react-components/pull/1866) fix(tooltips): increase arrow size for small / med tooltips ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.0.0-next.18 (2024-07-18)
 
 #### :rocket: New Feature
