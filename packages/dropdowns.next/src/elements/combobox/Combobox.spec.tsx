@@ -194,11 +194,14 @@ describe('Combobox', () => {
   });
 
   it('renders `isBare` styling as expected', () => {
-    const { getByTestId } = render(<TestCombobox isBare />);
+    const { getByTestId, rerender } = render(<TestCombobox isBare />);
     const combobox = getByTestId('combobox');
 
     expect(combobox.firstChild).toHaveStyleRule('border', 'none');
     expect(combobox.firstChild).toHaveStyleRule('overflow-y', 'visible');
+
+    rerender(<TestCombobox isBare isMultiselectable />);
+    expect(combobox.firstChild).toHaveStyleRule('overflow-y', 'auto');
   });
 
   it('renders `isCompact` styling as expected', () => {

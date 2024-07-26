@@ -138,7 +138,7 @@ export const StyledTrigger = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTriggerProps>`
-  overflow-y: ${props => (props.isBare ? 'visible' : 'auto')};
+  overflow-y: ${props => (props.isBare && !props.isMultiselectable ? 'visible' : 'auto')};
   /* prettier-ignore */
   transition:
     border-color 0.25s ease-in-out,
