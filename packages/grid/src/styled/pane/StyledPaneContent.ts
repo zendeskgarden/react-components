@@ -16,6 +16,7 @@ export const StyledPaneContent = styled.div.attrs({
 })`
   height: 100%;
   overflow: auto;
+  color-scheme: only ${p => p.theme.colors.base};
 
   &[hidden] {
     display: none;

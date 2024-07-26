@@ -24,6 +24,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
 
   return css`
+    color-scheme: only ${p => p.theme.colors.base};
     border-bottom-color: ${borderColor};
     color: ${foregroundColor};
   `;

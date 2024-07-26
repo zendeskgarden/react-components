@@ -81,6 +81,7 @@ const colorStyles = ({
   `;
 
   return css`
+    color-scheme: only ${theme.colors.base};
     border-color: ${isLabelHovered ? hoverBorderColor : borderColor};
     background-color: ${backgroundColor};
     color: ${foregroundColor};

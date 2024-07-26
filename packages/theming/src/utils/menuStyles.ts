@@ -122,6 +122,7 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
     ${marginProperty}: ${options.margin};
     line-height: 0;
     font-size: 0.01px; /* [1] */
+    color-scheme: only ${p => p.theme.colors.base};
 
     & ${options.childSelector || '> *'} {
       display: inline-block;

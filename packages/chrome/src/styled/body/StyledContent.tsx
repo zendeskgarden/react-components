@@ -40,6 +40,7 @@ export const StyledContent = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledContentProps>`
   display: flex;
+  color-scheme: only ${p => p.theme.colors.base};
   color: ${props => getColor({ theme: props.theme, variable: 'foreground.default' })};
 
   ${sizeStyles};

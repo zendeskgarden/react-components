@@ -16,6 +16,7 @@ export const StyledDrawerBody = styled(StyledBody).attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   padding: ${props => props.theme.space.base * 5}px;
+  color-scheme: only ${p => p.theme.colors.base};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

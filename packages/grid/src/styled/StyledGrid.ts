@@ -12,20 +12,25 @@ import { IGridProps } from '../types';
 
 const COMPONENT_ID = 'grid.grid';
 
-const colorStyles = ({ theme }: IStyledGridProps) => {
-  const borderColor = getColor({
-    theme,
-    hue: 'crimson',
-    shade: 700,
-    transparency: theme.opacity[600]
-  });
-  const borderWidth = math(`${theme.borderWidths.sm} * 2`);
+const colorStyles = ({ theme, debug }: IStyledGridProps) => {
+  const borderColor =
+    debug &&
+    getColor({
+      theme,
+      hue: 'crimson',
+      shade: 700,
+      transparency: theme.opacity[600]
+    });
+  const borderWidth = debug && math(`${theme.borderWidths.sm} * 2`);
 
   return css`
+    color-scheme: only ${theme.colors.base};
     /* prettier-ignore */
-    box-shadow:
+    box-shadow: ${debug &&
+    `
       -${borderWidth} 0 0 0 ${borderColor},
-      ${borderWidth} 0 0 0 ${borderColor};
+      ${borderWidth} 0 0 0 ${borderColor}
+    `};
   `;
 };
 
@@ -52,7 +57,7 @@ export const StyledGrid = styled.div.attrs<IStyledGridProps>({
 
   ${sizeStyles};
 
-  ${props => props.debug && colorStyles(props)};
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

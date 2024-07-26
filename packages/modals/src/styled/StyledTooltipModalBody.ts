@@ -23,6 +23,7 @@ export const StyledTooltipModalBody = styled.div.attrs({
   margin: 0;
   padding-top: ${props => props.theme.space.base * 1.5}px;
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
+  color-scheme: only ${p => p.theme.colors.base};
   color: ${({ theme }) => getColor({ variable: 'foreground.default', theme })};
   font-size: ${props => props.theme.fontSizes.md};
 
