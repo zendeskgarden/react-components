@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const path = require('path');
+const path = require('node:path');
 
 module.exports = {
   rootDir: path.resolve(__dirname, '..', '..'),

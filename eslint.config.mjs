@@ -11,7 +11,7 @@ import noticePlugin from '@zendeskgarden/eslint-config/plugins/notice.js';
 import reactPlugin from '@zendeskgarden/eslint-config/plugins/react.js';
 import typescriptPlugin from '@zendeskgarden/eslint-config/plugins/typescript.js';
 import jestPlugin from '@zendeskgarden/eslint-config/plugins/jest.js';
-import gardenLocalPlugin from 'eslint-plugin-garden-local';
+// import gardenLocalPlugin from 'eslint-plugin-garden-local';
 
 const typescriptRules = {
   ...typescriptPlugin.rules,
@@ -30,7 +30,7 @@ export default [
   reactPlugin,
   prettierConfig,
   {
-    ignores: ['**/dist']
+    ignores: ['**/dist', 'demo']
   },
   {
     rules: {
@@ -50,8 +50,19 @@ export default [
     ...typescriptPlugin,
     rules: typescriptRules
   },
+  // {
+  //   files: ['packages/**/*.{js,ts,tsx}'],
+  //   ignores: ['*.spec.*', 'packages/*/demo/**/*'],
+  //   plugins: {
+  //     'garden-local': gardenLocalPlugin
+  //   },
+  //   rules: {
+  //     'garden-local/require-default-theme': 'error'
+  //   }
+  // },
   {
     files: ['*.spec.*'],
+    ignores: ['packages/.template/**/*.spec.{ts,tsx}'],
     ...typescriptPlugin,
     ...jestPlugin,
     rules: {
@@ -59,16 +70,6 @@ export default [
       ...jestPlugin.rules,
       'no-console': 'off',
       'react/button-has-type': 'off'
-    }
-  },
-  {
-    files: ['packages/**/*.{js,ts,tsx}'],
-    ignores: ['*.spec.*', 'packages/*/demo/**/*'],
-    ...typescriptPlugin,
-    plugins: { 'garden-local': gardenLocalPlugin },
-    rules: {
-      ...typescriptRules,
-      'garden-local/require-default-theme': 'error'
     }
   }
 ];

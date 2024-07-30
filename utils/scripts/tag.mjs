@@ -9,15 +9,15 @@
 
 import { Command } from 'commander';
 import { execa, execaCommand } from 'execa';
-import fs from 'fs';
+import fs from 'node:fs';
 import { githubBranch, githubRelease, lernaChangelog } from '@zendeskgarden/scripts';
 import ora from 'ora';
 import inquirer from 'inquirer';
-import { dirname, resolve } from 'path';
-import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { track } from 'temp';
-import util from 'util';
-import { createRequire } from 'module';
+import util from 'node:util';
+import { createRequire } from 'node:module';
 
 const lernaConfig = createRequire(import.meta.url)('../../lerna.json');
 const temp = track();
