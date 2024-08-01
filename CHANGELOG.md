@@ -13,6 +13,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.20 (2024-08-01)
+
+#### :rocket: New Feature
+* `chrome`, `dropdowns`, `grid`, `modals`, `tabs`, `theming`
+  * [#1873](https://github.com/zendeskgarden/react-components/pull/1873) feat: applies color-scheme to align garden and system themes ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* `dropdowns`
+  * [#1874](https://github.com/zendeskgarden/react-components/pull/1874) chore: sync `next` with `main` ([@geotrev](https://github.com/geotrev))
+
 ## v9.0.0-next.19 (2024-07-25)
 
 #### :boom: Breaking Change
