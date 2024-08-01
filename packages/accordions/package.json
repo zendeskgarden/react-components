@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-accordions",
-  "version": "9.0.0-next.19",
+  "version": "9.0.0-next.20",
   "description": "Components related to accordions in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -33,7 +33,7 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^9.0.0-next.19",
+    "@zendeskgarden/react-theming": "^9.0.0-next.20",
     "@zendeskgarden/svg-icons": "7.1.1"
   },
   "keywords": [
