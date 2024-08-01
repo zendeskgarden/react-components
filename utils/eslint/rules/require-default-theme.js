@@ -35,11 +35,11 @@ function isStyledComponent(node) {
  *
  * This ensures that all components are able to render without a parent `ThemeProvider`.
  */
-module.exports = {
+export default {
   meta: {
     fixable: 'code',
     docs: {
-      description: 'All styled-component usages must include a default `theme` value',
+      description: 'Require default `theme` value in styled components',
       category: 'Best Practices',
       recommended: true
     },

@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import hasType from './hasType';
 
-const Button = () => <button>test</button>;
+const Button = () => <button type="button">test</button>;
 
 Button.hasType = () => Button;
 

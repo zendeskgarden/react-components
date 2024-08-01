@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const path = require('path');
-const { readdirSync } = require('fs');
+const path = require('node:path');
+const { readdirSync } = require('node:fs');
 const webpack = require('webpack');
 const svgoConfig = require('../.svgo.config.js');
 
