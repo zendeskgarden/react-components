@@ -12,6 +12,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.76.5 (2024-08-01)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1872](https://github.com/zendeskgarden/react-components/pull/1872) fix(dropdowns.next): `Combobox` with `isBare` option never shows horiz scrollbar to preserve styling ([@ze-flo](https://github.com/ze-flo))
+
+#### :seedling: Internal
+* [#1857](https://github.com/zendeskgarden/react-components/pull/1857) chore(deps-dev): bump express from 4.18.2 to 4.19.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#1863](https://github.com/zendeskgarden/react-components/pull/1863) ci: let known `[bots]` deploy to staging ([@ze-flo](https://github.com/ze-flo))
+* [#1859](https://github.com/zendeskgarden/react-components/pull/1859) chore(deps): update dependency eslint-plugin-notice to v1 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#1856](https://github.com/zendeskgarden/react-components/pull/1856) ci: fix missing staging deploy status by associating deploy ref to correct SHA ([@ze-flo](https://github.com/ze-flo))
+* [#1851](https://github.com/zendeskgarden/react-components/pull/1851) chore: remove CircleCI configuration ([@jzempel](https://github.com/jzempel))
+
 ## v8.76.4 (2024-07-01)
 
 #### :seedling: Internal
