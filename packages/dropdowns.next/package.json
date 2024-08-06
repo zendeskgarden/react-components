@@ -23,7 +23,7 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.0",
     "@zendeskgarden/container-combobox": "^1.1.4",
-    "@zendeskgarden/container-menu": "^0.3.3",
+    "@zendeskgarden/container-menu": "^0.4.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
     "@zendeskgarden/react-buttons": "^8.76.5",
     "@zendeskgarden/react-forms": "^8.76.5",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/react-theming": "^8.76.5",
-    "@zendeskgarden/svg-icons": "7.1.1"
+    "@zendeskgarden/svg-icons": "7.2.0"
   },
   "keywords": [
     "components",
