@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/react-theming": "^8.76.5",
-    "@zendeskgarden/svg-icons": "7.1.1"
+    "@zendeskgarden/svg-icons": "7.2.0"
   },
   "keywords": [
     "accordions",
