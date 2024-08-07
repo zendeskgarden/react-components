@@ -29,7 +29,6 @@ interface IStyledTooltipProps extends Pick<ITooltipProps, 'hasArrow' | 'size' | 
 const sizeStyles = ({
   theme,
   size,
-  type,
   placement,
   hasArrow
 }: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
@@ -74,22 +73,16 @@ const sizeStyles = ({
   }
 
   let arrowSize;
-  let arrowInset;
 
   if (hasArrow) {
     if (size === 'small' || size === 'medium') {
       arrowSize = margin;
-      arrowInset = type === 'dark' ? '0px' : '1px';
-    } else {
-      arrowInset = type === 'dark' ? '0px' : '1px';
-
-      if (size === 'large') {
-        margin = `${theme.space.base * 2}px`;
-        arrowSize = margin;
-      } else if (size === 'extra-large') {
-        margin = `${theme.space.base * 3}px`;
-        arrowSize = `${theme.space.base * 2.5}px`;
-      }
+    } else if (size === 'large') {
+      margin = `${theme.space.base * 2}px`;
+      arrowSize = margin;
+    } else if (size === 'extra-large') {
+      margin = `${theme.space.base * 3}px`;
+      arrowSize = `${theme.space.base * 2.5}px`;
     }
   }
 
@@ -104,11 +97,7 @@ const sizeStyles = ({
     font-size: ${fontSize};
     overflow-wrap: ${overflowWrap};
 
-    ${hasArrow &&
-    arrowStyles(getArrowPosition(theme, placement), {
-      size: arrowSize,
-      inset: arrowInset
-    })};
+    ${hasArrow && arrowStyles(getArrowPosition(theme, placement), { size: arrowSize })};
 
     ${StyledParagraph} {
       margin-top: ${paragraphMarginTop};
@@ -128,28 +117,28 @@ const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTh
   let titleColor;
 
   if (type === 'light') {
+    backgroundColor = getColor({ theme, variable: 'background.raised' });
     borderColor = getColor({ theme, variable: 'border.default' });
     boxShadow = theme.shadows.lg(
       `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`,
       `${theme.space.base * (theme.colors.base === 'dark' ? 6 : 7)}px`,
       getColor({ variable: 'shadow.medium', theme })
     );
-    backgroundColor = getColor({ theme, variable: 'background.raised' });
     color = getColor({ theme, variable: 'foreground.subtle' });
     titleColor = getColor({ theme, variable: 'foreground.default' });
   } else {
-    borderColor = 'transparent';
-    boxShadow = theme.shadows.lg(
-      `${theme.space.base}px`,
-      `${theme.space.base * 2}px`,
-      getColor({ variable: 'shadow.small', theme })
-    );
     backgroundColor = getColor({
       theme,
       hue: 'neutralHue',
       light: { shade: 900 },
       dark: { shade: 700 }
     });
+    borderColor = backgroundColor;
+    boxShadow = theme.shadows.lg(
+      `${theme.space.base}px`,
+      `${theme.space.base * 2}px`,
+      getColor({ variable: 'shadow.small', theme })
+    );
     color = getColor({ theme, hue: 'white' });
   }
 
@@ -179,7 +168,7 @@ export const StyledTooltip = styled.div.attrs<IStyledTooltipProps>({
   text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
   font-weight: ${props => props.theme.fontWeights.regular};
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
 
   &[aria-hidden='true'] {
     display: none;
