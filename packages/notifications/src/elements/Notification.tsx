@@ -11,9 +11,9 @@ import InfoStrokeIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import { INotificationProps, TYPE } from '../types';
 import { StyledNotification, StyledIcon } from '../styled';
 import { validationIcons } from '../utils/icons';
-import { Title } from './content/Title';
-import { Paragraph } from './content/Paragraph';
-import { Close } from './content/Close';
+import { Title } from './Title';
+import { Paragraph } from './Paragraph';
+import { Close } from './Close';
 
 export const NotificationComponent = forwardRef<HTMLDivElement, INotificationProps>(
   ({ children, type, ...props }, ref) => {

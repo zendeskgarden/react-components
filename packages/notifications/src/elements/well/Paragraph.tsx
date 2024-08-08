@@ -9,8 +9,6 @@ import React, { HTMLAttributes } from 'react';
 import { StyledParagraph } from '../../styled';
 
 /**
- * @deprecated use `Alert.Paragraph`, `Notification.Paragraph`, or `Well.Paragraph` instead
- *
  * @extends HTMLAttributes<HTMLParagraphElement>
  */
 export const Paragraph = React.forwardRef<
@@ -18,4 +16,4 @@ export const Paragraph = React.forwardRef<
   HTMLAttributes<HTMLParagraphElement>
 >((props, ref) => <StyledParagraph ref={ref} {...props} />);
 
-Paragraph.displayName = 'Paragraph';
+Paragraph.displayName = 'Well.Paragraph';

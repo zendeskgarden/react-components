@@ -31,7 +31,7 @@ export const Col = React.forwardRef<HTMLDivElement, IColProps>(({ size, ...props
   );
 });
 
-Col.displayName = 'Col';
+Col.displayName = 'Grid.Col';
 
 Col.propTypes = {
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

@@ -49,7 +49,7 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
   }
 );
 
-Tab.displayName = 'Tab';
+Tab.displayName = 'Tabs.Tab';
 
 Tab.propTypes = {
   disabled: PropTypes.bool,

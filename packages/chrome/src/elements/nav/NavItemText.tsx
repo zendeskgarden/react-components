@@ -22,7 +22,7 @@ export const NavItemText = React.forwardRef<HTMLElement, INavItemTextProps>((pro
   return <StyledNavItemText ref={ref} isExpanded={isExpanded} {...props} />;
 });
 
-NavItemText.displayName = 'NavItemText';
+NavItemText.displayName = 'Nav.ItemText';
 
 NavItemText.propTypes = {
   isWrapped: PropTypes.bool

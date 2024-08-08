@@ -18,4 +18,4 @@ export const Head = forwardRef<HTMLTableSectionElement, IHeadProps>(
   ({ isSticky, ...props }, ref) => <StyledHead ref={ref} $isSticky={isSticky} {...props} />
 );
 
-Head.displayName = 'Head';
+Head.displayName = 'Table.Head';

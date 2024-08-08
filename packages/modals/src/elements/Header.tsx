@@ -46,7 +46,7 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>(
   }
 );
 
-Header.displayName = 'Header';
+Header.displayName = 'Modal.Header';
 
 Header.propTypes = {
   isDanger: PropTypes.bool,

@@ -28,4 +28,4 @@ export const OverflowButton = forwardRef<
   );
 });
 
-OverflowButton.displayName = 'OverflowButton';
+OverflowButton.displayName = 'Table.OverflowButton';

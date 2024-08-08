@@ -7,13 +7,13 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IAlertProps, TYPE } from '../types';
-import { StyledAlert, StyledIcon } from '../styled';
-import { validationIcons } from '../utils/icons';
-import { NotificationsContext } from '../utils/useNotificationsContext';
-import { Title } from './content/Title';
-import { Paragraph } from './content/Paragraph';
-import { Close } from './content/Close';
+import { IAlertProps, TYPE } from '../../types';
+import { StyledAlert, StyledIcon } from '../../styled';
+import { validationIcons } from '../../utils/icons';
+import { NotificationsContext } from '../../utils/useNotificationsContext';
+import { Title } from './Title';
+import { Paragraph } from './Paragraph';
+import { Close } from './Close';
 
 export const AlertComponent = React.forwardRef<HTMLDivElement, IAlertProps>(
   ({ role, type, ...props }, ref) => {

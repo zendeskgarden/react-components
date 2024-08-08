@@ -34,7 +34,7 @@ export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
   }
 );
 
-Label.displayName = 'Label';
+Label.displayName = 'Field.Label';
 
 Label.propTypes = {
   hidden: PropTypes.bool,

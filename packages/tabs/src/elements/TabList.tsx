@@ -36,4 +36,4 @@ export const TabList = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
   }
 );
 
-TabList.displayName = 'TabList';
+TabList.displayName = 'Tabs.TabList';

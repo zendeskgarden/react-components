@@ -58,7 +58,7 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
   }
 );
 
-SortableCell.displayName = 'SortableCell';
+SortableCell.displayName = 'Table.SortableCell';
 
 SortableCell.propTypes = {
   sort: PropTypes.oneOf(SORT),

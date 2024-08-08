@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Alert } from './elements/Alert';
+export { Alert } from './elements/alert/Alert';
 export { Notification } from './elements/Notification';
-export { Well } from './elements/Well';
-export { Close } from './elements/content/Close';
-export { Paragraph } from './elements/content/Paragraph';
-export { Title } from './elements/content/Title';
+export { Well } from './elements/well/Well';
+export { Close } from './elements/Close';
+export { Paragraph } from './elements/Paragraph';
+export { Title } from './elements/Title';
 export { ToastProvider } from './elements/toaster/ToastProvider';
 export { useToast, type IToastOptions, type IToast } from './elements/toaster/useToast';
 export { GlobalAlert } from './elements/global-alert/GlobalAlert';

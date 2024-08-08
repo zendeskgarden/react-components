@@ -22,4 +22,4 @@ export const GroupRow = forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTable
   }
 );
 
-GroupRow.displayName = 'GroupRow';
+GroupRow.displayName = 'Table.GroupRow';

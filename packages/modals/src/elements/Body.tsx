@@ -20,4 +20,4 @@ export const Body = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
   return <StyledBody {...(getContentProps(props) as HTMLAttributes<HTMLDivElement>)} ref={ref} />;
 });
 
-Body.displayName = 'Body';
+Body.displayName = 'Modal.Body';
