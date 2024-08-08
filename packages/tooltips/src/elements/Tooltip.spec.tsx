@@ -134,7 +134,7 @@ describe('Tooltip', () => {
         {
           color: PALETTE.white,
           bgColor: PALETTE.grey[900],
-          borderColor: 'transparent'
+          borderColor: PALETTE.grey[900]
         }
       ],
       [
@@ -143,7 +143,7 @@ describe('Tooltip', () => {
         {
           color: PALETTE.white,
           bgColor: PALETTE.grey[700],
-          borderColor: 'transparent'
+          borderColor: PALETTE.grey[700]
         }
       ]
     ])(
