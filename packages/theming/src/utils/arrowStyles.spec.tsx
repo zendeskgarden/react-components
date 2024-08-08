@@ -76,7 +76,6 @@ describe('arrowStyles', () => {
       const SIZE = ['2px', '4px', '6px', '8px', '10px', '1em'];
 
       SIZE.forEach(size => {
-        console.log('size:', size);
         const { container } = render(<StyledDiv arrowPosition="top" arrowSize={size} />);
         const value = getArrowSize(size);
 
