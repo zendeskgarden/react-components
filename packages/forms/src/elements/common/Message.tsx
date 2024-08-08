@@ -77,7 +77,7 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
   }
 );
 
-Message.displayName = 'Message';
+Message.displayName = 'Field.Message';
 
 Message.propTypes = {
   validation: PropTypes.oneOf(VALIDATION),

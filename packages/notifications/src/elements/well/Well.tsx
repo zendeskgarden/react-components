@@ -7,10 +7,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IWellProps } from '../types';
-import { StyledWell } from '../styled';
-import { Title } from './content/Title';
-import { Paragraph } from './content/Paragraph';
+import { IWellProps } from '../../types';
+import { StyledWell } from '../../styled';
+import { Title } from '../Title';
+import { Paragraph } from '../Paragraph';
 
 export const WellComponent = React.forwardRef<HTMLDivElement, IWellProps>(
   ({ isFloating, isRecessed, ...props }, ref) => (

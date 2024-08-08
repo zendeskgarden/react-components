@@ -42,4 +42,4 @@ export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButt
   }
 );
 
-Close.displayName = 'Close';
+Close.displayName = 'Modal.Close';

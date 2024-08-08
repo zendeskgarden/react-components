@@ -123,7 +123,7 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
   return <StyledLabel ref={ref} {...(combinedProps as any)} />;
 });
 
-Label.displayName = 'Label';
+Label.displayName = 'Field.Label';
 
 Label.propTypes = {
   isRegular: PropTypes.bool

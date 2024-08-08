@@ -19,3 +19,5 @@ export const NavItemIcon = ({
 }: PropsWithChildren<SVGAttributes<SVGElement>>) => (
   <StyledNavItemIcon {...props}>{children}</StyledNavItemIcon>
 );
+
+NavItemIcon.displayName = 'Nav.ItemIcon';

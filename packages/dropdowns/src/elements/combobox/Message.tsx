@@ -29,7 +29,7 @@ export const Message = forwardRef<HTMLDivElement, IMessageProps>((props, ref) =>
   return <StyledMessage {...messageProps} {...props} ref={ref} />;
 });
 
-Message.displayName = 'Message';
+Message.displayName = 'Field.Message';
 
 Message.propTypes = {
   validation: PropTypes.oneOf(VALIDATION),

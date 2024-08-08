@@ -6,8 +6,8 @@
  */
 
 import React, { ButtonHTMLAttributes } from 'react';
-import { StyledClose } from '../../styled';
-import { useNotificationsContext } from '../../utils/useNotificationsContext';
+import { StyledClose } from '../styled';
+import { useNotificationsContext } from '../utils/useNotificationsContext';
 import { useText } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
@@ -29,4 +29,4 @@ export const Close = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HT
   }
 );
 
-Close.displayName = 'Close';
+Close.displayName = 'Notification.Close';

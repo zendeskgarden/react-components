@@ -39,7 +39,7 @@ export const Cell = React.forwardRef<HTMLTableCellElement, ICellProps>(
   }
 );
 
-Cell.displayName = 'Cell';
+Cell.displayName = 'Table.Cell';
 
 Cell.propTypes = {
   isMinimum: PropTypes.bool,

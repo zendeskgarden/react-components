@@ -19,3 +19,5 @@ export const HeaderItemIcon = ({
 }: PropsWithChildren<SVGAttributes<SVGElement>>) => (
   <StyledHeaderItemIcon {...props}>{children}</StyledHeaderItemIcon>
 );
+
+HeaderItemIcon.displayName = 'Header.ItemIcon';

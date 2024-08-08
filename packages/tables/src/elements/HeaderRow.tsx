@@ -22,4 +22,4 @@ export const HeaderRow = React.forwardRef<HTMLTableRowElement, HTMLAttributes<HT
   }
 );
 
-HeaderRow.displayName = 'HeaderRow';
+HeaderRow.displayName = 'Table.HeaderRow';

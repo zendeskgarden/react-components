@@ -22,7 +22,7 @@ export const Row = React.forwardRef<HTMLDivElement, IRowProps>(({ wrap, ...props
   return <StyledRow gutters={gutters} debug={debug} wrapAll={wrap} ref={ref} {...props} />;
 });
 
-Row.displayName = 'Row';
+Row.displayName = 'Grid.Row';
 
 Row.propTypes = {
   alignItems: PropTypes.oneOf(ALIGN_ITEMS),

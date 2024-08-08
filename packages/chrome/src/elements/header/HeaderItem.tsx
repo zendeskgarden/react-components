@@ -25,7 +25,7 @@ export const HeaderItem = React.forwardRef<HTMLButtonElement, IHeaderItemProps>(
   }
 );
 
-HeaderItem.displayName = 'HeaderItem';
+HeaderItem.displayName = 'Header.Item';
 
 HeaderItem.propTypes = {
   maxX: PropTypes.bool,

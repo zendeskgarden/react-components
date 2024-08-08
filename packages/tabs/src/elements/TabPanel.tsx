@@ -40,6 +40,6 @@ export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
   }
 );
 
-TabPanel.displayName = 'TabPanel';
+TabPanel.displayName = 'Tabs.TabPanel';
 
 TabPanel.propTypes = { item: PropTypes.any };

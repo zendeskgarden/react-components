@@ -56,7 +56,7 @@ export const NavItem = React.forwardRef<HTMLButtonElement, INavItemProps>(
   }
 );
 
-NavItem.displayName = 'NavItem';
+NavItem.displayName = 'Nav.Item';
 
 NavItem.propTypes = {
   product: PropTypes.oneOf(PRODUCTS),
