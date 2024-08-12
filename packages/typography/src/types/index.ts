@@ -118,8 +118,10 @@ export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   /** Renders with monospace font */
   isMonospace?: boolean;
   /**
-   * Applies a font color. Use [PALETTE](/components/palette#palette) colors
-   * when possible. Accepts all hex values.
+   * Applies a font color. Use a [color
+   * variable](/components/theme-object#colors) key (i.e. `foreground.subtle`)
+   * or [PALETTE](/components/palette#palette) colors when possible. Accepts all
+   * hex values.
    */
   hue?: string;
   /** Hides the span visually without hiding it from screen readers */

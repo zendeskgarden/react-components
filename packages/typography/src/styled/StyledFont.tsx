@@ -68,10 +68,13 @@ const fontStyles = ({
   }
 
   if (hue) {
-    color = getColor({ hue, theme });
+    const options = hue.includes('.') ? { variable: hue, theme } : { hue, theme };
+
+    color = getColor(options);
   }
 
   return css`
+    transition: color 0.1s ease-in-out;
     line-height: ${lineHeight};
     color: ${color};
     font-family: ${fontFamily};
