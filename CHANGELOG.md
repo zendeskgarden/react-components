@@ -13,6 +13,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.21 (2024-08-12)
+
+#### :bug: Bug Fix
+* `chrome`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tooltips`
+  * [#1883](https://github.com/zendeskgarden/react-components/pull/1883) fix: updates displayNames to match subcomponent properties ([@geotrev](https://github.com/geotrev))
+* `dropdowns.legacy`, `dropdowns`, `theming`, `tooltips`
+  * [#1882](https://github.com/zendeskgarden/react-components/pull/1882) fix(tooltips): renders correct arrow dimensions based on tooltip size ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.0.0-next.20 (2024-08-01)
 
 #### :rocket: New Feature
