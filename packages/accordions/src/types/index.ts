@@ -64,9 +64,11 @@ export interface ITimelineProps extends OlHTMLAttributes<HTMLOListElement> {
 export interface ITimelineItemProps extends LiHTMLAttributes<HTMLLIElement> {
   /** Replaces the dot with an icon */
   icon?: ReactElement;
-  /** Provides surface color for an icon placed on a non-default background.
+  /**
+   * Provides surface color for an icon placed on a non-default background.
    * Accepts a [color variable](/components/theme-object#colors) key (i.e.
    * `background.recessed`) to render based on light/dark mode, or any hex
-   * value. */
+   * value.
+   */
   surfaceColor?: string;
 }
