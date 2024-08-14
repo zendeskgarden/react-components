@@ -12,11 +12,25 @@ export const SIZE = ['extraextrasmall', 'extrasmall', 'small', 'medium', 'large'
 export const STATUS = ['available', 'away', 'transfers', 'offline'] as const;
 
 export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
-  /** Sets the avatar background color */
+  /**
+   * Sets the avatar background color.  Accepts a [color
+   * variable](/components/theme-object#colors) key (i.e.
+   * `background.emphasis`) to render based on light/dark mode, or any hex
+   * value.
+   */
   backgroundColor?: string;
-  /** Sets the color for child SVG or `Avatar.Text` components */
+  /**
+   * Sets the color for child SVG or `Avatar.Text` components. Accepts a [color
+   * variable](/components/theme-object#colors) key (i.e.
+   * `foreground.onEmphasis`) to render based on light/dark mode, or any hex
+   * value.
+   */
   foregroundColor?: string;
-  /** Provides surface color for an avatar placed on a non-white background */
+  /**
+   * Provides surface color for an avatar placed on a non-default background.
+   * Accepts a [color variable](/components/theme-object#colors) key (i.e.
+   * `background.primary`) to render based on light/dark mode, or any hex value.
+   */
   surfaceColor?: string;
   /** Applies system styling for representing objects, brands, or products */
   isSystem?: boolean;

@@ -63,11 +63,27 @@ const colorStyles = ({
   $status
 }: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   const statusColor = getStatusColor(theme, $status);
-  const backgroundColor = $backgroundColor || 'transparent';
-  const foregroundColor = $foregroundColor || theme.palette.white;
-  const surfaceColor = $status
-    ? $surfaceColor || getColor({ variable: 'background.default', theme })
-    : 'transparent';
+  let backgroundColor = 'transparent';
+  let foregroundColor = theme.palette.white;
+  let surfaceColor = 'transparent';
+
+  if ($backgroundColor) {
+    backgroundColor = $backgroundColor.includes('.')
+      ? getColor({ theme, variable: $backgroundColor })
+      : $backgroundColor;
+  }
+
+  if ($foregroundColor) {
+    foregroundColor = $foregroundColor.includes('.')
+      ? getColor({ theme, variable: $foregroundColor })
+      : $foregroundColor;
+  }
+
+  if ($surfaceColor) {
+    surfaceColor = $surfaceColor.includes('.')
+      ? getColor({ theme, variable: $surfaceColor })
+      : $surfaceColor;
+  }
 
   return css`
     box-shadow: ${theme.shadows.sm(statusColor)};

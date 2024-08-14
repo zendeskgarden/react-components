@@ -66,6 +66,7 @@ export interface ITimelineItemProps extends LiHTMLAttributes<HTMLLIElement> {
   icon?: ReactElement;
   /** Provides surface color for an icon placed on a non-default background.
    * Accepts a [color variable](/components/theme-object#colors) key (i.e.
-   * `background.recessed`) to render based on light/dark mode or any hex value. */
+   * `background.recessed`) to render based on light/dark mode, or any hex
+   * value. */
   surfaceColor?: string;
 }

@@ -7,11 +7,9 @@
 
 import React, { useCallback, useState } from 'react';
 import { StoryFn } from '@storybook/react';
-import { getColor } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
-import { useTheme } from 'styled-components';
 
 const items: {
   value: string;
@@ -46,9 +44,6 @@ const items: {
 
 export const MenuStory: StoryFn = ({ isCompact }) => {
   const [highlightedValue, setHighlightedValue] = useState<string | null>();
-  const theme = useTheme();
-  const surfaceColor = getColor({ variable: 'background.raised', theme });
-  const highlightedColor = getColor({ variable: 'background.primary', theme });
 
   const onChange = useCallback(({ focusedValue }: { focusedValue?: string | null }) => {
     focusedValue !== undefined && setHighlightedValue(focusedValue);
@@ -68,7 +63,9 @@ export const MenuStory: StoryFn = ({ isCompact }) => {
                     size={isCompact ? 'extraextrasmall' : 'small'}
                     status={item.avatarProps.status}
                     badge={item.avatarProps.badge}
-                    surfaceColor={highlightedValue === item.value ? highlightedColor : surfaceColor}
+                    surfaceColor={
+                      highlightedValue === item.value ? 'background.primary' : 'background.raised'
+                    }
                   >
                     <img alt={item.label} src={`images/avatars/${item.value}.png`} />
                   </Avatar>
