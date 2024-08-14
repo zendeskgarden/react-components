@@ -13,7 +13,7 @@ export const STATUS = ['available', 'away', 'transfers', 'offline'] as const;
 
 export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   /**
-   * Sets the avatar background color.  Accepts a [color
+   * Sets the avatar background color. Accepts a [color
    * variable](/components/theme-object#colors) key (i.e.
    * `background.emphasis`) to render based on light/dark mode, or any hex
    * value.
