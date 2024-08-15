@@ -215,6 +215,8 @@ consider additional positioning prop support on a case-by-case basis.
   refactored `getColor`.
 - Utility function `getDocument` has been removed. Use `useDocument` instead.
 - Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
+- Utility function `withTheme` has been removed. Use `styled-components`
+  [useTheme](https://styled-components.com/docs/api#usetheme) instead.
 - The following exports have changed:
   - removed `retrieveTheme`. Use `retriveComponentStyles` instead.
   - constants prefixed with `ARRAY_` no longer have a prefix.
