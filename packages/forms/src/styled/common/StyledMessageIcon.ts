@@ -42,7 +42,8 @@ interface IStyledMessageIconProps {
 export const StyledMessageIcon = styled(MessageIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'aria-hidden': null
+  'aria-hidden': null,
+  role: 'img'
 })<IStyledMessageIconProps>`
   width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};

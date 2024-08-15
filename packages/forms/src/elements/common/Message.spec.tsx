@@ -110,6 +110,7 @@ describe('Message', () => {
 
       expect(getByText(text).firstChild!.nodeName).toBe('svg');
       expect(getByText(text).firstChild).toHaveAttribute('aria-label', validationLabel);
+      expect(getByText(text).firstChild).toHaveAttribute('role', 'img');
     });
   });
 });
