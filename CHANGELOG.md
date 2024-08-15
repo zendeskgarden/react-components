@@ -13,6 +13,21 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.22 (2024-08-15)
+
+#### :rocket: New Feature
+* `accordions`, `avatars`, `tags`, `typography`
+  * [#1885](https://github.com/zendeskgarden/react-components/pull/1885) feat: allow color-related props to receive color variable keys in addition to hex values ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* [#1887](https://github.com/zendeskgarden/react-components/pull/1887) chore(theming): add `withTheme` removal to migration guide ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `dropdowns`, `forms`
+  * [#1890](https://github.com/zendeskgarden/react-components/pull/1890) chore: sync `next` with `main` ([@ze-flo](https://github.com/ze-flo))
+* `chrome`
+  * [#1884](https://github.com/zendeskgarden/react-components/pull/1884) fix(chrome): update Nav.List displayName ([@geotrev](https://github.com/geotrev))
+
 ## v9.0.0-next.21 (2024-08-12)
 
 #### :bug: Bug Fix
