@@ -12,6 +12,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.76.6 (2024-08-15)
+
+#### :bug: Bug Fix
+* `forms`
+  * [#1888](https://github.com/zendeskgarden/react-components/pull/1888) fix(forms): ensure `Message` validation icon has a role of "img" ([@jzempel](https://github.com/jzempel))
+* `dropdowns.next`
+  * [#1886](https://github.com/zendeskgarden/react-components/pull/1886) fix(dropdowns.next): adds missing role to ItemGroup ([@geotrev](https://github.com/geotrev))
+
 ## v8.76.5 (2024-08-01)
 
 #### :bug: Bug Fix
