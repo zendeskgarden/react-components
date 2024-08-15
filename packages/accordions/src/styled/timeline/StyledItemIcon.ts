@@ -22,7 +22,15 @@ interface IStyledItemIcon {
 
 const colorStyles = ({ $surfaceColor, theme }: IStyledItemIcon & ThemeProps<DefaultTheme>) => {
   const foregroundColor = getColor({ theme, variable: 'border.emphasis' });
-  const backgroundColor = $surfaceColor || getColor({ theme, variable: 'background.default' });
+  let backgroundColor;
+
+  if ($surfaceColor) {
+    backgroundColor = $surfaceColor.includes('.')
+      ? getColor({ theme, variable: $surfaceColor })
+      : $surfaceColor;
+  } else {
+    backgroundColor = getColor({ theme, variable: 'background.default' });
+  }
 
   return css`
     background-color: ${backgroundColor};

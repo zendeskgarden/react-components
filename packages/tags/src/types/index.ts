@@ -13,10 +13,13 @@ export interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   /** Adjusts font size and padding */
   size?: (typeof SIZE)[number];
   /**
-   * Sets the color of the tag. Refer to
-   * theming [colors](components/theme-object#colors)
-   * or [PALETTE](/components/palette#palette)
-   * for available colors. Accepts any hex value.
+   * Sets the color of the tag. Refer to theming
+   * [colors](components/theme-object#colors) or
+   * [PALETTE](/components/palette#palette) for available colors. Use [primary
+   * hues](/design/color#primary-colors) – `blue`, `green`, `grey`, `kale`,
+   * `red`, `yellow` or `primaryHue`, `successHue`, `neutralHue`, `chromeHue`,
+   * `dangerHue`, `warningHue`  – to apply color based on light/dark mode.
+   * Accepts any hex value.
    */
   hue?: string;
   /** Applies pill styling */

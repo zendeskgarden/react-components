@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
 import { StyledAvatar } from './StyledAvatar';
 import { StyledStatusIndicator } from './StyledStatusIndicator';
@@ -40,16 +40,42 @@ describe('StyledAvatar', () => {
       });
     });
 
+    it('renders surface color variable key as expected', () => {
+      const { container } = render(
+        <StyledAvatar $status="away" $surfaceColor="background.primary" />
+      );
+
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[100], {
+        modifier: '&&'
+      });
+    });
+
     it('renders background color as expected', () => {
       const { container } = render(<StyledAvatar $backgroundColor="red" />);
 
       expect(container.firstChild).toHaveStyleRule('background-color', 'red');
     });
 
+    it('renders background color variable key as expected', () => {
+      const { container } = render(
+        <StyledAvatar $status="away" $backgroundColor="background.emphasis" />
+      );
+
+      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.grey[700]);
+    });
+
     it('renders foreground color as expected', () => {
       const { container } = render(<StyledAvatar $foregroundColor="red" />);
 
       expect(container.firstChild).toHaveStyleRule('color', 'red', { modifier: '> svg' });
+    });
+
+    it('renders foreground color variable as expected', () => {
+      const { container } = render(<StyledAvatar $foregroundColor="foreground.default" />);
+
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[900], {
+        modifier: '> svg'
+      });
     });
   });
 

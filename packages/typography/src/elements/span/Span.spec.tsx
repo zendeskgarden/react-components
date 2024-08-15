@@ -81,14 +81,23 @@ describe('Span', () => {
       );
     });
 
-    it.each<['light' | 'dark']>([['light'], ['dark']])(
-      'inherits the parent color in "%s" mode',
-      mode => {
-        const { container } = getRenderFn(mode)(<Span />);
+    it.each([['light'], ['dark']])('inherits the parent color in "%s" mode', mode => {
+      const { container } = getRenderFn(mode)(<Span />);
 
-        expect(container.firstChild).toHaveStyleRule('color', undefined);
-      }
-    );
+      expect(container.firstChild).toHaveStyleRule('color', undefined);
+    });
+
+    it.each([
+      ['light', 'foreground.subtle'],
+      ['dark', 'foreground.subtle']
+    ])('handles variable hue in "%s" mode', (mode, variable) => {
+      const { container } = getRenderFn(mode)(<Span hue={variable} />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        PALETTE.grey[mode === 'light' ? 700 : 500]
+      );
+    });
   });
 
   it('applies expected styling with RTL locale', () => {
