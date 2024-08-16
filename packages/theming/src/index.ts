@@ -8,7 +8,6 @@
 export { ThemeProvider } from './elements/ThemeProvider';
 export { default as DEFAULT_THEME } from './elements/theme';
 export { default as PALETTE } from './elements/palette';
-export { default as PALETTE_V8 } from './elements/palette/v8';
 export { default as retrieveComponentStyles } from './utils/retrieveComponentStyles';
 export { getArrowPosition } from './utils/getArrowPosition';
 export { getCheckeredBackground } from './utils/getCheckeredBackground';
