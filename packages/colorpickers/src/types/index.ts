@@ -6,7 +6,7 @@
  */
 
 import { HTMLAttributes } from 'react';
-import { ITooltipModalProps } from '@zendeskgarden/react-modals';
+import { ITooltipDialogProps } from '@zendeskgarden/react-modals';
 
 export interface IColor {
   hex: string;
@@ -75,21 +75,21 @@ export interface IColorPickerDialogProps extends IColorPickerProps {
    */
   onClose?: (color: IColor) => void;
   /** Adjusts the placement of the color dialog */
-  placement?: ITooltipModalProps['placement'];
+  placement?: ITooltipDialogProps['placement'];
   /** Disables the color dialog button */
   disabled?: boolean;
   /**
    * Sets the `z-index` of the color dialog
    */
-  zIndex?: ITooltipModalProps['zIndex'];
+  zIndex?: ITooltipDialogProps['zIndex'];
   /**
    * Adds an arrow to the color dialog
    */
-  hasArrow?: ITooltipModalProps['hasArrow'];
+  hasArrow?: ITooltipDialogProps['hasArrow'];
   /**
    * Animates the color dialog
    */
-  isAnimated?: ITooltipModalProps['isAnimated'];
+  isAnimated?: ITooltipDialogProps['isAnimated'];
   /**
    * Opens the dialog in a controlled color picker dialog
    */
@@ -136,15 +136,15 @@ export interface IColorSwatchProps extends Omit<HTMLAttributes<HTMLTableElement>
 
 export interface IColorSwatchDialogProps extends IColorSwatchProps {
   /** Adjusts the placement of the color dialog */
-  placement?: ITooltipModalProps['placement'];
+  placement?: ITooltipDialogProps['placement'];
   /** Disables the color dialog button */
   disabled?: boolean;
   /** Sets the `z-index` of the color dialog */
-  zIndex?: ITooltipModalProps['zIndex'];
+  zIndex?: ITooltipDialogProps['zIndex'];
   /** Adds an arrow to the color dialog */
-  hasArrow?: ITooltipModalProps['hasArrow'];
+  hasArrow?: ITooltipDialogProps['hasArrow'];
   /** Animates the color dialog */
-  isAnimated?: ITooltipModalProps['isAnimated'];
+  isAnimated?: ITooltipDialogProps['isAnimated'];
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
   /** Passes HTML attributes to the color dialog button element */

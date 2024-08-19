@@ -12,7 +12,7 @@ export { Footer } from './elements/Footer';
 export { FooterItem } from './elements/FooterItem';
 export { Header } from './elements/Header';
 
-export { TooltipModal } from './elements/TooltipModal/TooltipModal';
+export { TooltipDialog } from './elements/TooltipDialog/TooltipDialog';
 export { Drawer } from './elements/Drawer/Drawer';
 
-export { PLACEMENT, type IModalProps, type IDrawerProps, type ITooltipModalProps } from './types';
+export { PLACEMENT, type IModalProps, type IDrawerProps, type ITooltipDialogProps } from './types';

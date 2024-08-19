@@ -16,13 +16,13 @@ export interface IModalContext {
   getCloseProps: IUseModalReturnValue['getCloseProps'];
 }
 
-export const TooltipModalContext = createContext<IModalContext | undefined>(undefined);
+export const TooltipDialogContext = createContext<IModalContext | undefined>(undefined);
 
-export const useTooltipModalContext = () => {
-  const context = useContext(TooltipModalContext);
+export const useTooltipDialogContext = () => {
+  const context = useContext(TooltipDialogContext);
 
   if (context === undefined) {
-    throw new Error('Element must be used within a TooltipModal component.');
+    throw new Error('Element must be used within a TooltipDialog component.');
   }
 
   return context;

@@ -23,7 +23,7 @@ import { ColorPicker } from '../ColorPicker';
 import {
   StyledButton,
   StyledButtonPreview,
-  StyledTooltipModal,
+  StyledTooltipDialog,
   StyledTooltipBody
 } from '../../styled';
 import { IColor, IColorPickerDialogProps } from '../../types';
@@ -121,7 +121,7 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
             </Button.EndIcon>
           </StyledButton>
         )}
-        <StyledTooltipModal
+        <StyledTooltipDialog
           ref={ref}
           hasArrow={hasArrow}
           zIndex={zIndex}
@@ -147,7 +147,7 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
               onChange={isControlled ? onChange : setUncontrolledColor}
             />
           </StyledTooltipBody>
-        </StyledTooltipModal>
+        </StyledTooltipDialog>
       </>
     );
   }
@@ -172,7 +172,7 @@ ColorPickerDialog.defaultProps = {
   placement: 'bottom-start',
   isAnimated: true,
   zIndex: 1000,
-  hasArrow: false /* TooltipModal override */
+  hasArrow: false /* TooltipDialog override */
 };
 
 ColorPickerDialog.displayName = 'ColorPickerDialog';

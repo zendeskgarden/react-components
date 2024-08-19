@@ -9,9 +9,9 @@ import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledClose } from './StyledClose';
 
-const COMPONENT_ID = 'modals.tooltip_modal.close';
+const COMPONENT_ID = 'modals.tooltip_dialog.close';
 
-export const StyledTooltipModalClose = styled(StyledClose).attrs({
+export const StyledTooltipDialogClose = styled(StyledClose).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -20,6 +20,6 @@ export const StyledTooltipModalClose = styled(StyledClose).attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledTooltipModalClose.defaultProps = {
+StyledTooltipDialogClose.defaultProps = {
   theme: DEFAULT_THEME
 };

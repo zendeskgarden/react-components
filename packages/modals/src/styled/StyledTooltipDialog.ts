@@ -14,21 +14,21 @@ import {
   getArrowPosition
 } from '@zendeskgarden/react-theming';
 import { TransitionStatus } from 'react-transition-group';
-import { ITooltipModalProps } from '../types';
+import { ITooltipDialogProps } from '../types';
 
-const COMPONENT_ID = 'modals.tooltip_modal';
+const COMPONENT_ID = 'modals.tooltip_dialog';
 
-export interface IStyledTooltipModalProps
-  extends Pick<ITooltipModalProps, 'hasArrow' | 'isAnimated'> {
+export interface IStyledTooltipDialogProps
+  extends Pick<ITooltipDialogProps, 'hasArrow' | 'isAnimated'> {
   placement: Placement;
   transitionState?: TransitionStatus;
 }
 
-export const StyledTooltipModal = styled.div.attrs<IStyledTooltipModalProps>(props => ({
+export const StyledTooltipDialog = styled.div.attrs<IStyledTooltipDialogProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: props.isAnimated && 'is-animated'
-}))<IStyledTooltipModalProps>`
+}))<IStyledTooltipDialogProps>`
   padding: ${props => props.theme.space.base * 5}px;
   width: 400px;
 
@@ -49,6 +49,6 @@ export const StyledTooltipModal = styled.div.attrs<IStyledTooltipModalProps>(pro
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledTooltipModal.defaultProps = {
+StyledTooltipDialog.defaultProps = {
   theme: DEFAULT_THEME
 };

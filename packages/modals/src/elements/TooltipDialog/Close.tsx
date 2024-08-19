@@ -6,19 +6,19 @@
  */
 
 import React, { ButtonHTMLAttributes, forwardRef } from 'react';
-import { StyledTooltipModalClose } from '../../styled';
+import { StyledTooltipDialogClose } from '../../styled';
 import { useText } from '@zendeskgarden/react-theming';
-import { useTooltipModalContext } from '../../utils/useTooltipModalContext';
+import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
-    const { getCloseProps } = useTooltipModalContext();
+    const { getCloseProps } = useTooltipDialogContext();
 
     const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Close tooltip');
 
     return (
-      <StyledTooltipModalClose
+      <StyledTooltipDialogClose
         {...(getCloseProps({
           ...props,
           'aria-label': ariaLabel!
@@ -27,12 +27,12 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
         size="small"
       >
         <XStrokeIcon />
-      </StyledTooltipModalClose>
+      </StyledTooltipDialogClose>
     );
   }
 );
 
-CloseComponent.displayName = 'TooltipModal.Close';
+CloseComponent.displayName = 'TooltipDialog.Close';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>

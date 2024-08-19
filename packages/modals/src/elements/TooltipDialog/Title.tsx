@@ -7,13 +7,13 @@
 
 import React, { HTMLAttributes, forwardRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useTooltipModalContext } from '../../utils/useTooltipModalContext';
-import { StyledTooltipModalTitle } from '../../styled';
-import { ITooltipModalTitleProps } from '../../types';
+import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext';
+import { StyledTooltipDialogTitle } from '../../styled';
+import { ITooltipDialogTitleProps } from '../../types';
 
-const TitleComponent = forwardRef<HTMLDivElement, ITooltipModalTitleProps>(
+const TitleComponent = forwardRef<HTMLDivElement, ITooltipDialogTitleProps>(
   ({ children, tag, ...other }, ref) => {
-    const { getTitleProps, hasTitle, setHasTitle } = useTooltipModalContext();
+    const { getTitleProps, hasTitle, setHasTitle } = useTooltipDialogContext();
 
     useEffect(() => {
       if (!hasTitle && setHasTitle) {
@@ -28,18 +28,18 @@ const TitleComponent = forwardRef<HTMLDivElement, ITooltipModalTitleProps>(
     }, [hasTitle, setHasTitle]);
 
     return (
-      <StyledTooltipModalTitle
+      <StyledTooltipDialogTitle
         {...(getTitleProps(other) as HTMLAttributes<HTMLDivElement>)}
         as={tag}
         ref={ref}
       >
         {children}
-      </StyledTooltipModalTitle>
+      </StyledTooltipDialogTitle>
     );
   }
 );
 
-TitleComponent.displayName = 'TooltipModal.Title';
+TitleComponent.displayName = 'TooltipDialog.Title';
 
 TitleComponent.propTypes = {
   tag: PropTypes.any

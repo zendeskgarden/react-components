@@ -8,24 +8,24 @@
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, act, waitFor } from 'garden-test-utils';
-import { TooltipModal } from './TooltipModal';
-import { ITooltipModalProps } from '../../types';
+import { TooltipDialog } from './TooltipDialog';
+import { ITooltipDialogProps } from '../../types';
 
-describe('TooltipModal', () => {
+describe('TooltipDialog', () => {
   const user = userEvent.setup();
 
   type FixtureProps = {
     noTitle?: boolean;
   };
 
-  const TOOLTIP_MODAL_ID = 'TEST_ID';
+  const TOOLTIP_DIALOG_ID = 'TEST_ID';
   let onCloseSpy: jest.Mock;
 
   beforeEach(() => {
     onCloseSpy = jest.fn();
   });
 
-  const Example = React.forwardRef<HTMLDivElement, ITooltipModalProps & FixtureProps>(
+  const Example = React.forwardRef<HTMLDivElement, ITooltipDialogProps & FixtureProps>(
     ({ onClose, noTitle, ...props }, ref) => {
       const [isOpen, setIsOpen] = useState(false);
       const buttonRef = React.useRef<HTMLButtonElement>(null);
@@ -35,7 +35,7 @@ describe('TooltipModal', () => {
           <button ref={buttonRef} onClick={() => setIsOpen(!isOpen)}>
             open
           </button>
-          <TooltipModal
+          <TooltipDialog
             ref={ref}
             onClose={e => {
               setIsOpen(false);
@@ -44,11 +44,11 @@ describe('TooltipModal', () => {
             referenceElement={isOpen && buttonRef.current ? buttonRef.current : undefined}
             {...props}
           >
-            {!noTitle && <TooltipModal.Title>title</TooltipModal.Title>}
-            <TooltipModal.Body>body</TooltipModal.Body>
-            <TooltipModal.Footer>footer</TooltipModal.Footer>
-            <TooltipModal.Close aria-label="Close" />
-          </TooltipModal>
+            {!noTitle && <TooltipDialog.Title>title</TooltipDialog.Title>}
+            <TooltipDialog.Body>body</TooltipDialog.Body>
+            <TooltipDialog.Footer>footer</TooltipDialog.Footer>
+            <TooltipDialog.Close aria-label="Close" />
+          </TooltipDialog>
         </>
       );
     }
@@ -136,27 +136,27 @@ describe('TooltipModal', () => {
   });
 
   it('applies title a11y attributes to Title element', async () => {
-    const { getByText } = renderRtl(<Example id={TOOLTIP_MODAL_ID} />);
+    const { getByText } = renderRtl(<Example id={TOOLTIP_DIALOG_ID} />);
 
     await act(async () => {
       await user.click(getByText('open'));
     });
 
-    expect(getByText('title')).toHaveAttribute('id', `${TOOLTIP_MODAL_ID}__title`);
+    expect(getByText('title')).toHaveAttribute('id', `${TOOLTIP_DIALOG_ID}__title`);
   });
 
   it('applies content a11y attributes to Body element', async () => {
-    const { getByText } = renderRtl(<Example id={TOOLTIP_MODAL_ID} />);
+    const { getByText } = renderRtl(<Example id={TOOLTIP_DIALOG_ID} />);
 
     await act(async () => {
       await user.click(getByText('open'));
     });
 
-    expect(getByText('body')).toHaveAttribute('id', `${TOOLTIP_MODAL_ID}__content`);
+    expect(getByText('body')).toHaveAttribute('id', `${TOOLTIP_DIALOG_ID}__content`);
   });
 
   it('applies close a11y attributes to Close element', async () => {
-    const { getAllByRole, getByText } = renderRtl(<Example id={TOOLTIP_MODAL_ID} />);
+    const { getAllByRole, getByText } = renderRtl(<Example id={TOOLTIP_DIALOG_ID} />);
 
     await act(async () => {
       await user.click(getByText('open'));
