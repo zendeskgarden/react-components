@@ -24,7 +24,7 @@ import { ColorSwatch } from '../ColorSwatch';
 import {
   StyledButton,
   StyledButtonPreview,
-  StyledTooltipModal,
+  StyledTooltipDialog,
   StyledTooltipBody
 } from '../../styled';
 import { IColorSwatchDialogProps } from '../../types';
@@ -153,7 +153,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
             </Button.EndIcon>
           </StyledButton>
         )}
-        <StyledTooltipModal
+        <StyledTooltipDialog
           ref={ref}
           zIndex={zIndex}
           hasArrow={hasArrow}
@@ -178,7 +178,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
               onSelect={handleSelect}
             />
           </StyledTooltipBody>
-        </StyledTooltipModal>
+        </StyledTooltipDialog>
       </>
     );
   }
@@ -201,7 +201,7 @@ ColorSwatchDialog.defaultProps = {
   placement: 'bottom-start',
   isAnimated: true,
   zIndex: 1000,
-  hasArrow: false /* TooltipModal override */
+  hasArrow: false /* TooltipDialog override */
 };
 
 ColorSwatchDialog.displayName = 'ColorSwatchDialog';

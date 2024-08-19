@@ -67,11 +67,11 @@ const [isOpen, setIsOpen] = useState(false)
 </ThemeProvider>
 ```
 
-### TooltipModal
+### TooltipDialog
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { TooltipModal } from '@zendeskgarden/react-modals';
+import { TooltipDialog } from '@zendeskgarden/react-modals';
 import { Button } from '@zendeskgarden/react-buttons';
 
 const [isOpen, setIsOpen] = useState(false);
@@ -81,18 +81,18 @@ const buttonRef = useRef(null);
   <Button ref={buttonRef} onClick={() => setIsOpen(!isOpen)}>
     Open
   </Button>
-  <TooltipModal
+  <TooltipDialog
     onClose={() => setIsOpen(false)}
     referenceElement={isOpen && buttonRef.current ? buttonRef.current : undefined}
   >
-    <TooltipModal.Title>Example Title</TooltipModal.Title>
-    <TooltipModal.Body>Some content</TooltipModal.Body>
-    <TooltipModal.Footer>
-      <TooltipModal.FooterItem>
+    <TooltipDialog.Title>Example Title</TooltipDialog.Title>
+    <TooltipDialog.Body>Some content</TooltipDialog.Body>
+    <TooltipDialog.Footer>
+      <TooltipDialog.FooterItem>
         <Button>Click</Button>
-      </TooltipModal.FooterItem>
-    </TooltipModal.Footer>
-    <TooltipModal.Close aria-label="Close" />
-  </TooltipModal>
+      </TooltipDialog.FooterItem>
+    </TooltipDialog.Footer>
+    <TooltipDialog.Close aria-label="Close" />
+  </TooltipDialog>
 </ThemeProvider>;
 ```

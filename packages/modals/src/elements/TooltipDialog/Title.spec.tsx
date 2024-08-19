@@ -7,18 +7,18 @@
 
 import React from 'react';
 import { render, act } from 'garden-test-utils';
-import { TooltipModal } from './TooltipModal';
+import { TooltipDialog } from './TooltipDialog';
 
-describe('TooltipModal.Title', () => {
+describe('TooltipDialog.Title', () => {
   it('passes ref to underlying DOM element', async () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container, getByText, rerender } = render(<div />);
 
     await act(async () => {
       await rerender(
-        <TooltipModal referenceElement={container as HTMLElement}>
-          <TooltipModal.Title ref={ref}>title</TooltipModal.Title>
-        </TooltipModal>
+        <TooltipDialog referenceElement={container as HTMLElement}>
+          <TooltipDialog.Title ref={ref}>title</TooltipDialog.Title>
+        </TooltipDialog>
       );
     });
 
@@ -30,9 +30,9 @@ describe('TooltipModal.Title', () => {
 
     await act(async () => {
       await rerender(
-        <TooltipModal referenceElement={container as HTMLElement}>
-          <TooltipModal.Title>title</TooltipModal.Title>
-        </TooltipModal>
+        <TooltipDialog referenceElement={container as HTMLElement}>
+          <TooltipDialog.Title>title</TooltipDialog.Title>
+        </TooltipDialog>
       );
     });
 
@@ -44,9 +44,9 @@ describe('TooltipModal.Title', () => {
 
     await act(async () => {
       await rerender(
-        <TooltipModal referenceElement={container as HTMLElement}>
-          <TooltipModal.Title tag="h1">title</TooltipModal.Title>
-        </TooltipModal>
+        <TooltipDialog referenceElement={container as HTMLElement}>
+          <TooltipDialog.Title tag="h1">title</TooltipDialog.Title>
+        </TooltipDialog>
       );
     });
 

@@ -7,18 +7,18 @@
 
 import React from 'react';
 import { render, act } from 'garden-test-utils';
-import { TooltipModal } from './TooltipModal';
+import { TooltipDialog } from './TooltipDialog';
 
-describe('TooltipModal.Body', () => {
+describe('TooltipDialog.Body', () => {
   it('passes ref to underlying DOM element', async () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container, getByText, rerender } = render(<div />);
 
     await act(async () => {
       await rerender(
-        <TooltipModal referenceElement={container as HTMLElement}>
-          <TooltipModal.Body ref={ref}>content</TooltipModal.Body>
-        </TooltipModal>
+        <TooltipDialog referenceElement={container as HTMLElement}>
+          <TooltipDialog.Body ref={ref}>content</TooltipDialog.Body>
+        </TooltipDialog>
       );
     });
 

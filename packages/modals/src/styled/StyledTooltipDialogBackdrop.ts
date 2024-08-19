@@ -8,12 +8,12 @@
 import styled from 'styled-components';
 import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'modals.tooltip_modal.backdrop';
+const COMPONENT_ID = 'modals.tooltip_dialog.backdrop';
 
 /**
  * 1. Smooth iOS scrolling.
  */
-export const StyledTooltipModalBackdrop = styled.div.attrs({
+export const StyledTooltipDialogBackdrop = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -37,6 +37,6 @@ export const StyledTooltipModalBackdrop = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledTooltipModalBackdrop.defaultProps = {
+StyledTooltipDialogBackdrop.defaultProps = {
   theme: DEFAULT_THEME
 };

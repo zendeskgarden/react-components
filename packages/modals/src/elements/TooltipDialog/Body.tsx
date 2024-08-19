@@ -6,21 +6,21 @@
  */
 
 import React, { HTMLAttributes, forwardRef } from 'react';
-import { StyledTooltipModalBody } from '../../styled';
-import { useTooltipModalContext } from '../../utils/useTooltipModalContext';
+import { StyledTooltipDialogBody } from '../../styled';
+import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext';
 
 const BodyComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { getContentProps } = useTooltipModalContext();
+  const { getContentProps } = useTooltipDialogContext();
 
   return (
-    <StyledTooltipModalBody
+    <StyledTooltipDialogBody
       {...(getContentProps(props) as HTMLAttributes<HTMLDivElement>)}
       ref={ref}
     />
   );
 });
 
-BodyComponent.displayName = 'TooltipModal.Body';
+BodyComponent.displayName = 'TooltipDialog.Body';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

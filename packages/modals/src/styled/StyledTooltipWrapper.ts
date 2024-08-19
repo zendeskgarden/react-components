@@ -8,9 +8,9 @@
 import styled from 'styled-components';
 import { Placement } from '@floating-ui/react-dom';
 import { DEFAULT_THEME, getMenuPosition, menuStyles } from '@zendeskgarden/react-theming';
-import { ITooltipModalProps } from '../types';
+import { ITooltipDialogProps } from '../types';
 
-interface IStyledTooltipWrapperProps extends Pick<ITooltipModalProps, 'isAnimated' | 'zIndex'> {
+interface IStyledTooltipWrapperProps extends Pick<ITooltipDialogProps, 'isAnimated' | 'zIndex'> {
   placement: Placement;
 }
 

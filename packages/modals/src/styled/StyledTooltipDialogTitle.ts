@@ -13,7 +13,7 @@ import {
   getColor
 } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'modals.tooltip_modal.title';
+const COMPONENT_ID = 'modals.tooltip_dialog.title';
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
   /* stylelint-disable-next-line property-no-unknown */
@@ -22,7 +22,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
   font-size: ${props.theme.fontSizes.md};
 `;
 
-export const StyledTooltipModalTitle = styled.div.attrs({
+export const StyledTooltipDialogTitle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -35,6 +35,6 @@ export const StyledTooltipModalTitle = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledTooltipModalTitle.defaultProps = {
+StyledTooltipDialogTitle.defaultProps = {
   theme: DEFAULT_THEME
 };

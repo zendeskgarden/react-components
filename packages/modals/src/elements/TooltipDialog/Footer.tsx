@@ -6,13 +6,13 @@
  */
 
 import React, { HTMLAttributes, forwardRef } from 'react';
-import { StyledTooltipModalFooter } from '../../styled';
+import { StyledTooltipDialogFooter } from '../../styled';
 
 const FooterComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
-  <StyledTooltipModalFooter ref={ref} {...props} />
+  <StyledTooltipDialogFooter ref={ref} {...props} />
 ));
 
-FooterComponent.displayName = 'TooltipModal.Footer';
+FooterComponent.displayName = 'TooltipDialog.Footer';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

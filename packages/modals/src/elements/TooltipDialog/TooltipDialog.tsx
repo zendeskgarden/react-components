@@ -12,9 +12,13 @@ import { CSSTransition } from 'react-transition-group';
 import { autoPlacement, autoUpdate, offset, platform, useFloating } from '@floating-ui/react-dom';
 import { useModal } from '@zendeskgarden/container-modal';
 import { mergeRefs } from 'react-merge-refs';
-import { TooltipModalContext } from '../../utils/useTooltipModalContext';
-import { StyledTooltipWrapper, StyledTooltipModal, StyledTooltipModalBackdrop } from '../../styled';
-import { ITooltipModalProps } from '../../types';
+import { TooltipDialogContext } from '../../utils/useTooltipDialogContext';
+import {
+  StyledTooltipWrapper,
+  StyledTooltipDialog,
+  StyledTooltipDialogBackdrop
+} from '../../styled';
+import { ITooltipDialogProps } from '../../types';
 import { Title } from './Title';
 import { Body } from './Body';
 import { Close } from './Close';
@@ -25,7 +29,7 @@ import { createPortal } from 'react-dom';
 
 const PLACEMENT_DEFAULT = 'top';
 
-const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProps>(
+const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogProps>(
   (
     {
       appendToNode,
@@ -103,7 +107,7 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
       previousReferenceElementRef.current = referenceElement;
     }, [referenceElement, restoreFocus]);
 
-    // If <TooltipModal.Title /> isn't used, remove aria-labelledby
+    // If <TooltipDialog.Title /> isn't used, remove aria-labelledby
     const modalProps = getModalProps({
       'aria-describedby': undefined,
       ...(hasTitle ? {} : { 'aria-labelledby': undefined })
@@ -116,7 +120,7 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
 
     const ariaProps = {
       [attribute]: useText(
-        TooltipModalComponent,
+        TooltipDialogComponent,
         { [attribute]: labelValue },
         attribute,
         defaultValue!
@@ -141,8 +145,8 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
       >
         {transitionState => {
           return (
-            <TooltipModalContext.Provider value={value}>
-              <StyledTooltipModalBackdrop
+            <TooltipDialogContext.Provider value={value}>
+              <StyledTooltipDialogBackdrop
                 {...(getBackdropProps() as HTMLAttributes<HTMLDivElement>)}
                 {...backdropProps}
                 ref={transitionRef}
@@ -154,7 +158,7 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
                   zIndex={zIndex}
                   isAnimated={isAnimated}
                 >
-                  <StyledTooltipModal
+                  <StyledTooltipDialog
                     transitionState={transitionState}
                     placement={placement}
                     hasArrow={hasArrow}
@@ -165,8 +169,8 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
                     ref={mergeRefs([modalRef, ref])}
                   />
                 </StyledTooltipWrapper>
-              </StyledTooltipModalBackdrop>
-            </TooltipModalContext.Provider>
+              </StyledTooltipDialogBackdrop>
+            </TooltipDialogContext.Provider>
           );
         }}
       </CSSTransition>
@@ -176,16 +180,16 @@ const TooltipModalComponent = React.forwardRef<HTMLDivElement, ITooltipModalProp
   }
 );
 
-TooltipModalComponent.displayName = 'TooltipModal';
+TooltipDialogComponent.displayName = 'TooltipDialog';
 
-TooltipModalComponent.defaultProps = {
+TooltipDialogComponent.defaultProps = {
   placement: 'auto',
   hasArrow: true,
   focusOnMount: true,
   restoreFocus: true
 };
 
-TooltipModalComponent.propTypes = {
+TooltipDialogComponent.propTypes = {
   appendToNode: PropTypes.any,
   referenceElement: PropTypes.any,
   placement: PropTypes.any,
@@ -201,7 +205,7 @@ TooltipModalComponent.propTypes = {
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const TooltipModal = TooltipModalComponent as typeof TooltipModalComponent & {
+export const TooltipDialog = TooltipDialogComponent as typeof TooltipDialogComponent & {
   Body: typeof Body;
   Close: typeof Close;
   Footer: typeof Footer;
@@ -209,8 +213,8 @@ export const TooltipModal = TooltipModalComponent as typeof TooltipModalComponen
   Title: typeof Title;
 };
 
-TooltipModal.Body = Body;
-TooltipModal.Close = Close;
-TooltipModal.Footer = Footer;
-TooltipModal.FooterItem = FooterItem;
-TooltipModal.Title = Title;
+TooltipDialog.Body = Body;
+TooltipDialog.Close = Close;
+TooltipDialog.Footer = Footer;
+TooltipDialog.FooterItem = FooterItem;
+TooltipDialog.Title = Title;

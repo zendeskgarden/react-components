@@ -7,22 +7,17 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledFooterItem } from './StyledFooterItem';
 
-const COMPONENT_ID = 'modals.tooltip_modal.footer';
+const COMPONENT_ID = 'modals.tooltip_dialog.footer_item';
 
-export const StyledTooltipModalFooter = styled.div.attrs({
+export const StyledTooltipDialogFooterItem = styled(StyledFooterItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: flex-end;
-  padding-top: ${p => p.theme.space.base * 5}px;
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledTooltipModalFooter.defaultProps = {
+StyledTooltipDialogFooterItem.defaultProps = {
   theme: DEFAULT_THEME
 };

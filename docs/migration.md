@@ -147,7 +147,7 @@ consider additional positioning prop support on a case-by-case basis.
 #### @zendeskgarden/react-modals
 
 - `DrawerModal`: renamed to `Drawer`
-- `TooltipModal`: removed `popperModifiers` prop (see [note](#breaking-changes))
+- `TooltipDialog`: removed `popperModifiers` prop (see [note](#breaking-changes))
 - Removed internal `useFocusVisible` hook for both `Modal` and `Drawer`. For
   non-Garden modal content that still depends on the polyfill for focus styling,
   either:
@@ -156,7 +156,7 @@ consider additional positioning prop support on a case-by-case basis.
   1. Use
      [@zendeskgarden/container-focusvisible](https://www.npmjs.com/package/@zendeskgarden/container-focusvisible)
      to restore the polyfill
-- Removed `GARDEN_PLACEMENT` type export. Use `ITooltipModalProps['placement']` instead.
+- Removed `GARDEN_PLACEMENT` type export. Use `ITooltipDialogProps['placement']` instead.
 - Subcomponent exports for `Modal` have been deprecated and will be removed in a future major version.
   Update to subcomponent properties (e.g., `Modal.Body`).
 

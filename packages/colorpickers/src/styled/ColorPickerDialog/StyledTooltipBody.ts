@@ -6,12 +6,12 @@
  */
 
 import styled from 'styled-components';
-import { TooltipModal } from '@zendeskgarden/react-modals';
+import { TooltipDialog } from '@zendeskgarden/react-modals';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colordialog_tooltipmodal_body';
+const COMPONENT_ID = 'colorpickers.colordialog_tooltipdialog_body';
 
-export const StyledTooltipBody = styled(TooltipModal.Body as unknown as 'div').attrs({
+export const StyledTooltipBody = styled(TooltipDialog.Body as unknown as 'div').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

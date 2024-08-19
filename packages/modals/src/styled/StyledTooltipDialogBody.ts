@@ -13,9 +13,9 @@ import {
   getColor
 } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'modals.tooltip_modal.body';
+const COMPONENT_ID = 'modals.tooltip_dialog.body';
 
-export const StyledTooltipModalBody = styled.div.attrs({
+export const StyledTooltipDialogBody = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -30,6 +30,6 @@ export const StyledTooltipModalBody = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledTooltipModalBody.defaultProps = {
+StyledTooltipDialogBody.defaultProps = {
   theme: DEFAULT_THEME
 };

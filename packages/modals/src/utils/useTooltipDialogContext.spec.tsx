@@ -7,22 +7,22 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { TooltipModal } from '../elements/TooltipModal/TooltipModal';
-import { useTooltipModalContext } from './useTooltipModalContext';
+import { TooltipDialog } from '../elements/TooltipDialog/TooltipDialog';
+import { useTooltipDialogContext } from './useTooltipDialogContext';
 
-describe('useTooltipModalContext', () => {
-  const TooltipModalContextConsumer = () => {
-    const context = useTooltipModalContext();
+describe('useTooltipDialogContext', () => {
+  const TooltipDialogContextConsumer = () => {
+    const context = useTooltipDialogContext();
 
     return <div>{context && 'it worked'}</div>;
   };
 
-  it('throws if called outside of TooltipModal component', () => {
+  it('throws if called outside of TooltipDialog component', () => {
     const originalError = console.error;
 
     console.error = jest.fn();
 
-    const Example = () => <TooltipModalContextConsumer />;
+    const Example = () => <TooltipDialogContextConsumer />;
 
     expect(() => {
       render(<Example />);
@@ -31,11 +31,11 @@ describe('useTooltipModalContext', () => {
     console.error = originalError;
   });
 
-  it('does not throw if called within TooltipModal component', () => {
+  it('does not throw if called within TooltipDialog component', () => {
     const Example = () => (
-      <TooltipModal>
-        <TooltipModalContextConsumer />
-      </TooltipModal>
+      <TooltipDialog>
+        <TooltipDialogContextConsumer />
+      </TooltipDialog>
     );
 
     expect(() => {

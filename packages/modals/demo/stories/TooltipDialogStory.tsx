@@ -12,11 +12,11 @@ import { getColor } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Button, IconButton } from '@zendeskgarden/react-buttons';
 import { Avatar } from '@zendeskgarden/react-avatars';
-import { ITooltipModalProps, TooltipModal } from '@zendeskgarden/react-modals';
+import { ITooltipDialogProps, TooltipDialog } from '@zendeskgarden/react-modals';
 
 const PLACEMENT = ['top-start', 'top', 'top-end', 'bottom-start', 'bottom', 'bottom-end'] as const;
 
-interface IArgs extends ITooltipModalProps {
+interface IArgs extends ITooltipDialogProps {
   count: number;
   handleClick: (ref?: HTMLElement | null) => void;
   hasBody: boolean;
@@ -30,7 +30,7 @@ interface IArgs extends ITooltipModalProps {
   dialogAriaLabel: string;
 }
 
-export const TooltipModalStory: Story<IArgs> = ({
+export const TooltipDialogStory: Story<IArgs> = ({
   count,
   handleClick,
   hasBody,
@@ -58,20 +58,20 @@ export const TooltipModalStory: Story<IArgs> = ({
 
   return (
     <>
-      <TooltipModal {...args} placement={args.placement || PLACEMENT[current]} {...ariaProp}>
-        {hasTitle && <TooltipModal.Title tag={tag}>{title}</TooltipModal.Title>}
-        {hasBody && <TooltipModal.Body>{body}</TooltipModal.Body>}
+      <TooltipDialog {...args} placement={args.placement || PLACEMENT[current]} {...ariaProp}>
+        {hasTitle && <TooltipDialog.Title tag={tag}>{title}</TooltipDialog.Title>}
+        {hasBody && <TooltipDialog.Body>{body}</TooltipDialog.Body>}
         {hasFooter && (
-          <TooltipModal.Footer>
+          <TooltipDialog.Footer>
             {current > 0 && (
-              <TooltipModal.FooterItem>
+              <TooltipDialog.FooterItem>
                 <Button size="small" isBasic onClick={() => handleClick(refs.current[current - 1])}>
                   Previous
                 </Button>
-              </TooltipModal.FooterItem>
+              </TooltipDialog.FooterItem>
             )}
             {current >= 0 && (
-              <TooltipModal.FooterItem>
+              <TooltipDialog.FooterItem>
                 <Button
                   isPrimary
                   size="small"
@@ -83,12 +83,12 @@ export const TooltipModalStory: Story<IArgs> = ({
                 >
                   {current === refs.current.length - 1 ? 'Finish' : 'Next'}
                 </Button>
-              </TooltipModal.FooterItem>
+              </TooltipDialog.FooterItem>
             )}
-          </TooltipModal.Footer>
+          </TooltipDialog.Footer>
         )}
-        {hasClose && <TooltipModal.Close aria-label={closeAriaLabel} />}
-      </TooltipModal>
+        {hasClose && <TooltipDialog.Close aria-label={closeAriaLabel} />}
+      </TooltipDialog>
       <Grid>
         <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
           {[...Array(count)].map((_, index) => (

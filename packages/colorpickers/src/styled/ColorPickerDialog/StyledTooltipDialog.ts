@@ -6,18 +6,25 @@
  */
 
 import styled from 'styled-components';
+import { TooltipDialog } from '@zendeskgarden/react-modals';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledFooterItem } from './StyledFooterItem';
 
-const COMPONENT_ID = 'modals.tooltip_modal.footer_item';
+const COMPONENT_ID = 'colorpickers.colordialog_tooltipdialog';
 
-export const StyledTooltipModalFooterItem = styled(StyledFooterItem).attrs({
+/**
+ * 1. Override default TooltipDialog styling
+ */
+export const StyledTooltipDialog = styled(TooltipDialog as any).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  /* stylelint-disable declaration-no-important */
+  width: auto !important; /* [1] */
+  /* stylelint-enable declaration-no-important */
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledTooltipModalFooterItem.defaultProps = {
+StyledTooltipDialog.defaultProps = {
   theme: DEFAULT_THEME
 };
