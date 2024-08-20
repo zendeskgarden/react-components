@@ -65,7 +65,7 @@ const colorStyles = ({
   const statusColor = getStatusColor(theme, $status);
   let backgroundColor = 'transparent';
   let foregroundColor = theme.palette.white;
-  let surfaceColor = 'transparent';
+  let surfaceColor;
 
   if ($backgroundColor) {
     backgroundColor = $backgroundColor.includes('.')
@@ -79,10 +79,12 @@ const colorStyles = ({
       : $foregroundColor;
   }
 
-  if ($surfaceColor) {
-    surfaceColor = $surfaceColor.includes('.')
-      ? getColor({ theme, variable: $surfaceColor })
-      : $surfaceColor;
+  if ($status) {
+    surfaceColor = $surfaceColor?.includes('.')
+      ? getColor({ variable: $surfaceColor, theme })
+      : $surfaceColor || getColor({ variable: 'background.default', theme });
+  } else {
+    surfaceColor = $surfaceColor || 'transparent';
   }
 
   return css`
