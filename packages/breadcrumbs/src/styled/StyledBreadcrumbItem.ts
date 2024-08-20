@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import {
-  getColorV8,
+  getColor,
   getLineHeight,
   retrieveComponentStyles,
   DEFAULT_THEME
@@ -16,20 +16,30 @@ import {
 const COMPONENT_ID = 'breadcrumbs.item';
 
 export interface IStyledBreadcrumbItemProps {
-  isCurrent?: boolean;
+  $isCurrent?: boolean;
 }
 
-/**
- * These CSS pseudo-classes are used to match the equivalent of :any-link, which
- * is not used here because it is not currently supported in Microsoft Edge.
- */
-const linkStyles = ({ isCurrent }: IStyledBreadcrumbItemProps) => css`
+const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => css`
+  line-height: ${getLineHeight(theme.space.base * 5, theme.fontSizes.md)};
+  white-space: nowrap;
+
   & > :link,
   & > :visited {
     white-space: inherit;
   }
+`;
 
-  ${isCurrent &&
+/**
+ * 1. These CSS pseudo-classes are used to match the equivalent of :any-link, which
+ *     is not used here because it is not currently supported in Microsoft Edge.
+ */
+const colorStyles = ({
+  $isCurrent,
+  theme
+}: IStyledBreadcrumbItemProps & ThemeProps<DefaultTheme>) => css`
+  color: ${$isCurrent ? getColor({ variable: 'foreground.subtle', theme }) : 'inherit'};
+
+  ${$isCurrent &&
   `
       & > :link,
       & > :visited,
@@ -37,7 +47,7 @@ const linkStyles = ({ isCurrent }: IStyledBreadcrumbItemProps) => css`
       & > :visited:hover,
       & > :link:focus,
       & > :visited:focus {
-        color: inherit;
+        color: inherit; /* [1] */
       }
     `}
 `;
@@ -46,12 +56,11 @@ export const StyledBreadcrumbItem = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledBreadcrumbItemProps>`
-  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-  white-space: nowrap;
-  color: ${props => (props.isCurrent ? getColorV8(props.theme.colors.neutralHue, 600) : 'inherit')};
   font-size: inherit;
 
-  ${linkStyles};
+  ${sizeStyles}
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

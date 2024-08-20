@@ -10,11 +10,10 @@ import PropTypes from 'prop-types';
 import { IGridProps, SPACE } from '../types';
 import { GridContext } from '../utils/useGridContext';
 import { StyledGrid } from '../styled';
+import { Row } from './Row';
+import { Col } from './Col';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
+export const GridComponent = React.forwardRef<HTMLDivElement, IGridProps>(
   ({ columns, debug, ...props }, ref) => {
     const value = useMemo(
       () => ({ columns, gutters: props.gutters!, debug }),
@@ -29,15 +28,26 @@ export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
   }
 );
 
-Grid.displayName = 'Grid';
+GridComponent.displayName = 'Grid';
 
-Grid.propTypes = {
+GridComponent.propTypes = {
   columns: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   gutters: PropTypes.oneOf(SPACE),
   debug: PropTypes.bool
 };
 
-Grid.defaultProps = {
+GridComponent.defaultProps = {
   columns: 12,
   gutters: 'md'
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Grid = GridComponent as typeof GridComponent & {
+  Row: typeof Row;
+  Col: typeof Col;
+};
+
+Grid.Row = Row;
+Grid.Col = Col;

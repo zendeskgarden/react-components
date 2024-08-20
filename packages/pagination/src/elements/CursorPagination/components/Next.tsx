@@ -14,7 +14,7 @@ const NextComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBut
     return (
       <StyledCursor ref={ref} as="button" {...other}>
         <span>{children}</span>
-        <StyledIcon type="next">
+        <StyledIcon $type="next">
           <ChevronRightIcon />
         </StyledIcon>
       </StyledCursor>

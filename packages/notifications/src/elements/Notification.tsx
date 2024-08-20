@@ -10,32 +10,43 @@ import PropTypes from 'prop-types';
 import InfoStrokeIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import { INotificationProps, TYPE } from '../types';
 import { StyledNotification, StyledIcon } from '../styled';
-import { validationIcons, validationHues } from '../utils/icons';
+import { validationIcons } from '../utils/icons';
+import { Title } from './Title';
+import { Paragraph } from './Paragraph';
+import { Close } from './Close';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Notification = forwardRef<HTMLDivElement, INotificationProps>(
+export const NotificationComponent = forwardRef<HTMLDivElement, INotificationProps>(
   ({ children, type, ...props }, ref) => {
     const Icon = type ? validationIcons[type] : InfoStrokeIcon;
-    const hue = type && validationHues[type];
 
     return (
-      <StyledNotification ref={ref} type={type} isFloating role="alert" {...props}>
+      <StyledNotification ref={ref} $type={type} $isFloating role="alert" {...props}>
         {type && (
-          <StyledIcon hue={hue}>
+          <StyledIcon $type={type}>
             <Icon />
           </StyledIcon>
         )}
-
         {children}
       </StyledNotification>
     );
   }
 );
 
-Notification.displayName = 'Notification';
+NotificationComponent.displayName = 'Notification';
 
-Notification.propTypes = {
+NotificationComponent.propTypes = {
   type: PropTypes.oneOf(TYPE)
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Notification = NotificationComponent as typeof NotificationComponent & {
+  Close: typeof Close;
+  Paragraph: typeof Paragraph;
+  Title: typeof Title;
+};
+
+Notification.Close = Close;
+Notification.Paragraph = Paragraph;
+Notification.Title = Title;

@@ -6,32 +6,40 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledHeaderRow } from './StyledHeaderRow';
 
 const COMPONENT_ID = 'tables.head';
 
 interface IStyledHeadProps {
-  isSticky?: boolean;
+  $isSticky?: boolean;
 }
 
 /*
- * 1. Prevent <Checkbox> or <OverflowButton> from leaking over the sticky header
- * 2. Replace header row border with a box-shadow that maintains position
+ * 1. Replace header row border with a box-shadow that maintains position
  */
-const stickyStyles = (props: ThemeProps<DefaultTheme>) => {
-  const borderColor = getColorV8('neutralHue', 300, props.theme);
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const borderColor = getColor({ variable: 'border.default', theme });
+  const backgroundColor = getColor({ variable: 'background.default', theme });
 
+  return css`
+    box-shadow: inset 0 -${theme.borderWidths.sm} 0 ${borderColor}; /* [1] */
+    background-color: ${backgroundColor};
+
+    & > ${StyledHeaderRow}:last-child {
+      border-bottom-color: transparent; /* [1] */
+    }
+  `;
+};
+
+/*
+ * 1. Prevent <Checkbox> or <OverflowButton> from leaking over the sticky header
+ */
+const stickyStyles = () => {
   return css`
     position: sticky;
     top: 0;
     z-index: 1; /* [1] */
-    box-shadow: inset 0 -${props.theme.borderWidths.sm} 0 ${borderColor}; /* [2] */
-    background-color: ${getColorV8('background', 600 /* default shade */, props.theme)};
-
-    & > ${StyledHeaderRow}:last-child {
-      border-bottom-color: transparent; /* [2] */
-    }
   `;
 };
 
@@ -39,7 +47,9 @@ export const StyledHead = styled.thead.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledHeadProps>`
-  ${props => props.isSticky && stickyStyles(props)}
+  ${props => props.$isSticky && stickyStyles()}
+
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

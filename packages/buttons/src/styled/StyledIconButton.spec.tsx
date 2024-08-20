@@ -8,9 +8,10 @@
 import React from 'react';
 import { css } from 'styled-components';
 import { render } from 'garden-test-utils';
-import { StyledIconButton } from './StyledIconButton';
+import { COMPONENT_ID, StyledIconButton } from './StyledIconButton';
 import { StyledIcon } from './StyledIcon';
 import { PALETTE } from '@zendeskgarden/react-theming';
+import { rgba } from 'polished';
 
 describe('StyledIconButton', () => {
   it('renders the expected element', () => {
@@ -28,7 +29,7 @@ describe('StyledIconButton', () => {
   it('renders basic color styling', () => {
     const { container } = render(<StyledIconButton isBasic />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[600]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700]);
   });
 
   describe('disabled', () => {
@@ -43,9 +44,13 @@ describe('StyledIconButton', () => {
     it('renders expected primary styling', () => {
       const { container } = render(<StyledIconButton disabled isPrimary />);
 
-      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.grey[200], {
-        modifier: ':disabled'
-      });
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        rgba(PALETTE.grey[700], 0.08),
+        {
+          modifier: ':disabled'
+        }
+      );
     });
   });
 
@@ -81,6 +86,14 @@ describe('StyledIconButton', () => {
           ${StyledIcon}
         ` as unknown as string
       });
+    });
+  });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', () => {
+      const { container } = render(<StyledIconButton />);
+
+      expect(container.firstChild).toHaveAttribute('data-garden-id', COMPONENT_ID);
     });
   });
 });

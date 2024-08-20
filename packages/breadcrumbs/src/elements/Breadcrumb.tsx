@@ -28,7 +28,7 @@ export const Breadcrumb = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
 
     if (isLastItem) {
       return (
-        <StyledBreadcrumbItem isCurrent>
+        <StyledBreadcrumbItem $isCurrent>
           {cloneElement(child as any, getCurrentPageProps())}
         </StyledBreadcrumbItem>
       );

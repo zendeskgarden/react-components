@@ -6,7 +6,7 @@
  */
 
 /** Common */
-export { Field, type IFieldProps } from './elements/common/Field';
+export { Field } from './elements/common/Field';
 export { Fieldset } from './elements/common/Fieldset';
 export { Hint } from './elements/common/Hint';
 export { Label } from './elements/common/Label';
@@ -20,7 +20,6 @@ export { Range } from './elements/Range';
 export { Textarea } from './elements/Textarea';
 export { Toggle } from './elements/Toggle';
 export { Select } from './elements/Select';
-export { MultiThumbRange } from './elements/MultiThumbRange';
 
 /** Tiles */
 export { Tiles } from './elements/tiles/Tiles';
@@ -36,7 +35,7 @@ export { FileList } from './elements/file-list/FileList';
 export { File } from './elements/file-list/components/File';
 
 /** Other */
-export { FauxInput, type IIconProps } from './elements/faux-input/FauxInput';
+export { FauxInput } from './elements/faux-input/FauxInput';
 export { MediaInput } from './elements/MediaInput';
 
 /** types */
@@ -54,7 +53,6 @@ export {
   type IFileUploadProps,
   type IFileProps,
   type IRangeProps,
-  type IMultiThumbRangeProps,
   type IInputGroupProps,
   type ITilesProps,
   type ITilesTileProps,

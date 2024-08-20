@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, SVGAttributes } from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, SVGAttributes } from 'react';
 
 export const SIZE = ['small', 'medium', 'large'] as const;
 
@@ -28,8 +28,6 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isPill?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** @ignore prop used by `ButtonGroup` */
-  isSelected?: boolean;
 }
 
 export interface IToggleButtonProps extends IButtonProps {
@@ -67,15 +65,6 @@ export interface IAnchorProps
    * making that icon accessible to assistive technology
    **/
   externalIconLabel?: string;
-}
-
-export interface IButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
-  /** Defines the currently selected button in the group */
-  selectedItem?: any;
-  /**
-   * Handles button selection
-   *
-   * @param {any} item The selected item
-   */
-  onSelect?: (item: any) => void;
+  /** Determines if the anchor has underline styling */
+  isUnderlined?: boolean;
 }

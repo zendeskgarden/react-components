@@ -5,12 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Datepicker } from './elements/Datepicker/Datepicker';
-export { DatepickerRange } from './elements/DatepickerRange/DatepickerRange';
+export { DatePicker } from './elements/DatePicker/DatePicker';
+export { DatePickerRange } from './elements/DatePickerRange/DatePickerRange';
 
-export type {
-  IDatepickerProps,
-  IDatepickerRangeProps,
-  /** @deprecated type can be dereferenced via IDatePickerProps['placement'] */
-  GardenPlacement as GARDEN_PLACEMENT
-} from './types';
+export type { IDatePickerProps, IDatePickerRangeProps } from './types';

@@ -9,12 +9,13 @@ import React from 'react';
 import { css } from 'styled-components';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
 import { Table } from './Table';
 import { Body } from './Body';
 import { Row } from './Row';
 import { StyledCell } from '../styled';
+import { rgba } from 'polished';
 
 describe('Row', () => {
   const user = userEvent.setup();
@@ -56,16 +57,12 @@ describe('Row', () => {
 
     await user.click(row);
 
-    expect(row).toHaveStyleRule(
-      'box-shadow',
-      `inset 3px 0 0 0 ${getColorV8('primaryHue', 600, DEFAULT_THEME)}`,
-      {
-        /* prettier-ignore */
-        /* stylelint-disable */
-        modifier: css`${StyledCell}:first-of-type` as any
-        /* stylelint-enable */
-      }
-    );
+    expect(row).toHaveStyleRule('box-shadow', `inset 3px 0 0 0 ${PALETTE.blue[700]}`, {
+      /* prettier-ignore */
+      /* stylelint-disable */
+      modifier: css`${StyledCell}:first-of-type` as any
+      /* stylelint-enable */
+    });
   });
 
   it('does not apply focus styling when table is readonly', async () => {
@@ -80,16 +77,12 @@ describe('Row', () => {
 
     await user.click(row);
 
-    expect(row).not.toHaveStyleRule(
-      'box-shadow',
-      `inset 3px 0 0 0 ${getColorV8('primaryHue', 600, DEFAULT_THEME)}`,
-      {
-        /* prettier-ignore */
-        /* stylelint-disable */
-        modifier: css`${StyledCell}:first-of-type` as any
-        /* stylelint-enable */
-      }
-    );
+    expect(row).not.toHaveStyleRule('box-shadow', `inset 3px 0 0 0 ${PALETTE.blue[700]}`, {
+      /* prettier-ignore */
+      /* stylelint-disable */
+      modifier: css`${StyledCell}:first-of-type` as any
+      /* stylelint-enable */
+    });
   });
 
   it('removes focus styling when blurred', async () => {
@@ -105,14 +98,10 @@ describe('Row', () => {
     await user.click(row);
     await user.tab();
 
-    expect(row).not.toHaveStyleRule(
-      'box-shadow',
-      `inset 3px 0 0 0 ${getColorV8('primaryHue', 600, DEFAULT_THEME)}`,
-      {
-        /* prettier-ignore */
-        modifier: css`${StyledCell}:first-of-type` as any
-      }
-    );
+    expect(row).not.toHaveStyleRule('box-shadow', `inset 3px 0 0 0 ${PALETTE.blue[700]}`, {
+      /* prettier-ignore */
+      modifier: css`${StyledCell}:first-of-type` as any
+    });
   });
 
   it('renders striped styling', () => {
@@ -126,7 +115,7 @@ describe('Row', () => {
 
     expect(getByTestId('row')).toHaveStyleRule(
       'background-color',
-      getColorV8('neutralHue', 100, DEFAULT_THEME)
+      rgba(PALETTE.grey[400], DEFAULT_THEME.opacity[100])
     );
   });
 
@@ -141,7 +130,7 @@ describe('Row', () => {
 
     expect(getByTestId('row')).toHaveStyleRule(
       'background-color',
-      getColorV8('primaryHue', 600, DEFAULT_THEME, 0.08)
+      rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[100])
     );
   });
 
@@ -157,7 +146,7 @@ describe('Row', () => {
 
       expect(getByTestId('row')).toHaveStyleRule(
         'background-color',
-        getColorV8('primaryHue', 600, DEFAULT_THEME, 0.28)
+        rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[300])
       );
     });
 
@@ -172,7 +161,7 @@ describe('Row', () => {
 
       expect(getByTestId('row')).toHaveStyleRule(
         'background-color',
-        getColorV8('primaryHue', 600, DEFAULT_THEME, 0.2)
+        rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[200])
       );
     });
   });

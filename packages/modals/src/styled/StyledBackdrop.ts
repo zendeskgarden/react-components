@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
-import { getColorV8, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.backdrop';
 
@@ -49,7 +49,14 @@ export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
   align-items: ${props => props.isCentered && 'center'};
   justify-content: ${props => props.isCentered && 'center'};
   z-index: 400;
-  background-color: ${props => getColorV8('neutralHue', 800, props.theme, 0.85)};
+  background-color: ${({ theme }) =>
+    getColor({
+      theme,
+      hue: 'neutralHue',
+      transparency: theme.opacity[1000],
+      light: { shade: 900 },
+      dark: { shade: 1200 }
+    })};
   overflow: auto;
   -webkit-overflow-scrolling: touch; /* [1] */
   font-family: ${props => props.theme.fonts.system};

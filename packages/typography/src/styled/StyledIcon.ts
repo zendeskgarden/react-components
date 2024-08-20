@@ -6,17 +6,20 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import React, { Children } from 'react';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  StyledBaseIcon,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.icon';
 
 interface IStyledIconProps {
-  isStart?: boolean;
+  $isStart?: boolean;
 }
 
 const sizeStyles = (props: IStyledIconProps & ThemeProps<DefaultTheme>) => {
-  const margin = props.isStart && `${props.theme.space.base * 2}px`;
+  const margin = props.$isStart && `${props.theme.space.base * 2}px`;
   const size = props.theme.iconSizes.md;
 
   return css`
@@ -27,10 +30,7 @@ const sizeStyles = (props: IStyledIconProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-export const StyledIcon = styled(({ children, isStart, ...props }) =>
-  React.cloneElement(Children.only(children), props)
-).attrs({
+export const StyledIcon = styled(StyledBaseIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledIconProps>`

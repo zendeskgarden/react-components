@@ -9,27 +9,26 @@ import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import {
   arrowStyles,
   retrieveComponentStyles,
-  getColorV8,
   DEFAULT_THEME,
-  getLineHeight
+  getLineHeight,
+  getArrowPosition,
+  getColor
 } from '@zendeskgarden/react-theming';
-import { getArrowPosition } from '../utils/gardenPlacements';
-import { ITooltipProps, POPPER_PLACEMENT } from '../types';
+import { Placement } from '@floating-ui/react-dom';
+import { ITooltipProps } from '../types';
 import { StyledParagraph } from './StyledParagraph';
 import { StyledTitle } from './StyledTitle';
 
 const COMPONENT_ID = 'tooltip.tooltip';
 
 interface IStyledTooltipProps extends Pick<ITooltipProps, 'hasArrow' | 'size' | 'zIndex'> {
-  /** All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements) */
-  placement: (typeof POPPER_PLACEMENT)[number];
+  placement: Placement;
   type: NonNullable<ITooltipProps['type']>;
 }
 
 const sizeStyles = ({
   theme,
   size,
-  type,
   placement,
   hasArrow
 }: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
@@ -74,22 +73,16 @@ const sizeStyles = ({
   }
 
   let arrowSize;
-  let arrowInset;
 
   if (hasArrow) {
     if (size === 'small' || size === 'medium') {
       arrowSize = margin;
-      arrowInset = type === 'dark' ? '1px' : '0';
-    } else {
-      arrowInset = type === 'dark' ? '2px' : '1px';
-
-      if (size === 'large') {
-        margin = `${theme.space.base * 2}px`;
-        arrowSize = margin;
-      } else if (size === 'extra-large') {
-        margin = `${theme.space.base * 3}px`;
-        arrowSize = `${theme.space.base * 2.5}px`;
-      }
+    } else if (size === 'large') {
+      margin = `${theme.space.base * 2}px`;
+      arrowSize = margin;
+    } else if (size === 'extra-large') {
+      margin = `${theme.space.base * 3}px`;
+      arrowSize = `${theme.space.base * 2.5}px`;
     }
   }
 
@@ -104,7 +97,7 @@ const sizeStyles = ({
     font-size: ${fontSize};
     overflow-wrap: ${overflowWrap};
 
-    ${hasArrow && arrowStyles(getArrowPosition(placement), { size: arrowSize, inset: arrowInset })};
+    ${hasArrow && arrowStyles(getArrowPosition(theme, placement), { size: arrowSize })};
 
     ${StyledParagraph} {
       margin-top: ${paragraphMarginTop};
@@ -117,30 +110,40 @@ const sizeStyles = ({
 };
 
 const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
-  let border;
-  let boxShadow = theme.shadows.lg(
-    `${theme.space.base}px`,
-    `${theme.space.base * 2}px`,
-    getColorV8('chromeHue', 600, theme, 0.15)!
-  );
-  let backgroundColor = getColorV8('chromeHue', 700, theme);
-  let color = getColorV8('background', 600 /* default shade */, theme);
+  let borderColor;
+  let boxShadow;
+  let backgroundColor;
+  let color;
   let titleColor;
 
   if (type === 'light') {
+    backgroundColor = getColor({ theme, variable: 'background.raised' });
+    borderColor = getColor({ theme, variable: 'border.default' });
     boxShadow = theme.shadows.lg(
-      `${theme.space.base * 3}px`,
-      `${theme.space.base * 5}px`,
-      getColorV8('chromeHue', 600, theme, 0.15)!
+      `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`,
+      `${theme.space.base * (theme.colors.base === 'dark' ? 6 : 7)}px`,
+      getColor({ variable: 'shadow.medium', theme })
     );
-    border = `${theme.borders.sm} ${getColorV8('neutralHue', 300, theme)}`;
-    backgroundColor = getColorV8('background', 600 /* default shade */, theme);
-    color = getColorV8('neutralHue', 700, theme)!;
-    titleColor = getColorV8('foreground', 600 /* default shade */, theme);
+    color = getColor({ theme, variable: 'foreground.subtle' });
+    titleColor = getColor({ theme, variable: 'foreground.default' });
+  } else {
+    backgroundColor = getColor({
+      theme,
+      hue: 'neutralHue',
+      light: { shade: 900 },
+      dark: { shade: 700 }
+    });
+    borderColor = backgroundColor;
+    boxShadow = theme.shadows.lg(
+      `${theme.space.base}px`,
+      `${theme.space.base * 2}px`,
+      getColor({ variable: 'shadow.small', theme })
+    );
+    color = getColor({ theme, hue: 'white' });
   }
 
   return css`
-    border: ${border};
+    border-color: ${borderColor};
     box-shadow: ${boxShadow};
     background-color: ${backgroundColor};
     color: ${color};
@@ -159,12 +162,13 @@ export const StyledTooltip = styled.div.attrs<IStyledTooltipProps>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTooltipProps>`
   display: inline-block;
+  border: ${props => props.theme.borders.sm};
   box-sizing: border-box;
   direction: ${props => props.theme.rtl && 'rtl'};
   text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
   font-weight: ${props => props.theme.fontWeights.regular};
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
 
   &[aria-hidden='true'] {
     display: none;

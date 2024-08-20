@@ -52,20 +52,3 @@ import { Notification } from '@zendeskgarden/react-notifications';
   <Notification>This notification content will render with RTL layout.</Notification>
 </ThemeProvider>;
 ```
-
-The `withTheme` [HOC](https://reactjs.org/docs/higher-order-components.html)
-utility allows any component to interact with its `ThemeProvider`.
-
-```jsx
-import { withTheme } from '@zendeskgarden/react-theming';
-
-const Div = ({ theme, children }) => (
-  <div style={{ direction: theme.rtl ? 'rtl' : 'ltr' }}>{children}</div>
-);
-
-const LocalizedComponent = withTheme(Div);
-
-<ThemeProvider theme={{ ...DEFAULT_THEME, rtl: true }}>
-  <LocalizedComponent>RTL localizable</LocalizedComponent>
-</ThemeProvider>;
-```

@@ -7,20 +7,28 @@
 
 import React from 'react';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { render } from 'garden-test-utils';
+import { render, renderDark } from 'garden-test-utils';
 
 import { StyledHeader } from './StyledHeader';
 
 describe('StyledHeader', () => {
-  it('renders default styling', () => {
-    const { container } = render(<StyledHeader />);
+  it.each([['light'], ['dark']])('gets the correct %s mode default color', mode => {
+    const renderFn = mode === 'light' ? render : renderDark;
+    const { container } = renderFn(<StyledHeader />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
+    expect(container.firstChild).toHaveStyleRule(
+      'color',
+      mode === 'light' ? PALETTE.grey[900] : PALETTE.grey[300]
+    );
   });
 
-  it('renders danger styling if provided', () => {
-    const { container } = render(<StyledHeader isDanger />);
+  it.each([['light'], ['dark']])('gets the correct %s mode danger color', mode => {
+    const renderFn = mode === 'light' ? render : renderDark;
+    const { container } = renderFn(<StyledHeader isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[600]);
+    expect(container.firstChild).toHaveStyleRule(
+      'color',
+      mode === 'light' ? PALETTE.red[700] : PALETTE.red[400]
+    );
   });
 });

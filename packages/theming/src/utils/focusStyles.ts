@@ -5,17 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { css, CSSObject } from 'styled-components';
+import { css } from 'styled-components';
 import { math } from 'polished';
-import { FocusBoxShadowParameters, getFocusBoxShadow } from './getFocusBoxShadow';
+import { getFocusBoxShadow } from './getFocusBoxShadow';
+import { FocusStylesParameters } from '../types';
 
-export const SELECTOR_FOCUS_VISIBLE = '&:focus-visible, &[data-garden-focus-visible="true"]';
-
-type FocusStylesParameters = FocusBoxShadowParameters & {
-  condition?: boolean;
-  selector?: string;
-  styles?: CSSObject;
-};
+export const SELECTOR_FOCUS_VISIBLE = '&:focus-visible';
 
 /**
  * Garden standard `box-shadow` focus styling.
@@ -38,8 +33,7 @@ type FocusStylesParameters = FocusBoxShadowParameters & {
  *   outline: none;
  * }
  *
- * :focus-visible,
- * [data-garden-focus-visible='true'] {
+ * :focus-visible {
  *   box-shadow: 0 0 0 {1px} #fff,
  *               0 0 0 {3px} {blue};
  *   outline: {2px} solid transparent;

@@ -1,0 +1,55 @@
+{
+  "name": "@zendeskgarden/react-dropdowns.legacy",
+  "version": "9.0.0-next.22",
+  "description": "Components relating to dropdowns in the Garden Design System",
+  "license": "Apache-2.0",
+  "author": "Zendesk Garden <garden@zendesk.com>",
+  "homepage": "https://garden.zendesk.com/",
+  "repository": "https://github.com/zendeskgarden/react-components",
+  "bugs": {
+    "url": "https://github.com/zendeskgarden/react-components/issues"
+  },
+  "main": "dist/index.cjs.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "../../utils/scripts/build.sh",
+    "start": "../../utils/scripts/start.sh"
+  },
+  "sideEffects": false,
+  "types": "dist/typings/index.d.ts",
+  "dependencies": {
+    "@zendeskgarden/container-selection": "^2.0.0",
+    "@zendeskgarden/container-utilities": "^1.0.14",
+    "@zendeskgarden/react-forms": "^9.0.0-next.22",
+    "downshift": "^7.0.0",
+    "polished": "^4.3.1",
+    "prop-types": "^15.5.7",
+    "react-merge-refs": "^2.0.0",
+    "react-popper": "^1.3.4"
+  },
+  "peerDependencies": {
+    "@zendeskgarden/react-theming": ">=9.0.0-next",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "styled-components": "^5.3.1"
+  },
+  "devDependencies": {
+    "@types/lodash.debounce": "4.0.9",
+    "@zendeskgarden/react-theming": "^9.0.0-next.22",
+    "@zendeskgarden/svg-icons": "7.1.1",
+    "lodash.debounce": "4.0.8"
+  },
+  "keywords": [
+    "components",
+    "garden",
+    "react",
+    "zendesk"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "zendeskgarden:src": "src/index.ts"
+}

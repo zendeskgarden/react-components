@@ -10,6 +10,8 @@ import { StyledTabList } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
 
 /**
+ * @deprecated use `Tabs.TabList` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const TabList = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
@@ -25,7 +27,7 @@ export const TabList = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
 
     return (
       <StyledTabList
-        isVertical={tabsPropGetters.isVertical}
+        $isVertical={tabsPropGetters.isVertical}
         {...tabListProps}
         {...props}
         ref={ref}
@@ -34,4 +36,4 @@ export const TabList = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
   }
 );
 
-TabList.displayName = 'TabList';
+TabList.displayName = 'Tabs.TabList';

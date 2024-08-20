@@ -18,10 +18,13 @@ import {
 } from '../styled';
 
 /**
+ * @deprecated use `Table.SortableCell` instead
+ *
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
-  ({ sort, cellProps, width, children, ...otherProps }, ref) => {
+  ({ sort, cellProps = {}, width, children, ...sortableButtonProps }, ref) => {
+    const { isMinimum, isTruncated, hasOverflow } = cellProps;
     let ariaSortValue = 'none';
 
     if (sort === 'asc') {
@@ -33,8 +36,15 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
     const SortIcon = sort === undefined ? SortStrokeIcon : SortFillIcon;
 
     return (
-      <StyledHeaderCell aria-sort={ariaSortValue} width={width} {...cellProps}>
-        <StyledSortableButton sort={sort} ref={ref} {...otherProps}>
+      <StyledHeaderCell
+        aria-sort={ariaSortValue}
+        width={width}
+        $isMinimum={isMinimum}
+        $isTruncated={isTruncated}
+        $hasOverflow={hasOverflow}
+        {...cellProps}
+      >
+        <StyledSortableButton $sort={sort} ref={ref} {...sortableButtonProps}>
           {children}
           <StyledSortableStrokeIconWrapper>
             <SortIcon />
@@ -48,7 +58,7 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
   }
 );
 
-SortableCell.displayName = 'SortableCell';
+SortableCell.displayName = 'Table.SortableCell';
 
 SortableCell.propTypes = {
   sort: PropTypes.oneOf(SORT),

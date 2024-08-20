@@ -5,36 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  Children,
-  cloneElement,
-  HTMLAttributes,
-  isValidElement,
-  PropsWithChildren,
-  ReactHTMLElement
-} from 'react';
-import { DefaultTheme, ThemeProps } from 'styled-components';
+import React, { SVGAttributes, PropsWithChildren } from 'react';
 import { StyledNavItemIcon } from '../../styled';
 
 /**
- * @extends HTMLAttributes<HTMLElement>
+ * @deprecated use `Nav.ItemIcon` instead
+ *
+ * @extends SVGAttributes<SVGElement>
  */
 export const NavItemIcon = ({
   children,
   ...props
-}: PropsWithChildren<HTMLAttributes<HTMLElement>>) => {
-  const element = Children.only(children) as ReactHTMLElement<HTMLElement>;
+}: PropsWithChildren<SVGAttributes<SVGElement>>) => (
+  <StyledNavItemIcon {...props}>{children}</StyledNavItemIcon>
+);
 
-  if (isValidElement(element)) {
-    const Icon = ({
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      theme,
-      ...iconProps
-    }: ThemeProps<DefaultTheme> & HTMLAttributes<HTMLElement>) =>
-      cloneElement<HTMLAttributes<HTMLElement>, HTMLElement>(element, { ...props, ...iconProps });
-
-    return <StyledNavItemIcon as={Icon} {...props} />;
-  }
-
-  return null;
-};
+NavItemIcon.displayName = 'Nav.ItemIcon';

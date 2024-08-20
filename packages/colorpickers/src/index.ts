@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Colorpicker } from './elements/Colorpicker';
-export { ColorpickerDialog } from './elements/ColorpickerDialog';
+export { ColorPicker } from './elements/ColorPicker';
+export { ColorPickerDialog } from './elements/ColorPickerDialog';
 export { ColorSwatch } from './elements/ColorSwatch';
 export { ColorSwatchDialog } from './elements/ColorSwatchDialog';
 
 export type {
   IColor,
-  IColorpickerProps,
-  IColorpickerDialogProps,
+  IColorPickerProps,
+  IColorPickerDialogProps,
   ILabeledColor,
   IColorSwatchProps,
   IColorSwatchDialogProps

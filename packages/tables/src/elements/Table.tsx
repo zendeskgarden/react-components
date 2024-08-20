@@ -10,30 +10,66 @@ import PropTypes from 'prop-types';
 import { ITableProps, SIZE } from '../types';
 import { StyledTable } from '../styled';
 import { TableContext } from '../utils/useTableContext';
+import { Head } from './Head';
+import { Body } from './Body';
+import { Caption } from './Caption';
+import { Cell } from './Cell';
+import { GroupRow } from './GroupRow';
+import { HeaderCell } from './HeaderCell';
+import { HeaderRow } from './HeaderRow';
+import { OverflowButton } from './OverflowButton';
+import { Row } from './Row';
+import { SortableCell } from './SortableCell';
+
+export const TableComponent = React.forwardRef<HTMLTableElement, ITableProps>(
+  ({ isReadOnly, size, ...props }, ref) => {
+    const tableContextValue = useMemo(
+      () => ({ size: size!, isReadOnly: isReadOnly! }),
+      [size, isReadOnly]
+    );
+
+    return (
+      <TableContext.Provider value={tableContextValue}>
+        <StyledTable ref={ref} {...props} />
+      </TableContext.Provider>
+    );
+  }
+);
+
+TableComponent.displayName = 'Table';
+
+TableComponent.defaultProps = {
+  size: 'medium'
+};
+
+TableComponent.propTypes = {
+  size: PropTypes.oneOf(SIZE),
+  isReadOnly: PropTypes.bool
+};
 
 /**
  * @extends TableHTMLAttributes<HTMLTableElement>
  */
-export const Table = React.forwardRef<HTMLTableElement, ITableProps>((props, ref) => {
-  const tableContextValue = useMemo(
-    () => ({ size: props.size!, isReadOnly: props.isReadOnly! }),
-    [props.size, props.isReadOnly]
-  );
-
-  return (
-    <TableContext.Provider value={tableContextValue}>
-      <StyledTable ref={ref} {...props} />
-    </TableContext.Provider>
-  );
-});
-
-Table.displayName = 'Table';
-
-Table.defaultProps = {
-  size: 'medium'
+export const Table = TableComponent as typeof TableComponent & {
+  Body: typeof Body;
+  Caption: typeof Caption;
+  Cell: typeof Cell;
+  GroupRow: typeof GroupRow;
+  Head: typeof Head;
+  HeaderCell: typeof HeaderCell;
+  HeaderRow: typeof HeaderRow;
+  OverflowButton: typeof OverflowButton;
+  Row: typeof Row;
+  SortableCell: typeof SortableCell;
 };
 
-Table.propTypes = {
-  size: PropTypes.oneOf(SIZE),
-  isReadOnly: PropTypes.bool
-};
+Table.Body = Body;
+Table.Caption = Caption;
+Table.Cell = Cell;
+Table.GroupRow = GroupRow;
+Table.Head = Head;
+Table.HeaderCell = HeaderCell;
+Table.HeaderRow = HeaderRow;
+Table.OverflowButton = OverflowButton;
+Table.Row = Row;
+Table.SortableCell = SortableCell;

@@ -5,29 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, HTMLAttributes, useMemo } from 'react';
+import React, { useState, HTMLAttributes, useMemo } from 'react';
 import { useField } from '@zendeskgarden/container-field';
 import { FieldContext } from '../../utils/useFieldContext';
 import { StyledField } from '../../styled';
+import { Hint } from './Hint';
+import { Message } from './Message';
+import { Label } from './Label';
 
-/**
- * @deprecated
- */
-export interface IFieldProps extends HTMLAttributes<HTMLDivElement> {
-  /** Sets the field ID and the prefix for the generated label, input, and hint IDs */
-  id?: string;
-}
-
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+export const FieldComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const [hasHint, setHasHint] = useState(false);
     const [hasMessage, setHasMessage] = useState(false);
     const [isLabelActive, setIsLabelActive] = useState(false);
     const [isLabelHovered, setIsLabelHovered] = useState(false);
-    const multiThumbRangeRef = useRef<HTMLDivElement>(null);
     const { getInputProps, getMessageProps, ...propGetters } = useField({
       idPrefix: props.id,
       hasHint,
@@ -45,8 +36,7 @@ export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
         hasHint,
         setHasHint,
         hasMessage,
-        setHasMessage,
-        multiThumbRangeRef
+        setHasMessage
       }),
       [
         propGetters,
@@ -67,4 +57,17 @@ export const Field = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
   }
 );
 
-Field.displayName = 'Field';
+FieldComponent.displayName = 'Field';
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Field = FieldComponent as typeof FieldComponent & {
+  Hint: typeof Hint;
+  Label: typeof Label;
+  Message: typeof Message;
+};
+
+Field.Hint = Hint;
+Field.Label = Label;
+Field.Message = Message;

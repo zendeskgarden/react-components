@@ -1,14 +1,14 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Range, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { Range } from '@zendeskgarden/react-forms';
 import { RangeStory } from './stories/RangeStory';
-import { commonArgs, commonArgTypes } from './stories/common';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
 
 <Meta
   title="Packages/Forms/Range"
   component={Range}
-  subcomponents={{ Field, Label, Hint, Message }}
+  subcomponents={{ ...fieldSubcomponents }}
   args={{
     ...commonArgs
   }}

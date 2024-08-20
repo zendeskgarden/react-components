@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { StyledPagination } from './Pagination/StyledPagination';
-export { StyledPage } from './Pagination/StyledPage';
+export { StyledList } from './OffsetPagination/StyledList';
+export { StyledListItem } from './OffsetPagination/StyledListItem';
+export { StyledPage } from './OffsetPagination/StyledPage';
 export { StyledCursorPagination } from './CursorPagination/StyledCursorPagination';
 export { StyledCursor } from './CursorPagination/StyledCursor';
 export { StyledIcon, type IStyledIcon } from './CursorPagination/StyledIcon';
-export { StyledGap } from './Pagination/StyledGap';
-export { StyledNavigation } from './Pagination/StyledNavigation';
+export { StyledGapListItem } from './OffsetPagination/StyledGapListItem';
+export { StyledNavigation } from './OffsetPagination/StyledNavigation';
+export { StyledNav } from './OffsetPagination/StyledNav';

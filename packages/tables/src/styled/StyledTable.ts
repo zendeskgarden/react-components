@@ -6,14 +6,9 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
-import { ITableProps } from '../types';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.table';
-
-interface IStyledTableProps {
-  size?: ITableProps['size'];
-}
 
 export const getLineHeight = (props: ThemeProps<DefaultTheme>) => {
   return `${props.theme.space.base * 5}px`;
@@ -22,10 +17,10 @@ export const getLineHeight = (props: ThemeProps<DefaultTheme>) => {
 /**
  * 1. <table> reset
  */
-export const StyledTable = styled.table.attrs<IStyledTableProps>({
+export const StyledTable = styled.table.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledTableProps>`
+})`
   display: table;
   border: none; /* [1] */
   width: 100%; /* [1] */
@@ -33,7 +28,7 @@ export const StyledTable = styled.table.attrs<IStyledTableProps>({
   border-collapse: collapse; /* [1] */
   border-spacing: 0; /* [1] */
   line-height: ${props => getLineHeight(props)};
-  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
+  color: ${props => getColor({ variable: 'foreground.default', theme: props.theme })};
   font-size: ${props => props.theme.fontSizes.md};
   direction: ${props => props.theme.rtl && 'rtl'};
 

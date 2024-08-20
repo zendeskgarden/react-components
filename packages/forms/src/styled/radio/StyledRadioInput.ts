@@ -8,34 +8,47 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import {
-  getColorV8,
   retrieveComponentStyles,
   DEFAULT_THEME,
-  focusStyles
+  focusStyles,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { StyledRadioLabel } from './StyledRadioLabel';
 import { StyledMessage } from '../common/StyledMessage';
 
 const COMPONENT_ID = 'forms.radio';
 
-const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const SHADE = 600;
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const borderColor = getColor({ theme, variable: 'border.emphasis' });
+  const backgroundColor = getColor({ theme, variable: 'background.default' });
+  const iconColor = getColor({ theme, variable: 'foreground.onEmphasis' });
 
-  const borderColor = getColorV8('neutralHue', SHADE - 300, props.theme);
-  const backgroundColor = getColorV8('background', 600 /* default shade */, props.theme);
-  const iconColor = backgroundColor;
-  const hoverBackgroundColor = getColorV8('primaryHue', SHADE, props.theme, 0.08);
-  const hoverBorderColor = getColorV8('primaryHue', SHADE, props.theme);
+  const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
+  const borderOptions = { theme, variable: 'border.primaryEmphasis' };
+
+  const hoverBackgroundColor = getColor({ ...backgroundOptions, transparency: theme.opacity[100] });
+  const hoverBorderColor = getColor(borderOptions);
   const focusBorderColor = hoverBorderColor;
-  const activeBackgroundColor = getColorV8('primaryHue', SHADE, props.theme, 0.2);
+  const activeBackgroundColor = getColor({
+    ...backgroundOptions,
+    transparency: theme.opacity[200]
+  });
   const activeBorderColor = focusBorderColor;
+  const checkedBackgroundColor = getColor(backgroundOptions);
   const checkedBorderColor = focusBorderColor;
-  const checkedBackgroundColor = checkedBorderColor;
-  const checkedHoverBorderColor = getColorV8('primaryHue', SHADE + 100, props.theme);
-  const checkedHoverBackgroundColor = checkedHoverBorderColor;
-  const checkedActiveBorderColor = getColorV8('primaryHue', SHADE + 200, props.theme);
-  const checkedActiveBackgroundColor = checkedActiveBorderColor;
-  const disabledBackgroundColor = getColorV8('neutralHue', SHADE - 400, props.theme);
+
+  const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
+  const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
+
+  const checkedHoverBackgroundColor = getColor({ ...backgroundOptions, ...offset100 });
+  const checkedHoverBorderColor = getColor({ ...borderOptions, ...offset100 });
+  const checkedActiveBackgroundColor = getColor({ ...backgroundOptions, ...offset200 });
+  const checkedActiveBorderColor = getColor({ ...borderOptions, ...offset200 });
+  const disabledBackgroundColor = getColor({
+    theme,
+    variable: 'background.disabled',
+    transparency: theme.opacity[300]
+  });
 
   return css`
     & ~ ${StyledRadioLabel}::before {
@@ -53,9 +66,9 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     }
 
     ${focusStyles({
-      theme: props.theme,
+      theme,
       styles: { borderColor: focusBorderColor },
-      selector: `&:focus-visible ~ ${StyledRadioLabel}::before, &[data-garden-focus-visible='true'] ~ ${StyledRadioLabel}::before`
+      selector: `&:focus-visible ~ ${StyledRadioLabel}::before`
     })}
 
     & ~ ${StyledRadioLabel}:active::before {
@@ -87,14 +100,14 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: IStyledRadioInputProps & ThemeProps<DefaultTheme>) => {
-  const lineHeight = `${props.theme.space.base * 5}px`; /* from StyledLabel */
-  const size = `${props.theme.space.base * 4}px`;
+const sizeStyles = ({ theme, isCompact }: IStyledRadioInputProps & ThemeProps<DefaultTheme>) => {
+  const lineHeight = `${theme.space.base * 5}px`; /* from StyledLabel */
+  const size = `${theme.space.base * 4}px`;
   const top = math(`(${lineHeight} - ${size}) / 2`);
-  const iconSize = props.theme.iconSizes.sm;
+  const iconSize = theme.iconSizes.sm;
   const iconPosition = math(`(${size} - ${iconSize}) / 2`);
   const iconTop = math(`${iconPosition} + ${top}`);
-  const marginTop = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
+  const marginTop = `${theme.space.base * (isCompact ? 1 : 2)}px`;
 
   return css`
     top: ${top};
@@ -103,7 +116,8 @@ const sizeStyles = (props: IStyledRadioInputProps & ThemeProps<DefaultTheme>) =>
 
     & ~ ${StyledRadioLabel}::before {
       top: ${top};
-      background-size: ${props.theme.iconSizes.sm};
+      border: ${theme.borders.sm};
+      background-size: ${theme.iconSizes.sm};
       width: ${size};
       height: ${size};
       box-sizing: border-box;
@@ -111,7 +125,7 @@ const sizeStyles = (props: IStyledRadioInputProps & ThemeProps<DefaultTheme>) =>
 
     & ~ ${StyledRadioLabel} > svg {
       top: ${iconTop};
-      ${props.theme.rtl ? 'right' : 'left'}: ${iconPosition};
+      ${theme.rtl ? 'right' : 'left'}: ${iconPosition};
       width: ${iconSize};
       height: ${iconSize};
     }
@@ -145,7 +159,6 @@ export const StyledRadioInput = styled.input.attrs({
       box-shadow .1s ease-in-out,
       background-color .25s ease-in-out,
       color .25s ease-in-out;
-    border: ${props => props.theme.borders.sm};
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: center;
@@ -156,7 +169,7 @@ export const StyledRadioInput = styled.input.attrs({
     position: absolute;
   }
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
 
   &:focus ~ ${StyledRadioLabel}::before {
     outline: none;
@@ -170,7 +183,7 @@ export const StyledRadioInput = styled.input.attrs({
       color 0.1s ease-in-out;
   }
 
-  ${props => colorStyles(props)};
+  ${colorStyles};
 
   &:disabled ~ ${StyledRadioLabel} {
     cursor: default;

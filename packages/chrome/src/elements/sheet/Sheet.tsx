@@ -8,7 +8,7 @@
 import React, { useRef, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useUIDSeed } from 'react-uid';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 
 import { ISheetProps, PLACEMENT } from '../../types';
 import { StyledSheet, StyledSheetWrapper } from '../../styled';

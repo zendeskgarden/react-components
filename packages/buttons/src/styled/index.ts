@@ -6,8 +6,8 @@
  */
 
 export * from './StyledAnchor';
-export * from './StyledButton';
-export * from './StyledButtonGroup';
+export { StyledButton } from './StyledButton';
+export * from './StyledSplitButton';
 export * from './StyledExternalIcon';
 export * from './StyledIcon';
-export * from './StyledIconButton';
+export { StyledIconButton } from './StyledIconButton';

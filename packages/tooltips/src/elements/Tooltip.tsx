@@ -9,27 +9,26 @@ import React, { cloneElement, useRef, useEffect, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers, getControlledValue } from '@zendeskgarden/container-utilities';
-import { Manager, Popper, Reference } from 'react-popper';
-import { Modifiers } from 'popper.js';
-import { getPopperPlacement, getRtlPopperPlacement } from '../utils/gardenPlacements';
 import { StyledTooltipWrapper, StyledTooltip } from '../styled';
 import { ITooltipProps, PLACEMENT, SIZE, TYPE } from '../types';
+import { autoPlacement, autoUpdate, platform, useFloating } from '@floating-ui/react-dom';
+import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
+import { toSize } from './utils';
+import { Paragraph } from './Paragraph';
+import { Title } from './Title';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const Tooltip = ({
+export const PLACEMENT_DEFAULT = 'top';
+
+export const TooltipComponent = ({
   id,
   delayMS,
   isInitialVisible,
   content,
   refKey,
-  placement,
-  eventsEnabled,
-  popperModifiers,
+  placement: _placement,
   children,
   hasArrow,
   size,
@@ -37,10 +36,14 @@ export const Tooltip = ({
   appendToNode,
   zIndex,
   isVisible: externalIsVisible,
-  ...otherProps
+  onFocus,
+  onBlur,
+  ...props
 }: ITooltipProps) => {
-  const { rtl } = useContext(ThemeContext);
-  const scheduleUpdateRef = useRef<() => void>();
+  const theme = useContext(ThemeContext) || DEFAULT_THEME;
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const floatingRef = useRef<HTMLDivElement>(null);
+
   const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({
     id,
     delayMilliseconds: delayMS,
@@ -48,115 +51,90 @@ export const Tooltip = ({
   });
 
   const controlledIsVisible = getControlledValue(externalIsVisible, isVisible);
+  const [floatingPlacement] = getFloatingPlacements(
+    theme,
+    _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!
+  );
 
-  /**
-   * Recalculate popper placement when open to allow animations to complete.
-   **/
-  useEffect(() => {
-    if (controlledIsVisible && scheduleUpdateRef.current) {
-      scheduleUpdateRef.current();
-    }
-  }, [controlledIsVisible, content]);
-
-  const popperPlacement = rtl ? getRtlPopperPlacement(placement!) : getPopperPlacement(placement!);
-
-  const singleChild = React.Children.only<
-    React.ReactElement & React.RefAttributes<HTMLButtonElement>
-  >(children);
-
-  /**
-   * By default PopperJS treats an overflow container as its boundary.
-   * It is much more common to want the parent window to determine
-   * the overflow boundary.
-   */
-  const modifiers: Modifiers = {
-    preventOverflow: {
-      boundariesElement: 'window'
+  const {
+    refs,
+    placement,
+    update,
+    floatingStyles: { transform }
+  } = useFloating({
+    platform: {
+      ...platform,
+      isRTL: () => theme.rtl
     },
-    ...popperModifiers
-  };
+    elements: { reference: triggerRef?.current, floating: floatingRef?.current },
+    placement: floatingPlacement,
+    middleware: _placement === 'auto' ? [autoPlacement()] : undefined
+  });
+
+  useEffect(() => {
+    // Only allow positioning updates on visible tooltip.
+    let cleanup: () => void;
+
+    if (controlledIsVisible && refs.reference.current && refs.floating.current) {
+      cleanup = autoUpdate(refs.reference.current, refs.floating.current, update, {
+        elementResize: typeof ResizeObserver === 'function'
+      });
+    }
+
+    return () => cleanup && cleanup();
+  }, [controlledIsVisible, refs.reference, refs.floating, update]);
+
+  const Child = React.Children.only<React.ReactElement & React.RefAttributes<HTMLButtonElement>>(
+    children
+  );
+
+  const Node = (
+    <StyledTooltipWrapper
+      ref={floatingRef}
+      style={{ transform }}
+      zIndex={zIndex}
+      aria-hidden={!controlledIsVisible}
+    >
+      <StyledTooltip
+        {...(getTooltipProps({
+          hasArrow,
+          placement,
+          size: toSize(size, type),
+          onFocus: composeEventHandlers(onFocus, openTooltip),
+          onBlur: composeEventHandlers(onBlur, () => closeTooltip(0)),
+          'aria-hidden': !controlledIsVisible,
+          type,
+          ...props
+        }) as any)}
+      >
+        {content}
+      </StyledTooltip>
+    </StyledTooltipWrapper>
+  );
 
   return (
-    <Manager>
-      <Reference>
-        {({ ref }) => {
-          return cloneElement(
-            singleChild,
-            getTriggerProps({
-              ...singleChild.props,
-              [refKey!]: mergeRefs([ref, singleChild.ref ? singleChild.ref : null])
-            })
-          );
-        }}
-      </Reference>
-      <Popper
-        placement={popperPlacement}
-        eventsEnabled={controlledIsVisible && eventsEnabled}
-        modifiers={modifiers}
-      >
-        {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
-          scheduleUpdateRef.current = scheduleUpdate;
-
-          const { onFocus, onBlur, ...otherTooltipProps } = otherProps;
-
-          let computedSize: ITooltipProps['size'] = size;
-
-          if (computedSize === undefined) {
-            if (type === 'dark') {
-              computedSize = 'small';
-            } else {
-              computedSize = 'large';
-            }
-          }
-
-          const tooltipProps = {
-            hasArrow,
-            placement: currentPlacement,
-            size: computedSize,
-            onFocus: composeEventHandlers(onFocus, () => {
-              openTooltip();
-            }),
-            onBlur: composeEventHandlers(onBlur, () => {
-              closeTooltip(0);
-            }),
-            'aria-hidden': !controlledIsVisible,
-            type,
-            ...otherTooltipProps
-          };
-
-          const tooltip = (
-            <StyledTooltipWrapper
-              ref={controlledIsVisible ? ref : null}
-              style={style}
-              zIndex={zIndex}
-              aria-hidden={!controlledIsVisible}
-            >
-              <StyledTooltip {...(getTooltipProps(tooltipProps) as any)}>{content}</StyledTooltip>
-            </StyledTooltipWrapper>
-          );
-
-          if (appendToNode) {
-            return createPortal(tooltip, appendToNode);
-          }
-
-          return tooltip;
-        }}
-      </Popper>
-    </Manager>
+    <>
+      {cloneElement(
+        Child,
+        getTriggerProps({
+          ...Child.props,
+          [refKey!]: mergeRefs([triggerRef, Child.ref ? Child.ref : null])
+        })
+      )}
+      {appendToNode ? createPortal(Node, appendToNode) : Node}
+    </>
   );
 };
 
-Tooltip.displayName = 'Tooltip';
+TooltipComponent.displayName = 'Tooltip';
 
-Tooltip.propTypes = {
+TooltipComponent.propTypes = {
   appendToNode: PropTypes.any,
   hasArrow: PropTypes.bool,
   delayMS: PropTypes.number,
-  eventsEnabled: PropTypes.bool,
   id: PropTypes.string,
   content: PropTypes.node.isRequired,
   placement: PropTypes.oneOf(PLACEMENT),
-  popperModifiers: PropTypes.any,
   size: PropTypes.oneOf(SIZE),
   type: PropTypes.oneOf(TYPE),
   zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -164,11 +142,21 @@ Tooltip.propTypes = {
   refKey: PropTypes.string
 };
 
-Tooltip.defaultProps = {
+TooltipComponent.defaultProps = {
   hasArrow: true,
-  eventsEnabled: true,
   type: 'dark',
-  placement: 'top',
+  placement: PLACEMENT_DEFAULT,
   delayMS: 500,
   refKey: 'ref'
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Tooltip = TooltipComponent as typeof TooltipComponent & {
+  Paragraph: typeof Paragraph;
+  Title: typeof Title;
+};
+
+Tooltip.Paragraph = Paragraph;
+Tooltip.Title = Title;

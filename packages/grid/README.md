@@ -34,22 +34,22 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
   <Grid>
-    <Row>
-      <Col md={4}>1 of 3</Col>
-      <Col md={4}>2 of 3</Col>
-      <Col md={4}>3 of 3</Col>
-    </Row>
-    <Row>
-      <Col md={6}>1 of 2</Col>
-      <Col md={6}>2 of 2</Col>
-    </Row>
+    <Grid.Row>
+      <Grid.Col md={4}>1 of 3</Grid.Col>
+      <Grid.Col md={4}>2 of 3</Grid.Col>
+      <Grid.Col md={4}>3 of 3</Grid.Col>
+    </Grid.Row>
+    <Grid.Row>
+      <Grid.Col md={6}>1 of 2</Grid.Col>
+      <Grid.Col md={6}>2 of 2</Grid.Col>
+    </Grid.Row>
   </Grid>
 </ThemeProvider>;
 ```

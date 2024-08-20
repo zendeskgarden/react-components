@@ -83,20 +83,21 @@ const changelog = async (tag, spinner) => {
 /**
  * Push a GitHub release.
  *
+ * @param {String} main Name for the main branch being released.
  * @param {String} tag The tag for the new release.
  * @param {String} markdown Markdown content.
  * @param {Ora} spinner Terminal spinner.
  *
  * @returns The draft release URL.
  */
-const release = async (tag, markdown, spinner) => {
+const release = async (main, tag, markdown, spinner) => {
   info('Creating release...', spinner);
 
   const pushArgs = ['push', '--follow-tags', '--no-verify', '--atomic', 'origin'];
 
   // Ensure `version` commit hits CI, triggering npm publish
-  await execa('git', pushArgs.concat('HEAD^:main'));
-  await execa('git', pushArgs.concat('main'));
+  await execa('git', pushArgs.concat(`HEAD^:${main}`));
+  await execa('git', pushArgs.concat(main));
 
   const url = await githubRelease({ tag, body: markdown, spinner });
 
@@ -221,7 +222,7 @@ program
       ]);
 
       if (prompt.release) {
-        await release(tag, markdown, spinner);
+        await release(program.opts().main, tag, markdown, spinner);
       } else {
         await rollback(tag, spinner);
       }

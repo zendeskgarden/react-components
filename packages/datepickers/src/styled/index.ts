@@ -7,7 +7,7 @@
 
 export { StyledMenu } from './StyledMenu';
 export { StyledMenuWrapper } from './StyledMenuWrapper';
-export { StyledDatepicker } from './StyledDatepicker';
+export { StyledDatePicker } from './StyledDatePicker';
 export { StyledRangeCalendar } from './StyledRangeCalendar';
 export { StyledHeader } from './StyledHeader';
 export { StyledHeaderPaddle } from './StyledHeaderPaddle';

@@ -6,30 +6,40 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { getRenderFn, render, renderRtl } from 'garden-test-utils';
 import { Skeleton } from './Skeleton';
+import { rgba } from 'polished';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
 describe('Skeleton', () => {
-  it('applies light mode correctly', () => {
-    const { container } = render(<Skeleton />);
+  type Args = ['light' | 'dark', string];
 
-    expect(container.firstChild).toHaveStyleRule('background-color', 'rgba(47,57,65,0.1)');
+  it.each<Args>([
+    ['light', rgba(PALETTE.grey[700], DEFAULT_THEME.opacity[200])],
+    ['dark', rgba(PALETTE.grey[500], DEFAULT_THEME.opacity[200])]
+  ])('renders a Skeleton in "%s" mode', (mode, color) => {
+    const { container } = getRenderFn(mode)(<Skeleton />);
+
+    expect(container.firstChild).toHaveStyleRule('background-color', color);
     expect(container.firstChild).toHaveStyleRule(
       'background-image',
-      'linear-gradient( 45deg, transparent, rgba(255,255,255,0.6), transparent )',
+      `linear-gradient( 45deg, transparent, ${color}, transparent )`,
       {
         modifier: '&::before'
       }
     );
   });
 
-  it('applies light styling correctly', () => {
-    const { container } = render(<Skeleton isLight />);
+  it.each<Args>([
+    ['light', rgba(PALETTE.white, DEFAULT_THEME.opacity[200])],
+    ['dark', rgba(PALETTE.white, DEFAULT_THEME.opacity[200])]
+  ])('renders a `isLight` Skeleton in "%s" mode', (mode, color) => {
+    const { container } = getRenderFn(mode)(<Skeleton isLight />);
 
-    expect(container.firstChild).toHaveStyleRule('background-color', 'rgba(255,255,255,0.2)');
+    expect(container.firstChild).toHaveStyleRule('background-color', color);
     expect(container.firstChild).toHaveStyleRule(
       'background-image',
-      'linear-gradient( 45deg, transparent, rgba(3,54,61,0.4), transparent )',
+      `linear-gradient( 45deg, transparent, ${color}, transparent )`,
       {
         modifier: '&::before'
       }
@@ -53,7 +63,7 @@ describe('Skeleton', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'background-image',
-      'linear-gradient( -45deg, transparent, rgba(255,255,255,0.6), transparent )',
+      `linear-gradient( -45deg, transparent, ${rgba(PALETTE.grey[700], DEFAULT_THEME.opacity[200])}, transparent )`,
       {
         modifier: '&::before'
       }

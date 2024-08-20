@@ -4,7 +4,14 @@ import { TooltipStory } from './stories/TooltipStory';
 import { TOOLTIP_CONTENT as CONTENT } from './stories/data';
 import README from '../README.md';
 
-<Meta title="Packages/Tooltips/Tooltip" component={Tooltip} subcomponents={{ Paragraph, Title }} />
+<Meta
+  title="Packages/Tooltips/Tooltip"
+  component={Tooltip}
+  subcomponents={{
+    'Tooltip.Paragraph': Tooltip.Paragraph,
+    'Tooltip.Title': Tooltip.Title
+  }}
+/>
 
 # API
 
@@ -17,7 +24,7 @@ import README from '../README.md';
     name="Tooltip"
     args={{
       content: CONTENT,
-      eventsEnabled: true,
+      delayMS: 500,
       hasArrow: true
     }}
     argTypes={{

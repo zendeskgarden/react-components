@@ -11,7 +11,7 @@ import {
   DEFAULT_THEME,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
-  getColorV8
+  getColor
 } from '@zendeskgarden/react-theming';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
@@ -24,43 +24,46 @@ export interface IStyledTextFauxInputProps extends IStyledTextInputProps {
   isReadOnly?: boolean;
 }
 
-const VALIDATION_HUES = {
-  success: 'successHue',
-  warning: 'warningHue',
-  error: 'dangerHue'
-};
+const colorStyles = ({
+  theme,
+  validation,
+  focusInset,
+  isBare,
+  isFocused
+}: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>) => {
+  let borderVariable: string | undefined;
+  let focusBorderColor: string | undefined;
 
-export function getValidationHue(
-  validation?: IStyledTextFauxInputProps['validation'],
-  defaultHue = 'primaryHue'
-) {
   if (validation) {
-    return VALIDATION_HUES[validation];
+    if (validation === 'success') {
+      borderVariable = 'border.successEmphasis';
+    } else if (validation === 'warning') {
+      borderVariable = 'border.warningEmphasis';
+    } else if (validation === 'error') {
+      borderVariable = 'border.dangerEmphasis';
+    }
+
+    focusBorderColor = getColor({ theme, variable: borderVariable });
+  } else {
+    borderVariable = 'border.primaryEmphasis';
+    focusBorderColor = getColor({ theme, variable: borderVariable });
   }
-
-  return defaultHue;
-}
-
-const colorStyles = (props: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>) => {
-  const { theme, validation, focusInset, isBare, isFocused } = props;
 
   return css`
     ${focusStyles({
       theme,
       inset: focusInset,
-      condition: !isBare,
-      hue: getValidationHue(validation),
-      shade: validation === 'warning' ? 700 : 600,
+      color: { variable: borderVariable },
       selector: isFocused ? '&' : '&:focus-within',
-      styles: { borderColor: getColorV8(getValidationHue(validation), 600, theme) }
+      styles: { borderColor: focusBorderColor },
+      condition: !isBare
     })}
   `;
 };
 
-/**
+/*
  * [1] removes inner input styles when focused
  */
-
 export const StyledTextFauxInput = styled(
   StyledTextInput as 'div'
 ).attrs<IStyledTextFauxInputProps>(props => ({

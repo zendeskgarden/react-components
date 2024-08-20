@@ -12,14 +12,23 @@ import { useTableContext } from '../utils/useTableContext';
 import { ICellProps } from '../types';
 
 /**
+ * @deprecated use `Table.Cell` instead
+ *
  * @extends TdHTMLAttributes<HTMLTableCellElement>
  */
 export const Cell = React.forwardRef<HTMLTableCellElement, ICellProps>(
-  ({ hidden, ...props }, ref) => {
+  ({ hidden, isMinimum, isTruncated, hasOverflow, ...props }, ref) => {
     const { size } = useTableContext();
 
     return (
-      <StyledCell ref={ref} size={size} {...props}>
+      <StyledCell
+        ref={ref}
+        $size={size}
+        $isMinimum={isMinimum}
+        $isTruncated={isTruncated}
+        $hasOverflow={hasOverflow}
+        {...props}
+      >
         {hidden && props.children ? (
           <StyledHiddenCell>{props.children}</StyledHiddenCell>
         ) : (
@@ -30,7 +39,7 @@ export const Cell = React.forwardRef<HTMLTableCellElement, ICellProps>(
   }
 );
 
-Cell.displayName = 'Cell';
+Cell.displayName = 'Table.Cell';
 
 Cell.propTypes = {
   isMinimum: PropTypes.bool,

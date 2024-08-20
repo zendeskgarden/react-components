@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 describe('StyledButton', () => {
@@ -16,12 +16,12 @@ describe('StyledButton', () => {
 
     expect(container.firstChild).toHaveStyleRule('padding', '20px');
     expect(container.firstChild).toHaveStyleRule('text-align', 'left');
-    expect(container.firstChild).toHaveStyleRule('color', '#2f3941');
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[900]);
     expect(container.firstChild).not.toHaveStyleRule('cursor');
   });
 
   it('renders isCompact styling correctly', () => {
-    const { container } = render(<StyledButton isCompact />);
+    const { container } = render(<StyledButton $isCompact />);
 
     expect(container.firstChild).toHaveStyleRule('padding', '8px 12px');
   });
@@ -33,12 +33,9 @@ describe('StyledButton', () => {
   });
 
   it('renders isHovered styling correctly', () => {
-    const { container } = render(<StyledButton isHovered />);
+    const { container } = render(<StyledButton $isHovered />);
 
-    expect(container.firstChild).toHaveStyleRule(
-      'color',
-      getColorV8('primaryHue', 600, DEFAULT_THEME)
-    );
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[700]);
 
     expect(container.firstChild).toHaveStyleRule('cursor', 'pointer', {
       modifier: '&:hover'

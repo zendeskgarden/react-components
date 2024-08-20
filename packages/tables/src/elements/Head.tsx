@@ -10,10 +10,12 @@ import { StyledHead } from '../styled';
 import { IHeadProps } from '../types';
 
 /**
+ * @deprecated use `Table.Head` instead
+ *
  * @extends HTMLAttributes<HTMLTableSectionElement>
  */
-export const Head = forwardRef<HTMLTableSectionElement, IHeadProps>((props, ref) => (
-  <StyledHead ref={ref} {...props} />
-));
+export const Head = forwardRef<HTMLTableSectionElement, IHeadProps>(
+  ({ isSticky, ...props }, ref) => <StyledHead ref={ref} $isSticky={isSticky} {...props} />
+);
 
-Head.displayName = 'Head';
+Head.displayName = 'Table.Head';

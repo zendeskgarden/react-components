@@ -10,7 +10,7 @@ import { math } from 'polished';
 import {
   DEFAULT_THEME,
   focusStyles,
-  getColorV8,
+  getColor,
   retrieveComponentStyles,
   SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
@@ -23,10 +23,11 @@ interface IStyledPaneSplitterProps {
   isFixed?: boolean;
 }
 
-const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
-  const color = getColorV8('neutralHue', 300, props.theme);
-  const hoverColor = getColorV8('primaryHue', 600, props.theme);
-  const activeColor = getColorV8('primaryHue', 800, props.theme);
+const colorStyles = ({ theme }: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
+  const color = getColor({ theme, variable: 'border.default' });
+  const options = { theme, variable: 'border.primaryEmphasis' };
+  const hoverColor = getColor(options);
+  const activeColor = getColor({ ...options, dark: { offset: -200 }, light: { offset: 200 } });
 
   return css`
     &::before {
@@ -38,12 +39,9 @@ const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>)
     }
 
     ${focusStyles({
-      theme: props.theme,
-      hue: hoverColor,
-      styles: {
-        backgroundColor: hoverColor
-      },
-      selector: '&:focus-visible::before, &[data-garden-focus-visible="true"]::before'
+      theme,
+      styles: { backgroundColor: hoverColor },
+      selector: '&:focus-visible::before'
     })}
 
     &:active::before {
@@ -52,9 +50,13 @@ const colorStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>)
   `;
 };
 
-const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
-  const size = math(`${props.theme.shadowWidths.md} * 2`);
-  const separatorSize = math(`${props.theme.borderWidths.sm} * 2`);
+const sizeStyles = ({
+  theme,
+  orientation,
+  isFixed
+}: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
+  const size = math(`${theme.shadowWidths.md} * 2`);
+  const separatorSize = math(`${theme.borderWidths.sm} * 2`);
   const offset = math(`-${size} / 2`);
   let cursor;
   let top;
@@ -66,14 +68,14 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
   let separatorWidth;
   let separatorHeight;
 
-  switch (props.orientation) {
+  switch (orientation) {
     case 'top':
       cursor = 'row-resize';
       top = offset;
       width = '100%';
       height = size;
       separatorWidth = width;
-      separatorHeight = props.theme.borderWidths.sm;
+      separatorHeight = theme.borderWidths.sm;
 
       break;
 
@@ -83,7 +85,7 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
       width = '100%';
       height = size;
       separatorWidth = width;
-      separatorHeight = props.theme.borderWidths.sm;
+      separatorHeight = theme.borderWidths.sm;
 
       break;
 
@@ -92,10 +94,10 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
       top = 0;
       width = size;
       height = '100%';
-      separatorWidth = props.theme.borderWidths.sm;
+      separatorWidth = theme.borderWidths.sm;
       separatorHeight = height;
 
-      if (props.theme.rtl) {
+      if (theme.rtl) {
         right = offset;
       } else {
         left = offset;
@@ -109,10 +111,10 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
       top = 0;
       width = size;
       height = '100%';
-      separatorWidth = props.theme.borderWidths.sm;
+      separatorWidth = theme.borderWidths.sm;
       separatorHeight = height;
 
-      if (props.theme.rtl) {
+      if (theme.rtl) {
         left = offset;
       } else {
         right = offset;
@@ -129,7 +131,7 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
     right: ${right};
     bottom: ${bottom};
     left: ${left};
-    cursor: ${props.isFixed ? 'pointer' : cursor};
+    cursor: ${isFixed ? 'pointer' : cursor};
     width: ${width};
     height: ${height};
 
@@ -143,14 +145,12 @@ const sizeStyles = (props: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) 
     }
 
     &:focus::before,
-    &:focus-visible::before,
-    &[data-garden-focus-visible]::before {
+    &:focus-visible::before {
       ${dimensionProperty}: ${separatorSize};
     }
 
-    &:focus-visible::before,
-    &[data-garden-focus-visible]::before {
-      border-radius: ${props.theme.borderRadii.md};
+    &:focus-visible::before {
+      border-radius: ${theme.borderRadii.md};
     }
   `;
 };

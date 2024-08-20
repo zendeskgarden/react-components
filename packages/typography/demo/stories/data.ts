@@ -94,6 +94,14 @@ button,
 +important new additions
 +to this document.
 `,
+  graphql: `query HeroNameAndFriends($episode: Episode) {
+  hero(episode: $episode) {
+    name
+    friends {
+      name
+    }
+  }
+}`,
   javascript: `
 Prism.languages.markup = {
   comment: /<!--[\\s\\S]*?-->/,
@@ -177,6 +185,13 @@ Prism.languages.markup = {
       "updated_at": "2018-01-01T10:20:30Z"
     }
   ]
+}`,
+  jsx: `function getGreeting(user) {
+  if (user) {
+    return <h1>Hello, {formatName(user)}</h1>;
+  }
+
+  return <h1>Hello, stranger</h1>;
 }`,
   markdown: `
 # Title 1
@@ -285,140 +300,68 @@ if __name__ == '__main__':
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import { Dropdown, Multiselect, Field, Menu, Item, Label } from '@zendeskgarden/react-dropdowns';
-import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
-import { Tag } from '@zendeskgarden/react-tags';
-import debounce from 'lodash.debounce';
+import React from 'react';
+import { Col, Row } from '@zendeskgarden/react-grid';
+import { Combobox, Field, Option, Tag } from '@zendeskgarden/react-dropdowns.next';
+import { ReactComponent as AvatarIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
-const options = [
-  'Asparagus',
-  'Brussel sprouts',
-  'Cauliflower',
-  'Garlic',
-  'Jerusalem artichoke',
-  'Kale',
-  'Lettuce',
-  'Onion',
-  'Mushroom',
-  'Potato',
-  'Radish',
-  'Spinach',
-  'Tomato',
-  'Yam',
-  'Zucchini'
+const OPTIONS = [
+  'Apple Martin',
+  'Basil Rathbone',
+  'Cherry Jones',
+  'Daisy Bates',
+  'Holly Berry',
+  'Huckleberry Finn',
+  'Ivy Poison',
+  'Olive Borden',
+  'Poppy Lee',
+  'Rue McClanahan',
+  'Sage Francis',
+  'Willow Smith'
 ];
 
-const StyledCol = styled(Col)\`
-  \${p => mediaQuery('down', 'xs', p.theme)} {
-    margin-top: \${p => p.theme.space.sm};
-  }
-\`;
-
-const initialSelectedItems = [options[0], options[1], options[2], options[3]];
-
 const Example = () => {
-  const [selectedItems, setSelectedItems] = useState(initialSelectedItems);
-  const [compactSelectedItems, setCompactSelectedItems] = useState(initialSelectedItems);
-  const [inputValue, setInputValue] = useState('');
-  const [compactInputValue, setCompactInputValue] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [matchingOptions, setMatchingOptions] = useState(options);
+  const getTagProps = (option: string) => {
+    const children = (
+      <>
+        <Tag.Avatar>
+          <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <AvatarIcon />
+          </span>
+        </Tag.Avatar>{' '}
+        {option.split(' ')[0]}
+      </>
+    );
 
-  const filterMatchingOptionsRef = useRef(
-    debounce((value: string) => {
-      const matchedOptions = options.filter(option => {
-        return option.trim().toLowerCase().indexOf(value.trim().toLowerCase()) !== -1;
-      });
-
-      setMatchingOptions(matchedOptions);
-      setIsLoading(false);
-    }, 300)
-  );
-
-  useEffect(() => {
-    setIsLoading(true);
-    filterMatchingOptionsRef.current(inputValue);
-  }, [inputValue]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    filterMatchingOptionsRef.current(compactInputValue);
-  }, [compactInputValue]);
-
-  const renderOptions = () => {
-    if (isLoading) {
-      return <Item disabled>Loading</Item>;
-    }
-
-    if (matchingOptions.length === 0) {
-      return <Item disabled>No matches found</Item>;
-    }
-
-    return matchingOptions.map(option => (
-      <Item key={option} value={option}>
-        <span>{option}</span>
-      </Item>
-    ));
+    return {
+      'aria-label': 'Press delete or backspace to remove',
+      children,
+      isPill: true,
+      removeLabel: 'Remove'
+    };
   };
 
   return (
-    <Row>
-      <Col>
-        <Dropdown
-          inputValue={inputValue}
-          selectedItems={selectedItems}
-          onSelect={items => setSelectedItems(items)}
-          downshiftProps={{ defaultHighlightedIndex: 0 }}
-          onStateChange={changes => {
-            if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-              setInputValue((changes as any).inputValue);
-            }
-          }}
-        >
-          <Field>
-            <Label>Vegetables</Label>
-            <Multiselect
-              renderItem={({ value, removeValue }: any) => (
-                <Tag>
-                  <span>{value}</span>
-                  <Tag.Close onClick={() => removeValue()} />
-                </Tag>
-              )}
-            />
-          </Field>
-          <Menu>{renderOptions()}</Menu>
-        </Dropdown>
+    <Row justifyContent="center">
+      <Col sm={5}>
+        <Field>
+          <Field.Label>Horticulturalists</Field.Label>
+          <Combobox isMultiselectable maxHeight="auto">
+            {OPTIONS.map(option => (
+              <Option
+                key={option}
+                icon={<AvatarIcon />}
+                isSelected={option === 'Huckleberry Finn'}
+                tagProps={getTagProps(option)}
+                value={option}
+              >
+                {option.split(' ')[0]}
+                <Option.Meta>{option.split(' ').slice(-1)[0]}</Option.Meta>
+              </Option>
+            ))}
+          </Combobox>
+        </Field>
       </Col>
-      <StyledCol>
-        <Dropdown
-          inputValue={compactInputValue}
-          selectedItems={compactSelectedItems}
-          onSelect={items => setCompactSelectedItems(items)}
-          downshiftProps={{ defaultHighlightedIndex: 0 }}
-          onStateChange={changes => {
-            if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-              setCompactInputValue((changes as any).inputValue);
-            }
-          }}
-        >
-          <Field>
-            <Label>Vegetables</Label>
-            <Multiselect
-              isCompact
-              renderItem={({ value, removeValue }: any) => (
-                <Tag>
-                  <span>{value}</span>
-                  <Tag.Close onClick={() => removeValue()} />
-                </Tag>
-              )}
-            />
-          </Field>
-          <Menu isCompact>{renderOptions()}</Menu>
-        </Dropdown>
-      </StyledCol>
     </Row>
   );
 };
@@ -503,7 +446,20 @@ export const execute = async (args: IGitHubPagesArgs): Promise<string | undefine
   }
 
   return retVal;
-};`
+};`,
+  yaml: `name: PR
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, synchronize]
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mheap/github-action-required-labels@v5
+        with:
+          mode: exactly
+          count: 1 # Require exactly 1 label
+          labels: 'PR: Breaking Change :boom:, PR: Bug Fix :bug:, PR: Docs :memo:, PR: Internal :seedling:, PR: New Feature :rocket:'`
 };
 
 export const LIST_ITEMS: IListItem[] = [

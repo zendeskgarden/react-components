@@ -7,72 +7,75 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColorV8,
   DEFAULT_THEME,
   retrieveComponentStyles,
   getLineHeight,
-  focusStyles
+  focusStyles,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 import { IGlobalAlertProps } from '../../types';
 
-const COMPONENT_ID = 'notifications.global-alert';
+const COMPONENT_ID = 'notifications.global_alert';
 
 interface IStyledGlobalAlertProps {
-  alertType: IGlobalAlertProps['type'];
+  $alertType: IGlobalAlertProps['type'];
 }
 
 /**
  * 1. Shifting :focus-visible from LVHFA order to preserve `color` on hover
  */
-const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) => {
+const colorStyles = ({ theme, $alertType }: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) => {
   let borderColor;
   let backgroundColor;
   let foregroundColor;
   let anchorHoverColor;
   let anchorActiveColor;
-  let focusColor;
+  let focusVariable;
 
-  switch (props.alertType) {
-    case 'success':
-      borderColor = getColorV8('successHue', 700, props.theme);
-      backgroundColor = getColorV8('successHue', 600, props.theme);
-      foregroundColor = getColorV8('successHue', 100, props.theme);
-      anchorHoverColor = props.theme.palette.white;
-      anchorActiveColor = props.theme.palette.white;
-      focusColor = 'successHue';
+  switch ($alertType) {
+    case 'success': {
+      borderColor = getColor({ variable: 'border.successEmphasis', offset: 100, theme });
+      backgroundColor = getColor({ variable: 'background.successEmphasis', theme });
+      foregroundColor = getColor({ variable: 'foreground.success', offset: -600, theme });
+      anchorHoverColor = theme.palette.white;
+      anchorActiveColor = theme.palette.white;
+      focusVariable = 'foreground.successEmphasis';
       break;
-
-    case 'error':
-      borderColor = getColorV8('dangerHue', 700, props.theme);
-      backgroundColor = getColorV8('dangerHue', 600, props.theme);
-      foregroundColor = getColorV8('dangerHue', 100, props.theme);
-      anchorHoverColor = props.theme.palette.white;
-      anchorActiveColor = props.theme.palette.white;
-      focusColor = 'dangerHue';
+    }
+    case 'error': {
+      borderColor = getColor({ variable: 'border.dangerEmphasis', offset: 100, theme });
+      backgroundColor = getColor({ variable: 'background.dangerEmphasis', theme });
+      foregroundColor = getColor({ variable: 'foreground.danger', offset: -600, theme });
+      anchorActiveColor = theme.palette.white;
+      anchorHoverColor = theme.palette.white;
+      focusVariable = 'foreground.dangerEmphasis';
       break;
-
-    case 'warning':
-      borderColor = getColorV8('warningHue', 400, props.theme);
-      backgroundColor = getColorV8('warningHue', 300, props.theme);
-      foregroundColor = getColorV8('warningHue', 800, props.theme);
-      anchorHoverColor = getColorV8('warningHue', 900, props.theme);
-      anchorActiveColor = getColorV8('warningHue', 1000, props.theme);
-      focusColor = 'warningHue';
+    }
+    case 'warning': {
+      borderColor = getColor({ variable: 'border.warningEmphasis', offset: -300, theme });
+      backgroundColor = getColor({ variable: 'background.warningEmphasis', offset: -400, theme });
+      const fgVariable = 'foreground.warning';
+      foregroundColor = getColor({ variable: fgVariable, offset: 100, theme });
+      anchorHoverColor = getColor({ variable: fgVariable, offset: 200, theme });
+      anchorActiveColor = getColor({ variable: fgVariable, offset: 300, theme });
+      focusVariable = fgVariable;
       break;
-
-    case 'info':
-      borderColor = getColorV8('primaryHue', 300, props.theme);
-      backgroundColor = getColorV8('primaryHue', 200, props.theme);
-      foregroundColor = getColorV8('primaryHue', 700, props.theme);
-      anchorHoverColor = getColorV8('primaryHue', 800, props.theme);
-      anchorActiveColor = getColorV8('primaryHue', 900, props.theme);
-      focusColor = 'primaryHue';
+    }
+    case 'info': {
+      borderColor = getColor({ variable: 'border.primaryEmphasis', offset: -300, theme });
+      backgroundColor = getColor({ variable: 'background.primaryEmphasis', offset: -400, theme });
+      const fgVariable = 'foreground.primary';
+      foregroundColor = getColor({ variable: fgVariable, offset: 100, theme });
+      anchorHoverColor = getColor({ variable: fgVariable, offset: 200, theme });
+      anchorActiveColor = getColor({ variable: fgVariable, offset: 300, theme });
+      focusVariable = fgVariable;
       break;
+    }
   }
 
   // Apply a border without affecting the element's size
-  const boxShadow = `0 ${props.theme.borderWidths.sm} ${props.theme.borderWidths.sm} ${borderColor}`;
+  const boxShadow = `0 ${theme.borderWidths.sm} ${theme.borderWidths.sm} ${borderColor}`;
 
   /* stylelint-disable selector-no-qualifying-type */
   return css`
@@ -85,9 +88,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) 
 
       /* [1] */
       ${focusStyles({
-        theme: props.theme,
-        hue: focusColor,
-        shade: props.alertType === 'info' ? 600 : 800,
+        theme,
+        color: { variable: focusVariable },
         styles: { color: 'inherit' }
       })}
 
@@ -120,7 +122,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 export const StyledGlobalAlert = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledGlobalAlertProps>`
   display: flex;
   flex-wrap: nowrap;
   overflow: auto;

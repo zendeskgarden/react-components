@@ -6,7 +6,7 @@
  */
 
 import React, { useContext, useEffect, forwardRef, useMemo, useRef, HTMLAttributes } from 'react';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { useSplitter } from '@zendeskgarden/container-splitter';

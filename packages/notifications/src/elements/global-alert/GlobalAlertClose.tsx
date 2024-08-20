@@ -10,7 +10,7 @@ import { useText } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 import { StyledGlobalAlertClose } from '../../styled';
-import { useGlobalAlertContext } from './utility';
+import { useGlobalAlertContext } from '../../utils/useGlobalAlertContext';
 
 /**
  * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.
@@ -28,7 +28,7 @@ export const GlobalAlertClose = forwardRef<
   const label = useText(GlobalAlertClose, props, 'aria-label', 'Close');
 
   return (
-    <StyledGlobalAlertClose ref={ref} alertType={type} {...props}>
+    <StyledGlobalAlertClose ref={ref} $alertType={type} {...props} size="small">
       {/* [1] */}
       {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
       <XStrokeIcon role="img" aria-label={label} />

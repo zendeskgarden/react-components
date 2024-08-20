@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { IRangeProps, Range } from '@zendeskgarden/react-forms';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IRangeProps, IFieldArgs {}
 
-export const RangeStory: Story<IArgs> = ({
+export const RangeStory: StoryFn<IArgs> = ({
   label,
   isLabelRegular,
   isLabelHidden,

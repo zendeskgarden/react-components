@@ -8,14 +8,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Story } from '@storybook/react';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ToggleButton } from '@zendeskgarden/react-buttons';
-import {
-  menuStyles,
-  arrowStyles,
-  MENU_POSITION as MenuPosition,
-  ARROW_POSITION as ArrowPosition
-} from '@zendeskgarden/react-theming';
+import { menuStyles, arrowStyles, MenuPosition, ArrowPosition } from '@zendeskgarden/react-theming';
 
 const TOP: Record<string, string> = {
   right: 'calc(-50% - 8px)',
@@ -82,8 +77,8 @@ export const MenuStylesStory: Story<IArgs> = ({ isAnimated, position }) => {
 
   return (
     <Grid>
-      <Row style={{ height: 'calc(100vh - 80px)' }}>
-        <Col textAlign="center" alignSelf="center">
+      <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
+        <Grid.Col textAlign="center" alignSelf="center">
           <div style={{ display: 'inline-block', position: 'relative' }}>
             <ToggleButton onClick={() => setIsHidden(!isHidden)} isPressed={!isHidden}>
               Trigger
@@ -101,8 +96,8 @@ export const MenuStylesStory: Story<IArgs> = ({ isAnimated, position }) => {
               </StyledWrapper>
             )}
           </div>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   );
 };

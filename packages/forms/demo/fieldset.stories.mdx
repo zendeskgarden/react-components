@@ -1,14 +1,20 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import { Fieldset, Field } from '@zendeskgarden/react-forms';
+import { Fieldset } from '@zendeskgarden/react-forms';
 import { FieldsetStory } from './stories/FieldsetStory';
 import { FIELDSET_FIELDS as FIELDS } from './stories/data';
-import { hintArgs, hintArgTypes, messageArgs, messageArgTypes } from './stories/common';
+import {
+  hintArgs,
+  hintArgTypes,
+  messageArgs,
+  messageArgTypes,
+  fieldSubcomponents
+} from './stories/common';
 import README from '../README.md';
 
 <Meta
   title="Packages/Forms/Fieldset"
   component={Fieldset}
-  subcomponents={{ 'Fieldset.Legend': Fieldset.Legend, Field }}
+  subcomponents={{ 'Fieldset.Legend': Fieldset.Legend, ...fieldSubcomponents }}
   args={{
     legend: 'Legend',
     fields: FIELDS,

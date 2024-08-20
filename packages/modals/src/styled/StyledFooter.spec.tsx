@@ -23,7 +23,7 @@ describe('StyledFooter', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'border-top',
-      `${DEFAULT_THEME.borders.sm} ${PALETTE.grey[200]}`
+      `${DEFAULT_THEME.borders.sm} ${PALETTE.grey[300]}`
     );
     expect(container.firstChild).toHaveStyleRule('padding', '32px 40px');
   });

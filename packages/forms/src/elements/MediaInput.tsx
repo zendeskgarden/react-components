@@ -8,7 +8,7 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { IMediaInputProps, VALIDATION } from '../types';
 import { StyledTextMediaInput } from '../styled';
 import { FauxInput } from './faux-input/FauxInput';
@@ -133,8 +133,8 @@ MediaInput.propTypes = {
   isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
   validation: PropTypes.oneOf(VALIDATION),
-  start: PropTypes.node,
-  end: PropTypes.node,
+  start: PropTypes.any,
+  end: PropTypes.any,
   wrapperProps: PropTypes.object,
   wrapperRef: PropTypes.any
 };

@@ -8,14 +8,23 @@
 import { getFocusBoxShadow } from './getFocusBoxShadow';
 import DEFAULT_THEME from '../elements/theme';
 import PALETTE from '../elements/palette';
-import { getColorV8 } from './getColorV8';
+import { getColor } from './getColor';
 
 describe('getFocusBoxShadow', () => {
   it('defaults as expected', () => {
     const boxShadow = getFocusBoxShadow({ theme: DEFAULT_THEME });
 
-    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.md} ${PALETTE.blue[600]}`);
+    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.md} ${PALETTE.blue[700]}`);
     expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE.white}`);
+  });
+
+  it('handles dark mode as expected', () => {
+    const boxShadow = getFocusBoxShadow({
+      theme: { ...DEFAULT_THEME, colors: { ...DEFAULT_THEME.colors, base: 'dark' } }
+    });
+
+    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.md} ${PALETTE.blue[600]}`);
+    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.xs} ${PALETTE.grey[1100]}`);
   });
 
   it('resizes as expected', () => {
@@ -25,7 +34,7 @@ describe('getFocusBoxShadow', () => {
       spacerWidth: 'sm'
     });
 
-    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE.blue[600]}`);
+    expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE.blue[700]}`);
     expect(boxShadow).toContain(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE.white}`);
   });
 
@@ -38,10 +47,10 @@ describe('getFocusBoxShadow', () => {
   it('overrides color as expected', () => {
     const hue = 'successHue';
     const shade = 400;
-    const boxShadow = getFocusBoxShadow({ theme: DEFAULT_THEME, hue, shade });
+    const boxShadow = getFocusBoxShadow({ theme: DEFAULT_THEME, color: { hue, shade } });
 
     expect(boxShadow).toContain(
-      `${DEFAULT_THEME.shadowWidths.md} ${getColorV8(hue, shade, DEFAULT_THEME)}`
+      `${DEFAULT_THEME.shadowWidths.md} ${getColor({ hue, shade, theme: DEFAULT_THEME })}`
     );
   });
 
@@ -50,12 +59,11 @@ describe('getFocusBoxShadow', () => {
     const spacerShade = 400;
     const boxShadow = getFocusBoxShadow({
       theme: DEFAULT_THEME,
-      spacerHue,
-      spacerShade
+      spacerColor: { hue: spacerHue, shade: spacerShade }
     });
 
     expect(boxShadow).toContain(
-      `${DEFAULT_THEME.shadowWidths.xs} ${getColorV8(spacerHue, spacerShade, DEFAULT_THEME)}`
+      `${DEFAULT_THEME.shadowWidths.xs} ${getColor({ hue: spacerHue, shade: spacerShade, theme: DEFAULT_THEME })}`
     );
   });
 

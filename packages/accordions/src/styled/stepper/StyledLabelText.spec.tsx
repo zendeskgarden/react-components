@@ -18,14 +18,14 @@ describe('StyledLabelText', () => {
     expect(container.firstChild).not.toHaveStyleRule('word-wrap');
   });
   it('renders the horizontal style', () => {
-    const { container } = render(<StyledLabelText isHorizontal />);
+    const { container } = render(<StyledLabelText $isHorizontal />);
 
     expect(container.firstChild).toHaveStyleRule('padding', '0 12px');
     expect(container.firstChild).toHaveStyleRule('word-wrap', 'break-word');
   });
 
   it('renders hidden label styling', () => {
-    const { container } = render(<StyledLabelText isHidden />);
+    const { container } = render(<StyledLabelText $isHidden />);
 
     expect(container.firstChild).toHaveStyleRule('display', 'none');
   });

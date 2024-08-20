@@ -19,10 +19,10 @@ const LabelComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
     return (
       <StyledButton
         ref={ref}
-        isCompact={isCompact}
-        isHovered={isHovered}
-        isExpanded={isExpanded}
-        isCollapsible={isCollapsible}
+        $isCompact={isCompact}
+        $isHovered={isHovered}
+        $isExpanded={isExpanded}
+        $isCollapsible={isCollapsible}
         {...otherTriggerProps}
         {...props}
       />
