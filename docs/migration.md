@@ -229,93 +229,77 @@ consider additional positioning prop support on a case-by-case basis.
 ### Deprecated components
 
 The following subcomponents have been renamed to streamline imports and improve
-affinity with their parent components.
+affinity with their parent components. The deprecated exports will be removed in
+a future major release. Use the following mappings to update subcomponent
+properties.
 
 <!-- markdownlint-disable MD024 -->
 
 #### @zendeskgarden/react-chrome
 
-- Subcomponent exports have been deprecated and will be removed in a future major version. Update
-  to subcomponent properties:
-  - `FooterItem` -> `Footer.Item`
-  - `HeaderItem` -> `Header.Item`
-  - `HeaderItemIcon` -> `Header.ItemIcon`
-  - `HeaderItemText` -> `Header.ItemText`
-  - `HeaderItemWrapper` -> `Header.ItemWrapper`
-  - `NavItem` -> `Nav.Item`
-  - `NavItemIcon` -> `Nav.ItemIcon`
-  - `NavItemText` -> `Nav.ItemText`
+- `FooterItem` -> `Footer.Item`
+- `HeaderItem` -> `Header.Item`
+- `HeaderItemIcon` -> `Header.ItemIcon`
+- `HeaderItemText` -> `Header.ItemText`
+- `HeaderItemWrapper` -> `Header.ItemWrapper`
+- `NavItem` -> `Nav.Item`
+- `NavItemIcon` -> `Nav.ItemIcon`
+- `NavItemText` -> `Nav.ItemText`
 
 #### @zendeskgarden/react-dropdowns
 
-- Subcomponent exports have been deprecated and will be removed in a future major version. Update
-  to subcomponent properties:
-  - `Hint` -> `Field.Hint`
-  - `Label` -> `Field.Label`
-  - `Message` -> `Field.Message`
+- `Hint` -> `Field.Hint`
+- `Label` -> `Field.Label`
+- `Message` -> `Field.Message`
 
 #### @zendeskgarden/react-forms
 
-- Subcomponent exports have been deprecated and will be removed in a future major version. Update
-  to subcomponent properties:
-  - `Hint` -> `Field.Hint`
-  - `Label` -> `Field.Label`
-  - `Message` -> `Field.Message`
+- `Hint` -> `Field.Hint`
+- `Label` -> `Field.Label`
+- `Message` -> `Field.Message`
 
 #### @zendeskgarden/react-grid
 
-- Subcomponent exports for `Grid` have been deprecated and will be removed in a future major version.
-  Update to subcomponent properties:
-  - `Col` -> `Grid.Col`
-  - `Row` -> `Grid.Row`
+- `Col` -> `Grid.Col`
+- `Row` -> `Grid.Row`
 
 #### @zendeskgarden/react-modals
 
-- Subcomponent exports for `Modal` have been deprecated and will be removed in a future major version.
-  Update to subcomponent properties:
-  - `Body` -> `Modal.Body`
-  - `Close` -> `Modal.Close`
-  - `Footer` -> `Modal.Footer`
-  - `FooterItem` -> `Modal.FooterItem`
-  - `Header` -> `Modal.Header`
+- `Body` -> `Modal.Body`
+- `Close` -> `Modal.Close`
+- `Footer` -> `Modal.Footer`
+- `FooterItem` -> `Modal.FooterItem`
+- `Header` -> `Modal.Header`
 
 #### @zendeskgarden/react-notification
 
-- Subcomponent exports have been deprecated and will be removed in a future major version. Update
-  to subcomponent properties:
-  - `Close` -> `Alert.Close`, `Notification.Close`
-  - `Paragraph` -> `Alert.Paragraph`, `Notification.Paragraph`, `Well.Paragraph`
-  - `Title` -> `Alert.Title`, `Notification.Title`, `Well.Title`
+- `Close` -> `Alert.Close`, `Notification.Close`
+- `Paragraph` -> `Alert.Paragraph`, `Notification.Paragraph`, `Well.Paragraph`
+- `Title` -> `Alert.Title`, `Notification.Title`, `Well.Title`
 
 #### @zendeskgarden/react-tables
 
-- All subcomponent exports have been deprecated and will be removed in a future major version.
-  Update to subcomponent properties:
-  - `Body` -> `Table.Body`
-  - `Caption` -> `Table.Caption`
-  - `Cell` -> `Table.Cell`
-  - `GroupRow` -> `Table.GroupRow`
-  - `Head` -> `Table.Head`
-  - `HeaderCell` -> `Table.HeaderCell`
-  - `HeaderRow` -> `Table.HeaderRow`
-  - `OverflowButton` -> `Table.OverflowButton`
-  - `Row` -> `Table.Row`
-  - `SortableCell` -> `Table.SortableCell`
+- `Body` -> `Table.Body`
+- `Caption` -> `Table.Caption`
+- `Cell` -> `Table.Cell`
+- `GroupRow` -> `Table.GroupRow`
+- `Head` -> `Table.Head`
+- `HeaderCell` -> `Table.HeaderCell`
+- `HeaderRow` -> `Table.HeaderRow`
+- `OverflowButton` -> `Table.OverflowButton`
+- `Row` -> `Table.Row`
+- `SortableCell` -> `Table.SortableCell`
 
 #### @zendeskgarden/react-tabs
 
-- All subcomponent exports have been deprecated and will be removed in a future major version.
-  Update to subcomponent properties:
-  - `Tab` -> `Tabs.Tab`
-  - `TabList` -> `Tabs.TabList`
-  - `TabPanel` -> `Tabs.TabPanel`
+- `Tab` -> `Tabs.Tab`
+- `TabList` -> `Tabs.TabList`
+- `TabPanel` -> `Tabs.TabPanel`
 
 #### @zendeskgarden/react-tooltips
 
-- All subcomponent exports have been deprecated and will be removed in a future major version.
-  Update to subcomponent properties:
-  - `Paragraph` -> `Tooltip.Paragraph`
-  - `Title` -> `Tooltip.Title`
+- `Paragraph` -> `Tooltip.Paragraph`
+- `Title` -> `Tooltip.Title`
 
 ## v8
 
