@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - main
-      - next
+      - v8
 
 permissions:
   contents: read
@@ -129,7 +129,7 @@ jobs:
   publish:
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
-    if: contains(needs.initialize.outputs.teams, 'Maintainers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
+    if: contains(needs.initialize.outputs.teams, 'Maintainers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/v8')
     steps:
       - uses: actions/checkout@v4
         with:
