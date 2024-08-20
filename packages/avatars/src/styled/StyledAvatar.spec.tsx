@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { getRenderFn, render, renderRtl } from 'garden-test-utils';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
 import { StyledAvatar } from './StyledAvatar';
@@ -32,6 +32,16 @@ describe('StyledAvatar', () => {
   });
 
   describe('color', () => {
+    it.each(['light', 'dark'])('renders default %s mode surface color as expected', mode => {
+      const { container } = getRenderFn(mode)(<StyledAvatar $status="away" />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        mode === 'light' ? PALETTE.white : PALETTE.grey[1100],
+        { modifier: '&&' }
+      );
+    });
+
     it('renders surface color as expected', () => {
       const { container } = render(<StyledAvatar $status="away" $surfaceColor="red" />);
 
