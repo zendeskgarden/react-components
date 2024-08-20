@@ -2,6 +2,13 @@
 
 ## v9
 
+Upgrading from version 8 to version 9 includes handling both [breaking
+changes](#breaking-changes) and [deprecated components](#deprecated-components).
+To ensure that existing code functions correctly with v9, it is essential to
+address the breaking changes. Managing the deprecated components can be deferred
+as a subsequent task to prepare for v10, where these components will be
+completely removed.
+
 ### Breaking Changes
 
 The theme object, along with its utility functions, introduce a minimal set of
@@ -33,6 +40,7 @@ consider additional positioning prop support on a case-by-case basis.
   - `react-theming@v9` uses version range `^4.2.0 || ^5.3.1` to support `v8` to `v9` upgrades.
 
 - Garden v9 upgraded from `react-merge-refs` v1 to v2.
+
   - The [breaking
     change](https://github.com/gregberge/react-merge-refs/blob/main/CHANGELOG.md#200-2022-06-19)
     exports ESM only.
@@ -40,6 +48,11 @@ consider additional positioning prop support on a case-by-case basis.
     extension. See Garden's
     [jest.config.js](https://github.com/zendeskgarden/react-components/blob/c2aa97d1edccfa0578ee5655b543ca6635767fb9/utils/test/jest.config.js#L28-L30)
     for details.
+
+- The following breaking changes are listed alphabetically by package. While
+  individual packages can be upgraded one at a time,
+  [@zendeskgarden/react-theming](#zendeskgardenreact-theming) must be upgraded
+  first.
 
 #### @zendeskgarden/react-accordions
 
@@ -70,16 +83,6 @@ consider additional positioning prop support on a case-by-case basis.
   - Removed `IBodyProps` type export.
   - `Header.ItemIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
   - `Nav.ItemIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
-- Subcomponent exports have been deprecated and will be removed in a future major version. Update
-  to subcomponent properties:
-  - `FooterItem` -> `Footer.Item`
-  - `HeaderItem` -> `Header.Item`
-  - `HeaderItemIcon` -> `Header.ItemIcon`
-  - `HeaderItemText` -> `Header.ItemText`
-  - `HeaderItemWrapper` -> `Header.ItemWrapper`
-  - `NavItem` -> `Nav.Item`
-  - `NavItemIcon` -> `Nav.ItemIcon`
-  - `NavItemText` -> `Nav.ItemText`
 - Added `Nav.List` as a semantic wrapper for `Nav.Item`. See the
   [README](../packages/chrome/README.md#usages) for details.
 
@@ -114,13 +117,8 @@ consider additional positioning prop support on a case-by-case basis.
 - Use this package if you were using `@zendeskgarden/react-dropdowns.next` in `v8`
   - The `v8` version of `@zendeskgarden/react-dropdowns` is no longer maintained and is
     renamed to `@zendeskgarden/react-dropdowns.legacy` in `v9`
-- `Menu`: value `auto` is no longer valid for the `fallbackPlacements` prop.
+- `Menu`: value `auto` is no longer valid for the `fallbackPlacements` prop.
 - Removed `label` prop from `OptGroup`. Use `legend` instead.
-- Subcomponent exports have been deprecated and will be removed in a future major version. Update
-  to subcomponent properties:
-  - `Hint` -> `Field.Hint`
-  - `Label` -> `Field.Label`
-  - `Message` -> `Field.Message`
 
 #### @zendeskgarden/react-forms
 
@@ -130,19 +128,12 @@ consider additional positioning prop support on a case-by-case basis.
   - removed `IIconProps`. Use `IFauxInputStartIconProps` or `IFauxInputEndIconProps` instead.
   - `IMediaInputProps['start']`: `any` -> `ReactElement`
   - `IMediaInputProps['end']`: `any` -> `ReactElement`
-- Subcomponent exports have been deprecated and will be removed in a future major version. Update
-  to subcomponent properties:
-  - `Hint` -> `Field.Hint`
-  - `Label` -> `Field.Label`
-  - `Message` -> `Field.Message`
 
 #### @zendeskgarden/react-grid
 
 - Exported constants prefixed with `ARRAY_` no longer have a prefix.
 - The following types have been removed: `ALIGN_ITEMS`, `ALIGN_SELF`, `DIRECTION`,
   `JUSTIFY_CONTENT`, `TEXT_ALIGN`, `GRID_NUMBER`, `BREAKPOINT`, `SPACE`, and `WRAP`
-- Subcomponent exports for `Grid` have been deprecated and will be removed in a future major version.
-  Update to subcomponent properties (e.g., `Grid.Row`).
 
 #### @zendeskgarden/react-modals
 
@@ -158,19 +149,12 @@ consider additional positioning prop support on a case-by-case basis.
      [@zendeskgarden/container-focusvisible](https://www.npmjs.com/package/@zendeskgarden/container-focusvisible)
      to restore the polyfill
 - Removed `GARDEN_PLACEMENT` type export. Use `ITooltipDialogProps['placement']` instead.
-- Subcomponent exports for `Modal` have been deprecated and will be removed in a future major version.
-  Update to subcomponent properties (e.g., `Modal.Body`).
 
 #### @zendeskgarden/react-notification
 
 - The following types have changed:
   - removed `ToastPlacement`. Use `IToastOptions['placement']` instead.
   - removed `ToastContent`. Use `IToast['content']` instead.
-- Subcomponent exports have been deprecated and will be removed in a future major version. Update
-  to subcomponent properties:
-  - `Close` -> `Alert.Close`, `Notification.Close`
-  - `Paragraph` -> `Alert.Paragraph`, `Notification.Paragraph`, `Well.Paragraph`
-  - `Title` -> `Alert.Title`, `Notification.Title`, `Well.Title`
 
 #### @zendeskgarden/react-pagination
 
@@ -182,14 +166,7 @@ consider additional positioning prop support on a case-by-case basis.
 
 #### @zendeskgarden/react-tables
 
-- All subcomponent exports have been deprecated and will be removed in a future major version.
-  Update to subcomponent properties (e.g., `Table.Body`).
 - Removed `isHovered`, `isActive`, and `isFocused` props from `Table.OverflowButton`
-
-#### @zendeskgarden/react-tabs
-
-- All subcomponent exports have been deprecated and will be removed in a future major version.
-  Update to subcomponent properties (e.g., `Tabs.TabList`).
 
 #### @zendeskgarden/react-theming
 
@@ -230,8 +207,6 @@ consider additional positioning prop support on a case-by-case basis.
 - `Tooltip`
   - removed `eventsEnabled` prop (no longer exposed by Floating UI)
   - removed `popperModifiers` prop (see [note](#breaking-changes))
-- All subcomponent exports have been deprecated and will be removed in a future major version.
-  Update to subcomponent properties (e.g., `Tooltip.Title`).
 
 #### @zendeskgarden/react-typography
 
@@ -250,6 +225,81 @@ consider additional positioning prop support on a case-by-case basis.
 - This package has been removed.
 - Migrate to `@zendeskgarden/container-utilities` and `@zendeskgarden/react-theming` to continue
   receiving updates.
+
+### Deprecated components
+
+The following subcomponents have been renamed to streamline imports and improve
+affinity with their parent components. The deprecated exports will be removed in
+a future major release. Use the following mappings to update subcomponent
+properties.
+
+<!-- markdownlint-disable MD024 -->
+
+#### @zendeskgarden/react-chrome
+
+- `FooterItem` -> `Footer.Item`
+- `HeaderItem` -> `Header.Item`
+- `HeaderItemIcon` -> `Header.ItemIcon`
+- `HeaderItemText` -> `Header.ItemText`
+- `HeaderItemWrapper` -> `Header.ItemWrapper`
+- `NavItem` -> `Nav.Item`
+- `NavItemIcon` -> `Nav.ItemIcon`
+- `NavItemText` -> `Nav.ItemText`
+
+#### @zendeskgarden/react-dropdowns
+
+- `Hint` -> `Field.Hint`
+- `Label` -> `Field.Label`
+- `Message` -> `Field.Message`
+
+#### @zendeskgarden/react-forms
+
+- `Hint` -> `Field.Hint`
+- `Label` -> `Field.Label`
+- `Message` -> `Field.Message`
+
+#### @zendeskgarden/react-grid
+
+- `Col` -> `Grid.Col`
+- `Row` -> `Grid.Row`
+
+#### @zendeskgarden/react-modals
+
+- `Body` -> `Modal.Body`
+- `Close` -> `Modal.Close`
+- `Footer` -> `Modal.Footer`
+- `FooterItem` -> `Modal.FooterItem`
+- `Header` -> `Modal.Header`
+
+#### @zendeskgarden/react-notification
+
+- `Close` -> `Alert.Close`, `Notification.Close`
+- `Paragraph` -> `Alert.Paragraph`, `Notification.Paragraph`, `Well.Paragraph`
+- `Title` -> `Alert.Title`, `Notification.Title`, `Well.Title`
+
+#### @zendeskgarden/react-tables
+
+- `Body` -> `Table.Body`
+- `Caption` -> `Table.Caption`
+- `Cell` -> `Table.Cell`
+- `GroupRow` -> `Table.GroupRow`
+- `Head` -> `Table.Head`
+- `HeaderCell` -> `Table.HeaderCell`
+- `HeaderRow` -> `Table.HeaderRow`
+- `OverflowButton` -> `Table.OverflowButton`
+- `Row` -> `Table.Row`
+- `SortableCell` -> `Table.SortableCell`
+
+#### @zendeskgarden/react-tabs
+
+- `Tab` -> `Tabs.Tab`
+- `TabList` -> `Tabs.TabList`
+- `TabPanel` -> `Tabs.TabPanel`
+
+#### @zendeskgarden/react-tooltips
+
+- `Paragraph` -> `Tooltip.Paragraph`
+- `Title` -> `Tooltip.Title`
 
 ## v8
 
