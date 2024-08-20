@@ -26,6 +26,6 @@ export const StyledStandaloneStatusIndicator = styled(StyledStatusIndicatorBase)
 `;
 
 StyledStandaloneStatusIndicator.defaultProps = {
-  type: 'offline',
+  $type: 'offline',
   theme: DEFAULT_THEME
 };

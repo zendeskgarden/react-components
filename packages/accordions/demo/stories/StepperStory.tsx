@@ -23,7 +23,7 @@ export const StepperStory: Story<IArgs> = ({ steps, ...args }) => (
     {steps.map((step, index) => (
       <Stepper.Step key={index}>
         <Stepper.Label
-          icon={args.hasIcon && <Icon />}
+          icon={args.hasIcon ? <Icon /> : undefined}
           isHidden={args.isLabelHidden}
           iconProps={args.iconProps}
         >

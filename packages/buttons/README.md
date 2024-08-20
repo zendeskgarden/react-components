@@ -57,30 +57,3 @@ const MediaButton = ({ children, ...props }) => {
   );
 };
 ```
-
-### Button group
-
-```jsx
-import React, { useState } from 'react';
-import { ButtonGroup, Button } from '@zendeskgarden/react-buttons';
-
-const MyButtonGroup = ({ children, initialItem, ...props }) => {
-  const [selectedItem, setSelectedItem] = useState(initialItem);
-
-  return (
-    <ButtonGroup
-      selectedItem={selectedItem}
-      onSelect={selectedItem => setSelectedItem(selectedItem)}
-      {...props}
-    >
-      {children}
-    </ButtonGroup>
-  );
-};
-
-<MyButtonGroup initialKey="item-1">
-  <Button key="item-1">Item 1</Button>
-  <Button key="item-2">Item 2</Button>
-  <Button key="item-3">Item 3</Button>
-</MyButtonGroup>;
-```

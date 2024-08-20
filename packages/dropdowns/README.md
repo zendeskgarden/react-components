@@ -1,6 +1,9 @@
-# @zendeskgarden/react-dropdowns [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns)](https://www.npmjs.com/package/@zendeskgarden/react-dropdowns)
+# @zendeskgarden/react-dropdowns [![npm version][npm version badge]][npm version link]
 
-This package includes components relating to dropdowns in the
+[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns
+[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns
+
+This package includes components related to dropdowns in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
@@ -12,85 +15,86 @@ npm install @zendeskgarden/react-dropdowns
 npm install react react-dom styled-components @zendeskgarden/react-theming
 ```
 
-## Basic Example
+## Usage
+
+### Combobox
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
+import { Field, Label, Combobox, Option } from '@zendeskgarden/react-dropdowns';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Dropdown onSelect={value => console.log(`Selected: ${value}`)}>
-    <Trigger>
-      <button>This triggers a menu</button>
-    </Trigger>
-    <Menu placement="end" hasArrow>
-      <Item value="option-1">Option 1</Item>
-      <Item value="option-2">Option 2</Item>
-      <Item value="option-3">Option 3</Item>
-    </Menu>
-  </Dropdown>
+  <Field>
+    <Field.Label>Label</Field.Label>
+    <Combobox>
+      <Option value="One" />
+      <Option value="Two" />
+      <Option value="Three" />
+    </Combobox>
+  </Field>
 </ThemeProvider>;
 ```
 
-For all components within the `react-dropdowns` package, the menu layouts and
-implementations are interchangeable.
+Beyond this basic example, Garden's `Combobox` offers a comprehensive set of
+WAI-ARIA compliant combobox features. Key capabilities include:
 
-Whether you're making a `Select`, `Autocomplete`, or a traditional `Menu` the `<Menu>` implementation
-will adapted to its consumer.
+- **Controllable**: The `Combobox` functions in both [uncontrolled and
+  controlled](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components)
+  modes. Controlled mode enables aspects, such as input value, selection value(s),
+  listbox expansion, and current option active index, to share and adapt to the
+  surrounding UI.
+- **Autocomplete-able**: Denotes the `Combobox` with [list
+  autocomplete](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/).
+  Filtering implementation is left to the API consumer.
+- **Selectable**: The `Combobox` API ensures the selection of one or more
+  listbox option values, while also supporting the W3C [no autocomplete
+  example](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/)
+  for use cases like search.
+- **Multi-selectable**: This feature enables the `Combobox` to provide WAI-ARIA
+  [multi-select
+  listbox](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/#ex2_label)
+  functionality with option-as-tag value rendering.
+- **Non-editable**: The `Combobox` supports [select-only
+  mode](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/),
+  where the user cannot modify the `<input>`.
+- **Filterable**: The `Combobox` offers various filtering methods for listbox
+  options. Details of the filtering implementation are left to the API consumer.
+- **Markup-able**: The `Combobox` can convert input value text to rich HTML
+  markup on blur in single-selection mode.
+- **Decorate-able**: The `Combobox` allows adding start and end media (SVG icons).
+  Certain features will replace end media with Garden's standard dropdown chevron
+  treatment.
+- **Group-able**: The `Combobox` API utilizes fully accessible `<OptGroup>`
+  components for grouping, similar to the corresponding HTML element.
+- **Compactible**: Like other form elements, the `Combobox` supports compact
+  sizing.
+- **Field-able**: The `Combobox` builds on Garden’s Field API context to
+  establish accessible relationships with corresponding Label, Hint, and Message
+  components.
+- **Validate-able**: The `Combobox` provides validation styling and
+  accessibility comparable to other Garden form components.
+- **RTL theme-able**: Functionality displays and operates correctly for
+  left-to-right and right-to-left layouts.
 
-## Usage
-
-### Overview
-
-The `react-dropdowns` package abstracts the common concepts of `Menus`, `Selects`, and `Autocompletes`
-into a common API. This includes consistent visuals, common keyboard interaction, and a fully accessible
-experience for sighted and non-sighted users.
-
-The customizations available within this can be broken into two groups: _placement / positioning_
-and _dropdown state_
-
-### Placement / Positioning
-
-Internally, the `<Dropdown>` component uses [PopperJS](https://popper.js.org/popper-documentation.html)
-for its positioning calculations.
-
-The `<Menu>` component accepts all customizations regarding placement, boundaries, overflows,
-etc. via the `popperModifiers` prop.
+### Menu
 
 ```jsx
-/** Customize default overflow settings to position against the `viewport` */
-<Menu popperModifiers={{ preventOverflow: { boundariesElement: 'viewport' } }}>
-  <Item value="item-1">Item 1</Item>
-  <Item value="item-2">Item 2</Item>
-  <Item value="item-3">Item 3</Item>
-</Menu>
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns';
+
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Menu button="Choose an item">
+    <Item value="item-01" label="One" />
+    <Item value="item-02" label="Two" />
+    <Item value="item-03" label="Three" />
+  </Menu>
+</ThemeProvider>;
 ```
 
-### Dropdown State
-
-We use the [Downshift](https://github.com/downshift-js/downshift) render-prop library to
-handle our keyboard and accessibility logic.
-
-The following states can be controlled directly from the `<Dropdown>` component:
-
-- **isOpen** Whether the dropdown is currently open
-- **highlightedIndex** Which index is currently highlighted
-- **inputValue** The value of the input when it's used as an `Autocomplete`
-- **selectedItem** The currently selected item
-- **selectedItems** The currently selected items
-
-All other customizations may be provided directly to the Downshift provider
-via the `downshiftProps` prop.
-
-Downshift provides several advanced customization features that can be very helpful when
-customizing this component. The [stateReducer](https://github.com/downshift-js/downshift#statereducer)
-pattern is a common customization strategy.
-
-### Server Side Rendering
-
-If you are using server side rendering you may need to [configure specific Downshift settings](https://github.com/downshift-js/downshift#resetidcounter).
-This package re-exports the Downshift `resetIdCounter` utility. It allows resetting the internal id
-counter which is used to generate unique ids for Downshift.
+Visit [storybook](https://zendeskgarden.github.io/react-components) for live examples.

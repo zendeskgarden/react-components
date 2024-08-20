@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.main';
 
@@ -16,7 +16,7 @@ export const StyledMain = styled.main.attrs({
 })`
   flex: 1;
   order: 1;
-  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
+  background-color: ${props => getColor({ theme: props.theme, variable: 'background.default' })};
   overflow: auto;
 
   :focus {

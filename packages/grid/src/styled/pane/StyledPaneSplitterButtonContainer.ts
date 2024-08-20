@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, stripUnit } from 'polished';
-import { DEFAULT_THEME, getColorV8, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledPaneSplitter } from './StyledPaneSplitter';
 import { getSize } from './StyledPaneSplitterButton';
 import { Orientation, PLACEMENT } from '../../types';
@@ -21,11 +21,11 @@ interface IStyledSplitterButtonContainerProps {
 }
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const backgroundColor = getColorV8('background', 600 /* default shade */, theme);
+  const backgroundColor = getColor({ theme, variable: 'background.raised' });
   const boxShadow = theme.shadows.lg(
     `${theme.space.base}px`,
     `${theme.space.base * 2}px`,
-    getColorV8('chromeHue', 600, theme, 0.15)!
+    getColor({ variable: 'shadow.small', theme })
   );
 
   return css`
@@ -34,18 +34,23 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const positionStyles = (props: IStyledSplitterButtonContainerProps & ThemeProps<DefaultTheme>) => {
+const positionStyles = ({
+  theme,
+  placement,
+  splitterSize,
+  orientation
+}: IStyledSplitterButtonContainerProps & ThemeProps<DefaultTheme>) => {
   let top;
   let left;
   let right;
   let bottom;
-  const size = getSize(props.theme);
+  const size = getSize(theme);
   const inset = `-${size / 2}px`;
 
-  if (props.placement === 'center' || props.splitterSize < size * 3) {
-    const center = `${props.splitterSize / 2 - size / 2}px`;
+  if (placement === 'center' || splitterSize < size * 3) {
+    const center = `${splitterSize / 2 - size / 2}px`;
 
-    switch (`${props.orientation}-${props.theme.rtl ? 'rtl' : 'ltr'}`) {
+    switch (`${orientation}-${theme.rtl ? 'rtl' : 'ltr'}`) {
       case 'top-ltr':
       case 'top-rtl':
         top = inset;
@@ -74,7 +79,7 @@ const positionStyles = (props: IStyledSplitterButtonContainerProps & ThemeProps<
     const offset = `${size}px`;
 
     /* istanbul ignore next */
-    switch (`${props.orientation}-${props.placement}-${props.theme.rtl ? 'rtl' : 'ltr'}`) {
+    switch (`${orientation}-${placement}-${theme.rtl ? 'rtl' : 'ltr'}`) {
       case 'top-end-ltr':
       case 'top-end-rtl':
       case 'top-start-rtl':

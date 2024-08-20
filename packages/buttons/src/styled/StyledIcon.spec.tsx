@@ -33,7 +33,7 @@ describe('StyledIcon', () => {
 
   it('renders rotated styling if provided', () => {
     const { container } = render(
-      <StyledIcon isRotated>
+      <StyledIcon $isRotated>
         <TestIcon />
       </StyledIcon>
     );
@@ -43,7 +43,7 @@ describe('StyledIcon', () => {
 
   it('renders expected RTL styling', () => {
     const { container } = renderRtl(
-      <StyledIcon isRotated>
+      <StyledIcon $isRotated>
         <TestIcon />
       </StyledIcon>
     );
@@ -77,6 +77,18 @@ describe('StyledIcon', () => {
           </StyledIcon>
         );
       }).toThrow();
+    });
+  });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', () => {
+      const { container } = render(
+        <StyledIcon>
+          <TestIcon />
+        </StyledIcon>
+      );
+
+      expect(container.firstChild).toHaveAttribute('data-garden-id', 'buttons.icon');
     });
   });
 });

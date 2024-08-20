@@ -8,12 +8,17 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { Content } from './Content';
+import { Body } from './Body';
 
 describe('Content', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(<Content ref={ref} />);
+    const { queryByTestId } = render(
+      <Body>
+        <Content ref={ref} data-test-id="content" />
+      </Body>
+    );
 
-    expect(container.firstChild).toBe(ref.current);
+    expect(queryByTestId('content')).toBe(ref.current);
   });
 });

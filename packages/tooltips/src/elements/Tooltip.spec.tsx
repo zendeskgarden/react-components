@@ -7,8 +7,8 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, act, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME, PALETTE, getColorV8 } from '@zendeskgarden/react-theming';
+import { render, act, renderRtl, getRenderFn } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Tooltip } from './Tooltip';
 import { ITooltipProps } from '../types';
 
@@ -98,31 +98,70 @@ describe('Tooltip', () => {
     });
   });
 
-  describe('Types', () => {
-    it('renders light tooltip if provided', async () => {
-      const { getByTestId } = render(<BasicExample type="light" />);
+  describe('Colors by Tooltip type', () => {
+    type Args = [
+      'dark' | 'light',
+      'dark' | 'light',
+      {
+        color: string;
+        bgColor: string;
+        borderColor: string;
+      }
+    ];
 
-      await act(async () => {
-        await user.tab();
-        jest.runOnlyPendingTimers();
-      });
+    it.each<Args>([
+      [
+        'light',
+        'light',
+        {
+          color: PALETTE.grey[700],
+          bgColor: PALETTE.white,
+          borderColor: PALETTE.grey[300]
+        }
+      ],
+      [
+        'light',
+        'dark',
+        {
+          color: PALETTE.grey[500],
+          bgColor: PALETTE.grey[1000],
+          borderColor: PALETTE.grey[800]
+        }
+      ],
+      [
+        'dark',
+        'light',
+        {
+          color: PALETTE.white,
+          bgColor: PALETTE.grey[900],
+          borderColor: PALETTE.grey[900]
+        }
+      ],
+      [
+        'dark',
+        'dark',
+        {
+          color: PALETTE.white,
+          bgColor: PALETTE.grey[700],
+          borderColor: PALETTE.grey[700]
+        }
+      ]
+    ])(
+      'renders a "%s" tooltip in "%s" mode',
+      async (type, mode, { color, bgColor, borderColor }) => {
+        const { getByTestId } = getRenderFn(mode)(<BasicExample type={type} />);
 
-      expect(getByTestId('tooltip')).toHaveStyleRule(
-        'color',
-        getColorV8('neutralHue', 700, DEFAULT_THEME)
-      );
-    });
+        await act(async () => {
+          await user.tab();
+          jest.runOnlyPendingTimers();
+        });
 
-    it('renders dark tooltip if provided', async () => {
-      const { getByTestId } = render(<BasicExample type="dark" />);
-
-      await act(async () => {
-        await user.tab();
-        jest.runOnlyPendingTimers();
-      });
-
-      expect(getByTestId('tooltip')).toHaveStyleRule('color', PALETTE.white);
-    });
+        const tooltip = getByTestId('tooltip');
+        expect(tooltip).toHaveStyleRule('color', color);
+        expect(tooltip).toHaveStyleRule('background-color', bgColor);
+        expect(tooltip).toHaveStyleRule('border-color', borderColor);
+      }
+    );
   });
 
   describe('Sizes', () => {
@@ -163,6 +202,30 @@ describe('Tooltip', () => {
       const tooltip = getByTestId('tooltip');
 
       expect(tooltip).toHaveStyleRule('max-width', '140px');
+    });
+  });
+
+  describe('React node content', () => {
+    it('renders with Title and Paragraph', async () => {
+      const { getByTestId } = renderRtl(
+        <BasicExample
+          data-test-id="tooltip"
+          content={
+            <>
+              <Tooltip.Title>Title</Tooltip.Title>
+              <Tooltip.Paragraph>Paragraph</Tooltip.Paragraph>
+            </>
+          }
+        />
+      );
+
+      await act(async () => {
+        await user.tab();
+        jest.runOnlyPendingTimers();
+      });
+
+      expect(getByTestId('tooltip')).toHaveTextContent('Title');
+      expect(getByTestId('tooltip')).toHaveTextContent('Paragraph');
     });
   });
 });

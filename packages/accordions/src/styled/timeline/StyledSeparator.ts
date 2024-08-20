@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'timeline.content.separator';
 
@@ -21,8 +21,8 @@ export const StyledSeparator = styled.div.attrs({
 
   &::after {
     position: absolute;
-    border-left: ${props =>
-      `${props.theme.borders.sm} ${getColorV8('neutralHue', 600, props.theme)}`};
+    border-left: ${({ theme }) =>
+      `${theme.borders.sm} ${getColor({ theme, variable: 'border.emphasis' })}`};
     height: 100%;
     content: '';
   }

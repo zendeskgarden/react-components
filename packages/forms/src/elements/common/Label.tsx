@@ -24,6 +24,8 @@ import {
 import { ILabelProps } from '../../types';
 
 /**
+ * @deprecated use `Field.Label` instead
+ *
  * @extends LabelHTMLAttributes<HTMLLabelElement>
  */
 export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref) => {
@@ -37,7 +39,7 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
     combinedProps = fieldContext.getLabelProps(combinedProps);
 
     if (type === undefined) {
-      const { setIsLabelActive, setIsLabelHovered, multiThumbRangeRef } = fieldContext;
+      const { setIsLabelActive, setIsLabelHovered } = fieldContext;
 
       combinedProps = {
         ...combinedProps,
@@ -52,9 +54,6 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
         }),
         onMouseLeave: composeEventHandlers(props.onMouseLeave, () => {
           setIsLabelHovered(false);
-        }),
-        onClick: composeEventHandlers(props.onClick, () => {
-          multiThumbRangeRef.current && multiThumbRangeRef.current.focus();
         })
       };
     }
@@ -124,7 +123,7 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
   return <StyledLabel ref={ref} {...(combinedProps as any)} />;
 });
 
-Label.displayName = 'Label';
+Label.displayName = 'Field.Label';
 
 Label.propTypes = {
   isRegular: PropTypes.bool

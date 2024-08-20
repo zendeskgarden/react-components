@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColorV8, PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 describe('StyledButton', () => {
@@ -32,13 +32,15 @@ describe('StyledButton', () => {
   it('renders danger styling if provided', () => {
     const { container } = render(<StyledButton isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule('color', getColorV8('dangerHue'));
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);
   });
 
   it('renders disabled styling if provided', () => {
     const { container } = render(<StyledButton disabled />);
 
-    expect(container.firstChild).toHaveStyleRule('color', getColorV8('neutralHue'));
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[600], {
+      modifier: '&:disabled'
+    });
   });
 
   it('renders link styling if provided', () => {
@@ -51,25 +53,19 @@ describe('StyledButton', () => {
   it('renders primary styling if provided', () => {
     const { container } = render(<StyledButton isPrimary />);
 
-    expect(container.firstChild).toHaveStyleRule('background-color', getColorV8('primaryHue'));
+    expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.blue[700]);
   });
 
   it('renders neutral styling if provided', () => {
     const { container } = render(<StyledButton isNeutral />);
 
-    expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.grey[300]);
+    expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.grey[400]);
   });
 
   it('renders pill styling if provided', () => {
     const { container } = render(<StyledButton isPill />);
 
     expect(container.firstChild).toHaveStyleRule('border-radius', '100px');
-  });
-
-  it('renders selected styling if provided', () => {
-    const { container } = render(<StyledButton isSelected />);
-
-    expect(container.firstChild).toHaveStyleRule('background-color', getColorV8('primaryHue'));
   });
 
   it('renders stretched styling if provided', () => {

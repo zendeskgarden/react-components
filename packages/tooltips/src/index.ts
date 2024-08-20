@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Tooltip } from './elements/Tooltip';
 export { Paragraph } from './elements/Paragraph';
 export { Title } from './elements/Title';
+export { Tooltip } from './elements/Tooltip';
 
 export type { ITooltipProps } from './types';

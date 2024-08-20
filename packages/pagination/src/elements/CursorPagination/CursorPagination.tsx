@@ -12,7 +12,7 @@ import { Previous } from './components/Previous';
 import { Last } from './components/Last';
 import { StyledCursorPagination } from '../../styled';
 
-export const CursorPaginationComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
+const CursorPaginationComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   (props, ref) => <StyledCursorPagination ref={ref} {...props} />
 );
 

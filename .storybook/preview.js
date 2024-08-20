@@ -5,16 +5,33 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { StrictMode } from 'react';
+import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { create } from '@storybook/theming/create';
-import { ThemeProvider, DEFAULT_THEME, getColorV8 } from '../packages/theming/src';
+import { ThemeProvider, DEFAULT_THEME, getColor } from '../packages/theming/src';
+
+const DARK_THEME = { ...DEFAULT_THEME, colors: { ...DEFAULT_THEME.colors, base: 'dark' } };
+const DARK = getColor({ theme: DARK_THEME, variable: 'background.default' });
+const LIGHT = getColor({ theme: DEFAULT_THEME, variable: 'background.default' });
+
+export const args = {
+  'colors.dark': DEFAULT_THEME.colors.variables.dark,
+  'colors.light': DEFAULT_THEME.colors.variables.light
+};
+
+export const argTypes = {
+  'colors.dark': { table: { category: 'Variables' } },
+  'colors.light': { table: { category: 'Variables' } }
+};
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: {
-    disable: true,
-    grid: { disable: true }
+    grid: { disable: true },
+    values: [
+      { name: 'light', value: LIGHT },
+      { name: 'dark', value: DARK }
+    ]
   },
   controls: {
     hideNoControlsWarning: true,
@@ -29,9 +46,10 @@ export const parameters = {
 
 const GlobalPreviewStyling = createGlobalStyle`
   body {
-    background-color: ${p => getColorV8('background', 600 /* default shade */, p.theme)};
+    background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
     /* stylelint-disable-next-line declaration-no-important */
     padding: 0 !important;
+    color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
     font-family: ${p => p.theme.fonts.system};
   }
 `;
@@ -50,11 +68,25 @@ const withThemeProvider = (story, context) => {
     document.querySelector('link[href$="bedrock/dist/index.css"]').setAttribute('disabled', true);
   }
 
-  const theme = {
-    ...DEFAULT_THEME,
-    colors: { ...DEFAULT_THEME.colors, primaryHue: context.globals.primaryHue },
-    rtl
+  const colors = {
+    ...DEFAULT_THEME.colors,
+    primaryHue: context.globals.primaryHue,
+    variables: {
+      ...DEFAULT_THEME.colors.variables,
+      dark: context.args['colors.dark'],
+      light: context.args['colors.light']
+    }
   };
+
+  if (
+    context.globals.backgrounds && context.globals.backgrounds.value !== 'transparent'
+      ? context.globals.backgrounds.value === DARK
+      : context.parameters.backgrounds.default === 'dark'
+  ) {
+    colors.base = 'dark';
+  }
+
+  const theme = { ...DEFAULT_THEME, colors, rtl };
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,10 +98,7 @@ const withThemeProvider = (story, context) => {
   );
 };
 
-const withStrictMode = (story, context) =>
-  context.globals.strictMode === 'enabled' ? <StrictMode>{story()}</StrictMode> : <>{story()}</>;
-
-export const decorators = [withThemeProvider, withStrictMode];
+export const decorators = [withThemeProvider];
 
 export const globalTypes = {
   locale: {
@@ -107,19 +136,5 @@ export const globalTypes = {
         { value: 'fuschia', title: 'Custom primary hue' }
       ]
     }
-  },
-  ...(process.env.NODE_ENV === 'development' && {
-    strictMode: {
-      name: 'strictMode',
-      description: 'Strict mode',
-      defaultValue: 'disabled',
-      toolbar: {
-        icon: 'alert',
-        items: [
-          { value: 'disabled', title: 'Strict mode disabled' },
-          { value: 'enabled', title: 'Strict mode enabled' }
-        ]
-      }
-    }
-  })
+  }
 };

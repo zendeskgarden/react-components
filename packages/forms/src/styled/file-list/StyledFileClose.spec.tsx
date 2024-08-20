@@ -15,6 +15,6 @@ describe('StyledFileClose', () => {
     const { container } = render(<StyledFileClose />);
 
     expect(container.firstChild!.nodeName).toBe('BUTTON');
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700]);
   });
 });

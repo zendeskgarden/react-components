@@ -6,27 +6,27 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
-import { ITabsProps, Tab, TabList, TabPanel, Tabs } from '@zendeskgarden/react-tabs';
+import { StoryFn } from '@storybook/react';
+import { ITabsProps, Tabs } from '@zendeskgarden/react-tabs';
 import { ITab } from './types';
 
 interface IArgs extends ITabsProps {
   tabs: ITab[];
 }
 
-export const TabsStory: Story<IArgs> = ({ tabs, ...args }) => (
+export const TabsStory: StoryFn<IArgs> = ({ tabs, ...args }) => (
   <Tabs {...args}>
-    <TabList>
+    <Tabs.TabList>
       {tabs.map(tab => (
-        <Tab key={tab.value} item={tab.value} disabled={tab.disabled}>
+        <Tabs.Tab key={tab.value} item={tab.value} disabled={tab.disabled}>
           {tab.value}
-        </Tab>
+        </Tabs.Tab>
       ))}
-    </TabList>
+    </Tabs.TabList>
     {tabs.map(tab => (
-      <TabPanel key={tab.value} item={tab.value}>
+      <Tabs.TabPanel key={tab.value} item={tab.value}>
         {tab.panel}
-      </TabPanel>
+      </Tabs.TabPanel>
     ))}
   </Tabs>
 );

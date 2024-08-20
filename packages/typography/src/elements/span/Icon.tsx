@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { SVGAttributes } from 'react';
 import { StyledIcon } from '../../styled';
 
-const IconComponent = (props: HTMLAttributes<HTMLElement>) => <StyledIcon {...props} />;
+const IconComponent = (props: SVGAttributes<SVGElement>) => <StyledIcon {...props} />;
 
 IconComponent.displayName = 'Span.Icon';
 
 /**
- * @extends HTMLAttributes<HTMLElement>
+ * @extends SVGAttributes<SVGElement>
  */
 export const Icon = IconComponent;

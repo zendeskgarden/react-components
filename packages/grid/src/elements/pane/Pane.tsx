@@ -7,7 +7,7 @@
 
 import React, { useState, useMemo, useRef, HTMLAttributes, forwardRef } from 'react';
 import useResizeObserver from 'use-resize-observer';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { Splitter } from './components/Splitter';
 import { Content } from './components/Content';
 import { SplitterButton } from './components/SplitterButton';

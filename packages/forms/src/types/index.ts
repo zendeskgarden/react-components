@@ -10,6 +10,7 @@ import {
   HTMLAttributes,
   InputHTMLAttributes,
   LabelHTMLAttributes,
+  ReactElement,
   SelectHTMLAttributes,
   SVGAttributes,
   TextareaHTMLAttributes
@@ -85,9 +86,9 @@ export interface IInputProps extends IRadioProps {
 
 export interface IMediaInputProps extends IInputProps {
   /** Accepts a "start" icon to display */
-  start?: any;
+  start?: ReactElement;
   /** Accepts an "end" icon to display */
-  end?: any;
+  end?: ReactElement;
   /** Applies props to the wrapping [FauxInput](#fauxinput) element */
   wrapperProps?: any;
   /** Applies a ref to the wrapping [FauxInput](#fauxinput) element */
@@ -154,35 +155,10 @@ export interface IRangeProps extends InputHTMLAttributes<HTMLInputElement> {
   hasLowerTrack?: boolean;
 }
 
-export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  /** Sets the minimum permitted value */
-  min?: number;
-  /** Sets the maximum permitted value */
-  max?: number;
-  /** Sets the minimum thumb value */
-  minValue?: number;
-  /** Sets the maximum thumb value */
-  maxValue?: number;
-  /** Defines the stepping interval */
-  step?: number;
-  /** Defines the jumping interval for keyboard page up/down navigation. Defaults to `step`. */
-  jump?: number;
-  /** Indicates that the element is not interactive */
-  disabled?: IRangeProps['disabled'];
-  /**
-   * Handles change events
-   *
-   * @param {Object} updatedValues The values that have changed
-   * @param {number} [updatedValues.minValue] The optional minimum value
-   * @param {number} [updatedValues.maxValue] The optional maximum value
-   * */
-  onChange?: (updatedValues: { minValue?: number; maxValue?: number }) => void;
-}
-
 export interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
-  /** Sets the value of the selected radio button */
+  /** Sets the selected value in a controlled tiles component */
   value?: IRadioProps['value'];
-  /** Handles radio selection */
+  /** Handles selection change event */
   onChange?: IRadioProps['onChange'];
   /** Sets the name used to reference the value of the control */
   name: NonNullable<IRadioProps['name']>;
@@ -191,7 +167,7 @@ export interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface ITilesTileProps extends HTMLAttributes<HTMLLabelElement> {
-  /** Sets the value of the input */
+  /** Sets the value of the tile */
   value?: IRadioProps['value'];
   /** Indicates that the element is not interactive */
   disabled?: IRadioProps['disabled'];

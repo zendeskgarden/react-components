@@ -9,10 +9,12 @@ import React, { HTMLAttributes, forwardRef } from 'react';
 import { StyledBody } from '../styled';
 
 /**
+ * @deprecated use `Table.Body` instead
+ *
  * @extends HTMLAttributes<HTMLTableSectionElement>
  */
 export const Body = forwardRef<HTMLTableSectionElement, HTMLAttributes<HTMLTableSectionElement>>(
   (props, ref) => <StyledBody ref={ref} {...props} />
 );
 
-Body.displayName = 'Body';
+Body.displayName = 'Table.Body';

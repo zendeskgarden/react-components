@@ -5,15 +5,40 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledBase } from './StyledBase';
 
 const COMPONENT_ID = 'notifications.well';
 
 export interface IStyledWellProps {
-  isRecessed?: boolean;
+  $isRecessed?: boolean;
+  $isFloating?: boolean;
 }
+
+const colorStyles = ({
+  theme,
+  $isFloating,
+  $isRecessed
+}: IStyledWellProps & ThemeProps<DefaultTheme>) => {
+  let backgroundVariable;
+
+  if ($isRecessed) {
+    backgroundVariable = 'background.recessed';
+  } else if ($isFloating) {
+    backgroundVariable = 'background.raised';
+  } else {
+    backgroundVariable = 'background.default';
+  }
+
+  const foreground = getColor({ variable: 'foreground.subtle', theme });
+  const background = getColor({ variable: backgroundVariable, theme });
+
+  return css`
+    background-color: ${background};
+    color: ${foreground};
+  `;
+};
 
 /**
  * Supports all `<div>` props
@@ -22,9 +47,9 @@ export const StyledWell = styled(StyledBase).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledWellProps>`
-  background-color: ${props => props.isRecessed && getColorV8('neutralHue', 100, props.theme)};
-  color: ${props => getColorV8('neutralHue', 600, props.theme)}
-    ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${colorStyles}
+
+  ${p => retrieveComponentStyles(COMPONENT_ID, p)};
 `;
 
 StyledWell.defaultProps = {

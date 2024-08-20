@@ -10,6 +10,8 @@ import { StyledBody } from '../styled';
 import { useModalContext } from '../utils/useModalContext';
 
 /**
+ * @deprecated use `Modal.Body` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Body = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
@@ -18,4 +20,4 @@ export const Body = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
   return <StyledBody {...(getContentProps(props) as HTMLAttributes<HTMLDivElement>)} ref={ref} />;
 });
 
-Body.displayName = 'Body';
+Body.displayName = 'Modal.Body';

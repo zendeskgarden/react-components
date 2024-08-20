@@ -17,7 +17,7 @@ describe('StyledStepper', () => {
   });
 
   it('renders horizontal styling correctly', () => {
-    const { container } = render(<StyledStepper isHorizontal />);
+    const { container } = render(<StyledStepper $isHorizontal />);
 
     expect(container.firstChild).toHaveStyleRule('display', 'flex');
   });

@@ -6,103 +6,60 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
-import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
-import {
-  AddItem,
-  HeaderIcon,
-  HeaderItem,
-  IItemProps,
-  IMenuProps,
-  Item,
-  ItemMeta,
-  MediaBody,
-  MediaFigure,
-  MediaItem,
-  Menu,
-  NextItem,
-  PreviousItem,
-  Separator
-} from '@zendeskgarden/react-dropdowns';
-import { IMenuItem, ITEM } from './types';
+import { StoryFn } from '@storybook/react';
+import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import CartIcon from '@zendeskgarden/svg-icons/src/16/shopping-cart-stroke.svg';
+import { Grid } from '@zendeskgarden/react-grid';
+import { IMenuProps, Item, ItemGroup, Separator, Menu } from '@zendeskgarden/react-dropdowns';
+import { IItem, Items } from './types';
 
-export interface IMenuItemProps extends IItemProps, Omit<IMenuItem, 'text' | 'value'> {}
-
-interface IProps extends IMenuItemProps {
-  text: IMenuItem['text'];
-}
-
-const MenuItem = ({ text: children, type, hasIcon, meta, ...props }: IProps) => {
-  switch (type) {
-    case 'add':
-      return (
-        <AddItem {...props}>
-          {children}
-          {meta && <ItemMeta>{meta}</ItemMeta>}
-        </AddItem>
-      );
-
-    case 'header':
-      return (
-        <HeaderItem hasIcon={hasIcon}>
-          {hasIcon && (
-            <HeaderIcon>
-              <Icon />
-            </HeaderIcon>
-          )}
-          {children}
-        </HeaderItem>
-      );
-
-    case 'next':
-      return (
-        <NextItem {...props}>
-          {children}
-          {meta && <ItemMeta>{meta}</ItemMeta>}
-        </NextItem>
-      );
-
-    case 'previous':
-      return (
-        <PreviousItem {...props}>
-          {children}
-          {meta && <ItemMeta>{meta}</ItemMeta>}
-        </PreviousItem>
-      );
-
-    default:
-      return hasIcon ? (
-        <MediaItem {...props}>
-          <MediaFigure>
-            <Icon />
-          </MediaFigure>
-          <MediaBody>
-            {children}
-            {meta && <ItemMeta>{meta}</ItemMeta>}
-          </MediaBody>
-        </MediaItem>
-      ) : (
-        <Item {...props}>
-          {children}
-          {meta && <ItemMeta>{meta}</ItemMeta>}
-        </Item>
-      );
-  }
+const MenuItem = ({ icon, meta, ...item }: IItem) => {
+  return (
+    <Item {...item} icon={icon ? <LeafIcon /> : undefined}>
+      {item.label}
+      {meta && <Item.Meta>{meta}</Item.Meta>}
+    </Item>
+  );
 };
 
 interface IArgs extends IMenuProps {
-  items: ITEM[];
-  itemProps?: IMenuItemProps;
+  items: Items;
 }
 
-export const MenuStory: Story<IArgs> = ({ items, itemProps, ...args }) => (
-  <Menu {...args}>
-    {items.map((item, index) =>
-      item === '---' ? (
-        <Separator key={index} />
-      ) : (
-        <MenuItem key={index} {...itemProps} {...item} value={item} />
-      )
-    )}
-  </Menu>
-);
+export const MenuStory: StoryFn<IArgs> = ({ items, ...args }) => {
+  return (
+    <Grid>
+      <Grid.Row justifyContent="center" style={{ height: 800 }}>
+        <Grid.Col alignSelf="center" textAlign="center">
+          <div style={{ display: 'inline-block', position: 'relative', width: 200 }}>
+            <Menu {...args}>
+              {items.map(item => {
+                if ('items' in item) {
+                  return (
+                    <ItemGroup
+                      legend={item.legend}
+                      aria-label={item['aria-label']}
+                      key={item.legend || item['aria-label']}
+                      type={item.type}
+                      icon={item.icon ? <CartIcon /> : undefined}
+                    >
+                      {item.items.map(groupItem => (
+                        <MenuItem key={groupItem.value} {...groupItem} />
+                      ))}
+                    </ItemGroup>
+                  );
+                }
+
+                if ('isSeparator' in item) {
+                  return <Separator key={item.value} />;
+                }
+
+                return <MenuItem key={item.value} {...item} />;
+              })}
+            </Menu>
+          </div>
+        </Grid.Col>
+      </Grid.Row>
+    </Grid>
+  );
+};

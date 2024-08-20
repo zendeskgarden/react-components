@@ -15,6 +15,7 @@ export { HeaderRow } from './elements/HeaderRow';
 export { OverflowButton } from './elements/OverflowButton';
 export { Row } from './elements/Row';
 export { SortableCell } from './elements/SortableCell';
+
 export { Table } from './elements/Table';
 
 export type {

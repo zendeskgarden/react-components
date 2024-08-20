@@ -1,12 +1,12 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { Colorpicker } from '@zendeskgarden/react-colorpickers';
+import { ColorPicker } from '@zendeskgarden/react-colorpickers';
 import README from '../README.md';
 
 <Meta
-  title="Packages/Colorpickers/Colorpicker"
-  component={Colorpicker}
+  title="Packages/Colorpickers/ColorPicker"
+  component={ColorPicker}
   parameters={{
     design: {
       allowFullscreen: true,
@@ -26,7 +26,7 @@ import README from '../README.md';
 
 <Canvas>
   <Story name="Uncontrolled" argTypes={{ color: { control: false } }}>
-    {args => <Colorpicker {...args} />}
+    {args => <ColorPicker {...args} />}
   </Story>
 </Canvas>
 
@@ -41,7 +41,7 @@ import README from '../README.md';
     {args => {
       const updateArgs = useArgs()[1];
       const handleChange = color => updateArgs({ color });
-      return <Colorpicker {...args} onChange={handleChange} />;
+      return <ColorPicker {...args} onChange={handleChange} />;
     }}
   </Story>
 </Canvas>

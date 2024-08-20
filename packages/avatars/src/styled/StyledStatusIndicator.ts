@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IAvatarProps, SIZE } from '../types';
@@ -14,8 +14,10 @@ import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';
 import { getStatusBorderOffset, includes, IStyledStatusIndicatorProps } from './utility';
 
 export interface IStatusIndicatorProps extends Omit<IAvatarProps, 'badge' | 'isSystem' | 'status'> {
-  readonly type?: IStyledStatusIndicatorProps['type'];
-  borderColor?: string;
+  readonly $type?: IStyledStatusIndicatorProps['$type'];
+  $borderColor?: string;
+  $surfaceColor?: IAvatarProps['surfaceColor'];
+  $size?: IAvatarProps['size'];
 }
 
 const COMPONENT_ID = 'avatars.status_indicator';
@@ -23,14 +25,14 @@ const COMPONENT_ID = 'avatars.status_indicator';
 const [xxs, xs, s, m, l] = SIZE;
 
 const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
-  const isVisible = !includes([xxs, xs], props.size);
+  const isVisible = !includes([xxs, xs], props.$size);
   const borderWidth = getStatusBorderOffset(props);
 
   let padding = '0';
 
-  if (props.size === s) {
+  if (props.$size === s) {
     padding = math(`${props.theme.space.base + 1}px - (${borderWidth} * 2)`);
-  } else if (includes([m, l], props.size)) {
+  } else if (includes([m, l], props.$size)) {
     padding = math(`${props.theme.space.base + 3}px - (${borderWidth} * 2)`);
   }
 
@@ -60,22 +62,26 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
   `;
 };
 
-const colorStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
-  const { theme, type, size, borderColor, surfaceColor } = props;
+const colorStyles = ({
+  theme,
+  $type,
+  $size,
+  $borderColor,
+  $surfaceColor
+}: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
+  const shadowSize = $size === xxs ? 'xs' : 'sm';
+  let boxShadow;
 
-  let boxShadow = theme.shadows.sm(
-    surfaceColor ||
-      (type
-        ? getColorV8('background', 600 /* default shade */, theme)!
-        : (theme.palette.white as string))
-  );
-
-  if (size === xxs) {
-    boxShadow = boxShadow.replace(theme.shadowWidths.sm, '1px');
+  if ($type) {
+    boxShadow = theme.shadows[shadowSize](
+      $surfaceColor || getColor({ theme, variable: 'background.default' })
+    );
+  } else {
+    boxShadow = theme.shadows[shadowSize]($surfaceColor || (theme.palette.white as string));
   }
 
   return css`
-    border-color: ${borderColor};
+    border-color: ${$borderColor};
     box-shadow: ${boxShadow};
   `;
 };
@@ -91,6 +97,6 @@ export const StyledStatusIndicator = styled(StyledStatusIndicatorBase).attrs({
 `;
 
 StyledStatusIndicator.defaultProps = {
-  size: 'medium',
+  $size: 'medium',
   theme: DEFAULT_THEME
 };

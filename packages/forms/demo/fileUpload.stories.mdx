@@ -1,13 +1,13 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import { FileUpload, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { FileUpload } from '@zendeskgarden/react-forms';
 import { FileUploadStory } from './stories/FileUploadStory';
-import { commonArgs, commonArgTypes } from './stories/common';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
 
 <Meta
   title="Packages/Forms/FileUpload"
   component={FileUpload}
-  subcomponents={{ Field, Label, Hint, Message }}
+  subcomponents={{ ...fieldSubcomponents }}
 />
 
 # API
@@ -24,6 +24,7 @@ import README from '../README.md';
       ...commonArgs
     }}
     argTypes={{
+      tabIndex: { control: 'number' },
       ...commonArgTypes
     }}
     parameters={{

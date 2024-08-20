@@ -12,6 +12,8 @@ import { StyledDangerIcon, StyledHeader } from '../styled';
 import { IHeaderProps } from '../types';
 
 /**
+ * @deprecated use `Modal.Header` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Header = forwardRef<HTMLDivElement, IHeaderProps>(
@@ -44,7 +46,7 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>(
   }
 );
 
-Header.displayName = 'Header';
+Header.displayName = 'Modal.Header';
 
 Header.propTypes = {
   isDanger: PropTypes.bool,

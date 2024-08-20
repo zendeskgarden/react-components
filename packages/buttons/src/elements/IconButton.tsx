@@ -20,7 +20,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
 
     return (
       <StyledIconButton ref={ref} {...otherProps} focusInset={otherProps.focusInset || focusInset}>
-        <StyledIcon isRotated={isRotated}>{children}</StyledIcon>
+        <StyledIcon $isRotated={isRotated}>{children}</StyledIcon>
       </StyledIconButton>
     );
   }

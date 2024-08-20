@@ -7,10 +7,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IHeaderItemProps, PRODUCT } from '../../types';
+import { IHeaderItemProps, PRODUCTS } from '../../types';
 import { StyledHeaderItem, StyledLogoHeaderItem } from '../../styled';
 
 /**
+ * @deprecated use `Header.Item` instead
+ *
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const HeaderItem = React.forwardRef<HTMLButtonElement, IHeaderItemProps>(
@@ -23,12 +25,12 @@ export const HeaderItem = React.forwardRef<HTMLButtonElement, IHeaderItemProps>(
   }
 );
 
-HeaderItem.displayName = 'HeaderItem';
+HeaderItem.displayName = 'Header.Item';
 
 HeaderItem.propTypes = {
   maxX: PropTypes.bool,
   maxY: PropTypes.bool,
   isRound: PropTypes.bool,
-  product: PropTypes.oneOf(PRODUCT),
+  product: PropTypes.oneOf(PRODUCTS),
   hasLogo: PropTypes.bool
 };

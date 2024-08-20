@@ -1,14 +1,14 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { MediaInput, Field, Label, Hint, Message } from '@zendeskgarden/react-forms';
+import { MediaInput } from '@zendeskgarden/react-forms';
 import { MediaInputStory } from './stories/MediaInputStory';
-import { commonArgs, commonArgTypes } from './stories/common';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
 
 <Meta
   title="Packages/Forms/MediaInput"
   component={MediaInput}
-  subcomponents={{ Field, Label, Hint, Message }}
+  subcomponents={{ ...fieldSubcomponents }}
   args={{
     start: true,
     end: true,

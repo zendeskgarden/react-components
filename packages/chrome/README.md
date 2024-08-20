@@ -15,41 +15,40 @@ npm install react react-dom styled-components @zendeskgarden/react-theming
 
 ```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Chrome, Nav, NavItem, ... } from '@zendeskgarden/react-chrome';
-import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';
+import { Chrome, Nav, Body, Header, Content, Main } from '@zendeskgarden/react-chrome';
+import SupportIcon from '@zendeskgarden/icons/src/26/relationshape-support.svg';
+import BrandmarkIcon from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 
 <ThemeProvider>
   <Chrome>
     <Nav isExpanded>
-      <NavItem hasLogo product="connect" title="Zendesk Connect">
-        <NavItemIcon>
-          <ConnectIcon />
-        </NavItemIcon>
-        <NavItemText>Zendesk Connect</NavItemText>
-      </NavItem>
-      <NavItem isCurrent>
-        <NavItemIcon>
-          <HomeIcon />
-        </NavItemIcon>
-        <NavItemText>Home</NavItemText>
-      </NavItem>
+      <Nav.Item hasLogo product="support" title="Zendesk Support">
+        <Nav.ItemIcon>
+          <SupportIcon />
+        </Nav.ItemIcon>
+        <NavItemText>Zendesk Support</NavItemText>
+      </Nav.Item>
+      <Nav.List>
+        <Nav.Item isCurrent>
+          <Nav.ItemIcon>
+            <HomeIcon />
+          </Nav.ItemIcon>
+          <NavItemText>Home</NavItemText>
+        </Nav.Item>
+      </Nav.List>
+      <Nav.Item hasBrandmark>
+        <Nav.ItemIcon>
+          <BrandmarkIcon />
+        </Nav.ItemIcon>
+        <Nav.ItemText>Brandmark</Nav.ItemText>
+      </Nav.Item>
     </Nav>
-    <SubNav>
-      <SubNavItem isCurrent>
-        <SubNavItemText>Subnav 1</SubNavItemText>
-      </SubNavItem>
-      ...
-    </SubNav>
     <Body>
-      <Header>
-        ...
-      </Header>
+      <Header>...</Header>
       <Content>
-        <Main>
-          Lorem ipsum...
-        </Main>
+        <Main>Lorem ipsum...</Main>
       </Content>
     </Body>
   </Chrome>
-</ThemeProvider>
+</ThemeProvider>;
 ```

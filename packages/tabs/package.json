@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-tabs",
-  "version": "8.76.6",
+  "version": "9.0.0-next.22",
   "description": "Components and render prop containers relating to the Garden Design System.",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -25,16 +25,16 @@
     "@zendeskgarden/container-utilities": "^2.0.0",
     "polished": "^4.3.1",
     "prop-types": "^15.5.7",
-    "react-merge-refs": "^1.1.0"
+    "react-merge-refs": "^2.0.0"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-theming": "^8.75.0 || ^9.0.0",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "styled-components": "^4.2.0 || ^5.0.0"
+    "@zendeskgarden/react-theming": ">=9.0.0-next",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^8.76.6"
+    "@zendeskgarden/react-theming": "^9.0.0-next.22"
   },
   "keywords": [
     "components",

@@ -12,6 +12,8 @@ import { StyledTabPanel } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
 
 /**
+ * @deprecated use `Tabs.TabPanel` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
@@ -29,7 +31,7 @@ export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
     return (
       <StyledTabPanel
         aria-hidden={tabsPropGetters.selectedValue !== item}
-        isVertical={tabsPropGetters.isVertical}
+        $isVertical={tabsPropGetters.isVertical}
         {...tabPanelProps}
         {...otherProps}
         ref={ref}
@@ -38,6 +40,6 @@ export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
   }
 );
 
-TabPanel.displayName = 'TabPanel';
+TabPanel.displayName = 'Tabs.TabPanel';
 
 TabPanel.propTypes = { item: PropTypes.any };

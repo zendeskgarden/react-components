@@ -14,10 +14,7 @@ describe('StyledSheet', () => {
   it('renders correctly in rtl mode', () => {
     renderRtl(<StyledSheet placement="end" />);
 
-    expect(screen.getByRole('complementary')).toHaveStyleRule(
-      'border-right',
-      '1px solid transparent'
-    );
+    expect(screen.getByRole('complementary')).toHaveStyleRule('border-right', 'none');
   });
 
   it('renders default styling correctly', () => {
@@ -25,18 +22,15 @@ describe('StyledSheet', () => {
 
     const aside = screen.getByRole('complementary');
 
-    expect(aside).toHaveStyleRule('width', '0px');
-    expect(aside).toHaveStyleRule('border-left', '1px solid transparent');
+    expect(aside).toHaveStyleRule('width', '0');
+    expect(aside).toHaveStyleRule('border-left', 'none');
     expect(aside).not.toHaveStyleRule('transition', 'width 250ms ease-in-out');
   });
 
   it('renders correctly when placement is set to "start"', () => {
     render(<StyledSheet placement="start" />);
 
-    expect(screen.getByRole('complementary')).toHaveStyleRule(
-      'border-right',
-      '1px solid transparent'
-    );
+    expect(screen.getByRole('complementary')).toHaveStyleRule('border-right', 'none');
   });
 
   it('renders styling correctly when open', () => {

@@ -13,7 +13,7 @@ const PreviousComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTM
   ({ children, ...other }, ref) => {
     return (
       <StyledCursor ref={ref} as="button" {...other}>
-        <StyledIcon type="previous">
+        <StyledIcon $type="previous">
           <ChevronLeftIcon />
         </StyledIcon>
         <span>{children}</span>

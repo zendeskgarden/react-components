@@ -21,22 +21,22 @@ describe('StyledTextMediaFigure', () => {
 
     expect(container.firstChild!.nodeName).toBe('svg');
     expect(container.firstChild).toHaveStyleRule('width', '16px');
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[600]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700]);
   });
 
   it('renders expected hovered styling', () => {
     const { container } = render(
-      <StyledTextMediaFigure isHovered>
+      <StyledTextMediaFigure $isHovered>
         <TestIcon />
       </StyledTextMediaFigure>
     );
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
   });
 
   it('renders rotated styling if provided', () => {
     const { container } = render(
-      <StyledTextMediaFigure isRotated>
+      <StyledTextMediaFigure $isRotated>
         <TestIcon />
       </StyledTextMediaFigure>
     );
@@ -46,7 +46,7 @@ describe('StyledTextMediaFigure', () => {
 
   it('renders expected RTL styling', () => {
     const { container } = renderRtl(
-      <StyledTextMediaFigure isRotated>
+      <StyledTextMediaFigure $isRotated>
         <TestIcon />
       </StyledTextMediaFigure>
     );

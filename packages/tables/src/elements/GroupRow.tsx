@@ -10,14 +10,16 @@ import { StyledGroupRow } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 
 /**
+ * @deprecated use `Table.GroupRow` instead
+ *
  * @extends HTMLAttributes<HTMLTableRowElement>
  */
 export const GroupRow = forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>>(
   (props, ref) => {
     const { size } = useTableContext();
 
-    return <StyledGroupRow ref={ref} size={size} {...props} />;
+    return <StyledGroupRow ref={ref} $size={size} {...props} />;
   }
 );
 
-GroupRow.displayName = 'GroupRow';
+GroupRow.displayName = 'Table.GroupRow';

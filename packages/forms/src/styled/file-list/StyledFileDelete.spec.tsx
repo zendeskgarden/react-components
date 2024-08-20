@@ -15,6 +15,6 @@ describe('StyledFileDelete', () => {
     const { container } = render(<StyledFileDelete />);
 
     expect(container.firstChild!.nodeName).toBe('BUTTON');
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[600]);
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);
   });
 });

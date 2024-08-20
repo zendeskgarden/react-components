@@ -9,7 +9,7 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { HeaderItem } from './HeaderItem';
-import { PRODUCT, Product } from '../../types';
+import { PRODUCTS, Product } from '../../types';
 
 describe('HeaderItem', () => {
   it('passes ref to underlying DOM element', () => {
@@ -46,16 +46,14 @@ describe('HeaderItem', () => {
   describe('Products', () => {
     const VALID_COLOR_MAP: Record<Product, string> = {
       chat: PALETTE.product.chat,
-      connect: PALETTE.product.connect,
       explore: PALETTE.product.explore,
       guide: PALETTE.product.guide,
-      message: PALETTE.product.message,
       support: PALETTE.product.support,
       talk: PALETTE.product.talk
     };
 
     it('renders correct product color', () => {
-      PRODUCT.forEach(product => {
+      PRODUCTS.forEach(product => {
         const { container } = render(<HeaderItem hasLogo product={product} />);
 
         expect(container.firstChild).toHaveStyleRule('color', VALID_COLOR_MAP[product]);
@@ -65,7 +63,7 @@ describe('HeaderItem', () => {
     it('renders correct color if no product is provided', () => {
       const { container } = render(<HeaderItem hasLogo />);
 
-      expect(container.firstChild).toHaveStyleRule('color', 'inherit');
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[900]);
     });
   });
 });

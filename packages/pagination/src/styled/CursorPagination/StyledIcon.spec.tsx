@@ -36,7 +36,7 @@ describe('StyledIcon', () => {
 
     types.forEach(type => {
       const { container } = render(
-        <StyledIcon type={type}>
+        <StyledIcon $type={type}>
           <ChevronLeft />
         </StyledIcon>
       );
@@ -56,7 +56,7 @@ describe('StyledIcon', () => {
 
     types.forEach(type => {
       const { container } = renderRtl(
-        <StyledIcon type={type}>
+        <StyledIcon $type={type}>
           <ChevronLeft />
         </StyledIcon>
       );

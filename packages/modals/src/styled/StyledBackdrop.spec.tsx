@@ -6,8 +6,10 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { render, renderDark, renderRtl } from 'garden-test-utils';
 import { StyledBackdrop } from './StyledBackdrop';
+import { rgba } from 'polished';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
 describe('StyledBackdrop', () => {
   it('renders default styling', () => {
@@ -31,5 +33,17 @@ describe('StyledBackdrop', () => {
 
     expect(container.firstChild).toHaveStyleRule('align-items', 'center');
     expect(container.firstChild).toHaveStyleRule('justify-content', 'center');
+  });
+
+  describe('backdrop color', () => {
+    it.each([['light'], ['dark']])('gets the correct %s mode color', mode => {
+      const renderFn = mode === 'light' ? render : renderDark;
+      const { container } = renderFn(<StyledBackdrop isCentered />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        rgba(mode === 'light' ? PALETTE.grey[900] : PALETTE.grey[1200], DEFAULT_THEME.opacity[1000])
+      );
+    });
   });
 });

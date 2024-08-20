@@ -5,18 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { keyframes } from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, keyframes } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.inline';
 
-const PULSE_ANIMATION = keyframes`
+const retrieveAnimation = ({ theme }: ThemeProps<DefaultTheme>) => keyframes`
   0%, 100% {
-    opacity: .2;
+    opacity: ${theme.opacity[200]};
   }
 
   50% {
-    opacity: .8;
+    opacity: ${theme.opacity[600]};
   }
 `;
 
@@ -50,17 +50,17 @@ export const StyledInline = styled.svg.attrs<IStyledInlineProps>(props => ({
     opacity: 0.2;
 
     &:nth-child(1) {
-      animation: ${PULSE_ANIMATION} 1s infinite;
+      animation: ${retrieveAnimation} 1s infinite;
       animation-delay: ${props => (props.theme.rtl ? 'unset' : '0.4s')};
     }
 
     &:nth-child(2) {
-      animation: ${PULSE_ANIMATION} 1s infinite;
+      animation: ${retrieveAnimation} 1s infinite;
       animation-delay: 0.2s;
     }
 
     &:nth-child(3) {
-      animation: ${PULSE_ANIMATION} 1s infinite;
+      animation: ${retrieveAnimation} 1s infinite;
       animation-delay: ${props => (props.theme.rtl ? '0.4s' : 'unset')};
     }
   }

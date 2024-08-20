@@ -19,24 +19,20 @@ interface IStyledTileLabelProps {
   isCentered?: boolean;
 }
 
-const sizeStyles = (props: IStyledTileLabelProps & ThemeProps<DefaultTheme>) => {
-  let marginDirection = 'left';
-  let marginTop = `${props.theme.space.base * 2}px`;
-  let marginValue;
-
-  if (props.theme.rtl) {
-    marginDirection = 'right';
-  }
-
-  if (!props.isCentered) {
-    marginValue = math(`(${props.theme.iconSizes.md} * 2) + ${props.theme.space.base * 5}px`);
-    marginTop = '0';
-  }
+const sizeStyles = ({ theme, isCentered }: IStyledTileLabelProps & ThemeProps<DefaultTheme>) => {
+  const marginTop = isCentered ? `${theme.space.base * 2}px` : 0;
+  const marginHorizontal = isCentered
+    ? undefined
+    : math(`(${theme.iconSizes.md} * 2) + ${theme.space.base * 5}px`);
+  const fontSize = theme.fontSizes.md;
+  const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
 
   return css`
     margin-top: ${marginTop};
     /* stylelint-disable-next-line property-no-unknown */
-    margin-${marginDirection}: ${marginValue};
+    margin-${theme.rtl ? 'right' : 'left'}: ${marginHorizontal};
+    line-height: ${lineHeight};
+    font-size: ${fontSize};
   `;
 };
 
@@ -46,11 +42,9 @@ export const StyledTileLabel = styled.span.attrs({
 })<IStyledTileLabelProps>`
   display: block;
   text-align: ${props => props.isCentered && 'center'};
-  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-  font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

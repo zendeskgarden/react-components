@@ -1,17 +1,5 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import {
-  Table,
-  Body,
-  Caption,
-  Cell,
-  GroupRow,
-  Head,
-  HeaderCell,
-  HeaderRow,
-  OverflowButton,
-  Row,
-  SortableCell
-} from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 import { TableStory } from './stories/TableStory';
 import { TABLE_DATA as DATA } from './stories/data';
 import README from '../README.md';
@@ -20,16 +8,16 @@ import README from '../README.md';
   title="Packages/Tables/Table"
   component={Table}
   subcomponents={{
-    Body,
-    Caption,
-    Cell,
-    GroupRow,
-    Head,
-    HeaderCell,
-    HeaderRow,
-    OverflowButton,
-    Row,
-    SortableCell
+    'Table.Body': Table.Body,
+    'Table.Caption': Table.Caption,
+    'Table.Cell': Table.Cell,
+    'Table.GroupRow': Table.GroupRow,
+    'Table.Head': Table.Head,
+    'Table.HeaderCell': Table.HeaderCell,
+    'Table.HeaderRow': Table.HeaderRow,
+    'Table.OverflowButton': Table.OverflowButton,
+    'Table.Row': Table.Row,
+    'Table.SortableCell': Table.SortableCell
   }}
 />
 
@@ -45,18 +33,18 @@ import README from '../README.md';
     args={{ caption: 'Caption', data: DATA, widths: [], isBold: true }}
     argTypes={{
       isReadOnly: { control: 'boolean' },
-      hasOverflow: { control: 'boolean', table: { category: 'Cell' } },
-      isTruncated: { control: 'boolean', table: { category: 'Cell' } },
-      isHidden: { name: 'hidden', control: 'boolean', table: { category: 'Cell' } },
-      caption: { name: 'children', table: { category: 'Caption' } },
-      isBold: { control: 'boolean', table: { category: 'GroupRow' } },
-      isSticky: { control: 'boolean', table: { category: 'Head' } },
-      isStriped: { control: 'boolean', table: { category: 'Row' } },
-      isSelected: { control: 'boolean', table: { category: 'Row' } },
-      data: { name: 'Row[]', table: { category: 'Story' } },
-      widths: { name: 'Cell[] widths', table: { category: 'Story' } },
+      hasOverflow: { control: 'boolean', table: { category: 'Table.Cell' } },
+      isTruncated: { control: 'boolean', table: { category: 'Table.Cell' } },
+      isHidden: { name: 'hidden', control: 'boolean', table: { category: 'Table.Cell' } },
+      caption: { name: 'children', table: { category: 'Table.Caption' } },
+      isBold: { control: 'boolean', table: { category: 'Table.GroupRow' } },
+      isSticky: { control: 'boolean', table: { category: 'Table.Head' } },
+      isStriped: { control: 'boolean', table: { category: 'Table.Row' } },
+      isSelected: { control: 'boolean', table: { category: 'Table.Row' } },
+      data: { name: 'Table.Row[]', table: { category: 'Story' } },
+      widths: { name: 'Table.Cell[] widths', table: { category: 'Story' } },
       hasSelection: { control: 'boolean', table: { category: 'Story' } },
-      isSortable: { name: 'SortableCell', control: 'boolean', table: { category: 'Story' } }
+      isSortable: { name: 'Table.SortableCell', control: 'boolean', table: { category: 'Story' } }
     }}
     parameters={{
       design: {

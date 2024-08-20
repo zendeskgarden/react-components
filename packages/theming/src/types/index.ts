@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ThemeProps } from 'styled-components';
+import { CSSObject, ThemeProviderProps } from 'styled-components';
 
 export const ARROW_POSITION = [
   'top',
@@ -28,7 +28,69 @@ export const MENU_POSITION = ['top', 'right', 'bottom', 'left'] as const;
 
 export type MenuPosition = (typeof MENU_POSITION)[number];
 
-type Hue = Record<number | string, string> | string;
+export const PLACEMENT = [
+  'top',
+  'top-start',
+  'top-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end',
+  'end',
+  'end-top',
+  'end-bottom',
+  'start',
+  'start-top',
+  'start-bottom'
+] as const;
+
+export type Placement = (typeof PLACEMENT)[number];
+
+export type CheckeredBackgroundParameters = {
+  overlay?: string;
+  positionY?: number;
+  repeat?: 'repeat' | 'repeat-x';
+  size: number;
+  theme: IGardenTheme;
+};
+
+export type ColorParameters = {
+  dark?: {
+    hue?: string;
+    offset?: number;
+    shade?: number;
+    transparency?: number;
+  };
+  hue?: string;
+  light?: {
+    hue?: string;
+    offset?: number;
+    shade?: number;
+    transparency?: number;
+  };
+  offset?: number;
+  shade?: number;
+  theme: IGardenTheme;
+  transparency?: number;
+  variable?: string;
+};
+
+export type FocusStylesParameters = FocusBoxShadowParameters & {
+  condition?: boolean;
+  selector?: string;
+  styles?: CSSObject;
+};
+
+export type FocusBoxShadowParameters = {
+  boxShadow?: string;
+  inset?: boolean;
+  color?: Omit<ColorParameters, 'theme'>;
+  shadowWidth?: 'sm' | 'md';
+  spacerColor?: Omit<ColorParameters, 'theme'>;
+  spacerWidth?: null | 'xs' | 'sm';
+  theme: IGardenTheme;
+};
+
+export type Hue = Record<number | string, string> | string;
 
 export interface IGardenTheme {
   rtl: boolean;
@@ -58,14 +120,26 @@ export interface IGardenTheme {
   };
   colors: {
     base: 'light' | 'dark';
-    background: string;
-    foreground: string;
     primaryHue: string;
     dangerHue: string;
     warningHue: string;
     successHue: string;
     neutralHue: string;
     chromeHue: string;
+    variables: {
+      dark: {
+        background: Record<string, string>;
+        border: Record<string, string>;
+        foreground: Record<string, string>;
+        shadow: Record<string, string>;
+      };
+      light: {
+        background: Record<string, string>;
+        border: Record<string, string>;
+        foreground: Record<string, string>;
+        shadow: Record<string, string>;
+      };
+    };
   };
   components: Record<string, any>;
   fonts: {
@@ -105,6 +179,8 @@ export interface IGardenTheme {
     xxl: string;
     xxxl: string;
   };
+  opacity: Record<number, number>;
+  palette: Record<string, Hue>;
   shadowWidths: {
     xs: string;
     sm: string;
@@ -126,21 +202,13 @@ export interface IGardenTheme {
     xl: string;
     xxl: string;
   };
-  palette: Record<string, Hue>;
 }
 
-export interface IThemeProviderProps extends Partial<ThemeProps<IGardenTheme>> {
+export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenTheme>> {
   /**
    * Provides values for component styling. See styled-components
    * [`ThemeProvider`](https://styled-components.com/docs/api#themeprovider)
    * for details.
    */
-  theme?: IGardenTheme;
-  /**
-   * Provides a reference to the DOM node used to scope a `:focus-visible`
-   * polyfill. If left `undefined`, a scoping `<div>` will be rendered.
-   * Assigning `null` (on a nested `ThemeProvider`, for example) prevents the
-   * added polyfill and scoping `<div>`.
-   */
-  focusVisibleRef?: React.RefObject<HTMLElement> | null;
+  theme?: IGardenTheme | ((theme: IGardenTheme) => IGardenTheme);
 }

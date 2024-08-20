@@ -18,6 +18,7 @@ export const StyledParagraph = styled.p.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   margin: ${props => props.theme.space.base * 2}px 0 0;
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

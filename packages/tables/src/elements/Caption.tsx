@@ -9,10 +9,12 @@ import React, { HTMLAttributes, forwardRef } from 'react';
 import { StyledCaption } from '../styled';
 
 /**
+ * @deprecated use `Table.Caption` instead
+ *
  * @extends HTMLAttributes<HTMLTableCaptionElement>
  */
 export const Caption = forwardRef<HTMLTableCaptionElement, HTMLAttributes<HTMLTableCaptionElement>>(
   (props, ref) => <StyledCaption ref={ref} {...props} />
 );
 
-Caption.displayName = 'Caption';
+Caption.displayName = 'Table.Caption';
