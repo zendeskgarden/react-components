@@ -19,7 +19,7 @@
     "new": "utils/scripts/new.mjs",
     "prepare": "npm run build",
     "start": "storybook dev --no-version-updates -p 6006",
-    "tag": "utils/scripts/tag.mjs --main next",
+    "tag": "utils/scripts/tag.mjs",
     "test": "jest --config=utils/test/jest.config.js",
     "test:ci": "npm test -- --coverage --runInBand --silent",
     "test:watch": "npm test -- --watch",
