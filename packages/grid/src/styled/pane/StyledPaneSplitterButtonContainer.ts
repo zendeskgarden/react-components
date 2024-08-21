@@ -174,7 +174,6 @@ export const StyledPaneSplitterButtonContainer = styled.div<IStyledSplitterButto
 
   &:hover,
   &:focus-within,
-  /* stylelint-disable selector-no-qualifying-type */
   ${StyledPaneSplitter}:hover ~ &,
   ${StyledPaneSplitter}:focus-visible ~ & {
     opacity: 1;
