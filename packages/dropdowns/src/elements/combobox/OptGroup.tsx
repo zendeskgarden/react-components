@@ -50,9 +50,9 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
         ref={ref}
       >
         <StyledOptionContent>
-          {(content || legend) && (
+          {!!(content || legend) && (
             <StyledOption as="div" isCompact={isCompact} $type="header">
-              {icon && (
+              {!!icon && (
                 <StyledOptionTypeIcon $isCompact={isCompact} $type="header">
                   {icon}
                 </StyledOptionTypeIcon>

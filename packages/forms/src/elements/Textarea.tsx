@@ -136,7 +136,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
     return (
       <>
         <StyledTextarea {...combinedProps} />
-        {isAutoResizable && (
+        {!!isAutoResizable && (
           <StyledTextarea
             aria-hidden
             readOnly

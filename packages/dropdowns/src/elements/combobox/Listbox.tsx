@@ -138,7 +138,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
           {...props}
           ref={ref}
         >
-          {isVisible && children}
+          {!!isVisible && children}
         </StyledListbox>
       </StyledFloatingListbox>
     );

@@ -14,7 +14,7 @@ describe('useOrderedListContext', () => {
   const OrderedListContextConsumer = () => {
     const context = useOrderedListContext();
 
-    return <div>{context && 'it works'}</div>;
+    return <div>{!!context && 'it works'}</div>;
   };
 
   it('throws if called outside of OrderedList component', () => {

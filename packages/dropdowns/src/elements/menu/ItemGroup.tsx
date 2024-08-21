@@ -46,9 +46,9 @@ export const ItemGroup = forwardRef<HTMLLIElement, IItemGroupProps>(
       <ItemGroupContext.Provider value={contextValue}>
         <StyledItem isCompact={isCompact} $type="group" {...props} role="none" ref={ref}>
           <StyledItemContent>
-            {(content || legend) && (
+            {!!(content || legend) && (
               <StyledItem as="div" isCompact={isCompact} $type="header">
-                {icon && (
+                {!!icon && (
                   <StyledItemTypeIcon $isCompact={isCompact} $type="header">
                     {icon}
                   </StyledItemTypeIcon>

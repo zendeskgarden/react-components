@@ -43,7 +43,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
     return (
       <StyledAnchor ref={ref} $isUnderlined={isUnderlined} {...(anchorProps as any)}>
         {children}
-        {isExternal && (
+        {!!isExternal && (
           /* [1] */
           // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
           <StyledExternalIcon role="img" aria-label={iconAriaLabel} aria-hidden={undefined} />

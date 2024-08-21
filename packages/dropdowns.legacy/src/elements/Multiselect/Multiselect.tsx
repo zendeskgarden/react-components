@@ -324,7 +324,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
               }
             }) as HTMLAttributes<HTMLDivElement>)}
           >
-            {start && (
+            {!!start && (
               <StyledFauxInput.StartIcon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
                 isFocused={isContainerFocused}

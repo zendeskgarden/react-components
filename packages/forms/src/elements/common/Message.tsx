@@ -70,7 +70,7 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
 
     return (
       <MessageComponent ref={ref} {...combinedProps}>
-        {validation && <StyledMessageIcon validation={validation} aria-label={ariaLabel} />}
+        {!!validation && <StyledMessageIcon validation={validation} aria-label={ariaLabel} />}
         {children}
       </MessageComponent>
     );

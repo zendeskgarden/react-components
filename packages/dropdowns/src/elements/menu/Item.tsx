@@ -92,7 +92,7 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
           <StyledItemTypeIcon $isCompact={isCompact} $type={type}>
             {renderActionIcon(type)}
           </StyledItemTypeIcon>
-          {icon && (
+          {!!icon && (
             <StyledItemIcon $isDisabled={isDisabled} $type={type}>
               {icon}
             </StyledItemIcon>

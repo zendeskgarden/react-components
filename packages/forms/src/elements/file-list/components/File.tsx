@@ -28,7 +28,7 @@ const FileComponent = forwardRef<HTMLDivElement, IFileProps>(
           validation={validation}
           ref={ref}
         >
-          {validationType && (
+          {!!validationType && (
             <StyledFileIcon $isCompact={isCompact} $validation={validation}>
               {isCompact ? fileIconsCompact[validationType] : fileIconsDefault[validationType]}
             </StyledFileIcon>

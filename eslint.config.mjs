@@ -21,7 +21,6 @@ const typescriptRules = {
   '@typescript-eslint/no-explicit-any': 'off',
   'logical-assignment-operators': 'off',
   'prefer-object-has-own': 'off',
-  'react/jsx-no-leaked-render': 'off', // TODO remove
   'react/prop-types': 'off'
 };
 

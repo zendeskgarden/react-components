@@ -81,7 +81,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         {...props}
       >
         {Children.only(children)}
-        {computedStatus && (
+        {!!computedStatus && (
           <StyledStatusIndicator
             $size={size}
             $type={computedStatus}

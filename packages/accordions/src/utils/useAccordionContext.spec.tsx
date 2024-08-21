@@ -14,7 +14,7 @@ describe('useAccordionContext', () => {
   const AccordionContextConsumer = () => {
     const context = useAccordionContext();
 
-    return <div>{context && 'it worked'}</div>;
+    return <div>{!!context && 'it worked'}</div>;
   };
 
   it('throws if called outside of Accordion component', () => {

@@ -61,7 +61,7 @@ export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
             <ArrowLeftIcon data-icon-status={type} aria-hidden="true" />
           ) : null}
         </StyledStandaloneStatusIndicator>
-        {children && <StyledStandaloneStatusCaption>{children}</StyledStandaloneStatusCaption>}
+        {!!children && <StyledStandaloneStatusCaption>{children}</StyledStandaloneStatusCaption>}
       </StyledStandaloneStatus>
     );
   }

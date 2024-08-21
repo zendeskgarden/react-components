@@ -22,7 +22,7 @@ export const NotificationComponent = forwardRef<HTMLDivElement, INotificationPro
 
     return (
       <StyledNotification ref={ref} $type={type} $isFloating role="alert" {...props}>
-        {type && (
+        {!!type && (
           <StyledIcon $type={type}>
             <Icon />
           </StyledIcon>

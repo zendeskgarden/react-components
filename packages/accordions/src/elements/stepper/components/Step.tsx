@@ -15,7 +15,7 @@ const StepComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>
 
     return (
       <StyledStep ref={ref} $isHorizontal={isHorizontal} {...props}>
-        {isHorizontal && <StyledLine data-test-id="step-line" />}
+        {!!isHorizontal && <StyledLine data-test-id="step-line" />}
         {children}
       </StyledStep>
     );

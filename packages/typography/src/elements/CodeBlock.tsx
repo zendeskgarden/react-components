@@ -123,7 +123,7 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
                       {...getLineProps({ line })}
                       key={index}
                       language={language}
-                      isHighlighted={highlightLines && highlightLines.includes(index + 1)}
+                      isHighlighted={highlightLines?.includes(index + 1)}
                       isNumbered={isNumbered}
                       diff={getDiff(line)}
                       size={size}

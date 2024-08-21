@@ -14,7 +14,7 @@ describe('useUnorderedListContext', () => {
   const UnorderedListContextConsumer = () => {
     const context = useUnorderedListContext();
 
-    return <div>{context && 'it works'}</div>;
+    return <div>{!!context && 'it works'}</div>;
   };
 
   it('throws if called outside of UnorderedList component', () => {

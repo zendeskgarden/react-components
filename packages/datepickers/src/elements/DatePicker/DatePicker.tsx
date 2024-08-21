@@ -137,7 +137,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
         <StyledMenuWrapper
           ref={floatingRef}
           style={{ transform }}
-          $isAnimated={isAnimated && (state.isOpen || isVisible)}
+          $isAnimated={!!isAnimated && (state.isOpen || isVisible)}
           $placement={placement}
           $zIndex={zIndex}
           aria-hidden={!state.isOpen || undefined}
@@ -145,7 +145,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
           data-test-open={state.isOpen}
           data-test-rtl={theme.rtl}
         >
-          {(state.isOpen || isVisible) && (
+          {!!(state.isOpen || isVisible) && (
             <StyledMenu {...menuProps}>
               <Calendar
                 ref={calendarRef}

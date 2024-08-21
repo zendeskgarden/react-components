@@ -204,11 +204,11 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       return (
         <StyledCalendarItem key={date.toISOString()} $isCompact={isCompact}>
           <StyledHighlight
-            $isHighlighted={!isInvalidDateRange && isHighlighted && !isDisabled}
+            $isHighlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
             $isStart={!isInvalidDateRange && isHighlightStart}
             $isEnd={!isInvalidDateRange && isHighlightEnd}
             data-test-id="highlight"
-            data-test-highlighted={!isInvalidDateRange && isHighlighted && !isDisabled}
+            data-test-highlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
             data-test-start={!isInvalidDateRange && isHighlightStart}
             data-test-end={!isInvalidDateRange && isHighlightEnd}
           />
