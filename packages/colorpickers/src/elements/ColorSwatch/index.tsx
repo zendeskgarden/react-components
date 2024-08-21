@@ -75,6 +75,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
     });
 
     return (
+      /* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */
       <StyledColorSwatch role="grid" ref={mergeRefs([gridRef, ref])} {...props}>
         <tbody>
           {colors.map((row: ILabeledColor[], _rowIndex: number) => (
