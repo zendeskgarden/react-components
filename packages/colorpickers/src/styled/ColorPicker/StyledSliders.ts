@@ -45,7 +45,6 @@ export const StyledSliders = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledSlidersProps>`
   position: relative;
-  /* stylelint-disable property-no-unknown */
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 2}px;
   width: 100%;
 

@@ -88,7 +88,6 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
     outline: none;
   }
 
-  /* stylelint-disable no-descending-specificity */
   & a,
   & a:hover,
   & a:focus,

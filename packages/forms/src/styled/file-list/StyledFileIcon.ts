@@ -35,7 +35,6 @@ const sizeStyles = ({ $isCompact, theme }: IStyledFileIconProps & ThemeProps<Def
 
   return css`
     width: ${width};
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${theme.rtl ? 'left' : 'right'}: ${margin};
   `;
 };

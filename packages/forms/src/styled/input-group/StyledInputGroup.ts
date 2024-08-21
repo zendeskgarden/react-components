@@ -25,7 +25,6 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   const topMargin = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
 
   return css`
-    /* stylelint-disable */
     ${StyledLabel}:not([hidden]) + &&,
     ${StyledHint} + &&,
     ${StyledMessage} + &&,
@@ -33,7 +32,6 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
     && + ${StyledMessage} {
       margin-top: ${topMargin};
     }
-    /* stylelint-enable */
 
     & > ${StyledTextInput} {
       position: relative;
@@ -55,10 +53,6 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
   const endDirection = props.theme.rtl ? 'left' : 'right';
 
   return css`
-    /* stylelint-disable
-      property-no-unknown,
-      property-case,
-      selector-no-qualifying-type */
     & > * {
       z-index: -1;
     }
@@ -104,10 +98,6 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
     & > *:not(:first-child):not(:last-child) {
       border-radius: 0;
     }
-    /* stylelint-enable
-      property-no-unknown,
-      property-case,
-      selector-no-qualifying-type */
   `;
 };
 

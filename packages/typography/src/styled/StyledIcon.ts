@@ -23,7 +23,6 @@ const sizeStyles = (props: IStyledIconProps & ThemeProps<DefaultTheme>) => {
   const size = props.theme.iconSizes.md;
 
   return css`
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${props.theme.rtl ? 'left' : 'right'}: ${margin};
     width: ${size};
     height: ${size};

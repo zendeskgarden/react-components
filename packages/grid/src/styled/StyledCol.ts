@@ -89,7 +89,6 @@ const flexStyles = (
     flex-shrink: ${size && 0};
     align-self: ${alignSelf === 'start' || alignSelf === 'end' ? `flex-${alignSelf}` : alignSelf};
     order: ${flexOrder};
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${props.theme.rtl ? 'right' : 'left'}: ${margin};
     width: ${width};
     max-width: ${maxWidth};

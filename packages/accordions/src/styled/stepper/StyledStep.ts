@@ -33,7 +33,6 @@ export const StyledStep = styled.li.attrs<IStyledStep>({
   }
 
   &:not(:last-of-type) ${StyledContent} {
-    /* stylelint-disable-next-line property-no-unknown */
     border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.borders.sm};
     border-color: ${({ theme }) => getColor({ theme, variable: 'border.default' })};
   }

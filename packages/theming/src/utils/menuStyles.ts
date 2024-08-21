@@ -141,7 +141,6 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
 
       ${colorStyles(theme)};
 
-      /* stylelint-disable-next-line selector-max-compound-selectors */
       :focus {
         outline: none;
       }

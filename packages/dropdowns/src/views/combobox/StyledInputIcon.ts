@@ -35,15 +35,12 @@ const colorStyles = ({ theme, $isLabelHovered }: IStyledInputIconProps) => {
   return css`
     color: ${$isLabelHovered ? focusColor : color};
 
-    /* stylelint-disable selector-no-qualifying-type */
     ${StyledTrigger}:hover &&,
     ${StyledTrigger}:focus-within &&,
     ${StyledTrigger}:focus && {
       color: ${focusColor};
     }
-    /* stylelint-enable selector-no-qualifying-type */
 
-    /* stylelint-disable-next-line */
     ${StyledTrigger}[aria-disabled='true'] && {
       color: ${disabledColor};
     }
@@ -64,7 +61,6 @@ const sizeStyles = (props: IStyledInputIconProps) => {
 
   return css`
     top: ${position};
-    /* stylelint-disable-next-line */
     margin-${side}: ${margin}; 
     width: ${size};
     height: ${size};

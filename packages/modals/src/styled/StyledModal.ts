@@ -108,7 +108,6 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
     max-height: none;
   }
 
-  /* stylelint-disable-next-line */
   @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
     right: ${props => props.isCentered && '50%'}; /* [1] */
     bottom: ${props => props.isCentered && '50%'}; /* [1] */

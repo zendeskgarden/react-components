@@ -25,7 +25,7 @@ export const StyledCircle = styled.circle.attrs({
   cy: 2,
   r: 2
 })`
-  /* stylelint-disable no-empty-source */
+  /* empty-source */
 `;
 
 StyledCircle.defaultProps = {

@@ -16,7 +16,6 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const size = theme.iconSizes.md;
 
   return css`
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${theme.rtl ? 'left' : 'right'}: ${margin};
     width: ${size};
     height: ${size};

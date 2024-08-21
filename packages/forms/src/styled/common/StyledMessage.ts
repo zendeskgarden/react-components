@@ -52,12 +52,10 @@ const sizeStyles = ({ theme, validation }: IStyledMessageProps & ThemeProps<Defa
     : undefined;
 
   return css`
-    /* stylelint-disable-next-line property-no-unknown */
     padding-${theme.rtl ? 'right' : 'left'}: ${paddingHorizontal};
     line-height: ${lineHeight};
     font-size: ${fontSize};
 
-    /* stylelint-disable-next-line */
     ${StyledLabel}:not([hidden]) + & {
       margin-top: ${marginTop};
     }
@@ -83,7 +81,6 @@ export const StyledMessage = styled.div.attrs(props => ({
     ${props => (props.theme.rtl ? 'right' : 'left')}: 0;
   }
 
-  /* stylelint-disable-next-line */
   ${StyledLabel}:not([hidden]) + & {
     display: block;
   }

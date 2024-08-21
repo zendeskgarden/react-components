@@ -47,7 +47,6 @@ export const StyledGlobalAlertTitle = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledGlobalAlertTitleProps>`
   display: inline;
-  /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.base * 2}px;
   font-weight: ${props =>
     props.$isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};

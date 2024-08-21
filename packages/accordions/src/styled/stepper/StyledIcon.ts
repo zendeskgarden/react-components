@@ -33,7 +33,6 @@ const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
 
   return css`
     margin-bottom: ${props.$isHorizontal && `${props.theme.space.base * 2}px`};
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${props.theme.rtl ? 'left' : 'right'}: ${
       !props.$isHorizontal && `${props.theme.space.base * 3}px`
     };

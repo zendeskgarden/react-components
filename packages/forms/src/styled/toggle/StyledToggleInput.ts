@@ -32,7 +32,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       background-color: ${backgroundColor};
     }
 
-    /* stylelint-disable selector-max-specificity */
     &:enabled ~ ${StyledToggleLabel}:hover::before {
       background-color: ${hoverBackgroundColor};
     }
@@ -40,7 +39,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     &:enabled ~ ${StyledToggleLabel}:active::before {
       background-color: ${activeBackgroundColor};
     }
-    /* stylelint-enable selector-max-specificity */
   `;
 };
 

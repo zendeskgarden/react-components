@@ -13,7 +13,7 @@ const StyledDotsCircle = styled.circle.attrs({
   cy: 36,
   r: 9
 })`
-  /* stylelint-disable no-empty-source */
+  /* empty-source */
 `;
 
 StyledDotsCircle.defaultProps = {

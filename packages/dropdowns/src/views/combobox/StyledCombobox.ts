@@ -24,7 +24,6 @@ const sizeStyles = (props: IStyledComboboxProps) => {
   return css`
     min-width: ${minWidth};
 
-    /* stylelint-disable */
     ${StyledLabel}:not([hidden]) + &&,
     ${StyledHint} + &&,
     ${StyledMessage} + &&,
@@ -32,7 +31,6 @@ const sizeStyles = (props: IStyledComboboxProps) => {
     && + ${StyledMessage} {
       margin-top: ${marginTop};
     }
-    /* stylelint-enable */
   `;
 };
 

@@ -15,7 +15,6 @@ const listStyles = (props: { listType?: string } & ThemeProps<DefaultTheme>) => 
   return css`
     direction: ${rtl ? 'rtl' : 'ltr'};
     margin: 0;
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${rtl ? 'right' : 'left'}: 24px;
     padding: 0;
     list-style-position: outside;

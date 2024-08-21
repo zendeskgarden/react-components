@@ -18,13 +18,11 @@ const marginStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
 
   if (theme.rtl) {
     return css`
-      /* stylelint-disable-next-line property-no-unknown */
       margin-${$type === 'last' || $type === 'next' ? 'right' : 'left'}: ${margin}px;
     `;
   }
 
   return css`
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${$type === 'first' || $type === 'previous' ? 'right' : 'left'}: ${margin}px;
   `;
 };

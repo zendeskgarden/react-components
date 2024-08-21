@@ -16,7 +16,6 @@ export const StyledToggleHint = styled(StyledHint).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  /* stylelint-disable-next-line */
   padding-${props => (props.theme.rtl ? 'right' : 'left')}:
     ${props => math(`${props.theme.space.base} * 12px`)};
 

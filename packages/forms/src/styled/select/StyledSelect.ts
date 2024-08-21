@@ -24,7 +24,6 @@ const colorStyles = ({ theme }: IStyledTextInputProps & ThemeProps<DefaultTheme>
 
   /* prettier-ignore */
   return css`
-    /* stylelint-disable-next-line no-duplicate-selectors */
     &:hover + ${StyledTextMediaFigure},
     &:focus + ${StyledTextMediaFigure},
     &:focus-visible + ${StyledTextMediaFigure} {
@@ -47,7 +46,6 @@ const sizeStyles = ({
   const iconHorizontalPosition = `${theme.space.base * 3}px`;
 
   return css`
-    /* stylelint-disable-next-line property-no-unknown */
     padding-${theme.rtl ? 'left' : 'right'}: ${padding};
 
     & + ${StyledTextMediaFigure} {

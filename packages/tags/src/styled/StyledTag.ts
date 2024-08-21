@@ -186,9 +186,7 @@ const sizeStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     }
 
     & ${StyledAvatar} {
-      /* stylelint-disable-next-line property-no-unknown */
       margin-${props.theme.rtl ? 'right' : 'left'}: -${padding - avatarMargin}px;
-      /* stylelint-disable-next-line property-no-unknown */
       margin-${props.theme.rtl ? 'left' : 'right'}: ${avatarTextMargin}px;
       border-radius: ${avatarBorderRadius};
       width: ${avatarSize}px;
@@ -197,7 +195,6 @@ const sizeStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     }
 
     & ${StyledClose} {
-      /* stylelint-disable-next-line property-no-unknown */
       margin-${props.theme.rtl ? 'left' : 'right'}: -${padding}px;
       border-radius: ${borderRadius};
       width: ${height}px;

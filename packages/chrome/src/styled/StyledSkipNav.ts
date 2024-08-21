@@ -84,7 +84,6 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     top: ${top};
     border: ${border};
     padding: ${padding};
-    /* stylelint-disable-next-line property-no-unknown */
     padding-${theme.rtl ? 'right' : 'left'}: ${paddingStart};
     line-height: ${lineHeight};
     font-size: ${fontSize};

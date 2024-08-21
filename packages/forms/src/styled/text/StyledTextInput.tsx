@@ -185,7 +185,6 @@ const sizeStyles = ({
       line-height: 1; /* align file prompt text */
     }
 
-    /* stylelint-disable-next-line at-rule-empty-line-before */
     @supports (-ms-ime-align: auto) {
       &[type='color'] {
         padding: ${isCompact ? '0 2px' : '1px 3px'}; /* correct color swatch size for Edge */
@@ -211,7 +210,6 @@ const sizeStyles = ({
       margin: ${swatchMarginVertical} ${swatchMarginHorizontal};
     }
 
-    /* stylelint-disable */
     ${StyledLabel}:not([hidden]) + &&,
     ${StyledHint} + &&,
     ${StyledMessage} + &&,
@@ -219,7 +217,6 @@ const sizeStyles = ({
     && ~ ${StyledMessage} {
       margin-top: ${theme.space.base * (isCompact ? 1 : 2)}px;
     }
-    /* stylelint-enable */
   `;
 };
 
