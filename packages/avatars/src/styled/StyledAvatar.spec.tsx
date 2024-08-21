@@ -146,8 +146,8 @@ describe('StyledAvatar', () => {
       );
 
       expect(container.firstChild).toHaveStyleRule('position', 'absolute', styleRuleOptions);
-      expect(container.firstChild).toHaveStyleRule('bottom', '-1px', styleRuleOptions);
-      expect(container.firstChild).toHaveStyleRule('right', '-1px', styleRuleOptions);
+      expect(container.firstChild).toHaveStyleRule('bottom', '-2px', styleRuleOptions);
+      expect(container.firstChild).toHaveStyleRule('right', '-2px', styleRuleOptions);
     });
 
     it('renders the status indicator correctly from RTL', () => {

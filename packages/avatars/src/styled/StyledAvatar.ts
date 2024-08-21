@@ -22,14 +22,14 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   let position = `${props.theme.space.base * -1}px`;
 
   switch (props.$size) {
-    case s:
-    case m:
-      position = math(`${position}  + 2`);
-      break;
     case xxs:
     case xs:
-    case l:
       position = math(`${position}  + 3`);
+      break;
+    case s:
+    case m:
+    case l:
+      position = math(`${position}  + 2`);
       break;
   }
 
