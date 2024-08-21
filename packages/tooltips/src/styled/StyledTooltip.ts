@@ -73,9 +73,15 @@ const sizeStyles = ({
   }
 
   let arrowSize;
+  let arrowShift;
 
   if (hasArrow) {
-    if (size === 'small' || size === 'medium') {
+    if (size === 'small') {
+      arrowSize = margin;
+      if (['left-start', 'left-end', 'right-start', 'right-end'].includes(placement)) {
+        arrowShift = '-4px';
+      }
+    } else if (size === 'medium') {
       arrowSize = margin;
     } else if (size === 'large') {
       margin = `${theme.space.base * 2}px`;
@@ -97,7 +103,8 @@ const sizeStyles = ({
     font-size: ${fontSize};
     overflow-wrap: ${overflowWrap};
 
-    ${hasArrow && arrowStyles(getArrowPosition(theme, placement), { size: arrowSize })};
+    ${hasArrow &&
+    arrowStyles(getArrowPosition(theme, placement), { size: arrowSize, shift: arrowShift })};
 
     ${StyledParagraph} {
       margin-top: ${paragraphMarginTop};
