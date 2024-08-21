@@ -26,7 +26,7 @@ const truncatedStyling = css`
 const sizeStyles = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
   let paddingVertical = undefined;
 
-  if (!props.hasOverflow) {
+  if (!props.$hasOverflow) {
     paddingVertical = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
   }
 
@@ -42,7 +42,7 @@ export const StyledHeaderCell = styled(StyledCell).attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   text-align: ${props => {
-    if (!props.hasOverflow) {
+    if (!props.$hasOverflow) {
       if (props.theme.rtl) {
         return 'right';
       }
@@ -55,7 +55,8 @@ export const StyledHeaderCell = styled(StyledCell).attrs({
   font-weight: inherit;
 
   ${props => sizeStyles(props)}
-  ${props => props.isTruncated && truncatedStyling}
+
+  ${props => props.$isTruncated && truncatedStyling}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

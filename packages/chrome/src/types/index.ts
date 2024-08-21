@@ -5,21 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes } from 'react';
 
 export const PLACEMENT = ['end', 'start'] as const;
 
-export const PRODUCT = [
-  'chat',
-  'connect',
-  'explore',
-  'guide',
-  'message',
-  'support',
-  'talk'
-] as const;
+export const PRODUCTS = ['chat', 'explore', 'guide', 'support', 'talk'] as const;
 
-export type Product = (typeof PRODUCT)[number];
+export type Product = (typeof PRODUCTS)[number];
 
 export interface IChromeProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies a custom hue to the chrome navigation */
@@ -33,11 +25,6 @@ export interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   targetId: string;
   /** Sets the `z-index` of the element */
   zIndex?: number;
-}
-
-export interface IBodyProps extends HTMLAttributes<HTMLDivElement> {
-  /** Adjusts the body content height to allow space for a footer component */
-  hasFooter?: boolean;
 }
 
 export interface IHeaderProps extends HTMLAttributes<HTMLElement> {
@@ -95,33 +82,6 @@ export interface INavItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export interface INavItemTextProps extends HTMLAttributes<HTMLSpanElement> {
   /** Wraps overflow item text instead of truncating long strings with an ellipsis */
   isWrapped?: boolean;
-}
-
-export interface ISubNavItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Indicates that the item is current in the subnav */
-  isCurrent?: boolean;
-}
-
-export interface ISubNavItemTextProps extends HTMLAttributes<HTMLSpanElement> {
-  /**
-   * Wraps overflow item text instead of truncating long strings with an ellipsis.
-   * Use when `max-width` styling is applied to the subnav container.
-   */
-  isWrapped?: boolean;
-}
-
-export interface ICollapsibleSubNavItemProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
-  /** Sets the item's section header */
-  header?: ReactNode;
-  /** Reveals the item's section */
-  isExpanded?: boolean;
-  /**
-   * Handles changes in the item's expansion state
-   *
-   * @param {boolean} isExpanded An item's expansion state
-   */
-  onChange?: (isExpanded: boolean) => void;
 }
 
 export interface ISheetProps extends HTMLAttributes<HTMLElement> {

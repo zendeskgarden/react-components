@@ -23,7 +23,7 @@ describe('StyledStep', () => {
   });
 
   it('renders horizontal styles', () => {
-    const { container } = render(<StyledStep isHorizontal />);
+    const { container } = render(<StyledStep $isHorizontal />);
 
     expect(container.firstChild).toHaveStyleRule('position', 'relative');
     expect(container.firstChild).toHaveStyleRule('flex', '1');

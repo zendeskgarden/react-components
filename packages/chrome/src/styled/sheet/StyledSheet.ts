@@ -5,8 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getLineHeight,
+  getColor
+} from '@zendeskgarden/react-theming';
 import { ISheetProps } from '../../types';
 
 const COMPONENT_ID = 'chrome.sheet';
@@ -18,26 +23,42 @@ interface IStyledSheetProps {
   size?: string;
 }
 
-const borderStyle = ({
+const colorStyles = ({ theme, isOpen }: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
+  const backgroundColor = getColor({ theme, variable: 'background.default' });
+  const borderColor = isOpen ? getColor({ theme, variable: 'border.default' }) : 'transparent';
+
+  return css`
+    border-color: ${borderColor};
+    background-color: ${backgroundColor};
+  `;
+};
+
+const sizeStyles = ({
   theme,
+  isOpen,
   placement,
-  isOpen
+  size
 }: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
-  const borderColor = isOpen ? getColorV8('neutralHue', 300, theme) : 'transparent';
-  const borderSides = ['-left', '-right'];
-  let borderSide = '';
+  const width = isOpen ? size : 0;
+  const fontSize = theme.fontSizes.md;
+  const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
+  const border = isOpen ? theme.borders.sm : 'none';
+  let borderProperty;
 
-  if (theme.rtl) {
-    borderSides.reverse();
+  if (placement === 'start') {
+    borderProperty = `border-${theme.rtl ? 'left' : 'right'}`;
+  } else {
+    borderProperty = `border-${theme.rtl ? 'right' : 'left'}`;
   }
 
-  if (placement === 'end') {
-    borderSide = borderSides[0];
-  } else if (placement === 'start') {
-    borderSide = borderSides[1];
-  }
-
-  return `border${borderSide}: ${theme.borders.sm} ${borderColor};`;
+  return css`
+    box-sizing: border-box;
+    width: ${width};
+    height: 100%;
+    ${borderProperty}: ${border};
+    line-height: ${lineHeight};
+    font-size: ${fontSize};
+  `;
 };
 
 export const StyledSheet = styled.aside.attrs({
@@ -47,17 +68,16 @@ export const StyledSheet = styled.aside.attrs({
   display: flex;
   order: 1;
   transition: ${props => props.isAnimated && 'width 250ms ease-in-out'};
-  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
-  width: ${props => (props.isOpen ? props.size : '0px')};
-  height: 100%;
   overflow: hidden;
-  font-size: ${props => props.theme.fontSizes.md};
+
+  ${sizeStyles};
 
   &:focus {
     outline: none;
   }
 
-  ${props => borderStyle(props)};
+  ${colorStyles};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

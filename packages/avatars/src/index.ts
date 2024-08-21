@@ -7,4 +7,5 @@
 
 export { Avatar } from './elements/Avatar';
 export { StatusIndicator } from './elements/StatusIndicator';
+
 export type { IAvatarProps, IStatusIndicatorProps } from './types';

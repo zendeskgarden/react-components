@@ -5,24 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, HTMLAttributes, forwardRef } from 'react';
+import React, { useState, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { IFauxInputProps, VALIDATION } from '../../types';
 import { StyledTextFauxInput } from '../../styled';
 import { StartIcon } from './components/StartIcon';
 import { EndIcon } from './components/EndIcon';
-
-/**
- * @deprecated use IFauxInputStartIconProps or IFauxInputEndIconProps instead
- */
-export interface IIconProps extends HTMLAttributes<HTMLElement> {
-  isHovered?: boolean;
-  isFocused: boolean;
-  isDisabled: boolean;
-  isRotated: boolean;
-  children: any;
-}
 
 const FauxInputComponent = forwardRef<HTMLDivElement, IFauxInputProps>(
   ({ onFocus, onBlur, disabled, readOnly, isFocused: controlledIsFocused, ...props }, ref) => {

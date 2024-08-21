@@ -8,15 +8,7 @@
 import React, { MouseEventHandler } from 'react';
 import { Story } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
-import {
-  Body,
-  Close,
-  Footer,
-  FooterItem,
-  Header,
-  IModalProps,
-  Modal
-} from '@zendeskgarden/react-modals';
+import { IModalProps, Modal } from '@zendeskgarden/react-modals';
 import { Button } from '@zendeskgarden/react-buttons';
 import { IFooterItem } from './types';
 
@@ -72,15 +64,15 @@ export const ModalStory: Story<IArgs> = ({
       {isVisible && (
         <Modal {...args} onClose={onClose} {...ariaProp}>
           {hasHeader && (
-            <Header isDanger={isDanger} tag={tag}>
+            <Modal.Header isDanger={isDanger} tag={tag}>
               {header}
-            </Header>
+            </Modal.Header>
           )}
-          {hasBody ? <Body>{body}</Body> : body}
+          {hasBody ? <Modal.Body>{body}</Modal.Body> : body}
           {hasFooter && (
-            <Footer>
+            <Modal.Footer>
               {footerItems.map(({ text, type }, index) => (
-                <FooterItem key={index}>
+                <Modal.FooterItem key={index}>
                   <Button
                     isBasic={type === 'basic'}
                     isPrimary={type === 'primary'}
@@ -89,11 +81,11 @@ export const ModalStory: Story<IArgs> = ({
                   >
                     {text}
                   </Button>
-                </FooterItem>
+                </Modal.FooterItem>
               ))}
-            </Footer>
+            </Modal.Footer>
           )}
-          {hasClose && <Close aria-label={closeAriaLabel} />}
+          {hasClose && <Modal.Close aria-label={closeAriaLabel} />}
         </Modal>
       )}
     </>

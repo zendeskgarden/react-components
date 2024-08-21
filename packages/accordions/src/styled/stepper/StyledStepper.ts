@@ -11,7 +11,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'accordions.stepper';
 
 interface IStyledStepper {
-  isHorizontal?: boolean;
+  $isHorizontal?: boolean;
 }
 
 /**
@@ -21,7 +21,7 @@ export const StyledStepper = styled.ol.attrs<IStyledStepper>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledStepper>`
-  display: ${props => props.isHorizontal && 'flex'};
+  display: ${props => props.$isHorizontal && 'flex'};
   margin: 0; /* [1] */
   padding: 0; /* [1] */
   list-style: none; /* [1] */

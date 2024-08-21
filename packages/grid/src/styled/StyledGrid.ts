@@ -7,25 +7,35 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { IGridProps } from '../types';
 
 const COMPONENT_ID = 'grid.grid';
 
-const colorStyles = (props: IStyledGridProps) => {
-  const borderColor = getColorV8(props.theme.palette.crimson, 400, props.theme, 0.5);
-  const borderWidth = math(`${props.theme.borderWidths.sm} * 2`);
+const colorStyles = ({ theme, debug }: IStyledGridProps) => {
+  const borderColor =
+    debug &&
+    getColor({
+      theme,
+      hue: 'crimson',
+      shade: 700,
+      transparency: theme.opacity[600]
+    });
+  const borderWidth = debug && math(`${theme.borderWidths.sm} * 2`);
 
   return css`
+    color-scheme: only ${theme.colors.base};
     /* prettier-ignore */
-    box-shadow:
+    box-shadow: ${debug &&
+    `
       -${borderWidth} 0 0 0 ${borderColor},
-      ${borderWidth} 0 0 0 ${borderColor};
+      ${borderWidth} 0 0 0 ${borderColor}
+    `};
   `;
 };
 
-const sizeStyles = (props: IStyledGridProps) => {
-  const padding = props.gutters ? math(`${props.theme.space[props.gutters!]} / 2`) : 0;
+const sizeStyles = ({ theme, gutters }: IStyledGridProps) => {
+  const padding = gutters ? math(`${theme.space[gutters!]} / 2`) : 0;
 
   return css`
     padding-right: ${padding};
@@ -45,8 +55,9 @@ export const StyledGrid = styled.div.attrs<IStyledGridProps>({
   width: 100%;
   box-sizing: border-box;
 
-  ${props => sizeStyles(props)};
-  ${props => props.debug && colorStyles(props)};
+  ${sizeStyles};
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

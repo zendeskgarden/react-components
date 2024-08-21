@@ -24,7 +24,7 @@ describe('StyledCodeBlock', () => {
   });
 
   it('renders as expected in light mode', () => {
-    const { container } = render(<StyledCodeBlock isLight />);
+    const { container } = render(<StyledCodeBlock />);
 
     expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.grey[100]);
   });

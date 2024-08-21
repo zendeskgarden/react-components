@@ -9,11 +9,12 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, readableColor } from 'polished';
 import {
   DEFAULT_THEME,
-  getColorV8,
   retrieveComponentStyles,
   getLineHeight,
   SELECTOR_FOCUS_VISIBLE,
-  focusStyles
+  focusStyles,
+  getColor,
+  IGardenTheme
 } from '@zendeskgarden/react-theming';
 import { StyledAvatar } from './StyledAvatar';
 import { StyledClose } from './StyledClose';
@@ -21,29 +22,87 @@ import { ITagProps } from '../types';
 
 const COMPONENT_ID = 'tags.tag_view';
 
-const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
+/*
+ * 1. Anchor element reset
+ * 2. Tags show focus state whether performed by mouse or keyboard
+ */
+const colorStyles = ({ theme, hue }: ITagProps & ThemeProps<DefaultTheme>) => {
   let backgroundColor;
   let foregroundColor;
-  let closeColor;
 
-  if (props.hue) {
-    const shade = props.hue === 'yellow' ? 400 : 600;
+  if (hue) {
+    foregroundColor = getColor({ theme, variable: 'foreground.onEmphasis' });
 
-    backgroundColor = getColorV8(props.hue, shade, props.theme);
+    switch (hue) {
+      case 'grey':
+      case 'neutralHue':
+        backgroundColor = getColor({
+          theme,
+          variable: 'background.emphasis',
+          dark: { offset: -300 }
+        });
+        break;
 
-    if (props.hue === 'yellow' || props.hue === 'lemon') {
-      foregroundColor = getColorV8('yellow', 800, props.theme);
-    } else {
-      foregroundColor = readableColor(
-        backgroundColor!,
-        props.theme.palette.grey[800],
-        props.theme.palette.white as string
-      );
+      case 'blue':
+      case 'primaryHue':
+        backgroundColor = getColor({ theme, variable: 'background.primaryEmphasis' });
+        break;
+
+      case 'red':
+      case 'dangerHue':
+        backgroundColor = getColor({ theme, variable: 'background.dangerEmphasis' });
+        break;
+
+      case 'green':
+      case 'successHue':
+        backgroundColor = getColor({ theme, variable: 'background.successEmphasis' });
+        break;
+
+      case 'yellow':
+      case 'warningHue':
+        backgroundColor = getColor({ theme, hue: 'warningHue', shade: 400 });
+
+        if (theme.colors.base === 'light') {
+          foregroundColor = getColor({ theme, variable: 'foreground.warningEmphasis' });
+        }
+
+        break;
+
+      case 'kale':
+      case 'chromeHue':
+        backgroundColor = getColor({
+          theme,
+          hue: 'chromeHue',
+          dark: { shade: 500 },
+          light: { shade: 800 }
+        });
+
+        break;
+
+      default: {
+        const lightTheme = { ...theme, colors: { ...theme.colors, base: 'light' } } as IGardenTheme;
+        const darkTheme = { ...theme, colors: { ...theme.colors, base: 'dark' } } as IGardenTheme;
+        const variable = 'foreground.onEmphasis';
+
+        backgroundColor = getColor({ theme, hue });
+        foregroundColor = readableColor(
+          backgroundColor,
+          getColor({ theme: darkTheme, variable }),
+          getColor({ theme: lightTheme, variable }),
+          false /* disable strict mode to prevent black */
+        );
+
+        break;
+      }
     }
   } else {
-    backgroundColor = getColorV8('neutralHue', 200, props.theme);
-    foregroundColor = getColorV8('neutralHue', 700, props.theme);
-    closeColor = getColorV8('neutralHue', 600, props.theme);
+    backgroundColor = getColor({
+      theme,
+      hue: 'neutralHue',
+      dark: { shade: 800 },
+      light: { shade: 200 }
+    });
+    foregroundColor = getColor({ theme, variable: 'foreground.default' });
   }
 
   return css`
@@ -51,22 +110,14 @@ const colorStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     color: ${foregroundColor};
 
     &:hover {
-      color: ${foregroundColor}; /* <a> element reset */
+      color: ${foregroundColor}; /* [1] */
     }
 
-    /**
-     * Tags show their focus state regardless of
-     * whether it was performed by a mouse or keyboard.
-     **/
     ${focusStyles({
-      theme: props.theme,
+      theme,
       shadowWidth: 'sm',
-      selector: '&:focus'
+      selector: '&:focus' /* [2] */
     })}
-
-    & ${StyledClose} {
-      color: ${closeColor};
-    }
   `;
 };
 

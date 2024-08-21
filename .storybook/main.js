@@ -15,12 +15,12 @@ const PACKAGE_NAMES = readdirSync(path.resolve(__dirname, '../packages')).filter
 );
 
 module.exports = {
-  stories: ['../packages/*/demo/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+  stories: [`../packages/${process.env.PACKAGE || '*'}/demo/**/*.stories.@(js|jsx|ts|tsx|mdx)`],
   staticDirs: ['./static'],
   addons: ['@storybook/addon-essentials', '@storybook/addon-a11y', '@storybook/addon-designs'],
   framework: {
     name: '@storybook/react-webpack5',
-    options: {}
+    options: { strictMode: true }
   },
   core: {
     disableWhatsNewNotifications: true

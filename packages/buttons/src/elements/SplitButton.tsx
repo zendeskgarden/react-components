@@ -6,7 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { StyledButtonGroup } from '../styled';
+import { StyledSplitButton } from '../styled';
 import { SplitButtonContext } from '../utils/useSplitButtonContext';
 
 /**
@@ -15,9 +15,9 @@ import { SplitButtonContext } from '../utils/useSplitButtonContext';
 export const SplitButton = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ children, ...other }, ref) => (
     <SplitButtonContext.Provider value>
-      <StyledButtonGroup ref={ref} {...other}>
+      <StyledSplitButton ref={ref} {...other}>
         {children}
-      </StyledButtonGroup>
+      </StyledSplitButton>
     </SplitButtonContext.Provider>
   )
 );

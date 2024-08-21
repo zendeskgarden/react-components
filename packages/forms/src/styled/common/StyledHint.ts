@@ -7,10 +7,10 @@
 
 import styled from 'styled-components';
 import {
-  getColorV8,
   getLineHeight,
   retrieveComponentStyles,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_hint';
@@ -23,7 +23,7 @@ export const StyledHint = styled.div.attrs(props => ({
   display: block;
   vertical-align: middle; /* support hint inline with input layout */
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-  color: ${props => getColorV8('neutralHue', 600, props.theme)};
+  color: ${props => getColor({ theme: props.theme, variable: 'foreground.subtle' })};
   font-size: ${props => props.theme.fontSizes.md};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

@@ -11,7 +11,7 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   getLineHeight,
-  getColorV8
+  getColor
 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_label';
@@ -31,7 +31,7 @@ export const StyledLabel = styled.label.attrs(props => ({
   direction: ${props => props.theme.rtl && 'rtl'};
   vertical-align: middle; /* support label inline with input layout */
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
+  color: ${props => getColor({ theme: props.theme, variable: 'foreground.default' })};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props =>
     props.isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};

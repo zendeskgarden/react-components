@@ -1,307 +1,306 @@
 # Garden Migration Guide
 
-## v8
+## v9
 
-### Overview
-
-The upgrade to Garden v8 is designed to allow you to upgrade each package individually. It is not
-necessary to upgrade all Garden packages to v8 at once. Each upgrade step can be completed in
-isolation.
-
-### Upgrade Steps
-
-- Upgrade all existing Garden React dependencies to their [latest `v7`](https://github.com/zendeskgarden/react-components/blob/main/docs/changelogs/v7.md#v700-2019-10-17)
-  version.
-- Upgrade `@zendeskgarden/react-theming` to `v8`.
-  - `react-theming@v8` includes breaking changes. Refer to the
-    [Breaking Changes](#breaking-changes) section for specific upgrade instructions.
-  - `react-theming@v8` is a valid peerDependency for all `v7` packages.
-- Upgrade all other `@zendeskgarden/react-*` packages to `v8` individually.
-  - These upgrades included several breaking changes. Refer to the [Breaking Changes](#breaking-changes)
-    section for specific upgrade instructions.
+Upgrading from version 8 to version 9 includes handling both [breaking
+changes](#breaking-changes) and [deprecated components](#deprecated-components).
+To ensure that existing code functions correctly with v9, it is essential to
+address the breaking changes. Managing the deprecated components can be deferred
+as a subsequent task to prepare for v10, where these components will be
+completely removed.
 
 ### Breaking Changes
 
-#### All packages
+The theme object, along with its utility functions, introduce a minimal set of
+breaking changes for Garden version 9. It is important to proceed with caution
+when upgrading each Garden package individually. All existing v8 packages must
+be
+[v8.75.0](https://github.com/zendeskgarden/react-components/releases/tag/v8.75.0)
+or higher in order to complete a successful individual package migration to v9.
+Detailed theming change instructions are provided under the
+[@zendeskgarden/react-theming](#zendeskgardenreact-theming) package.
 
-- Garden v8 packages use CSS-in-JS and no longer provide CSS files.
-  - Remove all Garden React CSS imports.
-  - i.e `@zendeskgarden/react-buttons/dist/styles.css`
-- All themable component IDs (`data-garden-id` attributes) have been renamed for consistency across
-  all packages.
-- Any custom theming provided to the `ThemeProvider` component should be checked for accuracy.
-- Garden v8 packages no longer provide UMD bundles.
+Garden has transitioned from utilizing [Popper](https://popper.js.org/docs/) to
+adopting the enhanced [Floating UI](https://floating-ui.com/) library. In the
+past, Popper's [modifiers](https://popper.js.org/docs/v2/modifiers/) were
+directly accessible as component props, creating a rigid dependency that
+hindered updates to the positioning library. To address this, these properties
+have been removed since Floating UI is designed to intuitively handle component
+positioning in the majority of scenarios. Should you find yourself in need of
+specific functionality provided by the former modifiers, we encourage you to
+file an [issue](https://github.com/zendeskgarden/react-components/issues),
+making sure to mention the relevant Floating UI
+[middleware](https://floating-ui.com/docs/middleware) for clarity. Garden will
+consider additional positioning prop support on a case-by-case basis.
 
-#### @zendeskgarden/react-avatars
+#### All Packages
 
-- The `Text` component has been removed.
-  - Use `Avatar.Text` instead.
-- New props to ease color control: `surfaceColor`, `backgroundColor`, and `foregroundColor`.
+- Garden v9 packages use `styled-components` version range `^5.3.1`.
 
-#### @zendeskgarden/react-breadcrumbs
+  - `react-theming@v9` uses version range `^4.2.0 || ^5.3.1` to support `v8` to `v9` upgrades.
 
-- The `Item` component has been removed.
-  - Instead of passing `Item` components as children to `Breadcrumb`, consumers can now pass any
-    inline elements of their choice.
-  - For example, a child of `Breadcrumb` can be a `<span>` or a component that renders an `<a>`.
+- Garden v9 upgraded from `react-merge-refs` v1 to v2.
+
+  - The [breaking
+    change](https://github.com/gregberge/react-merge-refs/blob/main/CHANGELOG.md#200-2022-06-19)
+    exports ESM only.
+  - Build and test pipelines may need to be updated to account for the `.mjs`
+    extension. See Garden's
+    [jest.config.js](https://github.com/zendeskgarden/react-components/blob/c2aa97d1edccfa0578ee5655b543ca6635767fb9/utils/test/jest.config.js#L28-L30)
+    for details.
+
+- The following breaking changes are listed alphabetically by package. While
+  individual packages can be upgraded one at a time,
+  [@zendeskgarden/react-theming](#zendeskgardenreact-theming) must be upgraded
+  first.
+
+#### @zendeskgarden/react-accordions
+
+- The following React component prop types have changed:
+  - Removed `IItem` type export. Use `ITimelineItemProps` instead.
+  - `IStepperLabelProps['icon']`: `ReactNode` -> `ReactElement`
+  - `ITimelineItemProps['icon']`: `ReactNode` -> `ReactElement`
 
 #### @zendeskgarden/react-buttons
 
-- The following props have been renamed:
-  - `Button`
-    - `basic` -> `isBasic`
-    - `danger` -> `isDanger`
-    - `external` -> `isExternal`
-    - `link` -> `isLink`
-    - `pill` -> `isPill`
-    - `primary` -> `isPrimary`
-    - `stretched` -> `isStretched`
-    - `muted` -> removed (use theming to adjust `primaryHue`)
-  - `ButtonGroup`
-    - `selectedKey` -> `selectedItem`
-    - `onStateChange` -> `onSelect`
-      - The `onSelect` callback passes `selectedItem` directly rather than nesting it in an object.
-- The `ButtonGroupView` component has been removed.
-- The `Icon` component has been removed.
-  - Use an `IconButton` with a modified `isRotated` prop instead.
-- The `ButtonGroup` component now requires its children to contain a `value` prop which is returned
-  when selected.
-- Buttons no longer provide a minimum width.
+- Removed `ButtonGroup`: UI no longer recommended by Garden
+- Removed `IIconProps` type export. Use `IButtonStartIconProps` or `IButtonEndIconProps` instead.
+- `Anchor`: renders with an underline for improved accessibility. The same
+  treatment applies to `<Button isLink>`. The default can be removed with
+  `<Anchor isUnderlined={false}>` for word-wrapped or redundant UI where the
+  underline is considered to be a visual distraction. While technically not a
+  breaking change, the migration guide highlights this change for upgrade cases
+  that may render unexpected styling.
 
 #### @zendeskgarden/react-chrome
 
-- The following props have been renamed:
-  - `Header`
-    - `standalone` -> `isStandalone`
-  - `HeaderItem`
-    - `isRound` -> `isRound`
-    - `logo` -> `hasLogo`
-  - `HeaderItemText`
-    - `clipped` -> `isClipped`
-  - `Nav`
-    - `expanded` -> `isExpanded`
-  - `NavItem`
-    - `logo` -> `hasLogo`
-    - `brandmark` -> `hasBrandmark`
-    - `current` -> `isCurrent`
-  - `CollapsibleSubNavItem`
-    - `expanded` -> `isExpanded`
-  - `SubNavItem`
-    - `current` -> `isCurrent`
-- The `Nav` component no longer takes a `dark` or `light` prop.
-  - Use the `Chrome` component’s `hue` prop to apply a custom color.
-  - All themed components will dynamically change styling to create an accessible contrast level.
-- All state and styling props such as `active`, `focused`, ‘hover` etc. have been removed.
+- Removed `Sidebar` and `Subnav`: UI no longer recommended by Garden
+- Removed `PRODUCT` type export. Use `IHeaderItemProps['product']` instead.
+- Removed `hasFooter` prop for `Body` (no replacement needed)
+- Removed `message` and `connect` values from `product` prop in `Header.Item` and `Nav.Item`
+  Typings have been updated accordingly
+- The following React component types have changed:
+  - Removed `IBodyProps` type export.
+  - `Header.ItemIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
+  - `Nav.ItemIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
+- Added `Nav.List` as a semantic wrapper for `Nav.Item`. See the
+  [README](../packages/chrome/README.md#usages) for details.
+
+#### @zendeskgarden/react-colorpickers
+
+- `Colorpicker`: renamed to `ColorPicker`
+- `ColorpickerDialog`: renamed to `ColorPickerDialog`
+  - removed `popperModifiers` prop (see [note](#breaking-changes))
+- `ColorSwatch`
+  - The new `name` prop is required because the refactored component is now
+    backed by a native radio or checkbox group.
+  - Removed `rowIndex`, `colIndex`, `defaultRowIndex`, and `defaultColIndex`.
+    For the sake of accessibility, focus state should not be exposed or controlled.
+- `ColorSwatchDialog`
+  - same breaking changes as `ColorSwatch`.
+  - `popperModifiers` prop (see [note](#breaking-changes))
 
 #### @zendeskgarden/react-datepickers
 
-- The following props have been renamed:
-  - `Datepicker`
-    - `small` -> `isCompact`
-    - `animated` -> `isAnimated`
-  - `DatepickerRange`
-    - `small` -> `isCompact`
+- Removed `GardenPlacement` type export. Use `IDatePickerProps['placement']` instead.
+- `Datepicker`: renamed to `DatePicker`
+  - removed `eventsEnabled` prop (no longer exposed by Floating UI)
+  - removed `popperModifiers` prop (see [note](#breaking-changes))
+- `DatepickerRange`: renamed to `DatePickerRange`
+
+#### @zendeskgarden/react-draggable
+
+- Use this package if you were using `@zendeskgarden/react-drag-drop` in `v8`
 
 #### @zendeskgarden/react-dropdowns
 
-- The following props have been renamed or removed:
-  - `Autocomplete`, `MultiSelect`, `Select`
-    - `small` -> `isCompact`
-    - `bare` -> `isBare`
-    - `open` -> `isOpen`
-    - `focused` -> removed
-    - `hovered` -> removed
-  - `Label`
-    - `regular` -> `isRegular`
-    - `small` -> removed
-  - `Hint`
-    - `small`-> removed
-  - `Menu`
-    - `animate` -> `isAnimated`
-    - `small` -> `isCompact`
-    - `hidden` -> `isHidden`
-    - `arrow` -> `hasArrow`
-  - `AddItem`, `HeaderItem`, `Item`, `MediaItem`, `NextItem`, `PreviousItem`
-    - `active` -> removed
-    - `focused` -> removed
-    - `hovered` -> removed
+- Use this package if you were using `@zendeskgarden/react-dropdowns.next` in `v8`
+  - The `v8` version of `@zendeskgarden/react-dropdowns` is no longer maintained and is
+    renamed to `@zendeskgarden/react-dropdowns.legacy` in `v9`
+- `Menu`: value `auto` is no longer valid for the `fallbackPlacements` prop.
+- Removed `label` prop from `OptGroup`. Use `legend` instead.
 
 #### @zendeskgarden/react-forms
 
-- The following props have been renamed or removed:
-  - The following props have been removed from all components:
-    - `focused`
-    - `hovered`
-    - `mediaLayout`
-    - `open`
-    - `select`
-    - `tagLayout`
-  - Field
-    - `inline` -> removed
-      - Inline layouts can now be achieved with custom styling.
-  - Hint
-    - `small` -> removed
-      - Use `isCompact` on the `Input` component instead.
-  - Label
-    - `regular` -> `isRegular`
-    - `hidden` -> removed
-    - `indeterminate` -> removed
-    - All attributes should be applied to the corresponding `<input>` component (checked, disabled, indeterminate).
-  - `Input`, `Textarea`, `FauxInput`
-    - `bare` -> `isBare`
-    - `small` -> `isCompact`
-  - `TextArea`
-    - `resizable` -> `isResizable`
-- Checkbox now uses the `indeterminate` prop which was previously obfuscated under the `Label` component.
+- Removed `MultiThumbRange`: UI no longer recommended by Garden
+- The following types have changed:
+  - removed `IFieldProps`
+  - removed `IIconProps`. Use `IFauxInputStartIconProps` or `IFauxInputEndIconProps` instead.
+  - `IMediaInputProps['start']`: `any` -> `ReactElement`
+  - `IMediaInputProps['end']`: `any` -> `ReactElement`
 
 #### @zendeskgarden/react-grid
 
-- The following props have been renamed or removed:
-  - `Grid`
-    - `fluid` -> removed (which now defaults to `true`)
-      - Garden does not have an opinion re: non-fluid maximum container widths per breakpoint. If
-        you need these four `max-width` CSS properties across the small, medium, large, and
-        extra-large breakpoints, either use Bootstrap's `.container` or add them to your
-        application.
-  - `Row`
-    - `gutters` -> removed
-      - Use `<Grid gutters={false}>` instead
-  - `Col`
-    - `justifyContent` -> removed
-      - Row component’s `justifyContent` prop can be used for alignment.
-- New features and fixes include:
-  - Ability to resize gutters (default = 20px).
-  - Ability to set number of columns (default = 12).
-  - Added Col `offset` and fixed RTL across all offsets.
-  - Added Row `alignContent` prop.
-  - Most Row/Col props accept responsive variants for targeting screen size breakpoints.
-
-#### @zendeskgarden/react-loaders
-
-- The following props have been renamed or removed:
-  - `Dots`
-    - `velocity` -> removed
-      - Use `duration` instead which accepts milliseconds. The default is 1250ms.
-  - `Skeleton`
-    - `dark` -> `isLight`
+- Exported constants prefixed with `ARRAY_` no longer have a prefix.
+- The following types have been removed: `ALIGN_ITEMS`, `ALIGN_SELF`, `DIRECTION`,
+  `JUSTIFY_CONTENT`, `TEXT_ALIGN`, `GRID_NUMBER`, `BREAKPOINT`, `SPACE`, and `WRAP`
 
 #### @zendeskgarden/react-modals
 
-- The following props have been renamed or removed:
-  - `Modal`
-    - `animate` -> `isAnimated`
-    - `center` -> `isCentered`
-    - `large` -> `isLarge`
-  - `Header`
-    - `danger` -> `isDanger`
-  - `Close`
-    - `focus` -> removed
-    - `hovered` -> removed
-- The `Backdrop` and `ModalView` components have been removed.
+- `DrawerModal`: renamed to `Drawer`
+- `TooltipModal`: renamed to `TooltipDialog`
+  - removed `popperModifiers` prop (see [note](#breaking-changes))
+- Removed internal `useFocusVisible` hook for both `Modal` and `Drawer`. For
+  non-Garden modal content that still depends on the polyfill for focus styling,
+  either:
+  1. Use updated `:focus-visible` styling provided by the `focusStyles` and
+     `getFocusBoxShadow` theming utilities, or
+  1. Use
+     [@zendeskgarden/container-focusvisible](https://www.npmjs.com/package/@zendeskgarden/container-focusvisible)
+     to restore the polyfill
+- Removed `GARDEN_PLACEMENT` type export. Use `ITooltipDialogProps['placement']` instead.
 
-#### @zendeskgarden/react-notifications
+#### @zendeskgarden/react-notification
 
-- The following props have been renamed:
-  - `Well`
-    - `floating` -> `isFloating`
-    - `recessed` -> `isRecessed`
+- The following types have changed:
+  - removed `ToastPlacement`. Use `IToastOptions['placement']` instead.
+  - removed `ToastContent`. Use `IToast['content']` instead.
 
 #### @zendeskgarden/react-pagination
 
-- The following components have been removed:
-  - `Gap`
-  - `NextPage`
-  - `Page`
-  - `PaginationView`
-  - `PreviousPage`
-- A new `pageGap` prop has been added.
-  - It is used to modify the gap display positioning.
+- `Pagination`: renamed to `OffsetPagination`
+  - changed type export from `HTMLAttributes<HTMLUListElement>` to `HTMLAttributes<HTMLElement>`
+  - removed `transformPageProps` prop
+  - added `labels` prop
+- Renamed `PAGE_TYPE` type export to `PageType`
 
 #### @zendeskgarden/react-tables
 
-- All components in this package now use native `<table>` styling.
-  - Previous implementations may have hard-coded column widths. This may no longer be necessary.
-- All state and styling props such as `active`, `focused`, ‘hover` etc. have been removed.
-- The following props have been renamed:
-  - `Cell`
-    - `minimum` -> `isMinimum`
-    - `truncate` -> `isTruncated`
-    - `menu` -> `hasOverflow`
-  - `Row`
-    - `striped` -> `isStriped`
-    - `selected` -> `isSelected`
-
-#### @zendeskgarden/react-tabs
-
-- A new structure is required for the `Tabs` component.
-  - This new structure allows consumers to style individual tags if necessary.
-
-```jsx
-<Tabs>
-  <TabList>
-    <Tab item="tab-1">Tab 1</Tab>
-  </TabList>
-  <TabPanel item="tab-1">Content</TabPanel>
-</Tabs>
-```
-
-- All state and styling props such as `active`, `focused`, `hover`, `selected`, etc. have been removed.
-- The `vertical` prop has been renamed to `isVertical`.
-
-#### @zendeskgarden/react-tags
-
-- Child component exports `Avatar` and `Close` have been removed.
-  - Use `Tag.Avatar` and `Tag.Close` instead.
-- The following props have been renamed:
-  - `Tag`
-    - `pill` -> `isPill`
-    - `round` -> `isRound`
-    - `type` -> `hue`
+- Removed `isHovered`, `isActive`, and `isFocused` props from `Table.OverflowButton`
 
 #### @zendeskgarden/react-theming
 
-- `retrieveTheme` has been renamed to `retrieveComponentStyles`.
-- All theming is now provided through a single `theme` prop.
-  - RTL notation
-    - Previously `<ThemeProvider rtl>`
-    - Currently `<ThemeProvider theme={{ ...DEFAULT_THEME, rtl: true }}>`
-  - Custom `document` object
-    - Previously `<ThemeProvider document={doc}>`
-    - Currently `<ThemeProvider theme={{ ...DEFAULT_THEME, document: doc }}>`
-- Per component styles
-  - Previously `theme[COMPONENT_ID]`
-  - Currently `theme.components[COMPONENT_ID]`.
+- The default `theme` object has removed values for `colors.background` and
+  `colors.foreground`. Use the `'background.default'` and `'foreground.default'`
+  variables together with the v9 `getColor` utility instead.
+- The theming `palette` has undergone a comprehensive redesign and now includes
+  enhanced support for both light and dark modes. To facilitate a smoother
+  transition, we have introduced a temporary utility, `getColorV8`, which is
+  deprecated. This utility enables the application of the legacy version 8 color
+  scheme to custom components that are not part of the Garden framework. It is
+  recommended to utilize this stopgap measure until such components can be updated
+  to leverage the full capabilities of v9 `getColor`.
+- The `focusVisibleRef` prop (and the resulting scoping `<div>`) has been
+  removed from `<ThemeProvider>`. Current browser support obviates the need for a
+  `:focus-visible` polyfill.
+- Removed `message` and `connect` values from `PALETTE.product`
+- Utility function `getColor` has been refactored with a signature that supports
+  v9 light/dark modes. Replace usage with `getColorV8` until custom components can
+  be upgraded to utilize the new `getColor` function.
+- Utility functions `getFocusBoxShadow` and `focusStyles` no longer take `hue`,
+  `shade`, `spacerHue`, or `spacerShade` parameters. Use the `color` or
+  `shadeColor` parameters instead. The new object parameters take the shape of
+  refactored `getColor`.
+- Utility function `getDocument` has been removed. Use `useDocument` instead.
+- Utility function `isRtl` has been removed. Use `props.theme.rtl` instead.
+- Utility function `withTheme` has been removed. Use `styled-components`
+  [useTheme](https://styled-components.com/docs/api#usetheme) instead.
+- The following exports have changed:
+  - removed `retrieveTheme`. Use `retriveComponentStyles` instead.
+  - constants prefixed with `ARRAY_` no longer have a prefix.
+- The following types have changed:
+  - renamed `ARROW_POSITION` to `ArrowPosition`
+  - renamed `MENU_POSITION` to `MenuPosition`
 
 #### @zendeskgarden/react-tooltips
 
-- The following exports have been removed:
-  - `LightTooltip`
-  - `TooltipView`
-  - `GARDEN_PLACEMENTS`
-  - `POPPER_PLACEMENTS`
-  - `getPopperPlacement`
-  - `getRtlPopperPlacement`
-- The following props have been renamed or removed:
-  - `delayMilliseconds` -> `delayMS`
-  - `arrow` -> `hasArrow`
-  - `appendToBody` -> `appendToNode`
-    - It is required to pass the HTML element which the tooltip should append to.
-  - `trigger` -> removed
-    - Tooltip `children` now accepts a single element which acts as the triggering element
-- Tooltip `content` prop now accepts Tooltip content (previous `children`)
-- The Tooltip trigger no longer has a wrapping `<div>` element
-  - An optional `refKey` prop has been added for retrieving the ref from the triggering element.
+- `Tooltip`
+  - removed `eventsEnabled` prop (no longer exposed by Floating UI)
+  - removed `popperModifiers` prop (see [note](#breaking-changes))
 
 #### @zendeskgarden/react-typography
 
-- The following props have been renamed:
-
-  - `Code`
-    - `type` -> `hue`
-  - `Typography`, `MD`, `LG`, `SM`,
-    - `monospace` -> `isMonospace`
+- `CodeBlock`: The `language` set has been reduced from 32 to 13, for a
+  significant decrease in bundle size. If you encounter any essential languages
+  that are missing, please [create an
+  issue](https://github.com/zendeskgarden/react-components/issues). Garden will
+  evaluate incorporating any business-critical
+  [languages](https://prismjs.com/#supported-languages).
+- The following React component types have changed:
+  - `Span.Icon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
+  - `Span.StartIcon`: `HTMLAttributes<HTMLElement>` -> `SVGAttributes<SVGElement>`
 
 #### @zendeskgarden/react-utilities
 
-- This package has been deprecated and will be removed in a future major release.
-- Migrate to `@zendeskgarden/container-utilities` to continue receiving updates.
+- This package has been removed.
+- Migrate to `@zendeskgarden/container-utilities` and `@zendeskgarden/react-theming` to continue
+  receiving updates.
+
+### Deprecated components
+
+The following subcomponents have been renamed to streamline imports and improve
+affinity with their parent components. The deprecated exports will be removed in
+a future major release. Use the following mappings to update subcomponent
+properties.
+
+<!-- markdownlint-disable MD024 -->
+
+#### @zendeskgarden/react-chrome
+
+- `FooterItem` -> `Footer.Item`
+- `HeaderItem` -> `Header.Item`
+- `HeaderItemIcon` -> `Header.ItemIcon`
+- `HeaderItemText` -> `Header.ItemText`
+- `HeaderItemWrapper` -> `Header.ItemWrapper`
+- `NavItem` -> `Nav.Item`
+- `NavItemIcon` -> `Nav.ItemIcon`
+- `NavItemText` -> `Nav.ItemText`
+
+#### @zendeskgarden/react-dropdowns
+
+- `Hint` -> `Field.Hint`
+- `Label` -> `Field.Label`
+- `Message` -> `Field.Message`
+
+#### @zendeskgarden/react-forms
+
+- `Hint` -> `Field.Hint`
+- `Label` -> `Field.Label`
+- `Message` -> `Field.Message`
+
+#### @zendeskgarden/react-grid
+
+- `Col` -> `Grid.Col`
+- `Row` -> `Grid.Row`
+
+#### @zendeskgarden/react-modals
+
+- `Body` -> `Modal.Body`
+- `Close` -> `Modal.Close`
+- `Footer` -> `Modal.Footer`
+- `FooterItem` -> `Modal.FooterItem`
+- `Header` -> `Modal.Header`
+
+#### @zendeskgarden/react-notification
+
+- `Close` -> `Alert.Close`, `Notification.Close`
+- `Paragraph` -> `Alert.Paragraph`, `Notification.Paragraph`, `Well.Paragraph`
+- `Title` -> `Alert.Title`, `Notification.Title`, `Well.Title`
+
+#### @zendeskgarden/react-tables
+
+- `Body` -> `Table.Body`
+- `Caption` -> `Table.Caption`
+- `Cell` -> `Table.Cell`
+- `GroupRow` -> `Table.GroupRow`
+- `Head` -> `Table.Head`
+- `HeaderCell` -> `Table.HeaderCell`
+- `HeaderRow` -> `Table.HeaderRow`
+- `OverflowButton` -> `Table.OverflowButton`
+- `Row` -> `Table.Row`
+- `SortableCell` -> `Table.SortableCell`
+
+#### @zendeskgarden/react-tabs
+
+- `Tab` -> `Tabs.Tab`
+- `TabList` -> `Tabs.TabList`
+- `TabPanel` -> `Tabs.TabPanel`
+
+#### @zendeskgarden/react-tooltips
+
+- `Paragraph` -> `Tooltip.Paragraph`
+- `Title` -> `Tooltip.Title`
+
+## v8
+
+[Migration Guide](https://github.com/zendeskgarden/react-components/blob/main/docs/migrations/v8.md)

@@ -7,28 +7,33 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { PALETTE, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Chrome } from '../Chrome';
-import { NavItem } from './NavItem';
 import { Nav } from './Nav';
-import { PRODUCT, Product } from '../../types';
+import { PRODUCTS, Product } from '../../types';
 
 describe('NavItem', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLButtonElement>();
-    const { container } = render(<NavItem ref={ref} />);
+    const { getByTestId } = render(
+      <Nav.List>
+        <Nav.Item ref={ref} data-test-id="item" />
+      </Nav.List>
+    );
 
-    expect(container.firstChild).toBe(ref.current);
+    expect(getByTestId('item')).toBe(ref.current);
   });
 
   it('renders expanded styling', () => {
-    const { container } = render(
+    const { getByTestId } = render(
       <Nav isExpanded>
-        <NavItem />
+        <Nav.List>
+          <Nav.Item data-test-id="item" />
+        </Nav.List>
       </Nav>
     );
 
-    expect(container.firstChild!.firstChild).toHaveStyle(`
+    expect(getByTestId('item')).toHaveStyle(`
       justify-content: start;
       text-align: inherit;
     `);
@@ -36,7 +41,11 @@ describe('NavItem', () => {
 
   describe('Current', () => {
     it('renders state attribute when current', () => {
-      const { getByTestId } = render(<NavItem isCurrent data-test-id="current-nav-item" />);
+      const { getByTestId } = render(
+        <Nav.List>
+          <Nav.Item isCurrent data-test-id="current-nav-item" />
+        </Nav.List>
+      );
 
       const currentNavItem = getByTestId('current-nav-item');
 
@@ -44,7 +53,11 @@ describe('NavItem', () => {
     });
 
     it('does not render state attribute when not current', () => {
-      const { getByTestId } = render(<NavItem data-test-id="nav-item" />);
+      const { getByTestId } = render(
+        <Nav.List>
+          <Nav.Item data-test-id="nav-item" />
+        </Nav.List>
+      );
 
       const navItem = getByTestId('nav-item');
 
@@ -54,134 +67,147 @@ describe('NavItem', () => {
 
   describe('Order', () => {
     it('renders correct order if used as brandmark', () => {
-      const { container } = render(<NavItem hasBrandmark />);
+      const { container } = render(<Nav.Item hasBrandmark />);
 
       expect(container.firstChild).toHaveStyleRule('order', '1');
     });
 
     it('renders correct order if used as logo', () => {
-      const { container } = render(<NavItem hasLogo />);
+      const { container } = render(<Nav.Item hasLogo />);
 
-      expect(container.firstChild).toHaveStyleRule('order', '0');
+      expect(container.firstChild).toHaveStyleRule('order', '-1');
     });
   });
 
   describe('Opacity', () => {
     it('renders correct opacity if used as brandmark', () => {
-      const { container } = render(<NavItem hasBrandmark />);
+      const { container } = render(<Nav.Item hasBrandmark />);
 
-      expect(container.firstChild).toHaveStyleRule('opacity', '0.3');
+      expect(container.firstChild).toHaveStyleRule('opacity', '0.32');
     });
 
     it('renders correct opacity if used as logo', () => {
-      const { container } = render(<NavItem hasLogo />);
+      const { container } = render(<Nav.Item hasLogo />);
 
       expect(container.firstChild).toHaveStyleRule('opacity', '1');
     });
 
     it('renders correct opacity if current', () => {
-      const { container } = render(<NavItem isCurrent />);
+      const { getByTestId } = render(
+        <Nav.List>
+          <Nav.Item isCurrent data-test-id="item" />
+        </Nav.List>
+      );
 
-      expect(container.firstChild).toHaveStyleRule('opacity', '1');
+      expect(getByTestId('item')).toHaveStyleRule('opacity', '1', {
+        modifier: '&[aria-current="true"]'
+      });
     });
   });
 
   describe('Hover Color', () => {
     it('renders correct color with dark hue', () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <Chrome hue="black">
-          <NavItem />
+          <Nav>
+            <Nav.List>
+              <Nav.Item data-test-id="item" />
+            </Nav.List>
+          </Nav>
         </Chrome>
       );
 
-      expect(container.firstChild!.firstChild).toHaveStyleRule(
-        'background-color',
-        'rgba(0,0,0,0.1)',
-        {
-          modifier: '&:hover'
-        }
-      );
+      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(0,0,0,0.08)', {
+        modifier: '&:hover'
+      });
     });
 
     it('renders correct color with light hue', () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <Chrome hue="white">
-          <NavItem />
+          <Nav>
+            <Nav.List>
+              <Nav.Item data-test-id="item" />
+            </Nav.List>
+          </Nav>
         </Chrome>
       );
 
-      expect(container.firstChild!.firstChild).toHaveStyleRule(
-        'background-color',
-        'rgba(255,255,255,0.1)',
-        {
-          modifier: '&:hover'
-        }
-      );
+      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(255,255,255,0.08)', {
+        modifier: '&:hover'
+      });
     });
   });
 
   describe('Current Color', () => {
     it('renders correct color by default', () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <Chrome>
-          <NavItem isCurrent />
+          <Nav>
+            <Nav.List>
+              <Nav.Item isCurrent data-test-id="item" />
+            </Nav.List>
+          </Nav>
         </Chrome>
       );
 
-      expect(container.firstChild!.firstChild).toHaveStyleRule(
-        'background-color',
-        getColorV8('chromeHue', 500, DEFAULT_THEME)
-      );
+      expect(getByTestId('item')).toHaveStyleRule('background-color', PALETTE.kale[700], {
+        modifier: '&[aria-current="true"]'
+      });
     });
 
     it('renders correct color with dark hue', () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <Chrome hue="black">
-          <NavItem isCurrent />
+          <Nav>
+            <Nav.List>
+              <Nav.Item isCurrent data-test-id="item" />
+            </Nav.List>
+          </Nav>
         </Chrome>
       );
 
-      expect(container.firstChild!.firstChild).toHaveStyleRule(
-        'background-color',
-        'rgba(255,255,255,0.4)'
-      );
+      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(255,255,255,0.4)', {
+        modifier: '&[aria-current="true"]'
+      });
     });
 
     it('renders correct color with light hue', () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <Chrome hue="white">
-          <NavItem isCurrent />
+          <Nav>
+            <Nav.List>
+              <Nav.Item isCurrent data-test-id="item" />
+            </Nav.List>
+          </Nav>
         </Chrome>
       );
 
-      expect(container.firstChild!.firstChild).toHaveStyleRule(
-        'background-color',
-        'rgba(0,0,0,0.4)'
-      );
+      expect(getByTestId('item')).toHaveStyleRule('background-color', 'rgba(0,0,0,0.4)', {
+        modifier: '&[aria-current="true"]'
+      });
     });
   });
 
   describe('Products', () => {
     const VALID_COLOR_MAP: Record<Product, string> = {
       chat: PALETTE.product.chat,
-      connect: PALETTE.product.connect,
       explore: PALETTE.product.explore,
       guide: PALETTE.product.guide,
-      message: PALETTE.product.message,
       support: PALETTE.product.support,
       talk: PALETTE.product.talk
     };
 
     it('renders correct product color if provided', () => {
-      PRODUCT.forEach(product => {
-        const { container } = render(<NavItem hasLogo product={product} />);
+      PRODUCTS.forEach(product => {
+        const { container } = render(<Nav.Item hasLogo product={product} />);
 
         expect(container.firstChild).toHaveStyleRule('color', VALID_COLOR_MAP[product]);
       });
     });
 
     it('renders correct color if no product is provided', () => {
-      const { container } = render(<NavItem hasLogo />);
+      const { container } = render(<Nav.Item hasLogo />);
 
       expect(container.firstChild).toHaveStyleRule('color', 'inherit');
     });

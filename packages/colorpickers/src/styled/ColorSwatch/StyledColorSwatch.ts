@@ -15,8 +15,7 @@ const COMPONENT_ID = 'colorpickers.color_swatch';
  */
 export const StyledColorSwatch = styled.table.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  role: 'grid'
+  'data-garden-version': PACKAGE_VERSION
 })`
   border-collapse: collapse;
   line-height: normal; /* [1] */

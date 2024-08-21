@@ -7,13 +7,8 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Story } from '@storybook/react';
-import {
-  arrowStyles,
-  getColorV8,
-  DEFAULT_THEME,
-  ARROW_POSITION as ArrowPosition
-} from '@zendeskgarden/react-theming';
+import { StoryFn } from '@storybook/react';
+import { arrowStyles, getColor, ArrowPosition } from '@zendeskgarden/react-theming';
 
 interface IArgs {
   position: ArrowPosition;
@@ -25,22 +20,28 @@ interface IArgs {
 }
 
 const StyledDiv = styled.div<Omit<IArgs, 'isAnimated'>>`
-  border: ${props => props.hasBorder && `${DEFAULT_THEME.borders.sm} ${getColorV8('primaryHue')}`};
-  box-shadow: ${props =>
-    props.hasBoxShadow &&
-    DEFAULT_THEME.shadows.lg('8px', '12px', getColorV8('chromeHue', 600, DEFAULT_THEME, 0.15)!)};
-  background-color: ${getColorV8('primaryHue', 200)};
+  border: ${p =>
+    p.hasBorder &&
+    `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'border.primaryEmphasis' })}`};
+  box-shadow: ${p =>
+    p.hasBoxShadow &&
+    p.theme.shadows.lg(
+      `${p.theme.space.base * (p.theme.colors.base === 'dark' ? 4 : 5)}px`,
+      `${p.theme.space.base * (p.theme.colors.base === 'dark' ? 5 : 6)}px`,
+      getColor({ variable: 'shadow.medium', theme: p.theme })
+    )};
+  background-color: ${p => getColor({ theme: p.theme, variable: 'background.primary' })};
   padding: ${p => p.theme.space.xxl};
 
-  ${props =>
-    arrowStyles(props.position, {
-      size: `${props.size}px`,
-      inset: `${props.inset}px`,
+  ${p =>
+    arrowStyles(p.position, {
+      size: `${p.size}px`,
+      inset: `${p.inset}px`,
       animationModifier: '[data-garden-animate="true"]'
     })};
 `;
 
-export const ArrowStylesStory: Story<IArgs> = ({ isAnimated, ...args }) => (
+export const ArrowStylesStory: StoryFn<IArgs> = ({ isAnimated, ...args }) => (
   <div style={{ position: 'relative', zIndex: 0 }}>
     <StyledDiv data-garden-animate={isAnimated} {...args} />
   </div>

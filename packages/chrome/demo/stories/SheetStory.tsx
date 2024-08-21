@@ -9,8 +9,8 @@ import React, { ChangeEventHandler } from 'react';
 import { Story } from '@storybook/react';
 import { DefaultTheme } from 'styled-components';
 import { ThemeProvider, IGardenTheme } from '@zendeskgarden/react-theming';
-import { Field, Label, Toggle } from '@zendeskgarden/react-forms';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Field, Toggle } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { ISheetProps, Sheet } from '@zendeskgarden/react-chrome';
 import { IFooterItem } from './types';
@@ -94,7 +94,6 @@ export const SheetStory: Story<IArgs> = ({
 }) => (
   <>
     <ThemeProvider
-      focusVisibleRef={null}
       theme={
         ((parentTheme: DefaultTheme) => ({
           ...parentTheme,
@@ -104,13 +103,13 @@ export const SheetStory: Story<IArgs> = ({
     >
       <Field>
         <Toggle checked={args.isOpen} onChange={onChange}>
-          <Label hidden>Sheet</Label>
+          <Field.Label hidden>Sheet</Field.Label>
         </Toggle>
       </Field>
     </ThemeProvider>
     <Grid debug={debug} gutters={false} style={{ marginTop: 20 }}>
-      <Row style={{ height: 'calc(100vh - 120px)' }} justifyContent={args.placement || 'end'}>
-        <Col size="auto" style={{ maxHeight: '100%' }}>
+      <Grid.Row style={{ height: 'calc(100vh - 120px)' }} justifyContent={args.placement || 'end'}>
+        <Grid.Col size="auto" style={{ maxHeight: '100%' }}>
           <SheetComponent
             hasHeader={hasHeader}
             title={title}
@@ -123,8 +122,8 @@ export const SheetStory: Story<IArgs> = ({
             hasClose={hasClose}
             {...args}
           />
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   </>
 );

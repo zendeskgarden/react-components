@@ -1,5 +1,6 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
 import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { PaletteStory } from './stories/PaletteStory';
 import { ArrowStylesStory } from './stories/ArrowStylesStory';
 import { MenuStylesStory } from './stories/MenuStylesStory';
 import { GetColorStory } from './stories/GetColorStory';
@@ -18,6 +19,21 @@ import README from '../README.md';
 
 # Demo
 
+## PALETTE
+
+<Canvas>
+  <Story
+    name="PALETTE"
+    args={{ palette: PALETTE }}
+    argTypes={{
+      palette: { control: { type: 'object' }, name: 'PALETTE' },
+      theme: { control: false }
+    }}
+  >
+    {args => <PaletteStory {...args} />}
+  </Story>
+</Canvas>
+
 ## arrowStyles()
 
 <Canvas>
@@ -32,9 +48,10 @@ import README from '../README.md';
       inset: 0
     }}
     argTypes={{
-      position: { control: { type: 'select', options: ARROW_POSITIONS } },
+      position: { control: 'select', options: ARROW_POSITIONS },
       size: { control: { type: 'range', min: 2, max: 10, step: 1 } },
-      inset: { control: { type: 'range', min: -4, max: 4, step: 1 } }
+      inset: { control: { type: 'range', min: -4, max: 4, step: 1 } },
+      theme: { control: false }
     }}
   >
     {args => <ArrowStylesStory {...args} />}
@@ -47,11 +64,25 @@ import README from '../README.md';
   <Story
     name="getColor()"
     args={{
-      hue: 'primaryHue',
-      shade: 600
+      theme: {
+        colors: Object.fromEntries(
+          Object.entries(DEFAULT_THEME.colors).filter(([key]) => key !== 'base')
+        ),
+        opacity: DEFAULT_THEME.opacity,
+        palette: DEFAULT_THEME.palette
+      },
+      variable: 'background.primaryEmphasis'
     }}
     argTypes={{
-      transparency: { control: { type: 'range', min: 1 } }
+      dark: { control: { type: 'object' } },
+      hue: { control: { type: 'text' } },
+      light: { control: { type: 'object' } },
+      offset: { control: { type: 'number' } },
+      shade: { control: { type: 'number' } },
+      transparency: { control: { type: 'number', min: 100, max: 1200, step: 100 } },
+      variable: { control: { type: 'text' } },
+      'colors.dark': { control: false, table: { disable: true } },
+      'colors.light': { control: false, table: { disable: true } }
     }}
   >
     {args => <GetColorStory {...args} />}
@@ -68,7 +99,8 @@ import README from '../README.md';
       isAnimated: true
     }}
     argTypes={{
-      position: { control: { type: 'radio', options: MENU_POSITIONS } }
+      position: { control: 'radio', options: MENU_POSITIONS },
+      theme: { control: false }
     }}
   >
     {args => <MenuStylesStory {...args} />}

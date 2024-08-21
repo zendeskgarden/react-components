@@ -7,19 +7,9 @@
 
 import React, { useState } from 'react';
 import { Story } from '@storybook/react';
-import { Checkbox, Field, Label } from '@zendeskgarden/react-forms';
+import { Checkbox, Field } from '@zendeskgarden/react-forms';
 import {
   Table,
-  Body,
-  Caption,
-  Cell,
-  GroupRow,
-  Head,
-  HeaderCell,
-  HeaderRow,
-  OverflowButton,
-  Row,
-  SortableCell,
   ITableProps,
   IHeadProps,
   ISortableCellProps,
@@ -75,21 +65,21 @@ export const TableStory: Story<IArgs> = ({
 
   return (
     <Table {...args}>
-      <Caption>{caption}</Caption>
-      <Head isSticky={isSticky}>
-        <HeaderRow>
+      <Table.Caption>{caption}</Table.Caption>
+      <Table.Head isSticky={isSticky}>
+        <Table.HeaderRow>
           {hasSelection && (
-            <HeaderCell isMinimum hidden={isHidden}>
+            <Table.HeaderCell isMinimum hidden={isHidden}>
               <Field>
                 <Checkbox>
-                  <Label hidden>Select all</Label>
+                  <Field.Label hidden>Select all</Field.Label>
                 </Checkbox>
               </Field>
-            </HeaderCell>
+            </Table.HeaderCell>
           )}
           {headerCells.map((headerCell, index) =>
             isSortable ? (
-              <SortableCell
+              <Table.SortableCell
                 key={index}
                 cellProps={{ isTruncated }}
                 onClick={() => {
@@ -105,67 +95,67 @@ export const TableStory: Story<IArgs> = ({
                 width={widths ? widths[index] : undefined}
               >
                 {headerCell}
-              </SortableCell>
+              </Table.SortableCell>
             ) : (
-              <HeaderCell
+              <Table.HeaderCell
                 key={index}
                 isTruncated={isTruncated}
                 width={widths ? widths[index] : undefined}
               >
                 {headerCell}
-              </HeaderCell>
+              </Table.HeaderCell>
             )
           )}
           {hasOverflow && (
-            <HeaderCell hasOverflow>
-              <OverflowButton aria-label="overflow" />
-            </HeaderCell>
+            <Table.HeaderCell hasOverflow>
+              <Table.OverflowButton aria-label="overflow" />
+            </Table.HeaderCell>
           )}
-        </HeaderRow>
-      </Head>
-      <Body>
+        </Table.HeaderRow>
+      </Table.Head>
+      <Table.Body>
         {data
           .filter(value => (isStriped ? typeof value !== 'string' : true))
           .map((row, rowIndex) =>
             typeof row === 'string' ? (
-              <GroupRow key={rowIndex}>
-                <Cell colSpan={colSpan} isTruncated={isTruncated}>
+              <Table.GroupRow key={rowIndex}>
+                <Table.Cell colSpan={colSpan} isTruncated={isTruncated}>
                   {isBold ? <b>{row}</b> : row}
-                </Cell>
-              </GroupRow>
+                </Table.Cell>
+              </Table.GroupRow>
             ) : (
-              <Row
+              <Table.Row
                 key={rowIndex}
                 isSelected={isSelected}
                 isStriped={isStriped && rowIndex % 2 === 0}
               >
                 {hasSelection && (
-                  <Cell isMinimum>
+                  <Table.Cell isMinimum>
                     <Field>
                       <Checkbox>
-                        <Label hidden>Select all</Label>
+                        <Field.Label hidden>Select all</Field.Label>
                       </Checkbox>
                     </Field>
-                  </Cell>
+                  </Table.Cell>
                 )}
                 {Object.keys(row).map((column, columnIndex) => (
-                  <Cell
+                  <Table.Cell
                     key={`${rowIndex}${columnIndex}`}
                     isTruncated={isTruncated}
                     hidden={isHidden}
                   >
                     {row[column]}
-                  </Cell>
+                  </Table.Cell>
                 ))}
                 {hasOverflow && (
-                  <Cell hasOverflow>
-                    <OverflowButton aria-label="overflow" />
-                  </Cell>
+                  <Table.Cell hasOverflow>
+                    <Table.OverflowButton aria-label="overflow" />
+                  </Table.Cell>
                 )}
-              </Row>
+              </Table.Row>
             )
           )}
-      </Body>
+      </Table.Body>
     </Table>
   );
 };

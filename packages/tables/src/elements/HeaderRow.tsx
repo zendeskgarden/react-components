@@ -10,14 +10,16 @@ import { StyledHeaderRow } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 
 /**
+ * @deprecated use `Table.HeaderRow` instead
+ *
  * @extends HTMLAttributes<HTMLTableRowElement>
  */
 export const HeaderRow = React.forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>>(
   (props, ref) => {
     const { size } = useTableContext();
 
-    return <StyledHeaderRow ref={ref} size={size} {...props} />;
+    return <StyledHeaderRow ref={ref} $size={size} {...props} />;
   }
 );
 
-HeaderRow.displayName = 'HeaderRow';
+HeaderRow.displayName = 'Table.HeaderRow';

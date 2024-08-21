@@ -11,13 +11,15 @@ import { IHeaderItemTextProps } from '../../types';
 import { StyledHeaderItemText } from '../../styled';
 
 /**
+ * @deprecated use `Header.ItemText` instead
+ *
  * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const HeaderItemText = React.forwardRef<HTMLElement, IHeaderItemTextProps>((props, ref) => (
   <StyledHeaderItemText ref={ref} {...props} />
 ));
 
-HeaderItemText.displayName = 'HeaderItemText';
+HeaderItemText.displayName = 'Header.ItemText';
 
 HeaderItemText.propTypes = {
   isClipped: PropTypes.bool

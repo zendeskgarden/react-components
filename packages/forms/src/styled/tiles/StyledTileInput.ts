@@ -10,13 +10,14 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export const StyledTileInput = styled.input`
   position: absolute;
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  white-space: nowrap;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: ${props => (props.disabled ? 'default' : 'pointer')};
+  width: 100%;
+  height: 100%;
 `;
 
 StyledTileInput.defaultProps = {

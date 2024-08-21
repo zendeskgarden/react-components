@@ -19,19 +19,19 @@ const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>(
     const stepIcon = icon || numericStep;
 
     const styledIcon = (
-      <StyledIcon isActive={isActive} isHorizontal={isHorizontal}>
+      <StyledIcon $isActive={isActive} $isHorizontal={isHorizontal}>
         {isCompleted ? <CheckCircleStrokeIcon {...iconProps} /> : stepIcon}
       </StyledIcon>
     );
 
     return (
-      <StyledLabel ref={ref} isActive={isActive} isHorizontal={isHorizontal} {...other}>
+      <StyledLabel ref={ref} $isActive={isActive} $isHorizontal={isHorizontal} {...other}>
         {isHorizontal ? (
           <StyledIconFlexContainer>{styledIcon}</StyledIconFlexContainer>
         ) : (
           styledIcon
         )}
-        <StyledLabelText isHidden={isHidden} isHorizontal={isHorizontal}>
+        <StyledLabelText $isHidden={isHidden} $isHorizontal={isHorizontal}>
           {children}
         </StyledLabelText>
       </StyledLabel>

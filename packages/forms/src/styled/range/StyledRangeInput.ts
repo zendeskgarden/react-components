@@ -8,10 +8,10 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import {
-  getColorV8,
   getFocusBoxShadow,
   retrieveComponentStyles,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { StyledHint } from '../common/StyledHint';
 import { StyledLabel } from '../common/StyledLabel';
@@ -63,36 +63,62 @@ const trackLowerStyles = (styles: string, modifier = '') => {
   `;
 };
 
-const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) => {
-  const SHADE = 600;
-  const thumbBackgroundColor = getColorV8('primaryHue', SHADE, props.theme);
+/*
+ * 1. Provide means for styling lower range on WebKit.
+ */
+const colorStyles = ({
+  theme,
+  hasLowerTrack
+}: ThemeProps<DefaultTheme> & IStyledRangeInputProps) => {
+  const options = { theme, variable: 'background.primaryEmphasis' };
+  const thumbBackgroundColor = getColor(options);
   const thumbBorderColor = thumbBackgroundColor;
-  const thumbBoxShadow = props.theme.shadows.lg(
-    math(`${props.theme.space.base} * 1px`),
-    math(`${props.theme.space.base} * 2px`),
-    getColorV8('neutralHue', SHADE + 200, props.theme, 0.24)!
+  const thumbBoxShadow = theme.shadows.lg(
+    `${theme.space.base}px`,
+    `${theme.space.base * 2}px`,
+    getColor({ variable: 'shadow.small', theme })
   );
-  const thumbFocusBoxShadow = getFocusBoxShadow({ theme: props.theme });
-  const thumbActiveBackgroundColor = getColorV8('primaryHue', SHADE + 100, props.theme);
+  const thumbFocusBoxShadow = getFocusBoxShadow({ theme });
+  const thumbActiveBackgroundColor = getColor({
+    ...options,
+    dark: { offset: -200 },
+    light: { offset: 200 }
+  });
   const thumbActiveBorderColor = thumbBorderColor;
-  const thumbDisabledBackgroundColor = getColorV8('neutralHue', SHADE - 300, props.theme);
+  const thumbDisabledBackgroundColor = getColor({ theme, variable: 'border.emphasis' });
   const thumbDisabledBorderColor = thumbDisabledBackgroundColor;
-  const thumbHoverBackgroundColor = thumbActiveBackgroundColor;
+  const thumbHoverBackgroundColor = getColor({
+    ...options,
+    dark: { offset: -100 },
+    light: { offset: 100 }
+  });
   const thumbHoverBorderColor = thumbHoverBackgroundColor;
-  const trackBackgroundColor = getColorV8('neutralHue', SHADE - 400, props.theme);
-  const trackLowerBackgroundColor = props.hasLowerTrack ? thumbBackgroundColor : '';
-  const trackBackgroundImage = props.hasLowerTrack
+  const trackBackgroundColor = getColor({
+    theme,
+    variable: 'border.emphasis',
+    dark: { offset: 100 },
+    light: { offset: -200 }
+  });
+  const trackLowerBackgroundColor = hasLowerTrack ? thumbBackgroundColor : '';
+  const trackBackgroundImage = hasLowerTrack
     ? `linear-gradient(${trackLowerBackgroundColor}, ${trackLowerBackgroundColor})`
     : '';
-  const trackDisabledLowerBackgroundColor = props.hasLowerTrack ? thumbDisabledBackgroundColor : '';
-  const trackDisabledBackgroundImage = props.hasLowerTrack
+  const trackDisabledBackgroundColor = getColor({
+    theme,
+    variable: 'background.disabled',
+    transparency: theme.opacity[200]
+  });
+  const trackDisabledLowerBackgroundColor = hasLowerTrack
+    ? getColor({ theme, variable: 'border.emphasis' })
+    : '';
+  const trackDisabledBackgroundImage = hasLowerTrack
     ? `linear-gradient(${trackDisabledLowerBackgroundColor}, ${trackDisabledLowerBackgroundColor})`
     : '';
 
   return css`
     ${trackStyles(`
       background-color: ${trackBackgroundColor};
-      background-image: ${trackBackgroundImage}; /* provide means for styling lower range on WebKit */
+      background-image: ${trackBackgroundImage}; /* [1] */
     `)}
 
     ${thumbStyles(`
@@ -120,7 +146,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) =
       `
         box-shadow: ${thumbFocusBoxShadow};
       `,
-      '[data-garden-focus-visible="true"]'
+      ':focus-visible'
     )}
 
     ${thumbStyles(
@@ -133,6 +159,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) =
 
     ${trackStyles(
       `
+        background-color: ${trackDisabledBackgroundColor};
         background-image: ${trackDisabledBackgroundImage};
       `,
       ':disabled'
@@ -156,11 +183,14 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledRangeInputProps) =
   `;
 };
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const thumbSize = math(`${props.theme.space.base} * 5px`);
-  const trackHeight = math(`${props.theme.space.base} * 1.5px`);
+/*
+ * 1. Reset for IE.
+ */
+const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const thumbSize = `${theme.space.base * 5}px`;
+  const trackHeight = `${theme.space.base * 1.5}px`;
   const trackBorderRadius = trackHeight;
-  const trackMargin = math(`(${thumbSize} - ${trackHeight}) / 2 + ${props.theme.shadowWidths.md}`);
+  const trackMargin = math(`(${thumbSize} - ${trackHeight}) / 2 + ${theme.shadowWidths.md}`);
   const thumbMargin = math(`(${trackHeight} - ${thumbSize}) / 2`);
 
   return css`
@@ -170,7 +200,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
     ${StyledMessage} + &,
     & + ${StyledHint},
     & + ${StyledMessage} {
-      margin-top: ${math(`${props.theme.space.base} * 2px`)};
+      margin-top: ${`${theme.space.base * 2}px`};
     }
     /* stylelint-enable */
 
@@ -181,14 +211,14 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
     `)};
 
     ${thumbStyles(`
-      margin: ${thumbMargin} 0; /* reset for IE */
+      margin: ${thumbMargin} 0; /* [1] */
       width: ${thumbSize};
       height: ${thumbSize};
     `)}
 
     ${trackLowerStyles(`
-      border-top-${props.theme.rtl ? 'right' : 'left'}-radius: ${trackBorderRadius};
-      border-bottom-${props.theme.rtl ? 'right' : 'left'}-radius: ${trackBorderRadius};
+      border-top-${theme.rtl ? 'right' : 'left'}-radius: ${trackBorderRadius};
+      border-bottom-${theme.rtl ? 'right' : 'left'}-radius: ${trackBorderRadius};
       height: ${trackHeight};
     `)}
   `;
@@ -233,7 +263,7 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
     background-size: inherit; /* provide means for styling WebKit lower range */
   }
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
 
   ${props =>
     thumbStyles(`
@@ -244,7 +274,7 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
       box-sizing: border-box;
     `)}
 
-  ${props => colorStyles(props)};
+  ${colorStyles};
 
   &::-moz-focus-outer {
     border: 0; /* remove dotted outline from Firefox on focus */

@@ -5,46 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes } from 'react';
-import { Modifiers } from 'popper.js';
+import { HTMLAttributes, ReactElement } from 'react';
+import { PLACEMENT as BASE_PLACEMENT } from '@zendeskgarden/react-theming';
 
 export const WEEK_STARTS_ON = [0, 1, 2, 3, 4, 5, 6] as const;
 
-const SHARED_PLACEMENT = [
-  'auto',
-  'top',
-  'top-start',
-  'top-end',
-  'bottom',
-  'bottom-start',
-  'bottom-end'
-] as const;
-
-export const PLACEMENT = [
-  ...SHARED_PLACEMENT,
-  'end',
-  'end-top',
-  'end-bottom',
-  'start',
-  'start-top',
-  'start-bottom'
-] as const;
-
-export const POPPER_PLACEMENT = [
-  ...SHARED_PLACEMENT,
-  'right',
-  'right-start',
-  'right-end',
-  'left',
-  'left-start',
-  'left-end'
-] as const;
+export const PLACEMENT = ['auto', ...BASE_PLACEMENT] as const;
 
 export type GardenPlacement = (typeof PLACEMENT)[number];
 
-export type PopperPlacement = (typeof POPPER_PLACEMENT)[number];
-
-export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /**
    * Sets the selected date
    */
@@ -99,26 +69,20 @@ export interface IDatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    **/
   placement?: GardenPlacement;
   /**
-   * Passes configuration options to the [Popper instance](https://popper.js.org/docs/v2/modifiers/)
-   */
-  popperModifiers?: Modifiers;
-  /**
    * Animates the calendar
    */
   isAnimated?: boolean;
   /**
-   * Allows the calendar to reposition during browser resize events
-   */
-  eventsEnabled?: boolean;
-  /**
    * Sets the `z-index` of the calendar
    */
   zIndex?: number;
+  /** @ignore ReactNode override */
+  children: ReactElement;
 }
 
-export interface IDatepickerRangeProps
+export interface IDatePickerRangeProps
   extends Pick<
-    IDatepickerProps,
+    IDatePickerProps,
     'locale' | 'weekStartsOn' | 'minValue' | 'maxValue' | 'formatDate' | 'isCompact'
   > {
   /**

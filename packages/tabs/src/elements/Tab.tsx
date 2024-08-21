@@ -7,12 +7,14 @@
 
 import React, { HTMLAttributes, MutableRefObject } from 'react';
 import PropTypes from 'prop-types';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { ITabProps } from '../types';
 import { StyledTab } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
 
 /**
+ * @deprecated use `Tabs.Tab` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
@@ -25,7 +27,7 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
           role="tab"
           aria-disabled={disabled}
           ref={ref}
-          isVertical={tabsPropGetters?.isVertical}
+          $isVertical={tabsPropGetters?.isVertical}
           {...otherProps}
         />
       );
@@ -37,8 +39,8 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
 
     return (
       <StyledTab
-        isSelected={item === tabsPropGetters.selectedValue}
-        isVertical={tabsPropGetters.isVertical}
+        $isSelected={item === tabsPropGetters.selectedValue}
+        $isVertical={tabsPropGetters.isVertical}
         {...tabProps}
         {...otherProps}
         ref={mergeRefs([tabRef, ref])}
@@ -47,7 +49,7 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
   }
 );
 
-Tab.displayName = 'Tab';
+Tab.displayName = 'Tabs.Tab';
 
 Tab.propTypes = {
   disabled: PropTypes.bool,

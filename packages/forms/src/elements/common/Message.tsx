@@ -21,6 +21,8 @@ import {
 } from '../../styled';
 
 /**
+ * @deprecated use `Field.Message` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
@@ -75,7 +77,7 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
   }
 );
 
-Message.displayName = 'Message';
+Message.displayName = 'Field.Message';
 
 Message.propTypes = {
   validation: PropTypes.oneOf(VALIDATION),

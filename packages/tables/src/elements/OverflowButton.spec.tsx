@@ -6,50 +6,14 @@
  */
 
 import React from 'react';
-import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
 import { OverflowButton } from './OverflowButton';
-import { PALETTE } from '@zendeskgarden/react-theming';
 
 describe('OverflowButton', () => {
-  const user = userEvent.setup();
-
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLButtonElement>();
     const { container } = render(<OverflowButton ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
-  });
-
-  it('applies isHovered styling', () => {
-    const { container } = render(<OverflowButton isHovered />);
-
-    expect(container.firstElementChild).toHaveStyleRule('color', PALETTE.grey[700]);
-  });
-
-  it('applies isActive styling', () => {
-    const { container } = render(<OverflowButton isActive />);
-
-    expect(container.firstElementChild).toHaveStyleRule('z-index', '1');
-    expect(container.firstElementChild).toHaveStyleRule('color', PALETTE.grey[800]);
-  });
-
-  describe('onFocus', () => {
-    it('applies focused state', async () => {
-      const { container } = render(<OverflowButton />);
-
-      await user.click(container.firstElementChild!);
-      expect(container.firstElementChild).toHaveStyleRule('box-shadow');
-    });
-  });
-
-  describe('onBlur', () => {
-    it('removes focused state', async () => {
-      const { container } = render(<OverflowButton />);
-
-      await user.click(container.firstElementChild!);
-      await user.tab();
-      expect(container.firstElementChild).not.toHaveStyleRule('box-shadow');
-    });
   });
 });

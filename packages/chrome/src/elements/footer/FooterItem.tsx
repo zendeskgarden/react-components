@@ -9,10 +9,12 @@ import React, { HTMLAttributes } from 'react';
 import { StyledFooterItem } from '../../styled';
 
 /**
+ * @deprecated use `Footer.Item` instead
+ *
  * @extends HTMLAttributes<HTMLElement>
  */
 export const FooterItem = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => <StyledFooterItem ref={ref} {...props} />
 );
 
-FooterItem.displayName = 'FooterItem';
+FooterItem.displayName = 'Footer.Item';

@@ -8,17 +8,26 @@
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { StyledClose } from './StyledClose';
+import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 describe('StyledClose', () => {
   it('renders default styling', () => {
-    const { container } = render(<StyledClose />);
+    const { container } = render(
+      <StyledClose>
+        <XStrokeIcon />
+      </StyledClose>
+    );
 
     expect(container.firstChild).toHaveStyleRule('top', '10px');
     expect(container.firstChild).toHaveStyleRule('right', '26px');
   });
 
   it('renders RTL styling if provided', () => {
-    const { container } = renderRtl(<StyledClose />);
+    const { container } = renderRtl(
+      <StyledClose>
+        <XStrokeIcon />
+      </StyledClose>
+    );
 
     expect(container.firstChild).toHaveStyleRule('top', '10px');
     expect(container.firstChild).toHaveStyleRule('left', '26px');

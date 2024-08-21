@@ -10,8 +10,8 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColorV8,
-  getLineHeight
+  getLineHeight,
+  getColor
 } from '@zendeskgarden/react-theming';
 import { Validation } from '../../types';
 import { StyledMessageIcon } from './StyledMessageIcon';
@@ -21,29 +21,48 @@ export interface IStyledMessageProps {
   validation?: Validation;
 }
 
-const validationStyles = (props: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
-  const rtl = props.theme.rtl;
-  const padding = math(`${props.theme.space.base} * 2px + ${props.theme.iconSizes.md}`);
-  let color;
+const COMPONENT_ID = 'forms.input_message';
 
-  if (props.validation === 'error') {
-    color = getColorV8('dangerHue', 600, props.theme);
-  } else if (props.validation === 'success') {
-    color = getColorV8('successHue', 600, props.theme);
-  } else if (props.validation === 'warning') {
-    color = getColorV8('warningHue', 700, props.theme);
+const colorStyles = ({ theme, validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
+  let variable;
+
+  if (validation === 'error') {
+    variable = 'foreground.danger';
+  } else if (validation === 'success') {
+    variable = 'foreground.success';
+  } else if (validation === 'warning') {
+    variable = 'foreground.warning';
   } else {
-    color = getColorV8('neutralHue', 700, props.theme);
+    variable = 'foreground.subtle';
   }
 
+  const foregroundColor = getColor({ theme, variable });
+
   return css`
-    /* stylelint-disable-next-line property-no-unknown */
-    padding-${rtl ? 'right' : 'left'}: ${props.validation && padding};
-    color: ${color};
+    color: ${foregroundColor};
   `;
 };
 
-const COMPONENT_ID = 'forms.input_message';
+const sizeStyles = ({ theme, validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
+  const fontSize = theme.fontSizes.sm;
+  const lineHeight = getLineHeight(theme.iconSizes.md, theme.fontSizes.sm);
+  const marginTop = `${theme.space.base}px`;
+  const paddingHorizontal = validation
+    ? math(`${theme.space.base * 2} + ${theme.iconSizes.md}`)
+    : undefined;
+
+  return css`
+    /* stylelint-disable-next-line property-no-unknown */
+    padding-${theme.rtl ? 'right' : 'left'}: ${paddingHorizontal};
+    line-height: ${lineHeight};
+    font-size: ${fontSize};
+
+    /* stylelint-disable-next-line */
+    ${StyledLabel}:not([hidden]) + & {
+      margin-top: ${marginTop};
+    }
+  `;
+};
 
 export const StyledMessage = styled.div.attrs(props => ({
   'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
@@ -53,10 +72,10 @@ export const StyledMessage = styled.div.attrs(props => ({
   display: inline-block;
   position: relative;
   vertical-align: middle; /* support message inline with input layout */
-  line-height: ${props => getLineHeight(props.theme.iconSizes.md, props.theme.fontSizes.sm)};
-  font-size: ${props => props.theme.fontSizes.sm};
 
-  ${props => validationStyles(props)};
+  ${sizeStyles};
+
+  ${colorStyles};
 
   & ${StyledMessageIcon} {
     position: absolute;
@@ -67,7 +86,6 @@ export const StyledMessage = styled.div.attrs(props => ({
   /* stylelint-disable-next-line */
   ${StyledLabel}:not([hidden]) + & {
     display: block;
-    margin-top: ${props => math(`${props.theme.space.base} * 1px`)};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

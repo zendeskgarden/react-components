@@ -5,13 +5,33 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { getFooterHeight } from '../utils';
 
 const COMPONENT_ID = 'chrome.footer';
 
-export const getFooterHeight = (props: ThemeProps<DefaultTheme>) => {
-  return `${props.theme.space.base * 20}px`;
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const backgroundColor = getColor({ theme, variable: 'background.default' });
+  const borderColor = getColor({ theme, variable: 'border.default' });
+
+  return css`
+    border-top-color: ${borderColor};
+    background-color: ${backgroundColor};
+  `;
+};
+
+const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const border = theme.borders.sm;
+  const padding = `0 ${theme.space.base * 9}px`;
+  const height = getFooterHeight(theme);
+
+  return css`
+    box-sizing: border-box;
+    border-top: ${border};
+    padding: ${padding};
+    height: ${height};
+  `;
 };
 
 export const StyledFooter = styled.footer.attrs({
@@ -21,11 +41,10 @@ export const StyledFooter = styled.footer.attrs({
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  box-sizing: border-box;
-  border-top: ${props => `${props.theme.borders.sm} ${getColorV8('neutralHue', 300, props.theme)}`};
-  background-color: ${props => getColorV8('background', 600 /* default shade */, props.theme)};
-  padding: 0 ${props => props.theme.space.base * 9}px;
-  height: ${getFooterHeight};
+
+  ${sizeStyles};
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

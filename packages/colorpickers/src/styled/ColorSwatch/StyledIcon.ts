@@ -5,49 +5,29 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { parseToRgb, readableColor } from 'polished';
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
-import React, { Children } from 'react';
-import { IRGBColor } from '../../types';
+import styled from 'styled-components';
+import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledColorSwatchInput } from './StyledColorSwatchInput';
 
 const COMPONENT_ID = 'colorpickers.colorswatch_check';
 
-interface IStyledCheckIcon {
-  color: string;
-}
-
-const colorStyles = (props: IStyledCheckIcon & ThemeProps<DefaultTheme>) => {
-  const { theme, color } = props;
-  const { alpha } = parseToRgb(color) as IRGBColor;
-  let checkColor = readableColor(
-    color,
-    getColorV8('foreground', 600 /* default shade */, theme),
-    getColorV8('background', 600 /* default shade */, theme)
-  );
-
-  if (alpha !== undefined && alpha < 0.4) {
-    checkColor = getColorV8('foreground', 600 /* default shade */, theme)!;
-  }
-
-  return `
-    color: ${checkColor}
-  `;
-};
-
-/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-export const StyledIcon = styled(({ children, color, theme, ...props }) =>
-  React.cloneElement(Children.only(children), props)
-).attrs({
+export const StyledIcon = styled(CheckIcon as 'svg').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  position: absolute;
+  top: 0;
+  left: 0;
   transition: opacity 0.2s ease-in-out;
-  opacity: ${props => (props.selected ? 1 : 0)};
-  width: ${props => props.theme.space.base * 5}px;
-  height: ${props => props.theme.space.base * 5}px;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
 
-  ${colorStyles}
+  ${StyledColorSwatchInput}:checked ~ & {
+    opacity: 1;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

@@ -10,6 +10,26 @@ import { render } from 'garden-test-utils';
 import { Anchor } from './Anchor';
 
 describe('Anchor', () => {
+  it('is rendered as an anchor', () => {
+    const { container } = render(<Anchor />);
+
+    expect(container.firstChild!.nodeName).toBe('A');
+  });
+
+  describe('Styling', () => {
+    it('renders underlined by default', () => {
+      const { container } = render(<Anchor />);
+
+      expect(container.firstChild).toHaveStyleRule('text-decoration', 'underline');
+    });
+
+    it('can render with the underline removed', () => {
+      const { container } = render(<Anchor isUnderlined={false} />);
+
+      expect(container.firstChild).toHaveStyleRule('text-decoration', 'none');
+    });
+  });
+
   describe('External', () => {
     it('renders an SVG icon with default alt text', () => {
       const { getByTestId } = render(<Anchor isExternal data-test-id="external-link" />);

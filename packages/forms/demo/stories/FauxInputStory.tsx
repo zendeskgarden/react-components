@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import { FauxInput, IFauxInputProps } from '@zendeskgarden/react-forms';
@@ -19,7 +19,7 @@ interface IArgs extends IFauxInputProps, IFieldArgs {
   isEndIconRotated: boolean;
 }
 
-export const FauxInputStory: Story<IArgs> = ({
+export const FauxInputStory: StoryFn<IArgs> = ({
   hasStartIcon,
   hasEndIcon,
   isStartIconRotated,

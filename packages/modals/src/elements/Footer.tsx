@@ -10,6 +10,8 @@ import { StyledFooter } from '../styled';
 import { useModalContext } from '../utils/useModalContext';
 
 /**
+ * @deprecated use `Modal.Footer` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Footer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
@@ -20,4 +22,4 @@ export const Footer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTML
   }
 );
 
-Footer.displayName = 'Footer';
+Footer.displayName = 'Modal.Footer';

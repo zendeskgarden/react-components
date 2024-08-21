@@ -11,11 +11,6 @@ import { StyledTimelineItem } from '../../../styled';
 import { TimelineItemContext, useTimelineContext } from '../../../utils';
 import { ITimelineItemProps } from '../../../types';
 
-/**
- * @deprecated use ITimelineItemProps instead
- */
-export type IItem = ITimelineItemProps;
-
 const ItemComponent = forwardRef<HTMLLIElement, ITimelineItemProps>(
   ({ icon, surfaceColor, ...props }, ref) => {
     const value = useMemo(() => ({ icon, surfaceColor }), [icon, surfaceColor]);
@@ -34,8 +29,8 @@ const ItemComponent = forwardRef<HTMLLIElement, ITimelineItemProps>(
       <TimelineItemContext.Provider value={value}>
         <StyledTimelineItem
           ref={ref}
-          isAlternate={isAlternate}
-          hasOppositeContent={hasOppositeContent}
+          $isAlternate={isAlternate}
+          $hasOppositeContent={hasOppositeContent}
           {...props}
         />
       </TimelineItemContext.Provider>

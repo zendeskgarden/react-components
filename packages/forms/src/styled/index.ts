@@ -83,10 +83,6 @@ export * from './select/StyledSelectWrapper';
  * Range styles
  */
 export * from './range/StyledRangeInput';
-export * from './range/StyledSlider';
-export * from './range/StyledSliderThumb';
-export * from './range/StyledSliderTrack';
-export * from './range/StyledSliderTrackRail';
 
 /**
  * Tile styles

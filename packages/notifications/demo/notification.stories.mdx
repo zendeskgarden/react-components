@@ -1,12 +1,16 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import { Notification, Close, Paragraph, Title } from '@zendeskgarden/react-notifications';
+import { Notification } from '@zendeskgarden/react-notifications';
 import { NotificationStory } from './stories/NotificationStory';
 import README from '../README.md';
 
 <Meta
   title="Packages/Notifications/Notification"
   component={Notification}
-  subcomponents={{ Close, Paragraph, Title }}
+  subcomponents={{
+    'Notification.Close': Notification.Close,
+    'Notification.Paragraph': Notification.Paragraph,
+    'Notification.Title': Notification.Title
+  }}
 />
 
 # API
@@ -26,11 +30,11 @@ import README from '../README.md';
       'aria-label': 'Close'
     }}
     argTypes={{
-      title: { name: 'children', table: { category: 'Title' } },
-      isRegular: { control: { type: 'boolean' }, table: { category: 'Title' } },
-      hasClose: { name: 'Close', table: { category: 'Story' } },
-      hasParagraph: { name: 'Paragraph', table: { category: 'Story' } },
-      'aria-label': { table: { category: 'Close' } }
+      title: { name: 'children', table: { category: 'Notification.Title' } },
+      isRegular: { control: { type: 'boolean' }, table: { category: 'Notification.Title' } },
+      hasClose: { name: 'Notification.Close', table: { category: 'Story' } },
+      hasParagraph: { name: 'Notification.Paragraph', table: { category: 'Story' } },
+      'aria-label': { table: { category: 'Notification.Close' } }
     }}
     parameters={{
       design: {

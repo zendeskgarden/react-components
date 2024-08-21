@@ -7,142 +7,95 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColorV8,
   DEFAULT_THEME,
   retrieveComponentStyles,
-  focusStyles
+  focusStyles,
+  getColor
 } from '@zendeskgarden/react-theming';
-import { StyledTileIcon } from './StyledTileIcon';
 
 const COMPONENT_ID = 'forms.tile';
 
-interface IStyledTileProps {
-  isDisabled?: boolean;
-  isFocused?: boolean;
-  isSelected?: boolean;
-}
-
-const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
-  const SHADE = 600;
-
-  const iconColor = getColorV8('neutralHue', SHADE, props.theme);
-  const color = getColorV8('neutralHue', SHADE + 200, props.theme);
-  const borderColor = getColorV8('neutralHue', SHADE - 300, props.theme);
-  const hoverBackgroundColor = getColorV8('primaryHue', SHADE, props.theme, 0.08);
-  const hoverBorderColor = getColorV8('primaryHue', SHADE, props.theme);
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
+  const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
+  const backgroundColor = getColor({ theme, variable: 'background.default' });
+  const borderColor = getColor({ theme, variable: 'border.default', ...offset100 });
+  const foregroundColor = getColor({ theme, variable: 'foreground.default' });
+  const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
+  const hoverBackgroundColor = getColor({ ...backgroundOptions, transparency: theme.opacity[100] });
+  const hoverBorderColor = getColor({ theme, variable: 'border.primaryEmphasis' });
+  const activeBackgroundColor = getColor({
+    ...backgroundOptions,
+    transparency: theme.opacity[200]
+  });
   const focusBorderColor = hoverBorderColor;
-  const activeBackgroundColor = getColorV8('primaryHue', SHADE, props.theme, 0.2);
-  const activeBorderColor = focusBorderColor;
-  const disabledBackgroundColor = getColorV8('neutralHue', SHADE - 500, props.theme);
-  const disabledBorderColor = getColorV8('neutralHue', SHADE - 400, props.theme);
-  const disabledColor = getColorV8('neutralHue', SHADE - 200, props.theme);
-  const selectedBorderColor = focusBorderColor;
-  const selectedBackgroundColor = selectedBorderColor;
-  const selectedHoverBorderColor = getColorV8('primaryHue', SHADE + 100, props.theme);
-  const selectedHoverBackgroundColor = selectedHoverBorderColor;
-  const selectedActiveBorderColor = getColorV8('primaryHue', SHADE + 200, props.theme);
-  const selectedActiveBackgroundColor = selectedActiveBorderColor;
-  const selectedDisabledBackgroundColor = disabledBorderColor;
+  const activeBorderColor = hoverBorderColor;
+  const checkedBackgroundColor = getColor(backgroundOptions);
+  const checkedForegroundColor = getColor({ theme, variable: 'foreground.onEmphasis' });
+  const checkedHoverBackgroundColor = getColor({ ...backgroundOptions, ...offset100 });
+  const checkedActiveBackgroundColor = getColor({ ...backgroundOptions, ...offset200 });
+  const disabledBackgroundColor = getColor({ theme, variable: 'background.disabled' });
+  const disabledBorderColor = getColor({ theme, variable: 'border.disabled' });
+  const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
-    border: ${props.theme.borders.sm} ${getColorV8('neutralHue', SHADE - 300, props.theme)};
     border-color: ${borderColor};
-    background-color: ${getColorV8('background', 600 /* default shade */, props.theme)};
-    color: ${color};
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
 
-    ${StyledTileIcon} {
-      color: ${iconColor};
-    }
-
-    &:hover:not([aria-disabled='true']) {
+    &:hover {
       border-color: ${hoverBorderColor};
       background-color: ${hoverBackgroundColor};
-
-      /* stylelint-disable-next-line selector-max-specificity */
-      ${StyledTileIcon} {
-        color: ${color};
-      }
     }
 
     ${focusStyles({
-      theme: props.theme,
-      hue: focusBorderColor,
-      styles: {
-        borderColor: focusBorderColor
-      },
-      selector: `&:focus-within`
-    })}
+      theme,
+      selector: '&:has(:focus-visible)',
+      styles: { borderColor: focusBorderColor }
+    })};
 
-    &:active:not([aria-disabled='true']) {
+    &:active {
       border-color: ${activeBorderColor};
       background-color: ${activeBackgroundColor};
-
-      /* stylelint-disable-next-line selector-max-specificity */
-      ${StyledTileIcon} {
-        color: ${color};
-      }
     }
 
-    &[data-garden-selected='true'] {
-      border-color: ${selectedBorderColor};
-      background-color: ${selectedBackgroundColor};
-      color: ${getColorV8('background', 600 /* default shade */, props.theme)};
-
-      ${StyledTileIcon} {
-        color: ${getColorV8('background', 600 /* default shade */, props.theme)};
-      }
+    &:has(:checked) {
+      border-color: transparent;
+      background-color: ${checkedBackgroundColor};
+      color: ${checkedForegroundColor};
     }
 
-    /* stylelint-disable selector-max-specificity */
-    &[data-garden-selected='true']:not([aria-disabled='true']):hover {
-      border-color: ${selectedHoverBorderColor};
-      background-color: ${selectedHoverBackgroundColor};
-      color: ${getColorV8('background', 600 /* default shade */, props.theme)};
-
-      ${StyledTileIcon} {
-        color: ${getColorV8('background', 600 /* default shade */, props.theme)};
-      }
+    &:hover:has(:checked) {
+      background-color: ${checkedHoverBackgroundColor};
     }
 
-    &[data-garden-selected='true']:not([aria-disabled='true']):active {
-      border-color: ${selectedActiveBorderColor};
-      background-color: ${selectedActiveBackgroundColor};
-      color: ${getColorV8('background', 600 /* default shade */, props.theme)};
-
-      ${StyledTileIcon} {
-        color: ${getColorV8('background', 600 /* default shade */, props.theme)};
-      }
+    &:active:has(:checked) {
+      background-color: ${checkedActiveBackgroundColor};
     }
-    /* stylelint-enable selector-max-specificity */
 
     &[aria-disabled='true'] {
       border-color: ${disabledBorderColor};
       background-color: ${disabledBackgroundColor};
-      color: ${disabledColor};
-
-      /* stylelint-disable-next-line selector-max-specificity */
-      ${StyledTileIcon} {
-        color: ${disabledColor};
-      }
-    }
-
-    &[data-garden-selected='true'][aria-disabled='true'] {
-      background-color: ${selectedDisabledBackgroundColor};
-      color: ${disabledColor};
-
-      /* stylelint-disable-next-line selector-max-specificity */
-      ${StyledTileIcon} {
-        color: ${disabledColor};
-      }
+      color: ${disabledForegroundColor};
     }
   `;
 };
 
-export const StyledTile = styled.label.attrs<IStyledTileProps>(props => ({
+const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const border = theme.borders.sm;
+  const padding = `${theme.space.base * 5}px`;
+
+  return css`
+    border: ${border};
+    padding: ${padding};
+    min-width: 132px;
+  `;
+};
+
+export const StyledTile = styled.label.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'data-garden-selected': props.isSelected
-}))<IStyledTileProps>`
+  'data-garden-version': PACKAGE_VERSION
+})`
   display: block;
   position: relative;
   /* prettier-ignore */
@@ -152,13 +105,12 @@ export const StyledTile = styled.label.attrs<IStyledTileProps>(props => ({
     background-color .25s ease-in-out,
     color .25s ease-in-out;
   border-radius: ${props => props.theme.borderRadii.md};
-  cursor: ${props => !props.isDisabled && 'pointer'};
-  padding: ${props => props.theme.space.base * 5}px;
   direction: ${props => props.theme.rtl && 'rtl'};
-  min-width: 132px;
   word-break: break-word;
 
-  ${props => colorStyles(props)};
+  ${sizeStyles};
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -50,4 +50,12 @@ describe('SplitterButton', () => {
 
     expect(getByLabelText('toggle a').querySelector('svg')).toBeDefined();
   });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', () => {
+      const { getByLabelText } = render(<UncontrolledTestSplitter />);
+
+      expect(getByLabelText('toggle a')).toHaveAttribute('data-garden-id', 'buttons.icon_button');
+    });
+  });
 });

@@ -6,10 +6,9 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import IconUser from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 import IconSystem from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
-import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
 
 import { TYPE } from './types';
@@ -18,10 +17,17 @@ interface IArgs extends IAvatarProps {
   type: TYPE;
 }
 
-export const AvatarStory: Story<IArgs> = ({ children, type, ...args }) => (
+export const AvatarStory: StoryFn<IArgs> = ({
+  children,
+  type,
+  backgroundColor,
+  foregroundColor,
+  ...args
+}) => (
   <Avatar
     {...args}
-    backgroundColor={args.backgroundColor || (type === 'image' ? undefined : PALETTE.kale[800])}
+    backgroundColor={backgroundColor || (type === 'image' ? undefined : 'background.emphasis')}
+    foregroundColor={foregroundColor || (type === 'image' ? undefined : 'foreground.onEmphasis')}
   >
     {
       {

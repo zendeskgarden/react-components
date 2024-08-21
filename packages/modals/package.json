@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-modals",
-  "version": "8.76.4",
+  "version": "9.0.0-next.22",
   "description": "Components relating to modals in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -21,26 +21,25 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@popperjs/core": "^2.4.4",
-    "@zendeskgarden/container-focusvisible": "^2.0.3",
+    "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-modal": "^1.0.15",
     "@zendeskgarden/container-utilities": "^2.0.0",
+    "@zendeskgarden/react-buttons": "^9.0.0-next.22",
     "dom-helpers": "^5.1.0",
     "prop-types": "^15.5.7",
-    "react-merge-refs": "^1.1.0",
-    "react-popper": "^2.2.3",
+    "react-merge-refs": "^2.0.0",
     "react-transition-group": "^4.4.2"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-theming": "^8.75.0",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "styled-components": "^4.2.0 || ^5.0.0"
+    "@zendeskgarden/react-theming": ">=9.0.0-next",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
-    "@types/react-transition-group": "4.4.10",
-    "@zendeskgarden/react-theming": "^8.76.4",
-    "@zendeskgarden/svg-icons": "7.1.1"
+    "@types/react-transition-group": "4.4.11",
+    "@zendeskgarden/react-theming": "^9.0.0-next.22",
+    "@zendeskgarden/svg-icons": "7.2.0"
   },
   "keywords": [
     "components",

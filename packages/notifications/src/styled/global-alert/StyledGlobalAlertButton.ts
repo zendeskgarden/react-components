@@ -7,72 +7,97 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  getColorV8,
+  getColor,
   DEFAULT_THEME,
+  focusStyles,
   retrieveComponentStyles,
-  focusStyles
+  ColorParameters
 } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
 import { IGlobalAlertProps } from '../../types';
 import { colorStyles as basicColorStyles } from './StyledGlobalAlertClose';
 
-const COMPONENT_ID = 'notifications.global-alert.button';
+const COMPONENT_ID = 'notifications.global_alert.button';
 
 interface IStyledGlobalAlertButtonProps {
-  alertType: IGlobalAlertProps['type'];
+  $alertType: IGlobalAlertProps['type'];
   isBasic?: boolean;
 }
 
-function colorStyles(props: ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonProps) {
-  if (props.isBasic) {
+type OffsetOptions = Record<string, ColorParameters['offset']>;
+
+function colorStyles(
+  props: IStyledGlobalAlertButtonProps & ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonProps
+) {
+  const { $alertType, isBasic, theme } = props;
+
+  if (isBasic) {
     return basicColorStyles(props);
   }
 
-  let backgroundColor;
-  let hoverBackgroundColor;
-  let activeBackgroundColor;
-  let focusColor;
+  let bgVariable;
+  let offsetOptions: OffsetOptions;
+  let offsetHoverOptions: OffsetOptions;
+  let offsetActiveOptions: OffsetOptions;
+  let focusVariable;
 
-  switch (props.alertType) {
+  switch ($alertType) {
     case 'success':
-      backgroundColor = getColorV8('successHue', 800, props.theme);
-      hoverBackgroundColor = getColorV8('successHue', 900, props.theme);
-      activeBackgroundColor = getColorV8('successHue', 1000, props.theme);
-      focusColor = 'successHue';
+      bgVariable = 'background.successEmphasis';
+      offsetOptions = { offset: 200 };
+      offsetHoverOptions = { offset: 300 };
+      offsetActiveOptions = { offset: 400 };
+      focusVariable = 'foreground.successEmphasis';
       break;
-
     case 'error':
-      backgroundColor = getColorV8('dangerHue', 800, props.theme);
-      hoverBackgroundColor = getColorV8('dangerHue', 900, props.theme);
-      activeBackgroundColor = getColorV8('dangerHue', 1000, props.theme);
-      focusColor = 'dangerHue';
+      bgVariable = 'background.dangerEmphasis';
+      offsetOptions = { offset: 200 };
+      offsetHoverOptions = { offset: 300 };
+      offsetActiveOptions = { offset: 400 };
+      focusVariable = 'foreground.dangerEmphasis';
       break;
-
     case 'warning':
-      backgroundColor = getColorV8('warningHue', 800, props.theme);
-      hoverBackgroundColor = getColorV8('warningHue', 900, props.theme);
-      activeBackgroundColor = getColorV8('warningHue', 1000, props.theme);
-      focusColor = 'warningHue';
+      bgVariable = 'background.warningEmphasis';
+      offsetOptions = {};
+      offsetHoverOptions = { offset: 100 };
+      offsetActiveOptions = { offset: 200 };
+      focusVariable = 'foreground.warning';
       break;
-
     case 'info':
-      focusColor = 'primaryHue';
+      bgVariable = 'background.primaryEmphasis';
+      offsetOptions = {};
+      offsetHoverOptions = { offset: 100 };
+      offsetActiveOptions = { offset: 200 };
+      focusVariable = 'foreground.primary';
       break;
   }
 
+  const backgroundColor = getColor({
+    variable: bgVariable,
+    ...offsetOptions,
+    theme
+  });
+  const hoverBackgroundColor = getColor({
+    variable: bgVariable,
+    ...offsetHoverOptions,
+    theme
+  });
+  const activeBackgroundColor = getColor({
+    variable: bgVariable,
+    ...offsetActiveOptions,
+    theme
+  });
+
   return css`
     background-color: ${backgroundColor};
+    color: ${getColor({ hue: 'white', theme })};
 
     &:hover {
       background-color: ${hoverBackgroundColor};
     }
 
-    ${focusStyles({
-      theme: props.theme,
-      hue: focusColor,
-      shade: props.alertType === 'info' ? 600 : 800
-    })}
+    ${focusStyles({ theme, color: { variable: focusVariable } })}
 
     &:active {
       background-color: ${activeBackgroundColor};
@@ -93,18 +118,12 @@ function sizeStyles(props: ThemeProps<DefaultTheme>) {
 
 export const StyledGlobalAlertButton = styled(Button).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  focusInset: false,
-  isDanger: false,
-  isLink: false,
-  isNeutral: false,
-  isPill: false,
-  isStretched: false,
-  size: 'small'
+  'data-garden-version': PACKAGE_VERSION
 })`
   flex-shrink: 0;
 
   ${sizeStyles};
+
   ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

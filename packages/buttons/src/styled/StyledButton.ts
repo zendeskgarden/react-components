@@ -6,22 +6,26 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { em, math, rgba } from 'polished';
+import { em, math } from 'polished';
 import {
   DEFAULT_THEME,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
-  getColorV8,
+  getColor,
   getFocusBoxShadow,
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
 import { IButtonProps } from '../types';
-import { StyledButtonGroup } from './StyledButtonGroup';
+import { StyledSplitButton } from './StyledSplitButton';
 import { StyledIcon } from './StyledIcon';
 
-const COMPONENT_ID = 'buttons.button';
+export const COMPONENT_ID = 'buttons.button';
 
-const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+export interface IStyledButtonProps extends IButtonProps {
+  $isUnderlined?: boolean;
+}
+
+const getBorderRadius = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.isPill) {
     return '100px';
   }
@@ -29,11 +33,7 @@ const getBorderRadius = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   return props.theme.borderRadii.md;
 };
 
-const getDisabledBackgroundColor = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  return getColorV8('neutralHue', 200, props.theme);
-};
-
-export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+export const getHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.size === 'small') {
     return `${props.theme.space.base * 8}px`;
   } else if (props.size === 'large') {
@@ -49,91 +49,104 @@ export const getHeight = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
  * 3. shifting :focus-visible from LVHFA order to preserve `color` on hover
  * 4. set default outline-color for smooth transition without artifacts
  */
-const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({
+  theme,
+  isLink,
+  isBasic,
+  isDanger,
+  isNeutral,
+  isPrimary,
+  focusInset
+}: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
-  let hue;
+  const disabledBackgroundColor = getColor({ theme, variable: 'background.disabled' });
+  const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
+  const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
+  const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
 
-  if (
-    props.disabled ||
-    (props.isNeutral && (props.isPrimary || props.isSelected) && !props.isDanger)
-  ) {
-    hue = 'neutralHue';
-  } else if (props.isDanger) {
-    hue = 'dangerHue';
-  } else {
-    hue = 'primaryHue';
-  }
+  if (isLink) {
+    /*
+     * Anchor / link button styling
+     */
+    const options = { theme, variable: isDanger ? 'foreground.danger' : 'foreground.primary' };
+    const foregroundColor = getColor(options);
+    const hoverForegroundColor = getColor({ ...options, ...offset100 });
+    const activeForegroundColor = getColor({ ...options, ...offset200 });
+    const focusOutlineColor = getColor({ theme, variable: 'border.primaryEmphasis' });
 
-  const shade = 600;
-  const baseColor = getColorV8(hue, shade, props.theme);
-  const hoverColor = getColorV8(hue, shade + 100, props.theme);
-  const activeColor = getColorV8(hue, shade + 200, props.theme);
-  const focusColor = getColorV8('primaryHue', shade, props.theme);
-  const disabledBackgroundColor = getDisabledBackgroundColor(props);
-  const disabledForegroundColor = getColorV8(hue, shade - 200, props.theme);
-
-  if (props.isLink) {
     retVal = css`
       outline-color: transparent; /* [4] */
       background-color: transparent;
-      color: ${baseColor};
+      color: ${foregroundColor};
 
       ${focusStyles({
-        theme: props.theme,
+        theme,
         condition: false,
         styles: {
-          /* [1] */
-          color: baseColor,
-          /* [2] */
-          outlineColor: focusColor
+          color: foregroundColor /* [1] */,
+          outlineColor: focusOutlineColor /* [2] */
         }
       })}
 
       /* [3] */
       &:hover {
-        color: ${hoverColor};
+        color: ${hoverForegroundColor};
       }
 
       &:active,
       &[aria-pressed='true'],
       &[aria-pressed='mixed'] {
-        color: ${activeColor};
+        color: ${activeForegroundColor};
       }
 
       &:disabled {
         color: ${disabledForegroundColor};
       }
     `;
-  } else if (props.isPrimary || props.isSelected) {
+  } else if (isPrimary) {
+    /*
+     * Primary button styling
+     */
+    let backgroundVariable;
+
+    if (isDanger) {
+      backgroundVariable = 'background.dangerEmphasis';
+    } else if (isNeutral) {
+      backgroundVariable = 'background.emphasis';
+    } else {
+      backgroundVariable = 'background.primaryEmphasis';
+    }
+
+    const options = { theme, variable: backgroundVariable };
+    const backgroundColor = getColor(options);
+    const hoverBackgroundColor = getColor({ ...options, ...offset100 });
+    const activeBackgroundColor = getColor({ ...options, ...offset200 });
+    const foregroundColor = getColor({ theme, variable: 'foreground.onEmphasis' });
+
     retVal = css`
       outline-color: transparent; /* [4] */
-      background-color: ${props.isPrimary && props.isSelected ? activeColor : baseColor};
-      color: ${props.theme.palette.white};
+      background-color: ${backgroundColor};
+      color: ${foregroundColor};
 
       &:hover {
-        background-color: ${hoverColor};
+        background-color: ${hoverBackgroundColor};
       }
 
       ${focusStyles({
-        theme: props.theme,
-        inset: props.focusInset,
-        shadowWidth: props.focusInset ? 'sm' : 'md',
-        spacerWidth: props.focusInset ? 'sm' : 'xs',
+        theme,
+        inset: focusInset,
+        shadowWidth: focusInset ? 'sm' : 'md',
+        spacerWidth: focusInset ? 'sm' : 'xs',
         styles:
-          props.isDanger && props.focusInset
-            ? {
-                borderColor: focusColor
-              }
+          (isDanger || isNeutral) && focusInset
+            ? { borderColor: getColor({ theme, variable: 'border.primaryEmphasis' }) }
             : undefined
       })}
 
-      &:active {
-        background-color: ${activeColor};
-      }
-
+      &:active,
       &[aria-pressed='true'],
       &[aria-pressed='mixed'] {
-        background-color: ${props.isPrimary && activeColor};
+        background-color: ${activeBackgroundColor};
       }
 
       &:disabled {
@@ -142,38 +155,104 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
       }
     `;
   } else {
-    const borderColor =
-      props.isNeutral && !props.isDanger ? getColorV8('neutralHue', 300, props.theme) : baseColor;
-    const foregroundColor = props.isNeutral
-      ? getColorV8('foreground', 600 /* default shade */, props.theme)
-      : baseColor;
-    const hoverBorderColor = props.isNeutral && !props.isDanger ? baseColor : hoverColor;
-    const hoverForegroundColor = props.isNeutral ? foregroundColor : hoverColor;
+    /*
+     * Default button styling
+     */
+    let borderColor;
+    let hoverBorderColor;
+    let activeBorderColor;
+    let focusBorderColor;
+    let backgroundVariable;
+    let foregroundVariable;
+
+    if (isDanger) {
+      if (!isBasic) {
+        const borderOptions = { theme, variable: 'border.dangerEmphasis' };
+
+        borderColor = getColor(borderOptions);
+        hoverBorderColor = getColor({ ...borderOptions, ...offset100 });
+        activeBorderColor = getColor({ ...borderOptions, ...offset200 });
+
+        if (isNeutral) {
+          focusBorderColor = getColor(borderOptions);
+        }
+      }
+
+      backgroundVariable = 'background.dangerEmphasis';
+      foregroundVariable = isNeutral ? 'foreground.default' : 'foreground.danger';
+    } else {
+      if (!isBasic) {
+        const borderOptions = { theme, variable: 'border.primaryEmphasis' };
+
+        if (isNeutral) {
+          borderColor = getColor({ theme, variable: 'border.default', ...offset100 });
+          hoverBorderColor = getColor(borderOptions);
+          focusBorderColor = hoverBorderColor;
+          activeBorderColor = getColor({ ...borderOptions, ...offset100 });
+        } else {
+          borderColor = getColor(borderOptions);
+          hoverBorderColor = getColor({ ...borderOptions, ...offset100 });
+          activeBorderColor = getColor({ ...borderOptions, ...offset200 });
+        }
+      }
+
+      backgroundVariable = 'background.primaryEmphasis';
+      foregroundVariable = isNeutral ? 'foreground.default' : 'foreground.primary';
+    }
+
+    const hoverBackgroundColor = getColor({
+      theme,
+      variable: backgroundVariable,
+      transparency: theme.opacity[100]
+    });
+    const activeBackgroundColor = getColor({
+      theme,
+      variable: backgroundVariable,
+      transparency: theme.opacity[200]
+    });
+    const foregroundOptions = { theme, variable: foregroundVariable };
+    const foregroundColor = getColor(foregroundOptions);
+    let hoverForegroundColor;
+    let activeForegroundColor;
+    let iconForegroundColor;
+    let hoverIconForegroundColor;
+    let activeIconForegroundColor;
+
+    if (isNeutral) {
+      const iconOptions = { theme, variable: 'foreground.subtle' };
+
+      iconForegroundColor = getColor(iconOptions);
+      hoverIconForegroundColor = getColor({ ...iconOptions, ...offset100 });
+      activeIconForegroundColor = getColor({ ...iconOptions, ...offset200 });
+    } else {
+      hoverForegroundColor = getColor({ ...foregroundOptions, ...offset100 });
+      activeForegroundColor = getColor({ ...foregroundOptions, ...offset200 });
+    }
 
     retVal = css`
       outline-color: transparent; /* [4] */
-      border-color: ${!props.isBasic && borderColor};
+      border-color: ${borderColor};
       background-color: transparent;
       color: ${foregroundColor};
 
       &:hover {
-        border-color: ${!props.isBasic && hoverBorderColor};
-        background-color: ${rgba(baseColor as string, 0.08)};
+        border-color: ${hoverBorderColor};
+        background-color: ${hoverBackgroundColor};
         color: ${hoverForegroundColor};
       }
 
       ${focusStyles({
-        theme: props.theme,
-        inset: props.focusInset,
-        styles: props.isNeutral ? { borderColor: baseColor } : undefined
+        theme,
+        inset: focusInset,
+        styles: { borderColor: focusBorderColor }
       })}
 
       &:active,
       &[aria-pressed='true'],
       &[aria-pressed='mixed'] {
-        border-color: ${!props.isBasic && activeColor};
-        background-color: ${rgba(baseColor as string, 0.2)};
-        color: ${!props.isNeutral && activeColor};
+        border-color: ${activeBorderColor};
+        background-color: ${activeBackgroundColor};
+        color: ${activeForegroundColor};
       }
 
       &:disabled {
@@ -182,19 +261,17 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
         color: ${disabledForegroundColor};
       }
 
+      /* prettier-ignore */
       & ${StyledIcon} {
-        color: ${props.isNeutral && getColorV8('neutralHue', shade, props.theme)};
+        color: ${iconForegroundColor};
       }
 
-      /* prettier-ignore */
-      &:hover ${StyledIcon},
-      &:focus-visible ${StyledIcon},
-      &[data-garden-focus-visible] ${StyledIcon} {
-        color: ${props.isNeutral && getColorV8('neutralHue', shade + 100, props.theme)};
+      &:hover ${StyledIcon}, &:focus-visible ${StyledIcon} {
+        color: ${hoverIconForegroundColor};
       }
 
       &:active ${StyledIcon} {
-        color: ${props.isNeutral && foregroundColor};
+        color: ${activeIconForegroundColor};
       }
 
       &:disabled ${StyledIcon} {
@@ -210,26 +287,31 @@ const colorStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
  * 1. Icon button override.
  * 2. reset icon button with border
  */
-const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
-  const { theme, isPrimary, isBasic, isSelected, isPill, focusInset } = props;
+const groupStyles = ({
+  theme,
+  isPrimary,
+  isBasic,
+  isPill,
+  focusInset
+}: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const { rtl, borderWidths, borders } = theme;
   const startPosition = rtl ? 'right' : 'left';
   const endPosition = rtl ? 'left' : 'right';
   const marginOffset = borderWidths.sm;
   const marginDisplacement = `${isPrimary || isBasic ? '' : '-'}${marginOffset}`;
   const iconMarginDisplacement = isPill && '-2px';
-  const disabledBackgroundColor = !isPrimary && getDisabledBackgroundColor(props);
+  const disabledBackgroundColor =
+    !isPrimary && getColor({ theme, variable: 'background.disabled' });
   const borderColor = isBasic ? 'transparent' : 'revert';
-  const focusColor = getColorV8('primaryHue', 600, theme);
+  const focusColor = getColor({ theme, variable: 'border.primaryEmphasis' });
   const focusBoxShadow =
     isBasic &&
-    !isSelected &&
     !isPrimary &&
     getFocusBoxShadow({
       theme,
       inset: focusInset,
-      spacerHue: focusColor,
-      hue: 'transparent'
+      spacerColor: { hue: focusColor },
+      color: { hue: 'transparent' }
     });
 
   return css`
@@ -299,7 +381,7 @@ const groupStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const size = props.size === 'small' ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
 
   return css`
@@ -310,7 +392,7 @@ const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
 
   if (props.isLink) {
@@ -348,16 +430,16 @@ const sizeStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   return retVal;
 };
 
-/**
- * 1. FF <input type="submit"> fix
- * 2. <a> element reset
+/*
+ * 1. <a> element reset
+ * 2. FF <input type="submit"> fix
  * 3. Shifting :focus-visible from LVHFA order to preserve `text-decoration` on hover
  */
-export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
+export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
+  'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: props.type || 'button'
-}))<IButtonProps>`
+}))<IStyledButtonProps>`
   display: ${props => (props.isLink ? 'inline' : 'inline-flex')};
   align-items: ${props => !props.isLink && 'center'};
   justify-content: ${props => !props.isLink && 'center'};
@@ -375,7 +457,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   cursor: pointer;
   width: ${props => (props.isStretched ? '100%' : '')};
   overflow: hidden;
-  text-decoration: none; /* <a> element reset */
+  text-decoration: ${props => (props.$isUnderlined ? 'underline' : 'none')}; /* [1] */
   text-overflow: ellipsis;
   white-space: ${props => !props.isLink && 'nowrap'};
   font-family: inherit; /* <button> & <input> override */
@@ -388,7 +470,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
   ${props => sizeStyles(props)};
 
   &::-moz-focus-inner {
-    /* [1] */
+    /* [2] */
     border: 0;
     padding: 0;
   }
@@ -429,7 +511,7 @@ export const StyledButton = styled.button.attrs<IButtonProps>(props => ({
     ${props => iconStyles(props)}
   }
 
-  ${StyledButtonGroup} && {
+  ${StyledSplitButton} && {
     ${props => groupStyles(props)}
   }
   /* stylelint-enable */

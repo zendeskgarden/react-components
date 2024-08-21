@@ -5,29 +5,34 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IItemProps, IMessageProps } from '@zendeskgarden/react-dropdowns';
+import {
+  IItemProps,
+  IItemGroupProps,
+  IOptGroupProps,
+  IOptionProps
+} from '@zendeskgarden/react-dropdowns';
 
-export type MENU_SEPARATOR = '---';
-
-export interface ICommonArgs {
-  label?: string;
-  isLabelRegular?: boolean;
-  isLabelHidden?: boolean;
-  hasHint?: boolean;
-  hint?: string;
-  hasMessage?: boolean;
-  message?: string;
-  validation?: IMessageProps['validation'];
-  validationLabel?: IMessageProps['validationLabel'];
-}
-
-export interface IMenuItem {
-  text: string;
-  value: IItemProps['value'];
-  type?: 'add' | 'header' | 'next' | 'previous';
-  disabled?: IItemProps['disabled'];
-  hasIcon?: boolean;
+export interface IOption extends Omit<IOptionProps, 'icon'> {
+  icon?: boolean;
   meta?: string;
 }
 
-export type ITEM = IMenuItem | MENU_SEPARATOR;
+export interface IOptGroup extends Omit<IOptGroupProps, 'icon'> {
+  icon?: boolean;
+  options: IOption[];
+}
+
+export interface IItem extends Omit<IItemProps, 'icon'> {
+  icon?: boolean;
+  meta?: string;
+  isSeparator?: boolean;
+}
+
+export interface IItemGroup extends Omit<IItemGroupProps, 'icon'> {
+  icon?: boolean;
+  items: IItem[];
+}
+
+export type Options = (IOption | IOptGroup)[];
+
+export type Items = (IItem | IItemGroup)[];

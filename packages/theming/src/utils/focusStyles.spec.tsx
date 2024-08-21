@@ -6,41 +6,29 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
-import styled, { ThemeProps, DefaultTheme, CSSObject } from 'styled-components';
+import { render, renderDark } from 'garden-test-utils';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { focusStyles } from './focusStyles';
-import { Hue } from './getColorV8';
+import { FocusStylesParameters } from '../types';
 import DEFAULT_THEME from '../elements/theme';
 import PALETTE from '../elements/palette';
 
-interface IStyledDivProps extends ThemeProps<DefaultTheme> {
-  condition?: boolean;
-  inset?: boolean;
-  hue?: Hue;
-  selector?: string;
-  shade?: number;
-  shadowWidth?: 'sm' | 'md';
-  spacerHue?: Hue;
-  spacerShade?: number;
-  spacerWidth?: null | 'xs' | 'sm';
-  styles?: CSSObject;
+interface IStyledDivProps extends ThemeProps<DefaultTheme>, FocusStylesParameters {
+  $color?: FocusStylesParameters['color'];
 }
 
 const StyledDiv = styled.div<IStyledDivProps>`
-  ${props => focusStyles(props)}
+  ${({ $color, ...props }) => focusStyles({ color: $color, ...props })}
 `;
 
 describe('focusStyles', () => {
   it('renders with expected defaults', () => {
     const { container } = render(<StyledDiv />);
-    const expected = `${DEFAULT_THEME.shadowWidths.md} ${PALETTE.blue[600]}`;
+    const expected = `${DEFAULT_THEME.shadowWidths.md} ${PALETTE.blue[700]}`;
 
     expect(container.firstChild).toHaveStyleRule('outline', 'none', { modifier: '&:focus' });
     expect(container.firstChild).toHaveStyleRule('box-shadow', expect.stringContaining(expected), {
       modifier: '&:focus-visible'
-    });
-    expect(container.firstChild).toHaveStyleRule('box-shadow', expect.stringContaining(expected), {
-      modifier: "&[data-garden-focus-visible='true']"
     });
     expect(container.firstChild).toHaveStyleRule(
       'outline',
@@ -58,6 +46,15 @@ describe('focusStyles', () => {
     );
   });
 
+  it('renders with expected defaults for dark mode', () => {
+    const { container } = renderDark(<StyledDiv />);
+    const expected = `${DEFAULT_THEME.shadowWidths.md} ${PALETTE.blue[600]}`;
+
+    expect(container.firstChild).toHaveStyleRule('box-shadow', expect.stringContaining(expected), {
+      modifier: '&:focus-visible'
+    });
+  });
+
   it('renders inset as expected', () => {
     const { container } = render(<StyledDiv inset />);
 
@@ -67,7 +64,7 @@ describe('focusStyles', () => {
   });
 
   it('renders color as expected', () => {
-    const { container } = render(<StyledDiv hue="red" shade={400} />);
+    const { container } = render(<StyledDiv $color={{ hue: 'red', shade: 400 }} />);
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
@@ -79,7 +76,7 @@ describe('focusStyles', () => {
   });
 
   it('renders spacer color as expected', () => {
-    const { container } = render(<StyledDiv spacerHue="red" spacerShade={400} />);
+    const { container } = render(<StyledDiv spacerColor={{ hue: 'red', shade: 400 }} />);
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
@@ -95,7 +92,7 @@ describe('focusStyles', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      expect.stringContaining(`${PALETTE.blue[600]}`),
+      expect.stringContaining(`${PALETTE.blue[700]}`),
       {
         modifier: '&:focus-within'
       }
@@ -107,7 +104,7 @@ describe('focusStyles', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE.blue[600]}`),
+      expect.stringContaining(`${DEFAULT_THEME.shadowWidths.sm} ${PALETTE.blue[700]}`),
       {
         modifier: '&:focus-visible'
       }

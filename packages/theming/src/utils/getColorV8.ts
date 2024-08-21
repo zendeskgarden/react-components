@@ -6,11 +6,11 @@
  */
 
 import DEFAULT_THEME from '../elements/theme';
+import PALETTE_V8 from '../elements/palette/v8';
+import { Hue } from '../types';
 import { darken, lighten, rgba } from 'polished';
 import { DefaultTheme } from 'styled-components';
 import memoize from 'lodash.memoize';
-
-export type Hue = Record<number | string, string> | string;
 
 export const DEFAULT_SHADE = 600;
 
@@ -26,6 +26,8 @@ const adjust = (color: string, expected: number, actual: number) => {
 };
 
 /**
+ * @deprecated Use `getColor` instead.
+ *
  * Get the palette color for the given hue, shade, and theme.
  *
  * @param {string|Object} hue A `theme.palette` hue or one of the following `theme.colors` keys:
@@ -47,7 +49,15 @@ export const getColorV8 = memoize(
       return undefined;
     }
 
-    const palette = theme && theme.palette ? theme.palette : DEFAULT_THEME.palette;
+    const palette = {
+      /* provide background and foreground fallback for legacy theme usage */
+      background: PALETTE_V8.white,
+      foreground: PALETTE_V8.grey[800],
+      /* provide palette fallback for legacy theme usage */
+      ...(theme && theme.palette
+        ? { ...theme.palette, ...PALETTE_V8 }
+        : { ...DEFAULT_THEME.palette, ...PALETTE_V8 })
+    } as Record<string, Hue>;
     const colors = theme && theme.colors ? theme.colors : DEFAULT_THEME.colors;
 
     let _hue: Hue;

@@ -6,8 +6,8 @@
  */
 
 import { css, DefaultTheme, keyframes } from 'styled-components';
-import { getColorV8 } from './getColorV8';
 import DEFAULT_THEME from '../elements/theme';
+import { getColor } from './getColor';
 import { MenuPosition } from '../types';
 
 type MenuOptions = {
@@ -50,6 +50,22 @@ const animationStyles = (position: MenuPosition, options: MenuOptions) => {
   `;
 };
 
+const colorStyles = (theme: DefaultTheme) => {
+  const backgroundColor = getColor({ theme, variable: 'background.raised' });
+  const borderColor = getColor({ theme, variable: 'border.default' });
+  const boxShadowColor = getColor({ variable: 'shadow.medium', theme });
+  const boxShadowBlurRadius = `${theme.space.base * (theme.colors.base === 'dark' ? 5 : 6)}px`;
+  const boxShadowOffsetY = `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`;
+  const foregroundColor = getColor({ theme, variable: 'foreground.default' });
+
+  return css`
+    border-color: ${borderColor};
+    box-shadow: ${theme.shadows.lg(boxShadowOffsetY, boxShadowBlurRadius, boxShadowColor)};
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
+  `;
+};
+
 const hiddenStyles = (options: MenuOptions) => {
   const transition = 'opacity 0.2s ease-in-out, 0.2s visibility 0s linear';
 
@@ -62,8 +78,8 @@ const hiddenStyles = (options: MenuOptions) => {
 
 /**
  * CSS for a `wrapper > menu` at the given position. The wrapper provides
- * absolute positioning (e.g. via Popper). The menu provides basic styling and
- * optional animation.
+ * absolute positioning (e.g. via Floating-UI). The menu provides basic styling
+ * and optional animation.
  *
  * @param {string} position One of:
  *  - `'top'`
@@ -106,20 +122,15 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
     ${marginProperty}: ${options.margin};
     line-height: 0;
     font-size: 0.01px; /* [1] */
+    color-scheme: only ${p => p.theme.colors.base};
 
     & ${options.childSelector || '> *'} {
       display: inline-block;
       position: relative; /* [2] */
       margin: 0; /* [3] */
       box-sizing: border-box;
-      border: ${theme.borders.sm} ${getColorV8('neutralHue', 300, theme)};
+      border: ${theme.borders.sm};
       border-radius: ${theme.borderRadii.md};
-      box-shadow: ${theme.shadows.lg(
-        `${theme.space.base * 5}px`,
-        `${theme.space.base * 7.5}px`,
-        getColorV8('chromeHue', 600, theme, 0.15)!
-      )};
-      background-color: ${getColorV8('background', 600 /* default shade */, theme)};
       cursor: default; /* [4] */
       padding: 0; /* [3] */
       text-align: ${theme.rtl ? 'right' : 'left'};
@@ -127,6 +138,8 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
       font-size: ${theme.fontSizes.md};
       font-weight: ${theme.fontWeights.regular};
       direction: ${theme.rtl && 'rtl'};
+
+      ${colorStyles(theme)};
 
       /* stylelint-disable-next-line selector-max-compound-selectors */
       :focus {

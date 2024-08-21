@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Pagination } from './elements/Pagination/Pagination';
+export { OffsetPagination } from './elements/OffsetPagination/OffsetPagination';
 export { CursorPagination } from './elements/CursorPagination/CursorPagination';
 
-export type { IPaginationProps, PageType as PAGE_TYPE } from './types';
+export type { IPaginationProps, PageType } from './types';

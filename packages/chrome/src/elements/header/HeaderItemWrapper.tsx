@@ -10,10 +10,12 @@ import { IHeaderItemWrapperProps } from '../../types';
 import { StyledHeaderItemWrapper } from '../../styled';
 
 /**
+ * @deprecated use `Header.ItemWrapper` instead
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const HeaderItemWrapper = React.forwardRef<HTMLDivElement, IHeaderItemWrapperProps>(
   (props, ref) => <StyledHeaderItemWrapper ref={ref} {...props} />
 );
 
-HeaderItemWrapper.displayName = 'HeaderItemWrapper';
+HeaderItemWrapper.displayName = 'Header.ItemWrapper';

@@ -28,13 +28,13 @@ describe('StyledFile', () => {
     it('renders expected success styling', () => {
       const { container } = render(<StyledFile validation="success" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.green[600]);
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.green[700]);
     });
 
     it('renders expected error styling', () => {
       const { container } = render(<StyledFile validation="error" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.red[600]);
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.red[700]);
     });
   });
 });

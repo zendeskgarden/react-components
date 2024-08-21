@@ -19,30 +19,30 @@ single repository.
 See the individual package README for the React component you would like
 to install.
 
-| Package                                                          | Version                                                               | Size                                                                   |
-| ---------------------------------------------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| [`@zendeskgarden/react-accordions`](packages/accordions)         | [![npm version][accordions npm version]][accordions npm link]         | [![Bundle Size][accordions size bundle]][accordions size link]         |
-| [`@zendeskgarden/react-avatars`](packages/avatars)               | [![npm version][avatars npm version]][avatars npm link]               | [![Bundle Size][avatars size bundle]][avatars size link]               |
-| [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)       | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]       | [![Bundle Size][breadcrumbs size bundle]][breadcrumbs size link]       |
-| [`@zendeskgarden/react-buttons`](packages/buttons)               | [![npm version][buttons npm version]][buttons npm link]               | [![Bundle Size][buttons size bundle]][buttons size link]               |
-| [`@zendeskgarden/react-chrome`](packages/chrome)                 | [![npm version][chrome npm version]][chrome npm link]                 | [![Bundle Size][chrome size bundle]][chrome size link]                 |
-| [`@zendeskgarden/react-colorpickers`](packages/colorpickers)     | [![npm version][colorpickers npm version]][colorpickers npm link]     | [![Bundle Size][colorpickers size bundle]][colorpickers size link]     |
-| [`@zendeskgarden/react-datepickers`](packages/datepickers)       | [![npm version][datepickers npm version]][datepickers npm link]       | [![Bundle Size][datepickers size bundle]][datepickers size link]       |
-| [`@zendeskgarden/react-drag-drop`](packages/drag-drop)           | [![npm version][drag-drop npm version]][drag-drop npm link]           | [![Bundle Size][drag-drop size bundle]][drag-drop size link]           |
-| [`@zendeskgarden/react-dropdowns`](packages/dropdowns)           | [![npm version][dropdowns npm version]][dropdowns npm link]           | [![Bundle Size][dropdowns size bundle]][dropdowns size link]           |
-| [`@zendeskgarden/react-dropdowns.next`](packages/dropdowns.next) | [![npm version][dropdowns.next npm version]][dropdowns.next npm link] | [![Bundle Size][dropdowns.next size bundle]][dropdowns.next size link] |
-| [`@zendeskgarden/react-forms`](packages/forms)                   | [![npm version][forms npm version]][forms npm link]                   | [![Bundle Size][forms size bundle]][forms size link]                   |
-| [`@zendeskgarden/react-grid`](packages/grid)                     | [![npm version][grid npm version]][grid npm link]                     | [![Bundle Size][grid size bundle]][grid size link]                     |
-| [`@zendeskgarden/react-loaders`](packages/loaders)               | [![npm version][loaders npm version]][loaders npm link]               | [![Bundle Size][loaders size bundle]][loaders size link]               |
-| [`@zendeskgarden/react-modals`](packages/modals)                 | [![npm version][modals npm version]][modals npm link]                 | [![Bundle Size][modals size bundle]][modals size link]                 |
-| [`@zendeskgarden/react-notifications`](packages/notifications)   | [![npm version][notifications npm version]][notifications npm link]   | [![Bundle Size][notifications size bundle]][notifications size link]   |
-| [`@zendeskgarden/react-pagination`](packages/pagination)         | [![npm version][pagination npm version]][pagination npm link]         | [![Bundle Size][pagination size bundle]][pagination size link]         |
-| [`@zendeskgarden/react-tabs`](packages/tabs)                     | [![npm version][tabs npm version]][tabs npm link]                     | [![Bundle Size][tabs size bundle]][tabs size link]                     |
-| [`@zendeskgarden/react-tables`](packages/tables)                 | [![npm version][tables npm version]][tables npm link]                 | [![Bundle Size][tables size bundle]][tables size link]                 |
-| [`@zendeskgarden/react-tags`](packages/tags)                     | [![npm version][tags npm version]][tags npm link]                     | [![Bundle Size][tags size bundle]][tags size link]                     |
-| [`@zendeskgarden/react-theming`](packages/theming)               | [![npm version][theming npm version]][theming npm link]               | [![Bundle Size][theming size bundle]][theming size link]               |
-| [`@zendeskgarden/react-tooltips`](packages/tooltips)             | [![npm version][tooltips npm version]][tooltips npm link]             | [![Bundle Size][tooltips size bundle]][tooltips size link]             |
-| [`@zendeskgarden/react-typography`](packages/typography)         | [![npm version][typography npm version]][typography npm link]         | [![Bundle Size][typography size bundle]][typography size link]         |
+| Package                                                              | Version                                                                   | Size                                                                       |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| [`@zendeskgarden/react-accordions`](packages/accordions)             | [![npm version][accordions npm version]][accordions npm link]             | [![Bundle Size][accordions size bundle]][accordions size link]             |
+| [`@zendeskgarden/react-avatars`](packages/avatars)                   | [![npm version][avatars npm version]][avatars npm link]                   | [![Bundle Size][avatars size bundle]][avatars size link]                   |
+| [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)           | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]           | [![Bundle Size][breadcrumbs size bundle]][breadcrumbs size link]           |
+| [`@zendeskgarden/react-buttons`](packages/buttons)                   | [![npm version][buttons npm version]][buttons npm link]                   | [![Bundle Size][buttons size bundle]][buttons size link]                   |
+| [`@zendeskgarden/react-chrome`](packages/chrome)                     | [![npm version][chrome npm version]][chrome npm link]                     | [![Bundle Size][chrome size bundle]][chrome size link]                     |
+| [`@zendeskgarden/react-colorpickers`](packages/colorpickers)         | [![npm version][colorpickers npm version]][colorpickers npm link]         | [![Bundle Size][colorpickers size bundle]][colorpickers size link]         |
+| [`@zendeskgarden/react-datepickers`](packages/datepickers)           | [![npm version][datepickers npm version]][datepickers npm link]           | [![Bundle Size][datepickers size bundle]][datepickers size link]           |
+| [`@zendeskgarden/react-draggable`](packages/draggable)               | [![npm version][draggable npm version]][draggable npm link]               | [![Bundle Size][draggable size bundle]][draggable size link]               |
+| [`@zendeskgarden/react-dropdowns.legacy`](packages/dropdowns.legacy) | [![npm version][dropdowns.legacy npm version]][dropdowns.legacy npm link] | [![Bundle Size][dropdowns.legacy size bundle]][dropdowns.legacy size link] |
+| [`@zendeskgarden/react-dropdowns`](packages/dropdowns)               | [![npm version][dropdowns npm version]][dropdowns npm link]               | [![Bundle Size][dropdowns size bundle]][dropdowns size link]               |
+| [`@zendeskgarden/react-forms`](packages/forms)                       | [![npm version][forms npm version]][forms npm link]                       | [![Bundle Size][forms size bundle]][forms size link]                       |
+| [`@zendeskgarden/react-grid`](packages/grid)                         | [![npm version][grid npm version]][grid npm link]                         | [![Bundle Size][grid size bundle]][grid size link]                         |
+| [`@zendeskgarden/react-loaders`](packages/loaders)                   | [![npm version][loaders npm version]][loaders npm link]                   | [![Bundle Size][loaders size bundle]][loaders size link]                   |
+| [`@zendeskgarden/react-modals`](packages/modals)                     | [![npm version][modals npm version]][modals npm link]                     | [![Bundle Size][modals size bundle]][modals size link]                     |
+| [`@zendeskgarden/react-notifications`](packages/notifications)       | [![npm version][notifications npm version]][notifications npm link]       | [![Bundle Size][notifications size bundle]][notifications size link]       |
+| [`@zendeskgarden/react-pagination`](packages/pagination)             | [![npm version][pagination npm version]][pagination npm link]             | [![Bundle Size][pagination size bundle]][pagination size link]             |
+| [`@zendeskgarden/react-tabs`](packages/tabs)                         | [![npm version][tabs npm version]][tabs npm link]                         | [![Bundle Size][tabs size bundle]][tabs size link]                         |
+| [`@zendeskgarden/react-tables`](packages/tables)                     | [![npm version][tables npm version]][tables npm link]                     | [![Bundle Size][tables size bundle]][tables size link]                     |
+| [`@zendeskgarden/react-tags`](packages/tags)                         | [![npm version][tags npm version]][tags npm link]                         | [![Bundle Size][tags size bundle]][tags size link]                         |
+| [`@zendeskgarden/react-theming`](packages/theming)                   | [![npm version][theming npm version]][theming npm link]                   | [![Bundle Size][theming size bundle]][theming size link]                   |
+| [`@zendeskgarden/react-tooltips`](packages/tooltips)                 | [![npm version][tooltips npm version]][tooltips npm link]                 | [![Bundle Size][tooltips size bundle]][tooltips size link]                 |
+| [`@zendeskgarden/react-typography`](packages/typography)             | [![npm version][typography npm version]][typography npm link]             | [![Bundle Size][typography size bundle]][typography size link]             |
 
 [accordions npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-accordions
 [accordions npm link]: https://www.npmjs.com/package/@zendeskgarden/react-accordions
@@ -72,18 +72,18 @@ to install.
 [datepickers npm link]: https://www.npmjs.com/package/@zendeskgarden/react-datepickers
 [datepickers size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-datepickers
 [datepickers size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-datepickers
-[drag-drop npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-drag-drop
-[drag-drop npm link]: https://www.npmjs.com/package/@zendeskgarden/react-drag-drop
-[drag-drop size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-drag-drop
-[drag-drop size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-drag-drop
+[draggable npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-draggable
+[draggable npm link]: https://www.npmjs.com/package/@zendeskgarden/react-draggable
+[draggable size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-draggable
+[draggable size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-draggable
+[dropdowns.legacy npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns.legacy
+[dropdowns.legacy npm link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns.legacy
+[dropdowns.legacy size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-dropdowns.legacy
+[dropdowns.legacy size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-dropdowns.legacy
 [dropdowns npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns
 [dropdowns npm link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns
 [dropdowns size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-dropdowns
 [dropdowns size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-dropdowns
-[dropdowns.next npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns.next
-[dropdowns.next npm link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns.next
-[dropdowns.next size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-dropdowns.next
-[dropdowns.next size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-dropdowns.next
 [forms npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-forms
 [forms npm link]: https://www.npmjs.com/package/@zendeskgarden/react-forms
 [forms size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-forms
