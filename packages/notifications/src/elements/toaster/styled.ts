@@ -22,7 +22,6 @@ export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement:
   ${p => p.isHidden && hideVisually()}
 
   &.${TRANSITION_CLASS}-enter {
-    /* stylelint-disable */
     transform: translateY(
       ${props => {
         if (
@@ -36,7 +35,6 @@ export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement:
         return '-100px';
       }}
     );
-    /* stylelint-enable */
     opacity: 0;
     max-height: 0;
   }

@@ -17,14 +17,12 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const lineHeight = props.theme.space.base * 5;
 
   return css`
-    /* stylelint-disable property-no-unknown */
     padding-${props.theme.rtl ? 'right' : 'left'}: ${padding}px;
 
     &[hidden] {
       padding-${props.theme.rtl ? 'right' : 'left'}: ${size}px;
       line-height: ${lineHeight}px;
     }
-    /* stylelint-enable property-no-unknown */
   `;
 };
 

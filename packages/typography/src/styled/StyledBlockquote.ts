@@ -17,14 +17,12 @@ export const StyledBlockquote = styled.blockquote.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IBlockquoteProps>`
   margin: 0;
-  /* stylelint-disable property-no-unknown */
   border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     props.theme.shadowWidths.sm} solid;
   border-color: ${props => getColor({ theme: props.theme, variable: 'border.default' })};
   padding: 0;
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     props.theme.space.base * 4}px;
-  /* stylelint-enable property-no-unknown */
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
   & + &,

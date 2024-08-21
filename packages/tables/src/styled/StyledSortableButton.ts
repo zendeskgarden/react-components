@@ -37,7 +37,7 @@ StyledBaseIconWrapper.defaultProps = {
 };
 
 export const StyledSortableStrokeIconWrapper = styled(StyledBaseIconWrapper)`
-  /* stylelint-disable-line no-empty-source */
+  /* empty-source */
 `;
 
 StyledSortableStrokeIconWrapper.defaultProps = {
@@ -45,7 +45,7 @@ StyledSortableStrokeIconWrapper.defaultProps = {
 };
 
 export const StyledSortableFillIconWrapper = styled(StyledBaseIconWrapper)`
-  /* stylelint-disable-line no-empty-source */
+  /* empty-source */
 `;
 
 StyledSortableFillIconWrapper.defaultProps = {
@@ -150,7 +150,6 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   background-color: transparent; /* [1] */
   cursor: pointer;
   padding: 0; /* [1] */
-  /* stylelint-disable-next-line property-no-unknown */
   padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
     math(`${props.theme.space.base} + ${props.theme.iconSizes.sm}`)};
   width: ${props => props.width};

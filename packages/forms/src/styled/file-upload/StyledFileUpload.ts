@@ -88,7 +88,6 @@ const sizeStyles = ({ theme, isCompact }: ThemeProps<DefaultTheme> & IStyledFile
     line-height: ${lineHeight};
     font-size: ${fontSize};
 
-    /* stylelint-disable */
     ${StyledLabel}:not([hidden]) + &&,
     ${StyledHint} + &&,
     ${StyledMessage} + &&,
@@ -96,7 +95,6 @@ const sizeStyles = ({ theme, isCompact }: ThemeProps<DefaultTheme> & IStyledFile
     && + ${StyledMessage} {
       margin-top: ${marginTop};
     }
-    /* stylelint-enable */
   `;
 };
 

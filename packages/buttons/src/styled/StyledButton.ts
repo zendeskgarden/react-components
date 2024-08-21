@@ -316,7 +316,6 @@ const groupStyles = ({
 
   return css`
     position: relative;
-    /* stylelint-disable value-keyword-case */
     /* prettier-ignore */
     transition:
       border-color 0.1s ease-in-out,
@@ -326,7 +325,6 @@ const groupStyles = ({
       margin-${startPosition} 0.1s ease-in-out,
       outline-color 0.1s ease-in-out,
       z-index 0.25s ease-in-out;
-    /* stylelint-enable value-keyword-case */
     border: ${borders.sm} ${borderColor}; /* [2] */
 
     ${SELECTOR_FOCUS_VISIBLE} {
@@ -345,7 +343,6 @@ const groupStyles = ({
       background-color: ${disabledBackgroundColor}; /* [1] */
     }
 
-    /* stylelint-disable property-no-unknown, property-case */
     &:not(:first-of-type) {
       margin-${startPosition}: ${marginDisplacement};
     }
@@ -367,9 +364,7 @@ const groupStyles = ({
       border-top-${startPosition}-radius: 0;
       border-bottom-${startPosition}-radius: 0;
     }
-    /* stylelint-enable property-no-unknown, property-case */
 
-    /* stylelint-disable property-no-unknown, selector-max-specificity */
     &:first-of-type:not(:last-of-type) ${StyledIcon} {
       margin-${endPosition}: ${iconMarginDisplacement};
     }
@@ -377,7 +372,6 @@ const groupStyles = ({
     &:last-of-type:not(:first-of-type) ${StyledIcon} {
       margin-${startPosition}: ${iconMarginDisplacement};
     }
-    /* stylelint-enable property-no-unknown, selector-max-specificity */
   `;
 };
 
@@ -506,7 +500,6 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
     text-decoration: ${props => props.isLink && 'none'};
   }
 
-  /* stylelint-disable */
   & ${StyledIcon} {
     ${props => iconStyles(props)}
   }
@@ -514,7 +507,6 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   ${StyledSplitButton} && {
     ${props => groupStyles(props)}
   }
-  /* stylelint-enable */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)}
 `;

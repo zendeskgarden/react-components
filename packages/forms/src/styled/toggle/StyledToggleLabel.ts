@@ -16,13 +16,11 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const padding = size + props.theme.space.base * 2;
 
   return css`
-    /* stylelint-disable property-no-unknown */
     padding-${props.theme.rtl ? 'right' : 'left'}: ${padding}px;
 
     &[hidden] {
       padding-${props.theme.rtl ? 'right' : 'left'}: ${size}px;
     }
-    /* stylelint-enable property-no-unknown */
   `;
 };
 

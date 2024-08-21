@@ -30,7 +30,6 @@ export const StyledPage = styled(StyledPageBase).attrs({
 })`
   ${props => sizeStyles(props)};
 
-  /* stylelint-disable */
   /* prettier-ignore */
   &[aria-current="true"] {
     font-weight: ${props => props.theme.fontWeights.semibold};

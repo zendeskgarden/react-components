@@ -20,7 +20,6 @@ export const StyledHueRange = styled(StyledRange as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledRangeProps>`
-  /* stylelint-disable */
   background: linear-gradient(
       to ${props => (props.theme.rtl ? 'left' : 'right')},
       #f00 0%,

@@ -194,7 +194,6 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const thumbMargin = math(`(${trackHeight} - ${thumbSize}) / 2`);
 
   return css`
-    /* stylelint-disable */
     ${StyledLabel}:not([hidden]) + &,
     ${StyledHint} + &,
     ${StyledMessage} + &,
@@ -202,7 +201,6 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     & + ${StyledMessage} {
       margin-top: ${`${theme.space.base * 2}px`};
     }
-    /* stylelint-enable */
 
     ${trackStyles(`
       margin: ${trackMargin} 0;

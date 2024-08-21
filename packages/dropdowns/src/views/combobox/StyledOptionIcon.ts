@@ -49,7 +49,6 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 
   return css`
     margin-top: ${marginTop};
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${props.theme.rtl ? 'left' : 'right'}: ${marginHorizontal};
     width: ${size};
     height: ${size};

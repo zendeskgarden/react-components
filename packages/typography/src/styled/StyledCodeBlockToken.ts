@@ -64,7 +64,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   };
 
   return css`
-    /* stylelint-disable selector-max-specificity, max-line-length */
+    /* stylelint-disable selector-max-specificity */
     &.builtin,
     &.class-name,
     &.tag:not(.punctuation):not(.attr-name):not(.attr-value):not(.script) /* [1] */ {
@@ -141,7 +141,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       color: ${colors.comment};
     }
 
-    /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before  */
     ${StyledCodeBlock}.language-css &&.plain {
       color: ${colors.value};
     }
@@ -161,10 +160,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     ${StyledCodeBlock}.language-diff &&.inserted {
       color: ${colors.inserted};
     }
-    /* stylelint-enable selector-max-specificity,
-       max-line-length,
-       declaration-block-semicolon-newline-after,
-       rule-empty-line-before */
+    /* stylelint-enable selector-max-specificity */
   `;
 };
 

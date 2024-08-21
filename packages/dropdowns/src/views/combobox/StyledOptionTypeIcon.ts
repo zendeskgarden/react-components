@@ -39,12 +39,10 @@ const colorStyles = ({ theme, $type }: IStyledOptionTypeIconProps) => {
     opacity: ${opacity};
     color: ${color};
 
-    /* stylelint-disable-next-line */
     ${StyledOption}[aria-selected='true'] > & {
       opacity: 1;
     }
 
-    /* stylelint-disable-next-line */
     ${StyledOption}[aria-disabled='true'] > & {
       color: inherit;
     }

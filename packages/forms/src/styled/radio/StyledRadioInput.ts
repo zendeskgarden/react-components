@@ -81,7 +81,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       background-color: ${checkedBackgroundColor};
     }
 
-    /* stylelint-disable selector-max-specificity */
     &:enabled:checked ~ ${StyledRadioLabel}:hover::before {
       border-color: ${checkedHoverBorderColor};
       background-color: ${checkedHoverBackgroundColor};
@@ -91,7 +90,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       border-color: ${checkedActiveBorderColor};
       background-color: ${checkedActiveBackgroundColor};
     }
-    /* stylelint-enable selector-max-specificity */
 
     &:disabled ~ ${StyledRadioLabel}::before {
       border-color: transparent;

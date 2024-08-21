@@ -31,7 +31,6 @@ const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultT
   return css`
     padding-top: ${paddingTop};
 
-    /* stylelint-disable */
     ${StyledOrderedList} > &:first-child,
     ${StyledUnorderedList} > &:first-child {
       padding-top: 0; /* [1] */
@@ -40,10 +39,9 @@ const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultT
     ${StyledOrderedList} ${StyledOrderedList} > &:first-child,
     ${StyledOrderedList} ${StyledUnorderedList} > &:first-child,
     ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child,
-    ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child {
+    ${StyledUnorderedList} ${StyledOrderedList} > &:first-child {
       padding-top: ${paddingTop}; /* [2] */
     }
-    /* stylelint-enable */
   `;
 };
 
@@ -62,12 +60,10 @@ export const StyledOrderedListItem = styled(StyledFont as 'li').attrs({
   'data-garden-version': PACKAGE_VERSION,
   as: 'li'
 })<IStyledListItemProps>`
-  /* stylelint-disable */
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     math(`${props.theme.space.base} * -1px`)};
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     math(`${props.theme.space.base} * 1px`)};
-  /* stylelint-enable */
 
   ${props => listItemStyles(props)};
 

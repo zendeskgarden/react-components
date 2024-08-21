@@ -12,5 +12,5 @@ import React, { Children } from 'react';
 export const StyledBaseIcon = styled(({ children, theme, ...props }) =>
   React.cloneElement(Children.only(children), props)
 )`
-  /* stylelint-disable no-empty-block */
+  /* empty-source */
 `;

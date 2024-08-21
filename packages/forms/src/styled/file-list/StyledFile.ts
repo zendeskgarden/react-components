@@ -122,7 +122,6 @@ export const StyledFile = styled.div.attrs({
     width: 100%;
 
     & > div {
-      /* stylelint-disable-next-line property-no-unknown, property-case */
       border-top-${props => (props.theme.rtl ? 'right' : 'left')}-radius: 0;
     }
   }

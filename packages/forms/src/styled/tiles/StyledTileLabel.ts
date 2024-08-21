@@ -29,7 +29,6 @@ const sizeStyles = ({ theme, isCentered }: IStyledTileLabelProps & ThemeProps<De
 
   return css`
     margin-top: ${marginTop};
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${theme.rtl ? 'right' : 'left'}: ${marginHorizontal};
     line-height: ${lineHeight};
     font-size: ${fontSize};

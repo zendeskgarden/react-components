@@ -38,7 +38,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       background-color: ${indeterminateBackgroundColor};
     }
 
-    /* stylelint-disable selector-max-specificity */
     &:enabled:indeterminate ~ ${StyledCheckLabel}:hover::before {
       border-color: ${indeterminateHoverBorderColor};
       background-color: ${indeterminateHoverBackgroundColor};
@@ -53,7 +52,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       border-color: transparent;
       background-color: ${indeterminateDisabledBackgroundColor};
     }
-    /* stylelint-enable selector-max-specificity */
   `;
 };
 
@@ -62,7 +60,6 @@ export const StyledCheckInput = styled(StyledRadioInput).attrs({
   'data-garden-version': PACKAGE_VERSION,
   type: 'checkbox' as string
 })`
-  /* stylelint-disable-next-line */
   & ~ ${StyledCheckLabel}::before {
     border-radius: ${props => props.theme.borderRadii.md};
   }

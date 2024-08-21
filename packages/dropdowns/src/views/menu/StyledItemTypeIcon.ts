@@ -16,7 +16,6 @@ export const StyledItemTypeIcon = styled(StyledOptionTypeIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  /* stylelint-disable-next-line */
   ${StyledItem}[aria-checked='true'] > & {
     opacity: 1;
   }
