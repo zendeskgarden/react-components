@@ -77,7 +77,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       }
     );
 
-    const items = eachDayOfInterval({ start: startDate, end: endDate }).map((date, itemsIndex) => {
+    const items = eachDayOfInterval({ start: startDate, end: endDate }).map(date => {
       const formattedDayLabel = getDate(date);
       const isCurrentDate = isToday(date);
       const isPreviousMonth = !isSameMonth(date, state.previewDate);
@@ -94,7 +94,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       }
 
       return (
-        <StyledCalendarItem key={`day-${itemsIndex}`} $isCompact={isCompact}>
+        <StyledCalendarItem key={date.toISOString()} $isCompact={isCompact}>
           <StyledDay
             $isToday={isCurrentDate}
             $isPreviousMonth={isPreviousMonth}

@@ -37,6 +37,7 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
         Children.toArray(children)
           .filter(isValidElement)
           .map((child, index) => (
+            /* eslint-disable-next-line react/no-array-index-key */
             <SectionContext.Provider key={index} value={index}>
               {child}
             </SectionContext.Provider>

@@ -28,6 +28,7 @@ const NotificationExample = () => {
   const { addToast, updateToast, removeToast, removeAllToasts } = useToast();
   const [recentToast, setRecentToast] = useState('');
 
+  /* eslint-disable react/no-unstable-nested-components */
   return (
     <>
       <button

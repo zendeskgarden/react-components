@@ -11,7 +11,7 @@ import noticePlugin from '@zendeskgarden/eslint-config/plugins/notice.js';
 import reactPlugin from '@zendeskgarden/eslint-config/plugins/react.js';
 import typescriptPlugin from '@zendeskgarden/eslint-config/plugins/typescript.js';
 import jestPlugin from '@zendeskgarden/eslint-config/plugins/jest.js';
-// import gardenLocalPlugin from 'eslint-plugin-garden-local';
+import gardenLocalPlugin from 'eslint-plugin-garden-local';
 
 const typescriptRules = {
   ...typescriptPlugin.rules,
@@ -21,6 +21,7 @@ const typescriptRules = {
   '@typescript-eslint/no-explicit-any': 'off',
   'logical-assignment-operators': 'off',
   'prefer-object-has-own': 'off',
+  'react/jsx-no-leaked-render': 'off', // TODO remove
   'react/prop-types': 'off'
 };
 
@@ -30,38 +31,34 @@ export default [
   reactPlugin,
   prettierConfig,
   {
-    ignores: ['**/dist', 'demo']
+    ignores: ['**/dist']
   },
   {
     rules: {
       'sort-imports': 'off',
-      'react/no-array-index-key': 'off',
       'react/no-set-state': 'error'
     }
   },
   {
-    files: ['*.mjs'],
+    files: ['packages/*/src/**/*.{ts,tsx}'],
+    ignores: ['packages/.template/**/*.{ts,tsx}'],
+    ...typescriptPlugin,
     rules: {
-      'n/no-unsupported-features/node-builtins': ['error', { version: '>=18.0.0' }]
+      ...typescriptRules
     }
   },
   {
-    files: ['*.ts', '*.tsx'],
-    ...typescriptPlugin,
-    rules: typescriptRules
+    files: ['packages/*/src/**/*.{ts,tsx}'],
+    ignores: ['packages/.template/**/*.{ts,tsx}', 'packages/*/src/**/*.spec.{ts,tsx}'],
+    plugins: {
+      'garden-local': gardenLocalPlugin
+    },
+    rules: {
+      'garden-local/require-default-theme': 'error'
+    }
   },
-  // {
-  //   files: ['packages/**/*.{js,ts,tsx}'],
-  //   ignores: ['*.spec.*', 'packages/*/demo/**/*'],
-  //   plugins: {
-  //     'garden-local': gardenLocalPlugin
-  //   },
-  //   rules: {
-  //     'garden-local/require-default-theme': 'error'
-  //   }
-  // },
   {
-    files: ['*.spec.*'],
+    files: ['packages/*/src/**/*.spec.{ts,tsx}'],
     ignores: ['packages/.template/**/*.spec.{ts,tsx}'],
     ...typescriptPlugin,
     ...jestPlugin,

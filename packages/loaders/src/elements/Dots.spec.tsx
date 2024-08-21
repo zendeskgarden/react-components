@@ -16,7 +16,7 @@ const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 
 describe('Dots', () => {
   beforeEach(() => {
-    (clearTimeout as jest.Mock).mockClear();
+    jest.mocked(clearTimeout).mockClear();
     (global as any).cancelAnimationFrame = jest.fn();
     (global as any).requestAnimationFrame = jest.fn();
     (global as any).document.elementFromPoint = jest.fn();
@@ -150,7 +150,7 @@ describe('Dots', () => {
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        (requestAnimationFrame as jest.Mock).mock.calls[0][0]();
+        jest.mocked(requestAnimationFrame).mock.calls[0][0](0);
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
@@ -250,7 +250,7 @@ describe('Dots', () => {
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        (requestAnimationFrame as jest.Mock).mock.calls[0][0]();
+        jest.mocked(requestAnimationFrame).mock.calls[0][0](0);
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
@@ -350,7 +350,7 @@ describe('Dots', () => {
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        (requestAnimationFrame as jest.Mock).mock.calls[0][0]();
+        jest.mocked(requestAnimationFrame).mock.calls[0][0](0);
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`

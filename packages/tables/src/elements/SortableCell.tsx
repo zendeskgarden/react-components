@@ -33,6 +33,7 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
       ariaSortValue = 'descending';
     }
 
+    /* eslint-disable-next-line no-useless-assignment */
     const SortIcon = sort === undefined ? SortStrokeIcon : SortFillIcon;
 
     return (

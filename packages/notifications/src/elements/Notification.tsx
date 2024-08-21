@@ -17,6 +17,7 @@ import { Close } from './Close';
 
 export const NotificationComponent = forwardRef<HTMLDivElement, INotificationProps>(
   ({ children, type, ...props }, ref) => {
+    /* eslint-disable-next-line no-useless-assignment */
     const Icon = type ? validationIcons[type] : InfoStrokeIcon;
 
     return (

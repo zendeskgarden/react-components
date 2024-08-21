@@ -34,6 +34,7 @@ const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
                 .filter(isValidElement)
                 .map((child, index) => (
                   <StepContext.Provider
+                    // eslint-disable-next-line react/no-array-index-key
                     key={index}
                     // eslint-disable-next-line react/jsx-no-constructed-context-values
                     value={{

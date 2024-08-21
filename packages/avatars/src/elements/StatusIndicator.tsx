@@ -32,6 +32,7 @@ import {
  */
 export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
   ({ children, type, isCompact, 'aria-label': label, ...props }, ref) => {
+    /* eslint-disable no-useless-assignment */
     let ClockIcon = ClockIcon16;
     let ArrowLeftIcon = ArrowLeftIcon16;
 

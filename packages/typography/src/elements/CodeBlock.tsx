@@ -118,6 +118,7 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
               >
                 <StyledCodeBlock className={className} ref={ref} {...other}>
                   {tokens.map((line, index) => (
+                    /* eslint-disable react/no-array-index-key */
                     <StyledCodeBlockLine
                       {...getLineProps({ line })}
                       key={index}
