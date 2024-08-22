@@ -80,11 +80,12 @@ const colorStyles = ({
   }
 
   if ($status) {
-    surfaceColor = $surfaceColor?.includes('.')
-      ? getColor({ variable: $surfaceColor, theme })
-      : $surfaceColor || getColor({ variable: 'background.default', theme });
+    surfaceColor =
+      $surfaceColor && /^\w+\.\w+$/u.test($surfaceColor)
+        ? getColor({ variable: $surfaceColor, theme })
+        : $surfaceColor || getColor({ variable: 'background.default', theme });
   } else {
-    surfaceColor = $surfaceColor || 'transparent';
+    surfaceColor = 'transparent';
   }
 
   return css`
