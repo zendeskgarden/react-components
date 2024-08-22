@@ -79,7 +79,9 @@ const sizeStyles = ({
     if (size === 'small') {
       arrowSize = margin;
       if (['left-start', 'left-end', 'right-start', 'right-end'].includes(placement)) {
-        arrowShift = '-4px';
+        arrowShift = `-${theme.borderRadii.md}px`;
+      } else {
+        arrowShift = '0';
       }
     } else if (size === 'medium') {
       arrowSize = margin;
