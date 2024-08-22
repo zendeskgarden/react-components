@@ -65,9 +65,6 @@ jobs:
           path: packages
 
       - run: npm run test:ci
-      - run: npm exec -- coveralls < .cache/coverage/lcov.info
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
   deploy-staging:
     if: >
