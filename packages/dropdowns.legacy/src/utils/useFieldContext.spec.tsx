@@ -15,7 +15,7 @@ describe('useFieldContext', () => {
   const FieldContextConsumer = () => {
     const context = useFieldContext();
 
-    return <div>{context && 'it worked'}</div>;
+    return <div>{!!context && 'it worked'}</div>;
   };
 
   it('throws if called outside of Field component', () => {

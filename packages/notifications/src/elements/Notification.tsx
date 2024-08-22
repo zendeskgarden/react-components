@@ -17,11 +17,12 @@ import { Close } from './Close';
 
 export const NotificationComponent = forwardRef<HTMLDivElement, INotificationProps>(
   ({ children, type, ...props }, ref) => {
+    /* eslint-disable-next-line no-useless-assignment */
     const Icon = type ? validationIcons[type] : InfoStrokeIcon;
 
     return (
       <StyledNotification ref={ref} $type={type} $isFloating role="alert" {...props}>
-        {type && (
+        {!!type && (
           <StyledIcon $type={type}>
             <Icon />
           </StyledIcon>

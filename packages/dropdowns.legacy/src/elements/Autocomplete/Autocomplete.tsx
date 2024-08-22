@@ -99,7 +99,7 @@ export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(
               popperReferenceElementRef.current = selectRef;
             }}
           >
-            {start && (
+            {!!start && (
               <StyledFauxInput.StartIcon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
                 isFocused={isContainerFocused}

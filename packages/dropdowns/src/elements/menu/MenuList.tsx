@@ -157,7 +157,7 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
           {...props}
           ref={ref}
         >
-          {isVisible && children}
+          {!!isVisible && children}
         </StyledMenu>
       </StyledFloatingMenu>
     );

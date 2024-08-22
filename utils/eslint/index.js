@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const requireDefaultTheme = require('./rules/require-default-theme');
+import requireDefaultTheme from './rules/require-default-theme.js';
 
-module.exports = {
+export default {
   rules: {
     'require-default-theme': requireDefaultTheme
   }

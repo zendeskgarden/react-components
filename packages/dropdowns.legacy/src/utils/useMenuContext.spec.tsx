@@ -15,7 +15,7 @@ describe('useMenuContext', () => {
   const MenuContextConsumer = () => {
     const context = useMenuContext();
 
-    return <div>{context && 'it worked'}</div>;
+    return <div>{!!context && 'it worked'}</div>;
   };
 
   it('throws if called outside of Menu component', () => {

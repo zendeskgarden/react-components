@@ -104,7 +104,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
         {...otherWrapperProps}
         ref={wrapperRef}
       >
-        {start && (
+        {!!start && (
           <FauxInput.StartIcon
             isDisabled={disabled}
             isFocused={isFocused}
@@ -114,7 +114,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
           </FauxInput.StartIcon>
         )}
         <StyledTextMediaInput {...combinedProps} />
-        {end && (
+        {!!end && (
           <FauxInput.EndIcon
             isDisabled={disabled}
             isFocused={isFocused}

@@ -12,8 +12,8 @@ import { execa } from 'execa';
 import { lernaNew } from '@zendeskgarden/scripts';
 import ora from 'ora';
 import pluralize from 'pluralize';
-import { dirname, resolve } from 'path';
-import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const program = new Command();
 const info = (message, spinner) => spinner.info(message).start();

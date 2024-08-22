@@ -14,7 +14,7 @@ describe('useTimelineItemContext', () => {
   const TimelineItemContextConsumer = () => {
     const context = useTimelineItemContext();
 
-    return <div>{context && 'it worked'}</div>;
+    return <div>{!!context && 'it worked'}</div>;
   };
 
   it('throws if called outside of Timeline.Item component', () => {

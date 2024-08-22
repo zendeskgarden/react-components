@@ -1,7 +1,8 @@
 {
   "private": true,
   "name": "eslint-plugin-garden-local",
-  "description": "Local ESLint rules",
   "version": "1.0.0",
+  "description": "Local ESLint rules",
+  "type": "module",
   "main": "index.js"
 }

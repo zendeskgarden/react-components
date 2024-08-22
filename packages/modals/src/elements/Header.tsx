@@ -39,7 +39,7 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>(
         isCloseButtonPresent={isCloseButtonPresent}
         ref={ref}
       >
-        {other.isDanger && <StyledDangerIcon />}
+        {!!other.isDanger && <StyledDangerIcon />}
         {children}
       </StyledHeader>
     );

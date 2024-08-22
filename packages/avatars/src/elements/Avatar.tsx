@@ -35,6 +35,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
   ) => {
     const computedStatus = badge === undefined ? status : 'active';
 
+    /* eslint-disable no-useless-assignment */
     let ClockIcon = ClockIcon12;
     let ArrowLeftIcon = ArrowLeftIcon12;
 
@@ -80,7 +81,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         {...props}
       >
         {Children.only(children)}
-        {computedStatus && (
+        {!!computedStatus && (
           <StyledStatusIndicator
             $size={size}
             $type={computedStatus}

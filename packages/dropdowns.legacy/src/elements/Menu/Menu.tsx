@@ -93,7 +93,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) =>
         placement={popperPlacement as any}
         modifiers={popperModifiers}
         // Disable position updating on scroll events while menu is closed
-        eventsEnabled={isOpen && eventsEnabled}
+        eventsEnabled={!!(isOpen && eventsEnabled)}
       >
         {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
           let computedStyle = menuStyle;
@@ -136,7 +136,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) =>
                 style={computedStyle}
                 {...menuProps}
               >
-                {(isOpen || isVisible) && children}
+                {!!(isOpen || isVisible) && children}
               </StyledMenu>
             </StyledMenuWrapper>
           );

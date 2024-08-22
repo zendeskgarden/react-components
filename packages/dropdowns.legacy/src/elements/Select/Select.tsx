@@ -207,7 +207,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
               mergeRefs([triggerRef, ref, popperReferenceElementRef])(selectRef);
             }}
           >
-            {start && (
+            {!!start && (
               <StyledFauxInput.StartIcon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
                 isFocused={isContainerFocused}
