@@ -13,6 +13,41 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.23 (2024-08-22)
+
+#### :boom: Breaking Change
+* `colorpickers`, `modals`
+  * [#1892](https://github.com/zendeskgarden/react-components/pull/1892) chore(modals)!: rename `TooltipModal` to `TooltipDialog` ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `theming`, `tooltips`
+  * [#1902](https://github.com/zendeskgarden/react-components/pull/1902) fix(tooltips): fix arrow position when using `end-bottom` placement ([@ze-flo](https://github.com/ze-flo))
+* `avatars`
+  * [#1897](https://github.com/zendeskgarden/react-components/pull/1897) fix(avatars): use default background surfaceColor with statuses ([@geotrev](https://github.com/geotrev))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1893](https://github.com/zendeskgarden/react-components/pull/1893) fix: React peer dependency ranges ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* [#1900](https://github.com/zendeskgarden/react-components/pull/1900) docs: enhance migration guide ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `accordions`, `avatars`, `buttons`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `loaders`, `modals`, `notifications`, `tables`, `typography`
+  * [#1825](https://github.com/zendeskgarden/react-components/pull/1825) chore(deps): update dependency eslint to v9 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `buttons`, `chrome`, `colorpickers`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tags`, `theming`, `typography`
+  * [#1879](https://github.com/zendeskgarden/react-components/pull/1879) chore(deps): update dependency @zendeskgarden/stylelint-config to v22 ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`
+  * [#1875](https://github.com/zendeskgarden/react-components/pull/1875) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1880](https://github.com/zendeskgarden/react-components/pull/1880) chore(deps): update dependency inquirer to v10 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1889](https://github.com/zendeskgarden/react-components/pull/1889) chore(deps-dev): bump axios from 1.6.7 to 1.7.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1877](https://github.com/zendeskgarden/react-components/pull/1877) chore(deps): update dependency @rollup/plugin-commonjs to v26 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#1876](https://github.com/zendeskgarden/react-components/pull/1876) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `draggable`, `dropdowns.legacy`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`, `utilities`
+  * [#1899](https://github.com/zendeskgarden/react-components/pull/1899) chore: merge v9 `next` to `main` ([@jzempel](https://github.com/jzempel))
+* `modals`, `theming`
+  * [#1891](https://github.com/zendeskgarden/react-components/pull/1891) chore(theming): remove `PALETTE_V8` export ([@jzempel](https://github.com/jzempel))
+
 ## v9.0.0-next.22 (2024-08-15)
 
 #### :rocket: New Feature
