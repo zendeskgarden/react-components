@@ -72,12 +72,16 @@ const colorStyles = ({
   const shadowSize = $size === xxs ? 'xs' : 'sm';
   let boxShadow;
 
+  const surfaceColor = $surfaceColor?.includes('.')
+    ? getColor({ variable: $surfaceColor, theme })
+    : $surfaceColor;
+
   if ($type) {
     boxShadow = theme.shadows[shadowSize](
-      $surfaceColor || getColor({ theme, variable: 'background.default' })
+      surfaceColor || getColor({ theme, variable: 'background.default' })
     );
   } else {
-    boxShadow = theme.shadows[shadowSize]($surfaceColor || (theme.palette.white as string));
+    boxShadow = theme.shadows[shadowSize](surfaceColor || (theme.palette.white as string));
   }
 
   return css`

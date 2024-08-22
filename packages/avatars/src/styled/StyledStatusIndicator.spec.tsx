@@ -30,6 +30,15 @@ describe('StyledStatusIndicator', () => {
 
       expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm('red'));
     });
+
+    it('renders surface color variable key as expected', () => {
+      const { container } = render(<StyledStatusIndicator $surfaceColor="border.warning" />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'box-shadow',
+        DEFAULT_THEME.shadows.sm(PALETTE.yellow[300])
+      );
+    });
   });
 
   describe('size', () => {
