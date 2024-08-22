@@ -12,6 +12,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.76.7 (2024-08-22)
+
+#### :bug: Bug Fix
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#1894](https://github.com/zendeskgarden/react-components/pull/1894) chore: add v9 theming as a valid peer dependency ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* [#1903](https://github.com/zendeskgarden/react-components/pull/1903) fix: ensure `tag` script releases to the correct default branch ([@jzempel](https://github.com/jzempel))
+* [#1896](https://github.com/zendeskgarden/react-components/pull/1896) chore: configure `v8` branch for maintenance ([@jzempel](https://github.com/jzempel))
+
 ## v8.76.6 (2024-08-15)
 
 #### :bug: Bug Fix
