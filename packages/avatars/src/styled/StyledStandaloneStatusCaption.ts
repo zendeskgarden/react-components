@@ -6,10 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import {
-  getLineHeight,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'avatars.status-indicator.caption';
 

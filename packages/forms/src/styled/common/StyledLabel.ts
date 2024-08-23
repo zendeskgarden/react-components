@@ -7,11 +7,7 @@
 
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
-import {
-  retrieveComponentStyles,
-  getLineHeight,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_label';
 

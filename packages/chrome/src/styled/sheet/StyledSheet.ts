@@ -6,11 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import {
-  retrieveComponentStyles,
-  getLineHeight,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 import { ISheetProps } from '../../types';
 
 const COMPONENT_ID = 'chrome.sheet';

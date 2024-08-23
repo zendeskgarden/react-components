@@ -6,11 +6,7 @@
  */
 
 import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
-import {
-  focusStyles,
-  retrieveComponentStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { focusStyles, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { stripUnit } from 'polished';
 
 const COMPONENT_ID = 'tabs.tab';

@@ -6,11 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import {
-  getColor,
-  getLineHeight,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { getColor, getLineHeight, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'breadcrumbs.item';
 

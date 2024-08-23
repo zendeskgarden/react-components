@@ -6,11 +6,7 @@
  */
 
 import styled from 'styled-components';
-import {
-  getMenuPosition,
-  menuStyles,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { getMenuPosition, menuStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { Placement } from '@floating-ui/react-dom';
 
 const COMPONENT_ID = 'datepickers.menu_wrapper';

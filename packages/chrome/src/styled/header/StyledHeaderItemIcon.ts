@@ -6,10 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import {
-  retrieveComponentStyles,
-  StyledBaseIcon
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.header_item_icon';
 

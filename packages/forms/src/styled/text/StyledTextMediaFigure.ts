@@ -6,11 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  retrieveComponentStyles,
-  StyledBaseIcon,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.media_figure';
 

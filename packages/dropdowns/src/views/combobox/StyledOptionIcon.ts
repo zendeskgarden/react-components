@@ -7,11 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  StyledBaseIcon,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 import { OptionType } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.option.icon';

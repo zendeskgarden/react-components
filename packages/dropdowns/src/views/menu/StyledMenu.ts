@@ -6,11 +6,7 @@
  */
 
 import styled from 'styled-components';
-import {
-  retrieveComponentStyles,
-  arrowStyles,
-  ArrowPosition
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, arrowStyles, ArrowPosition } from '@zendeskgarden/react-theming';
 import { IStyledListboxProps, StyledListbox } from '../combobox/StyledListbox';
 
 const COMPONENT_ID = 'dropdowns.menu';

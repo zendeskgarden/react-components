@@ -6,11 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import {
-  focusStyles,
-  retrieveComponentStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { focusStyles, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { IGlobalAlertProps } from '../../types';
 

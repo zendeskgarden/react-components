@@ -6,11 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  getLineHeight,
-  getColor,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { Type } from '../types';
 import { validationTypes } from '../utils/icons';
 

@@ -6,11 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  retrieveComponentStyles,
-  focusStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.tile';
 

@@ -6,10 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import {
-  retrieveComponentStyles,
-  getLineHeight
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 import { getHeaderItemSize } from '../utils';
 
 const COMPONENT_ID = 'chrome.base_header_item';

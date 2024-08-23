@@ -6,11 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import {
-  getLineHeight,
-  retrieveComponentStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 import { BASE_MULTIPLIERS } from './StyledClose';
 

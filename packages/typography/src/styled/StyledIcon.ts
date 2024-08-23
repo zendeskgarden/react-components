@@ -6,10 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  StyledBaseIcon,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { StyledBaseIcon, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.icon';
 

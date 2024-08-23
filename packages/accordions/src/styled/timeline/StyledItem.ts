@@ -6,11 +6,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import {
-  getLineHeight,
-  retrieveComponentStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledSeparator } from './StyledSeparator';
 import { StyledTimelineContent } from './StyledContent';
 import { StyledOppositeContent } from './StyledOppositeContent';

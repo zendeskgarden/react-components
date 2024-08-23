@@ -7,11 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  StyledBaseIcon,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'timeline.icon';
 

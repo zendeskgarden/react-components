@@ -7,10 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { rgba } from 'polished';
-import {
-  retrieveComponentStyles,
-  getCheckeredBackground
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getCheckeredBackground } from '@zendeskgarden/react-theming';
 import { IRGBColorProps } from '../types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_preview_box';

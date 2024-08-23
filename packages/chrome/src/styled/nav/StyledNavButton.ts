@@ -7,11 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  focusStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';
 import { getNavWidth } from '../utils';

@@ -6,11 +6,7 @@
  */
 
 import styled from 'styled-components';
-import {
-  getLineHeight,
-  retrieveComponentStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_label';
 

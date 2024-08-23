@@ -7,11 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  mediaQuery,
-  retrieveComponentStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { mediaQuery, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.modal';
 

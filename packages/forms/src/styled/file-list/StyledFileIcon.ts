@@ -6,11 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import {
-  StyledBaseIcon,
-  getColor,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { StyledBaseIcon, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { FileValidation } from '../../types';
 
 const COMPONENT_ID = 'forms.file.icon';

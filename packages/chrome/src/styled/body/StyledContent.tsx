@@ -7,11 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  getLineHeight,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 import { getFooterHeight, getHeaderHeight } from '../utils';
 
 const COMPONENT_ID = 'chrome.content';
