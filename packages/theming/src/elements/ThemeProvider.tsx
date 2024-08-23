@@ -10,10 +10,7 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { IThemeProviderProps } from '../types';
 import DEFAULT_THEME from './theme';
 
-export const ThemeProvider = ({ theme, ...other }: PropsWithChildren<IThemeProviderProps>) => (
-  <StyledThemeProvider theme={theme!} {...other} />
-);
-
-ThemeProvider.defaultProps = {
-  theme: DEFAULT_THEME
-};
+export const ThemeProvider = ({
+  theme = DEFAULT_THEME,
+  ...other
+}: PropsWithChildren<IThemeProviderProps>) => <StyledThemeProvider theme={theme!} {...other} />;
