@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, getCheckeredBackground } from '@zendeskgarden/react-theming';
+import { getCheckeredBackground } from '@zendeskgarden/react-theming';
 import { getTrackHeight, getTrackMargin, StyledRange } from '../common/StyledRange';
 import { IRGBColorProps } from '../types';
 
@@ -39,7 +39,3 @@ export const StyledAlphaRange = styled(StyledRange as 'input').attrs<IRGBColorPr
 }))<IRGBColorProps>`
   /* empty-source */
 `;
-
-StyledAlphaRange.defaultProps = {
-  theme: DEFAULT_THEME
-};

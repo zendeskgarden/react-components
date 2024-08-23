@@ -9,7 +9,6 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getLineHeight,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -57,7 +56,3 @@ export const StyledGapListItem = styled(StyledListItem).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledGapListItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

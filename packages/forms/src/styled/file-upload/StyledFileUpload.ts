@@ -9,7 +9,6 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getLineHeight,
   focusStyles,
   getColor
@@ -129,7 +128,3 @@ export const StyledFileUpload = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledFileUpload.defaultProps = {
-  theme: DEFAULT_THEME
-};

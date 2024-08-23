@@ -10,7 +10,6 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   focusStyles,
-  DEFAULT_THEME,
   getColor
 } from '@zendeskgarden/react-theming';
 import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
@@ -97,7 +96,3 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem as 'button').attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledHeaderItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

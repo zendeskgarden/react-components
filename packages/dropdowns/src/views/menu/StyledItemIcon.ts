@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledOptionIcon } from '../combobox/StyledOptionIcon';
 
 const COMPONENT_ID = 'dropdowns.menu.item.icon';
@@ -17,7 +17,3 @@ export const StyledItemIcon = styled(StyledOptionIcon).attrs({
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledItemIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

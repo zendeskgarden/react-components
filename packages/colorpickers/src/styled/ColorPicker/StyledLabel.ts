@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { Label } from '@zendeskgarden/react-forms';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_label';
 
@@ -21,7 +21,3 @@ export const StyledLabel = styled(Label as any).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledLabel.defaultProps = {
-  theme: DEFAULT_THEME
-};

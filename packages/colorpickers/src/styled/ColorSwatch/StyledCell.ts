@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.swatch_cell';
 
@@ -19,7 +19,3 @@ export const StyledCell = styled.td.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledCell.defaultProps = {
-  theme: DEFAULT_THEME
-};

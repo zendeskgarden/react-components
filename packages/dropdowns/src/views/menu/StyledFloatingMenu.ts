@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledFloatingListbox } from '../combobox/StyledFloatingListbox';
 
 const COMPONENT_ID = 'dropdowns.menu.floating';
@@ -17,7 +17,3 @@ export const StyledFloatingMenu = styled(StyledFloatingListbox).attrs({
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledFloatingMenu.defaultProps = {
-  theme: DEFAULT_THEME
-};

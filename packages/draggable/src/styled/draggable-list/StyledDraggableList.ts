@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledItem } from './StyledItem';
 
 const COMPONENT_ID = 'draggable_list';
@@ -60,7 +60,3 @@ export const StyledDraggableList = styled.ul.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledDraggableList.defaultProps = {
-  theme: DEFAULT_THEME
-};

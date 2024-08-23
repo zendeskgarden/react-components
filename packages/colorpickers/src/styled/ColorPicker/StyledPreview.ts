@@ -9,7 +9,6 @@ import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { rgba } from 'polished';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getCheckeredBackground
 } from '@zendeskgarden/react-theming';
 import { IRGBColorProps } from '../types';
@@ -53,7 +52,3 @@ export const StyledPreview = styled.div.attrs<IStyledColorPreviewProps>(props =>
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledPreview.defaultProps = {
-  theme: DEFAULT_THEME
-};

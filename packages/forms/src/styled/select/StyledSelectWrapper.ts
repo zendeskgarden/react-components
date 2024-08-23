@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { DEFAULT_THEME, SELECTOR_FOCUS_VISIBLE } from '@zendeskgarden/react-theming';
+import { SELECTOR_FOCUS_VISIBLE } from '@zendeskgarden/react-theming';
 import { IStyledTextFauxInputProps, StyledTextFauxInput } from '../text/StyledTextFauxInput';
 import { StyledSelect } from './StyledSelect';
 
@@ -42,7 +42,3 @@ export const StyledSelectWrapper = styled(StyledTextFauxInput).attrs({
     }
   }
 `;
-
-StyledSelectWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

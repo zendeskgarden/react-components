@@ -9,7 +9,6 @@ import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getLineHeight,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -51,7 +50,3 @@ export const StyledContent = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledContent.defaultProps = {
-  theme: DEFAULT_THEME
-};

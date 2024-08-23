@@ -7,7 +7,6 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import {
-  DEFAULT_THEME,
   StyledBaseIcon,
   getColor,
   retrieveComponentStyles
@@ -51,7 +50,3 @@ export const StyledFileIcon = styled(StyledBaseIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledFileIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

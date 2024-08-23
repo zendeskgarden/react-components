@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledPageBase } from './StyledPageBase';
 
 const COMPONENT_ID = 'pagination.page';
@@ -37,7 +37,3 @@ export const StyledPage = styled(StyledPageBase).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledPage.defaultProps = {
-  theme: DEFAULT_THEME
-};

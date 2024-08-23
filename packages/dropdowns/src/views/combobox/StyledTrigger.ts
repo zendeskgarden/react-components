@@ -9,7 +9,6 @@ import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   focusStyles,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -168,7 +167,3 @@ export const StyledTrigger = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTrigger.defaultProps = {
-  theme: DEFAULT_THEME
-};

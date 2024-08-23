@@ -9,7 +9,6 @@ import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   StyledBaseIcon,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -56,7 +55,3 @@ export const StyledItemIcon = styled(StyledBaseIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledItemIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

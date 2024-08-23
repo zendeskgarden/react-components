@@ -7,7 +7,6 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  DEFAULT_THEME,
   retrieveComponentStyles,
   focusStyles,
   getColor
@@ -114,7 +113,3 @@ export const StyledTile = styled.label.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTile.defaultProps = {
-  theme: DEFAULT_THEME
-};

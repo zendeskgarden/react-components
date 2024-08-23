@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { StyledTextInput, IStyledTextInputProps } from '../text/StyledTextInput';
 import { StyledTextMediaFigure } from '../text/StyledTextMediaFigure';
 
@@ -90,7 +90,3 @@ export const StyledSelect = styled(StyledTextInput).attrs({
     pointer-events: none;
   }
 `;
-
-StyledSelect.defaultProps = {
-  theme: DEFAULT_THEME
-};

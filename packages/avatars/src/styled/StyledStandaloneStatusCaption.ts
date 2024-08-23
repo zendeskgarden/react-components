@@ -7,7 +7,6 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
-  DEFAULT_THEME,
   getLineHeight,
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
@@ -34,7 +33,3 @@ export const StyledStandaloneStatusCaption = styled.figcaption.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledStandaloneStatusCaption.defaultProps = {
-  theme: DEFAULT_THEME
-};

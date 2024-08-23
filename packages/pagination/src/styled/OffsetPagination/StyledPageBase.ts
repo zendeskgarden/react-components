@@ -8,7 +8,6 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getLineHeight,
   focusStyles,
   getColor
@@ -154,7 +153,3 @@ export const StyledPageBase = styled.button.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledPageBase.defaultProps = {
-  theme: DEFAULT_THEME
-};

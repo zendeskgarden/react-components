@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from '../checkbox/StyledCheckInput';
 import { StyledToggleLabel } from './StyledToggleLabel';
 
@@ -93,7 +93,3 @@ export const StyledToggleInput = styled(StyledCheckInput).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledToggleInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

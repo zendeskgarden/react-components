@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { Field } from '@zendeskgarden/react-forms';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_hex_field';
@@ -32,7 +32,3 @@ export const StyledHexField = styled(Field as unknown as 'div').attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledHexField.defaultProps = {
-  theme: DEFAULT_THEME
-};

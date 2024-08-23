@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { hideVisually } from 'polished';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getLineHeight,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -47,7 +46,3 @@ export const StyledLabel = styled.label.attrs(props => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledLabel.defaultProps = {
-  theme: DEFAULT_THEME
-};

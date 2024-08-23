@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.footer';
 
@@ -34,7 +34,3 @@ export const StyledFooter = styled.div.attrs<IStyledFooter>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledFooter.defaultProps = {
-  theme: DEFAULT_THEME
-};

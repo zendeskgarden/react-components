@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 import { StyledItem } from '../StyledItem';
 
@@ -40,7 +40,3 @@ export const StyledHeaderItem = styled(StyledItem).attrs<IStyledHeaderItemProps>
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledHeaderItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

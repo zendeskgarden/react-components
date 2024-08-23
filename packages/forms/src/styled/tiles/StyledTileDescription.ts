@@ -8,7 +8,6 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
 import {
-  DEFAULT_THEME,
   retrieveComponentStyles,
   getLineHeight
 } from '@zendeskgarden/react-theming';
@@ -49,7 +48,3 @@ export const StyledTileDescription = styled.span.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTileDescription.defaultProps = {
-  theme: DEFAULT_THEME
-};

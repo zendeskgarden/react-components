@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, focusStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, focusStyles } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 const COMPONENT_ID = 'accordions.header';
@@ -38,7 +38,3 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledHeader.defaultProps = {
-  theme: DEFAULT_THEME
-};

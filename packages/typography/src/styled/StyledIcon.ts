@@ -7,7 +7,6 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  DEFAULT_THEME,
   StyledBaseIcon,
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
@@ -41,7 +40,3 @@ export const StyledIcon = styled(StyledBaseIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

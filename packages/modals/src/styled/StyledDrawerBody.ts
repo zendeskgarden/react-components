@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledBody } from './StyledBody';
 
 const COMPONENT_ID = 'modals.drawer_modal.body';
@@ -20,7 +20,3 @@ export const StyledDrawerBody = styled(StyledBody).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledDrawerBody.defaultProps = {
-  theme: DEFAULT_THEME
-};

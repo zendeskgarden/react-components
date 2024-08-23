@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { getItemPaddingVertical } from './StyledItem';
 
 const COMPONENT_ID = 'dropdowns.item_icon';
@@ -49,7 +49,3 @@ export const StyledItemIcon = styled.div.attrs({
     height: ${props => props.theme.iconSizes.md};
   }
 `;
-
-StyledItemIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

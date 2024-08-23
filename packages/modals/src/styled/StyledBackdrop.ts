@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.backdrop';
 
@@ -66,10 +66,6 @@ export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledBackdrop.defaultProps = {
-  theme: DEFAULT_THEME
-};
 
 StyledBackdrop.propTypes = {
   isCentered: PropTypes.bool,

@@ -7,7 +7,6 @@
 
 import styled from 'styled-components';
 import {
-  DEFAULT_THEME,
   getMenuPosition,
   menuStyles,
   retrieveComponentStyles
@@ -45,7 +44,3 @@ export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledMenuWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

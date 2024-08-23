@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { Size } from '../types';
 
 const sizeToHeight = (size: Size, theme: DefaultTheme) => {
@@ -62,10 +62,6 @@ export const StyledProgressBackground = styled.div.attrs<IStyledProgressBackgrou
   ${props => retrieveComponentStyles(PROGRESS_BACKGROUND_COMPONENT_ID, props)}
 `;
 
-StyledProgressBackground.defaultProps = {
-  theme: DEFAULT_THEME
-};
-
 interface IStyledProgressIndicatorProps {
   size: Size;
   borderRadius?: number;
@@ -89,7 +85,3 @@ export const StyledProgressIndicator = styled.div.attrs<IStyledProgressIndicator
 
   ${props => retrieveComponentStyles(PROGESS_INDICATOR_COMPONENT_ID, props)}
 `;
-
-StyledProgressIndicator.defaultProps = {
-  theme: DEFAULT_THEME
-};

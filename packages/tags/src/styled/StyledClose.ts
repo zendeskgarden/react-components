@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tags.close';
 
@@ -47,7 +47,3 @@ export const StyledClose = styled.button.attrs<unknown>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledClose.defaultProps = {
-  theme: DEFAULT_THEME
-};

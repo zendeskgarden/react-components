@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 import { TRANSITION_DURATION } from './utility';
 
@@ -24,7 +24,3 @@ export const StyledStandaloneStatus = styled.figure.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledStandaloneStatus.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import {
   retrieveComponentStyles,
   getLineHeight,
-  DEFAULT_THEME,
   getColor
 } from '@zendeskgarden/react-theming';
 
@@ -24,7 +23,3 @@ export const StyledSheetDescription = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledSheetDescription.defaultProps = {
-  theme: DEFAULT_THEME
-};

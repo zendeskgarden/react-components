@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import {
   getLineHeight,
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getColor
 } from '@zendeskgarden/react-theming';
 
@@ -31,7 +30,3 @@ export const StyledBody = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledBody.defaultProps = {
-  theme: DEFAULT_THEME
-};

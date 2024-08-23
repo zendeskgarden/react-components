@@ -8,7 +8,6 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   StyledBaseIcon,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -65,7 +64,3 @@ export const StyledRotateIcon = styled(StyledBaseIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledRotateIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
-import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.highlight';
 
@@ -74,7 +74,3 @@ export const StyledHighlight = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledHighlight.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -8,7 +8,7 @@
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import PreviousIconSvg from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.previous_item_icon';
 
@@ -31,7 +31,3 @@ export const StyledPreviousIcon = styled(PreviousIconComponent)<IStyledPreviousI
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledPreviousIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from '../text/StyledTextInput';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledHint } from '../common/StyledHint';
@@ -117,7 +117,3 @@ export const StyledInputGroup = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledInputGroup.defaultProps = {
-  theme: DEFAULT_THEME
-};

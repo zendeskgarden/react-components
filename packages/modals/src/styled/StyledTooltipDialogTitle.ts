@@ -9,7 +9,6 @@ import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import {
   getLineHeight,
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getColor
 } from '@zendeskgarden/react-theming';
 
@@ -34,7 +33,3 @@ export const StyledTooltipDialogTitle = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTooltipDialogTitle.defaultProps = {
-  theme: DEFAULT_THEME
-};

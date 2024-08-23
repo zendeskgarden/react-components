@@ -8,7 +8,6 @@
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   StyledBaseIcon
 } from '@zendeskgarden/react-theming';
 
@@ -35,7 +34,3 @@ export const StyledNavItemIcon = styled(StyledBaseIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledNavItemIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

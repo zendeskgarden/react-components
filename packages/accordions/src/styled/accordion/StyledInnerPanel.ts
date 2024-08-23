@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledPanel } from './StyledPanel';
 
 const COMPONENT_ID = 'accordions.step_inner_panel';
@@ -34,7 +34,3 @@ export const StyledInnerPanel = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledInnerPanel.defaultProps = {
-  theme: DEFAULT_THEME
-};

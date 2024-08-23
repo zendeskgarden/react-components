@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledClose, BASE_MULTIPLIERS as styledCloseBaseMultipliers } from './StyledClose';
 
 const COMPONENT_ID = 'modals.drawer_modal.close';
@@ -26,7 +26,3 @@ export const StyledDrawerClose = styled(StyledClose).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledDrawerClose.defaultProps = {
-  theme: DEFAULT_THEME
-};

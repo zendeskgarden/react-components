@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'notifications.paragraph';
 
@@ -21,7 +21,3 @@ export const StyledParagraph = styled.p.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledParagraph.defaultProps = {
-  theme: DEFAULT_THEME
-};

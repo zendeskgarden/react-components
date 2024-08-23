@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { DEFAULT_THEME, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import { StyledBaseIcon } from '@zendeskgarden/react-theming';
 
 export interface IStyledIcon {
   $type: 'first' | 'next' | 'previous' | 'last';
@@ -31,7 +31,3 @@ export const StyledIcon = styled(StyledBaseIcon)`
   ${marginStyles}
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
 `;
-
-StyledIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

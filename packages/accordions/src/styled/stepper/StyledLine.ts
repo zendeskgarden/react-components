@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_line';
 
@@ -23,7 +23,3 @@ export const StyledLine = styled.div.attrs({
   border-top: ${props => props.theme.borders.sm};
   border-color: ${({ theme }) => getColor({ theme, variable: 'border.default' })};
 `;
-
-StyledLine.defaultProps = {
-  theme: DEFAULT_THEME
-};

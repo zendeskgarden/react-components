@@ -7,7 +7,6 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import {
-  DEFAULT_THEME,
   focusStyles,
   retrieveComponentStyles,
   getColor
@@ -131,7 +130,3 @@ export const StyledGlobalAlertClose = styled(IconButton).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledGlobalAlertClose.defaultProps = {
-  theme: DEFAULT_THEME
-};

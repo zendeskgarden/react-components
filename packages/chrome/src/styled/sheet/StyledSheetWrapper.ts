@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { ISheetProps } from '../../types';
 
 const COMPONENT_ID = 'chrome.sheet_wrapper';
@@ -54,7 +54,3 @@ export const StyledSheetWrapper = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledSheetWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

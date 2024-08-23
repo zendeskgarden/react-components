@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledBaseHeaderItem } from './StyledBaseHeaderItem';
 
 const COMPONENT_ID = 'chrome.header_item_wrapper';
@@ -18,7 +18,3 @@ export const StyledHeaderItemWrapper = styled(StyledBaseHeaderItem as 'div').att
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledHeaderItemWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

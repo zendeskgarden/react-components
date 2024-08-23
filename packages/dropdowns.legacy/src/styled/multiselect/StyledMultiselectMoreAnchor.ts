@@ -8,7 +8,6 @@
 import styled from 'styled-components';
 import {
   getLineHeight,
-  DEFAULT_THEME,
   retrieveComponentStyles,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -45,7 +44,3 @@ export const StyledMultiselectMoreAnchor = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledMultiselectMoreAnchor.defaultProps = {
-  theme: DEFAULT_THEME
-};

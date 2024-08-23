@@ -7,7 +7,7 @@
 
 import styled, { css } from 'styled-components';
 import { Input } from '@zendeskgarden/react-forms';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.input';
 
@@ -35,7 +35,3 @@ export const StyledInput = styled(Input).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

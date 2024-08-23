@@ -8,7 +8,6 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   StyledBaseIcon,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -83,7 +82,3 @@ export const StyledTextMediaFigure = styled(StyledBaseIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTextMediaFigure.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -8,7 +8,6 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getLineHeight,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -80,7 +79,3 @@ export const StyledSheet = styled.aside.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledSheet.defaultProps = {
-  theme: DEFAULT_THEME
-};

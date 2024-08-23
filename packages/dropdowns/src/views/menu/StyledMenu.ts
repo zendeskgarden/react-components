@@ -8,7 +8,6 @@
 import styled from 'styled-components';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   arrowStyles,
   ArrowPosition
 } from '@zendeskgarden/react-theming';
@@ -40,7 +39,3 @@ export const StyledMenu = styled(StyledListbox).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledMenu.defaultProps = {
-  theme: DEFAULT_THEME
-};

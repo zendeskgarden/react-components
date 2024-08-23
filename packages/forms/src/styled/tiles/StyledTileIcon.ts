@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import { StyledTile } from './StyledTile';
 
@@ -84,7 +84,3 @@ export const StyledTileIcon = styled.span.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTileIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

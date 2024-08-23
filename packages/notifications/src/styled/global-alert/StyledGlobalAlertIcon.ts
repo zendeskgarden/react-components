@@ -8,7 +8,6 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import {
-  DEFAULT_THEME,
   getColor,
   retrieveComponentStyles,
   StyledBaseIcon
@@ -75,7 +74,3 @@ export const StyledGlobalAlertIcon = styled(StyledBaseIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledGlobalAlertIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

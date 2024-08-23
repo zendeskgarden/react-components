@@ -7,7 +7,6 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { getNavItemHeight, getNavWidth } from '../utils';
 
 const COMPONENT_ID = 'chrome.base_nav_item';
@@ -40,7 +39,3 @@ export const StyledBaseNavItem = styled.div.attrs({
 
   ${sizeStyles};
 `;
-
-StyledBaseNavItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

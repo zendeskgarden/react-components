@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledClose } from './StyledClose';
 
 const COMPONENT_ID = 'modals.tooltip_dialog.close';
@@ -19,7 +19,3 @@ export const StyledTooltipDialogClose = styled(StyledClose).attrs({
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base * 3}px`};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTooltipDialogClose.defaultProps = {
-  theme: DEFAULT_THEME
-};

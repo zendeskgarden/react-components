@@ -9,7 +9,6 @@ import styled, { css } from 'styled-components';
 import {
   getLineHeight,
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getColor
 } from '@zendeskgarden/react-theming';
 import { StyledSeparator } from './StyledSeparator';
@@ -64,7 +63,3 @@ export const StyledTimelineItem = styled.li.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTimelineItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

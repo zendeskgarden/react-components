@@ -9,7 +9,6 @@ import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { hideVisually, math } from 'polished';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getLineHeight,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -94,7 +93,3 @@ export const StyledInput = styled.input.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import {
   getLineHeight,
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getColor
 } from '@zendeskgarden/react-theming';
 
@@ -41,7 +40,3 @@ export const StyledLabel = styled.div.attrs<IStyledLabelProps>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledLabel.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { IButtonProps } from '../types';
 import { COMPONENT_ID as BTN_COMPONENT_ID, StyledButton, getHeight } from './StyledButton';
 import { StyledIcon } from './StyledIcon';
@@ -85,7 +85,3 @@ export const StyledIconButton = styled(StyledButton).attrs<IButtonProps>(props =
 
   ${props => retrieveComponentStyles((props as any)['data-garden-id'], props)};
 `;
-
-StyledIconButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

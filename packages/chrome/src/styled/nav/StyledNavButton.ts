@@ -10,7 +10,6 @@ import { math } from 'polished';
 import {
   retrieveComponentStyles,
   focusStyles,
-  DEFAULT_THEME,
   getColor
 } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
@@ -140,7 +139,3 @@ export const StyledNavButton = styled(StyledBaseNavItem as 'button').attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledNavButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

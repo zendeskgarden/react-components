@@ -7,7 +7,6 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { hideVisually } from 'polished';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Placement } from '../../types';
 
 export const TRANSITION_CLASS = 'garden-toast-transition';
@@ -64,10 +63,6 @@ export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement:
     max-height: 0;
   }
 `;
-
-StyledFadeInTransition.defaultProps = {
-  theme: DEFAULT_THEME
-};
 
 interface IStyledTransitionContainerProps {
   toastPlacement: Placement;
@@ -151,7 +146,3 @@ export const StyledTransitionContainer = styled.div<IStyledTransitionContainerPr
 
   ${placementStyles};
 `;
-
-StyledTransitionContainer.defaultProps = {
-  theme: DEFAULT_THEME
-};

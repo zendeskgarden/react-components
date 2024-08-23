@@ -7,7 +7,6 @@
 
 import styled, { keyframes, css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  DEFAULT_THEME,
   retrieveComponentStyles,
   getLineHeight,
   getColor
@@ -124,6 +123,4 @@ export const StyledSkeleton = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledSkeleton.defaultProps = {
-  theme: DEFAULT_THEME
-};
+

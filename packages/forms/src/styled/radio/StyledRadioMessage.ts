@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledMessage } from '../common/StyledMessage';
 
 const COMPONENT_ID = 'forms.radio_message';
@@ -21,7 +21,3 @@ export const StyledRadioMessage = styled(StyledMessage).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledRadioMessage.defaultProps = {
-  theme: DEFAULT_THEME
-};

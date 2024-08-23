@@ -7,7 +7,6 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
-  DEFAULT_THEME,
   retrieveComponentStyles,
   getLineHeight
 } from '@zendeskgarden/react-theming';
@@ -83,7 +82,3 @@ export const StyledBaseHeaderItem = styled.button.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledBaseHeaderItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

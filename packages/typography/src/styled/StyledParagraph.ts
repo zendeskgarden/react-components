@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { IParagraphProps } from '../types';
 import { THEME_SIZES } from './StyledFont';
 
@@ -27,7 +27,3 @@ export const StyledParagraph = styled.p.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledParagraph.defaultProps = {
-  theme: DEFAULT_THEME
-};

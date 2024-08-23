@@ -10,7 +10,6 @@ import { Placement } from '@floating-ui/react-dom';
 import {
   arrowStyles,
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getArrowPosition
 } from '@zendeskgarden/react-theming';
 import { TransitionStatus } from 'react-transition-group';
@@ -48,7 +47,3 @@ export const StyledTooltipDialog = styled.div.attrs<IStyledTooltipDialogProps>(p
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTooltipDialog.defaultProps = {
-  theme: DEFAULT_THEME
-};

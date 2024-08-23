@@ -7,7 +7,6 @@
 
 import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
 import {
-  DEFAULT_THEME,
   focusStyles,
   retrieveComponentStyles,
   getColor
@@ -162,7 +161,3 @@ export const StyledTab = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTab.defaultProps = {
-  theme: DEFAULT_THEME
-};

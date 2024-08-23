@@ -6,7 +6,6 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
 import { Orientation } from '../../types';
 
@@ -59,7 +58,3 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
 
   ${transformStyles};
 `;
-
-StyledPaneSplitterButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'timeline.content';
 
@@ -18,7 +18,3 @@ export const StyledTimelineContent = styled.div.attrs({
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 4}px`};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTimelineContent.defaultProps = {
-  theme: DEFAULT_THEME
-};

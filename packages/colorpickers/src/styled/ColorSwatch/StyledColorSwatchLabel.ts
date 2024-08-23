@@ -8,7 +8,6 @@
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { parseToRgb, readableColor } from 'polished';
 import {
-  DEFAULT_THEME,
   focusStyles,
   getColor,
   retrieveComponentStyles
@@ -60,7 +59,3 @@ export const StyledColorSwatchLabel = styled(StyledButtonPreview).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledColorSwatchLabel.defaultProps = {
-  theme: DEFAULT_THEME
-};

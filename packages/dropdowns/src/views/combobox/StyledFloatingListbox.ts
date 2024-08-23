@@ -8,7 +8,6 @@
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   MenuPosition,
   menuStyles
 } from '@zendeskgarden/react-theming';
@@ -42,7 +41,3 @@ export const StyledFloatingListbox = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledFloatingListbox.defaultProps = {
-  theme: DEFAULT_THEME
-};

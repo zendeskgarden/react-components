@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { FauxInput } from '@zendeskgarden/react-forms';
 
 const COMPONENT_ID = 'dropdowns.faux_input';
@@ -22,7 +22,3 @@ export const StyledFauxInput = styled(FauxInput).attrs(props => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledFauxInput.defaultProps = {
-  theme: DEFAULT_THEME
-};
