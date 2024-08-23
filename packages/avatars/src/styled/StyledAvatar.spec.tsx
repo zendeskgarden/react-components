@@ -51,11 +51,17 @@ describe('StyledAvatar', () => {
     });
 
     it('renders surface color variable key as expected', () => {
-      const { container } = render(
+      const { container, rerender } = render(
         <StyledAvatar $status="away" $surfaceColor="background.primary" />
       );
 
       expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[100], {
+        modifier: '&&'
+      });
+
+      rerender(<StyledAvatar $surfaceColor="background.primary" />);
+
+      expect(container.firstChild).toHaveStyleRule('color', 'transparent', {
         modifier: '&&'
       });
     });
@@ -146,8 +152,8 @@ describe('StyledAvatar', () => {
       );
 
       expect(container.firstChild).toHaveStyleRule('position', 'absolute', styleRuleOptions);
-      expect(container.firstChild).toHaveStyleRule('bottom', '-1px', styleRuleOptions);
-      expect(container.firstChild).toHaveStyleRule('right', '-1px', styleRuleOptions);
+      expect(container.firstChild).toHaveStyleRule('bottom', '-2px', styleRuleOptions);
+      expect(container.firstChild).toHaveStyleRule('right', '-2px', styleRuleOptions);
     });
 
     it('renders the status indicator correctly from RTL', () => {

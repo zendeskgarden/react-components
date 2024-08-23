@@ -41,7 +41,6 @@ const sizeStyles = (props: IStyledStatusIndicatorProps) => {
   return css`
     border: ${offset} ${props.theme.borderStyles.solid};
     border-radius: ${size};
-    width: ${size};
     min-width: ${size};
     height: ${size};
     line-height: ${size};
