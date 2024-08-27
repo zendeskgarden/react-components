@@ -14,7 +14,7 @@ export interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   size?: (typeof SIZE)[number];
   /**
    * Sets the color of the tag. Refer to theming
-   * [colors](components/theme-object#colors) or
+   * [colors](/components/theme-object#colors) or
    * [PALETTE](/components/palette#palette) for available colors. Use [primary
    * hues](/design/color#primary-colors) – `blue`, `green`, `grey`, `kale`,
    * `red`, `yellow` or `primaryHue`, `successHue`, `neutralHue`, `chromeHue`,
