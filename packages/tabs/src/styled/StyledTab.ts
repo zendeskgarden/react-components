@@ -21,24 +21,16 @@ interface IStyledTabProps {
   $isVertical?: boolean;
 }
 
-const colorStyles = ({
-  theme,
-  $isSelected,
-  $isVertical
-}: IStyledTabProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $isSelected }: IStyledTabProps & ThemeProps<DefaultTheme>) => {
   const borderColor = $isSelected
     ? getColor({ theme, variable: 'border.primaryEmphasis' })
     : 'transparent';
-  const borderBlockEndColor = $isVertical ? undefined : borderColor;
-  const borderInlineColor = $isVertical ? borderColor : undefined;
-
   const selectedColor = getColor({ theme, variable: 'foreground.primary' });
   const foregroundColor = $isSelected ? selectedColor : 'inherit';
   const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
-    border-bottom-color: ${borderBlockEndColor};
-    border-${theme.rtl ? 'right' : 'left'}-color: ${borderInlineColor};
+    border-color: ${borderColor};
     color: ${foregroundColor};
 
     &:hover {
