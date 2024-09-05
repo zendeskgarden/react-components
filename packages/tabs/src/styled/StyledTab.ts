@@ -60,7 +60,7 @@ const colorStyles = ({ theme, $isSelected }: IStyledTabProps & ThemeProps<Defaul
 
 const sizeStyles = ({ theme, $isVertical }: IStyledTabProps & ThemeProps<DefaultTheme>) => {
   const borderWidth = theme.borderWidths.md;
-  const focusHeight = `${theme.space.base * 5}px`;
+  const focusHeight = `calc(100% - ${theme.space.base * ($isVertical ? 2 : 4)}px);`;
   let marginBottom;
   let padding;
 
