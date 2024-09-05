@@ -7,12 +7,7 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
-import {
-  DEFAULT_THEME,
-  getColor,
-  retrieveComponentStyles,
-  StyledBaseIcon
-} from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 import { Type } from '../../types';
 
 const COMPONENT_ID = 'notifications.global_alert.icon';
@@ -75,7 +70,3 @@ export const StyledGlobalAlertIcon = styled(StyledBaseIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledGlobalAlertIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

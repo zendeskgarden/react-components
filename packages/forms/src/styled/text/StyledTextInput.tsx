@@ -12,7 +12,6 @@ import { em, math } from 'polished';
 import {
   retrieveComponentStyles,
   getLineHeight,
-  DEFAULT_THEME,
   focusStyles,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -314,7 +313,3 @@ export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props =
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTextInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

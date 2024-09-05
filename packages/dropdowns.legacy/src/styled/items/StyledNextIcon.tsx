@@ -8,7 +8,7 @@
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import NextIconSvg from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.next_item_icon';
 
@@ -33,7 +33,3 @@ export const StyledNextIcon = styled(NextIconComponent)<IStyledNextIconProps>`
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledNextIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

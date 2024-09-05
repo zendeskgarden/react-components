@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledMessage } from '../common/StyledMessage';
 import { StyledMessageIcon } from '../common/StyledMessageIcon';
 
@@ -27,7 +27,3 @@ export const StyledToggleMessage = styled(StyledMessage).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledToggleMessage.defaultProps = {
-  theme: DEFAULT_THEME
-};

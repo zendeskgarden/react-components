@@ -8,7 +8,6 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
   getColor
@@ -94,7 +93,3 @@ export const StyledTextFauxInput = styled(
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTextFauxInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

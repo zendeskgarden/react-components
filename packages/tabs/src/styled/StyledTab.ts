@@ -6,12 +6,7 @@
  */
 
 import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
-import {
-  DEFAULT_THEME,
-  focusStyles,
-  retrieveComponentStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { focusStyles, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { stripUnit } from 'polished';
 
 const COMPONENT_ID = 'tabs.tab';
@@ -154,7 +149,3 @@ export const StyledTab = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTab.defaultProps = {
-  theme: DEFAULT_THEME
-};

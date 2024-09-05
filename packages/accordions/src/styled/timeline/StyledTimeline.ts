@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'timeline';
 
@@ -22,7 +22,3 @@ export const StyledTimeline = styled.ol.attrs({
   list-style: none; /* [1] */
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTimeline.defaultProps = {
-  theme: DEFAULT_THEME
-};

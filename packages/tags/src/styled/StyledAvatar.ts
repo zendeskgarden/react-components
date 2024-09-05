@@ -6,11 +6,7 @@
  */
 
 import styled from 'styled-components';
-import {
-  DEFAULT_THEME,
-  StyledBaseIcon,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { StyledBaseIcon, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tags.avatar';
 
@@ -23,7 +19,3 @@ export const StyledAvatar = styled(StyledBaseIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledAvatar.defaultProps = {
-  theme: DEFAULT_THEME
-};

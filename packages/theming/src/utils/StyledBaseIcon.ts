@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import React, { Children } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars,garden-local/require-default-theme
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const StyledBaseIcon = styled(({ children, theme, ...props }) =>
   React.cloneElement(Children.only(children), props)
 )`

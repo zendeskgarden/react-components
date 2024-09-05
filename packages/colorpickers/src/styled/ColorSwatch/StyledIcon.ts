@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledColorSwatchInput } from './StyledColorSwatchInput';
 
 const COMPONENT_ID = 'colorpickers.colorswatch_check';
@@ -30,7 +30,3 @@ export const StyledIcon = styled(CheckIcon as 'svg').attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,12 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import {
-  DEFAULT_THEME,
-  focusStyles,
-  retrieveComponentStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { focusStyles, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { IGlobalAlertProps } from '../../types';
 
@@ -131,7 +126,3 @@ export const StyledGlobalAlertClose = styled(IconButton).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledGlobalAlertClose.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledOptGroup } from '../combobox/StyledOptGroup';
 
 const COMPONENT_ID = 'dropdowns.menu.item_group';
@@ -17,7 +17,3 @@ export const StyledItemGroup = styled(StyledOptGroup).attrs({
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledItemGroup.defaultProps = {
-  theme: DEFAULT_THEME
-};

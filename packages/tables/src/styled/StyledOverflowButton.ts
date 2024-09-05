@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { getRowHeight } from './style-utils';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ITableProps } from '../types';
@@ -35,7 +35,3 @@ export const StyledOverflowButton = styled(IconButton).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledOverflowButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

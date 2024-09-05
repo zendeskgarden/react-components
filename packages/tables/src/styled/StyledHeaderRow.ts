@@ -7,7 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledBaseRow } from './StyledBaseRow';
 import { StyledOverflowButton } from './StyledOverflowButton';
 import { ITableProps } from '../types';
@@ -64,7 +64,3 @@ export const StyledHeaderRow = styled(StyledBaseRow).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledHeaderRow.defaultProps = {
-  theme: DEFAULT_THEME
-};

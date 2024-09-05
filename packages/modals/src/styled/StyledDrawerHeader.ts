@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledHeader } from './StyledHeader';
 import { BASE_MULTIPLIERS } from './StyledDrawerClose';
 
@@ -29,7 +29,3 @@ export const StyledDrawerHeader = styled(StyledHeader).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledDrawerHeader.defaultProps = {
-  theme: DEFAULT_THEME
-};

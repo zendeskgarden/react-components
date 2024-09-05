@@ -7,12 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  mediaQuery,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { mediaQuery, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.modal';
 
@@ -120,8 +115,4 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
 StyledModal.propTypes = {
   isLarge: PropTypes.bool,
   isAnimated: PropTypes.bool
-};
-
-StyledModal.defaultProps = {
-  theme: DEFAULT_THEME
 };

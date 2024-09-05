@@ -8,7 +8,6 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getLineHeight,
   focusStyles,
   getColor
@@ -133,7 +132,3 @@ export const StyledFile = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledFile.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.stepper';
 
@@ -28,7 +28,3 @@ export const StyledStepper = styled.ol.attrs<IStyledStepper>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledStepper.defaultProps = {
-  theme: DEFAULT_THEME
-};

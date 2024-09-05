@@ -6,7 +6,6 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
 /**
@@ -30,7 +29,3 @@ export const StyledButton = styled(Button as any).attrs({
     /* stylelint-enable */
   }
 `;
-
-StyledButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

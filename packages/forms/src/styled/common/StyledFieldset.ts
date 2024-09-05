@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledField } from './StyledField';
 
 const COMPONENT_ID = 'forms.fieldset';
@@ -25,7 +25,3 @@ export const StyledFieldset = styled(StyledField as 'fieldset').attrs({
   }
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledFieldset.defaultProps = {
-  theme: DEFAULT_THEME
-};

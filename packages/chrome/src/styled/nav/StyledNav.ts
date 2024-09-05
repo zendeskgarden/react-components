@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { getNavWidth, getNavWidthExpanded } from '../utils';
 
 const COMPONENT_ID = 'chrome.nav';
@@ -53,7 +53,3 @@ export const StyledNav = styled.nav.attrs<IStyledNavProps>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledNav.defaultProps = {
-  theme: DEFAULT_THEME
-};

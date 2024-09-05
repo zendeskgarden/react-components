@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledHint } from '../common/StyledHint';
 
 const COMPONENT_ID = 'forms.toggle_hint';
@@ -21,7 +21,3 @@ export const StyledToggleHint = styled(StyledHint).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledToggleHint.defaultProps = {
-  theme: DEFAULT_THEME
-};

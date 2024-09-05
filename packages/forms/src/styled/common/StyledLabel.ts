@@ -7,12 +7,7 @@
 
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getLineHeight,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_label';
 
@@ -47,7 +42,3 @@ export const StyledLabel = styled.label.attrs(props => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledLabel.defaultProps = {
-  theme: DEFAULT_THEME
-};

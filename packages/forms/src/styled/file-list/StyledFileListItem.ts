@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledFileList } from './StyledFileList';
 import { StyledFileUpload } from '../file-upload/StyledFileUpload';
 
@@ -23,7 +23,3 @@ export const StyledFileListItem = styled.li.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledFileListItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

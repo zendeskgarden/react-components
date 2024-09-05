@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import CircleIcon from '@zendeskgarden/svg-icons/src/16/circle-sm-fill.svg';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.toggle_svg';
 
@@ -19,7 +19,3 @@ export const StyledToggleSvg = styled(CircleIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledToggleSvg.defaultProps = {
-  theme: DEFAULT_THEME
-};

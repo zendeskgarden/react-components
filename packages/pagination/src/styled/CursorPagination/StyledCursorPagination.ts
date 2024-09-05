@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'cursor_pagination';
 
@@ -19,7 +19,3 @@ export const StyledCursorPagination = styled.nav.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledCursorPagination.defaultProps = {
-  theme: DEFAULT_THEME
-};

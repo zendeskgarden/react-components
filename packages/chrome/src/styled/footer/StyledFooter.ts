@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { getFooterHeight } from '../utils';
 
 const COMPONENT_ID = 'chrome.footer';
@@ -48,7 +48,3 @@ export const StyledFooter = styled.footer.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledFooter.defaultProps = {
-  theme: DEFAULT_THEME
-};

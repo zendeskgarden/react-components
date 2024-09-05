@@ -6,12 +6,7 @@
  */
 
 import styled from 'styled-components';
-import {
-  getLineHeight,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.tooltip_dialog.body';
 
@@ -29,7 +24,3 @@ export const StyledTooltipDialogBody = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTooltipDialogBody.defaultProps = {
-  theme: DEFAULT_THEME
-};

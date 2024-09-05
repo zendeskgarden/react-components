@@ -8,7 +8,6 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { em, math } from 'polished';
 import {
-  DEFAULT_THEME,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
   getColor,
@@ -510,7 +509,3 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)}
 `;
-
-StyledButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

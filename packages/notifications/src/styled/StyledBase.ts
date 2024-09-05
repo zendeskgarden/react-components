@@ -6,12 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  getLineHeight,
-  DEFAULT_THEME,
-  getColor,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { Type } from '../types';
 import { validationTypes } from '../utils/icons';
 
@@ -99,7 +94,3 @@ export const StyledBase = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)}
 `;
-
-StyledBase.defaultProps = {
-  theme: DEFAULT_THEME
-};

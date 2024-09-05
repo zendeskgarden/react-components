@@ -7,11 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { rgba } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getCheckeredBackground
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getCheckeredBackground } from '@zendeskgarden/react-theming';
 import { IColorPickerDialogProps } from '../../types';
 
 const COMPONENT_ID = 'colorpickers.colordialog_preview';
@@ -59,7 +55,3 @@ export const StyledButtonPreview = styled.span.attrs<IStyleButtonPreviewProps>(p
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledButtonPreview.defaultProps = {
-  theme: DEFAULT_THEME
-};

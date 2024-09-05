@@ -6,7 +6,6 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import {
   getTrackHeight,
   getTrackMargin,
@@ -34,7 +33,3 @@ export const StyledHueRange = styled(StyledRange as 'input').attrs({
   background-position: ${props => !props.$isOpaque && `0 ${getTrackMargin(props)}px`};
   background-size: 100% ${props => getTrackHeight(props)}px;
 `;
-
-StyledHueRange.defaultProps = {
-  theme: DEFAULT_THEME
-};

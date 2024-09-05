@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledRadioMessage } from '../radio/StyledRadioMessage';
 
 const COMPONENT_ID = 'forms.checkbox_message';
@@ -17,7 +17,3 @@ export const StyledCheckMessage = styled(StyledRadioMessage).attrs({
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledCheckMessage.defaultProps = {
-  theme: DEFAULT_THEME
-};

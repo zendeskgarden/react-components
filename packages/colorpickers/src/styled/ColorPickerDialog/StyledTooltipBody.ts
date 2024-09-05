@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { TooltipDialog } from '@zendeskgarden/react-modals';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colordialog_tooltipdialog_body';
 
@@ -19,7 +19,3 @@ export const StyledTooltipBody = styled(TooltipDialog.Body as unknown as 'div').
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTooltipBody.defaultProps = {
-  theme: DEFAULT_THEME
-};

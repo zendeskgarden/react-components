@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 import { StyledItem } from './StyledItem';
 import { StyledItemIcon } from './StyledItemIcon';
@@ -27,7 +27,3 @@ export const StyledNextItem = styled(StyledItem).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledNextItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

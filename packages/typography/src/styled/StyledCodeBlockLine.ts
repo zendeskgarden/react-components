@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { Language } from 'prism-react-renderer';
-import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { Diff, Size } from '../types';
 import { StyledFont, THEME_SIZES } from './StyledFont';
 
@@ -114,7 +114,3 @@ export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledCodeBlockLine.defaultProps = {
-  theme: DEFAULT_THEME
-};

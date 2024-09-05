@@ -6,7 +6,6 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 /*
  * This wrapper allows the StyledTooltip to retain it's relative positioning.
@@ -32,7 +31,3 @@ export const StyledTooltipWrapper = styled.div<{ zIndex?: number | string }>`
     opacity: 0;
   }
 `;
-
-StyledTooltipWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

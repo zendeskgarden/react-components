@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.color_swatch_input';
 
@@ -27,7 +27,3 @@ export const StyledColorSwatchInput = styled.input.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledColorSwatchInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -8,7 +8,6 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   getColor,
   IGardenTheme,
   getLineHeight,
@@ -150,7 +149,3 @@ export const StyledDraggable = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledDraggable.defaultProps = {
-  theme: DEFAULT_THEME
-};

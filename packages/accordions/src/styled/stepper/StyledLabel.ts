@@ -6,12 +6,7 @@
  */
 
 import styled from 'styled-components';
-import {
-  getLineHeight,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_label';
 
@@ -41,7 +36,3 @@ export const StyledLabel = styled.div.attrs<IStyledLabelProps>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledLabel.defaultProps = {
-  theme: DEFAULT_THEME
-};

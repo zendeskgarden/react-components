@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, stripUnit } from 'polished';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledPaneSplitter } from './StyledPaneSplitter';
 import { getSize } from './StyledPaneSplitterButton';
 import { Orientation, PLACEMENT } from '../../types';
@@ -181,7 +181,3 @@ export const StyledPaneSplitterButtonContainer = styled.div<IStyledSplitterButto
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledPaneSplitterButtonContainer.defaultProps = {
-  theme: DEFAULT_THEME
-};

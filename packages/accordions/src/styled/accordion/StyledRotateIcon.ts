@@ -6,12 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  StyledBaseIcon,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.rotate_icon';
 
@@ -65,7 +60,3 @@ export const StyledRotateIcon = styled(StyledBaseIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledRotateIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

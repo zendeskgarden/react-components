@@ -6,7 +6,6 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export const StyledTileInput = styled.input`
   position: absolute;
@@ -19,7 +18,3 @@ export const StyledTileInput = styled.input`
   width: 100%;
   height: 100%;
 `;
-
-StyledTileInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

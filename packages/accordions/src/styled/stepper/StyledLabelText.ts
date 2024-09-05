@@ -6,7 +6,6 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_label_text';
 
@@ -23,7 +22,3 @@ export const StyledLabelText = styled.div.attrs<IStyledLabelTextProps>({
   padding: ${props => props.$isHorizontal && `0 ${props.theme.space.base * 3}px`};
   word-wrap: ${props => props.$isHorizontal && 'break-word'};
 `;
-
-StyledLabelText.defaultProps = {
-  theme: DEFAULT_THEME
-};
