@@ -117,6 +117,6 @@
     "stylelint-order": "6.0.4",
     "temp": "0.9.4",
     "typescript": "5.4.5",
-    "webpack": "5.91.0"
+    "webpack": "5.94.0"
   }
 }
