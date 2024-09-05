@@ -180,8 +180,8 @@ consider additional positioning prop support on a case-by-case basis.
   scheme to custom components that are not part of the Garden framework. It is
   recommended to utilize this stopgap measure until such components can be updated
   to leverage the full capabilities of v9 `getColor`.
-- Removed the `Theme` default prop from all components. Garden components must
-  be nested within `<ThemeProvider>` to receive the `Theme` object and
+- Removed the `theme` default prop from all components. Garden components must
+  be nested within `<ThemeProvider>` to receive the `theme` object and
   render successfully.
 - Removed `focusVisibleRef` prop (and the resulting scoping `<div>`) from
   `<ThemeProvider>`. Current browser support obviates the need for a
