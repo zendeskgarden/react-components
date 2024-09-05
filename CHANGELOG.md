@@ -13,6 +13,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.25 (2024-09-05)
+
+#### :boom: Breaking Change
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1905](https://github.com/zendeskgarden/react-components/pull/1905) refactor: remove `theme` `defaultProp` ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* `tabs`
+  * [#1911](https://github.com/zendeskgarden/react-components/pull/1911) fix(tabs): allow focus ring to resize based on content ([@ze-flo](https://github.com/ze-flo))
+
+#### :seedling: Internal
+* [#1909](https://github.com/zendeskgarden/react-components/pull/1909) chore(deps-dev): bump webpack from 5.93.0 to 5.94.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## v9.0.0-next.24 (2024-08-29)
 
 #### :bug: Bug Fix
