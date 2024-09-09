@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Highlight, Language, Prism } from 'prism-react-renderer';
+import React, { useMemo, useRef } from 'react';
+import Highlight, { Language, Prism } from 'prism-react-renderer';
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
-import { ThemeProvider, useWindow } from '@zendeskgarden/react-theming';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Diff, ICodeBlockProps, LANGUAGES } from '../types';
 import {
   StyledCodeBlock,
@@ -45,36 +45,6 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
     const code = (Array.isArray(children) ? children[0] : children) as string;
     const dependency = useMemo(() => [size, children], [size, children]);
     const containerTabIndex = useScrollRegion({ containerRef, dependency });
-    const [isPrismImported, setIsPrismImported] = useState(false);
-    const win = useWindow();
-
-    const importPrism = useCallback(async () => {
-      // TODO remove `importPrism` if/when `prismJS` releases v2 ESM
-      // https://github.com/orgs/PrismJS/discussions/3531
-      if (win && !isPrismImported) {
-        (win as any).Prism = Prism;
-
-        try {
-          await import('prismjs/components/prism-bash' as any);
-          await import('prismjs/components/prism-diff' as any);
-          await import('prismjs/components/prism-json' as any);
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          console.error(error);
-        } finally {
-          // Allows code block to render, whether or not the language can be
-          // successfully tokenized and highlighted
-          setIsPrismImported(true);
-        }
-      }
-    }, [win, isPrismImported]);
-
-    useEffect(() => {
-      // Import languages missing from the vendored `Prism` using a variant of
-      // https://github.com/FormidableLabs/prism-react-renderer?tab=readme-ov-file#custom-language-support
-      // that is compatible with both React and Jest
-      importPrism();
-    }, [importPrism]);
 
     const getDiff = (line: IToken[]) => {
       let retVal: Diff | undefined;
@@ -99,53 +69,48 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
     };
 
     return (
-      isPrismImported && (
-        <StyledCodeBlockContainer
-          {...containerProps}
-          ref={containerRef}
-          tabIndex={containerTabIndex}
+      <StyledCodeBlockContainer {...containerProps} ref={containerRef} tabIndex={containerTabIndex}>
+        <Highlight
+          Prism={Prism}
+          code={code ? code.trim() : ''}
+          language={LANGUAGES.includes(language!) ? (language as Language) : 'tsx'}
         >
-          <Highlight
-            code={code ? code.trim() : ''}
-            language={LANGUAGES.includes(language!) ? (language as Language) : 'tsx'}
-          >
-            {({ className, tokens, getLineProps, getTokenProps }) => (
-              <ThemeProvider
-                theme={parentTheme => ({
-                  ...parentTheme,
-                  colors: { ...parentTheme.colors, base: isLight ? 'light' : 'dark' }
-                })}
-              >
-                <StyledCodeBlock className={className} ref={ref} {...other}>
-                  {tokens.map((line, index) => (
-                    /* eslint-disable react/no-array-index-key */
-                    <StyledCodeBlockLine
-                      {...getLineProps({ line })}
-                      key={index}
-                      language={language}
-                      isHighlighted={highlightLines?.includes(index + 1)}
-                      isNumbered={isNumbered}
-                      diff={getDiff(line)}
-                      size={size}
-                      style={undefined}
-                    >
-                      {line.map((token, tokenKey) => (
-                        <StyledCodeBlockToken
-                          {...getTokenProps({ token })}
-                          key={tokenKey}
-                          style={undefined}
-                        >
-                          {token.empty ? '\n' : token.content}
-                        </StyledCodeBlockToken>
-                      ))}
-                    </StyledCodeBlockLine>
-                  ))}
-                </StyledCodeBlock>
-              </ThemeProvider>
-            )}
-          </Highlight>
-        </StyledCodeBlockContainer>
-      )
+          {({ className, tokens, getLineProps, getTokenProps }) => (
+            <ThemeProvider
+              theme={parentTheme => ({
+                ...parentTheme,
+                colors: { ...parentTheme.colors, base: isLight ? 'light' : 'dark' }
+              })}
+            >
+              <StyledCodeBlock className={className} ref={ref} {...other}>
+                {tokens.map((line, index) => (
+                  /* eslint-disable react/no-array-index-key */
+                  <StyledCodeBlockLine
+                    {...getLineProps({ line })}
+                    key={index}
+                    language={language}
+                    isHighlighted={highlightLines?.includes(index + 1)}
+                    isNumbered={isNumbered}
+                    diff={getDiff(line)}
+                    size={size}
+                    style={undefined}
+                  >
+                    {line.map((token, tokenKey) => (
+                      <StyledCodeBlockToken
+                        {...getTokenProps({ token })}
+                        key={tokenKey}
+                        style={undefined}
+                      >
+                        {token.empty ? '\n' : token.content}
+                      </StyledCodeBlockToken>
+                    ))}
+                  </StyledCodeBlockLine>
+                ))}
+              </StyledCodeBlock>
+            </ThemeProvider>
+          )}
+        </Highlight>
+      </StyledCodeBlockContainer>
     );
   }
 );
