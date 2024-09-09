@@ -11,10 +11,7 @@ import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming'
 const COMPONENT_ID = 'typography.codeblock';
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const backgroundColor = getColor({
-    theme,
-    variable: theme.colors.base === 'light' ? 'background.subtle' : 'background.default'
-  });
+  const backgroundColor = getColor({ theme, variable: 'background.recessed' });
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
 
   return css`
