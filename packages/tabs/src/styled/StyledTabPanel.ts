@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tabs.tabpanel';
 
@@ -38,7 +38,3 @@ export const StyledTabPanel = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTabPanel.defaultProps = {
-  theme: DEFAULT_THEME
-};

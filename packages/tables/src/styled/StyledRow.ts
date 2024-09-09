@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { ITableProps } from '../types';
 import { StyledCell } from './StyledCell';
 import { StyledBaseRow } from './StyledBaseRow';
@@ -129,7 +129,3 @@ export const StyledRow = styled(StyledBaseRow).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledRow.defaultProps = {
-  theme: DEFAULT_THEME
-};

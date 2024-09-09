@@ -6,7 +6,6 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 interface IStyledSpinnerCircleProps {
   dasharrayValue: number;
@@ -27,7 +26,3 @@ export const StyledSpinnerCircle = styled.circle.attrs<IStyledSpinnerCircleProps
 }))<IStyledSpinnerCircleProps>`
   /* empty-source */
 `;
-
-StyledSpinnerCircle.defaultProps = {
-  theme: DEFAULT_THEME
-};

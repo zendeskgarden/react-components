@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { em } from 'polished';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/12/chevron-right-stroke.svg';
 
 /**
@@ -25,7 +25,3 @@ export const StyledChevronIcon = styled(({ children, theme, ...props }) => (
   margin: 0 ${p => em(p.theme.space.base, p.theme.fontSizes.md)};
   color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
 `;
-
-StyledChevronIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

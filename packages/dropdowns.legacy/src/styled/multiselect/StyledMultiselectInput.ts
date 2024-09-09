@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledInput } from '../select/StyledInput';
 
 const COMPONENT_ID = 'dropdowns.multiselect_input';
@@ -48,7 +48,3 @@ export const StyledMultiselectInput = styled(StyledInput).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledMultiselectInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

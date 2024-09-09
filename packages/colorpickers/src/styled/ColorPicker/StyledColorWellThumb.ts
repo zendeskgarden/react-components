@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { stripUnit } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_colorwell_thumb';
 
@@ -59,7 +59,3 @@ export const StyledColorWellThumb = styled.div.attrs<IStyledSaturationPointerPro
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledColorWellThumb.defaultProps = {
-  theme: DEFAULT_THEME
-};

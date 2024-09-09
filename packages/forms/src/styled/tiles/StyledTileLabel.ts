@@ -7,11 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getLineHeight
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.tile_label';
 
@@ -47,7 +43,3 @@ export const StyledTileLabel = styled.span.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTileLabel.defaultProps = {
-  theme: DEFAULT_THEME
-};

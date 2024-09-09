@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.hidden_cell';
 
@@ -19,7 +19,3 @@ export const StyledHiddenCell = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledHiddenCell.defaultProps = {
-  theme: DEFAULT_THEME
-};

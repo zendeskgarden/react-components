@@ -9,7 +9,6 @@ import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
 import {
   retrieveComponentStyles,
-  DEFAULT_THEME,
   focusStyles,
   SELECTOR_FOCUS_VISIBLE,
   getColor
@@ -32,25 +31,13 @@ const StyledBaseIconWrapper = styled.div`
   fill: inherit;
 `;
 
-StyledBaseIconWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};
-
 export const StyledSortableStrokeIconWrapper = styled(StyledBaseIconWrapper)`
   /* empty-source */
 `;
 
-StyledSortableStrokeIconWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};
-
 export const StyledSortableFillIconWrapper = styled(StyledBaseIconWrapper)`
   /* empty-source */
 `;
-
-StyledSortableFillIconWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};
 
 interface IStyledSortableButtonProps {
   $sort?: ISortableCellProps['sort'];
@@ -176,7 +163,3 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledSortableButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

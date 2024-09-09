@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledContent } from './StyledContent';
 import { StyledLine } from './StyledLine';
 
@@ -39,7 +39,3 @@ export const StyledStep = styled.li.attrs<IStyledStep>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledStep.defaultProps = {
-  theme: DEFAULT_THEME
-};

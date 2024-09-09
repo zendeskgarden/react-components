@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.ellipsis';
 
@@ -21,7 +21,3 @@ export const StyledEllipsis = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledEllipsis.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { Tag } from '@zendeskgarden/react-tags';
 
 const COMPONENT_ID = 'dropdowns.combobox.tag';
@@ -28,7 +28,3 @@ export const StyledTag = styled(Tag).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTag.defaultProps = {
-  theme: DEFAULT_THEME
-};

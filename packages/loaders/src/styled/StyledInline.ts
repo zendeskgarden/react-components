@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, keyframes } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.inline';
 
@@ -27,10 +27,6 @@ export const StyledCircle = styled.circle.attrs({
 })`
   /* empty-source */
 `;
-
-StyledCircle.defaultProps = {
-  theme: DEFAULT_THEME
-};
 
 interface IStyledInlineProps {
   size: number;
@@ -67,7 +63,3 @@ export const StyledInline = styled.svg.attrs<IStyledInlineProps>(props => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)}
 `;
-
-StyledInline.defaultProps = {
-  theme: DEFAULT_THEME
-};

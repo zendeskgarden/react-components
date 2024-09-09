@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledFooterItem } from './StyledFooterItem';
 
 const COMPONENT_ID = 'modals.tooltip_dialog.footer_item';
@@ -17,7 +17,3 @@ export const StyledTooltipDialogFooterItem = styled(StyledFooterItem).attrs({
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTooltipDialogFooterItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledCell, IStyledCellProps } from './StyledCell';
 import { StyledSortableButton } from './StyledSortableButton';
 import { getLineHeight } from './StyledTable';
@@ -60,7 +60,3 @@ export const StyledHeaderCell = styled(StyledCell).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledHeaderCell.defaultProps = {
-  theme: DEFAULT_THEME
-};

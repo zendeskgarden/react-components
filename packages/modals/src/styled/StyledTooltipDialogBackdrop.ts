@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.tooltip_dialog.backdrop';
 
@@ -36,7 +36,3 @@ export const StyledTooltipDialogBackdrop = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTooltipDialogBackdrop.defaultProps = {
-  theme: DEFAULT_THEME
-};

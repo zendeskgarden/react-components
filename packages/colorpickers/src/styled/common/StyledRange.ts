@@ -8,7 +8,7 @@
 import { Range } from '@zendeskgarden/react-forms';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { stripUnit } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 export interface IStyledRangeProps {
   $isOpaque?: boolean;
@@ -181,7 +181,3 @@ export const StyledRange = styled(Range as unknown as 'input').attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledRange.defaultProps = {
-  theme: DEFAULT_THEME
-};

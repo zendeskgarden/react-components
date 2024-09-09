@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, menuStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { menuStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { PopperPlacement } from '../../types';
 import { getMenuPosition } from '../../utils/garden-placements';
 
@@ -36,7 +36,3 @@ export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledMenuWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

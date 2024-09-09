@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { TYPE, Type } from '../types';
 import { StyledTitle } from './content/StyledTitle';
 import { IStyledBaseProps, StyledBase } from './StyledBase';
@@ -62,8 +62,4 @@ export const StyledNotification = styled(StyledBase).attrs({
 
 StyledNotification.propTypes = {
   $type: PropTypes.oneOf(TYPE)
-};
-
-StyledNotification.defaultProps = {
-  theme: DEFAULT_THEME
 };

@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledCodeBlock } from './StyledCodeBlock';
 
 const COMPONENT_ID = 'typography.codeblock_token';
@@ -191,7 +191,3 @@ export const StyledCodeBlockToken = styled.span.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledCodeBlockToken.defaultProps = {
-  theme: DEFAULT_THEME
-};

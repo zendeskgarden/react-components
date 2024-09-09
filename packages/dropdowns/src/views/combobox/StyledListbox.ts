@@ -6,7 +6,6 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IListboxProps } from '../../types';
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
 import { StyledOptionContent } from './StyledOptionContent';
@@ -56,7 +55,3 @@ export const StyledListbox = styled.ul.attrs({
     display: none;
   }
 `;
-
-StyledListbox.defaultProps = {
-  theme: DEFAULT_THEME
-};

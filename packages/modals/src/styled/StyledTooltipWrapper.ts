@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { Placement } from '@floating-ui/react-dom';
-import { DEFAULT_THEME, getMenuPosition, menuStyles } from '@zendeskgarden/react-theming';
+import { getMenuPosition, menuStyles } from '@zendeskgarden/react-theming';
 import { ITooltipDialogProps } from '../types';
 
 interface IStyledTooltipWrapperProps extends Pick<ITooltipDialogProps, 'isAnimated' | 'zIndex'> {
@@ -31,7 +31,3 @@ export const StyledTooltipWrapper = styled.div.attrs<IStyledTooltipWrapperProps>
       animationModifier: '.is-animated'
     })};
 `;
-
-StyledTooltipWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

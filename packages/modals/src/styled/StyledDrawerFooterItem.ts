@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledFooterItem } from './StyledFooterItem';
 
 const COMPONENT_ID = 'modals.drawer_modal.footer_item';
@@ -17,7 +17,3 @@ export const StyledDrawerFooterItem = styled(StyledFooterItem as 'span').attrs({
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledDrawerFooterItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

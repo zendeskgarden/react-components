@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_title';
 
@@ -19,7 +19,3 @@ export const StyledSheetTitle = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledSheetTitle.defaultProps = {
-  theme: DEFAULT_THEME
-};

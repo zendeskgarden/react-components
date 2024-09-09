@@ -6,12 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import {
-  getLineHeight,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 import { BASE_MULTIPLIERS } from './StyledClose';
 
@@ -61,7 +56,3 @@ export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledHeader.defaultProps = {
-  theme: DEFAULT_THEME
-};

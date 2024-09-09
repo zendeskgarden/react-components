@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import CircleIcon from '@zendeskgarden/svg-icons/src/12/circle-sm-fill.svg';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';
 
@@ -26,7 +26,3 @@ export const StyledRadioSvg = styled(CircleIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledRadioSvg.defaultProps = {
-  theme: DEFAULT_THEME
-};

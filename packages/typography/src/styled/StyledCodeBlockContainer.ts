@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles, focusStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, focusStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.codeblock_container';
 
@@ -24,7 +24,3 @@ export const StyledCodeBlockContainer = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledCodeBlockContainer.defaultProps = {
-  theme: DEFAULT_THEME
-};

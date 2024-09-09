@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { sizeStyles } from './StyledInput';
 
 const COMPONENT_ID = 'dropdowns.combobox.value';
@@ -57,7 +57,3 @@ export const StyledValue = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledValue.defaultProps = {
-  theme: DEFAULT_THEME
-};

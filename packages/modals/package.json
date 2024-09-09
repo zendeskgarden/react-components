@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-modals",
-  "version": "9.0.0-next.23",
+  "version": "9.0.0-next.25",
   "description": "Components relating to modals in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -24,7 +24,7 @@
     "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-modal": "^1.0.15",
     "@zendeskgarden/container-utilities": "^2.0.0",
-    "@zendeskgarden/react-buttons": "^9.0.0-next.23",
+    "@zendeskgarden/react-buttons": "^9.0.0-next.25",
     "dom-helpers": "^5.1.0",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^2.0.0",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/react-transition-group": "4.4.11",
-    "@zendeskgarden/react-theming": "^9.0.0-next.23",
+    "@zendeskgarden/react-theming": "^9.0.0-next.25",
     "@zendeskgarden/svg-icons": "7.2.0"
   },
   "keywords": [

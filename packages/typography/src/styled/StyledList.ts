@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { IOrderedListProps, IUnorderedListProps } from '../types';
 
 const listStyles = (props: { listType?: string } & ThemeProps<DefaultTheme>) => {
@@ -36,10 +36,6 @@ export const StyledOrderedList = styled.ol.attrs({
   ${props => retrieveComponentStyles(ORDERED_ID, props)};
 `;
 
-StyledOrderedList.defaultProps = {
-  theme: DEFAULT_THEME
-};
-
 const UNORDERED_ID = 'typography.unordered_list';
 
 interface IStyledUnorderedListProps {
@@ -53,7 +49,3 @@ export const StyledUnorderedList = styled.ul.attrs({
   ${props => listStyles(props)};
   ${props => retrieveComponentStyles(UNORDERED_ID, props)};
 `;
-
-StyledUnorderedList.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,12 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import {
-  getColor,
-  getLineHeight,
-  retrieveComponentStyles,
-  DEFAULT_THEME
-} from '@zendeskgarden/react-theming';
+import { getColor, getLineHeight, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'breadcrumbs.item';
 
@@ -64,7 +59,3 @@ export const StyledBreadcrumbItem = styled.li.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledBreadcrumbItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

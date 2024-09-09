@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.drawer_modal.footer';
 
@@ -23,7 +23,3 @@ export const StyledDrawerFooter = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledDrawerFooter.defaultProps = {
-  theme: DEFAULT_THEME
-};

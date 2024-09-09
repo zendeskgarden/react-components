@@ -8,7 +8,6 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import {
-  DEFAULT_THEME,
   focusStyles,
   getColor,
   retrieveComponentStyles,
@@ -191,7 +190,3 @@ export const StyledPaneSplitter = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledPaneSplitter.defaultProps = {
-  theme: DEFAULT_THEME
-};

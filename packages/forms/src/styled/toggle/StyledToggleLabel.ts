@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledCheckLabel } from '../checkbox/StyledCheckLabel';
 
 const COMPONENT_ID = 'forms.toggle_label';
@@ -32,7 +32,3 @@ export const StyledToggleLabel = styled(StyledCheckLabel).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledToggleLabel.defaultProps = {
-  theme: DEFAULT_THEME
-};

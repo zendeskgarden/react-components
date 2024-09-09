@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 
 export interface IStyledBaseRowProps {
   $isStriped?: boolean;
@@ -44,7 +44,3 @@ export const StyledBaseRow = styled.tr<IStyledBaseRowProps>`
 
   ${colorStyles}
 `;
-
-StyledBaseRow.defaultProps = {
-  theme: DEFAULT_THEME
-};

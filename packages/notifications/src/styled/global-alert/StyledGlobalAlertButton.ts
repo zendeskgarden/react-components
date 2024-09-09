@@ -8,7 +8,6 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   getColor,
-  DEFAULT_THEME,
   focusStyles,
   retrieveComponentStyles,
   ColorParameters
@@ -128,7 +127,3 @@ export const StyledGlobalAlertButton = styled(Button).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledGlobalAlertButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

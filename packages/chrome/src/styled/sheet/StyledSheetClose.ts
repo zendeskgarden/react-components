@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
 const COMPONENT_ID = 'chrome.sheet_close';
@@ -31,7 +31,3 @@ export const StyledSheetClose = styled(IconButton).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledSheetClose.defaultProps = {
-  theme: DEFAULT_THEME
-};

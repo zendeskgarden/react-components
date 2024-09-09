@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledLabel } from './StyledLabel';
 
 const COMPONENT_ID = 'forms.fieldset_legend';
@@ -27,7 +27,3 @@ export const StyledLegend = styled(StyledLabel as 'legend').attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledLegend.defaultProps = {
-  theme: DEFAULT_THEME
-};

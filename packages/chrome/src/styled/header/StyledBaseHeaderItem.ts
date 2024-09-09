@@ -6,11 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import {
-  DEFAULT_THEME,
-  retrieveComponentStyles,
-  getLineHeight
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 import { getHeaderItemSize } from '../utils';
 
 const COMPONENT_ID = 'chrome.base_header_item';
@@ -83,7 +79,3 @@ export const StyledBaseHeaderItem = styled.button.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledBaseHeaderItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

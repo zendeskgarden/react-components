@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 interface IStyledSVGProps {
   dataGardenId: string;
@@ -34,7 +34,3 @@ export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
 
   ${props => retrieveComponentStyles(props.dataGardenId, props)};
 `;
-
-StyledSVG.defaultProps = {
-  theme: DEFAULT_THEME
-};

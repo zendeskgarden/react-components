@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
 const COMPONENT_ID = 'modals.close';
@@ -28,7 +28,3 @@ export const StyledClose = styled(IconButton).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledClose.defaultProps = {
-  theme: DEFAULT_THEME
-};

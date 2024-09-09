@@ -13,6 +13,35 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.25 (2024-09-05)
+
+#### :boom: Breaking Change
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1905](https://github.com/zendeskgarden/react-components/pull/1905) refactor: remove `theme` `defaultProp` ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* `tabs`
+  * [#1911](https://github.com/zendeskgarden/react-components/pull/1911) fix(tabs): allow focus ring to resize based on content ([@ze-flo](https://github.com/ze-flo))
+
+#### :seedling: Internal
+* [#1909](https://github.com/zendeskgarden/react-components/pull/1909) chore(deps-dev): bump webpack from 5.93.0 to 5.94.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+## v9.0.0-next.24 (2024-08-29)
+
+#### :bug: Bug Fix
+* `tabs`
+  * [#1908](https://github.com/zendeskgarden/react-components/pull/1908) fix(tabs): border styling ([@jzempel](https://github.com/jzempel))
+  * [#1904](https://github.com/zendeskgarden/react-components/pull/1904) fix(tabs): add border-color transition for smoother animation ([@ze-flo](https://github.com/ze-flo))
+* `avatars`
+  * [#1901](https://github.com/zendeskgarden/react-components/pull/1901) fix(avatars): rectify `StatusIndicator` sizing and position ([@ze-flo](https://github.com/ze-flo))
+
+#### :memo: Documentation
+* `tags`
+  * [#1907](https://github.com/zendeskgarden/react-components/pull/1907) fix(tags): ensure prop sheet refers to internal website URL ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* [#1906](https://github.com/zendeskgarden/react-components/pull/1906) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v9.0.0-next.23 (2024-08-22)
 
 #### :boom: Breaking Change

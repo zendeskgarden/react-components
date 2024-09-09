@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'timeline.content.separator';
 
@@ -29,7 +29,3 @@ export const StyledSeparator = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledSeparator.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -7,7 +7,6 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  DEFAULT_THEME,
   retrieveComponentStyles,
   getLineHeight,
   focusStyles,
@@ -140,7 +139,3 @@ export const StyledGlobalAlert = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledGlobalAlert.defaultProps = {
-  theme: DEFAULT_THEME
-};

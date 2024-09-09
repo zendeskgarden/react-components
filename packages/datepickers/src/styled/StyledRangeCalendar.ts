@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { StyledDatePicker } from './StyledDatePicker';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.range_calendar';
 
@@ -29,7 +29,3 @@ export const StyledRangeCalendar = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledRangeCalendar.defaultProps = {
-  theme: DEFAULT_THEME
-};

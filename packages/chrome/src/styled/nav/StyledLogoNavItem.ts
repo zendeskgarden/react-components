@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { Product } from '../../types';
 import { getProductColor } from '../utils';
@@ -46,7 +46,3 @@ export const StyledLogoNavItem = styled(StyledBaseNavItem as 'button').attrs({
 
   ${colorStyles};
 `;
-
-StyledLogoNavItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.loading_placeholder';
 
@@ -28,7 +28,3 @@ export const StyledLoadingPlaceholder = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)}
 `;
-
-StyledLoadingPlaceholder.defaultProps = {
-  theme: DEFAULT_THEME
-};

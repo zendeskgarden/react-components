@@ -7,12 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { hideVisually, math } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getLineHeight,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.combobox.input';
 
@@ -94,7 +89,3 @@ export const StyledInput = styled.input.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

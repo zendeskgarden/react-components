@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, arrowStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, arrowStyles } from '@zendeskgarden/react-theming';
 import { PopperPlacement } from '../../types';
 import { getArrowPosition } from '../../utils/garden-placements';
 
@@ -44,7 +44,3 @@ export const StyledMenu = styled.ul.attrs<IStyledMenuProps>(props => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledMenu.defaultProps = {
-  theme: DEFAULT_THEME
-};

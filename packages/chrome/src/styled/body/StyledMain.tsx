@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.main';
 
@@ -25,7 +25,3 @@ export const StyledMain = styled.main.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledMain.defaultProps = {
-  theme: DEFAULT_THEME
-};

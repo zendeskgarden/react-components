@@ -6,12 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  getLineHeight,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_inner_content';
 
@@ -26,7 +21,3 @@ export const StyledInnerContent = styled.div.attrs<ThemeProps<DefaultTheme>>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledInnerContent.defaultProps = {
-  theme: DEFAULT_THEME
-};

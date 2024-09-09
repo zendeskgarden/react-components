@@ -6,12 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  getLineHeight,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 export const COMPONENT_ID = 'accordions.button';
 
@@ -79,7 +74,3 @@ export const StyledButton = styled.button.attrs<IStyledButton>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

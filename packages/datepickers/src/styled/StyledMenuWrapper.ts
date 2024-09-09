@@ -6,12 +6,7 @@
  */
 
 import styled from 'styled-components';
-import {
-  DEFAULT_THEME,
-  getMenuPosition,
-  menuStyles,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { getMenuPosition, menuStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { Placement } from '@floating-ui/react-dom';
 
 const COMPONENT_ID = 'datepickers.menu_wrapper';
@@ -45,7 +40,3 @@ export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledMenuWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.header_item_text';
 
@@ -25,7 +25,3 @@ export const StyledHeaderItemText = styled.span.attrs<IStyledHeaderItemTextProps
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledHeaderItemText.defaultProps = {
-  theme: DEFAULT_THEME
-};

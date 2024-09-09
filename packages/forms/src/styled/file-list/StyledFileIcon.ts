@@ -6,12 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import {
-  DEFAULT_THEME,
-  StyledBaseIcon,
-  getColor,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { StyledBaseIcon, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { FileValidation } from '../../types';
 
 const COMPONENT_ID = 'forms.file.icon';
@@ -51,7 +46,3 @@ export const StyledFileIcon = styled(StyledBaseIcon).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledFileIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

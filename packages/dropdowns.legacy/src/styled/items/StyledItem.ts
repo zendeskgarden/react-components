@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.item';
 
@@ -99,7 +99,3 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,12 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getLineHeight,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tabs.tablist';
 
@@ -65,7 +60,3 @@ export const StyledTabList = styled.div.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTabList.defaultProps = {
-  theme: DEFAULT_THEME
-};
