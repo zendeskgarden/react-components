@@ -138,10 +138,13 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
       ]
     );
 
+    /**
+     * 1. Use whichever value is `false` first to prevent empty menu state
+     */
     const Node = (
       <StyledFloatingMenu
         data-garden-animate={isVisible}
-        isHidden={!isExpanded}
+        isHidden={!isExpanded || !isVisible} /* [1] */
         position={getMenuPosition(placement)}
         zIndex={zIndex}
         style={{ transform }}

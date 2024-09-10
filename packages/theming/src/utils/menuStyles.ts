@@ -40,6 +40,10 @@ const animationStyles = (position: MenuPosition, options: MenuOptions) => {
     0% {
       /* stylelint-disable-next-line function-name-case */
       transform: ${transformFunction}(${translateValue});
+      pointer-events: none;
+    }
+    100% {
+      pointer-events: auto;
     }
   `;
 
