@@ -27,6 +27,7 @@ export interface IStyledTooltipDialogProps
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
   padding: ${props.theme.space.base * 5}px;
   width: 400px;
+  
   &:has(${StyledTooltipDialogClose}) > :first-child {
     padding-${props.theme.rtl ? 'left' : 'right'}: ${props.theme.space.base * 8}px;
   }
