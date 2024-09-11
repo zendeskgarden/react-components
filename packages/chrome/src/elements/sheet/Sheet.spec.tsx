@@ -52,11 +52,19 @@ describe('Sheet', () => {
     expect(getByRole('complementary')).toBe(ref.current);
   });
 
+  it('is inert when closed', () => {
+    const { getByRole } = render(<Example />);
+    const sheet = getByRole('complementary');
+
+    expect(sheet).toHaveAttribute('inert');
+  });
+
   it('contains a11y bindings to label and describe the sheet', () => {
     const { getByRole } = render(<Example isOpen />);
     const sheet = getByRole('complementary');
 
     expect(screen.getByLabelText('title')).toBe(sheet);
     expect(sheet).toHaveAccessibleDescription('description');
+    expect(sheet).not.toHaveAttribute('inert');
   });
 });
