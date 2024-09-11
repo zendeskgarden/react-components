@@ -12,7 +12,6 @@ const COMPONENT_ID = 'modals.tooltip_dialog.title';
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
   /* stylelint-disable-next-line property-no-unknown */
-  padding-${props.theme.rtl ? 'left' : 'right'}: ${props.theme.space.base * 8}px;
   line-height: ${getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
   font-size: ${props.theme.fontSizes.md};
 `;
