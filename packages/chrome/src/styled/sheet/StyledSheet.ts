@@ -12,6 +12,7 @@ import { ISheetProps } from '../../types';
 const COMPONENT_ID = 'chrome.sheet';
 
 interface IStyledSheetProps {
+  inert?: string;
   placement?: ISheetProps['placement'];
   isOpen?: boolean;
   isAnimated?: boolean;

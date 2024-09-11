@@ -51,6 +51,7 @@ const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
     return (
       <SheetContext.Provider value={sheetContext}>
         <StyledSheet
+          inert={isOpen ? undefined : ''}
           isOpen={isOpen}
           isAnimated={isAnimated}
           placement={placement}
