@@ -13,6 +13,24 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.26 (2024-09-12)
+
+#### :bug: Bug Fix
+* `chrome`
+  * [#1920](https://github.com/zendeskgarden/react-components/pull/1920) fix(chrome): prevent focus on closed `Sheet` ([@jzempel](https://github.com/jzempel))
+* `dropdowns`
+  * [#1919](https://github.com/zendeskgarden/react-components/pull/1919) fix(dropdowns): forwards menu button ref correctly ([@geotrev](https://github.com/geotrev))
+* `modals`
+  * [#1917](https://github.com/zendeskgarden/react-components/pull/1917) fix(tooltips): ensure correct padding for `TooltipDialog`'s inner elements if `Close` btn exists ([@ze-flo](https://github.com/ze-flo))
+* `dropdowns`, `theming`
+  * [#1918](https://github.com/zendeskgarden/react-components/pull/1918) fix(dropdowns): prevents menus focus focusing items early during animation ([@geotrev](https://github.com/geotrev))
+* `typography`
+  * [#1916](https://github.com/zendeskgarden/react-components/pull/1916) fix(typography): set `CodeBlock` background to `background.recessed` ([@jzempel](https://github.com/jzempel))
+  * [#1915](https://github.com/zendeskgarden/react-components/pull/1915) fix(typography): revert `react-prism-renderer` to v1 ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* [#1914](https://github.com/zendeskgarden/react-components/pull/1914) docs: add removal of `theme` default prop ADR ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.0.0-next.25 (2024-09-05)
 
 #### :boom: Breaking Change
