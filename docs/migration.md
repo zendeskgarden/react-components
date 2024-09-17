@@ -13,12 +13,16 @@ completely removed.
 
 The theme object, along with its utility functions, introduce a minimal set of
 breaking changes for Garden version 9. It is important to proceed with caution
-when upgrading each Garden package individually. All existing v8 packages must
-be
-[v8.75.0](https://github.com/zendeskgarden/react-components/releases/tag/v8.75.0)
-or higher in order to complete a successful individual package migration to v9.
-Detailed theming change instructions are provided under the
-[@zendeskgarden/react-theming](#zendeskgardenreact-theming) package.
+when upgrading each Garden package individually.
+
+To begin a v9 migration, these initial steps must be taken before upgrading individual packages:
+
+- All existing v8 packages must be set to
+  [v8.75.0](https://github.com/zendeskgarden/react-components/releases/tag/v8.75.0)
+  or higher in order to complete a successful individual package migration to v9.
+- Since `@zendeskgarden/react-theming` is central to all Garden packages, it must be
+  updated to v9 first. Detailed theming upgrade instructions are provided under the
+  [breaking changes section](#zendeskgardenreact-theming).
 
 Garden has transitioned from utilizing [Popper](https://popper.js.org/docs/) to
 adopting the enhanced [Floating UI](https://floating-ui.com/) library. In the
@@ -40,7 +44,6 @@ consider additional positioning prop support on a case-by-case basis.
   - `react-theming@v9` uses version range `^4.2.0 || ^5.3.1` to support `v8` to `v9` upgrades.
 
 - Garden v9 upgraded from `react-merge-refs` v1 to v2.
-
   - The [breaking
     change](https://github.com/gregberge/react-merge-refs/blob/main/CHANGELOG.md#200-2022-06-19)
     exports ESM only.
@@ -48,7 +51,6 @@ consider additional positioning prop support on a case-by-case basis.
     extension. See Garden's
     [jest.config.js](https://github.com/zendeskgarden/react-components/blob/c2aa97d1edccfa0578ee5655b543ca6635767fb9/utils/test/jest.config.js#L28-L30)
     for details.
-
 - The following breaking changes are listed alphabetically by package. While
   individual packages can be upgraded one at a time,
   [@zendeskgarden/react-theming](#zendeskgardenreact-theming) must be upgraded
