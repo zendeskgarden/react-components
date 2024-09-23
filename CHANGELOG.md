@@ -13,6 +13,42 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0 (2024-01-10)
+
+#### :boom: Breaking Change
+* All breaking changes are detailed in the [Migration Guide](https://github.com/zendeskgarden/react-components/blob/main/docs/migration.md). Follow the guide to upgrade from version 8 to version 9.
+
+#### :rocket: New Feature
+* all packages
+  * feat: new light/dark mode colors ([@geotrev](https://github.com/geotrev), [@jzempel](https://github.com/jzempel), [@ze-flo](https://github.com/ze-flo))
+* `theming`
+  * [#1704](https://github.com/zendeskgarden/react-components/pull/1704) feat(theming): add arrow/menu position and floating placement utilities ([@jzempel](https://github.com/jzempel))
+* `tabs`, `tooltips`, `chrome`, `tables`, `modals`, `notifications`, `dropdowns`, `typography`, `colorpickers`, `datepickers`, `forms`, `grid`
+  * feat: adds subcomponent mapping to components ([@geotrev](https://github.com/geotrev))
+* `theming`
+  * [#1763](https://github.com/zendeskgarden/react-components/pull/1763) feat: add refactored `getColor` utility ([@jzempel](https://github.com/jzempel))
+* `theming`
+  * [#1782](https://github.com/zendeskgarden/react-components/pull/1782) feat(theming): fill out color variables ([@jzempel](https://github.com/jzempel))
+* `theming`
+  * [#1797](https://github.com/zendeskgarden/react-components/pull/1797) feat(theming): add system `opacity` values to the theme ([@jzempel](https://github.com/jzempel))
+* `colorpickers`, `theming`
+  * [#1793](https://github.com/zendeskgarden/react-components/pull/1793) feat(theming): add new `getCheckeredBackground` utility ([@jzempel](https://github.com/jzempel))
+* `buttons`, `dropdowns`, `forms`, `notifications`, `pagination`, `tags`, `typography`
+  * [#1792](https://github.com/zendeskgarden/react-components/pull/1792) feat: adds StyledBaseIcon to various icon components ([@geotrev](https://github.com/geotrev))
+* `accordions`, `theming`
+  * [#1791](https://github.com/zendeskgarden/react-components/pull/1791) feat: adds styled icon base component ([@geotrev](https://github.com/geotrev))
+* `theming`
+  * [#1806](https://github.com/zendeskgarden/react-components/pull/1806) feat(theming): enhance `getColor` to accept rgba and literal color variables ([@jzempel](https://github.com/jzempel))
+* `chrome`, `draggable`, `forms`, `grid`, `modals`, `notifications`, `theming`, `tooltips`
+  * [#1870](https://github.com/zendeskgarden/react-components/pull/1870) feat(theming): adds shadow variables to theme + updates styled components ([@geotrev](https://github.com/geotrev))
+* `chrome`, `dropdowns`, `grid`, `modals`, `tabs`, `theming`
+  * [#1873](https://github.com/zendeskgarden/react-components/pull/1873) feat: applies color-scheme to align garden and system themes ([@geotrev](https://github.com/geotrev))
+* `accordions`, `avatars`, `tags`, `typography`
+  * [#1885](https://github.com/zendeskgarden/react-components/pull/1885) feat: allow color-related props to receive color variable keys in addition to hex values ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* See the `next` prerelease changes below for fixes applied to the v9 release.
+
 ## v9.0.0-next.26 (2024-09-12)
 
 #### :bug: Bug Fix
