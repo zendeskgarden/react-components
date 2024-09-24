@@ -79,6 +79,8 @@ export interface ITooltipDialogProps extends Omit<IModalProps, 'isCentered' | 'i
    * Positions the modal relative to the provided `HTMLElement`
    */
   referenceElement?: HTMLElement | null;
+  /** @ignore Modifies the placement offset from the reference element (internal only) */
+  offset?: number;
   /**
    * Adjusts the placement of the tooltip
    **/

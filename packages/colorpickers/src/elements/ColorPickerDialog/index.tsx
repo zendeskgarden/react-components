@@ -14,6 +14,7 @@ import React, {
   forwardRef,
   ReactElement
 } from 'react';
+import { useTheme } from 'styled-components';
 import PropTypes from 'prop-types';
 import { Button } from '@zendeskgarden/react-buttons';
 import { PLACEMENT } from '@zendeskgarden/react-modals';
@@ -27,7 +28,7 @@ import {
   StyledTooltipBody
 } from '../../styled';
 import { IColor, IColorPickerDialogProps } from '../../types';
-import { useText } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, useText } from '@zendeskgarden/react-theming';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -70,6 +71,7 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
       'aria-label',
       'Color picker'
     );
+    const theme = useTheme() || DEFAULT_THEME;
 
     const openDialog = () => {
       setReferenceElement(buttonRef.current);
@@ -128,6 +130,7 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
           isAnimated={isAnimated}
           focusOnMount={false}
           placement={placement}
+          offset={theme.space.base}
           referenceElement={referenceElement}
           onClose={() => {
             closeDialog();

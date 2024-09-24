@@ -14,10 +14,11 @@ import React, {
   forwardRef,
   ReactElement
 } from 'react';
+import { useTheme } from 'styled-components';
 import PropTypes from 'prop-types';
 import { Button } from '@zendeskgarden/react-buttons';
 import { PLACEMENT } from '@zendeskgarden/react-modals';
-import { useText } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, useText } from '@zendeskgarden/react-theming';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { ColorSwatch } from '../ColorSwatch';
@@ -65,6 +66,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
     const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>(null);
     const [rowIndex, setRowIndex] = useState<number | undefined>(defaultSelectedRowIndex);
     const [colIndex, setColIndex] = useState<number | undefined>(defaultSelectedColIndex);
+    const theme = useTheme() || DEFAULT_THEME;
     let backgroundColor;
 
     if (isControlled) {
@@ -159,6 +161,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
           hasArrow={hasArrow}
           focusOnMount={false}
           placement={placement}
+          offset={theme.space.base}
           isAnimated={isAnimated}
           referenceElement={referenceElement}
           onClose={closeDialog}
