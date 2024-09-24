@@ -11,11 +11,12 @@ import styled, { useTheme } from 'styled-components';
 import { IGardenTheme, getCheckeredBackground, getColor } from '@zendeskgarden/react-theming';
 import { Tag } from '@zendeskgarden/react-tags';
 
-const StyledDiv = styled.div<{ background: string }>`
+const StyledDiv = styled.div.attrs<{ background: string }>(p => ({
+  style: { background: p.background }
+}))`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${p => p.background};
   height: 208px;
 `;
 
