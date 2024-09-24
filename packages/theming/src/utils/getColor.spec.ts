@@ -100,6 +100,12 @@ describe('getColor', () => {
       expect(color).toBe(expected);
     });
 
+    it('accepts CSS keywords', () => {
+      expect(getColor({ theme: DEFAULT_THEME, hue: 'currentcolor' })).toBe('currentcolor');
+      expect(getColor({ theme: DEFAULT_THEME, hue: 'inherit' })).toBe('inherit');
+      expect(getColor({ theme: DEFAULT_THEME, hue: 'transparent' })).toBe('transparent');
+    });
+
     it('applies mode hue as expected', () => {
       const color = getColor({ theme: DARK_THEME, hue: 'red', dark: { hue: 'green' } });
       const expected = PALETTE.green[500];
@@ -401,6 +407,10 @@ describe('getColor', () => {
 
     it('throws an error when hue is off palette', () => {
       expect(() => getColor({ theme: DEFAULT_THEME, hue: 'missing' })).toThrow(Error);
+    });
+
+    it('throws an error if a shade cannot be combined with a hue keyword', () => {
+      expect(() => getColor({ theme: DEFAULT_THEME, hue: 'inherit', shade: 500 })).toThrow(Error);
     });
 
     it('throws an error if shade is invalid', () => {
