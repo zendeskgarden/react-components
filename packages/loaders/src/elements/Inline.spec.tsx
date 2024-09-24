@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Inline } from './Inline';
 
 describe('Inline', () => {
@@ -34,6 +35,12 @@ describe('Inline', () => {
   it('applies color correctly', () => {
     const { container } = render(<Inline color="red" />);
 
-    expect(container.firstChild).toHaveStyleRule('color', 'red');
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);
+  });
+
+  it('renders color variable key as expected', () => {
+    const { container } = render(<Inline color="foreground.primary" />);
+
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[700]);
   });
 });

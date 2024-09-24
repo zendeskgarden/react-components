@@ -8,6 +8,7 @@
 import React from 'react';
 import { render, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Dots } from './Dots';
 
 jest.useFakeTimers({ legacyFakeTimers: true });
@@ -408,5 +409,15 @@ describe('Dots', () => {
     const dots = getByTestId('dots');
 
     expect(dots).toHaveAttribute('role', 'img');
+  });
+
+  it('renders color variable key as expected', () => {
+    const { container } = render(<Dots color="foreground.primary" />);
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[700]);
   });
 });

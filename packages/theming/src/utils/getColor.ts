@@ -66,11 +66,17 @@ const toHex = (
 
 /* Validates color */
 const isValidColor = (maybeColor: any) => {
-  try {
-    return !!parseToRgba(maybeColor);
-  } catch {
-    return false;
+  let retVal = ['currentcolor', 'inherit', 'transparent'].includes(maybeColor);
+
+  if (!retVal) {
+    try {
+      retVal = !!parseToRgba(maybeColor);
+    } catch {
+      retVal = false;
+    }
   }
+
+  return retVal;
 };
 
 /**
@@ -182,7 +188,7 @@ const toColor = (
 
   if (typeof _hue === 'object') {
     retVal = toHex(_hue, shade, offset, scheme);
-  } else if (_hue === 'transparent' || isValidColor(_hue)) {
+  } else if (isValidColor(_hue)) {
     if (shade === undefined) {
       retVal = _hue;
     } else {

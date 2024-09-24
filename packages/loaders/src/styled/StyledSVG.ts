@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 interface IStyledSVGProps {
   dataGardenId: string;
@@ -17,6 +17,14 @@ interface IStyledSVGProps {
   containerWidth?: string;
   containerHeight?: string;
 }
+
+const colorStyles = ({ theme, color = 'inherit' }: IStyledSVGProps & ThemeProps<DefaultTheme>) => {
+  const options = color.includes('.') ? { variable: color, theme } : { hue: color, theme };
+
+  return css`
+    color: ${getColor(options)};
+  `;
+};
 
 export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
@@ -29,8 +37,9 @@ export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
 }))<IStyledSVGProps>`
   width: ${props => props.containerWidth || '1em'};
   height: ${props => props.containerHeight || '0.9em'};
-  color: ${props => props.color || 'inherit'};
   font-size: ${props => props.fontSize || 'inherit'};
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(props.dataGardenId, props)};
 `;

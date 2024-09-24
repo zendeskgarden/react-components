@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { getRenderFn, render } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledSVG } from '.';
 
 type Args = ['light' | 'dark', string];
@@ -31,7 +32,7 @@ describe('StyledSVG', () => {
       <StyledSVG width="0" height="0" color="red" dataGardenId="StyledSVG" />
     );
 
-    expect(container.firstChild).toHaveStyleRule('color', 'red');
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);
   });
 
   it.each<Args>([

@@ -5,10 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, keyframes } from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps, css, keyframes } from 'styled-components';
+import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.inline';
+
+interface IStyledInlineProps {
+  size: number;
+  color: string;
+}
+
+const colorStyles = ({ theme, color }: IStyledInlineProps & ThemeProps<DefaultTheme>) => {
+  const options = color.includes('.') ? { variable: color, theme } : { hue: color, theme };
+
+  return css`
+    color: ${getColor(options)};
+  `;
+};
 
 const retrieveAnimation = ({ theme }: ThemeProps<DefaultTheme>) => keyframes`
   0%, 100% {
@@ -28,11 +41,6 @@ export const StyledCircle = styled.circle.attrs({
   /* empty-source */
 `;
 
-interface IStyledInlineProps {
-  size: number;
-  color: string;
-}
-
 export const StyledInline = styled.svg.attrs<IStyledInlineProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
@@ -40,7 +48,7 @@ export const StyledInline = styled.svg.attrs<IStyledInlineProps>(props => ({
   width: props.size,
   height: props.size * 0.25
 }))<IStyledInlineProps>`
-  color: ${props => props.color};
+  ${colorStyles};
 
   ${StyledCircle} {
     opacity: 0.2;
