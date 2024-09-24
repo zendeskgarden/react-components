@@ -41,7 +41,15 @@ const colorStyles = ({
     light: { shade: 700 },
     dark: { shade: 500 }
   });
-  const foregroundColor = color || getColor({ theme, variable: 'border.successEmphasis' });
+  let options;
+
+  if (color) {
+    options = color.includes('.') ? { variable: color, theme } : { hue: color, theme };
+  } else {
+    options = { variable: 'border.successEmphasis', theme };
+  }
+
+  const foregroundColor = getColor(options);
 
   return css`
     background-color: ${backgroundColor};

@@ -93,7 +93,13 @@ describe('Progress', () => {
     it('renders a colored progress bar', () => {
       const { getByRole } = render(<Progress value={42} color="red" />);
 
-      expect(getByRole('progressbar')).toHaveStyleRule('color', 'red');
+      expect(getByRole('progressbar')).toHaveStyleRule('color', PALETTE.red[700]);
+    });
+
+    it('renders a variable key as expected', () => {
+      const { container } = render(<Progress value={42} color="foreground.primary" />);
+
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[700]);
     });
   });
 });
