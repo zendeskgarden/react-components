@@ -119,6 +119,9 @@ consider additional positioning prop support on a case-by-case basis.
   - The `v8` version of `@zendeskgarden/react-dropdowns` is no longer maintained and is
     renamed to `@zendeskgarden/react-dropdowns.legacy` in `v9`
 - `Menu`: value `auto` is no longer valid for the `fallbackPlacements` prop.
+- `Menu`: new `restoreFocus` prop (default: `true`) returns focus to trigger
+  after menu interaction. To keep the dropdown open on selection,
+  set `restoreFocus={false}` and manage focus manually.
 - Removed `label` prop from `OptGroup`. Use `legend` instead.
 
 #### @zendeskgarden/react-forms
