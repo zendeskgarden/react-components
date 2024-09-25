@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dropdownNextMigrationTransform Transforms dropdown.next following the migration guide 1`] = `
+"import { Combobox, Field, Option, OptGroup } from '@zendeskgarden/react-dropdowns';
+
+const MyComponent = () => (
+  <Field>
+    <Field.Label>Label</Field.Label>
+    <Field.Hint>Hint</Field.Hint>
+    <Combobox>
+    <OptGroup legend="Vegetables">
+      <Option value="Asparagus" />
+      <Option value="Broccoli" />
+      </OptGroup>
+    </Combobox>
+    <Field.Message>Message</Field.Message>
+  </Field>
+);"
+`;
+
+exports[`dropdownNextMigrationTransform Transforms dropdowns following the migration guide 1`] = `
+"import { Item, Menu, Label, Field, Dropdown, Autocomplete } from '@zendeskgarden/react-dropdowns.legacy';
+
+const MyComponent = () => (
+   <Dropdown>
+    <Field>
+      <Label>Choose a vegetable</Label>
+      <Autocomplete>Asparagus</Autocomplete>
+    </Field>
+    <Menu>
+      <Item value="Asparagus" />
+      <Item value="Broccoli" />
+    </Menu>
+  </Dropdown>
+);"
+`;

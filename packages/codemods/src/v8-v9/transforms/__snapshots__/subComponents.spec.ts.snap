@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`subComponentsTransform Adds main component if not already imported 1`] = `
+"import { Grid } from '@zendeskgarden/react-grid';
+  
+  const MyComponent = () => (
+  <Grid.Row>
+    <Grid.Col>1</Grid.Col>
+  </Grid.Row>
+  );"
+`;
+
+exports[`subComponentsTransform Skips transformation if banned components are present 1`] = `
+"import { Well, Close, Paragraph, Title, Notification } from '@zendeskgarden/react-notifications';
+
+const MyComponent = () => (
+  <Well>
+    <Title>Title</Title>
+    <Paragraph>Paragraph</Paragraph>
+    <Close>Close</Close>
+    <Notification>Notification</Notification>
+  </Well>
+);"
+`;
+
+exports[`subComponentsTransform Skips transformation if targeted import source is not present 1`] = `
+"import { Col, Row } from '@zendeskgarden/react-grid';
+  
+  const MyComponent = () => (
+  <Row>
+    <Col>1</Col>
+  </Row>
+  );"
+`;
+
+exports[`subComponentsTransform Transforms aliased subcomponents 1`] = `
+"import { Grid } from '@zendeskgarden/react-grid';
+  
+  const MyComponent = () => (
+  <Grid.Row>
+    <Grid.Col>1</Grid.Col>
+  </Grid.Row>
+  );"
+`;
+
+exports[`subComponentsTransform Transforms aliased subcomponents and wrapped in styled() constructor 1`] = `
+"import { Grid } from '@zendeskgarden/react-grid';
+
+  const StyledGardenRow = styled(Grid.Row)\`
+    background-color: hotpink;
+  \`;
+  
+  const MyComponent = () => (
+  <StyledGardenRow>
+    <Grid.Col>1</Grid.Col>
+  </StyledGardenRow>
+  );"
+`;
+
+exports[`subComponentsTransform Transforms import statements while maintaining comments 1`] = `
+"// This is a comment
+  import { Grid } from '@zendeskgarden/react-grid';
+  
+  const MyComponent = () => (
+  <Grid.Row>
+    <Grid.Col>1</Grid.Col>
+  </Grid.Row>
+  );"
+`;
+
+exports[`subComponentsTransform Transforms only components associated with transformId 1`] = `
+"import { Field, Label, Checkbox } from '@zendeskgarden/react-forms';
+  import { Grid } from '@zendeskgarden/react-grid';
+
+  const Example = () => (
+  <Grid.Row justifyContent="center">
+    <Grid.Col size="auto">
+      <Field>
+        <Checkbox defaultChecked disabled>
+          <Label>Needs indirect light</Label>
+        </Checkbox>
+      </Field>
+      <Field>
+        <Checkbox disabled>
+          <Label>Prefers moist soil</Label>
+        </Checkbox>
+      </Field>
+    </Grid.Col>
+  </Grid.Row>
+  );"
+`;
+
+exports[`subComponentsTransform Transforms subcomponents wih additional components 1`] = `
+"import { Field, Checkbox } from '@zendeskgarden/react-forms';
+
+const MyComponent = () => (
+<Field>
+  <Checkbox>
+    <Field.Label>Needs indirect light</Field.Label>
+  </Checkbox>
+</Field>
+);"
+`;
+
+exports[`subComponentsTransform Transforms subcomponents wih aliased main components 1`] = `
+"import { Field as GardenField, Checkbox } from '@zendeskgarden/react-forms';
+
+const MyComponent = () => (
+<GardenField>
+  <Checkbox>
+    <GardenField.Label>Needs indirect light</GardenField.Label>
+  </Checkbox>
+</GardenField>
+);"
+`;
+
+exports[`subComponentsTransform Transforms subcomponents wrapped in styled() constructor 1`] = `
+"import { Grid } from '@zendeskgarden/react-grid';
+  
+  const StyledRow = styled(Grid.Row)\`
+    background-color: hotpink;
+  \`;
+  
+  const MyComponent = () => (
+  <StyledRow>
+    <Grid.Col>1</Grid.Col>
+  </StyledRow>
+  );"
+`;
+
+exports[`subComponentsTransform Transforms subcomponents wrapped in styled() constructor chained with attrs() 1`] = `
+"import { Grid } from '@zendeskgarden/react-grid';
+  
+  const StyledRow = styled(Grid.Row).attrs({
+    'data-garden-version': PACKAGE_VERSION
+  })\`
+    background-color: hotpink;
+  \`;
+  
+  const MyComponent = () => (
+  <StyledRow>
+    <Grid.Col>1</Grid.Col>
+  </StyledRow>
+  );"
+`;
