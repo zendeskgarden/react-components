@@ -35,6 +35,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       appendToNode,
       referenceElement,
       placement: _placement,
+      offset: _offset,
       onClose,
       hasArrow,
       isAnimated,
@@ -81,7 +82,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       elements: { reference: referenceElement, floating: floatingElement },
       placement: floatingPlacement,
       middleware: [
-        offset(theme.space.base * 3),
+        offset(_offset === undefined ? theme.space.base * 3 : _offset),
         _placement === 'auto' ? autoPlacement() : undefined
       ]
     });
