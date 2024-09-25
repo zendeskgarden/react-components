@@ -13,7 +13,7 @@ import { Tag } from '@zendeskgarden/react-tags';
 
 const StyledDiv = styled.div.attrs<{ background: string }>(p => ({
   style: { background: p.background }
-}))`
+}))<{ background: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
