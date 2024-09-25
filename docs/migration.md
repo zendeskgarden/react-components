@@ -13,9 +13,8 @@ completely removed.
 
 The theme object, along with its utility functions, introduce a minimal set of
 breaking changes for Garden version 9. It is important to proceed with caution
-when upgrading each Garden package individually.
-
-To begin a v9 migration, these initial steps must be taken before upgrading individual packages:
+when upgrading each Garden package individually. To begin a v9 migration, these
+initial steps must be taken before upgrading individual packages:
 
 - All existing v8 packages must be set to
   [v8.75.0](https://github.com/zendeskgarden/react-components/releases/tag/v8.75.0)
