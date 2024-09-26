@@ -12,6 +12,7 @@ import CartIcon from '@zendeskgarden/svg-icons/src/16/shopping-cart-stroke.svg';
 import { Grid } from '@zendeskgarden/react-grid';
 import { IMenuProps, Item, ItemGroup, Separator, Menu } from '@zendeskgarden/react-dropdowns';
 import { IItem, Items } from './types';
+import { Modal } from '@zendeskgarden/react-modals';
 
 const MenuItem = ({ icon, meta, ...item }: IItem) => {
   return (
@@ -27,12 +28,19 @@ interface IArgs extends IMenuProps {
 }
 
 export const MenuStory: StoryFn<IArgs> = ({ items, ...args }) => {
+  const [openModal, setOpenModal] = React.useState(false);
+
   return (
     <Grid>
       <Grid.Row justifyContent="center" style={{ height: 800 }}>
         <Grid.Col alignSelf="center" textAlign="center">
           <div style={{ display: 'inline-block', position: 'relative', width: 200 }}>
-            <Menu {...args}>
+            <Menu
+              {...args}
+              onChange={changes => {
+                changes.value && setOpenModal(true);
+              }}
+            >
               {items.map(item => {
                 if ('items' in item) {
                   return (
@@ -59,6 +67,13 @@ export const MenuStory: StoryFn<IArgs> = ({ items, ...args }) => {
             </Menu>
           </div>
         </Grid.Col>
+        {openModal && (
+          <Modal onClose={() => setOpenModal(false)}>
+            <Modal.Body>
+              <p>Modal content</p>
+            </Modal.Body>
+          </Modal>
+        )}
       </Grid.Row>
     </Grid>
   );
