@@ -132,9 +132,9 @@ describe('Menu', () => {
     expect(item).toBeVisible();
   });
 
-  it('applies `defaultFocusedValue`', async () => {
-    const { getByTestId } = render(
-      <TestMenu defaultExpanded defaultFocusedValue="Cactus">
+  it('applies `defaultFocusedValue` after a keyboard event opens the menu', async () => {
+    const { getByTestId, getByRole } = render(
+      <TestMenu defaultFocusedValue="Cactus">
         <Item value="Flower" data-test-id="item-01">
           Flower
           <Item.Meta>Smooth</Item.Meta>
@@ -148,8 +148,22 @@ describe('Menu', () => {
     );
 
     await floating();
-    const item = getByTestId('item-02');
+    const trigger = getByRole('button');
 
+    // open menu with onClick
+    await user.click(trigger);
+    const item = getByTestId('item-02');
+    // focus remains on trigger with mouseEvents
+    expect(trigger).toHaveFocus();
+
+    // close menu
+    await user.click(trigger);
+    expect(item).not.toBeVisible();
+
+    // open menu with keyboard
+    trigger.focus();
+    await user.keyboard(' ');
+    // focus is on the focused item associated with `defaultFocusedValue`
     expect(item).toHaveFocus();
   });
 
@@ -603,7 +617,7 @@ describe('Menu', () => {
     });
 
     it('calls onChange as expected', async () => {
-      const { getByTestId } = render(
+      const { getByRole, getByTestId } = render(
         <TestMenu isExpanded focusedValue="Cactus" onChange={handleChange}>
           <Item value="Flower" data-test-id="flower" />
           <Item value="Cactus" />
@@ -611,6 +625,7 @@ describe('Menu', () => {
       );
 
       await floating();
+      const trigger = getByRole('button');
       const item1 = getByTestId('flower');
 
       await act(async () => {
@@ -620,6 +635,7 @@ describe('Menu', () => {
       const changeTypes = handleChange.mock.calls.map(([change]) => change.type);
 
       expect(changeTypes).toMatchObject(['menuItem:mouseMove', 'menuItem:click']);
+      expect(trigger).toHaveFocus();
     });
 
     it('handles `focusedValue` and `isExpanded` as expected', async () => {

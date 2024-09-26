@@ -269,6 +269,8 @@ export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
    * @param {string | null} [changes.focusedValue] The updated focused value
    */
   onChange?: IUseMenuProps['onChange'];
+  /** Returns keyboard focus to the element that triggered the menu */
+  restoreFocus?: IUseMenuProps['restoreFocus'];
   /** Sets the selected items in a controlled menu */
   selectedItems?: IUseMenuProps['selectedItems'];
   /** Adjusts the placement of the menu */
