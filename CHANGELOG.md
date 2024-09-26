@@ -13,6 +13,32 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.0.0-next.27 (2024-09-26)
+
+#### :rocket: New Feature
+* `loaders`, `theming`
+  * [#1926](https://github.com/zendeskgarden/react-components/pull/1926) feat(loaders): allow color props to receive color variable keys in addition to hex values ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1930](https://github.com/zendeskgarden/react-components/pull/1930) fix(dropdowns): ensure focus is returned to menu trigger before calling `onChange` ([@ze-flo](https://github.com/ze-flo))
+* `colorpickers`, `modals`, `theming`
+  * [#1929](https://github.com/zendeskgarden/react-components/pull/1929) chore: v9 QA sweep ([@jzempel](https://github.com/jzempel))
+    * decrease space between `ColorPickerDialog`/`ColorSwatchDialog` and trigger 
+    * prevent render thrashing on `getColor` storybook demo
+    * split migration guides out of historical changelogs for improved `website` documentation
+* `avatars`, `colorpickers`
+  * [#1927](https://github.com/zendeskgarden/react-components/pull/1927) fix(colorpickers): prevent arrow from positioning over a `ColorSwatchDialog` tooltip ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* [#1922](https://github.com/zendeskgarden/react-components/pull/1922) docs: adds verbosity to initial v9 migration steps ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* `breadcrumbs`
+  * [#1932](https://github.com/zendeskgarden/react-components/pull/1932) chore(breadcrumbs): remove `Anchor` underline in demo ([@jzempel](https://github.com/jzempel))
+* Other
+  * [#1924](https://github.com/zendeskgarden/react-components/pull/1924) chore(deps-dev): bump rollup from 4.21.0 to 4.22.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## v9.0.0-next.26 (2024-09-12)
 
 #### :bug: Bug Fix
