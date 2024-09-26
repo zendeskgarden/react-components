@@ -148,6 +148,7 @@ Menu.propTypes = {
   minHeight: PropTypes.string,
   onChange: PropTypes.func,
   placement: PropTypes.oneOf(PLACEMENT),
+  restoreFocus: PropTypes.bool,
   selectedItems: PropTypes.arrayOf(PropTypes.any),
   zIndex: PropTypes.number
 };
