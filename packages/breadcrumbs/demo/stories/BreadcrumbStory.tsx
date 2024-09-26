@@ -19,7 +19,7 @@ export const BreadcrumbStory: Story<IArgs> = ({ children, ...args }) => (
   <Breadcrumb {...args}>
     {children.map((child, index) =>
       index < children.length - 1 ? (
-        <Anchor key={index} href="#">
+        <Anchor key={index} href="#" isUnderlined={false}>
           {child}
         </Anchor>
       ) : (
