@@ -67,7 +67,7 @@ jobs:
       - run: npm run test:ci
       - uses: coverallsapp/github-action@643bc377ffa44ace6394b2b5d0d3950076de9f63 # v2.3.0
         with:
-          format: lcov
+          file: .cache/coverage/lcov.info
           debug: true
 
   deploy-staging:
