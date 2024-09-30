@@ -65,9 +65,9 @@ jobs:
           path: packages
 
       - run: npm run test:ci
-      - run: npm exec -- coveralls < .cache/coverage/lcov.info
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      - uses: coverallsapp/github-action@643bc377ffa44ace6394b2b5d0d3950076de9f63 # v2.3.0
+        with:
+          file: .cache/coverage/lcov.info
 
   deploy-staging:
     if: >

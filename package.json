@@ -21,7 +21,7 @@
     "start": "storybook dev --no-version-updates -p 6006",
     "tag": "utils/scripts/tag.mjs",
     "test": "jest --config=utils/test/jest.config.js",
-    "test:ci": "npm test -- --coverage --runInBand --silent",
+    "test:ci": "npm test -- --coverage --silent",
     "test:watch": "npm test -- --watch",
     "preversion": "npm run test:ci",
     "version": "npm run build && git add -A"
@@ -69,7 +69,6 @@
     "babel-plugin-styled-components": "2.1.4",
     "commander": "12.1.0",
     "core-js": "3.38.1",
-    "coveralls": "3.1.1",
     "envalid": "8.0.0",
     "eslint": "9.9.0",
     "eslint-config-prettier": "9.1.0",
