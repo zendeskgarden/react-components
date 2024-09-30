@@ -29,11 +29,11 @@ describe('StyledBase', () => {
 
   it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([
     { mode: 'light', type: 'success', color: PALETTE.green[300] },
-    { mode: 'dark', type: 'success', color: PALETTE.green[800] },
+    { mode: 'dark', type: 'success', color: PALETTE.green[900] },
     { mode: 'light', type: 'error', color: PALETTE.red[300] },
-    { mode: 'dark', type: 'error', color: PALETTE.red[800] },
+    { mode: 'dark', type: 'error', color: PALETTE.red[900] },
     { mode: 'light', type: 'warning', color: PALETTE.yellow[300] },
-    { mode: 'dark', type: 'warning', color: PALETTE.yellow[800] },
+    { mode: 'dark', type: 'warning', color: PALETTE.yellow[900] },
     { mode: 'light', type: 'info', color: PALETTE.grey[300] },
     { mode: 'dark', type: 'info', color: PALETTE.grey[800] }
   ])('renders $mode mode $type border color', ({ mode, type, color }) => {
