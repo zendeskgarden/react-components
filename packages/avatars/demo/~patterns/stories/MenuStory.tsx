@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { useTheme } from 'styled-components';
 import React, { useCallback, useState } from 'react';
 import { StoryFn } from '@storybook/react';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
+import { getColor } from '@zendeskgarden/react-theming';
 
 const items: {
   value: string;
@@ -49,6 +51,8 @@ export const MenuStory: StoryFn = ({ isCompact }) => {
     focusedValue !== undefined && setHighlightedValue(focusedValue);
   }, []);
 
+  const theme = useTheme();
+
   return (
     <Grid>
       <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
@@ -64,7 +68,14 @@ export const MenuStory: StoryFn = ({ isCompact }) => {
                     status={item.avatarProps.status}
                     badge={item.avatarProps.badge}
                     surfaceColor={
-                      highlightedValue === item.value ? 'background.primary' : 'background.raised'
+                      highlightedValue === item.value
+                        ? getColor({
+                            theme,
+                            hue: 'primaryHue',
+                            light: { shade: 100 },
+                            dark: { shade: 900 }
+                          })
+                        : 'background.raised'
                     }
                   >
                     <img alt={item.label} src={`images/avatars/${item.value}.png`} />
