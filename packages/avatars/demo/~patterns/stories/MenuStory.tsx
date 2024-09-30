@@ -64,7 +64,9 @@ export const MenuStory: StoryFn = ({ isCompact }) => {
                     status={item.avatarProps.status}
                     badge={item.avatarProps.badge}
                     surfaceColor={
-                      highlightedValue === item.value ? 'background.primary' : 'background.raised'
+                      highlightedValue === item.value
+                        ? 'background.primaryEmphasis'
+                        : 'background.raised'
                     }
                   >
                     <img alt={item.label} src={`images/avatars/${item.value}.png`} />

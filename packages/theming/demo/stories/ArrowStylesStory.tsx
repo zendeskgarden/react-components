@@ -22,7 +22,7 @@ interface IArgs {
 const StyledDiv = styled.div<Omit<IArgs, 'isAnimated'>>`
   border: ${p =>
     p.hasBorder &&
-    `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'border.primaryEmphasis' })}`};
+    `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'border.default' })}`};
   box-shadow: ${p =>
     p.hasBoxShadow &&
     p.theme.shadows.lg(
@@ -30,7 +30,7 @@ const StyledDiv = styled.div<Omit<IArgs, 'isAnimated'>>`
       `${p.theme.space.base * (p.theme.colors.base === 'dark' ? 5 : 6)}px`,
       getColor({ variable: 'shadow.medium', theme: p.theme })
     )};
-  background-color: ${p => getColor({ theme: p.theme, variable: 'background.primary' })};
+  background-color: ${p => getColor({ theme: p.theme, variable: 'background.subtle' })};
   padding: ${p => p.theme.space.xxl};
 
   ${p =>
