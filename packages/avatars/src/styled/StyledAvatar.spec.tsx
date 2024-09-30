@@ -52,14 +52,14 @@ describe('StyledAvatar', () => {
 
     it('renders surface color variable key as expected', () => {
       const { container, rerender } = render(
-        <StyledAvatar $status="away" $surfaceColor="background.primary" />
+        <StyledAvatar $status="away" $surfaceColor="background.emphasis" />
       );
 
-      expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[100], {
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700], {
         modifier: '&&'
       });
 
-      rerender(<StyledAvatar $surfaceColor="background.primary" />);
+      rerender(<StyledAvatar $surfaceColor="background.emphasis" />);
 
       expect(container.firstChild).toHaveStyleRule('color', 'transparent', {
         modifier: '&&'

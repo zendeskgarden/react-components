@@ -29,7 +29,7 @@ export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   /**
    * Provides surface color for an avatar placed on a non-default background.
    * Accepts a [color variable](/components/theme-object#colors) key (i.e.
-   * `background.primary`) to render based on light/dark mode, or any hex value.
+   * `background.emphasis`) to render based on light/dark mode, or any hex value.
    */
   surfaceColor?: string;
   /** Applies system styling for representing objects, brands, or products */
