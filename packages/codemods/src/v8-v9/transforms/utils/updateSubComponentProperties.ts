@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { API, CallExpression, FileInfo, ImportSpecifier } from 'jscodeshift';
+import { API, FileInfo, ImportSpecifier } from 'jscodeshift';
 import { SubComponentPropertiesOptions } from '../../../types';
 import { findRelevantImportDeclarations } from '.';
 
@@ -121,36 +121,14 @@ export function updateSubComponentPropertiesTransform(
       });
   });
 
-  // updates components wrapped in styled() constructor
+  // updates components passed as arguments to functions (ex: styled(...))
   subComponentsLocalNames.forEach(localName => {
     root
-      .find(j.TaggedTemplateExpression, {
-        tag: {
-          callee: { name: 'styled' },
-          arguments: [{ name: localName }]
-        }
+      .find(j.CallExpression, {
+        arguments: [{ name: localName }]
       })
       .forEach(path => {
-        (path.node.tag as CallExpression).arguments[0] = j.memberExpression(
-          j.identifier(mainComponentLocalName),
-          j.identifier(subComponentsNamesMap[localName])
-        );
-      });
-
-    // updates styled(component).attrs(...)
-    root
-      .find(j.TaggedTemplateExpression, {
-        tag: {
-          callee: {
-            object: {
-              callee: { name: 'styled' },
-              arguments: [{ name: localName }]
-            }
-          }
-        }
-      })
-      .forEach(path => {
-        (path.node.tag as any).callee.object.arguments[0] = j.memberExpression(
+        path.node.arguments[0] = j.memberExpression(
           j.identifier(mainComponentLocalName),
           j.identifier(subComponentsNamesMap[localName])
         );

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { API, CallExpression, FileInfo } from 'jscodeshift';
+import { API, FileInfo } from 'jscodeshift';
 import { JsCodeshiftDefaultOptions, RenameImportsTranformIds } from '../../types';
 import { findRelevantImportDeclarations, getTransformOptions } from './utils';
 
@@ -117,35 +117,16 @@ export default function renameNamedImportsTransform(
       });
   });
 
-  // updates components wrapped in styled() constructor
+  // updates components passed as arguments to functions
   namesToChange.forEach(nameToChange => {
     const newName = renameMap[nameToChange];
 
     root
-      .find(j.TaggedTemplateExpression, {
-        tag: {
-          callee: { name: 'styled' },
-          arguments: [{ name: nameToChange }]
-        }
+      .find(j.CallExpression, {
+        arguments: [{ name: nameToChange }]
       })
       .forEach(path => {
-        (path.node.tag as CallExpression).arguments[0] = j.jsxIdentifier(newName);
-      });
-
-    // updates styled(component).attrs(...)
-    root
-      .find(j.TaggedTemplateExpression, {
-        tag: {
-          callee: {
-            object: {
-              callee: { name: 'styled' },
-              arguments: [{ name: nameToChange }]
-            }
-          }
-        }
-      })
-      .forEach(path => {
-        (path.node.tag as any).callee.object.arguments[0] = j.jsxIdentifier(newName);
+        path.node.arguments[0] = j.jsxIdentifier(newName);
       });
   });
 

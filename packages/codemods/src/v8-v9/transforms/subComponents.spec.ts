@@ -165,6 +165,24 @@ const MyComponent = () => (
     transform,
     { transformId: 'grid-subComponents' },
     `
+  import { withTheme } from '@zendeskgarden/react-theming';
+  import { Col, Row } from '@zendeskgarden/react-grid';
+  
+  const ThemedRow = withTheme(Row)
+  
+  const MyComponent = () => (
+  <ThemedRow>
+    <Col>1</Col>
+  </ThemedRow>
+  );
+  `,
+    'Transforms subcomponents passed as arguments to functions'
+  );
+
+  defineSnapshotTest(
+    transform,
+    { transformId: 'grid-subComponents' },
+    `
   import { Col, Row as GardenRow } from '@zendeskgarden/react-grid';
   
   const MyComponent = () => (

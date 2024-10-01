@@ -90,6 +90,19 @@ exports[`subComponentsTransform Transforms only components associated with trans
   );"
 `;
 
+exports[`subComponentsTransform Transforms subcomponents passed as arguments to functions 1`] = `
+"import { withTheme } from '@zendeskgarden/react-theming';
+  import { Grid } from '@zendeskgarden/react-grid';
+  
+  const ThemedRow = withTheme(Grid.Row)
+  
+  const MyComponent = () => (
+  <ThemedRow>
+    <Grid.Col>1</Grid.Col>
+  </ThemedRow>
+  );"
+`;
+
 exports[`subComponentsTransform Transforms subcomponents wih additional components 1`] = `
 "import { Field, Checkbox } from '@zendeskgarden/react-forms';
 
