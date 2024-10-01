@@ -55,11 +55,16 @@ export function execute({
 
   const { dry, jscodeshift, parser, print } = flags;
 
+  const JsCodeshiftOptions =
+    typeof jscodeshift === 'string' && jscodeshift.length ? [...jscodeshift.split(' ')] : [];
+
   const args = [
     ...(dry ? ['--dry'] : []),
     ...(print ? ['--print'] : []),
-    '--verbose=2',
-    '--ignore-pattern=**/node_modules/**',
+    '--verbose',
+    '2',
+    '--ignore-pattern',
+    '**/node_modules/** **/*.d.ts',
     '--parser',
     parser,
     '--extensions',
@@ -68,7 +73,7 @@ export function execute({
     transformPath,
     '--transformId', // internal flag to pass transformId to the transform
     transformId,
-    ...(jscodeshift ? [jscodeshift] : []),
+    ...JsCodeshiftOptions,
     ...files
   ];
 
