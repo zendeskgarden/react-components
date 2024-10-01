@@ -9,13 +9,14 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { input, select, confirm, Separator } from '@inquirer/prompts';
 import { Command } from 'commander';
-import { execaSync } from 'execa';
-import chalk from 'chalk';
-import { Ora } from 'ora';
 import { createRequire } from 'node:module';
+import { execaSync } from 'execa';
+import { fileURLToPath } from 'node:url';
+import { globbySync } from 'globby';
+import { input, select, confirm, Separator } from '@inquirer/prompts';
+import { Ora } from 'ora';
+import chalk from 'chalk';
 import {
   ALL_TRANSFORMER_CHOICES,
   CHROME_SUBCOMPONENTS_TRANSFORMER_CHOICE,
@@ -164,7 +165,9 @@ export default (spinner: Ora): Command => {
           files = filesInput.split(' ');
         }
 
-        if (!files.length) {
+        const filesExpanded = expandFilePathsIfNeeded(files);
+
+        if (!filesExpanded.length) {
           console.log(chalk.red(`No files found matching ${files.join(' ')}`));
           return;
         }
@@ -182,7 +185,7 @@ export default (spinner: Ora): Command => {
         spinner.start();
 
         execute({
-          files,
+          files: filesExpanded,
           flags: {
             dry,
             print,
@@ -241,4 +244,10 @@ function resolveTransform(id: string) {
   const filePath = path.join(transformsDir, `${fileName}.mjs`);
 
   return fs.existsSync(filePath) ? filePath : null;
+}
+
+function expandFilePathsIfNeeded(filesBeforeExpansion: string[]) {
+  const shouldExpandFiles = filesBeforeExpansion.some(file => file.includes('*'));
+
+  return shouldExpandFiles ? globbySync(filesBeforeExpansion) : filesBeforeExpansion;
 }
