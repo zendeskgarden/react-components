@@ -97,7 +97,7 @@ StyledOverflowButton.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledOverflowButtonIconWrapper = styled.div`
+export const StyledOverflowButtonIconWrapper = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
