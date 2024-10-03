@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renames components wrapped in styled() constructor chained with attrs() 1`] = `
+"import { OffsetPagination } from '@zendeskgarden/react-pagination';
+
+const StyledPagination = styled(OffsetPagination).attrs({
+  'data-garden-version': PACKAGE_VERSION
+})\`
+  background-color: hotpink;
+\`;
+
+const MyComponent = () => (
+<div>
+  <StyledPagination />
+</div>
+);"
+`;
+
+exports[`subComponentsTransform Renames Colorpicker and ColorpickerDialog 1`] = `
+"import { ColorPicker, ColorPickerDialog } from '@zendeskgarden/react-colorpickers';
+
+const MyComponent = () => (
+  <div>
+    <ColorPicker />
+    <ColorPickerDialog />
+  </div>
+);"
+`;
+
+exports[`subComponentsTransform Renames Datepicker and DatepickerRange 1`] = `
+"import { DatePicker, DatePickerRange } from '@zendeskgarden/react-datepickers';
+
+const MyComponent = () => (
+  <div>
+    <DatePicker />
+    <DatePickerRange />
+  </div>
+);"
+`;
+
+exports[`subComponentsTransform Renames DrawerModal and TooltipModal 1`] = `
+"import { Drawer, TooltipDialog } from '@zendeskgarden/react-modals';
+
+const MyComponent = () => (
+  <div>
+    <Drawer />
+    <TooltipDialog />
+  </div>
+);"
+`;
+
+exports[`subComponentsTransform Renames Pagination 1`] = `
+"import { OffsetPagination } from '@zendeskgarden/react-pagination';
+
+const MyComponent = () => (
+  <div>
+    <OffsetPagination />
+  </div>
+);"
+`;
+
+exports[`subComponentsTransform Renames aliased components 1`] = `
+"import { ColorPicker as CP, ColorPickerDialog as CPD } from '@zendeskgarden/react-colorpickers';
+
+const MyComponent = () => (
+  <div>
+    <CP />
+    <CPD />
+  </div>
+);"
+`;
+
+exports[`subComponentsTransform Renames aliased components wrapped in styled() constructor 1`] = `
+"import { OffsetPagination as GardenPagination } from '@zendeskgarden/react-pagination';
+
+const StyledPagination = styled(GardenPagination)\`
+  background-color: hotpink;
+\`;
+
+const MyComponent = () => (
+  <div>
+    <StyledPagination />
+  </div>
+);"
+`;
+
+exports[`subComponentsTransform Renames components wrapped in styled() constructor 1`] = `
+"import { OffsetPagination } from '@zendeskgarden/react-pagination';
+
+const StyledPagination = styled(OffsetPagination)\`
+  background-color: hotpink;
+\`;
+
+const MyComponent = () => (
+  <div>
+    <StyledPagination />
+  </div>
+);"
+`;
+
+exports[`subComponentsTransform Skips transformation if component to rename is not present 1`] = `
+"import { Modal } from '@zendeskgarden/react-modals';
+
+const MyComponent = () => (
+  <div>
+    <Modal />
+  </div>
+);"
+`;
+
+exports[`subComponentsTransform Skips transformation if targeted import source is not present 1`] = `
+"import { Pagination } from '@zendeskgarden/react-pagination';
+
+const MyComponent = () => (
+  <div>
+    <Pagination />
+  </div>
+);"
+`;

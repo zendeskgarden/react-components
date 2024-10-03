@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chromeMigrationTransform Transforms Chrome following the migration guide 1`] = `
+"import { Button } from '@zendeskgarden/react-buttons';
+import { XXL, MD } from '@zendeskgarden/react-typography';
+import { Chrome, Body, Content, Main, Header, Footer, Nav } from '@zendeskgarden/react-chrome';
+import { ReactComponent as ProductIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
+import { ReactComponent as MenuTrayIcon } from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
+
+const Component = () => {
+  return (
+    (<Chrome>
+      <Nav aria-label="chrome default example">
+        <Nav.Item hasLogo>
+          <Nav.ItemIcon>
+            <ProductIcon />
+          </Nav.ItemIcon>
+          <Nav.ItemText>Zendesk Garden</Nav.ItemText>
+        </Nav.Item>
+      </Nav>
+      <Body>
+        <Header>
+          <Header.Item>
+            <Header.ItemIcon>
+              <MenuTrayIcon />
+            </Header.ItemIcon>
+            <Header.ItemText isClipped>Products</Header.ItemText>
+          </Header.Item>
+        </Header>
+        <Content>
+          <Main>
+            <XXL tag="h1">Main Content</XXL>
+            <MD>Beetroot water spinach okra water chestnut ricebean pea catsear.</MD>
+          </Main>
+        </Content>
+        <Footer>
+          <Footer.Item>
+            <Button isPrimary>Save</Button>
+          </Footer.Item>
+        </Footer>
+      </Body>
+    </Chrome>)
+  );
+};"
+`;
+
+exports[`chromeMigrationTransform Transforms aliased components 1`] = `
+"import { Button } from '@zendeskgarden/react-buttons';
+  import { XXL, MD } from '@zendeskgarden/react-typography';
+  import {
+    Chrome as GardenChrome,
+    Body,
+    Content,
+    Main,
+    Header,
+    Footer as GardenFooter,
+    Nav as GardenNav,
+  } from '@zendeskgarden/react-chrome';
+  import { ReactComponent as ProductIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
+  import { ReactComponent as MenuTrayIcon } from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
+  
+  const Component = () => {
+  return (
+    (<GardenChrome>
+      <GardenNav aria-label="chrome default example">
+        <GardenNav.Item hasLogo>
+          <GardenNav.ItemIcon>
+            <ProductIcon />
+          </GardenNav.ItemIcon>
+          <GardenNav.ItemText>Zendesk Garden</GardenNav.ItemText>
+        </GardenNav.Item>
+      </GardenNav>
+      <Body>
+        <Header>
+          <Header.Item>
+            <Header.ItemIcon>
+              <MenuTrayIcon />
+            </Header.ItemIcon>
+            <Header.ItemText isClipped>Products</Header.ItemText>
+          </Header.Item>
+        </Header>
+        <Content>
+          <Main>
+            <XXL tag="h1">Main Content</XXL>
+            <MD>Beetroot water spinach okra water chestnut ricebean pea catsear.</MD>
+          </Main>
+        </Content>
+        <GardenFooter>
+          <GardenFooter.Item>
+            <Button isPrimary>Save</Button>
+          </GardenFooter.Item>
+        </GardenFooter>
+      </Body>
+    </GardenChrome>)
+  );
+  };"
+`;

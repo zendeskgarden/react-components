@@ -9,6 +9,9 @@ address the breaking changes. Managing the deprecated components can be deferred
 as a subsequent task to prepare for v10, where these components will be
 completely removed.
 
+To assist with the migration, `@zendeskgarden/codemods` provides a
+collection of useful [v8-to-v9](/packages/codemods/docs/v8-v9.md) codemods.
+
 ### Breaking Changes
 
 The theme object, along with its utility functions, introduce a minimal set of
@@ -101,6 +104,10 @@ consider additional positioning prop support on a case-by-case basis.
   - same breaking changes as `ColorSwatch`.
   - `popperModifiers` prop (see [note](#breaking-changes))
 
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#colorpickers-renamenamedimports)
+
 #### @zendeskgarden/react-datepickers
 
 - Removed `GardenPlacement` type export. Use `IDatePickerProps['placement']` instead.
@@ -108,6 +115,10 @@ consider additional positioning prop support on a case-by-case basis.
   - removed `eventsEnabled` prop (no longer exposed by Floating UI)
   - removed `popperModifiers` prop (see [note](#breaking-changes))
 - `DatepickerRange`: renamed to `DatePickerRange`
+
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#datepickers-renamenamedimports)
 
 #### @zendeskgarden/react-draggable
 
@@ -125,6 +136,10 @@ consider additional positioning prop support on a case-by-case basis.
     multiple item selection, set `restoreFocus={false}` and manage trigger
     focus manually on close.
 - Removed `label` prop from `OptGroup`. Use `legend` instead.
+
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#migrate-dropdowns)
 
 #### @zendeskgarden/react-forms
 
@@ -156,6 +171,10 @@ consider additional positioning prop support on a case-by-case basis.
      to restore the polyfill
 - Removed `GARDEN_PLACEMENT` type export. Use `ITooltipDialogProps['placement']` instead.
 
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#modals-renamenamedimports)
+
 #### @zendeskgarden/react-notification
 
 - The following types have changed:
@@ -169,6 +188,10 @@ consider additional positioning prop support on a case-by-case basis.
   - removed `transformPageProps` prop
   - added `labels` prop
 - Renamed `PAGE_TYPE` type export to `PageType`
+
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#pagination-renamenamedimports)
 
 #### @zendeskgarden/react-tables
 
@@ -255,11 +278,19 @@ properties.
 - `NavItemIcon` -> `Nav.ItemIcon`
 - `NavItemText` -> `Nav.ItemText`
 
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#subcomponents-chrome)
+
 #### @zendeskgarden/react-dropdowns
 
 - `Hint` -> `Field.Hint`
 - `Label` -> `Field.Label`
 - `Message` -> `Field.Message`
+
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#migrate-dropdowns)
 
 #### @zendeskgarden/react-forms
 
@@ -267,10 +298,18 @@ properties.
 - `Label` -> `Field.Label`
 - `Message` -> `Field.Message`
 
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#forms-subcomponents)
+
 #### @zendeskgarden/react-grid
 
 - `Col` -> `Grid.Col`
 - `Row` -> `Grid.Row`
+
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#grid-subcomponents)
 
 #### @zendeskgarden/react-modals
 
@@ -280,11 +319,19 @@ properties.
 - `FooterItem` -> `Modal.FooterItem`
 - `Header` -> `Modal.Header`
 
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#modals-subcomponents)
+
 #### @zendeskgarden/react-notification
 
 - `Close` -> `Alert.Close`, `Notification.Close`
 - `Paragraph` -> `Alert.Paragraph`, `Notification.Paragraph`, `Well.Paragraph`
 - `Title` -> `Alert.Title`, `Notification.Title`, `Well.Title`
+
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#notification-subcomponents)
 
 #### @zendeskgarden/react-tables
 
@@ -299,17 +346,29 @@ properties.
 - `Row` -> `Table.Row`
 - `SortableCell` -> `Table.SortableCell`
 
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#tables-subcomponents)
+
 #### @zendeskgarden/react-tabs
 
 - `Tab` -> `Tabs.Tab`
 - `TabList` -> `Tabs.TabList`
 - `TabPanel` -> `Tabs.TabPanel`
 
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#tabs-subcomponents)
+
 #### @zendeskgarden/react-tooltips
 
 - `Paragraph` -> `Tooltip.Paragraph`
 - `Title` -> `Tooltip.Title`
 
+<!-- prettier-ignore -->
+> [!TIP]
+> [Codemod](/packages/codemods/docs/v8-v9.md#tooltips-subcomponents)
+
 ## v8
 
-[Migration Guide](https://github.com/zendeskgarden/react-components/blob/main/docs/migrations/v8.md)
+[Migration Guide](/docs/migrations/v8.md)
