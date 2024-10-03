@@ -63,8 +63,11 @@ export function execute({
     ...(print ? ['--print'] : []),
     '--verbose',
     '2',
+    // multiple ignore-patterns: https://github.com/facebook/jscodeshift/blob/4a3878f83670743511d0d93436468ce5f56b1dfd/README.md#L421
     '--ignore-pattern',
-    '**/node_modules/** **/*.d.ts',
+    '**/node_modules/**',
+    '--ignore-pattern',
+    '**/*.d.ts',
     '--parser',
     parser,
     '--extensions',
