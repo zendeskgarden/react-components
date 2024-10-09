@@ -16,12 +16,21 @@ import { StyledHeaderItem, StyledLogoHeaderItem } from '../../styled';
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const HeaderItem = React.forwardRef<HTMLButtonElement, IHeaderItemProps>(
-  ({ hasLogo, product, ...other }, ref) => {
+  ({ hasLogo, isRound, maxX, maxY, product, ...rest }, ref) => {
     if (hasLogo) {
-      return <StyledLogoHeaderItem ref={ref} product={product} {...other} />;
+      return (
+        <StyledLogoHeaderItem
+          ref={ref}
+          $isRound={isRound}
+          $maxX={maxX}
+          $maxY={maxY}
+          $product={product}
+          {...rest}
+        />
+      );
     }
 
-    return <StyledHeaderItem ref={ref} {...other} />;
+    return <StyledHeaderItem ref={ref} $isRound={isRound} $maxX={maxX} $maxY={maxY} {...rest} />;
   }
 );
 

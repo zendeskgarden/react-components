@@ -12,7 +12,7 @@ import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 const COMPONENT_ID = 'chrome.header_item_text';
 
 export interface IStyledHeaderItemTextProps {
-  isClipped?: boolean;
+  $isClipped?: boolean;
 }
 
 export const StyledHeaderItemText = styled.span.attrs<IStyledHeaderItemTextProps>({
@@ -21,7 +21,7 @@ export const StyledHeaderItemText = styled.span.attrs<IStyledHeaderItemTextProps
 })<IStyledHeaderItemTextProps>`
   margin: ${props => `0 ${props.theme.space.base * 0.75}px`};
 
-  ${props => props.isClipped && hideVisually()}
+  ${props => props.$isClipped && hideVisually()}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
