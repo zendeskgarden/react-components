@@ -18,7 +18,7 @@ const COMPONENT_ID = 'chrome.header_item';
 /*
  * 1. Anchor reset.
  */
-const colorStyles = ({ theme, maxY }: IStyledBaseHeaderItemProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $maxY }: IStyledBaseHeaderItemProps & ThemeProps<DefaultTheme>) => {
   const options = { theme, variable: 'foreground.subtle' };
   const hoverColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
   const activeColor = getColor({ ...options, dark: { offset: -200 }, light: { offset: 200 } });
@@ -29,7 +29,7 @@ const colorStyles = ({ theme, maxY }: IStyledBaseHeaderItemProps & ThemeProps<De
       color: inherit; /* [1] */
     }
 
-    ${focusStyles({ theme, inset: maxY })};
+    ${focusStyles({ theme, inset: $maxY })};
 
     /* prettier-ignore */
     &:hover ${StyledHeaderItemIcon},
@@ -45,8 +45,8 @@ const colorStyles = ({ theme, maxY }: IStyledBaseHeaderItemProps & ThemeProps<De
   `;
 };
 
-const sizeStyles = ({ theme, isRound }: IStyledBaseHeaderItemProps & ThemeProps<DefaultTheme>) => {
-  const iconBorderRadius = isRound ? '100px' : undefined;
+const sizeStyles = ({ theme, $isRound }: IStyledBaseHeaderItemProps & ThemeProps<DefaultTheme>) => {
+  const iconBorderRadius = $isRound ? '100px' : undefined;
   const imageBorderRadius = math(`${theme.borderRadii.md} - 1`);
   const imageSize = math(`${getHeaderItemSize(theme)} - ${theme.space.base * 2}`);
 

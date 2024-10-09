@@ -14,17 +14,17 @@ import { getProductColor } from '../utils';
 const COMPONENT_ID = 'chrome.logo_nav_list_item';
 
 export interface IStyledLogoNavItemProps {
-  hue: string;
-  product?: Product;
+  $hue: string;
+  $product?: Product;
 }
 
 const colorStyles = ({
   theme,
-  hue,
-  product
+  $hue,
+  $product
 }: IStyledLogoNavItemProps & ThemeProps<DefaultTheme>) => {
   const fillColor = getColor({ theme, variable: 'foreground.default' });
-  const color = hue === 'chromeHue' ? getProductColor(product) : fillColor;
+  const color = $hue === 'chromeHue' ? getProductColor($product) : fillColor;
 
   return css`
     color: ${color};

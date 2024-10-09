@@ -17,13 +17,16 @@ import { getNavWidth, getProductColor } from '../utils';
 const COMPONENT_ID = 'chrome.header_item';
 
 export interface IStyledLogoHeaderItemProps {
-  product?: Product;
+  $product?: Product;
 }
 
-const colorStyles = ({ theme, product }: IStyledLogoHeaderItemProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({
+  theme,
+  $product
+}: IStyledLogoHeaderItemProps & ThemeProps<DefaultTheme>) => {
   const borderColor = getColor({ theme, variable: 'border.default' });
   const fill = getColor({ theme, variable: 'foreground.default' });
-  const color = getProductColor(product, fill /* fallback */);
+  const color = getProductColor($product, fill /* fallback */);
 
   return css`
     border-${theme.rtl ? 'left' : 'right'}-color: ${borderColor};

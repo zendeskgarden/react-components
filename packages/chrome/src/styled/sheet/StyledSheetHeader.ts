@@ -11,7 +11,7 @@ import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming'
 const COMPONENT_ID = 'chrome.sheet_header';
 
 export interface IStyledSheetHeaderProps {
-  isCloseButtonPresent?: boolean;
+  $isCloseButtonPresent?: boolean;
 }
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
@@ -24,12 +24,12 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 
 const sizeStyles = ({
   theme,
-  isCloseButtonPresent
+  $isCloseButtonPresent
 }: IStyledSheetHeaderProps & ThemeProps<DefaultTheme>) => {
   const border = theme.borders.sm;
   let padding = `${theme.space.base * 5}px`;
 
-  if (isCloseButtonPresent) {
+  if ($isCloseButtonPresent) {
     const paddingSide = `${theme.space.base * 14}px`;
 
     padding = theme.rtl

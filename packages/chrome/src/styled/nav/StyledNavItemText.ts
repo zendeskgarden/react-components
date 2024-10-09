@@ -14,23 +14,23 @@ import { getNavWidth } from '../utils';
 const COMPONENT_ID = 'chrome.nav_item_text';
 
 export interface IStyledNavItemTextProps {
-  isWrapped?: boolean;
-  isExpanded?: boolean;
+  $isWrapped?: boolean;
+  $isExpanded?: boolean;
 }
 
 const sizeStyles = ({
   theme,
-  isExpanded,
-  isWrapped
+  $isExpanded,
+  $isWrapped
 }: IStyledNavItemTextProps & ThemeProps<DefaultTheme>) => {
-  const clip = isExpanded ? 'auto' : undefined;
+  const clip = $isExpanded ? 'auto' : undefined;
   const lineHeight = getLineHeight(theme.space.base * 5, theme.fontSizes.md);
-  const margin = isExpanded
+  const margin = $isExpanded
     ? `0 ${math(`(${getNavWidth(theme)} - ${theme.iconSizes.lg}) / 4`)}`
     : undefined;
-  const width = isExpanded ? 'auto' : undefined;
-  const height = isExpanded ? 'auto' : undefined;
-  const whiteSpace = isWrapped ? undefined : 'nowrap';
+  const width = $isExpanded ? 'auto' : undefined;
+  const height = $isExpanded ? 'auto' : undefined;
+  const whiteSpace = $isWrapped ? undefined : 'nowrap';
 
   return css`
     clip: rect(1px, 1px, 1px, 1px);
@@ -57,9 +57,9 @@ export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>({
   overflow: hidden;
 
   ${StyledNavButton} > && {
-    position: ${props => (props.isExpanded ? 'static' : undefined)};
-    flex: ${props => (props.isExpanded ? 1 : undefined)};
-    text-overflow: ${props => (props.isExpanded ? 'ellipsis' : undefined)};
+    position: ${props => (props.$isExpanded ? 'static' : undefined)};
+    flex: ${props => (props.$isExpanded ? 1 : undefined)};
+    text-overflow: ${props => (props.$isExpanded ? 'ellipsis' : undefined)};
   }
 
   ${sizeStyles};

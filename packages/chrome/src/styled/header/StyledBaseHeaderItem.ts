@@ -12,9 +12,9 @@ import { getHeaderItemSize } from '../utils';
 const COMPONENT_ID = 'chrome.base_header_item';
 
 export interface IStyledBaseHeaderItemProps {
-  maxX?: boolean;
-  maxY?: boolean;
-  isRound?: boolean;
+  $maxX?: boolean;
+  $maxY?: boolean;
+  $isRound?: boolean;
 }
 
 /*
@@ -22,19 +22,19 @@ export interface IStyledBaseHeaderItemProps {
  */
 const sizeStyles = ({
   theme,
-  maxY,
-  isRound
+  $maxY,
+  $isRound
 }: IStyledBaseHeaderItemProps & ThemeProps<DefaultTheme>) => {
   const margin = `0 ${theme.space.base * 3}px`;
   const size = getHeaderItemSize(theme);
-  const height = maxY ? '100%' : size;
+  const height = $maxY ? '100%' : size;
   const lineHeight = getLineHeight(size, theme.fontSizes.md);
   const padding = `0 ${theme.space.base * 0.75}px`;
   let borderRadius;
 
-  if (isRound) {
+  if ($isRound) {
     borderRadius = '100%';
-  } else if (maxY) {
+  } else if ($maxY) {
     borderRadius = '0';
   } else {
     borderRadius = theme.borderRadii.md;
@@ -61,9 +61,9 @@ export const StyledBaseHeaderItem = styled.button.attrs({
 })<IStyledBaseHeaderItemProps>`
   display: inline-flex;
   position: relative;
-  flex: ${props => props.maxX && '1'};
+  flex: ${props => props.$maxX && '1'};
   align-items: center;
-  justify-content: ${props => (props.maxX ? 'start' : 'center')};
+  justify-content: ${props => (props.$maxX ? 'start' : 'center')};
   order: 1;
   transition:
     box-shadow 0.1s ease-in-out,

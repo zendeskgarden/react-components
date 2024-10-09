@@ -13,12 +13,12 @@ import { getFooterHeight, getHeaderHeight } from '../utils';
 const COMPONENT_ID = 'chrome.content';
 
 interface IStyledContentProps {
-  hasFooter?: boolean;
+  $hasFooter?: boolean;
 }
 
-const sizeStyles = ({ theme, hasFooter }: IStyledContentProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $hasFooter }: IStyledContentProps & ThemeProps<DefaultTheme>) => {
   const fontSize = theme.fontSizes.md;
-  const height = hasFooter
+  const height = $hasFooter
     ? `calc(100% - ${math(`${getHeaderHeight(theme)} + ${getFooterHeight(theme)}`)})`
     : `calc(100% - ${getHeaderHeight(theme)})`;
   const lineHeight = getLineHeight(theme.lineHeights.md, theme.fontSizes.md);

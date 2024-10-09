@@ -13,15 +13,15 @@ const COMPONENT_ID = 'chrome.sheet';
 
 interface IStyledSheetProps {
   inert?: string;
-  placement?: ISheetProps['placement'];
-  isOpen?: boolean;
-  isAnimated?: boolean;
-  size?: string;
+  $placement?: ISheetProps['placement'];
+  $isOpen?: boolean;
+  $isAnimated?: boolean;
+  $size?: string;
 }
 
-const colorStyles = ({ theme, isOpen }: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $isOpen }: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
   const backgroundColor = getColor({ theme, variable: 'background.default' });
-  const borderColor = isOpen ? getColor({ theme, variable: 'border.default' }) : 'transparent';
+  const borderColor = $isOpen ? getColor({ theme, variable: 'border.default' }) : 'transparent';
 
   return css`
     border-color: ${borderColor};
@@ -31,17 +31,17 @@ const colorStyles = ({ theme, isOpen }: IStyledSheetProps & ThemeProps<DefaultTh
 
 const sizeStyles = ({
   theme,
-  isOpen,
-  placement,
-  size
+  $isOpen,
+  $placement,
+  $size
 }: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
-  const width = isOpen ? size : 0;
+  const width = $isOpen ? $size : 0;
   const fontSize = theme.fontSizes.md;
   const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
-  const border = isOpen ? theme.borders.sm : 'none';
+  const border = $isOpen ? theme.borders.sm : 'none';
   let borderProperty;
 
-  if (placement === 'start') {
+  if ($placement === 'start') {
     borderProperty = `border-${theme.rtl ? 'left' : 'right'}`;
   } else {
     borderProperty = `border-${theme.rtl ? 'right' : 'left'}`;
@@ -63,7 +63,7 @@ export const StyledSheet = styled.aside.attrs({
 })<IStyledSheetProps>`
   display: flex;
   order: 1;
-  transition: ${props => props.isAnimated && 'width 250ms ease-in-out'};
+  transition: ${props => props.$isAnimated && 'width 250ms ease-in-out'};
   overflow: hidden;
 
   ${sizeStyles};

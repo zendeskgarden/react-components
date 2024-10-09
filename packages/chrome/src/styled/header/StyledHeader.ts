@@ -13,14 +13,14 @@ import { getHeaderHeight } from '../utils';
 const COMPONENT_ID = 'chrome.header';
 
 export interface IStyledHeaderProps {
-  isStandalone?: boolean;
+  $isStandalone?: boolean;
 }
 
-const colorStyles = ({ theme, isStandalone }: IStyledHeaderProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $isStandalone }: IStyledHeaderProps & ThemeProps<DefaultTheme>) => {
   const backgroundColor = getColor({ theme, variable: 'background.default' });
   const borderColor = getColor({ theme, variable: 'border.default' });
   const boxShadowColor = getColor({ variable: 'shadow.small', theme });
-  const boxShadow = isStandalone
+  const boxShadow = $isStandalone
     ? theme.shadows.lg('0', `${theme.space.base * 2}px`, boxShadowColor)
     : undefined;
   const foregroundColor = getColor({ theme, variable: 'foreground.subtle' });
@@ -53,7 +53,7 @@ export const StyledHeader = styled.header.attrs<IStyledHeaderProps>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledHeaderProps>`
   display: flex;
-  position: ${props => props.isStandalone && 'relative'};
+  position: ${props => props.$isStandalone && 'relative'};
   align-items: center;
   justify-content: flex-end;
 
@@ -62,7 +62,7 @@ export const StyledHeader = styled.header.attrs<IStyledHeaderProps>({
   ${colorStyles};
 
   ${StyledLogoHeaderItem} {
-    display: ${props => props.isStandalone && 'inline-flex'};
+    display: ${props => props.$isStandalone && 'inline-flex'};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

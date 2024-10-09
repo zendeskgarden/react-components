@@ -22,7 +22,7 @@ describe('StyledSheetFooter', () => {
   });
 
   it('renders compact styling when provided', () => {
-    render(<StyledSheetFooter isCompact />);
+    render(<StyledSheetFooter $isCompact />);
 
     const footer = screen.getByRole('contentinfo');
 

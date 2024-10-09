@@ -32,7 +32,7 @@ export const NavItem = React.forwardRef<HTMLButtonElement, INavItemProps>(
     let retVal;
 
     if (hasLogo) {
-      retVal = <StyledLogoNavItem ref={ref} hue={hue} product={product} {...other} />;
+      retVal = <StyledLogoNavItem ref={ref} $hue={hue} $product={product} {...other} />;
     } else if (hasBrandmark) {
       retVal = <StyledBrandmarkNavItem ref={ref} {...other} />;
     } else {
@@ -40,8 +40,8 @@ export const NavItem = React.forwardRef<HTMLButtonElement, INavItemProps>(
         <StyledNavButton
           tabIndex={0}
           ref={ref}
-          isExpanded={isExpanded}
-          hue={hue}
+          $isExpanded={isExpanded}
+          $hue={hue}
           aria-current={isCurrent || undefined}
           {...other}
         />

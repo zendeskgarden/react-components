@@ -19,13 +19,13 @@ describe('StyledSheetHeader', () => {
   });
 
   it('renders correctly when button is present', () => {
-    render(<StyledSheetHeader isCloseButtonPresent>Header</StyledSheetHeader>);
+    render(<StyledSheetHeader $isCloseButtonPresent>Header</StyledSheetHeader>);
 
     expect(screen.getByText('Header')).toHaveStyleRule('padding', '20px 56px 20px 20px');
   });
 
   it('renders correctly in rtl mode when button is present', () => {
-    renderRtl(<StyledSheetHeader isCloseButtonPresent>Header</StyledSheetHeader>);
+    renderRtl(<StyledSheetHeader $isCloseButtonPresent>Header</StyledSheetHeader>);
 
     expect(screen.getByText('Header')).toHaveStyleRule('padding', '20px 20px 20px 56px');
   });

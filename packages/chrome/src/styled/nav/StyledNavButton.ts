@@ -15,14 +15,14 @@ import { getNavWidth } from '../utils';
 const COMPONENT_ID = 'chrome.nav_button';
 
 interface IStyledNavItemProps {
-  isExpanded?: boolean;
-  hue: string;
+  $isExpanded?: boolean;
+  $hue: string;
 }
 
 /*
  * 1. Anchor reset
  */
-const colorStyles = ({ theme, hue }: IStyledNavItemProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $hue }: IStyledNavItemProps & ThemeProps<DefaultTheme>) => {
   const activeBackgroundColor = getColor({
     theme,
     dark: { hue: 'white' },
@@ -30,8 +30,8 @@ const colorStyles = ({ theme, hue }: IStyledNavItemProps & ThemeProps<DefaultThe
     transparency: theme.opacity[100]
   });
   const currentBackgroundColor =
-    hue === 'chromeHue'
-      ? getColor({ theme, hue, shade: 700 })
+    $hue === 'chromeHue'
+      ? getColor({ theme, hue: $hue, shade: 700 })
       : getColor({
           theme,
           dark: { hue: 'white' },
@@ -88,8 +88,8 @@ const colorStyles = ({ theme, hue }: IStyledNavItemProps & ThemeProps<DefaultThe
  * 1. Button reset
  * 2. Overrides flex default `min-width: auto`
  */
-const sizeStyles = ({ theme, isExpanded }: IStyledNavItemProps & ThemeProps<DefaultTheme>) => {
-  const iconMargin = isExpanded
+const sizeStyles = ({ theme, $isExpanded }: IStyledNavItemProps & ThemeProps<DefaultTheme>) => {
+  const iconMargin = $isExpanded
     ? `0 ${math(`(${getNavWidth(theme)} - ${theme.iconSizes.lg}) / 4`)}`
     : undefined;
 
@@ -115,9 +115,9 @@ export const StyledNavButton = styled(StyledBaseNavItem as 'button').attrs({
   as: 'button'
 })<IStyledNavItemProps>`
   flex: 1;
-  justify-content: ${props => props.isExpanded && 'start'};
+  justify-content: ${props => props.$isExpanded && 'start'};
   cursor: pointer;
-  text-align: ${props => props.isExpanded && 'inherit'};
+  text-align: ${props => props.$isExpanded && 'inherit'};
   text-decoration: none; /* [1] */
 
   ${sizeStyles};
