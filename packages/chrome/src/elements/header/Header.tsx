@@ -15,8 +15,8 @@ import { HeaderItemText } from './HeaderItemText';
 import { HeaderItemWrapper } from './HeaderItemWrapper';
 
 export const HeaderComponent = React.forwardRef<HTMLElement, IHeaderProps>(
-  ({ isStandalone, ...rest }, ref) => (
-    <StyledHeader ref={ref} $isStandalone={isStandalone} {...rest} />
+  ({ isStandalone, ...other }, ref) => (
+    <StyledHeader ref={ref} $isStandalone={isStandalone} {...other} />
   )
 );
 

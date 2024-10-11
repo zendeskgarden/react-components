@@ -18,7 +18,7 @@ import { NavItemText } from './NavItemText';
 import { NavList } from './NavList';
 
 export const NavComponent = React.forwardRef<HTMLElement, INavProps>(
-  ({ isExpanded, ...rest }, ref) => {
+  ({ isExpanded, ...other }, ref) => {
     const { hue, isLight } = useChromeContext();
     const navContextValue = useMemo(() => ({ isExpanded: !!isExpanded }), [isExpanded]);
 
@@ -30,7 +30,7 @@ export const NavComponent = React.forwardRef<HTMLElement, INavProps>(
         })}
       >
         <NavContext.Provider value={navContextValue}>
-          <StyledNav ref={ref} $isExpanded={isExpanded} $hue={hue} {...rest} />
+          <StyledNav ref={ref} $isExpanded={isExpanded} $hue={hue} {...other} />
         </NavContext.Provider>
       </ThemeProvider>
     );

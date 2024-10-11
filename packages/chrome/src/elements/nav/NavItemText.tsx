@@ -17,11 +17,11 @@ import { useNavContext } from '../../utils/useNavContext';
  * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const NavItemText = React.forwardRef<HTMLElement, INavItemTextProps>(
-  ({ isWrapped, ...rest }, ref) => {
+  ({ isWrapped, ...other }, ref) => {
     const { isExpanded } = useNavContext();
 
     return (
-      <StyledNavItemText ref={ref} $isExpanded={isExpanded} $isWrapped={isWrapped} {...rest} />
+      <StyledNavItemText ref={ref} $isExpanded={isExpanded} $isWrapped={isWrapped} {...other} />
     );
   }
 );

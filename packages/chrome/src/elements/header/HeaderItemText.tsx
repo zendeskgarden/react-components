@@ -16,8 +16,8 @@ import { StyledHeaderItemText } from '../../styled';
  * @extends HTMLAttributes<HTMLSpanElement>
  */
 export const HeaderItemText = React.forwardRef<HTMLElement, IHeaderItemTextProps>(
-  ({ isClipped, ...rest }, ref) => (
-    <StyledHeaderItemText ref={ref} $isClipped={isClipped} {...rest} />
+  ({ isClipped, ...other }, ref) => (
+    <StyledHeaderItemText ref={ref} $isClipped={isClipped} {...other} />
   )
 );
 
