@@ -64,7 +64,7 @@ export interface IRadioProps extends InputHTMLAttributes<HTMLInputElement> {
   isCompact?: IFieldsetProps['isCompact'];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface IToggleProps extends IRadioProps {}
 
 export interface ICheckboxProps extends IRadioProps {

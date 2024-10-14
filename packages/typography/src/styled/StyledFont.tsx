@@ -14,6 +14,7 @@ const COMPONENT_ID = 'typography.font';
 
 const TYPOGRAPHY_SIZE = [...SIZE, 'extralarge', '2xlarge', '3xlarge'] as const;
 
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 const FONT_SIZE = ['inherit', ...TYPOGRAPHY_SIZE] as const;
 
 type TypographySize = (typeof TYPOGRAPHY_SIZE)[number];
