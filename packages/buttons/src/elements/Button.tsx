@@ -37,6 +37,7 @@ const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>(
         $focusInset={focusInset || splitButtonFocusInset}
         $isBasic={isBasic}
         $isDanger={isDanger}
+        $isLink={isLink}
         $isNeutral={isNeutral}
         $isPill={isPill}
         $isPrimary={isPrimary}
