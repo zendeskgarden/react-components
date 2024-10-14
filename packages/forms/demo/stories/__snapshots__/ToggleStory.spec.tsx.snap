@@ -1,0 +1,6046 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleStory Component renders component with a checked state 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":rf:--label"
+    checked=""
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":rf:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":rf:--input"
+    id=":rf:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a disabled state 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":rc:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    disabled=""
+    id=":rc:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":rc:--input"
+    id=":rc:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a hidden label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r2:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":r2:--input"
+    label="Accept Terms"
+    type="checkbox"
+  />
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a hint 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c11 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c12 {
+  padding-left: 48px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":r3:--hint"
+    aria-labelledby=":r3:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":r3:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":r3:--input"
+    id=":r3:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+  <div
+    class="c11 c12"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_hint"
+    data-garden-version="9.0.0"
+    id=":r3:--hint"
+  >
+    This is a hint
+  </div>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r1:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":r1:--input"
+    label="Accept Terms"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":r1:--input"
+    id=":r1:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+    Accept Terms
+  </label>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a label and compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":rk:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":rk:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":rk:--input"
+    id=":rk:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a label, hidden label, and validation success 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r9:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":r9:--input"
+    label="Accept Terms"
+    type="checkbox"
+  />
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a label, hidden label, hint, and validation warning 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c3 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c4 {
+  padding-left: 48px;
+}
+
+.c2 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":rb:--hint"
+    aria-labelledby=":rb:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":rb:--input"
+    label="Accept Terms"
+    type="checkbox"
+  />
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_hint"
+    data-garden-version="9.0.0"
+    id=":rb:--hint"
+  >
+    This is a hint
+  </div>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a label, hint, and compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c11 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c12 {
+  padding-left: 48px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":rl:--hint"
+    aria-labelledby=":rl:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":rl:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":rl:--input"
+    id=":rl:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+  <div
+    class="c11 c12"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_hint"
+    data-garden-version="9.0.0"
+    id=":rl:--hint"
+  >
+    This is a hint
+  </div>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a label, hint, and message 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c8 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c8[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c12 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c15 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c4:not([hidden]) + .c14 {
+  margin-top: 4px;
+}
+
+.c4:not([hidden]) + .c14 {
+  display: block;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c9[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c5::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c5 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c5::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c5 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1.c1 ~ .c5 ~ .c14 {
+  margin-top: 8px;
+}
+
+.c1:focus ~ .c5::before {
+  outline: none;
+}
+
+.c1 ~ .c5:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c5::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c5 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c5:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c5::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c5:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c5 {
+  cursor: default;
+}
+
+.c2 ~ .c6::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c6::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c6:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c6:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c6::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c10 {
+  padding-left: 48px;
+}
+
+.c10[hidden] {
+  padding-left: 40px;
+}
+
+.c13 {
+  padding-left: 48px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c7::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c7 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c7::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c7:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c7:active::before {
+  background-color: #293239;
+}
+
+.c16 {
+  padding-left: 48px;
+}
+
+.c11 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":r8:--hint :r8:--message"
+    aria-labelledby=":r8:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":r8:--input"
+    label="Accept Terms"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9 c10"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":r8:--input"
+    id=":r8:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c11"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+    Accept Terms
+  </label>
+  <div
+    class="c12 c13"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_hint"
+    data-garden-version="9.0.0"
+    id=":r8:--hint"
+  >
+    This is a hint
+  </div>
+  <div
+    class="c14 c15 c16"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_message"
+    data-garden-version="9.0.0"
+    id=":r8:--message"
+    role="alert"
+  >
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a label, hint, message, and compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c8 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c8[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c12 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c15 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c4:not([hidden]) + .c14 {
+  margin-top: 4px;
+}
+
+.c4:not([hidden]) + .c14 {
+  display: block;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c9[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c5::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c5 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c5::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c5 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1.c1 ~ .c5 ~ .c14 {
+  margin-top: 4px;
+}
+
+.c1:focus ~ .c5::before {
+  outline: none;
+}
+
+.c1 ~ .c5:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c5::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c5 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c5:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c5::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c5:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c5 {
+  cursor: default;
+}
+
+.c2 ~ .c6::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c6::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c6:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c6:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c6::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c10 {
+  padding-left: 48px;
+}
+
+.c10[hidden] {
+  padding-left: 40px;
+}
+
+.c13 {
+  padding-left: 48px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c7::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c7 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c7::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c7:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c7:active::before {
+  background-color: #293239;
+}
+
+.c16 {
+  padding-left: 48px;
+}
+
+.c11 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":rn:--hint :rn:--message"
+    aria-labelledby=":rn:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":rn:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9 c10"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":rn:--input"
+    id=":rn:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c11"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+  <div
+    class="c12 c13"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_hint"
+    data-garden-version="9.0.0"
+    id=":rn:--hint"
+  >
+    This is a hint
+  </div>
+  <div
+    class="c14 c15 c16"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_message"
+    data-garden-version="9.0.0"
+    id=":rn:--message"
+    role="alert"
+  >
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a label, hint, message, and validation error 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c8 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c8[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c12 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c18 {
+  width: 16px;
+  height: 16px;
+}
+
+.c15 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  padding-left: 24px;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #cd3642;
+}
+
+.c4:not([hidden]) + .c14 {
+  margin-top: 4px;
+}
+
+.c15 .c17 {
+  position: absolute;
+  top: -1px;
+  left: 0;
+}
+
+.c4:not([hidden]) + .c14 {
+  display: block;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c9[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c5::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c5 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c5::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c5 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1.c1 ~ .c5 ~ .c14 {
+  margin-top: 8px;
+}
+
+.c1:focus ~ .c5::before {
+  outline: none;
+}
+
+.c1 ~ .c5:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c5::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c5 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c5:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c5::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c5:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c5 {
+  cursor: default;
+}
+
+.c2 ~ .c6::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c6::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c6:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c6:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c6::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c10 {
+  padding-left: 48px;
+}
+
+.c10[hidden] {
+  padding-left: 40px;
+}
+
+.c13 {
+  padding-left: 48px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c7::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c7 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c7::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c7:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c7:active::before {
+  background-color: #293239;
+}
+
+.c16 {
+  padding-left: 48px;
+}
+
+.c16 .c17 {
+  left: 24px;
+}
+
+.c11 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":ra:--hint :ra:--message"
+    aria-labelledby=":ra:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":ra:--input"
+    label="Accept Terms"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9 c10"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":ra:--input"
+    id=":ra:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c11"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+    Accept Terms
+  </label>
+  <div
+    class="c12 c13"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_hint"
+    data-garden-version="9.0.0"
+    id=":ra:--hint"
+  >
+    This is a hint
+  </div>
+  <div
+    class="c14 c15 c16"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_message"
+    data-garden-version="9.0.0"
+    id=":ra:--message"
+    role="alert"
+  >
+    <svg
+      aria-label="error"
+      class="c17 c18"
+      data-garden-id="forms.input_message_icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      role="img"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="none"
+        stroke="currentColor"
+      >
+        <circle
+          cx="7.5"
+          cy="8.5"
+          r="7"
+        />
+        <path
+          d="M7.5 4.5V9"
+          stroke-linecap="round"
+        />
+      </g>
+      <circle
+        cx="7.5"
+        cy="12"
+        fill="currentColor"
+        r="1"
+      />
+    </svg>
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a label, message, and compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c8 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c8[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c13 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c4:not([hidden]) + .c12 {
+  margin-top: 4px;
+}
+
+.c4:not([hidden]) + .c12 {
+  display: block;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c9[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c5::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c5 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c5::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c5 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1.c1 ~ .c5 ~ .c12 {
+  margin-top: 4px;
+}
+
+.c1:focus ~ .c5::before {
+  outline: none;
+}
+
+.c1 ~ .c5:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c5::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c5 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c5:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c5::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c5:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c5 {
+  cursor: default;
+}
+
+.c2 ~ .c6::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c6::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c6:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c6:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c6::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c10 {
+  padding-left: 48px;
+}
+
+.c10[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c7::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c7 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c7::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c7:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c7:active::before {
+  background-color: #293239;
+}
+
+.c14 {
+  padding-left: 48px;
+}
+
+.c11 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":rm:--message"
+    aria-labelledby=":rm:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":rm:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9 c10"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":rm:--input"
+    id=":rm:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c11"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+  <div
+    class="c12 c13 c14"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_message"
+    data-garden-version="9.0.0"
+    id=":rm:--message"
+    role="alert"
+  >
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a message 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c8 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c8[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c13 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c4:not([hidden]) + .c12 {
+  margin-top: 4px;
+}
+
+.c4:not([hidden]) + .c12 {
+  display: block;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c9[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c5::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c5 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c5::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c5 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1.c1 ~ .c5 ~ .c12 {
+  margin-top: 8px;
+}
+
+.c1:focus ~ .c5::before {
+  outline: none;
+}
+
+.c1 ~ .c5:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c5::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c5 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c5:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c5::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c5:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c5 {
+  cursor: default;
+}
+
+.c2 ~ .c6::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c6::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c6:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c6:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c6::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c10 {
+  padding-left: 48px;
+}
+
+.c10[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c7::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c7 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c7::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c7:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c7:active::before {
+  background-color: #293239;
+}
+
+.c14 {
+  padding-left: 48px;
+}
+
+.c11 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":r4:--message"
+    aria-labelledby=":r4:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":r4:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9 c10"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":r4:--input"
+    id=":r4:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c11"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+  <div
+    class="c12 c13 c14"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_message"
+    data-garden-version="9.0.0"
+    id=":r4:--message"
+    role="alert"
+  >
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a read-only state 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":rd:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":rd:--input"
+    readonly=""
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":rd:--input"
+    id=":rd:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with a required state 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":re:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":re:--input"
+    required=""
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":re:--input"
+    id=":re:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":rj:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":rj:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":rj:--input"
+    id=":rj:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with label, hidden label, validation success, and read-only state 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":rh:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":rh:--input"
+    label="Accept Terms"
+    readonly=""
+    type="checkbox"
+  />
+</div>
+`;
+
+exports[`ToggleStory Component renders component with label, hint, message, and disabled state 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c8 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c8[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c12 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c15 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c4:not([hidden]) + .c14 {
+  margin-top: 4px;
+}
+
+.c4:not([hidden]) + .c14 {
+  display: block;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c9[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c5::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c5 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c5::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c5 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1.c1 ~ .c5 ~ .c14 {
+  margin-top: 8px;
+}
+
+.c1:focus ~ .c5::before {
+  outline: none;
+}
+
+.c1 ~ .c5:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c5::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c5 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c5:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c5::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c5:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c5 {
+  cursor: default;
+}
+
+.c2 ~ .c6::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c6::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c6:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c6:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c6::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c10 {
+  padding-left: 48px;
+}
+
+.c10[hidden] {
+  padding-left: 40px;
+}
+
+.c13 {
+  padding-left: 48px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c7::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c7 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c7::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c7:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c7:active::before {
+  background-color: #293239;
+}
+
+.c16 {
+  padding-left: 48px;
+}
+
+.c11 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":rg:--hint :rg:--message"
+    aria-labelledby=":rg:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    disabled=""
+    id=":rg:--input"
+    label="Accept Terms"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9 c10"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":rg:--input"
+    id=":rg:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c11"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+    Accept Terms
+  </label>
+  <div
+    class="c12 c13"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_hint"
+    data-garden-version="9.0.0"
+    id=":rg:--hint"
+  >
+    This is a hint
+  </div>
+  <div
+    class="c14 c15 c16"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_message"
+    data-garden-version="9.0.0"
+    id=":rg:--message"
+    role="alert"
+  >
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with label, hint, message, validation error, and required state 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c8 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c8[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c12 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c18 {
+  width: 16px;
+  height: 16px;
+}
+
+.c15 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  padding-left: 24px;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #cd3642;
+}
+
+.c4:not([hidden]) + .c14 {
+  margin-top: 4px;
+}
+
+.c15 .c17 {
+  position: absolute;
+  top: -1px;
+  left: 0;
+}
+
+.c4:not([hidden]) + .c14 {
+  display: block;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c9[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c5::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c5 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c5::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c5 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1.c1 ~ .c5 ~ .c14 {
+  margin-top: 8px;
+}
+
+.c1:focus ~ .c5::before {
+  outline: none;
+}
+
+.c1 ~ .c5:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c5::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c5 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c5:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c5::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c5:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c5 {
+  cursor: default;
+}
+
+.c2 ~ .c6::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c6::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c6:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c6:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c6::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c10 {
+  padding-left: 48px;
+}
+
+.c10[hidden] {
+  padding-left: 40px;
+}
+
+.c13 {
+  padding-left: 48px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c7::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c7 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c7 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c7::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c7:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c7:active::before {
+  background-color: #293239;
+}
+
+.c16 {
+  padding-left: 48px;
+}
+
+.c16 .c17 {
+  left: 24px;
+}
+
+.c11 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":ri:--hint :ri:--message"
+    aria-labelledby=":ri:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":ri:--input"
+    label="Accept Terms"
+    required=""
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9 c10"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":ri:--input"
+    id=":ri:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c11"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+    Accept Terms
+  </label>
+  <div
+    class="c12 c13"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_hint"
+    data-garden-version="9.0.0"
+    id=":ri:--hint"
+  >
+    This is a hint
+  </div>
+  <div
+    class="c14 c15 c16"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_message"
+    data-garden-version="9.0.0"
+    id=":ri:--message"
+    role="alert"
+  >
+    <svg
+      aria-label="error"
+      class="c17 c18"
+      data-garden-id="forms.input_message_icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      role="img"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="none"
+        stroke="currentColor"
+      >
+        <circle
+          cx="7.5"
+          cy="8.5"
+          r="7"
+        />
+        <path
+          d="M7.5 4.5V9"
+          stroke-linecap="round"
+        />
+      </g>
+      <circle
+        cx="7.5"
+        cy="12"
+        fill="currentColor"
+        r="1"
+      />
+    </svg>
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with validation error 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r6:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":r6:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":r6:--input"
+    id=":r6:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with validation success 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r5:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":r5:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":r5:--input"
+    id=":r5:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`ToggleStory Component renders component with validation warning 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r7:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":r7:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":r7:--input"
+    id=":r7:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`ToggleStory Component renders default component 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c7[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c8[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c1 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c1 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c1 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c1:focus ~ .c4::before {
+  outline: none;
+}
+
+.c1 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c1 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c1 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c1 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c1:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c1:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c1:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c1:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c1:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c2 ~ .c5::before {
+  border-radius: 4px;
+}
+
+.c2:indeterminate ~ .c5::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:indeterminate ~ .c5:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:indeterminate ~ .c5:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled:indeterminate ~ .c5::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c9 {
+  padding-left: 48px;
+}
+
+.c9[hidden] {
+  padding-left: 40px;
+}
+
+.c3 {
+  top: 0;
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6::before {
+  top: 0;
+  -webkit-transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  transition: box-shadow .1s ease-in-out,background-color .15s ease-in-out,color .25s ease-in-out;
+  border: none;
+  border-radius: 100px;
+}
+
+.c3 ~ .c6::before {
+  width: 40px;
+  height: 20px;
+}
+
+.c3 ~ .c6 > svg {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c3:checked ~ .c6 > svg {
+  left: 22px;
+}
+
+.c3 ~ .c6::before {
+  background-color: #5c6970;
+}
+
+.c3:enabled ~ .c6:hover::before {
+  background-color: #39434b;
+}
+
+.c3:enabled ~ .c6:active::before {
+  background-color: #293239;
+}
+
+.c10 {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r0:--label"
+    class="c1 c2 c3"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle"
+    data-garden-version="9.0.0"
+    id=":r0:--input"
+    type="checkbox"
+  />
+  <label
+    class="c4 c5 c6 c7 c8 c9"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.toggle_label"
+    data-garden-version="9.0.0"
+    for=":r0:--input"
+    id=":r0:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c10"
+      data-garden-id="forms.toggle_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</div>
+`;
