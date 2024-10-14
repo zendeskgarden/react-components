@@ -27,7 +27,7 @@ describe('StyledIconButton', () => {
   });
 
   it('renders basic color styling', () => {
-    const { container } = render(<StyledIconButton isBasic />);
+    const { container } = render(<StyledIconButton $isBasic />);
 
     expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[700]);
   });
@@ -42,7 +42,7 @@ describe('StyledIconButton', () => {
     });
 
     it('renders expected primary styling', () => {
-      const { container } = render(<StyledIconButton disabled isPrimary />);
+      const { container } = render(<StyledIconButton disabled $isPrimary />);
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
@@ -56,7 +56,7 @@ describe('StyledIconButton', () => {
 
   describe('Sizes', () => {
     it('renders small styling if provided', () => {
-      const { container } = render(<StyledIconButton size="small" />);
+      const { container } = render(<StyledIconButton $size="small" />);
 
       expect(container.firstChild).toHaveStyleRule('width', '32px');
       expect(container.firstChild).toHaveStyleRule('width', '16px', {
@@ -67,7 +67,7 @@ describe('StyledIconButton', () => {
     });
 
     it('renders medium styling if provided', () => {
-      const { container } = render(<StyledIconButton size="medium" />);
+      const { container } = render(<StyledIconButton $size="medium" />);
 
       expect(container.firstChild).toHaveStyleRule('width', '40px');
       expect(container.firstChild).toHaveStyleRule('width', '16px', {
@@ -78,7 +78,7 @@ describe('StyledIconButton', () => {
     });
 
     it('renders large styling if provided', () => {
-      const { container } = render(<StyledIconButton size="large" />);
+      const { container } = render(<StyledIconButton $size="large" />);
 
       expect(container.firstChild).toHaveStyleRule('width', '48px');
       expect(container.firstChild).toHaveStyleRule('width', '16px', {
