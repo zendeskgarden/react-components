@@ -1,0 +1,4448 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SplitButtonStory Component renders SplitButtonStory with a rotated chevron button 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with aria-label 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    aria-label="Split Button Aria"
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+  box-shadow: inset 0 0 0 1px #1f73b7, inset 0 0 0 3px transparent;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c3:hover {
+  color: #39434b;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with basic styling and rotated chevron button 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+  box-shadow: inset 0 0 0 1px #1f73b7, inset 0 0 0 3px transparent;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c3:hover {
+  color: #39434b;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with danger styling 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #7e1d25;
+  background-color: rgba(205,54,66,0.08);
+  color: #7e1d25;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #671219;
+  background-color: rgba(205,54,66,0.16);
+  color: #671219;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with danger styling and rotated chevron button 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #7e1d25;
+  background-color: rgba(205,54,66,0.08);
+  color: #7e1d25;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #671219;
+  background-color: rgba(205,54,66,0.16);
+  color: #671219;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with focus inset styling 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with focus inset styling and rotated chevron button 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with large size 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.3571428571428572em;
+  height: 48px;
+  line-height: 46px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 48px;
+  min-width: 48px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with large size and rotated chevron button 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.3571428571428572em;
+  height: 48px;
+  line-height: 46px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 48px;
+  min-width: 48px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with neutral styling 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 .c4 {
+  color: #5c6970;
+}
+
+.c2:hover .c4,
+.c2:focus-visible .c4 {
+  color: #39434b;
+}
+
+.c2:active .c4 {
+  color: #293239;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with neutral styling and rotated chevron button 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 .c4 {
+  color: #5c6970;
+}
+
+.c2:hover .c4,
+.c2:focus-visible .c4 {
+  color: #39434b;
+}
+
+.c2:active .c4 {
+  color: #293239;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with pill styling 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) .c4 {
+  margin-right: -2px;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) .c4 {
+  margin-left: -2px;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with pill styling and rotated chevron button 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) .c4 {
+  margin-right: -2px;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) .c4 {
+  margin-left: -2px;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with primary styling 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  background-color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 0px solid transparent;
+  outline-offset: 2px;
+  box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 2px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  background-color: #0f3655;
+}
+
+.c2:disabled {
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with primary styling and rotated chevron button 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  background-color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 0px solid transparent;
+  outline-offset: 2px;
+  box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 2px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  background-color: #0f3655;
+}
+
+.c2:disabled {
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with small size 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 0.9166666666666666em;
+  height: 32px;
+  line-height: 30px;
+  font-size: 12px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 32px;
+  min-width: 32px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders SplitButtonStory with small size and rotated chevron button 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 0.9166666666666666em;
+  height: 32px;
+  line-height: 30px;
+  font-size: 12px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 32px;
+  min-width: 32px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`SplitButtonStory Component renders default SplitButtonStory 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c2::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c2:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+.c2:active,
+.c2[aria-pressed='true'],
+.c2[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c2:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2:disabled .c4 {
+  color: #848f99;
+}
+
+.c2:disabled {
+  cursor: default;
+}
+
+.c2 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c2.c2 {
+  position: relative;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-left 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid revert;
+}
+
+.c0 .c2.c2:focus-visible {
+  border-color: #1f73b7;
+}
+
+.c0 .c2.c2:hover,
+.c0 .c2.c2:active,
+.c0 .c2.c2:focus-visible {
+  z-index: 1;
+}
+
+.c0 .c2.c2:disabled {
+  z-index: -1;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0 .c2.c2:not(:first-of-type) {
+  margin-left: -1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):disabled {
+  margin-left: 1px;
+}
+
+.c0 .c2.c2:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.c0 .c2.c2:first-of-type:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c0 .c2.c2:last-of-type:not(:first-of-type) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c3 {
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.c3:disabled {
+  background-color: transparent;
+}
+
+.c3 .c4 {
+  width: 16px;
+  height: 16px;
+}
+
+.c3 .c4 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+<div
+  class="c0 c1"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="9.0.0"
+>
+  <button
+    class="c2"
+    data-garden-id="buttons.button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    Split Button
+  </button>
+  <button
+    class="c2 c3"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="9.0.0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c4  c5"
+      data-garden-id="buttons.icon"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
