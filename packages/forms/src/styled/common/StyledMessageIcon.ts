@@ -35,8 +35,12 @@ const MessageIcon: React.FC<PropsWithChildren<IStyledMessageIconProps>> = ({
 
 const COMPONENT_ID = 'forms.input_message_icon';
 
+/**
+ * 1. Cannnot use transient prop `$validation`.
+ * MessageIcon is not a styled component and will not receive the prop.
+ */
 interface IStyledMessageIconProps {
-  validation?: Validation;
+  validation?: Validation /* [1] */;
 }
 
 export const StyledMessageIcon = styled(MessageIcon).attrs({

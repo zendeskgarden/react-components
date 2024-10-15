@@ -12,7 +12,7 @@ import { StyledTileIcon } from '../../../styled';
 const IconComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>((props, ref) => {
   const tileContext = useTilesContext();
 
-  return <StyledTileIcon ref={ref} isCentered={tileContext?.isCentered} {...props} />;
+  return <StyledTileIcon ref={ref} $isCentered={tileContext?.isCentered} {...props} />;
 });
 
 IconComponent.displayName = 'Tiles.Icon';

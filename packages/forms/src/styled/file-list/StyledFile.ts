@@ -18,25 +18,25 @@ import { StyledFileClose } from './StyledFileClose';
 const COMPONENT_ID = 'forms.file';
 
 interface IStyledFileProps {
-  isCompact?: boolean;
-  focusInset?: boolean;
-  validation?: FileValidation;
+  $isCompact?: boolean;
+  $focusInset?: boolean;
+  $validation?: FileValidation;
 }
 
 const colorStyles = ({
   theme,
-  focusInset,
-  validation
+  $focusInset,
+  $validation
 }: IStyledFileProps & ThemeProps<DefaultTheme>) => {
   let borderVariable;
   let focusBorderVariable;
   let foregroundVariable;
 
-  if (validation === 'success') {
+  if ($validation === 'success') {
     borderVariable = 'border.successEmphasis';
     focusBorderVariable = borderVariable;
     foregroundVariable = 'foreground.success';
-  } else if (validation === 'error') {
+  } else if ($validation === 'error') {
     borderVariable = 'border.dangerEmphasis';
     focusBorderVariable = borderVariable;
     foregroundVariable = 'foreground.danger';
@@ -56,16 +56,16 @@ const colorStyles = ({
 
     ${focusStyles({
       theme,
-      inset: focusInset,
+      inset: $focusInset,
       color: { variable: focusBorderVariable },
       styles: { borderColor: focusBorderColor }
     })}
   `;
 };
 
-const sizeStyles = ({ theme, isCompact }: IStyledFileProps & ThemeProps<DefaultTheme>) => {
-  const size = `${theme.space.base * (isCompact ? 7 : 10)}px`;
-  const spacing = `${theme.space.base * (isCompact ? 2 : 3)}px`;
+const sizeStyles = ({ theme, $isCompact }: IStyledFileProps & ThemeProps<DefaultTheme>) => {
+  const size = `${theme.space.base * ($isCompact ? 7 : 10)}px`;
+  const spacing = `${theme.space.base * ($isCompact ? 2 : 3)}px`;
   const fontSize = theme.fontSizes.md;
   const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
 

@@ -26,7 +26,7 @@ import {
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
-  ({ validation, validationLabel, children, ...props }, ref) => {
+  ({ validation, validationLabel, children, ...other }, ref) => {
     const { hasMessage, setHasMessage, getMessageProps } = useFieldContext() || {};
     const type = useInputContext();
 
@@ -54,7 +54,7 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
       MessageComponent = StyledMessage;
     }
 
-    let combinedProps = { validation, validationLabel, ...props };
+    let combinedProps = { $validation: validation, validationLabel, ...other };
 
     if (getMessageProps) {
       combinedProps = getMessageProps(combinedProps);

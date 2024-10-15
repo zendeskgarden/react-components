@@ -14,7 +14,22 @@ import { StartIcon } from './components/StartIcon';
 import { EndIcon } from './components/EndIcon';
 
 const FauxInputComponent = forwardRef<HTMLDivElement, IFauxInputProps>(
-  ({ onFocus, onBlur, disabled, readOnly, isFocused: controlledIsFocused, ...props }, ref) => {
+  (
+    {
+      disabled,
+      focusInset,
+      isBare,
+      isCompact,
+      isFocused: controlledIsFocused,
+      isHovered,
+      onBlur,
+      onFocus,
+      readOnly,
+      validation,
+      ...other
+    },
+    ref
+  ) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const onFocusHandler = composeEventHandlers(onFocus, () => {
@@ -29,12 +44,17 @@ const FauxInputComponent = forwardRef<HTMLDivElement, IFauxInputProps>(
       <StyledTextFauxInput
         onFocus={onFocusHandler}
         onBlur={onBlurHandler}
-        isFocused={controlledIsFocused === undefined ? isFocused : controlledIsFocused}
+        $focusInset={focusInset}
+        $isBare={isBare}
+        $isCompact={isCompact}
+        $isDisabled={disabled}
+        $isFocused={controlledIsFocused === undefined ? isFocused : controlledIsFocused}
+        $isHovered={isHovered}
+        $isReadOnly={readOnly}
+        $validation={validation}
         data-test-is-focused={controlledIsFocused === undefined ? isFocused : controlledIsFocused}
-        isReadOnly={readOnly}
-        isDisabled={disabled}
         tabIndex={disabled ? undefined : 0}
-        {...props}
+        {...other}
         ref={ref}
       />
     );

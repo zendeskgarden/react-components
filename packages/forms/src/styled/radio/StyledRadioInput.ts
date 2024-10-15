@@ -93,14 +93,14 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = ({ theme, isCompact }: IStyledRadioInputProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isCompact }: IStyledRadioInputProps & ThemeProps<DefaultTheme>) => {
   const lineHeight = `${theme.space.base * 5}px`; /* from StyledLabel */
   const size = `${theme.space.base * 4}px`;
   const top = math(`(${lineHeight} - ${size}) / 2`);
   const iconSize = theme.iconSizes.sm;
   const iconPosition = math(`(${size} - ${iconSize}) / 2`);
   const iconTop = math(`${iconPosition} + ${top}`);
-  const marginTop = `${theme.space.base * (isCompact ? 1 : 2)}px`;
+  const marginTop = `${theme.space.base * ($isCompact ? 1 : 2)}px`;
 
   return css`
     top: ${top};
@@ -130,7 +130,7 @@ const sizeStyles = ({ theme, isCompact }: IStyledRadioInputProps & ThemeProps<De
 };
 
 export interface IStyledRadioInputProps {
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 export const StyledRadioInput = styled.input.attrs({

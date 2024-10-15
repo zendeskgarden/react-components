@@ -12,20 +12,17 @@ import { IFieldsetProps } from '../../types';
 import { StyledFieldset } from '../../styled';
 import { FieldsetContext } from '../../utils/useFieldsetContext';
 
-const FieldsetComponent = forwardRef<HTMLFieldSetElement, IFieldsetProps>((props, ref) => {
-  const fieldsetContext = useMemo(
-    () => ({
-      isCompact: props.isCompact
-    }),
-    [props.isCompact]
-  );
+const FieldsetComponent = forwardRef<HTMLFieldSetElement, IFieldsetProps>(
+  ({ isCompact, ...other }, ref) => {
+    const fieldsetContext = useMemo(() => ({ isCompact }), [isCompact]);
 
-  return (
-    <FieldsetContext.Provider value={fieldsetContext}>
-      <StyledFieldset {...props} ref={ref} />
-    </FieldsetContext.Provider>
-  );
-});
+    return (
+      <FieldsetContext.Provider value={fieldsetContext}>
+        <StyledFieldset {...other} ref={ref} $isCompact={isCompact} />
+      </FieldsetContext.Provider>
+    );
+  }
+);
 
 FieldsetComponent.displayName = 'Fieldset';
 

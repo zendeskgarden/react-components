@@ -26,7 +26,7 @@ const LabelComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElemen
       <StyledTileLabel
         ref={mergeRefs([ref, forwardedRef])}
         title={title}
-        isCentered={tilesContext?.isCentered}
+        $isCentered={tilesContext?.isCentered}
         {...props}
       />
     );
