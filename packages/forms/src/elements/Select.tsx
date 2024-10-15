@@ -21,11 +21,11 @@ export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
     const fieldContext = useFieldContext();
 
     let combinedProps = {
+      $focusInset: focusInset,
+      $isBare: isBare,
+      $isCompact: isCompact,
+      $validation: validation,
       disabled,
-      isBare,
-      isCompact,
-      validation,
-      focusInset,
       ref,
       ...props
     } as any;
@@ -36,11 +36,11 @@ export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
 
     return (
       <StyledSelectWrapper
-        isCompact={isCompact}
-        isBare={isBare}
-        isDisabled={disabled}
-        validation={validation}
-        focusInset={focusInset}
+        $isCompact={isCompact}
+        $isBare={isBare}
+        $isDisabled={disabled}
+        $validation={validation}
+        $focusInset={focusInset}
       >
         <StyledSelect {...combinedProps} />
         {!isBare && (

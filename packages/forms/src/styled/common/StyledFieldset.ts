@@ -12,7 +12,7 @@ import { StyledField } from './StyledField';
 const COMPONENT_ID = 'forms.fieldset';
 
 interface IStyledFieldsetProps {
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 export const StyledFieldset = styled(StyledField as 'fieldset').attrs({
@@ -21,7 +21,7 @@ export const StyledFieldset = styled(StyledField as 'fieldset').attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledFieldsetProps>`
   ${StyledField} {
-    margin-top: ${props => props.theme.space.base * (props.isCompact ? 1 : 2)}px;
+    margin-top: ${props => props.theme.space.base * (props.$isCompact ? 1 : 2)}px;
   }
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

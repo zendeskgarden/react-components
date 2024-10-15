@@ -19,13 +19,13 @@ describe('StyledTextInput', () => {
   });
 
   it('renders compact styling if provided', () => {
-    const { container } = render(<StyledTextInput isCompact />);
+    const { container } = render(<StyledTextInput $isCompact />);
 
     expect(container.firstChild).toHaveStyleRule('min-height', '32px');
   });
 
   it('renders bare styling if provided', () => {
-    const { container } = render(<StyledTextInput isBare />);
+    const { container } = render(<StyledTextInput $isBare />);
 
     expect(container.firstChild).toHaveStyleRule('border', 'none');
   });
@@ -56,19 +56,19 @@ describe('StyledTextInput', () => {
 
   describe('Validation', () => {
     it('renders "success" styling if provided', () => {
-      const { container } = render(<StyledTextInput validation="success" />);
+      const { container } = render(<StyledTextInput $validation="success" />);
 
       expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.green[700]);
     });
 
     it('renders "warning" styling if provided', () => {
-      const { container } = render(<StyledTextInput validation="warning" />);
+      const { container } = render(<StyledTextInput $validation="warning" />);
 
       expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.yellow[700]);
     });
 
     it('renders "error" styling if provided', () => {
-      const { container } = render(<StyledTextInput validation="error" />);
+      const { container } = render(<StyledTextInput $validation="error" />);
 
       expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.red[700]);
     });

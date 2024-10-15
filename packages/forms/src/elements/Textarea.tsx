@@ -21,7 +21,22 @@ const parseStyleValue = (value: string) => {
  * @extends TextareaHTMLAttributes<HTMLTextAreaElement>
  */
 export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
-  ({ minRows, maxRows, style, onChange, onSelect, ...props }, ref) => {
+  (
+    {
+      isCompact,
+      isBare,
+      focusInset,
+      isResizable,
+      minRows,
+      maxRows,
+      style,
+      validation,
+      onChange,
+      onSelect,
+      ...other
+    },
+    ref
+  ) => {
     const fieldContext = useFieldContext();
     const textAreaRef = useRef<HTMLTextAreaElement>();
     const shadowTextAreaRef = useRef<HTMLInputElement | null>(null);
@@ -30,8 +45,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
       height: 0
     });
 
-    const isControlled = props.value !== null && props.value !== undefined;
-    const isAutoResizable = (minRows !== undefined || maxRows !== undefined) && !props.isResizable;
+    const isControlled = other.value !== null && other.value !== undefined;
+    const isAutoResizable = (minRows !== undefined || maxRows !== undefined) && !isResizable;
 
     const calculateHeight = useCallback(() => {
       if (!isAutoResizable) {
@@ -111,22 +126,27 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
       computedStyle.overflow = state.overflow ? 'hidden' : undefined;
     }
 
-    const onSelectHandler = props.readOnly
+    const onSelectHandler = other.readOnly
       ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLInputElement>) => {
           event.currentTarget.select();
         })
       : onSelect;
 
     let combinedProps = {
-      ref: mergeRefs([textAreaRef, ref]),
-      rows: minRows,
+      $focusInset: focusInset,
+      $isBare: isBare,
+      $isCompact: isCompact,
+      $isResizable: isResizable,
+      $validation: validation,
       onChange: onChangeHandler,
       onSelect: onSelectHandler,
+      ref: mergeRefs([textAreaRef, ref]),
+      rows: minRows,
       style: {
         ...computedStyle,
         ...style
       },
-      ...props
+      ...other
     } as any;
 
     if (fieldContext) {
@@ -138,15 +158,15 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
         <StyledTextarea {...combinedProps} />
         {!!isAutoResizable && (
           <StyledTextarea
+            $isBare={isBare}
+            $isCompact={isCompact}
+            $isHidden
             aria-hidden
+            className={other.className}
             readOnly
-            isHidden
-            className={props.className}
             ref={shadowTextAreaRef}
-            tabIndex={-1}
-            isBare={props.isBare}
-            isCompact={props.isCompact}
             style={style}
+            tabIndex={-1}
           />
         )}
       </>

@@ -17,7 +17,7 @@ describe('StyledSelect', () => {
   });
 
   it('renders bare styling if provided', () => {
-    const { container } = render(<StyledSelect isBare />);
+    const { container } = render(<StyledSelect $isBare />);
 
     expect(container.firstChild).not.toHaveStyleRule('padding-right');
   });

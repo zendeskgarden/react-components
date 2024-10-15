@@ -68,7 +68,7 @@ const trackLowerStyles = (styles: string, modifier = '') => {
  */
 const colorStyles = ({
   theme,
-  hasLowerTrack
+  $hasLowerTrack
 }: ThemeProps<DefaultTheme> & IStyledRangeInputProps) => {
   const options = { theme, variable: 'background.primaryEmphasis' };
   const thumbBackgroundColor = getColor(options);
@@ -99,8 +99,8 @@ const colorStyles = ({
     dark: { offset: 100 },
     light: { offset: -200 }
   });
-  const trackLowerBackgroundColor = hasLowerTrack ? thumbBackgroundColor : '';
-  const trackBackgroundImage = hasLowerTrack
+  const trackLowerBackgroundColor = $hasLowerTrack ? thumbBackgroundColor : '';
+  const trackBackgroundImage = $hasLowerTrack
     ? `linear-gradient(${trackLowerBackgroundColor}, ${trackLowerBackgroundColor})`
     : '';
   const trackDisabledBackgroundColor = getColor({
@@ -108,10 +108,10 @@ const colorStyles = ({
     variable: 'background.disabled',
     transparency: theme.opacity[200]
   });
-  const trackDisabledLowerBackgroundColor = hasLowerTrack
+  const trackDisabledLowerBackgroundColor = $hasLowerTrack
     ? getColor({ theme, variable: 'border.emphasis' })
     : '';
-  const trackDisabledBackgroundImage = hasLowerTrack
+  const trackDisabledBackgroundImage = $hasLowerTrack
     ? `linear-gradient(${trackDisabledLowerBackgroundColor}, ${trackDisabledLowerBackgroundColor})`
     : '';
 
@@ -223,8 +223,8 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 };
 
 interface IStyledRangeInputProps {
-  backgroundSize?: number | string;
-  hasLowerTrack?: boolean;
+  $backgroundSize?: number | string;
+  $hasLowerTrack?: boolean;
 }
 
 export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props => ({
@@ -232,7 +232,7 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
   'data-garden-version': PACKAGE_VERSION,
   type: 'range',
   style: {
-    backgroundSize: props.hasLowerTrack && props.backgroundSize
+    backgroundSize: props.$hasLowerTrack && props.$backgroundSize
   }
 }))<IStyledRangeInputProps>`
   appearance: none;
@@ -294,7 +294,7 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
 `;
 
 StyledRangeInput.defaultProps = {
-  backgroundSize: '0%',
-  hasLowerTrack: true,
+  $backgroundSize: '0%',
+  $hasLowerTrack: true,
   theme: DEFAULT_THEME
 };

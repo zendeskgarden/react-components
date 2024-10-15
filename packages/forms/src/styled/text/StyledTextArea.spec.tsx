@@ -17,7 +17,7 @@ describe('StyledTextarea', () => {
   });
 
   it('renders resizable styling if provided', () => {
-    const { container } = render(<StyledTextarea isResizable />);
+    const { container } = render(<StyledTextarea $isResizable />);
 
     expect(container.firstChild).toHaveStyleRule('resize', 'vertical');
   });

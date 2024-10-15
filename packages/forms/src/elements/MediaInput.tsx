@@ -100,7 +100,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
         focusInset={focusInset}
         readOnly={readOnly}
         validation={validation}
-        mediaLayout
+        $mediaLayout // pass-through prop to StyledTextFauxInput for media layout
         {...otherWrapperProps}
         ref={wrapperRef}
       >

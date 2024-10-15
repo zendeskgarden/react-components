@@ -29,13 +29,13 @@ const isInvalid = (validation?: Validation) => {
 
 const colorStyles = ({
   theme,
-  isBare,
-  isHovered,
-  focusInset,
-  validation
+  $isBare,
+  $isHovered,
+  $focusInset,
+  $validation
 }: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
-  const backgroundColor = isBare
+  const backgroundColor = $isBare
     ? 'transparent'
     : getColor({ theme, variable: 'background.default' });
   let borderColor: string | undefined;
@@ -43,12 +43,12 @@ const colorStyles = ({
   let borderVariable: string | undefined;
   let focusBorderColor: string | undefined;
 
-  if (validation) {
-    if (validation === 'success') {
+  if ($validation) {
+    if ($validation === 'success') {
       borderVariable = 'border.successEmphasis';
-    } else if (validation === 'warning') {
+    } else if ($validation === 'warning') {
       borderVariable = 'border.warningEmphasis';
-    } else if (validation === 'error') {
+    } else if ($validation === 'error') {
       borderVariable = 'border.dangerEmphasis';
     }
 
@@ -67,7 +67,7 @@ const colorStyles = ({
     focusBorderColor = hoverBorderColor;
   }
 
-  const disabledBackgroundColor = isBare
+  const disabledBackgroundColor = $isBare
     ? undefined
     : getColor({ theme, variable: 'background.disabled' });
   const disabledBorderColor = getColor({ theme, variable: 'border.disabled' });
@@ -79,7 +79,7 @@ const colorStyles = ({
   const calendarPickerBackgroundImage = `url("data:image/svg+xml,${encodeURIComponent(calendarPickerIcon)}")`;
 
   return css`
-    border-color: ${isHovered ? hoverBorderColor : borderColor};
+    border-color: ${$isHovered ? hoverBorderColor : borderColor};
     background-color: ${backgroundColor};
     color: ${foregroundColor};
 
@@ -107,10 +107,10 @@ const colorStyles = ({
 
     ${focusStyles({
       theme,
-      inset: focusInset,
+      inset: $focusInset,
       color: { variable: borderVariable },
       styles: { borderColor: focusBorderColor },
-      condition: !isBare
+      condition: !$isBare
     })}
 
     &::-webkit-calendar-picker-indicator:focus-visible {
@@ -128,8 +128,8 @@ const colorStyles = ({
 
 const sizeStyles = ({
   theme,
-  isBare,
-  isCompact
+  $isBare,
+  $isCompact
 }: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
   const fontSize = theme.fontSizes.md;
   const paddingHorizontal = `${theme.space.base * 3}px`;
@@ -138,7 +138,7 @@ const sizeStyles = ({
   let browseFontSize;
   let swatchHeight;
 
-  if (isCompact) {
+  if ($isCompact) {
     height = `${theme.space.base * 8}px`;
     paddingVertical = `${theme.space.base * 1.5}px`;
     browseFontSize = math(`${theme.fontSizes.sm} - 1`);
@@ -151,7 +151,7 @@ const sizeStyles = ({
   }
 
   const lineHeight = math(`${height} - (${paddingVertical} * 2) - (${theme.borderWidths.sm} * 2)`);
-  const padding = isBare
+  const padding = $isBare
     ? '0'
     : `${em(paddingVertical, fontSize)} ${em(paddingHorizontal, fontSize)}`;
   const swatchMarginVertical = math(`(${lineHeight} - ${swatchHeight}) / 2`);
@@ -163,7 +163,7 @@ const sizeStyles = ({
 
   return css`
     padding: ${padding};
-    min-height: ${isBare ? '1em' : height};
+    min-height: ${$isBare ? '1em' : height};
     line-height: ${getLineHeight(lineHeight, fontSize)};
     font-size: ${fontSize};
 
@@ -186,7 +186,7 @@ const sizeStyles = ({
 
     @supports (-ms-ime-align: auto) {
       &[type='color'] {
-        padding: ${isCompact ? '0 2px' : '1px 3px'}; /* correct color swatch size for Edge */
+        padding: ${$isCompact ? '0 2px' : '1px 3px'}; /* correct color swatch size for Edge */
       }
     }
 
@@ -214,24 +214,24 @@ const sizeStyles = ({
     ${StyledMessage} + &&,
     && + ${StyledHint},
     && ~ ${StyledMessage} {
-      margin-top: ${theme.space.base * (isCompact ? 1 : 2)}px;
+      margin-top: ${theme.space.base * ($isCompact ? 1 : 2)}px;
     }
   `;
 };
 
 export interface IStyledTextInputProps {
-  isCompact?: boolean;
-  isBare?: boolean;
-  isHovered?: boolean;
-  isFocused?: boolean;
-  focusInset?: boolean;
-  validation?: Validation;
+  $isCompact?: boolean;
+  $isBare?: boolean;
+  $isHovered?: boolean;
+  $isFocused?: boolean;
+  $focusInset?: boolean;
+  $validation?: Validation;
 }
 
 export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'aria-invalid': isInvalid(props.validation)
+  'aria-invalid': isInvalid(props.$validation)
 }))<IStyledTextInputProps>`
   appearance: none;
   /* prettier-ignore */
@@ -242,8 +242,8 @@ export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props =
     color 0.25s ease-in-out,
     z-index 0.25s ease-in-out;
   direction: ${props => props.theme.rtl && 'rtl'};
-  border: ${props => (props.isBare ? 'none' : props.theme.borders.sm)};
-  border-radius: ${props => (props.isBare ? '0' : props.theme.borderRadii.md)};
+  border: ${props => (props.$isBare ? 'none' : props.theme.borders.sm)};
+  border-radius: ${props => (props.$isBare ? '0' : props.theme.borderRadii.md)};
   width: 100%; /* vs. display: block to limit mouse interaction area */
   box-sizing: border-box;
   vertical-align: middle; /* support inline label */

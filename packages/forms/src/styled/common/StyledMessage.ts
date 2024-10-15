@@ -13,19 +13,19 @@ import { StyledMessageIcon } from './StyledMessageIcon';
 import { StyledLabel } from './StyledLabel';
 
 export interface IStyledMessageProps {
-  validation?: Validation;
+  $validation?: Validation;
 }
 
 const COMPONENT_ID = 'forms.input_message';
 
-const colorStyles = ({ theme, validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
   let variable;
 
-  if (validation === 'error') {
+  if ($validation === 'error') {
     variable = 'foreground.danger';
-  } else if (validation === 'success') {
+  } else if ($validation === 'success') {
     variable = 'foreground.success';
-  } else if (validation === 'warning') {
+  } else if ($validation === 'warning') {
     variable = 'foreground.warning';
   } else {
     variable = 'foreground.subtle';
@@ -38,11 +38,11 @@ const colorStyles = ({ theme, validation }: IStyledMessageProps & ThemeProps<Def
   `;
 };
 
-const sizeStyles = ({ theme, validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
   const fontSize = theme.fontSizes.sm;
   const lineHeight = getLineHeight(theme.iconSizes.md, theme.fontSizes.sm);
   const marginTop = `${theme.space.base}px`;
-  const paddingHorizontal = validation
+  const paddingHorizontal = $validation
     ? math(`${theme.space.base * 2} + ${theme.iconSizes.md}`)
     : undefined;
 

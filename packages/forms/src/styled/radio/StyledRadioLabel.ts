@@ -32,7 +32,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 export const StyledRadioLabel = styled(StyledLabel).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  isRadio: true
+  $isRadio: true
 })`
   display: inline-block; /* [1] */
   position: relative;
