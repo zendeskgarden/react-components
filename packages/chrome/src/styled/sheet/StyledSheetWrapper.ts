@@ -12,24 +12,24 @@ import { ISheetProps } from '../../types';
 const COMPONENT_ID = 'chrome.sheet_wrapper';
 
 interface IStyledSheetWrapperProps {
-  isOpen?: boolean;
-  isAnimated?: boolean;
-  placement?: ISheetProps['placement'];
-  size?: string;
+  $isOpen?: boolean;
+  $isAnimated?: boolean;
+  $placement?: ISheetProps['placement'];
+  $size?: string;
 }
 
 const transformStyles = ({
   theme,
-  isAnimated,
-  isOpen,
-  placement
+  $isAnimated,
+  $isOpen,
+  $placement
 }: IStyledSheetWrapperProps & ThemeProps<DefaultTheme>) => {
-  const transition = isAnimated ? 'transform 250ms ease-in-out' : undefined;
+  const transition = $isAnimated ? 'transform 250ms ease-in-out' : undefined;
   let transform;
 
-  if (isOpen) {
+  if ($isOpen) {
     transform = 'translateX(0)';
-  } else if (placement === 'start') {
+  } else if ($placement === 'start') {
     transform = `translateX(${theme.rtl ? 100 : -100}%)`;
   } else {
     transform = `translateX(${theme.rtl ? -100 : 100}%)`;
@@ -48,7 +48,7 @@ export const StyledSheetWrapper = styled.div.attrs({
   display: flex;
   position: relative;
   flex-direction: column;
-  min-width: ${props => props.size};
+  min-width: ${props => props.$size};
 
   ${transformStyles};
 

@@ -12,13 +12,13 @@ import { getNavWidth, getNavWidthExpanded } from '../utils';
 const COMPONENT_ID = 'chrome.nav';
 
 interface IStyledNavProps {
-  hue: string;
-  isExpanded?: boolean;
+  $hue: string;
+  $isExpanded?: boolean;
 }
 
-const colorStyles = ({ theme, hue }: IStyledNavProps & ThemeProps<DefaultTheme>) => {
-  const shade = hue === 'chromeHue' ? 900 : undefined;
-  const backgroundColor = getColor({ theme, hue, shade });
+const colorStyles = ({ theme, $hue }: IStyledNavProps & ThemeProps<DefaultTheme>) => {
+  const shade = $hue === 'chromeHue' ? 900 : undefined;
+  const backgroundColor = getColor({ theme, hue: $hue, shade });
   const foregroundColor = getColor({ theme, dark: { hue: 'white' }, light: { hue: 'black' } });
 
   return css`
@@ -27,9 +27,9 @@ const colorStyles = ({ theme, hue }: IStyledNavProps & ThemeProps<DefaultTheme>)
   `;
 };
 
-const sizeStyles = ({ theme, isExpanded }: IStyledNavProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isExpanded }: IStyledNavProps & ThemeProps<DefaultTheme>) => {
   const fontSize = theme.fontSizes.md;
-  const width = isExpanded ? getNavWidthExpanded() : getNavWidth(theme);
+  const width = $isExpanded ? getNavWidthExpanded() : getNavWidth(theme);
 
   return css`
     width: ${width};

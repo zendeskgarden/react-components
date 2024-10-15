@@ -16,7 +16,7 @@ export const Content = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
   (props, ref) => {
     const { hasFooter } = useBodyContext() || {};
 
-    return <StyledContent ref={ref} hasFooter={hasFooter} {...props} />;
+    return <StyledContent ref={ref} $hasFooter={hasFooter} {...props} />;
   }
 );
 

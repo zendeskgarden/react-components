@@ -90,7 +90,7 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 };
 
 interface IStyledSkipNavProps {
-  zIndex?: number;
+  $zIndex?: number;
 }
 
 /*
@@ -109,7 +109,7 @@ export const StyledSkipNav = styled.a.attrs({
   justify-content: center;
   transform: translateX(-50%);
   direction: ${props => props.theme.rtl && 'rtl'};
-  z-index: ${props => props.zIndex};
+  z-index: ${props => props.$zIndex};
   border-radius: ${props => props.theme.borderRadii.md};
   text-decoration: underline;
   white-space: nowrap;
