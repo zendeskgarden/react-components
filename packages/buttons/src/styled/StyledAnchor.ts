@@ -20,7 +20,7 @@ export const StyledAnchor = styled(StyledButton).attrs<IAnchorProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   as: 'a',
   dir: props.theme.rtl ? 'rtl' : undefined,
-  isLink: true,
+  $isLink: true,
   type: undefined
 }))`
   direction: ${props => props.theme.rtl && 'rtl'};
