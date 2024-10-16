@@ -8,12 +8,17 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { IButtonProps } from '../types';
-import { COMPONENT_ID as BTN_COMPONENT_ID, StyledButton, getHeight } from './StyledButton';
+import {
+  COMPONENT_ID as BTN_COMPONENT_ID,
+  IStyledButtonProps,
+  StyledButton,
+  getHeight
+} from './StyledButton';
 import { StyledIcon } from './StyledIcon';
 
 export const COMPONENT_ID = 'buttons.icon_button';
 
-const iconColorStyles = ({ theme }: IButtonProps & ThemeProps<DefaultTheme>) => {
+const iconColorStyles = ({ theme }: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const options = { theme, variable: 'foreground.subtle' };
   const baseColor = getColor(options);
   const hoverColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
@@ -34,21 +39,21 @@ const iconColorStyles = ({ theme }: IButtonProps & ThemeProps<DefaultTheme>) => 
   `;
 };
 
-const iconButtonStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const width = getHeight(props);
 
   return css`
-    border: ${props.isBasic && 'none'};
+    border: ${props.$isBasic && 'none'};
     padding: 0;
     width: ${width};
     min-width: ${width};
 
-    ${props.isBasic &&
-    !(props.isPrimary || props.isDanger || props.disabled) &&
+    ${props.$isBasic &&
+    !(props.$isPrimary || props.$isDanger || props.disabled) &&
     iconColorStyles(props)};
 
     &:disabled {
-      background-color: ${!props.isPrimary && 'transparent'};
+      background-color: ${!props.$isPrimary && 'transparent'};
     }
   `;
 };
@@ -69,7 +74,7 @@ const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledIconButton = styled(StyledButton).attrs<IButtonProps>(props => {
+export const StyledIconButton = styled(StyledButton).attrs(props => {
   const externalId: string = (props as any)['data-garden-id'];
 
   return {
@@ -77,10 +82,10 @@ export const StyledIconButton = styled(StyledButton).attrs<IButtonProps>(props =
     'data-garden-version': PACKAGE_VERSION
   };
 })`
-  ${props => iconButtonStyles(props)};
+  ${iconButtonStyles};
 
   & ${StyledIcon} {
-    ${props => iconStyles(props)}
+    ${iconStyles}
   }
 
   ${props => retrieveComponentStyles((props as any)['data-garden-id'], props)};

@@ -63,6 +63,7 @@ export const StyledSelect = styled(StyledTextInput).attrs({
   'data-garden-version': PACKAGE_VERSION,
   as: 'select'
 })`
+  opacity: 1; /* [1] */
   cursor: pointer;
   text-overflow: ellipsis;
 

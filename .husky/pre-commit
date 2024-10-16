@@ -1,1 +1,1 @@
-npm exec lint-staged && npm run build -- --since HEAD --exclude-dependents && git add packages/**/.size-snapshot.json
+npm exec lint-staged && npm run build -- --since HEAD --exclude-dependents

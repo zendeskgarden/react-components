@@ -15,11 +15,35 @@ import { useSplitButtonContext } from '../utils/useSplitButtonContext';
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
-  ({ children, isRotated, ...otherProps }, ref) => {
-    const focusInset = useSplitButtonContext();
+  (
+    {
+      children,
+      focusInset,
+      isBasic,
+      isDanger,
+      isNeutral,
+      isPill,
+      isPrimary,
+      isRotated,
+      size,
+      ...other
+    },
+    ref
+  ) => {
+    const splitButtonFocusInset = useSplitButtonContext();
 
     return (
-      <StyledIconButton ref={ref} {...otherProps} focusInset={otherProps.focusInset || focusInset}>
+      <StyledIconButton
+        {...other}
+        $isBasic={isBasic}
+        $isDanger={isDanger}
+        $isNeutral={isNeutral}
+        $isPill={isPill}
+        $isPrimary={isPrimary}
+        $size={size}
+        $focusInset={focusInset || splitButtonFocusInset}
+        ref={ref}
+      >
         <StyledIcon $isRotated={isRotated}>{children}</StyledIcon>
       </StyledIconButton>
     );
@@ -29,14 +53,14 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
 IconButton.displayName = 'IconButton';
 
 IconButton.propTypes = {
-  isDanger: PropTypes.bool,
-  size: PropTypes.oneOf(SIZE),
-  isNeutral: PropTypes.bool,
-  isPrimary: PropTypes.bool,
-  isBasic: PropTypes.bool,
-  isPill: PropTypes.bool,
   focusInset: PropTypes.bool,
-  isRotated: PropTypes.bool
+  isBasic: PropTypes.bool,
+  isDanger: PropTypes.bool,
+  isNeutral: PropTypes.bool,
+  isPill: PropTypes.bool,
+  isPrimary: PropTypes.bool,
+  isRotated: PropTypes.bool,
+  size: PropTypes.oneOf(SIZE)
 };
 
 IconButton.defaultProps = {
