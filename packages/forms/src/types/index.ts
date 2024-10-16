@@ -59,6 +59,11 @@ export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
   validationLabel?: string;
 }
 
+export interface IMessageIconProps {
+  /** Applies validation state styling */
+  validation?: Validation;
+}
+
 export interface IRadioProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Applies compact styling */
   isCompact?: IFieldsetProps['isCompact'];
