@@ -16,9 +16,9 @@ import {
   StyledMessage,
   StyledCheckMessage,
   StyledRadioMessage,
-  StyledToggleMessage,
-  StyledMessageIcon
+  StyledToggleMessage
 } from '../../styled';
+import { MessageIcon } from './MessageIcon';
 
 /**
  * @deprecated use `Field.Message` instead
@@ -70,7 +70,7 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
 
     return (
       <MessageComponent ref={ref} {...combinedProps}>
-        {!!validation && <StyledMessageIcon validation={validation} aria-label={ariaLabel} />}
+        {!!validation && <MessageIcon validation={validation} aria-label={ariaLabel} />}
         {children}
       </MessageComponent>
     );

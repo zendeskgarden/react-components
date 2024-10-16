@@ -9,7 +9,6 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledMessageIcon } from './StyledMessageIcon';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-import { VALIDATION } from '../../types';
 
 describe('StyledMessageIcon', () => {
   it('renders the expected element', () => {
@@ -20,15 +19,5 @@ describe('StyledMessageIcon', () => {
     );
 
     expect(container.firstChild!.nodeName).toBe('svg');
-  });
-
-  describe('Validation', () => {
-    it('renders validation styling', () => {
-      VALIDATION.forEach(validation => {
-        const { container } = render(<StyledMessageIcon validation={validation} />);
-
-        expect(container.firstChild!.nodeName).toBe('svg');
-      });
-    });
   });
 });
