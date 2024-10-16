@@ -13,7 +13,7 @@ import { useSheetContext } from '../../../utils/useSheetContext';
 const SheetHeader = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCloseButtonPresent } = useSheetContext();
 
-  return <StyledSheetHeader ref={ref} isCloseButtonPresent={isCloseButtonPresent} {...props} />;
+  return <StyledSheetHeader ref={ref} $isCloseButtonPresent={isCloseButtonPresent} {...props} />;
 });
 
 SheetHeader.displayName = 'Sheet.Header';

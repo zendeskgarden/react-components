@@ -12,7 +12,7 @@ const COMPONENT_ID = 'chrome.sheet_footer';
 
 export interface IStyledSheetFooterProps {
   /** Sets the SheetFooter padding to half the standard and centers the elements  */
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
@@ -23,9 +23,9 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = ({ theme, isCompact }: IStyledSheetFooterProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isCompact }: IStyledSheetFooterProps & ThemeProps<DefaultTheme>) => {
   const border = theme.borders.sm;
-  const padding = `${theme.space.base * (isCompact ? 2.5 : 5)}px`;
+  const padding = `${theme.space.base * ($isCompact ? 2.5 : 5)}px`;
 
   return css`
     border-top: ${border};
@@ -40,7 +40,7 @@ export const StyledSheetFooter = styled.footer.attrs({
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  justify-content: ${props => (props.isCompact ? 'center' : 'flex-end')};
+  justify-content: ${props => (props.$isCompact ? 'center' : 'flex-end')};
 
   ${sizeStyles};
 

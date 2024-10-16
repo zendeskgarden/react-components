@@ -25,7 +25,7 @@ describe('StyledAnchor', () => {
   });
 
   it('renders danger styling if provided', () => {
-    const { container } = render(<StyledAnchor isDanger />);
+    const { container } = render(<StyledAnchor $isDanger />);
 
     expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);
   });

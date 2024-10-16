@@ -17,23 +17,25 @@ import { NavItemIcon } from './NavItemIcon';
 import { NavItemText } from './NavItemText';
 import { NavList } from './NavList';
 
-export const NavComponent = React.forwardRef<HTMLElement, INavProps>((props, ref) => {
-  const { hue, isLight } = useChromeContext();
-  const navContextValue = useMemo(() => ({ isExpanded: !!props.isExpanded }), [props.isExpanded]);
+export const NavComponent = React.forwardRef<HTMLElement, INavProps>(
+  ({ isExpanded, ...other }, ref) => {
+    const { hue, isLight } = useChromeContext();
+    const navContextValue = useMemo(() => ({ isExpanded: !!isExpanded }), [isExpanded]);
 
-  return (
-    <ThemeProvider
-      theme={parentTheme => ({
-        ...parentTheme,
-        colors: { ...parentTheme.colors, base: isLight ? 'light' : 'dark' }
-      })}
-    >
-      <NavContext.Provider value={navContextValue}>
-        <StyledNav ref={ref} {...props} hue={hue} />
-      </NavContext.Provider>
-    </ThemeProvider>
-  );
-});
+    return (
+      <ThemeProvider
+        theme={parentTheme => ({
+          ...parentTheme,
+          colors: { ...parentTheme.colors, base: isLight ? 'light' : 'dark' }
+        })}
+      >
+        <NavContext.Provider value={navContextValue}>
+          <StyledNav ref={ref} $isExpanded={isExpanded} $hue={hue} {...other} />
+        </NavContext.Provider>
+      </ThemeProvider>
+    );
+  }
+);
 
 NavComponent.displayName = 'Nav';
 

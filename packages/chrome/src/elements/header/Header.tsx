@@ -14,9 +14,11 @@ import { HeaderItemIcon } from './HeaderItemIcon';
 import { HeaderItemText } from './HeaderItemText';
 import { HeaderItemWrapper } from './HeaderItemWrapper';
 
-export const HeaderComponent = React.forwardRef<HTMLElement, IHeaderProps>((props, ref) => (
-  <StyledHeader ref={ref} {...props} />
-));
+export const HeaderComponent = React.forwardRef<HTMLElement, IHeaderProps>(
+  ({ isStandalone, ...other }, ref) => (
+    <StyledHeader ref={ref} $isStandalone={isStandalone} {...other} />
+  )
+);
 
 HeaderComponent.displayName = 'Header';
 

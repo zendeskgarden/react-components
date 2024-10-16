@@ -52,10 +52,10 @@ const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
       <SheetContext.Provider value={sheetContext}>
         <StyledSheet
           inert={isOpen ? undefined : ''}
-          isOpen={isOpen}
-          isAnimated={isAnimated}
-          placement={placement}
-          size={size}
+          $isOpen={isOpen}
+          $isAnimated={isAnimated}
+          $placement={placement}
+          $size={size}
           tabIndex={-1}
           id={idPrefix}
           aria-labelledby={titleId}
@@ -64,10 +64,10 @@ const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
           {...props}
         >
           <StyledSheetWrapper
-            isOpen={isOpen}
-            isAnimated={isAnimated}
-            placement={placement}
-            size={size}
+            $isOpen={isOpen}
+            $isAnimated={isAnimated}
+            $placement={placement}
+            $size={size}
           >
             {children}
           </StyledSheetWrapper>
