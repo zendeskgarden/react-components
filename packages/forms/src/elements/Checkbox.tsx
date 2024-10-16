@@ -17,7 +17,7 @@ import useFieldsetContext from '../utils/useFieldsetContext';
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
-  ({ indeterminate, children, ...props }, ref) => {
+  ({ indeterminate, children, isCompact, ...other }, ref) => {
     const fieldsetContext = useFieldsetContext();
     const fieldContext = useFieldContext();
 
@@ -38,9 +38,9 @@ export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
     };
 
     let combinedProps = {
+      $isCompact: fieldsetContext ? fieldsetContext.isCompact : isCompact,
       ref: combinedRef,
-      ...props,
-      ...fieldsetContext
+      ...other
     } as any;
 
     if (fieldContext) {

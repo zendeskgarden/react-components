@@ -39,7 +39,7 @@ describe('StyledRadioInput', () => {
   });
 
   it('renders compact styling if provided', () => {
-    const { container } = render(<StyledRadioInput isCompact />);
+    const { container } = render(<StyledRadioInput $isCompact />);
 
     expect(container.firstChild).toHaveStyleRule('margin-top', '4px', {
       modifier: `&& ~ ${StyledRadioLabel} ~ ${StyledMessage}`

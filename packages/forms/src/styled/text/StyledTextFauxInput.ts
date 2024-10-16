@@ -18,27 +18,27 @@ import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 const COMPONENT_ID = 'forms.faux_input';
 
 export interface IStyledTextFauxInputProps extends IStyledTextInputProps {
-  mediaLayout?: boolean;
-  isDisabled?: boolean;
-  isReadOnly?: boolean;
+  $mediaLayout?: boolean;
+  $isDisabled?: boolean;
+  $isReadOnly?: boolean;
 }
 
 const colorStyles = ({
   theme,
-  validation,
-  focusInset,
-  isBare,
-  isFocused
+  $validation,
+  $focusInset,
+  $isBare,
+  $isFocused
 }: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>) => {
   let borderVariable: string | undefined;
   let focusBorderColor: string | undefined;
 
-  if (validation) {
-    if (validation === 'success') {
+  if ($validation) {
+    if ($validation === 'success') {
       borderVariable = 'border.successEmphasis';
-    } else if (validation === 'warning') {
+    } else if ($validation === 'warning') {
       borderVariable = 'border.warningEmphasis';
-    } else if (validation === 'error') {
+    } else if ($validation === 'error') {
       borderVariable = 'border.dangerEmphasis';
     }
 
@@ -51,11 +51,11 @@ const colorStyles = ({
   return css`
     ${focusStyles({
       theme,
-      inset: focusInset,
+      inset: $focusInset,
       color: { variable: borderVariable },
-      selector: isFocused ? '&' : '&:focus-within',
+      selector: $isFocused ? '&' : '&:focus-within',
       styles: { borderColor: focusBorderColor },
-      condition: !isBare
+      condition: !$isBare
     })}
   `;
 };
@@ -67,20 +67,20 @@ export const StyledTextFauxInput = styled(
   StyledTextInput as 'div'
 ).attrs<IStyledTextFauxInputProps>(props => ({
   as: 'div',
-  'aria-readonly': props.isReadOnly,
-  'aria-disabled': props.isDisabled,
+  'aria-readonly': props.$isReadOnly,
+  'aria-disabled': props.$isDisabled,
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 }))<IStyledTextFauxInputProps>`
-  display: ${props => (props.mediaLayout ? 'inline-flex' : 'inline-block')};
-  align-items: ${props => props.mediaLayout && 'baseline'};
-  cursor: ${props => (props.mediaLayout && !props.isDisabled ? 'text' : 'default')};
+  display: ${props => (props.$mediaLayout ? 'inline-flex' : 'inline-block')};
+  align-items: ${props => props.$mediaLayout && 'baseline'};
+  cursor: ${props => (props.$mediaLayout && !props.$isDisabled ? 'text' : 'default')};
   overflow: hidden;
 
   ${colorStyles}
 
   & > ${StyledTextInput} {
-    vertical-align: ${props => !props.mediaLayout && 'baseline'};
+    vertical-align: ${props => !props.$mediaLayout && 'baseline'};
 
     ${SELECTOR_FOCUS_VISIBLE} {
       box-shadow: unset; /* [1] */
@@ -88,7 +88,7 @@ export const StyledTextFauxInput = styled(
   }
 
   & > ${StyledTextMediaFigure} {
-    flex-shrink: ${props => props.mediaLayout && '0'};
+    flex-shrink: ${props => props.$mediaLayout && '0'};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

@@ -16,7 +16,7 @@ import { StyledRangeInput } from '../styled';
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
-  ({ hasLowerTrack, min, max, step, ...props }, ref) => {
+  ({ hasLowerTrack, min, max, step, ...other }, ref) => {
     const [backgroundSize, setBackgroundSize] = useState('0');
     const rangeRef = useRef<HTMLInputElement>();
     const fieldContext = useFieldContext();
@@ -42,22 +42,22 @@ export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
 
     useEffect(() => {
       updateBackgroundWidthFromInput(rangeRef.current!);
-    }, [rangeRef, updateBackgroundWidthFromInput, props.value]);
+    }, [rangeRef, updateBackgroundWidthFromInput, other.value]);
 
     const onChange = hasLowerTrack
-      ? composeEventHandlers(props.onChange, (event: ChangeEvent<HTMLInputElement>) => {
+      ? composeEventHandlers(other.onChange, (event: ChangeEvent<HTMLInputElement>) => {
           updateBackgroundWidthFromInput(event.target);
         })
-      : props.onChange;
+      : other.onChange;
 
     let combinedProps = {
-      ref: mergeRefs([rangeRef, ref]),
-      hasLowerTrack,
-      min,
+      $backgroundSize: backgroundSize,
+      $hasLowerTrack: hasLowerTrack,
       max,
+      min,
+      ref: mergeRefs([rangeRef, ref]),
       step,
-      backgroundSize,
-      ...props,
+      ...other,
       onChange
     } as any;
 

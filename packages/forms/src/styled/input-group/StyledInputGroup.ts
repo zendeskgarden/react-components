@@ -15,14 +15,14 @@ import { StyledMessage } from '../common/StyledMessage';
 const COMPONENT_ID = 'forms.input_group';
 
 interface IStyledInputGroupProps {
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 /**
  * [1] - Override the default `width: 100%` style
  */
 const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
-  const topMargin = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
+  const topMargin = `${props.theme.space.base * (props.$isCompact ? 1 : 2)}px`;
 
   return css`
     ${StyledLabel}:not([hidden]) + &&,

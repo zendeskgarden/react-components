@@ -13,7 +13,7 @@ const DescriptionComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpan
   (props, ref) => {
     const tilesContext = useTilesContext();
 
-    return <StyledTileDescription ref={ref} isCentered={tilesContext?.isCentered} {...props} />;
+    return <StyledTileDescription ref={ref} $isCentered={tilesContext?.isCentered} {...props} />;
   }
 );
 

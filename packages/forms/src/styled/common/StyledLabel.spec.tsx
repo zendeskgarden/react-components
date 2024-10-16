@@ -18,7 +18,7 @@ describe('StyledLabel', () => {
   });
 
   it('renders regular font weight styling if provided', () => {
-    const { container } = render(<StyledLabel isRegular />);
+    const { container } = render(<StyledLabel $isRegular />);
 
     expect(container.firstChild).toHaveStyleRule(
       'font-weight',

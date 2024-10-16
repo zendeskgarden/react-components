@@ -17,14 +17,14 @@ import useFieldsetContext from '../utils/useFieldsetContext';
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const Radio = React.forwardRef<HTMLInputElement, IRadioProps>(
-  ({ children, ...props }, ref) => {
+  ({ children, isCompact, ...other }, ref) => {
     const fieldsetContext = useFieldsetContext();
     const fieldContext = useFieldContext();
 
     let combinedProps = {
+      $isCompact: fieldsetContext ? fieldsetContext.isCompact : isCompact,
       ref,
-      ...props,
-      ...fieldsetContext
+      ...other
     } as any;
 
     if (fieldContext) {

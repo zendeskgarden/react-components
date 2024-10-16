@@ -15,8 +15,11 @@ const COMPONENT_ID = 'forms.select_wrapper';
 /*
  * 1. Prevent a 2px height bump between `Select` and `Input` due to the faux wrapper border
  */
-const sizeStyles = ({ theme, isCompact }: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>) => {
-  const height = `${theme.space.base * (isCompact ? 8 : 10)}px`;
+const sizeStyles = ({
+  theme,
+  $isCompact
+}: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>) => {
+  const height = `${theme.space.base * ($isCompact ? 8 : 10)}px`;
 
   return css`
     max-height: ${height}; /* [1] */

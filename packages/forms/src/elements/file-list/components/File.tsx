@@ -23,9 +23,9 @@ const FileComponent = forwardRef<HTMLDivElement, IFileProps>(
       <FileContext.Provider value={fileContextValue}>
         <StyledFile
           {...props}
-          isCompact={isCompact}
-          focusInset={focusInset}
-          validation={validation}
+          $isCompact={isCompact}
+          $focusInset={focusInset}
+          $validation={validation}
           ref={ref}
         >
           {!!validationType && (

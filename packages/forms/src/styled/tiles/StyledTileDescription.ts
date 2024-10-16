@@ -12,15 +12,15 @@ import { retrieveComponentStyles, getLineHeight } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'forms.tile_description';
 
 interface IStyledTileDescriptionProps {
-  isCentered?: boolean;
+  $isCentered?: boolean;
 }
 
 const sizeStyles = ({
   theme,
-  isCentered
+  $isCentered
 }: IStyledTileDescriptionProps & ThemeProps<DefaultTheme>) => {
   const marginTop = `${theme.space.base}px`;
-  const marginHorizontal = isCentered
+  const marginHorizontal = $isCentered
     ? undefined
     : math(`(${theme.iconSizes.md} * 2) + ${theme.space.base * 5}px`);
   const fontSize = theme.fontSizes.sm;
@@ -39,7 +39,7 @@ export const StyledTileDescription = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTileDescriptionProps>`
   display: block;
-  text-align: ${props => props.isCentered && 'center'};
+  text-align: ${props => props.$isCentered && 'center'};
 
   ${sizeStyles};
 

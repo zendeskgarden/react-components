@@ -22,7 +22,7 @@ describe('StyledRangeInput', () => {
   });
 
   it('renders expected background-size styling', () => {
-    const { container } = render(<StyledRangeInput backgroundSize="50%" />);
+    const { container } = render(<StyledRangeInput $backgroundSize="50%" />);
 
     expect((container.firstChild as any).style.backgroundSize).toBe('50%');
   });

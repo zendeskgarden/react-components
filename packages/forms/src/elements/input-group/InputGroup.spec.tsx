@@ -7,14 +7,14 @@
 
 import React from 'react';
 import { render, fireEvent, renderRtl } from 'garden-test-utils';
-import { Field, Label, Input, InputGroup } from '../..';
+import { Field, Input, InputGroup } from '../..';
 
 describe('InputGroup', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByTestId } = render(
       <Field>
-        <Label>Input</Label>
+        <Field.Label>Input</Field.Label>
         <InputGroup ref={ref} data-test-id="input-group">
           <Input />
         </InputGroup>
@@ -27,7 +27,7 @@ describe('InputGroup', () => {
   it('applies focusInset styling to Input through context', () => {
     const { getByLabelText } = render(
       <Field>
-        <Label>Input</Label>
+        <Field.Label>Input</Field.Label>
         <InputGroup>
           <Input />
         </InputGroup>
@@ -47,7 +47,7 @@ describe('InputGroup', () => {
     it('applies correct styling to prepend elements', () => {
       const { getByText } = render(
         <Field>
-          <Label>Input</Label>
+          <Field.Label>Input</Field.Label>
           <InputGroup>
             <button>A</button>
             <button>B</button>
@@ -80,7 +80,7 @@ describe('InputGroup', () => {
     it('applies correct styling to prepend elements in RTL mode', () => {
       const { getByText } = renderRtl(
         <Field>
-          <Label>Input</Label>
+          <Field.Label>Input</Field.Label>
           <InputGroup>
             <button>A</button>
             <button>B</button>

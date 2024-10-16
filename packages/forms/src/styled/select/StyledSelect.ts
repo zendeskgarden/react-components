@@ -38,11 +38,11 @@ const colorStyles = ({ theme }: IStyledTextInputProps & ThemeProps<DefaultTheme>
 
 const sizeStyles = ({
   theme,
-  isBare,
-  isCompact
+  $isBare,
+  $isCompact
 }: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
-  const padding = isBare ? undefined : math(`${theme.iconSizes.md} + ${theme.space.base * 5}`);
-  const iconVerticalPosition = `${theme.space.base * (isCompact ? 1.5 : 2.5) + 1}px`;
+  const padding = $isBare ? undefined : math(`${theme.iconSizes.md} + ${theme.space.base * 5}`);
+  const iconVerticalPosition = `${theme.space.base * ($isCompact ? 1.5 : 2.5) + 1}px`;
   const iconHorizontalPosition = `${theme.space.base * 3}px`;
 
   return css`
