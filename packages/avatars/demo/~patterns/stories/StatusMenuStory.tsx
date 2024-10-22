@@ -29,13 +29,16 @@ export const StatusMenuStory: Story = ({ isCompact }) => {
       <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
         <Grid.Col textAlign="center" alignSelf="center">
           <Menu
-            button={props => (
-              <StyledIconButton {...props} aria-label="Select status">
-                <Avatar status={selectedType} size={isCompact ? 'small' : 'medium'}>
-                  <img alt="Example User" src="images/avatars/chrome.png" />
-                </Avatar>
-              </StyledIconButton>
-            )}
+            button={
+              /* eslint-disable-next-line react/no-unstable-nested-components */
+              props => (
+                <StyledIconButton {...props} aria-label="Select status">
+                  <Avatar status={selectedType} size={isCompact ? 'small' : 'medium'}>
+                    <img alt="Example User" src="images/avatars/chrome.png" />
+                  </Avatar>
+                </StyledIconButton>
+              )
+            }
             onChange={onChange}
             isCompact={isCompact}
           >

@@ -326,6 +326,7 @@ export const DragAndDropStory: Story<IArgs> = ({
       >
         {Object.keys(columns).map(columnId => {
           const isDraggablesColumn = columnId === draggablesColId;
+          /* eslint-disable-next-line no-useless-assignment */
           const ColumnComponent = isDraggablesColumn ? DraggablesColumn : DroppablesColumn;
 
           return (
