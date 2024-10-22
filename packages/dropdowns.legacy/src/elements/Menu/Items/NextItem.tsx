@@ -21,8 +21,8 @@ const NextItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
 
     return (
       <StyledNextItem ref={ref} disabled={disabled} {...props}>
-        <StyledItemIcon isCompact={isCompact} isDisabled={disabled} isVisible>
-          <StyledNextIcon isDisabled={disabled} />
+        <StyledItemIcon $isCompact={isCompact} $isDisabled={disabled} $isVisible>
+          <StyledNextIcon $isDisabled={disabled} />
         </StyledItemIcon>
         {children}
       </StyledNextItem>

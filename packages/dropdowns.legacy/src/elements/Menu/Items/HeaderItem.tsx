@@ -13,10 +13,12 @@ import useMenuContext from '../../../utils/useMenuContext';
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
  */
-export const HeaderItem = React.forwardRef<HTMLLIElement, IHeaderItemProps>((props, ref) => {
-  const { isCompact } = useMenuContext();
+export const HeaderItem = React.forwardRef<HTMLLIElement, IHeaderItemProps>(
+  ({ hasIcon, ...other }, ref) => {
+    const { isCompact } = useMenuContext();
 
-  return <StyledHeaderItem ref={ref} isCompact={isCompact} {...props} />;
-});
+    return <StyledHeaderItem ref={ref} $isCompact={isCompact} $hasIcon={hasIcon} {...other} />;
+  }
+);
 
 HeaderItem.displayName = 'HeaderItem';

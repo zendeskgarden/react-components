@@ -13,7 +13,7 @@ import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming'
 const COMPONENT_ID = 'dropdowns.next_item_icon';
 
 interface IStyledNextIconProps {
-  isDisabled?: boolean;
+  $isDisabled?: boolean;
 }
 
 const NextIconComponent: React.FC<HTMLAttributes<SVGSVGElement>> = ({ className }) => (
@@ -27,7 +27,7 @@ const NextIconComponent: React.FC<HTMLAttributes<SVGSVGElement>> = ({ className 
 export const StyledNextIcon = styled(NextIconComponent)<IStyledNextIconProps>`
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
   color: ${props =>
-    props.isDisabled
+    props.$isDisabled
       ? 'inherit'
       : getColor({ theme: props.theme, variable: 'foreground.disabled' })};
 

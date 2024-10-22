@@ -20,7 +20,7 @@ import { ItemContext } from '../../../utils/useItemContext';
  */
 export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
   (
-    { value, disabled, isDanger, component = StyledItem, hasIcon, children, ...props },
+    { value, disabled, isDanger, component = StyledItem, hasIcon, children, ...other },
     forwardRef
   ) => {
     const {
@@ -87,12 +87,12 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
           <Component
             ref={ref}
             disabled={disabled}
-            isDanger={isDanger}
-            isCompact={isCompact}
-            {...props}
+            $isDanger={isDanger}
+            $isCompact={isCompact}
+            {...other}
           >
             {!!isSelected && !hasIcon && (
-              <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
+              <StyledItemIcon $isCompact={isCompact} $isVisible={isSelected} $isDisabled={disabled}>
                 <SelectedSvg />
               </StyledItemIcon>
             )}
@@ -110,21 +110,21 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
         <Component
           data-test-is-focused={isFocused}
           data-test-is-selected={isSelected}
+          $isCompact={isCompact}
+          $isDanger={isDanger}
+          $isFocused={isFocused}
           {...getItemProps({
             item: value,
-            isFocused,
             ref,
-            isCompact,
-            isDanger,
             ...(hasMenuRef.current && {
               role: 'menuitem',
               'aria-selected': null
             }),
-            ...props
+            ...other
           } as any)}
         >
           {!!isSelected && !hasIcon && (
-            <StyledItemIcon isCompact={isCompact} isVisible={isSelected} data-test-id="item-icon">
+            <StyledItemIcon $isCompact={isCompact} $isVisible={isSelected} data-test-id="item-icon">
               <SelectedSvg />
             </StyledItemIcon>
           )}
