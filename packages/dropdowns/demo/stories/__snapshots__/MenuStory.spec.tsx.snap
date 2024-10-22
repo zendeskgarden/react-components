@@ -1,0 +1,7615 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 44px;
+  max-height: 300;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":r4:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":r4:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 100;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":r5:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":r5:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) dVyxoq;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) dVyxoq;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 44px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":r7:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":r7:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 44px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":r9:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":r9:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 500;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 44px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":r6:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":r6:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 0.9166666666666666em;
+  height: 32px;
+  line-height: 30px;
+  font-size: 12px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 2000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) ivZgAS;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) ivZgAS;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 4px 36px;
+  min-height: 28px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c11:focus {
+  outline: none;
+}
+
+.c11[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c11[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c11[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 0 0;
+  min-height: 28px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c19:focus {
+  outline: none;
+}
+
+.c19[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c19[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c19[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 4px 36px;
+  min-height: 28px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c20:focus {
+  outline: none;
+}
+
+.c20[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c20[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c20[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c22 {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.c24 {
+  cursor: default;
+  margin: 4px 0;
+  height: 1px;
+  background-color: #e8eaec;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 150;
+  max-height: 500;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c7 .c9:first-child .c15 .c21:first-child .c23[role='none']:first-child {
+  display: none;
+}
+
+.c17 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-top: 2px;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c18 {
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c14 {
+  position: absolute;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  top: 10px;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  color: #1f73b7;
+}
+
+.c9[aria-selected='true'] > .c12 {
+  opacity: 1;
+}
+
+.c9[aria-disabled='true'] > .c12 {
+  color: inherit;
+}
+
+.c8 {
+  position: static !important;
+  position: relative;
+}
+
+.c8::before,
+.c8::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c8::before {
+  border-color: inherit;
+  -webkit-clip-path: polygon(100% 2px,2px 100%,100% 100%);
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c8::after {
+  border-color: transparent;
+  background-clip: content-box;
+  -webkit-clip-path: polygon(100% 0px,0px 100%,100% 100%);
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c8::before,
+.c8::after {
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+  top: 50%;
+  bottom: 10.49px;
+  left: -3.94px;
+  margin-top: -5.245px;
+}
+
+.c8[data-garden-animate-arrow="true"]::before,
+.c8[data-garden-animate-arrow="true"]::after {
+  -webkit-animation: 0.3s ease-in-out jKmejG;
+  animation: 0.3s ease-in-out jKmejG;
+}
+
+.c10[aria-checked='true'] > .c13 {
+  opacity: 1;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="true"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":rf:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="true"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":rf:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="true"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          >
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="0"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 1
+              </div>
+            </li>
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                class=" c17 "
+                data-garden-id="dropdowns.menu.item.icon"
+                data-garden-version="9.0.0"
+                xmlns="http://www.w3.org/2000/svg"
+              />
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 2
+              </div>
+            </li>
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 3
+                <div
+                  class="c18 "
+                  data-garden-id="dropdowns.menu.item.meta"
+                  data-garden-version="9.0.0"
+                >
+                  Meta
+                </div>
+              </div>
+            </li>
+            <li
+              class="c9 c10 c19 "
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="none"
+            >
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                <div
+                  class="c9 c10 c20 "
+                  data-garden-id="dropdowns.menu.item"
+                  data-garden-version="9.0.0"
+                >
+                  Group 1
+                </div>
+                <ul
+                  aria-label="Group 1"
+                  class="c21 c22 "
+                  data-garden-container-id="containers.menu.item_group"
+                  data-garden-container-version="0.5.0"
+                  data-garden-id="dropdowns.menu.item_group"
+                  data-garden-version="9.0.0"
+                  role="group"
+                >
+                  <li
+                    class="c23 c24 "
+                    data-garden-id="dropdowns.menu.separator"
+                    data-garden-version="9.0.0"
+                    role="none"
+                  />
+                  <li
+                    class="c9 c10 c11 "
+                    data-garden-container-id="containers.menu.item"
+                    data-garden-container-version="0.5.0"
+                    data-garden-id="dropdowns.menu.item"
+                    data-garden-version="9.0.0"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="c12 c13  c14 "
+                      data-garden-id="dropdowns.menu.item.type_icon"
+                      data-garden-version="9.0.0"
+                      focusable="false"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 9l4 4L15 3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <div
+                      class="c15 c16 "
+                      data-garden-id="dropdowns.menu.item.content"
+                      data-garden-version="9.0.0"
+                    >
+                      Group Item 1
+                    </div>
+                  </li>
+                  <li
+                    class="c9 c10 c11 "
+                    data-garden-container-id="containers.menu.item"
+                    data-garden-container-version="0.5.0"
+                    data-garden-id="dropdowns.menu.item"
+                    data-garden-version="9.0.0"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="c12 c13  c14 "
+                      data-garden-id="dropdowns.menu.item.type_icon"
+                      data-garden-version="9.0.0"
+                      focusable="false"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 9l4 4L15 3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <svg
+                      class=" c17 "
+                      data-garden-id="dropdowns.menu.item.icon"
+                      data-garden-version="9.0.0"
+                      xmlns="http://www.w3.org/2000/svg"
+                    />
+                    <div
+                      class="c15 c16 "
+                      data-garden-id="dropdowns.menu.item.content"
+                      data-garden-version="9.0.0"
+                    >
+                      Group Item 2
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="c23 c24 "
+              data-garden-container-id="containers.menu.separator"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.separator"
+              data-garden-version="9.0.0"
+              role="separator"
+            />
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 4
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 44px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+  position: relative;
+}
+
+.c8::before,
+.c8::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c8::before {
+  border-color: inherit;
+  -webkit-clip-path: polygon(100% 2px,2px 100%,100% 100%);
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c8::after {
+  border-color: transparent;
+  background-clip: content-box;
+  -webkit-clip-path: polygon(100% 0px,0px 100%,100% 100%);
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c8::before,
+.c8::after {
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  top: -3.94px;
+  left: 10.49px;
+}
+
+.c8[data-garden-animate-arrow="true"]::before,
+.c8[data-garden-animate-arrow="true"]::after {
+  -webkit-animation: 0.3s ease-in-out jAsLVO;
+  animation: 0.3s ease-in-out jAsLVO;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":r2:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":r2:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 0.9166666666666666em;
+  height: 32px;
+  line-height: 30px;
+  font-size: 12px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 36px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":r1:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":r1:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with compact styling and an arrow 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 0.9166666666666666em;
+  height: 32px;
+  line-height: 30px;
+  font-size: 12px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 36px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+  position: relative;
+}
+
+.c8::before,
+.c8::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c8::before {
+  border-color: inherit;
+  -webkit-clip-path: polygon(100% 2px,2px 100%,100% 100%);
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c8::after {
+  border-color: transparent;
+  background-clip: content-box;
+  -webkit-clip-path: polygon(100% 0px,0px 100%,100% 100%);
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c8::before,
+.c8::after {
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  top: -3.94px;
+  left: 10.49px;
+}
+
+.c8[data-garden-animate-arrow="true"]::before,
+.c8[data-garden-animate-arrow="true"]::after {
+  -webkit-animation: 0.3s ease-in-out jAsLVO;
+  animation: 0.3s ease-in-out jAsLVO;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":ra:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":ra:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with compact styling, an arrow, and expanded state 1`] = `
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 0.9166666666666666em;
+  height: 32px;
+  line-height: 30px;
+  font-size: 12px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 4px 36px;
+  min-height: 28px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c11:focus {
+  outline: none;
+}
+
+.c11[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c11[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c11[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 0 0;
+  min-height: 28px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c19:focus {
+  outline: none;
+}
+
+.c19[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c19[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c19[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 4px 36px;
+  min-height: 28px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c20:focus {
+  outline: none;
+}
+
+.c20[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c20[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c20[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c22 {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.c24 {
+  cursor: default;
+  margin: 4px 0;
+  height: 1px;
+  background-color: #e8eaec;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 36px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c7 .c9:first-child .c15 .c21:first-child .c23[role='none']:first-child {
+  display: none;
+}
+
+.c17 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-top: 2px;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c18 {
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c14 {
+  position: absolute;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  top: 10px;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  color: #1f73b7;
+}
+
+.c9[aria-selected='true'] > .c12 {
+  opacity: 1;
+}
+
+.c9[aria-disabled='true'] > .c12 {
+  color: inherit;
+}
+
+.c8 {
+  position: static !important;
+  position: relative;
+}
+
+.c8::before,
+.c8::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c8::before {
+  border-color: inherit;
+  -webkit-clip-path: polygon(100% 2px,2px 100%,100% 100%);
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c8::after {
+  border-color: transparent;
+  background-clip: content-box;
+  -webkit-clip-path: polygon(100% 0px,0px 100%,100% 100%);
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c8::before,
+.c8::after {
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  top: -3.94px;
+  left: 10.49px;
+}
+
+.c8[data-garden-animate-arrow="true"]::before,
+.c8[data-garden-animate-arrow="true"]::after {
+  -webkit-animation: 0.3s ease-in-out jAsLVO;
+  animation: 0.3s ease-in-out jAsLVO;
+}
+
+.c10[aria-checked='true'] > .c13 {
+  opacity: 1;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="true"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":re:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="true"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":re:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="true"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          >
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="0"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 1
+              </div>
+            </li>
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                class=" c17 "
+                data-garden-id="dropdowns.menu.item.icon"
+                data-garden-version="9.0.0"
+                xmlns="http://www.w3.org/2000/svg"
+              />
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 2
+              </div>
+            </li>
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 3
+                <div
+                  class="c18 "
+                  data-garden-id="dropdowns.menu.item.meta"
+                  data-garden-version="9.0.0"
+                >
+                  Meta
+                </div>
+              </div>
+            </li>
+            <li
+              class="c9 c10 c19 "
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="none"
+            >
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                <div
+                  class="c9 c10 c20 "
+                  data-garden-id="dropdowns.menu.item"
+                  data-garden-version="9.0.0"
+                >
+                  Group 1
+                </div>
+                <ul
+                  aria-label="Group 1"
+                  class="c21 c22 "
+                  data-garden-container-id="containers.menu.item_group"
+                  data-garden-container-version="0.5.0"
+                  data-garden-id="dropdowns.menu.item_group"
+                  data-garden-version="9.0.0"
+                  role="group"
+                >
+                  <li
+                    class="c23 c24 "
+                    data-garden-id="dropdowns.menu.separator"
+                    data-garden-version="9.0.0"
+                    role="none"
+                  />
+                  <li
+                    class="c9 c10 c11 "
+                    data-garden-container-id="containers.menu.item"
+                    data-garden-container-version="0.5.0"
+                    data-garden-id="dropdowns.menu.item"
+                    data-garden-version="9.0.0"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="c12 c13  c14 "
+                      data-garden-id="dropdowns.menu.item.type_icon"
+                      data-garden-version="9.0.0"
+                      focusable="false"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 9l4 4L15 3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <div
+                      class="c15 c16 "
+                      data-garden-id="dropdowns.menu.item.content"
+                      data-garden-version="9.0.0"
+                    >
+                      Group Item 1
+                    </div>
+                  </li>
+                  <li
+                    class="c9 c10 c11 "
+                    data-garden-container-id="containers.menu.item"
+                    data-garden-container-version="0.5.0"
+                    data-garden-id="dropdowns.menu.item"
+                    data-garden-version="9.0.0"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="c12 c13  c14 "
+                      data-garden-id="dropdowns.menu.item.type_icon"
+                      data-garden-version="9.0.0"
+                      focusable="false"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 9l4 4L15 3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <svg
+                      class=" c17 "
+                      data-garden-id="dropdowns.menu.item.icon"
+                      data-garden-version="9.0.0"
+                      xmlns="http://www.w3.org/2000/svg"
+                    />
+                    <div
+                      class="c15 c16 "
+                      data-garden-id="dropdowns.menu.item.content"
+                      data-garden-version="9.0.0"
+                    >
+                      Group Item 2
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="c23 c24 "
+              data-garden-container-id="containers.menu.separator"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.separator"
+              data-garden-version="9.0.0"
+              role="separator"
+            />
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 4
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight, and zIndex 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 200;
+  max-height: 400;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":rc:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":rc:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 8px 36px;
+  min-height: 36px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c11:focus {
+  outline: none;
+}
+
+.c11[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c11[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c11[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 0 0;
+  min-height: 36px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c19:focus {
+  outline: none;
+}
+
+.c19[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c19[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c19[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 8px 36px;
+  min-height: 36px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c20:focus {
+  outline: none;
+}
+
+.c20[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c20[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c20[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c22 {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.c24 {
+  cursor: default;
+  margin: 4px 0;
+  height: 1px;
+  background-color: #e8eaec;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 44px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c7 .c9:first-child .c15 .c21:first-child .c23[role='none']:first-child {
+  display: none;
+}
+
+.c17 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-top: 2px;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c18 {
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c14 {
+  position: absolute;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  top: 10px;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  color: #1f73b7;
+}
+
+.c9[aria-selected='true'] > .c12 {
+  opacity: 1;
+}
+
+.c9[aria-disabled='true'] > .c12 {
+  color: inherit;
+}
+
+.c8 {
+  position: static !important;
+}
+
+.c10[aria-checked='true'] > .c13 {
+  opacity: 1;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="true"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":r3:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="true"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":r3:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="true"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          >
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="0"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 1
+              </div>
+            </li>
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                class=" c17 "
+                data-garden-id="dropdowns.menu.item.icon"
+                data-garden-version="9.0.0"
+                xmlns="http://www.w3.org/2000/svg"
+              />
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 2
+              </div>
+            </li>
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 3
+                <div
+                  class="c18 "
+                  data-garden-id="dropdowns.menu.item.meta"
+                  data-garden-version="9.0.0"
+                >
+                  Meta
+                </div>
+              </div>
+            </li>
+            <li
+              class="c9 c10 c19 "
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="none"
+            >
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                <div
+                  class="c9 c10 c20 "
+                  data-garden-id="dropdowns.menu.item"
+                  data-garden-version="9.0.0"
+                >
+                  Group 1
+                </div>
+                <ul
+                  aria-label="Group 1"
+                  class="c21 c22 "
+                  data-garden-container-id="containers.menu.item_group"
+                  data-garden-container-version="0.5.0"
+                  data-garden-id="dropdowns.menu.item_group"
+                  data-garden-version="9.0.0"
+                  role="group"
+                >
+                  <li
+                    class="c23 c24 "
+                    data-garden-id="dropdowns.menu.separator"
+                    data-garden-version="9.0.0"
+                    role="none"
+                  />
+                  <li
+                    class="c9 c10 c11 "
+                    data-garden-container-id="containers.menu.item"
+                    data-garden-container-version="0.5.0"
+                    data-garden-id="dropdowns.menu.item"
+                    data-garden-version="9.0.0"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="c12 c13  c14 "
+                      data-garden-id="dropdowns.menu.item.type_icon"
+                      data-garden-version="9.0.0"
+                      focusable="false"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 9l4 4L15 3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <div
+                      class="c15 c16 "
+                      data-garden-id="dropdowns.menu.item.content"
+                      data-garden-version="9.0.0"
+                    >
+                      Group Item 1
+                    </div>
+                  </li>
+                  <li
+                    class="c9 c10 c11 "
+                    data-garden-container-id="containers.menu.item"
+                    data-garden-container-version="0.5.0"
+                    data-garden-id="dropdowns.menu.item"
+                    data-garden-version="9.0.0"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="c12 c13  c14 "
+                      data-garden-id="dropdowns.menu.item.type_icon"
+                      data-garden-version="9.0.0"
+                      focusable="false"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 9l4 4L15 3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <svg
+                      class=" c17 "
+                      data-garden-id="dropdowns.menu.item.icon"
+                      data-garden-version="9.0.0"
+                      xmlns="http://www.w3.org/2000/svg"
+                    />
+                    <div
+                      class="c15 c16 "
+                      data-garden-id="dropdowns.menu.item.content"
+                      data-garden-version="9.0.0"
+                    >
+                      Group Item 2
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="c23 c24 "
+              data-garden-container-id="containers.menu.separator"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.separator"
+              data-garden-version="9.0.0"
+              role="separator"
+            />
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 4
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with expanded state and custom placement 1`] = `
+.c5 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 8px 36px;
+  min-height: 36px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c11:focus {
+  outline: none;
+}
+
+.c11[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c11[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c11[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 0 0;
+  min-height: 36px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c19:focus {
+  outline: none;
+}
+
+.c19[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c19[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c19[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 8px 36px;
+  min-height: 36px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c20:focus {
+  outline: none;
+}
+
+.c20[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c20[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c20[aria-hidden='true'] {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c22 {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.c24 {
+  cursor: default;
+  margin: 4px 0;
+  height: 1px;
+  background-color: #e8eaec;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 44px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c7 .c9:first-child .c15 .c21:first-child .c23[role='none']:first-child {
+  display: none;
+}
+
+.c17 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-top: 2px;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c18 {
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c14 {
+  position: absolute;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  top: 10px;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  color: #1f73b7;
+}
+
+.c9[aria-selected='true'] > .c12 {
+  opacity: 1;
+}
+
+.c9[aria-disabled='true'] > .c12 {
+  color: inherit;
+}
+
+.c8 {
+  position: static !important;
+}
+
+.c10[aria-checked='true'] > .c13 {
+  opacity: 1;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="true"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":rb:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="true"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":rb:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="true"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          >
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="0"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 1
+              </div>
+            </li>
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                class=" c17 "
+                data-garden-id="dropdowns.menu.item.icon"
+                data-garden-version="9.0.0"
+                xmlns="http://www.w3.org/2000/svg"
+              />
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 2
+              </div>
+            </li>
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 3
+                <div
+                  class="c18 "
+                  data-garden-id="dropdowns.menu.item.meta"
+                  data-garden-version="9.0.0"
+                >
+                  Meta
+                </div>
+              </div>
+            </li>
+            <li
+              class="c9 c10 c19 "
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="none"
+            >
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                <div
+                  class="c9 c10 c20 "
+                  data-garden-id="dropdowns.menu.item"
+                  data-garden-version="9.0.0"
+                >
+                  Group 1
+                </div>
+                <ul
+                  aria-label="Group 1"
+                  class="c21 c22 "
+                  data-garden-container-id="containers.menu.item_group"
+                  data-garden-container-version="0.5.0"
+                  data-garden-id="dropdowns.menu.item_group"
+                  data-garden-version="9.0.0"
+                  role="group"
+                >
+                  <li
+                    class="c23 c24 "
+                    data-garden-id="dropdowns.menu.separator"
+                    data-garden-version="9.0.0"
+                    role="none"
+                  />
+                  <li
+                    class="c9 c10 c11 "
+                    data-garden-container-id="containers.menu.item"
+                    data-garden-container-version="0.5.0"
+                    data-garden-id="dropdowns.menu.item"
+                    data-garden-version="9.0.0"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="c12 c13  c14 "
+                      data-garden-id="dropdowns.menu.item.type_icon"
+                      data-garden-version="9.0.0"
+                      focusable="false"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 9l4 4L15 3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <div
+                      class="c15 c16 "
+                      data-garden-id="dropdowns.menu.item.content"
+                      data-garden-version="9.0.0"
+                    >
+                      Group Item 1
+                    </div>
+                  </li>
+                  <li
+                    class="c9 c10 c11 "
+                    data-garden-container-id="containers.menu.item"
+                    data-garden-container-version="0.5.0"
+                    data-garden-id="dropdowns.menu.item"
+                    data-garden-version="9.0.0"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="c12 c13  c14 "
+                      data-garden-id="dropdowns.menu.item.type_icon"
+                      data-garden-version="9.0.0"
+                      focusable="false"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 9l4 4L15 3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <svg
+                      class=" c17 "
+                      data-garden-id="dropdowns.menu.item.icon"
+                      data-garden-version="9.0.0"
+                      xmlns="http://www.w3.org/2000/svg"
+                    />
+                    <div
+                      class="c15 c16 "
+                      data-garden-id="dropdowns.menu.item.content"
+                      data-garden-version="9.0.0"
+                    >
+                      Group Item 2
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="c23 c24 "
+              data-garden-container-id="containers.menu.separator"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.separator"
+              data-garden-version="9.0.0"
+              role="separator"
+            />
+            <li
+              class="c9 c10 c11 "
+              data-garden-container-id="containers.menu.item"
+              data-garden-container-version="0.5.0"
+              data-garden-id="dropdowns.menu.item"
+              data-garden-version="9.0.0"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class="c12 c13  c14 "
+                data-garden-id="dropdowns.menu.item.type_icon"
+                data-garden-version="9.0.0"
+                focusable="false"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9l4 4L15 3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                class="c15 c16 "
+                data-garden-id="dropdowns.menu.item.content"
+                data-garden-version="9.0.0"
+              >
+                Item 4
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 44px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":r8:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":r8:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with fallback placements and a custom triggerRef 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 44px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":rd:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":rd:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuStory Component renders default MenuStory 1`] = `
+.c5 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c4 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c4 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c6 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  -webkit-transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  transition: opacity 0.2s ease-in-out,0.2s visibility 0s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c6 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6 > *:focus {
+  outline: none;
+}
+
+.c6[data-garden-animate="true"] > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c7 {
+  overflow-y: auto;
+  list-style-type: none;
+  min-height: 44px;
+  max-height: 400px;
+}
+
+.c7.c7.c7 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.c7.c7.c7 {
+  display: block;
+}
+
+.c8 {
+  position: static !important;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.0.0"
+    style="height: 800px;"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.0.0"
+    >
+      <div
+        style="display: inline-block; position: relative; width: 200px;"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="c3"
+          data-garden-container-id="containers.menu.trigger"
+          data-garden-container-version="0.5.0"
+          data-garden-id="buttons.button"
+          data-garden-version="9.0.0"
+          id=":r0:-menu-trigger"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c4  c5"
+            data-garden-id="buttons.icon"
+            data-garden-version="9.0.0"
+            focusable="false"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="c6 "
+          data-garden-animate="false"
+          data-garden-id="dropdowns.menu.floating"
+          data-garden-version="9.0.0"
+          style="transform: translate(0px, 0px);"
+        >
+          <ul
+            aria-labelledby=":r0:-menu-trigger"
+            class="c7 c8"
+            data-garden-animate-arrow="false"
+            data-garden-container-id="containers.menu"
+            data-garden-container-version="0.5.0"
+            data-garden-id="dropdowns.menu"
+            data-garden-version="9.0.0"
+            role="menu"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
