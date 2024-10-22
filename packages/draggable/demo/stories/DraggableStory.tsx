@@ -15,7 +15,7 @@ interface IArgs extends IDraggableProps {
 
 export const DraggableStory: Story<IArgs> = ({ hasGrip, children, ...args }) => (
   <Draggable {...args}>
-    {hasGrip && <Draggable.Grip />}
-    {children && <Draggable.Content>{children}</Draggable.Content>}
+    {!!hasGrip && <Draggable.Grip />}
+    {!!children && <Draggable.Content>{children}</Draggable.Content>}
   </Draggable>
 );

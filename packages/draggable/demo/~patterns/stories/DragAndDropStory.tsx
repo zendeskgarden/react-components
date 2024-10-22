@@ -335,8 +335,8 @@ export const DragAndDropStory: Story<IArgs> = ({
               key={columnId}
               activeId={activeId}
               activeColumnId={activeColumnId}
-              hasDropIndicator={hasDropIndicator && !isDraggablesColumn}
-              hasPlaceholder={hasPlaceholder && isDraggablesColumn}
+              hasDropIndicator={!!hasDropIndicator && !isDraggablesColumn}
+              hasPlaceholder={!!hasPlaceholder && isDraggablesColumn}
               isCompact={isCompact}
               isHorizontal={isHorizontal}
               isBare={isBare}
@@ -346,7 +346,7 @@ export const DragAndDropStory: Story<IArgs> = ({
         })}
       </StyledContainer>
       <DragOverlay>
-        {activeItem && (
+        {!!activeItem && (
           <div style={{ padding: isHorizontal ? `0 ${overlayOffset}` : `${overlayOffset} 0` }}>
             <DraggableItem
               ref={overlayRef}

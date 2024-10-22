@@ -59,9 +59,9 @@ export const TooltipDialogStory: Story<IArgs> = ({
   return (
     <>
       <TooltipDialog {...args} placement={args.placement || PLACEMENT[current]} {...ariaProp}>
-        {hasTitle && <TooltipDialog.Title tag={tag}>{title}</TooltipDialog.Title>}
-        {hasBody && <TooltipDialog.Body>{body}</TooltipDialog.Body>}
-        {hasFooter && (
+        {!!hasTitle && <TooltipDialog.Title tag={tag}>{title}</TooltipDialog.Title>}
+        {!!hasBody && <TooltipDialog.Body>{body}</TooltipDialog.Body>}
+        {!!hasFooter && (
           <TooltipDialog.Footer>
             {current > 0 && (
               <TooltipDialog.FooterItem>
@@ -87,7 +87,7 @@ export const TooltipDialogStory: Story<IArgs> = ({
             )}
           </TooltipDialog.Footer>
         )}
-        {hasClose && <TooltipDialog.Close aria-label={closeAriaLabel} />}
+        {!!hasClose && <TooltipDialog.Close aria-label={closeAriaLabel} />}
       </TooltipDialog>
       <Grid>
         <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
