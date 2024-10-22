@@ -39,7 +39,7 @@ export const ToastStory: StoryFn<IArgs> = ({ children, ...args }) => {
     const getToast = (id?: string) => {
       const retVal: IToast['content'] = ({ close }) => (
         <Notification>
-          {id && <Title>{id}</Title>}
+          {id ? <Title>{id}</Title> : null}
           {children}
           <Close aria-label="Close" onClick={close} />
         </Notification>

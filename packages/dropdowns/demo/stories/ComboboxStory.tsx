@@ -30,12 +30,10 @@ const ComboboxOption = ({ icon, meta, ...props }: IOption) => {
 
   return (
     <Option icon={icon ? <Svg /> : undefined} {...props}>
-      {meta && (
-        <>
+      {meta ? <>
           <span>{props.children || toLabel(props)}</span>
           <Option.Meta>{meta}</Option.Meta>
-        </>
-      )}
+        </> : null}
     </Option>
   );
 };
@@ -126,7 +124,7 @@ export const ComboboxStory: Story<IArgs> = ({
             <Field.Label hidden={isLabelHidden} isRegular={isLabelRegular}>
               {label}
             </Field.Label>
-            {hint && <Field.Hint>{hint}</Field.Hint>}
+            {hint ? <Field.Hint>{hint}</Field.Hint> : null}
             <Combobox
               validation={validation}
               {...args}
@@ -174,11 +172,9 @@ export const ComboboxStory: Story<IArgs> = ({
                 )
               )}
             </Combobox>
-            {message && (
-              <Field.Message validation={validation} validationLabel={validationLabel}>
+            {message ? <Field.Message validation={validation} validationLabel={validationLabel}>
                 {message}
-              </Field.Message>
-            )}
+              </Field.Message> : null}
           </Field>
         </Grid.Col>
       </Grid.Row>

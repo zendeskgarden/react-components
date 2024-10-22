@@ -112,14 +112,12 @@ const SortableItem = ({
 
   return (
     <>
-      {isUsingKeyboard && showIndicator && (
-        <DropIndicator
+      {isUsingKeyboard && showIndicator ? <DropIndicator
           transition={transition}
           transform={transformValue}
           showDropMessage={showDropMessage}
           overIndex={overIndex}
-        />
-      )}
+        /> : null}
       <DraggableList.Item ref={setNodeRef} style={style}>
         <DraggableItem
           data={data}
@@ -175,7 +173,7 @@ export const SortablesColumn = ({
           ))}
         </DraggableList>
         {items.length === 0 && <Dropzone.Message>Drag to add</Dropzone.Message>}
-        {showDropMessage && <Dropzone.Message>Drop item here</Dropzone.Message>}
+        {showDropMessage ? <Dropzone.Message>Drop item here</Dropzone.Message> : null}
       </SortableContext>
     </Dropzone>
   );
@@ -210,7 +208,7 @@ export const DraggableListItem = ({
         style={draggableItemStyle}
         isCompact={isCompact}
         isBare={isBare}
-        isPlaceholder={isDragging && isPlaceholder}
+        isPlaceholder={isDragging ? isPlaceholder : null}
         ref={setActivatorNodeRef}
       />
     </DraggableList.Item>

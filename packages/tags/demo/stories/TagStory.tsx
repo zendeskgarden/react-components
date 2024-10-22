@@ -26,13 +26,11 @@ export const TagStory: Story<IArgs> = ({
 
   return (
     <Tag {...args} tabIndex={hasClose ? 0 : args.tabIndex}>
-      {hasAvatar && (
-        <Tag.Avatar>
+      {hasAvatar ? <Tag.Avatar>
           <img alt="" src={`images/avatars/${args.isPill ? 'user' : 'system'}.png`} />
-        </Tag.Avatar>
-      )}
+        </Tag.Avatar> : null}
       {children}
-      {hasClose && <Tag.Close {...ariaLabel} />}
+      {hasClose ? <Tag.Close {...ariaLabel} /> : null}
     </Tag>
   );
 };

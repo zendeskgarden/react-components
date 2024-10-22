@@ -60,12 +60,10 @@ const Row = ({ panes }: { panes: IColumns['panes'] }) => {
                     key={`${pane.name}-${splitter.layoutKey}-${splitterIndex}`}
                     {...splitter}
                   >
-                    {splitter.button && (
-                      <Pane.SplitterButton
+                    {splitter.button ? <Pane.SplitterButton
                         label={splitter.button.label}
                         placement={splitter.button.placement}
-                      />
-                    )}
+                      /> : null}
                   </Pane.Splitter>
                 ))}
               </Pane>

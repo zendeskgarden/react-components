@@ -36,11 +36,9 @@ export const TimelineStory: StoryFn<IArgs> = ({ items, surfaceColor, ...args }) 
             icon={args.hasIcon ? <Icon /> : undefined}
             surfaceColor={surfaceColor}
           >
-            {args.hasOppositeContent && (
-              <Timeline.OppositeContent>
+            {args.hasOppositeContent ? <Timeline.OppositeContent>
                 <Span hue="grey">{item.description}</Span>
-              </Timeline.OppositeContent>
-            )}
+              </Timeline.OppositeContent> : null}
             <Timeline.Content>
               <Span isBold tag="div">
                 {item.title}

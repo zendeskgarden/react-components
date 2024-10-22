@@ -61,33 +61,27 @@ export const ModalStory: Story<IArgs> = ({
           <Icon />
         </Button.EndIcon>
       </Button>
-      {isVisible && (
-        <Modal {...args} onClose={onClose} {...ariaProp}>
-          {hasHeader && (
-            <Modal.Header isDanger={isDanger} tag={tag}>
+      {isVisible ? <Modal {...args} onClose={onClose} {...ariaProp}>
+          {hasHeader ? <Modal.Header isDanger={isDanger} tag={tag}>
               {header}
-            </Modal.Header>
-          )}
+            </Modal.Header> : null}
           {hasBody ? <Modal.Body>{body}</Modal.Body> : body}
-          {hasFooter && (
-            <Modal.Footer>
+          {hasFooter ? <Modal.Footer>
               {footerItems.map(({ text, type }, index) => (
                 <Modal.FooterItem key={index}>
                   <Button
                     isBasic={type === 'basic'}
                     isPrimary={type === 'primary'}
-                    isDanger={isDanger && type === 'primary'}
+                    isDanger={isDanger ? type === 'primary' : null}
                     onClick={onClose}
                   >
                     {text}
                   </Button>
                 </Modal.FooterItem>
               ))}
-            </Modal.Footer>
-          )}
-          {hasClose && <Modal.Close aria-label={closeAriaLabel} />}
-        </Modal>
-      )}
+            </Modal.Footer> : null}
+          {hasClose ? <Modal.Close aria-label={closeAriaLabel} /> : null}
+        </Modal> : null}
     </>
   );
 };

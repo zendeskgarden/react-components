@@ -26,8 +26,8 @@ export const NotificationStory: Story<IArgs> = ({
   ...args
 }) => (
   <Notification {...args}>
-    {title && <Notification.Title isRegular={isRegular}>{title}</Notification.Title>}
+    {title ? <Notification.Title isRegular={isRegular}>{title}</Notification.Title> : null}
     {hasParagraph ? <Notification.Paragraph>{children}</Notification.Paragraph> : children}
-    {hasClose && <Notification.Close aria-label={ariaLabel} />}
+    {hasClose ? <Notification.Close aria-label={ariaLabel} /> : null}
   </Notification>
 );

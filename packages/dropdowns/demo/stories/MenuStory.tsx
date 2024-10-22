@@ -17,7 +17,7 @@ const MenuItem = ({ icon, meta, ...item }: IItem) => {
   return (
     <Item {...item} icon={icon ? <LeafIcon /> : undefined}>
       {item.label}
-      {meta && <Item.Meta>{meta}</Item.Meta>}
+      {meta ? <Item.Meta>{meta}</Item.Meta> : null}
     </Item>
   );
 };

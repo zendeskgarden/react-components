@@ -44,8 +44,7 @@ export const MenuStory: Story<IArgs> = ({ items, appendToNode, ...rest }) => {
       // Grant a bit of room, so the menu will fit
       style={{ minHeight: '300px' }}
     >
-      {isReady && (
-        <Grid>
+      {isReady ? <Grid>
           <Grid.Row
             style={{
               position: 'relative',
@@ -102,8 +101,7 @@ export const MenuStory: Story<IArgs> = ({ items, appendToNode, ...rest }) => {
               </p>
             </Grid.Col>
           </Grid.Row>
-        </Grid>
-      )}
+        </Grid> : null}
       <div ref={portalsRef} />
     </div>
   );

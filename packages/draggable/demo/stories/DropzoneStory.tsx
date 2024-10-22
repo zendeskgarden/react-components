@@ -17,11 +17,9 @@ interface IArgs extends IDropzoneProps {
 
 export const DropzoneStory: Story<IArgs> = ({ children, hasIcon, ...args }) => (
   <Dropzone {...args}>
-    {hasIcon && (
-      <Dropzone.Icon>
+    {hasIcon ? <Dropzone.Icon>
         <ReplaceIcon />
-      </Dropzone.Icon>
-    )}
-    {children && <Dropzone.Message>{children}</Dropzone.Message>}
+      </Dropzone.Icon> : null}
+    {children ? <Dropzone.Message>{children}</Dropzone.Message> : null}
   </Dropzone>
 );

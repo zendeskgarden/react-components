@@ -28,7 +28,7 @@ export const OrderedListStory: Story<IArgs> = ({ items, level = 0, ...args }) =>
       <OrderedList.Item key={index}>
         <>
           {item.text}
-          {item.items && <OrderedListStory items={item.items} level={level + 1} {...args} />}
+          {item.items ? <OrderedListStory items={item.items} level={level + 1} {...args} /> : null}
         </>
       </OrderedList.Item>
     ))}

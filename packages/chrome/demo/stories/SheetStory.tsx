@@ -45,17 +45,13 @@ export const SheetComponent = ({
   ...props
 }: ISheetComponentProps) => (
   <Sheet {...props}>
-    {hasHeader && (
-      <Sheet.Header>
-        {hasTitle && <Sheet.Title>{title}</Sheet.Title>}
-        {hasDescription && <Sheet.Description>{description}</Sheet.Description>}
-      </Sheet.Header>
-    )}
+    {hasHeader ? <Sheet.Header>
+        {hasTitle ? <Sheet.Title>{title}</Sheet.Title> : null}
+        {hasDescription ? <Sheet.Description>{description}</Sheet.Description> : null}
+      </Sheet.Header> : null}
     {hasBody ? <Sheet.Body>{body}</Sheet.Body> : body}
-    {hasFooter && (
-      <Sheet.Footer isCompact={isCompact}>
-        {footerItems &&
-          footerItems.map(({ text, type }, index) => (
+    {hasFooter ? <Sheet.Footer isCompact={isCompact}>
+        {footerItems ? footerItems.map(({ text, type }, index) => (
             <Sheet.FooterItem key={index}>
               <Button
                 isLink={isCompact}
@@ -66,10 +62,9 @@ export const SheetComponent = ({
                 {text}
               </Button>
             </Sheet.FooterItem>
-          ))}
-      </Sheet.Footer>
-    )}
-    {hasClose && <Sheet.Close onClick={onClick} />}
+          )) : null}
+      </Sheet.Footer> : null}
+    {hasClose ? <Sheet.Close onClick={onClick} /> : null}
   </Sheet>
 );
 

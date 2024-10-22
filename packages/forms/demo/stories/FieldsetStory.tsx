@@ -39,13 +39,13 @@ export const FieldsetStory: StoryFn<IArgs> = ({
 }) => (
   <Fieldset {...args}>
     <Fieldset.Legend hidden={isLegendHidden}>{legend}</Fieldset.Legend>
-    {hasHint && <Field.Hint>{hint}</Field.Hint>}
+    {hasHint ? <Field.Hint>{hint}</Field.Hint> : null}
     {fields.map((field, index) => (
       <FieldStory
         key={index}
         hasLabel={false}
         hasHint={false}
-        hasMessage={hasMessage && index === fields.length - 1}
+        hasMessage={hasMessage ? index === fields.length - 1 : null}
         message={message}
         validation={validation}
         validationLabel={validationLabel}
