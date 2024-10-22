@@ -117,11 +117,14 @@ export const ChromeStory: Story<IArgs> = ({
   return (
     <Chrome {...args} style={{ margin: `-${DEFAULT_THEME.space.xl}` }}>
       <SkipNav targetId="main-content">{skipNav}</SkipNav>
-      {hasNav ? <Nav isExpanded={isExpanded} aria-label="Nav">
-          {hasLogo ? <Nav.Item hasLogo product={product}>
+      {hasNav ? (
+        <Nav isExpanded={isExpanded} aria-label="Nav">
+          {hasLogo ? (
+            <Nav.Item hasLogo product={product}>
               <Nav.ItemIcon>{product ? PRODUCT_ICONS[product] : <ProductIcon />}</Nav.ItemIcon>
               <Nav.ItemText>Nav Logo</Nav.ItemText>
-            </Nav.Item> : null}
+            </Nav.Item>
+          ) : null}
           <Nav.List>
             {navItems.map((item, index) => (
               <Nav.Item
@@ -136,22 +139,28 @@ export const ChromeStory: Story<IArgs> = ({
               </Nav.Item>
             ))}
           </Nav.List>
-          {hasBrandmark ? <Nav.Item hasBrandmark>
+          {hasBrandmark ? (
+            <Nav.Item hasBrandmark>
               <Nav.ItemIcon>
                 <BrandmarkIcon />
               </Nav.ItemIcon>
               <Nav.ItemText>Brandmark</Nav.ItemText>
-            </Nav.Item> : null}
-        </Nav> : null}
+            </Nav.Item>
+          ) : null}
+        </Nav>
+      ) : null}
 
       <Body>
-        {hasHeader ? <Header isStandalone={!hasNav}>
-            {hasLogo ? <Header.Item hasLogo product={product}>
+        {hasHeader ? (
+          <Header isStandalone={!hasNav}>
+            {hasLogo ? (
+              <Header.Item hasLogo product={product}>
                 <Header.ItemIcon>
                   {product ? PRODUCT_ICONS[product] : <ProductIcon />}
                 </Header.ItemIcon>
                 <Header.ItemText>Header Logo</Header.ItemText>
-              </Header.Item> : null}
+              </Header.Item>
+            ) : null}
             {headerItems.map((item, index) =>
               item.isWrapper ? (
                 <Header.ItemWrapper
@@ -160,25 +169,30 @@ export const ChromeStory: Story<IArgs> = ({
                   maxY={item.maxY}
                   isRound={item.isRound}
                 >
-                  {item.hasIcon ? <Header.ItemIcon>
+                  {item.hasIcon ? (
+                    <Header.ItemIcon>
                       {HEADER_ICONS[HEADER_ICONS.length - headerItems.length + index] || (
                         <HeaderIcon />
                       )}
-                    </Header.ItemIcon> : null}
+                    </Header.ItemIcon>
+                  ) : null}
                   <Header.ItemText isClipped={item.isClipped}>{item.text}</Header.ItemText>
                 </Header.ItemWrapper>
               ) : (
                 <Header.Item key={index} maxX={item.maxX} maxY={item.maxY} isRound={item.isRound}>
-                  {item.hasIcon ? <Header.ItemIcon>
+                  {item.hasIcon ? (
+                    <Header.ItemIcon>
                       {HEADER_ICONS[HEADER_ICONS.length - headerItems.length + index] || (
                         <HeaderIcon />
                       )}
-                    </Header.ItemIcon> : null}
+                    </Header.ItemIcon>
+                  ) : null}
                   <Header.ItemText isClipped={item.isClipped}>{item.text}</Header.ItemText>
                 </Header.Item>
               )
             )}
-          </Header> : null}
+          </Header>
+        ) : null}
         <Content id="main-content">
           <Main>{main}</Main>
           <SheetComponent
@@ -196,15 +210,19 @@ export const ChromeStory: Story<IArgs> = ({
             {...args}
           />
         </Content>
-        {hasFooter ? <Footer>
-            {footerItems ? footerItems.map(({ text, type }, index) => (
-                <Footer.Item key={index}>
-                  <Button isBasic={type === 'basic'} isPrimary={type === 'primary'}>
-                    {text}
-                  </Button>
-                </Footer.Item>
-              )) : null}
-          </Footer> : null}
+        {hasFooter ? (
+          <Footer>
+            {footerItems
+              ? footerItems.map(({ text, type }, index) => (
+                  <Footer.Item key={index}>
+                    <Button isBasic={type === 'basic'} isPrimary={type === 'primary'}>
+                      {text}
+                    </Button>
+                  </Footer.Item>
+                ))
+              : null}
+          </Footer>
+        ) : null}
       </Body>
     </Chrome>
   );

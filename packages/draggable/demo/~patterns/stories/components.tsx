@@ -112,12 +112,14 @@ const SortableItem = ({
 
   return (
     <>
-      {isUsingKeyboard && showIndicator ? <DropIndicator
+      {isUsingKeyboard && showIndicator ? (
+        <DropIndicator
           transition={transition}
           transform={transformValue}
           showDropMessage={showDropMessage}
           overIndex={overIndex}
-        /> : null}
+        />
+      ) : null}
       <DraggableList.Item ref={setNodeRef} style={style}>
         <DraggableItem
           data={data}

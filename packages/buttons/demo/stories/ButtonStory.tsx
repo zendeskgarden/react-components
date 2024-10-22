@@ -26,12 +26,16 @@ export const ButtonStory: Story<IArgs> = ({
   ...args
 }) => (
   <Button {...args}>
-    {hasStartIcon ? <Button.StartIcon isRotated={isStartIconRotated}>
+    {hasStartIcon ? (
+      <Button.StartIcon isRotated={isStartIconRotated}>
         <StartIcon />
-      </Button.StartIcon> : null}
+      </Button.StartIcon>
+    ) : null}
     {args.children}
-    {hasEndIcon ? <Button.EndIcon isRotated={isEndIconRotated}>
+    {hasEndIcon ? (
+      <Button.EndIcon isRotated={isEndIconRotated}>
         <EndIcon />
-      </Button.EndIcon> : null}
+      </Button.EndIcon>
+    ) : null}
   </Button>
 );

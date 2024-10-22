@@ -49,7 +49,9 @@ export const TilesStory: StoryFn<IArgs> = ({ tiles, hasDescription, ...args }) =
             <Tiles.Tile value={tile.value} disabled={tile.disabled} style={{ margin: 10 }}>
               <Tiles.Icon>{TILE_ICONS[index] || <Icon />}</Tiles.Icon>
               <Tiles.Label>{tile.label}</Tiles.Label>
-              {hasDescription && tile.description ? <Tiles.Description>{tile.description}</Tiles.Description> : null}
+              {hasDescription && tile.description ? (
+                <Tiles.Description>{tile.description}</Tiles.Description>
+              ) : null}
             </Tiles.Tile>
           </Grid.Col>
         ))}

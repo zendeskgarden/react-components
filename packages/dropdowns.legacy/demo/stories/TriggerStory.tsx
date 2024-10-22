@@ -58,9 +58,11 @@ export const TriggerStory: Story<IArgs> = ({
   >
     <Trigger>
       <Button isDanger={isDanger} size={args.isCompact ? 'small' : undefined}>
-        {hasMedia ? <Button.StartIcon>
+        {hasMedia ? (
+          <Button.StartIcon>
             <Icon />
-          </Button.StartIcon> : null}
+          </Button.StartIcon>
+        ) : null}
         Trigger
         <Button.EndIcon isRotated={isOpen}>
           <IconChevron />

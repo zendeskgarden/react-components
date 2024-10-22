@@ -63,7 +63,8 @@ export const DrawerStory: Story<IArgs> = ({
       <Drawer {...args} onClose={onClose} {...ariaProp}>
         {hasHeader ? <Drawer.Header tag={tag}>{header}</Drawer.Header> : null}
         {hasBody ? <Drawer.Body>{body}</Drawer.Body> : body}
-        {hasFooter ? <Drawer.Footer>
+        {hasFooter ? (
+          <Drawer.Footer>
             {footerItems.map(({ text, type }, index) => (
               <Drawer.FooterItem key={index}>
                 <Button isBasic={type === 'basic'} isPrimary={type === 'primary'} onClick={onClose}>
@@ -71,7 +72,8 @@ export const DrawerStory: Story<IArgs> = ({
                 </Button>
               </Drawer.FooterItem>
             ))}
-          </Drawer.Footer> : null}
+          </Drawer.Footer>
+        ) : null}
         {hasClose ? <Drawer.Close aria-label={closeAriaLabel} /> : null}
       </Drawer>
     </>

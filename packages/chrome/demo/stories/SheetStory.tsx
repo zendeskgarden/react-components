@@ -45,25 +45,31 @@ export const SheetComponent = ({
   ...props
 }: ISheetComponentProps) => (
   <Sheet {...props}>
-    {hasHeader ? <Sheet.Header>
+    {hasHeader ? (
+      <Sheet.Header>
         {hasTitle ? <Sheet.Title>{title}</Sheet.Title> : null}
         {hasDescription ? <Sheet.Description>{description}</Sheet.Description> : null}
-      </Sheet.Header> : null}
+      </Sheet.Header>
+    ) : null}
     {hasBody ? <Sheet.Body>{body}</Sheet.Body> : body}
-    {hasFooter ? <Sheet.Footer isCompact={isCompact}>
-        {footerItems ? footerItems.map(({ text, type }, index) => (
-            <Sheet.FooterItem key={index}>
-              <Button
-                isLink={isCompact}
-                isBasic={type === 'basic'}
-                isPrimary={type === 'primary'}
-                onClick={onClick}
-              >
-                {text}
-              </Button>
-            </Sheet.FooterItem>
-          )) : null}
-      </Sheet.Footer> : null}
+    {hasFooter ? (
+      <Sheet.Footer isCompact={isCompact}>
+        {footerItems
+          ? footerItems.map(({ text, type }, index) => (
+              <Sheet.FooterItem key={index}>
+                <Button
+                  isLink={isCompact}
+                  isBasic={type === 'basic'}
+                  isPrimary={type === 'primary'}
+                  onClick={onClick}
+                >
+                  {text}
+                </Button>
+              </Sheet.FooterItem>
+            ))
+          : null}
+      </Sheet.Footer>
+    ) : null}
     {hasClose ? <Sheet.Close onClick={onClick} /> : null}
   </Sheet>
 );

@@ -45,9 +45,11 @@ const MenuItem = ({ text: children, type, hasIcon, meta, ...props }: IProps) => 
     case 'header':
       return (
         <HeaderItem hasIcon={hasIcon}>
-          {hasIcon ? <HeaderIcon>
+          {hasIcon ? (
+            <HeaderIcon>
               <Icon />
-            </HeaderIcon> : null}
+            </HeaderIcon>
+          ) : null}
           {children}
         </HeaderItem>
       );

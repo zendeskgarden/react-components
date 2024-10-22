@@ -68,13 +68,15 @@ export const TableStory: Story<IArgs> = ({
       <Table.Caption>{caption}</Table.Caption>
       <Table.Head isSticky={isSticky}>
         <Table.HeaderRow>
-          {hasSelection ? <Table.HeaderCell isMinimum hidden={isHidden}>
+          {hasSelection ? (
+            <Table.HeaderCell isMinimum hidden={isHidden}>
               <Field>
                 <Checkbox>
                   <Field.Label hidden>Select all</Field.Label>
                 </Checkbox>
               </Field>
-            </Table.HeaderCell> : null}
+            </Table.HeaderCell>
+          ) : null}
           {headerCells.map((headerCell, index) =>
             isSortable ? (
               <Table.SortableCell
@@ -104,9 +106,11 @@ export const TableStory: Story<IArgs> = ({
               </Table.HeaderCell>
             )
           )}
-          {hasOverflow ? <Table.HeaderCell hasOverflow>
+          {hasOverflow ? (
+            <Table.HeaderCell hasOverflow>
               <Table.OverflowButton aria-label="overflow" />
-            </Table.HeaderCell> : null}
+            </Table.HeaderCell>
+          ) : null}
         </Table.HeaderRow>
       </Table.Head>
       <Table.Body>
@@ -125,13 +129,15 @@ export const TableStory: Story<IArgs> = ({
                 isSelected={isSelected}
                 isStriped={isStriped ? rowIndex % 2 === 0 : null}
               >
-                {hasSelection ? <Table.Cell isMinimum>
+                {hasSelection ? (
+                  <Table.Cell isMinimum>
                     <Field>
                       <Checkbox>
                         <Field.Label hidden>Select all</Field.Label>
                       </Checkbox>
                     </Field>
-                  </Table.Cell> : null}
+                  </Table.Cell>
+                ) : null}
                 {Object.keys(row).map((column, columnIndex) => (
                   <Table.Cell
                     key={`${rowIndex}${columnIndex}`}
@@ -141,9 +147,11 @@ export const TableStory: Story<IArgs> = ({
                     {row[column]}
                   </Table.Cell>
                 ))}
-                {hasOverflow ? <Table.Cell hasOverflow>
+                {hasOverflow ? (
+                  <Table.Cell hasOverflow>
                     <Table.OverflowButton aria-label="overflow" />
-                  </Table.Cell> : null}
+                  </Table.Cell>
+                ) : null}
               </Table.Row>
             )
           )}

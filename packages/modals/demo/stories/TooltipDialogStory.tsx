@@ -61,7 +61,8 @@ export const TooltipDialogStory: Story<IArgs> = ({
       <TooltipDialog {...args} placement={args.placement || PLACEMENT[current]} {...ariaProp}>
         {hasTitle ? <TooltipDialog.Title tag={tag}>{title}</TooltipDialog.Title> : null}
         {hasBody ? <TooltipDialog.Body>{body}</TooltipDialog.Body> : null}
-        {hasFooter ? <TooltipDialog.Footer>
+        {hasFooter ? (
+          <TooltipDialog.Footer>
             {current > 0 && (
               <TooltipDialog.FooterItem>
                 <Button size="small" isBasic onClick={() => handleClick(refs.current[current - 1])}>
@@ -84,7 +85,8 @@ export const TooltipDialogStory: Story<IArgs> = ({
                 </Button>
               </TooltipDialog.FooterItem>
             )}
-          </TooltipDialog.Footer> : null}
+          </TooltipDialog.Footer>
+        ) : null}
         {hasClose ? <TooltipDialog.Close aria-label={closeAriaLabel} /> : null}
       </TooltipDialog>
       <Grid>

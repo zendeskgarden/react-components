@@ -38,12 +38,14 @@ export const GlobalAlertStory: Story<IArgs> = ({
     <GlobalAlert.Content>
       {title ? <GlobalAlert.Title isRegular={isRegular}>{title}</GlobalAlert.Title> : null}
       {content}
-      {anchor ? <>
+      {anchor ? (
+        <>
           {' '}
           <Anchor href="#" isExternal={isExternal}>
             {anchor}
           </Anchor>
-        </> : null}
+        </>
+      ) : null}
     </GlobalAlert.Content>
     {button ? <GlobalAlert.Button isBasic={isBasic}>{button}</GlobalAlert.Button> : null}
     {hasClose ? <GlobalAlert.Close aria-label={ariaLabel} /> : null}

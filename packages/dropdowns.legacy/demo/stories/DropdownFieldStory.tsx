@@ -51,9 +51,11 @@ export const DropdownFieldStory: Story<IArgs> = ({
       {hasHint && !isLabelHidden ? <Hint>{hint}</Hint> : null}
       {children}
       {hasHint && isLabelHidden ? <Hint>{hint}</Hint> : null}
-      {hasMessage ? <Message validation={validation} validationLabel={validationLabel}>
+      {hasMessage ? (
+        <Message validation={validation} validationLabel={validationLabel}>
           {message}
-        </Message> : null}
+        </Message>
+      ) : null}
     </Field>
   </DropdownStory>
 );

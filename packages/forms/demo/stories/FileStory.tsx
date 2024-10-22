@@ -33,8 +33,12 @@ export const FileStory: StoryFn<IArgs> = ({
 }) => (
   <File {...args}>
     {children}
-    {hasClose ? <File.Close onClick={onClick} onKeyDown={onCloseKeydown} aria-label={closeAriaLabel} /> : null}
-    {hasDelete ? <File.Delete onClick={onClick} onKeyDown={onCloseKeydown} aria-label={deleteAriaLabel} /> : null}
+    {hasClose ? (
+      <File.Close onClick={onClick} onKeyDown={onCloseKeydown} aria-label={closeAriaLabel} />
+    ) : null}
+    {hasDelete ? (
+      <File.Delete onClick={onClick} onKeyDown={onCloseKeydown} aria-label={deleteAriaLabel} />
+    ) : null}
     {typeof value !== 'undefined' && (
       <Progress value={value} size={args.isCompact ? 'small' : 'medium'} aria-label="progress" />
     )}

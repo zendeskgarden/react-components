@@ -28,7 +28,9 @@ export const UnorderedListStory: Story<IArgs> = ({ items, level = 0, ...args }) 
       <UnorderedList.Item key={index}>
         <>
           {item.text}
-          {item.items ? <UnorderedListStory items={item.items} level={level + 1} {...args} /> : null}
+          {item.items ? (
+            <UnorderedListStory items={item.items} level={level + 1} {...args} />
+          ) : null}
         </>
       </UnorderedList.Item>
     ))}
