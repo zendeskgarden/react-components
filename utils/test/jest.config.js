@@ -20,7 +20,7 @@ module.exports = {
     '!**/node_modules/**',
     '!**/vendor/**'
   ],
-  testMatch: ['<rootDir>/packages/*/src/**/?(*.)+(spec|test).[jt]s?(x)'],
+  testMatch: ['<rootDir>/packages/*/(demo|src)/**/?(*.)+(spec|test).[jt]s?(x)'],
   testPathIgnorePatterns: ['/node_modules/', '<rootDir>/packages/.template'],
   testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: ['<rootDir>/utils/test/jest.setup.js'],

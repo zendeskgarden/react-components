@@ -1,0 +1,2692 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioStory Component renders RadioStory with a hint 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c4 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c4[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c5 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c5[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c9 {
+  padding-left: 24px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c3::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c3 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c3::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c3 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2:focus ~ .c3::before {
+  outline: none;
+}
+
+.c2 ~ .c3:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c3::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c3 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c3:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c3::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c3:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c3::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c3:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c3:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c3::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c3 {
+  cursor: default;
+}
+
+.c7 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c3 > .c6 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":r3:--hint"
+    aria-labelledby=":r3:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":r3:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":r3:--input"
+    id=":r3:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c6 c7"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+  <div
+    class="c8 c9"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_hint"
+    data-garden-version="9.0.0"
+    id=":r3:--hint"
+  >
+    This is a hint
+  </div>
+</div>
+`;
+
+exports[`RadioStory Component renders RadioStory with a label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c4 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c4[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c5 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c5[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c3::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c3 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c3::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c3 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2:focus ~ .c3::before {
+  outline: none;
+}
+
+.c2 ~ .c3:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c3::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c3 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c3:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c3::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c3:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c3::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c3:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c3:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c3::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c3 {
+  cursor: default;
+}
+
+.c7 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c3 > .c6 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r1:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":r1:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":r1:--input"
+    id=":r1:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c6 c7"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`RadioStory Component renders RadioStory with a label and compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c4 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c4[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c5 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c5[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c3::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c3 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c3::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c3 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2:focus ~ .c3::before {
+  outline: none;
+}
+
+.c2 ~ .c3:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c3::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c3 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c3:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c3::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c3:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c3::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c3:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c3:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c3::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c3 {
+  cursor: default;
+}
+
+.c7 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c3 > .c6 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r9:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":r9:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":r9:--input"
+    id=":r9:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c6 c7"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`RadioStory Component renders RadioStory with a label and hint 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c4 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c4[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c5 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c5[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c9 {
+  padding-left: 24px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c3::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c3 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c3::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c3 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2:focus ~ .c3::before {
+  outline: none;
+}
+
+.c2 ~ .c3:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c3::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c3 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c3:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c3::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c3:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c3::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c3:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c3:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c3::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c3 {
+  cursor: default;
+}
+
+.c7 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c3 > .c6 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":r5:--hint"
+    aria-labelledby=":r5:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":r5:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":r5:--input"
+    id=":r5:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c6 c7"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+  <div
+    class="c8 c9"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_hint"
+    data-garden-version="9.0.0"
+    id=":r5:--hint"
+  >
+    This is a hint
+  </div>
+</div>
+`;
+
+exports[`RadioStory Component renders RadioStory with a label and message 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c5 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c5[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c10 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c3:not([hidden]) + .c9 {
+  margin-top: 4px;
+}
+
+.c3:not([hidden]) + .c9 {
+  display: block;
+}
+
+.c6 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c6[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2.c2 ~ .c4 ~ .c9 {
+  margin-top: 8px;
+}
+
+.c2:focus ~ .c4::before {
+  outline: none;
+}
+
+.c2 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c11 {
+  padding-left: 24px;
+}
+
+.c8 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c4 > .c7 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":r6:--message"
+    aria-labelledby=":r6:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":r6:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5 c6"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":r6:--input"
+    id=":r6:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c7 c8"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+  <div
+    class="c9 c10 c11"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_message"
+    data-garden-version="9.0.0"
+    id=":r6:--message"
+    role="alert"
+  >
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`RadioStory Component renders RadioStory with a label, hint, and compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c4 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c4[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c8 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c5 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c5[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c9 {
+  padding-left: 24px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c3::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c3 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c3::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c3 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2:focus ~ .c3::before {
+  outline: none;
+}
+
+.c2 ~ .c3:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c3::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c3 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c3:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c3::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c3:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c3::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c3:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c3:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c3::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c3 {
+  cursor: default;
+}
+
+.c7 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c3 > .c6 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":ra:--hint"
+    aria-labelledby=":ra:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":ra:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":ra:--input"
+    id=":ra:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c6 c7"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+  <div
+    class="c8 c9"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_hint"
+    data-garden-version="9.0.0"
+    id=":ra:--hint"
+  >
+    This is a hint
+  </div>
+</div>
+`;
+
+exports[`RadioStory Component renders RadioStory with a label, hint, and message 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c5 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c5[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c9 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c12 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c3:not([hidden]) + .c11 {
+  margin-top: 4px;
+}
+
+.c3:not([hidden]) + .c11 {
+  display: block;
+}
+
+.c6 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c6[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c10 {
+  padding-left: 24px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2.c2 ~ .c4 ~ .c11 {
+  margin-top: 8px;
+}
+
+.c2:focus ~ .c4::before {
+  outline: none;
+}
+
+.c2 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c13 {
+  padding-left: 24px;
+}
+
+.c8 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c4 > .c7 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":r7:--hint :r7:--message"
+    aria-labelledby=":r7:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":r7:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5 c6"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":r7:--input"
+    id=":r7:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c7 c8"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+  <div
+    class="c9 c10"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_hint"
+    data-garden-version="9.0.0"
+    id=":r7:--hint"
+  >
+    This is a hint
+  </div>
+  <div
+    class="c11 c12 c13"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_message"
+    data-garden-version="9.0.0"
+    id=":r7:--message"
+    role="alert"
+  >
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`RadioStory Component renders RadioStory with a label, hint, message, and compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c5 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c5[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c9 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c12 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c3:not([hidden]) + .c11 {
+  margin-top: 4px;
+}
+
+.c3:not([hidden]) + .c11 {
+  display: block;
+}
+
+.c6 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c6[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c10 {
+  padding-left: 24px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2.c2 ~ .c4 ~ .c11 {
+  margin-top: 4px;
+}
+
+.c2:focus ~ .c4::before {
+  outline: none;
+}
+
+.c2 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c13 {
+  padding-left: 24px;
+}
+
+.c8 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c4 > .c7 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":rc:--hint :rc:--message"
+    aria-labelledby=":rc:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":rc:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5 c6"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":rc:--input"
+    id=":rc:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c7 c8"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+  <div
+    class="c9 c10"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_hint"
+    data-garden-version="9.0.0"
+    id=":rc:--hint"
+  >
+    This is a hint
+  </div>
+  <div
+    class="c11 c12 c13"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_message"
+    data-garden-version="9.0.0"
+    id=":rc:--message"
+    role="alert"
+  >
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`RadioStory Component renders RadioStory with a label, message, and compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c5 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c5[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c10 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c3:not([hidden]) + .c9 {
+  margin-top: 4px;
+}
+
+.c3:not([hidden]) + .c9 {
+  display: block;
+}
+
+.c6 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c6[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2.c2 ~ .c4 ~ .c9 {
+  margin-top: 4px;
+}
+
+.c2:focus ~ .c4::before {
+  outline: none;
+}
+
+.c2 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c11 {
+  padding-left: 24px;
+}
+
+.c8 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c4 > .c7 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":rb:--message"
+    aria-labelledby=":rb:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":rb:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5 c6"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":rb:--input"
+    id=":rb:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c7 c8"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+  <div
+    class="c9 c10 c11"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_message"
+    data-garden-version="9.0.0"
+    id=":rb:--message"
+    role="alert"
+  >
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`RadioStory Component renders RadioStory with a message 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c5 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c5[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c10 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c3:not([hidden]) + .c9 {
+  margin-top: 4px;
+}
+
+.c3:not([hidden]) + .c9 {
+  display: block;
+}
+
+.c6 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c6[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c4::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c4 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c4::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c4 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2.c2 ~ .c4 ~ .c9 {
+  margin-top: 8px;
+}
+
+.c2:focus ~ .c4::before {
+  outline: none;
+}
+
+.c2 ~ .c4:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c4::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c4 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c4:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c4::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c4:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c4::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c4:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c4:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c4::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c4 {
+  cursor: default;
+}
+
+.c11 {
+  padding-left: 24px;
+}
+
+.c8 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c4 > .c7 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-describedby=":r4:--message"
+    aria-labelledby=":r4:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":r4:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5 c6"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":r4:--input"
+    id=":r4:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c7 c8"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+  <div
+    class="c9 c10 c11"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_message"
+    data-garden-version="9.0.0"
+    id=":r4:--message"
+    role="alert"
+  >
+    This is a message
+  </div>
+</div>
+`;
+
+exports[`RadioStory Component renders RadioStory with compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c4 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c4[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c5 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c5[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c3::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c3 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c3::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c3 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2:focus ~ .c3::before {
+  outline: none;
+}
+
+.c2 ~ .c3:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c3::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c3 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c3:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c3::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c3:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c3::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c3:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c3:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c3::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c3 {
+  cursor: default;
+}
+
+.c7 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c3 > .c6 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r8:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":r8:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":r8:--input"
+    id=":r8:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c6 c7"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+</div>
+`;
+
+exports[`RadioStory Component renders RadioStory without a label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r2:--label"
+    class="c1"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":r2:--input"
+    type="radio"
+  />
+</div>
+`;
+
+exports[`RadioStory Component renders default RadioStory 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c4 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c4[hidden] {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -100%;
+  font-size: 0;
+}
+
+.c5 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 24px;
+}
+
+.c5[hidden] {
+  padding-left: 16px;
+  line-height: 20px;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.c2 ~ .c3::before {
+  position: absolute;
+  left: 0;
+  -webkit-transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+.c2 ~ .c3 > svg {
+  position: absolute;
+}
+
+.c2 ~ .c3::before {
+  top: 2px;
+  border: 1px solid;
+  background-size: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.c2 ~ .c3 > svg {
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.c2:focus ~ .c3::before {
+  outline: none;
+}
+
+.c2 ~ .c3:active::before {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;
+}
+
+.c2 ~ .c3::before {
+  border-color: #848f99;
+  background-color: #fff;
+}
+
+.c2 ~ .c3 > svg {
+  color: #fff;
+}
+
+.c2 ~ .c3:hover::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:focus-visible ~ .c3::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c2 ~ .c3:active::before {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c2:checked ~ .c3::before {
+  border-color: #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c2:enabled:checked ~ .c3:hover::before {
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c2:enabled:checked ~ .c3:active::before {
+  border-color: #0f3655;
+  background-color: #0f3655;
+}
+
+.c2:disabled ~ .c3::before {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.24);
+}
+
+.c2:disabled ~ .c3 {
+  cursor: default;
+}
+
+.c7 {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.c1:checked ~ .c3 > .c6 {
+  opacity: 1;
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.0.0"
+>
+  <input
+    aria-labelledby=":r0:--label"
+    class="c1 c2"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio"
+    data-garden-version="9.0.0"
+    id=":r0:--input"
+    type="radio"
+  />
+  <label
+    class="c3 c4 c5"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.radio_label"
+    data-garden-version="9.0.0"
+    for=":r0:--input"
+    id=":r0:--label"
+  >
+    <svg
+      aria-hidden="true"
+      class="c6 c7"
+      data-garden-id="forms.radio_svg"
+      data-garden-version="9.0.0"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="6"
+        cy="6"
+        fill="currentColor"
+        r="2"
+      />
+    </svg>
+  </label>
+</div>
+`;
