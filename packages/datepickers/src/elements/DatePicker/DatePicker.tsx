@@ -15,6 +15,7 @@ import React, {
   useMemo,
   forwardRef
 } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
@@ -34,6 +35,7 @@ const PLACEMENT_DEFAULT = 'bottom-start';
  */
 export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, calendarRef) => {
   const {
+    appendToNode,
     children,
     placement: _placement,
     zIndex,
@@ -124,6 +126,34 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
   }, [locale]);
 
+  const Node = (
+    <StyledMenuWrapper
+      ref={floatingRef}
+      style={{ transform }}
+      $isAnimated={!!isAnimated && (state.isOpen || isVisible)}
+      $placement={placement}
+      $zIndex={zIndex}
+      aria-hidden={!state.isOpen || undefined}
+      data-test-id="datepicker-menu"
+      data-test-open={state.isOpen}
+      data-test-rtl={theme.rtl}
+    >
+      {!!(state.isOpen || isVisible) && (
+        <StyledMenu {...menuProps}>
+          <Calendar
+            ref={calendarRef}
+            isCompact={isCompact}
+            value={value}
+            minValue={minValue}
+            maxValue={maxValue}
+            locale={locale}
+            weekStartsOn={weekStartsOn}
+          />
+        </StyledMenu>
+      )}
+    </StyledMenuWrapper>
+  );
+
   return (
     <>
       <Input
@@ -134,31 +164,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
         ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
       />
       <DatePickerContext.Provider value={contextValue}>
-        <StyledMenuWrapper
-          ref={floatingRef}
-          style={{ transform }}
-          $isAnimated={!!isAnimated && (state.isOpen || isVisible)}
-          $placement={placement}
-          $zIndex={zIndex}
-          aria-hidden={!state.isOpen || undefined}
-          data-test-id="datepicker-menu"
-          data-test-open={state.isOpen}
-          data-test-rtl={theme.rtl}
-        >
-          {!!(state.isOpen || isVisible) && (
-            <StyledMenu {...menuProps}>
-              <Calendar
-                ref={calendarRef}
-                isCompact={isCompact}
-                value={value}
-                minValue={minValue}
-                maxValue={maxValue}
-                locale={locale}
-                weekStartsOn={weekStartsOn}
-              />
-            </StyledMenu>
-          )}
-        </StyledMenuWrapper>
+        {appendToNode ? createPortal(Node, appendToNode) : Node}
       </DatePickerContext.Provider>
     </>
   );
@@ -167,6 +173,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
 DatePicker.displayName = 'DatePicker';
 
 DatePicker.propTypes = {
+  appendToNode: PropTypes.any,
   value: PropTypes.any,
   onChange: PropTypes.any,
   formatDate: PropTypes.func,
