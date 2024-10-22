@@ -1,0 +1,6599 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileListStory Component renders FileListStory with a file that has progress 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 12px;
+  height: 40px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 40px;
+  height: 40px;
+  margin-right: -12px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 16px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 3px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 16%;
+  height: 6px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5 7.5h7m-7 1.97h7m-7 2h7m3-7.27V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Plant ecology.doc
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="16"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="16"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with a single item 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 12px;
+  height: 40px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+    >
+      <span>
+        Unknown.txt
+      </span>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with all file types 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 12px;
+  height: 40px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 40px;
+  height: 40px;
+  margin-right: -12px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c12 {
+  color: #cd3642;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 16px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 3px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 0%;
+  height: 6px;
+}
+
+.c7 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 16%;
+  height: 6px;
+}
+
+.c8 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 32%;
+  height: 6px;
+}
+
+.c9 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 48%;
+  height: 6px;
+}
+
+.c10 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 64%;
+  height: 6px;
+}
+
+.c11 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 80%;
+  height: 6px;
+}
+
+.c13 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 100%;
+  height: 6px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+    >
+      <span>
+        Unknown.txt
+      </span>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Garden file
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="0"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5 7.5h7m-7 1.97h7m-7 2h7m3-7.27V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Plant ecology.doc
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="16"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c7"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="16"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5m-11 9l2.65-2.65c.2-.2.51-.2.71 0l1.79 1.79c.2.2.51.2.71 0l.79-.79c.2-.2.51-.2.71 0l1.65 1.65"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+        <circle
+          cx="10.5"
+          cy="8.5"
+          fill="currentColor"
+          r="1.5"
+        />
+      </svg>
+      <span>
+        Rose petals.jpg
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="32"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c8"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="32"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5V1A.5.5 0 012 .5h8.85a.5.5 0 01.36.15l3.15 3.2a.5.5 0 01.14.35zm-10 8.3h7m-7-2h7m-1-10V4a.5.5 0 00.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+        <rect
+          fill="currentColor"
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="8"
+          x="4"
+          y="7"
+        />
+      </svg>
+      <span>
+        Basics of gardening.pdf
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="48"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c9"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="48"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5M7 9.5h4c.28 0 .5.22.5.5v3c0 .28-.22.5-.5.5H7c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5zm-.5 2H5c-.28 0-.5-.22-.5-.5V8c0-.28.22-.5.5-.5h4c.28 0 .5.22.5.5v1.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Presentation bouquets.ppt
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="64"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c10"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="64"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5 7.5h2m-2 2h2m-2 2h2m2-4h3m-3 2h3m-3 2h3m3-7.3V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Seed inventory.xlsx
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="80"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c11"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="80"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.5.5v11M5 2.5h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m8-6.3V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Landscape.zip
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4 c12"
+        data-garden-id="forms.file.delete"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.5 2.5V1c0-.3.2-.5.5-.5h2c.3 0 .5.2.5.5v1.5M3 2.5h10m-6.5 11v-8m3 8v-8m-6-1V15c0 .3.2.5.5.5h8c.3 0 .5-.2.5-.5V4.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="100"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c13"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="100"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with an item that has a close button 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 12px;
+  height: 40px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 40px;
+  height: 40px;
+  margin-right: -12px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 16px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 3px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 0%;
+  height: 6px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Garden file
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="0"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with an item that has a delete button 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 12px;
+  height: 40px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 40px;
+  height: 40px;
+  margin-right: -12px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c5 {
+  color: #cd3642;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 16px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c6 {
+  margin: 8px 0;
+  border-radius: 3px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c7 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 100%;
+  height: 6px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.5.5v11M5 2.5h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m8-6.3V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Landscape.zip
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4 c5"
+        data-garden-id="forms.file.delete"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.5 2.5V1c0-.3.2-.5.5-.5h2c.3 0 .5.2.5.5v1.5M3 2.5h10m-6.5 11v-8m3 8v-8m-6-1V15c0 .3.2.5.5.5h8c.3 0 .5-.2.5-.5V4.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="100"
+        class="c6"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c7"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="100"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with aria labels for close and delete buttons 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 12px;
+  height: 40px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 40px;
+  height: 40px;
+  margin-right: -12px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c12 {
+  color: #cd3642;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 16px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 3px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 0%;
+  height: 6px;
+}
+
+.c7 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 16%;
+  height: 6px;
+}
+
+.c8 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 32%;
+  height: 6px;
+}
+
+.c9 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 48%;
+  height: 6px;
+}
+
+.c10 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 64%;
+  height: 6px;
+}
+
+.c11 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 80%;
+  height: 6px;
+}
+
+.c13 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 100%;
+  height: 6px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+    >
+      <span>
+        Unknown.txt
+      </span>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Garden file
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="0"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5 7.5h7m-7 1.97h7m-7 2h7m3-7.27V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Plant ecology.doc
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="16"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c7"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="16"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5m-11 9l2.65-2.65c.2-.2.51-.2.71 0l1.79 1.79c.2.2.51.2.71 0l.79-.79c.2-.2.51-.2.71 0l1.65 1.65"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+        <circle
+          cx="10.5"
+          cy="8.5"
+          fill="currentColor"
+          r="1.5"
+        />
+      </svg>
+      <span>
+        Rose petals.jpg
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="32"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c8"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="32"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5V1A.5.5 0 012 .5h8.85a.5.5 0 01.36.15l3.15 3.2a.5.5 0 01.14.35zm-10 8.3h7m-7-2h7m-1-10V4a.5.5 0 00.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+        <rect
+          fill="currentColor"
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="8"
+          x="4"
+          y="7"
+        />
+      </svg>
+      <span>
+        Basics of gardening.pdf
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="48"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c9"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="48"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5M7 9.5h4c.28 0 .5.22.5.5v3c0 .28-.22.5-.5.5H7c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5zm-.5 2H5c-.28 0-.5-.22-.5-.5V8c0-.28.22-.5.5-.5h4c.28 0 .5.22.5.5v1.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Presentation bouquets.ppt
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="64"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c10"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="64"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5 7.5h2m-2 2h2m-2 2h2m2-4h3m-3 2h3m-3 2h3m3-7.3V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Seed inventory.xlsx
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="80"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c11"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="80"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.5.5v11M5 2.5h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m8-6.3V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Landscape.zip
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4 c12"
+        data-garden-id="forms.file.delete"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.5 2.5V1c0-.3.2-.5.5-.5h2c.3 0 .5.2.5.5v1.5M3 2.5h10m-6.5 11v-8m3 8v-8m-6-1V15c0 .3.2.5.5.5h8c.3 0 .5-.2.5-.5V4.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="100"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c13"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="100"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with compact styling 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 8px;
+  height: 28px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 28px;
+  height: 28px;
+  margin-right: -8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c12 {
+  color: #cd3642;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 12px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 1px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 0%;
+  height: 2px;
+}
+
+.c7 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 16%;
+  height: 2px;
+}
+
+.c8 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 32%;
+  height: 2px;
+}
+
+.c9 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 48%;
+  height: 2px;
+}
+
+.c10 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 64%;
+  height: 2px;
+}
+
+.c11 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 80%;
+  height: 2px;
+}
+
+.c13 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 100%;
+  height: 2px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+    >
+      <span>
+        Unknown.txt
+      </span>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Garden file
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="0"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.5 5.5h5m-5 2h5m-5 2h5m2-6.29V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Plant ecology.doc
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="16"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c7"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="16"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5m-7 6L5 8l1.5 1.5 1-1 1 1"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <circle
+          cx="8"
+          cy="6"
+          fill="currentColor"
+          r="1"
+        />
+      </svg>
+      <span>
+        Rose petals.jpg
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="32"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c8"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="32"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5V1A.5.5 0 012 .5h5.79a.5.5 0 01.35.15l2.21 2.21a.5.5 0 01.15.35zM7.5.5V3a.5.5 0 00.5.5h2.5m-7 6h5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+        <rect
+          fill="currentColor"
+          height="3"
+          rx="0.5"
+          ry="0.5"
+          width="6"
+          x="3"
+          y="5"
+        />
+      </svg>
+      <span>
+        Basics of gardening.pdf
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="48"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c9"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="48"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM6 9.5h2c.28 0 .5-.22.5-.5V8c0-.28-.22-.5-.5-.5H6c-.28 0-.5.22-.5.5v1c0 .28.22.5.5.5zm-2-2h2c.28 0 .5-.22.5-.5V6c0-.28-.22-.5-.5-.5H4c-.28 0-.5.22-.5.5v1c0 .28.22.5.5.5zm3.5-7V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Presentation bouquets.ppt
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="64"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c10"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="64"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.5 5.5h1m-1 2h1m-1 2h1m2-4h2m-2 2h2m-2 2h2m2-6.29V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Seed inventory.xlsx
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="80"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c11"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="80"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5.5v8m0-6h1m-2 1h1m0 1h1m-2 1h1m0 1h1m-2 1h1m6-4.29V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Landscape.zip
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4 c12"
+        data-garden-id="forms.file.delete"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4.5 2.5V1c0-.3.2-.5.5-.5h2c.3 0 .5.2.5.5v1.5M2 2.5h8m-5.5 7V5m3 4.5V5m-5-.5V11c0 .3.2.5.5.5h6c.3 0 .5-.2.5-.5V4.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="100"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c13"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="100"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with compact styling and a close button 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 8px;
+  height: 28px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 28px;
+  height: 28px;
+  margin-right: -8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 12px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 1px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 0%;
+  height: 2px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Garden file
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="0"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with compact styling and a delete button 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 8px;
+  height: 28px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 28px;
+  height: 28px;
+  margin-right: -8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c5 {
+  color: #cd3642;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 12px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c6 {
+  margin: 8px 0;
+  border-radius: 1px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c7 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 100%;
+  height: 2px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5.5v8m0-6h1m-2 1h1m0 1h1m-2 1h1m0 1h1m-2 1h1m6-4.29V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Landscape.zip
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4 c5"
+        data-garden-id="forms.file.delete"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4.5 2.5V1c0-.3.2-.5.5-.5h2c.3 0 .5.2.5.5v1.5M2 2.5h8m-5.5 7V5m3 4.5V5m-5-.5V11c0 .3.2.5.5.5h6c.3 0 .5-.2.5-.5V4.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="100"
+        class="c6"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c7"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="100"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with compact styling and multiple items 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 8px;
+  height: 28px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 28px;
+  height: 28px;
+  margin-right: -8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c12 {
+  color: #cd3642;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 12px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 1px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 0%;
+  height: 2px;
+}
+
+.c7 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 16%;
+  height: 2px;
+}
+
+.c8 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 32%;
+  height: 2px;
+}
+
+.c9 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 48%;
+  height: 2px;
+}
+
+.c10 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 64%;
+  height: 2px;
+}
+
+.c11 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 80%;
+  height: 2px;
+}
+
+.c13 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 100%;
+  height: 2px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+    >
+      <span>
+        Unknown.txt
+      </span>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Garden file
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="0"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.5 5.5h5m-5 2h5m-5 2h5m2-6.29V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Plant ecology.doc
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="16"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c7"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="16"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5m-7 6L5 8l1.5 1.5 1-1 1 1"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <circle
+          cx="8"
+          cy="6"
+          fill="currentColor"
+          r="1"
+        />
+      </svg>
+      <span>
+        Rose petals.jpg
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="32"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c8"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="32"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5V1A.5.5 0 012 .5h5.79a.5.5 0 01.35.15l2.21 2.21a.5.5 0 01.15.35zM7.5.5V3a.5.5 0 00.5.5h2.5m-7 6h5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+        <rect
+          fill="currentColor"
+          height="3"
+          rx="0.5"
+          ry="0.5"
+          width="6"
+          x="3"
+          y="5"
+        />
+      </svg>
+      <span>
+        Basics of gardening.pdf
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="48"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c9"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="48"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM6 9.5h2c.28 0 .5-.22.5-.5V8c0-.28-.22-.5-.5-.5H6c-.28 0-.5.22-.5.5v1c0 .28.22.5.5.5zm-2-2h2c.28 0 .5-.22.5-.5V6c0-.28-.22-.5-.5-.5H4c-.28 0-.5.22-.5.5v1c0 .28.22.5.5.5zm3.5-7V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Presentation bouquets.ppt
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="64"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c10"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="64"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.5 5.5h1m-1 2h1m-1 2h1m2-4h2m-2 2h2m-2 2h2m2-6.29V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Seed inventory.xlsx
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="80"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c11"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="80"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5.5v8m0-6h1m-2 1h1m0 1h1m-2 1h1m0 1h1m-2 1h1m6-4.29V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Landscape.zip
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4 c12"
+        data-garden-id="forms.file.delete"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4.5 2.5V1c0-.3.2-.5.5-.5h2c.3 0 .5.2.5.5v1.5M2 2.5h8m-5.5 7V5m3 4.5V5m-5-.5V11c0 .3.2.5.5.5h6c.3 0 .5-.2.5-.5V4.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="100"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c13"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="100"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with compact styling and progress 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 8px;
+  height: 28px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 28px;
+  height: 28px;
+  margin-right: -8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 12px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 1px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 16%;
+  height: 2px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.5 5.5h5m-5 2h5m-5 2h5m2-6.29V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Plant ecology.doc
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="16"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="16"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with compact styling, aria labels, and multiple items 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 8px;
+  height: 28px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 28px;
+  height: 28px;
+  margin-right: -8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c12 {
+  color: #cd3642;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 12px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 1px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 0%;
+  height: 2px;
+}
+
+.c7 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 16%;
+  height: 2px;
+}
+
+.c8 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 32%;
+  height: 2px;
+}
+
+.c9 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 48%;
+  height: 2px;
+}
+
+.c10 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 64%;
+  height: 2px;
+}
+
+.c11 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 80%;
+  height: 2px;
+}
+
+.c13 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 1px;
+  background: currentcolor;
+  width: 100%;
+  height: 2px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+    >
+      <span>
+        Unknown.txt
+      </span>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Garden file
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="0"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.5 5.5h5m-5 2h5m-5 2h5m2-6.29V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Plant ecology.doc
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="16"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c7"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="16"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5m-7 6L5 8l1.5 1.5 1-1 1 1"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <circle
+          cx="8"
+          cy="6"
+          fill="currentColor"
+          r="1"
+        />
+      </svg>
+      <span>
+        Rose petals.jpg
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="32"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c8"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="32"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5V1A.5.5 0 012 .5h5.79a.5.5 0 01.35.15l2.21 2.21a.5.5 0 01.15.35zM7.5.5V3a.5.5 0 00.5.5h2.5m-7 6h5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+        <rect
+          fill="currentColor"
+          height="3"
+          rx="0.5"
+          ry="0.5"
+          width="6"
+          x="3"
+          y="5"
+        />
+      </svg>
+      <span>
+        Basics of gardening.pdf
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="48"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c9"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="48"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.5 3.21V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM6 9.5h2c.28 0 .5-.22.5-.5V8c0-.28-.22-.5-.5-.5H6c-.28 0-.5.22-.5.5v1c0 .28.22.5.5.5zm-2-2h2c.28 0 .5-.22.5-.5V6c0-.28-.22-.5-.5-.5H4c-.28 0-.5.22-.5.5v1c0 .28.22.5.5.5zm3.5-7V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Presentation bouquets.ppt
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="64"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c10"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="64"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.5 5.5h1m-1 2h1m-1 2h1m2-4h2m-2 2h2m-2 2h2m2-6.29V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Seed inventory.xlsx
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9l6-6m0 6L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="80"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c11"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="80"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5.5v8m0-6h1m-2 1h1m0 1h1m-2 1h1m0 1h1m-2 1h1m6-4.29V11c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h5.79c.13 0 .26.05.35.15l2.21 2.21c.1.09.15.21.15.35zM7.5.5V3c0 .28.22.5.5.5h2.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Landscape.zip
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4 c12"
+        data-garden-id="forms.file.delete"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="12"
+          viewBox="0 0 12 12"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4.5 2.5V1c0-.3.2-.5.5-.5h2c.3 0 .5.2.5.5v1.5M2 2.5h8m-5.5 7V5m3 4.5V5m-5-.5V11c0 .3.2.5.5.5h6c.3 0 .5-.2.5-.5V4.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="100"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c13"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="2"
+          value="100"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with multiple items 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 12px;
+  height: 40px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 40px;
+  height: 40px;
+  margin-right: -12px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c12 {
+  color: #cd3642;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 16px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 3px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 0%;
+  height: 6px;
+}
+
+.c7 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 16%;
+  height: 6px;
+}
+
+.c8 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 32%;
+  height: 6px;
+}
+
+.c9 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 48%;
+  height: 6px;
+}
+
+.c10 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 64%;
+  height: 6px;
+}
+
+.c11 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 80%;
+  height: 6px;
+}
+
+.c13 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 100%;
+  height: 6px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+    >
+      <span>
+        Unknown.txt
+      </span>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Garden file
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="0"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5 7.5h7m-7 1.97h7m-7 2h7m3-7.27V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Plant ecology.doc
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="16"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c7"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="16"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5m-11 9l2.65-2.65c.2-.2.51-.2.71 0l1.79 1.79c.2.2.51.2.71 0l.79-.79c.2-.2.51-.2.71 0l1.65 1.65"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+        <circle
+          cx="10.5"
+          cy="8.5"
+          fill="currentColor"
+          r="1.5"
+        />
+      </svg>
+      <span>
+        Rose petals.jpg
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="32"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c8"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="32"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5V1A.5.5 0 012 .5h8.85a.5.5 0 01.36.15l3.15 3.2a.5.5 0 01.14.35zm-10 8.3h7m-7-2h7m-1-10V4a.5.5 0 00.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+        <rect
+          fill="currentColor"
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="8"
+          x="4"
+          y="7"
+        />
+      </svg>
+      <span>
+        Basics of gardening.pdf
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="48"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c9"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="48"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5M7 9.5h4c.28 0 .5.22.5.5v3c0 .28-.22.5-.5.5H7c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5zm-.5 2H5c-.28 0-.5-.22-.5-.5V8c0-.28.22-.5.5-.5h4c.28 0 .5.22.5.5v1.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Presentation bouquets.ppt
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="64"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c10"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="64"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5 7.5h2m-2 2h2m-2 2h2m2-4h3m-3 2h3m-3 2h3m3-7.3V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Seed inventory.xlsx
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="80"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c11"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="80"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.5.5v11M5 2.5h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m8-6.3V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Landscape.zip
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4 c12"
+        data-garden-id="forms.file.delete"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.5 2.5V1c0-.3.2-.5.5-.5h2c.3 0 .5.2.5.5v1.5M3 2.5h10m-6.5 11v-8m3 8v-8m-6-1V15c0 .3.2.5.5.5h8c.3 0 .5-.2.5-.5V4.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="100"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c13"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="100"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with multiple items, one with close and one with delete 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 12px;
+  height: 40px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 40px;
+  height: 40px;
+  margin-right: -12px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c7 {
+  color: #cd3642;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 16px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 3px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 0%;
+  height: 6px;
+}
+
+.c8 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 100%;
+  height: 6px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4.2V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+        />
+      </svg>
+      <span>
+        Garden file
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="0"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.5.5v11M5 2.5h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m0 1H8m-3 1h1.5m8-6.3V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Landscape.zip
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4 c7"
+        data-garden-id="forms.file.delete"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.5 2.5V1c0-.3.2-.5.5-.5h2c.3 0 .5.2.5.5v1.5M3 2.5h10m-6.5 11v-8m3 8v-8m-6-1V15c0 .3.2.5.5.5h8c.3 0 .5-.2.5-.5V4.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="100"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c8"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="100"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders FileListStory with multiple items, one with progress and one without 1`] = `
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5c6970;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.9;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0 12px;
+  height: 40px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  border-color: #d8dcde;
+  color: #293239;
+}
+
+.c1 > span {
+  width: 100%;
+}
+
+.c1 > .c3 {
+  width: 40px;
+  height: 40px;
+  margin-right: -12px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c1 > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 > [role='progressbar'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.c1 > [role='progressbar'] > div {
+  border-top-left-radius: 0;
+}
+
+.c1 > [role='progressbar'][aria-valuenow='0'],
+.c1 > [role='progressbar'][aria-valuenow='100'] {
+  opacity: 0;
+}
+
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 16px;
+  margin-right: 8px;
+  color: #5c6970;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c5 {
+  margin: 8px 0;
+  border-radius: 3px;
+  background-color: rgba(92,105,112,0.16);
+  color: #037f52;
+}
+
+.c6 {
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+  border-radius: 3px;
+  background: currentcolor;
+  width: 16%;
+  height: 6px;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+    >
+      <span>
+        Unknown.txt
+      </span>
+    </div>
+  </li>
+  <li
+    class=""
+    data-garden-id="forms.file_list.item"
+    data-garden-version="9.0.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="forms.file"
+      data-garden-version="9.0.0"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class=" c2"
+        data-garden-id="forms.file.icon"
+        data-garden-version="9.0.0"
+        focusable="false"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5 7.5h7m-7 1.97h7m-7 2h7m3-7.27V15c0 .28-.22.5-.5.5H2c-.28 0-.5-.22-.5-.5V1c0-.28.22-.5.5-.5h8.85c.13 0 .26.05.36.15l3.15 3.2c.09.1.14.22.14.35zm-4-3.7V4c0 .28.22.5.5.5h3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>
+        Plant ecology.doc
+      </span>
+      <button
+        aria-label="Press backspace to delete"
+        class="c3 c4"
+        data-garden-id="forms.file.close"
+        data-garden-version="9.0.0"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 13L13 3m0 10L3 3"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="16"
+        class="c5"
+        data-garden-id="loaders.progress_background"
+        data-garden-version="9.0.0"
+        role="progressbar"
+      >
+        <div
+          class="c6"
+          data-garden-id="loaders.progress_indicator"
+          data-garden-version="9.0.0"
+          height="6"
+          value="16"
+        />
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`FileListStory Component renders default FileListStory with no items 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+<ul
+  class="c0"
+  data-garden-id="forms.file_list"
+  data-garden-version="9.0.0"
+/>
+`;

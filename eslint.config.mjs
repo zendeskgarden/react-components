@@ -29,7 +29,7 @@ export default [
   reactPlugin,
   prettierConfig,
   {
-    ignores: ['**/dist']
+    ignores: ['**/dist', 'packages/*/demo/stories/*.spec.tsx']
   },
   {
     rules: {
