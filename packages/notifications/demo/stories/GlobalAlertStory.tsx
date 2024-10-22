@@ -36,9 +36,9 @@ export const GlobalAlertStory: Story<IArgs> = ({
 }) => (
   <GlobalAlert type={type}>
     <GlobalAlert.Content>
-      {title && <GlobalAlert.Title isRegular={isRegular}>{title}</GlobalAlert.Title>}
+      {!!title && <GlobalAlert.Title isRegular={isRegular}>{title}</GlobalAlert.Title>}
       {content}
-      {anchor && (
+      {!!anchor && (
         <>
           {' '}
           <Anchor href="#" isExternal={isExternal}>
@@ -47,7 +47,7 @@ export const GlobalAlertStory: Story<IArgs> = ({
         </>
       )}
     </GlobalAlert.Content>
-    {button && <GlobalAlert.Button isBasic={isBasic}>{button}</GlobalAlert.Button>}
-    {hasClose && <GlobalAlert.Close aria-label={ariaLabel} />}
+    {!!button && <GlobalAlert.Button isBasic={isBasic}>{button}</GlobalAlert.Button>}
+    {!!hasClose && <GlobalAlert.Close aria-label={ariaLabel} />}
   </GlobalAlert>
 );

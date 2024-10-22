@@ -68,7 +68,7 @@ export const TableStory: Story<IArgs> = ({
       <Table.Caption>{caption}</Table.Caption>
       <Table.Head isSticky={isSticky}>
         <Table.HeaderRow>
-          {hasSelection && (
+          {!!hasSelection && (
             <Table.HeaderCell isMinimum hidden={isHidden}>
               <Field>
                 <Checkbox>
@@ -106,7 +106,7 @@ export const TableStory: Story<IArgs> = ({
               </Table.HeaderCell>
             )
           )}
-          {hasOverflow && (
+          {!!hasOverflow && (
             <Table.HeaderCell hasOverflow>
               <Table.OverflowButton aria-label="overflow" />
             </Table.HeaderCell>
@@ -127,9 +127,9 @@ export const TableStory: Story<IArgs> = ({
               <Table.Row
                 key={rowIndex}
                 isSelected={isSelected}
-                isStriped={isStriped && rowIndex % 2 === 0}
+                isStriped={!!isStriped && rowIndex % 2 === 0}
               >
-                {hasSelection && (
+                {!!hasSelection && (
                   <Table.Cell isMinimum>
                     <Field>
                       <Checkbox>
@@ -147,7 +147,7 @@ export const TableStory: Story<IArgs> = ({
                     {row[column]}
                   </Table.Cell>
                 ))}
-                {hasOverflow && (
+                {!!hasOverflow && (
                   <Table.Cell hasOverflow>
                     <Table.OverflowButton aria-label="overflow" />
                   </Table.Cell>

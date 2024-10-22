@@ -46,9 +46,9 @@ export const TypescaleStory: Story<IArgs> = ({ children, size, hasDisplayName, .
 
   return (
     <Typescale {...args}>
-      {hasDisplayName && `<${Typescale.displayName}>`}
+      {!!hasDisplayName && `<${Typescale.displayName}>`}
       {children}
-      {hasDisplayName && `</${Typescale.displayName}>`}
+      {!!hasDisplayName && `</${Typescale.displayName}>`}
     </Typescale>
   );
 };

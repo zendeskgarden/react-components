@@ -26,8 +26,8 @@ export const AlertStory: Story<IArgs> = ({
   ...args
 }) => (
   <Alert {...args}>
-    {title && <Alert.Title isRegular={isRegular}>{title}</Alert.Title>}
+    {!!title && <Alert.Title isRegular={isRegular}>{title}</Alert.Title>}
     {hasParagraph ? <Alert.Paragraph>{children}</Alert.Paragraph> : children}
-    {hasClose && <Alert.Close aria-label={ariaLabel} />}
+    {!!hasClose && <Alert.Close aria-label={ariaLabel} />}
   </Alert>
 );

@@ -17,7 +17,7 @@ interface IArgs extends IWellProps {
 
 export const WellStory: Story<IArgs> = ({ children, title, hasParagraph, isRegular, ...args }) => (
   <Well {...args}>
-    {title && <Well.Title isRegular={isRegular}>{title}</Well.Title>}
+    {!!title && <Well.Title isRegular={isRegular}>{title}</Well.Title>}
     {hasParagraph ? <Well.Paragraph>{children}</Well.Paragraph> : children}
   </Well>
 );

@@ -33,10 +33,10 @@ export const FileStory: StoryFn<IArgs> = ({
 }) => (
   <File {...args}>
     {children}
-    {hasClose && (
+    {!!hasClose && (
       <File.Close onClick={onClick} onKeyDown={onCloseKeydown} aria-label={closeAriaLabel} />
     )}
-    {hasDelete && (
+    {!!hasDelete && (
       <File.Delete onClick={onClick} onKeyDown={onCloseKeydown} aria-label={deleteAriaLabel} />
     )}
     {typeof value !== 'undefined' && (

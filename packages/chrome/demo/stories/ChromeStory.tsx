@@ -117,9 +117,9 @@ export const ChromeStory: Story<IArgs> = ({
   return (
     <Chrome {...args} style={{ margin: `-${DEFAULT_THEME.space.xl}` }}>
       <SkipNav targetId="main-content">{skipNav}</SkipNav>
-      {hasNav && (
+      {!!hasNav && (
         <Nav isExpanded={isExpanded} aria-label="Nav">
-          {hasLogo && (
+          {!!hasLogo && (
             <Nav.Item hasLogo product={product}>
               <Nav.ItemIcon>{product ? PRODUCT_ICONS[product] : <ProductIcon />}</Nav.ItemIcon>
               <Nav.ItemText>Nav Logo</Nav.ItemText>
@@ -139,7 +139,7 @@ export const ChromeStory: Story<IArgs> = ({
               </Nav.Item>
             ))}
           </Nav.List>
-          {hasBrandmark && (
+          {!!hasBrandmark && (
             <Nav.Item hasBrandmark>
               <Nav.ItemIcon>
                 <BrandmarkIcon />
@@ -151,9 +151,9 @@ export const ChromeStory: Story<IArgs> = ({
       )}
 
       <Body>
-        {hasHeader && (
+        {!!hasHeader && (
           <Header isStandalone={!hasNav}>
-            {hasLogo && (
+            {!!hasLogo && (
               <Header.Item hasLogo product={product}>
                 <Header.ItemIcon>
                   {product ? PRODUCT_ICONS[product] : <ProductIcon />}
@@ -169,7 +169,7 @@ export const ChromeStory: Story<IArgs> = ({
                   maxY={item.maxY}
                   isRound={item.isRound}
                 >
-                  {item.hasIcon && (
+                  {!!item.hasIcon && (
                     <Header.ItemIcon>
                       {HEADER_ICONS[HEADER_ICONS.length - headerItems.length + index] || (
                         <HeaderIcon />
@@ -180,7 +180,7 @@ export const ChromeStory: Story<IArgs> = ({
                 </Header.ItemWrapper>
               ) : (
                 <Header.Item key={index} maxX={item.maxX} maxY={item.maxY} isRound={item.isRound}>
-                  {item.hasIcon && (
+                  {!!item.hasIcon && (
                     <Header.ItemIcon>
                       {HEADER_ICONS[HEADER_ICONS.length - headerItems.length + index] || (
                         <HeaderIcon />
@@ -210,9 +210,9 @@ export const ChromeStory: Story<IArgs> = ({
             {...args}
           />
         </Content>
-        {hasFooter && (
+        {!!hasFooter && (
           <Footer>
-            {footerItems &&
+            {!!footerItems &&
               footerItems.map(({ text, type }, index) => (
                 <Footer.Item key={index}>
                   <Button isBasic={type === 'basic'} isPrimary={type === 'primary'}>
