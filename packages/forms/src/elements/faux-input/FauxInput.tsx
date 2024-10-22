@@ -26,6 +26,7 @@ const FauxInputComponent = forwardRef<HTMLDivElement, IFauxInputProps>(
       onFocus,
       readOnly,
       validation,
+      mediaLayout,
       ...other
     },
     ref
@@ -51,6 +52,7 @@ const FauxInputComponent = forwardRef<HTMLDivElement, IFauxInputProps>(
         $isFocused={controlledIsFocused === undefined ? isFocused : controlledIsFocused}
         $isHovered={isHovered}
         $isReadOnly={readOnly}
+        $mediaLayout={mediaLayout}
         $validation={validation}
         data-test-is-focused={controlledIsFocused === undefined ? isFocused : controlledIsFocused}
         tabIndex={disabled ? undefined : 0}

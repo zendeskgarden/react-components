@@ -111,6 +111,8 @@ export interface IFauxInputProps
   isFocused?: boolean;
   /** Applies hover stying */
   isHovered?: boolean;
+  /** @ignore Internal use only */
+  mediaLayout?: boolean;
 }
 
 export interface IFauxInputIconProps
