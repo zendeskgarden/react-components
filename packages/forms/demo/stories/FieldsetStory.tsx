@@ -45,7 +45,7 @@ export const FieldsetStory: StoryFn<IArgs> = ({
         key={index}
         hasLabel={false}
         hasHint={false}
-        hasMessage={hasMessage ? index === fields.length - 1 : null}
+        hasMessage={hasMessage ? index === fields.length - 1 : undefined}
         message={message}
         validation={validation}
         validationLabel={validationLabel}

@@ -127,7 +127,7 @@ export const TableStory: Story<IArgs> = ({
               <Table.Row
                 key={rowIndex}
                 isSelected={isSelected}
-                isStriped={isStriped ? rowIndex % 2 === 0 : null}
+                isStriped={isStriped ? rowIndex % 2 === 0 : undefined}
               >
                 {hasSelection ? (
                   <Table.Cell isMinimum>

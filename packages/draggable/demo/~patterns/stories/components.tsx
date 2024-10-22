@@ -210,7 +210,7 @@ export const DraggableListItem = ({
         style={draggableItemStyle}
         isCompact={isCompact}
         isBare={isBare}
-        isPlaceholder={isDragging ? isPlaceholder : null}
+        isPlaceholder={isDragging ? isPlaceholder : undefined}
         ref={setActivatorNodeRef}
       />
     </DraggableList.Item>

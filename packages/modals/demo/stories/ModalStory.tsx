@@ -76,7 +76,7 @@ export const ModalStory: Story<IArgs> = ({
                   <Button
                     isBasic={type === 'basic'}
                     isPrimary={type === 'primary'}
-                    isDanger={isDanger ? type === 'primary' : null}
+                    isDanger={isDanger ? type === 'primary' : undefined}
                     onClick={onClose}
                   >
                     {text}
