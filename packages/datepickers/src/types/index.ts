@@ -15,6 +15,8 @@ export const PLACEMENT = ['auto', ...BASE_PLACEMENT] as const;
 export type GardenPlacement = (typeof PLACEMENT)[number];
 
 export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  /** Appends the calendar to the element provided */
+  appendToNode?: Element | DocumentFragment;
   /**
    * Sets the selected date
    */
