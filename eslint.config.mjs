@@ -56,5 +56,14 @@ export default [
       'no-console': 'off',
       'react/button-has-type': 'off'
     }
+  },
+  {
+    files: ['packages/*/demo/**/*.{ts,tsx}'],
+    ignores: ['packages/.template/**/*.{ts,tsx}'],
+    ...typescriptPlugin,
+    rules: {
+      ...typescriptRules,
+      'react/no-array-index-key': 'off'
+    }
   }
 ];
