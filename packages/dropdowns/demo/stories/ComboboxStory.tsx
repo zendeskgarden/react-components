@@ -26,14 +26,17 @@ import { IOption, Options } from './types';
 const toLabel = (option: IOption) => option.label || option.value;
 
 const ComboboxOption = ({ icon, meta, ...props }: IOption) => {
+  /* eslint-disable-next-line no-useless-assignment */
   const Svg = props.tagProps?.isPill ? Avatar : Icon;
 
   return (
     <Option icon={icon ? <Svg /> : undefined} {...props}>
-      {meta ? <>
+      {meta ? (
+        <>
           <span>{props.children || toLabel(props)}</span>
           <Option.Meta>{meta}</Option.Meta>
-        </> : null}
+        </>
+      ) : null}
     </Option>
   );
 };
@@ -172,9 +175,11 @@ export const ComboboxStory: Story<IArgs> = ({
                 )
               )}
             </Combobox>
-            {message ? <Field.Message validation={validation} validationLabel={validationLabel}>
+            {message ? (
+              <Field.Message validation={validation} validationLabel={validationLabel}>
                 {message}
-              </Field.Message> : null}
+              </Field.Message>
+            ) : null}
           </Field>
         </Grid.Col>
       </Grid.Row>
