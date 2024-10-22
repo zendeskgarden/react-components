@@ -456,5 +456,21 @@ describe('DatePicker', () => {
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'true');
     });
+
+    it('portals as expected', () => {
+      const { container, rerender } = render(<Example />);
+      const selector = '[data-test-id="datepicker-menu"]';
+
+      expect(container.querySelector(selector)).not.toBeNull();
+
+      const node = document.createElement('DIV');
+
+      document.body.appendChild(node);
+
+      rerender(<Example appendToNode={node} />);
+
+      expect(container.querySelector(selector)).toBeNull();
+      expect(node.querySelector(selector)).not.toBeNull();
+    });
   });
 });
