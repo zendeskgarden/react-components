@@ -11,15 +11,15 @@ import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming'
 const COMPONENT_ID = 'dropdowns.item';
 
 export interface IStyledItemProps {
-  isFocused?: boolean;
-  isCompact?: boolean;
-  isDanger?: boolean;
+  $isFocused?: boolean;
+  $isCompact?: boolean;
+  $isDanger?: boolean;
   disabled?: boolean;
   checked?: boolean;
 }
 
 export const getItemPaddingVertical = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
-  if (props.isCompact) {
+  if (props.$isCompact) {
     return `${props.theme.space.base}px`;
   }
 
@@ -27,7 +27,7 @@ export const getItemPaddingVertical = (props: IStyledItemProps & ThemeProps<Defa
 };
 
 const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
-  const backgroundColor = props.isFocused
+  const backgroundColor = props.$isFocused
     ? getColor({
         theme: props.theme,
         variable: 'background.primaryEmphasis',
@@ -38,7 +38,7 @@ const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
 
   if (props.disabled) {
     foregroundColor = getColor({ theme: props.theme, variable: 'foreground.disabled' });
-  } else if (props.isDanger) {
+  } else if (props.$isDanger) {
     foregroundColor = getColor({ theme: props.theme, variable: 'foreground.danger' });
   } else {
     foregroundColor = getColor({ theme: props.theme, variable: 'foreground.default' });

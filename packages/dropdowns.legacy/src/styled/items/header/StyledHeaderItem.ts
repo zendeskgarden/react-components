@@ -14,12 +14,12 @@ const COMPONENT_ID = 'dropdowns.header_item';
 
 export interface IStyledHeaderItemProps {
   /** Applies icon styling */
-  hasIcon?: boolean;
-  isCompact?: boolean;
+  $hasIcon?: boolean;
+  $isCompact?: boolean;
 }
 
 const getHorizontalPadding = (props: IStyledHeaderItemProps & ThemeProps<DefaultTheme>) => {
-  if (props.hasIcon) {
+  if (props.$hasIcon) {
     return undefined;
   }
 

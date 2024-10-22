@@ -269,8 +269,8 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
             <StyledMultiselectItemWrapper key="more-anchor">
               <StyledMultiselectMoreAnchor
                 data-test-id="show-more"
-                isCompact={props.isCompact}
-                isDisabled={props.disabled}
+                $isCompact={props.isCompact}
+                $isDisabled={props.disabled}
               >
                 {renderShowMore
                   ? renderShowMore(itemValues.length - x)
@@ -333,7 +333,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
                 {start}
               </StyledFauxInput.StartIcon>
             )}
-            <StyledMultiselectItemsContainer isBare={props.isBare} isCompact={props.isCompact}>
+            <StyledMultiselectItemsContainer $isBare={props.isBare} $isCompact={props.isCompact}>
               {items}
               <StyledMultiselectInput
                 {...(getInputProps({

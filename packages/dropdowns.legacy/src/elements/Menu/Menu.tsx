@@ -10,7 +10,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Popper } from 'react-popper';
-import { IMenuProps, PLACEMENT } from '../../types';
+import { IMenuProps, PLACEMENT, PopperPlacement } from '../../types';
 import { StyledMenu, StyledMenuWrapper } from '../../styled/index';
 import useDropdownContext from '../../utils/useDropdownContext';
 import { getPopperPlacement, getRtlPopperPlacement } from '../../utils/garden-placements';
@@ -23,17 +23,18 @@ import { MenuContext } from '../../utils/useMenuContext';
  */
 export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) => {
   const {
+    appendToNode,
+    children,
+    eventsEnabled,
+    hasArrow,
+    isAnimated,
+    isCompact,
+    maxHeight,
     placement,
     popperModifiers,
-    eventsEnabled,
-    isAnimated,
-    maxHeight,
     style: menuStyle,
     zIndex,
-    isCompact,
-    children,
-    appendToNode,
-    ...otherProps
+    ...other
   } = props;
   const {
     hasMenuRef,
@@ -114,28 +115,26 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) =>
 
           const menuProps = getMenuProps({
             role: hasMenuRef.current ? 'menu' : 'listbox',
-            placement: currentPlacement,
-            isAnimated: isAnimated && (isOpen || isVisible),
-            ...otherProps
-          } as any);
+            ...other
+          });
+
+          const sharedProps = {
+            $hasArrow: hasArrow,
+            $isAnimated: isAnimated ? isOpen || isVisible : false,
+            $isCompact: isCompact,
+            $maxHeight: maxHeight,
+            $placement: currentPlacement as PopperPlacement
+          };
 
           const menu = (
             <StyledMenuWrapper
               ref={isOpen ? ref : undefined}
-              hasArrow={menuProps.hasArrow}
-              placement={menuProps.placement}
+              $isHidden={!isOpen}
+              $zIndex={zIndex}
               style={style}
-              isHidden={!isOpen}
-              isAnimated={menuProps.isAnimated}
-              zIndex={zIndex}
+              {...sharedProps}
             >
-              <StyledMenu
-                ref={menuRef}
-                isCompact={isCompact}
-                maxHeight={maxHeight}
-                style={computedStyle}
-                {...menuProps}
-              >
+              <StyledMenu ref={menuRef} style={computedStyle} {...sharedProps} {...menuProps}>
                 {!!(isOpen || isVisible) && children}
               </StyledMenu>
             </StyledMenuWrapper>
