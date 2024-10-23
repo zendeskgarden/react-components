@@ -12,7 +12,7 @@ import { getColorV8 } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Dots } from '@zendeskgarden/react-loaders';
-import { Code, Paragraph } from '@zendeskgarden/react-typography';
+import { Code, Paragraph, Span } from '@zendeskgarden/react-typography';
 import PALETTE_V8 from '../../../src/elements/palette/v8';
 
 const StyledColor = styled.div`
@@ -102,7 +102,9 @@ export const GetColorV8Story: StoryFn = () => {
       <Grid.Row style={{ marginTop: 20 }}>
         <Grid.Col>
           <StyledColor style={{ backgroundColor }} />
-          <div style={{ marginTop: 12 }}>{backgroundColor}</div>
+          <div style={{ marginTop: 12 }}>
+            <Span isMonospace>{backgroundColor}</Span>
+          </div>
         </Grid.Col>
       </Grid.Row>
       {perf.milliseconds > 1 && backgroundColor === initialColor && (

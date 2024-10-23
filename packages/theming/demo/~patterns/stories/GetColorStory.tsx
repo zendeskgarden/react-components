@@ -12,7 +12,7 @@ import { getColor } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Dots } from '@zendeskgarden/react-loaders';
-import { Code, Paragraph } from '@zendeskgarden/react-typography';
+import { Code, Paragraph, Span } from '@zendeskgarden/react-typography';
 
 const StyledColor = styled.div`
   display: inline-block;
@@ -137,7 +137,9 @@ export const GetColorStory: StoryFn = () => {
       <Grid.Row style={{ marginTop: 20 }}>
         <Grid.Col>
           <StyledColor style={{ backgroundColor }} />
-          <div style={{ marginTop: 12 }}>{backgroundColor}</div>
+          <div style={{ marginTop: 12 }}>
+            <Span isMonospace>{backgroundColor}</Span>
+          </div>
         </Grid.Col>
       </Grid.Row>
       {perf.milliseconds > 10 && backgroundColor === initialColor && (
