@@ -11,11 +11,11 @@ import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming'
 const COMPONENT_ID = 'dropdowns.combobox.option.meta';
 
 export interface IStyledOptionMetaProps extends ThemeProps<DefaultTheme> {
-  isDisabled?: boolean;
+  $isDisabled?: boolean;
 }
 
-const colorStyles = ({ theme, isDisabled }: IStyledOptionMetaProps) => {
-  const variable = isDisabled ? 'foreground.disabled' : 'foreground.subtle';
+const colorStyles = ({ theme, $isDisabled }: IStyledOptionMetaProps) => {
+  const variable = $isDisabled ? 'foreground.disabled' : 'foreground.subtle';
   const color = getColor({ theme, variable });
 
   return css`

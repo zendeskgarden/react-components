@@ -13,16 +13,16 @@ import { OptionType } from '../../types';
 const COMPONENT_ID = 'dropdowns.combobox.option';
 
 export interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
-  isActive?: boolean;
-  isCompact?: boolean;
+  $isActive?: boolean;
+  $isCompact?: boolean;
   $type?: OptionType | 'header' | 'group';
 }
 
-const colorStyles = ({ theme, isActive, $type }: IStyledOptionProps) => {
+const colorStyles = ({ theme, $isActive, $type }: IStyledOptionProps) => {
   let backgroundColor;
   let boxShadow;
 
-  if (isActive && $type !== 'group' && $type !== 'header') {
+  if ($isActive && $type !== 'group' && $type !== 'header') {
     const variable = 'background.primaryEmphasis';
 
     backgroundColor = getColor({ theme, variable, transparency: theme.opacity[100] });
@@ -57,7 +57,7 @@ const colorStyles = ({ theme, isActive, $type }: IStyledOptionProps) => {
 };
 
 export const getMinHeight = (props: IStyledOptionProps) =>
-  props.theme.space.base * (props.isCompact ? 7 : 9);
+  props.theme.space.base * (props.$isCompact ? 7 : 9);
 
 /*
  * 1. Use px vs. unitless to prevent browser sizing shifts.

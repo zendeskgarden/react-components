@@ -12,7 +12,7 @@ import { IStyledListboxProps, StyledListbox } from '../combobox/StyledListbox';
 const COMPONENT_ID = 'dropdowns.menu';
 
 interface IStyledMenuProps extends IStyledListboxProps {
-  arrowPosition?: ArrowPosition;
+  $arrowPosition?: ArrowPosition;
 }
 
 /*
@@ -26,8 +26,8 @@ export const StyledMenu = styled(StyledListbox).attrs({
   position: static !important; /* [1] */
 
   ${props =>
-    props.arrowPosition &&
-    arrowStyles(props.arrowPosition, {
+    props.$arrowPosition &&
+    arrowStyles(props.$arrowPosition, {
       size: `${props.theme.space.base * 1.5}px`,
       inset: '1px',
       animationModifier: '[data-garden-animate-arrow="true"]'
