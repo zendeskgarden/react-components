@@ -38,6 +38,10 @@ export const MediaInputStory: StoryFn<IArgs> = ({
     validationLabel={validationLabel}
     validation={args.validation}
   >
-    <MediaInput {...args} start={start && <StartIcon />} end={end && <EndIcon />} />
+    <MediaInput
+      {...args}
+      start={start ? <StartIcon /> : undefined}
+      end={end ? <EndIcon /> : undefined}
+    />
   </FieldStory>
 );

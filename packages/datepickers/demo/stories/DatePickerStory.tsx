@@ -41,7 +41,7 @@ export const DatePickerStory: Story<IArgs> = ({
             <DatePicker {...args} formatDate={formatDate} isCompact={isCompact}>
               <Input isCompact={isCompact} validation={validation} />
             </DatePicker>
-            {hasMessage && (
+            {!!hasMessage && (
               <Field.Message validation={validation} validationLabel={validationLabel}>
                 {message}
               </Field.Message>

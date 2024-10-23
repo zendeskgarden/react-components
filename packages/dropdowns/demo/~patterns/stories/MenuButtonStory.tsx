@@ -20,11 +20,14 @@ export const MenuButtonStory: StoryFn = () => {
           <div style={{ display: 'inline-block', position: 'relative', width: 300 }}>
             <Menu
               hasArrow
-              button={props => (
-                <IconButton {...props} aria-label="Menu">
-                  <LeafIcon />
-                </IconButton>
-              )}
+              button={
+                /* eslint-disable-next-line react/no-unstable-nested-components */
+                props => (
+                  <IconButton {...props} aria-label="Menu">
+                    <LeafIcon />
+                  </IconButton>
+                )
+              }
               minHeight="fit-content"
             >
               <Item value="One" />

@@ -44,7 +44,7 @@ export const MenuStory: Story<IArgs> = ({ items, appendToNode, ...rest }) => {
       // Grant a bit of room, so the menu will fit
       style={{ minHeight: '300px' }}
     >
-      {isReady && (
+      {!!isReady && (
         <Grid>
           <Grid.Row
             style={{

@@ -11,7 +11,7 @@ import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 const COMPONENT_ID = 'dropdowns.media_body';
 
 interface IStyledMediaBodyProps {
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 /**
