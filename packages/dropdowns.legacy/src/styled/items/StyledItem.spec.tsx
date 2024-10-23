@@ -24,7 +24,7 @@ describe('StyledItem', () => {
   });
 
   it('renders danger styling if provided', () => {
-    const { container } = render(<StyledItem isDanger />);
+    const { container } = render(<StyledItem $isDanger />);
 
     expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);
   });

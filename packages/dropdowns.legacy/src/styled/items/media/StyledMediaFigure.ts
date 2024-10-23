@@ -12,7 +12,7 @@ import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 const COMPONENT_ID = 'dropdowns.media_figure';
 
 interface IStyledMediaFigureProps extends HTMLAttributes<HTMLDivElement> {
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 /**
@@ -22,7 +22,7 @@ export const StyledMediaFigure = styled(
   /* eslint-disable @typescript-eslint/no-unused-vars */
   ({
     children,
-    isCompact,
+    $isCompact,
     theme,
     ...props
   }: PropsWithChildren<IStyledMediaFigureProps & ThemeProps<DefaultTheme>>) =>

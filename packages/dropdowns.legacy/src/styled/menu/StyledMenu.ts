@@ -13,11 +13,11 @@ import { getArrowPosition } from '../../utils/garden-placements';
 const COMPONENT_ID = 'dropdowns.menu';
 
 interface IStyledMenuProps {
-  isCompact?: boolean;
-  isAnimated?: boolean;
-  hasArrow?: boolean;
-  placement?: PopperPlacement;
-  maxHeight?: string;
+  $isCompact?: boolean;
+  $isAnimated?: boolean;
+  $hasArrow?: boolean;
+  $placement?: PopperPlacement;
+  $maxHeight?: string;
 }
 
 /**
@@ -27,19 +27,19 @@ interface IStyledMenuProps {
 export const StyledMenu = styled.ul.attrs<IStyledMenuProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props.isAnimated && 'is-animated'
+  className: props.$isAnimated && 'is-animated'
 }))<IStyledMenuProps>`
   /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */
-  max-height: ${props => props.maxHeight};
+  max-height: ${props => props.$maxHeight};
   overflow-y: auto;
 
   ${props =>
-    props.hasArrow &&
-    arrowStyles(getArrowPosition(props.placement), {
+    props.$hasArrow &&
+    arrowStyles(getArrowPosition(props.$placement), {
       size: `${props.theme.space.base * 1.5}px`,
       inset: '1px',
-      animationModifier: props.isAnimated ? '.is-animated' : undefined
+      animationModifier: props.$isAnimated ? '.is-animated' : undefined
     })};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

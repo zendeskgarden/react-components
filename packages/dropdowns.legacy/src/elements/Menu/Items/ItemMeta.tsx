@@ -18,7 +18,7 @@ export const ItemMeta = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpa
     const { isCompact } = useMenuContext();
     const { isDisabled } = useItemContext();
 
-    return <StyledItemMeta ref={ref} isCompact={isCompact} isDisabled={isDisabled} {...props} />;
+    return <StyledItemMeta ref={ref} $isCompact={isCompact} $isDisabled={isDisabled} {...props} />;
   }
 );
 
