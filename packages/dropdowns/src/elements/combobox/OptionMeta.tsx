@@ -13,7 +13,7 @@ const OptionMetaComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEle
   (props, ref) => {
     const { isDisabled } = useOptionContext();
 
-    return <StyledOptionMeta isDisabled={isDisabled} {...props} ref={ref} />;
+    return <StyledOptionMeta $isDisabled={isDisabled} {...props} ref={ref} />;
   }
 );
 

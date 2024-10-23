@@ -13,7 +13,7 @@ const ItemMetaComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
   (props, ref) => {
     const { isDisabled } = useItemContext();
 
-    return <StyledItemMeta isDisabled={isDisabled} {...props} ref={ref} />;
+    return <StyledItemMeta $isDisabled={isDisabled} {...props} ref={ref} />;
   }
 );
 

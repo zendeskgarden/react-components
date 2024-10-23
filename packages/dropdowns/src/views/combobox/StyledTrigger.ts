@@ -14,26 +14,26 @@ import { getHeight as getInputHeight } from './StyledInput';
 const COMPONENT_ID = 'dropdowns.combobox.trigger';
 
 interface IStyledTriggerProps extends ThemeProps<DefaultTheme> {
-  isAutocomplete?: boolean;
-  isBare?: boolean;
-  isCompact?: boolean;
-  isEditable?: boolean;
-  isLabelHovered?: boolean;
-  isMultiselectable?: boolean;
-  maxHeight?: string;
-  focusInset?: boolean;
-  validation?: Validation;
+  $isAutocomplete?: boolean;
+  $isBare?: boolean;
+  $isCompact?: boolean;
+  $isEditable?: boolean;
+  $isLabelHovered?: boolean;
+  $isMultiselectable?: boolean;
+  $maxHeight?: string;
+  $focusInset?: boolean;
+  $validation?: Validation;
 }
 
 const colorStyles = ({
   theme,
-  validation,
-  isBare,
-  isLabelHovered,
-  focusInset
+  $validation,
+  $isBare,
+  $isLabelHovered,
+  $focusInset
 }: IStyledTriggerProps) => {
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
-  const backgroundColor = isBare
+  const backgroundColor = $isBare
     ? 'transparent'
     : getColor({ theme, variable: 'background.default' });
   let borderColor: string | undefined;
@@ -41,12 +41,12 @@ const colorStyles = ({
   let hoverBorderColor: string | undefined;
   let focusBorderColor: string | undefined;
 
-  if (validation) {
-    if (validation === 'success') {
+  if ($validation) {
+    if ($validation === 'success') {
       borderVariable = 'border.successEmphasis';
-    } else if (validation === 'warning') {
+    } else if ($validation === 'warning') {
       borderVariable = 'border.warningEmphasis';
-    } else if (validation === 'error') {
+    } else if ($validation === 'error') {
       borderVariable = 'border.dangerEmphasis';
     }
 
@@ -65,7 +65,7 @@ const colorStyles = ({
     focusBorderColor = hoverBorderColor;
   }
 
-  const disabledBackgroundColor = isBare
+  const disabledBackgroundColor = $isBare
     ? undefined
     : getColor({ theme, variable: 'background.disabled' });
   const disabledBorderColor = getColor({ theme, variable: 'border.disabled' });
@@ -77,7 +77,7 @@ const colorStyles = ({
 
   return css`
     color-scheme: only ${theme.colors.base};
-    border-color: ${isLabelHovered ? hoverBorderColor : borderColor};
+    border-color: ${$isLabelHovered ? hoverBorderColor : borderColor};
     background-color: ${backgroundColor};
     color: ${foregroundColor};
 
@@ -87,11 +87,11 @@ const colorStyles = ({
 
     ${focusStyles({
       theme,
-      inset: focusInset,
+      inset: $focusInset,
       color: { variable: borderVariable },
       selector: focusSelector,
       styles: { borderColor: focusBorderColor },
-      condition: !isBare
+      condition: !$isBare
     })}
 
     &[aria-disabled='true'] {
@@ -107,8 +107,8 @@ const sizeStyles = (props: IStyledTriggerProps) => {
   let minHeight;
   let horizontalPadding;
 
-  if (props.isBare) {
-    if (props.isMultiselectable) {
+  if (props.$isBare) {
+    if (props.$isMultiselectable) {
       minHeight = math(`${props.theme.shadowWidths.sm} * 2 + ${inputHeight}`);
       horizontalPadding = props.theme.shadowWidths.sm;
     } else {
@@ -116,19 +116,19 @@ const sizeStyles = (props: IStyledTriggerProps) => {
       horizontalPadding = '0';
     }
   } else {
-    minHeight = `${props.theme.space.base * (props.isCompact ? 3 : 2) + inputHeight}px`;
+    minHeight = `${props.theme.space.base * (props.$isCompact ? 3 : 2) + inputHeight}px`;
     horizontalPadding = `${props.theme.space.base * 3}px`;
   }
 
-  const maxHeight = props.maxHeight || minHeight;
+  const $maxHeight = props.$maxHeight || minHeight;
   const verticalPadding = math(
-    `(${minHeight} - ${inputHeight} - (${props.isBare ? 0 : props.theme.borderWidths.sm} * 2)) / 2`
+    `(${minHeight} - ${inputHeight} - (${props.$isBare ? 0 : props.theme.borderWidths.sm} * 2)) / 2`
   );
 
   return css`
     padding: ${verticalPadding} ${horizontalPadding};
     min-height: ${minHeight};
-    max-height: ${maxHeight};
+    max-height: ${$maxHeight};
     font-size: ${props.theme.fontSizes.md};
   `;
 };
@@ -137,16 +137,16 @@ export const StyledTrigger = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTriggerProps>`
-  overflow-y: ${props => (props.isBare && !props.isMultiselectable ? 'visible' : 'auto')};
+  overflow-y: ${props => (props.$isBare && !props.$isMultiselectable ? 'visible' : 'auto')};
   /* prettier-ignore */
   transition:
     border-color 0.25s ease-in-out,
     box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out,
     color 0.25s ease-in-out;
-  border: ${props => (props.isBare ? 'none' : props.theme.borders.sm)};
-  border-radius: ${props => (props.isBare ? '0' : props.theme.borderRadii.md)};
-  cursor: ${props => (!props.isAutocomplete && props.isEditable ? 'text' : 'pointer')};
+  border: ${props => (props.$isBare ? 'none' : props.theme.borders.sm)};
+  border-radius: ${props => (props.$isBare ? '0' : props.theme.borderRadii.md)};
+  cursor: ${props => (!props.$isAutocomplete && props.$isEditable ? 'text' : 'pointer')};
   box-sizing: border-box;
 
   ${sizeStyles};

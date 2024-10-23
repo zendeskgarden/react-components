@@ -144,18 +144,18 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
     const Node = (
       <StyledFloatingMenu
         data-garden-animate={isVisible}
-        isHidden={!isExpanded || !isVisible} /* [1] */
-        position={getMenuPosition(placement)}
-        zIndex={zIndex}
+        $isHidden={!isExpanded || !isVisible} /* [1] */
+        $position={getMenuPosition(placement)}
+        $zIndex={zIndex}
         style={{ transform }}
         ref={floatingRef}
       >
         <StyledMenu
           data-garden-animate-arrow={isVisible}
-          arrowPosition={hasArrow ? getArrowPosition(theme, placement) : undefined}
-          isCompact={isCompact}
-          minHeight={minHeight}
-          maxHeight={maxHeight}
+          $arrowPosition={hasArrow ? getArrowPosition(theme, placement) : undefined}
+          $isCompact={isCompact}
+          $minHeight={minHeight}
+          $maxHeight={maxHeight}
           style={{ height }}
           {...props}
           ref={ref}

@@ -67,8 +67,8 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
     return (
       <OptionContext.Provider value={contextValue}>
         <StyledOption
-          isActive={isActive}
-          isCompact={isCompact}
+          $isActive={isActive}
+          $isCompact={isCompact}
           $type={type}
           {...props}
           {...optionProps}
