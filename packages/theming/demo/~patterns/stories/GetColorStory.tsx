@@ -41,7 +41,7 @@ export const GetColorStory: StoryFn = () => {
   };
 
   const variablesObject = theme.colors.variables[theme.colors.base];
-  const variables = Object.keys(variablesObject) as Array<keyof typeof variablesObject>;
+  const variables = Object.keys(variablesObject) as (keyof typeof variablesObject)[];
   const hues = Object.keys(theme.palette).filter(hue => typeof theme.palette[hue] === 'object');
   const offsets = [-300, -200, -100, 100, 200, 300];
   const transparencies = Object.keys(theme.opacity);
@@ -100,7 +100,7 @@ export const GetColorStory: StoryFn = () => {
     });
   };
 
-  const handleClick = async () => {
+  const handleClick = () => {
     setPerf({ milliseconds: 0, calls: 0 });
 
     const startTime = performance.now();

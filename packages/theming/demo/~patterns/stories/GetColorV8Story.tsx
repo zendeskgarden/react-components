@@ -61,7 +61,7 @@ export const GetColorV8Story: StoryFn = () => {
     });
   };
 
-  const handleClick = async () => {
+  const handleClick = () => {
     setPerf({ milliseconds: 0, calls: 0 });
 
     const startTime = performance.now();
