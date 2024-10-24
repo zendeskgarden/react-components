@@ -176,32 +176,31 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       'listboxAriaLabel',
       'Options'
     );
-    const triggerProps = {
-      ...(getTriggerProps({
-        onFocus: () => {
-          if (!isDisabled) {
-            if (isEditable) {
-              setIsInputHidden(false);
-            }
-
-            if (isMultiselectable) {
-              setIsTagGroupExpanded(true);
-            }
+    const triggerProps = getTriggerProps({
+      onFocus: () => {
+        if (!isDisabled) {
+          if (isEditable) {
+            setIsInputHidden(false);
           }
-        },
-        onBlur: event => {
-          if (event.relatedTarget === null || !triggerRef.current?.contains(event.relatedTarget)) {
-            if (isEditable) {
-              setIsInputHidden(true);
-            }
 
-            if (isMultiselectable) {
-              setIsTagGroupExpanded(false);
-            }
+          if (isMultiselectable) {
+            setIsTagGroupExpanded(true);
           }
         }
-      }) as HTMLAttributes<HTMLDivElement>)
-    };
+      },
+      onBlur: event => {
+        if (event.relatedTarget === null || !triggerRef.current?.contains(event.relatedTarget)) {
+          if (isEditable) {
+            setIsInputHidden(true);
+          }
+
+          if (isMultiselectable) {
+            setIsTagGroupExpanded(false);
+          }
+        }
+      }
+    }) as HTMLAttributes<HTMLDivElement>;
+
     const inputProps = {
       'aria-invalid': validation === 'error' || validation === 'warning',
       hidden: isInputHidden,
