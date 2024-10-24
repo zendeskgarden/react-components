@@ -274,6 +274,77 @@ const fromVariable = (
   return retVal;
 };
 
+const CACHE = new WeakMap();
+const KEYS = { colors: 0, palette: 0, opacity: 0 };
+
+CACHE.set(DEFAULT_THEME.colors, KEYS.colors);
+CACHE.set(DEFAULT_THEME.palette, KEYS.palette);
+CACHE.set(DEFAULT_THEME.opacity, KEYS.opacity);
+
+const toKey = ({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}: ColorParameters) => {
+  let themeColorsKey = CACHE.get(theme.colors);
+
+  if (themeColorsKey === undefined) {
+    themeColorsKey = ++KEYS.colors;
+    CACHE.set(theme.colors, themeColorsKey);
+  }
+
+  let themeOpacityKey = CACHE.get(theme.opacity);
+
+  if (themeOpacityKey === undefined) {
+    themeOpacityKey = ++KEYS.opacity;
+    CACHE.set(theme.opacity, themeOpacityKey);
+  }
+
+  let themePaletteKey = CACHE.get(theme.palette);
+
+  if (themePaletteKey === undefined) {
+    themePaletteKey = ++KEYS.palette;
+    CACHE.set(theme.palette, themePaletteKey);
+  }
+
+  let retVal = `{${themeColorsKey},${themePaletteKey},${themeOpacityKey}}`;
+
+  if (variable !== undefined) {
+    retVal += `,${variable}`;
+  }
+
+  if (hue !== undefined) {
+    retVal += `,${hue}`;
+  }
+
+  if (shade !== undefined) {
+    retVal += `,${shade}`;
+  }
+
+  if (offset !== undefined) {
+    retVal += `,${offset}`;
+  }
+
+  if (transparency !== undefined) {
+    retVal += `,${transparency}`;
+  }
+
+  if (dark !== undefined) {
+    retVal += `,${JSON.stringify(dark)}`;
+  }
+
+  if (light !== undefined) {
+    retVal += `,${JSON.stringify(light)}`;
+  }
+
+  return retVal;
+};
+
 /**
  * Get a color value from the theme. Variable lookup takes precedence, followed
  * by `dark` and `light` object values. If none of these are provided, `hue`,
@@ -341,16 +412,5 @@ export const getColor = memoize(
     return retVal;
   },
   ({ dark, hue, light, offset, shade, theme, transparency, variable }) =>
-    JSON.stringify({
-      dark,
-      hue,
-      light,
-      offset,
-      shade,
-      colors: theme.colors,
-      palette: theme.palette,
-      opacity: theme.opacity,
-      transparency,
-      variable
-    })
+    toKey({ dark, hue, light, offset, shade, theme, transparency, variable })
 );
