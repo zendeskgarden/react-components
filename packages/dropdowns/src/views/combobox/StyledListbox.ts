@@ -15,21 +15,21 @@ import { StyledListboxSeparator } from './StyledListboxSeparator';
 const COMPONENT_ID = 'dropdowns.combobox.listbox';
 
 export interface IStyledListboxProps extends ThemeProps<DefaultTheme> {
-  isCompact?: boolean;
-  maxHeight?: IListboxProps['maxHeight'];
-  minHeight?: IListboxProps['minHeight'];
+  $isCompact?: boolean;
+  $maxHeight?: IListboxProps['maxHeight'];
+  $minHeight?: IListboxProps['minHeight'];
 }
 
 const sizeStyles = (props: IStyledListboxProps) => {
   const padding = props.theme.space.base;
-  const minHeight =
-    props.minHeight === undefined
+  const $minHeight =
+    props.$minHeight === undefined
       ? `${getOptionMinHeight(props) + padding * 2}px`
-      : props.minHeight;
+      : props.$minHeight;
 
   return css`
-    min-height: ${minHeight};
-    max-height: ${props.maxHeight};
+    min-height: ${$minHeight};
+    max-height: ${props.$maxHeight};
 
     &&& {
       padding-top: ${padding}px;

@@ -83,8 +83,8 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
       <ItemContext.Provider value={contextValue}>
         <StyledItem
           $type={type}
-          isCompact={isCompact}
-          isActive={isActive}
+          $isCompact={isCompact}
+          $isActive={isActive}
           {...props}
           {...itemProps}
           ref={mergeRefs([_itemRef, ref])}

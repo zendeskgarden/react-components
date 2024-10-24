@@ -44,10 +44,10 @@ export const ItemGroup = forwardRef<HTMLLIElement, IItemGroupProps>(
 
     return (
       <ItemGroupContext.Provider value={contextValue}>
-        <StyledItem isCompact={isCompact} $type="group" {...props} role="none" ref={ref}>
+        <StyledItem $isCompact={isCompact} $type="group" {...props} role="none" ref={ref}>
           <StyledItemContent>
             {!!(content || legend) && (
-              <StyledItem as="div" isCompact={isCompact} $type="header">
+              <StyledItem as="div" $isCompact={isCompact} $type="header">
                 {!!icon && (
                   <StyledItemTypeIcon $isCompact={isCompact} $type="header">
                     {icon}
@@ -56,7 +56,7 @@ export const ItemGroup = forwardRef<HTMLLIElement, IItemGroupProps>(
                 {content || legend}
               </StyledItem>
             )}
-            <StyledItemGroup isCompact={isCompact} {...groupProps}>
+            <StyledItemGroup $isCompact={isCompact} {...groupProps}>
               <StyledSeparator role="none" />
               {children}
             </StyledItemGroup>

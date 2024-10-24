@@ -12,7 +12,7 @@ import { StyledValue } from './StyledValue';
 const COMPONENT_ID = 'dropdowns.combobox.tags_button';
 
 interface IStyledTagsButtonProps extends ThemeProps<DefaultTheme> {
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 const colorStyles = ({ theme }: IStyledTagsButtonProps) => {
