@@ -2126,7 +2126,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   position: absolute;
   -webkit-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
-  top: 10px;
+  top: 6px;
   left: 12px;
   width: 16px;
   height: 16px;
@@ -4113,7 +4113,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   position: absolute;
   -webkit-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
-  top: 10px;
+  top: 6px;
   left: 12px;
   width: 16px;
   height: 16px;
