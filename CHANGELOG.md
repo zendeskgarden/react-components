@@ -13,6 +13,45 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.1.0 (2024-10-24)
+
+#### :rocket: New Feature
+* `datepickers`
+  * [#1955](https://github.com/zendeskgarden/react-components/pull/1955) feat(datepickers): provide `appendToNode` prop for handling `DatePicker` calendar rendering ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `theming`
+  * [#1960](https://github.com/zendeskgarden/react-components/pull/1960) fix(theming): `getColor` memoization peformance ([@jzempel](https://github.com/jzempel))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1954](https://github.com/zendeskgarden/react-components/pull/1954) fix(forms,tables): improve native `Select` styling and correct `Table` extends documentation ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `dropdowns`
+  * [#1961](https://github.com/zendeskgarden/react-components/pull/1961) refactor(dropdowns): use transient props where appropriate ([@ze-flo](https://github.com/ze-flo))
+* `dropdowns.legacy`, `forms`
+  * [#1957](https://github.com/zendeskgarden/react-components/pull/1957) refactor(dropdowns.legacy): use transient props where appropriate ([@ze-flo](https://github.com/ze-flo))
+* `accordions`, `avatars`, `buttons`, `chrome`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `tables`, `tags`, `theming`, `typography`
+  * [#1958](https://github.com/zendeskgarden/react-components/pull/1958) fix: add storybook demos to eslint config ([@jzempel](https://github.com/jzempel))
+* `forms`
+  * [#1952](https://github.com/zendeskgarden/react-components/pull/1952) refactor(forms): use transient props where appropriate ([@ze-flo](https://github.com/ze-flo))
+* `buttons`
+  * [#1949](https://github.com/zendeskgarden/react-components/pull/1949) refactor(buttons): use transient props where appropriate ([@ze-flo](https://github.com/ze-flo))
+* `chrome`
+  * [#1948](https://github.com/zendeskgarden/react-components/pull/1948) refactor(chrome): use transient props where appropriate ([@ze-flo](https://github.com/ze-flo))
+* `forms`, `typography`
+  * [#1945](https://github.com/zendeskgarden/react-components/pull/1945) chore(deps): update dependency @zendeskgarden/eslint-config to v44 ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`
+  * [#1941](https://github.com/zendeskgarden/react-components/pull/1941) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `datepickers`
+  * [#1947](https://github.com/zendeskgarden/react-components/pull/1947) fix(deps): update dependency date-fns to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1943](https://github.com/zendeskgarden/react-components/pull/1943) chore(deps): update dependency @rollup/plugin-replace to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1942](https://github.com/zendeskgarden/react-components/pull/1942) chore(deps): update dependency @rollup/plugin-commonjs to v28 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1944](https://github.com/zendeskgarden/react-components/pull/1944) chore(deps): update dependency @zendeskgarden/css-bedrock to v10 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1946](https://github.com/zendeskgarden/react-components/pull/1946) chore(deps): update dependency inquirer to v12 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#1940](https://github.com/zendeskgarden/react-components/pull/1940) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v9.0.0 (2024-10-01)
 
 #### :boom: Breaking Change
