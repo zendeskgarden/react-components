@@ -1,0 +1,1663 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DraggableStory Component renders DraggableStory as disabled 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: default;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`DraggableStory Component renders DraggableStory as grabbed 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 28px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: #fff;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7,0 20px 28px 0 rgba(10,13,14,0.16);
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+/>
+`;
+
+exports[`DraggableStory Component renders DraggableStory as placeholder 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: default;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0 > * {
+  visibility: hidden;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+/>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with a custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+<section
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+/>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with a custom tag and grip 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  box-sizing: border-box;
+  color: #5c6970;
+  margin-right: 8px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+<section
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+>
+  <div
+    class="c1"
+    data-garden-id="draggable.grip"
+    data-garden-version="9.0.0"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="currentColor"
+      >
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="9"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="9"
+        />
+      </g>
+    </svg>
+  </div>
+</section>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with all props 1`] = `
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  box-sizing: border-box;
+  color: #5c6970;
+  margin-right: 8px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: default;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 5px 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7,0 20px 28px 0 rgba(10,13,14,0.16);
+}
+
+.c0 > .c1 {
+  color: #848f99;
+}
+
+.c3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1 c2"
+    data-garden-id="draggable.grip"
+    data-garden-version="9.0.0"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="currentColor"
+      >
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="9"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="9"
+        />
+      </g>
+    </svg>
+  </div>
+  <div
+    class="c3"
+    data-garden-id="draggable.content"
+    data-garden-version="9.0.0"
+  >
+    Draggable Item
+  </div>
+</section>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with children 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+>
+  <div
+    class="c1"
+    data-garden-id="draggable.content"
+    data-garden-version="9.0.0"
+  >
+    Draggable Item
+  </div>
+</div>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with compact styling 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 5px 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+/>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with focusInset 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+/>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with focusInset and grip 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  box-sizing: border-box;
+  color: #5c6970;
+  margin-right: 8px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+>
+  <div
+    class="c1"
+    data-garden-id="draggable.grip"
+    data-garden-version="9.0.0"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="currentColor"
+      >
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="9"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="9"
+        />
+      </g>
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with grip 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  box-sizing: border-box;
+  color: #5c6970;
+  margin-right: 8px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+>
+  <div
+    class="c1"
+    data-garden-id="draggable.grip"
+    data-garden-version="9.0.0"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="currentColor"
+      >
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="9"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="9"
+        />
+      </g>
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with grip and children 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  box-sizing: border-box;
+  color: #5c6970;
+  margin-right: 8px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c2 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+>
+  <div
+    class="c1"
+    data-garden-id="draggable.grip"
+    data-garden-version="9.0.0"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="currentColor"
+      >
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="9"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="9"
+        />
+      </g>
+    </svg>
+  </div>
+  <div
+    class="c2"
+    data-garden-id="draggable.content"
+    data-garden-version="9.0.0"
+  >
+    Draggable Item
+  </div>
+</div>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with isBare and children 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: transparent;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+>
+  <div
+    class="c1"
+    data-garden-id="draggable.content"
+    data-garden-version="9.0.0"
+  >
+    Draggable Item
+  </div>
+</div>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with isBare styling 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: transparent;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+/>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with isCompact and grip 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  box-sizing: border-box;
+  color: #5c6970;
+  margin-right: 8px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 5px 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+>
+  <div
+    class="c1"
+    data-garden-id="draggable.grip"
+    data-garden-version="9.0.0"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="currentColor"
+      >
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="9"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="9"
+        />
+      </g>
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with isDisabled and children 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: default;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+>
+  <div
+    class="c1"
+    data-garden-id="draggable.content"
+    data-garden-version="9.0.0"
+  >
+    Draggable Item
+  </div>
+</div>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with isGrabbed and grip 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  box-sizing: border-box;
+  color: #5c6970;
+  margin-right: 8px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 28px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: #fff;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7,0 20px 28px 0 rgba(10,13,14,0.16);
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+>
+  <div
+    class="c1"
+    data-garden-id="draggable.grip"
+    data-garden-version="9.0.0"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="currentColor"
+      >
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="1"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="5"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="3"
+          y="9"
+        />
+        <rect
+          height="2"
+          rx="0.5"
+          ry="0.5"
+          width="2"
+          x="7"
+          y="9"
+        />
+      </g>
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`DraggableStory Component renders DraggableStory with isPlaceholder and children 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: default;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0 > * {
+  visibility: hidden;
+}
+
+.c1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+>
+  <div
+    class="c1"
+    data-garden-id="draggable.content"
+    data-garden-version="9.0.0"
+  >
+    Draggable Item
+  </div>
+</div>
+`;
+
+exports[`DraggableStory Component renders default DraggableStory 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 9px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+<div
+  class="c0"
+  data-garden-id="draggable"
+  data-garden-version="9.0.0"
+  tabindex="0"
+/>
+`;

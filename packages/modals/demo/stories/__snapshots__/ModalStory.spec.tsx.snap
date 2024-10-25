@@ -1,0 +1,3690 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalStory Component renders ModalStory with a body 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a centered modal 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a close button 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c3:disabled .c1 {
+  color: #848f99;
+}
+
+.c3 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a custom tag in the header 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a danger footer 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #7e1d25;
+  background-color: rgba(205,54,66,0.08);
+  color: #7e1d25;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #671219;
+  background-color: rgba(205,54,66,0.16);
+  color: #671219;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c3:disabled .c1 {
+  color: #848f99;
+}
+
+.c3 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a danger header 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #7e1d25;
+  background-color: rgba(205,54,66,0.08);
+  color: #7e1d25;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #671219;
+  background-color: rgba(205,54,66,0.16);
+  color: #671219;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a dialog aria label 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a footer 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c3:disabled .c1 {
+  color: #848f99;
+}
+
+.c3 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a header 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a header, body, and footer 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c3:disabled .c1 {
+  color: #848f99;
+}
+
+.c3 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a header, body, footer, and close button 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c3:disabled .c1 {
+  color: #848f99;
+}
+
+.c3 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c5:disabled .c1 {
+  color: #848f99;
+}
+
+.c5 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 {
+  width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a header, body, footer, close button, and animated modal 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c3:disabled .c1 {
+  color: #848f99;
+}
+
+.c3 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c5:disabled .c1 {
+  color: #848f99;
+}
+
+.c5 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 {
+  width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a header, body, footer, close button, and centered modal 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c3:disabled .c1 {
+  color: #848f99;
+}
+
+.c3 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c5:disabled .c1 {
+  color: #848f99;
+}
+
+.c5 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 {
+  width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a header, body, footer, close button, and danger styling 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #7e1d25;
+  background-color: rgba(205,54,66,0.08);
+  color: #7e1d25;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #671219;
+  background-color: rgba(205,54,66,0.16);
+  color: #671219;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c3:disabled .c1 {
+  color: #848f99;
+}
+
+.c3 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c5:disabled .c1 {
+  color: #848f99;
+}
+
+.c5 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 {
+  width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a header, body, footer, close button, and focus on mount 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c3:disabled .c1 {
+  color: #848f99;
+}
+
+.c3 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c5:disabled .c1 {
+  color: #848f99;
+}
+
+.c5 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 {
+  width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a header, body, footer, close button, and large button 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.3571428571428572em;
+  height: 48px;
+  line-height: 46px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c3:disabled .c1 {
+  color: #848f99;
+}
+
+.c3 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c5:disabled .c1 {
+  color: #848f99;
+}
+
+.c5 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 {
+  width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a header, body, footer, close button, and restore focus on close 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c3:disabled .c1 {
+  color: #848f99;
+}
+
+.c3 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c5:disabled .c1 {
+  color: #848f99;
+}
+
+.c5 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 {
+  width: 16px;
+  height: 16px;
+}
+
+.c6 .c1 > svg {
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with a large button 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.3571428571428572em;
+  height: 48px;
+  line-height: 46px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with an animated modal 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with focus on mount 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with restore focus on close 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders ModalStory with visible modal 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (max-height:399px) {
+
+}
+
+@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none) {
+
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ModalStory Component renders default ModalStory 1`] = `
+.c2 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.0.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1  c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.0.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;

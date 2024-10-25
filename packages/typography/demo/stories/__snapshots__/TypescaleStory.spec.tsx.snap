@@ -1,0 +1,645 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TypescaleStory Component renders TypescaleStory with 2x-large size 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 32px;
+  font-size: 26px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with 2x-large size and custom tag 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 32px;
+  font-size: 26px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<h1
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with 2x-large size, display name, monospace font, and custom tag 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 32px;
+  font-size: 26px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<pre
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+>
+  &lt;XXL&gt;
+  &lt;/XXL&gt;
+</pre>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with 3x-large size 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 44px;
+  font-size: 36px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with 3x-large size, display name, and bold text 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 44px;
+  font-size: 36px;
+  font-weight: 600;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+>
+  &lt;XXXL&gt;
+  &lt;/XXXL&gt;
+</div>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with 3x-large size, display name, bold text, monospace font, and custom tag 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 44px;
+  font-size: 36px;
+  font-weight: 600;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<h2
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+>
+  &lt;XXXL&gt;
+  &lt;/XXXL&gt;
+</h2>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with a custom tag 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<span
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with bold text 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with display name 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+>
+  &lt;MD&gt;
+  &lt;/MD&gt;
+</div>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with extra-large size 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 28px;
+  font-size: 22px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with extra-large size and monospace font 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 28px;
+  font-size: 22px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with extra-large size, display name, bold text, and custom tag 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 28px;
+  font-size: 22px;
+  font-weight: 600;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<strong
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+>
+  &lt;XL&gt;
+  &lt;/XL&gt;
+</strong>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with large size 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 24px;
+  font-size: 18px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with large size and bold text 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 24px;
+  font-size: 18px;
+  font-weight: 600;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with large size, display name, bold text, and monospace font 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 23px;
+  font-family: SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  font-size: 17px;
+  font-weight: 600;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+>
+  &lt;LG&gt;
+  &lt;/LG&gt;
+</div>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with monospace font 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 19px;
+  font-family: SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  font-size: 13px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with small size 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with small size and display name 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+>
+  &lt;SM&gt;
+  &lt;/SM&gt;
+</div>
+`;
+
+exports[`TypescaleStory Component renders TypescaleStory with small size, monospace font, and custom tag 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 15px;
+  font-family: SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  font-size: 11px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<code
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
+
+exports[`TypescaleStory Component renders default TypescaleStory (medium size) 1`] = `
+.c0 {
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+  class="c0"
+  data-garden-id="typography.font"
+  data-garden-version="9.0.0"
+/>
+`;
