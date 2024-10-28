@@ -134,14 +134,14 @@ exports[`ModalStory Component renders ModalStory with a body 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -281,14 +281,14 @@ exports[`ModalStory Component renders ModalStory with a centered modal 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -448,14 +448,14 @@ exports[`ModalStory Component renders ModalStory with a close button 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -595,14 +595,14 @@ exports[`ModalStory Component renders ModalStory with a custom tag in the header
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -758,14 +758,14 @@ exports[`ModalStory Component renders ModalStory with a danger footer 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -905,14 +905,14 @@ exports[`ModalStory Component renders ModalStory with a danger header 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1052,14 +1052,14 @@ exports[`ModalStory Component renders ModalStory with a dialog aria label 1`] = 
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1215,14 +1215,14 @@ exports[`ModalStory Component renders ModalStory with a footer 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1362,14 +1362,14 @@ exports[`ModalStory Component renders ModalStory with a header 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1525,14 +1525,14 @@ exports[`ModalStory Component renders ModalStory with a header, body, and footer
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1708,14 +1708,14 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, an
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1891,14 +1891,14 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2074,14 +2074,14 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2257,14 +2257,14 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2440,14 +2440,14 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2623,14 +2623,14 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2806,14 +2806,14 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2953,14 +2953,14 @@ exports[`ModalStory Component renders ModalStory with a large button 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -3100,14 +3100,14 @@ exports[`ModalStory Component renders ModalStory with an animated modal 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -3247,14 +3247,14 @@ exports[`ModalStory Component renders ModalStory with focus on mount 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -3394,14 +3394,14 @@ exports[`ModalStory Component renders ModalStory with restore focus on close 1`]
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -3541,14 +3541,14 @@ exports[`ModalStory Component renders ModalStory with visible modal 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -3676,14 +3676,14 @@ exports[`ModalStory Component renders default ModalStory 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>

@@ -145,24 +145,24 @@ exports[`FileListStory Component renders FileListStory with a file that has prog
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -183,7 +183,7 @@ exports[`FileListStory Component renders FileListStory with a file that has prog
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -209,13 +209,13 @@ exports[`FileListStory Component renders FileListStory with a file that has prog
         aria-valuenow="16"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="16"
         />
@@ -303,17 +303,17 @@ exports[`FileListStory Component renders FileListStory with a single item 1`] = 
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <span>
         Unknown.txt
@@ -526,17 +526,17 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <span>
         Unknown.txt
@@ -546,19 +546,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -578,7 +578,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -604,13 +604,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuenow="0"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="0"
         />
@@ -620,19 +620,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -653,7 +653,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -679,13 +679,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuenow="16"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c7"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="16"
         />
@@ -695,19 +695,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -734,7 +734,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -760,13 +760,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuenow="32"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c8"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="32"
         />
@@ -776,19 +776,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -818,7 +818,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -844,13 +844,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuenow="48"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c9"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="48"
         />
@@ -860,19 +860,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -892,7 +892,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -918,13 +918,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuenow="64"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c10"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="64"
         />
@@ -934,19 +934,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -967,7 +967,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -993,13 +993,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuenow="80"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c11"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="80"
         />
@@ -1009,19 +1009,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -1042,7 +1042,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4 c12"
         data-garden-id="forms.file.delete"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -1069,13 +1069,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuenow="100"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c13"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="100"
         />
@@ -1230,24 +1230,24 @@ exports[`FileListStory Component renders FileListStory with an item that has a c
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -1267,7 +1267,7 @@ exports[`FileListStory Component renders FileListStory with an item that has a c
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -1293,13 +1293,13 @@ exports[`FileListStory Component renders FileListStory with an item that has a c
         aria-valuenow="0"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="0"
         />
@@ -1458,24 +1458,24 @@ exports[`FileListStory Component renders FileListStory with an item that has a d
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -1496,7 +1496,7 @@ exports[`FileListStory Component renders FileListStory with an item that has a d
         aria-label="Press backspace to delete"
         class="c3 c4 c5"
         data-garden-id="forms.file.delete"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -1523,13 +1523,13 @@ exports[`FileListStory Component renders FileListStory with an item that has a d
         aria-valuenow="100"
         class="c6"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c7"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="100"
         />
@@ -1742,17 +1742,17 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <span>
         Unknown.txt
@@ -1762,19 +1762,19 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -1794,7 +1794,7 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -1820,13 +1820,13 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-valuenow="0"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="0"
         />
@@ -1836,19 +1836,19 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -1869,7 +1869,7 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -1895,13 +1895,13 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-valuenow="16"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c7"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="16"
         />
@@ -1911,19 +1911,19 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -1950,7 +1950,7 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -1976,13 +1976,13 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-valuenow="32"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c8"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="32"
         />
@@ -1992,19 +1992,19 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -2034,7 +2034,7 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -2060,13 +2060,13 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-valuenow="48"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c9"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="48"
         />
@@ -2076,19 +2076,19 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -2108,7 +2108,7 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -2134,13 +2134,13 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-valuenow="64"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c10"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="64"
         />
@@ -2150,19 +2150,19 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -2183,7 +2183,7 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -2209,13 +2209,13 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-valuenow="80"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c11"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="80"
         />
@@ -2225,19 +2225,19 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -2258,7 +2258,7 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-label="Press backspace to delete"
         class="c3 c4 c12"
         data-garden-id="forms.file.delete"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -2285,13 +2285,13 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
         aria-valuenow="100"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c13"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="100"
         />
@@ -2504,17 +2504,17 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <span>
         Unknown.txt
@@ -2524,19 +2524,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -2556,7 +2556,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -2582,13 +2582,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuenow="0"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="0"
         />
@@ -2598,19 +2598,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -2631,7 +2631,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -2657,13 +2657,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuenow="16"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c7"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="16"
         />
@@ -2673,19 +2673,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -2713,7 +2713,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -2739,13 +2739,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuenow="32"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c8"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="32"
         />
@@ -2755,19 +2755,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -2797,7 +2797,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -2823,13 +2823,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuenow="48"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c9"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="48"
         />
@@ -2839,19 +2839,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -2871,7 +2871,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -2897,13 +2897,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuenow="64"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c10"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="64"
         />
@@ -2913,19 +2913,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -2946,7 +2946,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -2972,13 +2972,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuenow="80"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c11"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="80"
         />
@@ -2988,19 +2988,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -3021,7 +3021,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-label="Press backspace to delete"
         class="c3 c4 c12"
         data-garden-id="forms.file.delete"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -3048,13 +3048,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuenow="100"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c13"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="100"
         />
@@ -3209,24 +3209,24 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -3246,7 +3246,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -3272,13 +3272,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuenow="0"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="0"
         />
@@ -3437,24 +3437,24 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -3475,7 +3475,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-label="Press backspace to delete"
         class="c3 c4 c5"
         data-garden-id="forms.file.delete"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -3502,13 +3502,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuenow="100"
         class="c6"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c7"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="100"
         />
@@ -3721,17 +3721,17 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <span>
         Unknown.txt
@@ -3741,19 +3741,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -3773,7 +3773,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -3799,13 +3799,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuenow="0"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="0"
         />
@@ -3815,19 +3815,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -3848,7 +3848,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -3874,13 +3874,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuenow="16"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c7"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="16"
         />
@@ -3890,19 +3890,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -3930,7 +3930,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -3956,13 +3956,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuenow="32"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c8"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="32"
         />
@@ -3972,19 +3972,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -4014,7 +4014,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -4040,13 +4040,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuenow="48"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c9"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="48"
         />
@@ -4056,19 +4056,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -4088,7 +4088,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -4114,13 +4114,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuenow="64"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c10"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="64"
         />
@@ -4130,19 +4130,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -4163,7 +4163,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -4189,13 +4189,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuenow="80"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c11"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="80"
         />
@@ -4205,19 +4205,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -4238,7 +4238,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-label="Press backspace to delete"
         class="c3 c4 c12"
         data-garden-id="forms.file.delete"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -4265,13 +4265,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuenow="100"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c13"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="100"
         />
@@ -4426,24 +4426,24 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -4464,7 +4464,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -4490,13 +4490,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuenow="16"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="16"
         />
@@ -4709,17 +4709,17 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <span>
         Unknown.txt
@@ -4729,19 +4729,19 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -4761,7 +4761,7 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -4787,13 +4787,13 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-valuenow="0"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="0"
         />
@@ -4803,19 +4803,19 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -4836,7 +4836,7 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -4862,13 +4862,13 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-valuenow="16"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c7"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="16"
         />
@@ -4878,19 +4878,19 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -4918,7 +4918,7 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -4944,13 +4944,13 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-valuenow="32"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c8"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="32"
         />
@@ -4960,19 +4960,19 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -5002,7 +5002,7 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -5028,13 +5028,13 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-valuenow="48"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c9"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="48"
         />
@@ -5044,19 +5044,19 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -5076,7 +5076,7 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -5102,13 +5102,13 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-valuenow="64"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c10"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="64"
         />
@@ -5118,19 +5118,19 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -5151,7 +5151,7 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -5177,13 +5177,13 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-valuenow="80"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c11"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="80"
         />
@@ -5193,19 +5193,19 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="12"
         viewBox="0 0 12 12"
@@ -5226,7 +5226,7 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-label="Press backspace to delete"
         class="c3 c4 c12"
         data-garden-id="forms.file.delete"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -5253,13 +5253,13 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
         aria-valuenow="100"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c13"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="2"
           value="100"
         />
@@ -5472,17 +5472,17 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <span>
         Unknown.txt
@@ -5492,19 +5492,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -5524,7 +5524,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -5550,13 +5550,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuenow="0"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="0"
         />
@@ -5566,19 +5566,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -5599,7 +5599,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -5625,13 +5625,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuenow="16"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c7"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="16"
         />
@@ -5641,19 +5641,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -5680,7 +5680,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -5706,13 +5706,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuenow="32"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c8"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="32"
         />
@@ -5722,19 +5722,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -5764,7 +5764,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -5790,13 +5790,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuenow="48"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c9"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="48"
         />
@@ -5806,19 +5806,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -5838,7 +5838,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -5864,13 +5864,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuenow="64"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c10"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="64"
         />
@@ -5880,19 +5880,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -5913,7 +5913,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -5939,13 +5939,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuenow="80"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c11"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="80"
         />
@@ -5955,19 +5955,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -5988,7 +5988,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-label="Press backspace to delete"
         class="c3 c4 c12"
         data-garden-id="forms.file.delete"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -6015,13 +6015,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuenow="100"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c13"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="100"
         />
@@ -6189,24 +6189,24 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -6226,7 +6226,7 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -6252,13 +6252,13 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
         aria-valuenow="0"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="0"
         />
@@ -6268,19 +6268,19 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -6301,7 +6301,7 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
         aria-label="Press backspace to delete"
         class="c3 c4 c7"
         data-garden-id="forms.file.delete"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -6328,13 +6328,13 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
         aria-valuenow="100"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c8"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="100"
         />
@@ -6489,17 +6489,17 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <span>
         Unknown.txt
@@ -6509,19 +6509,19 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
   <li
     class=""
     data-garden-id="forms.file_list.item"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <div
       class="c1"
       data-garden-id="forms.file"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
         class=" c2"
         data-garden-id="forms.file.icon"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         focusable="false"
         height="16"
         viewBox="0 0 16 16"
@@ -6542,7 +6542,7 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
         aria-label="Press backspace to delete"
         class="c3 c4"
         data-garden-id="forms.file.close"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         tabindex="-1"
         type="button"
       >
@@ -6568,13 +6568,13 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
         aria-valuenow="16"
         class="c5"
         data-garden-id="loaders.progress_background"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         role="progressbar"
       >
         <div
           class="c6"
           data-garden-id="loaders.progress_indicator"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           height="6"
           value="16"
         />
@@ -6594,6 +6594,6 @@ exports[`FileListStory Component renders default FileListStory with no items 1`]
 <ul
   class="c0"
   data-garden-id="forms.file_list"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;

@@ -323,14 +323,14 @@ exports[`SelectStory Component renders SelectStory with a disabled select 1`] = 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rc:--input"
     id=":rc:--label"
   >
@@ -341,7 +341,7 @@ exports[`SelectStory Component renders SelectStory with a disabled select 1`] = 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rc:--hint"
   >
     Hint
@@ -351,7 +351,7 @@ exports[`SelectStory Component renders SelectStory with a disabled select 1`] = 
     aria-invalid="false"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":rc:--hint"
@@ -361,7 +361,7 @@ exports[`SelectStory Component renders SelectStory with a disabled select 1`] = 
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       disabled=""
       id=":rc:--input"
     >
@@ -380,7 +380,7 @@ exports[`SelectStory Component renders SelectStory with a disabled select 1`] = 
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -719,14 +719,14 @@ exports[`SelectStory Component renders SelectStory with a hidden label 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r3:--input"
     hidden=""
     id=":r3:--label"
@@ -737,7 +737,7 @@ exports[`SelectStory Component renders SelectStory with a hidden label 1`] = `
     aria-invalid="false"
     class="c2 c3 c4 c5"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":r3:--hint"
@@ -747,7 +747,7 @@ exports[`SelectStory Component renders SelectStory with a hidden label 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r3:--input"
     >
       <option
@@ -765,7 +765,7 @@ exports[`SelectStory Component renders SelectStory with a hidden label 1`] = `
       aria-hidden="true"
       class="c8  c9"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -783,7 +783,7 @@ exports[`SelectStory Component renders SelectStory with a hidden label 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r3:--hint"
   >
     Hint
@@ -1114,14 +1114,14 @@ exports[`SelectStory Component renders SelectStory with a hint 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r4:--input"
     id=":r4:--label"
   >
@@ -1132,7 +1132,7 @@ exports[`SelectStory Component renders SelectStory with a hint 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r4:--hint"
   >
     Choose wisely
@@ -1141,7 +1141,7 @@ exports[`SelectStory Component renders SelectStory with a hint 1`] = `
     aria-invalid="false"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":r4:--hint"
@@ -1151,7 +1151,7 @@ exports[`SelectStory Component renders SelectStory with a hint 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r4:--input"
     >
       <option
@@ -1169,7 +1169,7 @@ exports[`SelectStory Component renders SelectStory with a hint 1`] = `
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -1508,14 +1508,14 @@ exports[`SelectStory Component renders SelectStory with a label 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r1:--input"
     id=":r1:--label"
   >
@@ -1526,7 +1526,7 @@ exports[`SelectStory Component renders SelectStory with a label 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r1:--hint"
   >
     Hint
@@ -1535,7 +1535,7 @@ exports[`SelectStory Component renders SelectStory with a label 1`] = `
     aria-invalid="false"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":r1:--hint"
@@ -1545,7 +1545,7 @@ exports[`SelectStory Component renders SelectStory with a label 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r1:--input"
     >
       <option
@@ -1563,7 +1563,7 @@ exports[`SelectStory Component renders SelectStory with a label 1`] = `
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -1902,14 +1902,14 @@ exports[`SelectStory Component renders SelectStory with a label, hidden label, a
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r8:--input"
     hidden=""
     id=":r8:--label"
@@ -1920,7 +1920,7 @@ exports[`SelectStory Component renders SelectStory with a label, hidden label, a
     aria-invalid="false"
     class="c2 c3 c4 c5"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":r8:--hint"
@@ -1930,7 +1930,7 @@ exports[`SelectStory Component renders SelectStory with a label, hidden label, a
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r8:--input"
     >
       <option
@@ -1948,7 +1948,7 @@ exports[`SelectStory Component renders SelectStory with a label, hidden label, a
       aria-hidden="true"
       class="c8  c9"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -1966,7 +1966,7 @@ exports[`SelectStory Component renders SelectStory with a label, hidden label, a
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r8:--hint"
   >
     Hint
@@ -2297,14 +2297,14 @@ exports[`SelectStory Component renders SelectStory with a label, hidden label, h
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ra:--input"
     hidden=""
     id=":ra:--label"
@@ -2315,7 +2315,7 @@ exports[`SelectStory Component renders SelectStory with a label, hidden label, h
     aria-invalid="false"
     class="c2 c3 c4 c5"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":ra:--hint"
@@ -2325,7 +2325,7 @@ exports[`SelectStory Component renders SelectStory with a label, hidden label, h
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":ra:--input"
     >
       <option
@@ -2343,7 +2343,7 @@ exports[`SelectStory Component renders SelectStory with a label, hidden label, h
       aria-hidden="true"
       class="c8  c9"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -2361,7 +2361,7 @@ exports[`SelectStory Component renders SelectStory with a label, hidden label, h
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ra:--hint"
   >
     Choose wisely
@@ -2717,14 +2717,14 @@ exports[`SelectStory Component renders SelectStory with a label, hint, and messa
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r7:--input"
     id=":r7:--label"
   >
@@ -2735,7 +2735,7 @@ exports[`SelectStory Component renders SelectStory with a label, hint, and messa
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r7:--hint"
   >
     Choose wisely
@@ -2744,7 +2744,7 @@ exports[`SelectStory Component renders SelectStory with a label, hint, and messa
     aria-invalid="false"
     class="c5 c6 c7 c8"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":r7:--hint :r7:--message"
@@ -2754,7 +2754,7 @@ exports[`SelectStory Component renders SelectStory with a label, hint, and messa
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r7:--input"
     >
       <option
@@ -2772,7 +2772,7 @@ exports[`SelectStory Component renders SelectStory with a label, hint, and messa
       aria-hidden="true"
       class="c11  c12"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -2790,7 +2790,7 @@ exports[`SelectStory Component renders SelectStory with a label, hint, and messa
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r7:--message"
     role="alert"
   >
@@ -3147,14 +3147,14 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r9:--input"
     id=":r9:--label"
   >
@@ -3165,7 +3165,7 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r9:--hint"
   >
     Choose wisely
@@ -3174,7 +3174,7 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
     aria-invalid="false"
     class="c5 c6 c7 c8"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":r9:--hint :r9:--message"
@@ -3184,7 +3184,7 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r9:--input"
     >
       <option
@@ -3202,7 +3202,7 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
       aria-hidden="true"
       class="c11  c12"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -3220,7 +3220,7 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r9:--message"
     role="alert"
   >
@@ -3577,14 +3577,14 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rb:--input"
     id=":rb:--label"
   >
@@ -3595,7 +3595,7 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rb:--hint"
   >
     Choose wisely
@@ -3604,7 +3604,7 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
     aria-invalid="false"
     class="c5 c6 c7 c8"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":rb:--hint :rb:--message"
@@ -3614,7 +3614,7 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rb:--input"
     >
       <option
@@ -3632,7 +3632,7 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
       aria-hidden="true"
       class="c11  c12"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -3650,7 +3650,7 @@ exports[`SelectStory Component renders SelectStory with a label, regular label, 
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rb:--message"
     role="alert"
   >
@@ -4007,14 +4007,14 @@ exports[`SelectStory Component renders SelectStory with a message 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r5:--input"
     id=":r5:--label"
   >
@@ -4025,7 +4025,7 @@ exports[`SelectStory Component renders SelectStory with a message 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r5:--hint"
   >
     Hint
@@ -4034,7 +4034,7 @@ exports[`SelectStory Component renders SelectStory with a message 1`] = `
     aria-invalid="false"
     class="c5 c6 c7 c8"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":r5:--hint :r5:--message"
@@ -4044,7 +4044,7 @@ exports[`SelectStory Component renders SelectStory with a message 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r5:--input"
     >
       <option
@@ -4062,7 +4062,7 @@ exports[`SelectStory Component renders SelectStory with a message 1`] = `
       aria-hidden="true"
       class="c11  c12"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -4080,7 +4080,7 @@ exports[`SelectStory Component renders SelectStory with a message 1`] = `
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r5:--message"
     role="alert"
   >
@@ -4412,14 +4412,14 @@ exports[`SelectStory Component renders SelectStory with a regular label 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r2:--input"
     id=":r2:--label"
   >
@@ -4430,7 +4430,7 @@ exports[`SelectStory Component renders SelectStory with a regular label 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r2:--hint"
   >
     Hint
@@ -4439,7 +4439,7 @@ exports[`SelectStory Component renders SelectStory with a regular label 1`] = `
     aria-invalid="false"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":r2:--hint"
@@ -4449,7 +4449,7 @@ exports[`SelectStory Component renders SelectStory with a regular label 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r2:--input"
     >
       <option
@@ -4467,7 +4467,7 @@ exports[`SelectStory Component renders SelectStory with a regular label 1`] = `
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -4806,14 +4806,14 @@ exports[`SelectStory Component renders SelectStory with a validation label 1`] =
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r6:--input"
     id=":r6:--label"
   >
@@ -4824,7 +4824,7 @@ exports[`SelectStory Component renders SelectStory with a validation label 1`] =
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r6:--hint"
   >
     Hint
@@ -4833,7 +4833,7 @@ exports[`SelectStory Component renders SelectStory with a validation label 1`] =
     aria-invalid="false"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":r6:--hint"
@@ -4843,7 +4843,7 @@ exports[`SelectStory Component renders SelectStory with a validation label 1`] =
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r6:--input"
     >
       <option
@@ -4861,7 +4861,7 @@ exports[`SelectStory Component renders SelectStory with a validation label 1`] =
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -5161,14 +5161,14 @@ exports[`SelectStory Component renders SelectStory with bare styling 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":re:--input"
     id=":re:--label"
   >
@@ -5179,7 +5179,7 @@ exports[`SelectStory Component renders SelectStory with bare styling 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":re:--hint"
   >
     Hint
@@ -5188,7 +5188,7 @@ exports[`SelectStory Component renders SelectStory with bare styling 1`] = `
     aria-invalid="false"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":re:--hint"
@@ -5198,7 +5198,7 @@ exports[`SelectStory Component renders SelectStory with bare styling 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":re:--input"
     >
       <option
@@ -5539,14 +5539,14 @@ exports[`SelectStory Component renders SelectStory with compact styling 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rd:--input"
     id=":rd:--label"
   >
@@ -5557,7 +5557,7 @@ exports[`SelectStory Component renders SelectStory with compact styling 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rd:--hint"
   >
     Hint
@@ -5566,7 +5566,7 @@ exports[`SelectStory Component renders SelectStory with compact styling 1`] = `
     aria-invalid="false"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":rd:--hint"
@@ -5576,7 +5576,7 @@ exports[`SelectStory Component renders SelectStory with compact styling 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rd:--input"
     >
       <option
@@ -5594,7 +5594,7 @@ exports[`SelectStory Component renders SelectStory with compact styling 1`] = `
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -5933,14 +5933,14 @@ exports[`SelectStory Component renders SelectStory with focus inset 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rg:--input"
     id=":rg:--label"
   >
@@ -5951,7 +5951,7 @@ exports[`SelectStory Component renders SelectStory with focus inset 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rg:--hint"
   >
     Hint
@@ -5960,7 +5960,7 @@ exports[`SelectStory Component renders SelectStory with focus inset 1`] = `
     aria-invalid="false"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":rg:--hint"
@@ -5970,7 +5970,7 @@ exports[`SelectStory Component renders SelectStory with focus inset 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rg:--input"
     >
       <option
@@ -5988,7 +5988,7 @@ exports[`SelectStory Component renders SelectStory with focus inset 1`] = `
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -6288,14 +6288,14 @@ exports[`SelectStory Component renders SelectStory with label, hidden label, val
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rl:--input"
     hidden=""
     id=":rl:--label"
@@ -6306,7 +6306,7 @@ exports[`SelectStory Component renders SelectStory with label, hidden label, val
     aria-invalid="false"
     class="c2 c3 c4 c5"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":rl:--hint"
@@ -6316,7 +6316,7 @@ exports[`SelectStory Component renders SelectStory with label, hidden label, val
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rl:--input"
     >
       <option
@@ -6336,7 +6336,7 @@ exports[`SelectStory Component renders SelectStory with label, hidden label, val
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rl:--hint"
   >
     Hint
@@ -6692,14 +6692,14 @@ exports[`SelectStory Component renders SelectStory with label, hint, message, an
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rk:--input"
     id=":rk:--label"
   >
@@ -6710,7 +6710,7 @@ exports[`SelectStory Component renders SelectStory with label, hint, message, an
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rk:--hint"
   >
     Choose wisely
@@ -6719,7 +6719,7 @@ exports[`SelectStory Component renders SelectStory with label, hint, message, an
     aria-invalid="false"
     class="c5 c6 c7 c8"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":rk:--hint :rk:--message"
@@ -6729,7 +6729,7 @@ exports[`SelectStory Component renders SelectStory with label, hint, message, an
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rk:--input"
     >
       <option
@@ -6747,7 +6747,7 @@ exports[`SelectStory Component renders SelectStory with label, hint, message, an
       aria-hidden="true"
       class="c11  c12"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -6765,7 +6765,7 @@ exports[`SelectStory Component renders SelectStory with label, hint, message, an
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rk:--message"
     role="alert"
   >
@@ -7122,14 +7122,14 @@ exports[`SelectStory Component renders SelectStory with label, regular label, hi
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rm:--input"
     id=":rm:--label"
   >
@@ -7140,7 +7140,7 @@ exports[`SelectStory Component renders SelectStory with label, regular label, hi
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rm:--hint"
   >
     Choose wisely
@@ -7150,7 +7150,7 @@ exports[`SelectStory Component renders SelectStory with label, regular label, hi
     aria-invalid="false"
     class="c5 c6 c7 c8"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":rm:--hint :rm:--message"
@@ -7160,7 +7160,7 @@ exports[`SelectStory Component renders SelectStory with label, regular label, hi
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       disabled=""
       id=":rm:--input"
     >
@@ -7179,7 +7179,7 @@ exports[`SelectStory Component renders SelectStory with label, regular label, hi
       aria-hidden="true"
       class="c11  c12"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -7197,7 +7197,7 @@ exports[`SelectStory Component renders SelectStory with label, regular label, hi
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rm:--message"
     role="alert"
   >
@@ -7529,14 +7529,14 @@ exports[`SelectStory Component renders SelectStory with the select open 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rf:--input"
     id=":rf:--label"
   >
@@ -7547,7 +7547,7 @@ exports[`SelectStory Component renders SelectStory with the select open 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rf:--hint"
   >
     Hint
@@ -7556,7 +7556,7 @@ exports[`SelectStory Component renders SelectStory with the select open 1`] = `
     aria-invalid="false"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":rf:--hint"
@@ -7566,7 +7566,7 @@ exports[`SelectStory Component renders SelectStory with the select open 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rf:--input"
     >
       <option
@@ -7584,7 +7584,7 @@ exports[`SelectStory Component renders SelectStory with the select open 1`] = `
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -7923,14 +7923,14 @@ exports[`SelectStory Component renders SelectStory with validation error 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ri:--input"
     id=":ri:--label"
   >
@@ -7941,7 +7941,7 @@ exports[`SelectStory Component renders SelectStory with validation error 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ri:--hint"
   >
     Hint
@@ -7950,7 +7950,7 @@ exports[`SelectStory Component renders SelectStory with validation error 1`] = `
     aria-invalid="true"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":ri:--hint"
@@ -7960,7 +7960,7 @@ exports[`SelectStory Component renders SelectStory with validation error 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":ri:--input"
     >
       <option
@@ -7978,7 +7978,7 @@ exports[`SelectStory Component renders SelectStory with validation error 1`] = `
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -8317,14 +8317,14 @@ exports[`SelectStory Component renders SelectStory with validation success 1`] =
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rh:--input"
     id=":rh:--label"
   >
@@ -8335,7 +8335,7 @@ exports[`SelectStory Component renders SelectStory with validation success 1`] =
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rh:--hint"
   >
     Hint
@@ -8344,7 +8344,7 @@ exports[`SelectStory Component renders SelectStory with validation success 1`] =
     aria-invalid="false"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":rh:--hint"
@@ -8354,7 +8354,7 @@ exports[`SelectStory Component renders SelectStory with validation success 1`] =
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rh:--input"
     >
       <option
@@ -8372,7 +8372,7 @@ exports[`SelectStory Component renders SelectStory with validation success 1`] =
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -8711,14 +8711,14 @@ exports[`SelectStory Component renders SelectStory with validation warning 1`] =
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rj:--input"
     id=":rj:--label"
   >
@@ -8729,7 +8729,7 @@ exports[`SelectStory Component renders SelectStory with validation warning 1`] =
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rj:--hint"
   >
     Hint
@@ -8738,7 +8738,7 @@ exports[`SelectStory Component renders SelectStory with validation warning 1`] =
     aria-invalid="true"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":rj:--hint"
@@ -8748,7 +8748,7 @@ exports[`SelectStory Component renders SelectStory with validation warning 1`] =
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rj:--input"
     >
       <option
@@ -8766,7 +8766,7 @@ exports[`SelectStory Component renders SelectStory with validation warning 1`] =
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -9105,14 +9105,14 @@ exports[`SelectStory Component renders default SelectStory 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r0:--input"
     id=":r0:--label"
   >
@@ -9123,7 +9123,7 @@ exports[`SelectStory Component renders default SelectStory 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r0:--hint"
   >
     Hint
@@ -9132,7 +9132,7 @@ exports[`SelectStory Component renders default SelectStory 1`] = `
     aria-invalid="false"
     class="c3 c4 c5 c6"
     data-garden-id="forms.select_wrapper"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <select
       aria-describedby=":r0:--hint"
@@ -9142,7 +9142,7 @@ exports[`SelectStory Component renders default SelectStory 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.select"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r0:--input"
     >
       <option
@@ -9165,7 +9165,7 @@ exports[`SelectStory Component renders default SelectStory 1`] = `
       aria-hidden="true"
       class="c9  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"

@@ -125,14 +125,14 @@ exports[`ButtonStory Component renders ButtonStory with a rotated end icon 1`] =
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -263,13 +263,13 @@ exports[`ButtonStory Component renders ButtonStory with a rotated start icon 1`]
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
@@ -398,13 +398,13 @@ exports[`ButtonStory Component renders ButtonStory with a start icon 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
@@ -533,14 +533,14 @@ exports[`ButtonStory Component renders ButtonStory with an end icon 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -648,7 +648,7 @@ exports[`ButtonStory Component renders ButtonStory with basic styling 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
@@ -790,20 +790,20 @@ exports[`ButtonStory Component renders ButtonStory with both rotated start and e
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
   <svg
     class="c1  c3"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -938,20 +938,20 @@ exports[`ButtonStory Component renders ButtonStory with both start and end icons
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
   <svg
     class="c1  c3"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1062,7 +1062,7 @@ exports[`ButtonStory Component renders ButtonStory with danger styling 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
@@ -1174,7 +1174,7 @@ exports[`ButtonStory Component renders ButtonStory with focus inset styling 1`] 
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
@@ -1286,7 +1286,7 @@ exports[`ButtonStory Component renders ButtonStory with large size 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
@@ -1376,7 +1376,7 @@ exports[`ButtonStory Component renders ButtonStory with link styling 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
@@ -1487,7 +1487,7 @@ exports[`ButtonStory Component renders ButtonStory with neutral styling 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
@@ -1599,7 +1599,7 @@ exports[`ButtonStory Component renders ButtonStory with pill styling 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
@@ -1705,7 +1705,7 @@ exports[`ButtonStory Component renders ButtonStory with primary styling 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
@@ -1817,7 +1817,7 @@ exports[`ButtonStory Component renders ButtonStory with small size 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
@@ -1953,20 +1953,20 @@ exports[`ButtonStory Component renders ButtonStory with start icon, end icon, an
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
   <svg
     class="c1  c3"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2101,20 +2101,20 @@ exports[`ButtonStory Component renders ButtonStory with start icon, end icon, an
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
   <svg
     class="c1  c3"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2249,20 +2249,20 @@ exports[`ButtonStory Component renders ButtonStory with start icon, end icon, an
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
   <svg
     class="c1  c3"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2397,20 +2397,20 @@ exports[`ButtonStory Component renders ButtonStory with start icon, end icon, an
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
   <svg
     class="c1  c3"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2535,20 +2535,20 @@ exports[`ButtonStory Component renders ButtonStory with start icon, end icon, an
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
   <svg
     class="c1  c3"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2683,20 +2683,20 @@ exports[`ButtonStory Component renders ButtonStory with start icon, end icon, an
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
   <svg
     class="c1  c3"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2832,20 +2832,20 @@ exports[`ButtonStory Component renders ButtonStory with start icon, end icon, an
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
   <svg
     class="c1  c3"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2986,20 +2986,20 @@ exports[`ButtonStory Component renders ButtonStory with start icon, end icon, ro
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
   <svg
     class="c1  c3"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -3130,20 +3130,20 @@ exports[`ButtonStory Component renders ButtonStory with start icon, end icon, ro
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
   Button
   <svg
     class="c1  c3"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -3255,7 +3255,7 @@ exports[`ButtonStory Component renders ButtonStory with stretched styling 1`] = 
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button
@@ -3367,7 +3367,7 @@ exports[`ButtonStory Component renders default ButtonStory 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Button

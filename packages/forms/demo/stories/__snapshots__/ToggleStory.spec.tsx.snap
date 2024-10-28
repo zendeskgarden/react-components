@@ -222,7 +222,7 @@ exports[`ToggleStory Component renders component with a checked state 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rf:--label"
@@ -231,7 +231,7 @@ exports[`ToggleStory Component renders component with a checked state 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rf:--input"
     type="checkbox"
   />
@@ -240,7 +240,7 @@ exports[`ToggleStory Component renders component with a checked state 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rf:--input"
     id=":rf:--label"
   >
@@ -248,7 +248,7 @@ exports[`ToggleStory Component renders component with a checked state 1`] = `
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -488,7 +488,7 @@ exports[`ToggleStory Component renders component with a disabled state 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rc:--label"
@@ -496,7 +496,7 @@ exports[`ToggleStory Component renders component with a disabled state 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     disabled=""
     id=":rc:--input"
     type="checkbox"
@@ -506,7 +506,7 @@ exports[`ToggleStory Component renders component with a disabled state 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rc:--input"
     id=":rc:--label"
   >
@@ -514,7 +514,7 @@ exports[`ToggleStory Component renders component with a disabled state 1`] = `
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -564,7 +564,7 @@ exports[`ToggleStory Component renders component with a hidden label 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r2:--label"
@@ -572,7 +572,7 @@ exports[`ToggleStory Component renders component with a hidden label 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r2:--input"
     label="Accept Terms"
     type="checkbox"
@@ -814,7 +814,7 @@ exports[`ToggleStory Component renders component with a hint 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":r3:--hint"
@@ -823,7 +823,7 @@ exports[`ToggleStory Component renders component with a hint 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r3:--input"
     type="checkbox"
   />
@@ -832,7 +832,7 @@ exports[`ToggleStory Component renders component with a hint 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r3:--input"
     id=":r3:--label"
   >
@@ -840,7 +840,7 @@ exports[`ToggleStory Component renders component with a hint 1`] = `
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -860,7 +860,7 @@ exports[`ToggleStory Component renders component with a hint 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r3:--hint"
   >
     This is a hint
@@ -1090,7 +1090,7 @@ exports[`ToggleStory Component renders component with a label 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r1:--label"
@@ -1098,7 +1098,7 @@ exports[`ToggleStory Component renders component with a label 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r1:--input"
     label="Accept Terms"
     type="checkbox"
@@ -1108,7 +1108,7 @@ exports[`ToggleStory Component renders component with a label 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r1:--input"
     id=":r1:--label"
   >
@@ -1116,7 +1116,7 @@ exports[`ToggleStory Component renders component with a label 1`] = `
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -1357,7 +1357,7 @@ exports[`ToggleStory Component renders component with a label and compact stylin
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rk:--label"
@@ -1365,7 +1365,7 @@ exports[`ToggleStory Component renders component with a label and compact stylin
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rk:--input"
     type="checkbox"
   />
@@ -1374,7 +1374,7 @@ exports[`ToggleStory Component renders component with a label and compact stylin
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rk:--input"
     id=":rk:--label"
   >
@@ -1382,7 +1382,7 @@ exports[`ToggleStory Component renders component with a label and compact stylin
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -1432,7 +1432,7 @@ exports[`ToggleStory Component renders component with a label, hidden label, and
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r9:--label"
@@ -1440,7 +1440,7 @@ exports[`ToggleStory Component renders component with a label, hidden label, and
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r9:--input"
     label="Accept Terms"
     type="checkbox"
@@ -1492,7 +1492,7 @@ exports[`ToggleStory Component renders component with a label, hidden label, hin
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":rb:--hint"
@@ -1501,7 +1501,7 @@ exports[`ToggleStory Component renders component with a label, hidden label, hin
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rb:--input"
     label="Accept Terms"
     type="checkbox"
@@ -1511,7 +1511,7 @@ exports[`ToggleStory Component renders component with a label, hidden label, hin
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rb:--hint"
   >
     This is a hint
@@ -1753,7 +1753,7 @@ exports[`ToggleStory Component renders component with a label, hint, and compact
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":rl:--hint"
@@ -1762,7 +1762,7 @@ exports[`ToggleStory Component renders component with a label, hint, and compact
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rl:--input"
     type="checkbox"
   />
@@ -1771,7 +1771,7 @@ exports[`ToggleStory Component renders component with a label, hint, and compact
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rl:--input"
     id=":rl:--label"
   >
@@ -1779,7 +1779,7 @@ exports[`ToggleStory Component renders component with a label, hint, and compact
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -1799,7 +1799,7 @@ exports[`ToggleStory Component renders component with a label, hint, and compact
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rl:--hint"
   >
     This is a hint
@@ -2066,7 +2066,7 @@ exports[`ToggleStory Component renders component with a label, hint, and message
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":r8:--hint :r8:--message"
@@ -2075,7 +2075,7 @@ exports[`ToggleStory Component renders component with a label, hint, and message
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r8:--input"
     label="Accept Terms"
     type="checkbox"
@@ -2085,7 +2085,7 @@ exports[`ToggleStory Component renders component with a label, hint, and message
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r8:--input"
     id=":r8:--label"
   >
@@ -2093,7 +2093,7 @@ exports[`ToggleStory Component renders component with a label, hint, and message
       aria-hidden="true"
       class="c11"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -2114,7 +2114,7 @@ exports[`ToggleStory Component renders component with a label, hint, and message
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r8:--hint"
   >
     This is a hint
@@ -2124,7 +2124,7 @@ exports[`ToggleStory Component renders component with a label, hint, and message
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r8:--message"
     role="alert"
   >
@@ -2392,7 +2392,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":rn:--hint :rn:--message"
@@ -2401,7 +2401,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rn:--input"
     type="checkbox"
   />
@@ -2410,7 +2410,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rn:--input"
     id=":rn:--label"
   >
@@ -2418,7 +2418,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
       aria-hidden="true"
       class="c11"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -2438,7 +2438,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rn:--hint"
   >
     This is a hint
@@ -2448,7 +2448,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rn:--message"
     role="alert"
   >
@@ -2732,7 +2732,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":ra:--hint :ra:--message"
@@ -2741,7 +2741,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ra:--input"
     label="Accept Terms"
     type="checkbox"
@@ -2751,7 +2751,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ra:--input"
     id=":ra:--label"
   >
@@ -2759,7 +2759,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
       aria-hidden="true"
       class="c11"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -2780,7 +2780,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ra:--hint"
   >
     This is a hint
@@ -2790,7 +2790,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ra:--message"
     role="alert"
   >
@@ -2798,7 +2798,7 @@ exports[`ToggleStory Component renders component with a label, hint, message, an
       aria-label="error"
       class="c17  c18"
       data-garden-id="forms.input_message_icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       role="img"
@@ -3079,7 +3079,7 @@ exports[`ToggleStory Component renders component with a label, message, and comp
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":rm:--message"
@@ -3088,7 +3088,7 @@ exports[`ToggleStory Component renders component with a label, message, and comp
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rm:--input"
     type="checkbox"
   />
@@ -3097,7 +3097,7 @@ exports[`ToggleStory Component renders component with a label, message, and comp
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rm:--input"
     id=":rm:--label"
   >
@@ -3105,7 +3105,7 @@ exports[`ToggleStory Component renders component with a label, message, and comp
       aria-hidden="true"
       class="c11"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -3125,7 +3125,7 @@ exports[`ToggleStory Component renders component with a label, message, and comp
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rm:--message"
     role="alert"
   >
@@ -3381,7 +3381,7 @@ exports[`ToggleStory Component renders component with a message 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":r4:--message"
@@ -3390,7 +3390,7 @@ exports[`ToggleStory Component renders component with a message 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r4:--input"
     type="checkbox"
   />
@@ -3399,7 +3399,7 @@ exports[`ToggleStory Component renders component with a message 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r4:--input"
     id=":r4:--label"
   >
@@ -3407,7 +3407,7 @@ exports[`ToggleStory Component renders component with a message 1`] = `
       aria-hidden="true"
       class="c11"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -3427,7 +3427,7 @@ exports[`ToggleStory Component renders component with a message 1`] = `
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r4:--message"
     role="alert"
   >
@@ -3658,7 +3658,7 @@ exports[`ToggleStory Component renders component with a read-only state 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rd:--label"
@@ -3666,7 +3666,7 @@ exports[`ToggleStory Component renders component with a read-only state 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rd:--input"
     readonly=""
     type="checkbox"
@@ -3676,7 +3676,7 @@ exports[`ToggleStory Component renders component with a read-only state 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rd:--input"
     id=":rd:--label"
   >
@@ -3684,7 +3684,7 @@ exports[`ToggleStory Component renders component with a read-only state 1`] = `
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -3924,7 +3924,7 @@ exports[`ToggleStory Component renders component with a required state 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":re:--label"
@@ -3932,7 +3932,7 @@ exports[`ToggleStory Component renders component with a required state 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":re:--input"
     required=""
     type="checkbox"
@@ -3942,7 +3942,7 @@ exports[`ToggleStory Component renders component with a required state 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":re:--input"
     id=":re:--label"
   >
@@ -3950,7 +3950,7 @@ exports[`ToggleStory Component renders component with a required state 1`] = `
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -4190,7 +4190,7 @@ exports[`ToggleStory Component renders component with compact styling 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rj:--label"
@@ -4198,7 +4198,7 @@ exports[`ToggleStory Component renders component with compact styling 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rj:--input"
     type="checkbox"
   />
@@ -4207,7 +4207,7 @@ exports[`ToggleStory Component renders component with compact styling 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rj:--input"
     id=":rj:--label"
   >
@@ -4215,7 +4215,7 @@ exports[`ToggleStory Component renders component with compact styling 1`] = `
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -4265,7 +4265,7 @@ exports[`ToggleStory Component renders component with label, hidden label, valid
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rh:--label"
@@ -4273,7 +4273,7 @@ exports[`ToggleStory Component renders component with label, hidden label, valid
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rh:--input"
     label="Accept Terms"
     readonly=""
@@ -4541,7 +4541,7 @@ exports[`ToggleStory Component renders component with label, hint, message, and 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":rg:--hint :rg:--message"
@@ -4550,7 +4550,7 @@ exports[`ToggleStory Component renders component with label, hint, message, and 
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     disabled=""
     id=":rg:--input"
     label="Accept Terms"
@@ -4561,7 +4561,7 @@ exports[`ToggleStory Component renders component with label, hint, message, and 
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rg:--input"
     id=":rg:--label"
   >
@@ -4569,7 +4569,7 @@ exports[`ToggleStory Component renders component with label, hint, message, and 
       aria-hidden="true"
       class="c11"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -4590,7 +4590,7 @@ exports[`ToggleStory Component renders component with label, hint, message, and 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rg:--hint"
   >
     This is a hint
@@ -4600,7 +4600,7 @@ exports[`ToggleStory Component renders component with label, hint, message, and 
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rg:--message"
     role="alert"
   >
@@ -4884,7 +4884,7 @@ exports[`ToggleStory Component renders component with label, hint, message, vali
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":ri:--hint :ri:--message"
@@ -4893,7 +4893,7 @@ exports[`ToggleStory Component renders component with label, hint, message, vali
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ri:--input"
     label="Accept Terms"
     required=""
@@ -4904,7 +4904,7 @@ exports[`ToggleStory Component renders component with label, hint, message, vali
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ri:--input"
     id=":ri:--label"
   >
@@ -4912,7 +4912,7 @@ exports[`ToggleStory Component renders component with label, hint, message, vali
       aria-hidden="true"
       class="c11"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -4933,7 +4933,7 @@ exports[`ToggleStory Component renders component with label, hint, message, vali
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ri:--hint"
   >
     This is a hint
@@ -4943,7 +4943,7 @@ exports[`ToggleStory Component renders component with label, hint, message, vali
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ri:--message"
     role="alert"
   >
@@ -4951,7 +4951,7 @@ exports[`ToggleStory Component renders component with label, hint, message, vali
       aria-label="error"
       class="c17  c18"
       data-garden-id="forms.input_message_icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       role="img"
@@ -5207,7 +5207,7 @@ exports[`ToggleStory Component renders component with validation error 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r6:--label"
@@ -5215,7 +5215,7 @@ exports[`ToggleStory Component renders component with validation error 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r6:--input"
     type="checkbox"
   />
@@ -5224,7 +5224,7 @@ exports[`ToggleStory Component renders component with validation error 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r6:--input"
     id=":r6:--label"
   >
@@ -5232,7 +5232,7 @@ exports[`ToggleStory Component renders component with validation error 1`] = `
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -5472,7 +5472,7 @@ exports[`ToggleStory Component renders component with validation success 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r5:--label"
@@ -5480,7 +5480,7 @@ exports[`ToggleStory Component renders component with validation success 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r5:--input"
     type="checkbox"
   />
@@ -5489,7 +5489,7 @@ exports[`ToggleStory Component renders component with validation success 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r5:--input"
     id=":r5:--label"
   >
@@ -5497,7 +5497,7 @@ exports[`ToggleStory Component renders component with validation success 1`] = `
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -5737,7 +5737,7 @@ exports[`ToggleStory Component renders component with validation warning 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r7:--label"
@@ -5745,7 +5745,7 @@ exports[`ToggleStory Component renders component with validation warning 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r7:--input"
     type="checkbox"
   />
@@ -5754,7 +5754,7 @@ exports[`ToggleStory Component renders component with validation warning 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r7:--input"
     id=":r7:--label"
   >
@@ -5762,7 +5762,7 @@ exports[`ToggleStory Component renders component with validation warning 1`] = `
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -6002,7 +6002,7 @@ exports[`ToggleStory Component renders default component 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r0:--label"
@@ -6010,7 +6010,7 @@ exports[`ToggleStory Component renders default component 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r0:--input"
     type="checkbox"
   />
@@ -6019,7 +6019,7 @@ exports[`ToggleStory Component renders default component 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.toggle_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r0:--input"
     id=":r0:--label"
   >
@@ -6027,7 +6027,7 @@ exports[`ToggleStory Component renders default component 1`] = `
       aria-hidden="true"
       class="c10"
       data-garden-id="forms.toggle_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"

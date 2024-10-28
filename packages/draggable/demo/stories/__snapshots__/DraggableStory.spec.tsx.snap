@@ -44,7 +44,7 @@ exports[`DraggableStory Component renders DraggableStory as disabled 1`] = `
   aria-disabled="true"
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -98,7 +98,7 @@ exports[`DraggableStory Component renders DraggableStory as grabbed 1`] = `
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 />
 `;
@@ -149,7 +149,7 @@ exports[`DraggableStory Component renders DraggableStory as placeholder 1`] = `
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 />
 `;
@@ -203,7 +203,7 @@ exports[`DraggableStory Component renders DraggableStory with a custom tag 1`] =
 <section
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 />
 `;
@@ -269,13 +269,13 @@ exports[`DraggableStory Component renders DraggableStory with a custom tag and g
 <section
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 >
   <div
     class="c1"
     data-garden-id="draggable.grip"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       aria-hidden="true"
@@ -410,12 +410,12 @@ exports[`DraggableStory Component renders DraggableStory with all props 1`] = `
   aria-disabled="true"
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1 c2"
     data-garden-id="draggable.grip"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       aria-hidden="true"
@@ -482,7 +482,7 @@ exports[`DraggableStory Component renders DraggableStory with all props 1`] = `
   <div
     class="c3"
     data-garden-id="draggable.content"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Draggable Item
   </div>
@@ -546,13 +546,13 @@ exports[`DraggableStory Component renders DraggableStory with children 1`] = `
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 >
   <div
     class="c1"
     data-garden-id="draggable.content"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Draggable Item
   </div>
@@ -608,7 +608,7 @@ exports[`DraggableStory Component renders DraggableStory with compact styling 1`
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 />
 `;
@@ -662,7 +662,7 @@ exports[`DraggableStory Component renders DraggableStory with focusInset 1`] = `
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 />
 `;
@@ -728,13 +728,13 @@ exports[`DraggableStory Component renders DraggableStory with focusInset and gri
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 >
   <div
     class="c1"
     data-garden-id="draggable.grip"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       aria-hidden="true"
@@ -862,13 +862,13 @@ exports[`DraggableStory Component renders DraggableStory with grip 1`] = `
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 >
   <div
     class="c1"
     data-garden-id="draggable.grip"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       aria-hidden="true"
@@ -1004,13 +1004,13 @@ exports[`DraggableStory Component renders DraggableStory with grip and children 
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 >
   <div
     class="c1"
     data-garden-id="draggable.grip"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       aria-hidden="true"
@@ -1077,7 +1077,7 @@ exports[`DraggableStory Component renders DraggableStory with grip and children 
   <div
     class="c2"
     data-garden-id="draggable.content"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Draggable Item
   </div>
@@ -1141,13 +1141,13 @@ exports[`DraggableStory Component renders DraggableStory with isBare and childre
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 >
   <div
     class="c1"
     data-garden-id="draggable.content"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Draggable Item
   </div>
@@ -1203,7 +1203,7 @@ exports[`DraggableStory Component renders DraggableStory with isBare styling 1`]
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 />
 `;
@@ -1269,13 +1269,13 @@ exports[`DraggableStory Component renders DraggableStory with isCompact and grip
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 >
   <div
     class="c1"
     data-garden-id="draggable.grip"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       aria-hidden="true"
@@ -1394,12 +1394,12 @@ exports[`DraggableStory Component renders DraggableStory with isDisabled and chi
   aria-disabled="true"
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="draggable.content"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Draggable Item
   </div>
@@ -1468,13 +1468,13 @@ exports[`DraggableStory Component renders DraggableStory with isGrabbed and grip
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 >
   <div
     class="c1"
     data-garden-id="draggable.grip"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       aria-hidden="true"
@@ -1595,13 +1595,13 @@ exports[`DraggableStory Component renders DraggableStory with isPlaceholder and 
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 >
   <div
     class="c1"
     data-garden-id="draggable.content"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Draggable Item
   </div>
@@ -1657,7 +1657,7 @@ exports[`DraggableStory Component renders default DraggableStory 1`] = `
 <div
   class="c0"
   data-garden-id="draggable"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   tabindex="0"
 />
 `;

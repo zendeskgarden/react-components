@@ -740,30 +740,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-10-input"
           id="downshift-10-label"
         >
@@ -774,7 +774,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":ra:--hint"
         >
           Hint
@@ -787,7 +787,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
           aria-owns="downshift-10-menu"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <input
@@ -802,7 +802,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-input"
             role="combobox"
             value=""
@@ -811,7 +811,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-hidden="true"
             class="c13  c14"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -829,7 +829,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":ra:--message"
           role="alert"
         >
@@ -839,14 +839,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
       <div
         class="c17 is-animated"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-10-label"
           class="c18 is-animated"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-10-menu"
           role="listbox"
           style="width: 0px;"
@@ -855,14 +855,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="true"
             class="c19"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-0"
             role="option"
           >
             <div
               class="c20"
               data-garden-id="dropdowns.item_icon"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <svg
                 aria-hidden="true"
@@ -887,7 +887,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-1"
             role="option"
           >
@@ -897,7 +897,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-2"
             role="option"
           >
@@ -907,7 +907,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-3"
             role="option"
           >
@@ -917,7 +917,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-4"
             role="option"
           >
@@ -927,7 +927,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-5"
             role="option"
           >
@@ -937,7 +937,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-6"
             role="option"
           >
@@ -947,7 +947,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-7"
             role="option"
           >
@@ -957,7 +957,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-8"
             role="option"
           >
@@ -967,7 +967,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-9"
             role="option"
           >
@@ -977,7 +977,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-10"
             role="option"
           >
@@ -987,7 +987,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-11"
             role="option"
           >
@@ -997,7 +997,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-12"
             role="option"
           >
@@ -1007,7 +1007,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-13"
             role="option"
           >
@@ -1017,7 +1017,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory when open 1`] = `
             aria-selected="false"
             class="c21"
             data-garden-id="dropdowns.item"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-10-item-14"
             role="option"
           >
@@ -1667,30 +1667,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hidden lab
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-3-input"
           hidden=""
           id="downshift-3-label"
@@ -1704,13 +1704,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hidden lab
           aria-labelledby="downshift-3-label"
           class="c6 c7 c8 c9"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c10"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -1724,7 +1724,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hidden lab
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-3-input"
             role="combobox"
             value=""
@@ -1733,7 +1733,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hidden lab
             aria-hidden="true"
             class="c13  c14"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -1751,7 +1751,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hidden lab
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r3:--hint"
         >
           Hint
@@ -1761,7 +1761,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hidden lab
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r3:--message"
           role="alert"
         >
@@ -1771,14 +1771,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hidden lab
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-3-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-3-menu"
           role="listbox"
         />
@@ -2425,30 +2425,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hint 1`] =
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-4-input"
           id="downshift-4-label"
         >
@@ -2459,7 +2459,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hint 1`] =
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r4:--hint"
         >
           Please select your favorite vegetable
@@ -2471,13 +2471,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hint 1`] =
           aria-labelledby="downshift-4-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -2491,7 +2491,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hint 1`] =
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-4-input"
             role="combobox"
             value=""
@@ -2500,7 +2500,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hint 1`] =
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -2518,7 +2518,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hint 1`] =
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r4:--message"
           role="alert"
         >
@@ -2528,14 +2528,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a hint 1`] =
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-4-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-4-menu"
           role="listbox"
         />
@@ -3182,30 +3182,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a label 1`] 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-1-input"
           id="downshift-1-label"
         >
@@ -3216,7 +3216,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a label 1`] 
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r1:--hint"
         >
           Hint
@@ -3228,13 +3228,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a label 1`] 
           aria-labelledby="downshift-1-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -3248,7 +3248,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a label 1`] 
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-1-input"
             role="combobox"
             value=""
@@ -3257,7 +3257,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a label 1`] 
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -3275,7 +3275,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a label 1`] 
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r1:--message"
           role="alert"
         >
@@ -3285,14 +3285,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a label 1`] 
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-1-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-1-menu"
           role="listbox"
         />
@@ -3939,30 +3939,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a message 1`
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-5-input"
           id="downshift-5-label"
         >
@@ -3973,7 +3973,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a message 1`
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r5:--hint"
         >
           Hint
@@ -3985,13 +3985,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a message 1`
           aria-labelledby="downshift-5-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -4005,7 +4005,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a message 1`
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-5-input"
             role="combobox"
             value=""
@@ -4014,7 +4014,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a message 1`
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -4032,7 +4032,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a message 1`
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r5:--message"
           role="alert"
         >
@@ -4042,14 +4042,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a message 1`
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-5-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-5-menu"
           role="listbox"
         />
@@ -4696,30 +4696,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a regular la
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-2-input"
           id="downshift-2-label"
         >
@@ -4730,7 +4730,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a regular la
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r2:--hint"
         >
           Hint
@@ -4742,13 +4742,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a regular la
           aria-labelledby="downshift-2-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -4762,7 +4762,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a regular la
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-2-input"
             role="combobox"
             value=""
@@ -4771,7 +4771,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a regular la
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -4789,7 +4789,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a regular la
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r2:--message"
           role="alert"
         >
@@ -4799,14 +4799,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a regular la
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-2-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-2-menu"
           role="listbox"
         />
@@ -5453,30 +5453,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a selected i
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-8-input"
           id="downshift-8-label"
         >
@@ -5487,7 +5487,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a selected i
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r8:--hint"
         >
           Hint
@@ -5499,13 +5499,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a selected i
           aria-labelledby="downshift-8-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Brussel sprouts
           </div>
@@ -5519,7 +5519,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a selected i
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-8-input"
             role="combobox"
             value=""
@@ -5528,7 +5528,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a selected i
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -5546,7 +5546,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a selected i
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r8:--message"
           role="alert"
         >
@@ -5556,14 +5556,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with a selected i
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-8-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-8-menu"
           role="listbox"
         />
@@ -6220,30 +6220,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with an icon 1`] 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-6-input"
           id="downshift-6-label"
         >
@@ -6254,7 +6254,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with an icon 1`] 
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r6:--hint"
         >
           Hint
@@ -6266,19 +6266,19 @@ exports[`AutocompleteStory Component renders AutocompleteStory with an icon 1`] 
           aria-labelledby="downshift-6-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <svg
             class="c12  c13"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             xmlns="http://www.w3.org/2000/svg"
           />
           <div
             class="c14"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -6292,7 +6292,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with an icon 1`] 
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-6-input"
             role="combobox"
             value=""
@@ -6301,7 +6301,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with an icon 1`] 
             aria-hidden="true"
             class="c12  c17"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -6319,7 +6319,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with an icon 1`] 
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r6:--message"
           role="alert"
         >
@@ -6329,14 +6329,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with an icon 1`] 
       <div
         class="c20"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-6-label"
           class="c21"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-6-menu"
           role="listbox"
         />
@@ -6983,30 +6983,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with compact menu
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-11-input"
           id="downshift-11-label"
         >
@@ -7017,7 +7017,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with compact menu
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rb:--hint"
         >
           Hint
@@ -7029,13 +7029,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with compact menu
           aria-labelledby="downshift-11-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -7049,7 +7049,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with compact menu
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-11-input"
             role="combobox"
             value=""
@@ -7058,7 +7058,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with compact menu
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -7076,7 +7076,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with compact menu
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rb:--message"
           role="alert"
         >
@@ -7086,14 +7086,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with compact menu
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-11-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-11-menu"
           role="listbox"
         />
@@ -7740,30 +7740,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with custom items
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-7-input"
           id="downshift-7-label"
         >
@@ -7774,7 +7774,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with custom items
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r7:--hint"
         >
           Hint
@@ -7786,13 +7786,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with custom items
           aria-labelledby="downshift-7-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Custom Item
           </div>
@@ -7806,7 +7806,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with custom items
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-7-input"
             role="combobox"
             value=""
@@ -7815,7 +7815,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with custom items
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -7833,7 +7833,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with custom items
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r7:--message"
           role="alert"
         >
@@ -7843,14 +7843,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with custom items
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-7-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-7-menu"
           role="listbox"
         />
@@ -8497,30 +8497,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with input value 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-9-input"
           id="downshift-9-label"
         >
@@ -8531,7 +8531,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with input value 
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r9:--hint"
         >
           Hint
@@ -8543,13 +8543,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with input value 
           aria-labelledby="downshift-9-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -8563,7 +8563,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with input value 
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-9-input"
             role="combobox"
             value="Asparagus"
@@ -8572,7 +8572,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with input value 
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -8590,7 +8590,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with input value 
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r9:--message"
           role="alert"
         >
@@ -8600,14 +8600,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with input value 
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-9-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-9-menu"
           role="listbox"
         />
@@ -9266,30 +9266,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation e
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-13-input"
           id="downshift-13-label"
         >
@@ -9300,7 +9300,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation e
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rd:--hint"
         >
           Hint
@@ -9312,13 +9312,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation e
           aria-labelledby="downshift-13-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -9332,7 +9332,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation e
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-13-input"
             role="combobox"
             value=""
@@ -9341,7 +9341,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation e
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -9359,7 +9359,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation e
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rd:--message"
           role="alert"
         >
@@ -9367,7 +9367,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation e
             aria-label="error"
             class="c19  c20"
             data-garden-id="forms.input_message_icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             role="img"
@@ -9402,14 +9402,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation e
       <div
         class="c21"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-13-label"
           class="c22"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-13-menu"
           role="listbox"
         />
@@ -10068,30 +10068,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation s
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-12-input"
           id="downshift-12-label"
         >
@@ -10102,7 +10102,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation s
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rc:--hint"
         >
           Hint
@@ -10114,13 +10114,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation s
           aria-labelledby="downshift-12-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -10134,7 +10134,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation s
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-12-input"
             role="combobox"
             value=""
@@ -10143,7 +10143,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation s
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -10161,7 +10161,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation s
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rc:--message"
           role="alert"
         >
@@ -10169,7 +10169,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation s
             aria-label="success"
             class="c19  c20"
             data-garden-id="forms.input_message_icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             role="img"
@@ -10199,14 +10199,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation s
       <div
         class="c21"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-12-label"
           class="c22"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-12-menu"
           role="listbox"
         />
@@ -10865,30 +10865,30 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation w
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-14-input"
           id="downshift-14-label"
         >
@@ -10899,7 +10899,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation w
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":re:--hint"
         >
           Hint
@@ -10911,13 +10911,13 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation w
           aria-labelledby="downshift-14-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -10931,7 +10931,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation w
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-14-input"
             role="combobox"
             value=""
@@ -10940,7 +10940,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation w
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -10958,7 +10958,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation w
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":re:--message"
           role="alert"
         >
@@ -10966,7 +10966,7 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation w
             aria-label="warning"
             class="c19  c20"
             data-garden-id="forms.input_message_icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             role="img"
@@ -10993,14 +10993,14 @@ exports[`AutocompleteStory Component renders AutocompleteStory with validation w
       <div
         class="c21"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-14-label"
           class="c22"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-14-menu"
           role="listbox"
         />
@@ -11647,30 +11647,30 @@ exports[`AutocompleteStory Component renders default AutocompleteStory 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-0-input"
           id="downshift-0-label"
         >
@@ -11681,7 +11681,7 @@ exports[`AutocompleteStory Component renders default AutocompleteStory 1`] = `
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r0:--hint"
         >
           Hint
@@ -11693,13 +11693,13 @@ exports[`AutocompleteStory Component renders default AutocompleteStory 1`] = `
           aria-labelledby="downshift-0-label"
           class="c8 c9 c10 c11"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.select"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             Asparagus
           </div>
@@ -11713,7 +11713,7 @@ exports[`AutocompleteStory Component renders default AutocompleteStory 1`] = `
             data-garden-container-id="containers.field.input"
             data-garden-container-version="3.0.19"
             data-garden-id="forms.input"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="downshift-0-input"
             role="combobox"
             value=""
@@ -11722,7 +11722,7 @@ exports[`AutocompleteStory Component renders default AutocompleteStory 1`] = `
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -11740,7 +11740,7 @@ exports[`AutocompleteStory Component renders default AutocompleteStory 1`] = `
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r0:--message"
           role="alert"
         >
@@ -11750,14 +11750,14 @@ exports[`AutocompleteStory Component renders default AutocompleteStory 1`] = `
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-0-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-0-menu"
           role="listbox"
         />

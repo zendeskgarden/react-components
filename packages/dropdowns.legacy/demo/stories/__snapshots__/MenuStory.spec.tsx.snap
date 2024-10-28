@@ -44,14 +44,14 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-12-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-12-menu"
     role="listbox"
   />
@@ -102,14 +102,14 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-6-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-6-menu"
     role="listbox"
   />
@@ -160,14 +160,14 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isActive
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-9-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-9-menu"
     role="listbox"
   />
@@ -218,14 +218,14 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompac
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-11-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-11-menu"
     role="listbox"
   />
@@ -276,14 +276,14 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompac
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-10-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-10-menu"
     role="listbox"
   />
@@ -334,14 +334,14 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isFocuse
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-7-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-7-menu"
     role="listbox"
   />
@@ -392,14 +392,14 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isHovere
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-8-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-8-menu"
     role="listbox"
   />
@@ -450,14 +450,14 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-3-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-3-menu"
     role="listbox"
   />
@@ -508,14 +508,14 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight and compa
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-4-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-4-menu"
     role="listbox"
   />
@@ -566,14 +566,14 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight, compact 
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-5-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-5-menu"
     role="listbox"
   />
@@ -624,14 +624,14 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-2-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-2-menu"
     role="listbox"
   />
@@ -682,14 +682,14 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-1-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-1-menu"
     role="listbox"
   />
@@ -740,14 +740,14 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
 <div
   class="c0"
   data-garden-id="dropdowns.menu_wrapper"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
 >
   <ul
     aria-labelledby="downshift-0-label"
     class="c1"
     data-garden-id="dropdowns.menu"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id="downshift-0-menu"
     role="listbox"
   />

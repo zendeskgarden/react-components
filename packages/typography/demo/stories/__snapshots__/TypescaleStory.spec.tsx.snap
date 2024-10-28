@@ -27,7 +27,7 @@ exports[`TypescaleStory Component renders TypescaleStory with 2x-large size 1`] 
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -58,7 +58,7 @@ exports[`TypescaleStory Component renders TypescaleStory with 2x-large size and 
 <h1
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -89,7 +89,7 @@ exports[`TypescaleStory Component renders TypescaleStory with 2x-large size, dis
 <pre
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   &lt;XXL&gt;
   &lt;/XXL&gt;
@@ -123,7 +123,7 @@ exports[`TypescaleStory Component renders TypescaleStory with 3x-large size 1`] 
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -154,7 +154,7 @@ exports[`TypescaleStory Component renders TypescaleStory with 3x-large size, dis
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   &lt;XXXL&gt;
   &lt;/XXXL&gt;
@@ -188,7 +188,7 @@ exports[`TypescaleStory Component renders TypescaleStory with 3x-large size, dis
 <h2
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   &lt;XXXL&gt;
   &lt;/XXXL&gt;
@@ -222,7 +222,7 @@ exports[`TypescaleStory Component renders TypescaleStory with a custom tag 1`] =
 <span
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -253,7 +253,7 @@ exports[`TypescaleStory Component renders TypescaleStory with bold text 1`] = `
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -284,7 +284,7 @@ exports[`TypescaleStory Component renders TypescaleStory with display name 1`] =
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   &lt;MD&gt;
   &lt;/MD&gt;
@@ -318,7 +318,7 @@ exports[`TypescaleStory Component renders TypescaleStory with extra-large size 1
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -349,7 +349,7 @@ exports[`TypescaleStory Component renders TypescaleStory with extra-large size a
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -380,7 +380,7 @@ exports[`TypescaleStory Component renders TypescaleStory with extra-large size, 
 <strong
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   &lt;XL&gt;
   &lt;/XL&gt;
@@ -414,7 +414,7 @@ exports[`TypescaleStory Component renders TypescaleStory with large size 1`] = `
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -445,7 +445,7 @@ exports[`TypescaleStory Component renders TypescaleStory with large size and bol
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -477,7 +477,7 @@ exports[`TypescaleStory Component renders TypescaleStory with large size, displa
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   &lt;LG&gt;
   &lt;/LG&gt;
@@ -512,7 +512,7 @@ exports[`TypescaleStory Component renders TypescaleStory with monospace font 1`]
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -543,7 +543,7 @@ exports[`TypescaleStory Component renders TypescaleStory with small size 1`] = `
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -574,7 +574,7 @@ exports[`TypescaleStory Component renders TypescaleStory with small size and dis
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   &lt;SM&gt;
   &lt;/SM&gt;
@@ -609,7 +609,7 @@ exports[`TypescaleStory Component renders TypescaleStory with small size, monosp
 <code
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -640,6 +640,6 @@ exports[`TypescaleStory Component renders default TypescaleStory (medium size) 1
 <div
   class="c0"
   data-garden-id="typography.font"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;

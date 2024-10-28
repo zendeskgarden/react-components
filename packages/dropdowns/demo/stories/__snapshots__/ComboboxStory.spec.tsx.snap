@@ -352,30 +352,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a bare combobox 1`] 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r1d:--input"
           id=":r1d:--label"
         >
@@ -384,7 +384,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a bare combobox 1`] 
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -392,24 +392,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a bare combobox 1`] 
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r1d:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -422,7 +422,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a bare combobox 1`] 
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r1d:--input"
                   role="combobox"
@@ -435,7 +435,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a bare combobox 1`] 
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -444,7 +444,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a bare combobox 1`] 
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r1d:--listbox"
               role="listbox"
             />
@@ -810,30 +810,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact combobox 1
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r1a:--input"
           id=":r1a:--label"
         >
@@ -842,7 +842,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact combobox 1
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -850,24 +850,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact combobox 1
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r1a:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -880,7 +880,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact combobox 1
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r1a:--input"
                   role="combobox"
@@ -893,7 +893,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact combobox 1
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -902,7 +902,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact combobox 1
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r1a:--listbox"
               role="listbox"
             />
@@ -1268,30 +1268,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom active inde
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r2k:--input"
           id=":r2k:--label"
         >
@@ -1300,7 +1300,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom active inde
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -1308,24 +1308,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom active inde
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r2k:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -1338,7 +1338,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom active inde
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r2k:--input"
                   role="combobox"
@@ -1351,7 +1351,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom active inde
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -1360,7 +1360,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom active inde
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r2k:--listbox"
               role="listbox"
             />
@@ -1726,30 +1726,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default act
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r2n:--input"
           id=":r2n:--label"
         >
@@ -1758,7 +1758,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default act
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -1766,24 +1766,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default act
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r2n:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -1796,7 +1796,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default act
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r2n:--input"
                   role="combobox"
@@ -1809,7 +1809,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default act
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -1818,7 +1818,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default act
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r2n:--listbox"
               role="listbox"
             />
@@ -2262,30 +2262,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r2q:--input"
           id=":r2q:--label"
         >
@@ -2294,7 +2294,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -2302,24 +2302,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r2q:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                 />
                 <input
@@ -2333,7 +2333,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   id=":r2q:--input"
                   role="combobox"
                   value=""
@@ -2345,7 +2345,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
             class="c12"
             data-garden-animate="true"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -2354,7 +2354,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r2q:--listbox"
               role="listbox"
             >
@@ -2364,7 +2364,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
                 data-garden-container-id="containers.combobox.option"
                 data-garden-container-version="2.0.4"
                 data-garden-id="dropdowns.combobox.option"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 id=":r2q:--option-0"
                 role="option"
               >
@@ -2372,7 +2372,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
                   aria-hidden="true"
                   class="c16  c17"
                   data-garden-id="dropdowns.combobox.option.type_icon"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   focusable="false"
                   height="16"
                   viewBox="0 0 16 16"
@@ -2390,7 +2390,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
                 <div
                   class="c18"
                   data-garden-id="dropdowns.combobox.option.content"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Option 1
                 </div>
@@ -2401,7 +2401,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
                 data-garden-container-id="containers.combobox.option"
                 data-garden-container-version="2.0.4"
                 data-garden-id="dropdowns.combobox.option"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 id=":r2q:--option-1"
                 role="option"
               >
@@ -2409,7 +2409,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
                   aria-hidden="true"
                   class="c16  c17"
                   data-garden-id="dropdowns.combobox.option.type_icon"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   focusable="false"
                   height="16"
                   viewBox="0 0 16 16"
@@ -2427,7 +2427,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom default exp
                 <div
                   class="c18"
                   data-garden-id="dropdowns.combobox.option.content"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Option 2
                 </div>
@@ -2795,30 +2795,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom focus inset
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r2t:--input"
           id=":r2t:--label"
         >
@@ -2827,7 +2827,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom focus inset
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -2835,24 +2835,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom focus inset
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r2t:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -2865,7 +2865,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom focus inset
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r2t:--input"
                   role="combobox"
@@ -2878,7 +2878,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom focus inset
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -2887,7 +2887,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom focus inset
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r2t:--listbox"
               role="listbox"
             />
@@ -3253,30 +3253,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom id 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="custom-id--input"
           id="custom-id--label"
         >
@@ -3285,7 +3285,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom id 1`] = `
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="custom-id"
           tabindex="-1"
         >
@@ -3294,24 +3294,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom id 1`] = `
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id="custom-id--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -3324,7 +3324,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom id 1`] = `
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id="custom-id--input"
                   role="combobox"
@@ -3337,7 +3337,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom id 1`] = `
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -3346,7 +3346,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom id 1`] = `
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="custom-id--listbox"
               role="listbox"
             />
@@ -3711,30 +3711,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom input value
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r2h:--input"
           id=":r2h:--label"
         >
@@ -3743,7 +3743,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom input value
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -3751,24 +3751,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom input value
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r2h:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Custom input
                 </div>
@@ -3783,7 +3783,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom input value
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r2h:--input"
                   role="combobox"
@@ -3796,7 +3796,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom input value
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -3805,7 +3805,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom input value
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r2h:--listbox"
               role="listbox"
             />
@@ -4171,30 +4171,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox ari
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r2b:--input"
           id=":r2b:--label"
         >
@@ -4203,7 +4203,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox ari
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -4211,24 +4211,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox ari
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r2b:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -4241,7 +4241,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox ari
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r2b:--input"
                   role="combobox"
@@ -4254,7 +4254,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox ari
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -4263,7 +4263,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox ari
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r2b:--listbox"
               role="listbox"
             />
@@ -4629,30 +4629,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox max
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r1v:--input"
           id=":r1v:--label"
         >
@@ -4661,7 +4661,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox max
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -4669,24 +4669,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox max
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r1v:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -4699,7 +4699,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox max
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r1v:--input"
                   role="combobox"
@@ -4712,7 +4712,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox max
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -4721,7 +4721,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox max
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r1v:--listbox"
               role="listbox"
             />
@@ -5087,30 +5087,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox min
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r22:--input"
           id=":r22:--label"
         >
@@ -5119,7 +5119,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox min
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -5127,24 +5127,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox min
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r22:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -5157,7 +5157,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox min
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r22:--input"
                   role="combobox"
@@ -5170,7 +5170,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox min
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -5179,7 +5179,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox min
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r22:--listbox"
               role="listbox"
             />
@@ -5545,30 +5545,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox z-i
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r25:--input"
           id=":r25:--label"
         >
@@ -5577,7 +5577,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox z-i
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -5585,24 +5585,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox z-i
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r25:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -5615,7 +5615,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox z-i
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r25:--input"
                   role="combobox"
@@ -5628,7 +5628,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox z-i
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -5637,7 +5637,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom listbox z-i
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r25:--listbox"
               role="listbox"
             />
@@ -6003,30 +6003,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom max height 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r28:--input"
           id=":r28:--label"
         >
@@ -6035,7 +6035,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom max height 
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -6043,24 +6043,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom max height 
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r28:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -6073,7 +6073,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom max height 
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r28:--input"
                   role="combobox"
@@ -6086,7 +6086,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom max height 
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -6095,7 +6095,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom max height 
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r28:--listbox"
               role="listbox"
             />
@@ -6461,30 +6461,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom maxTags val
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r1s:--input"
           id=":r1s:--label"
         >
@@ -6493,7 +6493,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom maxTags val
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -6501,24 +6501,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom maxTags val
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r1s:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -6531,7 +6531,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom maxTags val
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r1s:--input"
                   role="combobox"
@@ -6544,7 +6544,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom maxTags val
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -6554,7 +6554,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom maxTags val
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r1s:--listbox"
               role="listbox"
             />
@@ -6920,30 +6920,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placeholder
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r1p:--input"
           id=":r1p:--label"
         >
@@ -6952,7 +6952,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placeholder
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -6960,24 +6960,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placeholder
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r1p:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Choose an option
                 </div>
@@ -6992,7 +6992,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placeholder
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r1p:--input"
                   placeholder="Choose an option"
@@ -7006,7 +7006,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placeholder
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -7015,7 +7015,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placeholder
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r1p:--listbox"
               role="listbox"
             />
@@ -7381,30 +7381,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled combobox 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r1m:--input"
           id=":r1m:--label"
         >
@@ -7413,7 +7413,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled combobox 
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -7422,24 +7422,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled combobox 
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r1m:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -7452,7 +7452,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled combobox 
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   disabled=""
                   hidden=""
                   id=":r1m:--input"
@@ -7466,7 +7466,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled combobox 
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -7475,7 +7475,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled combobox 
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r1m:--listbox"
               role="listbox"
             />
@@ -7841,30 +7841,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r6:--input"
           hidden=""
           id=":r6:--label"
@@ -7874,7 +7874,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -7882,24 +7882,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r6:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -7912,7 +7912,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r6:--input"
                   role="combobox"
@@ -7925,7 +7925,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -7934,7 +7934,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r6:--listbox"
               role="listbox"
             />
@@ -8308,30 +8308,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r9:--input"
           id=":r9:--label"
         >
@@ -8342,7 +8342,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r9:--hint"
         >
           Choose wisely
@@ -8350,7 +8350,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
         <div
           class="c7"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -8358,24 +8358,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r9:--trigger"
             tabindex="-1"
           >
             <div
               class="c9"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c10"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c11"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -8389,7 +8389,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r9:--input"
                   role="combobox"
@@ -8402,7 +8402,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
             class="c13"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -8411,7 +8411,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r9:--listbox"
               role="listbox"
             />
@@ -8777,30 +8777,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r3:--input"
           id=":r3:--label"
         >
@@ -8809,7 +8809,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -8817,24 +8817,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r3:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -8847,7 +8847,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r3:--input"
                   role="combobox"
@@ -8860,7 +8860,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -8869,7 +8869,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r3:--listbox"
               role="listbox"
             />
@@ -9252,30 +9252,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5 c6"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":rc:--input"
           id=":rc:--label"
         >
@@ -9284,7 +9284,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
         <div
           class="c7"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -9292,24 +9292,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":rc:--trigger"
             tabindex="-1"
           >
             <div
               class="c9"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c10"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c11"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -9323,7 +9323,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":rc:--input"
                   role="combobox"
@@ -9336,7 +9336,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
             class="c13"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -9345,7 +9345,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":rc:--listbox"
               role="listbox"
             />
@@ -9356,7 +9356,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rc:--message"
           role="alert"
         >
@@ -9722,30 +9722,30 @@ exports[`ComboboxStory Component renders ComboboxStory with a multiselectable co
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r17:--input"
           id=":r17:--label"
         >
@@ -9754,7 +9754,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a multiselectable co
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -9762,24 +9762,24 @@ exports[`ComboboxStory Component renders ComboboxStory with a multiselectable co
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r17:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -9792,7 +9792,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a multiselectable co
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r17:--input"
                   role="combobox"
@@ -9805,7 +9805,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a multiselectable co
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -9815,7 +9815,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a multiselectable co
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r17:--listbox"
               role="listbox"
             />
@@ -10207,30 +10207,30 @@ exports[`ComboboxStory Component renders ComboboxStory with an autocomplete comb
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r1j:--input"
           id=":r1j:--label"
         >
@@ -10239,7 +10239,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an autocomplete comb
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -10248,24 +10248,24 @@ exports[`ComboboxStory Component renders ComboboxStory with an autocomplete comb
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r1j:--trigger"
             tabindex="-1"
           >
             <div
               class="c9"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c10"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c11"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -10279,7 +10279,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an autocomplete comb
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r1j:--input"
                   role="combobox"
@@ -10290,7 +10290,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an autocomplete comb
                 aria-hidden="true"
                 class=" c13"
                 data-garden-id="dropdowns.combobox.input_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -10308,7 +10308,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an autocomplete comb
             class="c14"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -10317,7 +10317,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an autocomplete comb
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r1j:--listbox"
               role="listbox"
             />
@@ -10683,30 +10683,30 @@ exports[`ComboboxStory Component renders ComboboxStory with an editable combobox
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r1g:--input"
           id=":r1g:--label"
         >
@@ -10715,7 +10715,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an editable combobox
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -10723,24 +10723,24 @@ exports[`ComboboxStory Component renders ComboboxStory with an editable combobox
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r1g:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -10753,7 +10753,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an editable combobox
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r1g:--input"
                   role="combobox"
@@ -10766,7 +10766,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an editable combobox
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -10775,7 +10775,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an editable combobox
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r1g:--listbox"
               role="listbox"
             />
@@ -11167,30 +11167,30 @@ exports[`ComboboxStory Component renders ComboboxStory with end icon 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":rr:--input"
           id=":rr:--label"
         >
@@ -11199,7 +11199,7 @@ exports[`ComboboxStory Component renders ComboboxStory with end icon 1`] = `
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -11207,24 +11207,24 @@ exports[`ComboboxStory Component renders ComboboxStory with end icon 1`] = `
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":rr:--trigger"
             tabindex="-1"
           >
             <div
               class="c9"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c10"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c11"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -11237,7 +11237,7 @@ exports[`ComboboxStory Component renders ComboboxStory with end icon 1`] = `
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":rr:--input"
                   role="combobox"
@@ -11247,7 +11247,7 @@ exports[`ComboboxStory Component renders ComboboxStory with end icon 1`] = `
               <svg
                 class=" c13"
                 data-garden-id="dropdowns.combobox.input_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 xmlns="http://www.w3.org/2000/svg"
               />
             </div>
@@ -11256,7 +11256,7 @@ exports[`ComboboxStory Component renders ComboboxStory with end icon 1`] = `
             class="c14"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -11265,7 +11265,7 @@ exports[`ComboboxStory Component renders ComboboxStory with end icon 1`] = `
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":rr:--listbox"
               role="listbox"
             />
@@ -11631,30 +11631,30 @@ exports[`ComboboxStory Component renders ComboboxStory with grouped options 1`] 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r14:--input"
           id=":r14:--label"
         >
@@ -11663,7 +11663,7 @@ exports[`ComboboxStory Component renders ComboboxStory with grouped options 1`] 
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -11671,24 +11671,24 @@ exports[`ComboboxStory Component renders ComboboxStory with grouped options 1`] 
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r14:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -11701,7 +11701,7 @@ exports[`ComboboxStory Component renders ComboboxStory with grouped options 1`] 
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r14:--input"
                   role="combobox"
@@ -11714,7 +11714,7 @@ exports[`ComboboxStory Component renders ComboboxStory with grouped options 1`] 
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -11723,7 +11723,7 @@ exports[`ComboboxStory Component renders ComboboxStory with grouped options 1`] 
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r14:--listbox"
               role="listbox"
             />
@@ -12089,30 +12089,30 @@ exports[`ComboboxStory Component renders ComboboxStory with options 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r11:--input"
           id=":r11:--label"
         >
@@ -12121,7 +12121,7 @@ exports[`ComboboxStory Component renders ComboboxStory with options 1`] = `
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -12129,24 +12129,24 @@ exports[`ComboboxStory Component renders ComboboxStory with options 1`] = `
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r11:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -12159,7 +12159,7 @@ exports[`ComboboxStory Component renders ComboboxStory with options 1`] = `
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r11:--input"
                   role="combobox"
@@ -12172,7 +12172,7 @@ exports[`ComboboxStory Component renders ComboboxStory with options 1`] = `
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -12181,7 +12181,7 @@ exports[`ComboboxStory Component renders ComboboxStory with options 1`] = `
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r11:--listbox"
               role="listbox"
             />
@@ -12546,30 +12546,30 @@ exports[`ComboboxStory Component renders ComboboxStory with renderValue enabled 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":ru:--input"
           id=":ru:--label"
         >
@@ -12578,7 +12578,7 @@ exports[`ComboboxStory Component renders ComboboxStory with renderValue enabled 
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -12586,24 +12586,24 @@ exports[`ComboboxStory Component renders ComboboxStory with renderValue enabled 
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":ru:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -12616,7 +12616,7 @@ exports[`ComboboxStory Component renders ComboboxStory with renderValue enabled 
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":ru:--input"
                   role="combobox"
@@ -12629,7 +12629,7 @@ exports[`ComboboxStory Component renders ComboboxStory with renderValue enabled 
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -12638,7 +12638,7 @@ exports[`ComboboxStory Component renders ComboboxStory with renderValue enabled 
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":ru:--listbox"
               role="listbox"
             />
@@ -13030,30 +13030,30 @@ exports[`ComboboxStory Component renders ComboboxStory with start icon 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":ro:--input"
           id=":ro:--label"
         >
@@ -13062,7 +13062,7 @@ exports[`ComboboxStory Component renders ComboboxStory with start icon 1`] = `
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -13070,30 +13070,30 @@ exports[`ComboboxStory Component renders ComboboxStory with start icon 1`] = `
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":ro:--trigger"
             tabindex="-1"
           >
             <div
               class="c9"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <svg
                 class=" c10"
                 data-garden-id="dropdowns.combobox.input_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 xmlns="http://www.w3.org/2000/svg"
               />
               <div
                 class="c11"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c12"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -13106,7 +13106,7 @@ exports[`ComboboxStory Component renders ComboboxStory with start icon 1`] = `
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":ro:--input"
                   role="combobox"
@@ -13119,7 +13119,7 @@ exports[`ComboboxStory Component renders ComboboxStory with start icon 1`] = `
             class="c14"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -13128,7 +13128,7 @@ exports[`ComboboxStory Component renders ComboboxStory with start icon 1`] = `
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":ro:--listbox"
               role="listbox"
             />
@@ -13494,30 +13494,30 @@ exports[`ComboboxStory Component renders ComboboxStory with validation error 1`]
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":ri:--input"
           id=":ri:--label"
         >
@@ -13526,7 +13526,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation error 1`]
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -13534,24 +13534,24 @@ exports[`ComboboxStory Component renders ComboboxStory with validation error 1`]
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":ri:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -13564,7 +13564,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation error 1`]
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":ri:--input"
                   role="combobox"
@@ -13577,7 +13577,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation error 1`]
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -13586,7 +13586,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation error 1`]
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":ri:--listbox"
               role="listbox"
             />
@@ -13952,30 +13952,30 @@ exports[`ComboboxStory Component renders ComboboxStory with validation success 1
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":rf:--input"
           id=":rf:--label"
         >
@@ -13984,7 +13984,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation success 1
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -13992,24 +13992,24 @@ exports[`ComboboxStory Component renders ComboboxStory with validation success 1
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":rf:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -14022,7 +14022,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation success 1
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":rf:--input"
                   role="combobox"
@@ -14035,7 +14035,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation success 1
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -14044,7 +14044,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation success 1
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":rf:--listbox"
               role="listbox"
             />
@@ -14410,30 +14410,30 @@ exports[`ComboboxStory Component renders ComboboxStory with validation warning 1
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":rl:--input"
           id=":rl:--label"
         >
@@ -14442,7 +14442,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation warning 1
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -14450,24 +14450,24 @@ exports[`ComboboxStory Component renders ComboboxStory with validation warning 1
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":rl:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -14480,7 +14480,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation warning 1
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":rl:--input"
                   role="combobox"
@@ -14493,7 +14493,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation warning 1
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -14502,7 +14502,7 @@ exports[`ComboboxStory Component renders ComboboxStory with validation warning 1
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":rl:--listbox"
               role="listbox"
             />
@@ -14868,30 +14868,30 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="dropdowns.combobox.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="dropdowns.combobox.label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for=":r0:--input"
           id=":r0:--label"
         >
@@ -14900,7 +14900,7 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
         <div
           class="c6"
           data-garden-id="dropdowns.combobox"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           tabindex="-1"
         >
           <div
@@ -14908,24 +14908,24 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
             data-garden-container-id="containers.combobox"
             data-garden-container-version="2.0.4"
             data-garden-id="dropdowns.combobox.trigger"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             id=":r0:--trigger"
             tabindex="-1"
           >
             <div
               class="c8"
               data-garden-id="dropdowns.combobox.container"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 class="c9"
                 data-garden-id="dropdowns.combobox.input_group"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c10"
                   data-garden-id="dropdowns.combobox.value"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 />
                 <input
                   aria-activedescendant=""
@@ -14938,7 +14938,7 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
                   data-garden-container-id="containers.field.input"
                   data-garden-container-version="3.0.19"
                   data-garden-id="dropdowns.combobox.input"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   hidden=""
                   id=":r0:--input"
                   role="combobox"
@@ -14951,7 +14951,7 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
             class="c12"
             data-garden-animate="false"
             data-garden-id="dropdowns.combobox.floating"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             style="transform: translate(0px, 0px);"
           >
             <ul
@@ -14960,7 +14960,7 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
               data-garden-container-id="containers.combobox.listbox"
               data-garden-container-version="2.0.4"
               data-garden-id="dropdowns.combobox.listbox"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id=":r0:--listbox"
               role="listbox"
             />

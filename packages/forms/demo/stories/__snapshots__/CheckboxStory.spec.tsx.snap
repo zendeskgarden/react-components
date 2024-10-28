@@ -193,7 +193,7 @@ exports[`CheckboxStory Component renders component with a checked state 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rf:--label"
@@ -202,7 +202,7 @@ exports[`CheckboxStory Component renders component with a checked state 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rf:--input"
     type="checkbox"
   />
@@ -211,7 +211,7 @@ exports[`CheckboxStory Component renders component with a checked state 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rf:--input"
     id=":rf:--label"
   >
@@ -219,7 +219,7 @@ exports[`CheckboxStory Component renders component with a checked state 1`] = `
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -239,7 +239,7 @@ exports[`CheckboxStory Component renders component with a checked state 1`] = `
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -450,7 +450,7 @@ exports[`CheckboxStory Component renders component with a disabled state 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rc:--label"
@@ -458,7 +458,7 @@ exports[`CheckboxStory Component renders component with a disabled state 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     disabled=""
     id=":rc:--input"
     type="checkbox"
@@ -468,7 +468,7 @@ exports[`CheckboxStory Component renders component with a disabled state 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rc:--input"
     id=":rc:--label"
   >
@@ -476,7 +476,7 @@ exports[`CheckboxStory Component renders component with a disabled state 1`] = `
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -496,7 +496,7 @@ exports[`CheckboxStory Component renders component with a disabled state 1`] = `
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -540,7 +540,7 @@ exports[`CheckboxStory Component renders component with a hidden label 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r2:--label"
@@ -548,7 +548,7 @@ exports[`CheckboxStory Component renders component with a hidden label 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r2:--input"
     label="Accept Terms"
     type="checkbox"
@@ -761,7 +761,7 @@ exports[`CheckboxStory Component renders component with a hint 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":r3:--hint"
@@ -770,7 +770,7 @@ exports[`CheckboxStory Component renders component with a hint 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r3:--input"
     type="checkbox"
   />
@@ -779,7 +779,7 @@ exports[`CheckboxStory Component renders component with a hint 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r3:--input"
     id=":r3:--label"
   >
@@ -787,7 +787,7 @@ exports[`CheckboxStory Component renders component with a hint 1`] = `
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -807,7 +807,7 @@ exports[`CheckboxStory Component renders component with a hint 1`] = `
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -827,7 +827,7 @@ exports[`CheckboxStory Component renders component with a hint 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r3:--hint"
   >
     This is a hint
@@ -1028,7 +1028,7 @@ exports[`CheckboxStory Component renders component with a label 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r1:--label"
@@ -1036,7 +1036,7 @@ exports[`CheckboxStory Component renders component with a label 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r1:--input"
     label="Accept Terms"
     type="checkbox"
@@ -1046,7 +1046,7 @@ exports[`CheckboxStory Component renders component with a label 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r1:--input"
     id=":r1:--label"
   >
@@ -1054,7 +1054,7 @@ exports[`CheckboxStory Component renders component with a label 1`] = `
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -1074,7 +1074,7 @@ exports[`CheckboxStory Component renders component with a label 1`] = `
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -1286,7 +1286,7 @@ exports[`CheckboxStory Component renders component with a label and compact styl
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rk:--label"
@@ -1294,7 +1294,7 @@ exports[`CheckboxStory Component renders component with a label and compact styl
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rk:--input"
     type="checkbox"
   />
@@ -1303,7 +1303,7 @@ exports[`CheckboxStory Component renders component with a label and compact styl
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rk:--input"
     id=":rk:--label"
   >
@@ -1311,7 +1311,7 @@ exports[`CheckboxStory Component renders component with a label and compact styl
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -1331,7 +1331,7 @@ exports[`CheckboxStory Component renders component with a label and compact styl
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -1375,7 +1375,7 @@ exports[`CheckboxStory Component renders component with a label, hidden label, a
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r9:--label"
@@ -1383,7 +1383,7 @@ exports[`CheckboxStory Component renders component with a label, hidden label, a
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r9:--input"
     label="Accept Terms"
     type="checkbox"
@@ -1429,7 +1429,7 @@ exports[`CheckboxStory Component renders component with a label, hidden label, h
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":rb:--hint"
@@ -1438,7 +1438,7 @@ exports[`CheckboxStory Component renders component with a label, hidden label, h
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rb:--input"
     label="Accept Terms"
     type="checkbox"
@@ -1448,7 +1448,7 @@ exports[`CheckboxStory Component renders component with a label, hidden label, h
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rb:--hint"
   >
     This is a hint
@@ -1661,7 +1661,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and compa
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":rl:--hint"
@@ -1670,7 +1670,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and compa
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rl:--input"
     type="checkbox"
   />
@@ -1679,7 +1679,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and compa
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rl:--input"
     id=":rl:--label"
   >
@@ -1687,7 +1687,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and compa
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -1707,7 +1707,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and compa
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -1727,7 +1727,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and compa
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rl:--hint"
   >
     This is a hint
@@ -1965,7 +1965,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and messa
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":r8:--hint :r8:--message"
@@ -1974,7 +1974,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and messa
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r8:--input"
     label="Accept Terms"
     type="checkbox"
@@ -1984,7 +1984,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and messa
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r8:--input"
     id=":r8:--label"
   >
@@ -1992,7 +1992,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and messa
       aria-hidden="true"
       class="c9 c10"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -2012,7 +2012,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and messa
       aria-hidden="true"
       class="c11 c12"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -2033,7 +2033,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and messa
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r8:--hint"
   >
     This is a hint
@@ -2043,7 +2043,7 @@ exports[`CheckboxStory Component renders component with a label, hint, and messa
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r8:--message"
     role="alert"
   >
@@ -2282,7 +2282,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":rn:--hint :rn:--message"
@@ -2291,7 +2291,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rn:--input"
     type="checkbox"
   />
@@ -2300,7 +2300,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rn:--input"
     id=":rn:--label"
   >
@@ -2308,7 +2308,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
       aria-hidden="true"
       class="c9 c10"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -2328,7 +2328,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
       aria-hidden="true"
       class="c11 c12"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -2348,7 +2348,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rn:--hint"
   >
     This is a hint
@@ -2358,7 +2358,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rn:--message"
     role="alert"
   >
@@ -2609,7 +2609,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":ra:--hint :ra:--message"
@@ -2618,7 +2618,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ra:--input"
     label="Accept Terms"
     type="checkbox"
@@ -2628,7 +2628,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ra:--input"
     id=":ra:--label"
   >
@@ -2636,7 +2636,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
       aria-hidden="true"
       class="c9 c10"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -2656,7 +2656,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
       aria-hidden="true"
       class="c11 c12"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -2677,7 +2677,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ra:--hint"
   >
     This is a hint
@@ -2687,7 +2687,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ra:--message"
     role="alert"
   >
@@ -2695,7 +2695,7 @@ exports[`CheckboxStory Component renders component with a label, hint, message, 
       aria-label="error"
       class="c18  c19"
       data-garden-id="forms.input_message_icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       role="img"
@@ -2947,7 +2947,7 @@ exports[`CheckboxStory Component renders component with a label, message, and co
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":rm:--message"
@@ -2956,7 +2956,7 @@ exports[`CheckboxStory Component renders component with a label, message, and co
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rm:--input"
     type="checkbox"
   />
@@ -2965,7 +2965,7 @@ exports[`CheckboxStory Component renders component with a label, message, and co
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rm:--input"
     id=":rm:--label"
   >
@@ -2973,7 +2973,7 @@ exports[`CheckboxStory Component renders component with a label, message, and co
       aria-hidden="true"
       class="c9 c10"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -2993,7 +2993,7 @@ exports[`CheckboxStory Component renders component with a label, message, and co
       aria-hidden="true"
       class="c11 c12"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -3013,7 +3013,7 @@ exports[`CheckboxStory Component renders component with a label, message, and co
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rm:--message"
     role="alert"
   >
@@ -3240,7 +3240,7 @@ exports[`CheckboxStory Component renders component with a message 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":r4:--message"
@@ -3249,7 +3249,7 @@ exports[`CheckboxStory Component renders component with a message 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r4:--input"
     type="checkbox"
   />
@@ -3258,7 +3258,7 @@ exports[`CheckboxStory Component renders component with a message 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r4:--input"
     id=":r4:--label"
   >
@@ -3266,7 +3266,7 @@ exports[`CheckboxStory Component renders component with a message 1`] = `
       aria-hidden="true"
       class="c9 c10"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -3286,7 +3286,7 @@ exports[`CheckboxStory Component renders component with a message 1`] = `
       aria-hidden="true"
       class="c11 c12"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -3306,7 +3306,7 @@ exports[`CheckboxStory Component renders component with a message 1`] = `
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r4:--message"
     role="alert"
   >
@@ -3508,7 +3508,7 @@ exports[`CheckboxStory Component renders component with a read-only state 1`] = 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rd:--label"
@@ -3516,7 +3516,7 @@ exports[`CheckboxStory Component renders component with a read-only state 1`] = 
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rd:--input"
     readonly=""
     type="checkbox"
@@ -3526,7 +3526,7 @@ exports[`CheckboxStory Component renders component with a read-only state 1`] = 
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rd:--input"
     id=":rd:--label"
   >
@@ -3534,7 +3534,7 @@ exports[`CheckboxStory Component renders component with a read-only state 1`] = 
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -3554,7 +3554,7 @@ exports[`CheckboxStory Component renders component with a read-only state 1`] = 
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -3765,7 +3765,7 @@ exports[`CheckboxStory Component renders component with a required state 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":re:--label"
@@ -3773,7 +3773,7 @@ exports[`CheckboxStory Component renders component with a required state 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":re:--input"
     required=""
     type="checkbox"
@@ -3783,7 +3783,7 @@ exports[`CheckboxStory Component renders component with a required state 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":re:--input"
     id=":re:--label"
   >
@@ -3791,7 +3791,7 @@ exports[`CheckboxStory Component renders component with a required state 1`] = `
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -3811,7 +3811,7 @@ exports[`CheckboxStory Component renders component with a required state 1`] = `
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -4022,7 +4022,7 @@ exports[`CheckboxStory Component renders component with compact styling 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rj:--label"
@@ -4030,7 +4030,7 @@ exports[`CheckboxStory Component renders component with compact styling 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rj:--input"
     type="checkbox"
   />
@@ -4039,7 +4039,7 @@ exports[`CheckboxStory Component renders component with compact styling 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rj:--input"
     id=":rj:--label"
   >
@@ -4047,7 +4047,7 @@ exports[`CheckboxStory Component renders component with compact styling 1`] = `
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -4067,7 +4067,7 @@ exports[`CheckboxStory Component renders component with compact styling 1`] = `
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -4111,7 +4111,7 @@ exports[`CheckboxStory Component renders component with label, hidden label, val
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":rh:--label"
@@ -4119,7 +4119,7 @@ exports[`CheckboxStory Component renders component with label, hidden label, val
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rh:--input"
     label="Accept Terms"
     readonly=""
@@ -4358,7 +4358,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, an
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":rg:--hint :rg:--message"
@@ -4367,7 +4367,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, an
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     disabled=""
     id=":rg:--input"
     label="Accept Terms"
@@ -4378,7 +4378,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, an
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rg:--input"
     id=":rg:--label"
   >
@@ -4386,7 +4386,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, an
       aria-hidden="true"
       class="c9 c10"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -4406,7 +4406,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, an
       aria-hidden="true"
       class="c11 c12"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -4427,7 +4427,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, an
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rg:--hint"
   >
     This is a hint
@@ -4437,7 +4437,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, an
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rg:--message"
     role="alert"
   >
@@ -4688,7 +4688,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, va
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-describedby=":ri:--hint :ri:--message"
@@ -4697,7 +4697,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, va
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ri:--input"
     label="Accept Terms"
     required=""
@@ -4708,7 +4708,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, va
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ri:--input"
     id=":ri:--label"
   >
@@ -4716,7 +4716,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, va
       aria-hidden="true"
       class="c9 c10"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -4736,7 +4736,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, va
       aria-hidden="true"
       class="c11 c12"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -4757,7 +4757,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, va
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ri:--hint"
   >
     This is a hint
@@ -4767,7 +4767,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, va
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ri:--message"
     role="alert"
   >
@@ -4775,7 +4775,7 @@ exports[`CheckboxStory Component renders component with label, hint, message, va
       aria-label="error"
       class="c18  c19"
       data-garden-id="forms.input_message_icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       role="img"
@@ -5002,7 +5002,7 @@ exports[`CheckboxStory Component renders component with validation error 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r6:--label"
@@ -5010,7 +5010,7 @@ exports[`CheckboxStory Component renders component with validation error 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r6:--input"
     type="checkbox"
   />
@@ -5019,7 +5019,7 @@ exports[`CheckboxStory Component renders component with validation error 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r6:--input"
     id=":r6:--label"
   >
@@ -5027,7 +5027,7 @@ exports[`CheckboxStory Component renders component with validation error 1`] = `
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -5047,7 +5047,7 @@ exports[`CheckboxStory Component renders component with validation error 1`] = `
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -5258,7 +5258,7 @@ exports[`CheckboxStory Component renders component with validation success 1`] =
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r5:--label"
@@ -5266,7 +5266,7 @@ exports[`CheckboxStory Component renders component with validation success 1`] =
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r5:--input"
     type="checkbox"
   />
@@ -5275,7 +5275,7 @@ exports[`CheckboxStory Component renders component with validation success 1`] =
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r5:--input"
     id=":r5:--label"
   >
@@ -5283,7 +5283,7 @@ exports[`CheckboxStory Component renders component with validation success 1`] =
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -5303,7 +5303,7 @@ exports[`CheckboxStory Component renders component with validation success 1`] =
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -5514,7 +5514,7 @@ exports[`CheckboxStory Component renders component with validation warning 1`] =
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r7:--label"
@@ -5522,7 +5522,7 @@ exports[`CheckboxStory Component renders component with validation warning 1`] =
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r7:--input"
     type="checkbox"
   />
@@ -5531,7 +5531,7 @@ exports[`CheckboxStory Component renders component with validation warning 1`] =
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r7:--input"
     id=":r7:--label"
   >
@@ -5539,7 +5539,7 @@ exports[`CheckboxStory Component renders component with validation warning 1`] =
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -5559,7 +5559,7 @@ exports[`CheckboxStory Component renders component with validation warning 1`] =
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -5770,7 +5770,7 @@ exports[`CheckboxStory Component renders default component 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <input
     aria-labelledby=":r0:--label"
@@ -5778,7 +5778,7 @@ exports[`CheckboxStory Component renders default component 1`] = `
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r0:--input"
     type="checkbox"
   />
@@ -5787,7 +5787,7 @@ exports[`CheckboxStory Component renders default component 1`] = `
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.checkbox_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r0:--input"
     id=":r0:--label"
   >
@@ -5795,7 +5795,7 @@ exports[`CheckboxStory Component renders default component 1`] = `
       aria-hidden="true"
       class="c8 c9"
       data-garden-id="forms.check_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"
@@ -5815,7 +5815,7 @@ exports[`CheckboxStory Component renders default component 1`] = `
       aria-hidden="true"
       class="c10 c11"
       data-garden-id="forms.dash_svg"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="12"
       viewBox="0 0 12 12"

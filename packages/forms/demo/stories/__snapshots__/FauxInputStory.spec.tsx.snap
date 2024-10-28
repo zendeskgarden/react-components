@@ -254,14 +254,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":re:--input"
     id=":re:--label"
   >
@@ -272,7 +272,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":re:--hint"
   >
     Hint
@@ -282,7 +282,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   />
 </div>
 `;
@@ -541,14 +541,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a hidden label 1`]
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r3:--input"
     hidden=""
     id=":r3:--label"
@@ -559,7 +559,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a hidden label 1`]
     aria-invalid="false"
     class="c2 c3 c4"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
   <div
@@ -567,7 +567,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a hidden label 1`]
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r3:--hint"
   >
     Hint
@@ -829,14 +829,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r4:--input"
     id=":r4:--label"
   >
@@ -847,7 +847,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r4:--hint"
   >
     Enter your username
@@ -856,7 +856,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
 </div>
@@ -1116,14 +1116,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r1:--input"
     id=":r1:--label"
   >
@@ -1134,7 +1134,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r1:--hint"
   >
     Hint
@@ -1143,7 +1143,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
 </div>
@@ -1403,14 +1403,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r8:--input"
     hidden=""
     id=":r8:--label"
@@ -1421,7 +1421,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
     aria-invalid="false"
     class="c2 c3 c4"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
   <div
@@ -1429,7 +1429,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r8:--hint"
   >
     Hint
@@ -1691,14 +1691,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ra:--input"
     hidden=""
     id=":ra:--label"
@@ -1709,7 +1709,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
     aria-invalid="false"
     class="c2 c3 c4"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
   <div
@@ -1717,7 +1717,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ra:--hint"
   >
     Enter your username
@@ -2004,14 +2004,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hint, and
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r7:--input"
     id=":r7:--label"
   >
@@ -2022,7 +2022,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hint, and
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r7:--hint"
   >
     Enter your username
@@ -2031,7 +2031,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hint, and
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
   <div
@@ -2039,7 +2039,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hint, and
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r7:--message"
     role="alert"
   >
@@ -2327,14 +2327,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r9:--input"
     id=":r9:--label"
   >
@@ -2345,7 +2345,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r9:--hint"
   >
     Enter your username
@@ -2354,7 +2354,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
   <div
@@ -2362,7 +2362,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r9:--message"
     role="alert"
   >
@@ -2650,14 +2650,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rb:--input"
     id=":rb:--label"
   >
@@ -2668,7 +2668,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rb:--hint"
   >
     Enter your username
@@ -2677,7 +2677,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
   <div
@@ -2685,7 +2685,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rb:--message"
     role="alert"
   >
@@ -2973,14 +2973,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a message 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r5:--input"
     id=":r5:--label"
   >
@@ -2991,7 +2991,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a message 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r5:--hint"
   >
     Hint
@@ -3000,7 +3000,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a message 1`] = `
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
   <div
@@ -3008,7 +3008,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a message 1`] = `
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r5:--message"
     role="alert"
   >
@@ -3271,14 +3271,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rc:--input"
     id=":rc:--label"
   >
@@ -3289,7 +3289,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rc:--hint"
   >
     Hint
@@ -3298,7 +3298,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     placeholder="Enter your username"
     tabindex="0"
   />
@@ -3559,14 +3559,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rh:--input"
     id=":rh:--label"
   >
@@ -3577,7 +3577,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rh:--hint"
   >
     Hint
@@ -3587,7 +3587,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
     aria-readonly="true"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
 </div>
@@ -3847,14 +3847,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r2:--input"
     id=":r2:--label"
   >
@@ -3865,7 +3865,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r2:--hint"
   >
     Hint
@@ -3874,7 +3874,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
 </div>
@@ -4134,14 +4134,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ri:--input"
     id=":ri:--label"
   >
@@ -4152,7 +4152,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ri:--hint"
   >
     Hint
@@ -4161,7 +4161,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     required=""
     tabindex="0"
   />
@@ -4422,14 +4422,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r6:--input"
     id=":r6:--label"
   >
@@ -4440,7 +4440,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r6:--hint"
   >
     Hint
@@ -4449,7 +4449,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
 </div>
@@ -4709,14 +4709,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rd:--input"
     id=":rd:--label"
   >
@@ -4727,7 +4727,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rd:--hint"
   >
     Hint
@@ -4736,7 +4736,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
     value="JohnDoe"
   />
@@ -4989,14 +4989,14 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rg:--input"
     id=":rg:--label"
   >
@@ -5007,7 +5007,7 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rg:--hint"
   >
     Hint
@@ -5016,7 +5016,7 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
 </div>
@@ -5276,14 +5276,14 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rf:--input"
     id=":rf:--label"
   >
@@ -5294,7 +5294,7 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rf:--hint"
   >
     Hint
@@ -5303,7 +5303,7 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
 </div>
@@ -5555,14 +5555,14 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hidden labe
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rn:--input"
     hidden=""
     id=":rn:--label"
@@ -5573,7 +5573,7 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hidden labe
     aria-invalid="false"
     class="c2 c3 c4"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
   <div
@@ -5581,7 +5581,7 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hidden labe
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rn:--hint"
   >
     Hint
@@ -5868,14 +5868,14 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hint, messa
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rm:--input"
     id=":rm:--label"
   >
@@ -5886,7 +5886,7 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hint, messa
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rm:--hint"
   >
     Enter your username
@@ -5895,7 +5895,7 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hint, messa
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
   <div
@@ -5903,7 +5903,7 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hint, messa
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rm:--message"
     role="alert"
   >
@@ -6191,14 +6191,14 @@ exports[`FauxInputStory Component renders FauxInputStory with label, regular lab
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ro:--input"
     id=":ro:--label"
   >
@@ -6209,7 +6209,7 @@ exports[`FauxInputStory Component renders FauxInputStory with label, regular lab
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ro:--hint"
   >
     Enter your username
@@ -6219,14 +6219,14 @@ exports[`FauxInputStory Component renders FauxInputStory with label, regular lab
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   />
   <div
     class="c8 c9"
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ro:--message"
     role="alert"
   >
@@ -6489,14 +6489,14 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rk:--input"
     id=":rk:--label"
   >
@@ -6507,7 +6507,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rk:--hint"
   >
     Hint
@@ -6516,7 +6516,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
     aria-invalid="true"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
 </div>
@@ -6776,14 +6776,14 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rj:--input"
     id=":rj:--label"
   >
@@ -6794,7 +6794,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rj:--hint"
   >
     Hint
@@ -6803,7 +6803,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
 </div>
@@ -7063,14 +7063,14 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rl:--input"
     id=":rl:--label"
   >
@@ -7081,7 +7081,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rl:--hint"
   >
     Hint
@@ -7090,7 +7090,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
     aria-invalid="true"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
 </div>
@@ -7350,14 +7350,14 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r0:--input"
     id=":r0:--label"
   >
@@ -7368,7 +7368,7 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r0:--hint"
   >
     Hint
@@ -7377,7 +7377,7 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     tabindex="0"
   />
 </div>

@@ -198,12 +198,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with a rotated chev
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -211,14 +211,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with a rotated chev
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -429,12 +429,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with aria-label 1`]
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -443,14 +443,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with aria-label 1`]
     aria-label="Split Button Aria"
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -671,12 +671,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -684,14 +684,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -915,12 +915,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -928,14 +928,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -1146,12 +1146,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with danger styling
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -1159,14 +1159,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with danger styling
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -1380,12 +1380,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with danger styling
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -1393,14 +1393,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with danger styling
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -1611,12 +1611,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with focus inset st
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -1624,14 +1624,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with focus inset st
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -1845,12 +1845,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with focus inset st
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -1858,14 +1858,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with focus inset st
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -2076,12 +2076,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with large size 1`]
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -2089,14 +2089,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with large size 1`]
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -2310,12 +2310,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with large size and
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -2323,14 +2323,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with large size and
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -2553,12 +2553,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with neutral stylin
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -2566,14 +2566,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with neutral stylin
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -2799,12 +2799,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with neutral stylin
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -2812,14 +2812,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with neutral stylin
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -3038,12 +3038,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with pill styling 1
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -3051,14 +3051,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with pill styling 1
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -3280,12 +3280,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with pill styling a
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -3293,14 +3293,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with pill styling a
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -3496,12 +3496,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with primary stylin
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -3509,14 +3509,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with primary stylin
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -3715,12 +3715,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with primary stylin
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -3728,14 +3728,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with primary stylin
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -3946,12 +3946,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with small size 1`]
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -3959,14 +3959,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with small size 1`]
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -4180,12 +4180,12 @@ exports[`SplitButtonStory Component renders SplitButtonStory with small size and
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -4193,14 +4193,14 @@ exports[`SplitButtonStory Component renders SplitButtonStory with small size and
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"
@@ -4411,12 +4411,12 @@ exports[`SplitButtonStory Component renders default SplitButtonStory 1`] = `
 <div
   class="c0 c1"
   data-garden-id="buttons.button_group_view"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <button
     class="c2"
     data-garden-id="buttons.button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     Split Button
@@ -4424,14 +4424,14 @@ exports[`SplitButtonStory Component renders default SplitButtonStory 1`] = `
   <button
     class="c2 c3"
     data-garden-id="buttons.icon_button"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     type="button"
   >
     <svg
       aria-hidden="true"
       class="c4  c5"
       data-garden-id="buttons.icon"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       focusable="false"
       height="16"
       viewBox="0 0 16 16"

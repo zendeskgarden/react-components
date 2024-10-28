@@ -317,23 +317,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a body 1`]
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -341,12 +341,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a body 1`]
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -674,23 +674,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a close bu
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -698,12 +698,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a close bu
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -1031,23 +1031,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom a
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -1055,12 +1055,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -1388,23 +1388,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom p
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -1412,12 +1412,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom p
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -1745,23 +1745,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom t
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -1769,12 +1769,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom t
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -2102,23 +2102,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom z
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -2126,12 +2126,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom z
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -2459,23 +2459,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a footer 1
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -2483,12 +2483,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a footer 1
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -2816,23 +2816,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title 1`
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -2840,12 +2840,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title 1`
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -3173,23 +3173,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -3197,12 +3197,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -3530,23 +3530,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -3554,12 +3554,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -3887,23 +3887,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -3911,12 +3911,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -4244,23 +4244,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -4268,12 +4268,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -4601,23 +4601,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -4625,12 +4625,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -4958,23 +4958,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -4982,12 +4982,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -5315,23 +5315,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -5339,12 +5339,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -5672,23 +5672,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with an arrow 1
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -5696,12 +5696,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with an arrow 1
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -6029,23 +6029,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -6053,12 +6053,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -6068,12 +6068,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -6081,12 +6081,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             2
           </span>
@@ -6096,12 +6096,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -6109,12 +6109,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             3
           </span>
@@ -6442,23 +6442,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -6466,12 +6466,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -6481,12 +6481,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -6494,12 +6494,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             2
           </span>
@@ -6509,12 +6509,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -6522,12 +6522,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             3
           </span>
@@ -6855,23 +6855,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -6879,12 +6879,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -6894,12 +6894,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -6907,12 +6907,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             2
           </span>
@@ -6922,12 +6922,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -6935,12 +6935,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             3
           </span>
@@ -7268,23 +7268,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -7292,12 +7292,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -7307,12 +7307,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -7320,12 +7320,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             2
           </span>
@@ -7335,12 +7335,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -7348,12 +7348,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             3
           </span>
@@ -7681,23 +7681,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -7705,12 +7705,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -7720,12 +7720,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -7733,12 +7733,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             2
           </span>
@@ -7748,12 +7748,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -7761,12 +7761,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             3
           </span>
@@ -8094,23 +8094,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -8118,12 +8118,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -8133,12 +8133,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -8146,12 +8146,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             2
           </span>
@@ -8161,12 +8161,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -8174,12 +8174,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             3
           </span>
@@ -8507,23 +8507,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -8531,12 +8531,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -8546,12 +8546,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -8559,12 +8559,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             2
           </span>
@@ -8574,12 +8574,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -8587,12 +8587,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             3
           </span>
@@ -8920,23 +8920,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -8944,12 +8944,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -8959,12 +8959,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -8972,12 +8972,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             2
           </span>
@@ -8987,12 +8987,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -9000,12 +9000,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             3
           </span>
@@ -9333,23 +9333,23 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -9357,12 +9357,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>
@@ -9372,12 +9372,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -9385,12 +9385,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             2
           </span>
@@ -9400,12 +9400,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -9413,12 +9413,12 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             3
           </span>
@@ -9746,23 +9746,23 @@ exports[`TooltipDialogStory Component renders default TooltipDialogStory 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <button
         class="c3 c4"
         data-garden-id="buttons.icon_button"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         type="button"
       >
         <figure
@@ -9770,12 +9770,12 @@ exports[`TooltipDialogStory Component renders default TooltipDialogStory 1`] = `
           aria-live="polite"
           class="c5 c6  c7"
           data-garden-id="avatars.avatar"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
         >
           <span
             class="c8 c9"
             data-garden-id="avatars.text"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             1
           </span>

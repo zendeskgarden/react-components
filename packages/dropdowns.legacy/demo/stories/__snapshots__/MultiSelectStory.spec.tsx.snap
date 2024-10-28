@@ -797,30 +797,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-15-input"
           id="downshift-15-label"
         >
@@ -831,7 +831,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rf:--hint"
         >
           Hint
@@ -845,25 +845,25 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <div
               class="c13"
               data-garden-id="dropdowns.multiselect_item_wrapper"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 aria-selected="false"
                 class="c14"
                 data-garden-id="tags.tag_view"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 role="option"
                 tabindex="-1"
               >
@@ -874,7 +874,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
                   aria-label="Remove"
                   class="c15 c16"
                   data-garden-id="tags.close"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   tabindex="-1"
                   type="button"
                 >
@@ -898,13 +898,13 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
             <div
               class="c13"
               data-garden-id="dropdowns.multiselect_item_wrapper"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 aria-selected="false"
                 class="c14"
                 data-garden-id="tags.tag_view"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 role="option"
                 tabindex="-1"
               >
@@ -915,7 +915,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
                   aria-label="Remove"
                   class="c15 c16"
                   data-garden-id="tags.close"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   tabindex="-1"
                   type="button"
                 >
@@ -939,13 +939,13 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
             <div
               class="c13"
               data-garden-id="dropdowns.multiselect_item_wrapper"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 aria-selected="false"
                 class="c14"
                 data-garden-id="tags.tag_view"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 role="option"
                 tabindex="-1"
               >
@@ -956,7 +956,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
                   aria-label="Remove"
                   class="c15 c16"
                   data-garden-id="tags.close"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   tabindex="-1"
                   type="button"
                 >
@@ -987,7 +987,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-15-input"
               role="combobox"
               value=""
@@ -997,7 +997,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
             aria-hidden="true"
             class="c19  c20"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -1015,7 +1015,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rf:--message"
           role="alert"
         >
@@ -1025,14 +1025,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
       <div
         class="c23"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-15-label"
           class="c24"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-15-menu"
           role="listbox"
         />
@@ -1691,30 +1691,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-14-input"
           id="downshift-14-label"
         >
@@ -1725,7 +1725,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":re:--hint"
         >
           Hint
@@ -1739,14 +1739,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -1758,7 +1758,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-14-input"
               role="combobox"
               value="Aster"
@@ -1768,7 +1768,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -1786,7 +1786,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":re:--message"
           role="alert"
         >
@@ -1796,14 +1796,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-14-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-14-menu"
           role="listbox"
         />
@@ -2462,30 +2462,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-17-input"
           id="downshift-17-label"
         >
@@ -2496,7 +2496,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rh:--hint"
         >
           Hint
@@ -2510,14 +2510,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -2529,7 +2529,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-17-input"
               role="combobox"
               value=""
@@ -2539,7 +2539,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -2557,7 +2557,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rh:--message"
           role="alert"
         >
@@ -2567,14 +2567,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-17-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-17-menu"
           role="listbox"
         />
@@ -3233,30 +3233,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-3-input"
           hidden=""
           id="downshift-3-label"
@@ -3272,14 +3272,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c10"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -3291,7 +3291,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-3-input"
               role="combobox"
               value=""
@@ -3301,7 +3301,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
             aria-hidden="true"
             class="c13  c14"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -3319,7 +3319,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r3:--hint"
         >
           Hint
@@ -3329,7 +3329,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r3:--message"
           role="alert"
         >
@@ -3339,14 +3339,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-3-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-3-menu"
           role="listbox"
         />
@@ -4005,30 +4005,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-4-input"
           id="downshift-4-label"
         >
@@ -4039,7 +4039,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r4:--hint"
         >
           Select your favorite flowers
@@ -4053,14 +4053,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -4072,7 +4072,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-4-input"
               role="combobox"
               value=""
@@ -4082,7 +4082,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -4100,7 +4100,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r4:--message"
           role="alert"
         >
@@ -4110,14 +4110,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-4-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-4-menu"
           role="listbox"
         />
@@ -4776,30 +4776,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-1-input"
           id="downshift-1-label"
         >
@@ -4810,7 +4810,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r1:--hint"
         >
           Hint
@@ -4824,14 +4824,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -4843,7 +4843,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-1-input"
               role="combobox"
               value=""
@@ -4853,7 +4853,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -4871,7 +4871,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r1:--message"
           role="alert"
         >
@@ -4881,14 +4881,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-1-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-1-menu"
           role="listbox"
         />
@@ -5547,30 +5547,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-8-input"
           hidden=""
           id="downshift-8-label"
@@ -5586,14 +5586,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c10"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -5605,7 +5605,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-8-input"
               role="combobox"
               value=""
@@ -5615,7 +5615,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
             aria-hidden="true"
             class="c13  c14"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -5633,7 +5633,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r8:--hint"
         >
           Hint
@@ -5643,7 +5643,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r8:--message"
           role="alert"
         >
@@ -5653,14 +5653,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-8-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-8-menu"
           role="listbox"
         />
@@ -6319,30 +6319,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-10-input"
           hidden=""
           id="downshift-10-label"
@@ -6358,14 +6358,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c10"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -6377,7 +6377,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-10-input"
               role="combobox"
               value=""
@@ -6387,7 +6387,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
             aria-hidden="true"
             class="c13  c14"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -6405,7 +6405,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":ra:--hint"
         >
           Select your favorite flowers
@@ -6415,7 +6415,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":ra:--message"
           role="alert"
         >
@@ -6425,14 +6425,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-10-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-10-menu"
           role="listbox"
         />
@@ -7091,30 +7091,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-20-input"
           hidden=""
           id="downshift-20-label"
@@ -7130,14 +7130,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c10"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -7149,7 +7149,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-20-input"
               role="combobox"
               value=""
@@ -7159,7 +7159,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
             aria-hidden="true"
             class="c13  c14"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -7177,7 +7177,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rk:--hint"
         >
           Hint
@@ -7187,7 +7187,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rk:--message"
           role="alert"
         >
@@ -7197,14 +7197,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-20-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-20-menu"
           role="listbox"
         />
@@ -7863,30 +7863,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-7-input"
           id="downshift-7-label"
         >
@@ -7897,7 +7897,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r7:--hint"
         >
           Select your favorite flowers
@@ -7911,14 +7911,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -7930,7 +7930,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-7-input"
               role="combobox"
               value=""
@@ -7940,7 +7940,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -7958,7 +7958,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r7:--message"
           role="alert"
         >
@@ -7968,14 +7968,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-7-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-7-menu"
           role="listbox"
         />
@@ -8634,30 +8634,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-19-input"
           id="downshift-19-label"
         >
@@ -8668,7 +8668,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rj:--hint"
         >
           Select your favorite flowers
@@ -8682,14 +8682,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -8701,7 +8701,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-19-input"
               role="combobox"
               value=""
@@ -8711,7 +8711,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -8729,7 +8729,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rj:--message"
           role="alert"
         >
@@ -8739,14 +8739,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-19-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-19-menu"
           role="listbox"
         />
@@ -9405,30 +9405,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-9-input"
           id="downshift-9-label"
         >
@@ -9439,7 +9439,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r9:--hint"
         >
           Select your favorite flowers
@@ -9453,14 +9453,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -9472,7 +9472,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-9-input"
               role="combobox"
               value=""
@@ -9482,7 +9482,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -9500,7 +9500,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r9:--message"
           role="alert"
         >
@@ -9510,14 +9510,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-9-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-9-menu"
           role="listbox"
         />
@@ -10176,30 +10176,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-11-input"
           id="downshift-11-label"
         >
@@ -10210,7 +10210,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rb:--hint"
         >
           Select your favorite flowers
@@ -10224,14 +10224,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -10243,7 +10243,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-11-input"
               role="combobox"
               value=""
@@ -10253,7 +10253,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -10271,7 +10271,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rb:--message"
           role="alert"
         >
@@ -10281,14 +10281,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-11-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-11-menu"
           role="listbox"
         />
@@ -10957,30 +10957,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-21-input"
           id="downshift-21-label"
         >
@@ -10991,7 +10991,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rl:--hint"
         >
           Select your favorite flowers
@@ -11005,20 +11005,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <svg
             class="c12  c13"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             xmlns="http://www.w3.org/2000/svg"
           />
           <div
             class="c14"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -11030,7 +11030,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-21-input"
               role="combobox"
               value=""
@@ -11040,7 +11040,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
             aria-hidden="true"
             class="c12  c17"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -11058,7 +11058,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rl:--message"
           role="alert"
         >
@@ -11068,14 +11068,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
       <div
         class="c20"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-21-label"
           class="c21"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-21-menu"
           role="listbox"
         />
@@ -11734,30 +11734,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-5-input"
           id="downshift-5-label"
         >
@@ -11768,7 +11768,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r5:--hint"
         >
           Hint
@@ -11782,14 +11782,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -11801,7 +11801,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-5-input"
               role="combobox"
               value=""
@@ -11811,7 +11811,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -11829,7 +11829,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r5:--message"
           role="alert"
         >
@@ -11839,14 +11839,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-5-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-5-menu"
           role="listbox"
         />
@@ -12505,30 +12505,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-13-input"
           id="downshift-13-label"
         >
@@ -12539,7 +12539,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rd:--hint"
         >
           Hint
@@ -12553,14 +12553,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -12572,7 +12572,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-13-input"
               placeholder="Select flowers"
               role="combobox"
@@ -12583,7 +12583,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -12601,7 +12601,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rd:--message"
           role="alert"
         >
@@ -12611,14 +12611,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-13-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-13-menu"
           role="listbox"
         />
@@ -13277,30 +13277,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-2-input"
           id="downshift-2-label"
         >
@@ -13311,7 +13311,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r2:--hint"
         >
           Hint
@@ -13325,14 +13325,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -13344,7 +13344,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-2-input"
               role="combobox"
               value=""
@@ -13354,7 +13354,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -13372,7 +13372,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r2:--message"
           role="alert"
         >
@@ -13382,14 +13382,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-2-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-2-menu"
           role="listbox"
         />
@@ -14048,30 +14048,30 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-6-input"
           id="downshift-6-label"
         >
@@ -14082,7 +14082,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r6:--hint"
         >
           Hint
@@ -14096,14 +14096,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -14115,7 +14115,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-6-input"
               role="combobox"
               value=""
@@ -14125,7 +14125,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -14143,7 +14143,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r6:--message"
           role="alert"
         >
@@ -14153,14 +14153,14 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-6-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-6-menu"
           role="listbox"
         />
@@ -14829,30 +14829,30 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-18-input"
           id="downshift-18-label"
         >
@@ -14863,7 +14863,7 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":ri:--hint"
         >
           Hint
@@ -14877,20 +14877,20 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <svg
             class="c12  c13"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             xmlns="http://www.w3.org/2000/svg"
           />
           <div
             class="c14"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -14902,7 +14902,7 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-18-input"
               role="combobox"
               value=""
@@ -14912,7 +14912,7 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
             aria-hidden="true"
             class="c12  c17"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -14930,7 +14930,7 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":ri:--message"
           role="alert"
         >
@@ -14940,14 +14940,14 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
       <div
         class="c20"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-18-label"
           class="c21"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-18-menu"
           role="listbox"
         />
@@ -15606,30 +15606,30 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-16-input"
           id="downshift-16-label"
         >
@@ -15640,7 +15640,7 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rg:--hint"
         >
           Hint
@@ -15654,14 +15654,14 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -15673,7 +15673,7 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-16-input"
               role="combobox"
               value=""
@@ -15683,7 +15683,7 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -15701,7 +15701,7 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rg:--message"
           role="alert"
         >
@@ -15711,14 +15711,14 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-16-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-16-menu"
           role="listbox"
         />
@@ -16525,30 +16525,30 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-12-input"
           id="downshift-12-label"
         >
@@ -16559,7 +16559,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rc:--hint"
         >
           Hint
@@ -16573,25 +16573,25 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <div
               class="c13"
               data-garden-id="dropdowns.multiselect_item_wrapper"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 aria-selected="false"
                 class="c14"
                 data-garden-id="tags.tag_view"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 role="option"
                 tabindex="-1"
               >
@@ -16602,7 +16602,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
                   aria-label="Remove"
                   class="c15 c16"
                   data-garden-id="tags.close"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   tabindex="-1"
                   type="button"
                 >
@@ -16626,13 +16626,13 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
             <div
               class="c13"
               data-garden-id="dropdowns.multiselect_item_wrapper"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
             >
               <div
                 aria-selected="false"
                 class="c14"
                 data-garden-id="tags.tag_view"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 role="option"
                 tabindex="-1"
               >
@@ -16643,7 +16643,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
                   aria-label="Remove"
                   class="c15 c16"
                   data-garden-id="tags.close"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   tabindex="-1"
                   type="button"
                 >
@@ -16674,7 +16674,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-12-input"
               role="combobox"
               value=""
@@ -16684,7 +16684,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
             aria-hidden="true"
             class="c19  c20"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -16702,7 +16702,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rc:--message"
           role="alert"
         >
@@ -16712,14 +16712,14 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
       <div
         class="c23"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-12-label"
           class="c24"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-12-menu"
           role="listbox"
         />
@@ -17378,30 +17378,30 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: calc(100vh - 80px);"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         class="c3"
         data-garden-id="forms.field"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
       >
         <label
           class="c4 c5"
           data-garden-container-id="containers.field.label"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_label"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           for="downshift-0-input"
           id="downshift-0-label"
         >
@@ -17412,7 +17412,7 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
           data-garden-container-id="containers.field.hint"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_hint"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r0:--hint"
         >
           Hint
@@ -17426,14 +17426,14 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
           data-garden-container-id="containers.selection"
           data-garden-container-version="2.0.6"
           data-garden-id="forms.faux_input"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           data-toggle="true"
           tabindex="-1"
         >
           <div
             class="c12"
             data-garden-id="dropdowns.multiselect_items_container"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
           >
             <input
               aria-autocomplete="list"
@@ -17445,7 +17445,7 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
               data-garden-container-id="containers.field.input"
               data-garden-container-version="3.0.19"
               data-garden-id="forms.input"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               id="downshift-0-input"
               role="combobox"
               value=""
@@ -17455,7 +17455,7 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
             aria-hidden="true"
             class="c15  c16"
             data-garden-id="forms.media_figure"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -17473,7 +17473,7 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
           data-garden-container-id="containers.field.message"
           data-garden-container-version="3.0.19"
           data-garden-id="forms.input_message"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r0:--message"
           role="alert"
         >
@@ -17483,14 +17483,14 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
       <div
         class="c19"
         data-garden-id="dropdowns.menu_wrapper"
-        data-garden-version="9.0.0"
+        data-garden-version="9.1.0"
         style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
       >
         <ul
           aria-labelledby="downshift-0-label"
           class="c20"
           data-garden-id="dropdowns.menu"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id="downshift-0-menu"
           role="listbox"
         />

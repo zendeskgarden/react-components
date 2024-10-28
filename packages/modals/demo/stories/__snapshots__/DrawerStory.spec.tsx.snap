@@ -122,14 +122,14 @@ exports[`DrawerStory Component renders DrawerStory with a body 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -257,14 +257,14 @@ exports[`DrawerStory Component renders DrawerStory with a body and aria-label fo
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -392,14 +392,14 @@ exports[`DrawerStory Component renders DrawerStory with a body and custom footer
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -527,14 +527,14 @@ exports[`DrawerStory Component renders DrawerStory with a close button 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -662,14 +662,14 @@ exports[`DrawerStory Component renders DrawerStory with a custom tag for the hea
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -797,14 +797,14 @@ exports[`DrawerStory Component renders DrawerStory with a footer 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -932,14 +932,14 @@ exports[`DrawerStory Component renders DrawerStory with a footer and aria-label 
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1067,14 +1067,14 @@ exports[`DrawerStory Component renders DrawerStory with a header 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1202,14 +1202,14 @@ exports[`DrawerStory Component renders DrawerStory with a header and aria-label 
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1337,14 +1337,14 @@ exports[`DrawerStory Component renders DrawerStory with a header and custom foot
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1472,14 +1472,14 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, and cust
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1607,14 +1607,14 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, and foot
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1742,14 +1742,14 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -1877,14 +1877,14 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2012,14 +2012,14 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2147,14 +2147,14 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2282,14 +2282,14 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>
@@ -2417,14 +2417,14 @@ exports[`DrawerStory Component renders default DrawerStory 1`] = `
 <button
   class="c0"
   data-garden-id="buttons.button"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
   type="button"
 >
   Open
   <svg
     class="c1  c2"
     data-garden-id="buttons.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     xmlns="http://www.w3.org/2000/svg"
   />
 </button>

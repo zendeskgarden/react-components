@@ -443,14 +443,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a disabled input
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rf:--input"
     id=":rf:--label"
   >
@@ -461,7 +461,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a disabled input
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rf:--hint"
   >
     Hint
@@ -471,7 +471,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a disabled input
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rf:--hint"
@@ -481,7 +481,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a disabled input
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       disabled=""
       id=":rf:--input"
     />
@@ -932,14 +932,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a hidden label 1
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r3:--input"
     hidden=""
     id=":r3:--label"
@@ -950,7 +950,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a hidden label 1
     aria-invalid="false"
     class="c2 c3 c4"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":r3:--hint"
@@ -960,7 +960,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a hidden label 1
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r3:--input"
     />
   </div>
@@ -969,7 +969,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a hidden label 1
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r3:--hint"
   >
     Hint
@@ -1420,14 +1420,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a hint 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r4:--input"
     id=":r4:--label"
   >
@@ -1438,7 +1438,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a hint 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r4:--hint"
   >
     Enter a search term
@@ -1447,7 +1447,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a hint 1`] = `
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":r4:--hint"
@@ -1457,7 +1457,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a hint 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r4:--input"
     />
   </div>
@@ -1907,14 +1907,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a label 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r1:--input"
     id=":r1:--label"
   >
@@ -1925,7 +1925,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r1:--hint"
   >
     Hint
@@ -1934,7 +1934,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label 1`] = `
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":r1:--hint"
@@ -1944,7 +1944,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r1:--input"
     />
   </div>
@@ -2394,14 +2394,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hidden 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rb:--input"
     hidden=""
     id=":rb:--label"
@@ -2412,7 +2412,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hidden 
     aria-invalid="false"
     class="c2 c3 c4"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rb:--hint"
@@ -2422,7 +2422,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hidden 
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rb:--input"
     />
   </div>
@@ -2431,7 +2431,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hidden 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rb:--hint"
   >
     Hint
@@ -2882,14 +2882,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hidden 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rd:--input"
     hidden=""
     id=":rd:--label"
@@ -2900,7 +2900,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hidden 
     aria-invalid="false"
     class="c2 c3 c4"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rd:--hint"
@@ -2910,7 +2910,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hidden 
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rd:--input"
     />
   </div>
@@ -2919,7 +2919,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hidden 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rd:--hint"
   >
     Enter a search term
@@ -3403,14 +3403,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hint, a
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ra:--input"
     id=":ra:--label"
   >
@@ -3421,7 +3421,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hint, a
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ra:--hint"
   >
     Enter a search term
@@ -3430,7 +3430,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hint, a
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":ra:--hint :ra:--message"
@@ -3440,7 +3440,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hint, a
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":ra:--input"
     />
   </div>
@@ -3449,7 +3449,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, hint, a
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ra:--message"
     role="alert"
   >
@@ -3934,14 +3934,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, regular
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rc:--input"
     id=":rc:--label"
   >
@@ -3952,7 +3952,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, regular
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rc:--hint"
   >
     Enter a search term
@@ -3961,7 +3961,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, regular
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rc:--hint :rc:--message"
@@ -3971,7 +3971,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, regular
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rc:--input"
     />
   </div>
@@ -3980,7 +3980,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, regular
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rc:--message"
     role="alert"
   >
@@ -4465,14 +4465,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, regular
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":re:--input"
     id=":re:--label"
   >
@@ -4483,7 +4483,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, regular
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":re:--hint"
   >
     Enter a search term
@@ -4492,7 +4492,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, regular
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":re:--hint :re:--message"
@@ -4502,7 +4502,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, regular
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":re:--input"
     />
   </div>
@@ -4511,7 +4511,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a label, regular
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":re:--message"
     role="alert"
   >
@@ -4996,14 +4996,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a message 1`] = 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r5:--input"
     id=":r5:--label"
   >
@@ -5014,7 +5014,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a message 1`] = 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r5:--hint"
   >
     Hint
@@ -5023,7 +5023,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a message 1`] = 
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":r5:--hint :r5:--message"
@@ -5033,7 +5033,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a message 1`] = 
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r5:--input"
     />
   </div>
@@ -5042,7 +5042,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a message 1`] = 
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r5:--message"
     role="alert"
   >
@@ -5494,14 +5494,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a read-only inpu
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ri:--input"
     id=":ri:--label"
   >
@@ -5512,7 +5512,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a read-only inpu
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ri:--hint"
   >
     Hint
@@ -5522,7 +5522,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a read-only inpu
     aria-readonly="true"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":ri:--hint"
@@ -5532,7 +5532,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a read-only inpu
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":ri:--input"
       readonly=""
     />
@@ -5983,14 +5983,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a regular label 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r2:--input"
     id=":r2:--label"
   >
@@ -6001,7 +6001,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a regular label 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r2:--hint"
   >
     Hint
@@ -6010,7 +6010,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a regular label 
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":r2:--hint"
@@ -6020,7 +6020,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a regular label 
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r2:--input"
     />
   </div>
@@ -6470,14 +6470,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a required input
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rj:--input"
     id=":rj:--label"
   >
@@ -6488,7 +6488,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a required input
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rj:--hint"
   >
     Hint
@@ -6497,7 +6497,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a required input
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rj:--hint"
@@ -6507,7 +6507,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a required input
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rj:--input"
       required=""
     />
@@ -6974,14 +6974,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a start icon 1`]
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r7:--input"
     id=":r7:--label"
   >
@@ -6992,7 +6992,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a start icon 1`]
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r7:--hint"
   >
     Hint
@@ -7001,12 +7001,12 @@ exports[`MediaInputStory Component renders MediaInputStory with a start icon 1`]
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       class="c6  c7"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       xmlns="http://www.w3.org/2000/svg"
     />
     <input
@@ -7017,7 +7017,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a start icon 1`]
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r7:--input"
     />
   </div>
@@ -7467,14 +7467,14 @@ exports[`MediaInputStory Component renders MediaInputStory with a validation lab
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r6:--input"
     id=":r6:--label"
   >
@@ -7485,7 +7485,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a validation lab
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r6:--hint"
   >
     Hint
@@ -7494,7 +7494,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a validation lab
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":r6:--hint"
@@ -7504,7 +7504,7 @@ exports[`MediaInputStory Component renders MediaInputStory with a validation lab
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r6:--input"
     />
   </div>
@@ -7970,14 +7970,14 @@ exports[`MediaInputStory Component renders MediaInputStory with an end icon 1`] 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r8:--input"
     id=":r8:--label"
   >
@@ -7988,7 +7988,7 @@ exports[`MediaInputStory Component renders MediaInputStory with an end icon 1`] 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r8:--hint"
   >
     Hint
@@ -7997,7 +7997,7 @@ exports[`MediaInputStory Component renders MediaInputStory with an end icon 1`] 
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":r8:--hint"
@@ -8007,13 +8007,13 @@ exports[`MediaInputStory Component renders MediaInputStory with an end icon 1`] 
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r8:--input"
     />
     <svg
       class="c8  c9"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       xmlns="http://www.w3.org/2000/svg"
     />
   </div>
@@ -8276,14 +8276,14 @@ exports[`MediaInputStory Component renders MediaInputStory with bare styling 1`]
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rh:--input"
     id=":rh:--label"
   >
@@ -8294,7 +8294,7 @@ exports[`MediaInputStory Component renders MediaInputStory with bare styling 1`]
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rh:--hint"
   >
     Hint
@@ -8303,7 +8303,7 @@ exports[`MediaInputStory Component renders MediaInputStory with bare styling 1`]
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rh:--hint"
@@ -8313,7 +8313,7 @@ exports[`MediaInputStory Component renders MediaInputStory with bare styling 1`]
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rh:--input"
     />
   </div>
@@ -8789,14 +8789,14 @@ exports[`MediaInputStory Component renders MediaInputStory with both start and e
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r9:--input"
     id=":r9:--label"
   >
@@ -8807,7 +8807,7 @@ exports[`MediaInputStory Component renders MediaInputStory with both start and e
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r9:--hint"
   >
     Hint
@@ -8816,12 +8816,12 @@ exports[`MediaInputStory Component renders MediaInputStory with both start and e
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       class="c6  c7"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       xmlns="http://www.w3.org/2000/svg"
     />
     <input
@@ -8832,13 +8832,13 @@ exports[`MediaInputStory Component renders MediaInputStory with both start and e
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r9:--input"
     />
     <svg
       class="c6  c10"
       data-garden-id="forms.media_figure"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       xmlns="http://www.w3.org/2000/svg"
     />
   </div>
@@ -9288,14 +9288,14 @@ exports[`MediaInputStory Component renders MediaInputStory with compact styling 
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rg:--input"
     id=":rg:--label"
   >
@@ -9306,7 +9306,7 @@ exports[`MediaInputStory Component renders MediaInputStory with compact styling 
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rg:--hint"
   >
     Hint
@@ -9315,7 +9315,7 @@ exports[`MediaInputStory Component renders MediaInputStory with compact styling 
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rg:--hint"
@@ -9325,7 +9325,7 @@ exports[`MediaInputStory Component renders MediaInputStory with compact styling 
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rg:--input"
     />
   </div>
@@ -9588,14 +9588,14 @@ exports[`MediaInputStory Component renders MediaInputStory with label, hidden la
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":ro:--input"
     hidden=""
     id=":ro:--label"
@@ -9606,7 +9606,7 @@ exports[`MediaInputStory Component renders MediaInputStory with label, hidden la
     aria-invalid="false"
     class="c2 c3 c4"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":ro:--hint"
@@ -9616,7 +9616,7 @@ exports[`MediaInputStory Component renders MediaInputStory with label, hidden la
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":ro:--input"
     />
   </div>
@@ -9625,7 +9625,7 @@ exports[`MediaInputStory Component renders MediaInputStory with label, hidden la
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":ro:--hint"
   >
     Hint
@@ -10109,14 +10109,14 @@ exports[`MediaInputStory Component renders MediaInputStory with label, hint, mes
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rn:--input"
     id=":rn:--label"
   >
@@ -10127,7 +10127,7 @@ exports[`MediaInputStory Component renders MediaInputStory with label, hint, mes
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rn:--hint"
   >
     Enter a search term
@@ -10136,7 +10136,7 @@ exports[`MediaInputStory Component renders MediaInputStory with label, hint, mes
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rn:--hint :rn:--message"
@@ -10146,7 +10146,7 @@ exports[`MediaInputStory Component renders MediaInputStory with label, hint, mes
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rn:--input"
     />
   </div>
@@ -10155,7 +10155,7 @@ exports[`MediaInputStory Component renders MediaInputStory with label, hint, mes
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rn:--message"
     role="alert"
   >
@@ -10640,14 +10640,14 @@ exports[`MediaInputStory Component renders MediaInputStory with label, regular l
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rp:--input"
     id=":rp:--label"
   >
@@ -10658,7 +10658,7 @@ exports[`MediaInputStory Component renders MediaInputStory with label, regular l
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rp:--hint"
   >
     Enter a search term
@@ -10668,7 +10668,7 @@ exports[`MediaInputStory Component renders MediaInputStory with label, regular l
     aria-invalid="false"
     class="c5 c6 c7"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rp:--hint :rp:--message"
@@ -10678,7 +10678,7 @@ exports[`MediaInputStory Component renders MediaInputStory with label, regular l
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       disabled=""
       id=":rp:--input"
     />
@@ -10688,7 +10688,7 @@ exports[`MediaInputStory Component renders MediaInputStory with label, regular l
     data-garden-container-id="containers.field.message"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rp:--message"
     role="alert"
   >
@@ -11140,14 +11140,14 @@ exports[`MediaInputStory Component renders MediaInputStory with validation error
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rl:--input"
     id=":rl:--label"
   >
@@ -11158,7 +11158,7 @@ exports[`MediaInputStory Component renders MediaInputStory with validation error
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rl:--hint"
   >
     Hint
@@ -11167,7 +11167,7 @@ exports[`MediaInputStory Component renders MediaInputStory with validation error
     aria-invalid="true"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rl:--hint"
@@ -11177,7 +11177,7 @@ exports[`MediaInputStory Component renders MediaInputStory with validation error
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rl:--input"
     />
   </div>
@@ -11627,14 +11627,14 @@ exports[`MediaInputStory Component renders MediaInputStory with validation succe
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rk:--input"
     id=":rk:--label"
   >
@@ -11645,7 +11645,7 @@ exports[`MediaInputStory Component renders MediaInputStory with validation succe
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rk:--hint"
   >
     Hint
@@ -11654,7 +11654,7 @@ exports[`MediaInputStory Component renders MediaInputStory with validation succe
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rk:--hint"
@@ -11664,7 +11664,7 @@ exports[`MediaInputStory Component renders MediaInputStory with validation succe
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rk:--input"
     />
   </div>
@@ -12114,14 +12114,14 @@ exports[`MediaInputStory Component renders MediaInputStory with validation warni
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":rm:--input"
     id=":rm:--label"
   >
@@ -12132,7 +12132,7 @@ exports[`MediaInputStory Component renders MediaInputStory with validation warni
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":rm:--hint"
   >
     Hint
@@ -12141,7 +12141,7 @@ exports[`MediaInputStory Component renders MediaInputStory with validation warni
     aria-invalid="true"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":rm:--hint"
@@ -12151,7 +12151,7 @@ exports[`MediaInputStory Component renders MediaInputStory with validation warni
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":rm:--input"
     />
   </div>
@@ -12601,14 +12601,14 @@ exports[`MediaInputStory Component renders default MediaInputStory 1`] = `
 <div
   class="c0"
   data-garden-id="forms.field"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <label
     class="c1"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     for=":r0:--input"
     id=":r0:--label"
   >
@@ -12619,7 +12619,7 @@ exports[`MediaInputStory Component renders default MediaInputStory 1`] = `
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     id=":r0:--hint"
   >
     Hint
@@ -12628,7 +12628,7 @@ exports[`MediaInputStory Component renders default MediaInputStory 1`] = `
     aria-invalid="false"
     class="c3 c4 c5"
     data-garden-id="forms.faux_input"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <input
       aria-describedby=":r0:--hint"
@@ -12638,7 +12638,7 @@ exports[`MediaInputStory Component renders default MediaInputStory 1`] = `
       data-garden-container-id="containers.field.input"
       data-garden-container-version="3.0.19"
       data-garden-id="forms.media_input"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
       id=":r0:--input"
     />
   </div>

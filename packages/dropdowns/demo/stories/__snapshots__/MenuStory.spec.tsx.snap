@@ -270,18 +270,18 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -293,7 +293,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r4:-menu-trigger"
           role="button"
           tabindex="0"
@@ -303,7 +303,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -320,7 +320,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -330,7 +330,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />
@@ -611,18 +611,18 @@ exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -634,7 +634,7 @@ exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r5:-menu-trigger"
           role="button"
           tabindex="0"
@@ -644,7 +644,7 @@ exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -661,7 +661,7 @@ exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -671,7 +671,7 @@ exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />
@@ -952,18 +952,18 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -975,7 +975,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r7:-menu-trigger"
           role="button"
           tabindex="0"
@@ -985,7 +985,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -1002,7 +1002,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -1012,7 +1012,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />
@@ -1293,18 +1293,18 @@ exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -1316,7 +1316,7 @@ exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r9:-menu-trigger"
           role="button"
           tabindex="0"
@@ -1326,7 +1326,7 @@ exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -1343,7 +1343,7 @@ exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -1353,7 +1353,7 @@ exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />
@@ -1634,18 +1634,18 @@ exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -1657,7 +1657,7 @@ exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r6:-menu-trigger"
           role="button"
           tabindex="0"
@@ -1667,7 +1667,7 @@ exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -1684,7 +1684,7 @@ exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -1694,7 +1694,7 @@ exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />
@@ -2126,7 +2126,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   position: absolute;
   -webkit-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
-  top: 10px;
+  top: 6px;
   left: 12px;
   width: 16px;
   height: 16px;
@@ -2236,18 +2236,18 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -2259,7 +2259,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rf:-menu-trigger"
           role="button"
           tabindex="0"
@@ -2269,7 +2269,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -2286,7 +2286,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
           class="c6 "
           data-garden-animate="true"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -2296,7 +2296,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           >
@@ -2305,7 +2305,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="0"
             >
@@ -2313,7 +2313,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -2331,7 +2331,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 1
               </div>
@@ -2341,7 +2341,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -2349,7 +2349,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -2367,13 +2367,13 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
               <svg
                 class=" c17 "
                 data-garden-id="dropdowns.menu.item.icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 xmlns="http://www.w3.org/2000/svg"
               />
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 2
               </div>
@@ -2383,7 +2383,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -2391,7 +2391,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -2409,13 +2409,13 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 3
                 <div
                   class="c18 "
                   data-garden-id="dropdowns.menu.item.meta"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Meta
                 </div>
@@ -2424,18 +2424,18 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
             <li
               class="c9 c10 c19 "
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="none"
             >
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c9 c10 c20 "
                   data-garden-id="dropdowns.menu.item"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Group 1
                 </div>
@@ -2445,13 +2445,13 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                   data-garden-container-id="containers.menu.item_group"
                   data-garden-container-version="0.5.0"
                   data-garden-id="dropdowns.menu.item_group"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   role="group"
                 >
                   <li
                     class="c23 c24 "
                     data-garden-id="dropdowns.menu.separator"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="none"
                   />
                   <li
@@ -2459,7 +2459,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                     data-garden-container-id="containers.menu.item"
                     data-garden-container-version="0.5.0"
                     data-garden-id="dropdowns.menu.item"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="menuitem"
                     tabindex="-1"
                   >
@@ -2467,7 +2467,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                       aria-hidden="true"
                       class="c12 c13  c14 "
                       data-garden-id="dropdowns.menu.item.type_icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       focusable="false"
                       height="16"
                       viewBox="0 0 16 16"
@@ -2485,7 +2485,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                     <div
                       class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                     >
                       Group Item 1
                     </div>
@@ -2495,7 +2495,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                     data-garden-container-id="containers.menu.item"
                     data-garden-container-version="0.5.0"
                     data-garden-id="dropdowns.menu.item"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="menuitem"
                     tabindex="-1"
                   >
@@ -2503,7 +2503,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                       aria-hidden="true"
                       class="c12 c13  c14 "
                       data-garden-id="dropdowns.menu.item.type_icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       focusable="false"
                       height="16"
                       viewBox="0 0 16 16"
@@ -2521,13 +2521,13 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                     <svg
                       class=" c17 "
                       data-garden-id="dropdowns.menu.item.icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       xmlns="http://www.w3.org/2000/svg"
                     />
                     <div
                       class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                     >
                       Group Item 2
                     </div>
@@ -2540,7 +2540,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
               data-garden-container-id="containers.menu.separator"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.separator"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="separator"
             />
             <li
@@ -2548,7 +2548,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -2556,7 +2556,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -2574,7 +2574,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 4
               </div>
@@ -2898,18 +2898,18 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -2921,7 +2921,7 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r2:-menu-trigger"
           role="button"
           tabindex="0"
@@ -2931,7 +2931,7 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -2948,7 +2948,7 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -2958,7 +2958,7 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />
@@ -3239,18 +3239,18 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -3262,7 +3262,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r1:-menu-trigger"
           role="button"
           tabindex="0"
@@ -3272,7 +3272,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -3289,7 +3289,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -3299,7 +3299,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />
@@ -3621,18 +3621,18 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -3644,7 +3644,7 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":ra:-menu-trigger"
           role="button"
           tabindex="0"
@@ -3654,7 +3654,7 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -3671,7 +3671,7 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -3681,7 +3681,7 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />
@@ -4113,7 +4113,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   position: absolute;
   -webkit-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
-  top: 10px;
+  top: 6px;
   left: 12px;
   width: 16px;
   height: 16px;
@@ -4221,18 +4221,18 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -4244,7 +4244,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":re:-menu-trigger"
           role="button"
           tabindex="0"
@@ -4254,7 +4254,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -4271,7 +4271,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
           class="c6 "
           data-garden-animate="true"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -4281,7 +4281,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           >
@@ -4290,7 +4290,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="0"
             >
@@ -4298,7 +4298,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -4316,7 +4316,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 1
               </div>
@@ -4326,7 +4326,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -4334,7 +4334,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -4352,13 +4352,13 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
               <svg
                 class=" c17 "
                 data-garden-id="dropdowns.menu.item.icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 xmlns="http://www.w3.org/2000/svg"
               />
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 2
               </div>
@@ -4368,7 +4368,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -4376,7 +4376,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -4394,13 +4394,13 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 3
                 <div
                   class="c18 "
                   data-garden-id="dropdowns.menu.item.meta"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Meta
                 </div>
@@ -4409,18 +4409,18 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
             <li
               class="c9 c10 c19 "
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="none"
             >
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c9 c10 c20 "
                   data-garden-id="dropdowns.menu.item"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Group 1
                 </div>
@@ -4430,13 +4430,13 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                   data-garden-container-id="containers.menu.item_group"
                   data-garden-container-version="0.5.0"
                   data-garden-id="dropdowns.menu.item_group"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   role="group"
                 >
                   <li
                     class="c23 c24 "
                     data-garden-id="dropdowns.menu.separator"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="none"
                   />
                   <li
@@ -4444,7 +4444,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                     data-garden-container-id="containers.menu.item"
                     data-garden-container-version="0.5.0"
                     data-garden-id="dropdowns.menu.item"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="menuitem"
                     tabindex="-1"
                   >
@@ -4452,7 +4452,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                       aria-hidden="true"
                       class="c12 c13  c14 "
                       data-garden-id="dropdowns.menu.item.type_icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       focusable="false"
                       height="16"
                       viewBox="0 0 16 16"
@@ -4470,7 +4470,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                     <div
                       class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                     >
                       Group Item 1
                     </div>
@@ -4480,7 +4480,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                     data-garden-container-id="containers.menu.item"
                     data-garden-container-version="0.5.0"
                     data-garden-id="dropdowns.menu.item"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="menuitem"
                     tabindex="-1"
                   >
@@ -4488,7 +4488,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                       aria-hidden="true"
                       class="c12 c13  c14 "
                       data-garden-id="dropdowns.menu.item.type_icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       focusable="false"
                       height="16"
                       viewBox="0 0 16 16"
@@ -4506,13 +4506,13 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                     <svg
                       class=" c17 "
                       data-garden-id="dropdowns.menu.item.icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       xmlns="http://www.w3.org/2000/svg"
                     />
                     <div
                       class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                     >
                       Group Item 2
                     </div>
@@ -4525,7 +4525,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
               data-garden-container-id="containers.menu.separator"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.separator"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="separator"
             />
             <li
@@ -4533,7 +4533,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -4541,7 +4541,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -4559,7 +4559,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 4
               </div>
@@ -4842,18 +4842,18 @@ exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight,
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -4865,7 +4865,7 @@ exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight,
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rc:-menu-trigger"
           role="button"
           tabindex="0"
@@ -4875,7 +4875,7 @@ exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight,
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -4892,7 +4892,7 @@ exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight,
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -4902,7 +4902,7 @@ exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight,
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />
@@ -5401,18 +5401,18 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -5424,7 +5424,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r3:-menu-trigger"
           role="button"
           tabindex="0"
@@ -5434,7 +5434,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -5451,7 +5451,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
           class="c6 "
           data-garden-animate="true"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -5461,7 +5461,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           >
@@ -5470,7 +5470,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="0"
             >
@@ -5478,7 +5478,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -5496,7 +5496,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 1
               </div>
@@ -5506,7 +5506,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -5514,7 +5514,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -5532,13 +5532,13 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
               <svg
                 class=" c17 "
                 data-garden-id="dropdowns.menu.item.icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 xmlns="http://www.w3.org/2000/svg"
               />
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 2
               </div>
@@ -5548,7 +5548,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -5556,7 +5556,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -5574,13 +5574,13 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 3
                 <div
                   class="c18 "
                   data-garden-id="dropdowns.menu.item.meta"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Meta
                 </div>
@@ -5589,18 +5589,18 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
             <li
               class="c9 c10 c19 "
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="none"
             >
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c9 c10 c20 "
                   data-garden-id="dropdowns.menu.item"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Group 1
                 </div>
@@ -5610,13 +5610,13 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                   data-garden-container-id="containers.menu.item_group"
                   data-garden-container-version="0.5.0"
                   data-garden-id="dropdowns.menu.item_group"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   role="group"
                 >
                   <li
                     class="c23 c24 "
                     data-garden-id="dropdowns.menu.separator"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="none"
                   />
                   <li
@@ -5624,7 +5624,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                     data-garden-container-id="containers.menu.item"
                     data-garden-container-version="0.5.0"
                     data-garden-id="dropdowns.menu.item"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="menuitem"
                     tabindex="-1"
                   >
@@ -5632,7 +5632,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                       aria-hidden="true"
                       class="c12 c13  c14 "
                       data-garden-id="dropdowns.menu.item.type_icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       focusable="false"
                       height="16"
                       viewBox="0 0 16 16"
@@ -5650,7 +5650,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                     <div
                       class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                     >
                       Group Item 1
                     </div>
@@ -5660,7 +5660,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                     data-garden-container-id="containers.menu.item"
                     data-garden-container-version="0.5.0"
                     data-garden-id="dropdowns.menu.item"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="menuitem"
                     tabindex="-1"
                   >
@@ -5668,7 +5668,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                       aria-hidden="true"
                       class="c12 c13  c14 "
                       data-garden-id="dropdowns.menu.item.type_icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       focusable="false"
                       height="16"
                       viewBox="0 0 16 16"
@@ -5686,13 +5686,13 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                     <svg
                       class=" c17 "
                       data-garden-id="dropdowns.menu.item.icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       xmlns="http://www.w3.org/2000/svg"
                     />
                     <div
                       class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                     >
                       Group Item 2
                     </div>
@@ -5705,7 +5705,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
               data-garden-container-id="containers.menu.separator"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.separator"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="separator"
             />
             <li
@@ -5713,7 +5713,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -5721,7 +5721,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -5739,7 +5739,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 4
               </div>
@@ -6240,18 +6240,18 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -6263,7 +6263,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rb:-menu-trigger"
           role="button"
           tabindex="0"
@@ -6273,7 +6273,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -6290,7 +6290,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
           class="c6 "
           data-garden-animate="true"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -6300,7 +6300,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           >
@@ -6309,7 +6309,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="0"
             >
@@ -6317,7 +6317,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -6335,7 +6335,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 1
               </div>
@@ -6345,7 +6345,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -6353,7 +6353,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -6371,13 +6371,13 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
               <svg
                 class=" c17 "
                 data-garden-id="dropdowns.menu.item.icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 xmlns="http://www.w3.org/2000/svg"
               />
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 2
               </div>
@@ -6387,7 +6387,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -6395,7 +6395,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -6413,13 +6413,13 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 3
                 <div
                   class="c18 "
                   data-garden-id="dropdowns.menu.item.meta"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Meta
                 </div>
@@ -6428,18 +6428,18 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
             <li
               class="c9 c10 c19 "
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="none"
             >
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 <div
                   class="c9 c10 c20 "
                   data-garden-id="dropdowns.menu.item"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                 >
                   Group 1
                 </div>
@@ -6449,13 +6449,13 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                   data-garden-container-id="containers.menu.item_group"
                   data-garden-container-version="0.5.0"
                   data-garden-id="dropdowns.menu.item_group"
-                  data-garden-version="9.0.0"
+                  data-garden-version="9.1.0"
                   role="group"
                 >
                   <li
                     class="c23 c24 "
                     data-garden-id="dropdowns.menu.separator"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="none"
                   />
                   <li
@@ -6463,7 +6463,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                     data-garden-container-id="containers.menu.item"
                     data-garden-container-version="0.5.0"
                     data-garden-id="dropdowns.menu.item"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="menuitem"
                     tabindex="-1"
                   >
@@ -6471,7 +6471,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                       aria-hidden="true"
                       class="c12 c13  c14 "
                       data-garden-id="dropdowns.menu.item.type_icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       focusable="false"
                       height="16"
                       viewBox="0 0 16 16"
@@ -6489,7 +6489,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                     <div
                       class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                     >
                       Group Item 1
                     </div>
@@ -6499,7 +6499,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                     data-garden-container-id="containers.menu.item"
                     data-garden-container-version="0.5.0"
                     data-garden-id="dropdowns.menu.item"
-                    data-garden-version="9.0.0"
+                    data-garden-version="9.1.0"
                     role="menuitem"
                     tabindex="-1"
                   >
@@ -6507,7 +6507,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                       aria-hidden="true"
                       class="c12 c13  c14 "
                       data-garden-id="dropdowns.menu.item.type_icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       focusable="false"
                       height="16"
                       viewBox="0 0 16 16"
@@ -6525,13 +6525,13 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                     <svg
                       class=" c17 "
                       data-garden-id="dropdowns.menu.item.icon"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                       xmlns="http://www.w3.org/2000/svg"
                     />
                     <div
                       class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
-                      data-garden-version="9.0.0"
+                      data-garden-version="9.1.0"
                     >
                       Group Item 2
                     </div>
@@ -6544,7 +6544,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
               data-garden-container-id="containers.menu.separator"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.separator"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="separator"
             />
             <li
@@ -6552,7 +6552,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
               data-garden-container-id="containers.menu.item"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.item"
-              data-garden-version="9.0.0"
+              data-garden-version="9.1.0"
               role="menuitem"
               tabindex="-1"
             >
@@ -6560,7 +6560,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                 aria-hidden="true"
                 class="c12 c13  c14 "
                 data-garden-id="dropdowns.menu.item.type_icon"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
                 focusable="false"
                 height="16"
                 viewBox="0 0 16 16"
@@ -6578,7 +6578,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
               <div
                 class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
-                data-garden-version="9.0.0"
+                data-garden-version="9.1.0"
               >
                 Item 4
               </div>
@@ -6861,18 +6861,18 @@ exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -6884,7 +6884,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r8:-menu-trigger"
           role="button"
           tabindex="0"
@@ -6894,7 +6894,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -6911,7 +6911,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -6921,7 +6921,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />
@@ -7202,18 +7202,18 @@ exports[`MenuStory Component renders MenuStory with fallback placements and a cu
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -7225,7 +7225,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements and a cu
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":rd:-menu-trigger"
           role="button"
           tabindex="0"
@@ -7235,7 +7235,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements and a cu
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -7252,7 +7252,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements and a cu
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -7262,7 +7262,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements and a cu
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />
@@ -7543,18 +7543,18 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
 <div
   class="c0"
   data-garden-id="grid.grid"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     class="c1"
     data-garden-id="grid.row"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
     style="height: 800px;"
   >
     <div
       class="c2"
       data-garden-id="grid.col"
-      data-garden-version="9.0.0"
+      data-garden-version="9.1.0"
     >
       <div
         style="display: inline-block; position: relative; width: 200px;"
@@ -7566,7 +7566,7 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
           data-garden-container-id="containers.menu.trigger"
           data-garden-container-version="0.5.0"
           data-garden-id="buttons.button"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           id=":r0:-menu-trigger"
           role="button"
           tabindex="0"
@@ -7576,7 +7576,7 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
             aria-hidden="true"
             class="c4  c5"
             data-garden-id="buttons.icon"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             focusable="false"
             height="16"
             viewBox="0 0 16 16"
@@ -7593,7 +7593,7 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
           class="c6 "
           data-garden-animate="false"
           data-garden-id="dropdowns.menu.floating"
-          data-garden-version="9.0.0"
+          data-garden-version="9.1.0"
           style="transform: translate(0px, 0px);"
         >
           <ul
@@ -7603,7 +7603,7 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
             data-garden-container-id="containers.menu"
             data-garden-container-version="0.5.0"
             data-garden-id="dropdowns.menu"
-            data-garden-version="9.0.0"
+            data-garden-version="9.1.0"
             role="menu"
             tabindex="-1"
           />

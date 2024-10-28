@@ -21,7 +21,7 @@ exports[`DropzoneStory Component renders DropzoneStory with a custom tag 1`] = `
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -46,7 +46,7 @@ exports[`DropzoneStory Component renders DropzoneStory with active state 1`] = `
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -92,13 +92,13 @@ exports[`DropzoneStory Component renders DropzoneStory with an icon 1`] = `
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -149,12 +149,12 @@ exports[`DropzoneStory Component renders DropzoneStory with children 1`] = `
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <p
     class="c1"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -213,13 +213,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children and an icon
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -228,7 +228,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children and an icon
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -287,13 +287,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -302,7 +302,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -361,13 +361,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -376,7 +376,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -436,13 +436,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -451,7 +451,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -510,13 +510,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -525,7 +525,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -587,13 +587,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -602,7 +602,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -661,13 +661,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -676,7 +676,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -736,13 +736,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -751,7 +751,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -810,13 +810,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -825,7 +825,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -885,13 +885,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -900,7 +900,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -960,13 +960,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -975,7 +975,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1034,13 +1034,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1049,7 +1049,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1109,13 +1109,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1124,7 +1124,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1184,13 +1184,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1199,7 +1199,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1259,13 +1259,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1274,7 +1274,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1333,13 +1333,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1348,7 +1348,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1410,13 +1410,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1425,7 +1425,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1487,13 +1487,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1502,7 +1502,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1565,13 +1565,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1580,7 +1580,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1642,13 +1642,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1657,7 +1657,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1719,13 +1719,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1734,7 +1734,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1797,13 +1797,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1812,7 +1812,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1874,13 +1874,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1889,7 +1889,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -1952,13 +1952,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1967,7 +1967,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2030,13 +2030,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2045,7 +2045,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2108,13 +2108,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2123,7 +2123,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2185,13 +2185,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2200,7 +2200,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2263,13 +2263,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2278,7 +2278,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2341,13 +2341,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2356,7 +2356,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2419,13 +2419,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2434,7 +2434,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2496,13 +2496,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2511,7 +2511,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, acti
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2570,13 +2570,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2585,7 +2585,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2644,13 +2644,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2659,7 +2659,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2718,13 +2718,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2733,7 +2733,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2793,13 +2793,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2808,7 +2808,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2867,13 +2867,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2882,7 +2882,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -2944,13 +2944,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2959,7 +2959,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, and 
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3018,13 +3018,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3033,7 +3033,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3093,13 +3093,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3108,7 +3108,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3167,13 +3167,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3182,7 +3182,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3242,13 +3242,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3257,7 +3257,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3317,13 +3317,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3332,7 +3332,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3392,13 +3392,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3407,7 +3407,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3466,13 +3466,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3481,7 +3481,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, dang
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3541,13 +3541,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, disa
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3556,7 +3556,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, disa
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3616,13 +3616,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, disa
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3631,7 +3631,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, disa
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3691,13 +3691,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, disa
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3706,7 +3706,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, disa
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3765,13 +3765,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, high
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3780,7 +3780,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, high
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3842,13 +3842,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3857,7 +3857,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3919,13 +3919,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3934,7 +3934,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -3997,13 +3997,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4012,7 +4012,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4074,13 +4074,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4089,7 +4089,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4151,13 +4151,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4166,7 +4166,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4229,13 +4229,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4244,7 +4244,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4306,13 +4306,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4321,7 +4321,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4384,13 +4384,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4399,7 +4399,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4462,13 +4462,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4477,7 +4477,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4540,13 +4540,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4555,7 +4555,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4617,13 +4617,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4632,7 +4632,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4695,13 +4695,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4710,7 +4710,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4773,13 +4773,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4788,7 +4788,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4851,13 +4851,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4866,7 +4866,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4928,13 +4928,13 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
 <section
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 >
   <div
     aria-hidden="true"
     class="c1"
     data-garden-id="dropzone.icon"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4943,7 +4943,7 @@ exports[`DropzoneStory Component renders DropzoneStory with children, icon, vert
   <p
     class="c2"
     data-garden-id="dropzone.message"
-    data-garden-version="9.0.0"
+    data-garden-version="9.1.0"
   >
     Drop files here
   </p>
@@ -4971,7 +4971,7 @@ exports[`DropzoneStory Component renders DropzoneStory with danger styling 1`] =
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -4997,7 +4997,7 @@ exports[`DropzoneStory Component renders DropzoneStory with disabled state 1`] =
   aria-disabled="true"
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -5022,7 +5022,7 @@ exports[`DropzoneStory Component renders DropzoneStory with highlighted state 1`
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -5047,7 +5047,7 @@ exports[`DropzoneStory Component renders DropzoneStory with vertical alignment 1
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
 
@@ -5072,6 +5072,6 @@ exports[`DropzoneStory Component renders default DropzoneStory 1`] = `
 <div
   class="c0"
   data-garden-id="dropzone"
-  data-garden-version="9.0.0"
+  data-garden-version="9.1.0"
 />
 `;
