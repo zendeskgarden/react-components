@@ -13,7 +13,7 @@ const UnorderedListItem = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIEleme
   (props, ref) => {
     const { size } = useUnorderedListContext();
 
-    return <StyledUnorderedListItem ref={ref} space={size} {...props} />;
+    return <StyledUnorderedListItem ref={ref} $space={size} {...props} />;
   }
 );
 

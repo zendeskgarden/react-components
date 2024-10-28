@@ -13,8 +13,8 @@ import { StyledFont } from '../styled';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const XXL = forwardRef<HTMLDivElement, ITypescaleProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="2xlarge" {...other} />
+export const XXL = forwardRef<HTMLDivElement, ITypescaleProps>(({ isBold, tag, ...other }, ref) => (
+  <StyledFont $size="2xlarge" $isBold={isBold} ref={ref} as={tag} {...other} />
 ));
 
 XXL.displayName = 'XXL';

@@ -13,9 +13,18 @@ import { StyledFont } from '../styled';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const SM = forwardRef<HTMLDivElement, ITypescaleMonospaceProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="small" {...other} />
-));
+export const SM = forwardRef<HTMLDivElement, ITypescaleMonospaceProps>(
+  ({ isBold, isMonospace, tag, ...other }, ref) => (
+    <StyledFont
+      $isBold={isBold}
+      $isMonospace={isMonospace}
+      as={tag}
+      ref={ref}
+      $size="small"
+      {...other}
+    />
+  )
+);
 
 SM.displayName = 'SM';
 
