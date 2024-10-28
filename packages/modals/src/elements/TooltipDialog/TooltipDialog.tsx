@@ -155,15 +155,15 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
                 <StyledTooltipWrapper
                   ref={setFloatingElement}
                   style={{ transform }}
-                  placement={placement}
-                  zIndex={zIndex}
-                  isAnimated={isAnimated}
+                  $placement={placement}
+                  $zIndex={zIndex}
+                  $isAnimated={isAnimated}
                 >
                   <StyledTooltipDialog
-                    transitionState={transitionState}
-                    placement={placement}
-                    hasArrow={hasArrow}
-                    isAnimated={isAnimated}
+                    $transitionState={transitionState}
+                    $placement={placement}
+                    $hasArrow={hasArrow}
+                    $isAnimated={isAnimated}
                     {...modalProps}
                     {...ariaProps}
                     {...props}

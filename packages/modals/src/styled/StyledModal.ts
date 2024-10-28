@@ -12,9 +12,9 @@ import { mediaQuery, retrieveComponentStyles, getColor } from '@zendeskgarden/re
 const COMPONENT_ID = 'modals.modal';
 
 export interface IStyledModalProps {
-  isLarge?: boolean;
-  isCentered?: boolean;
-  isAnimated?: boolean;
+  $isLarge?: boolean;
+  $isCentered?: boolean;
+  $isAnimated?: boolean;
 }
 
 const animationName = keyframes`
@@ -33,7 +33,7 @@ const animationName = keyframes`
 `;
 
 const animationStyles = (props: IStyledModalProps) => {
-  if (props.isAnimated) {
+  if (props.$isAnimated) {
     return css`
       animation: ${animationName} 0.3s ease-in;
     `;
@@ -60,8 +60,8 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 
 const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
   return css`
-    ${mediaQuery('up', props.isLarge ? 'md' : 'sm', props.theme)} {
-      width: ${props.isLarge ? props.theme.breakpoints.md : props.theme.breakpoints.sm};
+    ${mediaQuery('up', props.$isLarge ? 'md' : 'sm', props.theme)} {
+      width: ${props.$isLarge ? props.theme.breakpoints.md : props.theme.breakpoints.sm};
     }
   `;
 };
@@ -77,7 +77,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   position: fixed;
   flex-direction: column;
   animation-delay: 0.01s;
-  margin: ${props => (props.isCentered ? '0' : `${props.theme.space.base * 12}px`)};
+  margin: ${props => (props.$isCentered ? '0' : `${props.theme.space.base * 12}px`)};
   border: ${props => props.theme.borders.sm};
   border-radius: ${props => props.theme.borderRadii.md};
   min-height: 60px;
@@ -104,15 +104,15 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   }
 
   @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-    right: ${props => props.isCentered && '50%'}; /* [1] */
-    bottom: ${props => props.isCentered && '50%'}; /* [1] */
-    transform: ${props => props.isCentered && 'translate(50%, 50%)'}; /* [1] */
+    right: ${props => props.$isCentered && '50%'}; /* [1] */
+    bottom: ${props => props.$isCentered && '50%'}; /* [1] */
+    transform: ${props => props.$isCentered && 'translate(50%, 50%)'}; /* [1] */
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledModal.propTypes = {
-  isLarge: PropTypes.bool,
-  isAnimated: PropTypes.bool
+  $isLarge: PropTypes.bool,
+  $isAnimated: PropTypes.bool
 };

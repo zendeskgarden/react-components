@@ -14,14 +14,14 @@ import {
 } from '@zendeskgarden/react-theming';
 import { StyledTooltipDialogClose } from '../styled/StyledTooltipDialogClose';
 import { TransitionStatus } from 'react-transition-group';
-import { ITooltipDialogProps } from '../types';
 
 const COMPONENT_ID = 'modals.tooltip_dialog';
 
-export interface IStyledTooltipDialogProps
-  extends Pick<ITooltipDialogProps, 'hasArrow' | 'isAnimated'> {
-  placement: Placement;
-  transitionState?: TransitionStatus;
+export interface IStyledTooltipDialogProps {
+  $hasArrow?: boolean;
+  $isAnimated?: boolean;
+  $placement: Placement;
+  $transitionState?: TransitionStatus;
 }
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
@@ -36,20 +36,20 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
 export const StyledTooltipDialog = styled.div.attrs<IStyledTooltipDialogProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props.isAnimated && 'is-animated'
+  className: props.$isAnimated && 'is-animated'
 }))<IStyledTooltipDialogProps>`
   ${props => {
-    const computedArrowStyles = arrowStyles(getArrowPosition(props.theme, props.placement), {
+    const computedArrowStyles = arrowStyles(getArrowPosition(props.theme, props.$placement), {
       size: `${props.theme.space.base * 2}px`,
       inset: '1px',
       animationModifier: '.is-animated'
     });
 
-    if (props.isAnimated) {
-      return props.hasArrow && props.transitionState === 'entered' && computedArrowStyles;
+    if (props.$isAnimated) {
+      return props.$hasArrow && props.$transitionState === 'entered' && computedArrowStyles;
     }
 
-    return props.hasArrow && computedArrowStyles;
+    return props.$hasArrow && computedArrowStyles;
   }};
 
   ${sizeStyles}
