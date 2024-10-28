@@ -17,12 +17,12 @@ import { StyledOrderedList, StyledUnorderedList } from './StyledList';
 import { StyledFont } from './StyledFont';
 
 interface IStyledListItemProps {
-  space?: Size;
+  $space?: Size;
 }
 
 const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) => {
   const base = props.theme.space.base;
-  const paddingTop = props.space === 'large' ? `${base * 2}px` : `${base}px`;
+  const paddingTop = props.$space === 'large' ? `${base * 2}px` : `${base}px`;
 
   /**
    * 1. Prevent padding the very first list item.
@@ -49,7 +49,7 @@ const listItemStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) 
   return css`
     line-height: ${getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
 
-    ${props.space !== 'small' && listItemPaddingStyles(props)};
+    ${props.$space !== 'small' && listItemPaddingStyles(props)};
   `;
 };
 
@@ -71,7 +71,7 @@ export const StyledOrderedListItem = styled(StyledFont as 'li').attrs({
 `;
 
 StyledOrderedListItem.defaultProps = {
-  space: 'medium',
+  $space: 'medium',
   theme: DEFAULT_THEME
 };
 
@@ -88,6 +88,6 @@ export const StyledUnorderedListItem = styled(StyledFont as 'li').attrs({
 `;
 
 StyledUnorderedListItem.defaultProps = {
-  space: 'medium',
+  $space: 'medium',
   theme: DEFAULT_THEME
 };

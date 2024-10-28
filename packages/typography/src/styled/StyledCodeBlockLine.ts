@@ -14,21 +14,21 @@ import { StyledFont, THEME_SIZES } from './StyledFont';
 const COMPONENT_ID = 'typography.codeblock_code';
 
 export interface IStyledCodeBlockLineProps {
-  language?: Language;
-  isHighlighted?: boolean;
-  isNumbered?: boolean;
-  diff?: Diff;
-  size?: Size;
+  $language?: Language;
+  $isHighlighted?: boolean;
+  $isNumbered?: boolean;
+  $diff?: Diff;
+  $size?: Size;
 }
 
 const colorStyles = ({
   theme,
-  diff,
-  isHighlighted
+  $diff,
+  $isHighlighted
 }: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
   let backgroundColor;
 
-  if (diff) {
+  if ($diff) {
     const hues = {
       hunk: 'royal',
       add: 'lime',
@@ -38,12 +38,12 @@ const colorStyles = ({
 
     backgroundColor = getColor({
       theme,
-      hue: hues[diff],
+      hue: hues[$diff],
       dark: { shade: 600 },
       light: { shade: 400 },
       transparency: theme.opacity[300]
     });
-  } else if (isHighlighted) {
+  } else if ($isHighlighted) {
     backgroundColor = getColor({
       theme,
       dark: { hue: 'white' },
@@ -59,17 +59,17 @@ const colorStyles = ({
 
 const lineNumberStyles = ({
   theme,
-  language,
-  size
+  $language,
+  $size
 }: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
   const color = getColor({ theme, variable: 'foreground.subtle', light: { offset: -100 } });
   let padding;
 
-  if (language && language === 'diff') {
+  if ($language && $language === 'diff') {
     padding = 0;
-  } else if (size === 'small') {
+  } else if ($size === 'small') {
     padding = theme.space.base * 4;
-  } else if (size === 'large') {
+  } else if ($size === 'large') {
     padding = theme.space.base * 7;
   } else {
     padding = theme.space.base * 6;
@@ -96,15 +96,15 @@ export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'code',
-  isMonospace: true
+  $isMonospace: true
 })<IStyledCodeBlockLineProps>`
   display: table-row;
-  height: ${props => props.theme.lineHeights[THEME_SIZES[props.size!]]}; /* [1] */
+  height: ${props => props.theme.lineHeights[THEME_SIZES[props.$size!]]}; /* [1] */
   direction: ltr;
 
   ${colorStyles};
 
-  ${props => props.isNumbered && lineNumberStyles(props)};
+  ${props => props.$isNumbered && lineNumberStyles(props)};
 
   &::after {
     display: inline-block;

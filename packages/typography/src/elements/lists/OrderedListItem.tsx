@@ -12,7 +12,7 @@ import { StyledOrderedListItem } from '../../styled';
 const OrderedListItem = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
   const { size } = useOrderedListContext();
 
-  return <StyledOrderedListItem ref={ref} space={size} {...props} />;
+  return <StyledOrderedListItem ref={ref} $space={size} {...props} />;
 });
 
 OrderedListItem.displayName = 'OrderedList.Item';

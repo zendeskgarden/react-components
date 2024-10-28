@@ -26,7 +26,7 @@ describe('StyledCodeBlockLine', () => {
 
   describe('highlights', () => {
     it('renders highlight as expected', () => {
-      const { container } = renderDark(<StyledCodeBlockLine isHighlighted />);
+      const { container } = renderDark(<StyledCodeBlockLine $isHighlighted />);
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
@@ -35,7 +35,7 @@ describe('StyledCodeBlockLine', () => {
     });
 
     it('renders as expected in light mode', () => {
-      const { container } = render(<StyledCodeBlockLine isHighlighted />);
+      const { container } = render(<StyledCodeBlockLine $isHighlighted />);
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
@@ -46,7 +46,7 @@ describe('StyledCodeBlockLine', () => {
 
   describe('line numbers', () => {
     it('renders line numbers as expected', () => {
-      const { container } = renderDark(<StyledCodeBlockLine isNumbered />);
+      const { container } = renderDark(<StyledCodeBlockLine $isNumbered />);
 
       expect(container.firstChild).toHaveStyleRule('display', 'table-cell', {
         modifier: '&::before'
@@ -54,7 +54,7 @@ describe('StyledCodeBlockLine', () => {
     });
 
     it('renders as expected in light mode', () => {
-      const { container } = render(<StyledCodeBlockLine isNumbered />);
+      const { container } = render(<StyledCodeBlockLine $isNumbered />);
 
       expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[600], {
         modifier: '&::before'
@@ -64,19 +64,19 @@ describe('StyledCodeBlockLine', () => {
 
   describe('size', () => {
     it('renders small size', () => {
-      const { container } = render(<StyledCodeBlockLine size="small" />);
+      const { container } = render(<StyledCodeBlockLine $size="small" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', '11px');
     });
 
     it('renders medium size', () => {
-      const { container } = render(<StyledCodeBlockLine size="medium" />);
+      const { container } = render(<StyledCodeBlockLine $size="medium" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', '13px');
     });
 
     it('renders large size', () => {
-      const { container } = render(<StyledCodeBlockLine size="large" />);
+      const { container } = render(<StyledCodeBlockLine $size="large" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', '17px');
     });
@@ -84,7 +84,7 @@ describe('StyledCodeBlockLine', () => {
 
   describe('diff', () => {
     it('renders add diff', () => {
-      const { container } = render(<StyledCodeBlockLine diff="add" />);
+      const { container } = render(<StyledCodeBlockLine $diff="add" />);
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
@@ -93,7 +93,7 @@ describe('StyledCodeBlockLine', () => {
     });
 
     it('renders delete diff', () => {
-      const { container } = render(<StyledCodeBlockLine diff="delete" />);
+      const { container } = render(<StyledCodeBlockLine $diff="delete" />);
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
@@ -102,7 +102,7 @@ describe('StyledCodeBlockLine', () => {
     });
 
     it('renders change diff', () => {
-      const { container } = render(<StyledCodeBlockLine diff="change" />);
+      const { container } = render(<StyledCodeBlockLine $diff="change" />);
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
@@ -111,7 +111,7 @@ describe('StyledCodeBlockLine', () => {
     });
 
     it('renders hunk diff', () => {
-      const { container } = render(<StyledCodeBlockLine diff="hunk" />);
+      const { container } = render(<StyledCodeBlockLine $diff="hunk" />);
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',

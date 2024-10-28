@@ -18,7 +18,7 @@ const OrderedListComponent = React.forwardRef<HTMLOListElement, IOrderedListProp
 
     return (
       <OrderedListContext.Provider value={value}>
-        <StyledOrderedList ref={ref} listType={type} {...other} />
+        <StyledOrderedList ref={ref} $listType={type} {...other} />
       </OrderedListContext.Provider>
     );
   }
