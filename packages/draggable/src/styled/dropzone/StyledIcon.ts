@@ -11,15 +11,15 @@ import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 const COMPONENT_ID = 'dropzone.icon';
 
 interface IStyledIconProps extends ThemeProps<DefaultTheme> {
-  isVertical?: boolean;
-  hasMessage?: boolean;
+  $isVertical?: boolean;
+  $hasMessage?: boolean;
 }
 
-function sizeStyles({ theme, isVertical }: IStyledIconProps) {
+function sizeStyles({ theme, $isVertical }: IStyledIconProps) {
   let property;
   let value;
 
-  if (isVertical) {
+  if ($isVertical) {
     property = 'margin-bottom';
     value = theme.space.xs;
   } else {
@@ -43,7 +43,7 @@ export const StyledIcon = styled.div.attrs({
   width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};
 
-  ${p => p.hasMessage && sizeStyles(p)}
+  ${p => p.$hasMessage && sizeStyles(p)}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

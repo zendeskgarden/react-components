@@ -12,15 +12,17 @@ import { StyledDraggableList } from '../../styled';
 import { IDraggableListProps } from '../../types';
 import { DraggableListContext } from '../../utils/useDraggableListContext';
 
-const DraggableListComponent = forwardRef<HTMLUListElement, IDraggableListProps>((props, ref) => {
-  const value = useMemo(() => ({ isHorizontal: props.isHorizontal }), [props.isHorizontal]);
+const DraggableListComponent = forwardRef<HTMLUListElement, IDraggableListProps>(
+  ({ isHorizontal, ...other }, ref) => {
+    const value = useMemo(() => ({ isHorizontal }), [isHorizontal]);
 
-  return (
-    <DraggableListContext.Provider value={value}>
-      <StyledDraggableList {...props} ref={ref} />
-    </DraggableListContext.Provider>
-  );
-});
+    return (
+      <DraggableListContext.Provider value={value}>
+        <StyledDraggableList $isHorizontal={isHorizontal} ref={ref} {...other} />
+      </DraggableListContext.Provider>
+    );
+  }
+);
 
 DraggableListComponent.displayName = 'DraggableList';
 

@@ -18,12 +18,12 @@ import { StyledGrip } from './StyledGrip';
 const COMPONENT_ID = 'draggable';
 
 export interface IStyledDraggableProps extends ThemeProps<DefaultTheme> {
-  focusInset?: boolean;
-  isBare?: boolean;
-  isCompact?: boolean;
-  isDisabled?: boolean;
-  isGrabbed?: boolean;
-  isPlaceholder?: boolean;
+  $focusInset?: boolean;
+  $isBare?: boolean;
+  $isCompact?: boolean;
+  $isDisabled?: boolean;
+  $isGrabbed?: boolean;
+  $isPlaceholder?: boolean;
 }
 
 export function getDragShadow(theme: IGardenTheme) {
@@ -36,7 +36,7 @@ export function getDragShadow(theme: IGardenTheme) {
 }
 
 const colorStyles = (props: IStyledDraggableProps) => {
-  const { isBare, isGrabbed, isDisabled, isPlaceholder, focusInset, theme } = props;
+  const { $isBare, $isGrabbed, $isDisabled, $isPlaceholder, $focusInset, theme } = props;
 
   const dragShadow = getDragShadow(theme);
   const baseBgColor = getColor({ variable: 'background.default', theme });
@@ -53,17 +53,17 @@ const colorStyles = (props: IStyledDraggableProps) => {
   let borderColor = 'transparent';
   let backgroundColor = baseBgColor;
 
-  if (isDisabled) {
+  if ($isDisabled) {
     backgroundColor = disabledBgColor;
     color = disabledColor;
-  } else if (isPlaceholder) {
+  } else if ($isPlaceholder) {
     backgroundColor = placeholderBgColor;
   } else {
     color = getColor({ variable: 'foreground.default', theme });
-    borderColor = isBare ? 'transparent' : getColor({ variable: 'border.default', theme });
+    borderColor = $isBare ? 'transparent' : getColor({ variable: 'border.default', theme });
     hoverBackgroundColor = getColor({
-      variable: isGrabbed ? 'background.raised' : 'background.primaryEmphasis',
-      ...(!isGrabbed && { transparency: theme.opacity[100], dark: { offset: -100 } }),
+      variable: $isGrabbed ? 'background.raised' : 'background.primaryEmphasis',
+      ...(!$isGrabbed && { transparency: theme.opacity[100], dark: { offset: -100 } }),
       theme
     });
     boxShadow = dragShadow;
@@ -71,7 +71,7 @@ const colorStyles = (props: IStyledDraggableProps) => {
 
   return css`
     border-color: ${borderColor};
-    box-shadow: ${isGrabbed && boxShadow};
+    box-shadow: ${$isGrabbed && boxShadow};
     background-color: ${backgroundColor};
     color: ${color};
 
@@ -81,18 +81,18 @@ const colorStyles = (props: IStyledDraggableProps) => {
 
     ${focusStyles({
       theme,
-      inset: focusInset,
-      boxShadow: isGrabbed ? dragShadow : undefined
+      inset: $focusInset,
+      boxShadow: $isGrabbed ? dragShadow : undefined
     })}
 
     > ${StyledGrip} {
-      color: ${isDisabled && disabledColor};
+      color: ${$isDisabled && disabledColor};
     }
   `;
 };
 
 const sizeStyles = (props: IStyledDraggableProps) => {
-  const { isCompact, theme } = props;
+  const { $isCompact, theme } = props;
   const paddingDefault = theme.space.base * 2.25;
   const paddingCompact = theme.space.base * 1.25;
 
@@ -103,7 +103,7 @@ const sizeStyles = (props: IStyledDraggableProps) => {
     margin: 0; /* [1] */
     border: ${theme.borders.sm};
     border-radius: ${theme.borderRadii.md};
-    padding: ${isCompact ? `${paddingCompact}px ${paddingDefault}px` : `${paddingDefault}px`};
+    padding: ${$isCompact ? `${paddingCompact}px ${paddingDefault}px` : `${paddingDefault}px`};
     line-height: ${getLineHeight(theme.space.base * 5, theme.fontSizes.md)};
     font-size: ${theme.fontSizes.md};
     font-weight: ${theme.fontWeights.regular};
@@ -111,9 +111,9 @@ const sizeStyles = (props: IStyledDraggableProps) => {
 };
 
 const getCursor = (props: IStyledDraggableProps) => {
-  let cursor = props.isGrabbed ? 'grabbing' : 'grab';
+  let cursor = props.$isGrabbed ? 'grabbing' : 'grab';
 
-  if (props.isDisabled || props.isPlaceholder) {
+  if (props.$isDisabled || props.$isPlaceholder) {
     cursor = 'default';
   }
 
@@ -144,7 +144,7 @@ export const StyledDraggable = styled.div.attrs({
   ${colorStyles}
 
   > * {
-    visibility: ${p => p.isPlaceholder && !p.isDisabled && 'hidden'};
+    visibility: ${p => p.$isPlaceholder && !p.$isDisabled && 'hidden'};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

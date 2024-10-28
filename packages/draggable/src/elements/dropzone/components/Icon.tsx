@@ -31,8 +31,8 @@ export const Icon = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
     <StyledIcon
       aria-hidden="true"
       {...props}
-      hasMessage={hasMessage}
-      isVertical={isVertical}
+      $hasMessage={hasMessage}
+      $isVertical={isVertical}
       ref={ref}
     />
   );
