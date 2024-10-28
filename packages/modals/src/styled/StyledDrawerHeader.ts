@@ -22,7 +22,7 @@ export const StyledDrawerHeader = styled(StyledHeader).attrs({
 })`
   padding: ${props => props.theme.space.base * 5}px;
   ${props =>
-    props.isCloseButtonPresent &&
+    props.$isCloseButtonPresent &&
     `padding-${props.theme.rtl ? 'left' : 'right'}: ${
       props.theme.space.base * (BASE_MULTIPLIERS.size + BASE_MULTIPLIERS.side + 2)
     }px;`} /* [1] */

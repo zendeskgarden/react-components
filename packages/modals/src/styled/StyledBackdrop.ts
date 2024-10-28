@@ -12,8 +12,8 @@ import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming'
 const COMPONENT_ID = 'modals.backdrop';
 
 export interface IStyledBackdropProps {
-  isCentered?: boolean;
-  isAnimated?: boolean;
+  $isCentered?: boolean;
+  $isAnimated?: boolean;
 }
 
 const animationName = keyframes`
@@ -27,7 +27,7 @@ const animationName = keyframes`
 `;
 
 const animationStyles = (props: IStyledBackdropProps) => {
-  if (props.isAnimated) {
+  if (props.$isAnimated) {
     return css`
       animation: ${animationName} 0.15s ease-in;
     `;
@@ -46,8 +46,8 @@ export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
   display: flex;
   position: fixed;
   inset: 0;
-  align-items: ${props => props.isCentered && 'center'};
-  justify-content: ${props => props.isCentered && 'center'};
+  align-items: ${props => props.$isCentered && 'center'};
+  justify-content: ${props => props.$isCentered && 'center'};
   z-index: 400;
   background-color: ${({ theme }) =>
     getColor({
@@ -68,6 +68,6 @@ export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
 `;
 
 StyledBackdrop.propTypes = {
-  isCentered: PropTypes.bool,
-  isAnimated: PropTypes.bool
+  $isCentered: PropTypes.bool,
+  $isAnimated: PropTypes.bool
 };

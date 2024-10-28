@@ -31,7 +31,7 @@ describe('StyledModal', () => {
   });
 
   it('renders large styling if provided', () => {
-    const { container } = render(<StyledModal isLarge />);
+    const { container } = render(<StyledModal $isLarge />);
 
     expect(container.firstChild).toHaveStyleRule('width', DEFAULT_THEME.breakpoints.md, {
       media: `(min-width: ${DEFAULT_THEME.breakpoints.md})`
@@ -39,7 +39,7 @@ describe('StyledModal', () => {
   });
 
   it('renders centered styling if provided', () => {
-    const { container } = render(<StyledModal isCentered />);
+    const { container } = render(<StyledModal $isCentered />);
 
     expect(container.firstChild).toHaveStyleRule('margin', '0');
   });

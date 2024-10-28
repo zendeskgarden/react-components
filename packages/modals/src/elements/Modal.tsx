@@ -170,14 +170,14 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
     return createPortal(
       <ModalsContext.Provider value={value}>
         <StyledBackdrop
-          isCentered={isCentered}
-          isAnimated={isAnimated}
+          $isCentered={isCentered}
+          $isAnimated={isAnimated}
           {...(getBackdropProps(backdropProps) as HTMLAttributes<HTMLDivElement>)}
         >
           <StyledModal
-            isCentered={isCentered}
-            isAnimated={isAnimated}
-            isLarge={isLarge}
+            $isCentered={isCentered}
+            $isAnimated={isAnimated}
+            $isLarge={isLarge}
             {...modalContainerProps}
             {...ariaProps}
             {...modalProps}
