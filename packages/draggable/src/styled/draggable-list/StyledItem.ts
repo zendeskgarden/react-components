@@ -11,17 +11,17 @@ import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 const COMPONENT_ID = 'draggable_list.item';
 
 export interface IStyledItemProps extends ThemeProps<DefaultTheme> {
-  isHorizontal?: boolean;
+  $isHorizontal?: boolean;
 }
 
 const sizeStyles = (props: IStyledItemProps) => {
   const {
-    isHorizontal,
+    $isHorizontal,
     theme: { space }
   } = props;
 
   return css`
-    padding: ${isHorizontal ? `0 ${space.xxs}` : `${space.xxs} 0`};
+    padding: ${$isHorizontal ? `0 ${space.xxs}` : `${space.xxs} 0`};
   `;
 };
 
