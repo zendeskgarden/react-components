@@ -281,6 +281,7 @@ CACHE.set(DEFAULT_THEME.colors, KEYS.colors);
 CACHE.set(DEFAULT_THEME.palette, KEYS.palette);
 CACHE.set(DEFAULT_THEME.opacity, KEYS.opacity);
 
+/* convert `getColor` parameters to a memoization key */
 const toKey = ({
   dark,
   hue,
@@ -291,25 +292,37 @@ const toKey = ({
   transparency,
   variable
 }: ColorParameters) => {
-  let themeColorsKey = CACHE.get(theme.colors);
+  let themeColorsKey;
 
-  if (themeColorsKey === undefined) {
-    themeColorsKey = ++KEYS.colors;
-    CACHE.set(theme.colors, themeColorsKey);
+  if (theme.colors) {
+    themeColorsKey = CACHE.get(theme.colors);
+
+    if (themeColorsKey === undefined) {
+      themeColorsKey = ++KEYS.colors;
+      CACHE.set(theme.colors, themeColorsKey);
+    }
   }
 
-  let themeOpacityKey = CACHE.get(theme.opacity);
+  let themeOpacityKey;
 
-  if (themeOpacityKey === undefined) {
-    themeOpacityKey = ++KEYS.opacity;
-    CACHE.set(theme.opacity, themeOpacityKey);
+  if (theme.opacity) {
+    themeOpacityKey = CACHE.get(theme.opacity);
+
+    if (themeOpacityKey === undefined) {
+      themeOpacityKey = ++KEYS.opacity;
+      CACHE.set(theme.opacity, themeOpacityKey);
+    }
   }
 
-  let themePaletteKey = CACHE.get(theme.palette);
+  let themePaletteKey;
 
-  if (themePaletteKey === undefined) {
-    themePaletteKey = ++KEYS.palette;
-    CACHE.set(theme.palette, themePaletteKey);
+  if (theme.palette) {
+    themePaletteKey = CACHE.get(theme.palette);
+
+    if (themePaletteKey === undefined) {
+      themePaletteKey = ++KEYS.palette;
+      CACHE.set(theme.palette, themePaletteKey);
+    }
   }
 
   let retVal = `{${themeColorsKey},${themePaletteKey},${themeOpacityKey}}`;

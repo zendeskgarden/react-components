@@ -167,6 +167,10 @@ describe('getColorV8', () => {
 
       expect(color).toBe(expected);
     });
+
+    it('handles an invalid theme', () => {
+      expect(() => getColorV8('test', 600, {} as any)).not.toThrow();
+    });
   });
 
   describe('by transparency', () => {
