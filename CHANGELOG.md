@@ -13,6 +13,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.1.1 (2024-10-31)
+
+#### :bug: Bug Fix
+* `theming`
+  * [#1966](https://github.com/zendeskgarden/react-components/pull/1966) fix(theming): harden `getColor` memoization key generation ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#1965](https://github.com/zendeskgarden/react-components/pull/1965) deps: point to correct `react-theming` peerDependency ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.1.0 (2024-10-24)
 
 #### :rocket: New Feature
