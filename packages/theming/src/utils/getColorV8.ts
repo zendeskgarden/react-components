@@ -42,25 +42,33 @@ const toKey = ({
   theme?: DefaultTheme;
   transparency?: number;
 }) => {
-  let retVal = `${hue}`;
+  let retVal = `${typeof hue === 'object' ? JSON.stringify(hue) : hue}`;
 
   if (shade !== undefined) {
     retVal += `,${shade}`;
   }
 
   if (theme !== undefined) {
-    let themeColorsKey = CACHE.get(theme.colors);
+    let themeColorsKey;
 
-    if (themeColorsKey === undefined) {
-      themeColorsKey = ++KEYS.colors;
-      CACHE.set(theme.colors, themeColorsKey);
+    if (theme.colors) {
+      themeColorsKey = CACHE.get(theme.colors);
+
+      if (themeColorsKey === undefined) {
+        themeColorsKey = ++KEYS.colors;
+        CACHE.set(theme.colors, themeColorsKey);
+      }
     }
 
-    let themePaletteKey = CACHE.get(theme.palette);
+    let themePaletteKey;
 
-    if (themePaletteKey === undefined) {
-      themePaletteKey = ++KEYS.palette;
-      CACHE.set(theme.palette, themePaletteKey);
+    if (theme.palette) {
+      themePaletteKey = CACHE.get(theme.palette);
+
+      if (themePaletteKey === undefined) {
+        themePaletteKey = ++KEYS.palette;
+        CACHE.set(theme.palette, themePaletteKey);
+      }
     }
 
     retVal += `,{${themeColorsKey},${themePaletteKey}}`;

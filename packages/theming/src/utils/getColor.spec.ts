@@ -391,6 +391,12 @@ describe('getColor', () => {
       console.error = consoleError;
     });
 
+    it('does not throw a memoization key error when the theme is invalid', () => {
+      const test = () => getColor({ theme: {} as any, variable: 'background.default' });
+
+      expect(test).not.toThrow('Invalid value used as weak map key');
+    });
+
     it('throws an error if color arguments are missing', () => {
       expect(() => getColor({ theme: DEFAULT_THEME })).toThrow(Error);
     });
