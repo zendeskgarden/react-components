@@ -20,21 +20,21 @@ describe('StyledCol', () => {
   });
 
   it('renders debug styling if provided', () => {
-    const { container } = render(<StyledCol debug />);
+    const { container } = render(<StyledCol $debug />);
 
     expect(container.firstChild).toHaveStyleRule('background-color', expect.any(String));
   });
 
   describe('Columns', () => {
     it('renders 12 columns by default', () => {
-      const { container } = render(<StyledCol sizeAll={1} />);
+      const { container } = render(<StyledCol $sizeAll={1} />);
 
       expect(container.firstChild).toHaveStyleRule('max-width', `${(1 / 12) * 100}%`);
     });
 
     it('renders column', () => {
       [4, 8, 16, 24].forEach(columns => {
-        const { container } = render(<StyledCol sizeAll={1} columns={columns} />);
+        const { container } = render(<StyledCol $sizeAll={1} $columns={columns} />);
 
         expect(container.firstChild).toHaveStyleRule('max-width', `${(1 / columns) * 100}%`);
       });
@@ -45,7 +45,7 @@ describe('StyledCol', () => {
     it('renders gutters', () => {
       SPACE.forEach(size => {
         if (size) {
-          const { container } = render(<StyledCol gutters={size} />);
+          const { container } = render(<StyledCol $gutters={size} />);
           const padding = math(`${DEFAULT_THEME.space[size]} / 2`);
 
           expect(container.firstChild).toHaveStyleRule('padding-right', padding);
@@ -55,7 +55,7 @@ describe('StyledCol', () => {
     });
 
     it('collapses gutters', () => {
-      const { container } = render(<StyledCol gutters={false} />);
+      const { container } = render(<StyledCol $gutters={false} />);
 
       expect(container.firstChild).toHaveStyleRule('padding-right', '0');
       expect(container.firstChild).toHaveStyleRule('padding-left', '0');
@@ -70,14 +70,14 @@ describe('StyledCol', () => {
     });
 
     it('renders auto width', () => {
-      const { container } = render(<StyledCol sizeAll="auto" />);
+      const { container } = render(<StyledCol $sizeAll="auto" />);
 
       expect(container.firstChild).toHaveStyleRule('width', 'auto');
     });
 
     it('renders max-width for sizes', () => {
       [1, 2, 3, 5, 8].forEach(size => {
-        const { container } = render(<StyledCol sizeAll={size} />);
+        const { container } = render(<StyledCol $sizeAll={size} />);
 
         expect(container.firstChild).toHaveStyleRule('max-width', `${(size / 12) * 100}%`);
       });
@@ -87,7 +87,7 @@ describe('StyledCol', () => {
       it('renders min width according to size and breakpoint', () => {
         [1, 2, 3, 5, 8].forEach(size => {
           Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
-            const props = { [breakpoint]: size };
+            const props = { [`$${breakpoint}`]: size };
             const { container } = render(<StyledCol {...props} />);
             const minWidth = (DEFAULT_THEME.breakpoints as any)[breakpoint];
 
@@ -103,7 +103,7 @@ describe('StyledCol', () => {
   describe('Align Self', () => {
     it('renders flex alignments', () => {
       ALIGN_SELF.forEach(alignSelf => {
-        const { container } = render(<StyledCol alignSelf={alignSelf} />);
+        const { container } = render(<StyledCol $alignSelf={alignSelf} />);
 
         expect(container.firstChild).toHaveStyleRule(
           'align-self',
@@ -115,7 +115,7 @@ describe('StyledCol', () => {
     it('renders flex alignment responsively', () => {
       ALIGN_SELF.forEach(alignSelf => {
         Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
-          const key = `alignSelf${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
+          const key = `$alignSelf${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 
           const props = { [key]: alignSelf };
           const { container } = render(<StyledCol {...props} />);
@@ -143,7 +143,7 @@ describe('StyledCol', () => {
       };
 
       TEXT_ALIGN.forEach(textAlign => {
-        const { container } = render(<StyledCol textAlign={textAlign} />);
+        const { container } = render(<StyledCol $textAlign={textAlign} />);
 
         expect(container.firstChild).toHaveStyleRule('text-align', alignments[textAlign]);
       });
@@ -159,7 +159,7 @@ describe('StyledCol', () => {
 
       TEXT_ALIGN.forEach(textAlign => {
         Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
-          const key = `textAlign${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
+          const key = `$textAlign${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 
           const props = { [key]: textAlign };
           const { container } = render(<StyledCol {...props} />);
@@ -174,7 +174,7 @@ describe('StyledCol', () => {
 
     it('renders RTL text alignment in RTL direction', () => {
       TEXT_ALIGN.forEach(textAlign => {
-        const { container } = renderRtl(<StyledCol textAlign={textAlign} />);
+        const { container } = renderRtl(<StyledCol $textAlign={textAlign} />);
 
         const alignments = {
           start: 'right',
@@ -191,7 +191,7 @@ describe('StyledCol', () => {
   describe('Offsets', () => {
     it('renders offsets over 12', () => {
       [1, 2, 3, 5, 8].forEach(offset => {
-        const { container } = render(<StyledCol offset={offset} />);
+        const { container } = render(<StyledCol $offset={offset} />);
 
         expect(container.firstChild).toHaveStyleRule('margin-left', `${(offset / 12) * 100}%`);
       });
@@ -199,7 +199,7 @@ describe('StyledCol', () => {
 
     it('renders offsets over 12 in RTL direction', () => {
       [1, 2, 3, 5, 8].forEach(offset => {
-        const { container } = renderRtl(<StyledCol offset={offset} />);
+        const { container } = renderRtl(<StyledCol $offset={offset} />);
 
         expect(container.firstChild).toHaveStyleRule('margin-right', `${(offset / 12) * 100}%`);
       });
@@ -208,7 +208,7 @@ describe('StyledCol', () => {
     it('renders offsets over 12 responsively', () => {
       [1, 2, 3, 5, 8].forEach(offset => {
         Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
-          const key = `offset${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
+          const key = `$offset${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 
           const props = { [key]: offset };
           const { container } = render(<StyledCol {...props} />);
@@ -225,7 +225,7 @@ describe('StyledCol', () => {
   describe('Order', () => {
     it('renders flex orders', () => {
       [1, 2, 3, 5, 8].forEach(order => {
-        const { container } = render(<StyledCol order={order} />);
+        const { container } = render(<StyledCol $order={order} />);
 
         expect(container.firstChild).toHaveStyleRule(
           'order',
@@ -238,7 +238,7 @@ describe('StyledCol', () => {
       it('renders flex orders', () => {
         [1, 2, 3, 5, 8].forEach(order => {
           Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
-            const key = `order${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
+            const key = `$order${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 
             const props = { [key]: order };
             const { container } = render(<StyledCol {...props} />);
@@ -257,13 +257,13 @@ describe('StyledCol', () => {
     });
 
     it('renders flex order first', () => {
-      const { container } = render(<StyledCol order="first" />);
+      const { container } = render(<StyledCol $order="first" />);
 
       expect(container.firstChild).toHaveStyleRule('order', '-1');
     });
 
     it('renders flex order last', () => {
-      const { container } = render(<StyledCol order="last" />);
+      const { container } = render(<StyledCol $order="last" />);
 
       expect(container.firstChild).toHaveStyleRule('order', '13');
     });

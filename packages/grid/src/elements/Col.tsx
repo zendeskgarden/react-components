@@ -16,20 +16,86 @@ import useGridContext from '../utils/useGridContext';
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Col = React.forwardRef<HTMLDivElement, IColProps>(({ size, ...props }, ref) => {
-  const { columns, gutters, debug } = useGridContext();
+export const Col = React.forwardRef<HTMLDivElement, IColProps>(
+  (
+    {
+      alignSelf,
+      alignSelfLg,
+      alignSelfMd,
+      alignSelfSm,
+      alignSelfXl,
+      alignSelfXs,
+      lg,
+      md,
+      offset,
+      offsetLg,
+      offsetMd,
+      offsetSm,
+      offsetXl,
+      offsetXs,
+      order,
+      orderLg,
+      orderMd,
+      orderSm,
+      orderXl,
+      orderXs,
+      size,
+      sm,
+      textAlign,
+      textAlignLg,
+      textAlignMd,
+      textAlignSm,
+      textAlignXl,
+      textAlignXs,
+      xl,
+      xs,
+      ...other
+    },
+    ref
+  ) => {
+    const { columns, gutters, debug } = useGridContext();
 
-  return (
-    <StyledCol
-      sizeAll={size}
-      columns={columns}
-      gutters={gutters}
-      debug={debug}
-      ref={ref}
-      {...props}
-    />
-  );
-});
+    return (
+      <StyledCol
+        $xs={xs}
+        $sm={sm}
+        $md={md}
+        $lg={lg}
+        $xl={xl}
+        $alignSelf={alignSelf}
+        $alignSelfXs={alignSelfXs}
+        $alignSelfSm={alignSelfSm}
+        $alignSelfMd={alignSelfMd}
+        $alignSelfLg={alignSelfLg}
+        $alignSelfXl={alignSelfXl}
+        $textAlign={textAlign}
+        $textAlignXs={textAlignXs}
+        $textAlignSm={textAlignSm}
+        $textAlignMd={textAlignMd}
+        $textAlignLg={textAlignLg}
+        $textAlignXl={textAlignXl}
+        $offset={offset}
+        $offsetXs={offsetXs}
+        $offsetSm={offsetSm}
+        $offsetMd={offsetMd}
+        $offsetLg={offsetLg}
+        $offsetXl={offsetXl}
+        $order={order}
+        $orderXs={orderXs}
+        $orderSm={orderSm}
+        $orderMd={orderMd}
+        $orderLg={orderLg}
+        $orderXl={orderXl}
+        $sizeAll={size}
+        $columns={columns}
+        $gutters={gutters}
+        $debug={debug}
+        ref={ref}
+        {...other}
+      />
+    );
+  }
+);
 
 Col.displayName = 'Grid.Col';
 

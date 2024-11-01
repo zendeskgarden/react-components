@@ -21,7 +21,7 @@ describe('StyledRow', () => {
   });
 
   it('renders debug styling if provided', () => {
-    const { container } = render(<StyledRow debug />);
+    const { container } = render(<StyledRow $debug />);
 
     expect(container.firstChild).toHaveStyleRule('box-shadow', expect.any(String));
   });
@@ -30,7 +30,7 @@ describe('StyledRow', () => {
     it('renders gutters for each size', () => {
       SPACE.forEach(size => {
         if (typeof size === 'string') {
-          const { container } = render(<StyledRow gutters={size} />);
+          const { container } = render(<StyledRow $gutters={size} />);
           const margin = math(`${DEFAULT_THEME.space[size]} / 2`);
 
           expect(container.firstChild).toHaveStyleRule('margin-right', `-${margin}`);
@@ -40,7 +40,7 @@ describe('StyledRow', () => {
     });
 
     it('collapses gutters', () => {
-      const { container } = render(<StyledRow gutters={false} />);
+      const { container } = render(<StyledRow $gutters={false} />);
 
       expect(container.firstChild).toHaveStyleRule('margin-right', '-0');
       expect(container.firstChild).toHaveStyleRule('margin-left', '-0');
@@ -50,7 +50,7 @@ describe('StyledRow', () => {
   describe('Align Items', () => {
     it('renders with each flex alignment position', () => {
       ALIGN_ITEMS.forEach(alignItems => {
-        const { container } = render(<StyledRow alignItems={alignItems} />);
+        const { container } = render(<StyledRow $alignItems={alignItems} />);
 
         expect(container.firstChild).toHaveStyleRule(
           'align-items',
@@ -62,7 +62,7 @@ describe('StyledRow', () => {
     it('renders flex alignment responsively', () => {
       ALIGN_ITEMS.forEach(alignItems => {
         Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
-          const key = `alignItems${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
+          const key = `$alignItems${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 
           const props = { [key]: alignItems };
           const { container } = render(<StyledRow {...props} />);
@@ -83,7 +83,7 @@ describe('StyledRow', () => {
   describe('Justify Content', () => {
     it('renders flex justification for each value', () => {
       JUSTIFY_CONTENT.forEach(justifyContent => {
-        const { container } = render(<StyledRow justifyContent={justifyContent} />);
+        const { container } = render(<StyledRow $justifyContent={justifyContent} />);
 
         expect(container.firstChild).toHaveStyleRule(
           'justify-content',
@@ -95,7 +95,7 @@ describe('StyledRow', () => {
     it('renders flex justification for each value responsively', () => {
       JUSTIFY_CONTENT.forEach(justifyContent => {
         Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
-          const key = `justifyContent${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
+          const key = `$justifyContent${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 
           const props = { [key]: justifyContent };
           const { container } = render(<StyledRow {...props} />);
@@ -117,7 +117,7 @@ describe('StyledRow', () => {
 describe('Wrap', () => {
   it('renders flex wrapping', () => {
     WRAP.forEach(wrap => {
-      const { container } = render(<StyledRow wrapAll={wrap} />);
+      const { container } = render(<StyledRow $wrapAll={wrap} />);
 
       expect(container.firstChild).toHaveStyleRule('flex-wrap', wrap);
     });
@@ -126,7 +126,7 @@ describe('Wrap', () => {
   it('renders flex wrapping responsively', () => {
     WRAP.forEach(wrap => {
       Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
-        const key = `wrap${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
+        const key = `$wrap${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
 
         const props = { [key]: wrap };
         const { container } = render(<StyledRow {...props} />);

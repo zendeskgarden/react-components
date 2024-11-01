@@ -15,9 +15,9 @@ import { Orientation, PLACEMENT } from '../../types';
 const COMPONENT_ID = 'pane.splitter_button_container';
 
 interface IStyledSplitterButtonContainerProps {
-  orientation: Orientation;
-  placement: (typeof PLACEMENT)[number];
-  splitterSize: number;
+  $orientation: Orientation;
+  $placement: (typeof PLACEMENT)[number];
+  $splitterSize: number;
 }
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
@@ -36,9 +36,9 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 
 const positionStyles = ({
   theme,
-  placement,
-  splitterSize,
-  orientation
+  $orientation,
+  $placement,
+  $splitterSize
 }: IStyledSplitterButtonContainerProps & ThemeProps<DefaultTheme>) => {
   let top;
   let left;
@@ -47,10 +47,10 @@ const positionStyles = ({
   const size = getSize(theme);
   const inset = `-${size / 2}px`;
 
-  if (placement === 'center' || splitterSize < size * 3) {
-    const center = `${splitterSize / 2 - size / 2}px`;
+  if ($placement === 'center' || $splitterSize < size * 3) {
+    const center = `${$splitterSize / 2 - size / 2}px`;
 
-    switch (`${orientation}-${theme.rtl ? 'rtl' : 'ltr'}`) {
+    switch (`${$orientation}-${theme.rtl ? 'rtl' : 'ltr'}`) {
       case 'top-ltr':
       case 'top-rtl':
         top = inset;
@@ -79,7 +79,7 @@ const positionStyles = ({
     const offset = `${size}px`;
 
     /* istanbul ignore next */
-    switch (`${orientation}-${placement}-${theme.rtl ? 'rtl' : 'ltr'}`) {
+    switch (`${$orientation}-${$placement}-${theme.rtl ? 'rtl' : 'ltr'}`) {
       case 'top-end-ltr':
       case 'top-end-rtl':
       case 'top-start-rtl':
@@ -157,7 +157,7 @@ const minimumSplitterSize = (theme: DefaultTheme) =>
  */
 export const StyledPaneSplitterButtonContainer = styled.div<IStyledSplitterButtonContainerProps>`
   display: ${props =>
-    props.splitterSize <= minimumSplitterSize(props.theme) ? 'none' : undefined};
+    props.$splitterSize <= minimumSplitterSize(props.theme) ? 'none' : undefined};
   position: absolute;
   /* prettier-ignore */
   transition:

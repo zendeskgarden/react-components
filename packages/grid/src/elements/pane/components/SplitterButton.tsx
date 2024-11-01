@@ -63,9 +63,9 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
 
     return (
       <StyledPaneSplitterButtonContainer
-        orientation={orientation!}
-        placement={placement!}
-        splitterSize={size || 0}
+        $orientation={orientation!}
+        $placement={placement!}
+        $splitterSize={size || 0}
       >
         <Tooltip
           content={label}
@@ -76,8 +76,8 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
           <StyledPaneSplitterButton
             aria-label={label}
             {...props}
-            orientation={orientation!}
-            isRotated={isMin}
+            $orientation={orientation!}
+            $isRotated={isMin}
             ref={ref}
             onClick={onClick}
             onKeyDown={onKeyDown}
