@@ -36,7 +36,7 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>(
       <StyledHeader
         {...(getTitleProps(other) as HTMLAttributes<HTMLDivElement>)}
         as={tag}
-        isCloseButtonPresent={isCloseButtonPresent}
+        $isCloseButtonPresent={isCloseButtonPresent}
         ref={ref}
       >
         {!!other.isDanger && <StyledDangerIcon />}

@@ -24,7 +24,7 @@ describe('StyledHeader', () => {
 
   it.each([['light'], ['dark']])('gets the correct %s mode danger color', mode => {
     const renderFn = mode === 'light' ? render : renderDark;
-    const { container } = renderFn(<StyledHeader isDanger />);
+    const { container } = renderFn(<StyledHeader $isDanger />);
 
     expect(container.firstChild).toHaveStyleRule(
       'color',

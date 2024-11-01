@@ -11,7 +11,7 @@ import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming'
 const COMPONENT_ID = 'draggable_list.drop_indicator';
 
 export interface IStyledDropIndicatorProps extends ThemeProps<DefaultTheme> {
-  isHorizontal?: boolean;
+  $isHorizontal?: boolean;
 }
 
 const colorStyles = (props: IStyledDropIndicatorProps) => {
@@ -33,10 +33,10 @@ const colorStyles = (props: IStyledDropIndicatorProps) => {
 };
 
 const sizeStyles = (props: IStyledDropIndicatorProps) => {
-  const { isHorizontal, theme } = props;
+  const { $isHorizontal, theme } = props;
   const pseudoSize = theme.space.xs;
-  const translateX = isHorizontal ? theme.space.xxs : theme.space.xs;
-  const translateY = isHorizontal ? theme.space.xs : theme.space.xxs;
+  const translateX = $isHorizontal ? theme.space.xxs : theme.space.xs;
+  const translateY = $isHorizontal ? theme.space.xs : theme.space.xxs;
 
   return css`
     &::before,

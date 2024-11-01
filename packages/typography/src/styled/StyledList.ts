@@ -9,7 +9,7 @@ import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { IOrderedListProps, IUnorderedListProps } from '../types';
 
-const listStyles = (props: { listType?: string } & ThemeProps<DefaultTheme>) => {
+const listStyles = (props: { $listType?: string } & ThemeProps<DefaultTheme>) => {
   const rtl = props.theme.rtl;
 
   return css`
@@ -18,14 +18,14 @@ const listStyles = (props: { listType?: string } & ThemeProps<DefaultTheme>) => 
     margin-${rtl ? 'right' : 'left'}: 24px;
     padding: 0;
     list-style-position: outside;
-    list-style-type: ${props.listType};
+    list-style-type: ${props.$listType};
   `;
 };
 
 const ORDERED_ID = 'typography.ordered_list';
 
 interface IStyledListProps {
-  listType?: IOrderedListProps['type'];
+  $listType?: IOrderedListProps['type'];
 }
 
 export const StyledOrderedList = styled.ol.attrs({
@@ -39,7 +39,7 @@ export const StyledOrderedList = styled.ol.attrs({
 const UNORDERED_ID = 'typography.unordered_list';
 
 interface IStyledUnorderedListProps {
-  listType?: IUnorderedListProps['type'];
+  $listType?: IUnorderedListProps['type'];
 }
 
 export const StyledUnorderedList = styled.ul.attrs({

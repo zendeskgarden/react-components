@@ -88,11 +88,11 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
                   <StyledCodeBlockLine
                     {...getLineProps({ line })}
                     key={index}
-                    language={language}
-                    isHighlighted={highlightLines?.includes(index + 1)}
-                    isNumbered={isNumbered}
-                    diff={getDiff(line)}
-                    size={size}
+                    $language={language}
+                    $isHighlighted={highlightLines?.includes(index + 1)}
+                    $isNumbered={isNumbered}
+                    $diff={getDiff(line)}
+                    $size={size}
                     style={undefined}
                   >
                     {line.map((token, tokenKey) => (

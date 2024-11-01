@@ -24,19 +24,19 @@ describe('StyledDraggable', () => {
     });
 
     it('applies grabbing cursor when grabbed', () => {
-      const { container } = render(<StyledDraggable isGrabbed />);
+      const { container } = render(<StyledDraggable $isGrabbed />);
 
       expect(container.firstChild).toHaveStyle('cursor: grabbing');
     });
 
     it('applies default cursor when disabled', () => {
-      const { container } = render(<StyledDraggable isDisabled />);
+      const { container } = render(<StyledDraggable $isDisabled />);
 
       expect(container.firstChild).toHaveStyle('cursor: default');
     });
 
     it('applies default cursor when placeholder', () => {
-      const { container } = render(<StyledDraggable isPlaceholder />);
+      const { container } = render(<StyledDraggable $isPlaceholder />);
 
       expect(container.firstChild).toHaveStyle('cursor: default');
     });

@@ -15,7 +15,7 @@ import { useDraggableListContext } from '../../../utils/useDraggableListContext'
 export const Item = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
   const { isHorizontal } = useDraggableListContext();
 
-  return <StyledItem {...props} isHorizontal={isHorizontal} ref={ref} />;
+  return <StyledItem {...props} $isHorizontal={isHorizontal} ref={ref} />;
 });
 
 Item.displayName = 'DraggableList.Item';

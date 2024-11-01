@@ -24,37 +24,37 @@ describe('StyledOrderedList', () => {
 
   describe('type', () => {
     it('renders a decimal list style', () => {
-      const { container } = render(<StyledOrderedList listType="decimal" />);
+      const { container } = render(<StyledOrderedList $listType="decimal" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'decimal');
     });
 
     it('renders a decimal (leading zero) list style', () => {
-      const { container } = render(<StyledOrderedList listType="decimal-leading-zero" />);
+      const { container } = render(<StyledOrderedList $listType="decimal-leading-zero" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'decimal-leading-zero');
     });
 
     it('renders a lowercase alpha list style', () => {
-      const { container } = render(<StyledOrderedList listType="lower-alpha" />);
+      const { container } = render(<StyledOrderedList $listType="lower-alpha" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'lower-alpha');
     });
 
     it('renders a lowercase roman list style', () => {
-      const { container } = render(<StyledOrderedList listType="lower-roman" />);
+      const { container } = render(<StyledOrderedList $listType="lower-roman" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'lower-roman');
     });
 
     it('renders a uppercase alpha list style', () => {
-      const { container } = render(<StyledOrderedList listType="upper-alpha" />);
+      const { container } = render(<StyledOrderedList $listType="upper-alpha" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'upper-alpha');
     });
 
     it('renders a uppercase roman list style', () => {
-      const { container } = render(<StyledOrderedList listType="upper-roman" />);
+      const { container } = render(<StyledOrderedList $listType="upper-roman" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'upper-roman');
     });
@@ -76,19 +76,19 @@ describe('StyledUnorderedList', () => {
 
   describe('type', () => {
     it('renders a circle list style', () => {
-      const { container } = render(<StyledUnorderedList listType="circle" />);
+      const { container } = render(<StyledUnorderedList $listType="circle" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'circle');
     });
 
     it('renders a disc list style', () => {
-      const { container } = render(<StyledUnorderedList listType="disc" />);
+      const { container } = render(<StyledUnorderedList $listType="disc" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'disc');
     });
 
     it('renders a square list style', () => {
-      const { container } = render(<StyledUnorderedList listType="square" />);
+      const { container } = render(<StyledUnorderedList $listType="square" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'square');
     });
