@@ -9,7 +9,6 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import 'jest-styled-components';
 import { DropzoneStory } from './DropzoneStory';
-import ReplaceIcon from '@zendeskgarden/svg-icons/src/16/arrow-retweet-stroke.svg';
 
 const renderAndMatchSnapshot = (props: any) => {
   const { container } = render(<DropzoneStory {...props} />);
