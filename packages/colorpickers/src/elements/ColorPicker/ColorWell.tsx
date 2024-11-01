@@ -97,8 +97,8 @@ export const ColorWell: React.FC<IColorWellProps> = React.memo(
         onMouseDown={handleMouseDown}
       >
         <StyledColorWellThumb
-          top={mouseActiveRef.current ? topFromMouse : topPosition}
-          left={mouseActiveRef.current ? leftFromMouse : leftPosition}
+          $top={mouseActiveRef.current ? topFromMouse : topPosition}
+          $left={mouseActiveRef.current ? leftFromMouse : leftPosition}
         />
       </StyledColorWell>
     );
