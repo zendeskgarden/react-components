@@ -9,13 +9,13 @@ import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 interface IStyledSVGProps {
-  dataGardenId: string;
+  $dataGardenId: string;
   color?: string;
   fontSize?: string | number;
   width: number | string;
   height: number | string;
-  containerWidth?: string;
-  containerHeight?: string;
+  $containerWidth?: string;
+  $containerHeight?: string;
 }
 
 const colorStyles = ({ theme, color = 'inherit' }: IStyledSVGProps & ThemeProps<DefaultTheme>) => {
@@ -35,11 +35,11 @@ export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
   viewBox: `0 0 ${props.width} ${props.height}`,
   role: 'img'
 }))<IStyledSVGProps>`
-  width: ${props => props.containerWidth || '1em'};
-  height: ${props => props.containerHeight || '0.9em'};
+  width: ${props => props.$containerWidth || '1em'};
+  height: ${props => props.$containerHeight || '0.9em'};
   font-size: ${props => props.fontSize || 'inherit'};
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(props.dataGardenId, props)};
+  ${props => retrieveComponentStyles(props.$dataGardenId, props)};
 `;

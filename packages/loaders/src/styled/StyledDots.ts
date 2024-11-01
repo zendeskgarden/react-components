@@ -16,12 +16,12 @@ const StyledDotsCircle = styled.circle.attrs({
 `;
 
 interface IStyledDotProps {
-  duration: number;
+  $duration: number;
 }
 
 const animationStyles = (animationName: Keyframes, props: IStyledDotProps) => {
   return css`
-    animation: ${animationName} ${props.duration}ms linear infinite;
+    animation: ${animationName} ${props.$duration}ms linear infinite;
   `;
 };
 

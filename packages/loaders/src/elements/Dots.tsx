@@ -61,18 +61,18 @@ export const Dots = forwardRef<SVGSVGElement, IDotsProps>(
 
     return (
       <StyledSVG
+        $dataGardenId={COMPONENT_ID}
         ref={ref}
         fontSize={size!}
         color={color!}
         width="80"
         height="72"
-        dataGardenId={COMPONENT_ID}
         {...other}
       >
         <g fill="currentColor">
-          <StyledDotsCircleOne duration={duration!} ref={dotOne} />
-          <StyledDotsCircleTwo duration={duration!} ref={dotTwo} />
-          <StyledDotsCircleThree duration={duration!} ref={dotThree} />
+          <StyledDotsCircleOne $duration={duration!} ref={dotOne} />
+          <StyledDotsCircleTwo $duration={duration!} ref={dotTwo} />
+          <StyledDotsCircleThree $duration={duration!} ref={dotThree} />
         </g>
       </StyledSVG>
     );
