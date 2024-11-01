@@ -11,7 +11,7 @@ import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming'
 const COMPONENT_ID = 'loaders.inline';
 
 interface IStyledInlineProps {
-  size: number;
+  $size: number;
   color: string;
 }
 
@@ -45,8 +45,8 @@ export const StyledInline = styled.svg.attrs<IStyledInlineProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   viewBox: '0 0 16 4',
-  width: props.size,
-  height: props.size * 0.25
+  width: props.$size,
+  height: props.$size * 0.25
 }))<IStyledInlineProps>`
   ${colorStyles};
 

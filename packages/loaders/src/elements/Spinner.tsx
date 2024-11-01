@@ -79,14 +79,14 @@ export const Spinner = forwardRef<SVGSVGElement, ISpinnerProps>(
         color={color}
         width={WIDTH}
         height={HEIGHT}
-        dataGardenId={COMPONENT_ID}
-        containerHeight="1em"
-        containerWidth="1em"
+        $dataGardenId={COMPONENT_ID}
+        $containerHeight="1em"
+        $containerWidth="1em"
         {...other}
       >
         <StyledSpinnerCircle
-          dasharrayValue={dasharrayValue}
-          strokeWidthValue={strokeWidthValue}
+          $dasharrayValue={dasharrayValue}
+          $strokeWidthValue={strokeWidthValue}
           transform={`rotate(${rotationValue}, ${WIDTH / 2}, ${HEIGHT / 2})`}
         />
       </StyledSVG>

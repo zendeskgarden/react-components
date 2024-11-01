@@ -14,8 +14,8 @@ describe('StyledSpinnerCircle', () => {
     const { getByTestId } = render(
       <svg>
         <StyledSpinnerCircle
-          strokeWidthValue={25}
-          dasharrayValue={30}
+          $strokeWidthValue={25}
+          $dasharrayValue={30}
           transform="2"
           data-test-id="circle"
         />

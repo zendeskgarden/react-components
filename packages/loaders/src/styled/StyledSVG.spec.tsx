@@ -15,21 +15,21 @@ type Args = ['light' | 'dark', string];
 describe('StyledSVG', () => {
   it('applies font-size if provided', () => {
     const { container } = render(
-      <StyledSVG width="0" height="0" fontSize="12px" dataGardenId="StyledSVG" />
+      <StyledSVG width="0" height="0" fontSize="12px" $dataGardenId="StyledSVG" />
     );
 
     expect(container.firstChild).toHaveStyleRule('font-size', '12px');
   });
 
   it('defaults font-size to inherit if not provided', () => {
-    const { container } = render(<StyledSVG width="0" height="0" dataGardenId="StyledSVG" />);
+    const { container } = render(<StyledSVG width="0" height="0" $dataGardenId="StyledSVG" />);
 
     expect(container.firstChild).toHaveStyleRule('font-size', 'inherit');
   });
 
   it('applies color if provided', () => {
     const { container } = render(
-      <StyledSVG width="0" height="0" color="red" dataGardenId="StyledSVG" />
+      <StyledSVG width="0" height="0" color="red" $dataGardenId="StyledSVG" />
     );
 
     expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);
@@ -40,7 +40,7 @@ describe('StyledSVG', () => {
     ['dark', 'inherit']
   ])('applies the default color in "%s" mode if none is provided', (mode, color) => {
     const { container } = getRenderFn(mode)(
-      <StyledSVG width="0" height="0" dataGardenId="StyledSVG" />
+      <StyledSVG width="0" height="0" $dataGardenId="StyledSVG" />
     );
 
     expect(container.firstChild).toHaveStyleRule('color', color);
@@ -51,7 +51,7 @@ describe('StyledSVG', () => {
     const height = '4em';
 
     const { container } = render(
-      <StyledSVG width={width} height={height} dataGardenId="StyledSVG" />
+      <StyledSVG width={width} height={height} $dataGardenId="StyledSVG" />
     );
 
     expect(container.firstChild).toHaveAttribute('width', width);
