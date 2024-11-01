@@ -20,16 +20,18 @@ import { StyledTitle } from './StyledTitle';
 
 const COMPONENT_ID = 'tooltip.tooltip';
 
-interface IStyledTooltipProps extends Pick<ITooltipProps, 'hasArrow' | 'size' | 'zIndex'> {
-  placement: Placement;
-  type: NonNullable<ITooltipProps['type']>;
+interface IStyledTooltipProps {
+  $hasArrow: ITooltipProps['hasArrow'];
+  $placement: Placement;
+  $size: NonNullable<ITooltipProps['size']>;
+  $type: NonNullable<ITooltipProps['type']>;
 }
 
 const sizeStyles = ({
   theme,
-  size,
-  placement,
-  hasArrow
+  $hasArrow,
+  $placement,
+  $size
 }: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
   let margin = `${theme.space.base * 1.5}px`;
   let borderRadius = theme.borderRadii.sm;
@@ -43,30 +45,30 @@ const sizeStyles = ({
   let paragraphMarginTop;
   let wordWrap;
 
-  if (size !== 'small') {
+  if ($size !== 'small') {
     borderRadius = theme.borderRadii.md;
     overflowWrap = 'break-word';
     whiteSpace = 'normal';
     wordWrap = 'break-word';
   }
 
-  if (size === 'extra-large') {
+  if ($size === 'extra-large') {
     padding = `${theme.space.base * 10}px`;
     maxWidth = `460px`;
     lineHeight = getLineHeight(theme.space.base * 5, theme.fontSizes.md);
     paragraphMarginTop = `${theme.space.base * 2.5}px`;
-  } else if (size === 'large') {
+  } else if ($size === 'large') {
     padding = `${theme.space.base * 5}px`;
     maxWidth = `270px`;
     lineHeight = getLineHeight(theme.space.base * 5, theme.fontSizes.md);
     paragraphMarginTop = `${theme.space.base * 2}px`;
-  } else if (size === 'medium') {
+  } else if ($size === 'medium') {
     padding = '1em';
     maxWidth = `140px`;
     lineHeight = getLineHeight(theme.space.base * 4, theme.fontSizes.sm);
   }
 
-  if (size === 'extra-large' || size === 'large') {
+  if ($size === 'extra-large' || $size === 'large') {
     fontSize = theme.fontSizes.md;
     titleDisplay = 'block';
   }
@@ -74,20 +76,20 @@ const sizeStyles = ({
   let arrowSize;
   let arrowShift;
 
-  if (hasArrow) {
-    if (size === 'small') {
+  if ($hasArrow) {
+    if ($size === 'small') {
       arrowSize = margin;
-      if (['left-start', 'left-end', 'right-start', 'right-end'].includes(placement)) {
+      if (['left-start', 'left-end', 'right-start', 'right-end'].includes($placement)) {
         arrowShift = `-${theme.borderRadii.md}px`;
       } else {
         arrowShift = '0';
       }
-    } else if (size === 'medium') {
+    } else if ($size === 'medium') {
       arrowSize = margin;
-    } else if (size === 'large') {
+    } else if ($size === 'large') {
       margin = `${theme.space.base * 2}px`;
       arrowSize = margin;
-    } else if (size === 'extra-large') {
+    } else if ($size === 'extra-large') {
       margin = `${theme.space.base * 3}px`;
       arrowSize = `${theme.space.base * 2.5}px`;
     }
@@ -104,8 +106,8 @@ const sizeStyles = ({
     font-size: ${fontSize};
     overflow-wrap: ${overflowWrap};
 
-    ${hasArrow &&
-    arrowStyles(getArrowPosition(theme, placement), { size: arrowSize, shift: arrowShift })};
+    ${$hasArrow &&
+    arrowStyles(getArrowPosition(theme, $placement), { size: arrowSize, shift: arrowShift })};
 
     ${StyledParagraph} {
       margin-top: ${paragraphMarginTop};
@@ -117,14 +119,14 @@ const sizeStyles = ({
   `;
 };
 
-const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $type }: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
   let borderColor;
   let boxShadow;
   let backgroundColor;
   let color;
   let titleColor;
 
-  if (type === 'light') {
+  if ($type === 'light') {
     backgroundColor = getColor({ theme, variable: 'background.raised' });
     borderColor = getColor({ theme, variable: 'border.default' });
     boxShadow = theme.shadows.lg(
