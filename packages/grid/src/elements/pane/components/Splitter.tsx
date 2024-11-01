@@ -130,8 +130,8 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
         )}
       >
         <StyledPaneSplitter
-          isFixed={isFixed}
-          orientation={orientation}
+          $isFixed={isFixed}
+          $orientation={orientation}
           {...separatorProps}
           {...props}
           ref={mergeRefs([separatorRef, ref])}

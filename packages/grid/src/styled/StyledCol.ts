@@ -12,11 +12,40 @@ import { AlignSelf, Breakpoint, GridNumber, IColProps, IGridProps, TextAlign } f
 
 const COMPONENT_ID = 'grid.col';
 
-interface IStyledColProps extends Omit<IColProps, 'size'>, ThemeProps<DefaultTheme> {
-  columns?: IGridProps['columns'];
-  gutters?: IGridProps['gutters'];
-  sizeAll?: IColProps['size'];
-  debug?: IGridProps['debug'];
+interface IStyledColProps extends ThemeProps<DefaultTheme> {
+  $columns?: IGridProps['columns'];
+  $gutters?: IGridProps['gutters'];
+  $sizeAll?: IColProps['size'];
+  $debug?: IGridProps['debug'];
+  $xs?: IColProps['xs'];
+  $sm?: IColProps['sm'];
+  $md?: IColProps['md'];
+  $lg?: IColProps['lg'];
+  $xl?: IColProps['xl'];
+  $alignSelf?: IColProps['alignSelf'];
+  $alignSelfXs?: IColProps['alignSelfXs'];
+  $alignSelfSm?: IColProps['alignSelfSm'];
+  $alignSelfMd?: IColProps['alignSelfMd'];
+  $alignSelfLg?: IColProps['alignSelfLg'];
+  $alignSelfXl?: IColProps['alignSelfXl'];
+  $textAlign?: IColProps['textAlign'];
+  $textAlignXs?: IColProps['textAlignXs'];
+  $textAlignSm?: IColProps['textAlignSm'];
+  $textAlignMd?: IColProps['textAlignMd'];
+  $textAlignLg?: IColProps['textAlignLg'];
+  $textAlignXl?: IColProps['textAlignXl'];
+  $offset?: IColProps['offset'];
+  $offsetXs?: IColProps['offsetXs'];
+  $offsetSm?: IColProps['offsetSm'];
+  $offsetMd?: IColProps['offsetMd'];
+  $offsetLg?: IColProps['offsetLg'];
+  $offsetXl?: IColProps['offsetXl'];
+  $order?: IColProps['order'];
+  $orderXs?: IColProps['orderXs'];
+  $orderSm?: IColProps['orderSm'];
+  $orderMd?: IColProps['orderMd'];
+  $orderLg?: IColProps['orderLg'];
+  $orderXl?: IColProps['orderXl'];
 }
 
 const colorStyles = ({ theme }: IStyledColProps) => {
@@ -41,7 +70,7 @@ const flexStyles = (
   order: GridNumber | undefined,
   props: IStyledColProps
 ) => {
-  const margin = offset && `${math(`${offset} / ${props.columns} * 100`)}%`;
+  const margin = offset && `${math(`${offset} / ${props.$columns} * 100`)}%`;
   let flexBasis;
   let flexGrow;
   let maxWidth;
@@ -57,7 +86,7 @@ const flexStyles = (
     maxWidth = '100%';
     width = 'auto';
   } else if (size !== undefined) {
-    flexBasis = `${math(`${size} / ${props.columns} * 100`)}%`;
+    flexBasis = `${math(`${size} / ${props.$columns} * 100`)}%`;
     flexGrow = 0;
     maxWidth = flexBasis;
   }
@@ -77,7 +106,7 @@ const flexStyles = (
   if (order === 'first') {
     flexOrder = -1;
   } else if (order === 'last') {
-    flexOrder = math(`${props.columns} + 1`);
+    flexOrder = math(`${props.$columns} + 1`);
   } else {
     flexOrder = order;
   }
@@ -112,8 +141,8 @@ const mediaStyles = (
   `;
 };
 
-const sizeStyles = ({ theme, gutters }: IStyledColProps) => {
-  const padding = gutters ? math(`${theme.space[gutters!]} / 2`) : 0;
+const sizeStyles = ({ theme, $gutters }: IStyledColProps) => {
+  const padding = $gutters ? math(`${theme.space[$gutters!]} / 2`) : 0;
 
   return css`
     padding-right: ${padding};
@@ -130,72 +159,72 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
 
   ${props =>
     flexStyles(
-      !props.sizeAll && (props.xs || props.sm || props.md || props.lg || props.xl)
+      !props.$sizeAll && (props.$xs || props.$sm || props.$md || props.$lg || props.$xl)
         ? undefined
-        : props.sizeAll || false,
-      props.alignSelf,
-      props.textAlign,
-      props.offset,
-      props.order,
+        : props.$sizeAll || false,
+      props.$alignSelf,
+      props.$textAlign,
+      props.$offset,
+      props.$order,
       props
     )};
 
   ${sizeStyles};
 
-  ${props => props.debug && colorStyles(props)};
+  ${props => props.$debug && colorStyles(props)};
 
   ${props =>
     mediaStyles(
       props.theme.breakpoints.xs,
-      props.xs,
-      props.alignSelfXs,
-      props.textAlignXs,
-      props.offsetXs,
-      props.orderXs,
+      props.$xs,
+      props.$alignSelfXs,
+      props.$textAlignXs,
+      props.$offsetXs,
+      props.$orderXs,
       props
     )};
 
   ${props =>
     mediaStyles(
       props.theme.breakpoints.sm,
-      props.sm,
-      props.alignSelfSm,
-      props.textAlignSm,
-      props.offsetSm,
-      props.orderSm,
+      props.$sm,
+      props.$alignSelfSm,
+      props.$textAlignSm,
+      props.$offsetSm,
+      props.$orderSm,
       props
     )};
 
   ${props =>
     mediaStyles(
       props.theme.breakpoints.md,
-      props.md,
-      props.alignSelfMd,
-      props.textAlignMd,
-      props.offsetMd,
-      props.orderMd,
+      props.$md,
+      props.$alignSelfMd,
+      props.$textAlignMd,
+      props.$offsetMd,
+      props.$orderMd,
       props
     )};
 
   ${props =>
     mediaStyles(
       props.theme.breakpoints.lg,
-      props.lg,
-      props.alignSelfLg,
-      props.textAlignLg,
-      props.offsetLg,
-      props.orderLg,
+      props.$lg,
+      props.$alignSelfLg,
+      props.$textAlignLg,
+      props.$offsetLg,
+      props.$orderLg,
       props
     )};
 
   ${props =>
     mediaStyles(
       props.theme.breakpoints.xl,
-      props.xl,
-      props.alignSelfXl,
-      props.textAlignXl,
-      props.offsetXl,
-      props.orderXl,
+      props.$xl,
+      props.$alignSelfXl,
+      props.$textAlignXl,
+      props.$offsetXl,
+      props.$orderXl,
       props
     )};
 
@@ -203,6 +232,6 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
 `;
 
 StyledCol.defaultProps = {
-  columns: 12,
+  $columns: 12,
   theme: DEFAULT_THEME
 };
