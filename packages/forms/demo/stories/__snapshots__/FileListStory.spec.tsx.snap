@@ -216,8 +216,6 @@ exports[`FileListStory Component renders FileListStory with a file that has prog
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="16"
         />
       </div>
     </div>
@@ -611,8 +609,6 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="0"
         />
       </div>
     </div>
@@ -686,8 +682,6 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
           class="c7"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="16"
         />
       </div>
     </div>
@@ -767,8 +761,6 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
           class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="32"
         />
       </div>
     </div>
@@ -851,8 +843,6 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
           class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="48"
         />
       </div>
     </div>
@@ -925,8 +915,6 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
           class="c10"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="64"
         />
       </div>
     </div>
@@ -1000,8 +988,6 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
           class="c11"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="80"
         />
       </div>
     </div>
@@ -1076,8 +1062,6 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
           class="c13"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="100"
         />
       </div>
     </div>
@@ -1300,8 +1284,6 @@ exports[`FileListStory Component renders FileListStory with an item that has a c
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="0"
         />
       </div>
     </div>
@@ -1530,8 +1512,6 @@ exports[`FileListStory Component renders FileListStory with an item that has a d
           class="c7"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="100"
         />
       </div>
     </div>
@@ -1827,8 +1807,6 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="0"
         />
       </div>
     </div>
@@ -1902,8 +1880,6 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
           class="c7"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="16"
         />
       </div>
     </div>
@@ -1983,8 +1959,6 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
           class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="32"
         />
       </div>
     </div>
@@ -2067,8 +2041,6 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
           class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="48"
         />
       </div>
     </div>
@@ -2141,8 +2113,6 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
           class="c10"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="64"
         />
       </div>
     </div>
@@ -2216,8 +2186,6 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
           class="c11"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="80"
         />
       </div>
     </div>
@@ -2292,8 +2260,6 @@ exports[`FileListStory Component renders FileListStory with aria labels for clos
           class="c13"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="100"
         />
       </div>
     </div>
@@ -2589,8 +2555,6 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="0"
         />
       </div>
     </div>
@@ -2664,8 +2628,6 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
           class="c7"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="16"
         />
       </div>
     </div>
@@ -2746,8 +2708,6 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
           class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="32"
         />
       </div>
     </div>
@@ -2830,8 +2790,6 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
           class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="48"
         />
       </div>
     </div>
@@ -2904,8 +2862,6 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
           class="c10"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="64"
         />
       </div>
     </div>
@@ -2979,8 +2935,6 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
           class="c11"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="80"
         />
       </div>
     </div>
@@ -3055,8 +3009,6 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
           class="c13"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="100"
         />
       </div>
     </div>
@@ -3279,8 +3231,6 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="0"
         />
       </div>
     </div>
@@ -3509,8 +3459,6 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
           class="c7"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="100"
         />
       </div>
     </div>
@@ -3806,8 +3754,6 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="0"
         />
       </div>
     </div>
@@ -3881,8 +3827,6 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
           class="c7"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="16"
         />
       </div>
     </div>
@@ -3963,8 +3907,6 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
           class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="32"
         />
       </div>
     </div>
@@ -4047,8 +3989,6 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
           class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="48"
         />
       </div>
     </div>
@@ -4121,8 +4061,6 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
           class="c10"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="64"
         />
       </div>
     </div>
@@ -4196,8 +4134,6 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
           class="c11"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="80"
         />
       </div>
     </div>
@@ -4272,8 +4208,6 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
           class="c13"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="100"
         />
       </div>
     </div>
@@ -4497,8 +4431,6 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="16"
         />
       </div>
     </div>
@@ -4794,8 +4726,6 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="0"
         />
       </div>
     </div>
@@ -4869,8 +4799,6 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
           class="c7"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="16"
         />
       </div>
     </div>
@@ -4951,8 +4879,6 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
           class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="32"
         />
       </div>
     </div>
@@ -5035,8 +4961,6 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
           class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="48"
         />
       </div>
     </div>
@@ -5109,8 +5033,6 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
           class="c10"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="64"
         />
       </div>
     </div>
@@ -5184,8 +5106,6 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
           class="c11"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="80"
         />
       </div>
     </div>
@@ -5260,8 +5180,6 @@ exports[`FileListStory Component renders FileListStory with compact styling, ari
           class="c13"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="2"
-          value="100"
         />
       </div>
     </div>
@@ -5557,8 +5475,6 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="0"
         />
       </div>
     </div>
@@ -5632,8 +5548,6 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
           class="c7"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="16"
         />
       </div>
     </div>
@@ -5713,8 +5627,6 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
           class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="32"
         />
       </div>
     </div>
@@ -5797,8 +5709,6 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
           class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="48"
         />
       </div>
     </div>
@@ -5871,8 +5781,6 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
           class="c10"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="64"
         />
       </div>
     </div>
@@ -5946,8 +5854,6 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
           class="c11"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="80"
         />
       </div>
     </div>
@@ -6022,8 +5928,6 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
           class="c13"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="100"
         />
       </div>
     </div>
@@ -6259,8 +6163,6 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="0"
         />
       </div>
     </div>
@@ -6335,8 +6237,6 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
           class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="100"
         />
       </div>
     </div>
@@ -6575,8 +6475,6 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
           class="c6"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.1.1"
-          height="6"
-          value="16"
         />
       </div>
     </div>

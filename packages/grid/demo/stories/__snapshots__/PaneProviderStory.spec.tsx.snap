@@ -504,7 +504,6 @@ exports[`PaneProviderStory Component renders PaneProviderStory with multiple pan
       data-garden-container-version="2.0.20"
       data-garden-id="pane.splitter"
       data-garden-version="9.1.1"
-      orientation="end"
       role="separator"
       tabindex="0"
     />
@@ -534,13 +533,11 @@ exports[`PaneProviderStory Component renders PaneProviderStory with multiple pan
       data-garden-container-version="2.0.20"
       data-garden-id="pane.splitter"
       data-garden-version="9.1.1"
-      orientation="end"
       role="separator"
       tabindex="0"
     />
     <div
       class="c5"
-      orientation="end"
     >
       <button
         aria-describedby="2val-tooltip_1.0.20"
@@ -551,7 +548,6 @@ exports[`PaneProviderStory Component renders PaneProviderStory with multiple pan
         data-garden-id="buttons.icon_button"
         data-garden-version="9.1.1"
         label="Expand"
-        orientation="end"
         tabindex="0"
         type="button"
       >
@@ -585,7 +581,6 @@ exports[`PaneProviderStory Component renders PaneProviderStory with multiple pan
           id="2val-tooltip_1.0.20"
           role="tooltip"
           style="cursor: default;"
-          type="dark"
         >
           Expand
         </div>
@@ -725,7 +720,6 @@ exports[`PaneProviderStory Component renders PaneProviderStory with onChange han
       data-garden-container-version="2.0.20"
       data-garden-id="pane.splitter"
       data-garden-version="9.1.1"
-      orientation="end"
       role="separator"
       tabindex="0"
     />
@@ -918,7 +912,6 @@ exports[`PaneProviderStory Component renders PaneProviderStory with panes contai
       data-garden-container-version="2.0.20"
       data-garden-id="pane.splitter"
       data-garden-version="9.1.1"
-      orientation="end"
       role="separator"
       tabindex="0"
     />
@@ -1310,13 +1303,11 @@ exports[`PaneProviderStory Component renders PaneProviderStory with panes contai
       data-garden-container-version="2.0.20"
       data-garden-id="pane.splitter"
       data-garden-version="9.1.1"
-      orientation="end"
       role="separator"
       tabindex="0"
     />
     <div
       class="c5"
-      orientation="end"
     >
       <button
         aria-describedby="1val-tooltip_1.0.20"
@@ -1327,7 +1318,6 @@ exports[`PaneProviderStory Component renders PaneProviderStory with panes contai
         data-garden-id="buttons.icon_button"
         data-garden-version="9.1.1"
         label="Toggle"
-        orientation="end"
         tabindex="0"
         type="button"
       >
@@ -1361,7 +1351,6 @@ exports[`PaneProviderStory Component renders PaneProviderStory with panes contai
           id="1val-tooltip_1.0.20"
           role="tooltip"
           style="cursor: default;"
-          type="dark"
         >
           Toggle
         </div>

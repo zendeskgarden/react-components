@@ -202,7 +202,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with all
           data-garden-version="9.1.1"
           id="tooltip-all-props"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -426,7 +425,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="1val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -650,7 +648,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="3val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -874,7 +871,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="custom-tooltip-id"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -1098,7 +1094,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="8val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -1322,7 +1317,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="5val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -1546,7 +1540,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="6val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -1770,7 +1763,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="2val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -1995,7 +1987,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="4val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -2220,7 +2211,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="9val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -2444,7 +2434,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="10val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -2668,7 +2657,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="11val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -2894,7 +2882,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="12val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
@@ -3118,7 +3105,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
           data-garden-version="9.1.1"
           id="13val-tooltip_1.0.20"
           role="tooltip"
-          type="dark"
         >
           <strong
             class="c5"
