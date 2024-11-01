@@ -29,7 +29,7 @@ describe('StyledBackdrop', () => {
   });
 
   it('renders center styling if provided', () => {
-    const { container } = render(<StyledBackdrop isCentered />);
+    const { container } = render(<StyledBackdrop $isCentered />);
 
     expect(container.firstChild).toHaveStyleRule('align-items', 'center');
     expect(container.firstChild).toHaveStyleRule('justify-content', 'center');
@@ -38,7 +38,7 @@ describe('StyledBackdrop', () => {
   describe('backdrop color', () => {
     it.each([['light'], ['dark']])('gets the correct %s mode color', mode => {
       const renderFn = mode === 'light' ? render : renderDark;
-      const { container } = renderFn(<StyledBackdrop isCentered />);
+      const { container } = renderFn(<StyledBackdrop $isCentered />);
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',

@@ -14,8 +14,7 @@ import { IDropzoneProps } from '../../types';
 import { DropzoneContext } from '../../utils/useDropzoneContext';
 
 const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
-  ({ tag, isVertical, children, ...props }, ref) => {
-    const { isDanger } = props;
+  ({ children, isActive, isDanger, isDisabled, isHighlighted, isVertical, tag, ...other }, ref) => {
     const [hasMessage, setHasMessage] = useState(false);
     const [hasIcon, setHasIcon] = useState(false);
     const value = useMemo(
@@ -30,16 +29,20 @@ const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
       <DropzoneContext.Provider value={value}>
         <StyledDropzone
           as={tag}
-          aria-disabled={props.isDisabled}
-          {...props}
-          hasIcon={hasIcon}
-          hasMessage={hasMessage}
-          isVertical={isVertical}
+          aria-disabled={isDisabled}
+          {...other}
+          $isActive={isActive}
+          $isDisabled={isDisabled}
+          $isDanger={isDanger}
+          $isHighlighted={isHighlighted}
+          $hasIcon={hasIcon}
+          $hasMessage={hasMessage}
+          $isVertical={isVertical}
           ref={ref}
         >
           {/* [1] */}
           {!!(hasMessage && isDanger) && !hasIcon && (
-            <StyledIcon aria-hidden="true" hasMessage={hasMessage} isVertical={isVertical}>
+            <StyledIcon aria-hidden="true" $hasMessage={hasMessage} $isVertical={isVertical}>
               <TrashIcon />
             </StyledIcon>
           )}

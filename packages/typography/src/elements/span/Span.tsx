@@ -12,9 +12,19 @@ import { StyledFont } from '../../styled';
 import { StartIcon } from './StartIcon';
 import { Icon } from './Icon';
 
-const SpanComponent = forwardRef<HTMLSpanElement, ISpanProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="inherit" {...other} />
-));
+const SpanComponent = forwardRef<HTMLSpanElement, ISpanProps>(
+  ({ hue, isBold, isMonospace, tag, ...other }, ref) => (
+    <StyledFont
+      $hue={hue}
+      $isBold={isBold}
+      $isMonospace={isMonospace}
+      $size="inherit"
+      as={tag}
+      ref={ref}
+      {...other}
+    />
+  )
+);
 
 SpanComponent.displayName = 'Span';
 

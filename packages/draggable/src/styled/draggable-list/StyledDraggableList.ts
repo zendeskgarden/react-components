@@ -12,18 +12,18 @@ import { StyledItem } from './StyledItem';
 const COMPONENT_ID = 'draggable_list';
 
 export interface IStyledDraggableListProps extends ThemeProps<DefaultTheme> {
-  isHorizontal?: boolean;
+  $isHorizontal?: boolean;
 }
 
 const sizeStyles = (props: IStyledDraggableListProps) => {
   const {
-    isHorizontal,
+    $isHorizontal,
     theme: { space }
   } = props;
   let marginStart = 'margin-top';
   let marginEnd = 'margin-bottom';
 
-  if (isHorizontal) {
+  if ($isHorizontal) {
     marginStart = 'margin-right';
     marginEnd = 'margin-left';
   }
@@ -45,7 +45,7 @@ export const StyledDraggableList = styled.ul.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledDraggableListProps & ThemeProps<DefaultTheme>>`
   display: flex;
-  flex-direction: ${p => (p.isHorizontal ? 'row' : 'column')};
+  flex-direction: ${p => (p.$isHorizontal ? 'row' : 'column')};
   margin: 0; /* [1] */
   padding: 0; /* [1] */
   list-style: none; /* [1] */

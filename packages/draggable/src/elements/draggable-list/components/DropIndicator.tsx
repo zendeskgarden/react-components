@@ -22,7 +22,7 @@ export const DropIndicator = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIEl
       <StyledDropIndicator
         {...props}
         aria-label={ariaLabel}
-        isHorizontal={isHorizontal}
+        $isHorizontal={isHorizontal}
         ref={ref}
       />
     );

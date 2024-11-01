@@ -161,7 +161,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
           nodeRef={transitionRef}
         >
           <StyledBackdrop
-            isAnimated
+            $isAnimated
             {...(getBackdropProps(backdropProps) as HTMLAttributes<HTMLDivElement>)}
           >
             <StyledDrawer

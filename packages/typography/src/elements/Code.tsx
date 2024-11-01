@@ -13,8 +13,8 @@ import { StyledCode } from '../styled';
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-export const Code = forwardRef<HTMLElement, ICodeProps>(({ hue, ...other }, ref) => (
-  <StyledCode ref={ref} hue={hue} {...other} />
+export const Code = forwardRef<HTMLElement, ICodeProps>(({ hue, size, ...other }, ref) => (
+  <StyledCode ref={ref} $hue={hue} $size={size} {...other} />
 ));
 
 Code.displayName = 'Code';

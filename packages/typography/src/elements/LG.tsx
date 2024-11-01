@@ -13,9 +13,18 @@ import { ITypescaleMonospaceProps } from '../types';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const LG = forwardRef<HTMLDivElement, ITypescaleMonospaceProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="large" {...other} />
-));
+export const LG = forwardRef<HTMLDivElement, ITypescaleMonospaceProps>(
+  ({ isBold, isMonospace, tag, ...other }, ref) => (
+    <StyledFont
+      $isBold={isBold}
+      $isMonospace={isMonospace}
+      $size="large"
+      as={tag}
+      ref={ref}
+      {...other}
+    />
+  )
+);
 
 LG.displayName = 'LG';
 

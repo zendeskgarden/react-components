@@ -18,7 +18,7 @@ const UnorderedListComponent = forwardRef<HTMLUListElement, IUnorderedListProps>
 
     return (
       <UnorderedListContext.Provider value={value}>
-        <StyledUnorderedList ref={ref} listType={type} {...other} />
+        <StyledUnorderedList ref={ref} $listType={type} {...other} />
       </UnorderedListContext.Provider>
     );
   }
